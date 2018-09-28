@@ -474,22 +474,6 @@ name|ShutdownStrategy
 implements|,
 name|CamelContextAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|DefaultShutdownStrategy
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|camelContext
 specifier|private
 name|CamelContext
@@ -955,7 +939,7 @@ condition|(
 name|suspendOnly
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -984,7 +968,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1119,7 +1103,7 @@ operator|&&
 name|abortAfterTimeout
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1152,7 +1136,7 @@ operator|||
 name|shutdownNowOnTimeout
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1217,7 +1201,7 @@ block|}
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1266,7 +1250,7 @@ operator|.
 name|MILLISECONDS
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1570,7 +1554,7 @@ operator|.
 name|CompleteCurrentTaskOnly
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1659,7 +1643,6 @@ block|}
 comment|/**      * Shutdown the consumer immediately.      *      * @param consumer the consumer to shutdown      */
 DECL|method|shutdownNow (Consumer consumer)
 specifier|protected
-specifier|static
 name|void
 name|shutdownNow
 parameter_list|(
@@ -1667,7 +1650,7 @@ name|Consumer
 name|consumer
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1693,7 +1676,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1725,7 +1708,7 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1738,7 +1721,6 @@ block|}
 comment|/**      * Suspends/stops the consumer immediately.      *      * @param consumer the consumer to suspend      */
 DECL|method|suspendNow (Consumer consumer)
 specifier|protected
-specifier|static
 name|void
 name|suspendNow
 parameter_list|(
@@ -1746,7 +1728,7 @@ name|Consumer
 name|consumer
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1772,7 +1754,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1804,7 +1786,7 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1933,7 +1915,6 @@ block|}
 comment|/**      * Prepares the services for shutdown, by invoking the {@link ShutdownPrepared#prepareShutdown(boolean, boolean)} method      * on the service if it implement this interface.      *      * @param service the service      * @param forced  whether to force shutdown      * @param includeChildren whether to prepare the child of the service as well      */
 DECL|method|prepareShutdown (Service service, boolean suspendOnly, boolean forced, boolean includeChildren, boolean suppressLogging)
 specifier|private
-specifier|static
 name|void
 name|prepareShutdown
 parameter_list|(
@@ -2013,7 +1994,7 @@ condition|)
 block|{
 try|try
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2054,7 +2035,7 @@ condition|(
 name|suppressLogging
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2070,7 +2051,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2150,7 +2131,6 @@ block|}
 block|}
 comment|/**      * Shutdown task which shutdown all the routes in a graceful manner.      */
 DECL|class|ShutdownTask
-specifier|static
 class|class
 name|ShutdownTask
 implements|implements
@@ -2299,7 +2279,7 @@ comment|//    some routes will be deferred to shutdown at the end, as they are n
 comment|//    by other routes so they can complete their tasks
 comment|// 2) wait until all inflight and pending exchanges has been completed
 comment|// 3) shutdown the deferred routes
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2368,13 +2348,13 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2503,7 +2483,7 @@ name|consumer
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2538,7 +2518,7 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2582,7 +2562,7 @@ name|consumer
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2766,7 +2746,7 @@ name|size
 operator|+=
 name|inflight
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2884,7 +2864,7 @@ argument_list|()
 operator|+
 literal|"]"
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2922,7 +2902,7 @@ condition|(
 name|abortAfterTimeout
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2933,7 +2913,7 @@ return|return;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2976,7 +2956,7 @@ operator|instanceof
 name|ShutdownAware
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3028,7 +3008,7 @@ argument_list|,
 name|suppress
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -3072,7 +3052,7 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -3103,7 +3083,7 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -3269,7 +3249,6 @@ block|}
 comment|/**      * Logs information about the inflight exchanges      *      * @param infoLevel<tt>true</tt> to log at INFO level,<tt>false</tt> to log at DEBUG level      */
 DECL|method|logInflightExchanges (CamelContext camelContext, List<RouteStartupOrder> routes, boolean infoLevel)
 specifier|protected
-specifier|static
 name|void
 name|logInflightExchanges
 parameter_list|(
@@ -3293,7 +3272,7 @@ operator|!
 name|infoLevel
 operator|&&
 operator|!
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
@@ -3557,7 +3536,7 @@ condition|(
 name|infoLevel
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -3570,7 +3549,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

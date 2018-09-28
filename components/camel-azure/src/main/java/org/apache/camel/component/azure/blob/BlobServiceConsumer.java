@@ -84,26 +84,6 @@ name|ScheduledPollConsumer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A Consumer of the blob content from the Azure Blob Service  */
 end_comment
@@ -124,22 +104,6 @@ name|BlobServiceConsumer
 extends|extends
 name|ScheduledPollConsumer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|BlobServiceConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|BlobServiceConsumer (BlobServiceEndpoint endpoint, Processor processor)
 specifier|public
 name|BlobServiceConsumer
@@ -184,7 +148,7 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

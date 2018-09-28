@@ -625,7 +625,7 @@ expr_stmt|;
 block|}
 comment|// while (!conn.isConnected()) {
 comment|// Thread.sleep(1000);
-comment|// LOG.info("Sleeping");
+comment|// log.info("Sleeping");
 comment|// }
 name|LOG
 operator|.
@@ -635,7 +635,7 @@ literal|"Connected"
 argument_list|)
 expr_stmt|;
 comment|// conn.send("/JOIN #camel-test");
-comment|// LOG.info("Joining Channel: " + config.getTarget());
+comment|// log.info("Joining Channel: " + config.getTarget());
 for|for
 control|(
 name|IrcChannel

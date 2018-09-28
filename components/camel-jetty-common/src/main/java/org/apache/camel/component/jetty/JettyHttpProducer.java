@@ -336,26 +336,6 @@ name|LifeCycle
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -372,22 +352,6 @@ name|DefaultAsyncProducer
 implements|implements
 name|AsyncProcessor
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|JettyHttpProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|client
 specifier|private
 name|HttpClient
@@ -797,7 +761,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -937,7 +901,7 @@ name|bos
 argument_list|,
 literal|"body"
 argument_list|,
-name|LOG
+name|log
 argument_list|)
 expr_stmt|;
 block|}
@@ -1484,13 +1448,13 @@ block|}
 comment|// set the callback, which will handle all the response logic
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1739,7 +1703,7 @@ operator|instanceof
 name|LifeCycle
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1811,7 +1775,7 @@ operator|instanceof
 name|LifeCycle
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

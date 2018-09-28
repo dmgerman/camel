@@ -258,22 +258,6 @@ argument_list|,
 name|String
 argument_list|>
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|FileStateRepository
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|STORE_DELIMITER
 specifier|private
 specifier|static
@@ -678,13 +662,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -727,7 +711,7 @@ name|exists
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -747,7 +731,7 @@ name|mkdirs
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -759,7 +743,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -865,7 +849,7 @@ name|fos
 argument_list|,
 literal|"Appending to file state repository"
 argument_list|,
-name|LOG
+name|log
 argument_list|)
 expr_stmt|;
 block|}
@@ -877,7 +861,7 @@ name|void
 name|trunkStore
 parameter_list|()
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -992,7 +976,7 @@ name|fos
 argument_list|,
 literal|"Trunking file state repository"
 argument_list|,
-name|LOG
+name|log
 argument_list|)
 expr_stmt|;
 block|}
@@ -1016,7 +1000,7 @@ name|exists
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1073,7 +1057,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1182,7 +1166,7 @@ name|e
 argument_list|)
 throw|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

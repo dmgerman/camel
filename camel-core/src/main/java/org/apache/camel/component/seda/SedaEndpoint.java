@@ -464,22 +464,6 @@ name|BrowsableEndpoint
 implements|,
 name|MultipleConsumersSupport
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|SedaEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|producers
 specifier|private
 specifier|final
@@ -1210,7 +1194,7 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1266,7 +1250,7 @@ operator|=
 name|createQueue
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2019,7 +2003,7 @@ name|void
 name|purgeQueue
 parameter_list|()
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2259,7 +2243,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2286,7 +2270,7 @@ name|get
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2330,7 +2314,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

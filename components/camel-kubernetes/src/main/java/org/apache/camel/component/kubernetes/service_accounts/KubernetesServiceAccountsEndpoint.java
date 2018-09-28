@@ -161,22 +161,6 @@ name|KubernetesServiceAccountsEndpoint
 extends|extends
 name|AbstractKubernetesEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|KubernetesServiceAccountsEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|KubernetesServiceAccountsEndpoint (String uri, KubernetesServiceAccountsComponent component, KubernetesConfiguration config)
 specifier|public
 name|KubernetesServiceAccountsEndpoint

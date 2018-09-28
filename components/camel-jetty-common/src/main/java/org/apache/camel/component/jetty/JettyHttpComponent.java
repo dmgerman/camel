@@ -1068,26 +1068,6 @@ name|ThreadPool
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * An HttpComponent which starts an embedded Jetty for to handle consuming from  * the http endpoints.  *  * @version  */
 end_comment
@@ -1134,22 +1114,6 @@ operator|new
 name|HashMap
 argument_list|<>
 argument_list|()
-decl_stmt|;
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|JettyHttpComponent
-operator|.
-name|class
-argument_list|)
 decl_stmt|;
 DECL|field|JETTY_SSL_KEYSTORE
 specifier|private
@@ -2415,7 +2379,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2619,7 +2583,7 @@ condition|(
 name|changed
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2767,7 +2731,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -3257,7 +3221,7 @@ argument_list|,
 name|pathSpec
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -4582,7 +4546,7 @@ literal|"http.proxyPort"
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -4639,7 +4603,7 @@ operator|.
 name|getProxyPort
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -4755,7 +4719,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
@@ -4768,7 +4732,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -4784,7 +4748,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -5277,7 +5241,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -7918,7 +7882,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(

@@ -282,26 +282,6 @@ name|TypeNameStrategy
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Data format supporting SOAP 1.1 and 1.2.  */
 end_comment
@@ -322,22 +302,6 @@ name|String
 name|SOAP_UNMARSHALLED_HEADER_LIST
 init|=
 literal|"org.apache.camel.dataformat.soap.UNMARSHALLED_HEADER_LIST"
-decl_stmt|;
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|SoapJaxbDataFormat
-operator|.
-name|class
-argument_list|)
 decl_stmt|;
 DECL|field|adapter
 specifier|private
@@ -465,7 +429,7 @@ name|version
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -483,7 +447,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -989,7 +953,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1052,7 +1016,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(

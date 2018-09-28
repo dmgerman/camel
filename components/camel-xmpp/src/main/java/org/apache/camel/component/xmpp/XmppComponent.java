@@ -124,26 +124,6 @@ name|ReconnectionManager
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -156,22 +136,6 @@ name|XmppComponent
 extends|extends
 name|DefaultComponent
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|XmppComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|// keep a cache of endpoints so they can be properly cleaned up
 DECL|field|endpointCache
 specifier|private
@@ -236,7 +200,7 @@ name|cacheKey
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -259,7 +223,7 @@ name|cacheKey
 argument_list|)
 return|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

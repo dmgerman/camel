@@ -142,22 +142,6 @@ name|BeanComponent
 extends|extends
 name|DefaultComponent
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|BeanComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|// use an internal soft cache for BeanInfo as they are costly to introspect
 comment|// for example the bean language using OGNL expression runs much faster reusing the BeanInfo from this cache
 annotation|@
@@ -341,7 +325,7 @@ name|Exception
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
@@ -361,7 +345,7 @@ name|this
 operator|.
 name|beanInfoCache
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

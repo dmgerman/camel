@@ -158,26 +158,6 @@ name|HttpSolrClient
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents the component that manages {@link SolrEndpoint}.  */
 end_comment
@@ -190,22 +170,6 @@ name|SolrComponent
 extends|extends
 name|DefaultComponent
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|SolrComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|servers
 specifier|private
 specifier|final
@@ -519,7 +483,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -563,7 +527,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -590,7 +554,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -617,7 +581,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(

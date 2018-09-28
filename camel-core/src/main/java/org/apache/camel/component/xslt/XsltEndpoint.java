@@ -477,22 +477,6 @@ name|SAXON_TRANSFORMER_FACTORY_CLASS_NAME
 init|=
 literal|"net.sf.saxon.TransformerFactoryImpl"
 decl_stmt|;
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|XsltEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|cacheCleared
 specifier|private
 specifier|volatile
@@ -834,7 +818,7 @@ argument_list|,
 name|newResourceUri
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1568,7 +1552,7 @@ name|TransformerException
 throws|,
 name|IOException
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1667,7 +1651,7 @@ operator|.
 name|getInjector
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1776,7 +1760,7 @@ name|getClassLoader
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1847,7 +1831,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

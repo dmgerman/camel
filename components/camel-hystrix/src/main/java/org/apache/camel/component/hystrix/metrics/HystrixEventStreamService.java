@@ -166,26 +166,6 @@ name|ServiceSupport
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * To gather hystrix metrics and offer the metrics over JMX and Java APIs.  *<p/>  * If you want to expose the metrics over HTTP then you can use the {@link HystrixEventStreamServlet} servlet which  * provides such functionality.  */
 end_comment
@@ -219,22 +199,6 @@ name|int
 name|METRICS_QUEUE_SIZE
 init|=
 literal|1000
-decl_stmt|;
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|HystrixEventStreamService
-operator|.
-name|class
-argument_list|)
 decl_stmt|;
 DECL|field|delay
 specifier|private
@@ -468,7 +432,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -521,7 +485,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -546,7 +510,7 @@ name|String
 name|json
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -575,7 +539,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

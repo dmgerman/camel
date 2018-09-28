@@ -291,26 +291,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -389,22 +369,6 @@ name|SchematronEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|SchematronEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|transformerFactory
 specifier|private
 name|TransformerFactory
@@ -672,7 +636,7 @@ block|{
 try|try
 block|{
 comment|// Attempt to read the schematron rules from the class path first.
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -716,7 +680,7 @@ name|classPathException
 parameter_list|)
 block|{
 comment|// Attempts from the file system.
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -762,7 +726,7 @@ name|FileNotFoundException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -785,7 +749,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -843,7 +807,7 @@ name|getClassLoader
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

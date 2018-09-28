@@ -212,26 +212,6 @@ name|CamelContextHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Component for working with MongoDB GridFS.  */
 end_comment
@@ -302,22 +282,6 @@ name|String
 name|GRIDFS_FILE_ID_PRODUCED
 init|=
 literal|"gridfs.fileid"
-decl_stmt|;
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|GridFsEndpoint
-operator|.
-name|class
-argument_list|)
 decl_stmt|;
 annotation|@
 name|UriPath
@@ -630,7 +594,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -768,7 +732,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -810,7 +774,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

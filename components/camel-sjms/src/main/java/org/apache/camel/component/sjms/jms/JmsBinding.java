@@ -559,7 +559,7 @@ block|{
 comment|// TODO: new options to support
 comment|// is a custom message converter configured on endpoint then use it instead of doing the extraction
 comment|// based on message type
-comment|/*            if (endpoint != null&& endpoint.getMessageConverter() != null) {                 if (LOG.isTraceEnabled()) {                     LOG.trace("Extracting body using a custom MessageConverter: {} from JMS message: {}", endpoint.getMessageConverter(), message);                 }                 return endpoint.getMessageConverter().fromMessage(message);             } */
+comment|/*            if (endpoint != null&& endpoint.getMessageConverter() != null) {                 if (log.isTraceEnabled()) {                     log.trace("Extracting body using a custom MessageConverter: {} from JMS message: {}", endpoint.getMessageConverter(), message);                 }                 return endpoint.getMessageConverter().fromMessage(message);             } */
 comment|// if we are configured to not map the jms message then return it as body
 if|if
 condition|(
@@ -2213,7 +2213,7 @@ init|=
 literal|null
 decl_stmt|;
 comment|// TODO: support some of these options?
-comment|/*        // special for transferExchange         if (endpoint != null&& endpoint.isTransferExchange()) {             LOG.trace("Option transferExchange=true so we use JmsMessageType: Object");             Serializable holder = DefaultExchangeHolder.marshal(exchange);             Message answer = session.createObjectMessage(holder);             // ensure default delivery mode is used by default             answer.setJMSDeliveryMode(Message.DEFAULT_DELIVERY_MODE);             return answer;         }          // use a custom message converter         if (endpoint != null&& endpoint.getMessageConverter() != null) {             if (LOG.isTraceEnabled()) {                 LOG.trace("Creating JmsMessage using a custom MessageConverter: {} with body: {}", endpoint.getMessageConverter(), body);             }             return endpoint.getMessageConverter().toMessage(body, session);         } */
+comment|/*        // special for transferExchange         if (endpoint != null&& endpoint.isTransferExchange()) {             log.trace("Option transferExchange=true so we use JmsMessageType: Object");             Serializable holder = DefaultExchangeHolder.marshal(exchange);             Message answer = session.createObjectMessage(holder);             // ensure default delivery mode is used by default             answer.setJMSDeliveryMode(Message.DEFAULT_DELIVERY_MODE);             return answer;         }          // use a custom message converter         if (endpoint != null&& endpoint.getMessageConverter() != null) {             if (log.isTraceEnabled()) {                 log.trace("Creating JmsMessage using a custom MessageConverter: {} with body: {}", endpoint.getMessageConverter(), body);             }             return endpoint.getMessageConverter().toMessage(body, session);         } */
 comment|// check if header have a type set, if so we force to use it
 comment|/*         if (headers.containsKey(JmsConstants.JMS_MESSAGE_TYPE)) {             type = context.getTypeConverter().convertTo(JmsMessageType.class, headers.get(JmsConstants.JMS_MESSAGE_TYPE));         } else if (endpoint != null&& endpoint.getConfiguration().getJmsMessageType() != null) {             // force a specific type from the endpoint configuration             type = endpoint.getConfiguration().getJmsMessageType();         } else { */
 name|type

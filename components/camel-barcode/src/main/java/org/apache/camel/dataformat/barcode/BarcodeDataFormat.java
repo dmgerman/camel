@@ -322,26 +322,6 @@ name|ExchangeHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * {@link DataFormat} to create (encode) and  * read (decode) barcodes. For more info about  * the available barcodes have a look at:<br/><br/>  *<p/>  * https://github.com/zxing/zxing  */
 end_comment
@@ -358,23 +338,6 @@ name|DataFormat
 implements|,
 name|DataFormatName
 block|{
-comment|/**      * Logger.      */
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|BarcodeDataFormat
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/**      * The bean for the default parameters.      */
 DECL|field|params
 specifier|private
@@ -1066,7 +1029,7 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1150,7 +1113,7 @@ argument_list|(
 name|hintType
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1170,7 +1133,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1222,7 +1185,7 @@ argument_list|(
 name|hintType
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1242,7 +1205,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(

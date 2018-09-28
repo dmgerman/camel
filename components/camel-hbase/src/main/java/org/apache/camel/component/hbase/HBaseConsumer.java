@@ -364,26 +364,6 @@ name|PageFilter
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The HBase consumer.  */
 end_comment
@@ -396,22 +376,6 @@ name|HBaseConsumer
 extends|extends
 name|ScheduledBatchPollingConsumer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|HBaseConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|endpoint
 specifier|private
 specifier|final
@@ -1163,7 +1127,7 @@ operator|>
 name|maxMessagesPerPoll
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1262,7 +1226,7 @@ name|index
 operator|-
 literal|1
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

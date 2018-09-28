@@ -174,23 +174,6 @@ name|GoraProducer
 extends|extends
 name|DefaultProducer
 block|{
-comment|/**      * logger      */
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|GoraProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/**      * Camel-Gora endpoint configuration      */
 DECL|field|configuration
 specifier|private

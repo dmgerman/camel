@@ -301,22 +301,6 @@ argument_list|()
 operator|+
 literal|".OverrideProperties"
 decl_stmt|;
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|PropertiesComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -746,7 +730,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -795,7 +779,7 @@ argument_list|,
 name|paths
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1130,7 +1114,7 @@ operator|+
 name|suffixToken
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2052,7 +2036,7 @@ range|:
 name|locations
 control|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2076,7 +2060,7 @@ name|getPath
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2142,7 +2126,7 @@ throw|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

@@ -245,22 +245,6 @@ name|Traceable
 implements|,
 name|IdAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|TryProcessor
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|id
 specifier|protected
 name|String
@@ -526,7 +510,7 @@ operator|!
 name|sync
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -544,7 +528,7 @@ return|return
 literal|false
 return|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -584,7 +568,7 @@ argument_list|,
 name|lastHandled
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -639,7 +623,7 @@ name|lastHandled
 parameter_list|)
 block|{
 comment|// this does the actual processing so log at trace level
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -748,7 +732,7 @@ operator|!
 name|doneSync
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -792,7 +776,7 @@ argument_list|,
 name|lastHandled
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -880,7 +864,7 @@ condition|(
 name|doStop
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

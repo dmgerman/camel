@@ -339,26 +339,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -525,22 +505,6 @@ name|MongoDbEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|MongoDbEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|mongoConnection
 specifier|private
 name|MongoClient
@@ -1163,7 +1127,7 @@ parameter_list|()
 throws|throws
 name|CamelMongoDbException
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1282,7 +1246,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1422,7 +1386,7 @@ range|:
 name|dynamicIndex
 control|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1671,7 +1635,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1710,7 +1674,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

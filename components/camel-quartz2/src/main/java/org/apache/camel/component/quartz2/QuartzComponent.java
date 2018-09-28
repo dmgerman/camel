@@ -278,26 +278,6 @@ name|StdSchedulerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A factory for QuartzEndpoint. This component will hold a Quartz Scheduler that will provide scheduled timer based  * endpoint that generate a QuartzMessage to a route. Currently it support Cron and Simple trigger scheduling type.  *  *<p>This component uses Quartz 2.x API and provide all the features from "camel-quartz". It has reused some  * of the code, but mostly has been re-written in attempt to be more easier to maintain, and use Quartz more  * fully.</p>  */
 end_comment
@@ -312,22 +292,6 @@ name|DefaultComponent
 implements|implements
 name|StartupListener
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|QuartzComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
@@ -808,7 +772,7 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -991,7 +955,7 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1010,7 +974,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
@@ -1028,7 +992,7 @@ operator|.
 name|PROP_SCHED_INSTANCE_NAME
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1160,7 +1124,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1346,7 +1310,7 @@ name|startDelayedSeconds
 operator|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1758,7 +1722,7 @@ parameter_list|()
 throws|throws
 name|SchedulerException
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1849,7 +1813,7 @@ name|getCamelContext
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1922,7 +1886,7 @@ name|isInterruptJobsOnShutdown
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1975,7 +1939,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1999,7 +1963,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2065,7 +2029,7 @@ operator|!
 name|autoStartScheduler
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2090,7 +2054,7 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2100,7 +2064,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2128,7 +2092,7 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2138,7 +2102,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(

@@ -176,26 +176,6 @@ name|HttpClient
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The salesforce component is used for integrating Camel with the massive Salesforce API.  */
 end_comment
@@ -237,22 +217,6 @@ name|SalesforceEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|SalesforceEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
@@ -647,7 +611,7 @@ init|=
 name|getEndpointUri
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -661,7 +625,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -729,7 +693,7 @@ init|=
 name|getEndpointUri
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -743,7 +707,7 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

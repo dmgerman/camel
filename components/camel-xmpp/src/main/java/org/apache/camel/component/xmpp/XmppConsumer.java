@@ -380,26 +380,6 @@ name|Resourcepart
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A {@link org.apache.camel.Consumer Consumer} which listens to XMPP packets  */
 end_comment
@@ -418,22 +398,6 @@ name|MessageListener
 implements|,
 name|StanzaListener
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|XmppConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|endpoint
 specifier|private
 specifier|final
@@ -536,7 +500,7 @@ throw|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -758,7 +722,7 @@ argument_list|(
 name|mucc
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -821,7 +785,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -834,7 +798,7 @@ block|}
 block|}
 block|}
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -908,7 +872,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -962,7 +926,7 @@ name|isConnected
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -983,7 +947,7 @@ operator|.
 name|connect
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -999,7 +963,7 @@ name|SmackException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1098,7 +1062,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1236,13 +1200,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1356,7 +1320,7 @@ name|MucNotJoinedException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

@@ -196,22 +196,6 @@ name|Traceable
 implements|,
 name|IdAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|LoopProcessor
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|id
 specifier|private
 name|String
@@ -508,7 +492,7 @@ operator|!
 name|sync
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -526,7 +510,7 @@ return|return
 literal|false
 return|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -548,7 +532,7 @@ name|target
 argument_list|,
 literal|"so breaking out of loop"
 argument_list|,
-name|LOG
+name|log
 argument_list|)
 condition|)
 block|{
@@ -565,7 +549,7 @@ argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -621,7 +605,7 @@ name|original
 parameter_list|)
 block|{
 comment|// set current index as property
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -783,7 +767,7 @@ name|target
 argument_list|,
 literal|"so breaking out of loop"
 argument_list|,
-name|LOG
+name|log
 argument_list|)
 condition|)
 block|{
@@ -829,7 +813,7 @@ operator|!
 name|sync
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -856,7 +840,7 @@ argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

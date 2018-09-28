@@ -253,22 +253,6 @@ name|Suspendable
 implements|,
 name|PollingConsumerPollingStrategy
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|ScheduledPollConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|scheduler
 specifier|private
 name|ScheduledPollConsumerScheduler
@@ -473,7 +457,7 @@ operator|==
 name|runLoggingLevel
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -496,7 +480,7 @@ operator|==
 name|runLoggingLevel
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -519,7 +503,7 @@ operator|==
 name|runLoggingLevel
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -542,7 +526,7 @@ operator|==
 name|runLoggingLevel
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -557,7 +541,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -584,7 +568,7 @@ operator|==
 name|runLoggingLevel
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -607,7 +591,7 @@ operator|==
 name|runLoggingLevel
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -630,7 +614,7 @@ operator|==
 name|runLoggingLevel
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -653,7 +637,7 @@ operator|==
 name|runLoggingLevel
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -668,7 +652,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -689,7 +673,7 @@ name|e
 parameter_list|)
 block|{
 comment|// must catch Error, to ensure the task is re-scheduled
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -724,7 +708,7 @@ name|isSuspended
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -793,7 +777,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -809,7 +793,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -840,7 +824,7 @@ name|backoffCounter
 operator|=
 literal|0
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -901,7 +885,7 @@ operator|-
 literal|1
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -916,7 +900,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -964,7 +948,7 @@ operator|=
 name|poll
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1019,7 +1003,7 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1032,7 +1016,7 @@ block|}
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1051,7 +1035,7 @@ literal|false
 expr_stmt|;
 block|}
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1183,7 +1167,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1228,7 +1212,7 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1785,7 +1769,7 @@ literal|"backoffIdleThreshold and/or backoffErrorThreshold must be configured to
 argument_list|)
 throw|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2136,7 +2120,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2189,7 +2173,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

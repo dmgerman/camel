@@ -256,22 +256,6 @@ name|ServiceSupport
 implements|implements
 name|AsyncProcessorAwaitManager
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|DefaultAsyncProcessorAwaitManager
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|statistics
 specifier|private
 specifier|final
@@ -439,7 +423,7 @@ name|CountDownLatch
 name|latch
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -494,7 +478,7 @@ operator|.
 name|await
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -515,7 +499,7 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -669,7 +653,7 @@ name|CountDownLatch
 name|latch
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -899,7 +883,7 @@ name|routeStackTrace
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1063,7 +1047,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1104,7 +1088,7 @@ name|isInterruptThreadsWhileStopping
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1138,7 +1122,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1162,7 +1146,7 @@ block|}
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1175,7 +1159,7 @@ block|}
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

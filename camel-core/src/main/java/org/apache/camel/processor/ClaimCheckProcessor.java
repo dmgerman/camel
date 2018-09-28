@@ -242,22 +242,6 @@ name|IdAware
 implements|,
 name|CamelContextAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|ClaimCheckProcessor
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|camelContext
 specifier|private
 name|CamelContext
@@ -571,7 +555,7 @@ condition|(
 name|addedNew
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -585,7 +569,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -619,7 +603,7 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -689,7 +673,7 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -772,7 +756,7 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -810,7 +794,7 @@ operator|.
 name|pop
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

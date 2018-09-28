@@ -254,26 +254,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_class
 DECL|class|KubernetesDeploymentsProducer
 specifier|public
@@ -282,22 +262,6 @@ name|KubernetesDeploymentsProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|KubernetesDeploymentsProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|KubernetesDeploymentsProducer (AbstractKubernetesEndpoint endpoint)
 specifier|public
 name|KubernetesDeploymentsProducer
@@ -746,7 +710,7 @@ name|deploymentName
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -871,7 +835,7 @@ name|deploymentName
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -896,7 +860,7 @@ name|namespaceName
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -1053,7 +1017,7 @@ name|deploymentName
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -1078,7 +1042,7 @@ name|namespaceName
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -1103,7 +1067,7 @@ name|deSpec
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -1306,7 +1270,7 @@ name|deploymentName
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -1331,7 +1295,7 @@ name|namespaceName
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -1356,7 +1320,7 @@ name|replicasNumber
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(

@@ -587,22 +587,6 @@ name|DefaultEndpoint
 implements|implements
 name|BrowsableEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|MockEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|// must be volatile so changes is visible between the thread which performs the assertions
 comment|// and the threads which process the exchanges when routing messages in Camel
 DECL|field|reporter
@@ -1762,7 +1746,7 @@ parameter_list|)
 throws|throws
 name|InterruptedException
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1791,7 +1775,7 @@ argument_list|(
 name|assertPeriod
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1835,7 +1819,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1969,7 +1953,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -2026,7 +2010,7 @@ name|AssertionError
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2085,7 +2069,7 @@ name|AssertionError
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -5464,7 +5448,7 @@ block|}
 comment|// let counter be 0 index-based in the logs
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
@@ -5512,7 +5496,7 @@ name|getHeaders
 argument_list|()
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -5770,7 +5754,7 @@ operator|.
 name|taken
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -5829,7 +5813,7 @@ else|:
 name|timeout
 decl_stmt|;
 comment|// now let's wait for the results
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -5931,7 +5915,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
@@ -5959,7 +5943,7 @@ range|:
 name|list
 control|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

@@ -1230,26 +1230,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Default JMX managed lifecycle strategy that registered objects using the configured  * {@link org.apache.camel.spi.ManagementStrategy}.  *  * @see org.apache.camel.spi.ManagementStrategy  * @version   */
 end_comment
@@ -1271,22 +1251,6 @@ name|LifecycleStrategy
 implements|,
 name|CamelContextAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|DefaultManagementLifecycleStrategy
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|// the wrapped processors is for performance counters, which are in use for the created routes
 comment|// when a route is removed, we should remove the associated processors from this map
 DECL|field|wrappedProcessors
@@ -1644,7 +1608,7 @@ throw|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1799,7 +1763,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1844,7 +1808,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1941,13 +1905,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1983,7 +1947,7 @@ condition|)
 block|{
 return|return;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2143,7 +2107,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2193,7 +2157,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2243,7 +2207,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2332,7 +2296,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2393,7 +2357,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2495,7 +2459,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2555,7 +2519,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2671,7 +2635,7 @@ literal|null
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2696,7 +2660,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2768,7 +2732,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -3700,7 +3664,7 @@ literal|null
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3840,7 +3804,7 @@ name|JMException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -3856,7 +3820,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -3920,12 +3884,10 @@ operator|.
 name|isManaged
 argument_list|(
 name|mr
-argument_list|,
-literal|null
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3950,7 +3912,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -4040,7 +4002,7 @@ literal|null
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -4065,7 +4027,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -4141,7 +4103,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -4230,7 +4192,7 @@ literal|null
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -4266,7 +4228,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -4334,7 +4296,7 @@ literal|null
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -4359,7 +4321,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -4965,7 +4927,7 @@ return|return
 literal|false
 return|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -5190,7 +5152,7 @@ name|ManagementStatisticsLevel
 operator|.
 name|Off
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

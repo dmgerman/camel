@@ -761,22 +761,6 @@ name|Traceable
 implements|,
 name|IdAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|MulticastProcessor
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/**      * Class that represent each step in the multicast route to do      */
 DECL|class|DefaultProcessorExchangePair
 specifier|static
@@ -1794,7 +1778,7 @@ operator|new
 name|AtomicBoolean
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1951,7 +1935,7 @@ literal|"Parallel processing failed for number "
 operator|+
 name|number
 argument_list|,
-name|LOG
+name|log
 argument_list|)
 decl_stmt|;
 if|if
@@ -2009,7 +1993,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2074,7 +2058,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// and because of the exception we must signal we are done so the latch can open and let the other thread continue processing
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2086,7 +2070,7 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2105,7 +2089,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// signal all tasks has been submitted
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2127,7 +2111,7 @@ expr_stmt|;
 comment|// its to hard to do parallel async routing so we let the caller thread be synchronously
 comment|// and have it pickup the replies and do the aggregation (eg we use a latch to wait)
 comment|// wait for aggregation to be done
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2162,13 +2146,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2193,7 +2177,7 @@ throw|;
 block|}
 block|}
 comment|// no everything is okay so we are done
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2350,7 +2334,7 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2411,7 +2395,7 @@ block|}
 finally|finally
 block|{
 comment|// must signal we are done so the latch can open and let the other thread continue processing
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2423,7 +2407,7 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2512,7 +2496,7 @@ name|get
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2546,7 +2530,7 @@ operator|.
 name|poll
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2588,7 +2572,7 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2615,7 +2599,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2731,7 +2715,7 @@ literal|"Parallel processing failed for number "
 operator|+
 name|number
 argument_list|,
-name|LOG
+name|log
 argument_list|)
 decl_stmt|;
 if|if
@@ -2814,7 +2798,7 @@ name|get
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2829,7 +2813,7 @@ condition|(
 name|stoppedOnException
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2996,7 +2980,7 @@ argument_list|(
 name|cex
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -3224,7 +3208,7 @@ block|}
 else|else
 block|{
 comment|// log a WARN we timed out since it will not be aggregated and the Exchange will be lost
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -3239,7 +3223,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -3408,13 +3392,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3438,13 +3422,13 @@ return|;
 block|}
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3478,7 +3462,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|LOG
+name|log
 argument_list|)
 decl_stmt|;
 if|if
@@ -3543,7 +3527,7 @@ return|return
 literal|true
 return|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3593,7 +3577,7 @@ name|incrementAndGet
 argument_list|()
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -3851,7 +3835,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|LOG
+name|log
 argument_list|)
 decl_stmt|;
 if|if
@@ -4062,7 +4046,7 @@ operator|!
 name|sync
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -4093,7 +4077,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|LOG
+name|log
 argument_list|)
 expr_stmt|;
 if|if
@@ -4511,7 +4495,7 @@ name|pairs
 argument_list|,
 literal|"pairs"
 argument_list|,
-name|LOG
+name|log
 argument_list|)
 expr_stmt|;
 block|}
@@ -5313,7 +5297,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -5326,7 +5310,7 @@ return|return
 name|answer
 return|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

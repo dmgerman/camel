@@ -332,12 +332,12 @@ name|RecipientListProcessor
 extends|extends
 name|MulticastProcessor
 block|{
-DECL|field|LOG
+DECL|field|log
 specifier|private
 specifier|static
 specifier|final
 name|Logger
-name|LOG
+name|log
 init|=
 name|LoggerFactory
 operator|.
@@ -544,7 +544,7 @@ name|begin
 parameter_list|()
 block|{
 comment|// we have already acquired and prepare the producer
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -595,7 +595,7 @@ operator|.
 name|getPattern
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -621,7 +621,7 @@ name|void
 name|done
 parameter_list|()
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -669,13 +669,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1069,13 +1069,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

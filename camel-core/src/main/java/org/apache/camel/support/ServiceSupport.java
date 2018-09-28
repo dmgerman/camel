@@ -121,22 +121,6 @@ name|ServiceSupport
 implements|implements
 name|StatefulService
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|ServiceSupport
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|started
 specifier|protected
 specifier|final
@@ -233,10 +217,19 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-DECL|field|version
-specifier|private
-name|String
-name|version
+DECL|field|log
+specifier|protected
+specifier|final
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|getClass
+argument_list|()
+argument_list|)
 decl_stmt|;
 comment|/**      *<b>Important:</b> You should override the lifecycle methods that start with<tt>do</tt>, eg {@link #doStart()},      * {@link #doStop()}, etc. where you implement your logic. The methods {@link #start()}, {@link #stop()} should      *<b>NOT</b> be overriden as they are used internally to keep track of the state of this service and properly      * invoke the operation in a safe manner.      */
 DECL|method|start ()
@@ -257,7 +250,7 @@ argument_list|()
 condition|)
 block|{
 comment|// only start service if not already started
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -278,7 +271,7 @@ literal|true
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -448,7 +441,7 @@ name|isStopped
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -463,7 +456,7 @@ name|isStopping
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -777,7 +770,7 @@ name|get
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

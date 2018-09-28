@@ -122,22 +122,6 @@ name|DelegateAsyncProcessor
 implements|implements
 name|ErrorHandler
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|FatalFallbackErrorHandler
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|deadLetterChannel
 specifier|private
 name|boolean
@@ -278,7 +262,7 @@ name|id
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -734,7 +718,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -746,7 +730,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -764,7 +748,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -776,7 +760,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(

@@ -164,22 +164,6 @@ name|ConsumerCache
 extends|extends
 name|ServiceSupport
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|ConsumerCache
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|camelContext
 specifier|private
 specifier|final
@@ -441,7 +425,7 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -502,7 +486,7 @@ name|long
 name|timeout
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -562,7 +546,7 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -647,7 +631,7 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -769,7 +753,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

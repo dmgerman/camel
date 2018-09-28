@@ -260,26 +260,6 @@ name|EventType
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The Ignite Events endpoint is one of camel-ignite endpoints which allows you to  *<a href="https://apacheignite.readme.io/docs/events">receive events</a> from  * the Ignite cluster by creating a local event listener.  * This endpoint only supports consumers.  * The Exchanges created by this consumer put the received Event object into the body of the IN message.  */
 end_comment
@@ -325,22 +305,6 @@ name|IgniteEventsEndpoint
 extends|extends
 name|AbstractIgniteEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|IgniteEventsEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 annotation|@
 name|UriPath
 DECL|field|endpointId
@@ -553,7 +517,7 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -588,7 +552,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -619,7 +583,7 @@ argument_list|(
 name|ignite
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(

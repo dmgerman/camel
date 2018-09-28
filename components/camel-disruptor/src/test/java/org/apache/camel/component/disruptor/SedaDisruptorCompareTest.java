@@ -837,9 +837,9 @@ comment|// This parameter set can be compared to the next and shows the impact o
 comment|// It defines all parameters to the same values as the default, so the result should be the same as
 comment|// 'seda:speedtest'. This shows that disruptor has a slight disadvantage as its name is longer than 'seda' :)
 comment|// The reason why this test takes so long is because Camel has a SLF4J call in ProducerCache:
-comment|// LOG.debug(">>>> {} {}", endpoint, exchange);
+comment|// log.debug(">>>> {} {}", endpoint, exchange);
 comment|// and the DefaultEndpoint.toString() method will use a Matcher to sanitize the URI.  There should be a guard
-comment|// before the debug() call to only evaluate the args when required: if(LOG.isDebugEnabled())...
+comment|// before the debug() call to only evaluate the args when required: if(log.isDebugEnabled())...
 if|if
 condition|(
 name|SIZE_PARAMETER_VALUE

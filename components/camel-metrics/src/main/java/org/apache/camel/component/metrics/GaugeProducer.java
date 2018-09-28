@@ -55,26 +55,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -100,22 +80,6 @@ name|GaugeProducer
 extends|extends
 name|AbstractMetricsProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|GaugeProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|GaugeProducer (MetricsEndpoint endpoint)
 specifier|public
 name|GaugeProducer
@@ -225,7 +189,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -382,7 +346,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(

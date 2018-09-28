@@ -460,26 +460,6 @@ name|XmppStringprepException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * To send and receive messages from a XMPP (chat) server.  */
 end_comment
@@ -527,22 +507,6 @@ name|DefaultEndpoint
 implements|implements
 name|HeaderFilterStrategyAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|XmppEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|connection
 specifier|private
 specifier|volatile
@@ -1113,7 +1077,7 @@ name|connection
 operator|=
 literal|null
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1179,13 +1143,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1207,7 +1171,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1299,13 +1263,13 @@ else|else
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1327,7 +1291,7 @@ block|}
 comment|// presence is not needed to be sent after login
 block|}
 comment|// okay new connection was created successfully so assign it as the connection
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

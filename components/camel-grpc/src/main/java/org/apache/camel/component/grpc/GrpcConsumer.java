@@ -330,26 +330,6 @@ name|ResourceHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents gRPC server consumer implementation  */
 end_comment
@@ -362,22 +342,6 @@ name|GrpcConsumer
 extends|extends
 name|DefaultConsumer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|GrpcConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|configuration
 specifier|protected
 specifier|final
@@ -461,7 +425,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -476,7 +440,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -507,7 +471,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -683,7 +647,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1193,7 +1157,7 @@ return|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(

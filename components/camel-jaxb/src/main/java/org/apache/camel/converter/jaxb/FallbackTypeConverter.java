@@ -446,26 +446,6 @@ name|IOHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version  */
 end_comment
@@ -501,22 +481,6 @@ name|String
 name|OBJECT_FACTORY
 init|=
 literal|"CamelJaxbObjectFactory"
-decl_stmt|;
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|FallbackTypeConverter
-operator|.
-name|class
-argument_list|)
 decl_stmt|;
 DECL|field|contexts
 specifier|private
@@ -1164,7 +1128,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1353,7 +1317,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1457,7 +1421,7 @@ name|ex
 parameter_list|)
 block|{
 comment|// There is some issue on the StaxStreamReader to CXFPayload message body with different namespaces
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1689,7 +1653,7 @@ name|FactoryConfigurationError
 throws|,
 name|TypeConversionException
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1853,7 +1817,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2178,7 +2142,7 @@ name|value
 argument_list|,
 literal|"Unmarshalling"
 argument_list|,
-name|LOG
+name|log
 argument_list|)
 expr_stmt|;
 block|}

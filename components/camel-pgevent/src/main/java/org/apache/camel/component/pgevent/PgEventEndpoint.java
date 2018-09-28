@@ -188,26 +188,6 @@ name|UriPath
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The pgevent component allows for producing/consuming PostgreSQL events related to the listen/notify commands.  *<p/>  * This requires using PostgreSQL 8.3 or newer.  */
 end_comment
@@ -249,22 +229,6 @@ name|PgEventEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|PgEventEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|FORMAT1
 specifier|private
 specifier|static
@@ -603,7 +567,7 @@ parameter_list|()
 throws|throws
 name|IllegalArgumentException
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -622,7 +586,7 @@ name|FORMAT1
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -692,7 +656,7 @@ name|FORMAT2
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -754,7 +718,7 @@ name|FORMAT3
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -813,7 +777,7 @@ name|FORMAT4
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(

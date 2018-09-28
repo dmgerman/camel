@@ -234,26 +234,6 @@ name|TTransportException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents asynchronous and synchronous Thrift producer implementations  */
 end_comment
@@ -268,22 +248,6 @@ name|DefaultProducer
 implements|implements
 name|AsyncProcessor
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|ThriftProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|configuration
 specifier|protected
 specifier|final
@@ -589,7 +553,7 @@ block|{
 name|initializeSslTransport
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -656,7 +620,7 @@ block|{
 name|initializeSyncTransport
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -716,7 +680,7 @@ block|{
 name|initializeAsyncTransport
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -772,7 +736,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -797,7 +761,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -853,7 +817,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -938,7 +902,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1092,7 +1056,7 @@ argument_list|,
 literal|"Trust store password"
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(

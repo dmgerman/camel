@@ -404,26 +404,6 @@ name|URISupport
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A Producer which sends messages to the Azure Storage Blob Service  */
 end_comment
@@ -436,22 +416,6 @@ name|BlobServiceProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|BlobServiceProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|BlobServiceProducer (final Endpoint endpoint)
 specifier|public
 name|BlobServiceProducer
@@ -682,7 +646,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -869,7 +833,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1030,7 +994,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1267,7 +1231,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1416,7 +1380,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1612,7 +1576,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1943,7 +1907,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2042,7 +2006,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2174,7 +2138,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2252,7 +2216,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2580,7 +2544,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2722,7 +2686,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

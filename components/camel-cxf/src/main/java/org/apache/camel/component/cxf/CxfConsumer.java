@@ -422,26 +422,6 @@ name|EndpointReferenceType
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A Consumer of exchanges for a service in CXF.  CxfConsumer acts a CXF  * service to receive requests, convert them, and forward them to Camel  * route for processing. It is also responsible for converting and sending  * back responses to CXF client.  *  * @version  */
 end_comment
@@ -456,22 +436,6 @@ name|DefaultConsumer
 implements|implements
 name|Suspendable
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|CxfConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|server
 specifier|private
 name|Server
@@ -930,7 +894,7 @@ name|Object
 name|o
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -967,7 +931,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -985,7 +949,7 @@ return|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1053,7 +1017,7 @@ name|cxfExchange
 argument_list|)
 decl_stmt|;
 comment|// Now we don't set up the timeout value
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1109,7 +1073,7 @@ init|(
 name|continuation
 init|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1412,7 +1376,7 @@ try|try
 block|{
 try|try
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1443,7 +1407,7 @@ name|e
 argument_list|)
 throw|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1619,7 +1583,7 @@ argument_list|,
 name|boi
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1691,7 +1655,7 @@ argument_list|,
 name|dataFormat
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

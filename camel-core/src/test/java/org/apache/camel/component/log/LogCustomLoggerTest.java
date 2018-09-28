@@ -337,7 +337,7 @@ literal|"LogComponent"
 argument_list|,
 name|Level
 operator|.
-name|TRACE
+name|INFO
 argument_list|,
 name|event
 lambda|->

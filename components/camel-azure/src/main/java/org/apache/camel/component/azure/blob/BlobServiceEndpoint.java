@@ -138,26 +138,6 @@ name|UriPath
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The azure-blob component is used for storing and retrieving blobs from Azure Storage Blob Service.  */
 end_comment
@@ -199,22 +179,6 @@ name|BlobServiceEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|BlobServiceEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
@@ -281,7 +245,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -335,7 +299,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

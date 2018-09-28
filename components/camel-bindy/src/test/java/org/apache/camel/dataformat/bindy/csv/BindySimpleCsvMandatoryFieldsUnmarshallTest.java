@@ -325,7 +325,7 @@ name|getCause
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// LOG.info(">> Error : " + e);
+comment|// log.info(">> Error : " + e);
 block|}
 name|resultEndpoint1
 operator|.
@@ -691,7 +691,7 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
-comment|// LOG.info(">> Error : " + e);
+comment|// log.info(">> Error : " + e);
 block|}
 block|}
 DECL|class|ContextConfig

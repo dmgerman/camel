@@ -392,26 +392,6 @@ name|URISupport
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A Consumer of messages from the Amazon Web Service Simple Queue Service  *<a href="http://aws.amazon.com/sqs/">AWS SQS</a>  */
 end_comment
@@ -424,22 +404,6 @@ name|SqsConsumer
 extends|extends
 name|ScheduledBatchPollingConsumer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|SqsConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|scheduledExecutor
 specifier|private
 name|ScheduledExecutorService
@@ -676,7 +640,7 @@ name|messageAttributeNames
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -709,7 +673,7 @@ name|QueueDoesNotExistException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -732,13 +696,13 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -804,7 +768,7 @@ name|QueueDeletedRecentlyException
 name|qdr
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -836,7 +800,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -853,7 +817,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -881,13 +845,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1120,13 +1084,13 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1229,7 +1193,7 @@ name|exchange
 parameter_list|)
 block|{
 comment|// cancel task as we are done
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1304,7 +1268,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1334,7 +1298,7 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1403,7 +1367,7 @@ argument_list|,
 name|receiptHandle
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1420,7 +1384,7 @@ argument_list|(
 name|deleteRequest
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1830,7 +1794,7 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1856,7 +1820,7 @@ argument_list|(
 name|request
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1894,7 +1858,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(

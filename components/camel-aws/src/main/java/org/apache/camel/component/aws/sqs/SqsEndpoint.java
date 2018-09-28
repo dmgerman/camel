@@ -480,26 +480,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The aws-sqs component is used for sending and receiving messages to Amazon's SQS service.  */
 end_comment
@@ -543,22 +523,6 @@ name|ScheduledPollEndpoint
 implements|implements
 name|HeaderFilterStrategyAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|SqsEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|client
 specifier|private
 name|AmazonSQS
@@ -991,7 +955,7 @@ name|queueUrl
 operator|=
 name|url
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1020,7 +984,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1045,7 +1009,7 @@ name|AmazonSQS
 name|client
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1358,7 +1322,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1389,7 +1353,7 @@ operator|.
 name|getQueueUrl
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1657,7 +1621,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1676,7 +1640,7 @@ argument_list|(
 name|request
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

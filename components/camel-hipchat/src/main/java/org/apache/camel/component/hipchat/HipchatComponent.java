@@ -90,26 +90,6 @@ name|URISupport
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents the component that manages {@link HipchatEndpoint}. Hipchat is an Atlassian software for team chat.  *  * The hipchat component uses the OAuth2 Hipchat API to produce/consume messages. For more details about Hipchat API  * @see<a href="https://www.hipchat.com/docs/apiv2/auth">Hipchat API</a>. You can get the Oauth2 auth token  * at @see<a href="https://www.hipchat.com/account/api">Hipchat Auth Token</a>. The messages produced and consumed  * would be from/to owner of the provided auth token.  */
 end_comment
@@ -122,22 +102,6 @@ name|HipchatComponent
 extends|extends
 name|DefaultComponent
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|HipchatComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|HipchatComponent ()
 specifier|public
 name|HipchatComponent
@@ -225,7 +189,7 @@ argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

@@ -158,22 +158,6 @@ argument_list|<
 name|AtomixClusterView
 argument_list|>
 block|{
-DECL|field|LOGGER
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOGGER
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|AtomixClusterService
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|address
 specifier|private
 name|Address
@@ -602,7 +586,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOGGER
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -720,7 +704,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|LOGGER
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -749,7 +733,7 @@ operator|.
 name|join
 argument_list|()
 expr_stmt|;
-name|LOGGER
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -759,7 +743,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOGGER
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -783,7 +767,7 @@ operator|.
 name|join
 argument_list|()
 expr_stmt|;
-name|LOGGER
+name|log
 operator|.
 name|debug
 argument_list|(

@@ -300,26 +300,6 @@ name|TriggerKey
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A quartz based {@link ScheduledPollConsumerScheduler} which uses a  * {@link CronTrigger} to define when the poll should be triggered.  */
 end_comment
@@ -336,22 +316,6 @@ name|ScheduledPollConsumerScheduler
 implements|,
 name|NonManagedService
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|QuartzScheduledPollConsumerScheduler
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|quartzScheduler
 specifier|private
 name|Scheduler
@@ -507,7 +471,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1023,7 +987,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1054,7 +1018,7 @@ argument_list|(
 name|existingTrigger
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1123,7 +1087,7 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1170,7 +1134,7 @@ name|trigger
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1197,7 +1161,7 @@ block|}
 else|else
 block|{
 comment|// Schedule it now. Remember that scheduler might not be started it, but we can schedule now.
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1296,13 +1260,13 @@ block|}
 block|}
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isInfoEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1359,7 +1323,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

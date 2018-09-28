@@ -248,26 +248,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_class
 DECL|class|KubernetesJobProducer
 specifier|public
@@ -276,22 +256,6 @@ name|KubernetesJobProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|KubernetesJobProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|KubernetesJobProducer (AbstractKubernetesEndpoint endpoint)
 specifier|public
 name|KubernetesJobProducer
@@ -581,7 +545,7 @@ name|labels
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -765,7 +729,7 @@ name|jobName
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -790,7 +754,7 @@ name|namespaceName
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -946,7 +910,7 @@ name|jobName
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -971,7 +935,7 @@ name|namespaceName
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -996,7 +960,7 @@ name|jobSpec
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -1180,7 +1144,7 @@ name|jobName
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -1205,7 +1169,7 @@ name|namespaceName
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(

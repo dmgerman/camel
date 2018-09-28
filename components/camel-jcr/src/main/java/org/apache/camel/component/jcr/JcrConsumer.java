@@ -136,26 +136,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A {@link org.apache.camel.Consumer} to consume JCR events.  *  * @version $Id$  */
 end_comment
@@ -168,22 +148,6 @@ name|JcrConsumer
 extends|extends
 name|DefaultConsumer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|JcrConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|session
 specifier|private
 name|Session
@@ -290,7 +254,7 @@ parameter_list|()
 throws|throws
 name|RepositoryException
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -538,13 +502,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -609,7 +573,7 @@ argument_list|,
 name|noLocal
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -626,7 +590,7 @@ parameter_list|()
 throws|throws
 name|RepositoryException
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -651,7 +615,7 @@ name|isLive
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -705,7 +669,7 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -837,7 +801,7 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -885,7 +849,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -915,7 +879,7 @@ name|RepositoryException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -926,7 +890,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

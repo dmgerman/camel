@@ -448,22 +448,6 @@ name|RouteService
 extends|extends
 name|ChildServiceSupport
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|RouteService
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|camelContext
 specifier|private
 specifier|final
@@ -921,7 +905,7 @@ operator|.
 name|warmUp
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1291,7 +1275,7 @@ argument_list|()
 argument_list|)
 init|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1456,7 +1440,7 @@ argument_list|()
 argument_list|)
 init|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1806,7 +1790,7 @@ range|:
 name|services
 control|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1885,7 +1869,7 @@ range|:
 name|services
 control|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

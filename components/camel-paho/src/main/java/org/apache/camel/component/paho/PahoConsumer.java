@@ -144,26 +144,6 @@ name|MqttMessage
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_class
 DECL|class|PahoConsumer
 specifier|public
@@ -172,22 +152,6 @@ name|PahoConsumer
 extends|extends
 name|DefaultConsumer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|PahoConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|PahoConsumer (Endpoint endpoint, Processor processor)
 specifier|public
 name|PahoConsumer
@@ -304,7 +268,7 @@ name|MqttException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -331,7 +295,7 @@ name|Throwable
 name|cause
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -361,7 +325,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -422,7 +386,7 @@ name|IMqttDeliveryToken
 name|token
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

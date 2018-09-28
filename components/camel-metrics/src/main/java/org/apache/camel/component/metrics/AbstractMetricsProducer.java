@@ -124,22 +124,6 @@ name|HEADER_PREFIX
 operator|+
 literal|"*"
 decl_stmt|;
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|AbstractMetricsProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|AbstractMetricsProducer (MetricsEndpoint endpoint)
 specifier|public
 name|AbstractMetricsProducer

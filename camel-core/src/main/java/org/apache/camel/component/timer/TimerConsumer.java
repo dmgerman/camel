@@ -196,22 +196,6 @@ name|StartupListener
 implements|,
 name|Suspendable
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|TimerConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|endpoint
 specifier|private
 specifier|final
@@ -334,7 +318,7 @@ argument_list|()
 condition|)
 block|{
 comment|// do not run timer task as it was not allowed
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -387,7 +371,7 @@ else|else
 block|{
 comment|// no need to fire anymore as we exceeded repeat
 comment|// count
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -417,7 +401,7 @@ parameter_list|)
 block|{
 comment|// catch all to avoid the JVM closing the thread and not
 comment|// firing again
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -988,13 +972,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

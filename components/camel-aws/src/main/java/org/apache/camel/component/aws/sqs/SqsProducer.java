@@ -213,26 +213,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -264,22 +244,6 @@ name|SqsProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|SqsProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|sqsProducerToString
 specifier|private
 specifier|transient
@@ -372,7 +336,7 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -394,7 +358,7 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -566,7 +530,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -587,7 +551,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -599,7 +563,7 @@ operator|=
 name|headerValue
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1136,7 +1100,7 @@ block|}
 else|else
 block|{
 comment|// cannot translate the message header to message attribute value
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(

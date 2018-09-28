@@ -716,26 +716,6 @@ name|EntityUtils
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version  */
 end_comment
@@ -748,22 +728,6 @@ name|HttpProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|HttpProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|httpClient
 specifier|private
 name|HttpClient
@@ -1436,13 +1400,13 @@ try|try
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1478,7 +1442,7 @@ operator|.
 name|getStatusCode
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2712,7 +2676,6 @@ block|}
 block|}
 DECL|method|doExtractResponseBodyAsStream (InputStream is, Exchange exchange)
 specifier|private
-specifier|static
 name|InputStream
 name|doExtractResponseBodyAsStream
 parameter_list|(
@@ -2799,7 +2762,7 @@ name|is
 argument_list|,
 literal|"Extracting response body"
 argument_list|,
-name|LOG
+name|log
 argument_list|)
 expr_stmt|;
 block|}
@@ -2959,7 +2922,7 @@ name|requestEntity
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3004,7 +2967,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

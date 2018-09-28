@@ -399,7 +399,7 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|/*          * List<Exchange> exchanges = resultEndpoint.getExchanges();          * for(Exchange exchange : exchanges) { Object body =          * exchange.getOut().getBody(); LOG.debug("Body received : " +          * body.toString()); }          */
+comment|/*          * List<Exchange> exchanges = resultEndpoint.getExchanges();          * for(Exchange exchange : exchanges) { Object body =          * exchange.getOut().getBody(); log.debug("Body received : " +          * body.toString()); }          */
 block|}
 annotation|@
 name|Test

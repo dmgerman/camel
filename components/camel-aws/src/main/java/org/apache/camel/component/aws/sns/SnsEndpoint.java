@@ -368,26 +368,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The aws-sns component is used for sending messages to an Amazon Simple Notification Topic.  */
 end_comment
@@ -429,22 +409,6 @@ name|DefaultEndpoint
 implements|implements
 name|HeaderFilterStrategyAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|SnsEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|snsClient
 specifier|private
 name|AmazonSNS
@@ -733,7 +697,7 @@ name|AmazonServiceException
 name|ase
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -773,7 +737,7 @@ name|getTopicName
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -807,7 +771,7 @@ name|getTopicArn
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -833,7 +797,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -871,7 +835,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

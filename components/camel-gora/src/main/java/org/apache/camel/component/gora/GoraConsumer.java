@@ -166,26 +166,6 @@ name|DataStore
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Implementation of Camel-Gora {@link Consumer}.  */
 end_comment
@@ -198,23 +178,6 @@ name|GoraConsumer
 extends|extends
 name|ScheduledPollConsumer
 block|{
-comment|/**      * logger      */
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|GoraConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/**      * GORA datastore      */
 DECL|field|dataStore
 specifier|private
@@ -387,7 +350,7 @@ operator|.
 name|execute
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

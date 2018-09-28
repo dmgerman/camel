@@ -1127,7 +1127,7 @@ name|ExchangeSendingEvent
 operator|)
 name|event
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1188,7 +1188,7 @@ argument_list|(
 name|CURRENT_SEGMENT
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1333,7 +1333,7 @@ name|getEndpoint
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1357,7 +1357,7 @@ name|AlreadyEmittedException
 name|aeEx
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1374,7 +1374,7 @@ block|}
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1399,7 +1399,7 @@ name|ExchangeSentEvent
 operator|)
 name|event
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1499,7 +1499,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1523,7 +1523,7 @@ name|AlreadyEmittedException
 name|aeEx
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1539,7 +1539,7 @@ block|}
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1646,7 +1646,7 @@ condition|)
 block|{
 return|return;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1862,7 +1862,7 @@ name|getEndpoint
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1931,7 +1931,7 @@ name|getEndpoint
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1955,7 +1955,7 @@ name|AlreadyEmittedException
 name|aeEx
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2004,7 +2004,7 @@ condition|)
 block|{
 return|return;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2088,7 +2088,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2142,7 +2142,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2167,7 +2167,7 @@ name|AlreadyEmittedException
 name|aeEx
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(

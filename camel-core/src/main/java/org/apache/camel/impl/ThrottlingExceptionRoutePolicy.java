@@ -212,22 +212,6 @@ name|RoutePolicySupport
 implements|implements
 name|CamelContextAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|ThrottlingExceptionRoutePolicy
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|STATE_CLOSED
 specifier|private
 specifier|static
@@ -497,7 +481,7 @@ name|Route
 name|route
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -567,7 +551,7 @@ operator|!=
 name|STATE_OPEN
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -705,7 +689,7 @@ block|}
 block|}
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
@@ -734,7 +718,7 @@ operator|.
 name|getSimpleName
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -786,7 +770,7 @@ condition|(
 name|failureLimitReached
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -816,7 +800,7 @@ condition|(
 name|failureLimitReached
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -831,7 +815,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -882,7 +866,7 @@ operator|<=
 name|elapsedTimeSinceOpened
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -904,7 +888,7 @@ name|isReadyToBeClosed
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -919,7 +903,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -935,7 +919,7 @@ block|}
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1261,13 +1245,13 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

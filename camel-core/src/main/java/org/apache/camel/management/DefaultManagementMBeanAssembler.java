@@ -210,26 +210,6 @@ name|ServiceHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * An assembler to assemble a {@link javax.management.modelmbean.ModelMBean} which can be used  * to register the object in JMX. The assembler is capable of using the Camel JMX annotations to  * gather the list of JMX operations and attributes.  *  * @version   */
 end_comment
@@ -244,22 +224,6 @@ name|ServiceSupport
 implements|implements
 name|ManagementMBeanAssembler
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|DefaultManagementMBeanAssembler
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|assembler
 specifier|protected
 specifier|final
@@ -372,7 +336,7 @@ name|class
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -426,7 +390,7 @@ literal|null
 condition|)
 block|{
 comment|// use the default provided mbean which has been annotated with JMX annotations
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

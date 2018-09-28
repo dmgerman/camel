@@ -151,21 +151,6 @@ name|PropertiesInterceptor
 implements|,
 name|ResultInterceptor
 block|{
-comment|// logger
-DECL|field|log
-specifier|protected
-specifier|final
-name|Logger
-name|log
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|)
-decl_stmt|;
 comment|// API Endpoint
 DECL|field|endpoint
 specifier|protected

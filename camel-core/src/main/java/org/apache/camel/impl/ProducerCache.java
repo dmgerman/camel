@@ -292,22 +292,6 @@ name|ProducerCache
 extends|extends
 name|ServiceSupport
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|ProducerCache
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|camelContext
 specifier|private
 specifier|final
@@ -663,7 +647,7 @@ decl_stmt|;
 try|try
 block|{
 comment|// now lets dispatch
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1148,7 +1132,7 @@ name|isStopped
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1404,7 +1388,7 @@ name|callback
 parameter_list|)
 block|{
 comment|// now lets dispatch
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1608,7 +1592,7 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1727,7 +1711,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

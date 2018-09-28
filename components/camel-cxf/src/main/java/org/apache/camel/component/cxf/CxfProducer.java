@@ -396,26 +396,6 @@ name|Conduit
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * CxfProducer binds a Camel exchange to a CXF exchange, acts as a CXF   * client, and sends the request to a CXF to a server.  Any response will   * be bound to Camel exchange.   *  * @version   */
 end_comment
@@ -430,22 +410,6 @@ name|DefaultProducer
 implements|implements
 name|AsyncProcessor
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|CxfProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|client
 specifier|private
 name|Client
@@ -685,7 +649,7 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -883,7 +847,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1105,7 +1069,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -1235,7 +1199,7 @@ argument_list|,
 name|dataFormat
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1312,7 +1276,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1473,7 +1437,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1596,7 +1560,7 @@ argument_list|,
 name|boi
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1643,7 +1607,7 @@ operator|.
 name|getUnwrappedOperation
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2234,7 +2198,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
@@ -2264,7 +2228,7 @@ name|i
 operator|++
 control|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2337,7 +2301,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2363,7 +2327,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2481,7 +2445,7 @@ operator|.
 name|getNamespaceURI
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2502,7 +2466,7 @@ argument_list|,
 name|lp
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

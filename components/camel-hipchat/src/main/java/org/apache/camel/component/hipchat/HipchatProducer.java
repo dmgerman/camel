@@ -199,26 +199,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -246,22 +226,6 @@ name|HipchatProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|HipchatProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|MAPPER
 specifier|private
 specifier|static
@@ -486,7 +450,7 @@ name|backGroundColor
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -517,7 +481,7 @@ argument_list|,
 name|jsonParam
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -579,7 +543,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -607,7 +571,7 @@ argument_list|,
 name|jsonParam
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

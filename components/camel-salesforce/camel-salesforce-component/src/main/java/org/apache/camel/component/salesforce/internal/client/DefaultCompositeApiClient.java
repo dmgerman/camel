@@ -676,22 +676,6 @@ name|AbstractClientBase
 implements|implements
 name|CompositeApiClient
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|DefaultCompositeApiClient
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|// Composite (non-tree, non-batch) does not support XML format
 DECL|field|NO_XSTREAM
 specifier|private
@@ -1701,7 +1685,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(

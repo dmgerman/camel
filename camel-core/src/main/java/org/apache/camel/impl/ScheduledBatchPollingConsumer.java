@@ -139,22 +139,6 @@ name|BatchConsumer
 implements|,
 name|ShutdownAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|ScheduledBatchPollingConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|shutdownRunningTask
 specifier|protected
 specifier|volatile
@@ -285,7 +269,7 @@ comment|// force at least one pending exchange if we are polling as there is a l
 comment|// in the processBatch method and until an exchange gets enlisted as in-flight
 comment|// which happens later, so we need to signal back to the shutdown strategy that
 comment|// there is a pending exchange. When we are no longer polling, then we will return 0
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

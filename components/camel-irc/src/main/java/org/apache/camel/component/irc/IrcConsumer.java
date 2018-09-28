@@ -126,26 +126,6 @@ name|IRCUser
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_class
 DECL|class|IrcConsumer
 specifier|public
@@ -154,22 +134,6 @@ name|IrcConsumer
 extends|extends
 name|DefaultConsumer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|IrcConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|configuration
 specifier|private
 specifier|final
@@ -267,7 +231,7 @@ name|getChannels
 argument_list|()
 control|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -345,7 +309,7 @@ try|try
 block|{
 comment|// TODO : sleep before joinChannels() may be another useful config param (even when not identifying)
 comment|// sleep for a few seconds as the server sometimes takes a moment to fully connect, print banners, etc after connection established
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -368,7 +332,7 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

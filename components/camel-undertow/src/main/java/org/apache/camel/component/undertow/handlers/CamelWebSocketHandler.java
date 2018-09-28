@@ -497,7 +497,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An {@link HttpHandler} that delegates to {@link WebSocketProtocolHandshakeHandler} and provides some wiring to  * connect {@link UndertowComsumer} with {@link UndertowProducer}.  */
+comment|/**  * An {@link HttpHandler} that delegates to {@link WebSocketProtocolHandshakeHandler} and provides some wiring to  * connect {@link UndertowConsumer} with {@link UndertowProducer}.  */
 end_comment
 
 begin_class

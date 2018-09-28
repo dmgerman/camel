@@ -344,26 +344,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The aws-ddb component is used for storing and retrieving data from Amazon's DynamoDB service.  */
 end_comment
@@ -403,22 +383,6 @@ name|DdbEndpoint
 extends|extends
 name|ScheduledPollEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|DdbEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|configuration
@@ -545,7 +509,7 @@ operator|.
 name|getTableName
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -596,7 +560,7 @@ name|tableName
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -613,7 +577,7 @@ name|ResourceNotFoundException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -622,7 +586,7 @@ argument_list|,
 name|tableName
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -654,7 +618,7 @@ name|tableName
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1051,7 +1015,7 @@ name|String
 name|tableName
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1134,7 +1098,7 @@ name|tableDescription
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1145,7 +1109,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

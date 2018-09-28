@@ -182,26 +182,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A logger for logging message throughput.  *  * @version   */
 end_comment
@@ -218,22 +198,6 @@ name|AsyncProcessor
 implements|,
 name|IdAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|ThroughputLogger
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|id
 specifier|private
 name|String
@@ -313,10 +277,10 @@ specifier|private
 name|ScheduledExecutorService
 name|logSchedulerService
 decl_stmt|;
-DECL|field|log
+DECL|field|logger
 specifier|private
 name|CamelLogger
-name|log
+name|logger
 decl_stmt|;
 DECL|field|lastLogMessage
 specifier|private
@@ -333,27 +297,27 @@ specifier|private
 name|double
 name|average
 decl_stmt|;
-DECL|method|ThroughputLogger (CamelLogger log)
+DECL|method|ThroughputLogger (CamelLogger logger)
 specifier|public
 name|ThroughputLogger
 parameter_list|(
 name|CamelLogger
-name|log
+name|logger
 parameter_list|)
 block|{
 name|this
 operator|.
-name|log
+name|logger
 operator|=
-name|log
+name|logger
 expr_stmt|;
 block|}
-DECL|method|ThroughputLogger (CamelLogger log, Integer groupSize)
+DECL|method|ThroughputLogger (CamelLogger logger, Integer groupSize)
 specifier|public
 name|ThroughputLogger
 parameter_list|(
 name|CamelLogger
-name|log
+name|logger
 parameter_list|,
 name|Integer
 name|groupSize
@@ -361,7 +325,7 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|log
+name|logger
 argument_list|)
 expr_stmt|;
 name|setGroupSize
@@ -370,12 +334,12 @@ name|groupSize
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ThroughputLogger (CamelLogger log, CamelContext camelContext, Long groupInterval, Long groupDelay, Boolean groupActiveOnly)
+DECL|method|ThroughputLogger (CamelLogger logger, CamelContext camelContext, Long groupInterval, Long groupDelay, Boolean groupActiveOnly)
 specifier|public
 name|ThroughputLogger
 parameter_list|(
 name|CamelLogger
-name|log
+name|logger
 parameter_list|,
 name|CamelContext
 name|camelContext
@@ -392,7 +356,7 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|log
+name|logger
 argument_list|)
 expr_stmt|;
 name|this
@@ -533,7 +497,7 @@ argument_list|,
 name|receivedCount
 argument_list|)
 expr_stmt|;
-name|log
+name|logger
 operator|.
 name|log
 argument_list|(
@@ -882,11 +846,11 @@ operator|new
 name|ScheduledLogTask
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
-literal|"Scheduling throughput log to run every {} millis."
+literal|"Scheduling throughput logger to run every {} millis."
 argument_list|,
 name|groupInterval
 argument_list|)
@@ -1066,7 +1030,7 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1091,7 +1055,7 @@ name|void
 name|createGroupIntervalLogMessage
 parameter_list|()
 block|{
-comment|// this indicates that no messages have been received yet...don't log yet
+comment|// this indicates that no messages have been received yet...don't logger yet
 if|if
 condition|(
 name|startTime
@@ -1109,7 +1073,7 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-comment|// if configured, hide log messages when no new messages have been received
+comment|// if configured, hide logger messages when no new messages have been received
 if|if
 condition|(
 name|groupActiveOnly
@@ -1220,7 +1184,7 @@ argument_list|(
 name|average
 argument_list|)
 expr_stmt|;
-name|log
+name|logger
 operator|.
 name|log
 argument_list|(

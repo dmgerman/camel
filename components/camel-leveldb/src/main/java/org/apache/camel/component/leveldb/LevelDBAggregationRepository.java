@@ -224,26 +224,6 @@ name|WriteBatch
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * An instance of {@link org.apache.camel.spi.AggregationRepository} which is backed by a {@link LevelDBFile}.  */
 end_comment
@@ -258,22 +238,6 @@ name|ServiceSupport
 implements|implements
 name|RecoverableAggregationRepository
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|LevelDBAggregationRepository
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|levelDBFile
 specifier|private
 name|LevelDBFile
@@ -472,7 +436,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -536,7 +500,7 @@ name|lDbKey
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -567,7 +531,7 @@ name|getWriteOptions
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -668,7 +632,7 @@ argument_list|,
 name|key
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -737,7 +701,7 @@ name|e
 argument_list|)
 throw|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -770,7 +734,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -858,7 +822,7 @@ argument_list|(
 name|lDbKey
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -898,7 +862,7 @@ name|toByteArray
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -973,7 +937,7 @@ name|String
 name|exchangeId
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1025,7 +989,7 @@ argument_list|(
 name|confirmedLDBKey
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1171,7 +1135,7 @@ name|length
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1333,7 +1297,7 @@ name|length
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1372,7 +1336,7 @@ operator|==
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1384,13 +1348,13 @@ else|else
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1500,7 +1464,7 @@ name|e
 argument_list|)
 throw|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1613,7 +1577,7 @@ name|it
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2019,7 +1983,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2036,7 +2000,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2054,7 +2018,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2071,7 +2035,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(

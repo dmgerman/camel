@@ -297,26 +297,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -459,22 +439,6 @@ name|DefaultEndpoint
 implements|implements
 name|FacebookConstants
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|FacebookEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|nameStyle
 specifier|private
 name|FacebookNameStyle
@@ -977,7 +941,7 @@ block|}
 comment|// log missing/extra properties for debugging
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
@@ -1008,7 +972,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

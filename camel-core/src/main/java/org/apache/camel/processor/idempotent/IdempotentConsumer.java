@@ -303,22 +303,6 @@ argument_list|>
 implements|,
 name|IdAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|IdempotentConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|camelContext
 specifier|private
 name|CamelContext
@@ -781,7 +765,7 @@ name|skipDuplicate
 condition|)
 block|{
 comment|// if we should skip duplicate then we are done
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

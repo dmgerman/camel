@@ -162,26 +162,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Consumer to read data from a database.  */
 end_comment
@@ -194,22 +174,6 @@ name|MyBatisConsumer
 extends|extends
 name|ScheduledBatchPollingConsumer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|MyBatisConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|class|DataHolder
 specifier|static
 specifier|final
@@ -320,7 +284,7 @@ init|=
 name|getEndpoint
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -512,7 +476,7 @@ operator|>
 name|maxMessagesPerPoll
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -630,7 +594,7 @@ operator|-
 literal|1
 expr_stmt|;
 comment|// process the current exchange
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

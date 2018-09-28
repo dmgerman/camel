@@ -108,26 +108,6 @@ name|DefaultAsyncProducer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -140,22 +120,6 @@ name|MyAsyncProducer
 extends|extends
 name|DefaultAsyncProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|MyAsyncProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|executor
 specifier|private
 specifier|final
@@ -253,7 +217,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -298,7 +262,7 @@ operator|>=
 name|count
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -361,7 +325,7 @@ name|getHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -371,7 +335,7 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -393,7 +357,7 @@ block|}
 argument_list|)
 expr_stmt|;
 comment|// indicate from this point forward its being routed asynchronously
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(

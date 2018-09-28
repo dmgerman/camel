@@ -163,22 +163,6 @@ name|KubernetesNodesEndpoint
 extends|extends
 name|AbstractKubernetesEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|KubernetesNodesEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|KubernetesNodesEndpoint (String uri, KubernetesNodesComponent component, KubernetesConfiguration config)
 specifier|public
 name|KubernetesNodesEndpoint

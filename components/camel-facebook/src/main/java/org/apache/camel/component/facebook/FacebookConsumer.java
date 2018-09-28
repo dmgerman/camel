@@ -317,26 +317,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -482,22 +462,6 @@ name|FacebookConsumer
 extends|extends
 name|ScheduledPollConsumer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|FacebookConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|SINCE_PREFIX
 specifier|private
 specifier|static
@@ -747,7 +711,7 @@ name|e
 argument_list|)
 throw|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -771,7 +735,7 @@ literal|"until="
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -963,7 +927,7 @@ argument_list|(
 name|filteredMethods
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(

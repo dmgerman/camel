@@ -128,26 +128,6 @@ name|DefaultComponent
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents the component that manages {@link CMEndpoint}s.  */
 end_comment
@@ -160,22 +140,6 @@ name|CMComponent
 extends|extends
 name|DefaultComponent
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|CMComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|validator
 specifier|private
 name|Validator
@@ -245,7 +209,7 @@ name|parameters
 argument_list|)
 expr_stmt|;
 comment|// Validate configuration
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

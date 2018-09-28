@@ -351,22 +351,6 @@ name|ServiceSupport
 implements|implements
 name|Component
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|DefaultComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|RAW_PATTERN
 specifier|private
 specifier|static
@@ -656,14 +640,14 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 comment|// at trace level its okay to have parameters logged, that may contain passwords
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -690,14 +674,14 @@ block|}
 elseif|else
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
 comment|// but at debug level only output sanitized uris
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1127,7 +1111,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1148,7 +1132,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

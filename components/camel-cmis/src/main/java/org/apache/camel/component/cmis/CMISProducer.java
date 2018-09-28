@@ -282,26 +282,6 @@ name|CmisObjectNotFoundException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The CMIS producer.  */
 end_comment
@@ -314,22 +294,6 @@ name|CMISProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|CMISProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|sessionFacadeFactory
 specifier|private
 specifier|final
@@ -407,7 +371,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1098,7 +1062,7 @@ name|CMIS_FOLDER
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1200,7 +1164,7 @@ operator|.
 name|MAJOR
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

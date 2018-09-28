@@ -676,22 +676,6 @@ name|RestSwaggerEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|RestSwaggerEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/**      * Remaining parameters specified in the Endpoint URI.      */
 DECL|field|parameters
 name|Map

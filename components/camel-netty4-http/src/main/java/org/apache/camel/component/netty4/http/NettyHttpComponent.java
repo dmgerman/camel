@@ -410,26 +410,6 @@ name|UnsafeUriCharactersEncoder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Netty HTTP based component.  */
 end_comment
@@ -452,22 +432,6 @@ name|RestProducerFactory
 implements|,
 name|SSLContextParametersAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|NettyHttpComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|// factories which is created by this component and therefore manage their lifecycles
 DECL|field|multiplexChannelHandlers
 specifier|private
@@ -802,7 +766,7 @@ literal|null
 condition|)
 block|{
 comment|// use port number from the shared http server
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -931,7 +895,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

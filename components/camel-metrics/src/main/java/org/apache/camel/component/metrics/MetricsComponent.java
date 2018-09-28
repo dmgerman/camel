@@ -154,26 +154,6 @@ name|StringHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents the component that manages metrics endpoints.  */
 end_comment
@@ -214,22 +194,6 @@ name|long
 name|DEFAULT_REPORTING_INTERVAL_SECONDS
 init|=
 literal|60L
-decl_stmt|;
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|MetricsComponent
-operator|.
-name|class
-argument_list|)
 decl_stmt|;
 annotation|@
 name|Metadata
@@ -314,7 +278,7 @@ argument_list|(
 name|remaining
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -464,7 +428,7 @@ name|String
 name|registryName
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -490,7 +454,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -499,7 +463,7 @@ argument_list|,
 name|registryName
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -619,7 +583,7 @@ argument_list|)
 operator|.
 name|outputTo
 argument_list|(
-name|LOG
+name|log
 argument_list|)
 operator|.
 name|convertRatesTo

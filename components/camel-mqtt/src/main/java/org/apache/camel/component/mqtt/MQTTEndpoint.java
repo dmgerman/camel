@@ -524,26 +524,6 @@ name|UNSUBSCRIBE
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Component for communicating with MQTT M2M message brokers using FuseSource MQTT Client.  */
 end_comment
@@ -587,22 +567,6 @@ name|DefaultEndpoint
 implements|implements
 name|AsyncEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|MQTTEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|PUBLISH_MAX_RECONNECT_ATTEMPTS
 specifier|private
 specifier|static
@@ -689,7 +653,7 @@ name|properties
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
@@ -717,7 +681,7 @@ modifier|...
 name|args
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1051,7 +1015,7 @@ name|toString
 argument_list|()
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1378,7 +1342,7 @@ name|toString
 argument_list|()
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1555,7 +1519,7 @@ name|connected
 operator|=
 literal|true
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1578,7 +1542,7 @@ comment|// setting connected = false would make the publish() method to launch a
 comment|// one is still reconnecting, likely leading to duplicate messages as observed in CAMEL-9092;
 comment|// if retries are exhausted and it desists, we should get a callback on onFailure, and then we can set
 comment|// connected = false safely
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1694,7 +1658,7 @@ name|connected
 operator|=
 literal|false
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1742,7 +1706,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1929,7 +1893,7 @@ name|Void
 name|value
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2004,7 +1968,7 @@ name|Throwable
 name|value
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2060,7 +2024,7 @@ name|value
 parameter_list|)
 block|{
 comment|// this doesn't appear to ever be called
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2101,7 +2065,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2286,7 +2250,7 @@ name|topics
 return|;
 block|}
 block|}
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2369,7 +2333,7 @@ operator|++
 expr_stmt|;
 try|try
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2400,7 +2364,7 @@ name|timeout
 operator|=
 name|e
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2458,7 +2422,7 @@ name|isConnected
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2499,7 +2463,7 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

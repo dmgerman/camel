@@ -352,26 +352,6 @@ name|BouncyCastleProvider
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_class
 DECL|class|CryptoCmsComponent
 specifier|public
@@ -380,22 +360,6 @@ name|CryptoCmsComponent
 extends|extends
 name|DefaultComponent
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|CryptoCmsComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
@@ -762,7 +726,7 @@ name|scheme
 operator|+
 literal|" is not supported. Supported operations are: sign, verify, encrypt, decrypt"
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -915,7 +879,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

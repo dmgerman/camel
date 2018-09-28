@@ -390,22 +390,6 @@ name|RoutePolicySupport
 implements|implements
 name|CamelContextAware
 block|{
-DECL|field|LOGGER
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOGGER
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|ClusteredRoutePolicy
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|leader
 specifier|private
 specifier|final
@@ -924,7 +908,7 @@ argument_list|(
 name|route
 argument_list|)
 expr_stmt|;
-name|LOGGER
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1009,7 +993,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|LOGGER
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1111,7 +1095,7 @@ name|isLeader
 argument_list|)
 condition|)
 block|{
-name|LOGGER
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1136,7 +1120,7 @@ name|isLeader
 argument_list|)
 condition|)
 block|{
-name|LOGGER
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1220,7 +1204,7 @@ name|isStartable
 argument_list|()
 condition|)
 block|{
-name|LOGGER
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1347,7 +1331,7 @@ name|isStoppable
 argument_list|()
 condition|)
 block|{
-name|LOGGER
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1400,7 +1384,7 @@ name|void
 name|onCamelContextStarted
 parameter_list|()
 block|{
-name|LOGGER
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1612,7 +1596,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LOGGER
+name|log
 operator|.
 name|debug
 argument_list|(

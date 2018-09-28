@@ -280,26 +280,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A {@link org.apache.camel.Consumer Consumer} which consumes messages from JavaMail using a  * {@link javax.mail.Transport Transport} and dispatches them to the {@link Processor}  */
 end_comment
@@ -331,22 +311,6 @@ init|=
 literal|60
 operator|*
 literal|1000L
-decl_stmt|;
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|MailConsumer
-operator|.
-name|class
-argument_list|)
 decl_stmt|;
 DECL|field|sender
 specifier|private
@@ -533,13 +497,13 @@ throw|;
 block|}
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -570,7 +534,7 @@ operator|==
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -778,13 +742,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -832,7 +796,7 @@ name|e
 parameter_list|)
 block|{
 comment|// some mail servers will lock the folder so we ignore in this case (CAMEL-1263)
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -871,13 +835,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -908,7 +872,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -974,7 +938,7 @@ operator|>
 name|maxMessagesPerPoll
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1197,7 +1161,7 @@ condition|)
 block|{
 try|try
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1225,7 +1189,7 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1527,7 +1491,7 @@ condition|(
 name|skipFailedMessage
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1786,13 +1750,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1857,13 +1821,13 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1924,7 +1888,7 @@ argument_list|()
 condition|)
 block|{
 comment|// ensure the mail message is mapped, which can be ensured by touching the body/header/attachment
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1982,13 +1946,13 @@ else|else
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2016,7 +1980,7 @@ condition|(
 name|skipFailedMessage
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2073,7 +2037,7 @@ name|Exception
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
@@ -2090,7 +2054,7 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2197,7 +2161,7 @@ name|found
 init|=
 literal|null
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2255,7 +2219,7 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2292,7 +2256,7 @@ operator|.
 name|isDelete
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2413,7 +2377,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2465,7 +2429,7 @@ argument_list|,
 name|destFolder
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2483,7 +2447,7 @@ condition|(
 name|delete
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2506,7 +2470,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2663,7 +2627,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2677,7 +2641,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2736,7 +2700,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2779,13 +2743,13 @@ literal|null
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2859,13 +2823,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

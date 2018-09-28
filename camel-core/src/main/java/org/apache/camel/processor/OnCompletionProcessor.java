@@ -310,22 +310,6 @@ name|Traceable
 implements|,
 name|IdAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|OnCompletionProcessor
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|camelContext
 specifier|private
 specifier|final
@@ -1041,7 +1025,7 @@ condition|(
 name|useOriginalBody
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1179,7 +1163,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1206,7 +1190,7 @@ block|}
 else|else
 block|{
 comment|// run without thread-pool
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1370,7 +1354,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1405,7 +1389,7 @@ block|}
 else|else
 block|{
 comment|// run without thread-pool
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1618,7 +1602,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1645,7 +1629,7 @@ block|}
 else|else
 block|{
 comment|// run without thread-pool
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

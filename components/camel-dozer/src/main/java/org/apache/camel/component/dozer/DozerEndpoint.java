@@ -222,26 +222,6 @@ name|ResourceHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The dozer component provides the ability to map between Java beans using the Dozer mapping library.  */
 end_comment
@@ -281,22 +261,6 @@ name|DozerEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|DozerEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|// IDs for built-in custom converters used with the Dozer component
 DECL|field|CUSTOM_MAPPING_ID
 specifier|private
@@ -566,7 +530,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(

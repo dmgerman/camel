@@ -206,22 +206,6 @@ name|Pipeline
 extends|extends
 name|MulticastProcessor
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|Pipeline
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|id
 specifier|private
 name|String
@@ -539,7 +523,7 @@ operator|!
 name|sync
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -557,7 +541,7 @@ return|return
 literal|false
 return|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -579,7 +563,7 @@ name|nextExchange
 argument_list|,
 literal|"so breaking out of pipeline"
 argument_list|,
-name|LOG
+name|log
 argument_list|)
 condition|)
 block|{
@@ -589,7 +573,7 @@ block|}
 comment|// logging nextExchange as it contains the exchange that might have altered the payload and since
 comment|// we are logging the completion if will be confusing if we log the original instead
 comment|// we could also consider logging the original and the nextExchange then we have *before* and *after* snapshots
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -654,7 +638,7 @@ name|asyncProcessor
 parameter_list|)
 block|{
 comment|// this does the actual processing so log at trace level
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -741,7 +725,7 @@ name|nextExchange
 argument_list|,
 literal|"so breaking out of pipeline"
 argument_list|,
-name|LOG
+name|log
 argument_list|)
 condition|)
 block|{
@@ -776,7 +760,7 @@ operator|!
 name|isDoneSync
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -800,7 +784,7 @@ argument_list|,
 name|nextExchange
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -912,7 +896,7 @@ condition|(
 name|doStop
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -943,7 +927,7 @@ name|hasNext
 argument_list|()
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

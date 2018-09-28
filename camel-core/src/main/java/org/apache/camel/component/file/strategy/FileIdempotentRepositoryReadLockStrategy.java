@@ -261,23 +261,6 @@ argument_list|>
 implements|,
 name|CamelContextAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|FileIdempotentRepositoryReadLockStrategy
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|endpoint
 specifier|private
 name|GenericFileEndpoint
@@ -373,7 +356,7 @@ name|endpoint
 operator|=
 name|endpoint
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -462,7 +445,7 @@ name|CamelLogger
 operator|.
 name|log
 argument_list|(
-name|LOG
+name|log
 argument_list|,
 name|readLockLoggingLevel
 argument_list|,
@@ -579,7 +562,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -610,7 +593,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -717,7 +700,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -748,7 +731,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

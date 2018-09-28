@@ -157,22 +157,6 @@ argument_list|,
 name|AS2ApiCollection
 argument_list|>
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|AS2Component
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|AS2Component ()
 specifier|public
 name|AS2Component
@@ -341,7 +325,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

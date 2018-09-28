@@ -256,26 +256,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The PubNub producer.  */
 end_comment
@@ -288,22 +268,6 @@ name|PubNubProducer
 extends|extends
 name|DefaultAsyncProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|PubNubProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|endpoint
 specifier|private
 specifier|final
@@ -369,7 +333,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -558,7 +522,7 @@ literal|"Can not publish empty message"
 argument_list|)
 throw|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -715,7 +679,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -865,7 +829,7 @@ name|PNStatus
 name|status
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -945,7 +909,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1013,7 +977,7 @@ name|PNStatus
 name|status
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1102,7 +1066,7 @@ name|PNStatus
 name|status
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1195,7 +1159,7 @@ name|PNStatus
 name|status
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1270,7 +1234,7 @@ name|PNStatus
 name|status
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

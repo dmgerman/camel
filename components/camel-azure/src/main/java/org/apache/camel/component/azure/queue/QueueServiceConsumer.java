@@ -84,26 +84,6 @@ name|ScheduledPollConsumer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A Consumer of the queue content from the Azure Queue Service  */
 end_comment
@@ -116,22 +96,6 @@ name|QueueServiceConsumer
 extends|extends
 name|ScheduledPollConsumer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|QueueServiceConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|QueueServiceConsumer (QueueServiceEndpoint endpoint, Processor processor)
 specifier|public
 name|QueueServiceConsumer
@@ -176,7 +140,7 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

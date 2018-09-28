@@ -476,26 +476,6 @@ name|GenericObjectPool
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_class
 DECL|class|NettyProducer
 specifier|public
@@ -504,22 +484,6 @@ name|NettyProducer
 extends|extends
 name|DefaultAsyncProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|NettyProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|allChannels
 specifier|private
 name|ChannelGroup
@@ -604,7 +568,7 @@ operator|=
 operator|new
 name|CamelLogger
 argument_list|(
-name|LOG
+name|log
 argument_list|,
 name|configuration
 operator|.
@@ -895,13 +859,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -948,13 +912,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1078,7 +1042,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1091,7 +1055,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// close all channels
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1143,13 +1107,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1373,13 +1337,13 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1454,7 +1418,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1714,7 +1678,7 @@ condition|(
 name|disconnect
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1933,7 +1897,7 @@ name|NettyHelper
 operator|.
 name|writeBodyAsync
 argument_list|(
-name|LOG
+name|log
 argument_list|,
 name|channel
 argument_list|,
@@ -1957,7 +1921,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2080,13 +2044,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2387,13 +2351,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2609,13 +2573,13 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2659,13 +2623,13 @@ block|{
 comment|// blocking for channel to be done
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2701,13 +2665,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2750,7 +2714,7 @@ name|isActive
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2770,7 +2734,7 @@ block|}
 else|else
 block|{
 comment|// and if its not active then invalidate it
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2794,7 +2758,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2978,7 +2942,7 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3004,7 +2968,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3097,7 +3061,7 @@ name|isDone
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3121,7 +3085,7 @@ name|isSuccess
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3152,7 +3116,7 @@ operator|.
 name|isActive
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3181,7 +3145,7 @@ throws|throws
 name|Exception
 block|{
 comment|// noop
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3205,7 +3169,7 @@ throws|throws
 name|Exception
 block|{
 comment|// noop
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

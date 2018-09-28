@@ -368,26 +368,6 @@ name|BlueprintListener
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * OSGi Blueprint based {@link org.apache.camel.CamelContext}.  */
 end_comment
@@ -404,22 +384,6 @@ name|ServiceListener
 implements|,
 name|BlueprintListener
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|BlueprintCamelContext
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|routeDefinitionValid
 specifier|protected
 specifier|final
@@ -611,7 +575,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -655,7 +619,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -681,7 +645,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -716,7 +680,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -781,7 +745,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
@@ -875,7 +839,7 @@ literal|"UNKNOWN"
 expr_stmt|;
 break|break;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -942,7 +906,7 @@ condition|)
 block|{
 try|try
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -966,7 +930,7 @@ name|Exception
 name|startEx
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -997,7 +961,7 @@ condition|)
 block|{
 try|try
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1021,7 +985,7 @@ name|Exception
 name|stopEx
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|error
 argument_list|(
@@ -1052,7 +1016,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
@@ -1117,7 +1081,7 @@ expr_stmt|;
 break|break;
 block|}
 comment|// use trace logging as this is very noisy
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1304,7 +1268,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1322,7 +1286,7 @@ name|get
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1415,7 +1379,7 @@ condition|(
 name|skip
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1437,7 +1401,7 @@ name|isStarting
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1453,7 +1417,7 @@ block|}
 else|else
 block|{
 comment|// ignore as Camel is already started
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

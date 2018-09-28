@@ -192,26 +192,6 @@ name|View
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The jgroups component provides exchange of messages between Camel and JGroups clusters.  */
 end_comment
@@ -288,22 +268,6 @@ name|String
 name|HEADER_JGROUPS_CHANNEL_ADDRESS
 init|=
 literal|"JGROUPS_CHANNEL_ADDRESS"
-decl_stmt|;
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|JGroupsEndpoint
-operator|.
-name|class
-argument_list|)
 decl_stmt|;
 DECL|field|connectCount
 specifier|private
@@ -644,7 +608,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -725,7 +689,7 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -760,7 +724,7 @@ operator|==
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

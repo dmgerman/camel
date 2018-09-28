@@ -332,26 +332,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a>  * ({@link DataFormat}) using<a href="http://jackson.codehaus.org/">Jackson</a>  * to marshal to and from XML.  */
 end_comment
@@ -370,22 +350,6 @@ name|DataFormatName
 implements|,
 name|CamelContextAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|JacksonXMLDataFormat
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|camelContext
 specifier|private
 name|CamelContext
@@ -1780,7 +1744,7 @@ operator|new
 name|JaxbAnnotationModule
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2187,7 +2151,7 @@ range|:
 name|modules
 control|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2274,7 +2238,7 @@ argument_list|(
 name|clazz
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2366,7 +2330,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -2396,7 +2360,7 @@ name|timezone
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

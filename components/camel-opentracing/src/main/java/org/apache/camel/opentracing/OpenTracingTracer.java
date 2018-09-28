@@ -458,26 +458,6 @@ name|StringHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * To use OpenTracing with Camel then setup this {@link OpenTracingTracer} in  * your Camel application.  *<p/>  * This class is implemented as both an  * {@link org.apache.camel.spi.EventNotifier} and {@link RoutePolicy} that  * allows to trap when Camel starts/ends an {@link Exchange} being routed using  * the {@link RoutePolicy} and during the routing if the {@link Exchange} sends  * messages, then we track them using the  * {@link org.apache.camel.spi.EventNotifier}.  */
 end_comment
@@ -503,22 +483,6 @@ name|StaticService
 implements|,
 name|CamelContextAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|OpenTracingTracer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|decorators
 specifier|private
 specifier|static
@@ -1012,7 +976,7 @@ expr_stmt|;
 block|}
 name|ServiceHelper
 operator|.
-name|startServices
+name|startService
 argument_list|(
 name|eventNotifier
 argument_list|)
@@ -1413,13 +1377,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1503,13 +1467,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1554,7 +1518,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1576,7 +1540,7 @@ name|t
 parameter_list|)
 block|{
 comment|// This exception is ignored
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1770,13 +1734,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1794,7 +1758,7 @@ name|t
 parameter_list|)
 block|{
 comment|// This exception is ignored
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1855,13 +1819,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1911,7 +1875,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1929,7 +1893,7 @@ name|t
 parameter_list|)
 block|{
 comment|// This exception is ignored
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2023,7 +1987,7 @@ name|t
 parameter_list|)
 block|{
 comment|// This exception is ignored
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(

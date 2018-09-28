@@ -708,22 +708,6 @@ name|AGGREGATE_TIMEOUT_CHECKER
 init|=
 literal|"AggregateTimeoutChecker"
 decl_stmt|;
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|AggregateProcessor
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|lock
 specifier|private
 specifier|final
@@ -1735,7 +1719,7 @@ name|isIgnoreInvalidCorrelationKeys
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1889,7 +1873,7 @@ name|OptimisticLockingException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2158,7 +2142,7 @@ parameter_list|)
 throws|throws
 name|CamelExchangeException
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2602,7 +2586,7 @@ literal|true
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -2702,7 +2686,7 @@ name|answer
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2907,7 +2891,7 @@ name|Exchange
 name|newExchange
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3025,7 +3009,7 @@ operator|instanceof
 name|OptimisticLockingAwareAggregationStrategy
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3442,13 +3426,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3496,13 +3480,13 @@ block|{
 comment|// timeout is used so use the timeout map to keep an eye on this
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3709,7 +3693,7 @@ literal|null
 condition|)
 block|{
 comment|// cleanup timeout map if it was a incoming exchange which triggered the timeout (and not the timeout checker)
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3831,7 +3815,7 @@ argument_list|()
 condition|)
 block|{
 comment|// discard due timeout
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -3901,7 +3885,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -4132,7 +4116,7 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -4210,7 +4194,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -4267,7 +4251,7 @@ operator|new
 name|StopWatch
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -4332,7 +4316,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -4358,7 +4342,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// log duration of this task so end user can see how long it takes to pre-check this upon starting
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -5176,7 +5160,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -5204,7 +5188,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -5381,7 +5365,7 @@ condition|(
 name|inProgress
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -5490,7 +5474,7 @@ operator|&&
 name|evictionStolen
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -5537,7 +5521,7 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -5551,7 +5535,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -5637,7 +5621,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -5711,7 +5695,7 @@ operator|&&
 name|stolenInterval
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -5739,7 +5723,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -5797,7 +5781,7 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -5811,7 +5795,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -5862,7 +5846,7 @@ name|isRunAllowed
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -5909,7 +5893,7 @@ condition|(
 name|inProgress
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -5921,7 +5905,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -6021,7 +6005,7 @@ name|getMaximumRedeliveries
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -6227,7 +6211,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -6268,7 +6252,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -6348,7 +6332,7 @@ name|preCompletion
 operator|=
 literal|true
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -6430,7 +6414,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -6453,7 +6437,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -6484,7 +6468,7 @@ argument_list|(
 name|optimisticLocking
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -6515,7 +6499,7 @@ literal|"Optimistic locking cannot be enabled without using an AggregationReposi
 argument_list|)
 throw|;
 block|}
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -6609,7 +6593,7 @@ argument_list|(
 name|recoverable
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -6669,7 +6653,7 @@ name|max
 argument_list|)
 throw|;
 block|}
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -6754,7 +6738,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -6830,7 +6814,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -7157,7 +7141,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -7184,7 +7168,7 @@ name|e
 parameter_list|)
 block|{
 comment|// break out as we got interrupted such as the JVM terminating
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -7204,7 +7188,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -7345,7 +7329,7 @@ name|total
 operator|=
 literal|1
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -7412,7 +7396,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -7428,7 +7412,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -7476,7 +7460,7 @@ operator|!
 name|allow
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -7492,7 +7476,7 @@ return|return
 literal|0
 return|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -7578,7 +7562,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -7647,7 +7631,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -7661,7 +7645,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

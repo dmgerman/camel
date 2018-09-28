@@ -253,26 +253,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -298,22 +278,6 @@ name|PdfProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|PdfProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|writeStrategy
 specifier|private
 specifier|final
@@ -528,7 +492,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -665,7 +629,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -719,7 +683,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

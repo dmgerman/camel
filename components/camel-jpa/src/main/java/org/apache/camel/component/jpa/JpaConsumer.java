@@ -242,26 +242,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|orm
@@ -324,22 +304,6 @@ name|JpaConsumer
 extends|extends
 name|ScheduledBatchPollingConsumer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|JpaConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|NOWAIT
 specifier|private
 specifier|static
@@ -586,7 +550,7 @@ name|createEntityManager
 argument_list|()
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -668,7 +632,7 @@ argument_list|(
 name|query
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -688,7 +652,7 @@ operator|.
 name|getResultList
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -815,7 +779,7 @@ name|isTransacted
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -839,7 +803,7 @@ throw|;
 block|}
 block|}
 comment|// commit
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -873,7 +837,7 @@ parameter_list|)
 block|{
 comment|// Potentially EntityManager could be in an inconsistent state after transaction rollback,
 comment|// so disposing it to have it recreated in next poll. cf. Java Persistence API 3.3.2 Transaction Rollback
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -955,7 +919,7 @@ operator|>
 name|maxMessagesPerPoll
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1103,7 +1067,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 comment|// process the current exchange
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1578,7 +1542,7 @@ return|;
 block|}
 try|try
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1629,13 +1593,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -2585,7 +2549,7 @@ name|createEntityManager
 argument_list|()
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -2638,7 +2602,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

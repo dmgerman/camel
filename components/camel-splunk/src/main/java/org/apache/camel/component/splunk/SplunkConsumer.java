@@ -192,26 +192,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The Splunk consumer.  */
 end_comment
@@ -224,22 +204,6 @@ name|SplunkConsumer
 extends|extends
 name|ScheduledBatchPollingConsumer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|SplunkConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|dataReader
 specifier|private
 name|SplunkDataReader
@@ -435,7 +399,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -465,7 +429,7 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -606,7 +570,7 @@ argument_list|>
 name|splunkEvents
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -771,7 +735,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(

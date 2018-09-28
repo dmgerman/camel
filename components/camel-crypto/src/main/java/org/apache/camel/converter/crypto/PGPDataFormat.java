@@ -208,7 +208,7 @@ name|SIGNATURE_KEY_PASSWORD
 init|=
 literal|"CamelPGPDataFormatSignatureKeyPassword"
 decl_stmt|;
-comment|//private static final Logger LOG = LoggerFactory.getLogger(PGPDataFormatChanged.class);
+comment|//private static final Logger log = LoggerFactory.getLogger(PGPDataFormatChanged.class);
 DECL|field|password
 specifier|private
 name|String

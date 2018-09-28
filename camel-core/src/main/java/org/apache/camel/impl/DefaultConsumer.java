@@ -212,26 +212,6 @@ name|UnitOfWorkHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A default consumer useful for implementation inheritance.  *  * @version   */
 end_comment
@@ -248,20 +228,6 @@ name|Consumer
 implements|,
 name|RouteAware
 block|{
-DECL|field|log
-specifier|protected
-specifier|final
-name|Logger
-name|log
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|)
-decl_stmt|;
 DECL|field|consumerToString
 specifier|private
 specifier|transient

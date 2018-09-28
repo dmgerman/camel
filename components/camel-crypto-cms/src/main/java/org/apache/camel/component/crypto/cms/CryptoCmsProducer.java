@@ -78,7 +78,7 @@ name|CryptoCmsProducer
 extends|extends
 name|DefaultProducer
 block|{
-comment|// private static final Logger LOG =
+comment|// private static final Logger log =
 comment|// LoggerFactory.getLogger(CmsProducer.class);
 DECL|field|processor
 specifier|private

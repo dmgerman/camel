@@ -102,26 +102,6 @@ name|SqlSession
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_class
 DECL|class|MyBatisBeanProducer
 specifier|public
@@ -130,22 +110,6 @@ name|MyBatisBeanProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|MyBatisBeanProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|endpoint
 specifier|private
 specifier|final
@@ -227,7 +191,7 @@ name|executorType
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -271,7 +235,7 @@ block|}
 finally|finally
 block|{
 comment|// and finally close the session as we're done
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -301,7 +265,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -403,7 +367,7 @@ literal|null
 condition|)
 block|{
 comment|// set the result as header for insert
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -436,7 +400,7 @@ block|}
 else|else
 block|{
 comment|// set the result as body for insert
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -532,7 +496,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -579,7 +543,7 @@ literal|" in MyBatis configuration."
 argument_list|)
 throw|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

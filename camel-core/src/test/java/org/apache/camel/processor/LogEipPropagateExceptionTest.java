@@ -285,7 +285,7 @@ argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|"FAULTY LOG"
+literal|"FAULTY log"
 argument_list|)
 operator|.
 name|to
