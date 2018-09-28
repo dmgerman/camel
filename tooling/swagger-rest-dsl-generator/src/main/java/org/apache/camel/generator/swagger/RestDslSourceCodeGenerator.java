@@ -628,7 +628,7 @@ expr_stmt|;
 block|}
 specifier|final
 name|TypeSpec
-name|generatedRouteBulder
+name|generatedRouteBuilder
 init|=
 name|TypeSpec
 operator|.
@@ -694,7 +694,7 @@ name|builder
 argument_list|(
 name|packageNameToUse
 argument_list|,
-name|generatedRouteBulder
+name|generatedRouteBuilder
 argument_list|)
 operator|.
 name|indent
