@@ -22,7 +22,29 @@ name|io
 operator|.
 name|opentracing
 operator|.
+name|propagation
+operator|.
+name|TextMap
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|opentracing
+operator|.
 name|Span
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -169,6 +191,34 @@ DECL|method|getReceiverSpanKind ()
 name|String
 name|getReceiverSpanKind
 parameter_list|()
+function_decl|;
+comment|/**      * This method returns the map to be used for headers extraction      * when the component is receiving a communication.      *      * @param a map containing the objects      * @return The extraction map      */
+DECL|method|getExtractAdapter (Map<String, Object> map)
+name|TextMap
+name|getExtractAdapter
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|map
+parameter_list|)
+function_decl|;
+comment|/**      * This method returns the map to be used for headers injection      *  when the component is receiving a communication.      *      * @param a map containing the objects      * @return The injection map      */
+DECL|method|getInjectAdapter (Map<String, Object> map)
+name|TextMap
+name|getInjectAdapter
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|map
+parameter_list|)
 function_decl|;
 block|}
 end_interface
