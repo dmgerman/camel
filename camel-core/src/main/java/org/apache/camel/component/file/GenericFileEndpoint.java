@@ -5343,7 +5343,7 @@ expr_stmt|;
 block|}
 name|ServiceHelper
 operator|.
-name|startServices
+name|startService
 argument_list|(
 name|inProgressRepository
 argument_list|)
@@ -5371,7 +5371,7 @@ argument_list|()
 expr_stmt|;
 name|ServiceHelper
 operator|.
-name|stopServices
+name|stopService
 argument_list|(
 name|inProgressRepository
 argument_list|)

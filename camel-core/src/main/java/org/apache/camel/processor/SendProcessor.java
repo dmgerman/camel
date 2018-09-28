@@ -1270,7 +1270,7 @@ name|Exception
 block|{
 name|ServiceHelper
 operator|.
-name|stopServices
+name|stopService
 argument_list|(
 name|producerCache
 argument_list|,

@@ -140,7 +140,7 @@ condition|)
 block|{
 name|ServiceHelper
 operator|.
-name|startServices
+name|startService
 argument_list|(
 name|childServices
 argument_list|)
@@ -333,7 +333,7 @@ condition|)
 block|{
 name|ServiceHelper
 operator|.
-name|stopServices
+name|stopService
 argument_list|(
 name|childServices
 argument_list|)

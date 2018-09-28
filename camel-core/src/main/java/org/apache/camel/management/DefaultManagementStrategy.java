@@ -899,7 +899,7 @@ name|Exception
 block|{
 name|ServiceHelper
 operator|.
-name|stopServices
+name|stopService
 argument_list|(
 name|managementAgent
 argument_list|,

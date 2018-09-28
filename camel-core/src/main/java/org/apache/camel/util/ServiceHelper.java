@@ -215,7 +215,7 @@ specifier|private
 name|ServiceHelper
 parameter_list|()
 block|{     }
-comment|/**      * Starts the given {@code value} if it's a {@link Service} or a collection of it.      *<p/>      * Calling this method has no effect if {@code value} is {@code null}.      *       * @see #startService(Service)      * @see #startServices(Collection)      */
+comment|/**      * Starts the given {@code value} if it's a {@link Service} or a collection of it.      *<p/>      * Calling this method has no effect if {@code value} is {@code null}.      */
 DECL|method|startService (Object value)
 specifier|public
 specifier|static
@@ -235,13 +235,15 @@ operator|instanceof
 name|Service
 condition|)
 block|{
-name|startService
-argument_list|(
+operator|(
 operator|(
 name|Service
 operator|)
 name|value
-argument_list|)
+operator|)
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -249,55 +251,34 @@ if|if
 condition|(
 name|value
 operator|instanceof
-name|Collection
+name|Iterable
 condition|)
 block|{
-name|startServices
-argument_list|(
+for|for
+control|(
+name|Object
+name|o
+range|:
 operator|(
-name|Collection
-argument_list|<
-name|?
-argument_list|>
+name|Iterable
 operator|)
 name|value
+control|)
+block|{
+name|startService
+argument_list|(
+name|o
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Starts the given {@code service}.      *<p/>      * Calling this method has no effect if {@code service} is {@code null}.      *       * @see Service#start()      */
-DECL|method|startService (Service service)
+block|}
+comment|/**      * Starts each element of the given {@code services} if {@code services} itself is      * not {@code null}, otherwise this method would return immediately.      *       * @see #startService(Object)      */
+DECL|method|startService (Object... services)
 specifier|public
 specifier|static
 name|void
 name|startService
-parameter_list|(
-name|Service
-name|service
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-name|service
-operator|!=
-literal|null
-condition|)
-block|{
-name|service
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-comment|/**      * Starts each element of the given {@code services} if {@code services} itself is      * not {@code null}, otherwise this method would return immediately.      *       * @see #startServices(Collection)      */
-DECL|method|startServices (Object... services)
-specifier|public
-specifier|static
-name|void
-name|startServices
 parameter_list|(
 name|Object
 modifier|...
@@ -309,77 +290,32 @@ block|{
 if|if
 condition|(
 name|services
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
-return|return;
-block|}
-name|List
-argument_list|<
-name|Object
-argument_list|>
-name|list
-init|=
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-name|services
-argument_list|)
-decl_stmt|;
-name|startServices
-argument_list|(
-name|list
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Starts each element of the given {@code services} if {@code services} itself is      * not {@code null}, otherwise this method would return immediately.      *       * @see #startService(Object)      */
-DECL|method|startServices (Collection<?> services)
-specifier|public
-specifier|static
-name|void
-name|startServices
-parameter_list|(
-name|Collection
-argument_list|<
-name|?
-argument_list|>
-name|services
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-name|services
-operator|==
-literal|null
-condition|)
-block|{
-return|return;
-block|}
 for|for
 control|(
 name|Object
-name|value
+name|o
 range|:
 name|services
 control|)
 block|{
 name|startService
 argument_list|(
-name|value
+name|o
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Stops each element of the given {@code services} if {@code services} itself is      * not {@code null}, otherwise this method would return immediately.      *<p/>      * If there's any exception being thrown while stopping the elements one after the      * other this method would rethrow the<b>first</b> such exception being thrown.      *       * @see #stopServices(Collection)      */
-DECL|method|stopServices (Object... services)
+block|}
+comment|/**      * Stops each element of the given {@code services} if {@code services} itself is      * not {@code null}, otherwise this method would return immediately.      *<p/>      * If there's any exception being thrown while stopping the elements one after the      * other this method would rethrow the<b>first</b> such exception being thrown.      *       * @see #stopService(Collection)      */
+DECL|method|stopService (Object... services)
 specifier|public
 specifier|static
 name|void
-name|stopServices
+name|stopService
 parameter_list|(
 name|Object
 modifier|...
@@ -391,32 +327,27 @@ block|{
 if|if
 condition|(
 name|services
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
-return|return;
-block|}
-name|List
-argument_list|<
+for|for
+control|(
 name|Object
-argument_list|>
-name|list
-init|=
-name|Arrays
-operator|.
-name|asList
-argument_list|(
+name|o
+range|:
 name|services
-argument_list|)
-decl_stmt|;
-name|stopServices
+control|)
+block|{
+name|stopService
 argument_list|(
-name|list
+name|o
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Stops the given {@code value}, rethrowing the first exception caught.      *<p/>      * Calling this method has no effect if {@code value} is {@code null}.      *       * @see Service#stop()      * @see #stopServices(Collection)      */
+block|}
+block|}
+comment|/**      * Stops the given {@code value}, rethrowing the first exception caught.      *<p/>      * Calling this method has no effect if {@code value} is {@code null}.      *       * @see Service#stop()      * @see #stopService(Collection)      */
 DECL|method|stopService (Object value)
 specifier|public
 specifier|static
@@ -431,49 +362,17 @@ name|Exception
 block|{
 if|if
 condition|(
-name|isStopped
-argument_list|(
-name|value
-argument_list|)
-condition|)
-block|{
-comment|// only stop service if not already stopped
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Service already stopped: {}"
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-if|if
-condition|(
 name|value
 operator|instanceof
 name|Service
 condition|)
 block|{
-name|Service
-name|service
-init|=
+operator|(
 operator|(
 name|Service
 operator|)
 name|value
-decl_stmt|;
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Stopping service {}"
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
-name|service
+operator|)
 operator|.
 name|stop
 argument_list|()
@@ -484,28 +383,34 @@ if|if
 condition|(
 name|value
 operator|instanceof
-name|Collection
+name|Iterable
 condition|)
 block|{
-name|stopServices
-argument_list|(
+for|for
+control|(
+name|Object
+name|o
+range|:
 operator|(
-name|Collection
-argument_list|<
-name|?
-argument_list|>
+name|Iterable
 operator|)
 name|value
+control|)
+block|{
+name|stopService
+argument_list|(
+name|o
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 comment|/**      * Stops each element of the given {@code services} if {@code services} itself is      * not {@code null}, otherwise this method would return immediately.      *<p/>      * If there's any exception being thrown while stopping the elements one after the      * other this method would rethrow the<b>first</b> such exception being thrown.      *       * @see #stopService(Object)      */
-DECL|method|stopServices (Collection<?> services)
+DECL|method|stopService (Collection<?> services)
 specifier|public
 specifier|static
 name|void
-name|stopServices
+name|stopService
 parameter_list|(
 name|Collection
 argument_list|<

@@ -2863,7 +2863,7 @@ argument_list|()
 expr_stmt|;
 name|ServiceHelper
 operator|.
-name|stopServices
+name|stopService
 argument_list|(
 name|bootstrapFactories
 operator|.

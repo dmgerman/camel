@@ -1997,7 +1997,7 @@ expr_stmt|;
 block|}
 name|ServiceHelper
 operator|.
-name|startServices
+name|startService
 argument_list|(
 name|producerCache
 argument_list|,
@@ -2015,7 +2015,7 @@ name|Exception
 block|{
 name|ServiceHelper
 operator|.
-name|stopServices
+name|stopService
 argument_list|(
 name|producerCache
 argument_list|,

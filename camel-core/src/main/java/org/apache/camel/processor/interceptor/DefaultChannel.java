@@ -793,7 +793,7 @@ argument_list|)
 expr_stmt|;
 name|ServiceHelper
 operator|.
-name|startServices
+name|startService
 argument_list|(
 name|errorHandler
 argument_list|,
@@ -821,7 +821,7 @@ block|{
 comment|// only stop services if not context scoped (as context scoped is reused by others)
 name|ServiceHelper
 operator|.
-name|stopServices
+name|stopService
 argument_list|(
 name|output
 argument_list|,

@@ -5402,7 +5402,7 @@ decl_stmt|;
 comment|// must start the error handler
 name|ServiceHelper
 operator|.
-name|startServices
+name|startService
 argument_list|(
 name|answer
 argument_list|)
@@ -5673,7 +5673,7 @@ expr_stmt|;
 block|}
 name|ServiceHelper
 operator|.
-name|startServices
+name|startService
 argument_list|(
 name|aggregationStrategy
 argument_list|,
@@ -5719,7 +5719,7 @@ name|Exception
 block|{
 name|ServiceHelper
 operator|.
-name|stopServices
+name|stopService
 argument_list|(
 name|processors
 argument_list|,

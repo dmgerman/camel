@@ -363,7 +363,7 @@ name|Exception
 block|{
 name|ServiceHelper
 operator|.
-name|stopServices
+name|stopService
 argument_list|(
 name|processor
 argument_list|)

@@ -17084,7 +17084,7 @@ expr_stmt|;
 comment|// Start the route controller
 name|ServiceHelper
 operator|.
-name|startServices
+name|startService
 argument_list|(
 name|this
 operator|.
@@ -17974,7 +17974,7 @@ expr_stmt|;
 comment|// start lifecycle strategies
 name|ServiceHelper
 operator|.
-name|startServices
+name|startService
 argument_list|(
 name|lifecycleStrategies
 argument_list|)

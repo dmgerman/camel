@@ -277,7 +277,7 @@ expr_stmt|;
 comment|// make sure we properly stop the services we created
 name|ServiceHelper
 operator|.
-name|stopServices
+name|stopService
 argument_list|(
 name|producer1
 argument_list|,

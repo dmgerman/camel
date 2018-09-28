@@ -1345,7 +1345,7 @@ else|else
 block|{
 name|ServiceHelper
 operator|.
-name|stopServices
+name|stopService
 argument_list|(
 name|route
 argument_list|)

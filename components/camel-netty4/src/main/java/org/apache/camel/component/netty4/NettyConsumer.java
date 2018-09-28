@@ -332,7 +332,7 @@ expr_stmt|;
 block|}
 name|ServiceHelper
 operator|.
-name|startServices
+name|startService
 argument_list|(
 name|nettyServerBootstrapFactory
 argument_list|)

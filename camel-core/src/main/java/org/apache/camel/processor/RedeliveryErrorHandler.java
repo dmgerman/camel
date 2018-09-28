@@ -6804,7 +6804,7 @@ name|Exception
 block|{
 name|ServiceHelper
 operator|.
-name|startServices
+name|startService
 argument_list|(
 name|output
 argument_list|,

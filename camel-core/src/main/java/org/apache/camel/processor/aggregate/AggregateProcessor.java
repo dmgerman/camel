@@ -6525,7 +6525,7 @@ expr_stmt|;
 block|}
 name|ServiceHelper
 operator|.
-name|startServices
+name|startService
 argument_list|(
 name|aggregationStrategy
 argument_list|,
@@ -6994,7 +6994,7 @@ expr_stmt|;
 block|}
 name|ServiceHelper
 operator|.
-name|stopServices
+name|stopService
 argument_list|(
 name|timeoutMap
 argument_list|,

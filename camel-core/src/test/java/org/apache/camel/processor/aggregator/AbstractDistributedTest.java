@@ -213,7 +213,7 @@ argument_list|()
 expr_stmt|;
 name|ServiceHelper
 operator|.
-name|startServices
+name|startService
 argument_list|(
 name|template2
 argument_list|,

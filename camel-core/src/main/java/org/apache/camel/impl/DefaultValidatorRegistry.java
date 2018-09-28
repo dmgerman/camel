@@ -1095,7 +1095,7 @@ name|Exception
 block|{
 name|ServiceHelper
 operator|.
-name|stopServices
+name|stopService
 argument_list|(
 name|staticMap
 operator|.
@@ -1105,7 +1105,7 @@ argument_list|)
 expr_stmt|;
 name|ServiceHelper
 operator|.
-name|stopServices
+name|stopService
 argument_list|(
 name|dynamicMap
 operator|.

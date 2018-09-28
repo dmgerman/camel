@@ -171,7 +171,7 @@ argument_list|()
 expr_stmt|;
 name|ServiceHelper
 operator|.
-name|startServices
+name|startService
 argument_list|(
 name|template2
 argument_list|,
@@ -215,7 +215,7 @@ name|Exception
 block|{
 name|ServiceHelper
 operator|.
-name|stopServices
+name|stopService
 argument_list|(
 name|context2
 argument_list|,
