@@ -70,12 +70,6 @@ name|boolean
 name|isRunAllowed
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the version of this service      *      * @return the version      */
-DECL|method|getVersion ()
-name|String
-name|getVersion
-parameter_list|()
-function_decl|;
 block|}
 end_interface
 
