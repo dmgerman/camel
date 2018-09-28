@@ -566,6 +566,11 @@ name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
+DECL|field|encoding
+specifier|private
+name|boolean
+name|encoding
+decl_stmt|;
 static|static
 block|{
 name|ServiceLoader
@@ -782,6 +787,32 @@ operator|.
 name|excludePatterns
 operator|=
 name|excludePatterns
+expr_stmt|;
+block|}
+DECL|method|isEncoding ()
+specifier|public
+name|boolean
+name|isEncoding
+parameter_list|()
+block|{
+return|return
+name|encoding
+return|;
+block|}
+DECL|method|setEncoding (boolean encoding)
+specifier|public
+name|void
+name|setEncoding
+parameter_list|(
+name|boolean
+name|encoding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encoding
+operator|=
+name|encoding
 expr_stmt|;
 block|}
 comment|/**      * Adds an exclude pattern that will disable tracing for Camel messages that matches the pattern.      *      * @param pattern  the pattern such as route id, endpoint url      */
@@ -1349,6 +1380,8 @@ argument_list|()
 operator|.
 name|getHeaders
 argument_list|()
+argument_list|,
+name|encoding
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1674,6 +1707,8 @@ argument_list|()
 operator|.
 name|getHeaders
 argument_list|()
+argument_list|,
+name|encoding
 argument_list|)
 argument_list|)
 argument_list|)

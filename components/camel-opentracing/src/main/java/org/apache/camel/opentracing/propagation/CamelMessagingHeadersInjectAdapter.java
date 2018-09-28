@@ -81,7 +81,13 @@ name|Object
 argument_list|>
 name|map
 decl_stmt|;
-DECL|method|CamelMessagingHeadersInjectAdapter (final Map<String, Object> map)
+DECL|field|jmsEncoding
+specifier|private
+specifier|final
+name|boolean
+name|jmsEncoding
+decl_stmt|;
+DECL|method|CamelMessagingHeadersInjectAdapter (final Map<String, Object> map, boolean jmsEncoding)
 specifier|public
 name|CamelMessagingHeadersInjectAdapter
 parameter_list|(
@@ -93,6 +99,9 @@ argument_list|,
 name|Object
 argument_list|>
 name|map
+parameter_list|,
+name|boolean
+name|jmsEncoding
 parameter_list|)
 block|{
 name|this
@@ -100,6 +109,12 @@ operator|.
 name|map
 operator|=
 name|map
+expr_stmt|;
+name|this
+operator|.
+name|jmsEncoding
+operator|=
+name|jmsEncoding
 expr_stmt|;
 block|}
 annotation|@
@@ -190,6 +205,9 @@ name|key
 operator|.
 name|isEmpty
 argument_list|()
+operator|||
+operator|!
+name|jmsEncoding
 condition|)
 block|{
 return|return

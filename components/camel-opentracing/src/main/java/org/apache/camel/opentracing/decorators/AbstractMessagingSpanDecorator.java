@@ -293,7 +293,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getExtractAdapter (final Map<String, Object> map)
+DECL|method|getExtractAdapter (final Map<String, Object> map, final boolean jmsEncoding)
 specifier|public
 name|TextMap
 name|getExtractAdapter
@@ -306,6 +306,10 @@ argument_list|,
 name|Object
 argument_list|>
 name|map
+parameter_list|,
+specifier|final
+name|boolean
+name|jmsEncoding
 parameter_list|)
 block|{
 return|return
@@ -313,12 +317,14 @@ operator|new
 name|CamelMessagingHeadersExtractAdapter
 argument_list|(
 name|map
+argument_list|,
+name|jmsEncoding
 argument_list|)
 return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getInjectAdapter (final Map<String, Object> map)
+DECL|method|getInjectAdapter (final Map<String, Object> map, final boolean jmsEncoding)
 specifier|public
 name|TextMap
 name|getInjectAdapter
@@ -331,6 +337,10 @@ argument_list|,
 name|Object
 argument_list|>
 name|map
+parameter_list|,
+specifier|final
+name|boolean
+name|jmsEncoding
 parameter_list|)
 block|{
 return|return
@@ -338,6 +348,8 @@ operator|new
 name|CamelMessagingHeadersInjectAdapter
 argument_list|(
 name|map
+argument_list|,
+name|jmsEncoding
 argument_list|)
 return|;
 block|}

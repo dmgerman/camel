@@ -85,7 +85,13 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|method|CamelMessagingHeadersExtractAdapter (final Map<String, Object> map)
+DECL|field|jmsEncoding
+specifier|private
+specifier|final
+name|boolean
+name|jmsEncoding
+decl_stmt|;
+DECL|method|CamelMessagingHeadersExtractAdapter (final Map<String, Object> map, boolean jmsEncoding)
 specifier|public
 name|CamelMessagingHeadersExtractAdapter
 parameter_list|(
@@ -97,9 +103,18 @@ argument_list|,
 name|Object
 argument_list|>
 name|map
+parameter_list|,
+name|boolean
+name|jmsEncoding
 parameter_list|)
 block|{
 comment|// Extract string valued map entries
+name|this
+operator|.
+name|jmsEncoding
+operator|=
+name|jmsEncoding
+expr_stmt|;
 name|map
 operator|.
 name|entrySet
@@ -209,6 +224,10 @@ name|String
 name|key
 parameter_list|)
 block|{
+if|if
+condition|(
+name|jmsEncoding
+condition|)
 return|return
 name|key
 operator|.
@@ -220,6 +239,10 @@ name|JMS_DASH
 argument_list|,
 literal|"-"
 argument_list|)
+return|;
+else|else
+return|return
+name|key
 return|;
 block|}
 block|}

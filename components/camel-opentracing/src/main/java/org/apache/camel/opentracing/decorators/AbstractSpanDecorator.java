@@ -684,7 +684,7 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|getExtractAdapter (final Map<String, Object> map)
+DECL|method|getExtractAdapter (final Map<String, Object> map, boolean encoding)
 specifier|public
 name|TextMap
 name|getExtractAdapter
@@ -697,8 +697,12 @@ argument_list|,
 name|Object
 argument_list|>
 name|map
+parameter_list|,
+name|boolean
+name|encoding
 parameter_list|)
 block|{
+comment|// no encoding supported per default
 return|return
 operator|new
 name|CamelHeadersExtractAdapter
@@ -709,7 +713,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getInjectAdapter (final Map<String, Object> map)
+DECL|method|getInjectAdapter (final Map<String, Object> map, boolean encoding)
 specifier|public
 name|TextMap
 name|getInjectAdapter
@@ -722,8 +726,12 @@ argument_list|,
 name|Object
 argument_list|>
 name|map
+parameter_list|,
+name|boolean
+name|encoding
 parameter_list|)
 block|{
+comment|// no encoding supported per default
 return|return
 operator|new
 name|CamelHeadersInjectAdapter

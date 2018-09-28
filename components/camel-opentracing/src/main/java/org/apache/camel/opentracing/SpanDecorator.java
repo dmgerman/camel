@@ -192,8 +192,8 @@ name|String
 name|getReceiverSpanKind
 parameter_list|()
 function_decl|;
-comment|/**      * This method returns the map to be used for headers extraction      * when the component is receiving a communication.      *      * @param a map containing the objects      * @return The extraction map      */
-DECL|method|getExtractAdapter (Map<String, Object> map)
+comment|/**      * This method returns the map to be used for headers extraction      * when the component is receiving a communication.      *      * @param a map containing the objects      * @param whether the headers are encoded      * @return The extraction map      */
+DECL|method|getExtractAdapter (Map<String, Object> map, boolean encoding)
 name|TextMap
 name|getExtractAdapter
 parameter_list|(
@@ -204,10 +204,13 @@ argument_list|,
 name|Object
 argument_list|>
 name|map
+parameter_list|,
+name|boolean
+name|encoding
 parameter_list|)
 function_decl|;
-comment|/**      * This method returns the map to be used for headers injection      *  when the component is receiving a communication.      *      * @param a map containing the objects      * @return The injection map      */
-DECL|method|getInjectAdapter (Map<String, Object> map)
+comment|/**      * This method returns the map to be used for headers injection      *  when the component is receiving a communication.      *      * @param a map containing the objects      * @param whether the headers are encoded      * @return The injection map      */
+DECL|method|getInjectAdapter (Map<String, Object> map, boolean encoding)
 name|TextMap
 name|getInjectAdapter
 parameter_list|(
@@ -218,6 +221,9 @@ argument_list|,
 name|Object
 argument_list|>
 name|map
+parameter_list|,
+name|boolean
+name|encoding
 parameter_list|)
 function_decl|;
 block|}

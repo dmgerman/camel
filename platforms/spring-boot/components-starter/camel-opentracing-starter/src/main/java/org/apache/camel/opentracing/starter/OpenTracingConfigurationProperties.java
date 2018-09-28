@@ -66,6 +66,12 @@ name|String
 argument_list|>
 name|excludePatterns
 decl_stmt|;
+comment|/**      * Activate or deactivate dash encoding in headers (required by JMS) for messaging      */
+DECL|field|encoding
+specifier|private
+name|Boolean
+name|encoding
+decl_stmt|;
 DECL|method|getExcludePatterns ()
 specifier|public
 name|Set
@@ -96,6 +102,32 @@ operator|.
 name|excludePatterns
 operator|=
 name|excludePatterns
+expr_stmt|;
+block|}
+DECL|method|getEncoding ()
+specifier|public
+name|Boolean
+name|getEncoding
+parameter_list|()
+block|{
+return|return
+name|encoding
+return|;
+block|}
+DECL|method|setEncoding (Boolean encoding)
+specifier|public
+name|void
+name|setEncoding
+parameter_list|(
+name|Boolean
+name|encoding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encoding
+operator|=
+name|encoding
 expr_stmt|;
 block|}
 block|}
