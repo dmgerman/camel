@@ -18,13 +18,11 @@ end_package
 
 begin_import
 import|import
-name|io
+name|java
 operator|.
-name|opentracing
+name|util
 operator|.
-name|propagation
-operator|.
-name|TextMap
+name|Map
 import|;
 end_import
 
@@ -40,11 +38,13 @@ end_import
 
 begin_import
 import|import
-name|java
+name|io
 operator|.
-name|util
+name|opentracing
 operator|.
-name|Map
+name|propagation
+operator|.
+name|TextMap
 import|;
 end_import
 

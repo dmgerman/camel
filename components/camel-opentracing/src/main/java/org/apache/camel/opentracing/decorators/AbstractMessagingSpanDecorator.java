@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|io
 operator|.
 name|opentracing
@@ -49,16 +59,6 @@ operator|.
 name|tag
 operator|.
 name|Tags
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -233,7 +233,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This method identifies the destination from the supplied exchange and/or endpoint.      *      * @param exchange The exchange      * @param endpoint The endpoint      * @return The message bus destination      */
+comment|/**      * This method identifies the destination from the supplied exchange and/or      * endpoint.      *      * @param exchange The exchange      * @param endpoint The endpoint      * @return The message bus destination      */
 DECL|method|getDestination (Exchange exchange, Endpoint endpoint)
 specifier|protected
 name|String

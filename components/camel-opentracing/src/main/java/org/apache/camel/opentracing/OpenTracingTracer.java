@@ -467,7 +467,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use OpenTracing with Camel then setup this {@link OpenTracingTracer} in your Camel application.  *<p/>  * This class is implemented as both an {@link org.apache.camel.spi.EventNotifier} and {@link RoutePolicy} that allows  * to trap when Camel starts/ends an {@link Exchange} being routed using the {@link RoutePolicy} and during the routing  * if the {@link Exchange} sends messages, then we track them using the {@link org.apache.camel.spi.EventNotifier}.  */
+comment|/**  * To use OpenTracing with Camel then setup this {@link OpenTracingTracer} in  * your Camel application.  *<p/>  * This class is implemented as both an  * {@link org.apache.camel.spi.EventNotifier} and {@link RoutePolicy} that  * allows to trap when Camel starts/ends an {@link Exchange} being routed using  * the {@link RoutePolicy} and during the routing if the {@link Exchange} sends  * messages, then we track them using the  * {@link org.apache.camel.spi.EventNotifier}.  */
 end_comment
 
 begin_class
@@ -674,7 +674,7 @@ name|routeId
 argument_list|)
 return|;
 block|}
-comment|/**      * Registers this {@link OpenTracingTracer} on the {@link CamelContext} if not already registered.      */
+comment|/**      * Registers this {@link OpenTracingTracer} on the {@link CamelContext} if      * not already registered.      */
 DECL|method|init (CamelContext camelContext)
 specifier|public
 name|void
@@ -697,7 +697,8 @@ condition|)
 block|{
 try|try
 block|{
-comment|// start this service eager so we init before Camel is starting up
+comment|// start this service eager so we init before Camel is starting
+comment|// up
 name|camelContext
 operator|.
 name|addService
@@ -815,7 +816,7 @@ operator|=
 name|encoding
 expr_stmt|;
 block|}
-comment|/**      * Adds an exclude pattern that will disable tracing for Camel messages that matches the pattern.      *      * @param pattern  the pattern such as route id, endpoint url      */
+comment|/**      * Adds an exclude pattern that will disable tracing for Camel messages that      * matches the pattern.      *      * @param pattern the pattern such as route id, endpoint url      */
 DECL|method|addExcludePattern (String pattern)
 specifier|public
 name|void
@@ -1310,7 +1311,8 @@ name|getInitiatorSpanKind
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// Temporary workaround to avoid adding 'null' span as a parent
+comment|// Temporary workaround to avoid adding 'null' span as a
+comment|// parent
 if|if
 condition|(
 name|parent

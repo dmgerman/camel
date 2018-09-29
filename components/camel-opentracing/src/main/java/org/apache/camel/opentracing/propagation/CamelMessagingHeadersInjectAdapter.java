@@ -59,8 +59,10 @@ name|CamelMessagingHeadersInjectAdapter
 implements|implements
 name|TextMap
 block|{
-comment|// As per the JMS specs, header names must be valid Java identifier part characters.
-comment|// This means that any header names that contain illegal characters (- for example) should be handled correctly
+comment|// As per the JMS specs, header names must be valid Java identifier part
+comment|// characters.
+comment|// This means that any header names that contain illegal characters (- for
+comment|// example) should be handled correctly
 comment|// Opentracing java-jms does it as follows.
 DECL|field|JMS_DASH
 specifier|static
@@ -157,7 +159,8 @@ name|String
 name|value
 parameter_list|)
 block|{
-comment|// Assume any header property that begins with 'Camel' is for internal use
+comment|// Assume any header property that begins with 'Camel' is for internal
+comment|// use
 if|if
 condition|(
 operator|!
@@ -185,7 +188,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Encode all dashes because JMS specification doesn't allow them in property name      */
+comment|/**      * Encode all dashes because JMS specification doesn't allow them in      * property name      */
 DECL|method|encodeDash (String key)
 specifier|private
 name|String

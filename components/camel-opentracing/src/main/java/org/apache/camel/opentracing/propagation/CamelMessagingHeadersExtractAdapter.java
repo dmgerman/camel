@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|io
-operator|.
-name|opentracing
-operator|.
-name|propagation
-operator|.
-name|TextMap
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -57,6 +45,18 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|opentracing
+operator|.
+name|propagation
+operator|.
+name|TextMap
 import|;
 end_import
 
@@ -214,7 +214,7 @@ literal|"CamelMessagingHeadersExtractAdapter should only be used with Tracer.ext
 argument_list|)
 throw|;
 block|}
-comment|/**      * Decode dashes (encoded in {@link CamelMessagingHeadersInjectAdapter}      * Dash encoding and decoding is required by JMS. This is implemented here      * rather than specifically to JMS so that other Camel messaging endpoints      * can take part in traces where the peer is using JMS.       * @param the source      * @return the result      */
+comment|/**      * Decode dashes (encoded in {@link CamelMessagingHeadersInjectAdapter} Dash      * encoding and decoding is required by JMS. This is implemented here rather      * than specifically to JMS so that other Camel messaging endpoints can take      * part in traces where the peer is using JMS.      *       * @param the source      * @return the result      */
 DECL|method|decodeDash (String key)
 specifier|private
 name|String
@@ -228,6 +228,7 @@ if|if
 condition|(
 name|jmsEncoding
 condition|)
+block|{
 return|return
 name|key
 operator|.
@@ -240,10 +241,13 @@ argument_list|,
 literal|"-"
 argument_list|)
 return|;
+block|}
 else|else
+block|{
 return|return
 name|key
 return|;
+block|}
 block|}
 block|}
 end_class

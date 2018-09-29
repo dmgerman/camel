@@ -54,9 +54,7 @@ name|io
 operator|.
 name|opentracing
 operator|.
-name|propagation
-operator|.
-name|TextMap
+name|Span
 import|;
 end_import
 
@@ -66,7 +64,9 @@ name|io
 operator|.
 name|opentracing
 operator|.
-name|Span
+name|propagation
+operator|.
+name|TextMap
 import|;
 end_import
 
@@ -219,8 +219,10 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-comment|// OpenTracing aims to use low cardinality operation names. Ideally a specific
-comment|// span decorator should be defined for all relevant Camel components that
+comment|// OpenTracing aims to use low cardinality operation names. Ideally a
+comment|// specific
+comment|// span decorator should be defined for all relevant Camel components
+comment|// that
 comment|// identify a meaningful operation name
 return|return
 name|getComponentName
@@ -229,7 +231,7 @@ name|endpoint
 argument_list|)
 return|;
 block|}
-comment|/**      * This method removes the scheme, any leading slash characters and      * options from the supplied URI. This is intended to extract a meaningful      * name from the URI that can be used in situations, such as the operation      * name.      *      * @param endpoint The endpoint      * @return The stripped value from the URI      */
+comment|/**      * This method removes the scheme, any leading slash characters and options      * from the supplied URI. This is intended to extract a meaningful name from      * the URI that can be used in situations, such as the operation name.      *      * @param endpoint The endpoint      * @return The stripped value from the URI      */
 DECL|method|stripSchemeAndOptions (Endpoint endpoint)
 specifier|public
 specifier|static
@@ -359,7 +361,8 @@ operator|+
 name|scheme
 argument_list|)
 expr_stmt|;
-comment|// Including the endpoint URI provides access to any options that may have been provided, for
+comment|// Including the endpoint URI provides access to any options that may
+comment|// have been provided, for
 comment|// subsequent analysis
 name|span
 operator|.
