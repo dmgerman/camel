@@ -57,7 +57,7 @@ specifier|public
 class|class
 name|OpenTracingConfigurationProperties
 block|{
-comment|/**      * Sets exclude pattern(s) that will disable tracing for Camel messages that matches the pattern.      */
+comment|/**      * Sets exclude pattern(s) that will disable tracing for Camel messages that      * matches the pattern.      */
 DECL|field|excludePatterns
 specifier|private
 name|Set
@@ -66,7 +66,7 @@ name|String
 argument_list|>
 name|excludePatterns
 decl_stmt|;
-comment|/**      * Activate or deactivate dash encoding in headers (required by JMS) for messaging      */
+comment|/**      * Activate or deactivate dash encoding in headers (required by JMS) for      * messaging      */
 DECL|field|encoding
 specifier|private
 name|Boolean
