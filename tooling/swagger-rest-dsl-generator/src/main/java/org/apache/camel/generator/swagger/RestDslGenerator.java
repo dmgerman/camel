@@ -125,6 +125,10 @@ DECL|field|restComponent
 name|String
 name|restComponent
 decl_stmt|;
+DECL|field|springComponent
+name|boolean
+name|springComponent
+decl_stmt|;
 DECL|method|RestDslGenerator (final Swagger swagger)
 name|RestDslGenerator
 parameter_list|(
@@ -278,6 +282,36 @@ operator|.
 name|restComponent
 operator|=
 name|restComponent
+expr_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+specifier|final
+name|G
+name|that
+init|=
+operator|(
+name|G
+operator|)
+name|this
+decl_stmt|;
+return|return
+name|that
+return|;
+block|}
+DECL|method|asSpringComponent ()
+specifier|public
+name|G
+name|asSpringComponent
+parameter_list|()
+block|{
+name|this
+operator|.
+name|springComponent
+operator|=
+literal|true
 expr_stmt|;
 annotation|@
 name|SuppressWarnings
