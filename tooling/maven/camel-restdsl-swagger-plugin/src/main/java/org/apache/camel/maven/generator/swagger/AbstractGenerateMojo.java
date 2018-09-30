@@ -392,6 +392,7 @@ name|AbstractGenerateMojo
 extends|extends
 name|AbstractMojo
 block|{
+comment|// this list should be in priority order
 DECL|field|DEFAULT_REST_CONSUMER_COMPONENTS
 specifier|public
 specifier|static
@@ -404,21 +405,21 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"coap"
+literal|"servlet"
 block|,
-literal|"netty-http"
-block|,
-literal|"netty4-http"
+literal|"undertow"
 block|,
 literal|"jetty"
 block|,
 literal|"restlet"
 block|,
-literal|"servlet"
+literal|"netty-http"
+block|,
+literal|"netty4-http"
 block|,
 literal|"spark-java"
 block|,
-literal|"undertow"
+literal|"coap"
 block|}
 decl_stmt|;
 annotation|@

@@ -442,6 +442,16 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Detected Camel Rest component: "
+operator|+
+name|comp
+argument_list|)
+expr_stmt|;
 name|generator
 operator|.
 name|withRestComponent
