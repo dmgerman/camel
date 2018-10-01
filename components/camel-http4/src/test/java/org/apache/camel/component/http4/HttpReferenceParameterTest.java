@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for resolving reference parameters.  *  * @version   */
+comment|/**  * Unit test for resolving reference parameters.  */
 end_comment
 
 begin_class

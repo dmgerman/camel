@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of {@link Route}.  *<p/>  * Use the API from {@link org.apache.camel.CamelContext} to control the lifecycle of a route,  * such as starting and stopping using the {@link org.apache.camel.spi.RouteController#startRoute(String)}  * and {@link org.apache.camel.spi.RouteController#stopRoute(String)} methods.  *  * @version   */
+comment|/**  * Default implementation of {@link Route}.  *<p/>  * Use the API from {@link org.apache.camel.CamelContext} to control the lifecycle of a route,  * such as starting and stopping using the {@link org.apache.camel.spi.RouteController#startRoute(String)}  * and {@link org.apache.camel.spi.RouteController#stopRoute(String)} methods.  */
 end_comment
 
 begin_class

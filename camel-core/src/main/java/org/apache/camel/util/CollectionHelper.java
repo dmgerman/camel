@@ -163,7 +163,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A number of helper methods for working with collections  *  * @version  */
+comment|/**  * A number of helper methods for working with collections  */
 end_comment
 
 begin_class

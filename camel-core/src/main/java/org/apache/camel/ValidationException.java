@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * The base class for any validation exception, such as  * {@link org.apache.camel.processor.validation.SchemaValidationException} so  * that it is easy to treat all validation errors in a similar way irrespective  * of the particular validation technology used.  *   * @version   */
+comment|/**  * The base class for any validation exception, such as  * {@link org.apache.camel.processor.validation.SchemaValidationException} so  * that it is easy to treat all validation errors in a similar way irrespective  * of the particular validation technology used.  */
 end_comment
 
 begin_class

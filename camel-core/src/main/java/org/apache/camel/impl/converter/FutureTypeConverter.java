@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Future type converter.  *  * @version   */
+comment|/**  * Future type converter.  */
 end_comment
 
 begin_class

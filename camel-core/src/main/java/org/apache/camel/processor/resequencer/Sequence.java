@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A sorted set of elements with additional methods for obtaining immediate  * successors and immediate predecessors of a given element in the sequence.  * Successors and predecessors are calculated by using a  * {@link SequenceElementComparator}.  *   * @version   */
+comment|/**  * A sorted set of elements with additional methods for obtaining immediate  * successors and immediate predecessors of a given element in the sequence.  * Successors and predecessors are calculated by using a  * {@link SequenceElementComparator}.  */
 end_comment
 
 begin_class

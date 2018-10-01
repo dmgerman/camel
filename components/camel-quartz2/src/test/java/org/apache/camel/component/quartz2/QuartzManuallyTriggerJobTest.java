@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This test the  CronTrigger as a timer endpoint in a route.  * @version   */
+comment|/**  * This test the  CronTrigger as a timer endpoint in a route.  */
 end_comment
 
 begin_class

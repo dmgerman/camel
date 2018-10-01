@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory which instantiates {@link RedeliveryPolicy} objects  *  * @version   */
+comment|/**  * A factory which instantiates {@link RedeliveryPolicy} objects  */
 end_comment
 
 begin_class

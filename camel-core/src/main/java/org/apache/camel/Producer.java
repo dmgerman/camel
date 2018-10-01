@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Provides a channel on which clients can create and invoke message exchanges  * on an {@link Endpoint}  *   * @version   */
+comment|/**  * Provides a channel on which clients can create and invoke message exchanges  * on an {@link Endpoint}  */
 end_comment
 
 begin_interface

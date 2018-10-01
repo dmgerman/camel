@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used to configure the logging levels  *  * @version   */
+comment|/**  * Used to configure the logging levels  */
 end_comment
 
 begin_enum

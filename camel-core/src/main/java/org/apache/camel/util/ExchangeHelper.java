@@ -136,18 +136,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExchangeException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|CamelExecutionException
 import|;
 end_import
@@ -185,18 +173,6 @@ operator|.
 name|camel
 operator|.
 name|ExchangePattern
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|InvalidPayloadException
 import|;
 end_import
 
@@ -377,7 +353,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some helper methods for working with {@link Exchange} objects  *  * @version  */
+comment|/**  * Some helper methods for working with {@link Exchange} objects  */
 end_comment
 
 begin_class

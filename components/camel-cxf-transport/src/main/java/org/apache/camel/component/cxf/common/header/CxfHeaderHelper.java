@@ -201,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utility class to propagate headers to and from CXF message.  *  * @version   */
+comment|/**  * Utility class to propagate headers to and from CXF message.  */
 end_comment
 
 begin_class

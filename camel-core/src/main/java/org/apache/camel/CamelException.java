@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Base class for all Camel checked exceptions typically thrown by a {@link Processor}  *  * @version   */
+comment|/**  * Base class for all Camel checked exceptions typically thrown by a {@link Processor}  */
 end_comment
 
 begin_class

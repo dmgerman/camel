@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Exchange pair to be executed by {@link org.apache.camel.processor.MulticastProcessor}.  *  * @version   */
+comment|/**  * Exchange pair to be executed by {@link org.apache.camel.processor.MulticastProcessor}.  */
 end_comment
 
 begin_interface

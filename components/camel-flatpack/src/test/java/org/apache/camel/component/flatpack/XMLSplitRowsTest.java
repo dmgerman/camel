@@ -213,7 +213,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that splitRows=true option works with XML Conversion.  *  * @version  */
+comment|/**  * Unit test to verify that splitRows=true option works with XML Conversion.  */
 end_comment
 
 begin_class

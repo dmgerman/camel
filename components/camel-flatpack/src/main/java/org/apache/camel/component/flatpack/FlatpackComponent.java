@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://flatpack.sourceforge.net/">Flatpack Component</a>  * for working with fixed width and delimited files  *  * @version   */
+comment|/**  * A<a href="http://flatpack.sourceforge.net/">Flatpack Component</a>  * for working with fixed width and delimited files  */
 end_comment
 
 begin_class

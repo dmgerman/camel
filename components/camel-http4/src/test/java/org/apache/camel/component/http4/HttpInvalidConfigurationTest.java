@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test of invalid configuration  *  * @version   */
+comment|/**  * Unit test of invalid configuration  */
 end_comment
 
 begin_class

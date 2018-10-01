@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This not only set SimpleTrigger as a timer endpoint in a route, and also test the trigger.XXX properties setter.  * @version   */
+comment|/**  * This not only set SimpleTrigger as a timer endpoint in a route, and also test the trigger.XXX properties setter.  */
 end_comment
 
 begin_class

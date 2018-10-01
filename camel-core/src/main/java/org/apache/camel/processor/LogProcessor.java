@@ -191,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor which evaluates an {@link Expression} and logs it.  *  * @version   */
+comment|/**  * A processor which evaluates an {@link Expression} and logs it.  */
 end_comment
 
 begin_class

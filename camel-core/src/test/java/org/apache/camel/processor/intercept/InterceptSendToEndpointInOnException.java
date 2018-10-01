@@ -106,10 +106,6 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|InterceptSendToEndpointInOnException
 specifier|public

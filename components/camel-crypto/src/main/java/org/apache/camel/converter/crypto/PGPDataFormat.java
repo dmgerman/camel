@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<code>PGPDataFormat</code> uses the<a  * href="http://www.bouncycastle.org/java.htm">bouncy castle</a> libraries to  * enable encryption and decryption in the PGP format.  *<p>  * See also {@link PGPKeyAccessDataFormat}.  *   */
+comment|/**  *<code>PGPDataFormat</code> uses the<a  * href="http://www.bouncycastle.org/java.htm">bouncy castle</a> libraries to  * enable encryption and decryption in the PGP format.  *<p>  * See also {@link PGPKeyAccessDataFormat}.  */
 end_comment
 
 begin_class

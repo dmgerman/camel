@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To configure thread pools  *  * @version   */
+comment|/**  * To configure thread pools  */
 end_comment
 
 begin_class

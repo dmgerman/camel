@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper class which groups secret, private key and User ID.  *   *   */
+comment|/**  * Helper class which groups secret, private key and User ID.  *   */
 end_comment
 
 begin_class

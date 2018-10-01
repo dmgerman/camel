@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * On completion strategy that performs the required work after the {@link Exchange} has been processed.  *<p/>  * The work is for example to move the processed file into a backup folder, delete the file or  * in case of processing failure do a rollback.   *  * @version   */
+comment|/**  * On completion strategy that performs the required work after the {@link Exchange} has been processed.  *<p/>  * The work is for example to move the processed file into a backup folder, delete the file or  * in case of processing failure do a rollback.   */
 end_comment
 
 begin_class

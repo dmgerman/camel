@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.Consumer} to consume JCR events.  *  * @version $Id$  */
+comment|/**  * A {@link org.apache.camel.Consumer} to consume JCR events.  */
 end_comment
 
 begin_class

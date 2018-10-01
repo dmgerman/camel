@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Intercepts incoming messages  *  * @version   */
+comment|/**  * Intercepts incoming messages  */
 end_comment
 
 begin_class

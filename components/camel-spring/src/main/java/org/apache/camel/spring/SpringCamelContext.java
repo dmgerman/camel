@@ -381,7 +381,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Spring aware implementation of {@link org.apache.camel.CamelContext} which  * will automatically register itself with Springs lifecycle methods plus allows  * spring to be used to customize a any<a  * href="http://camel.apache.org/type-converter.html">Type Converters</a>  * as well as supporting accessing components and beans via the Spring  * {@link ApplicationContext}  *  * @version   */
+comment|/**  * A Spring aware implementation of {@link org.apache.camel.CamelContext} which  * will automatically register itself with Springs lifecycle methods plus allows  * spring to be used to customize a any<a  * href="http://camel.apache.org/type-converter.html">Type Converters</a>  * as well as supporting accessing components and beans via the Spring  * {@link ApplicationContext}  */
 end_comment
 
 begin_class

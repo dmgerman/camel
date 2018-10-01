@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A unit test for java only CXF in payload mode  *   * @version   */
+comment|/**  * A unit test for java only CXF in payload mode  */
 end_comment
 
 begin_class

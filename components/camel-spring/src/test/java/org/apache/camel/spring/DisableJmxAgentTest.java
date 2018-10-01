@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test that verifies JMX can be disabled via Spring.  *   * @version   *  */
+comment|/**  * Test that verifies JMX can be disabled via Spring.  *   *  */
 end_comment
 
 begin_class

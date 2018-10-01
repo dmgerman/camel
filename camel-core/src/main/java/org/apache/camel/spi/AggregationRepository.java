@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Access to a repository to store aggregated exchanges to support pluggable implementations.  *    * @version   */
+comment|/**  * Access to a repository to store aggregated exchanges to support pluggable implementations.  *    */
 end_comment
 
 begin_interface

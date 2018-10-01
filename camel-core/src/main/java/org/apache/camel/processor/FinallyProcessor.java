@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Processor to handle do finally supporting asynchronous routing engine  *  * @version  */
+comment|/**  * Processor to handle do finally supporting asynchronous routing engine  */
 end_comment
 
 begin_class

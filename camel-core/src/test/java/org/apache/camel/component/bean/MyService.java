@@ -18,10 +18,6 @@ name|bean
 package|;
 end_package
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_interface
 DECL|interface|MyService
 specifier|public

@@ -279,7 +279,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify CxfConsumer to generate SOAP fault in PAYLOAD mode  *   * @version   */
+comment|/**  * Unit test to verify CxfConsumer to generate SOAP fault in PAYLOAD mode  */
 end_comment
 
 begin_class

@@ -215,7 +215,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test for CamelSpringDelegatingTestContextLoader.  *   */
+comment|/**  * Test for CamelSpringDelegatingTestContextLoader.  */
 end_comment
 
 begin_comment

@@ -241,7 +241,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for exercising MTOM enabled end-to-end router in PAYLOAD mode  *   * @version   */
+comment|/**  * Unit test for exercising MTOM enabled end-to-end router in PAYLOAD mode  */
 end_comment
 
 begin_class

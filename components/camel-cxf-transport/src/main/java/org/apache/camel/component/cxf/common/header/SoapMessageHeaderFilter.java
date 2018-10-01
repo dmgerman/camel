@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link MessageHeaderFilter} to drop all SOAP headers.  *  * @version   */
+comment|/**  * A {@link MessageHeaderFilter} to drop all SOAP headers.  */
 end_comment
 
 begin_class

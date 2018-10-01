@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JAXB data format uses the JAXB2 XML marshalling standard to unmarshal an XML payload into Java objects or to marshal Java objects into an XML payload.  *  * @version   */
+comment|/**  * JAXB data format uses the JAXB2 XML marshalling standard to unmarshal an XML payload into Java objects or to marshal Java objects into an XML payload.  */
 end_comment
 
 begin_class

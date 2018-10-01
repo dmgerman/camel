@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for DataSet  *  * @version   */
+comment|/**  * Base class for DataSet  */
 end_comment
 
 begin_class

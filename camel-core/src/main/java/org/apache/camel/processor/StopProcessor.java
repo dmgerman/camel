@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Stops continue processing the route and marks it as complete.  *  * @version   */
+comment|/**  * Stops continue processing the route and marks it as complete.  */
 end_comment
 
 begin_class

@@ -239,7 +239,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utility class for {@link javax.jms.Message}.  *  * @version  */
+comment|/**  * Utility class for {@link javax.jms.Message}.  */
 end_comment
 
 begin_class

@@ -223,7 +223,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default error handler builder.  *  * @version   */
+comment|/**  * The default error handler builder.  */
 end_comment
 
 begin_class

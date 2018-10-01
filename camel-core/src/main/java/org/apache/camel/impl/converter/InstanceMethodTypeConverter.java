@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link TypeConverter} implementation which instantiates an object  * so that an instance method can be used as a type converter  *  * @version   */
+comment|/**  * A {@link TypeConverter} implementation which instantiates an object  * so that an instance method can be used as a type converter  */
 end_comment
 
 begin_class

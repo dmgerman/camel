@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Camel endpoint configuration  *  * @version   */
+comment|/**  * Camel endpoint configuration  */
 end_comment
 
 begin_class

@@ -287,7 +287,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Strategy used to convert between a Camel {@link Exchange} and  * {@link SmppMessage} to and from a SMPP {@link Command}  *   * @version   */
+comment|/**  * A Strategy used to convert between a Camel {@link Exchange} and  * {@link SmppMessage} to and from a SMPP {@link Command}  */
 end_comment
 
 begin_class

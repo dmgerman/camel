@@ -195,7 +195,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates a Pipeline pattern where the output of the previous step is sent as  * input to the next step, reusing the same message exchanges  *  * @version   */
+comment|/**  * Creates a Pipeline pattern where the output of the previous step is sent as  * input to the next step, reusing the same message exchanges  */
 end_comment
 
 begin_class

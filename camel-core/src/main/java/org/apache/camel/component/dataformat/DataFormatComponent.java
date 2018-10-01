@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/dataformat-component.html">Data Format Component</a> enables using<a href="https://camel.apache.org/data-format.html">Data Format</a> as a component.  *  * @version  */
+comment|/**  * The<a href="http://camel.apache.org/dataformat-component.html">Data Format Component</a> enables using<a href="https://camel.apache.org/data-format.html">Data Format</a> as a component.  */
 end_comment
 
 begin_class

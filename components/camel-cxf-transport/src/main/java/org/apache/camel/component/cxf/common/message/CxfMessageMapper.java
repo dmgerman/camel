@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Strategy to bind a Camel exchange to a CXF message used by {@link CxfBeanDestination}.  *  * @version   */
+comment|/**  * A Strategy to bind a Camel exchange to a CXF message used by {@link CxfBeanDestination}.  */
 end_comment
 
 begin_interface

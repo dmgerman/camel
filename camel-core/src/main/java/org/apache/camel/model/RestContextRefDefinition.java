@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To refer to an XML file with rest services defined using the rest-dsl  *  * @version   */
+comment|/**  * To refer to an XML file with rest services defined using the rest-dsl  */
 end_comment
 
 begin_class

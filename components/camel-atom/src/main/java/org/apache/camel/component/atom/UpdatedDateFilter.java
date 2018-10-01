@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Filters out all entries which occur before the last time of the entry we saw (assuming  * entries arrive sorted in order).  *  * @version   */
+comment|/**  * Filters out all entries which occur before the last time of the entry we saw (assuming  * entries arrive sorted in order).  */
 end_comment
 
 begin_class

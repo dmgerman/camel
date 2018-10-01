@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the component that manages {@link LdapEndpoint}(s).  *  * @version  */
+comment|/**  * Represents the component that manages {@link LdapEndpoint}(s).  */
 end_comment
 
 begin_class

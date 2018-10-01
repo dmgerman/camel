@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A pluggable strategy for creating and possibly dependency injecting objects  * which could be implemented using straight forward reflection or using Spring  * or Guice to perform dependency injection.  *   * @version   */
+comment|/**  * A pluggable strategy for creating and possibly dependency injecting objects  * which could be implemented using straight forward reflection or using Spring  * or Guice to perform dependency injection.  */
 end_comment
 
 begin_interface

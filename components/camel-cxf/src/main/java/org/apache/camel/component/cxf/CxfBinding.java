@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An strategy interface for implementing binding between CXF {@link Exchange}   * and Camel {@link org.apache.camel.Exchange}.    *   * Assumptions: CxfProducer and CxfConsumer set {@link DataFormat} and  * {@link org.apache.cxf.service.model.BindingOperationInfo}   * in Camel Exchange property before calling into these methods.    *   * @version   * @since 2.0  */
+comment|/**  * An strategy interface for implementing binding between CXF {@link Exchange}   * and Camel {@link org.apache.camel.Exchange}.    *   * Assumptions: CxfProducer and CxfConsumer set {@link DataFormat} and  * {@link org.apache.cxf.service.model.BindingOperationInfo}   * in Camel Exchange property before calling into these methods.    *   * @since 2.0  */
 end_comment
 
 begin_interface

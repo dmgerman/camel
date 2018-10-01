@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for any processor which provides some kind of throttling  * or delayed processing.  *<p/>  * This implementation will block while waiting.  *   * @version   */
+comment|/**  * A useful base class for any processor which provides some kind of throttling  * or delayed processing.  *<p/>  * This implementation will block while waiting.  */
 end_comment
 
 begin_class

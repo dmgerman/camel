@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Restlet producer concurrent test  *   * @version   */
+comment|/**  * Restlet producer concurrent test  */
 end_comment
 
 begin_class

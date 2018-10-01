@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To test timeout.  *  * @version   */
+comment|/**  * To test timeout.  */
 end_comment
 
 begin_class

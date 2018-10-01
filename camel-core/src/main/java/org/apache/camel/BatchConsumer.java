@@ -25,7 +25,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A consumer of a batch of message exchanges from an {@link Endpoint}  *  * @version   */
+comment|/**  * A consumer of a batch of message exchanges from an {@link Endpoint}  */
 end_comment
 
 begin_interface

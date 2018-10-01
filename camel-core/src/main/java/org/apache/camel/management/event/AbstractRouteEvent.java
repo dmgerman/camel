@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for {@link CamelContext} events.  *  * @version   */
+comment|/**  * Base class for {@link CamelContext} events.  */
 end_comment
 
 begin_class

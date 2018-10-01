@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A very simple stop watch.  *<p/>  * This implementation is not thread safe and can only time one task at any given time.  *  * @version   */
+comment|/**  * A very simple stop watch.  *<p/>  * This implementation is not thread safe and can only time one task at any given time.  */
 end_comment
 
 begin_class

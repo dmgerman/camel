@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An exception thrown if the script evaluation fails  *   * @version   */
+comment|/**  * An exception thrown if the script evaluation fails  */
 end_comment
 
 begin_class

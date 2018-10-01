@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * YAML is a data format to marshal and unmarshal Java objects to and from YAML.  *  * @version   */
+comment|/**  * YAML is a data format to marshal and unmarshal Java objects to and from YAML.  */
 end_comment
 
 begin_class

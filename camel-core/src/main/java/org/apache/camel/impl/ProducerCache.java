@@ -281,7 +281,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Cache containing created {@link Producer}.  *  * @version  */
+comment|/**  * Cache containing created {@link Producer}.  */
 end_comment
 
 begin_class
@@ -1777,7 +1777,7 @@ name|getCapacity
 argument_list|()
 return|;
 block|}
-comment|/**      * Callback for sending a exchange message to a endpoint using an {@link AsyncProcessor} capable producer.      *<p/>      * Using this callback as a template pattern ensures that Camel handles the resource handling and will      * start and stop the given producer, to avoid resource leaks.      *      * @version      */
+comment|/**      * Callback for sending a exchange message to a endpoint using an {@link AsyncProcessor} capable producer.      *<p/>      * Using this callback as a template pattern ensures that Camel handles the resource handling and will      * start and stop the given producer, to avoid resource leaks.      *          */
 DECL|interface|AsyncProducerCallback
 specifier|public
 interface|interface

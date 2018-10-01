@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for intercepting sending to endpoint  *   * @version   */
+comment|/**  * Unit test for intercepting sending to endpoint  */
 end_comment
 
 begin_class

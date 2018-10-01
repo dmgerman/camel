@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy for a {@link org.apache.camel.PollingConsumer} when polling an {@link org.apache.camel.Endpoint}.  *<p/>  * This pluggable strategy allows to plugin different implementations what to do, most noticeable what to  * do in case the polling goes wrong. This can be handled in the  * {@link #rollback(org.apache.camel.Consumer , org.apache.camel.Endpoint , int, Exception) rollback} method.  *  * @version   */
+comment|/**  * Strategy for a {@link org.apache.camel.PollingConsumer} when polling an {@link org.apache.camel.Endpoint}.  *<p/>  * This pluggable strategy allows to plugin different implementations what to do, most noticeable what to  * do in case the polling goes wrong. This can be handled in the  * {@link #rollback(org.apache.camel.Consumer , org.apache.camel.Endpoint , int, Exception) rollback} method.  */
 end_comment
 
 begin_interface

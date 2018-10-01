@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A constant (singleton) bean implementation of {@link org.apache.camel.component.bean.BeanTypeHolder}  *  * @version  */
+comment|/**  * A constant (singleton) bean implementation of {@link org.apache.camel.component.bean.BeanTypeHolder}  */
 end_comment
 
 begin_class

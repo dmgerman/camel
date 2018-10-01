@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Waits for messages to arrive on the mock endpoint and performs assertions on the message bodies.  *   */
+comment|/**  * Waits for messages to arrive on the mock endpoint and performs assertions on the message bodies.  */
 end_comment
 
 begin_class

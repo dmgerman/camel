@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Object holder for a bean type.  *  * @version   */
+comment|/**  * Object holder for a bean type.  */
 end_comment
 
 begin_interface

@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Interface for converting between Camel message and Restlet message.  *   * @version   */
+comment|/**  * Interface for converting between Camel message and Restlet message.  */
 end_comment
 
 begin_interface

@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy to used an explicit (fixed) name for {@link org.apache.camel.CamelContext}.  *  * @version   */
+comment|/**  * Strategy to used an explicit (fixed) name for {@link org.apache.camel.CamelContext}.  */
 end_comment
 
 begin_class

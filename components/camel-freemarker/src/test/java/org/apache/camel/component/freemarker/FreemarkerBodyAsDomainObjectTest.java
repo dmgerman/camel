@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test with the body as a Domain object.  *  * @version   */
+comment|/**  * Unit test with the body as a Domain object.  */
 end_comment
 
 begin_class

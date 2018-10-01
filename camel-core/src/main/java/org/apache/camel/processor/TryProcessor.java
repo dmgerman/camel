@@ -223,7 +223,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements try/catch/finally type processing  *  * @version   */
+comment|/**  * Implements try/catch/finally type processing  */
 end_comment
 
 begin_class

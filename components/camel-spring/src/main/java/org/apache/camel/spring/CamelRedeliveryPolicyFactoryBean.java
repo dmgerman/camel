@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Configuration of redelivery policy.  *  * @version   */
+comment|/**  * Configuration of redelivery policy.  */
 end_comment
 
 begin_class

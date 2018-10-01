@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of a {@link org.apache.camel.component.bean.BeanHolder} which will look up  * an EJB bean from the JNDI {@link javax.naming.Context}  *  * @version   */
+comment|/**  * An implementation of a {@link org.apache.camel.component.bean.BeanHolder} which will look up  * an EJB bean from the JNDI {@link javax.naming.Context}  */
 end_comment
 
 begin_class

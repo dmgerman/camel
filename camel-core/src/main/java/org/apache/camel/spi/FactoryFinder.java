@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Finder to find factories from the resource classpath, usually<b>META-INF/services/org/apache/camel/</b>.  *  * @version   */
+comment|/**  * Finder to find factories from the resource classpath, usually<b>META-INF/services/org/apache/camel/</b>.  */
 end_comment
 
 begin_interface

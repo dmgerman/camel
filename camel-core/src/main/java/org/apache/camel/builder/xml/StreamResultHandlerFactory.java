@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory for {@link StreamResultHandler}  *  * @version   */
+comment|/**  * Factory for {@link StreamResultHandler}  */
 end_comment
 
 begin_class

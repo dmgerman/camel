@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Service interface for managing users.  *   */
+comment|/**  * Service interface for managing users.  */
 end_comment
 
 begin_interface

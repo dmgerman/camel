@@ -221,7 +221,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Configures a {@link org.apache.camel.FluentProducerTemplate}  *   * @version   */
+comment|/**  * Configures a {@link org.apache.camel.FluentProducerTemplate}  */
 end_comment
 
 begin_class

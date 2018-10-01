@@ -311,7 +311,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for {@link ReplyManager} implementations.  *  * @version   */
+comment|/**  * Base class for {@link ReplyManager} implementations.  */
 end_comment
 
 begin_class

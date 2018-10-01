@@ -195,7 +195,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines a policy the route will use  *  * @version   */
+comment|/**  * Defines a policy the route will use  */
 end_comment
 
 begin_class

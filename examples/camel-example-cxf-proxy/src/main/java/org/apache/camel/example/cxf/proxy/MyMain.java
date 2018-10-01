@@ -35,7 +35,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Main to let you easily start the application from a IDE.  * Usually you can just right click and choose Run  *  * @version   */
+comment|/**  * A Main to let you easily start the application from a IDE.  * Usually you can just right click and choose Run  */
 end_comment
 
 begin_class

@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A bridge to have regular interceptors implemented as {@link org.apache.camel.Processor}  * work with the asynchronous routing engine without causing side effects.  *  * @version   */
+comment|/**  * A bridge to have regular interceptors implemented as {@link org.apache.camel.Processor}  * work with the asynchronous routing engine without causing side effects.  */
 end_comment
 
 begin_class

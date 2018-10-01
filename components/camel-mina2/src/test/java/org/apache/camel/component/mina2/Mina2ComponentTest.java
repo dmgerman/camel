@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For testing various minor holes that hasn't been covered by other unit tests.  *  * @version   */
+comment|/**  * For testing various minor holes that hasn't been covered by other unit tests.  */
 end_comment
 
 begin_class

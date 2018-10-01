@@ -1231,7 +1231,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default JMX managed lifecycle strategy that registered objects using the configured  * {@link org.apache.camel.spi.ManagementStrategy}.  *  * @see org.apache.camel.spi.ManagementStrategy  * @version   */
+comment|/**  * Default JMX managed lifecycle strategy that registered objects using the configured  * {@link org.apache.camel.spi.ManagementStrategy}.  *  * @see org.apache.camel.spi.ManagementStrategy  */
 end_comment
 
 begin_class

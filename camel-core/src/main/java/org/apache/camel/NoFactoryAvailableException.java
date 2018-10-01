@@ -25,7 +25,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Thrown if no factory resource is available for the given URI  *  * @version   */
+comment|/**  * Thrown if no factory resource is available for the given URI  */
 end_comment
 
 begin_class

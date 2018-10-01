@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test concurrent consumers.  *   */
+comment|/**  * Test concurrent consumers.  */
 end_comment
 
 begin_class

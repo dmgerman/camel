@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of {@link ExceptionHandler} which uses a {@link org.apache.camel.util.CamelLogger} to  * log the exception.  *<p/>  * This implementation will by default log the exception with stack trace at WARN level.  *<p/>  * This implementation honors the {@link org.apache.camel.spi.ShutdownStrategy#isSuppressLoggingOnTimeout()}  * option to avoid logging if the logging should be suppressed.  *  * @version   */
+comment|/**  * A default implementation of {@link ExceptionHandler} which uses a {@link org.apache.camel.util.CamelLogger} to  * log the exception.  *<p/>  * This implementation will by default log the exception with stack trace at WARN level.  *<p/>  * This implementation honors the {@link org.apache.camel.spi.ShutdownStrategy#isSuppressLoggingOnTimeout()}  * option to avoid logging if the logging should be suppressed.  */
 end_comment
 
 begin_class

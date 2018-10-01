@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use a custom data format implementation that does not come out of the box from Apache Camel.  *  * @version  */
+comment|/**  * To use a custom data format implementation that does not come out of the box from Apache Camel.  */
 end_comment
 
 begin_class

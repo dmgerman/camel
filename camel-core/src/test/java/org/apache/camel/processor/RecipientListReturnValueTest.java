@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests to ensure a consistent return value when using the different ways of  * configuring the RecipientList pattern  *  * @version   */
+comment|/**  * Tests to ensure a consistent return value when using the different ways of  * configuring the RecipientList pattern  */
 end_comment
 
 begin_class

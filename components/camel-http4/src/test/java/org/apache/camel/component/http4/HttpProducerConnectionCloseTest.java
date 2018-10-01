@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test that show custom header filter useful to send Connection Close header  *  * @version   */
+comment|/**  * Unit test that show custom header filter useful to send Connection Close header  */
 end_comment
 
 begin_class

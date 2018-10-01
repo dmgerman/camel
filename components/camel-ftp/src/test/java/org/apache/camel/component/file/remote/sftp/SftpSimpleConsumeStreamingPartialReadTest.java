@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests that a file move can occur on the server even if the remote stream was only partially read.  *  * @version   */
+comment|/**  * Tests that a file move can occur on the server even if the remote stream was only partially read.  */
 end_comment
 
 begin_class

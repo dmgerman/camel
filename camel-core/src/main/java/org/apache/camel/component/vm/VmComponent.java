@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/vm.html">VM component</a> is for asynchronous SEDA exchanges on a {@link BlockingQueue}   * within the classloader tree containing the camel-core.jar.  *  * i.e. to handle communicating across CamelContext instances and possibly across web application contexts, providing that camel-core.jar is on the system classpath.  *   * @version  */
+comment|/**  * The<a href="http://camel.apache.org/vm.html">VM component</a> is for asynchronous SEDA exchanges on a {@link BlockingQueue}   * within the classloader tree containing the camel-core.jar.  *  * i.e. to handle communicating across CamelContext instances and possibly across web application contexts, providing that camel-core.jar is on the system classpath.  */
 end_comment
 
 begin_class

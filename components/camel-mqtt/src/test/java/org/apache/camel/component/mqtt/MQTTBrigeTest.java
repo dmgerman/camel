@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests bridging between two mqtt topic using Camel  *   * @version  */
+comment|/**  * Tests bridging between two mqtt topic using Camel  */
 end_comment
 
 begin_class

@@ -23,7 +23,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Exception which is thrown when for a specified alias a key or certificate is  * not found in the keystore.  *   *   */
+comment|/**  * Exception which is thrown when for a specified alias a key or certificate is  * not found in the keystore.  *   */
 end_comment
 
 begin_class

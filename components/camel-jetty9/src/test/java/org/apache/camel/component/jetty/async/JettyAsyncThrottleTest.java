@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CAMEL-4795, there should be no exceptions in the logs (before the fix there was a NPE)  *  * @version  */
+comment|/**  * CAMEL-4795, there should be no exceptions in the logs (before the fix there was a NPE)  */
 end_comment
 
 begin_class

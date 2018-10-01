@@ -507,7 +507,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A number of useful helper methods for working with Objects  *  * @version   */
+comment|/**  * A number of useful helper methods for working with Objects  */
 end_comment
 
 begin_class

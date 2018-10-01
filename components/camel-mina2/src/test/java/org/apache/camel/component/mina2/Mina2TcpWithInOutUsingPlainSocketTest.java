@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To test camel-mina2 component using a TCP client that communicates using TCP socket communication.  *  * @version   */
+comment|/**  * To test camel-mina2 component using a TCP client that communicates using TCP socket communication.  */
 end_comment
 
 begin_class

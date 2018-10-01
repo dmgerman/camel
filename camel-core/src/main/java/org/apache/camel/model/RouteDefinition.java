@@ -561,7 +561,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Camel route  *  * @version  */
+comment|/**  * A Camel route  */
 end_comment
 
 begin_class

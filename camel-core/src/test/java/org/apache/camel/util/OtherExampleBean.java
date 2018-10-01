@@ -16,10 +16,6 @@ name|util
 package|;
 end_package
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|OtherExampleBean
 specifier|public

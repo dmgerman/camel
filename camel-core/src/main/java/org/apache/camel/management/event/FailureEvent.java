@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This interface is implemented by all events that contain an exception and is used to  * retrieve the exception in a universal way.  *    * @version  */
+comment|/**  * This interface is implemented by all events that contain an exception and is used to  * retrieve the exception in a universal way.  *    */
 end_comment
 
 begin_interface

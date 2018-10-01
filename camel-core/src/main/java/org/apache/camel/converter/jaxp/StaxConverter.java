@@ -321,7 +321,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A converter of StAX objects  *  * @version   */
+comment|/**  * A converter of StAX objects  */
 end_comment
 
 begin_class

@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract base class for unit testing using a http server.  * This class contains an empty configuration to be used.  *  * @version  */
+comment|/**  * Abstract base class for unit testing using a http server.  * This class contains an empty configuration to be used.  */
 end_comment
 
 begin_class

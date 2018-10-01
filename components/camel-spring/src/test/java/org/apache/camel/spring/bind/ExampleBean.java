@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An example Bean with no annotations or interfaces to test out the Bean  * Camel binding  *  * @version   */
+comment|/**  * An example Bean with no annotations or interfaces to test out the Bean  * Camel binding  */
 end_comment
 
 begin_comment

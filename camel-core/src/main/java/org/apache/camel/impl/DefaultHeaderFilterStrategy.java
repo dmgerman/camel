@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default header filtering strategy. Users can configure filter by  * setting filter set and/or setting a regular expression. Subclass can  * add extended filter logic in   * {@link #extendedFilter(org.apache.camel.spi.HeaderFilterStrategy.Direction, String, Object, org.apache.camel.Exchange)}  *   * Filters are associated with directions (in or out). "In" direction is  * referred to propagating headers "to" Camel message. The "out" direction  * is opposite which is referred to propagating headers from Camel message  * to a native message like JMS and CXF message. You can see example of  * DefaultHeaderFilterStrategy are being extended and invoked in camel-jms   * and camel-cxf components.  *  * @version   */
+comment|/**  * The default header filtering strategy. Users can configure filter by  * setting filter set and/or setting a regular expression. Subclass can  * add extended filter logic in   * {@link #extendedFilter(org.apache.camel.spi.HeaderFilterStrategy.Direction, String, Object, org.apache.camel.Exchange)}  *   * Filters are associated with directions (in or out). "In" direction is  * referred to propagating headers "to" Camel message. The "out" direction  * is opposite which is referred to propagating headers from Camel message  * to a native message like JMS and CXF message. You can see example of  * DefaultHeaderFilterStrategy are being extended and invoked in camel-jms   * and camel-cxf components.  */
 end_comment
 
 begin_class

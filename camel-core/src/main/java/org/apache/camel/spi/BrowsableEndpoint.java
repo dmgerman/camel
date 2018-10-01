@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An optional interface an {@link Endpoint} may choose to implement which allows it to  * expose a way of browsing the exchanges available.  *  * @version   */
+comment|/**  * An optional interface an {@link Endpoint} may choose to implement which allows it to  * expose a way of browsing the exchanges available.  */
 end_comment
 
 begin_interface

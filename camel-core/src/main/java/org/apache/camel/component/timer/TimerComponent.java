@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/timer.html">Timer Component</a> is for generating message exchanges when a timer fires.  *  * Represents the component that manages {@link TimerEndpoint}.  It holds the  * list of {@link TimerConsumer} objects that are started.  *  * @version   */
+comment|/**  * The<a href="http://camel.apache.org/timer.html">Timer Component</a> is for generating message exchanges when a timer fires.  *  * Represents the component that manages {@link TimerEndpoint}.  It holds the  * list of {@link TimerConsumer} objects that are started.  */
 end_comment
 
 begin_class

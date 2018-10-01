@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A pluggable strategy for resolving different languages in a loosely coupled manner  *   * @version   */
+comment|/**  * A pluggable strategy for resolving different languages in a loosely coupled manner  */
 end_comment
 
 begin_interface

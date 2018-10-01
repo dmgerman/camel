@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Thrift data format is used for serialization and deserialization of messages using Apache Thrift binary dataformat.  *  * @version   */
+comment|/**  * The Thrift data format is used for serialization and deserialization of messages using Apache Thrift binary dataformat.  */
 end_comment
 
 begin_class

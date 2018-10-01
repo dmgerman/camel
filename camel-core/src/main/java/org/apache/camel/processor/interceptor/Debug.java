@@ -135,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A debug interceptor to notify {@link Debugger} with {@link Exchange}s being processed.  *  * @version   */
+comment|/**  * A debug interceptor to notify {@link Debugger} with {@link Exchange}s being processed.  */
 end_comment
 
 begin_class

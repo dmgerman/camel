@@ -249,7 +249,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a>  * ({@link org.apache.camel.spi.DataFormat}) using XStream and Jettison to marshal to and from JSON  *  * @version  */
+comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a>  * ({@link org.apache.camel.spi.DataFormat}) using XStream and Jettison to marshal to and from JSON  */
 end_comment
 
 begin_class

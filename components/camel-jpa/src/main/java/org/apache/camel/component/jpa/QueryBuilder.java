@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder of query expressions  *   * @version   */
+comment|/**  * A builder of query expressions  */
 end_comment
 
 begin_class

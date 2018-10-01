@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates a namespace prefix for an XPath  *  * @version   */
+comment|/**  * Creates a namespace prefix for an XPath  */
 end_comment
 
 begin_annotation_defn

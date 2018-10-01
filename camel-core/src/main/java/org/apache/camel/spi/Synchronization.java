@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides a hook for custom {@link org.apache.camel.Processor} or {@link org.apache.camel.Component}  * instances to respond to completed or failed processing of an {@link Exchange} rather like Spring's  *<a href="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/transaction/  * support/TransactionSynchronization.html">TransactionSynchronization</a>  *  * @version   */
+comment|/**  * Provides a hook for custom {@link org.apache.camel.Processor} or {@link org.apache.camel.Component}  * instances to respond to completed or failed processing of an {@link Exchange} rather like Spring's  *<a href="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/transaction/  * support/TransactionSynchronization.html">TransactionSynchronization</a>  */
 end_comment
 
 begin_interface

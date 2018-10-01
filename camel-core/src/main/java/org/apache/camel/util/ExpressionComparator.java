@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of {@link Comparator} that takes an {@link Expression} which is evaluated  * on each exchange to be compared  *    * @version   */
+comment|/**  * An implementation of {@link Comparator} that takes an {@link Expression} which is evaluated  * on each exchange to be compared  *    */
 end_comment
 
 begin_class

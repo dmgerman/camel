@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Mina constants  *  * @version   */
+comment|/**  * Mina constants  */
 end_comment
 
 begin_class

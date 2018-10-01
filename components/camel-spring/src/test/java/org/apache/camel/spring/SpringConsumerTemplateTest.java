@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test using the ConsumerTemplate  *  * @version   */
+comment|/**  * Unit test using the ConsumerTemplate  */
 end_comment
 
 begin_comment

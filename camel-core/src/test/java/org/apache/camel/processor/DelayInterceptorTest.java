@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Delay interceptor unit test.  *  * @version   */
+comment|/**  * Delay interceptor unit test.  */
 end_comment
 
 begin_class

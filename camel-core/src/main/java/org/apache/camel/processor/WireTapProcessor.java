@@ -375,7 +375,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Processor for wire tapping exchanges to an endpoint destination.  *  * @version   */
+comment|/**  * Processor for wire tapping exchanges to an endpoint destination.  */
 end_comment
 
 begin_class

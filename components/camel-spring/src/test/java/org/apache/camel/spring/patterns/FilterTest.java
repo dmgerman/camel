@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests filtering using Spring Test and XML Config   *  * @version   */
+comment|/**  * Tests filtering using Spring Test and XML Config   */
 end_comment
 
 begin_comment

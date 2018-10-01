@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An {@link org.apache.camel.model.ExpressionNode} which does<b>not</b> support any outputs.  *<p/>  * This node is to be extended by definitions which need to support an expression but the definition should not  * contain any outputs, such as {@link org.apache.camel.model.TransformDefinition}.  *  * @version   */
+comment|/**  * An {@link org.apache.camel.model.ExpressionNode} which does<b>not</b> support any outputs.  *<p/>  * This node is to be extended by definitions which need to support an expression but the definition should not  * contain any outputs, such as {@link org.apache.camel.model.TransformDefinition}.  */
 end_comment
 
 begin_class

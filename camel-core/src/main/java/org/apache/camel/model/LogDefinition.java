@@ -291,7 +291,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Logs the defined message to the logger  *  * @version   */
+comment|/**  * Logs the defined message to the logger  */
 end_comment
 
 begin_class

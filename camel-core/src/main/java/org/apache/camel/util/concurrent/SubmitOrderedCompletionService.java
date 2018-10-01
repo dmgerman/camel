@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link java.util.concurrent.CompletionService} that orders the completed tasks  * in the same order as they where submitted.  *  * @version   */
+comment|/**  * A {@link java.util.concurrent.CompletionService} that orders the completed tasks  * in the same order as they where submitted.  */
 end_comment
 
 begin_class

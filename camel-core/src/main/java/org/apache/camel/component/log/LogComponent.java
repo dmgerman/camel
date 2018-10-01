@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/log.html">Log Component</a>  * is for logging message exchanges via the underlying logging mechanism.  *  * @version   */
+comment|/**  * The<a href="http://camel.apache.org/log.html">Log Component</a>  * is for logging message exchanges via the underlying logging mechanism.  */
 end_comment
 
 begin_class

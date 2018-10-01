@@ -181,7 +181,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Extract a sample of the messages passing through a route  *  * @version   */
+comment|/**  * Extract a sample of the messages passing through a route  */
 end_comment
 
 begin_class

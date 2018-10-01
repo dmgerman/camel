@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A counter that gathers performance metrics when an {@link org.apache.camel.Exchange} is routed in Camel.  *  * @version   */
+comment|/**  * A counter that gathers performance metrics when an {@link org.apache.camel.Exchange} is routed in Camel.  */
 end_comment
 
 begin_interface

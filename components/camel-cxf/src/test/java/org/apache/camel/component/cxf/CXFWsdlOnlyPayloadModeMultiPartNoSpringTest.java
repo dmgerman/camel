@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test that verifies multi part SOAP message functionality  *   * @version   */
+comment|/**  * Unit test that verifies multi part SOAP message functionality  */
 end_comment
 
 begin_class

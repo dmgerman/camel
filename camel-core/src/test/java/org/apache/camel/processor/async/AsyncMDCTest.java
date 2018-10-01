@@ -168,10 +168,6 @@ name|MDC_ROUTE_ID
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|AsyncMDCTest
 specifier|public

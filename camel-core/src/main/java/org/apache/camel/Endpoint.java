@@ -25,7 +25,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/endpoint.html">endpoint</a>  * implements the<a  * href="http://camel.apache.org/message-endpoint.html">Message  * Endpoint</a> pattern and represents an endpoint that can send and receive  * message exchanges  *  * @see Exchange  * @see Message  * @version   */
+comment|/**  * An<a href="http://camel.apache.org/endpoint.html">endpoint</a>  * implements the<a  * href="http://camel.apache.org/message-endpoint.html">Message  * Endpoint</a> pattern and represents an endpoint that can send and receive  * message exchanges  *  * @see Exchange  * @see Message  */
 end_comment
 
 begin_interface

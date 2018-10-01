@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link ReplyHandler} to handle processing replies when using temporary queues.  *  * @version   */
+comment|/**  * {@link ReplyHandler} to handle processing replies when using temporary queues.  */
 end_comment
 
 begin_class

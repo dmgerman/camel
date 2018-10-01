@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * See MR-170  *  * @version   */
+comment|/**  * See MR-170  */
 end_comment
 
 begin_class

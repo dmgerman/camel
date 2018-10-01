@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default header filtering strategy for Restlet  *   * @version   */
+comment|/**  * Default header filtering strategy for Restlet  */
 end_comment
 
 begin_class

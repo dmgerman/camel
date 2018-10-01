@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Calls a Camel processor  *  * @version   */
+comment|/**  * Calls a Camel processor  */
 end_comment
 
 begin_class

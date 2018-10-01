@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Types for replyTo queues  *  * @version   */
+comment|/**  * Types for replyTo queues  */
 end_comment
 
 begin_enum

@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A strategy for comparing elements of a sequence.  *   * @version   */
+comment|/**  * A strategy for comparing elements of a sequence.  */
 end_comment
 
 begin_interface

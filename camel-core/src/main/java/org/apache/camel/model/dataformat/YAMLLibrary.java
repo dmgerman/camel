@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the concrete Yaml libraries Camel supports.  *  * @version   */
+comment|/**  * Represents the concrete Yaml libraries Camel supports.  */
 end_comment
 
 begin_enum

@@ -343,7 +343,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Component</a>  *  * @version   */
+comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Component</a>  */
 end_comment
 
 begin_class

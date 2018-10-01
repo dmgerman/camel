@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default base class for a {@link LoadBalancer} implementation.  *<p/>  * This implementation is dedicated for simple synchronous load balancers.  *<p/>  * Consider using the {@link LoadBalancerSupport} if you want to support  * the asynchronous routing engine in Camel.  *  * @version   */
+comment|/**  * A default base class for a {@link LoadBalancer} implementation.  *<p/>  * This implementation is dedicated for simple synchronous load balancers.  *<p/>  * Consider using the {@link LoadBalancerSupport} if you want to support  * the asynchronous routing engine in Camel.  */
 end_comment
 
 begin_class

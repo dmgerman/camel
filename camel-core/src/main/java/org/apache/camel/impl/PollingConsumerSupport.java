@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for implementations of {@link PollingConsumer}  *   * @version   */
+comment|/**  * A useful base class for implementations of {@link PollingConsumer}  */
 end_comment
 
 begin_class

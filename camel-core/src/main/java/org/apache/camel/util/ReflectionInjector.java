@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple implementation of {@link Injector} which just uses reflection to  * instantiate new objects using their zero argument constructor. For more  * complex implementations try the Spring or Guice implementations.  *   * @version   */
+comment|/**  * A simple implementation of {@link Injector} which just uses reflection to  * instantiate new objects using their zero argument constructor. For more  * complex implementations try the Spring or Guice implementations.  */
 end_comment
 
 begin_class

@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An example POJO which is injected with a CamelTemplate  *   * @version   */
+comment|/**  * An example POJO which is injected with a CamelTemplate  */
 end_comment
 
 begin_class

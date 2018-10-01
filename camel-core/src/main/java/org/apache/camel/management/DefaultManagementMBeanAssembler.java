@@ -211,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An assembler to assemble a {@link javax.management.modelmbean.ModelMBean} which can be used  * to register the object in JMX. The assembler is capable of using the Camel JMX annotations to  * gather the list of JMX operations and attributes.  *  * @version   */
+comment|/**  * An assembler to assemble a {@link javax.management.modelmbean.ModelMBean} which can be used  * to register the object in JMX. The assembler is capable of using the Camel JMX annotations to  * gather the list of JMX operations and attributes.  */
 end_comment
 
 begin_class

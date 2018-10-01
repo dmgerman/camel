@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A vetoable {@link org.apache.camel.spi.Synchronization}.  *<p/>  * When using {@link org.apache.camel.spi.Synchronization} they are normally executed  * when the {@link org.apache.camel.Exchange} complete at the end. If the {@link org.apache.camel.Exchange}  * is processed asynchronously the {@link org.apache.camel.spi.Synchronization} will be handed  * over to the next thread. This ensures for example the file consumer will delete the processed file at the very  * end, when the {@link org.apache.camel.Exchange} has been completed successfully.  *<p/>  * However there may be situations where you do not want to handover certain {@link org.apache.camel.spi.Synchronization},  * such as when doing asynchronously request/reply over SEDA or VM endpoints.  *  * @version   */
+comment|/**  * A vetoable {@link org.apache.camel.spi.Synchronization}.  *<p/>  * When using {@link org.apache.camel.spi.Synchronization} they are normally executed  * when the {@link org.apache.camel.Exchange} complete at the end. If the {@link org.apache.camel.Exchange}  * is processed asynchronously the {@link org.apache.camel.spi.Synchronization} will be handed  * over to the next thread. This ensures for example the file consumer will delete the processed file at the very  * end, when the {@link org.apache.camel.Exchange} has been completed successfully.  *<p/>  * However there may be situations where you do not want to handover certain {@link org.apache.camel.spi.Synchronization},  * such as when doing asynchronously request/reply over SEDA or VM endpoints.  */
 end_comment
 
 begin_interface

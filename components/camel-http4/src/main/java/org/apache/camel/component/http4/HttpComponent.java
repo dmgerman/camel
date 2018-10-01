@@ -639,7 +639,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://camel.apache.org/http4.html">HTTP4  * Component</a>  *  * @version   */
+comment|/**  * Defines the<a href="http://camel.apache.org/http4.html">HTTP4  * Component</a>  */
 end_comment
 
 begin_class

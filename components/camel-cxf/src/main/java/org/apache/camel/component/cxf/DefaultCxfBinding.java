@@ -875,7 +875,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Default CXF binding implementation.  *   * @version   */
+comment|/**  * The Default CXF binding implementation.  */
 end_comment
 
 begin_class

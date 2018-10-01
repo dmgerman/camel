@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This unit test verifies a single route can service multiple templates.  *   * @version   */
+comment|/**  * This unit test verifies a single route can service multiple templates.  */
 end_comment
 
 begin_class

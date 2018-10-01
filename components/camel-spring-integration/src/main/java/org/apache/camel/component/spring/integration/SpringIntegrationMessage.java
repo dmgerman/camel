@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Message {@link DefaultMessage} implementation  * for accessing the SpringIntegrationMessage  *  * @version   */
+comment|/**  * The Message {@link DefaultMessage} implementation  * for accessing the SpringIntegrationMessage  */
 end_comment
 
 begin_class

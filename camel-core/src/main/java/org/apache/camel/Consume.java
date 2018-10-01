@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Subscribes a method to an {@link Endpoint} either via its  *<a href="http://camel.apache.org/uris.html">URI</a> or via the name of the endpoint reference  * which is then resolved in a registry such as the Spring Application Context.  *<p/>  * When a message {@link Exchange} is received from the {@link Endpoint} then the  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>  * mechanism is used to map the incoming {@link Message} to the method parameters.  *   * @version   */
+comment|/**  * Subscribes a method to an {@link Endpoint} either via its  *<a href="http://camel.apache.org/uris.html">URI</a> or via the name of the endpoint reference  * which is then resolved in a registry such as the Spring Application Context.  *<p/>  * When a message {@link Exchange} is received from the {@link Endpoint} then the  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>  * mechanism is used to map the incoming {@link Message} to the method parameters.  */
 end_comment
 
 begin_annotation_defn

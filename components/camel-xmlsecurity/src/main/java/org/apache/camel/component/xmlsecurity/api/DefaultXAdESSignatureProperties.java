@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation for the XAdES signature properties which determines  * the Signing Certificate from a keystore and an alias.  *   */
+comment|/**  * Default implementation for the XAdES signature properties which determines  * the Signing Certificate from a keystore and an alias.  */
 end_comment
 
 begin_class

@@ -255,7 +255,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Splits a single message into many sub-messages.  *  * @version   */
+comment|/**  * Splits a single message into many sub-messages.  */
 end_comment
 
 begin_class

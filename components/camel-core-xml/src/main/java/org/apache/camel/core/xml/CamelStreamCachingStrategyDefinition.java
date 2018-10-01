@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Stream caching configuration.  *  * @version   */
+comment|/**  * Stream caching configuration.  */
 end_comment
 
 begin_class

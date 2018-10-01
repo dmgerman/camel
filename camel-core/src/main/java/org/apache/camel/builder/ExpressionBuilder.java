@@ -727,7 +727,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for working with<a href="http://camel.apache.org/expression.html">expressions</a>.  *  * @version  */
+comment|/**  * A helper class for working with<a href="http://camel.apache.org/expression.html">expressions</a>.  */
 end_comment
 
 begin_class

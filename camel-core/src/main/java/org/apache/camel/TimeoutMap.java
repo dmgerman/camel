@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represents a map of values which timeout after a period of inactivity.  *  * @version   */
+comment|/**  * Represents a map of values which timeout after a period of inactivity.  */
 end_comment
 
 begin_interface

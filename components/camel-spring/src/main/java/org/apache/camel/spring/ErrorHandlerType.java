@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used to configure the error handler type  *  * @version   */
+comment|/**  * Used to configure the error handler type  */
 end_comment
 
 begin_enum

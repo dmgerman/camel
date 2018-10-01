@@ -181,7 +181,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Configuration of thread pools  *  * @version   */
+comment|/**  * Configuration of thread pools  */
 end_comment
 
 begin_class

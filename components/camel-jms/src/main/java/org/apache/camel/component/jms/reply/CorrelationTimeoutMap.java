@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.TimeoutMap} which is used to track reply messages which  * has been timed out, and thus should trigger the waiting {@link org.apache.camel.Exchange} to  * timeout as well.  *  * @version   */
+comment|/**  * A {@link org.apache.camel.TimeoutMap} which is used to track reply messages which  * has been timed out, and thus should trigger the waiting {@link org.apache.camel.Exchange} to  * timeout as well.  */
 end_comment
 
 begin_class

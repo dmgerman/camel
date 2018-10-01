@@ -25,7 +25,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the status of a {@link Service} instance  *  * @version   */
+comment|/**  * Represents the status of a {@link Service} instance  */
 end_comment
 
 begin_enum

@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A logger which logs to a slf4j {@link Logger}.  *<p/>  * The name<tt>CamelLogger</tt> has been chosen to avoid any name clash with log kits  * which has a<tt>Logger</tt> class.  *  * @version   */
+comment|/**  * A logger which logs to a slf4j {@link Logger}.  *<p/>  * The name<tt>CamelLogger</tt> has been chosen to avoid any name clash with log kits  * which has a<tt>Logger</tt> class.  */
 end_comment
 
 begin_class

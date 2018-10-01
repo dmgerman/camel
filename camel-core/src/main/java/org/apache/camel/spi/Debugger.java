@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A debugger which allows tooling to attach breakpoints which is is being invoked  * when {@link Exchange}s is being routed.  *  * @version   */
+comment|/**  * A debugger which allows tooling to attach breakpoints which is is being invoked  * when {@link Exchange}s is being routed.  */
 end_comment
 
 begin_interface

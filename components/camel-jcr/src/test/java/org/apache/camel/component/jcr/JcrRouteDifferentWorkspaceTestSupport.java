@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JcrRouteDifferentWorkspaceTestSupport  *   */
+comment|/**  * JcrRouteDifferentWorkspaceTestSupport  */
 end_comment
 
 begin_class

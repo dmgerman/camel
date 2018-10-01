@@ -203,7 +203,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Converts from some DOM types to Java types  *  * @version   */
+comment|/**  * Converts from some DOM types to Java types  */
 end_comment
 
 begin_class

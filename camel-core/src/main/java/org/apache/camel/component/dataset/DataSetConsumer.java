@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DataSet consumer.  *  * @version   */
+comment|/**  * DataSet consumer.  */
 end_comment
 
 begin_class

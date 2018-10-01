@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A specialized {@link org.apache.camel.spi.AggregationRepository} which also supports  * recovery. This usually requires a repository which is persisted.  *  * @version   */
+comment|/**  * A specialized {@link org.apache.camel.spi.AggregationRepository} which also supports  * recovery. This usually requires a repository which is persisted.  */
 end_comment
 
 begin_interface

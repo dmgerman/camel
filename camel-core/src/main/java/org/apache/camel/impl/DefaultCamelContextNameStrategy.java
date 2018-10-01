@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default name strategy which auto assigns a name using a prefix-counter pattern.  *  * @version   */
+comment|/**  * A default name strategy which auto assigns a name using a prefix-counter pattern.  */
 end_comment
 
 begin_class

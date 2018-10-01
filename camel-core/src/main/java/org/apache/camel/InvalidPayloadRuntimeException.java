@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Runtime version of the {@link InvalidPayloadException}.  *  * @version  */
+comment|/**  * Runtime version of the {@link InvalidPayloadException}.  */
 end_comment
 
 begin_class

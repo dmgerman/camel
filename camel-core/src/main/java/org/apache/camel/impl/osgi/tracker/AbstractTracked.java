@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract class to track items. If a Tracker is reused (closed then reopened),  * then a new AbstractTracked object is used. This class acts a map of tracked  * item -> customized object. Subclasses of this class will act as the listener  * object for the tracker. This class is used to synchronize access to the  * tracked items. This is not a public class. It is only for use by the  * implementation of the Tracker class.  *   * @ThreadSafe  * @version   * @since 1.4  */
+comment|/**  * Abstract class to track items. If a Tracker is reused (closed then reopened),  * then a new AbstractTracked object is used. This class acts a map of tracked  * item -> customized object. Subclasses of this class will act as the listener  * object for the tracker. This class is used to synchronize access to the  * tracked items. This is not a public class. It is only for use by the  * implementation of the Tracker class.  *   * @ThreadSafe  * @since 1.4  */
 end_comment
 
 begin_class

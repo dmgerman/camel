@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests a Quartz based cluster setup of two Camel Apps being triggered through {@link QuartzConsumer}.  *   * @version  */
+comment|/**  * Tests a Quartz based cluster setup of two Camel Apps being triggered through {@link QuartzConsumer}.  */
 end_comment
 
 begin_class

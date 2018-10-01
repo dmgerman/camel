@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Exception thrown when no consumers are available.  *  * @version  */
+comment|/**  * Exception thrown when no consumers are available.  */
 end_comment
 
 begin_class

@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Statement types to instruct which MyBatis operation to use.  *  * @version  */
+comment|/**  * Statement types to instruct which MyBatis operation to use.  */
 end_comment
 
 begin_enum

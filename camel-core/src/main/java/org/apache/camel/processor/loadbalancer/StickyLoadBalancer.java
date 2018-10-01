@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements a sticky load balancer using an {@link Expression} to calculate  * a correlation key to perform the sticky load balancing; rather like jsessionid in the web  * or JMSXGroupID in JMS.  *  * @version   */
+comment|/**  * Implements a sticky load balancer using an {@link Expression} to calculate  * a correlation key to perform the sticky load balancing; rather like jsessionid in the web  * or JMSXGroupID in JMS.  */
 end_comment
 
 begin_class

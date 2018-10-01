@@ -269,7 +269,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JavaMail specific converters.  *  * @version   */
+comment|/**  * JavaMail specific converters.  */
 end_comment
 
 begin_class

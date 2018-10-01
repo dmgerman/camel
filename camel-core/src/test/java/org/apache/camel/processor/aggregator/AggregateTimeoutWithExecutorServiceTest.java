@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that aggregate by timeout only also works.  *   * @version   */
+comment|/**  * Unit test to verify that aggregate by timeout only also works.  */
 end_comment
 
 begin_class

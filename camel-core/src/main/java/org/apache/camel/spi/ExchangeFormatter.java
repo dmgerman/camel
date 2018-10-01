@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A plugin used to turn an {@link Exchange} into a String representation  * usually to be used for logging or tracing purposes.  *  * @version   */
+comment|/**  * A plugin used to turn an {@link Exchange} into a String representation  * usually to be used for logging or tracing purposes.  */
 end_comment
 
 begin_interface

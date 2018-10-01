@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test based on user on user forum with an issue.  *  * @version   */
+comment|/**  * Unit test based on user on user forum with an issue.  */
 end_comment
 
 begin_class

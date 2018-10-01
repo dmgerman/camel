@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marks methods as being {@link ExchangePattern#InOnly}  * for one way asynchronous invocation when using  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a> or  *<a href="http://camel.apache.org/spring-remoting.html">Spring Remoting</a>  * to overload the default value which is {@link ExchangePattern#InOut} for request/reply if no annotations are used.  *  * This annotation can be added to individual methods or added to a class or interface to act as a default for all methods  * within the class or interface.  *  * See the<a href="using-exchange-pattern-annotations.html">using exchange pattern annotations</a>  * for more details on how the overloading rules work.  *  * @see org.apache.camel.ExchangePattern  * @see org.apache.camel.Exchange#getPattern()  * @see InOut  * @see Pattern  *  * @version   */
+comment|/**  * Marks methods as being {@link ExchangePattern#InOnly}  * for one way asynchronous invocation when using  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a> or  *<a href="http://camel.apache.org/spring-remoting.html">Spring Remoting</a>  * to overload the default value which is {@link ExchangePattern#InOut} for request/reply if no annotations are used.  *  * This annotation can be added to individual methods or added to a class or interface to act as a default for all methods  * within the class or interface.  *  * See the<a href="using-exchange-pattern-annotations.html">using exchange pattern annotations</a>  * for more details on how the overloading rules work.  *  * @see org.apache.camel.ExchangePattern  * @see org.apache.camel.Exchange#getPattern()  * @see InOut  * @see Pattern  */
 end_comment
 
 begin_annotation_defn

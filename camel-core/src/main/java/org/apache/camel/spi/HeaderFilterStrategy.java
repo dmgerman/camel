@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Interface to allow plug-able implementation to filter header to and from Camel message.  *  * @version   */
+comment|/**  * Interface to allow plug-able implementation to filter header to and from Camel message.  */
 end_comment
 
 begin_interface

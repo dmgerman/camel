@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that aggregate by interval only also works.  *  * @version   */
+comment|/**  * Unit test to verify that aggregate by interval only also works.  */
 end_comment
 
 begin_class

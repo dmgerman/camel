@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Processor} which converts the inbound exchange to a method  * invocation on a POJO  *  * @version   */
+comment|/**  * A {@link Processor} which converts the inbound exchange to a method  * invocation on a POJO  */
 end_comment
 
 begin_class

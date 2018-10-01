@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used to inject a simple expression into a field, property, method or parameter when using  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>.  *  * @version   */
+comment|/**  * Used to inject a simple expression into a field, property, method or parameter when using  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>.  */
 end_comment
 
 begin_annotation_defn

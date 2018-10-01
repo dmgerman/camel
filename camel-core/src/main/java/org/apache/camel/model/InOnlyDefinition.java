@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marks the exchange pattern for the route to one way  *  * @version   */
+comment|/**  * Marks the exchange pattern for the route to one way  */
 end_comment
 
 begin_class

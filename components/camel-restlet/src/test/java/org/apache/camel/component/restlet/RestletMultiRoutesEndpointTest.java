@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This unit test verifies a single route can service multiple methods.  *   * @version   */
+comment|/**  * This unit test verifies a single route can service multiple methods.  */
 end_comment
 
 begin_class

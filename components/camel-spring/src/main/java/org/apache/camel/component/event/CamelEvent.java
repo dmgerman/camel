@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Spring {@link ApplicationEvent} which contains a Camel {@link Exchange}  *  * @version   */
+comment|/**  * Represents a Spring {@link ApplicationEvent} which contains a Camel {@link Exchange}  */
 end_comment
 
 begin_class

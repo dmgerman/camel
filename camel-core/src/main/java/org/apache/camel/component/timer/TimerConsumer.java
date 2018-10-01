@@ -181,7 +181,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The timer consumer.  *  * @version   */
+comment|/**  * The timer consumer.  */
 end_comment
 
 begin_class

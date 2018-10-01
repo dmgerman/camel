@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used to indicate an injection point of an {@link Endpoint}, {@link Producer} or  * {@link ProducerTemplate} into a POJO.  *  * A<a href="http://camel.apache.org/uris.html">URI</a> for an endpoint  * can be specified on this annotation, or a name can be specified which is resolved in the  * {@link org.apache.camel.spi.Registry} such as in your Spring ApplicationContext.  *  * If no ref or uri is specified then the ref is defaulted from the field, property or method name.  *  * @version   */
+comment|/**  * Used to indicate an injection point of an {@link Endpoint}, {@link Producer} or  * {@link ProducerTemplate} into a POJO.  *  * A<a href="http://camel.apache.org/uris.html">URI</a> for an endpoint  * can be specified on this annotation, or a name can be specified which is resolved in the  * {@link org.apache.camel.spi.Registry} such as in your Spring ApplicationContext.  *  * If no ref or uri is specified then the ref is defaulted from the field, property or method name.  */
 end_comment
 
 begin_annotation_defn

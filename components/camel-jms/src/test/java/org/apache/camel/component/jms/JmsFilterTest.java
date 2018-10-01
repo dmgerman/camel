@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests filtering using Camel Test  * @version   */
+comment|/**  * Tests filtering using Camel Test  */
 end_comment
 
 begin_comment

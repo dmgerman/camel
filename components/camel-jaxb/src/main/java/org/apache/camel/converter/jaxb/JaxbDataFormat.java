@@ -519,7 +519,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a> ({@link DataFormat})  * using JAXB2 to marshal to and from XML  *  * @version  */
+comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a> ({@link DataFormat})  * using JAXB2 to marshal to and from XML  */
 end_comment
 
 begin_class

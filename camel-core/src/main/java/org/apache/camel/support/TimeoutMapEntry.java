@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an entry in a {@link TimeoutMap}  *  * @version   */
+comment|/**  * Represents an entry in a {@link TimeoutMap}  */
 end_comment
 
 begin_class

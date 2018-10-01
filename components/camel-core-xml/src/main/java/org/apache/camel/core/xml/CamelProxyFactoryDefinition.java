@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To proxy a service call using a interface  *  * @version   */
+comment|/**  * To proxy a service call using a interface  */
 end_comment
 
 begin_class

@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A predicate validation exception occurred  *   * @version   */
+comment|/**  * A predicate validation exception occurred  */
 end_comment
 
 begin_class

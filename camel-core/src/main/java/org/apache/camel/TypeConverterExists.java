@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * What to do if attempting to add a duplicate type converter  *  * @version   */
+comment|/**  * What to do if attempting to add a duplicate type converter  */
 end_comment
 
 begin_enum

@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Based on user form issue  *  * @version   */
+comment|/**  * Based on user form issue  */
 end_comment
 
 begin_class

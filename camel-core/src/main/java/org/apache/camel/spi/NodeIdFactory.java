@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory to generate unique ids for model nodes.  *  * @version   */
+comment|/**  * Factory to generate unique ids for model nodes.  */
 end_comment
 
 begin_interface

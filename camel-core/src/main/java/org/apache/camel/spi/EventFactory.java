@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory to create {@link java.util.EventObject events} that are emitted when such an event occur.  *<p/>  * For example when an {@link Exchange} is being created and then later when its done.  *  * @version   */
+comment|/**  * Factory to create {@link java.util.EventObject events} that are emitted when such an event occur.  *<p/>  * For example when an {@link Exchange} is being created and then later when its done.  */
 end_comment
 
 begin_interface

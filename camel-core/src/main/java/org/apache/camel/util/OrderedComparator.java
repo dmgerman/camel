@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A comparator to sort {@link Ordered}  *  * @version   */
+comment|/**  * A comparator to sort {@link Ordered}  */
 end_comment
 
 begin_class

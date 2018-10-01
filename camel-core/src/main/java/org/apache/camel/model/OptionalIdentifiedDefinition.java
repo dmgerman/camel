@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Allows an element to have an optional ID specified  *  * @version   */
+comment|/**  * Allows an element to have an optional ID specified  */
 end_comment
 
 begin_class

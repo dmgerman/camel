@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used for manual unit test, eg to curl to upload a file with:  * curl -F data=@src/test/data/plain.txt http://localhost:9080/myapp/myservice  *  * @version   */
+comment|/**  * Used for manual unit test, eg to curl to upload a file with:  * curl -F data=@src/test/data/plain.txt http://localhost:9080/myapp/myservice  */
 end_comment
 
 begin_class

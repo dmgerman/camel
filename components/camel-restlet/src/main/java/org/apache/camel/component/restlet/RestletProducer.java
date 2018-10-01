@@ -341,7 +341,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Camel producer that acts as a client to Restlet server.  *  * @version   */
+comment|/**  * A Camel producer that acts as a client to Restlet server.  */
 end_comment
 
 begin_class

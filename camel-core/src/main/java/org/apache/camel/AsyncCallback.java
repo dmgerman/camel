@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * The callback interface for an {@link AsyncProcessor} so that it can  * notify you when an {@link Exchange} is done.  *<p/>  * For example a {@link AsyncProcessor} should invoke the done method when the {@link Exchange} is ready  * to be continued routed. This allows to implement asynchronous {@link Producer} which can continue  * routing {@link Exchange} when all the data has been gathered. This allows to build non blocking  * request/reply communication.  *  * @version   */
+comment|/**  * The callback interface for an {@link AsyncProcessor} so that it can  * notify you when an {@link Exchange} is done.  *<p/>  * For example a {@link AsyncProcessor} should invoke the done method when the {@link Exchange} is ready  * to be continued routed. This allows to implement asynchronous {@link Producer} which can continue  * routing {@link Exchange} when all the data has been gathered. This allows to build non blocking  * request/reply communication.  */
 end_comment
 
 begin_interface

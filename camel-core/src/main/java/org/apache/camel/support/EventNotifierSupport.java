@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class to extend for custom {@link EventNotifier} implementations.  *  * @version   */
+comment|/**  * Base class to extend for custom {@link EventNotifier} implementations.  */
 end_comment
 
 begin_class

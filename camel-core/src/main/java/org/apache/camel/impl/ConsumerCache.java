@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Cache containing created {@link org.apache.camel.Consumer}.  *  * @version   */
+comment|/**  * Cache containing created {@link org.apache.camel.Consumer}.  */
 end_comment
 
 begin_class

@@ -455,7 +455,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base redeliverable error handler that also supports a final dead letter queue in case  * all redelivery attempts fail.  *<p/>  * This implementation should contain all the error handling logic and the sub classes  * should only configure it according to what they support.  *  * @version  */
+comment|/**  * Base redeliverable error handler that also supports a final dead letter queue in case  * all redelivery attempts fail.  *<p/>  * This implementation should contain all the error handling logic and the sub classes  * should only configure it according to what they support.  */
 end_comment
 
 begin_class

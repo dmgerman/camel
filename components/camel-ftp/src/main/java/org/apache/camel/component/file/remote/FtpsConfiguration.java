@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FTP Secure (FTP over SSL/TLS) configuration  *   * @version   */
+comment|/**  * FTP Secure (FTP over SSL/TLS) configuration  */
 end_comment
 
 begin_class

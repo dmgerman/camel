@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Sets the exchange pattern on the message exchange  *  * @version   */
+comment|/**  * Sets the exchange pattern on the message exchange  */
 end_comment
 
 begin_class

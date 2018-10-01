@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/expression.html">expression</a>  * provides a plugin strategy for evaluating expressions on a message exchange to support things like  *<a href="http://camel.apache.org/scripting-languages.html">scripting languages</a>,  *<a href="http://camel.apache.org/xquery.html">XQuery</a>  * or<a href="http://camel.apache.org/sql.html">SQL</a> as well  * as any arbitrary Java expression.  *  * @version   */
+comment|/**  * An<a href="http://camel.apache.org/expression.html">expression</a>  * provides a plugin strategy for evaluating expressions on a message exchange to support things like  *<a href="http://camel.apache.org/scripting-languages.html">scripting languages</a>,  *<a href="http://camel.apache.org/xquery.html">XQuery</a>  * or<a href="http://camel.apache.org/sql.html">SQL</a> as well  * as any arbitrary Java expression.  */
 end_comment
 
 begin_interface

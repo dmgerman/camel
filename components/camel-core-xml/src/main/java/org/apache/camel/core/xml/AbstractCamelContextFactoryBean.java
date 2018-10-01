@@ -1419,7 +1419,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory to create and initialize a  * {@link CamelContext} and install routes either explicitly configured  * or found by searching the classpath for Java classes which extend  * {@link org.apache.camel.builder.RouteBuilder}.  *  * @version   */
+comment|/**  * A factory to create and initialize a  * {@link CamelContext} and install routes either explicitly configured  * or found by searching the classpath for Java classes which extend  * {@link org.apache.camel.builder.RouteBuilder}.  */
 end_comment
 
 begin_class

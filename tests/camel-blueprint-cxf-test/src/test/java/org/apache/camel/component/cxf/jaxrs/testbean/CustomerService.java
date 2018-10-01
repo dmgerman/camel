@@ -188,10 +188,6 @@ name|Response
 import|;
 end_import
 
-begin_comment
-comment|/**  *  * @version   */
-end_comment
-
 begin_class
 annotation|@
 name|Path

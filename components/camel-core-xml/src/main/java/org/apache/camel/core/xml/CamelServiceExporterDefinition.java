@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used for export a service using Spring Remoting to hide the network call using an interface.  *  * @version  */
+comment|/**  * Used for export a service using Spring Remoting to hide the network call using an interface. */
 end_comment
 
 begin_class

@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory which instantiates {@link java.util.concurrent.ExecutorService} objects  *  * @version   */
+comment|/**  * A factory which instantiates {@link java.util.concurrent.ExecutorService} objects  */
 end_comment
 
 begin_class

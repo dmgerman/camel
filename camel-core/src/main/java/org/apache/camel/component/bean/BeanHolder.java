@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Object holder for a bean.  *  * @version   */
+comment|/**  * Object holder for a bean.  */
 end_comment
 
 begin_interface

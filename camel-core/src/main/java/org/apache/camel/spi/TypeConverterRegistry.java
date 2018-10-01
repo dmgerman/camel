@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Registry for type converters.  *<p/>  * The utilization {@link Statistics} is by default disabled, as it has a slight performance impact under very high  * concurrent load. The statistics can be enabled using {@link Statistics#setStatisticsEnabled(boolean)} method.  *  * @version   */
+comment|/**  * Registry for type converters.  *<p/>  * The utilization {@link Statistics} is by default disabled, as it has a slight performance impact under very high  * concurrent load. The statistics can be enabled using {@link Statistics#setStatisticsEnabled(boolean)} method.  */
 end_comment
 
 begin_interface

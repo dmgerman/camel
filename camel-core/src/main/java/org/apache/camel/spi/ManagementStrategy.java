@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy for management.  *<p/>  * This is totally pluggable allowing to use a custom or 3rd party management implementation with Camel.  *  * @see org.apache.camel.spi.EventNotifier  * @see org.apache.camel.spi.EventFactory  * @see org.apache.camel.spi.ManagementNamingStrategy  * @see org.apache.camel.spi.ManagementAgent  * @version   */
+comment|/**  * Strategy for management.  *<p/>  * This is totally pluggable allowing to use a custom or 3rd party management implementation with Camel.  *  * @see org.apache.camel.spi.EventNotifier  * @see org.apache.camel.spi.EventFactory  * @see org.apache.camel.spi.ManagementNamingStrategy  * @see org.apache.camel.spi.ManagementAgent  */
 end_comment
 
 begin_interface

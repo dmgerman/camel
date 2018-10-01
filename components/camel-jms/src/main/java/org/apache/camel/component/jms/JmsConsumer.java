@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.Consumer} which uses Spring's {@link AbstractMessageListenerContainer} implementations  * to consume JMS messages.  *  * @version  * @see DefaultJmsMessageListenerContainer  * @see SimpleJmsMessageListenerContainer  */
+comment|/**  * A {@link org.apache.camel.Consumer} which uses Spring's {@link AbstractMessageListenerContainer} implementations  * to consume JMS messages.  * @see DefaultJmsMessageListenerContainer  * @see SimpleJmsMessageListenerContainer  */
 end_comment
 
 begin_class

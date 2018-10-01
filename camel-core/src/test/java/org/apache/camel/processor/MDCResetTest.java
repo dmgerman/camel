@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests that MDC works as a stack remembering old values  * when using a producer template to send in new messages during routing.  *  * @version   */
+comment|/**  * Tests that MDC works as a stack remembering old values  * when using a producer template to send in new messages during routing.  */
 end_comment
 
 begin_class

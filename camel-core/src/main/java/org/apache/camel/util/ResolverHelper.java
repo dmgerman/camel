@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some helper methods for new resolvers (like {@link org.apache.camel.spi.ComponentResolver}, {@link org.apache.camel.spi.DataFormatResolver}, etc.).  *  * @version  */
+comment|/**  * Some helper methods for new resolvers (like {@link org.apache.camel.spi.ComponentResolver}, {@link org.apache.camel.spi.DataFormatResolver}, etc.).  */
 end_comment
 
 begin_class

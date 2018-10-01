@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A DataSet that allows a list of static payloads to be used to create each message exchange  * along with using a pluggable transformer to customize the messages.  *  * @version  */
+comment|/**  * A DataSet that allows a list of static payloads to be used to create each message exchange  * along with using a pluggable transformer to customize the messages.  */
 end_comment
 
 begin_class

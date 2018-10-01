@@ -163,7 +163,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor which converts the payload of the input message to be of the given type  *<p/>  * If the conversion fails an {@link org.apache.camel.InvalidPayloadException} is thrown.  *  * @version   */
+comment|/**  * A processor which converts the payload of the input message to be of the given type  *<p/>  * If the conversion fails an {@link org.apache.camel.InvalidPayloadException} is thrown.  */
 end_comment
 
 begin_class

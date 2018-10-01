@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A bean to enrich the proxied web service to ensure the input is valid and add additional information  *  * @version   */
+comment|/**  * A bean to enrich the proxied web service to ensure the input is valid and add additional information  */
 end_comment
 
 begin_comment

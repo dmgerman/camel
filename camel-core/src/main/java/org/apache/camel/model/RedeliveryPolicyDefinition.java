@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To configure re-delivery for error handling  *  * @version   */
+comment|/**  * To configure re-delivery for error handling  */
 end_comment
 
 begin_class

@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory for {@link org.apache.camel.builder.xml.ResultHandler}  *  * @version   */
+comment|/**  * Factory for {@link org.apache.camel.builder.xml.ResultHandler}  */
 end_comment
 
 begin_interface

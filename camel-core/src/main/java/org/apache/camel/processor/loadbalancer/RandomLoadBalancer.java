@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements the random load balancing policy  *  * @version   */
+comment|/**  * Implements the random load balancing policy  */
 end_comment
 
 begin_class

@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A pluggable strategy to be able to convert objects<a  * href="http://camel.apache.org/type-converter.html">to different  * types</a> such as to and from String, InputStream/OutputStream,  * Reader/Writer, Document, byte[], ByteBuffer etc  *   * @version   */
+comment|/**  * A pluggable strategy to be able to convert objects<a  * href="http://camel.apache.org/type-converter.html">to different  * types</a> such as to and from String, InputStream/OutputStream,  * Reader/Writer, Document, byte[], ByteBuffer etc  */
 end_comment
 
 begin_interface

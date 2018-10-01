@@ -281,7 +281,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Route to be executed when normal route processing completes  *  * @version   */
+comment|/**  * Route to be executed when normal route processing completes  */
 end_comment
 
 begin_class

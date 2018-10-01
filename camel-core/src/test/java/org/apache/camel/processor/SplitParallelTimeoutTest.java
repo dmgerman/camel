@@ -96,10 +96,6 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|SplitParallelTimeoutTest
 specifier|public

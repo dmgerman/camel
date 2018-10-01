@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Registry} which delegates to the real registry.  *<p/>  * This is used to ensure that Camel performs property placeholder resolution on every lookup.  *  * @version   */
+comment|/**  * A {@link Registry} which delegates to the real registry.  *<p/>  * This is used to ensure that Camel performs property placeholder resolution on every lookup.  */
 end_comment
 
 begin_class

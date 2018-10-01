@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests duplicate delivery via mqtt consumer.  *   * @version  */
+comment|/**  * Tests duplicate delivery via mqtt consumer.  */
 end_comment
 
 begin_class

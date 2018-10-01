@@ -767,7 +767,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates an XQuery builder.  *<p/>  * The XQueryExpression, as you would expect, can be executed repeatedly, as often as you want, in the same or in different threads.  *  * @version   */
+comment|/**  * Creates an XQuery builder.  *<p/>  * The XQueryExpression, as you would expect, can be executed repeatedly, as often as you want, in the same or in different threads.  */
 end_comment
 
 begin_class

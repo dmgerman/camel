@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor which ensures wrapping processors is having lifecycle handled.  *  * @version   */
+comment|/**  * A processor which ensures wrapping processors is having lifecycle handled.  */
 end_comment
 
 begin_class

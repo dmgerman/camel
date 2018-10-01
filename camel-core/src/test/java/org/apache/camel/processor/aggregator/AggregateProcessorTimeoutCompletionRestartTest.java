@@ -201,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To test CAMEL-4037 that a restart of aggregator can re-initialize the timeout map  *  * @version   */
+comment|/**  * To test CAMEL-4037 that a restart of aggregator can re-initialize the timeout map  */
 end_comment
 
 begin_class

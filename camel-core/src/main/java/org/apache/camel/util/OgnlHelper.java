@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper for Camel OGNL (Object-Graph Navigation Language) expressions.  *  * @version   */
+comment|/**  * Helper for Camel OGNL (Object-Graph Navigation Language) expressions.  */
 end_comment
 
 begin_class

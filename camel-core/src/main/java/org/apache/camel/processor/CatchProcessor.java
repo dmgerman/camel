@@ -163,7 +163,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor which catches exceptions.  *  * @version   */
+comment|/**  * A processor which catches exceptions.  */
 end_comment
 
 begin_class

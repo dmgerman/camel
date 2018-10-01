@@ -18,10 +18,6 @@ name|xquery
 package|;
 end_package
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_enum
 DECL|enum|ResultFormat
 specifier|public

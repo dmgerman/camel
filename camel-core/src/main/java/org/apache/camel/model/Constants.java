@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Various constants.  *  * @version   */
+comment|/**  * Various constants.  */
 end_comment
 
 begin_class

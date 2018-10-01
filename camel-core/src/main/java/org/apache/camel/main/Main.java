@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A command line tool for booting up a CamelContext  *  * @version   */
+comment|/**  * A command line tool for booting up a CamelContext  */
 end_comment
 
 begin_class

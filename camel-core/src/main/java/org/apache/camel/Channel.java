@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Channel acts as a channel between {@link Processor}s in the route graph.  *<p/>  * The channel is responsible for routing the {@link Exchange} to the next {@link Processor} in the route graph.  *  * @version   */
+comment|/**  * Channel acts as a channel between {@link Processor}s in the route graph.  *<p/>  * The channel is responsible for routing the {@link Exchange} to the next {@link Processor} in the route graph.  */
 end_comment
 
 begin_interface

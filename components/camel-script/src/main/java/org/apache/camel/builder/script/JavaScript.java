@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An annotation for injection of JavaScript expressions  *  into method parameters, fields or properties  *  * @version   */
+comment|/**  * An annotation for injection of JavaScript expressions  *  into method parameters, fields or properties  */
 end_comment
 
 begin_annotation_defn

@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default data format resolver  *  * @version  */
+comment|/**  * Default data format resolver  */
 end_comment
 
 begin_class

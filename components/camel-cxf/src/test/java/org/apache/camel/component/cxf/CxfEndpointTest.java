@@ -267,7 +267,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A unit test for spring configured cxf endpoint.  *  * @version  */
+comment|/**  * A unit test for spring configured cxf endpoint.  */
 end_comment
 
 begin_class

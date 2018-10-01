@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Language producer.  *  * @version   */
+comment|/**  * Language producer.  */
 end_comment
 
 begin_class

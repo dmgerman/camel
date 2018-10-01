@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple router that routes requests to target Restlets based on method.   *   * @version   */
+comment|/**  * A simple router that routes requests to target Restlets based on method.   */
 end_comment
 
 begin_class

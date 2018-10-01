@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Hello Test Impl class  * @version   */
+comment|/**  * Hello Test Impl class  */
 end_comment
 
 begin_class

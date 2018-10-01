@@ -209,7 +209,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Based on user forum.  *  * @version   */
+comment|/**  * Based on user forum.  */
 end_comment
 
 begin_class

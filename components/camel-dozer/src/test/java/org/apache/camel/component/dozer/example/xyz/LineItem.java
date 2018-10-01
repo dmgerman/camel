@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LineItem  *<p>  *   *   */
+comment|/**  * LineItem  *<p>  *   */
 end_comment
 
 begin_class

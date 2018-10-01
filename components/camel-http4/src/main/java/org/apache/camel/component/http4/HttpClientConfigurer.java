@@ -35,7 +35,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A pluggable strategy for configuring the HttpClient used by this component  *  * @version   */
+comment|/**  * A pluggable strategy for configuring the HttpClient used by this component  */
 end_comment
 
 begin_interface

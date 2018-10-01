@@ -361,7 +361,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Consumer for the SEDA component.  *<p/>  * In this implementation there is a little<i>slack period</i> when you suspend/stop the consumer, by which  * the consumer may pickup a newly arrived messages and process it. That period is up till 1 second.  *  * @version   */
+comment|/**  * A Consumer for the SEDA component.  *<p/>  * In this implementation there is a little<i>slack period</i> when you suspend/stop the consumer, by which  * the consumer may pickup a newly arrived messages and process it. That period is up till 1 second.  */
 end_comment
 
 begin_class

@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for testing CXF bus injection.  *  * @version   */
+comment|/**  * Unit test for testing CXF bus injection.  */
 end_comment
 
 begin_class

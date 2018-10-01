@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory which creates an {@link Expression} object from an annotation on a field, property or method parameter  * of a specified type.  *  * @version   */
+comment|/**  * A factory which creates an {@link Expression} object from an annotation on a field, property or method parameter  * of a specified type.  */
 end_comment
 
 begin_interface

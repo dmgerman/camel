@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An annotation for injection of<a href="http://mvel.codehaus.org/">MVEL</a>  * expressions into method parameters, fields or properties  *   */
+comment|/**  * An annotation for injection of<a href="http://mvel.codehaus.org/">MVEL</a>  * expressions into method parameters, fields or properties  */
 end_comment
 
 begin_annotation_defn

@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marks a method as being invoked for a specific header value.  *  * @see Message#getHeader(String)  * @version  */
+comment|/**  * Marks a method as being invoked for a specific header value.  *  * @see Message#getHeader(String)  */
 end_comment
 
 begin_annotation_defn

@@ -685,7 +685,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Strategy used to convert between a Camel {@link Exchange} and {@link JmsMessage}  * to and from a JMS {@link Message}  *  * @version   */
+comment|/**  * A Strategy used to convert between a Camel {@link Exchange} and {@link JmsMessage}  * to and from a JMS {@link Message}  */
 end_comment
 
 begin_class

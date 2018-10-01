@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Holder for a key and value.  *  * @version   */
+comment|/**  * Holder for a key and value.  */
 end_comment
 
 begin_class

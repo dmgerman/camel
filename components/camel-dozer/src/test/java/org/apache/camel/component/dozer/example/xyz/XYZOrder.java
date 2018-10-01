@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * XYZOrder  *<p>  *   *   */
+comment|/**  * XYZOrder  *<p>  *   */
 end_comment
 
 begin_class

@@ -631,7 +631,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This PGP Data Format uses the interfaces {@link PGPPublicKeyAccessor} and  * {@link PGPSecretKeyAccessor} to access the keys for encryption/signing and  * decryption/signature verification. These interfaces allow caching of the keys  * which can improve the performance.  *<p>  * If you want to provide the key access via keyrings in the format of a byte  * array or file, then you should use the class {@link PGPDataFormat}.  *   */
+comment|/**  * This PGP Data Format uses the interfaces {@link PGPPublicKeyAccessor} and  * {@link PGPSecretKeyAccessor} to access the keys for encryption/signing and  * decryption/signature verification. These interfaces allow caching of the keys  * which can improve the performance.  *<p>  * If you want to provide the key access via keyrings in the format of a byte  * array or file, then you should use the class {@link PGPDataFormat}.  */
 end_comment
 
 begin_class

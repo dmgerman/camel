@@ -157,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple converter that can convert any {@link Processor} to an {@link AsyncProcessor}.  * Processing will still occur synchronously but it will provide the required  * notifications that the caller expects.  *  * @version   */
+comment|/**  * A simple converter that can convert any {@link Processor} to an {@link AsyncProcessor}.  * Processing will still occur synchronously but it will provide the required  * notifications that the caller expects.  */
 end_comment
 
 begin_class

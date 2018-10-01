@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Component for Apache MINA 2.x.  *  * @version   */
+comment|/**  * Component for Apache MINA 2.x.  */
 end_comment
 
 begin_class

@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Holds the instance being managed.  *  * @version   */
+comment|/**  * Holds the instance being managed.  */
 end_comment
 
 begin_interface

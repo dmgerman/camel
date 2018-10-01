@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Possible text line delimiters to be used with the textline codec.  *  * @version   */
+comment|/**  * Possible text line delimiters to be used with the textline codec.  */
 end_comment
 
 begin_enum

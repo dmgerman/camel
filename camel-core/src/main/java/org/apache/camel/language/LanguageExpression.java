@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base annotation for language expressions.  *  * @version   */
+comment|/**  * Base annotation for language expressions.  */
 end_comment
 
 begin_annotation_defn

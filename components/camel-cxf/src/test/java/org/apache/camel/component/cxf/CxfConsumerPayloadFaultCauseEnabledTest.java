@@ -327,7 +327,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify CxfConsumer to generate SOAP fault in PAYLOAD mode with the exception cause returned  *   * @version   */
+comment|/**  * Unit test to verify CxfConsumer to generate SOAP fault in PAYLOAD mode with the exception cause returned  */
 end_comment
 
 begin_class

@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Component for JavaMail.  *  * @version  */
+comment|/**  * Component for JavaMail.  */
 end_comment
 
 begin_class

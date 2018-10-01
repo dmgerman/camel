@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An exception thrown if a value could not be converted to the required type  *  * @version   */
+comment|/**  * An exception thrown if a value could not be converted to the required type  */
 end_comment
 
 begin_class

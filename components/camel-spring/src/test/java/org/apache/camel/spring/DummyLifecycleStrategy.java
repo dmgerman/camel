@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Dummy LifecycleStrategy for LifecycleStrategy injection test.  *  * @version   */
+comment|/**  * Dummy LifecycleStrategy for LifecycleStrategy injection test.  */
 end_comment
 
 begin_class

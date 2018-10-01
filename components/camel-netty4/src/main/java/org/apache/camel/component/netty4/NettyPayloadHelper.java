@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper to get and set the correct payload when transferring data using camel-netty.  * Always use this helper instead of direct access on the exchange object.  *<p/>  * This helper ensures that we can also transfer exchange objects over the wire using the  *<tt>transferExchange=true</tt> option.  *  * @version   */
+comment|/**  * Helper to get and set the correct payload when transferring data using camel-netty.  * Always use this helper instead of direct access on the exchange object.  *<p/>  * This helper ensures that we can also transfer exchange objects over the wire using the  *<tt>transferExchange=true</tt> option.  */
 end_comment
 
 begin_class

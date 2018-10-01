@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Bindy data format is used for working with flat payloads (such as CSV, delimited, fixed length formats, or FIX messages).  *  * @version   */
+comment|/**  * The Bindy data format is used for working with flat payloads (such as CSV, delimited, fixed length formats, or FIX messages).  */
 end_comment
 
 begin_class

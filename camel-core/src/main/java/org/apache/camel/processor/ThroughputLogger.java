@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A logger for logging message throughput.  *  * @version   */
+comment|/**  * A logger for logging message throughput.  */
 end_comment
 
 begin_class

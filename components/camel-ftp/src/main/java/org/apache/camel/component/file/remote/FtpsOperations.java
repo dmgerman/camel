@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FTP Secure (FTP over SSL/TLS) operations  *  * @version   */
+comment|/**  * FTP Secure (FTP over SSL/TLS) operations  */
 end_comment
 
 begin_class

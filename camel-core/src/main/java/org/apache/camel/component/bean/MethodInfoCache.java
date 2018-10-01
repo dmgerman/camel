@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a cache of {@link MethodInfo} objects to avoid the expense of introspection for each  * invocation of a method via a proxy.  *  * @version   */
+comment|/**  * Represents a cache of {@link MethodInfo} objects to avoid the expense of introspection for each  * invocation of a method via a proxy.  */
 end_comment
 
 begin_class

@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Parameter information to be used for method invocation.  *  * @version   */
+comment|/**  * Parameter information to be used for method invocation.  */
 end_comment
 
 begin_class

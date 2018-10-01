@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy for computing {@link ObjectName} names for the various beans that Camel register for management.  *  * @version   */
+comment|/**  * Strategy for computing {@link ObjectName} names for the various beans that Camel register for management.  */
 end_comment
 
 begin_interface

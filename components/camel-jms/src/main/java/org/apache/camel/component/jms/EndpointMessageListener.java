@@ -259,7 +259,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A JMS {@link MessageListener} which can be used to delegate processing to a  * Camel endpoint.  *  * Note that instance of this object has to be thread safe (reentrant)  *  * @version   */
+comment|/**  * A JMS {@link MessageListener} which can be used to delegate processing to a  * Camel endpoint.  *  * Note that instance of this object has to be thread safe (reentrant)  */
 end_comment
 
 begin_class

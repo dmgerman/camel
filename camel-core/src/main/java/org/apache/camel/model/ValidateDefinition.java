@@ -157,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Validates a message based on an expression  *  * @version   */
+comment|/**  * Validates a message based on an expression  */
 end_comment
 
 begin_class

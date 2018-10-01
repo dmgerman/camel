@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A series of Camel routes  *  * @version   */
+comment|/**  * A series of Camel routes  */
 end_comment
 
 begin_class

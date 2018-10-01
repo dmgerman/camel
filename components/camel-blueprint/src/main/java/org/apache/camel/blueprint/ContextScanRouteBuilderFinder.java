@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class which will find all {@link org.apache.camel.builder.RouteBuilder} instances in the  *  {@link org.osgi.service.blueprint.container.BlueprintContainer}.  *  * @version   */
+comment|/**  * A helper class which will find all {@link org.apache.camel.builder.RouteBuilder} instances in the  *  {@link org.osgi.service.blueprint.container.BlueprintContainer}.  */
 end_comment
 
 begin_class

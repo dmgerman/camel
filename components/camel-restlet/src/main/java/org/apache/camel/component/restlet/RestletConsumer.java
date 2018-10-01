@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Restlet consumer acts as a server to listen client requests.  *  * @version   */
+comment|/**  * A Restlet consumer acts as a server to listen client requests.  */
 end_comment
 
 begin_class

@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the concrete Json libraries Camel supports.  *  * @version   */
+comment|/**  * Represents the concrete Json libraries Camel supports.  */
 end_comment
 
 begin_enum

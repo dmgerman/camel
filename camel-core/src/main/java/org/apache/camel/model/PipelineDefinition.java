@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Routes the message to a sequence of processors.  *  * @version  */
+comment|/**  * Routes the message to a sequence of processors.  */
 end_comment
 
 begin_class

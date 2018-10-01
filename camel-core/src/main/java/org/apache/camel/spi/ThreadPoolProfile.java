@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A profile which defines thread pool settings.  *<p/>  * See more details at<a href="http://camel.apache.org/threading-model.html">threading model</a>  *  * @version   */
+comment|/**  * A profile which defines thread pool settings.  *<p/>  * See more details at<a href="http://camel.apache.org/threading-model.html">threading model</a>  */
 end_comment
 
 begin_class

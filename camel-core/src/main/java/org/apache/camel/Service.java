@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represents the core lifecycle API for POJOs which can be started and stopped  *   * @version   */
+comment|/**  * Represents the core lifecycle API for POJOs which can be started and stopped  */
 end_comment
 
 begin_interface

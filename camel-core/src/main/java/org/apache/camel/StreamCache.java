@@ -35,7 +35,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tagging interface to indicate that a type is capable of caching the underlying data stream.  *<p/>  * This is a useful feature for avoiding message re-readability issues.  * This interface is mainly used by the {@link org.apache.camel.spi.StreamCachingStrategy}  * for determining if/how to wrap a stream-based message.  *<p/>  * The Camel routing engine uses the {@link org.apache.camel.processor.CamelInternalProcessor.StreamCachingAdvice}  * to apply the stream cache during routing.  *<p/>  * It is recommended in the {@link #copy(Exchange)} method to let the copied stream start from the start. If the implementation  * does not support copy, then return<tt>null</tt>.  *  * @version   */
+comment|/**  * Tagging interface to indicate that a type is capable of caching the underlying data stream.  *<p/>  * This is a useful feature for avoiding message re-readability issues.  * This interface is mainly used by the {@link org.apache.camel.spi.StreamCachingStrategy}  * for determining if/how to wrap a stream-based message.  *<p/>  * The Camel routing engine uses the {@link org.apache.camel.processor.CamelInternalProcessor.StreamCachingAdvice}  * to apply the stream cache during routing.  *<p/>  * It is recommended in the {@link #copy(Exchange)} method to let the copied stream start from the start. If the implementation  * does not support copy, then return<tt>null</tt>.  */
 end_comment
 
 begin_interface

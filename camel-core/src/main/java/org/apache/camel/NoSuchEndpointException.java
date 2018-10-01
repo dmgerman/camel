@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A runtime exception thrown if a routing processor such as a  * {@link org.apache.camel.processor.RecipientList RecipientList} is unable to resolve an  * {@link Endpoint} from a URI.  *  * @version   */
+comment|/**  * A runtime exception thrown if a routing processor such as a  * {@link org.apache.camel.processor.RecipientList RecipientList} is unable to resolve an  * {@link Endpoint} from a URI.  */
 end_comment
 
 begin_class

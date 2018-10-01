@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JMS with XPath  *  * @version   */
+comment|/**  * JMS with XPath  */
 end_comment
 
 begin_class

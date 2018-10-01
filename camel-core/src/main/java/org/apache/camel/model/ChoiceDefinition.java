@@ -269,7 +269,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Routes messages based on a series of predicates  *  * @version  */
+comment|/**  * Routes messages based on a series of predicates  */
 end_comment
 
 begin_class

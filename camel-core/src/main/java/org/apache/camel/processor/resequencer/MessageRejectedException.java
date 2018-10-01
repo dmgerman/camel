@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An exception thrown if message is rejected by the resequencer  *  * @version  */
+comment|/**  * An exception thrown if message is rejected by the resequencer  */
 end_comment
 
 begin_class

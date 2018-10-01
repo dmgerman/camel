@@ -197,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A variable resolver for XPath expressions which support properties on the  * message, exchange as well as making system properties and environment  * properties available.  *<p/>  * Implementations of this resolver must be thread safe  *  * @version   */
+comment|/**  * A variable resolver for XPath expressions which support properties on the  * message, exchange as well as making system properties and environment  * properties available.  *<p/>  * Implementations of this resolver must be thread safe  */
 end_comment
 
 begin_class

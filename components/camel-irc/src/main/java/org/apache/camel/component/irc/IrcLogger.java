@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class which logs errors  *  * @version   */
+comment|/**  * A helper class which logs errors  */
 end_comment
 
 begin_class

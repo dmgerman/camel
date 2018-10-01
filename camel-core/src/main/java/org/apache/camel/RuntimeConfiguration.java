@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Various runtime configuration options used by {@link org.apache.camel.CamelContext} and {@link org.apache.camel.spi.RouteContext}  * for cross cutting functions such as tracing, delayer, stream cache and the like.  *  * @version   */
+comment|/**  * Various runtime configuration options used by {@link org.apache.camel.CamelContext} and {@link org.apache.camel.spi.RouteContext}  * for cross cutting functions such as tracing, delayer, stream cache and the like.  */
 end_comment
 
 begin_interface

@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test based on user forum problem - CAMEL-1463.  *  * @version   */
+comment|/**  * Unit test based on user forum problem - CAMEL-1463.  */
 end_comment
 
 begin_class

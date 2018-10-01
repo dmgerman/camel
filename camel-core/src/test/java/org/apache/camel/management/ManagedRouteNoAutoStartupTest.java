@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Extended test to see if mbeans is removed and stats are correct  *  * @version   */
+comment|/**  * Extended test to see if mbeans is removed and stats are correct  */
 end_comment
 
 begin_class

@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for output types  *  * @version   */
+comment|/**  * A useful base class for output types  */
 end_comment
 
 begin_class

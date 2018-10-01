@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test the ftps component over SSL (implicit) without client authentication  *   * @version   */
+comment|/**  * Test the ftps component over SSL (implicit) without client authentication  */
 end_comment
 
 begin_class

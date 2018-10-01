@@ -235,7 +235,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Controls the rate at which messages are passed to the next node in the route  *  * @version   */
+comment|/**  * Controls the rate at which messages are passed to the next node in the route  */
 end_comment
 
 begin_class

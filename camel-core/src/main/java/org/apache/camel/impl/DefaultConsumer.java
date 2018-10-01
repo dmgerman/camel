@@ -213,7 +213,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default consumer useful for implementation inheritance.  *  * @version   */
+comment|/**  * A default consumer useful for implementation inheritance.  */
 end_comment
 
 begin_class

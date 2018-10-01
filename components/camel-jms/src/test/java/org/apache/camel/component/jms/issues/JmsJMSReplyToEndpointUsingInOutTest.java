@@ -299,7 +299,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test using a fixed replyTo specified on the JMS endpoint  *   * @version   */
+comment|/**  * Unit test using a fixed replyTo specified on the JMS endpoint  */
 end_comment
 
 begin_class

@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To process the delegated producer in synchronous mode.  *<p/>  * This is used to enforce asynchronous producers to run in synchronous mode  * when it has been configured to do so.  *<p/>  * This delegate allows the component developers easily to support their  * existing asynchronous producer to behave synchronously by wrapping their  * producer in this synchronous delegate.  *  * @version   */
+comment|/**  * To process the delegated producer in synchronous mode.  *<p/>  * This is used to enforce asynchronous producers to run in synchronous mode  * when it has been configured to do so.  *<p/>  * This delegate allows the component developers easily to support their  * existing asynchronous producer to behave synchronously by wrapping their  * producer in this synchronous delegate.  */
 end_comment
 
 begin_class

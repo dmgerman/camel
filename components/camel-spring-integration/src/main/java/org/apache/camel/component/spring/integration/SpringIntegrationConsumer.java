@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A consumer of exchanges for the Spring Integration  * Please specify the inputChannel in the endpoint url for this consumer.  * If the message pattern is inOut, the outputChannel property  * should be set for the outgoing message.  *  * @version   */
+comment|/**  * A consumer of exchanges for the Spring Integration  * Please specify the inputChannel in the endpoint url for this consumer.  * If the message pattern is inOut, the outputChannel property  * should be set for the outgoing message.  */
 end_comment
 
 begin_class

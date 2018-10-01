@@ -337,7 +337,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Dataformat for TidyMarkup (aka Well formed HTML in XML form.. may or may not  * be XHTML) This dataformat is intended to convert bad HTML from a site (or  * file) into a well formed HTML document which can then be sent to XSLT or  * xpath'ed on.  *   */
+comment|/**  * Dataformat for TidyMarkup (aka Well formed HTML in XML form.. may or may not  * be XHTML) This dataformat is intended to convert bad HTML from a site (or  * file) into a well formed HTML document which can then be sent to XSLT or  * xpath'ed on.  */
 end_comment
 
 begin_class

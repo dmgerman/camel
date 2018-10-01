@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A build to create Camel proxies.  *  * @version   */
+comment|/**  * A build to create Camel proxies.  */
 end_comment
 
 begin_class

@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A runtime exception caused by a specific message {@link Exchange}  *  * @version   */
+comment|/**  * A runtime exception caused by a specific message {@link Exchange}  */
 end_comment
 
 begin_class

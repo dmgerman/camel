@@ -23,7 +23,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Exception thrown during singing if the key type does not fit to the signature  * algorithm.  *   *   */
+comment|/**  * Exception thrown during singing if the key type does not fit to the signature  * algorithm.  *   */
 end_comment
 
 begin_class

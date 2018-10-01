@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of {@link java.util.Comparator} which takes a list of  * {@link org.apache.camel.Expression} objects which is evaluated  * on each exchange to compare them  *  * @version   */
+comment|/**  * An implementation of {@link java.util.Comparator} which takes a list of  * {@link org.apache.camel.Expression} objects which is evaluated  * on each exchange to compare them  */
 end_comment
 
 begin_class

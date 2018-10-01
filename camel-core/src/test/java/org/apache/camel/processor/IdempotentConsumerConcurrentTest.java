@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Concurreny test for idempotent consumer  *  * @version   */
+comment|/**  * Concurreny test for idempotent consumer  */
 end_comment
 
 begin_class

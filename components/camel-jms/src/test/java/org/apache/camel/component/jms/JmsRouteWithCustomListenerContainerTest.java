@@ -169,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test inspired by user forum  *  * @version   */
+comment|/**  * Unit test inspired by user forum  */
 end_comment
 
 begin_class

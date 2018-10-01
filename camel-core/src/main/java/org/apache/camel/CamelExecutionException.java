@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Exception occurred during execution/processing of an {@link Exchange}.  *<p/>  * Is usually thrown to the caller when using the {@link org.apache.camel.ProducerTemplate}  * to send messages to Camel.  *  * @version   */
+comment|/**  * Exception occurred during execution/processing of an {@link Exchange}.  *<p/>  * Is usually thrown to the caller when using the {@link org.apache.camel.ProducerTemplate}  * to send messages to Camel.  */
 end_comment
 
 begin_class

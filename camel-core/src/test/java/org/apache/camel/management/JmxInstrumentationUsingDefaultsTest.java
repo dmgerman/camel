@@ -195,7 +195,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This test verifies JMX is enabled by default and it uses local mbean  * server to conduct the test as connector server is not enabled by default.  *  * @version   */
+comment|/**  * This test verifies JMX is enabled by default and it uses local mbean  * server to conduct the test as connector server is not enabled by default.  */
 end_comment
 
 begin_class

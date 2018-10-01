@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of queue browsing using the Spring {@link BrowserCallback}  *  * @version   */
+comment|/**  * A default implementation of queue browsing using the Spring {@link BrowserCallback}  */
 end_comment
 
 begin_class

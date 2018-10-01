@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JcrRouteTestSupport  *   * @version $Id$  */
+comment|/**  * JcrRouteTestSupport  */
 end_comment
 
 begin_class

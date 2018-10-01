@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is a manual test to run  *  * @version  */
+comment|/**  * This is a manual test to run  */
 end_comment
 
 begin_class

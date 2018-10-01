@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for creating proxies which delegate to Camel  *  * @version   */
+comment|/**  * A helper class for creating proxies which delegate to Camel  */
 end_comment
 
 begin_class

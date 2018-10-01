@@ -209,7 +209,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Support class for {@link ErrorHandler} implementations.  *  * @version   */
+comment|/**  * Support class for {@link ErrorHandler} implementations.  */
 end_comment
 
 begin_class

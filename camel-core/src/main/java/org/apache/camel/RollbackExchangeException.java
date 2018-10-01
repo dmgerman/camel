@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Exception used for forcing an Exchange to be rolled back.  *  * @version   */
+comment|/**  * Exception used for forcing an Exchange to be rolled back.  */
 end_comment
 
 begin_class

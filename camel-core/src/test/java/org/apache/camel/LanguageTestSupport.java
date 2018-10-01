@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for testing the language plugins in Camel  * @version   */
+comment|/**  * A useful base class for testing the language plugins in Camel  */
 end_comment
 
 begin_class

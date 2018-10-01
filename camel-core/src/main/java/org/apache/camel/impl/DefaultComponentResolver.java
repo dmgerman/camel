@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default implementation of {@link ComponentResolver} which tries to find  * components by using the URI scheme prefix and searching for a file of the URI  * scheme name in the<b>META-INF/services/org/apache/camel/component/</b>  * directory on the classpath.  *  * @version  */
+comment|/**  * The default implementation of {@link ComponentResolver} which tries to find  * components by using the URI scheme prefix and searching for a file of the URI  * scheme name in the<b>META-INF/services/org/apache/camel/component/</b>  * directory on the classpath.  */
 end_comment
 
 begin_class

@@ -481,7 +481,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Camel component embedded Restlet that produces and consumes exchanges.  *  * @version  */
+comment|/**  * A Camel component embedded Restlet that produces and consumes exchanges.  */
 end_comment
 
 begin_class

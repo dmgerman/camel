@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Sends the message to an endpoint  *  * @version   */
+comment|/**  * Sends the message to an endpoint  */
 end_comment
 
 begin_class

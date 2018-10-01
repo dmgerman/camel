@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The direct producer.  *  * @version   */
+comment|/**  * The direct producer.  */
 end_comment
 
 begin_class

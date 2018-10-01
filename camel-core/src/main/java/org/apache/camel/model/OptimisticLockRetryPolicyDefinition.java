@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To configure optimistic locking  *  * @version  */
+comment|/**  * To configure optimistic locking  */
 end_comment
 
 begin_class

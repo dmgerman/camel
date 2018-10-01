@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used to indicate an injection point of a bean obtained from the {@link org.apache.camel.spi.Registry}, into a POJO.  *  * If no name is specified then the lookup is anonymous and based on lookup up by the type.  *  * @version  */
+comment|/**  * Used to indicate an injection point of a bean obtained from the {@link org.apache.camel.spi.Registry}, into a POJO.  *  * If no name is specified then the lookup is anonymous and based on lookup up by the type.  */
 end_comment
 
 begin_annotation_defn

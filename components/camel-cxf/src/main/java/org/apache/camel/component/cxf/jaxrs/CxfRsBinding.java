@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Interface to bind between Camel and CXF exchange for RESTful resources.  *  * @version   */
+comment|/**  * Interface to bind between Camel and CXF exchange for RESTful resources.  */
 end_comment
 
 begin_interface

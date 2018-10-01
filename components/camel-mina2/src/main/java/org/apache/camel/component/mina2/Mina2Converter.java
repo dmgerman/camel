@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A set of converter methods for working with MINA2 types  *  * @version   */
+comment|/**  * A set of converter methods for working with MINA2 types  */
 end_comment
 
 begin_class

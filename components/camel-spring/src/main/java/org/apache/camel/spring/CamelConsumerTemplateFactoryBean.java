@@ -221,7 +221,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Configures a {@link ConsumerTemplate}  *  * @version  */
+comment|/**  * Configures a {@link ConsumerTemplate}  */
 end_comment
 
 begin_class

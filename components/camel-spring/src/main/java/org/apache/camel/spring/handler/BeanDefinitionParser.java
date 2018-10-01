@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for a parser for a bean.  *  * @version   */
+comment|/**  * A base class for a parser for a bean.  */
 end_comment
 
 begin_class

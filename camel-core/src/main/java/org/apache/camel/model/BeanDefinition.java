@@ -283,7 +283,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Calls a java bean  *  * @version   */
+comment|/**  * Calls a java bean  */
 end_comment
 
 begin_class

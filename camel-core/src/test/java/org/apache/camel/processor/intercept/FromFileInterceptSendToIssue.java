@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Based on an issue on the camel user forum.  *  * @version   */
+comment|/**  * Based on an issue on the camel user forum.  */
 end_comment
 
 begin_class

@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Protobuf data format is used for serializing between Java objects and the Google Protobuf protocol.  *  * @version   */
+comment|/**  * The Protobuf data format is used for serializing between Java objects and the Google Protobuf protocol.  */
 end_comment
 
 begin_class

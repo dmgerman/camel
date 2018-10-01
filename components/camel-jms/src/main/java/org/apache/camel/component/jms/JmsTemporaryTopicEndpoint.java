@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Endpoint</a>  * for working with a {@link TemporaryTopic}  *<p/>  *<b>Important:</b> Need to be really careful to always use the same Connection otherwise the destination goes stale  *  * @version   */
+comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Endpoint</a>  * for working with a {@link TemporaryTopic}  *<p/>  *<b>Important:</b> Need to be really careful to always use the same Connection otherwise the destination goes stale  */
 end_comment
 
 begin_class

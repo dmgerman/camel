@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor which validates the content of the inbound message body against a {@link Predicate}.  *   * @version   */
+comment|/**  * A processor which validates the content of the inbound message body against a {@link Predicate}.  */
 end_comment
 
 begin_class

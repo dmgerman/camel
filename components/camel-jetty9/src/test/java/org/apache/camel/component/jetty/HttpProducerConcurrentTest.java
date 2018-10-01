@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * HTTP producer concurrent test.  *  * @version   */
+comment|/**  * HTTP producer concurrent test.  */
 end_comment
 
 begin_class

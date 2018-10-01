@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Time utils.  *  * @version  */
+comment|/**  * Time utils.  */
 end_comment
 
 begin_class

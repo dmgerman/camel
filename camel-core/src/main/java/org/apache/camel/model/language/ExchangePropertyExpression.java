@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use a Camel Exchange property in expressions or predicates.  *  * @version   */
+comment|/**  * To use a Camel Exchange property in expressions or predicates.  */
 end_comment
 
 begin_class

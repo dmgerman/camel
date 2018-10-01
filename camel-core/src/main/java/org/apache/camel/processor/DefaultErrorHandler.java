@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default error handler  *  * @version  */
+comment|/**  * Default error handler  */
 end_comment
 
 begin_class

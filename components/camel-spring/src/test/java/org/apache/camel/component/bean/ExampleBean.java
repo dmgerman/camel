@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An example POJO with no annotations or interfaces to test out the POJO  * Camel binding  *  * @version   */
+comment|/**  * An example POJO with no annotations or interfaces to test out the POJO  * Camel binding  */
 end_comment
 
 begin_class

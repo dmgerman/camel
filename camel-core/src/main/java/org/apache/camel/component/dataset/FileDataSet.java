@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A DataSet that reads payloads from a file that are used to create each message exchange  * along with using a pluggable transformer to customize the messages.  The file contents may optionally  * be split using a supplied token.  *  * @version  */
+comment|/**  * A DataSet that reads payloads from a file that are used to create each message exchange  * along with using a pluggable transformer to customize the messages.  The file contents may optionally  * be split using a supplied token.  */
 end_comment
 
 begin_class

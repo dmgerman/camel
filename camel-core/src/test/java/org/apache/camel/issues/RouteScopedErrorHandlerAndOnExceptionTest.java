@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Based on user forum issue  *  * @version   */
+comment|/**  * Based on user forum issue  */
 end_comment
 
 begin_class

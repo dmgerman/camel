@@ -23,7 +23,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This exception is thrown if the verification of a SignedData signature fails  * because the hash calculated over the content does not match to the value of  * signed MessageDigest attribute value.  *   */
+comment|/**  * This exception is thrown if the verification of a SignedData signature fails  * because the hash calculated over the content does not match to the value of  * signed MessageDigest attribute value.  */
 end_comment
 
 begin_class

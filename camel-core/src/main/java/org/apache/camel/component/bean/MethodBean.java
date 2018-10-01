@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a {@link Serializable} version of a {@link Method}  *  * @version   */
+comment|/**  * Represents a {@link Serializable} version of a {@link Method}  */
 end_comment
 
 begin_class

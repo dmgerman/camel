@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class which provides a JAXP {@link javax.xml.transform.Source  * Source} from a String which can be read as many times as required. Encoding  * is default UTF-8.  *   * @version  */
+comment|/**  * A helper class which provides a JAXP {@link javax.xml.transform.Source  * Source} from a String which can be read as many times as required. Encoding  * is default UTF-8.  */
 end_comment
 
 begin_class

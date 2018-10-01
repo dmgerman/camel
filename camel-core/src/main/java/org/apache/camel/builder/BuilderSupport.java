@@ -187,7 +187,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for implementation inheritance for different clauses in the<a  * href="http://camel.apache.org/dsl.html">Java DSL</a>  *  * @version  */
+comment|/**  * Base class for implementation inheritance for different clauses in the<a  * href="http://camel.apache.org/dsl.html">Java DSL</a>  */
 end_comment
 
 begin_class

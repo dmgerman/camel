@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To provide comments about the node.  *  * @version   */
+comment|/**  * To provide comments about the node.  */
 end_comment
 
 begin_class

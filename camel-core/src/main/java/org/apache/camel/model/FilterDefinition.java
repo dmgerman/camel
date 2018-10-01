@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Filter out messages based using a predicate  *  * @version   */
+comment|/**  * Filter out messages based using a predicate  */
 end_comment
 
 begin_class

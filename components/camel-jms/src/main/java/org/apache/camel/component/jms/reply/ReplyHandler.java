@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Handles a reply.  *  * @version   */
+comment|/**  * Handles a reply.  */
 end_comment
 
 begin_interface

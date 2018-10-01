@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Concurrent producers test.  *  * @version   */
+comment|/**  * Concurrent producers test.  */
 end_comment
 
 begin_class

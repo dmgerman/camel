@@ -291,7 +291,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  Routes the same message to multiple paths either sequentially or in parallel.  *  * @version   */
+comment|/**  *  Routes the same message to multiple paths either sequentially or in parallel.  */
 end_comment
 
 begin_class

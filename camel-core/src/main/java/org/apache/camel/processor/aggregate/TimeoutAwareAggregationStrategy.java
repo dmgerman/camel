@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A specialized {@link org.apache.camel.processor.aggregate.AggregationStrategy} which can handle timeouts as well.  *  * @version   */
+comment|/**  * A specialized {@link org.apache.camel.processor.aggregate.AggregationStrategy} which can handle timeouts as well.  */
 end_comment
 
 begin_interface

@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides filtering of characters that do fall into<a  * href="http://www.w3.org/TR/2004/REC-xml-20040204/#NT-Char">range defined by  * XML 1.0 spec</a>.<i>Filtering</i> here means replacement with space char.  *   *   */
+comment|/**  * Provides filtering of characters that do fall into<a  * href="http://www.w3.org/TR/2004/REC-xml-20040204/#NT-Char">range defined by  * XML 1.0 spec</a>.<i>Filtering</i> here means replacement with space char.  *   */
 end_comment
 
 begin_class

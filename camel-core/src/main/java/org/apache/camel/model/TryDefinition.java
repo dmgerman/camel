@@ -245,7 +245,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marks the beginning of a try, catch, finally block  *  * @version   */
+comment|/**  * Marks the beginning of a try, catch, finally block  */
 end_comment
 
 begin_class

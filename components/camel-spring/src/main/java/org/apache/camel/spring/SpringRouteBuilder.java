@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An extension of the {@link RouteBuilder} to provide some additional helper  * methods  *  * @version   */
+comment|/**  * An extension of the {@link RouteBuilder} to provide some additional helper  * methods  */
 end_comment
 
 begin_class

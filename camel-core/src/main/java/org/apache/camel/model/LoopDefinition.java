@@ -167,7 +167,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Processes a message multiple times  *  * @version   */
+comment|/**  * Processes a message multiple times  */
 end_comment
 
 begin_class

@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An exception thrown if evaluation of the expression failed.  *  * @version   */
+comment|/**  * An exception thrown if evaluation of the expression failed.  */
 end_comment
 
 begin_class

@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Access to the password for a user Id.  *   */
+comment|/**  * Access to the password for a user Id.  */
 end_comment
 
 begin_interface

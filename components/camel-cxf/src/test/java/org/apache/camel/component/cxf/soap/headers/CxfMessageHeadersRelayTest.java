@@ -657,7 +657,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This test suite verifies message header filter features  *  * @version   */
+comment|/**  * This test suite verifies message header filter features  */
 end_comment
 
 begin_class

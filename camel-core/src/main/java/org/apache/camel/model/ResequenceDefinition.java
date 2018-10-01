@@ -337,7 +337,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Resequences (re-order) messages based on an expression  *  * @version   */
+comment|/**  * Resequences (re-order) messages based on an expression  */
 end_comment
 
 begin_class

@@ -23,7 +23,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Constants used in this module  *  * @version   */
+comment|/**  * Constants used in this module  */
 end_comment
 
 begin_class

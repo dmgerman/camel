@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates an {@link org.apache.camel.language.Simple} language builder.  *<p/>  * This builder is available in the Java DSL from the {@link RouteBuilder} which means that using  * simple language for {@link Expression}s or {@link Predicate}s is very easy with the help of this builder.  *  * @version  */
+comment|/**  * Creates an {@link org.apache.camel.language.Simple} language builder.  *<p/>  * This builder is available in the Java DSL from the {@link RouteBuilder} which means that using  * simple language for {@link Expression}s or {@link Predicate}s is very easy with the help of this builder.  */
 end_comment
 
 begin_class

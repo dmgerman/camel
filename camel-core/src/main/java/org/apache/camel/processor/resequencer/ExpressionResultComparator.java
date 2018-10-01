@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link SequenceElementComparator} that compares {@link Exchange}s based on  * the result of an expression evaluation.  *   * @version   */
+comment|/**  * A {@link SequenceElementComparator} that compares {@link Exchange}s based on  * the result of an expression evaluation.  */
 end_comment
 
 begin_interface

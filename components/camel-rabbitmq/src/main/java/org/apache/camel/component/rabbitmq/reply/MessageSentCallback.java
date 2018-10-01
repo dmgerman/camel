@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Callback when a {@link Message} has been sent.  *  * @version   */
+comment|/**  * Callback when a {@link Message} has been sent.  */
 end_comment
 
 begin_interface

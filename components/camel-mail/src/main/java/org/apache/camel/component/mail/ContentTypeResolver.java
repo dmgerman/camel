@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Resolver to determine Content-Type for file attachments.  *<p/>  * Strategy introduced to work around mail providers having problems with this such as geronimo mail jars.  *<p/>  * Note using SUN mail jar have no problem with resolving Content-Type based on file attachments. This resolver  * is thus only needed to work around mail providers having bugs or when you a new mime type is unknown by the  * mail provider allowing you to determine it.  *  * @version   */
+comment|/**  * Resolver to determine Content-Type for file attachments.  *<p/>  * Strategy introduced to work around mail providers having problems with this such as geronimo mail jars.  *<p/>  * Note using SUN mail jar have no problem with resolving Content-Type based on file attachments. This resolver  * is thus only needed to work around mail providers having bugs or when you a new mime type is unknown by the  * mail provider allowing you to determine it.  */
 end_comment
 
 begin_interface

@@ -52,10 +52,6 @@ name|ValidationException
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|MyValidator
 specifier|public

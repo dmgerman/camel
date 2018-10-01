@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://www.ognl.org/">OGNL</a> {@link org.apache.camel.Expression}  *  * @version   */
+comment|/**  * An<a href="http://www.ognl.org/">OGNL</a> {@link org.apache.camel.Expression}  */
 end_comment
 
 begin_class

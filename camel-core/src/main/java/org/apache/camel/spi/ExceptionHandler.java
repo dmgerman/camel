@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Strategy pattern for handling exceptions; particularly in asynchronous processes such as consumers.  *<p/>  * Its important to<b>not</b> throw any exceptions when handling exceptions as they handler  * is often invoked in a try .. catch logic already  *  * @version   */
+comment|/**  * A Strategy pattern for handling exceptions; particularly in asynchronous processes such as consumers.  *<p/>  * Its important to<b>not</b> throw any exceptions when handling exceptions as they handler  * is often invoked in a try .. catch logic already  */
 end_comment
 
 begin_interface

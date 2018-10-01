@@ -197,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Contains the SMPP component configuration properties</a>  *   * @version   */
+comment|/**  * Contains the SMPP component configuration properties</a>  */
 end_comment
 
 begin_class

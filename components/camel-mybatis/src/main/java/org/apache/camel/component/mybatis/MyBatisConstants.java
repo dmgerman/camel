@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * MyBatis constants.  *  * @version   */
+comment|/**  * MyBatis constants.  */
 end_comment
 
 begin_class

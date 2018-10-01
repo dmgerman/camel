@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Caches a Secret Keyring. Assumes that the password for all private keys is  * the same.  *   */
+comment|/**  * Caches a Secret Keyring. Assumes that the password for all private keys is  * the same.  */
 end_comment
 
 begin_class

@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Processing strategy for dealing with MyBatis when consuming.  *  * @version   */
+comment|/**  * Processing strategy for dealing with MyBatis when consuming.  */
 end_comment
 
 begin_interface

@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A JMX based {@link EventNotifier} which broadcasts JMX {@link Notification}s.  *  * @version   */
+comment|/**  * A JMX based {@link EventNotifier} which broadcasts JMX {@link Notification}s.  */
 end_comment
 
 begin_class

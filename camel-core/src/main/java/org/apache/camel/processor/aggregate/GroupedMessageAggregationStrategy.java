@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Aggregate all {@link Message} into a single combined Exchange holding all the  * aggregated messages in a {@link List} of {@link Message} as the message body.  *   * This aggregation strategy can used in combination with {@link org.apache.camel.processor.Splitter} to batch messages  *   * @version  */
+comment|/**  * Aggregate all {@link Message} into a single combined Exchange holding all the  * aggregated messages in a {@link List} of {@link Message} as the message body.  *   * This aggregation strategy can used in combination with {@link org.apache.camel.processor.Splitter} to batch messages  */
 end_comment
 
 begin_class

@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A constant {@link org.apache.camel.component.bean.BeanHolder} for a class or static class  * where the intention is to only invoke static methods, without the need for creating an instance of the type.  *  * @version  */
+comment|/**  * A constant {@link org.apache.camel.component.bean.BeanHolder} for a class or static class  * where the intention is to only invoke static methods, without the need for creating an instance of the type.  */
 end_comment
 
 begin_class

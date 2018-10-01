@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * With the passthrough option  *  * @version   */
+comment|/**  * With the passthrough option  */
 end_comment
 
 begin_class

@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the component that manages {@link SpringIntegrationEndpoint}.  *  * @version   */
+comment|/**  * Represents the component that manages {@link SpringIntegrationEndpoint}.  */
 end_comment
 
 begin_class

@@ -19,10 +19,6 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @version   */
-end_comment
-
-begin_comment
 comment|// START SNIPPET: e1
 end_comment
 

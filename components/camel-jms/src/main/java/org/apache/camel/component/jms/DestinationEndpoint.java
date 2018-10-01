@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An optional interface that a {@link JmsEndpoint} may implement to return the  * underlying {@link Destination} object  *  * @version   */
+comment|/**  * An optional interface that a {@link JmsEndpoint} may implement to return the  * underlying {@link Destination} object  */
 end_comment
 
 begin_interface

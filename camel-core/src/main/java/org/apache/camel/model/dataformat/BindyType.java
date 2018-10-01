@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the different types of bindy data formats.  *  * @version   */
+comment|/**  * Represents the different types of bindy data formats.  */
 end_comment
 
 begin_enum

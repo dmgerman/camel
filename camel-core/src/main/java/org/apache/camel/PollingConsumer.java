@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represents a<a  * href="http://camel.apache.org/polling-consumer.html">Polling  * Consumer</a> where the caller polls for messages when it is ready.  *<p/>  * When you are done with the returned {@link Exchange} you must ensure to invoke  * {@link org.apache.camel.spi.UnitOfWork#done(Exchange)} to signal to Camel that the {@link Exchange} is done.  *<p/>  * This is needed to ensure any {@link org.apache.camel.spi.Synchronization} works is being executed.  * For example if you consumed from a file endpoint, then the consumed file is only moved/delete when  * you done the {@link Exchange}.  *  * @version   */
+comment|/**  * Represents a<a  * href="http://camel.apache.org/polling-consumer.html">Polling  * Consumer</a> where the caller polls for messages when it is ready.  *<p/>  * When you are done with the returned {@link Exchange} you must ensure to invoke  * {@link org.apache.camel.spi.UnitOfWork#done(Exchange)} to signal to Camel that the {@link Exchange} is done.  *<p/>  * This is needed to ensure any {@link org.apache.camel.spi.Synchronization} works is being executed.  * For example if you consumed from a file endpoint, then the consumed file is only moved/delete when  * you done the {@link Exchange}.  */
 end_comment
 
 begin_interface

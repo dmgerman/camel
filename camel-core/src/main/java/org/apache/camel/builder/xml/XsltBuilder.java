@@ -497,7 +497,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates a<a href="http://camel.apache.org/processor.html">Processor</a>  * which performs an XSLT transformation of the IN message body.  *<p/>  * Will by default output the result as a String. You can chose which kind of output  * you want using the<tt>outputXXX</tt> methods.  *  * @version   */
+comment|/**  * Creates a<a href="http://camel.apache.org/processor.html">Processor</a>  * which performs an XSLT transformation of the IN message body.  *<p/>  * Will by default output the result as a String. You can chose which kind of output  * you want using the<tt>outputXXX</tt> methods.  */
 end_comment
 
 begin_class

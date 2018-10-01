@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Using exclusive fixed replyTo queues should be faster as there is no need for  * JMSMessage selectors.  *  * @version   */
+comment|/**  * Using exclusive fixed replyTo queues should be faster as there is no need for  * JMSMessage selectors.  */
 end_comment
 
 begin_class

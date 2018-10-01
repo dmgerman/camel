@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default implementation of {@link org.apache.camel.Message}  *<p/>  * This implementation uses a {@link org.apache.camel.util.CaseInsensitiveMap} storing the headers.  * This allows us to be able to lookup headers using case insensitive keys, making it easier for end users  * as they do not have to be worried about using exact keys.  * See more details at {@link org.apache.camel.util.CaseInsensitiveMap}.  * The implementation of the map can be configured by the {@link HeadersMapFactory} which can be set  * on the {@link CamelContext}. The default implementation uses the {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.  *  * @version   */
+comment|/**  * The default implementation of {@link org.apache.camel.Message}  *<p/>  * This implementation uses a {@link org.apache.camel.util.CaseInsensitiveMap} storing the headers.  * This allows us to be able to lookup headers using case insensitive keys, making it easier for end users  * as they do not have to be worried about using exact keys.  * See more details at {@link org.apache.camel.util.CaseInsensitiveMap}.  * The implementation of the map can be configured by the {@link HeadersMapFactory} which can be set  * on the {@link CamelContext}. The default implementation uses the {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.  */
 end_comment
 
 begin_class

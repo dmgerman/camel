@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A condition to define when a given {@link Exchange} matches when is being routed.  *<p/>  * Is used by the {@link org.apache.camel.spi.Debugger} to apply {@link Condition}s  * to {@link org.apache.camel.spi.Breakpoint}s to define rules when the breakpoints should match.  *  * @version   */
+comment|/**  * A condition to define when a given {@link Exchange} matches when is being routed.  *<p/>  * Is used by the {@link org.apache.camel.spi.Debugger} to apply {@link Condition}s  * to {@link org.apache.camel.spi.Breakpoint}s to define rules when the breakpoints should match.  */
 end_comment
 
 begin_interface

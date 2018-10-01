@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A runtime exception thrown if an attempt is made to resolve an unknown  * language definition.  *   * @see org.apache.camel.CamelContext#resolveLanguage(String)  *   * @version   */
+comment|/**  * A runtime exception thrown if an attempt is made to resolve an unknown  * language definition.  *   * @see org.apache.camel.CamelContext#resolveLanguage(String)  */
 end_comment
 
 begin_class

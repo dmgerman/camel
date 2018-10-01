@@ -135,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of the {@link AnnotationExpressionFactory}.  *  * @version   */
+comment|/**  * Default implementation of the {@link AnnotationExpressionFactory}.  */
 end_comment
 
 begin_class

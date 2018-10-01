@@ -777,7 +777,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marshals data into a specified format for transmission over a transport or component  *  * @version  */
+comment|/**  * Marshals data into a specified format for transmission over a transport or component  */
 end_comment
 
 begin_class

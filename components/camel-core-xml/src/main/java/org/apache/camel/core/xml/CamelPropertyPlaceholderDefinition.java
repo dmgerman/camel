@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Properties placeholder  *  * @version   */
+comment|/**  * Properties placeholder  */
 end_comment
 
 begin_class

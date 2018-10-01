@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test will look for the spring .xml file with the same class name  * but postfixed with -config.xml as filename.  *<p/>  * We use Spring Testing for unit test, eg we extend AbstractJUnit4SpringContextTests  * that is a Spring class.  *  * @version   */
+comment|/**  * Unit test will look for the spring .xml file with the same class name  * but postfixed with -config.xml as filename.  *<p/>  * We use Spring Testing for unit test, eg we extend AbstractJUnit4SpringContextTests  * that is a Spring class.  */
 end_comment
 
 begin_class

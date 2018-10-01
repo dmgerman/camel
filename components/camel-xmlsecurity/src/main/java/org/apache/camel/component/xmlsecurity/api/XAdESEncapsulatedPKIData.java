@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Class representing the Encapsulated PKI Data of the XAdES specification.  *   */
+comment|/**  * Class representing the Encapsulated PKI Data of the XAdES specification.  */
 end_comment
 
 begin_class

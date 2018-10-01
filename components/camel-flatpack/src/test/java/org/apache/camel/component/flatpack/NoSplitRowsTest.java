@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that splitRows=false option.  *  * @version   */
+comment|/**  * Unit test to verify that splitRows=false option.  */
 end_comment
 
 begin_class

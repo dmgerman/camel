@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class tests all Camel dependend cases for {@link BarcodeDataFormat}.   *   */
+comment|/**  * This class tests all Camel dependend cases for {@link BarcodeDataFormat}.   */
 end_comment
 
 begin_class

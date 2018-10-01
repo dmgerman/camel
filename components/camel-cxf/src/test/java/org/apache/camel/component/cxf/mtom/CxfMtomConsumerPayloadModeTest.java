@@ -365,7 +365,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** * Unit test for exercising MTOM feature of a CxfConsumer in PAYLOAD mode *  * @version  */
+comment|/**  * Unit test for exercising MTOM feature of a CxfConsumer in PAYLOAD mode  */
 end_comment
 
 begin_class

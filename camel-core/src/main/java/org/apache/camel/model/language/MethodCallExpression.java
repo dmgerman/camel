@@ -291,7 +291,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use a Java bean (aka method call) in Camel expressions or predicates.  *  * @version  */
+comment|/**  * To use a Java bean (aka method call) in Camel expressions or predicates.  */
 end_comment
 
 begin_class

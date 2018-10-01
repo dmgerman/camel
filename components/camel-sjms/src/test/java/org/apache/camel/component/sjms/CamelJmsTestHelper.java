@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper for unit testing with Apache ActiveMQ as embedded JMS broker.  *  * @version  */
+comment|/**  * A helper for unit testing with Apache ActiveMQ as embedded JMS broker.  */
 end_comment
 
 begin_class

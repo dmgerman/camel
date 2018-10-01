@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for pipeline keeping the MEP (CAMEL-1233)  *  * @version   */
+comment|/**  * Unit test for pipeline keeping the MEP (CAMEL-1233)  */
 end_comment
 
 begin_class

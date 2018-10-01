@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Endpoint intercept processor so we know the processor is supposed to intercept an endpoint.  *  * @version   */
+comment|/**  * Endpoint intercept processor so we know the processor is supposed to intercept an endpoint.  */
 end_comment
 
 begin_class

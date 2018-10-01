@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A specialized {@link AggregationStrategy} which has callback when the aggregated {@link Exchange} is completed.  *  * @version  */
+comment|/**  * A specialized {@link AggregationStrategy} which has callback when the aggregated {@link Exchange} is completed.  */
 end_comment
 
 begin_interface

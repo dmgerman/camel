@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Caches a public key ring.  *   */
+comment|/**  * Caches a public key ring.  */
 end_comment
 
 begin_class

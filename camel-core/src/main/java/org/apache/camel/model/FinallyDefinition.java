@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Path traversed when a try, catch, finally block exits  *  * @version   */
+comment|/**  * Path traversed when a try, catch, finally block exits  */
 end_comment
 
 begin_class

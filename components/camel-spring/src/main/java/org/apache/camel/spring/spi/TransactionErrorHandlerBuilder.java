@@ -169,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A transactional error handler that supports leveraging Spring TransactionManager.  *  * @version   */
+comment|/**  * A transactional error handler that supports leveraging Spring TransactionManager.  */
 end_comment
 
 begin_class

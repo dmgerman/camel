@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a task which is added to the database, then removed from the database when it is consumed  *  * @version   */
+comment|/**  * Represents a task which is added to the database, then removed from the database when it is consumed  */
 end_comment
 
 begin_class

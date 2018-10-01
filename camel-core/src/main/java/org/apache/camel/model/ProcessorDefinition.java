@@ -797,7 +797,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for processor types that most XML types extend.  *  * @version   */
+comment|/**  * Base class for processor types that most XML types extend.  */
 end_comment
 
 begin_class

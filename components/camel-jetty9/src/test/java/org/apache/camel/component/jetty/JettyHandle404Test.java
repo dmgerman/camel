@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Based on end user on forum how to get the 404 error code in his enrich aggregator  *  * @version   */
+comment|/**  * Based on end user on forum how to get the 404 error code in his enrich aggregator  */
 end_comment
 
 begin_class

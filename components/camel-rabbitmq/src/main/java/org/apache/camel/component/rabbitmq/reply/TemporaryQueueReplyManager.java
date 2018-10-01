@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link ReplyManager} when using temporary queues.  *  * @version   */
+comment|/**  * A {@link ReplyManager} when using temporary queues.  */
 end_comment
 
 begin_class

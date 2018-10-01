@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Implemented by classes that handle timeout notifications.  *   * @version   */
+comment|/**  * Implemented by classes that handle timeout notifications.  */
 end_comment
 
 begin_interface

@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test CAMEL-1247  *  * @version   */
+comment|/**  * Unit test CAMEL-1247  */
 end_comment
 
 begin_class

@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that Splitter aggregator clear the filtered history in case  * filter has been used<b>before</b> the splitter.  *  * @version   */
+comment|/**  * Unit test to verify that Splitter aggregator clear the filtered history in case  * filter has been used<b>before</b> the splitter.  */
 end_comment
 
 begin_class

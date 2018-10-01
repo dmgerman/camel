@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of an event driven {@link org.apache.camel.Consumer} which uses the  * {@link PollingConsumer}  *  * @version   */
+comment|/**  * A default implementation of an event driven {@link org.apache.camel.Consumer} which uses the  * {@link PollingConsumer}  */
 end_comment
 
 begin_class

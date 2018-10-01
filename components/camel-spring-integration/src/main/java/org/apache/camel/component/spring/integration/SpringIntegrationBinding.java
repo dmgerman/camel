@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The helper class for Mapping between the Spring Integration message and the Camel Message.  *  * @version   */
+comment|/**  * The helper class for Mapping between the Spring Integration message and the Camel Message.  */
 end_comment
 
 begin_class

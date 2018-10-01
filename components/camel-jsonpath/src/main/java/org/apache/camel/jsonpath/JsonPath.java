@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An annotation used to inject a<a href="http://commons.apache.org/jsonpath/">JsonPath</a>  * expression into a method parameter when using  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>  *  * @version  */
+comment|/**  * An annotation used to inject a<a href="http://commons.apache.org/jsonpath/">JsonPath</a>  * expression into a method parameter when using  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>  */
 end_comment
 
 begin_annotation_defn

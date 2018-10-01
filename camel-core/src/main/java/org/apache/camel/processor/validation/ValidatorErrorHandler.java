@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Validator error handler.  *  * @version   */
+comment|/**  * Validator error handler.  */
 end_comment
 
 begin_interface

@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Information about a route to be started where we want to control the order  * in which they are started by {@link org.apache.camel.CamelContext}.  *  * @version   */
+comment|/**  * Information about a route to be started where we want to control the order  * in which they are started by {@link org.apache.camel.CamelContext}.  */
 end_comment
 
 begin_interface

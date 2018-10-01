@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represent the kinds of options for wait for tasks to complete.  *<p/>  * The tasks is usually async tasks executed by the JDK concurrency library.  * With these options the caller can choose whether to wait for the task to complete  * or not before the caller thread continues.  *  * @version   */
+comment|/**  * Represent the kinds of options for wait for tasks to complete.  *<p/>  * The tasks is usually async tasks executed by the JDK concurrency library.  * With these options the caller can choose whether to wait for the task to complete  * or not before the caller thread continues.  */
 end_comment
 
 begin_enum

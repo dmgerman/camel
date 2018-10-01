@@ -233,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Producer which sends messages to the Amazon Web Service Simple Queue Service  *<a href="http://aws.amazon.com/sqs/">AWS SQS</a>  *   */
+comment|/**  * A Producer which sends messages to the Amazon Web Service Simple Queue Service  *<a href="http://aws.amazon.com/sqs/">AWS SQS</a>  */
 end_comment
 
 begin_class

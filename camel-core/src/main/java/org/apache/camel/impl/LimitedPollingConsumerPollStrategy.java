@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.spi.PollingConsumerPollStrategy} which supports suspending consumers if they  * failed for X number of times in a row.  *<p/>  * If Camel cannot successfully consumer from a given consumer, then after X consecutive failed attempts the consumer  * will be suspended/stopped. This prevents the log to get flooded with failed attempts, for example during nightly runs.  *  * @version   */
+comment|/**  * A {@link org.apache.camel.spi.PollingConsumerPollStrategy} which supports suspending consumers if they  * failed for X number of times in a row.  *<p/>  * If Camel cannot successfully consumer from a given consumer, then after X consecutive failed attempts the consumer  * will be suspended/stopped. This prevents the log to get flooded with failed attempts, for example during nightly runs.  */
 end_comment
 
 begin_class

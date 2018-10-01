@@ -253,7 +253,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/transactional-client.html">Transactional Client</a>  * EIP pattern.  *  * @version   */
+comment|/**  * The<a href="http://camel.apache.org/transactional-client.html">Transactional Client</a>  * EIP pattern.  */
 end_comment
 
 begin_class

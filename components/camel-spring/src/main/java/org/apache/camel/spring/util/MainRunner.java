@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple helper bean for running main classes from within the spring.xml  * usually asynchronous in a background thread; which is useful for demos such  * as running Swing programs in the same JVM.  *  * @version   */
+comment|/**  * A simple helper bean for running main classes from within the spring.xml  * usually asynchronous in a background thread; which is useful for demos such  * as running Swing programs in the same JVM.  */
 end_comment
 
 begin_class

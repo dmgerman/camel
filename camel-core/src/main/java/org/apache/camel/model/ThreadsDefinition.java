@@ -285,7 +285,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Specifies that all steps after this node are processed asynchronously  *  * @version   */
+comment|/**  * Specifies that all steps after this node are processed asynchronously  */
 end_comment
 
 begin_class

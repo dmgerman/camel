@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory to create {@link Processor} based on the {@link org.apache.camel.model.ProcessorDefinition definition}.  *<p/>  * This allows you to implement a custom factory in which you can control the creation of the processors.  * It also allows you to manipulate the {@link org.apache.camel.model.ProcessorDefinition definition}s for example to  * configure or change options. Its also possible to add new steps in the route by adding outputs to  * {@link org.apache.camel.model.ProcessorDefinition definition}s.  *<p/>  *<b>Important:</b> By returning<tt>null</tt> from the create methods you fallback to let the default implementation in Camel create  * the {@link Processor}. You want to do this if you<i>only</i> want to manipulate the  * {@link org.apache.camel.model.ProcessorDefinition definition}s.  *  * @version   */
+comment|/**  * A factory to create {@link Processor} based on the {@link org.apache.camel.model.ProcessorDefinition definition}.  *<p/>  * This allows you to implement a custom factory in which you can control the creation of the processors.  * It also allows you to manipulate the {@link org.apache.camel.model.ProcessorDefinition definition}s for example to  * configure or change options. Its also possible to add new steps in the route by adding outputs to  * {@link org.apache.camel.model.ProcessorDefinition definition}s.  *<p/>  *<b>Important:</b> By returning<tt>null</tt> from the create methods you fallback to let the default implementation in Camel create  * the {@link Processor}. You want to do this if you<i>only</i> want to manipulate the  * {@link org.apache.camel.model.ProcessorDefinition definition}s.  */
 end_comment
 
 begin_interface

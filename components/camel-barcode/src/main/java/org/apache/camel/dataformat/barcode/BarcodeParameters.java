@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * All configuration parameters for the code component.  *   */
+comment|/**  * All configuration parameters for the code component.  */
 end_comment
 
 begin_class

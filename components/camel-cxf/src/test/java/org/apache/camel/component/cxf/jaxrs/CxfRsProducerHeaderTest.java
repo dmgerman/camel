@@ -251,7 +251,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test that verify header propagation functionality for CxfRsProducer  * that uses WebClient API.  *    * @version   */
+comment|/**  * Unit test that verify header propagation functionality for CxfRsProducer  * that uses WebClient API.  *    */
 end_comment
 
 begin_class

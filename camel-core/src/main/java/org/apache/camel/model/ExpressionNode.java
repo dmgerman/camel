@@ -187,7 +187,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for nodes which contain an expression and a number of outputs  *  * @version  */
+comment|/**  * A base class for nodes which contain an expression and a number of outputs  */
 end_comment
 
 begin_class

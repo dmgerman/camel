@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A specialized {@link org.apache.camel.spi.AggregationRepository} which also supports  * optimistic locking.  *  * If the underlying implementation cannot perform optimistic locking, it should  * not implement this interface.  *  * @see org.apache.camel.processor.aggregate.MemoryAggregationRepository  *  * @version  */
+comment|/**  * A specialized {@link org.apache.camel.spi.AggregationRepository} which also supports  * optimistic locking.  *  * If the underlying implementation cannot perform optimistic locking, it should  * not implement this interface.  *  * @see org.apache.camel.processor.aggregate.MemoryAggregationRepository  */
 end_comment
 
 begin_interface

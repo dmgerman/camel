@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Remote file consumer polling strategy that attempts to help recovering from lost connections.  *  * @version   */
+comment|/**  * Remote file consumer polling strategy that attempts to help recovering from lost connections.  */
 end_comment
 
 begin_class

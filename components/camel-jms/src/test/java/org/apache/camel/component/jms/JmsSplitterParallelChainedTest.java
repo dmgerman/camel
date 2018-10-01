@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test that chained request/reply over JMS works in parallel mode with the splitter EIP.  *  * @version   */
+comment|/**  * Test that chained request/reply over JMS works in parallel mode with the splitter EIP.  */
 end_comment
 
 begin_class

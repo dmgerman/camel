@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default {@link DefaultMessageListenerContainer container} which listen for messages  * on the JMS destination.  *<p/>  * This implementation extends Springs {@link DefaultMessageListenerContainer} supporting  * automatic recovery and throttling.  *  * @version   */
+comment|/**  * The default {@link DefaultMessageListenerContainer container} which listen for messages  * on the JMS destination.  *<p/>  * This implementation extends Springs {@link DefaultMessageListenerContainer} supporting  * automatic recovery and throttling.  */
 end_comment
 
 begin_class

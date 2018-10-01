@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for JMX tests.  *  * @version   */
+comment|/**  * Base class for JMX tests.  */
 end_comment
 
 begin_class

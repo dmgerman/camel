@@ -391,7 +391,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder to build an expression based on {@link org.apache.camel.spi.EventNotifier} notifications  * about {@link Exchange} being routed.  *<p/>  * This builder can be used for testing purposes where you want to know when a test is supposed to be done.  * The idea is that you can build an expression that explains when the test is done. For example when Camel  * have finished routing 5 messages. You can then in your test await for this condition to occur.  *  * @version   */
+comment|/**  * A builder to build an expression based on {@link org.apache.camel.spi.EventNotifier} notifications  * about {@link Exchange} being routed.  *<p/>  * This builder can be used for testing purposes where you want to know when a test is supposed to be done.  * The idea is that you can build an expression that explains when the test is done. For example when Camel  * have finished routing 5 messages. You can then in your test await for this condition to occur.  */
 end_comment
 
 begin_class

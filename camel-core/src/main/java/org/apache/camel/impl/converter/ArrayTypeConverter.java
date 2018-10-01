@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A type converter which is used to convert to and from array types  * particularly for derived types of array component types and dealing with  * primitive array types.  *  * @version   */
+comment|/**  * A type converter which is used to convert to and from array types  * particularly for derived types of array component types and dealing with  * primitive array types.  */
 end_comment
 
 begin_class

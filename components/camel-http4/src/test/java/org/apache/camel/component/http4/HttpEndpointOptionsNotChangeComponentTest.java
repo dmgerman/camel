@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Having custom endpoint options should not override or change any component configured options.  *  * @version   */
+comment|/**  * Having custom endpoint options should not override or change any component configured options.  */
 end_comment
 
 begin_class

@@ -343,7 +343,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements a dynamic<a  * href="http://camel.apache.org/splitter.html">Splitter</a> pattern  * where an expression is evaluated to iterate through each of the parts of a  * message and then each part is then send to some endpoint.  *  * @version   */
+comment|/**  * Implements a dynamic<a  * href="http://camel.apache.org/splitter.html">Splitter</a> pattern  * where an expression is evaluated to iterate through each of the parts of a  * message and then each part is then send to some endpoint.  */
 end_comment
 
 begin_class

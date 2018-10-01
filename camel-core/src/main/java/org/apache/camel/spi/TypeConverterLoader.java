@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A pluggable strategy to load type converters into a  * {@link TypeConverterRegistry} from some kind of mechanism.  *  * @version   */
+comment|/**  * A pluggable strategy to load type converters into a  * {@link TypeConverterRegistry} from some kind of mechanism.  */
 end_comment
 
 begin_interface

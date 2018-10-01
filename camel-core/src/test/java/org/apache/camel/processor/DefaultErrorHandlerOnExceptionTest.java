@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default error handler test  *  * @version   */
+comment|/**  * Default error handler test  */
 end_comment
 
 begin_class

@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Mail utility class.  *<p>  * Parts of the code copied from Apache ServiceMix.  *  * @version   */
+comment|/**  * Mail utility class.  *<p>  * Parts of the code copied from Apache ServiceMix.  */
 end_comment
 
 begin_class

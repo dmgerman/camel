@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Processor for marking an {@link org.apache.camel.Exchange} to rollback.  *  * @version   */
+comment|/**  * Processor for marking an {@link org.apache.camel.Exchange} to rollback.  */
 end_comment
 
 begin_class

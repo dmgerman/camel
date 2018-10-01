@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default strategy that handles dots and hyphens.  *<p/>  * This can be used for sending keys containing package names that is common by Java frameworks.  *  * @version   */
+comment|/**  * Default strategy that handles dots and hyphens.  *<p/>  * This can be used for sending keys containing package names that is common by Java frameworks.  */
 end_comment
 
 begin_class

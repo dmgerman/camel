@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation that will not retry on rollback.  *  * @version   */
+comment|/**  * A default implementation that will not retry on rollback.  */
 end_comment
 
 begin_class

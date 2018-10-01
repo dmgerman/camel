@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A timer task that notifies handlers about scheduled timeouts.  *   * @see Timer  * @see TimerTask  *   * @version   */
+comment|/**  * A timer task that notifies handlers about scheduled timeouts.  *   * @see Timer  * @see TimerTask  */
 end_comment
 
 begin_class

@@ -221,7 +221,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is a hybrid DataBinding of {@link JAXBDataBinding} and {@link org.apache.cxf.databinding.source.SourceDataBinding}.  * Like the SourceDataBinding, this DataBinding de/serializes parameters as DOMSource objects.  And like the JAXBDataBinding, the   * {@link #initialize(org.apache.cxf.service.Service)}  * method can initialize the service model's message part schema based on the service class in the message part info.    * Hence, this DataBinding supports DOMSource object de/serialization without requiring users to provide a WSDL.  *   * @version   */
+comment|/**  * This is a hybrid DataBinding of {@link JAXBDataBinding} and {@link org.apache.cxf.databinding.source.SourceDataBinding}.  * Like the SourceDataBinding, this DataBinding de/serializes parameters as DOMSource objects.  And like the JAXBDataBinding, the   * {@link #initialize(org.apache.cxf.service.Service)}  * method can initialize the service model's message part schema based on the service class in the message part info.    * Hence, this DataBinding supports DOMSource object de/serialization without requiring users to provide a WSDL.  */
 end_comment
 
 begin_class

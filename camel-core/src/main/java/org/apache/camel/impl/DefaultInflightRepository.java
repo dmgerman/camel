@@ -211,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default {@link org.apache.camel.spi.InflightRepository}.  *  * @version   */
+comment|/**  * Default {@link org.apache.camel.spi.InflightRepository}.  */
 end_comment
 
 begin_class

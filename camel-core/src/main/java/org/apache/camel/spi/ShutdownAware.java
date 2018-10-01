@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Allows {@link org.apache.camel.Consumer} to fine grained control on shutdown which mostly  * have to cater for in-memory based components. These components need to be able to have an extra  * chance to have their pending exchanges being completed to support graceful shutdown. This helps  * ensure that no messages get lost.  *  * @version   * @see org.apache.camel.spi.ShutdownStrategy  */
+comment|/**  * Allows {@link org.apache.camel.Consumer} to fine grained control on shutdown which mostly  * have to cater for in-memory based components. These components need to be able to have an extra  * chance to have their pending exchanges being completed to support graceful shutdown. This helps  * ensure that no messages get lost.  * @see org.apache.camel.spi.ShutdownStrategy  */
 end_comment
 
 begin_interface

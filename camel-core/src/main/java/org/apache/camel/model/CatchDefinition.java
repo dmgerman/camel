@@ -213,7 +213,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Catches exceptions as part of a try, catch, finally block  *  * @version   */
+comment|/**  * Catches exceptions as part of a try, catch, finally block  */
 end_comment
 
 begin_class

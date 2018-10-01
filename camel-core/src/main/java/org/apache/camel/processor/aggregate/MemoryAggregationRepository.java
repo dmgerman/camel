@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A memory based {@link org.apache.camel.spi.AggregationRepository} which stores {@link Exchange}s in memory only.  *  * Supports both optimistic locking and non-optimistic locking modes. Defaults to non-optimistic locking mode.  *  * @version   */
+comment|/**  * A memory based {@link org.apache.camel.spi.AggregationRepository} which stores {@link Exchange}s in memory only.  *  * Supports both optimistic locking and non-optimistic locking modes. Defaults to non-optimistic locking mode.  */
 end_comment
 
 begin_class

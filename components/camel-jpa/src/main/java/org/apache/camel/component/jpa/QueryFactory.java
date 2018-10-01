@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Strategy to create a query to search for objects in a database  *  * @version   */
+comment|/**  * A Strategy to create a query to search for objects in a database  */
 end_comment
 
 begin_interface

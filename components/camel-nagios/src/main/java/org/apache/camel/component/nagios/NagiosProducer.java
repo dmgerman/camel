@@ -158,10 +158,6 @@ name|SERVICE_NAME
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|NagiosProducer
 specifier|public

@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests mbeans is registered when adding a 2nd route from within an existing route.  *  * @version  */
+comment|/**  * Tests mbeans is registered when adding a 2nd route from within an existing route.  */
 end_comment
 
 begin_class

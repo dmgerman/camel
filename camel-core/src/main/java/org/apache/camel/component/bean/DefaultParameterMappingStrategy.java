@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the strategy used to figure out how to map a message exchange to a POJO method invocation  *  * @version   */
+comment|/**  * Represents the strategy used to figure out how to map a message exchange to a POJO method invocation  */
 end_comment
 
 begin_class

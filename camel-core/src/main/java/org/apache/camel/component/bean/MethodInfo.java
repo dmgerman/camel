@@ -537,7 +537,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Information about a method to be used for invocation.  *  * @version   */
+comment|/**  * Information about a method to be used for invocation.  */
 end_comment
 
 begin_class

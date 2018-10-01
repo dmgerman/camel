@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JUnit test class for<code>org.apache.camel.component.smpp.SmppMessage</code>  *   * @version   */
+comment|/**  * JUnit test class for<code>org.apache.camel.component.smpp.SmppMessage</code>  */
 end_comment
 
 begin_class

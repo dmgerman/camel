@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that we can route a JMS message and do header lookup by name  * without mutating it and that it can handle the default keyFormatStrategy with _HYPHEN_  * in the key name   *  * @version   */
+comment|/**  * Unit test to verify that we can route a JMS message and do header lookup by name  * without mutating it and that it can handle the default keyFormatStrategy with _HYPHEN_  * in the key name   */
 end_comment
 
 begin_class

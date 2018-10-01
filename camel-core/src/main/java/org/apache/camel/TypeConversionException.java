@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Exception when failing during type conversion.  *  * @version   */
+comment|/**  * Exception when failing during type conversion.  */
 end_comment
 
 begin_class

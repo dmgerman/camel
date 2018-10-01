@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple processor which transforms the input  *  * @version  */
+comment|/**  * A simple processor which transforms the input */
 end_comment
 
 begin_class

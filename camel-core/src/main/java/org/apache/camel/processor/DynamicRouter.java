@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements a<a href="http://camel.apache.org/dynamic-router.html">Dynamic Router</a> pattern  * where the destination(s) is computed at runtime.  *<p/>  * This implementation builds on top of {@link org.apache.camel.processor.RoutingSlip} which contains  * the most logic.  *  * @version   */
+comment|/**  * Implements a<a href="http://camel.apache.org/dynamic-router.html">Dynamic Router</a> pattern  * where the destination(s) is computed at runtime.  *<p/>  * This implementation builds on top of {@link org.apache.camel.processor.RoutingSlip} which contains  * the most logic.  */
 end_comment
 
 begin_class

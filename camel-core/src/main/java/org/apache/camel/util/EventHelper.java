@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper for easily sending event notifications in a single line of code  *  * @version   */
+comment|/**  * Helper for easily sending event notifications in a single line of code  */
 end_comment
 
 begin_class

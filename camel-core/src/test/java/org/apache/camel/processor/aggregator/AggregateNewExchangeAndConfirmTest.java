@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Testing CAMEL-3139  *   * @version   */
+comment|/**  * Testing CAMEL-3139  */
 end_comment
 
 begin_class

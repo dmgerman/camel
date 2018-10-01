@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A producer of exchanges for the Spring Integration  * Please specify the outputChannel in the endpoint url for this producer.  * If the message pattern is inOut, the inputChannel property  * should be set for receiving the response message.  * @version   */
+comment|/**  * A producer of exchanges for the Spring Integration  * Please specify the outputChannel in the endpoint url for this producer.  * If the message pattern is inOut, the inputChannel property  * should be set for receiving the response message.  */
 end_comment
 
 begin_class

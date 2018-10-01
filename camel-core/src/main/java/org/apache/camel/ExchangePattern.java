@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the kind of message exchange pattern  *  * @version   */
+comment|/**  * Represents the kind of message exchange pattern  */
 end_comment
 
 begin_enum

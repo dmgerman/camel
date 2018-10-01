@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Logging event notifier that only notifies if<tt>INFO</tt> log level has  * been configured for its logger.  *  * @version   */
+comment|/**  * Logging event notifier that only notifies if<tt>INFO</tt> log level has  * been configured for its logger.  */
 end_comment
 
 begin_class

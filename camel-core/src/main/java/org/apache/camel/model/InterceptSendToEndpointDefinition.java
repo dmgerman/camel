@@ -243,7 +243,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Intercepts messages being sent to an endpoint  *  * @version   */
+comment|/**  * Intercepts messages being sent to an endpoint  */
 end_comment
 
 begin_class

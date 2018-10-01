@@ -221,7 +221,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Configures a {@link ProducerTemplate}  *   * @version   */
+comment|/**  * Configures a {@link ProducerTemplate}  */
 end_comment
 
 begin_class

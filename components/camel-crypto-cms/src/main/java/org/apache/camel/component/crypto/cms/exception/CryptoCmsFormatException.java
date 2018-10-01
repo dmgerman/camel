@@ -23,7 +23,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Exception thrown when the decoding of an input stream to a cms object, like  * singed data or enveloped data, fails.  *   *   */
+comment|/**  * Exception thrown when the decoding of an input stream to a cms object, like  * singed data or enveloped data, fails.  *   */
 end_comment
 
 begin_class

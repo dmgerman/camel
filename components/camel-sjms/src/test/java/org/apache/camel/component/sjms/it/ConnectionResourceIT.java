@@ -199,7 +199,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Integration test that verifies we can replace the internal  * ConnectionFactoryResource with another provider.  *   */
+comment|/**  * Integration test that verifies we can replace the internal  * ConnectionFactoryResource with another provider.  */
 end_comment
 
 begin_class

@@ -18,10 +18,6 @@ name|nagios
 package|;
 end_package
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|NagiosConstants
 specifier|public

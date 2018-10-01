@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Stops the processing of the current message  *  * @version   */
+comment|/**  * Stops the processing of the current message  */
 end_comment
 
 begin_class

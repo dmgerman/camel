@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * EJB component to invoke EJBs like the {@link org.apache.camel.component.bean.BeanComponent}.  *  * @version   */
+comment|/**  * EJB component to invoke EJBs like the {@link org.apache.camel.component.bean.BeanComponent}.  */
 end_comment
 
 begin_class

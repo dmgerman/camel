@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Based on CAMEL-1546  *  * @version   */
+comment|/**  * Based on CAMEL-1546  */
 end_comment
 
 begin_class

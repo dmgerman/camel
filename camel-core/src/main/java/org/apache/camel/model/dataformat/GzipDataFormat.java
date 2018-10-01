@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The GZip data format is a message compression and de-compression format (which works with the popular gzip/gunzip tools).  *  * @version   */
+comment|/**  * The GZip data format is a message compression and de-compression format (which works with the popular gzip/gunzip tools).  */
 end_comment
 
 begin_class

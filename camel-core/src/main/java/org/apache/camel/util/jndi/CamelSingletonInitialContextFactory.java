@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory of the Camel {@link javax.naming.InitialContext} which allows a {@link java.util.Map} to be used to create a  * JNDI context.  *<p/>  * This implementation is singleton based, by creating a<b>new</b> context once, and reusing it on each call to  * {@link #getInitialContext(java.util.Hashtable)}.  *  * @version  */
+comment|/**  * A factory of the Camel {@link javax.naming.InitialContext} which allows a {@link java.util.Map} to be used to create a  * JNDI context.  *<p/>  * This implementation is singleton based, by creating a<b>new</b> context once, and reusing it on each call to  * {@link #getInitialContext(java.util.Hashtable)}.  */
 end_comment
 
 begin_class

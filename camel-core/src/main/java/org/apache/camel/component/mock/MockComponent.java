@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/mock.html">Mock Component</a> provides mock endpoints for testing.  *  * @version   */
+comment|/**  * The<a href="http://camel.apache.org/mock.html">Mock Component</a> provides mock endpoints for testing.  */
 end_comment
 
 begin_class

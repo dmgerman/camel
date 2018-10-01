@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for including portions of the<a  * href="http://camel.apache.org/expression.html">expression</a> and  *<a href="http://camel.apache.org/predicate.html">predicate</a><a  * href="http://camel.apache.org/dsl.html">Java DSL</a>  *<p/>  * Implementation of this builder should favor build expressions using the definition classes  * from the<tt>org.apache.camel.model.language</tt> package, to build the routes using the same  * types as it would happen when using XML DSL.  *  * @version   */
+comment|/**  * A helper class for including portions of the<a  * href="http://camel.apache.org/expression.html">expression</a> and  *<a href="http://camel.apache.org/predicate.html">predicate</a><a  * href="http://camel.apache.org/dsl.html">Java DSL</a>  *<p/>  * Implementation of this builder should favor build expressions using the definition classes  * from the<tt>org.apache.camel.model.language</tt> package, to build the routes using the same  * types as it would happen when using XML DSL.  */
 end_comment
 
 begin_class

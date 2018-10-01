@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This module contains jmx related system property key constants.  *  * @version   */
+comment|/**  * This module contains jmx related system property key constants.  */
 end_comment
 
 begin_class

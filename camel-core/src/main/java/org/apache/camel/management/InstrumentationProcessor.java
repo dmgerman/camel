@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JMX enabled processor or advice that uses the {@link org.apache.camel.management.mbean.ManagedCounter} for instrumenting  * processing of exchanges.  *<p/>  * This implementation has been optimised to work in dual mode, either as an advice or as a processor.  * The former is faster and the latter is required when the error handler has been configured with redelivery enabled.  *  * @version   */
+comment|/**  * JMX enabled processor or advice that uses the {@link org.apache.camel.management.mbean.ManagedCounter} for instrumenting  * processing of exchanges.  *<p/>  * This implementation has been optimised to work in dual mode, either as an advice or as a processor.  * The former is faster and the latter is required when the error handler has been configured with redelivery enabled.  */
 end_comment
 
 begin_class

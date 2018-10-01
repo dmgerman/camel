@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Base64 data format is used for base64 encoding and decoding.  *  * @version   */
+comment|/**  * The Base64 data format is used for base64 encoding and decoding.  */
 end_comment
 
 begin_class

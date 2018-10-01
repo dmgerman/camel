@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some useful converters for {@link Attachment}  * to a {@link DataHandler}  *  * @version   */
+comment|/**  * Some useful converters for {@link Attachment}  * to a {@link DataHandler}  */
 end_comment
 
 begin_class

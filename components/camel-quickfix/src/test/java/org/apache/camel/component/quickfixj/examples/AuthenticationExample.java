@@ -237,7 +237,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This example demonstrates several features of the QuickFIX/J component. It uses  * QFJ session events to synchronize application behavior (e.g., Session logon).  *   */
+comment|/**  * This example demonstrates several features of the QuickFIX/J component. It uses  * QFJ session events to synchronize application behavior (e.g., Session logon).  */
 end_comment
 
 begin_class

@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An {@link java.lang.reflect.InvocationHandler} which invokes a message  * exchange on a camel {@link Endpoint}  *   * @version  */
+comment|/**  * An {@link java.lang.reflect.InvocationHandler} which invokes a message  * exchange on a camel {@link Endpoint}  */
 end_comment
 
 begin_class

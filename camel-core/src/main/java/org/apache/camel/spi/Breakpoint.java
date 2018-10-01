@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link org.apache.camel.spi.Breakpoint} are used by the {@link org.apache.camel.spi.Debugger} API.  *<p/>  * This allows you to register {@link org.apache.camel.spi.Breakpoint}s to the {@link org.apache.camel.spi.Debugger}  * and have those breakpoints activated when their {@link org.apache.camel.spi.Condition}s match.  *<p/>  * If any exceptions is thrown from the callback methods then the {@link org.apache.camel.spi.Debugger}  * will catch and log those at<tt>WARN</tt> level and continue. This ensures Camel can continue to route  * the message without having breakpoints causing issues.  *  * @version   * @see org.apache.camel.spi.Debugger  * @see org.apache.camel.spi.Condition  */
+comment|/**  * {@link org.apache.camel.spi.Breakpoint} are used by the {@link org.apache.camel.spi.Debugger} API.  *<p/>  * This allows you to register {@link org.apache.camel.spi.Breakpoint}s to the {@link org.apache.camel.spi.Debugger}  * and have those breakpoints activated when their {@link org.apache.camel.spi.Condition}s match.  *<p/>  * If any exceptions is thrown from the callback methods then the {@link org.apache.camel.spi.Debugger}  * will catch and log those at<tt>WARN</tt> level and continue. This ensures Camel can continue to route  * the message without having breakpoints causing issues.  * @see org.apache.camel.spi.Debugger  * @see org.apache.camel.spi.Condition  */
 end_comment
 
 begin_interface

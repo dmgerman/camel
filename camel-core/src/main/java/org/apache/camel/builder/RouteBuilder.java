@@ -385,7 +385,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/dsl.html">Java DSL</a> which is  * used to build {@link org.apache.camel.impl.DefaultRoute} instances in a {@link CamelContext} for smart routing.  *  * @version   */
+comment|/**  * A<a href="http://camel.apache.org/dsl.html">Java DSL</a> which is  * used to build {@link org.apache.camel.impl.DefaultRoute} instances in a {@link CamelContext} for smart routing.  */
 end_comment
 
 begin_class

@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This interface gives the application the possibility to check whether the  * expected parts are signed.  *<p>  * Only relevant for the XML signature verifier.  *<p>  * See http://www.w3.org/TR/xmldsig-bestpractices/#check-what-is-signed  *<p>  * The checker is called for each XML signature contained in the XM document.  * You can get the total and current count of the XML signatures via the methods  * {@link Input#getTotalCountOfSignatures()} and  * {@link Input#getCurrentCountOfSignatures()}.  *   */
+comment|/**  * This interface gives the application the possibility to check whether the  * expected parts are signed.  *<p>  * Only relevant for the XML signature verifier.  *<p>  * See http://www.w3.org/TR/xmldsig-bestpractices/#check-what-is-signed  *<p>  * The checker is called for each XML signature contained in the XM document.  * You can get the total and current count of the XML signatures via the methods  * {@link Input#getTotalCountOfSignatures()} and  * {@link Input#getCurrentCountOfSignatures()}.  */
 end_comment
 
 begin_interface

@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Error handler settings  *  * @version   */
+comment|/**  * Error handler settings  */
 end_comment
 
 begin_class

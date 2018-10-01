@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Hello Test Impl class for SOAP 1.2  * @version   */
+comment|/**  * Hello Test Impl class for SOAP 1.2  */
 end_comment
 
 begin_class

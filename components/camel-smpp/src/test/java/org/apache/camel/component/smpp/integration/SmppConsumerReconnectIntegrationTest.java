@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Spring based integration test for the smpp component. To run this test, ensure that  * the SMSC is running on:  * host:     localhost  * port:     2775  * user:     smppclient  * password: password  *<br/>  * A SMSC for test is available here: http://www.seleniumsoftware.com/downloads.html  *   * @version   */
+comment|/**  * Spring based integration test for the smpp component. To run this test, ensure that  * the SMSC is running on:  * host:     localhost  * port:     2775  * user:     smppclient  * password: password  *<br/>  * A SMSC for test is available here: http://www.seleniumsoftware.com/downloads.html  */
 end_comment
 
 begin_class

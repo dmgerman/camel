@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for developers wishing to implement an {@link org.apache.camel.Expression}  * using Java code with a minimum amount of code to write so that the developer only needs  * to implement one of the {@link #evaluate(org.apache.camel.Exchange, Class)} or  * {@link #evaluate(org.apache.camel.Exchange)} methods.  *  * @version   */
+comment|/**  * A helper class for developers wishing to implement an {@link org.apache.camel.Expression}  * using Java code with a minimum amount of code to write so that the developer only needs  * to implement one of the {@link #evaluate(org.apache.camel.Exchange, Class)} or  * {@link #evaluate(org.apache.camel.Exchange)} methods.  */
 end_comment
 
 begin_class

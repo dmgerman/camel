@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**   * An interface used by the {@link ResequencerEngine#deliver()} and   * {@link ResequencerEngine#deliverNext()} methods to send out re-ordered   * elements.   *   * @version    */
+comment|/**   * An interface used by the {@link ResequencerEngine#deliver()} and   * {@link ResequencerEngine#deliverNext()} methods to send out re-ordered   * elements.   *    */
 end_comment
 
 begin_interface

@@ -20,10 +20,6 @@ name|validator
 package|;
 end_package
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_interface
 DECL|interface|Car
 specifier|public

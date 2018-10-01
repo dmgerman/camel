@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some core java.util Collection based  *<a href="http://camel.apache.org/type-converter.html">Type Converters</a>  *  * @version   */
+comment|/**  * Some core java.util Collection based  *<a href="http://camel.apache.org/type-converter.html">Type Converters</a>  */
 end_comment
 
 begin_class

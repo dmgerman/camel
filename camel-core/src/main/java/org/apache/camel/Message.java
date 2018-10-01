@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements the<a  * href="http://camel.apache.org/message.html">Message</a> pattern and  * represents an inbound or outbound message as part of an {@link Exchange}.  *<p/>  * See {@link org.apache.camel.impl.DefaultMessage DefaultMessage} for how headers  * is represented in Camel using a {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.  * The implementation of the map can be configured by the {@link HeadersMapFactory} which can be set  * on the {@link CamelContext}. The default implementation uses the {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.  *  * @version   */
+comment|/**  * Implements the<a  * href="http://camel.apache.org/message.html">Message</a> pattern and  * represents an inbound or outbound message as part of an {@link Exchange}.  *<p/>  * See {@link org.apache.camel.impl.DefaultMessage DefaultMessage} for how headers  * is represented in Camel using a {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.  * The implementation of the map can be configured by the {@link HeadersMapFactory} which can be set  * on the {@link CamelContext}. The default implementation uses the {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.  */
 end_comment
 
 begin_interface

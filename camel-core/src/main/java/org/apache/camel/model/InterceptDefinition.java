@@ -211,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Intercepts a message at each step in the route  *  * @version   */
+comment|/**  * Intercepts a message at each step in the route  */
 end_comment
 
 begin_class

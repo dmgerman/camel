@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Rethrow an exception inside a catch block  *  * @version   */
+comment|/**  * Rethrow an exception inside a catch block  */
 end_comment
 
 begin_class

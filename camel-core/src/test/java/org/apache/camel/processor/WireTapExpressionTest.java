@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Wire tap unit test  *  * @version   */
+comment|/**  * Wire tap unit test  */
 end_comment
 
 begin_class

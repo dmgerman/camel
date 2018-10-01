@@ -225,7 +225,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * IO helper class.  *  * @version   */
+comment|/**  * IO helper class.  */
 end_comment
 
 begin_class

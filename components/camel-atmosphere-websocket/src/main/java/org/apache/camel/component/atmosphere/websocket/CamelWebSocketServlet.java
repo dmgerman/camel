@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This servlet is used to add some websocket specific handling at the moment.  *   * REVISIT  * we might be able to get rid of this servlet by overriding some of the binding  * code that is executed between the servlet and the consumer.  *   */
+comment|/**  * This servlet is used to add some websocket specific handling at the moment.  *   * REVISIT  * we might be able to get rid of this servlet by overriding some of the binding  * code that is executed between the servlet and the consumer.  */
 end_comment
 
 begin_class

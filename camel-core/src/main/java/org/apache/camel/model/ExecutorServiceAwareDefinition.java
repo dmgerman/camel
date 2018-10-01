@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Enables definitions to support concurrency using {@link java.util.concurrent.ExecutorService}  *  * @version   */
+comment|/**  * Enables definitions to support concurrency using {@link java.util.concurrent.ExecutorService}  */
 end_comment
 
 begin_interface

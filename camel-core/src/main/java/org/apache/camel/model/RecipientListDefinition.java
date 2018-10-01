@@ -333,7 +333,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Routes messages to a number of dynamically specified recipients (dynamic to)  *  * @version   */
+comment|/**  * Routes messages to a number of dynamically specified recipients (dynamic to)  */
 end_comment
 
 begin_class

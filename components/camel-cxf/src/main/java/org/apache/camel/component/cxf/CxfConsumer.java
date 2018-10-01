@@ -423,7 +423,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Consumer of exchanges for a service in CXF.  CxfConsumer acts a CXF  * service to receive requests, convert them, and forward them to Camel  * route for processing. It is also responsible for converting and sending  * back responses to CXF client.  *  * @version  */
+comment|/**  * A Consumer of exchanges for a service in CXF.  CxfConsumer acts a CXF  * service to receive requests, convert them, and forward them to Camel  * route for processing. It is also responsible for converting and sending  * back responses to CXF client.  */
 end_comment
 
 begin_class

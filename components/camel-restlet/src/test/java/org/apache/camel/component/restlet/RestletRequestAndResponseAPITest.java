@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Testing that end users can use the {@link Response} API from Restlet directly to have fine grained  * control of the response they want to use.  *  * @version   */
+comment|/**  * Testing that end users can use the {@link Response} API from Restlet directly to have fine grained  * control of the response they want to use.  */
 end_comment
 
 begin_class

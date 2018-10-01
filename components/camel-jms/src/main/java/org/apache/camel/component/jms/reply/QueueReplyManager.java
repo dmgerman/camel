@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link ReplyManager} when using regular queues.  *  * @version   */
+comment|/**  * A {@link ReplyManager} when using regular queues.  */
 end_comment
 
 begin_class

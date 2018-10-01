@@ -275,7 +275,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Enables transaction on the route  *  * @version   */
+comment|/**  * Enables transaction on the route  */
 end_comment
 
 begin_class

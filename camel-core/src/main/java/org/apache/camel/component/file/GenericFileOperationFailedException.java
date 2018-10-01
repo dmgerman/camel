@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Exception thrown in case of last file operation failed.  *  * @version   */
+comment|/**  * Exception thrown in case of last file operation failed.  */
 end_comment
 
 begin_class

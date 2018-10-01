@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for {@link Predicate} and {@link Expression} implementations  *  * @version   */
+comment|/**  * A useful base class for {@link Predicate} and {@link Expression} implementations  */
 end_comment
 
 begin_class

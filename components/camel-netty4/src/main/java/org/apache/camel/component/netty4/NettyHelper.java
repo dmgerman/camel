@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper class used internally by camel-netty using Netty.  *  * @version   */
+comment|/**  * Helper class used internally by camel-netty using Netty.  */
 end_comment
 
 begin_class

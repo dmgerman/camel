@@ -227,7 +227,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A CamelContext will be injected into CameSourceAdapter which will  * let Spring Integration channel talk to the CamelContext certain endpoint  *  * @version   */
+comment|/**  * A CamelContext will be injected into CameSourceAdapter which will  * let Spring Integration channel talk to the CamelContext certain endpoint  */
 end_comment
 
 begin_class

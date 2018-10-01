@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Exception when failing to start a {@link Route}.  *  * @version   */
+comment|/**  * Exception when failing to start a {@link Route}.  */
 end_comment
 
 begin_class

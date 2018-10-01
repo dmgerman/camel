@@ -223,7 +223,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Jsmpp ConnectionFactory that creates SSL Sockets.  *   * @version   */
+comment|/**  * A Jsmpp ConnectionFactory that creates SSL Sockets.  */
 end_comment
 
 begin_class

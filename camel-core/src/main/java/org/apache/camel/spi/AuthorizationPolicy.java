@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A marker for defining the policy to be used for applying authorization to routes.  *  * @version   */
+comment|/**  * A marker for defining the policy to be used for applying authorization to routes.  */
 end_comment
 
 begin_interface

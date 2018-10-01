@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represent the kinds of options when writing a file and what to do in case of an existing file exists.  *  * @version   */
+comment|/**  * Represent the kinds of options when writing a file and what to do in case of an existing file exists.  */
 end_comment
 
 begin_enum

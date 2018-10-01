@@ -411,7 +411,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A number of helper methods  *  * @version   */
+comment|/**  * A number of helper methods  */
 end_comment
 
 begin_class

@@ -343,7 +343,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Enables sagas on the route  *  * @version  */
+comment|/**  * Enables sagas on the route  */
 end_comment
 
 begin_class

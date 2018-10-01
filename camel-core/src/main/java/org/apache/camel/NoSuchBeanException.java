@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A runtime exception if a given bean could not be found in the {@link org.apache.camel.spi.Registry}  *  * @version   */
+comment|/**  * A runtime exception if a given bean could not be found in the {@link org.apache.camel.spi.Registry}  */
 end_comment
 
 begin_class

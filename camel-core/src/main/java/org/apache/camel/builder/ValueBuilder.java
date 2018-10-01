@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder of expressions or predicates based on values.  *   * @version   */
+comment|/**  * A builder of expressions or predicates based on values.  */
 end_comment
 
 begin_class

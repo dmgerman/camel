@@ -207,7 +207,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Delays processing for a specified length of time  *  * @version   */
+comment|/**  * Delays processing for a specified length of time  */
 end_comment
 
 begin_class

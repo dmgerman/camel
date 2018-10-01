@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple POJO for testing  *  * @version   */
+comment|/**  * A simple POJO for testing  */
 end_comment
 
 begin_class

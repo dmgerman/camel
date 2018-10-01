@@ -229,7 +229,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests filtering using Spring Test and Java Config  *   * @version   */
+comment|/**  * Tests filtering using Spring Test and Java Config  */
 end_comment
 
 begin_comment

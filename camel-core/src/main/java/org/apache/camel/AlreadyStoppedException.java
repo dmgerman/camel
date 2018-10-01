@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Exception thrown in situations when a {@link Service} has already been stopped.  *  * @version   */
+comment|/**  * Exception thrown in situations when a {@link Service} has already been stopped.  */
 end_comment
 
 begin_class

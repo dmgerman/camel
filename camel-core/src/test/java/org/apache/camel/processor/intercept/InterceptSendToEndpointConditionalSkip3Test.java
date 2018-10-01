@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit tests on the conditional skip support on InterceptSendToEndpoint.  *   * @version  */
+comment|/**  * Unit tests on the conditional skip support on InterceptSendToEndpoint.  */
 end_comment
 
 begin_class

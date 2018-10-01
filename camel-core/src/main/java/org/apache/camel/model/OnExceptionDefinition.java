@@ -405,7 +405,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Route to be executed when an exception is thrown  *  * @version   */
+comment|/**  * Route to be executed when an exception is thrown  */
 end_comment
 
 begin_class

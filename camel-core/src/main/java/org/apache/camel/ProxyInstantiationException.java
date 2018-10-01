@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Exception indicating a failure while trying to create a proxy of a given type and on a given endpoint  *  * @version   */
+comment|/**  * Exception indicating a failure while trying to create a proxy of a given type and on a given endpoint  */
 end_comment
 
 begin_class

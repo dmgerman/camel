@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class which will find all {@link org.apache.camel.builder.RouteBuilder} instances on the  * Spring {@link org.springframework.context.ApplicationContext}.  *  * @version   */
+comment|/**  * A helper class which will find all {@link org.apache.camel.builder.RouteBuilder} instances on the  * Spring {@link org.springframework.context.ApplicationContext}.  */
 end_comment
 
 begin_class

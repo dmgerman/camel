@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of the {@link org.apache.camel.spi.EventFactory}.  *  * @version   */
+comment|/**  * Default implementation of the {@link org.apache.camel.spi.EventFactory}.  */
 end_comment
 
 begin_class

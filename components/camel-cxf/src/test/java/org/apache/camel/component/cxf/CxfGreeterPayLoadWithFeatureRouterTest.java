@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A unit test for testing a CXF client invoking a CXF server via route   * in PAYLOAD mode and with CXF features specified in the Spring config.  *   * @version   */
+comment|/**  * A unit test for testing a CXF client invoking a CXF server via route   * in PAYLOAD mode and with CXF features specified in the Spring config.  */
 end_comment
 
 begin_class

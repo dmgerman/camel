@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A JPA Component  *  * @version   */
+comment|/**  * A JPA Component  */
 end_comment
 
 begin_class

@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marks a method as being {@link ExchangePattern#InOut} when a class or interface has been annotated with  * {@link InOnly} when using  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a> or  *<a href="http://camel.apache.org/spring-remoting.html">Spring Remoting</a>.  *  * This annotation is only intended to be used on methods which the class or interface has been annotated with  * a default exchange pattern annotation such as {@link InOnly} or {@link Pattern}  *  * See the<a href="using-exchange-pattern-annotations.html">using exchange pattern annotations</a>  * for more details on how the overloading rules work.  *  * @see org.apache.camel.ExchangePattern  * @see org.apache.camel.Exchange#getPattern()  * @see InOnly  * @see Pattern  *  * @version   */
+comment|/**  * Marks a method as being {@link ExchangePattern#InOut} when a class or interface has been annotated with  * {@link InOnly} when using  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a> or  *<a href="http://camel.apache.org/spring-remoting.html">Spring Remoting</a>.  *  * This annotation is only intended to be used on methods which the class or interface has been annotated with  * a default exchange pattern annotation such as {@link InOnly} or {@link Pattern}  *  * See the<a href="using-exchange-pattern-annotations.html">using exchange pattern annotations</a>  * for more details on how the overloading rules work.  *  * @see org.apache.camel.ExchangePattern  * @see org.apache.camel.Exchange#getPattern()  * @see InOnly  * @see Pattern  */
 end_comment
 
 begin_annotation_defn

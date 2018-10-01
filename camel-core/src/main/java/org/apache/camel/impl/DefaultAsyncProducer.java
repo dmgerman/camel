@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of {@link org.apache.camel.Producer} for implementation inheritance,  * which can process {@link Exchange}s asynchronously.  *  * @version   */
+comment|/**  * A default implementation of {@link org.apache.camel.Producer} for implementation inheritance,  * which can process {@link Exchange}s asynchronously.  */
 end_comment
 
 begin_class

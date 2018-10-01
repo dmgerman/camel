@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An exception caused when a mandatory property is not available on a message  * {@link Exchange}  *   * @see org.apache.camel.util.ExchangeHelper#getMandatoryProperty(Exchange, String, Class)  *   * @version   */
+comment|/**  * An exception caused when a mandatory property is not available on a message  * {@link Exchange}  *   * @see org.apache.camel.util.ExchangeHelper#getMandatoryProperty(Exchange, String, Class)  */
 end_comment
 
 begin_class

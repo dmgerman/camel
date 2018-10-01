@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Interface to add block featuring to the XML element type.  *  * @version   */
+comment|/**  * Interface to add block featuring to the XML element type.  */
 end_comment
 
 begin_interface

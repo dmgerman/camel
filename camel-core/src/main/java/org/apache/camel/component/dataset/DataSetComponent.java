@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Component for<a href="http://camel.apache.org/dataset.html">DataSet</a>.  *  * @version   */
+comment|/**  * Component for<a href="http://camel.apache.org/dataset.html">DataSet</a>.  */
 end_comment
 
 begin_class

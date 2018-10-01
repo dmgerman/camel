@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A strategy for comparing {@link Element} instances. This strategy uses  * another {@link SequenceElementComparator} instance for comparing elements  * contained by {@link Element} instances.  *   * @version   */
+comment|/**  * A strategy for comparing {@link Element} instances. This strategy uses  * another {@link SequenceElementComparator} instance for comparing elements  * contained by {@link Element} instances.  */
 end_comment
 
 begin_class

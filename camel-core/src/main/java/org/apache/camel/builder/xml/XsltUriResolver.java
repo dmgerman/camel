@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Camel specific {@link javax.xml.transform.URIResolver} which is capable of loading files  * from classpath, file system and more.  *<p/>  * You can prefix with: classpath, file, http, ref, or bean.  * classpath, file and http loads the resource using these protocols (classpath is default).  * ref will lookup the resource in the registry.  * bean will call a method on a bean to be used as the resource.  * For bean you can specify the method name after dot, eg bean:myBean.myMethod  *  * @version   */
+comment|/**  * Camel specific {@link javax.xml.transform.URIResolver} which is capable of loading files  * from classpath, file system and more.  *<p/>  * You can prefix with: classpath, file, http, ref, or bean.  * classpath, file and http loads the resource using these protocols (classpath is default).  * ref will lookup the resource in the registry.  * bean will call a method on a bean to be used as the resource.  * For bean you can specify the method name after dot, eg bean:myBean.myMethod  */
 end_comment
 
 begin_class

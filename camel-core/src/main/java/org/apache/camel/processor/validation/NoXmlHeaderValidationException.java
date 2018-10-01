@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An exception thrown if the XML header is not available on the inbound message  *  * @version   */
+comment|/**  * An exception thrown if the XML header is not available on the inbound message  */
 end_comment
 
 begin_class

@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A collection of helper methods for working with {@link Service} objects.  *   * @version  */
+comment|/**  * A collection of helper methods for working with {@link Service} objects.  */
 end_comment
 
 begin_class

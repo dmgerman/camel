@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that error handling using async() also works as expected.  *  * @version   */
+comment|/**  * Unit test to verify that error handling using async() also works as expected.  */
 end_comment
 
 begin_class

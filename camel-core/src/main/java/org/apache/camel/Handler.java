@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marks a method on a POJO as being the preferred method to invoke when Camel looks  * for methods to invoke using the {@link org.apache.camel.component.bean.BeanEndpoint BeanEndpoint}.  *  * @version   */
+comment|/**  * Marks a method on a POJO as being the preferred method to invoke when Camel looks  * for methods to invoke using the {@link org.apache.camel.component.bean.BeanEndpoint BeanEndpoint}.  */
 end_comment
 
 begin_annotation_defn

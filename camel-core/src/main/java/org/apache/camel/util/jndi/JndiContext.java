@@ -293,7 +293,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default JNDI context  *  * @version   */
+comment|/**  * A default JNDI context  */
 end_comment
 
 begin_class

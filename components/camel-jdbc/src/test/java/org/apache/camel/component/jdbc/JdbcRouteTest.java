@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Is used as base class for testing the jdbc component.  *<p><b>Don't</b> add new test methods; it's likely to break the sub-classes.  *<p>Sub-classes should override {@link #testJdbcRoutes()} unless they create routes that  * are semantically equivalent to what this class creates.  * @version   */
+comment|/**  * Is used as base class for testing the jdbc component.  *<p><b>Don't</b> add new test methods; it's likely to break the sub-classes.  *<p>Sub-classes should override {@link #testJdbcRoutes()} unless they create routes that  * are semantically equivalent to what this class creates.  */
 end_comment
 
 begin_class

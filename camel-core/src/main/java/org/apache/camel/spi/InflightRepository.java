@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A repository which tracks in flight {@link Exchange}s.  *  * @version   */
+comment|/**  * A repository which tracks in flight {@link Exchange}s.  */
 end_comment
 
 begin_interface

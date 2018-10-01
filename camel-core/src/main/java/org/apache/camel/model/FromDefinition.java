@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Act as a message source as input to a route  *  * @version   */
+comment|/**  * Act as a message source as input to a route  */
 end_comment
 
 begin_class

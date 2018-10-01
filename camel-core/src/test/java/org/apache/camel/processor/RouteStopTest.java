@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for stop() DSL  *  * @version   */
+comment|/**  * Unit test for stop() DSL  */
 end_comment
 
 begin_class

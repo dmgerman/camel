@@ -215,7 +215,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An {@link org.apache.camel.spi.EventNotifier} which sends alters to Nagios.  *  * @version   */
+comment|/**  * An {@link org.apache.camel.spi.EventNotifier} which sends alters to Nagios.  */
 end_comment
 
 begin_class

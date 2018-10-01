@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The simple {@link org.springframework.jms.listener.SimpleMessageListenerContainer container} which listen for messages  * on the JMS destination.  *<p/>  * This implementation extends Springs {@link org.springframework.jms.listener.SimpleMessageListenerContainer}.  *  * @version  */
+comment|/**  * The simple {@link org.springframework.jms.listener.SimpleMessageListenerContainer container} which listen for messages  * on the JMS destination.  *<p/>  * This implementation extends Springs {@link org.springframework.jms.listener.SimpleMessageListenerContainer}.  */
 end_comment
 
 begin_class

@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Configuration of REST services using rest-dsl using XML  *  * @version   */
+comment|/**  * Configuration of REST services using rest-dsl using XML  */
 end_comment
 
 begin_class

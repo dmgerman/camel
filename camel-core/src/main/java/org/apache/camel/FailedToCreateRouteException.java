@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Exception when failing to create a {@link org.apache.camel.Route}.  *  * @version   */
+comment|/**  * Exception when failing to create a {@link org.apache.camel.Route}.  */
 end_comment
 
 begin_class

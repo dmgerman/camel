@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JacksonXML data format is used for unmarshal a XML payload to POJO or to marshal POJO back to XML payload.  *  * @version  */
+comment|/**  * JacksonXML data format is used for unmarshal a XML payload to POJO or to marshal POJO back to XML payload.  */
 end_comment
 
 begin_class

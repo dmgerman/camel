@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Registry} implementation which looks up the objects in the Spring  * {@link ApplicationContext}  *   * @version   */
+comment|/**  * A {@link Registry} implementation which looks up the objects in the Spring  * {@link ApplicationContext}  */
 end_comment
 
 begin_class

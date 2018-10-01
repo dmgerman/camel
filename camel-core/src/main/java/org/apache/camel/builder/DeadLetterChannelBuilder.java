@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder of a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  *  * @version   */
+comment|/**  * A builder of a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  */
 end_comment
 
 begin_class

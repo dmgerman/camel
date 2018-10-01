@@ -713,7 +713,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An expression for constructing the different possible {@link org.apache.camel.spi.DataFormat}  * options.  *  * @version   */
+comment|/**  * An expression for constructing the different possible {@link org.apache.camel.spi.DataFormat}  * options.  */
 end_comment
 
 begin_class

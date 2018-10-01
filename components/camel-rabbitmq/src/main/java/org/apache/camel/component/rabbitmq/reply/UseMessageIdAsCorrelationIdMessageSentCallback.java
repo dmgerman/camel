@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Callback to be used when using the option<tt>useMessageIDAsCorrelationID</tt>.  *<p/>  * This callback will keep the correlation registration in {@link ReplyManager} up-to-date with  * the<tt>JMSMessageID</tt> which was assigned and used when the message was sent.  *  * @version   */
+comment|/**  * Callback to be used when using the option<tt>useMessageIDAsCorrelationID</tt>.  *<p/>  * This callback will keep the correlation registration in {@link ReplyManager} up-to-date with  * the<tt>JMSMessageID</tt> which was assigned and used when the message was sent.  */
 end_comment
 
 begin_class
