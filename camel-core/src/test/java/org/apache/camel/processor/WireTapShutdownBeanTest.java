@@ -217,7 +217,7 @@ operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
-comment|// shutdown Camel which should let the inlfight wire-tap message route to completion
+comment|// shutdown Camel which should let the inflight wire-tap message route to completion
 name|context
 operator|.
 name|stop

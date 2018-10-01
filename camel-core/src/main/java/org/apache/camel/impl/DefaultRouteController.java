@@ -110,14 +110,8 @@ name|RouteController
 import|;
 end_import
 
-begin_class
-annotation|@
-name|Experimental
-DECL|class|DefaultRouteController
-specifier|public
-class|class
-name|DefaultRouteController
-extends|extends
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -126,6 +120,18 @@ name|camel
 operator|.
 name|support
 operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_class
+annotation|@
+name|Experimental
+DECL|class|DefaultRouteController
+specifier|public
+class|class
+name|DefaultRouteController
+extends|extends
 name|ServiceSupport
 implements|implements
 name|RouteController
