@@ -381,12 +381,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Producer
+name|AsyncProducer
 name|producer
 init|=
 name|delegate
 operator|.
-name|createProducer
+name|createAsyncProducer
 argument_list|()
 decl_stmt|;
 return|return
