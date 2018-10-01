@@ -2145,6 +2145,8 @@ operator|.
 name|capitalize
 argument_list|(
 name|propertyName
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 return|;
@@ -2163,6 +2165,8 @@ operator|.
 name|capitalize
 argument_list|(
 name|propertyName
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 return|;
@@ -2196,6 +2200,8 @@ operator|.
 name|capitalize
 argument_list|(
 name|propertyName
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 for|for
@@ -2279,6 +2285,8 @@ operator|.
 name|capitalize
 argument_list|(
 name|propertyName
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -4080,6 +4088,8 @@ operator|.
 name|capitalize
 argument_list|(
 name|name
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 while|while
