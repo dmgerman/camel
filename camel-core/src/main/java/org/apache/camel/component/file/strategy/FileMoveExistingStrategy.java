@@ -68,12 +68,17 @@ name|GenericFileOperations
 import|;
 end_import
 
+begin_comment
+comment|/**  * This is the interface to be implemented when a custom implementation needs to be   * provided in case of fileExists=Move is in use while moving any existing file in producer  * endpoints.  */
+end_comment
+
 begin_interface
 DECL|interface|FileMoveExistingStrategy
 specifier|public
 interface|interface
 name|FileMoveExistingStrategy
 block|{
+comment|/**      * Moves any existing file due fileExists=Move is in use.      *      * @param endpoint  the given endpoint of the component      * @param operations file operations API of the relevant component's API       * @return result of the file opeartion can be returned      *         note that for now, implemetion classes for file component      *         and ftp components, always returned true. However,if such      *         a need of direct usage of File API returning true|false,      *         you can use that return value for implementation's return value.      */
 DECL|method|moveExistingFile (GenericFileEndpoint endpoint, GenericFileOperations operations, String fileName)
 name|boolean
 name|moveExistingFile

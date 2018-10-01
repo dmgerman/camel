@@ -755,6 +755,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * Default Existing File Move Strategy      * @return the default implementation for ftp components      */
 DECL|method|createDefaultFtpMoveExistingFileStrategy ()
 specifier|private
 name|FileMoveExistingStrategy

@@ -356,6 +356,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Default Existing File Move Strategy      * @return the default implementation for sftp component      */
 DECL|method|createDefaultSftpMoveExistingFileStrategy ()
 specifier|private
 name|FileMoveExistingStrategy
