@@ -322,6 +322,13 @@ literal|"Bye World"
 argument_list|)
 expr_stmt|;
 comment|// will be rejected
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
 name|latch
 operator|.
 name|countDown

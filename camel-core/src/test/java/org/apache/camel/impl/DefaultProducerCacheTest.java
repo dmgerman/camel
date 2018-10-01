@@ -291,6 +291,13 @@ operator|.
 name|cleanUp
 argument_list|()
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|50
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Size should be 1000"
@@ -406,6 +413,13 @@ name|cache
 operator|.
 name|cleanUp
 argument_list|()
+expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|50
+argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
