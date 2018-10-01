@@ -833,6 +833,50 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|client
+operator|.
+name|isConnected
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Disconnecting due to exception during connect"
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|client
+operator|.
+name|disconnect
+argument_list|()
+expr_stmt|;
+comment|// ensures socket is closed
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ignore
+parameter_list|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Ignore exception during disconnect: {}"
+argument_list|,
+name|ignore
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// check if we are interrupted so we can break out
 if|if
 condition|(
