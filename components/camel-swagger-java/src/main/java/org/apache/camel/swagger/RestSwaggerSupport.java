@@ -1395,6 +1395,20 @@ operator|!=
 literal|null
 condition|)
 block|{
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|apiProperties
+init|=
+name|configuration
+operator|.
+name|getApiProperties
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|json
@@ -1408,7 +1422,17 @@ name|Exchange
 operator|.
 name|CONTENT_TYPE
 argument_list|,
+operator|(
+name|String
+operator|)
+name|apiProperties
+operator|.
+name|getOrDefault
+argument_list|(
+literal|"api.specification.contentType.json"
+argument_list|,
 literal|"application/json"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// read the rest-dsl into swagger model
@@ -1521,7 +1545,17 @@ name|Exchange
 operator|.
 name|CONTENT_TYPE
 argument_list|,
+operator|(
+name|String
+operator|)
+name|apiProperties
+operator|.
+name|getOrDefault
+argument_list|(
+literal|"api.specification.contentType.yaml"
+argument_list|,
 literal|"text/yaml"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// read the rest-dsl into swagger model
