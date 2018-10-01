@@ -242,6 +242,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|strategy
+operator|.
+name|FileMoveExistingStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|ScheduledPollEndpoint
@@ -951,6 +969,18 @@ DECL|field|moveExisting
 specifier|protected
 name|Expression
 name|moveExisting
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|)
+DECL|field|moveExistingFileStrategy
+specifier|protected
+name|FileMoveExistingStrategy
+name|moveExistingFileStrategy
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -2630,6 +2660,33 @@ operator|.
 name|moveExisting
 operator|=
 name|moveExisting
+expr_stmt|;
+block|}
+DECL|method|getMoveExistingFileStrategy ()
+specifier|public
+name|FileMoveExistingStrategy
+name|getMoveExistingFileStrategy
+parameter_list|()
+block|{
+return|return
+name|moveExistingFileStrategy
+return|;
+block|}
+comment|/**      * Strategy (Custom Strategy) used to move file with special naming token to use when fileExist=Move is configured.      * By default, there is an implementation used if no custom strategy is provided      */
+DECL|method|setMoveExistingFileStrategy (FileMoveExistingStrategy moveExistingFileStrategy)
+specifier|public
+name|void
+name|setMoveExistingFileStrategy
+parameter_list|(
+name|FileMoveExistingStrategy
+name|moveExistingFileStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|moveExistingFileStrategy
+operator|=
+name|moveExistingFileStrategy
 expr_stmt|;
 block|}
 DECL|method|setMoveExisting (String fileLanguageExpression)
