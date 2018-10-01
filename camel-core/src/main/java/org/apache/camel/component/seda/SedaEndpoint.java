@@ -2244,9 +2244,7 @@ name|Exception
 block|{
 if|if
 condition|(
-name|shutdown
-operator|.
-name|get
+name|isShutdown
 argument_list|()
 condition|)
 block|{

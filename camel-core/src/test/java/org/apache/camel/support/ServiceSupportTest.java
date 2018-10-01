@@ -574,12 +574,10 @@ name|ServiceSupportTestExOnStart
 parameter_list|()
 block|{
 comment|// just for testing force it to not be stopped
-name|stopped
-operator|.
-name|set
-argument_list|(
-literal|false
-argument_list|)
+name|status
+operator|=
+operator|-
+literal|1
 expr_stmt|;
 block|}
 annotation|@
