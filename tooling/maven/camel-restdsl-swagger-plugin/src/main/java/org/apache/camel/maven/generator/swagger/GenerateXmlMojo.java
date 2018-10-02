@@ -42,6 +42,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|io
 operator|.
 name|swagger
@@ -121,6 +131,22 @@ operator|.
 name|swagger
 operator|.
 name|RestDslXmlGenerator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|generator
+operator|.
+name|swagger
+operator|.
+name|SpringBootProjectSourceCodeGenerator
 import|;
 end_import
 
@@ -467,6 +493,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|comp
+operator|=
+literal|"servlet"
+expr_stmt|;
 comment|// is it spring boot?
 name|String
 name|aid
@@ -547,7 +577,7 @@ name|generator
 operator|.
 name|withRestComponent
 argument_list|(
-literal|"servlet"
+name|comp
 argument_list|)
 expr_stmt|;
 block|}

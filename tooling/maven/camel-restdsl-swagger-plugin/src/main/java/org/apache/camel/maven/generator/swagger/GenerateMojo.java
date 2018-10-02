@@ -629,6 +629,17 @@ condition|)
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|packageName
+argument_list|)
+condition|)
+block|{
+comment|// if not explicit package name then try to use package where the spring boot application is located
 name|String
 name|pName
 init|=
@@ -663,6 +674,7 @@ operator|+
 name|packageName
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|getLog
 argument_list|()
