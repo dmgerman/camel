@@ -40,6 +40,9 @@ name|rebootBroker
 block|,
 DECL|enumConstant|updateBroker
 name|updateBroker
+block|,
+DECL|enumConstant|describeBroker
+name|describeBroker
 block|}
 end_enum
 
