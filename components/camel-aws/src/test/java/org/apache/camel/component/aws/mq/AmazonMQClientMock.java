@@ -70,7 +70,7 @@ name|services
 operator|.
 name|mq
 operator|.
-name|AmazonMQ
+name|AbstractAmazonMQ
 import|;
 end_import
 
@@ -666,31 +666,13 @@ name|UpdateUserResult
 import|;
 end_import
 
-begin_import
-import|import
-name|com
-operator|.
-name|sun
-operator|.
-name|corba
-operator|.
-name|se
-operator|.
-name|pept
-operator|.
-name|broker
-operator|.
-name|Broker
-import|;
-end_import
-
 begin_class
 DECL|class|AmazonMQClientMock
 specifier|public
 class|class
 name|AmazonMQClientMock
-implements|implements
-name|AmazonMQ
+extends|extends
+name|AbstractAmazonMQ
 block|{
 DECL|method|AmazonMQClientMock ()
 specifier|public
