@@ -3467,6 +3467,15 @@ argument_list|)
 condition|)
 block|{
 comment|// change to root path
+if|if
+condition|(
+operator|!
+name|FileUtil
+operator|.
+name|isWindows
+argument_list|()
+condition|)
+block|{
 name|doChangeDirectory
 argument_list|(
 name|path
@@ -3488,6 +3497,31 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|doChangeDirectory
+argument_list|(
+name|path
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+literal|4
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|path
+operator|=
+name|path
+operator|.
+name|substring
+argument_list|(
+literal|4
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// split into multiple dirs
 specifier|final
