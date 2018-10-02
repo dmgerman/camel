@@ -387,6 +387,11 @@ argument_list|(
 literal|"servlet"
 argument_list|)
 operator|.
+name|withRestContextPath
+argument_list|(
+literal|"/"
+argument_list|)
+operator|.
 name|generate
 argument_list|(
 name|code

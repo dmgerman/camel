@@ -247,6 +247,26 @@ name|restComponent
 operator|+
 literal|"\"/>"
 decl_stmt|;
+if|if
+condition|(
+name|restContextPath
+operator|!=
+literal|null
+condition|)
+block|{
+name|extra
+operator|=
+literal|"<restConfiguration component=\""
+operator|+
+name|restComponent
+operator|+
+literal|"\" contextPath=\""
+operator|+
+name|restContextPath
+operator|+
+literal|"\"/>"
+expr_stmt|;
+block|}
 name|xml
 operator|=
 name|xml
