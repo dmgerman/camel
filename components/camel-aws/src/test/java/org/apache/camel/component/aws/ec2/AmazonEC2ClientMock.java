@@ -66,11 +66,23 @@ name|com
 operator|.
 name|amazonaws
 operator|.
+name|auth
+operator|.
+name|BasicAWSCredentials
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
 name|services
 operator|.
 name|ec2
 operator|.
-name|AbstractAmazonEC2
+name|AmazonEC2Client
 import|;
 end_import
 
@@ -622,7 +634,7 @@ specifier|public
 class|class
 name|AmazonEC2ClientMock
 extends|extends
-name|AbstractAmazonEC2
+name|AmazonEC2Client
 block|{
 DECL|method|AmazonEC2ClientMock ()
 specifier|public
@@ -630,7 +642,15 @@ name|AmazonEC2ClientMock
 parameter_list|()
 block|{
 name|super
-argument_list|()
+argument_list|(
+operator|new
+name|BasicAWSCredentials
+argument_list|(
+literal|"user"
+argument_list|,
+literal|"secret"
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

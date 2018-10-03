@@ -597,17 +597,6 @@ name|getTopicArn
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// check the setting of AmazonSNSEndpoint
-name|assertEquals
-argument_list|(
-literal|"https://sns.us-east-1.amazonaws.com"
-argument_list|,
-name|mock
-operator|.
-name|getEndpoint
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|endpoint
 operator|.
 name|stop
