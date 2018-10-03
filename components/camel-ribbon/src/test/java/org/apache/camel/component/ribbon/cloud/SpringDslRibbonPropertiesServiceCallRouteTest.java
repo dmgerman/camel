@@ -184,6 +184,26 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getFirstPort ()
+specifier|protected
+name|String
+name|getFirstPort
+parameter_list|()
+block|{
+return|return
+literal|"9094"
+return|;
+block|}
+DECL|method|getSecondPort ()
+specifier|protected
+name|String
+name|getSecondPort
+parameter_list|()
+block|{
+return|return
+literal|"9095"
+return|;
+block|}
 block|}
 end_class
 

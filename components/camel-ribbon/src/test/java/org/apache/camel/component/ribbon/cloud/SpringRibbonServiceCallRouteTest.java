@@ -155,7 +155,10 @@ name|Exception
 block|{
 name|getMockEndpoint
 argument_list|(
-literal|"mock:9090"
+literal|"mock:"
+operator|+
+name|getFirstPort
+argument_list|()
 argument_list|)
 operator|.
 name|expectedMessageCount
@@ -165,7 +168,10 @@ argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
-literal|"mock:9091"
+literal|"mock:"
+operator|+
+name|getSecondPort
+argument_list|()
 argument_list|)
 operator|.
 name|expectedMessageCount
@@ -217,14 +223,16 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"9091"
+name|getSecondPort
+argument_list|()
 argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"9090"
+name|getFirstPort
+argument_list|()
 argument_list|,
 name|out2
 argument_list|)
@@ -233,6 +241,20 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|getSecondPort ()
+specifier|protected
+specifier|abstract
+name|String
+name|getSecondPort
+parameter_list|()
+function_decl|;
+DECL|method|getFirstPort ()
+specifier|protected
+specifier|abstract
+name|String
+name|getFirstPort
+parameter_list|()
+function_decl|;
 comment|// ************************************
 comment|// Helpers
 comment|// ************************************

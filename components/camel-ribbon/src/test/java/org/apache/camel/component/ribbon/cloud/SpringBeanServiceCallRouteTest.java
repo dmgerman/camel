@@ -202,6 +202,26 @@ name|StaticServiceDiscovery
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getFirstPort ()
+specifier|protected
+name|String
+name|getFirstPort
+parameter_list|()
+block|{
+return|return
+literal|"9092"
+return|;
+block|}
+DECL|method|getSecondPort ()
+specifier|protected
+name|String
+name|getSecondPort
+parameter_list|()
+block|{
+return|return
+literal|"9093"
+return|;
+block|}
 block|}
 end_class
 
