@@ -380,7 +380,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
 name|CamelLogger
 import|;

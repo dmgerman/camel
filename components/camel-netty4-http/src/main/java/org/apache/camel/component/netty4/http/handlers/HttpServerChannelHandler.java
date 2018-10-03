@@ -62,16 +62,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Locale
 import|;
 end_import
@@ -392,7 +382,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
 name|CamelLogger
 import|;

@@ -1326,6 +1326,8 @@ name|camel
 operator|.
 name|runtimecatalog
 operator|.
+name|impl
+operator|.
 name|DefaultRuntimeCamelCatalog
 import|;
 end_import

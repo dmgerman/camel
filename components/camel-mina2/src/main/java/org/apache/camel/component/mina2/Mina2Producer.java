@@ -150,9 +150,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|DefaultProducer
+name|CamelLogger
 import|;
 end_import
 
@@ -166,7 +166,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|CamelLogger
+name|DefaultProducer
 import|;
 end_import
 

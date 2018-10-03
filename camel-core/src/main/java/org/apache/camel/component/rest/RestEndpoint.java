@@ -300,7 +300,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
 name|RestProducerFactoryHelper
 operator|.
