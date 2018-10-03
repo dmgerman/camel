@@ -284,11 +284,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -300,9 +296,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|test
 operator|.
-name|ObjectHelper
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -1835,7 +1833,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(
@@ -1922,7 +1920,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(
@@ -2264,7 +2262,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(

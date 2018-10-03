@@ -80,9 +80,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultExchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ExpressionListComparator
 import|;
 end_import
 

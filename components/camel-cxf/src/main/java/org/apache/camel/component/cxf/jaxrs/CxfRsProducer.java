@@ -390,7 +390,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultProducer
 import|;
@@ -404,9 +404,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|IOHelper
+name|ExchangeHelper
 import|;
 end_import
 
@@ -418,7 +418,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|LRUSoftCache
 import|;
@@ -1709,7 +1709,7 @@ name|getQueryParametersFromQueryString
 argument_list|(
 name|queryString
 argument_list|,
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -1937,7 +1937,7 @@ name|getMatrixParametersFromMatrixString
 argument_list|(
 name|matrixParam
 argument_list|,
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(

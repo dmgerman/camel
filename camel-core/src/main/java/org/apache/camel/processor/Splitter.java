@@ -292,9 +292,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
@@ -309,20 +323,6 @@ operator|.
 name|util
 operator|.
 name|IOHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
 import|;
 end_import
 

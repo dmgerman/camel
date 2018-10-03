@@ -1057,7 +1057,7 @@ name|assertExpression
 argument_list|(
 literal|"${exchange.class.name}"
 argument_list|,
-literal|"org.apache.camel.impl.DefaultExchange"
+literal|"org.apache.camel.support.DefaultExchange"
 argument_list|)
 expr_stmt|;
 block|}

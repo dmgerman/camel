@@ -472,69 +472,16 @@ modifier|...
 name|contents
 parameter_list|)
 block|{
-name|Set
-argument_list|<
-name|T
-argument_list|>
-name|contentsAsSet
-init|=
+return|return
 operator|new
 name|HashSet
 argument_list|<>
-argument_list|()
-decl_stmt|;
-name|contentsAsSet
-operator|.
-name|addAll
 argument_list|(
 name|Arrays
 operator|.
 name|asList
 argument_list|(
 name|contents
-argument_list|)
-argument_list|)
-expr_stmt|;
-return|return
-name|contentsAsSet
-return|;
-block|}
-DECL|method|collectionAsCommaDelimitedString (String[] col)
-specifier|public
-specifier|static
-name|String
-name|collectionAsCommaDelimitedString
-parameter_list|(
-name|String
-index|[]
-name|col
-parameter_list|)
-block|{
-if|if
-condition|(
-name|col
-operator|==
-literal|null
-operator|||
-name|col
-operator|.
-name|length
-operator|==
-literal|0
-condition|)
-block|{
-return|return
-literal|""
-return|;
-block|}
-return|return
-name|collectionAsCommaDelimitedString
-argument_list|(
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-name|col
 argument_list|)
 argument_list|)
 return|;
@@ -632,7 +579,7 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Traverses the given map recursively and flattern the keys by combining them with the optional separator.      *      * @param map  the map      * @param separator optional separator to use in key name, for example a hyphen or dot.      * @return the map with flattern keys      */
-DECL|method|flatternKeysInMap (Map<String, Object> map, String separator)
+DECL|method|flattenKeysInMap (Map<String, Object> map, String separator)
 specifier|public
 specifier|static
 name|Map
@@ -641,7 +588,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|flatternKeysInMap
+name|flattenKeysInMap
 parameter_list|(
 name|Map
 argument_list|<
@@ -668,7 +615,7 @@ name|LinkedHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|doFlatternKeysInMap
+name|doFlattenKeysInMap
 argument_list|(
 name|map
 argument_list|,
@@ -692,11 +639,11 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|doFlatternKeysInMap (Map<String, Object> source, String prefix, String separator, Map<String, Object> target)
+DECL|method|doFlattenKeysInMap (Map<String, Object> source, String prefix, String separator, Map<String, Object> target)
 specifier|private
 specifier|static
 name|void
-name|doFlatternKeysInMap
+name|doFlattenKeysInMap
 parameter_list|(
 name|Map
 argument_list|<
@@ -786,7 +733,7 @@ name|Map
 operator|)
 name|value
 decl_stmt|;
-name|doFlatternKeysInMap
+name|doFlattenKeysInMap
 argument_list|(
 name|map
 argument_list|,

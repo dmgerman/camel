@@ -24,23 +24,19 @@ name|java
 operator|.
 name|util
 operator|.
-name|function
-operator|.
-name|Predicate
+name|Objects
 import|;
 end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
+name|java
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|function
+operator|.
+name|Predicate
 import|;
 end_import
 
@@ -80,13 +76,13 @@ argument_list|>
 name|predicate
 parameter_list|)
 block|{
-name|ObjectHelper
+name|Objects
 operator|.
-name|notNull
+name|requireNonNull
 argument_list|(
 name|predicate
 argument_list|,
-literal|"Predicate"
+literal|"Predicate must be specified"
 argument_list|)
 expr_stmt|;
 return|return
@@ -113,13 +109,13 @@ argument_list|>
 name|predicate
 parameter_list|)
 block|{
-name|ObjectHelper
+name|Objects
 operator|.
-name|notNull
+name|requireNonNull
 argument_list|(
 name|predicate
 argument_list|,
-literal|"Predicate"
+literal|"Predicate must be specified"
 argument_list|)
 expr_stmt|;
 return|return

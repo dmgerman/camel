@@ -126,7 +126,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultComponent
 import|;
@@ -140,7 +140,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultEndpoint
 import|;

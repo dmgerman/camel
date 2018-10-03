@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|jndi
 operator|.

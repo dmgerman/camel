@@ -294,6 +294,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
+name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|IOHelper
@@ -559,7 +573,7 @@ argument_list|(
 name|out
 argument_list|)
 argument_list|,
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -696,7 +710,7 @@ argument_list|(
 name|outputStream
 argument_list|)
 argument_list|,
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -824,7 +838,7 @@ block|{
 name|String
 name|charsetName
 init|=
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -924,7 +938,7 @@ name|file
 argument_list|)
 argument_list|)
 argument_list|,
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -1095,7 +1109,7 @@ block|{
 name|String
 name|charsetName
 init|=
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -1195,7 +1209,7 @@ name|file
 argument_list|)
 argument_list|)
 argument_list|,
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -1360,7 +1374,7 @@ block|{
 name|String
 name|charsetName
 init|=
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(

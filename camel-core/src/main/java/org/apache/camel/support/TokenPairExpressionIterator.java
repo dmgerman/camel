@@ -324,7 +324,7 @@ comment|// we may read from a file, and want to support custom charset defined o
 name|String
 name|charset
 init|=
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(

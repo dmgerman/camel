@@ -232,7 +232,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ObjectHelper
 import|;
@@ -389,6 +389,14 @@ name|String
 name|expression
 parameter_list|)
 block|{
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|notNull
@@ -400,6 +408,14 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|notNull
@@ -1289,7 +1305,7 @@ comment|// from the right hand side expression.
 comment|// each element on the right hand side must be separated by comma (default for create iterator)
 name|Iterator
 argument_list|<
-name|Object
+name|?
 argument_list|>
 name|it
 init|=

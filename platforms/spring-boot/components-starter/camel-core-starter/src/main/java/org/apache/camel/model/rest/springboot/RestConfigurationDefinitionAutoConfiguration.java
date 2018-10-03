@@ -118,9 +118,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|CollectionHelper
+name|IntrospectionSupport
 import|;
 end_import
 
@@ -134,7 +134,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|IntrospectionSupport
+name|CollectionHelper
 import|;
 end_import
 
@@ -506,7 +506,7 @@ argument_list|<>
 argument_list|(
 name|CollectionHelper
 operator|.
-name|flatternKeysInMap
+name|flattenKeysInMap
 argument_list|(
 name|config
 operator|.
@@ -539,7 +539,7 @@ argument_list|<>
 argument_list|(
 name|CollectionHelper
 operator|.
-name|flatternKeysInMap
+name|flattenKeysInMap
 argument_list|(
 name|config
 operator|.
@@ -572,7 +572,7 @@ argument_list|<>
 argument_list|(
 name|CollectionHelper
 operator|.
-name|flatternKeysInMap
+name|flattenKeysInMap
 argument_list|(
 name|config
 operator|.
@@ -605,7 +605,7 @@ argument_list|<>
 argument_list|(
 name|CollectionHelper
 operator|.
-name|flatternKeysInMap
+name|flattenKeysInMap
 argument_list|(
 name|config
 operator|.
@@ -638,7 +638,7 @@ argument_list|<>
 argument_list|(
 name|CollectionHelper
 operator|.
-name|flatternKeysInMap
+name|flattenKeysInMap
 argument_list|(
 name|config
 operator|.
@@ -671,7 +671,7 @@ name|map
 init|=
 name|CollectionHelper
 operator|.
-name|flatternKeysInMap
+name|flattenKeysInMap
 argument_list|(
 name|config
 operator|.

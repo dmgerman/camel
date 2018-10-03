@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Strategy that allows {@link Consumer}s to influence the {@link PollingConsumer}.  *<p/>  * For example this is used by schedule based consumers to be able to suspend/resume  * upon polling using a {@link PollingConsumer}.  *  * @see org.apache.camel.impl.EventDrivenPollingConsumer  */
+comment|/**  * Strategy that allows {@link Consumer}s to influence the {@link PollingConsumer}.  *<p/>  * For example this is used by schedule based consumers to be able to suspend/resume  * upon polling using a {@link PollingConsumer}.  *  * @see org.apache.camel.support.EventDrivenPollingConsumer  */
 end_comment
 
 begin_interface

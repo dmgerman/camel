@@ -76,6 +76,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|netty4
@@ -101,20 +113,6 @@ operator|.
 name|handlers
 operator|.
 name|HttpServerMultiplexChannelHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ClassResolver
 import|;
 end_import
 
@@ -154,7 +152,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ServiceHelper
 import|;
@@ -251,10 +249,10 @@ specifier|private
 name|HttpServerBootstrapFactory
 name|bootstrapFactory
 decl_stmt|;
-DECL|field|classResolver
+DECL|field|camelContext
 specifier|private
-name|ClassResolver
-name|classResolver
+name|CamelContext
+name|camelContext
 decl_stmt|;
 DECL|field|startServer
 specifier|private
@@ -286,20 +284,20 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-DECL|method|setClassResolver (ClassResolver classResolver)
+DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
-name|setClassResolver
+name|setCamelContext
 parameter_list|(
-name|ClassResolver
-name|classResolver
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 name|this
 operator|.
-name|classResolver
+name|camelContext
 operator|=
-name|classResolver
+name|camelContext
 expr_stmt|;
 block|}
 DECL|method|getPort ()
@@ -512,7 +510,7 @@ name|configuration
 argument_list|,
 name|channelFactory
 argument_list|,
-name|classResolver
+name|camelContext
 argument_list|)
 decl_stmt|;
 comment|// thread factory and pattern

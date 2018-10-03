@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|api
 operator|.
 name|management
@@ -127,20 +139,6 @@ operator|.
 name|spi
 operator|.
 name|ManagementStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
 import|;
 end_import
 
@@ -499,7 +497,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(
@@ -561,7 +559,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(
@@ -627,7 +625,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(

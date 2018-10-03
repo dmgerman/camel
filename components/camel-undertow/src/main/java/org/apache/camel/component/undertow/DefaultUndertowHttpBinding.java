@@ -352,7 +352,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultAttachment
 import|;
@@ -366,7 +366,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultMessage
 import|;
@@ -394,7 +394,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ExchangeHelper
 import|;
@@ -422,7 +422,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|MessageHelper
 import|;
@@ -436,7 +436,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ObjectHelper
 import|;

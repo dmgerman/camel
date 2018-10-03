@@ -162,6 +162,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|health
 operator|.
 name|HealthCheck
@@ -342,7 +354,7 @@ name|this
 operator|::
 name|createConsul
 argument_list|,
-name|ObjectHelper
+name|RuntimeCamelException
 operator|::
 name|wrapRuntimeCamelException
 argument_list|)

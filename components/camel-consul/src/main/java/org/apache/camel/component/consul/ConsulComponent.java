@@ -280,7 +280,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultComponent
 import|;
@@ -308,7 +308,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|jsse
 operator|.
@@ -463,7 +463,7 @@ name|getSslContextParameters
 argument_list|()
 return|;
 block|}
-comment|/**      * SSL configuration using an org.apache.camel.util.jsse.SSLContextParameters      * instance.      * @param sslContextParameters      */
+comment|/**      * SSL configuration using an org.apache.camel.support.jsse.SSLContextParameters      * instance.      * @param sslContextParameters      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void

@@ -88,9 +88,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
-operator|.
-name|ExpressionAdapter
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -102,9 +100,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|ObjectHelper
+name|ExpressionAdapter
 import|;
 end_import
 
@@ -305,7 +303,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(

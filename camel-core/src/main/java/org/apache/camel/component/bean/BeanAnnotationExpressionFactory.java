@@ -104,7 +104,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ObjectHelper
 import|;
@@ -190,6 +190,14 @@ expr_stmt|;
 comment|// method is optional but provide it as null to the bean expression
 if|if
 condition|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|isEmpty

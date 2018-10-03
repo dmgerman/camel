@@ -368,9 +368,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|ObjectHelper
+name|ResourceHelper
 import|;
 end_import
 
@@ -382,9 +382,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|ResourceHelper
+name|ObjectHelper
 import|;
 end_import
 
@@ -1596,6 +1596,14 @@ block|{
 name|IllegalStateException
 name|ise
 init|=
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|getException
@@ -3136,7 +3144,7 @@ block|{
 comment|// there may be more resources separated by comma
 name|Iterator
 argument_list|<
-name|Object
+name|?
 argument_list|>
 name|it
 init|=
@@ -3220,6 +3228,14 @@ name|URL
 argument_list|>
 name|urls
 init|=
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|loadResourcesAsURL
@@ -3332,6 +3348,14 @@ expr_stmt|;
 name|URL
 name|xmlUrl
 init|=
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|loadResourceAsURL

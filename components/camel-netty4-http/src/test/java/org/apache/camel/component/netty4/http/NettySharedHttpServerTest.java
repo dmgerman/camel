@@ -113,13 +113,9 @@ argument_list|()
 expr_stmt|;
 name|nettySharedHttpServer
 operator|.
-name|setClassResolver
-argument_list|(
-operator|new
-name|DefaultClassResolver
+name|setCamelContext
 argument_list|(
 name|context
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|NettySharedHttpServerBootstrapConfiguration

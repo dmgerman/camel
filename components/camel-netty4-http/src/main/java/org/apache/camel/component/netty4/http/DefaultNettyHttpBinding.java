@@ -444,7 +444,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ExchangeHelper
 import|;
@@ -472,7 +472,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|MessageHelper
 import|;
@@ -486,7 +486,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ObjectHelper
 import|;
@@ -1603,6 +1603,14 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|isNotEmpty

@@ -82,7 +82,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|EndpointHelper
 import|;
@@ -96,7 +96,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ObjectHelper
 import|;
@@ -227,6 +227,14 @@ return|;
 block|}
 if|if
 condition|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|isEmpty
@@ -639,6 +647,14 @@ block|}
 comment|// filter body and all headers
 if|if
 condition|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|isNotEmpty
@@ -648,6 +664,9 @@ argument_list|)
 condition|)
 block|{
 name|Iterable
+argument_list|<
+name|?
+argument_list|>
 name|it
 init|=
 name|ObjectHelper
@@ -785,6 +804,9 @@ block|}
 block|}
 comment|// filter with remove (--) take precedence at the end
 name|Iterable
+argument_list|<
+name|?
+argument_list|>
 name|it
 init|=
 name|ObjectHelper
@@ -881,6 +903,9 @@ literal|"--header:"
 argument_list|)
 decl_stmt|;
 name|Iterable
+argument_list|<
+name|?
+argument_list|>
 name|i
 init|=
 name|ObjectHelper

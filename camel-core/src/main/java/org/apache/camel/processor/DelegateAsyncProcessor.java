@@ -144,20 +144,6 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ServiceSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|AsyncProcessorConverterHelper
 import|;
 end_import
@@ -170,9 +156,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ServiceSupport
 import|;
 end_import
 
@@ -378,7 +378,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// inline org.apache.camel.util.AsyncProcessorHelper.process(org.apache.camel.AsyncProcessor, org.apache.camel.Exchange)
+comment|// inline org.apache.camel.support.AsyncProcessorHelper.process(org.apache.camel.AsyncProcessor, org.apache.camel.Exchange)
 comment|// to optimize and reduce stacktrace lengths
 specifier|final
 name|AsyncProcessorAwaitManager

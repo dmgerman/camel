@@ -238,6 +238,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|OnExceptionDefinition
@@ -322,7 +334,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|AsyncProcessorConverterHelper
 import|;
@@ -336,7 +348,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|CamelContextHelper
 import|;
@@ -350,7 +362,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|CamelLogger
 import|;
@@ -364,7 +376,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|EventHelper
 import|;
@@ -378,7 +390,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ExchangeHelper
 import|;
@@ -392,9 +404,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|MessageHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ServiceHelper
 import|;
 end_import
 
@@ -409,20 +435,6 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
 import|;
 end_import
 
@@ -1512,7 +1524,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(
@@ -1892,7 +1904,7 @@ block|{
 comment|// no output then just return
 return|return;
 block|}
-comment|// inline org.apache.camel.util.AsyncProcessorHelper.process(org.apache.camel.AsyncProcessor, org.apache.camel.Exchange)
+comment|// inline org.apache.camel.support.AsyncProcessorHelper.process(org.apache.camel.AsyncProcessor, org.apache.camel.Exchange)
 comment|// to optimize and reduce stacktrace lengths
 specifier|final
 name|CountDownLatch

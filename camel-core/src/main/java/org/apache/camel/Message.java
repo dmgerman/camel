@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements the<a  * href="http://camel.apache.org/message.html">Message</a> pattern and  * represents an inbound or outbound message as part of an {@link Exchange}.  *<p/>  * See {@link org.apache.camel.impl.DefaultMessage DefaultMessage} for how headers  * is represented in Camel using a {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.  * The implementation of the map can be configured by the {@link HeadersMapFactory} which can be set  * on the {@link CamelContext}. The default implementation uses the {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.  */
+comment|/**  * Implements the<a  * href="http://camel.apache.org/message.html">Message</a> pattern and  * represents an inbound or outbound message as part of an {@link Exchange}.  *<p/>  * See {@link org.apache.camel.support.DefaultMessage DefaultMessage} for how headers  * is represented in Camel using a {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.  * The implementation of the map can be configured by the {@link HeadersMapFactory} which can be set  * on the {@link CamelContext}. The default implementation uses the {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.  */
 end_comment
 
 begin_interface
@@ -258,7 +258,7 @@ modifier|...
 name|excludePatterns
 parameter_list|)
 function_decl|;
-comment|/**      * Returns all of the headers associated with the message.      *<p/>      * See {@link org.apache.camel.impl.DefaultMessage DefaultMessage} for how headers      * is represented in Camel using a {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.      * The implementation of the map can be configured by the {@link HeadersMapFactory} which can be set      * on the {@link CamelContext}. The default implementation uses the {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.      *<p/>      *<b>Important:</b> If you want to walk the returned {@link Map} and fetch all the keys and values, you should use      * the {@link java.util.Map#entrySet()} method, which ensure you get the keys in the original case.      *      * @return all the headers in a Map      */
+comment|/**      * Returns all of the headers associated with the message.      *<p/>      * See {@link org.apache.camel.support.DefaultMessage DefaultMessage} for how headers      * is represented in Camel using a {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.      * The implementation of the map can be configured by the {@link HeadersMapFactory} which can be set      * on the {@link CamelContext}. The default implementation uses the {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.      *<p/>      *<b>Important:</b> If you want to walk the returned {@link Map} and fetch all the keys and values, you should use      * the {@link java.util.Map#entrySet()} method, which ensure you get the keys in the original case.      *      * @return all the headers in a Map      */
 DECL|method|getHeaders ()
 name|Map
 argument_list|<

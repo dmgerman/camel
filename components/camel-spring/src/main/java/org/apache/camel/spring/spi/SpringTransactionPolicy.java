@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|ErrorHandlerBuilder
@@ -587,7 +599,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(

@@ -42,18 +42,6 @@ name|FutureTask
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Rejectable
-import|;
-end_import
-
 begin_comment
 comment|/**  * A {@link Rejectable} {@link FutureTask} used by {@link RejectableThreadPoolExecutor}.  *  * @see RejectableThreadPoolExecutor  */
 end_comment

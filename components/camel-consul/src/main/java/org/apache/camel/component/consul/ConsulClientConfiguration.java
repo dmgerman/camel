@@ -168,7 +168,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|jsse
 operator|.
@@ -678,7 +678,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-comment|/**      * SSL configuration using an org.apache.camel.util.jsse.SSLContextParameters      * instance.      */
+comment|/**      * SSL configuration using an org.apache.camel.support.jsse.SSLContextParameters      * instance.      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void

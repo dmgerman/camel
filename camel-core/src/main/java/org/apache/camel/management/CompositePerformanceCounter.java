@@ -28,22 +28,6 @@ name|Exchange
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|PerformanceCounter
-import|;
-end_import
-
 begin_comment
 comment|/**  * A composite {@link PerformanceCounter} is used for tracking performance statistics on both a per  * context and route level, by issuing callbacks on both when an event happens.  *<p/>  * This implementation is used so the {@link org.apache.camel.management.mbean.ManagedCamelContext}  * can aggregate all stats from the routes.  */
 end_comment

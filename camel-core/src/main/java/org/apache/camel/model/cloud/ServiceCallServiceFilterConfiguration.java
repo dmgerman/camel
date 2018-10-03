@@ -254,7 +254,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|CamelContextHelper
 import|;
@@ -268,7 +268,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|IntrospectionSupport
 import|;

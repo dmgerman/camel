@@ -36,20 +36,6 @@ name|Set
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Base class to control lifecycle for a set of child {@link org.apache.camel.Service}s.  */
 end_comment

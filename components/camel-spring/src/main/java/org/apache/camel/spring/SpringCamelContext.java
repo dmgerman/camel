@@ -98,7 +98,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|ProcessorEndpoint
 import|;
@@ -372,9 +372,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
-operator|.
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 import|;

@@ -690,9 +690,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|CollectionStringBuffer
+name|jsse
+operator|.
+name|KeyStoreParameters
 import|;
 end_import
 
@@ -706,9 +708,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|jsse
-operator|.
-name|KeyStoreParameters
+name|CollectionStringBuffer
 import|;
 end_import
 

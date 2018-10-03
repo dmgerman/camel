@@ -60,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultMessage
 import|;
@@ -74,9 +74,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|IOHelper
+name|ExchangeHelper
 import|;
 end_import
 
@@ -432,7 +432,7 @@ block|}
 name|String
 name|encoding
 init|=
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(

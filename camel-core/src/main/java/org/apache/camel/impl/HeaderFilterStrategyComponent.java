@@ -82,6 +82,20 @@ name|Metadata
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|DefaultComponent
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for components to support configuring a {@link org.apache.camel.spi.HeaderFilterStrategy}.  */
 end_comment

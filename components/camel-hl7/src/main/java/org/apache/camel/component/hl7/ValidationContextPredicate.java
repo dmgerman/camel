@@ -128,9 +128,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|ExpressionBuilder
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -142,9 +140,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|builder
 operator|.
-name|ObjectHelper
+name|ExpressionBuilder
 import|;
 end_import
 
@@ -320,7 +318,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(

@@ -238,7 +238,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ServiceSupport
+name|CamelContextHelper
 import|;
 end_import
 
@@ -250,9 +250,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|CamelContextHelper
+name|ServiceSupport
 import|;
 end_import
 

@@ -50,8 +50,22 @@ name|StaticService
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|LRUCache
+import|;
+end_import
+
 begin_comment
-comment|/**  * Registry to cache endpoints in memory.  *<p/>  * The registry contains two caches:  *<ul>  *<li>static - which keeps all the endpoints in the cache for the entire lifecycle</li>  *<li>dynamic - which keeps the endpoints in a {@link org.apache.camel.util.LRUCache} and may evict endpoints which hasn't been requested recently</li>  *</ul>  * The static cache stores all the endpoints that are created as part of setting up and starting routes.  * The static cache has no upper limit.  *<p/>  * The dynamic cache stores the endpoints that are created and used ad-hoc, such as from custom Java code that creates new endpoints etc.  * The dynamic cache has an upper limit, that by default is 1000 entries.  *  * @param<K> endpoint key  */
+comment|/**  * Registry to cache endpoints in memory.  *<p/>  * The registry contains two caches:  *<ul>  *<li>static - which keeps all the endpoints in the cache for the entire lifecycle</li>  *<li>dynamic - which keeps the endpoints in a {@link LRUCache} and may evict endpoints which hasn't been requested recently</li>  *</ul>  * The static cache stores all the endpoints that are created as part of setting up and starting routes.  * The static cache has no upper limit.  *<p/>  * The dynamic cache stores the endpoints that are created and used ad-hoc, such as from custom Java code that creates new endpoints etc.  * The dynamic cache has an upper limit, that by default is 1000 entries.  *  * @param<K> endpoint key  */
 end_comment
 
 begin_interface

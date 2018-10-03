@@ -50,9 +50,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
-name|DefaultExchange
+name|CamelLogger
 import|;
 end_import
 
@@ -64,9 +64,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|CamelLogger
+name|DefaultExchange
 import|;
 end_import
 

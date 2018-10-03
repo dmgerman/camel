@@ -48,9 +48,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
-name|DefaultComponent
+name|CamelContextHelper
 import|;
 end_import
 
@@ -62,9 +62,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|CamelContextHelper
+name|DefaultComponent
 import|;
 end_import
 

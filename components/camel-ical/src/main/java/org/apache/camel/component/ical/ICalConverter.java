@@ -110,9 +110,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|IOHelper
+name|ExchangeHelper
 import|;
 end_import
 
@@ -183,7 +183,7 @@ argument_list|()
 operator|.
 name|getBytes
 argument_list|(
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(

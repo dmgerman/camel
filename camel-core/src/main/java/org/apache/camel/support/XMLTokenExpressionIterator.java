@@ -721,7 +721,7 @@ expr_stmt|;
 name|String
 name|charset
 init|=
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(

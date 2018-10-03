@@ -282,18 +282,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|UnsupportedCharsetException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Properties
@@ -333,6 +321,20 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ExchangeHelper
 import|;
 end_import
 
@@ -535,7 +537,7 @@ name|toReader
 argument_list|(
 name|file
 argument_list|,
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -663,7 +665,7 @@ name|toWriter
 argument_list|(
 name|os
 argument_list|,
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -762,7 +764,7 @@ name|InputStreamReader
 argument_list|(
 name|in
 argument_list|,
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -830,7 +832,7 @@ name|OutputStreamWriter
 argument_list|(
 name|out
 argument_list|,
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -886,7 +888,7 @@ name|text
 operator|.
 name|getBytes
 argument_list|(
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -1007,7 +1009,7 @@ name|String
 argument_list|(
 name|data
 argument_list|,
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -1349,7 +1351,7 @@ name|value
 operator|.
 name|getBytes
 argument_list|(
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -1731,7 +1733,7 @@ name|os
 operator|.
 name|toString
 argument_list|(
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(

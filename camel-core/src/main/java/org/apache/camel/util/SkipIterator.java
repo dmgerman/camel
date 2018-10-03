@@ -60,30 +60,6 @@ name|AtomicBoolean
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
 begin_comment
 comment|/**  * Skip based {@link Iterator} which skips the given {@link Iterator} a number of times.  */
 end_comment
@@ -102,18 +78,6 @@ argument_list|>
 implements|,
 name|Closeable
 block|{
-DECL|field|camelContext
-specifier|private
-specifier|final
-name|CamelContext
-name|camelContext
-decl_stmt|;
-DECL|field|exchange
-specifier|private
-specifier|final
-name|Exchange
-name|exchange
-decl_stmt|;
 DECL|field|it
 specifier|private
 specifier|final
@@ -144,14 +108,11 @@ operator|new
 name|AtomicBoolean
 argument_list|()
 decl_stmt|;
-comment|/**      * Creates a new skip iterator      *      * @param exchange  the exchange used to create this group iterator      * @param it        the iterator      * @param skip      number of times to skip      * @throws IllegalArgumentException is thrown if skip is not a positive number      */
-DECL|method|SkipIterator (Exchange exchange, Iterator<?> it, int skip)
+comment|/**      * Creates a new skip iterator      *      * @param it        the iterator      * @param skip      number of times to skip      * @throws IllegalArgumentException is thrown if skip is not a positive number      */
+DECL|method|SkipIterator (Iterator<?> it, int skip)
 specifier|public
 name|SkipIterator
 parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
 name|Iterator
 argument_list|<
 name|?
@@ -162,21 +123,6 @@ name|int
 name|skip
 parameter_list|)
 block|{
-name|this
-operator|.
-name|exchange
-operator|=
-name|exchange
-expr_stmt|;
-name|this
-operator|.
-name|camelContext
-operator|=
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|it

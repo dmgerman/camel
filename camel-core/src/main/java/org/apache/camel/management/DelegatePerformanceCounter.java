@@ -28,24 +28,8 @@ name|Exchange
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|PerformanceCounter
-import|;
-end_import
-
 begin_comment
-comment|/**  * Delegates to another {@link org.apache.camel.api.management.PerformanceCounter}.  *<p/>  * This is used to allow Camel to pre initialize these delegate performance counters  * when Camel creates the actual route from the model. Then later as the various  * processors, routes etc. is created and registered in the {@link org.apache.camel.spi.LifecycleStrategy}  * then we link this to the real {@link org.apache.camel.management.mbean.ManagedPerformanceCounter} mbean  * so the mbean can gather statistics.  *<p/>  * This delegation is needed as how Camel is designed to register services in the  * {@link org.apache.camel.spi.LifecycleStrategy} in various stages.  */
+comment|/**  * Delegates to another {@link PerformanceCounter}.  *<p/>  * This is used to allow Camel to pre initialize these delegate performance counters  * when Camel creates the actual route from the model. Then later as the various  * processors, routes etc. is created and registered in the {@link org.apache.camel.spi.LifecycleStrategy}  * then we link this to the real {@link org.apache.camel.management.mbean.ManagedPerformanceCounter} mbean  * so the mbean can gather statistics.  *<p/>  * This delegation is needed as how Camel is designed to register services in the  * {@link org.apache.camel.spi.LifecycleStrategy} in various stages.  */
 end_comment
 
 begin_class

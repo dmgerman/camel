@@ -282,9 +282,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|ObjectHelper
+name|ResourceHelper
 import|;
 end_import
 
@@ -296,9 +296,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|ResourceHelper
+name|ObjectHelper
 import|;
 end_import
 
@@ -742,6 +742,14 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|notNull

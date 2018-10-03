@@ -262,7 +262,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ObjectHelper
 import|;
@@ -2330,6 +2330,14 @@ decl_stmt|;
 comment|// If the field value is empty, populate it with the default value
 if|if
 condition|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|isNotEmpty
@@ -2340,6 +2348,14 @@ name|defaultValue
 argument_list|()
 argument_list|)
 operator|&&
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|isEmpty

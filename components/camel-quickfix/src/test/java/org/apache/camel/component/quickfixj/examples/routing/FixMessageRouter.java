@@ -42,9 +42,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
-operator|.
-name|ObjectHelper
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -637,7 +635,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(

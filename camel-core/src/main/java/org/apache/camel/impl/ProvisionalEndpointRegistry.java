@@ -52,8 +52,22 @@ name|EndpointRegistry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|LRUCacheFactory
+import|;
+end_import
+
 begin_comment
-comment|/**  * A provisional (temporary) {@link EndpointRegistry} that is only used during startup of Apache Camel to  * make starting Camel faster while {@link org.apache.camel.util.LRUCacheFactory} is warming up etc.  */
+comment|/**  * A provisional (temporary) {@link EndpointRegistry} that is only used during startup of Apache Camel to  * make starting Camel faster while {@link LRUCacheFactory} is warming up etc.  */
 end_comment
 
 begin_class

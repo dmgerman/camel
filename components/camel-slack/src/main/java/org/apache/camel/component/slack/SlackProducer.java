@@ -108,7 +108,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultProducer
 import|;
@@ -122,9 +122,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|IOHelper
+name|ExchangeHelper
 import|;
 end_import
 
@@ -385,7 +385,7 @@ comment|// use charset from exchange or fallback to the default charset
 name|String
 name|charset
 init|=
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(

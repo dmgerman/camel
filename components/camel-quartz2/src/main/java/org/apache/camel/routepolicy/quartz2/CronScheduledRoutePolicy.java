@@ -60,11 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|quartz2
-operator|.
-name|QuartzComponent
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -76,9 +72,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|component
 operator|.
-name|ObjectHelper
+name|quartz2
+operator|.
+name|QuartzComponent
 import|;
 end_import
 
@@ -186,7 +184,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(

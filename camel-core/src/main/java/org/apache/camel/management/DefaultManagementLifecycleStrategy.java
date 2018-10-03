@@ -290,6 +290,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Service
 import|;
 end_import
@@ -327,22 +339,6 @@ operator|.
 name|camel
 operator|.
 name|VetoCamelContextStartException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|PerformanceCounter
 import|;
 end_import
 
@@ -1650,7 +1646,7 @@ block|{
 comment|// must rethrow to allow CamelContext fallback to non JMX agent to allow
 comment|// Camel to continue to run
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(
@@ -1696,7 +1692,7 @@ block|{
 comment|// must rethrow to allow CamelContext fallback to non JMX agent to allow
 comment|// Camel to continue to run
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(

@@ -108,7 +108,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|IntrospectionSupport
 import|;
@@ -164,7 +164,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|jsse
 operator|.
@@ -221,26 +221,6 @@ operator|.
 name|Realm
 operator|.
 name|Builder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
 import|;
 end_import
 
@@ -914,7 +894,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-comment|/**      * Reference to a org.apache.camel.util.jsse.SSLContextParameters in the Registry.      * Note that configuring this option will override any SSL/TLS configuration options provided through the      * clientConfig option at the endpoint or component level.      */
+comment|/**      * Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry.      * Note that configuring this option will override any SSL/TLS configuration options provided through the      * clientConfig option at the endpoint or component level.      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void

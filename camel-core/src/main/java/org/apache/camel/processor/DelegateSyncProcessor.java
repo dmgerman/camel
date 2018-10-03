@@ -106,7 +106,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ServiceSupport
+name|ServiceHelper
 import|;
 end_import
 
@@ -118,9 +118,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|ServiceHelper
+name|ServiceSupport
 import|;
 end_import
 

@@ -994,7 +994,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"org.apache.camel.util.jndi.CamelInitialContextFactory"
+literal|"org.apache.camel.support.jndi.CamelInitialContextFactory"
 argument_list|,
 operator|(
 operator|(

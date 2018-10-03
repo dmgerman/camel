@@ -182,9 +182,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|IOHelper
+name|ExchangeHelper
 import|;
 end_import
 
@@ -196,7 +196,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ObjectHelper
 import|;
@@ -292,6 +292,14 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|isNotEmpty
@@ -361,6 +369,14 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|isNotEmpty
@@ -633,7 +649,7 @@ argument_list|()
 decl_stmt|;
 name|Iterator
 argument_list|<
-name|Object
+name|?
 argument_list|>
 name|it
 init|=
@@ -732,7 +748,7 @@ name|data
 operator|.
 name|getBytes
 argument_list|(
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(

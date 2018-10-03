@@ -346,7 +346,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultProducer
 import|;
@@ -388,7 +388,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ExchangeHelper
 import|;
@@ -402,7 +402,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|GZIPHelper
 import|;
@@ -430,7 +430,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|MessageHelper
 import|;
@@ -444,7 +444,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ObjectHelper
 import|;
@@ -3355,7 +3355,7 @@ comment|// (for example application/x-www-form-urlencoded forms being sent)
 name|String
 name|charset
 init|=
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(

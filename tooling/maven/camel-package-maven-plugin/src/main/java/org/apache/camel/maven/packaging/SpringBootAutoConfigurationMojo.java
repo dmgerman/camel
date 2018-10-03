@@ -3497,7 +3497,7 @@ name|javaClass
 operator|.
 name|addImport
 argument_list|(
-literal|"org.apache.camel.util.IntrospectionSupport"
+literal|"org.apache.camel.support.IntrospectionSupport"
 argument_list|)
 expr_stmt|;
 name|javaClass
@@ -3719,37 +3719,37 @@ literal|"\n"
 operator|+
 literal|"if (config.getApiProperty() != null) {\n"
 operator|+
-literal|"    definition.setApiProperties(new HashMap<>(CollectionHelper.flatternKeysInMap(config.getApiProperty(), \".\")));\n"
+literal|"    definition.setApiProperties(new HashMap<>(CollectionHelper.flattenKeysInMap(config.getApiProperty(), \".\")));\n"
 operator|+
 literal|"}\n"
 operator|+
 literal|"if (config.getComponentProperty() != null) {\n"
 operator|+
-literal|"    definition.setComponentProperties(new HashMap<>(CollectionHelper.flatternKeysInMap(config.getComponentProperty(), \".\")));\n"
+literal|"    definition.setComponentProperties(new HashMap<>(CollectionHelper.flattenKeysInMap(config.getComponentProperty(), \".\")));\n"
 operator|+
 literal|"}\n"
 operator|+
 literal|"if (config.getConsumerProperty() != null) {\n"
 operator|+
-literal|"    definition.setConsumerProperties(new HashMap<>(CollectionHelper.flatternKeysInMap(config.getConsumerProperty(), \".\")));\n"
+literal|"    definition.setConsumerProperties(new HashMap<>(CollectionHelper.flattenKeysInMap(config.getConsumerProperty(), \".\")));\n"
 operator|+
 literal|"}\n"
 operator|+
 literal|"if (config.getDataFormatProperty() != null) {\n"
 operator|+
-literal|"    definition.setDataFormatProperties(new HashMap<>(CollectionHelper.flatternKeysInMap(config.getDataFormatProperty(), \".\")));\n"
+literal|"    definition.setDataFormatProperties(new HashMap<>(CollectionHelper.flattenKeysInMap(config.getDataFormatProperty(), \".\")));\n"
 operator|+
 literal|"}\n"
 operator|+
 literal|"if (config.getEndpointProperty() != null) {\n"
 operator|+
-literal|"    definition.setEndpointProperties(new HashMap<>(CollectionHelper.flatternKeysInMap(config.getEndpointProperty(), \".\")));\n"
+literal|"    definition.setEndpointProperties(new HashMap<>(CollectionHelper.flattenKeysInMap(config.getEndpointProperty(), \".\")));\n"
 operator|+
 literal|"}\n"
 operator|+
 literal|"if (config.getCorsHeaders() != null) {\n"
 operator|+
-literal|"    Map<String, Object> map = CollectionHelper.flatternKeysInMap(config.getCorsHeaders(), \".\");\n"
+literal|"    Map<String, Object> map = CollectionHelper.flattenKeysInMap(config.getCorsHeaders(), \".\");\n"
 operator|+
 literal|"    Map<String, String> target = new HashMap<>();\n"
 operator|+
@@ -9697,7 +9697,7 @@ name|javaClass
 operator|.
 name|addImport
 argument_list|(
-literal|"org.apache.camel.util.IntrospectionSupport"
+literal|"org.apache.camel.support.IntrospectionSupport"
 argument_list|)
 expr_stmt|;
 name|javaClass
@@ -10444,7 +10444,7 @@ name|javaClass
 operator|.
 name|addImport
 argument_list|(
-literal|"org.apache.camel.util.IntrospectionSupport"
+literal|"org.apache.camel.support.IntrospectionSupport"
 argument_list|)
 expr_stmt|;
 name|javaClass
@@ -11218,7 +11218,7 @@ name|javaClass
 operator|.
 name|addImport
 argument_list|(
-literal|"org.apache.camel.util.IntrospectionSupport"
+literal|"org.apache.camel.support.IntrospectionSupport"
 argument_list|)
 expr_stmt|;
 name|javaClass

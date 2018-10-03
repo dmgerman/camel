@@ -192,7 +192,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|CamelLogger
 import|;
@@ -206,7 +206,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ExpressionToPredicateAdapter
 import|;

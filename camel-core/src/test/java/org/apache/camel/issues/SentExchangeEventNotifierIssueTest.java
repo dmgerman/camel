@@ -96,9 +96,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|management
 operator|.
-name|DefaultExchange
+name|event
+operator|.
+name|ExchangeSentEvent
 import|;
 end_import
 
@@ -110,11 +112,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|support
 operator|.
-name|event
-operator|.
-name|ExchangeSentEvent
+name|DefaultExchange
 import|;
 end_import
 

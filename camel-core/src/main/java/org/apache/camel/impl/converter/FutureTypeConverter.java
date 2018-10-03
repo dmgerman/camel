@@ -100,7 +100,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|TypeConverterSupport
+name|ExchangeHelper
 import|;
 end_import
 
@@ -112,9 +112,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|ExchangeHelper
+name|TypeConverterSupport
 import|;
 end_import
 

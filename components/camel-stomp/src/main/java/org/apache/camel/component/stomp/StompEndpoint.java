@@ -140,7 +140,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultEndpoint
 import|;
@@ -808,9 +808,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|started
-operator|.
-name|get
+name|isStarted
 argument_list|()
 condition|)
 block|{

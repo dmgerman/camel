@@ -132,7 +132,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultScheduledPollConsumerScheduler
 import|;
@@ -146,7 +146,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|ScheduledPollEndpoint
 import|;

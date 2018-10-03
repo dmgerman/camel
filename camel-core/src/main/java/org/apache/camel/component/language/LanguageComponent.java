@@ -58,20 +58,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|Language
@@ -86,9 +72,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|ObjectHelper
+name|DefaultComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ResourceHelper
 import|;
 end_import
 
@@ -102,7 +102,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ResourceHelper
+name|ObjectHelper
 import|;
 end_import
 

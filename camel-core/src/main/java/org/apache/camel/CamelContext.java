@@ -738,35 +738,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
-operator|.
-name|LoadPropertiesException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ValueHolder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
+name|support
 operator|.
 name|jsse
 operator|.
@@ -1211,7 +1183,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Removes all endpoints with the given URI from the {@link org.apache.camel.spi.EndpointRegistry}.      *<p/>      * The endpoints being removed will be stopped first.      *      * @param pattern an uri or pattern to match      * @return a collection of endpoints removed which could be empty if there are no endpoints found for the given<tt>pattern</tt>      * @throws Exception if at least one endpoint could not be stopped      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(CamelContext, String, String) for pattern      */
+comment|/**      * Removes all endpoints with the given URI from the {@link org.apache.camel.spi.EndpointRegistry}.      *<p/>      * The endpoints being removed will be stopped first.      *      * @param pattern an uri or pattern to match      * @return a collection of endpoints removed which could be empty if there are no endpoints found for the given<tt>pattern</tt>      * @throws Exception if at least one endpoint could not be stopped      * @see org.apache.camel.support.EndpointHelper#matchEndpoint(CamelContext, String, String) for pattern      */
 DECL|method|removeEndpoints (String pattern)
 name|Collection
 argument_list|<

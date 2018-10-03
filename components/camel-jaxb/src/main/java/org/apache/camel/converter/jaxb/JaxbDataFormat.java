@@ -458,6 +458,20 @@ name|camel
 operator|.
 name|support
 operator|.
+name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
 name|ServiceSupport
 import|;
 end_import
@@ -470,7 +484,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|CamelContextHelper
 import|;
@@ -512,7 +526,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ResourceHelper
 import|;
@@ -1906,7 +1920,7 @@ name|InputStreamReader
 argument_list|(
 name|stream
 argument_list|,
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(

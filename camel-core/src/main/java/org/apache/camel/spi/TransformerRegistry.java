@@ -38,8 +38,22 @@ name|StaticService
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|LRUCache
+import|;
+end_import
+
 begin_comment
-comment|/**  * Registry to cache transformers in memory.  *<p/>  * The registry contains two caches:  *<ul>  *<li>static - which keeps all the transformers in the cache for the entire lifecycle</li>  *<li>dynamic - which keeps the transformers in a {@link org.apache.camel.util.LRUCache} and may evict transformers which hasn't been requested recently</li>  *</ul>  * The static cache stores all the transformers that are created as part of setting up and starting routes.  * The static cache has no upper limit.  *<p/>  * The dynamic cache stores the transformers that are created and used ad-hoc, such as from custom Java code that creates new transformers etc.  * The dynamic cache has an upper limit, that by default is 1000 entries.  *  * @param<K> transformer key  */
+comment|/**  * Registry to cache transformers in memory.  *<p/>  * The registry contains two caches:  *<ul>  *<li>static - which keeps all the transformers in the cache for the entire lifecycle</li>  *<li>dynamic - which keeps the transformers in a {@link LRUCache} and may evict transformers which hasn't been requested recently</li>  *</ul>  * The static cache stores all the transformers that are created as part of setting up and starting routes.  * The static cache has no upper limit.  *<p/>  * The dynamic cache stores the transformers that are created and used ad-hoc, such as from custom Java code that creates new transformers etc.  * The dynamic cache has an upper limit, that by default is 1000 entries.  *  * @param<K> transformer key  */
 end_comment
 
 begin_interface

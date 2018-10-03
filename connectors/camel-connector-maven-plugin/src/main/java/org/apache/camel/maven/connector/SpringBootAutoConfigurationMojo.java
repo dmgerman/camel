@@ -2378,7 +2378,7 @@ name|javaClass
 operator|.
 name|addImport
 argument_list|(
-literal|"org.apache.camel.util.IntrospectionSupport"
+literal|"org.apache.camel.support.IntrospectionSupport"
 argument_list|)
 expr_stmt|;
 name|javaClass

@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An exception caused when a mandatory header is not available on a message  * {@link Exchange}  *  * @see org.apache.camel.util.ExchangeHelper#getMandatoryHeader(Exchange, String, Class)  */
+comment|/**  * An exception caused when a mandatory header is not available on a message  * {@link Exchange}  *  * @see org.apache.camel.support.ExchangeHelper#getMandatoryHeader(Exchange, String, Class)  */
 end_comment
 
 begin_class

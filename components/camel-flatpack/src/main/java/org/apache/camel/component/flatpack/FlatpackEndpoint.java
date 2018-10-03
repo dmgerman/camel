@@ -198,7 +198,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultPollingEndpoint
 import|;
@@ -300,7 +300,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ExchangeHelper
 import|;
@@ -342,7 +342,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ResourceHelper
 import|;
@@ -899,7 +899,7 @@ name|InputStreamReader
 argument_list|(
 name|is
 argument_list|,
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(

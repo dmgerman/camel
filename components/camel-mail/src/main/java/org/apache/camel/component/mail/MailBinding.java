@@ -350,21 +350,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
-operator|.
-name|ObjectConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
+name|support
 operator|.
 name|DefaultAttachment
 import|;
@@ -395,6 +381,20 @@ operator|.
 name|spi
 operator|.
 name|HeaderFilterStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ExchangeHelper
 import|;
 end_import
 
@@ -448,7 +448,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ObjectHelper
 import|;
@@ -769,7 +769,7 @@ name|setSubject
 argument_list|(
 name|subject
 argument_list|,
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -1266,7 +1266,7 @@ block|}
 block|}
 comment|// Using the charset header of exchange as a fall back
 return|return
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -1566,6 +1566,14 @@ comment|// try to fix message in case it has an unsupported encoding in the Cont
 name|UnsupportedEncodingException
 name|uee
 init|=
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|getException
@@ -4059,6 +4067,14 @@ decl_stmt|;
 comment|// Only add the address which is not empty
 if|if
 condition|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|isNotEmpty

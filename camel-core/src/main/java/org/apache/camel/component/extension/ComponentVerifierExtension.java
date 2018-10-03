@@ -178,38 +178,6 @@ name|StandardErrorCode
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|extension
-operator|.
-name|verifier
-operator|.
-name|ResultErrorBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Defines the interface used for validating component/endpoint parameters. The central method of this  * interface is {@link #verify(ComponentVerifierExtension.Scope, Map)} which takes a scope and a set of parameters which should be verified.  *<p/>  * The return value is a {@link ComponentVerifierExtension.Result} of the verification  *  */
 end_comment
@@ -298,19 +266,6 @@ comment|/**          * Reach out to the backend and verify that a connection can
 DECL|enumConstant|CONNECTIVITY
 name|CONNECTIVITY
 block|;
-DECL|field|VALUES
-specifier|private
-specifier|static
-specifier|final
-name|ComponentVerifierExtension
-operator|.
-name|Scope
-index|[]
-name|VALUES
-init|=
-name|values
-argument_list|()
-decl_stmt|;
 comment|/**          * Get an instance of this scope from a string representation          *          * @param scope the scope as string, which can be in any case          * @return the scope enum represented by this string          */
 DECL|method|fromString (String scope)
 specifier|public
@@ -322,47 +277,23 @@ name|String
 name|scope
 parameter_list|)
 block|{
-for|for
-control|(
-name|Scope
-name|value
-range|:
-name|VALUES
-control|)
-block|{
-if|if
-condition|(
-name|ObjectHelper
-operator|.
-name|equal
-argument_list|(
-name|scope
-argument_list|,
-name|value
-operator|.
-name|name
-argument_list|()
-argument_list|,
-literal|true
-argument_list|)
-condition|)
-block|{
 return|return
-name|value
-return|;
-block|}
-block|}
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|Scope
+operator|.
+name|valueOf
 argument_list|(
-literal|"Unknown scope<"
-operator|+
 name|scope
-operator|+
-literal|">"
+operator|!=
+literal|null
+condition|?
+name|scope
+operator|.
+name|toUpperCase
+argument_list|()
+else|:
+literal|null
 argument_list|)
-throw|;
+return|;
 block|}
 block|}
 comment|// =============================================================================================
@@ -484,7 +415,7 @@ name|code
 argument_list|)
 return|;
 block|}
-comment|/**          * Convert a string to an {@link Attribute}          *          * @param attribute the string representation of an attribute to convert. It should be in all lower case (with          *                  underscore as a separator) to avoid overlap with standard attributes like {@linkExceptionAttribute},          *                  {@linkHttpAttribute} or {@link GroupAttribute}          * @return generated attribute          */
+comment|/**          * Convert a string to an {@link Attribute}          *          * @param attribute the string representation of an attribute to convert. It should be in all lower case (with          *                  underscore as a separator) to avoid overlap with standard attributes like {@link ExceptionAttribute},          *                  {@link HttpAttribute} or {@link GroupAttribute}          * @return generated attribute          */
 DECL|method|asAttribute (String attribute)
 specifier|static
 name|Attribute
@@ -679,7 +610,7 @@ literal|"GENERIC"
 argument_list|)
 decl_stmt|;
 block|}
-comment|/**          * Interface defining an attribute which is a key for the detailed error messages. This is implemented by several          * standard enums like {@link ExceptionAttribute}, {@link HttpAttribute} or {@link GroupAttribute} but can also          * implemented for component specific details. This is best done via {@link #asAttribute(String)}          * or using one of the other builder method in this error builder (like {@link ResultErrorBuilder#detail(String, Object)}          *<p>          * With respecting to name, the same rules as for {@link Code} apply: Standard attributes are all upper case with _          * as separators, whereas custom attributes are lower case with underscore separators.          */
+comment|/**          * Interface defining an attribute which is a key for the detailed error messages. This is implemented by several          * standard enums like {@link ExceptionAttribute}, {@link HttpAttribute} or {@link GroupAttribute} but can also          * implemented for component specific details. This is best done via {@link #asAttribute(String)}          * or using one of the other builder method in this error builder (like          * {@link org.apache.camel.component.extension.verifier.ResultErrorBuilder#detail(String, Object)}          *<p>          * With respecting to name, the same rules as for {@link Code} apply: Standard attributes are all upper case with _          * as separators, whereas custom attributes are lower case with underscore separators.          */
 DECL|interface|Attribute
 interface|interface
 name|Attribute

@@ -112,22 +112,6 @@ name|Pattern
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|StringQuoteHelper
-operator|.
-name|doubleQuote
-import|;
-end_import
-
 begin_comment
 comment|/**  * Helper methods for working with Strings.  */
 end_comment
@@ -1063,6 +1047,8 @@ block|{
 return|return
 literal|"{ "
 operator|+
+name|StringQuoteHelper
+operator|.
 name|doubleQuote
 argument_list|(
 name|name
@@ -1070,6 +1056,8 @@ argument_list|)
 operator|+
 literal|": "
 operator|+
+name|StringQuoteHelper
+operator|.
 name|doubleQuote
 argument_list|(
 name|value
@@ -1081,6 +1069,8 @@ block|}
 else|else
 block|{
 return|return
+name|StringQuoteHelper
+operator|.
 name|doubleQuote
 argument_list|(
 name|name
@@ -1088,6 +1078,8 @@ argument_list|)
 operator|+
 literal|": "
 operator|+
+name|StringQuoteHelper
+operator|.
 name|doubleQuote
 argument_list|(
 name|value

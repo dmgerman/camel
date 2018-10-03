@@ -192,7 +192,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|EndpointHelper
 import|;
@@ -206,7 +206,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ObjectHelper
 import|;
@@ -391,6 +391,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|notNull
@@ -489,6 +497,9 @@ literal|null
 condition|)
 block|{
 name|Iterable
+argument_list|<
+name|?
+argument_list|>
 name|it
 init|=
 name|ObjectHelper

@@ -160,7 +160,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|AsyncProcessorConverterHelper
 import|;
@@ -250,9 +250,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
-operator|.
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 import|;

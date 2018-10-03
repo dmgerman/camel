@@ -258,23 +258,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ExchangeHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|IOHelper
 import|;
 end_import
 
@@ -1119,7 +1105,7 @@ name|Exception
 block|{
 comment|// noop
 block|}
-comment|/**      * In HL7 the charset of the message can be set in MSH-18,      * but you need to decode the input stream in order to be able to read MSH-18.      * This works well for differentiating e.g. between ASCII, UTF-8 and ISI-8859 charsets,      * but not for multi-byte charsets like UTF-16, Big5 etc.      *      * This method is called to "guess" the initial encoding, and subclasses can overwrite it      * using 3rd party libraries like ICU4J that provide a CharsetDetector.      *      * The implementation in this class just assumes the charset defined in the exchange property or header by      * calling {@link org.apache.camel.util.IOHelper#getCharsetName(org.apache.camel.Exchange)}.      *      * @param b byte array      * @param exchange the exchange      * @return charset name      */
+comment|/**      * In HL7 the charset of the message can be set in MSH-18,      * but you need to decode the input stream in order to be able to read MSH-18.      * This works well for differentiating e.g. between ASCII, UTF-8 and ISI-8859 charsets,      * but not for multi-byte charsets like UTF-16, Big5 etc.      *      * This method is called to "guess" the initial encoding, and subclasses can overwrite it      * using 3rd party libraries like ICU4J that provide a CharsetDetector.      *      * The implementation in this class just assumes the charset defined in the exchange property or header by      * calling {@link ExchangeHelper#getCharsetName(Exchange)}.      *      * @param b byte array      * @param exchange the exchange      * @return charset name      */
 DECL|method|guessCharsetName (byte[] b, Exchange exchange)
 specifier|protected
 name|String
@@ -1134,7 +1120,7 @@ name|exchange
 parameter_list|)
 block|{
 return|return
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(

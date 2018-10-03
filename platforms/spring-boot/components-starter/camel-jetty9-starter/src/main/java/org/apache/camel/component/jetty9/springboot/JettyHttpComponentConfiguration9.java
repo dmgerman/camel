@@ -218,7 +218,7 @@ name|useContinuation
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * To configure security using SSLContextParameters. The option is a      * org.apache.camel.util.jsse.SSLContextParameters type.      */
+comment|/**      * To configure security using SSLContextParameters. The option is a      * org.apache.camel.support.jsse.SSLContextParameters type.      */
 DECL|field|sslContextParameters
 specifier|private
 name|String

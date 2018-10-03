@@ -780,6 +780,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
+name|EndpointHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|IOHelper
@@ -1132,7 +1146,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Override to enable auto mocking endpoints based on the pattern.      *<p/>      * Return<tt>*</tt> to mock all endpoints.      *      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(CamelContext, String, String)      */
+comment|/**      * Override to enable auto mocking endpoints based on the pattern.      *<p/>      * Return<tt>*</tt> to mock all endpoints.      *      * @see EndpointHelper#matchEndpoint(CamelContext, String, String)      */
 DECL|method|isMockEndpoints ()
 specifier|public
 name|String
@@ -1143,7 +1157,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Override to enable auto mocking endpoints based on the pattern, and<b>skip</b> sending      * to original endpoint.      *<p/>      * Return<tt>*</tt> to mock all endpoints.      *      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(CamelContext, String, String)      */
+comment|/**      * Override to enable auto mocking endpoints based on the pattern, and<b>skip</b> sending      * to original endpoint.      *<p/>      * Return<tt>*</tt> to mock all endpoints.      *      * @see EndpointHelper#matchEndpoint(CamelContext, String, String)      */
 DECL|method|isMockEndpointsAndSkip ()
 specifier|public
 name|String
@@ -3846,7 +3860,7 @@ name|put
 argument_list|(
 literal|"java.naming.factory.initial"
 argument_list|,
-literal|"org.apache.camel.util.jndi.CamelInitialContextFactory"
+literal|"org.apache.camel.support.jndi.CamelInitialContextFactory"
 argument_list|)
 expr_stmt|;
 block|}

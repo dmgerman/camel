@@ -78,7 +78,9 @@ name|api
 operator|.
 name|management
 operator|.
-name|PerformanceCounter
+name|mbean
+operator|.
+name|ManagedPerformanceCounterMBean
 import|;
 end_import
 
@@ -90,13 +92,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|api
-operator|.
 name|management
 operator|.
-name|mbean
-operator|.
-name|ManagedPerformanceCounterMBean
+name|PerformanceCounter
 import|;
 end_import
 
@@ -122,7 +120,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ExchangeHelper
 import|;

@@ -154,6 +154,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|cloud
 operator|.
 name|ServiceDefinition
@@ -308,7 +320,7 @@ argument_list|)
 argument_list|,
 name|e
 lambda|->
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(

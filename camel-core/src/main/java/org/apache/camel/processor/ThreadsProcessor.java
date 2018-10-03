@@ -122,17 +122,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Rejectable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|util
 operator|.
-name|apache
-operator|.
-name|camel
+name|concurrent
 operator|.
 name|ThreadPoolRejectedPolicy
 import|;
@@ -162,7 +154,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ServiceSupport
+name|AsyncProcessorHelper
 import|;
 end_import
 
@@ -174,9 +166,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|AsyncProcessorHelper
+name|ServiceSupport
 import|;
 end_import
 
@@ -198,19 +190,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|apache
 operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|camel
 operator|.
-name|slf4j
+name|util
 operator|.
-name|LoggerFactory
+name|concurrent
+operator|.
+name|Rejectable
 import|;
 end_import
 

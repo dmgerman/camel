@@ -120,7 +120,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ServiceSupport
+name|AsyncProcessorHelper
 import|;
 end_import
 
@@ -132,9 +132,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|AsyncProcessorHelper
+name|ServiceSupport
 import|;
 end_import
 

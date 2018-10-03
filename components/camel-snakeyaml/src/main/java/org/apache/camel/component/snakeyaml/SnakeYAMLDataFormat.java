@@ -230,7 +230,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ServiceSupport
+name|ExchangeHelper
 import|;
 end_import
 
@@ -242,9 +242,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|IOHelper
+name|ServiceSupport
 import|;
 end_import
 
@@ -671,7 +671,7 @@ name|OutputStreamWriter
 argument_list|(
 name|stream
 argument_list|,
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -725,7 +725,7 @@ name|InputStreamReader
 argument_list|(
 name|stream
 argument_list|,
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 argument_list|(

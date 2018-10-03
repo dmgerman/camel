@@ -132,9 +132,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|Metadata
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -146,9 +144,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|spi
 operator|.
-name|ObjectHelper
+name|Metadata
 import|;
 end_import
 
@@ -546,7 +544,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(

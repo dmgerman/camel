@@ -102,20 +102,6 @@ name|IOHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ResourceHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Base language for {@link Language} implementations.  */
 end_comment

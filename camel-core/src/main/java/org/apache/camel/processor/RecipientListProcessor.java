@@ -224,7 +224,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|AsyncProcessorConverterHelper
 import|;
@@ -238,7 +238,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|EndpointHelper
 import|;
@@ -252,7 +252,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ExchangeHelper
 import|;
@@ -266,7 +266,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|MessageHelper
 import|;
@@ -280,7 +280,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ServiceHelper
 import|;
@@ -353,7 +353,7 @@ specifier|private
 specifier|final
 name|Iterator
 argument_list|<
-name|Object
+name|?
 argument_list|>
 name|iter
 decl_stmt|;
@@ -692,7 +692,7 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|RecipientListProcessor (CamelContext camelContext, ProducerCache producerCache, Iterator<Object> iter)
+DECL|method|RecipientListProcessor (CamelContext camelContext, ProducerCache producerCache, Iterator<?> iter)
 specifier|public
 name|RecipientListProcessor
 parameter_list|(
@@ -704,7 +704,7 @@ name|producerCache
 parameter_list|,
 name|Iterator
 argument_list|<
-name|Object
+name|?
 argument_list|>
 name|iter
 parameter_list|)
@@ -729,7 +729,7 @@ operator|=
 name|iter
 expr_stmt|;
 block|}
-DECL|method|RecipientListProcessor (CamelContext camelContext, ProducerCache producerCache, Iterator<Object> iter, AggregationStrategy aggregationStrategy)
+DECL|method|RecipientListProcessor (CamelContext camelContext, ProducerCache producerCache, Iterator<?> iter, AggregationStrategy aggregationStrategy)
 specifier|public
 name|RecipientListProcessor
 parameter_list|(
@@ -741,7 +741,7 @@ name|producerCache
 parameter_list|,
 name|Iterator
 argument_list|<
-name|Object
+name|?
 argument_list|>
 name|iter
 parameter_list|,
@@ -771,7 +771,7 @@ operator|=
 name|iter
 expr_stmt|;
 block|}
-DECL|method|RecipientListProcessor (CamelContext camelContext, ProducerCache producerCache, Iterator<Object> iter, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean shutdownExecutorService, boolean streaming, boolean stopOnException, long timeout, Processor onPrepare, boolean shareUnitOfWork, boolean parallelAggregate)
+DECL|method|RecipientListProcessor (CamelContext camelContext, ProducerCache producerCache, Iterator<?> iter, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean shutdownExecutorService, boolean streaming, boolean stopOnException, long timeout, Processor onPrepare, boolean shareUnitOfWork, boolean parallelAggregate)
 specifier|public
 name|RecipientListProcessor
 parameter_list|(
@@ -783,7 +783,7 @@ name|producerCache
 parameter_list|,
 name|Iterator
 argument_list|<
-name|Object
+name|?
 argument_list|>
 name|iter
 parameter_list|,
@@ -850,7 +850,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|RecipientListProcessor (CamelContext camelContext, ProducerCache producerCache, Iterator<Object> iter, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean shutdownExecutorService, boolean streaming, boolean stopOnException, long timeout, Processor onPrepare, boolean shareUnitOfWork, boolean parallelAggregate, boolean stopOnAggregateException)
+DECL|method|RecipientListProcessor (CamelContext camelContext, ProducerCache producerCache, Iterator<?> iter, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean shutdownExecutorService, boolean streaming, boolean stopOnException, long timeout, Processor onPrepare, boolean shareUnitOfWork, boolean parallelAggregate, boolean stopOnAggregateException)
 specifier|public
 name|RecipientListProcessor
 parameter_list|(
@@ -862,7 +862,7 @@ name|producerCache
 parameter_list|,
 name|Iterator
 argument_list|<
-name|Object
+name|?
 argument_list|>
 name|iter
 parameter_list|,

@@ -135,10 +135,10 @@ argument_list|)
 operator|+
 literal|" because of "
 operator|+
+name|getExceptionMessage
+argument_list|(
 name|cause
-operator|.
-name|getMessage
-argument_list|()
+argument_list|)
 argument_list|,
 name|cause
 argument_list|)
@@ -170,26 +170,19 @@ name|Throwable
 name|cause
 parameter_list|)
 block|{
-if|if
-condition|(
+return|return
 name|cause
 operator|.
 name|getMessage
 argument_list|()
 operator|!=
 literal|null
-condition|)
-block|{
-return|return
+condition|?
 name|cause
 operator|.
 name|getMessage
 argument_list|()
-return|;
-block|}
-else|else
-block|{
-return|return
+else|:
 name|cause
 operator|.
 name|getClass
@@ -198,7 +191,6 @@ operator|.
 name|getSimpleName
 argument_list|()
 return|;
-block|}
 block|}
 DECL|method|getRouteMessage (String route)
 specifier|protected

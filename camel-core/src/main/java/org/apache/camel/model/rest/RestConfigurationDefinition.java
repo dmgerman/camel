@@ -176,9 +176,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|CamelContextHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|EndpointHelper
 import|;
 end_import
 
@@ -896,7 +910,7 @@ return|return
 name|apiContextIdPattern
 return|;
 block|}
-comment|/**      * Sets an CamelContext id pattern to only allow Rest APIs from rest services within CamelContext's which name matches the pattern.      *<p/>      * The pattern<tt>#name#</tt> refers to the CamelContext name, to match on the current CamelContext only.      * For any other value, the pattern uses the rules from {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)}      *      * @param apiContextIdPattern  the pattern      */
+comment|/**      * Sets an CamelContext id pattern to only allow Rest APIs from rest services within CamelContext's which name matches the pattern.      *<p/>      * The pattern<tt>#name#</tt> refers to the CamelContext name, to match on the current CamelContext only.      * For any other value, the pattern uses the rules from {@link EndpointHelper#matchPattern(String, String)}      *      * @param apiContextIdPattern  the pattern      */
 DECL|method|setApiContextIdPattern (String apiContextIdPattern)
 specifier|public
 name|void
@@ -1567,7 +1581,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets an CamelContext id pattern to only allow Rest APIs from rest services within CamelContext's which name matches the pattern.      *<p/>      * The pattern uses the rules from {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)}      */
+comment|/**      * Sets an CamelContext id pattern to only allow Rest APIs from rest services within CamelContext's which name matches the pattern.      *<p/>      * The pattern uses the rules from {@link EndpointHelper#matchPattern(String, String)}      */
 DECL|method|apiContextIdPattern (String pattern)
 specifier|public
 name|RestConfigurationDefinition

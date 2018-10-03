@@ -1026,7 +1026,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ObjectHelper
 import|;
@@ -1116,7 +1116,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|jsse
 operator|.
@@ -1132,7 +1132,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|jsse
 operator|.
@@ -1148,7 +1148,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|jsse
 operator|.
@@ -2040,6 +2040,14 @@ decl_stmt|;
 comment|// let's avoid folks having to explicitly give an ID to a camel context
 if|if
 condition|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|isEmpty
@@ -2299,6 +2307,14 @@ expr_stmt|;
 comment|// We need to add other components which the camel context dependsOn
 if|if
 condition|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|isNotEmpty
@@ -6588,6 +6604,14 @@ block|{
 name|String
 name|propertyName
 init|=
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|getPropertyName
@@ -6782,6 +6806,14 @@ block|{
 name|String
 name|propertyName
 init|=
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|getPropertyName

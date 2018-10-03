@@ -148,7 +148,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultMessage
+name|JndiRegistry
 import|;
 end_import
 
@@ -160,9 +160,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
-name|JndiRegistry
+name|DefaultMessage
 import|;
 end_import
 

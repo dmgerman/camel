@@ -641,7 +641,7 @@ name|put
 argument_list|(
 literal|"java.naming.factory.initial"
 argument_list|,
-literal|"org.apache.camel.util.jndi.CamelInitialContextFactory"
+literal|"org.apache.camel.support.jndi.CamelInitialContextFactory"
 argument_list|)
 expr_stmt|;
 return|return

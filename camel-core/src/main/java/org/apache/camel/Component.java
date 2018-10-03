@@ -139,6 +139,46 @@ name|empty
 argument_list|()
 return|;
 block|}
+comment|/**      * Set the {@link Component} context if the component is an instance of {@link ComponentAware}.      */
+DECL|method|trySetComponent (T object, Component component)
+specifier|static
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|trySetComponent
+parameter_list|(
+name|T
+name|object
+parameter_list|,
+name|Component
+name|component
+parameter_list|)
+block|{
+if|if
+condition|(
+name|object
+operator|instanceof
+name|ComponentAware
+condition|)
+block|{
+operator|(
+operator|(
+name|ComponentAware
+operator|)
+name|object
+operator|)
+operator|.
+name|setComponent
+argument_list|(
+name|component
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|object
+return|;
+block|}
 block|}
 end_interface
 

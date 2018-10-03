@@ -298,7 +298,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ObjectHelper
 import|;
@@ -1095,6 +1095,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|notNull
@@ -1725,6 +1733,14 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Check if separator exists
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|notNull
@@ -2692,6 +2708,14 @@ decl_stmt|;
 comment|// If the field value is empty, populate it with the default value
 if|if
 condition|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|isNotEmpty
@@ -2702,6 +2726,14 @@ name|defaultValue
 argument_list|()
 argument_list|)
 operator|&&
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|isEmpty
@@ -3436,6 +3468,14 @@ name|generateHeaderColumnNames
 argument_list|)
 expr_stmt|;
 comment|// Get Separator parameter
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|notNull
@@ -3500,6 +3540,14 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|isNotEmpty
@@ -3636,6 +3684,14 @@ literal|null
 condition|)
 block|{
 comment|// BigIntegerFormatFactory if section number is not null
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|notNull

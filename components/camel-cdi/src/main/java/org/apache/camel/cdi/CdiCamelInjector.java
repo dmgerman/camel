@@ -143,37 +143,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|newInstance (Class<T> type, Object instance)
-specifier|public
-parameter_list|<
-name|T
-parameter_list|>
-name|T
-name|newInstance
-parameter_list|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|,
-name|Object
-name|instance
-parameter_list|)
-block|{
-return|return
-name|injector
-operator|.
-name|newInstance
-argument_list|(
-name|type
-argument_list|,
-name|instance
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|supportsAutoWiring ()
 specifier|public
 name|boolean

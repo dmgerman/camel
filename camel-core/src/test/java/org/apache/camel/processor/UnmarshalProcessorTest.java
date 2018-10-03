@@ -118,9 +118,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|DefaultMessage
+name|DataFormat
 import|;
 end_import
 
@@ -132,9 +132,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|DataFormat
+name|DefaultMessage
 import|;
 end_import
 

@@ -98,6 +98,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
+name|EndpointHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -200,7 +214,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Mock all endpoints in the route (incl onException etc) matching the given pattern.      *      * @param pattern the pattern(s).      * @throws Exception can be thrown if error occurred      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
+comment|/**      * Mock all endpoints in the route (incl onException etc) matching the given pattern.      *      * @param pattern the pattern(s).      * @throws Exception can be thrown if error occurred      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
 DECL|method|mockEndpoints (String... pattern)
 specifier|public
 name|void
@@ -235,7 +249,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Mock all endpoints matching the given pattern, and<b>skips</b> sending to the original endpoint (detour messages).      *      * @param pattern the pattern(s).      * @throws Exception can be thrown if error occurred      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
+comment|/**      * Mock all endpoints matching the given pattern, and<b>skips</b> sending to the original endpoint (detour messages).      *      * @param pattern the pattern(s).      * @throws Exception can be thrown if error occurred      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
 DECL|method|mockEndpointsAndSkip (String... pattern)
 specifier|public
 name|void
@@ -346,7 +360,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Weaves by matching id of the nodes in the route (incl onException etc).      *<p/>      * Uses the {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchPattern(String, String)      */
+comment|/**      * Weaves by matching id of the nodes in the route (incl onException etc).      *<p/>      * Uses the {@link EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see EndpointHelper#matchPattern(String, String)      */
 DECL|method|weaveById (String pattern)
 specifier|public
 parameter_list|<
@@ -395,7 +409,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Weaves by matching the to string representation of the nodes in the route (incl onException etc).      *<p/>      * Uses the {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchPattern(String, String)      */
+comment|/**      * Weaves by matching the to string representation of the nodes in the route (incl onException etc).      *<p/>      * Uses the {@link EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see EndpointHelper#matchPattern(String, String)      */
 DECL|method|weaveByToString (String pattern)
 specifier|public
 parameter_list|<
@@ -444,7 +458,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Weaves by matching sending to endpoints with the given uri of the nodes in the route (incl onException etc).      *<p/>      * Uses the {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchPattern(String, String)      */
+comment|/**      * Weaves by matching sending to endpoints with the given uri of the nodes in the route (incl onException etc).      *<p/>      * Uses the {@link EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see EndpointHelper#matchPattern(String, String)      */
 DECL|method|weaveByToUri (String pattern)
 specifier|public
 parameter_list|<

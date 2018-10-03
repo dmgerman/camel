@@ -66,7 +66,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|LanguageSupport
+name|ExpressionToPredicateAdapter
 import|;
 end_import
 
@@ -78,9 +78,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|ExpressionToPredicateAdapter
+name|LanguageSupport
 import|;
 end_import
 

@@ -87,6 +87,43 @@ name|cause
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Wraps the caused exception in a {@link RuntimeCamelException} if its not      * already such an exception.      *      * @param e the caused exception      * @return the wrapper exception      */
+DECL|method|wrapRuntimeCamelException (Throwable e)
+specifier|public
+specifier|static
+name|RuntimeCamelException
+name|wrapRuntimeCamelException
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|e
+operator|instanceof
+name|RuntimeCamelException
+condition|)
+block|{
+comment|// don't double wrap
+return|return
+operator|(
+name|RuntimeCamelException
+operator|)
+name|e
+return|;
+block|}
+else|else
+block|{
+return|return
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+return|;
+block|}
+block|}
 block|}
 end_class
 

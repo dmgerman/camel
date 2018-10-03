@@ -86,9 +86,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
-name|DefaultAsyncProducer
+name|AsyncProcessorConverterHelper
 import|;
 end_import
 
@@ -100,9 +100,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|AsyncProcessorConverterHelper
+name|DefaultAsyncProducer
 import|;
 end_import
 

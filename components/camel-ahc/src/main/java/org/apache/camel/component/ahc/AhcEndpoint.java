@@ -152,7 +152,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultEndpoint
 import|;
@@ -264,7 +264,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|jsse
 operator|.
@@ -920,7 +920,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-comment|/**      * Reference to a org.apache.camel.util.jsse.SSLContextParameters in the Registry.      * This reference overrides any configured SSLContextParameters at the component level.      * See Using the JSSE Configuration Utility.      * Note that configuring this option will override any SSL/TLS configuration options provided through the clientConfig option at the endpoint or component level.      */
+comment|/**      * Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry.      * This reference overrides any configured SSLContextParameters at the component level.      * See Using the JSSE Configuration Utility.      * Note that configuring this option will override any SSL/TLS configuration options provided through the clientConfig option at the endpoint or component level.      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void

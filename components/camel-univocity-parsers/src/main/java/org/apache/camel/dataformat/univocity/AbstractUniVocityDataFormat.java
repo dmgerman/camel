@@ -224,9 +224,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|IOHelper
+name|ExchangeHelper
 operator|.
 name|getCharsetName
 import|;

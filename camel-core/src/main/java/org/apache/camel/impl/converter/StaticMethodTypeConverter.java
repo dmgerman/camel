@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|TypeConverterSupport
+name|ObjectHelper
 import|;
 end_import
 
@@ -76,9 +76,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|ObjectHelper
+name|TypeConverterSupport
 import|;
 end_import
 

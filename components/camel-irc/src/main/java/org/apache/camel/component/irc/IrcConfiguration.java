@@ -216,7 +216,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|jsse
 operator|.
@@ -1823,7 +1823,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-comment|/**      * Used for configuring security using SSL.      * Reference to a org.apache.camel.util.jsse.SSLContextParameters in the Registry.      * This reference overrides any configured SSLContextParameters at the component level.      * Note that this setting overrides the trustManager option.      */
+comment|/**      * Used for configuring security using SSL.      * Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry.      * This reference overrides any configured SSLContextParameters at the component level.      * Note that this setting overrides the trustManager option.      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void

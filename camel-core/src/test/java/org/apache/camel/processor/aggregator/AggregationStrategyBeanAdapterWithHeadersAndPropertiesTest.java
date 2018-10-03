@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|RouteBuilder
+name|AggregationStrategies
 import|;
 end_import
 
@@ -62,11 +62,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|builder
 operator|.
-name|toolbox
-operator|.
-name|AggregationStrategies
+name|RouteBuilder
 import|;
 end_import
 

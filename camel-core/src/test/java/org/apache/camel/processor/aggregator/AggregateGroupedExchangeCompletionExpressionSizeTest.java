@@ -78,9 +78,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
-operator|.
-name|toolbox
+name|builder
 operator|.
 name|AggregationStrategies
 operator|.

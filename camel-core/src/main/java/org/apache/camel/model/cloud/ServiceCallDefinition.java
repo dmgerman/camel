@@ -170,6 +170,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ExchangePattern
 import|;
 end_import
@@ -500,7 +512,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|CamelContextHelper
 import|;
@@ -560,7 +572,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|CamelContextHelper
 operator|.
@@ -576,7 +588,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|CamelContextHelper
 operator|.
@@ -2808,7 +2820,7 @@ argument_list|(
 name|camelContext
 argument_list|)
 decl_stmt|;
-name|ObjectHelper
+name|CamelContextAware
 operator|.
 name|trySetCamelContext
 argument_list|(
@@ -2817,7 +2829,7 @@ argument_list|,
 name|camelContext
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|CamelContextAware
 operator|.
 name|trySetCamelContext
 argument_list|(
@@ -2826,7 +2838,7 @@ argument_list|,
 name|camelContext
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|CamelContextAware
 operator|.
 name|trySetCamelContext
 argument_list|(
@@ -2835,7 +2847,7 @@ argument_list|,
 name|camelContext
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|CamelContextAware
 operator|.
 name|trySetCamelContext
 argument_list|(

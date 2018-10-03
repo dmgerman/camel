@@ -320,7 +320,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|CamelContextHelper
 import|;
@@ -334,7 +334,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ObjectHelper
 import|;
@@ -1976,7 +1976,7 @@ condition|)
 block|{
 name|Iterator
 argument_list|<
-name|Object
+name|?
 argument_list|>
 name|it
 init|=
@@ -2131,7 +2131,7 @@ condition|)
 block|{
 name|Iterator
 argument_list|<
-name|Object
+name|?
 argument_list|>
 name|it
 init|=
@@ -2319,7 +2319,7 @@ condition|)
 block|{
 name|Iterable
 argument_list|<
-name|Object
+name|?
 argument_list|>
 name|it
 init|=
@@ -2408,7 +2408,7 @@ condition|)
 block|{
 name|Iterable
 argument_list|<
-name|Object
+name|?
 argument_list|>
 name|it
 init|=
@@ -2493,6 +2493,14 @@ block|}
 block|}
 if|if
 condition|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 operator|.
 name|isNotEmpty

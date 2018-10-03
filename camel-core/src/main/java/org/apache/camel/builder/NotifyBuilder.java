@@ -212,6 +212,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|direct
@@ -310,6 +322,20 @@ name|camel
 operator|.
 name|support
 operator|.
+name|EndpointHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
 name|EventNotifierSupport
 import|;
 end_import
@@ -322,9 +348,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|EndpointHelper
+name|ServiceHelper
 import|;
 end_import
 
@@ -339,20 +365,6 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
 import|;
 end_import
 
@@ -532,7 +544,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(
@@ -551,7 +563,7 @@ name|eventNotifier
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Optionally a<tt>from</tt> endpoint which means that this expression should only be based      * on {@link Exchange} which is originated from the particular endpoint(s).      *      * @param endpointUri uri of endpoint or pattern (see the EndpointHelper javadoc)      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
+comment|/**      * Optionally a<tt>from</tt> endpoint which means that this expression should only be based      * on {@link Exchange} which is originated from the particular endpoint(s).      *      * @param endpointUri uri of endpoint or pattern (see the EndpointHelper javadoc)      * @return the builder      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
 DECL|method|from (final String endpointUri)
 specifier|public
 name|NotifyBuilder
@@ -644,7 +656,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Optionally a<tt>from</tt> route which means that this expression should only be based      * on {@link Exchange} which is originated from the particular route(s).      *      * @param routeId id of route or pattern (see the EndpointHelper javadoc)      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
+comment|/**      * Optionally a<tt>from</tt> route which means that this expression should only be based      * on {@link Exchange} which is originated from the particular route(s).      *      * @param routeId id of route or pattern (see the EndpointHelper javadoc)      * @return the builder      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
 DECL|method|fromRoute (final String routeId)
 specifier|public
 name|NotifyBuilder
@@ -1053,7 +1065,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Optionally a<tt>sent to</tt> endpoint which means that this expression should only be based      * on {@link Exchange} which has been sent to the given endpoint uri.      *<p/>      * Notice the {@link Exchange} may have been sent to other endpoints as well. This condition will match      * if the {@link Exchange} has been sent at least once to the given endpoint.      *      * @param endpointUri uri of endpoint or pattern (see the EndpointHelper javadoc)      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
+comment|/**      * Optionally a<tt>sent to</tt> endpoint which means that this expression should only be based      * on {@link Exchange} which has been sent to the given endpoint uri.      *<p/>      * Notice the {@link Exchange} may have been sent to other endpoints as well. This condition will match      * if the {@link Exchange} has been sent at least once to the given endpoint.      *      * @param endpointUri uri of endpoint or pattern (see the EndpointHelper javadoc)      * @return the builder      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
 DECL|method|wereSentTo (final String endpointUri)
 specifier|public
 name|NotifyBuilder
@@ -2844,7 +2856,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(
@@ -2880,7 +2892,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(
@@ -3124,7 +3136,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(
@@ -3161,7 +3173,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(
@@ -3823,7 +3835,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(
@@ -3907,7 +3919,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(

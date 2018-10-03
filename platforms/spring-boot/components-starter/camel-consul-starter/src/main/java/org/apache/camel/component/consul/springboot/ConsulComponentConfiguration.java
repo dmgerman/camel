@@ -110,7 +110,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|jsse
 operator|.
@@ -192,7 +192,7 @@ specifier|private
 name|String
 name|datacenter
 decl_stmt|;
-comment|/**      * SSL configuration using an      * org.apache.camel.util.jsse.SSLContextParameters instance. The option is a      * org.apache.camel.util.jsse.SSLContextParameters type.      */
+comment|/**      * SSL configuration using an      * org.apache.camel.support.jsse.SSLContextParameters instance. The option      * is a org.apache.camel.support.jsse.SSLContextParameters type.      */
 DECL|field|sslContextParameters
 specifier|private
 name|String
@@ -567,7 +567,7 @@ specifier|private
 name|Set
 name|tags
 decl_stmt|;
-comment|/**          * SSL configuration using an          * org.apache.camel.util.jsse.SSLContextParameters instance.          */
+comment|/**          * SSL configuration using an          * org.apache.camel.support.jsse.SSLContextParameters instance.          */
 DECL|field|sslContextParameters
 specifier|private
 name|SSLContextParameters

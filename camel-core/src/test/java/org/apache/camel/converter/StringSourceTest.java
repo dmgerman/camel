@@ -146,9 +146,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|ReflectionInjector
+name|ServiceHelper
 import|;
 end_import
 
@@ -162,7 +162,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ServiceHelper
+name|ReflectionInjector
 import|;
 end_import
 

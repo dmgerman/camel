@@ -54,8 +54,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
-operator|.
 name|ValueHolder
 import|;
 end_import

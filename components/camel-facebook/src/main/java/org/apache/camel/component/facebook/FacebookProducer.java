@@ -216,7 +216,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultAsyncProducer
 import|;
@@ -247,20 +247,6 @@ operator|.
 name|spi
 operator|.
 name|ThreadPoolProfile
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
 import|;
 end_import
 
@@ -738,7 +724,7 @@ name|exchange
 operator|.
 name|setException
 argument_list|(
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(

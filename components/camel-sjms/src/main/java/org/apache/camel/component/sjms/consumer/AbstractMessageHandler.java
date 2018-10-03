@@ -172,9 +172,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
-operator|.
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 import|;

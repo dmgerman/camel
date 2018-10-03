@@ -39,6 +39,46 @@ name|CamelContext
 name|getCamelContext
 parameter_list|()
 function_decl|;
+comment|/**      * Set the {@link CamelContext} context if the component is an instance of {@link CamelContextAware}.      */
+DECL|method|trySetCamelContext (T object, CamelContext camelContext)
+specifier|static
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|trySetCamelContext
+parameter_list|(
+name|T
+name|object
+parameter_list|,
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+if|if
+condition|(
+name|object
+operator|instanceof
+name|CamelContextAware
+condition|)
+block|{
+operator|(
+operator|(
+name|CamelContextAware
+operator|)
+name|object
+operator|)
+operator|.
+name|setCamelContext
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|object
+return|;
+block|}
 block|}
 end_interface
 

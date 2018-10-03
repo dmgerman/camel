@@ -146,20 +146,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|ProcessorEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|Metadata
@@ -202,9 +188,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|IOHelper
+name|ProcessorEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ResourceHelper
 import|;
 end_import
 
@@ -218,7 +218,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ResourceHelper
+name|IOHelper
 import|;
 end_import
 

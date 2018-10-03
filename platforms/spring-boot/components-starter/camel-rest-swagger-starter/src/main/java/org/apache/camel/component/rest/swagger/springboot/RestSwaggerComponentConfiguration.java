@@ -140,7 +140,7 @@ specifier|private
 name|URI
 name|specificationUri
 decl_stmt|;
-comment|/**      * Customize TLS parameters used by the component. If not set defaults to      * the TLS parameters set in the Camel context. The option is a      * org.apache.camel.util.jsse.SSLContextParameters type.      */
+comment|/**      * Customize TLS parameters used by the component. If not set defaults to      * the TLS parameters set in the Camel context. The option is a      * org.apache.camel.support.jsse.SSLContextParameters type.      */
 DECL|field|sslContextParameters
 specifier|private
 name|String

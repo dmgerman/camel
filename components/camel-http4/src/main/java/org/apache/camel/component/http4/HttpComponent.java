@@ -350,7 +350,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|IntrospectionSupport
 import|;
@@ -378,7 +378,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ServiceHelper
 import|;
@@ -434,7 +434,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|jsse
 operator|.
@@ -726,7 +726,7 @@ name|description
 operator|=
 literal|"To configure security using SSLContextParameters."
 operator|+
-literal|" Important: Only one instance of org.apache.camel.util.jsse.SSLContextParameters is supported per HttpComponent."
+literal|" Important: Only one instance of org.apache.camel.support.jsse.SSLContextParameters is supported per HttpComponent."
 operator|+
 literal|" If you need to use 2 or more different instances, you need to define a new HttpComponent per instance you need."
 argument_list|)
@@ -3186,7 +3186,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-comment|/**      * To configure security using SSLContextParameters.      * Important: Only one instance of org.apache.camel.util.jsse.SSLContextParameters is supported per HttpComponent.      * If you need to use 2 or more different instances, you need to define a new HttpComponent per instance you need.      */
+comment|/**      * To configure security using SSLContextParameters.      * Important: Only one instance of org.apache.camel.support.jsse.SSLContextParameters is supported per HttpComponent.      * If you need to use 2 or more different instances, you need to define a new HttpComponent per instance you need.      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void

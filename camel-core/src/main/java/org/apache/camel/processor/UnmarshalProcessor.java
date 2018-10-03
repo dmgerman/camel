@@ -170,7 +170,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ServiceSupport
+name|AsyncProcessorHelper
 import|;
 end_import
 
@@ -182,9 +182,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|AsyncProcessorHelper
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ServiceSupport
 import|;
 end_import
 
@@ -213,20 +227,6 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
 import|;
 end_import
 

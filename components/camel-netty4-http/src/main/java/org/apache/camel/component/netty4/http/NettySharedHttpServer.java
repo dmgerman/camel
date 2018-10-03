@@ -28,6 +28,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Service
 import|;
 end_import
@@ -99,13 +111,13 @@ name|NettySharedHttpServerBootstrapConfiguration
 name|configuration
 parameter_list|)
 function_decl|;
-comment|/**      * To use a custom {@link ClassResolver} for loading resource on the classpath.      */
-DECL|method|setClassResolver (ClassResolver classResolver)
+comment|/**      * The CamelContext      */
+DECL|method|setCamelContext (CamelContext camelContext)
 name|void
-name|setClassResolver
+name|setCamelContext
 parameter_list|(
-name|ClassResolver
-name|classResolver
+name|CamelContext
+name|camelContext
 parameter_list|)
 function_decl|;
 comment|/**      * Whether to start the Netty HTTP server eager and bind to the port, or wait on first demand      */

@@ -52,8 +52,36 @@ name|ShutdownableService
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|DefaultScheduledPollConsumerScheduler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ScheduledPollConsumer
+import|;
+end_import
+
 begin_comment
-comment|/**  * A pluggable scheduler for {@link org.apache.camel.impl.ScheduledPollConsumer} consumers.  *<p/>  * The default implementation {@link org.apache.camel.impl.DefaultScheduledPollConsumerScheduler} is  * using the {@link java.util.concurrent.ScheduledExecutorService} from the JDK to schedule and run the poll task.  *<p/>  * An alternative implementation is in<tt>camel-quartz2</tt> component that allows to use CRON expression  * to define when the scheduler should run.  */
+comment|/**  * A pluggable scheduler for {@link ScheduledPollConsumer} consumers.  *<p/>  * The default implementation {@link DefaultScheduledPollConsumerScheduler} is  * using the {@link java.util.concurrent.ScheduledExecutorService} from the JDK to schedule and run the poll task.  *<p/>  * An alternative implementation is in<tt>camel-quartz2</tt> component that allows to use CRON expression  * to define when the scheduler should run.  */
 end_comment
 
 begin_interface

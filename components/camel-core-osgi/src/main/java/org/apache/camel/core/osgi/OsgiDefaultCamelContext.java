@@ -146,8 +146,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
-operator|.
 name|LoadPropertiesException
 import|;
 end_import

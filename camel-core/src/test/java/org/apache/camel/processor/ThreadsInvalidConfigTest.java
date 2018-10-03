@@ -86,6 +86,10 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ThreadPoolRejectedPolicy
 operator|.
 name|Abort

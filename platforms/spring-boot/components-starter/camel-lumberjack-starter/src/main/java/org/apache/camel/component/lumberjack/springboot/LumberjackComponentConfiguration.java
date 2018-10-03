@@ -92,7 +92,7 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-comment|/**      * Sets the default SSL configuration to use for all the endpoints. You can      * also configure it directly at the endpoint level. The option is a      * org.apache.camel.util.jsse.SSLContextParameters type.      */
+comment|/**      * Sets the default SSL configuration to use for all the endpoints. You can      * also configure it directly at the endpoint level. The option is a      * org.apache.camel.support.jsse.SSLContextParameters type.      */
 DECL|field|sslContextParameters
 specifier|private
 name|String

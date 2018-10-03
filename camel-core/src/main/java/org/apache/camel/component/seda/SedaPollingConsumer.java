@@ -74,9 +74,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|PollingConsumerSupport
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -88,9 +86,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|ObjectHelper
+name|PollingConsumerSupport
 import|;
 end_import
 
@@ -172,7 +170,7 @@ name|interrupt
 argument_list|()
 expr_stmt|;
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(
@@ -245,7 +243,7 @@ name|interrupt
 argument_list|()
 expr_stmt|;
 throw|throw
-name|ObjectHelper
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeCamelException
 argument_list|(
