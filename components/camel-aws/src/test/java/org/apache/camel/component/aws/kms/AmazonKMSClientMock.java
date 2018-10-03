@@ -82,7 +82,7 @@ name|services
 operator|.
 name|kms
 operator|.
-name|AWSKMS
+name|AbstractAWSKMS
 import|;
 end_import
 
@@ -1243,8 +1243,8 @@ DECL|class|AmazonKMSClientMock
 specifier|public
 class|class
 name|AmazonKMSClientMock
-implements|implements
-name|AWSKMS
+extends|extends
+name|AbstractAWSKMS
 block|{
 DECL|method|AmazonKMSClientMock ()
 specifier|public
