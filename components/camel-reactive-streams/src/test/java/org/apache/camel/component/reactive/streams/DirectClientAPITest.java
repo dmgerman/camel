@@ -26,16 +26,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashSet
 import|;
 end_import
@@ -875,18 +865,13 @@ argument_list|(
 name|res
 argument_list|)
 operator|.
-name|containsExactlyInAnyOrderElementsOf
-argument_list|(
-name|Arrays
-operator|.
-name|asList
+name|containsExactlyInAnyOrder
 argument_list|(
 literal|"Hello 1"
 argument_list|,
 literal|"Hello 2"
 argument_list|,
 literal|"Hello 3"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
