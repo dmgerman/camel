@@ -102,7 +102,7 @@ name|services
 operator|.
 name|identitymanagement
 operator|.
-name|AmazonIdentityManagementClient
+name|AbstractAmazonIdentityManagement
 import|;
 end_import
 
@@ -4096,7 +4096,7 @@ specifier|public
 class|class
 name|AmazonIAMClientMock
 extends|extends
-name|AmazonIdentityManagementClient
+name|AbstractAmazonIdentityManagement
 block|{
 annotation|@
 name|Override
