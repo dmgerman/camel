@@ -104,7 +104,7 @@ name|services
 operator|.
 name|lambda
 operator|.
-name|AWSLambda
+name|AbstractAWSLambda
 import|;
 end_import
 
@@ -585,22 +585,6 @@ operator|.
 name|model
 operator|.
 name|InvokeAsyncRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|amazonaws
-operator|.
-name|services
-operator|.
-name|lambda
-operator|.
-name|model
-operator|.
-name|InvokeAsyncResult
 import|;
 end_import
 
@@ -1179,8 +1163,8 @@ DECL|class|AmazonLambdaClientMock
 specifier|public
 class|class
 name|AmazonLambdaClientMock
-implements|implements
-name|AWSLambda
+extends|extends
+name|AbstractAWSLambda
 block|{
 DECL|method|AmazonLambdaClientMock ()
 specifier|public
