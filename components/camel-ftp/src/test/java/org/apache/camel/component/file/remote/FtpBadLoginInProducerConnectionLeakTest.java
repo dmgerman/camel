@@ -241,13 +241,11 @@ block|{
 comment|// expected
 block|}
 block|}
-comment|// maximumReconnectAttempts is related to TCP connects, not to FTP login attempts
-comment|// but having this parameter> 0 leads to two connection attempts
 name|assertEquals
 argument_list|(
-literal|"Expected 4 socket connections to be created"
+literal|"Expected 2 socket connections to be created"
 argument_list|,
-literal|4
+literal|2
 argument_list|,
 name|socketAudits
 operator|.
