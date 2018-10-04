@@ -116,7 +116,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|Ignore
 import|;
 end_import
 
@@ -131,6 +131,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Ignore
 DECL|class|SftpConsumerDisconnectTest
 specifier|public
 class|class
@@ -199,36 +201,6 @@ init|=
 literal|"abc"
 decl_stmt|;
 annotation|@
-name|Before
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-name|context
-operator|.
-name|stopRoute
-argument_list|(
-literal|"foo"
-argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|stopRoute
-argument_list|(
-literal|"bar"
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
 name|Test
 DECL|method|testConsumeDelete ()
 specifier|public
@@ -287,58 +259,16 @@ comment|// Check that expectations are satisfied
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// File is deleted
-name|assertTrue
-argument_list|(
-name|fileRemovedEventually
-argument_list|(
-name|FTP_ROOT_DIR
-operator|+
-literal|"/"
-operator|+
-name|SAMPLE_FILE_NAME_1
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|fileRemovedEventually (String fileName)
-specifier|public
-name|boolean
-name|fileRemovedEventually
-parameter_list|(
-name|String
-name|fileName
-parameter_list|)
-throws|throws
-name|InterruptedException
-block|{
-comment|// try up to 10 seconds
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-literal|10
-condition|;
-name|i
-operator|++
-control|)
-block|{
-comment|// Give it a second to delete the file
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|250
 argument_list|)
 expr_stmt|;
 comment|// File is deleted
 name|File
-name|file
+name|deletedFile
 init|=
 operator|new
 name|File
@@ -350,23 +280,18 @@ operator|+
 name|SAMPLE_FILE_NAME_1
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|file
+name|assertFalse
+argument_list|(
+literal|"File should have been deleted: "
+operator|+
+name|deletedFile
+argument_list|,
+name|deletedFile
 operator|.
 name|exists
 argument_list|()
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-block|}
-return|return
-literal|false
-return|;
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
