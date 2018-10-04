@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|management
@@ -43,6 +53,16 @@ operator|.
 name|management
 operator|.
 name|MBeanServer
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|management
+operator|.
+name|MBeanServerConnection
 import|;
 end_import
 
@@ -127,7 +147,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|invoke (MBeanServer server, ObjectName name, String operationName)
+DECL|method|invoke (MBeanServerConnection server, ObjectName name, String operationName)
 specifier|protected
 parameter_list|<
 name|T
@@ -135,7 +155,7 @@ parameter_list|>
 name|T
 name|invoke
 parameter_list|(
-name|MBeanServer
+name|MBeanServerConnection
 name|server
 parameter_list|,
 name|ObjectName
@@ -150,6 +170,8 @@ throws|,
 name|MBeanException
 throws|,
 name|ReflectionException
+throws|,
+name|IOException
 block|{
 return|return
 operator|(
@@ -174,7 +196,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|invoke (MBeanServer server, ObjectName name, String operationName, Object params[], String signature[])
+DECL|method|invoke (MBeanServerConnection server, ObjectName name, String operationName, Object params[], String signature[])
 specifier|protected
 parameter_list|<
 name|T
@@ -182,7 +204,7 @@ parameter_list|>
 name|T
 name|invoke
 parameter_list|(
-name|MBeanServer
+name|MBeanServerConnection
 name|server
 parameter_list|,
 name|ObjectName
@@ -205,6 +227,8 @@ throws|,
 name|MBeanException
 throws|,
 name|ReflectionException
+throws|,
+name|IOException
 block|{
 return|return
 operator|(

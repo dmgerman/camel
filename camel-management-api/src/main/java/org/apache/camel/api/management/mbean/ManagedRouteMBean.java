@@ -40,6 +40,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|meta
+operator|.
 name|Experimental
 import|;
 end_import
@@ -73,20 +75,6 @@ operator|.
 name|management
 operator|.
 name|ManagedOperation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|RouteError
 import|;
 end_import
 

@@ -52,20 +52,6 @@ name|ManagedOperation
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|StreamCachingStrategy
-import|;
-end_import
-
 begin_interface
 DECL|interface|ManagedStreamCachingStrategyMBean
 specifier|public
@@ -74,6 +60,17 @@ name|ManagedStreamCachingStrategyMBean
 extends|extends
 name|ManagedServiceMBean
 block|{
+comment|/**      * Used for selecting if the memory limit is<tt>committed</tt> or<tt>maximum</tt> heap memory setting.      */
+DECL|enum|SpoolUsedHeapMemoryLimit
+enum|enum
+name|SpoolUsedHeapMemoryLimit
+block|{
+DECL|enumConstant|Committed
+DECL|enumConstant|Max
+name|Committed
+block|,
+name|Max
+block|}
 annotation|@
 name|ManagedAttribute
 argument_list|(
@@ -171,12 +168,10 @@ name|description
 operator|=
 literal|"Whether used heap memory limit is committed or maximum"
 argument_list|)
-DECL|method|setSpoolUsedHeapMemoryLimit (StreamCachingStrategy.SpoolUsedHeapMemoryLimit limit)
+DECL|method|setSpoolUsedHeapMemoryLimit (SpoolUsedHeapMemoryLimit limit)
 name|void
 name|setSpoolUsedHeapMemoryLimit
 parameter_list|(
-name|StreamCachingStrategy
-operator|.
 name|SpoolUsedHeapMemoryLimit
 name|limit
 parameter_list|)
@@ -189,8 +184,6 @@ operator|=
 literal|"Whether used heap memory limit is committed or maximum"
 argument_list|)
 DECL|method|getSpoolUsedHeapMemoryLimit ()
-name|StreamCachingStrategy
-operator|.
 name|SpoolUsedHeapMemoryLimit
 name|getSpoolUsedHeapMemoryLimit
 parameter_list|()

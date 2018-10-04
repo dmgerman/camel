@@ -80,6 +80,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|meta
+operator|.
 name|Experimental
 import|;
 end_import
