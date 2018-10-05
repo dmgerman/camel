@@ -29,12 +29,15 @@ block|{
 DECL|enumConstant|listAccessKeys
 DECL|enumConstant|createUser
 DECL|enumConstant|deleteUser
+DECL|enumConstant|getUser
 DECL|enumConstant|listUsers
 name|listAccessKeys
 block|,
 name|createUser
 block|,
 name|deleteUser
+block|,
+name|getUser
 block|,
 name|listUsers
 block|,
