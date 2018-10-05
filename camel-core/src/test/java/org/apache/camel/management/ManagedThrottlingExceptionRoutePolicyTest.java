@@ -132,7 +132,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|throttling
 operator|.
 name|ThrottlingExceptionHalfOpenHandler
 import|;
@@ -146,7 +146,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|throttling
 operator|.
 name|ThrottlingExceptionRoutePolicy
 import|;

@@ -142,20 +142,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|FromDefinition
@@ -1494,44 +1480,6 @@ name|onCompletion
 argument_list|()
 return|;
 block|}
-comment|// Properties
-comment|// -----------------------------------------------------------------------
-DECL|method|getContext ()
-specifier|public
-name|ModelCamelContext
-name|getContext
-parameter_list|()
-block|{
-name|ModelCamelContext
-name|context
-init|=
-name|super
-operator|.
-name|getContext
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|context
-operator|==
-literal|null
-condition|)
-block|{
-name|context
-operator|=
-name|createContainer
-argument_list|()
-expr_stmt|;
-name|setContext
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|context
-return|;
-block|}
 DECL|method|addRoutesToCamelContext (CamelContext context)
 specifier|public
 name|void
@@ -2339,19 +2287,6 @@ return|return
 name|this
 operator|.
 name|routeCollection
-return|;
-block|}
-comment|/**      * Factory method      *      * @return the CamelContext      */
-DECL|method|createContainer ()
-specifier|protected
-name|ModelCamelContext
-name|createContainer
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultCamelContext
-argument_list|()
 return|;
 block|}
 DECL|method|configureRest (RestDefinition rest)

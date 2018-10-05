@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|ExceptionHandler
@@ -133,6 +145,18 @@ parameter_list|()
 block|{
 return|return
 name|endpoint
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getProcessor ()
+specifier|public
+name|Processor
+name|getProcessor
+parameter_list|()
+block|{
+return|return
+literal|null
 return|;
 block|}
 DECL|method|getExceptionHandler ()

@@ -337,6 +337,17 @@ block|}
 annotation|@
 name|Override
 specifier|public
+name|Processor
+name|getProcessor
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
 name|void
 name|start
 parameter_list|()

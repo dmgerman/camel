@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.throttling
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|throttling
 package|;
 end_package
 
@@ -229,16 +229,6 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
 import|;
 end_import
 
@@ -859,14 +849,7 @@ return|return
 operator|new
 name|CamelLogger
 argument_list|(
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|ThrottlingInflightRoutePolicy
-operator|.
-name|class
-argument_list|)
+name|log
 argument_list|,
 name|getLoggingLevel
 argument_list|()

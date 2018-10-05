@@ -347,6 +347,18 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getProcessor ()
+specifier|public
+name|AsyncProcessor
+name|getProcessor
+parameter_list|()
+block|{
+return|return
+name|processor
+return|;
+block|}
 DECL|method|getExceptionHandler ()
 specifier|public
 name|ExceptionHandler

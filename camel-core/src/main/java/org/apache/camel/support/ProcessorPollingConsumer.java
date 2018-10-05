@@ -131,6 +131,18 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getProcessor ()
+specifier|public
+name|Processor
+name|getProcessor
+parameter_list|()
+block|{
+return|return
+name|processor
+return|;
+block|}
 DECL|method|doStart ()
 specifier|protected
 name|void

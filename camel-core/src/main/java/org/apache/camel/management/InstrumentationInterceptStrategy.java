@@ -86,20 +86,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|ProcessorDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|InterceptStrategy
@@ -136,10 +122,7 @@ DECL|field|registeredCounters
 specifier|private
 name|Map
 argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 argument_list|,
 name|PerformanceCounter
 argument_list|>
@@ -154,26 +137,20 @@ name|Processor
 argument_list|,
 name|KeyValueHolder
 argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 argument_list|,
 name|InstrumentationProcessor
 argument_list|>
 argument_list|>
 name|wrappedProcessors
 decl_stmt|;
-DECL|method|InstrumentationInterceptStrategy (Map<ProcessorDefinition<?>, PerformanceCounter> registeredCounters, Map<Processor, KeyValueHolder<ProcessorDefinition<?>, InstrumentationProcessor>> wrappedProcessors)
+DECL|method|InstrumentationInterceptStrategy (Map<NamedNode, PerformanceCounter> registeredCounters, Map<Processor, KeyValueHolder<NamedNode, InstrumentationProcessor>> wrappedProcessors)
 specifier|public
 name|InstrumentationInterceptStrategy
 parameter_list|(
 name|Map
 argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 argument_list|,
 name|PerformanceCounter
 argument_list|>
@@ -185,10 +162,7 @@ name|Processor
 argument_list|,
 name|KeyValueHolder
 argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 argument_list|,
 name|InstrumentationProcessor
 argument_list|>
@@ -209,15 +183,12 @@ operator|=
 name|wrappedProcessors
 expr_stmt|;
 block|}
-DECL|method|prepareProcessor (ProcessorDefinition<?> definition, Processor target, InstrumentationProcessor advice)
+DECL|method|prepareProcessor (NamedNode definition, Processor target, InstrumentationProcessor advice)
 specifier|public
 name|PerformanceCounter
 name|prepareProcessor
 parameter_list|(
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|,
 name|Processor
@@ -248,10 +219,7 @@ comment|// add it to the mapping of wrappers so we can later change it to a
 comment|// decorated counter when we register the processor
 name|KeyValueHolder
 argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 argument_list|,
 name|InstrumentationProcessor
 argument_list|>

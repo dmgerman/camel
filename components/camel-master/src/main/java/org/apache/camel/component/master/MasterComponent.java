@@ -104,8 +104,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
 name|cluster
 operator|.
 name|ClusterServiceSelectors

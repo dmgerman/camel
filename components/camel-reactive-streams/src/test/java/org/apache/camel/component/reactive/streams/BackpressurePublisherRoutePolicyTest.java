@@ -152,7 +152,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|throttling
 operator|.
 name|ThrottlingInflightRoutePolicy
 import|;

@@ -74,6 +74,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -132,6 +144,18 @@ name|super
 operator|.
 name|getEndpoint
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getProcessor ()
+specifier|public
+name|Processor
+name|getProcessor
+parameter_list|()
+block|{
+return|return
+literal|null
 return|;
 block|}
 annotation|@

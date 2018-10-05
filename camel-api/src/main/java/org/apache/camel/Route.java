@@ -120,6 +120,12 @@ name|Consumer
 name|getConsumer
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the {@link Processor}      *      * @return the processor      */
+DECL|method|getProcessor ()
+name|Processor
+name|getProcessor
+parameter_list|()
+function_decl|;
 comment|/**      * Whether or not the route supports suspension (suspend and resume)      *      * @return<tt>true</tt> if this route supports suspension      */
 DECL|method|supportsSuspension ()
 name|boolean

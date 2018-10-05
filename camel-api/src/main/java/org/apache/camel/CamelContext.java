@@ -841,6 +841,15 @@ name|String
 name|getManagementName
 parameter_list|()
 function_decl|;
+comment|/**      * Sets the name this {@link CamelContext} will be registered in JMX.      */
+DECL|method|setManagementName (String name)
+name|void
+name|setManagementName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
 comment|/**      * Gets the version of the this CamelContext.      *      * @return the version      */
 DECL|method|getVersion ()
 name|String

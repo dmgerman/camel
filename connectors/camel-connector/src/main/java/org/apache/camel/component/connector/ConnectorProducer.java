@@ -147,7 +147,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Connector {@link Producer} which is capable of performing before and after custom processing  * via the {@link Pipeline }while processing (ie sending the message).  */
+comment|/**  * Connector {@link Producer} which is capable of performing before and after custom processing  * via the {@link Pipeline} while processing (ie sending the message).  */
 end_comment
 
 begin_class

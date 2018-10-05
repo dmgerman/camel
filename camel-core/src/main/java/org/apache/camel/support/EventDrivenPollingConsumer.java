@@ -366,6 +366,18 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getProcessor ()
+specifier|public
+name|Processor
+name|getProcessor
+parameter_list|()
+block|{
+return|return
+name|this
+return|;
+block|}
 DECL|method|isBlockWhenFull ()
 specifier|public
 name|boolean

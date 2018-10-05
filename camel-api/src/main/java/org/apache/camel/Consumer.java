@@ -27,7 +27,13 @@ extends|extends
 name|Service
 extends|,
 name|EndpointAware
-block|{ }
+block|{
+DECL|method|getProcessor ()
+name|Processor
+name|getProcessor
+parameter_list|()
+function_decl|;
+block|}
 end_interface
 
 end_unit
