@@ -677,11 +677,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

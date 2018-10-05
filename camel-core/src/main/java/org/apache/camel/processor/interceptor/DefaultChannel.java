@@ -865,11 +865,6 @@ return|return
 literal|false
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|initChannel (ProcessorDefinition<?> outputDefinition, RouteContext routeContext)
 specifier|public
 name|void

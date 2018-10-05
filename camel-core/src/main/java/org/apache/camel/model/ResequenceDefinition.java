@@ -1312,11 +1312,6 @@ return|;
 block|}
 block|}
 comment|/**      * Creates a batch {@link Resequencer} instance applying the given<code>config</code>.      *       * @param routeContext route context.      * @param config batch resequencer configuration.      * @return the configured batch resequencer.      * @throws Exception can be thrown      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|createBatchResequencer (RouteContext routeContext, BatchResequencerConfig config)
 specifier|protected
 name|Resequencer

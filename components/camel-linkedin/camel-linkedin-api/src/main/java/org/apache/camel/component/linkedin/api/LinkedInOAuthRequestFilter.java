@@ -603,11 +603,6 @@ specifier|private
 name|OAuthToken
 name|oAuthToken
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|LinkedInOAuthRequestFilter (OAuthParams oAuthParams, Map<String, Object> httpParams, boolean lazyAuth, String[] enabledProtocols)
 specifier|public
 name|LinkedInOAuthRequestFilter

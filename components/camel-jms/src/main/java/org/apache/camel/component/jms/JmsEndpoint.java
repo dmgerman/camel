@@ -825,11 +825,6 @@ literal|"queue"
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|JmsEndpoint (String endpointUri, JmsBinding binding, JmsConfiguration configuration, String destinationName, boolean pubSubDomain)
 specifier|public
 name|JmsEndpoint

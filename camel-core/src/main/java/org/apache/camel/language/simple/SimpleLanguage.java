@@ -470,11 +470,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|createPredicate (String expression)
 specifier|public
 name|Predicate
@@ -569,11 +564,6 @@ return|return
 name|answer
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|createExpression (String expression)
 specifier|public
 name|Expression

@@ -3327,11 +3327,6 @@ operator|=
 name|restBindingDefinition
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|isContextScopedErrorHandler (CamelContext context)
 specifier|public
 name|boolean

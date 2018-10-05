@@ -581,11 +581,6 @@ return|return
 literal|true
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|initializeConnection ()
 specifier|public
 name|void

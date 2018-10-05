@@ -2363,11 +2363,6 @@ comment|/**  * Represents the context used to configure routes and the policies 
 end_comment
 
 begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|class|DefaultCamelContext
 specifier|public
 class|class

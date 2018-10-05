@@ -622,11 +622,6 @@ name|transactionManager
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|jmsComponentTransacted (ConnectionFactory connectionFactory, PlatformTransactionManager transactionManager)
 specifier|public
 specifier|static

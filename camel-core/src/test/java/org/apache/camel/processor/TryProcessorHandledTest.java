@@ -288,11 +288,6 @@ operator|new
 name|RouteBuilder
 argument_list|()
 block|{
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 specifier|public
 name|void
 name|configure

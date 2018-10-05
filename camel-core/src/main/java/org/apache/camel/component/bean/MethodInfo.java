@@ -762,11 +762,6 @@ literal|"]"
 return|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|MethodInfo (CamelContext camelContext, Class<?> type, Method method, List<ParameterInfo> parameters, List<ParameterInfo> bodyParameters, boolean hasCustomAnnotation, boolean hasHandlerAnnotation)
 specifier|public
 name|MethodInfo

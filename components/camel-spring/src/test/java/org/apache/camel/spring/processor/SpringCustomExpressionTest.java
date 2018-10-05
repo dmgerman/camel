@@ -150,11 +150,6 @@ literal|"org/apache/camel/spring/processor/SpringCustomExpressionTest.xml"
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|class|MyExpression
 specifier|public
 specifier|static

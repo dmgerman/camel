@@ -197,11 +197,6 @@ comment|/**  * Class responsible for evaluating<a href="https://docs.spring.io/s
 end_comment
 
 begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|class|SpelExpression
 specifier|public
 class|class

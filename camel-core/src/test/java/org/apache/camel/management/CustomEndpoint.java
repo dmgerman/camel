@@ -80,13 +80,11 @@ begin_comment
 comment|/**  * CustomEndpoint is used to test {@link org.apache.camel.management.JmxInstrumentationCustomMBeanTest}  * and must be declared a public class otherwise the mbean server connection cannot access its methods.  */
 end_comment
 
-begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
+begin_comment
 comment|// START SNIPPET: e1
+end_comment
+
+begin_class
 annotation|@
 name|ManagedResource
 argument_list|(
