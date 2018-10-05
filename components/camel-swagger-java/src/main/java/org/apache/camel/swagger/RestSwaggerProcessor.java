@@ -727,6 +727,14 @@ name|yaml
 argument_list|,
 name|exchange
 operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|,
+name|exchange
+operator|.
 name|getContext
 argument_list|()
 operator|.
