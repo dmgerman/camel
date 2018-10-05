@@ -937,6 +937,14 @@ argument_list|,
 literal|"The separator has not been defined in the annotation @CsvRecord or not instantiated during initModel."
 argument_list|)
 expr_stmt|;
+name|Boolean
+name|removeQuotes
+init|=
+name|factory
+operator|.
+name|getRemoveQuotes
+argument_list|()
+decl_stmt|;
 name|AtomicInteger
 name|count
 init|=
@@ -1005,6 +1013,8 @@ argument_list|,
 name|models
 argument_list|,
 name|separator
+argument_list|,
+name|removeQuotes
 argument_list|,
 name|quote
 argument_list|,
@@ -1084,7 +1094,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|consumeFile (BindyCsvFactory factory, List<Map<String, Object>> models, String separator, String quote, AtomicInteger count)
+DECL|method|consumeFile (BindyCsvFactory factory, List<Map<String, Object>> models, String separator, Boolean removeQuotes, String quote, AtomicInteger count)
 specifier|private
 name|Consumer
 argument_list|<
@@ -1108,6 +1118,9 @@ name|models
 parameter_list|,
 name|String
 name|separator
+parameter_list|,
+name|Boolean
+name|removeQuotes
 parameter_list|,
 name|String
 name|quote
@@ -1273,6 +1286,11 @@ name|tokens
 argument_list|)
 decl_stmt|;
 comment|// must unquote tokens before use
+if|if
+condition|(
+name|removeQuotes
+condition|)
+block|{
 name|result
 operator|=
 name|unquoteTokens
@@ -1284,6 +1302,7 @@ argument_list|,
 name|quote
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|result
