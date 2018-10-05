@@ -42,6 +42,18 @@ name|USERNAME
 init|=
 literal|"CamelAwsIAMUsername"
 decl_stmt|;
+DECL|field|ACCESS_KEY_ID
+name|String
+name|ACCESS_KEY_ID
+init|=
+literal|"CamelAwsIAMAccessKeyID"
+decl_stmt|;
+DECL|field|ACCESS_KEY_STATUS
+name|String
+name|ACCESS_KEY_STATUS
+init|=
+literal|"CamelAwsIAMAccessKeyStatus"
+decl_stmt|;
 block|}
 end_interface
 
