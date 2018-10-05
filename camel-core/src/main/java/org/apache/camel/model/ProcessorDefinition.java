@@ -522,22 +522,6 @@ name|camel
 operator|.
 name|model
 operator|.
-name|language
-operator|.
-name|SimpleExpression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
 name|rest
 operator|.
 name|RestDefinition
@@ -2957,7 +2941,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sends the exchange to the given dynamic endpoint      *      * @param uri  the dynamic endpoint to send to (resolved using simple language by default)      * @param cacheSize sets the maximum size used by the {@link org.apache.camel.impl.ConsumerCache} which is used to cache and reuse producers.      *      * @return the builder      */
+comment|/**      * Sends the exchange to the given dynamic endpoint      *      * @param uri  the dynamic endpoint to send to (resolved using simple language by default)      * @param cacheSize sets the maximum size used by the {@link org.apache.camel.spi.ConsumerCache} which is used to cache and reuse producers.      *      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(

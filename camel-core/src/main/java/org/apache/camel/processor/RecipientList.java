@@ -132,7 +132,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ProducerCache
+name|DefaultProducerCache
 import|;
 end_import
 
@@ -193,6 +193,20 @@ operator|.
 name|spi
 operator|.
 name|IdAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ProducerCache
 import|;
 end_import
 
@@ -993,7 +1007,7 @@ block|{
 name|producerCache
 operator|=
 operator|new
-name|ProducerCache
+name|DefaultProducerCache
 argument_list|(
 name|this
 argument_list|,

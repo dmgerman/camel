@@ -203,11 +203,11 @@ name|MyDummyComponent
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ProducerCache
+name|DefaultProducerCache
 name|cache
 init|=
 operator|new
-name|ProducerCache
+name|DefaultProducerCache
 argument_list|(
 name|this
 argument_list|,

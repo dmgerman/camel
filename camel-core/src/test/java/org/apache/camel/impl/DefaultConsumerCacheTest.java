@@ -80,11 +80,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ConsumerCache
+name|DefaultConsumerCache
 name|cache
 init|=
 operator|new
-name|ConsumerCache
+name|DefaultConsumerCache
 argument_list|(
 name|this
 argument_list|,

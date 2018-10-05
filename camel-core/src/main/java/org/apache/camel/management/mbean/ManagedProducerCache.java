@@ -72,7 +72,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
 name|ProducerCache
 import|;

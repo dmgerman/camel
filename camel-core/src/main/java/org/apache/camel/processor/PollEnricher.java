@@ -146,7 +146,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ConsumerCache
+name|DefaultConsumerCache
 import|;
 end_import
 
@@ -163,6 +163,20 @@ operator|.
 name|aggregate
 operator|.
 name|AggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ConsumerCache
 import|;
 end_import
 
@@ -1601,7 +1615,7 @@ comment|// create consumer cache if we use dynamic expressions for computing the
 name|consumerCache
 operator|=
 operator|new
-name|ConsumerCache
+name|DefaultConsumerCache
 argument_list|(
 name|this
 argument_list|,

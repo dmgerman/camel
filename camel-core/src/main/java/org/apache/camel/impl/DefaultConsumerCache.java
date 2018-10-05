@@ -86,6 +86,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ConsumerCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|EndpointUtilizationStatistics
 import|;
 end_import
@@ -137,12 +151,14 @@ comment|/**  * Cache containing created {@link org.apache.camel.Consumer}.  */
 end_comment
 
 begin_class
-DECL|class|ConsumerCache
+DECL|class|DefaultConsumerCache
 specifier|public
 class|class
-name|ConsumerCache
+name|DefaultConsumerCache
 extends|extends
 name|ServiceSupport
+implements|implements
+name|ConsumerCache
 block|{
 DECL|field|camelContext
 specifier|private
@@ -180,9 +196,9 @@ specifier|private
 name|int
 name|maxCacheSize
 decl_stmt|;
-DECL|method|ConsumerCache (Object source, CamelContext camelContext, int cacheSize)
+DECL|method|DefaultConsumerCache (Object source, CamelContext camelContext, int cacheSize)
 specifier|public
-name|ConsumerCache
+name|DefaultConsumerCache
 parameter_list|(
 name|Object
 name|source

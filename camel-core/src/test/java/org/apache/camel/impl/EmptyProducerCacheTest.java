@@ -80,11 +80,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ProducerCache
+name|DefaultProducerCache
 name|cache
 init|=
 operator|new
-name|ProducerCache
+name|DefaultProducerCache
 argument_list|(
 name|this
 argument_list|,
@@ -181,11 +181,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ProducerCache
+name|DefaultProducerCache
 name|cache
 init|=
 operator|new
-name|ProducerCache
+name|DefaultProducerCache
 argument_list|(
 name|this
 argument_list|,

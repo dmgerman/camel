@@ -135,7 +135,7 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
-comment|/**      * Sets the maximum size used by the {@link org.apache.camel.impl.ProducerCache} which is used      * to cache and reuse producers when using this dynamic router, when uris are reused.      */
+comment|/**      * Sets the maximum size used by the {@link org.apache.camel.spi.ProducerCache} which is used      * to cache and reuse producers when using this dynamic router, when uris are reused.      */
 DECL|method|cacheSize ()
 name|int
 name|cacheSize

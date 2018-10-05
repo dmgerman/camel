@@ -1134,7 +1134,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the maximum size used by the {@link org.apache.camel.impl.ProducerCache} which is used      * to cache and reuse producers, when uris are reused.      *      * @param cacheSize  the cache size, use<tt>0</tt> for default cache size, or<tt>-1</tt> to turn cache off.      * @return the builder      */
+comment|/**      * Sets the maximum size used by the {@link org.apache.camel.spi.ProducerCache} which is used      * to cache and reuse producers, when uris are reused.      *      * @param cacheSize  the cache size, use<tt>0</tt> for default cache size, or<tt>-1</tt> to turn cache off.      * @return the builder      */
 annotation|@
 name|Override
 DECL|method|cacheSize (int cacheSize)

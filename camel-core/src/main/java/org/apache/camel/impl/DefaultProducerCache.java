@@ -198,6 +198,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|ProducerCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|CamelContextHelper
@@ -265,12 +279,14 @@ comment|/**  * Cache containing created {@link Producer}.  */
 end_comment
 
 begin_class
-DECL|class|ProducerCache
+DECL|class|DefaultProducerCache
 specifier|public
 class|class
-name|ProducerCache
+name|DefaultProducerCache
 extends|extends
 name|ServiceSupport
+implements|implements
+name|ProducerCache
 block|{
 DECL|field|camelContext
 specifier|private
@@ -321,9 +337,9 @@ specifier|private
 name|int
 name|maxCacheSize
 decl_stmt|;
-DECL|method|ProducerCache (Object source, CamelContext camelContext, int cacheSize)
+DECL|method|DefaultProducerCache (Object source, CamelContext camelContext, int cacheSize)
 specifier|public
-name|ProducerCache
+name|DefaultProducerCache
 parameter_list|(
 name|Object
 name|source
@@ -1756,28 +1772,6 @@ operator|+
 name|getCapacity
 argument_list|()
 return|;
-block|}
-comment|/**      * Callback for sending a exchange message to a endpoint using an {@link AsyncProcessor} capable producer.      *<p/>      * Using this callback as a template pattern ensures that Camel handles the resource handling and will      * start and stop the given producer, to avoid resource leaks.      *          */
-DECL|interface|AsyncProducerCallback
-specifier|public
-interface|interface
-name|AsyncProducerCallback
-block|{
-comment|/**          * Performs operation on the given producer to send the given exchange.          *          * @param asyncProducer   the async producer, is never<tt>null</tt>          * @param exchange        the exchange to process          * @param callback        the async callback          * @return (doneSync)<tt>true</tt> to continue execute synchronously,<tt>false</tt> to continue being executed asynchronously          */
-DECL|method|doInAsyncProducer (AsyncProducer asyncProducer, Exchange exchange, AsyncCallback callback)
-name|boolean
-name|doInAsyncProducer
-parameter_list|(
-name|AsyncProducer
-name|asyncProducer
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|,
-name|AsyncCallback
-name|callback
-parameter_list|)
-function_decl|;
 block|}
 block|}
 end_class

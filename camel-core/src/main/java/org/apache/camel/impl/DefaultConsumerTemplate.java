@@ -84,6 +84,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ConsumerCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Synchronization
 import|;
 end_import
@@ -1157,6 +1171,14 @@ return|;
 block|}
 DECL|method|getConsumerCache ()
 specifier|private
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|ConsumerCache
 name|getConsumerCache
 parameter_list|()
@@ -1198,7 +1220,7 @@ block|{
 name|consumerCache
 operator|=
 operator|new
-name|ConsumerCache
+name|DefaultConsumerCache
 argument_list|(
 name|this
 argument_list|,

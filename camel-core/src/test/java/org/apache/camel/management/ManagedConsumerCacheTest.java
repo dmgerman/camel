@@ -126,7 +126,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ConsumerCache
+name|DefaultConsumerCache
 import|;
 end_import
 
@@ -183,11 +183,11 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|ConsumerCache
+name|DefaultConsumerCache
 name|cache
 init|=
 operator|new
-name|ConsumerCache
+name|DefaultConsumerCache
 argument_list|(
 name|this
 argument_list|,

@@ -230,6 +230,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ProducerCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Synchronization
 import|;
 end_import
@@ -4631,6 +4645,14 @@ return|;
 block|}
 DECL|method|getProducerCache ()
 specifier|private
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|ProducerCache
 name|getProducerCache
 parameter_list|()
@@ -4765,7 +4787,7 @@ block|{
 name|producerCache
 operator|=
 operator|new
-name|ProducerCache
+name|DefaultProducerCache
 argument_list|(
 name|this
 argument_list|,
