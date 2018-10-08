@@ -228,6 +228,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
 name|cluster
 operator|.
 name|ClusterServiceSelectors
@@ -311,6 +313,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|support
 operator|.
 name|cluster
 operator|.

@@ -4,13 +4,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.cluster
+DECL|package|org.apache.camel.support.cluster
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|support
 operator|.
 name|cluster
 package|;
@@ -45,6 +47,20 @@ operator|.
 name|camel
 operator|.
 name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cluster
+operator|.
+name|CamelClusterService
 import|;
 end_import
 
