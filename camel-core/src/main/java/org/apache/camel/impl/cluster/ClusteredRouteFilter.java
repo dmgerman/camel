@@ -45,6 +45,8 @@ import|;
 end_import
 
 begin_interface
+annotation|@
+name|FunctionalInterface
 DECL|interface|ClusteredRouteFilter
 specifier|public
 interface|interface
