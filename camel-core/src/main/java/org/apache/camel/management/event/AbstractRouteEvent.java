@@ -52,6 +52,22 @@ name|Route
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
+operator|.
+name|RouteEvent
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for {@link CamelContext} events.  */
 end_comment
@@ -64,6 +80,8 @@ class|class
 name|AbstractRouteEvent
 extends|extends
 name|EventObject
+implements|implements
+name|RouteEvent
 block|{
 DECL|field|serialVersionUID
 specifier|private

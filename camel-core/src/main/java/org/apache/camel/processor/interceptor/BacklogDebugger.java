@@ -34,16 +34,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|LinkedHashSet
 import|;
 end_import
@@ -294,22 +284,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
-operator|.
-name|event
-operator|.
-name|ExchangeCompletedEvent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|ProcessorDefinition
@@ -327,6 +301,38 @@ operator|.
 name|model
 operator|.
 name|ProcessorDefinitionHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
+operator|.
+name|ExchangeCompletedEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
+operator|.
+name|ExchangeEvent
 import|;
 end_import
 
@@ -3334,7 +3340,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|matchEvent (Exchange exchange, EventObject event)
+DECL|method|matchEvent (Exchange exchange, ExchangeEvent event)
 specifier|public
 name|boolean
 name|matchEvent
@@ -3342,7 +3348,7 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|EventObject
+name|ExchangeEvent
 name|event
 parameter_list|)
 block|{
@@ -3615,7 +3621,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|matchEvent (Exchange exchange, EventObject event)
+DECL|method|matchEvent (Exchange exchange, ExchangeEvent event)
 specifier|public
 name|boolean
 name|matchEvent
@@ -3623,7 +3629,7 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|EventObject
+name|ExchangeEvent
 name|event
 parameter_list|)
 block|{
@@ -3635,7 +3641,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|onEvent (Exchange exchange, EventObject event, NamedNode definition)
+DECL|method|onEvent (Exchange exchange, ExchangeEvent event, NamedNode definition)
 specifier|public
 name|void
 name|onEvent
@@ -3643,7 +3649,7 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|EventObject
+name|ExchangeEvent
 name|event
 parameter_list|,
 name|NamedNode
@@ -3661,12 +3667,7 @@ block|{
 name|String
 name|completedId
 init|=
-operator|(
-operator|(
-name|ExchangeCompletedEvent
-operator|)
 name|event
-operator|)
 operator|.
 name|getExchange
 argument_list|()

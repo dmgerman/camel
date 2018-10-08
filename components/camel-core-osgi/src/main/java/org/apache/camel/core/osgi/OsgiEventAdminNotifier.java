@@ -56,6 +56,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|CamelEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|EventNotifierSupport
@@ -346,12 +360,12 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|notify (EventObject event)
+DECL|method|notify (CamelEvent event)
 specifier|public
 name|void
 name|notify
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 throws|throws
@@ -527,12 +541,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|isEnabled (EventObject event)
+DECL|method|isEnabled (CamelEvent event)
 specifier|public
 name|boolean
 name|isEnabled
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 block|{
@@ -662,68 +676,33 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|method|getType (EventObject event)
+DECL|method|getType (CamelEvent event)
 specifier|public
 specifier|static
 name|String
 name|getType
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 block|{
-name|String
-name|type
-init|=
+return|return
 name|event
 operator|.
-name|getClass
+name|getType
 argument_list|()
 operator|.
-name|getSimpleName
+name|name
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|type
-operator|.
-name|endsWith
-argument_list|(
-literal|"Event"
-argument_list|)
-condition|)
-block|{
-name|type
-operator|=
-name|type
-operator|.
-name|substring
-argument_list|(
-literal|0
-argument_list|,
-name|type
-operator|.
-name|length
-argument_list|()
-operator|-
-literal|"Event"
-operator|.
-name|length
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|type
 return|;
 block|}
-DECL|method|getTopic (EventObject event)
+DECL|method|getTopic (CamelEvent event)
 specifier|public
 specifier|static
 name|String
 name|getTopic
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 block|{

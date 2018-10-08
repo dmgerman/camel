@@ -96,11 +96,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|model
 operator|.
-name|event
-operator|.
-name|CamelContextStartingEvent
+name|ModelCamelContext
 import|;
 end_import
 
@@ -112,9 +110,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|spi
 operator|.
-name|ModelCamelContext
+name|CamelEvent
+operator|.
+name|CamelContextStartingEvent
 import|;
 end_import
 

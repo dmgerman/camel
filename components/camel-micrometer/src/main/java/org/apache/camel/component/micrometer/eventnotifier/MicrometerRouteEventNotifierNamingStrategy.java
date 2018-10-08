@@ -80,11 +80,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
-name|AbstractRouteEvent
+name|RouteEvent
 import|;
 end_import
 
@@ -286,7 +286,7 @@ argument_list|()
 argument_list|,
 name|EVENT_TYPE_TAG
 argument_list|,
-name|AbstractRouteEvent
+name|RouteEvent
 operator|.
 name|class
 operator|.

@@ -22,16 +22,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|LinkedHashSet
 import|;
 end_import
@@ -154,9 +144,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
 operator|.
 name|ExchangeCompletedEvent
 import|;
@@ -1116,12 +1120,12 @@ name|EventNotifierSupport
 block|{
 annotation|@
 name|Override
-DECL|method|notify (EventObject event)
+DECL|method|notify (CamelEvent event)
 specifier|public
 name|void
 name|notify
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 throws|throws
@@ -1157,12 +1161,12 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|isEnabled (EventObject event)
+DECL|method|isEnabled (CamelEvent event)
 specifier|public
 name|boolean
 name|isEnabled
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 block|{

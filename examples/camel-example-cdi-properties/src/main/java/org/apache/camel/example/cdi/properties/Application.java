@@ -186,9 +186,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|CamelContextStartedEvent
 import|;

@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -70,11 +60,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
-operator|.
-name|CamelContextStartedEvent
+name|CamelEvent
 import|;
 end_import
 
@@ -86,11 +74,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
-name|CamelContextStoppingEvent
+name|Type
 import|;
 end_import
 
@@ -160,12 +148,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|notify (EventObject event)
+DECL|method|notify (CamelEvent event)
 specifier|public
 name|void
 name|notify
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 throws|throws
@@ -177,8 +165,13 @@ comment|// (CamelContextStartedEvent) is send
 if|if
 condition|(
 name|event
-operator|instanceof
-name|CamelContextStartedEvent
+operator|.
+name|getType
+argument_list|()
+operator|==
+name|Type
+operator|.
+name|CamelContextStarted
 condition|)
 block|{
 name|log
@@ -202,8 +195,13 @@ elseif|else
 if|if
 condition|(
 name|event
-operator|instanceof
-name|CamelContextStoppingEvent
+operator|.
+name|getType
+argument_list|()
+operator|==
+name|Type
+operator|.
+name|CamelContextStopping
 condition|)
 block|{
 comment|// Note: there is also a CamelContextStoppedEvent which is send
@@ -228,12 +226,12 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|isEnabled (EventObject event)
+DECL|method|isEnabled (CamelEvent event)
 specifier|public
 name|boolean
 name|isEnabled
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 block|{

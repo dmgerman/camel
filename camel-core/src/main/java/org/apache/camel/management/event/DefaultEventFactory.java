@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -110,6 +100,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|CamelEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|EventFactory
 import|;
 end_import
@@ -128,7 +132,7 @@ name|EventFactory
 block|{
 DECL|method|createCamelContextStartingEvent (CamelContext context)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createCamelContextStartingEvent
 parameter_list|(
 name|CamelContext
@@ -145,7 +149,7 @@ return|;
 block|}
 DECL|method|createCamelContextStartedEvent (CamelContext context)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createCamelContextStartedEvent
 parameter_list|(
 name|CamelContext
@@ -162,7 +166,7 @@ return|;
 block|}
 DECL|method|createCamelContextStoppingEvent (CamelContext context)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createCamelContextStoppingEvent
 parameter_list|(
 name|CamelContext
@@ -179,7 +183,7 @@ return|;
 block|}
 DECL|method|createCamelContextStoppedEvent (CamelContext context)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createCamelContextStoppedEvent
 parameter_list|(
 name|CamelContext
@@ -196,7 +200,7 @@ return|;
 block|}
 DECL|method|createCamelContextStartupFailureEvent (CamelContext context, Throwable cause)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createCamelContextStartupFailureEvent
 parameter_list|(
 name|CamelContext
@@ -218,7 +222,7 @@ return|;
 block|}
 DECL|method|createCamelContextStopFailureEvent (CamelContext context, Throwable cause)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createCamelContextStopFailureEvent
 parameter_list|(
 name|CamelContext
@@ -240,7 +244,7 @@ return|;
 block|}
 DECL|method|createServiceStartupFailureEvent (CamelContext context, Object service, Throwable cause)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createServiceStartupFailureEvent
 parameter_list|(
 name|CamelContext
@@ -267,7 +271,7 @@ return|;
 block|}
 DECL|method|createServiceStopFailureEvent (CamelContext context, Object service, Throwable cause)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createServiceStopFailureEvent
 parameter_list|(
 name|CamelContext
@@ -294,7 +298,7 @@ return|;
 block|}
 DECL|method|createRouteStartedEvent (Route route)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createRouteStartedEvent
 parameter_list|(
 name|Route
@@ -311,7 +315,7 @@ return|;
 block|}
 DECL|method|createRouteStoppedEvent (Route route)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createRouteStoppedEvent
 parameter_list|(
 name|Route
@@ -328,7 +332,7 @@ return|;
 block|}
 DECL|method|createRouteAddedEvent (Route route)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createRouteAddedEvent
 parameter_list|(
 name|Route
@@ -345,7 +349,7 @@ return|;
 block|}
 DECL|method|createRouteRemovedEvent (Route route)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createRouteRemovedEvent
 parameter_list|(
 name|Route
@@ -362,7 +366,7 @@ return|;
 block|}
 DECL|method|createExchangeCreatedEvent (Exchange exchange)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createExchangeCreatedEvent
 parameter_list|(
 name|Exchange
@@ -379,7 +383,7 @@ return|;
 block|}
 DECL|method|createExchangeCompletedEvent (Exchange exchange)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createExchangeCompletedEvent
 parameter_list|(
 name|Exchange
@@ -396,7 +400,7 @@ return|;
 block|}
 DECL|method|createExchangeFailedEvent (Exchange exchange)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createExchangeFailedEvent
 parameter_list|(
 name|Exchange
@@ -413,7 +417,7 @@ return|;
 block|}
 DECL|method|createExchangeFailureHandlingEvent (Exchange exchange, Processor failureHandler, boolean deadLetterChannel, String deadLetterUri)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createExchangeFailureHandlingEvent
 parameter_list|(
 name|Exchange
@@ -471,7 +475,7 @@ return|;
 block|}
 DECL|method|createExchangeFailureHandledEvent (Exchange exchange, Processor failureHandler, boolean deadLetterChannel, String deadLetterUri)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createExchangeFailureHandledEvent
 parameter_list|(
 name|Exchange
@@ -529,7 +533,7 @@ return|;
 block|}
 DECL|method|createExchangeRedeliveryEvent (Exchange exchange, int attempt)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createExchangeRedeliveryEvent
 parameter_list|(
 name|Exchange
@@ -551,7 +555,7 @@ return|;
 block|}
 DECL|method|createExchangeSendingEvent (Exchange exchange, Endpoint endpoint)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createExchangeSendingEvent
 parameter_list|(
 name|Exchange
@@ -573,7 +577,7 @@ return|;
 block|}
 DECL|method|createExchangeSentEvent (Exchange exchange, Endpoint endpoint, long timeTaken)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createExchangeSentEvent
 parameter_list|(
 name|Exchange
@@ -600,7 +604,7 @@ return|;
 block|}
 DECL|method|createCamelContextSuspendingEvent (CamelContext context)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createCamelContextSuspendingEvent
 parameter_list|(
 name|CamelContext
@@ -617,7 +621,7 @@ return|;
 block|}
 DECL|method|createCamelContextSuspendedEvent (CamelContext context)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createCamelContextSuspendedEvent
 parameter_list|(
 name|CamelContext
@@ -634,7 +638,7 @@ return|;
 block|}
 DECL|method|createCamelContextResumingEvent (CamelContext context)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createCamelContextResumingEvent
 parameter_list|(
 name|CamelContext
@@ -651,7 +655,7 @@ return|;
 block|}
 DECL|method|createCamelContextResumedEvent (CamelContext context)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createCamelContextResumedEvent
 parameter_list|(
 name|CamelContext
@@ -668,7 +672,7 @@ return|;
 block|}
 DECL|method|createCamelContextResumeFailureEvent (CamelContext context, Throwable cause)
 specifier|public
-name|EventObject
+name|CamelEvent
 name|createCamelContextResumeFailureEvent
 parameter_list|(
 name|CamelContext

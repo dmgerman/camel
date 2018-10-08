@@ -30,6 +30,20 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
+import|;
+end_import
+
 begin_class
 DECL|class|ExchangeFailedEvent
 specifier|public
@@ -38,7 +52,9 @@ name|ExchangeFailedEvent
 extends|extends
 name|AbstractExchangeEvent
 implements|implements
-name|FailureEvent
+name|CamelEvent
+operator|.
+name|ExchangeFailedEvent
 block|{
 DECL|field|serialVersionUID
 specifier|private

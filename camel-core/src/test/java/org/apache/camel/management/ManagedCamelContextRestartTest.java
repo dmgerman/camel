@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|management
@@ -73,6 +63,20 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
 import|;
 end_import
 
@@ -162,7 +166,7 @@ specifier|public
 name|void
 name|notify
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 throws|throws
@@ -176,7 +180,7 @@ specifier|public
 name|boolean
 name|isEnabled
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 block|{

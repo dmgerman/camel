@@ -22,16 +22,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -97,6 +87,20 @@ operator|.
 name|event
 operator|.
 name|DefaultEventFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
 import|;
 end_import
 
@@ -680,12 +684,12 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
-DECL|method|notify (EventObject event)
+DECL|method|notify (CamelEvent event)
 specifier|public
 name|void
 name|notify
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 throws|throws

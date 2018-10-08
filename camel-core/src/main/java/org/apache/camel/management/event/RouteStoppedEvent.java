@@ -30,6 +30,20 @@ name|Route
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
+import|;
+end_import
+
 begin_class
 DECL|class|RouteStoppedEvent
 specifier|public
@@ -37,6 +51,10 @@ class|class
 name|RouteStoppedEvent
 extends|extends
 name|AbstractRouteEvent
+implements|implements
+name|CamelEvent
+operator|.
+name|RouteStoppedEvent
 block|{
 DECL|field|serialVersionUID
 specifier|private

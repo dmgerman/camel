@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -59,6 +49,22 @@ operator|.
 name|camel
 operator|.
 name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
+operator|.
+name|ExchangeEvent
 import|;
 end_import
 
@@ -87,15 +93,15 @@ name|NamedNode
 name|definition
 parameter_list|)
 function_decl|;
-comment|/**      * Does the condition match      *      * @param exchange the exchange      * @param event    the event (instance of {@link org.apache.camel.management.event.AbstractExchangeEvent}      * @return<tt>true</tt> to match,<tt>false</tt> otherwise      * @see org.apache.camel.management.event.AbstractExchangeEvent      */
-DECL|method|matchEvent (Exchange exchange, EventObject event)
+comment|/**      * Does the condition match      *      * @param exchange the exchange      * @param event    the event (instance of {@link ExchangeEvent}      * @return<tt>true</tt> to match,<tt>false</tt> otherwise      * @see ExchangeEvent      */
+DECL|method|matchEvent (Exchange exchange, ExchangeEvent event)
 name|boolean
 name|matchEvent
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|EventObject
+name|ExchangeEvent
 name|event
 parameter_list|)
 function_decl|;

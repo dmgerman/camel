@@ -22,16 +22,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|atomic
@@ -73,6 +63,20 @@ operator|.
 name|management
 operator|.
 name|JmxNotificationBroadcasterAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
 import|;
 end_import
 
@@ -190,12 +194,12 @@ operator|=
 name|broadcaster
 expr_stmt|;
 block|}
-DECL|method|notify (EventObject event)
+DECL|method|notify (CamelEvent event)
 specifier|public
 name|void
 name|notify
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 throws|throws
@@ -266,12 +270,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|isEnabled (EventObject event)
+DECL|method|isEnabled (CamelEvent event)
 specifier|public
 name|boolean
 name|isEnabled
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 block|{

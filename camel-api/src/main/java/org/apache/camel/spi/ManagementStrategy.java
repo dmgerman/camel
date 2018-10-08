@@ -22,16 +22,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -155,11 +145,11 @@ name|name
 parameter_list|)
 function_decl|;
 comment|/**      * Management events provide a single model for capturing information about execution points in the      * application code. Management strategy implementations decide if and where to record these events.      * Applications communicate events to management strategy implementations via the notify(EventObject)      * method.      *      * @param event the event      * @throws Exception can be thrown if the notification failed      */
-DECL|method|notify (EventObject event)
+DECL|method|notify (CamelEvent event)
 name|void
 name|notify
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 throws|throws

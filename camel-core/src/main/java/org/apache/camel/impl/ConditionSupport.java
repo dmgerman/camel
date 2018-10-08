@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -59,6 +49,22 @@ operator|.
 name|camel
 operator|.
 name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
+operator|.
+name|ExchangeEvent
 import|;
 end_import
 
@@ -107,7 +113,7 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|matchEvent (Exchange exchange, EventObject event)
+DECL|method|matchEvent (Exchange exchange, ExchangeEvent event)
 specifier|public
 name|boolean
 name|matchEvent
@@ -115,7 +121,7 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|EventObject
+name|ExchangeEvent
 name|event
 parameter_list|)
 block|{

@@ -302,25 +302,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
-operator|.
-name|AbstractExchangeEvent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|management
-operator|.
-name|event
+name|CamelEvent
 operator|.
 name|CamelContextStartedEvent
 import|;
@@ -334,9 +318,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|CamelContextStartingEvent
 import|;
@@ -350,9 +334,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|ExchangeCompletedEvent
 import|;
@@ -366,9 +350,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|ExchangeCreatedEvent
 import|;
@@ -382,9 +366,25 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
+operator|.
+name|ExchangeEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
 operator|.
 name|ExchangeSendingEvent
 import|;
@@ -398,9 +398,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|ExchangeSentEvent
 import|;
@@ -919,14 +919,14 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onAnyExchangeEvent (@bserves AbstractExchangeEvent event, @Named(R) List<Class> events)
+DECL|method|onAnyExchangeEvent (@bserves ExchangeEvent event, @Named(R) List<Class> events)
 specifier|private
 name|void
 name|onAnyExchangeEvent
 parameter_list|(
 annotation|@
 name|Observes
-name|AbstractExchangeEvent
+name|ExchangeEvent
 name|event
 parameter_list|,
 annotation|@
@@ -949,6 +949,12 @@ name|event
 operator|.
 name|getClass
 argument_list|()
+operator|.
+name|getInterfaces
+argument_list|()
+index|[
+literal|0
+index|]
 argument_list|)
 expr_stmt|;
 block|}
@@ -1020,7 +1026,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onDefaultExchangeEvent (@bserves @efault AbstractExchangeEvent event, @Named(R) List<Class> events)
+DECL|method|onDefaultExchangeEvent (@bserves @efault ExchangeEvent event, @Named(R) List<Class> events)
 specifier|private
 name|void
 name|onDefaultExchangeEvent
@@ -1029,7 +1035,7 @@ annotation|@
 name|Observes
 annotation|@
 name|Default
-name|AbstractExchangeEvent
+name|ExchangeEvent
 name|event
 parameter_list|,
 annotation|@
@@ -1052,6 +1058,12 @@ name|event
 operator|.
 name|getClass
 argument_list|()
+operator|.
+name|getInterfaces
+argument_list|()
+index|[
+literal|0
+index|]
 argument_list|)
 expr_stmt|;
 block|}
@@ -1129,7 +1141,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onFirstExchangeEvent (@bserves @ontextNameR) AbstractExchangeEvent event, @ContextName(R) List<Class> events)
+DECL|method|onFirstExchangeEvent (@bserves @ontextNameR) ExchangeEvent event, @ContextName(R) List<Class> events)
 specifier|private
 name|void
 name|onFirstExchangeEvent
@@ -1141,7 +1153,7 @@ name|ContextName
 argument_list|(
 literal|"first"
 argument_list|)
-name|AbstractExchangeEvent
+name|ExchangeEvent
 name|event
 parameter_list|,
 annotation|@
@@ -1164,6 +1176,12 @@ name|event
 operator|.
 name|getClass
 argument_list|()
+operator|.
+name|getInterfaces
+argument_list|()
+index|[
+literal|0
+index|]
 argument_list|)
 expr_stmt|;
 block|}
@@ -1241,7 +1259,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onSecondExchangeEvent (@bserves @ontextNameR) AbstractExchangeEvent event, @ContextName(R) List<Class> events)
+DECL|method|onSecondExchangeEvent (@bserves @ontextNameR) ExchangeEvent event, @ContextName(R) List<Class> events)
 specifier|private
 name|void
 name|onSecondExchangeEvent
@@ -1253,7 +1271,7 @@ name|ContextName
 argument_list|(
 literal|"second"
 argument_list|)
-name|AbstractExchangeEvent
+name|ExchangeEvent
 name|event
 parameter_list|,
 annotation|@
@@ -1276,6 +1294,12 @@ name|event
 operator|.
 name|getClass
 argument_list|()
+operator|.
+name|getInterfaces
+argument_list|()
+index|[
+literal|0
+index|]
 argument_list|)
 expr_stmt|;
 block|}

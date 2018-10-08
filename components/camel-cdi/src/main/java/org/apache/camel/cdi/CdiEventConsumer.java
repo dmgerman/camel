@@ -60,9 +60,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|DefaultConsumer
+name|CamelEvent
+operator|.
+name|ExchangeEvent
 import|;
 end_import
 
@@ -74,11 +76,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|support
 operator|.
-name|event
-operator|.
-name|AbstractExchangeEvent
+name|DefaultConsumer
 import|;
 end_import
 
@@ -254,7 +254,7 @@ if|if
 condition|(
 name|event
 operator|instanceof
-name|AbstractExchangeEvent
+name|ExchangeEvent
 condition|)
 block|{
 name|exchange
@@ -306,7 +306,7 @@ if|if
 condition|(
 name|event
 operator|instanceof
-name|AbstractExchangeEvent
+name|ExchangeEvent
 condition|)
 block|{
 name|exchange

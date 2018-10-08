@@ -40,6 +40,20 @@ name|CamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
+import|;
+end_import
+
 begin_class
 DECL|class|ServiceStopFailureEvent
 specifier|public
@@ -48,7 +62,9 @@ name|ServiceStopFailureEvent
 extends|extends
 name|EventObject
 implements|implements
-name|FailureEvent
+name|CamelEvent
+operator|.
+name|ServiceStopFailureEvent
 block|{
 DECL|field|serialVersionUID
 specifier|private

@@ -34,17 +34,21 @@ name|java
 operator|.
 name|util
 operator|.
-name|EventObject
+name|List
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|List
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
 import|;
 end_import
 
@@ -74,7 +78,7 @@ DECL|field|events
 specifier|private
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|events
 init|=
@@ -83,12 +87,12 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|method|notify (EventObject event)
+DECL|method|notify (CamelEvent event)
 specifier|public
 name|void
 name|notify
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 throws|throws
@@ -102,12 +106,12 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|isEnabled (EventObject event)
+DECL|method|isEnabled (CamelEvent event)
 specifier|public
 name|boolean
 name|isEnabled
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 block|{
@@ -119,7 +123,7 @@ DECL|method|getEvents ()
 specifier|public
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|getEvents
 parameter_list|()

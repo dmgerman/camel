@@ -34,16 +34,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -160,9 +150,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
 operator|.
 name|RouteAddedEvent
 import|;
@@ -176,9 +180,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|RouteRemovedEvent
 import|;
@@ -192,9 +196,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|RouteStartedEvent
 import|;
@@ -208,9 +212,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|RouteStoppedEvent
 import|;
@@ -456,7 +460,7 @@ DECL|field|allFiredEvents
 specifier|private
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|allFiredEvents
 init|=
@@ -478,7 +482,7 @@ DECL|field|simpleFiredEvents
 specifier|private
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|simpleFiredEvents
 init|=
@@ -500,7 +504,7 @@ DECL|field|otherFiredEvents
 specifier|private
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|otherFiredEvents
 init|=
@@ -509,7 +513,7 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|method|onRouteAddedEventEventAll (@bserves RouteAddedEvent event, @Named(R) List<EventObject> events)
+DECL|method|onRouteAddedEventEventAll (@bserves RouteAddedEvent event, @Named(R) List<CamelEvent> events)
 specifier|private
 name|void
 name|onRouteAddedEventEventAll
@@ -526,7 +530,7 @@ literal|"all"
 argument_list|)
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|events
 parameter_list|)
@@ -539,7 +543,7 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onRouteAddedEventEventSimple (@bserves @amedR) RouteAddedEvent event, @Named(R) List<EventObject> events)
+DECL|method|onRouteAddedEventEventSimple (@bserves @amedR) RouteAddedEvent event, @Named(R) List<CamelEvent> events)
 specifier|private
 name|void
 name|onRouteAddedEventEventSimple
@@ -561,7 +565,7 @@ literal|"simple"
 argument_list|)
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|events
 parameter_list|)
@@ -574,7 +578,7 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onRouteAddedEventEventOther (@bserves @amedR) RouteAddedEvent event, @Named(R) List<EventObject> events)
+DECL|method|onRouteAddedEventEventOther (@bserves @amedR) RouteAddedEvent event, @Named(R) List<CamelEvent> events)
 specifier|private
 name|void
 name|onRouteAddedEventEventOther
@@ -596,7 +600,7 @@ literal|"other"
 argument_list|)
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|events
 parameter_list|)
@@ -609,7 +613,7 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onRouteStartedEventEventAll (@bserves RouteStartedEvent event, @Named(R) List<EventObject> events)
+DECL|method|onRouteStartedEventEventAll (@bserves RouteStartedEvent event, @Named(R) List<CamelEvent> events)
 specifier|private
 name|void
 name|onRouteStartedEventEventAll
@@ -626,7 +630,7 @@ literal|"all"
 argument_list|)
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|events
 parameter_list|)
@@ -639,7 +643,7 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onRouteStartedEventEventSimple (@bserves @amedR) RouteStartedEvent event, @Named(R) List<EventObject> events)
+DECL|method|onRouteStartedEventEventSimple (@bserves @amedR) RouteStartedEvent event, @Named(R) List<CamelEvent> events)
 specifier|private
 name|void
 name|onRouteStartedEventEventSimple
@@ -661,7 +665,7 @@ literal|"simple"
 argument_list|)
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|events
 parameter_list|)
@@ -674,7 +678,7 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onRouteStartedEventEventOther (@bserves @amedR) RouteStartedEvent event, @Named(R) List<EventObject> events)
+DECL|method|onRouteStartedEventEventOther (@bserves @amedR) RouteStartedEvent event, @Named(R) List<CamelEvent> events)
 specifier|private
 name|void
 name|onRouteStartedEventEventOther
@@ -696,7 +700,7 @@ literal|"other"
 argument_list|)
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|events
 parameter_list|)
@@ -709,7 +713,7 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onRouteStoppedEventEventAll (@bserves RouteStoppedEvent event, @Named(R) List<EventObject> events)
+DECL|method|onRouteStoppedEventEventAll (@bserves RouteStoppedEvent event, @Named(R) List<CamelEvent> events)
 specifier|private
 name|void
 name|onRouteStoppedEventEventAll
@@ -726,7 +730,7 @@ literal|"all"
 argument_list|)
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|events
 parameter_list|)
@@ -739,7 +743,7 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onRouteStoppedEventEventSimple (@bserves @amedR) RouteStoppedEvent event, @Named(R) List<EventObject> events)
+DECL|method|onRouteStoppedEventEventSimple (@bserves @amedR) RouteStoppedEvent event, @Named(R) List<CamelEvent> events)
 specifier|private
 name|void
 name|onRouteStoppedEventEventSimple
@@ -761,7 +765,7 @@ literal|"simple"
 argument_list|)
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|events
 parameter_list|)
@@ -774,7 +778,7 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onRouteStoppedEventEventOther (@bserves @amedR) RouteStoppedEvent event, @Named(R) List<EventObject> events)
+DECL|method|onRouteStoppedEventEventOther (@bserves @amedR) RouteStoppedEvent event, @Named(R) List<CamelEvent> events)
 specifier|private
 name|void
 name|onRouteStoppedEventEventOther
@@ -796,7 +800,7 @@ literal|"other"
 argument_list|)
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|events
 parameter_list|)
@@ -809,7 +813,7 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onRouteRemovedEventEventAll (@bserves RouteRemovedEvent event, @Named(R) List<EventObject> events)
+DECL|method|onRouteRemovedEventEventAll (@bserves RouteRemovedEvent event, @Named(R) List<CamelEvent> events)
 specifier|private
 name|void
 name|onRouteRemovedEventEventAll
@@ -826,7 +830,7 @@ literal|"all"
 argument_list|)
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|events
 parameter_list|)
@@ -839,7 +843,7 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onRouteRemovedEventEventSimple (@bserves @amedR) RouteRemovedEvent event, @Named(R) List<EventObject> events)
+DECL|method|onRouteRemovedEventEventSimple (@bserves @amedR) RouteRemovedEvent event, @Named(R) List<CamelEvent> events)
 specifier|private
 name|void
 name|onRouteRemovedEventEventSimple
@@ -861,7 +865,7 @@ literal|"simple"
 argument_list|)
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|events
 parameter_list|)
@@ -874,7 +878,7 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onRouteRemovedEventEventOther (@bserves @amedR) RouteRemovedEvent event, @Named(R) List<EventObject> events)
+DECL|method|onRouteRemovedEventEventOther (@bserves @amedR) RouteRemovedEvent event, @Named(R) List<CamelEvent> events)
 specifier|private
 name|void
 name|onRouteRemovedEventEventOther
@@ -896,7 +900,7 @@ literal|"other"
 argument_list|)
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|events
 parameter_list|)
@@ -972,7 +976,7 @@ name|InSequence
 argument_list|(
 literal|1
 argument_list|)
-DECL|method|startedCamelContext (@amedR) List<EventObject> all, @Named(R) List<EventObject> simple, @Named(R) List<EventObject> other)
+DECL|method|startedCamelContext (@amedR) List<CamelEvent> all, @Named(R) List<CamelEvent> simple, @Named(R) List<CamelEvent> other)
 specifier|public
 name|void
 name|startedCamelContext
@@ -984,7 +988,7 @@ literal|"all"
 argument_list|)
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|all
 parameter_list|,
@@ -995,7 +999,7 @@ literal|"simple"
 argument_list|)
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|simple
 parameter_list|,
@@ -1006,7 +1010,7 @@ literal|"other"
 argument_list|)
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|other
 parameter_list|)
@@ -1297,7 +1301,7 @@ name|InSequence
 argument_list|(
 literal|3
 argument_list|)
-DECL|method|stopCamelContext (CamelContext context, @Named(R) List<EventObject> all, @Named(R) List<EventObject> simple, @Named(R) List<EventObject> other)
+DECL|method|stopCamelContext (CamelContext context, @Named(R) List<CamelEvent> all, @Named(R) List<CamelEvent> simple, @Named(R) List<CamelEvent> other)
 specifier|public
 name|void
 name|stopCamelContext
@@ -1312,7 +1316,7 @@ literal|"all"
 argument_list|)
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|all
 parameter_list|,
@@ -1323,7 +1327,7 @@ literal|"simple"
 argument_list|)
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|simple
 parameter_list|,
@@ -1334,7 +1338,7 @@ literal|"other"
 argument_list|)
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|other
 parameter_list|)

@@ -967,6 +967,20 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getType ()
+specifier|public
+name|Type
+name|getType
+parameter_list|()
+block|{
+return|return
+name|Type
+operator|.
+name|Custom
+return|;
+block|}
 DECL|method|getId ()
 specifier|public
 name|String
@@ -1028,6 +1042,20 @@ name|timeTaken
 operator|=
 name|timeTaken
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getType ()
+specifier|public
+name|Type
+name|getType
+parameter_list|()
+block|{
+return|return
+name|Type
+operator|.
+name|Custom
+return|;
 block|}
 DECL|method|getId ()
 specifier|public

@@ -170,6 +170,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|CamelEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|EventNotifierSupport
@@ -209,7 +223,7 @@ specifier|private
 specifier|static
 name|List
 argument_list|<
-name|EventObject
+name|CamelEvent
 argument_list|>
 name|events
 init|=
@@ -319,7 +333,7 @@ specifier|public
 name|void
 name|notify
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 throws|throws
@@ -337,7 +351,7 @@ specifier|public
 name|boolean
 name|isEnabled
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 block|{

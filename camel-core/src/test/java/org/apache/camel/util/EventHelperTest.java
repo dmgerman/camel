@@ -22,16 +22,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|atomic
@@ -88,11 +78,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
-operator|.
-name|CamelContextStoppingEvent
+name|CamelEvent
 import|;
 end_import
 
@@ -104,27 +92,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
-name|RouteStartedEvent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|management
-operator|.
-name|event
-operator|.
-name|RouteStoppedEvent
+name|Type
 import|;
 end_import
 
@@ -735,12 +707,12 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|notify (EventObject event)
+DECL|method|notify (CamelEvent event)
 specifier|public
 name|void
 name|notify
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 throws|throws
@@ -749,8 +721,13 @@ block|{
 if|if
 condition|(
 name|event
-operator|instanceof
-name|RouteStartedEvent
+operator|.
+name|getType
+argument_list|()
+operator|==
+name|Type
+operator|.
+name|RouteStarted
 condition|)
 block|{
 name|routeStartedEvent
@@ -763,8 +740,13 @@ elseif|else
 if|if
 condition|(
 name|event
-operator|instanceof
-name|RouteStoppedEvent
+operator|.
+name|getType
+argument_list|()
+operator|==
+name|Type
+operator|.
+name|RouteStopped
 condition|)
 block|{
 name|routeStoppedEvent
@@ -777,8 +759,13 @@ elseif|else
 if|if
 condition|(
 name|event
-operator|instanceof
-name|CamelContextStoppingEvent
+operator|.
+name|getType
+argument_list|()
+operator|==
+name|Type
+operator|.
+name|CamelContextStopping
 condition|)
 block|{
 name|camelContextStoppingEvent
@@ -790,12 +777,12 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|isEnabled (EventObject event)
+DECL|method|isEnabled (CamelEvent event)
 specifier|public
 name|boolean
 name|isEnabled
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 block|{

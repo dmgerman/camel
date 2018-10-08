@@ -26,16 +26,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|TimeUnit
@@ -102,11 +92,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
-operator|.
-name|AbstractExchangeEvent
+name|CamelEvent
 import|;
 end_import
 
@@ -118,9 +106,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|ExchangeCompletedEvent
 import|;
@@ -134,9 +122,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|ExchangeCreatedEvent
 import|;
@@ -150,9 +138,25 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
+operator|.
+name|ExchangeEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
 operator|.
 name|ExchangeFailedEvent
 import|;
@@ -166,9 +170,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|ExchangeSentEvent
 import|;
@@ -182,7 +186,7 @@ name|MicrometerExchangeEventNotifier
 extends|extends
 name|AbstractMicrometerEventNotifier
 argument_list|<
-name|AbstractExchangeEvent
+name|ExchangeEvent
 argument_list|>
 block|{
 DECL|field|ignoreExchanges
@@ -213,7 +217,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-name|AbstractExchangeEvent
+name|ExchangeEvent
 operator|.
 name|class
 argument_list|)
@@ -279,12 +283,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|notify (EventObject eventObject)
+DECL|method|notify (CamelEvent eventObject)
 specifier|public
 name|void
 name|notify
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|eventObject
 parameter_list|)
 block|{
@@ -299,7 +303,7 @@ name|test
 argument_list|(
 operator|(
 operator|(
-name|AbstractExchangeEvent
+name|ExchangeEvent
 operator|)
 name|eventObject
 operator|)
@@ -358,7 +362,7 @@ block|{
 name|handleDoneEvent
 argument_list|(
 operator|(
-name|AbstractExchangeEvent
+name|ExchangeEvent
 operator|)
 name|eventObject
 argument_list|)
@@ -482,12 +486,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|handleDoneEvent (AbstractExchangeEvent doneEvent)
+DECL|method|handleDoneEvent (ExchangeEvent doneEvent)
 specifier|protected
 name|void
 name|handleDoneEvent
 parameter_list|(
-name|AbstractExchangeEvent
+name|ExchangeEvent
 name|doneEvent
 parameter_list|)
 block|{

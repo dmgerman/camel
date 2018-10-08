@@ -26,16 +26,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|atomic
@@ -66,11 +56,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
-operator|.
-name|AbstractRouteEvent
+name|CamelEvent
 import|;
 end_import
 
@@ -82,9 +70,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|RouteAddedEvent
 import|;
@@ -98,9 +86,25 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
+operator|.
+name|RouteEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
 operator|.
 name|RouteRemovedEvent
 import|;
@@ -114,9 +118,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|RouteStartedEvent
 import|;
@@ -130,9 +134,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|RouteStoppedEvent
 import|;
@@ -146,7 +150,7 @@ name|MicrometerRouteEventNotifier
 extends|extends
 name|AbstractMicrometerEventNotifier
 argument_list|<
-name|AbstractRouteEvent
+name|RouteEvent
 argument_list|>
 block|{
 DECL|field|routesAdded
@@ -185,7 +189,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-name|AbstractRouteEvent
+name|RouteEvent
 operator|.
 name|class
 argument_list|)
@@ -333,12 +337,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|notify (EventObject eventObject)
+DECL|method|notify (CamelEvent eventObject)
 specifier|public
 name|void
 name|notify
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|eventObject
 parameter_list|)
 block|{

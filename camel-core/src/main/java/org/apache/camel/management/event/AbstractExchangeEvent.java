@@ -40,6 +40,22 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
+operator|.
+name|ExchangeEvent
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for {@link Exchange} events.  */
 end_comment
@@ -52,6 +68,8 @@ class|class
 name|AbstractExchangeEvent
 extends|extends
 name|EventObject
+implements|implements
+name|ExchangeEvent
 block|{
 DECL|field|serialVersionUID
 specifier|private

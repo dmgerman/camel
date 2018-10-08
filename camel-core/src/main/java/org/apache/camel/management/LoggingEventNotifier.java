@@ -18,11 +18,15 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|EventObject
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
 import|;
 end_import
 
@@ -91,12 +95,12 @@ specifier|private
 name|String
 name|logName
 decl_stmt|;
-DECL|method|notify (EventObject event)
+DECL|method|notify (CamelEvent event)
 specifier|public
 name|void
 name|notify
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 throws|throws
@@ -128,12 +132,12 @@ name|isInfoEnabled
 argument_list|()
 return|;
 block|}
-DECL|method|isEnabled (EventObject event)
+DECL|method|isEnabled (CamelEvent event)
 specifier|public
 name|boolean
 name|isEnabled
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 block|{

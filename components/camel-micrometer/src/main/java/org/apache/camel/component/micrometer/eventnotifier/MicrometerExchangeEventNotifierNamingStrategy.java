@@ -92,11 +92,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
-name|AbstractExchangeEvent
+name|ExchangeEvent
 import|;
 end_import
 
@@ -265,12 +265,12 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 function_decl|;
-DECL|method|getTags (AbstractExchangeEvent event, Endpoint endpoint)
+DECL|method|getTags (ExchangeEvent event, Endpoint endpoint)
 specifier|default
 name|Tags
 name|getTags
 parameter_list|(
-name|AbstractExchangeEvent
+name|ExchangeEvent
 name|event
 parameter_list|,
 name|Endpoint

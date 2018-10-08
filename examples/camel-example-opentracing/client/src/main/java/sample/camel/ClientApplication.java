@@ -46,11 +46,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|opentracing
 operator|.
-name|event
-operator|.
-name|CamelContextStartingEvent
+name|OpenTracingTracer
 import|;
 end_import
 
@@ -62,9 +60,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|opentracing
+name|spi
 operator|.
-name|OpenTracingTracer
+name|CamelEvent
+operator|.
+name|CamelContextStartingEvent
 import|;
 end_import
 

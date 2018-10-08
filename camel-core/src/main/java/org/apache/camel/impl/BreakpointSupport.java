@@ -76,6 +76,22 @@ name|Breakpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
+operator|.
+name|ExchangeEvent
+import|;
+end_import
+
 begin_comment
 comment|/**  * A support class for {@link Breakpoint} implementations to use as base class.  *<p/>  * Will be in active state.  */
 end_comment
@@ -171,7 +187,7 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
-DECL|method|onEvent (Exchange exchange, EventObject event, NamedNode definition)
+DECL|method|onEvent (Exchange exchange, ExchangeEvent event, NamedNode definition)
 specifier|public
 name|void
 name|onEvent
@@ -179,7 +195,7 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|EventObject
+name|ExchangeEvent
 name|event
 parameter_list|,
 name|NamedNode

@@ -22,16 +22,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -105,6 +95,20 @@ operator|.
 name|camel
 operator|.
 name|StatefulService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
 import|;
 end_import
 
@@ -282,7 +286,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -439,7 +443,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -599,7 +603,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -758,7 +762,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -915,7 +919,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -1075,7 +1079,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -1240,7 +1244,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -1407,7 +1411,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -1571,7 +1575,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -1731,7 +1735,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -1891,7 +1895,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -2051,7 +2055,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -2234,7 +2238,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -2443,7 +2447,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -2652,7 +2656,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -2870,7 +2874,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -3094,7 +3098,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -3312,7 +3316,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -3526,7 +3530,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -3743,7 +3747,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -3930,7 +3934,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -4087,7 +4091,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -4244,7 +4248,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -4401,7 +4405,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -4561,7 +4565,7 @@ name|answer
 init|=
 literal|false
 decl_stmt|;
-name|EventObject
+name|CamelEvent
 name|event
 init|=
 literal|null
@@ -4640,7 +4644,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|doNotifyEvent (EventNotifier notifier, EventObject event)
+DECL|method|doNotifyEvent (EventNotifier notifier, CamelEvent event)
 specifier|private
 specifier|static
 name|boolean
@@ -4649,7 +4653,7 @@ parameter_list|(
 name|EventNotifier
 name|notifier
 parameter_list|,
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 block|{

@@ -16,16 +16,6 @@ name|spi
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|EventObject
-import|;
-end_import
-
 begin_comment
 comment|/**  * Notifier to send {@link java.util.EventObject events}.  *  * @see org.apache.camel.spi.EventFactory  */
 end_comment
@@ -37,22 +27,22 @@ interface|interface
 name|EventNotifier
 block|{
 comment|/**      * Notifies the given event      *      * @param event the event      * @throws Exception can be thrown if notification failed      */
-DECL|method|notify (EventObject event)
+DECL|method|notify (CamelEvent event)
 name|void
 name|notify
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Checks whether notification for the given event is enabled.      *<p/>      * If disabled the event will not be sent and silently ignored instead.      *      * @param event the event      * @return<tt>true</tt> if the event should be sent,<tt>false</tt> to silently ignore it      */
-DECL|method|isEnabled (EventObject event)
+DECL|method|isEnabled (CamelEvent event)
 name|boolean
 name|isEnabled
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 function_decl|;

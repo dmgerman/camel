@@ -30,6 +30,20 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
+import|;
+end_import
+
 begin_comment
 comment|/**  * Event after an {@link Exchange} has been created.  *<p/>  *<b>Notice:</b> This event may be emitted after an {@link ExchangeSendingEvent}, and  * therefore its not guaranteed this event is the first event being send for a given {@link Exchange}  * lifecycle.  */
 end_comment
@@ -41,6 +55,10 @@ class|class
 name|ExchangeCreatedEvent
 extends|extends
 name|AbstractExchangeEvent
+implements|implements
+name|CamelEvent
+operator|.
+name|ExchangeCreatedEvent
 block|{
 DECL|field|serialVersionUID
 specifier|private

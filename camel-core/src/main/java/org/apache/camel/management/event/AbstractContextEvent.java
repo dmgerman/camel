@@ -40,6 +40,22 @@ name|CamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
+operator|.
+name|CamelContextEvent
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for {@link CamelContext} events.  */
 end_comment
@@ -52,6 +68,8 @@ class|class
 name|AbstractContextEvent
 extends|extends
 name|EventObject
+implements|implements
+name|CamelContextEvent
 block|{
 DECL|field|serialVersionUID
 specifier|private

@@ -26,16 +26,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|TimeUnit
@@ -130,6 +120,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|CamelEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|EventNotifierSupport
@@ -195,7 +199,7 @@ name|AbstractMicrometerEventNotifier
 parameter_list|<
 name|T
 extends|extends
-name|EventObject
+name|CamelEvent
 parameter_list|>
 extends|extends
 name|EventNotifierSupport
@@ -366,12 +370,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|isEnabled (EventObject eventObject)
+DECL|method|isEnabled (CamelEvent eventObject)
 specifier|public
 name|boolean
 name|isEnabled
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|eventObject
 parameter_list|)
 block|{

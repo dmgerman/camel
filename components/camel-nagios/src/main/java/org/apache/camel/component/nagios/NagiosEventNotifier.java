@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|googlecode
@@ -96,9 +86,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|CamelContextStartupFailureEvent
 import|;
@@ -112,9 +102,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|CamelContextStopFailureEvent
 import|;
@@ -128,9 +118,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|ExchangeFailedEvent
 import|;
@@ -144,9 +134,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|ExchangeFailureHandledEvent
 import|;
@@ -160,9 +150,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|ExchangeRedeliveryEvent
 import|;
@@ -176,9 +166,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|ServiceStartupFailureEvent
 import|;
@@ -192,11 +182,25 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|ServiceStopFailureEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
 import|;
 end_import
 
@@ -275,12 +279,12 @@ operator|=
 name|sender
 expr_stmt|;
 block|}
-DECL|method|notify (EventObject eventObject)
+DECL|method|notify (CamelEvent eventObject)
 specifier|public
 name|void
 name|notify
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|eventObject
 parameter_list|)
 throws|throws
@@ -356,12 +360,12 @@ literal|"Sending notification done"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|isEnabled (EventObject eventObject)
+DECL|method|isEnabled (CamelEvent eventObject)
 specifier|public
 name|boolean
 name|isEnabled
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|eventObject
 parameter_list|)
 block|{
@@ -369,12 +373,12 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|determineLevel (EventObject eventObject)
+DECL|method|determineLevel (CamelEvent eventObject)
 specifier|protected
 name|Level
 name|determineLevel
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|eventObject
 parameter_list|)
 block|{

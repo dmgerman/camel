@@ -310,9 +310,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
 operator|.
 name|ExchangeSendingEvent
 import|;
@@ -326,9 +340,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|event
+name|CamelEvent
 operator|.
 name|ExchangeSentEvent
 import|;
@@ -1102,7 +1116,7 @@ return|return
 name|sd
 return|;
 block|}
-comment|/**      * Custom camel event handler that will create a new {@link Subsegment XRay subsegment} in case      * the current exchange is forwarded via<code>.to(someEndpoint)</code> to some endpoint and      * accordingly closes the subsegment if the execution returns.      *<p/>      * Note that AWS XRay is designed to manage {@link Segment segments} and {@link Subsegment      * subsegments} within a {@link ThreadLocal} context. Forwarding the exchange to a<em>SEDA</em>      * endpoint will thus copy over the exchange to a new thread, though any available segment      * information collected by AWS XRay will not be available within that new thread!      *<p/>      * As  {@link ExchangeSendingEvent} and {@link ExchangeSentEvent} both are executed within the      * invoking thread (in contrast to {@link org.apache.camel.management.event.ExchangeCreatedEvent      * ExchangeCreatedEvent} and {@link org.apache.camel.management.event.ExchangeCompletedEvent      * ExchangeCompletedEvent} which both run in the context of the spawned thread), adding further      * subsegments by this {@link org.apache.camel.spi.EventNotifier EventNotifier} implementation      * should be safe.      */
+comment|/**      * Custom camel event handler that will create a new {@link Subsegment XRay subsegment} in case      * the current exchange is forwarded via<code>.to(someEndpoint)</code> to some endpoint and      * accordingly closes the subsegment if the execution returns.      *<p/>      * Note that AWS XRay is designed to manage {@link Segment segments} and {@link Subsegment      * subsegments} within a {@link ThreadLocal} context. Forwarding the exchange to a<em>SEDA</em>      * endpoint will thus copy over the exchange to a new thread, though any available segment      * information collected by AWS XRay will not be available within that new thread!      *<p/>      * As  {@link ExchangeSendingEvent} and {@link ExchangeSentEvent} both are executed within the      * invoking thread (in contrast to {@link org.apache.camel.spi.CamelEvent.ExchangeCreatedEvent      * ExchangeCreatedEvent} and {@link org.apache.camel.spi.CamelEvent.ExchangeCompletedEvent      * ExchangeCompletedEvent} which both run in the context of the spawned thread), adding further      * subsegments by this {@link org.apache.camel.spi.EventNotifier EventNotifier} implementation      * should be safe.      */
 DECL|class|XRayEventNotifier
 specifier|private
 specifier|final
@@ -1113,12 +1127,12 @@ name|EventNotifierSupport
 block|{
 annotation|@
 name|Override
-DECL|method|notify (EventObject event)
+DECL|method|notify (CamelEvent event)
 specifier|public
 name|void
 name|notify
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 throws|throws
@@ -1569,12 +1583,12 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|isEnabled (EventObject event)
+DECL|method|isEnabled (CamelEvent event)
 specifier|public
 name|boolean
 name|isEnabled
 parameter_list|(
-name|EventObject
+name|CamelEvent
 name|event
 parameter_list|)
 block|{

@@ -22,16 +22,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -93,6 +83,22 @@ operator|.
 name|camel
 operator|.
 name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelEvent
+operator|.
+name|ExchangeEvent
 import|;
 end_import
 
@@ -238,15 +244,15 @@ name|long
 name|timeTaken
 parameter_list|)
 function_decl|;
-comment|/**      * Callback invoked when an {@link Exchange} is being processed which allows implementators      * to notify breakpoints.      *      * @param exchange the exchange      * @param event    the event (instance of {@link org.apache.camel.management.event.AbstractExchangeEvent}      * @return<tt>true</tt> if any breakpoint was hit,<tt>false</tt> if not breakpoint was hit      */
-DECL|method|onEvent (Exchange exchange, EventObject event)
+comment|/**      * Callback invoked when an {@link Exchange} is being processed which allows implementators      * to notify breakpoints.      *      * @param exchange the exchange      * @param event    the event (instance of {@link ExchangeEvent}      * @return<tt>true</tt> if any breakpoint was hit,<tt>false</tt> if not breakpoint was hit      */
+DECL|method|onEvent (Exchange exchange, ExchangeEvent event)
 name|boolean
 name|onEvent
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|EventObject
+name|ExchangeEvent
 name|event
 parameter_list|)
 function_decl|;
