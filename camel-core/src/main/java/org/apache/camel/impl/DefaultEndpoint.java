@@ -413,7 +413,7 @@ name|description
 operator|=
 literal|"To let the consumer use a custom ExceptionHandler."
 operator|+
-literal|" Notice if the option bridgeErrorHandler is enabled then this options is not in use."
+literal|" Notice if the option bridgeErrorHandler is enabled then this option is not in use."
 operator|+
 literal|" By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored."
 argument_list|)
