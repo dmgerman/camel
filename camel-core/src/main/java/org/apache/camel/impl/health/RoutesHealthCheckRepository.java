@@ -158,6 +158,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|DeferredContextBinding
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Route
 import|;
 end_import
@@ -209,6 +221,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|DeferredContextBinding
 DECL|class|RoutesHealthCheckRepository
 specifier|public
 class|class

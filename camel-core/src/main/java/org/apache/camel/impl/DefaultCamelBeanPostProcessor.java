@@ -84,6 +84,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|DeferredContextBinding
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|EndpointInject
 import|;
 end_import
@@ -216,7 +228,7 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
-comment|/**      * Apply this post processor to the given new bean instance<i>before</i> any bean      * initialization callbacks (like<code>afterPropertiesSet</code>      * or a custom init-method). The bean will already be populated with property values.      * The returned bean instance may be a wrapper around the original.      *       * @param bean the new bean instance      * @param beanName the name of the bean      * @return the bean instance to use, either the original or a wrapped one; if      *<code>null</code>, no subsequent BeanPostProcessors will be invoked      * @throws Exception is thrown if error post processing bean      */
+comment|/**      * Apply this post processor to the given new bean instance<i>before</i> any bean      * initialization callbacks (like<code>afterPropertiesSet</code>      * or a custom init-method). The bean will already be populated with property values.      * The returned bean instance may be a wrapper around the original.      *      * @param bean the new bean instance      * @param beanName the name of the bean      * @return the bean instance to use, either the original or a wrapped one; if      *<code>null</code>, no subsequent BeanPostProcessors will be invoked      * @throws Exception is thrown if error post processing bean      */
 DECL|method|postProcessBeforeInitialization (Object bean, String beanName)
 specifier|public
 name|Object
@@ -292,6 +304,21 @@ name|CamelContextAware
 operator|)
 name|bean
 decl_stmt|;
+name|DeferredContextBinding
+name|deferredBinding
+init|=
+name|bean
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getAnnotation
+argument_list|(
+name|DeferredContextBinding
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|CamelContext
 name|context
 init|=
@@ -301,6 +328,10 @@ decl_stmt|;
 if|if
 condition|(
 name|context
+operator|==
+literal|null
+operator|&&
+name|deferredBinding
 operator|==
 literal|null
 condition|)
@@ -315,7 +346,13 @@ name|beanName
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|context
+operator|!=
+literal|null
+condition|)
 block|{
 name|contextAware
 operator|.
@@ -330,7 +367,7 @@ return|return
 name|bean
 return|;
 block|}
-comment|/**      * Apply this post processor to the given new bean instance<i>after</i> any bean      * initialization callbacks (like<code>afterPropertiesSet</code>      * or a custom init-method). The bean will already be populated with property values.      * The returned bean instance may be a wrapper around the original.      *       * @param bean the new bean instance      * @param beanName the name of the bean      * @return the bean instance to use, either the original or a wrapped one; if      *<code>null</code>, no subsequent BeanPostProcessors will be invoked      * @throws Exception is thrown if error post processing bean      */
+comment|/**      * Apply this post processor to the given new bean instance<i>after</i> any bean      * initialization callbacks (like<code>afterPropertiesSet</code>      * or a custom init-method). The bean will already be populated with property values.      * The returned bean instance may be a wrapper around the original.      *      * @param bean the new bean instance      * @param beanName the name of the bean      * @return the bean instance to use, either the original or a wrapped one; if      *<code>null</code>, no subsequent BeanPostProcessors will be invoked      * @throws Exception is thrown if error post processing bean      */
 DECL|method|postProcessAfterInitialization (Object bean, String beanName)
 specifier|public
 name|Object
