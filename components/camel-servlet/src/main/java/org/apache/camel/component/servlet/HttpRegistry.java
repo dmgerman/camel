@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Keeps track of HttpConsumers and CamelServlets and   * connects them to each other. In OSGi there should  * be one HttpRegistry per bundle.  *   * A CamelServlet that should serve more than one  * bundle should be registered as an OSGi service.  * The HttpRegistryImpl can then be configured to listen  * to service changes. See /tests/camel-itest-osgi/../servlet  * for an example how to use this.  */
+comment|/**  * Keeps track of HttpConsumers and CamelServlets and  * connects them to each other. In OSGi there should  * be one HttpRegistry per bundle.  *   * A CamelServlet that should serve more than one  * bundle should be registered as an OSGi service.  * The {@link DefaultHttpRegistry} can then be configured to listen  * to service changes.  * See /examples/camel-example-servlet-httpregistry-blueprint  * for an example how to use this.  */
 end_comment
 
 begin_interface

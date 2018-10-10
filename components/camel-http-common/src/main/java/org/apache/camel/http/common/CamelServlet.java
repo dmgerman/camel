@@ -439,7 +439,6 @@ annotation|@
 name|Override
 DECL|method|service (HttpServletRequest req, HttpServletResponse resp)
 specifier|protected
-specifier|final
 name|void
 name|service
 parameter_list|(
