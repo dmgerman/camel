@@ -128,23 +128,16 @@ name|counter
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
+DECL|method|useJmx ()
+specifier|protected
+name|boolean
+name|useJmx
 parameter_list|()
-throws|throws
-name|Exception
 block|{
-name|enableJMX
-argument_list|()
-expr_stmt|;
 comment|// the bug was in the JMX so it must be enabled
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 DECL|method|testFromWithNoOutputs ()
 specifier|public

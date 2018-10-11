@@ -117,27 +117,6 @@ name|int
 name|counter
 decl_stmt|;
 annotation|@
-name|Override
-annotation|@
-name|Before
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|disableJMX
-argument_list|()
-expr_stmt|;
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
 name|Test
 DECL|method|testChannel ()
 specifier|public

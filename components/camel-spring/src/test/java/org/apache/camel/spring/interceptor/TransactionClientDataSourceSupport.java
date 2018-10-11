@@ -140,9 +140,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|disableJMX
-argument_list|()
-expr_stmt|;
 name|super
 operator|.
 name|setUp
