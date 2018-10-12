@@ -320,6 +320,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|ProcessorBuilder
@@ -864,7 +876,11 @@ DECL|method|MockEndpoint ()
 specifier|public
 name|MockEndpoint
 parameter_list|()
-block|{     }
+block|{
+name|init
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|MockEndpoint (String endpointUri, Component component)
 specifier|public
 name|MockEndpoint
@@ -1582,7 +1598,7 @@ name|void
 name|reset
 parameter_list|()
 block|{
-name|init
+name|doInit
 argument_list|()
 expr_stmt|;
 block|}
@@ -5031,10 +5047,10 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-DECL|method|init ()
-specifier|private
+DECL|method|doInit ()
+specifier|protected
 name|void
-name|init
+name|doInit
 parameter_list|()
 block|{
 name|expectedCount

@@ -490,8 +490,12 @@ init|=
 name|getCamelContext
 argument_list|()
 operator|.
-name|getRuntimeCamelCatalog
-argument_list|()
+name|getExtension
+argument_list|(
+name|RuntimeCamelCatalog
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 specifier|final
 name|String

@@ -276,24 +276,6 @@ comment|// you can add additional filtering such as the exchange
 comment|// should be from a specific endpoint or route
 comment|// just return true for the events you like
 block|}
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// noop
-block|}
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// noop
-block|}
 block|}
 argument_list|)
 expr_stmt|;

@@ -170,26 +170,6 @@ name|interceptor
 parameter_list|)
 block|{
 name|this
-argument_list|(
-name|interceptor
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Constructs the bridge      *      * @param interceptor the interceptor to bridge      * @param target the target      */
-DECL|method|InterceptorToAsyncProcessorBridge (Processor interceptor, AsyncProcessor target)
-specifier|public
-name|InterceptorToAsyncProcessorBridge
-parameter_list|(
-name|Processor
-name|interceptor
-parameter_list|,
-name|AsyncProcessor
-name|target
-parameter_list|)
-block|{
-name|this
 operator|.
 name|interceptor
 operator|=
@@ -204,7 +184,12 @@ name|this
 operator|.
 name|target
 operator|=
+name|AsyncProcessorConverterHelper
+operator|.
+name|convert
+argument_list|(
 name|target
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Process invoked by the interceptor      * @param exchange the message exchange      * @throws Exception      */

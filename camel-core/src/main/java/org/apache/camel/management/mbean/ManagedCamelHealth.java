@@ -334,10 +334,12 @@ block|{
 name|HealthCheckRegistry
 name|registry
 init|=
-name|context
+name|HealthCheckRegistry
 operator|.
-name|getHealthCheckRegistry
-argument_list|()
+name|get
+argument_list|(
+name|context
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

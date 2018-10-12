@@ -407,24 +407,6 @@ return|return
 literal|false
 return|;
 block|}
-annotation|@
-name|Override
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{             }
-annotation|@
-name|Override
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{             }
 block|}
 argument_list|)
 expr_stmt|;

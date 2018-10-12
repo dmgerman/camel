@@ -2508,8 +2508,6 @@ operator|.
 name|isManaged
 argument_list|(
 name|managedObject
-argument_list|,
-literal|null
 argument_list|)
 condition|)
 block|{

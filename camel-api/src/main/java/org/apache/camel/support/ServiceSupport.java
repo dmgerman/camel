@@ -82,6 +82,15 @@ name|NEW
 init|=
 literal|0
 decl_stmt|;
+DECL|field|INITIALIZED
+specifier|protected
+specifier|static
+specifier|final
+name|int
+name|INITIALIZED
+init|=
+literal|1
+decl_stmt|;
 DECL|field|STARTING
 specifier|protected
 specifier|static
@@ -89,7 +98,7 @@ specifier|final
 name|int
 name|STARTING
 init|=
-literal|1
+literal|2
 decl_stmt|;
 DECL|field|STARTED
 specifier|protected
@@ -98,7 +107,7 @@ specifier|final
 name|int
 name|STARTED
 init|=
-literal|2
+literal|3
 decl_stmt|;
 DECL|field|SUSPENDING
 specifier|protected
@@ -107,7 +116,7 @@ specifier|final
 name|int
 name|SUSPENDING
 init|=
-literal|3
+literal|4
 decl_stmt|;
 DECL|field|SUSPENDED
 specifier|protected
@@ -116,7 +125,7 @@ specifier|final
 name|int
 name|SUSPENDED
 init|=
-literal|4
+literal|5
 decl_stmt|;
 DECL|field|STOPPING
 specifier|protected
@@ -125,7 +134,7 @@ specifier|final
 name|int
 name|STOPPING
 init|=
-literal|5
+literal|6
 decl_stmt|;
 DECL|field|STOPPED
 specifier|protected
@@ -134,7 +143,7 @@ specifier|final
 name|int
 name|STOPPED
 init|=
-literal|6
+literal|7
 decl_stmt|;
 DECL|field|SHUTTINGDOWN
 specifier|protected
@@ -143,7 +152,7 @@ specifier|final
 name|int
 name|SHUTTINGDOWN
 init|=
-literal|7
+literal|8
 decl_stmt|;
 DECL|field|SHUTDOWN
 specifier|protected
@@ -152,7 +161,7 @@ specifier|final
 name|int
 name|SHUTDOWN
 init|=
-literal|8
+literal|9
 decl_stmt|;
 DECL|field|FAILED
 specifier|protected
@@ -161,7 +170,7 @@ specifier|final
 name|int
 name|FAILED
 init|=
-literal|9
+literal|10
 decl_stmt|;
 DECL|field|log
 specifier|protected
@@ -195,6 +204,41 @@ name|status
 init|=
 name|NEW
 decl_stmt|;
+DECL|method|init ()
+specifier|public
+name|void
+name|init
+parameter_list|()
+block|{
+synchronized|synchronized
+init|(
+name|lock
+init|)
+block|{
+if|if
+condition|(
+name|status
+operator|==
+name|NEW
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Initializing service"
+argument_list|)
+expr_stmt|;
+name|doInit
+argument_list|()
+expr_stmt|;
+name|status
+operator|=
+name|INITIALIZED
+expr_stmt|;
+block|}
+block|}
+block|}
 comment|/**      *<b>Important:</b> You should override the lifecycle methods that start with<tt>do</tt>, eg {@link #doStart()},      * {@link #doStop()}, etc. where you implement your logic. The methods {@link #start()}, {@link #stop()} should      *<b>NOT</b> be overriden as they are used internally to keep track of the state of this service and properly      * invoke the operation in a safe manner.      */
 DECL|method|start ()
 specifier|public
@@ -241,6 +285,11 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|init
+argument_list|()
+expr_stmt|;
+try|try
+block|{
 name|status
 operator|=
 name|STARTING
@@ -252,8 +301,6 @@ argument_list|(
 literal|"Starting service"
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|doStart
 argument_list|()
 expr_stmt|;
@@ -752,6 +799,30 @@ name|Stopped
 return|;
 block|}
 block|}
+DECL|method|isNew ()
+specifier|public
+name|boolean
+name|isNew
+parameter_list|()
+block|{
+return|return
+name|status
+operator|==
+name|NEW
+return|;
+block|}
+DECL|method|isInit ()
+specifier|public
+name|boolean
+name|isInit
+parameter_list|()
+block|{
+return|return
+name|status
+operator|==
+name|INITIALIZED
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|isStarted ()
@@ -921,6 +992,13 @@ name|isStarted
 argument_list|()
 return|;
 block|}
+comment|/**      * Initialize the service.      * This method will only be called once before starting.      */
+DECL|method|doInit ()
+specifier|protected
+name|void
+name|doInit
+parameter_list|()
+block|{     }
 comment|/**      * Implementations override this method to support customized start/stop.      *<p/>      *<b>Important:</b> See {@link #doStop()} for more details.      *       * @see #doStop()      */
 DECL|method|doStart ()
 specifier|protected

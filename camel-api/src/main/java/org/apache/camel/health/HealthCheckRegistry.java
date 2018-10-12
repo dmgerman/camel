@@ -56,6 +56,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelContextAware
 import|;
 end_import
@@ -211,6 +223,27 @@ argument_list|)
 operator|.
 name|findFirst
 argument_list|()
+return|;
+block|}
+comment|/**      * Returns an optional {@link HealthCheckRegistry}, by default no registry is      * present and it must be explicit activated. Components can register/unregister      * health checks in response to life-cycle events (i.e. start/stop).      *      * This registry is not used by the camel context but it is up to the impl to      * properly use it, i.e.      *      * - a RouteController could use the registry to decide to restart a route      *   with failing health checks      * - spring boot could integrate such checks within its health endpoint or      *   make it available only as separate endpoint.      */
+DECL|method|get (CamelContext context)
+specifier|static
+name|HealthCheckRegistry
+name|get
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+return|return
+name|context
+operator|.
+name|getExtension
+argument_list|(
+name|HealthCheckRegistry
+operator|.
+name|class
+argument_list|)
 return|;
 block|}
 block|}

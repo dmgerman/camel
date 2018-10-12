@@ -119,7 +119,9 @@ name|container
 init|=
 operator|new
 name|DefaultCamelContext
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 decl_stmt|;
 name|container
 operator|.

@@ -114,6 +114,11 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
+name|camelContext
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
 comment|// turn on runtime statistics in extended mode
 name|camelContext
 operator|.

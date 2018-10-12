@@ -192,6 +192,16 @@ specifier|public
 interface|interface
 name|ManagementObjectNameStrategy
 block|{
+DECL|method|getObjectName (Object managedObject)
+name|ObjectName
+name|getObjectName
+parameter_list|(
+name|Object
+name|managedObject
+parameter_list|)
+throws|throws
+name|MalformedObjectNameException
+function_decl|;
 DECL|method|getObjectNameForCamelContext (String managementName, String name)
 name|ObjectName
 name|getObjectNameForCamelContext
@@ -339,14 +349,14 @@ parameter_list|)
 throws|throws
 name|MalformedObjectNameException
 function_decl|;
-DECL|method|getObjectNameForTracer (CamelContext context, InterceptStrategy tracer)
+DECL|method|getObjectNameForTracer (CamelContext context, Service tracer)
 name|ObjectName
 name|getObjectNameForTracer
 parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|InterceptStrategy
+name|Service
 name|tracer
 parameter_list|)
 throws|throws

@@ -666,8 +666,12 @@ name|catalog
 init|=
 name|camelContext
 operator|.
-name|getRuntimeCamelCatalog
-argument_list|()
+name|getExtension
+argument_list|(
+name|RuntimeCamelCatalog
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 comment|// Convert from Map<String, Object> to  Map<String, String> as required
 comment|// by the Camel Catalog

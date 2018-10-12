@@ -134,7 +134,9 @@ name|context
 operator|=
 operator|new
 name|DefaultCamelContext
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 name|context
 operator|.

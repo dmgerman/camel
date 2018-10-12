@@ -163,6 +163,11 @@ argument_list|()
 decl_stmt|;
 name|context
 operator|.
+name|init
+argument_list|()
+expr_stmt|;
+name|context
+operator|.
 name|getManagementStrategy
 argument_list|()
 operator|.
@@ -382,30 +387,6 @@ name|event
 operator|instanceof
 name|ExchangeSentEvent
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// noop
-block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// noop
 block|}
 DECL|method|getSending ()
 specifier|public

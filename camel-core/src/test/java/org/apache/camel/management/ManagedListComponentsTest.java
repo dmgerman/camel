@@ -110,6 +110,11 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
+name|context
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
 comment|// to force a different management name than the camel id
 name|context
 operator|.
@@ -136,6 +141,11 @@ throws|throws
 name|Exception
 block|{
 comment|// JMX tests dont work well on AIX CI servers (hangs them)
+name|context
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|isPlatform

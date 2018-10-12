@@ -107,6 +107,11 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
+name|context
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
 comment|// START SNIPPET: e1
 comment|// add event notifier where we can log the times it took to process
 comment|// exchanges sent to an endpoint

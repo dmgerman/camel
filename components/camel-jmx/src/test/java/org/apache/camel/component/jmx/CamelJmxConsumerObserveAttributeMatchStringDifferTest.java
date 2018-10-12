@@ -70,6 +70,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
 name|management
 operator|.
 name|ManagedCamelContext
@@ -184,7 +186,7 @@ name|mr
 init|=
 name|context
 operator|.
-name|adapt
+name|getExtension
 argument_list|(
 name|ManagedCamelContext
 operator|.
@@ -194,10 +196,6 @@ operator|.
 name|getManagedRoute
 argument_list|(
 literal|"foo"
-argument_list|,
-name|ManagedRouteMBean
-operator|.
-name|class
 argument_list|)
 decl_stmt|;
 name|mr
@@ -212,7 +210,7 @@ name|mr
 operator|=
 name|context
 operator|.
-name|adapt
+name|getExtension
 argument_list|(
 name|ManagedCamelContext
 operator|.
@@ -222,10 +220,6 @@ operator|.
 name|getManagedRoute
 argument_list|(
 literal|"foo"
-argument_list|,
-name|ManagedRouteMBean
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 name|mr
@@ -240,7 +234,7 @@ name|mr
 operator|=
 name|context
 operator|.
-name|adapt
+name|getExtension
 argument_list|(
 name|ManagedCamelContext
 operator|.
@@ -250,10 +244,6 @@ operator|.
 name|getManagedRoute
 argument_list|(
 literal|"foo"
-argument_list|,
-name|ManagedRouteMBean
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 name|mr
@@ -268,7 +258,7 @@ name|mr
 operator|=
 name|context
 operator|.
-name|adapt
+name|getExtension
 argument_list|(
 name|ManagedCamelContext
 operator|.
@@ -278,10 +268,6 @@ operator|.
 name|getManagedRoute
 argument_list|(
 literal|"foo"
-argument_list|,
-name|ManagedRouteMBean
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 name|mr

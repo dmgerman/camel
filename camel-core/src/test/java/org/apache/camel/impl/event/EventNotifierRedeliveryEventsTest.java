@@ -356,18 +356,6 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-specifier|public
-name|boolean
-name|isEnabled
-parameter_list|(
-name|CamelEvent
-name|event
-parameter_list|)
-block|{
-return|return
-literal|true
-return|;
-block|}
 annotation|@
 name|Override
 specifier|protected
@@ -393,15 +381,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{             }
 block|}
 argument_list|)
 expr_stmt|;

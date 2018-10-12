@@ -24,6 +24,13 @@ specifier|public
 interface|interface
 name|Service
 block|{
+comment|/**      * Initialize the service      */
+DECL|method|init ()
+specifier|default
+name|void
+name|init
+parameter_list|()
+block|{     }
 comment|/**      * Starts the service      *       * @throws Exception is thrown if starting failed      */
 DECL|method|start ()
 name|void

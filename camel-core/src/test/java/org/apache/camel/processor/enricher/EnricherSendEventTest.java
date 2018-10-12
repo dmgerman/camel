@@ -24,16 +24,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|TimeUnit
@@ -100,7 +90,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|impl
 operator|.
 name|DefaultManagementStrategy
 import|;
@@ -349,6 +339,11 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
+name|camelContext
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
 name|ShutdownStrategy
 name|shutdownStrategy
 init|=
@@ -550,41 +545,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|isEnabled (CamelEvent event)
-specifier|public
-name|boolean
-name|isEnabled
-parameter_list|(
-name|CamelEvent
-name|event
-parameter_list|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{         }
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{         }
 block|}
 block|}
 end_class

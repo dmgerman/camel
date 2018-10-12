@@ -246,8 +246,12 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 operator|.
-name|getRuntimeCamelCatalog
-argument_list|()
+name|getExtension
+argument_list|(
+name|RuntimeCamelCatalog
+operator|.
+name|class
+argument_list|)
 operator|.
 name|modelJSonSchema
 argument_list|(

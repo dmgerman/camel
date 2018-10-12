@@ -228,6 +228,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
 name|management
 operator|.
 name|ManagedCamelContext
@@ -466,7 +468,7 @@ name|route
 init|=
 name|camelContext
 operator|.
-name|adapt
+name|getExtension
 argument_list|(
 name|ManagedCamelContext
 operator|.
@@ -476,10 +478,6 @@ operator|.
 name|getManagedRoute
 argument_list|(
 name|id
-argument_list|,
-name|ManagedRouteMBean
-operator|.
-name|class
 argument_list|)
 decl_stmt|;
 if|if
@@ -571,7 +569,7 @@ name|route
 init|=
 name|camelContext
 operator|.
-name|adapt
+name|getExtension
 argument_list|(
 name|ManagedCamelContext
 operator|.
@@ -581,10 +579,6 @@ operator|.
 name|getManagedRoute
 argument_list|(
 name|routeId
-argument_list|,
-name|ManagedRouteMBean
-operator|.
-name|class
 argument_list|)
 decl_stmt|;
 if|if
@@ -652,7 +646,7 @@ name|processor
 init|=
 name|camelContext
 operator|.
-name|adapt
+name|getExtension
 argument_list|(
 name|ManagedCamelContext
 operator|.
@@ -662,10 +656,6 @@ operator|.
 name|getManagedProcessor
 argument_list|(
 name|id
-argument_list|,
-name|ManagedProcessorMBean
-operator|.
-name|class
 argument_list|)
 decl_stmt|;
 if|if

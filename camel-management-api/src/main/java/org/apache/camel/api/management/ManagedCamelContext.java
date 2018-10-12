@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.management
+DECL|package|org.apache.camel.api.management
 package|package
 name|org
 operator|.
@@ -12,21 +12,11 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
 name|management
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
 
 begin_import
 import|import
@@ -87,9 +77,34 @@ DECL|interface|ManagedCamelContext
 specifier|public
 interface|interface
 name|ManagedCamelContext
-extends|extends
-name|CamelContext
 block|{
+comment|/**      * Gets the managed Camel CamelContext client api      */
+DECL|method|getManagedCamelContext ()
+name|ManagedCamelContextMBean
+name|getManagedCamelContext
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the managed processor client api from any of the routes which with the given id      *      * @param id id of the processor      * @return the processor or<tt>null</tt> if not found      */
+DECL|method|getManagedProcessor (String id)
+specifier|default
+name|ManagedProcessorMBean
+name|getManagedProcessor
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+return|return
+name|getManagedProcessor
+argument_list|(
+name|id
+argument_list|,
+name|ManagedProcessorMBean
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
 comment|/**      * Gets the managed processor client api from any of the routes which with the given id      *      * @param id id of the processor      * @param type the managed processor type from the {@link org.apache.camel.api.management.mbean} package.      * @return the processor or<tt>null</tt> if not found      * @throws IllegalArgumentException if the type is not compliant      */
 DECL|method|getManagedProcessor (String id, Class<T> type)
 parameter_list|<
@@ -110,6 +125,27 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the managed route client api with the given route id      *      * @param routeId id of the route      * @return the route or<tt>null</tt> if not found      */
+DECL|method|getManagedRoute (String routeId)
+specifier|default
+name|ManagedRouteMBean
+name|getManagedRoute
+parameter_list|(
+name|String
+name|routeId
+parameter_list|)
+block|{
+return|return
+name|getManagedRoute
+argument_list|(
+name|routeId
+argument_list|,
+name|ManagedRouteMBean
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
 comment|/**      * Gets the managed route client api with the given route id      *      * @param routeId id of the route      * @param type the managed route type from the {@link org.apache.camel.api.management.mbean} package.      * @return the route or<tt>null</tt> if not found      * @throws IllegalArgumentException if the type is not compliant      */
 DECL|method|getManagedRoute (String routeId, Class<T> type)
 parameter_list|<
@@ -129,12 +165,6 @@ name|T
 argument_list|>
 name|type
 parameter_list|)
-function_decl|;
-comment|/**      * Gets the managed Camel CamelContext client api      */
-DECL|method|getManagedCamelContext ()
-name|ManagedCamelContextMBean
-name|getManagedCamelContext
-parameter_list|()
 function_decl|;
 block|}
 end_interface

@@ -118,39 +118,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|isEnabled (CamelEvent event)
-specifier|public
-name|boolean
-name|isEnabled
-parameter_list|(
-name|CamelEvent
-name|event
-parameter_list|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// noop
-block|}
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// noop
-block|}
 block|}
 end_class
 

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.management
+DECL|package|org.apache.camel.impl
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|impl
 package|;
 end_package
 
@@ -230,28 +230,8 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
-comment|/**  * A default management strategy that does<b>not</b> manage.  *<p/>  * This is default only used if Camel detects that it cannot use the JMX capable  * {@link org.apache.camel.management.ManagedManagementStrategy} strategy. Then Camel will  * fallback to use this instead that is basically a simple and<tt>noop</tt> strategy.  *<p/>  * This class can also be used to extend your custom management implement. In fact the JMX capable  * provided by Camel extends this class as well.  *  * @see ManagedManagementStrategy  */
+comment|/**  * A default management strategy that does<b>not</b> manage.  *<p/>  * This is default only used if Camel detects that it cannot use the JMX capable  * {@link org.apache.camel.management.ManagedManagementStrategy} strategy. Then Camel will  * fallback to use this instead that is basically a simple and<tt>noop</tt> strategy.  *<p/>  * This class can also be used to extend your custom management implement. In fact the JMX capable  * provided by Camel extends this class as well.  *  * @see org.apache.camel.management.ManagedManagementStrategy  */
 end_comment
 
 begin_class
@@ -266,24 +246,9 @@ name|ManagementStrategy
 implements|,
 name|CamelContextAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|DefaultManagementStrategy
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|eventNotifiers
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|EventNotifier
@@ -344,6 +309,30 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+DECL|method|DefaultManagementStrategy (CamelContext camelContext, ManagementAgent managementAgent)
+specifier|public
+name|DefaultManagementStrategy
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|ManagementAgent
+name|managementAgent
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
+name|this
+operator|.
+name|managementAgent
+operator|=
+name|managementAgent
+expr_stmt|;
+block|}
 DECL|method|getEventNotifiers ()
 specifier|public
 name|List
@@ -394,25 +383,6 @@ name|eventNotifier
 argument_list|)
 return|;
 block|}
-DECL|method|setEventNotifiers (List<EventNotifier> eventNotifiers)
-specifier|public
-name|void
-name|setEventNotifiers
-parameter_list|(
-name|List
-argument_list|<
-name|EventNotifier
-argument_list|>
-name|eventNotifiers
-parameter_list|)
-block|{
-name|this
-operator|.
-name|eventNotifiers
-operator|=
-name|eventNotifiers
-expr_stmt|;
-block|}
 DECL|method|getEventFactory ()
 specifier|public
 name|EventFactory
@@ -454,9 +424,10 @@ condition|)
 block|{
 name|managementObjectNameStrategy
 operator|=
-operator|new
-name|DefaultManagementObjectNameStrategy
-argument_list|()
+name|createManagementObjectNameStrategy
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -494,8 +465,7 @@ condition|)
 block|{
 name|managementObjectStrategy
 operator|=
-operator|new
-name|DefaultManagementObjectStrategy
+name|createManagementObjectStrategy
 argument_list|()
 expr_stmt|;
 block|}
@@ -571,50 +541,6 @@ name|Exception
 block|{
 comment|// noop
 block|}
-DECL|method|manageNamedObject (Object managedObject, Object preferredName)
-specifier|public
-name|void
-name|manageNamedObject
-parameter_list|(
-name|Object
-name|managedObject
-parameter_list|,
-name|Object
-name|preferredName
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// noop
-block|}
-DECL|method|getManagedObjectName (Object managedObject, String customName, Class<T> nameType)
-specifier|public
-parameter_list|<
-name|T
-parameter_list|>
-name|T
-name|getManagedObjectName
-parameter_list|(
-name|Object
-name|managedObject
-parameter_list|,
-name|String
-name|customName
-parameter_list|,
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|nameType
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// noop
-return|return
-literal|null
-return|;
-block|}
 DECL|method|unmanageObject (Object managedObject)
 specifier|public
 name|void
@@ -628,27 +554,25 @@ name|Exception
 block|{
 comment|// noop
 block|}
-DECL|method|unmanageNamedObject (Object name)
-specifier|public
-name|void
-name|unmanageNamedObject
-parameter_list|(
-name|Object
-name|name
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// noop
-block|}
-DECL|method|isManaged (Object managedObject, Object name)
+DECL|method|isManaged (Object managedObject)
 specifier|public
 name|boolean
 name|isManaged
 parameter_list|(
 name|Object
 name|managedObject
-parameter_list|,
+parameter_list|)
+block|{
+comment|// noop
+return|return
+literal|false
+return|;
+block|}
+DECL|method|isManagedName (Object name)
+specifier|public
+name|boolean
+name|isManagedName
+parameter_list|(
 name|Object
 name|name
 parameter_list|)
@@ -745,7 +669,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -843,16 +767,19 @@ operator|==
 literal|null
 condition|)
 block|{
-name|setManagementObjectNameStrategy
-argument_list|(
-operator|new
-name|DefaultManagementObjectNameStrategy
-argument_list|(
+name|String
+name|domain
+init|=
 name|managementAgent
 operator|.
 name|getMBeanObjectDomainName
 argument_list|()
-argument_list|)
+decl_stmt|;
+name|managementObjectNameStrategy
+operator|=
+name|createManagementObjectNameStrategy
+argument_list|(
+name|domain
 argument_list|)
 expr_stmt|;
 block|}
@@ -896,6 +823,29 @@ argument_list|,
 name|eventNotifiers
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|createManagementObjectNameStrategy (String domain)
+specifier|protected
+name|ManagementObjectNameStrategy
+name|createManagementObjectNameStrategy
+parameter_list|(
+name|String
+name|domain
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+DECL|method|createManagementObjectStrategy ()
+specifier|protected
+name|ManagementObjectStrategy
+name|createManagementObjectStrategy
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
 block|}
 block|}
 end_class

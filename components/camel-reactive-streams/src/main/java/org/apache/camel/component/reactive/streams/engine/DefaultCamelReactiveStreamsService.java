@@ -702,10 +702,10 @@ operator|.
 name|DEFAULT_SERVICE_NAME
 return|;
 block|}
-DECL|method|init ()
-specifier|private
+DECL|method|doInit ()
+specifier|protected
 name|void
-name|init
+name|doInit
 parameter_list|()
 block|{
 if|if

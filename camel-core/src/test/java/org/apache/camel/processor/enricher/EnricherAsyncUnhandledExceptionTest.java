@@ -371,6 +371,11 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
+name|camelContext
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
 name|ShutdownStrategy
 name|shutdownStrategy
 init|=

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.management
+DECL|package|org.apache.camel.spi
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 package|;
 end_package
 
@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|AsyncProcessor
 import|;
 end_import
 
@@ -36,9 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultManagementStrategy
+name|Exchange
 import|;
 end_import
 
@@ -50,9 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|ManagementStrategy
+name|NamedNode
 import|;
 end_import
 
@@ -60,9 +56,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|apache
 operator|.
-name|Logger
+name|camel
+operator|.
+name|Ordered
 import|;
 end_import
 
@@ -70,107 +68,98 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|apache
 operator|.
-name|LoggerFactory
+name|camel
+operator|.
+name|Processor
 import|;
 end_import
 
-begin_comment
-comment|/**  * Factory for creating {@link ManagementStrategy}  */
-end_comment
-
-begin_class
-DECL|class|ManagementStrategyFactory
+begin_interface
+DECL|interface|ManagementInterceptStrategy
 specifier|public
-class|class
-name|ManagementStrategyFactory
+interface|interface
+name|ManagementInterceptStrategy
 block|{
-DECL|field|log
-specifier|private
-specifier|final
-name|Logger
-name|log
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|)
-decl_stmt|;
-DECL|method|create (CamelContext context, boolean disableJMX)
-specifier|public
-name|ManagementStrategy
-name|create
+DECL|method|createProcessor (NamedNode definition, Processor target)
+name|InstrumentationProcessor
+argument_list|<
+name|?
+argument_list|>
+name|createProcessor
 parameter_list|(
-name|CamelContext
-name|context
+name|NamedNode
+name|definition
 parameter_list|,
-name|boolean
-name|disableJMX
+name|Processor
+name|target
 parameter_list|)
-block|{
-if|if
-condition|(
-operator|!
-name|disableJMX
-operator|&&
-operator|!
-name|Boolean
-operator|.
-name|getBoolean
-argument_list|(
-name|JmxSystemPropertyKeys
-operator|.
-name|DISABLED
-argument_list|)
-condition|)
-block|{
-try|try
-block|{
-return|return
-operator|new
-name|ManagedManagementStrategy
-argument_list|(
-name|context
-argument_list|,
-operator|new
-name|DefaultManagementAgent
-argument_list|(
-name|context
-argument_list|)
-argument_list|)
-return|;
-block|}
-catch|catch
+function_decl|;
+DECL|method|createProcessor (String type)
+name|InstrumentationProcessor
+argument_list|<
+name|?
+argument_list|>
+name|createProcessor
 parameter_list|(
-name|Exception
-name|e
+name|String
+name|type
 parameter_list|)
+function_decl|;
+DECL|interface|InstrumentationProcessor
+interface|interface
+name|InstrumentationProcessor
+parameter_list|<
+name|T
+parameter_list|>
+extends|extends
+name|AsyncProcessor
+extends|,
+name|Ordered
 block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Cannot create JMX lifecycle strategy. Will fallback and disable JMX."
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
+DECL|method|before (Exchange exchange)
+name|T
+name|before
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+DECL|method|after (Exchange exchange, T data)
+name|void
+name|after
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|T
+name|data
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+DECL|method|setProcessor (Processor processor)
+name|void
+name|setProcessor
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+function_decl|;
+DECL|method|setCounter (Object object)
+name|void
+name|setCounter
+parameter_list|(
+name|Object
+name|object
+parameter_list|)
+function_decl|;
 block|}
 block|}
-return|return
-operator|new
-name|DefaultManagementStrategy
-argument_list|(
-name|context
-argument_list|)
-return|;
-block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

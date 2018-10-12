@@ -244,36 +244,6 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-specifier|public
-name|boolean
-name|isEnabled
-parameter_list|(
-name|CamelEvent
-name|event
-parameter_list|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-annotation|@
-name|Override
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{             }
-annotation|@
-name|Override
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{             }
 block|}
 expr_stmt|;
 name|context

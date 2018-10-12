@@ -455,7 +455,17 @@ DECL|method|SpringCamelContext ()
 specifier|public
 name|SpringCamelContext
 parameter_list|()
-block|{     }
+block|{
+name|setManagementMBeanAssembler
+argument_list|(
+operator|new
+name|SpringManagementMBeanAssembler
+argument_list|(
+name|this
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|SpringCamelContext (ApplicationContext applicationContext)
 specifier|public
 name|SpringCamelContext
@@ -464,6 +474,9 @@ name|ApplicationContext
 name|applicationContext
 parameter_list|)
 block|{
+name|this
+argument_list|()
+expr_stmt|;
 name|setApplicationContext
 argument_list|(
 name|applicationContext
@@ -1027,23 +1040,6 @@ name|createInjector
 argument_list|()
 return|;
 block|}
-block|}
-annotation|@
-name|Override
-DECL|method|createManagementMBeanAssembler ()
-specifier|protected
-name|ManagementMBeanAssembler
-name|createManagementMBeanAssembler
-parameter_list|()
-block|{
-comment|// use a spring mbean assembler
-return|return
-operator|new
-name|SpringManagementMBeanAssembler
-argument_list|(
-name|this
-argument_list|)
-return|;
 block|}
 DECL|method|createEventEndpoint ()
 specifier|protected

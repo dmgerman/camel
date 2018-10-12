@@ -106,6 +106,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
 name|management
 operator|.
 name|ManagedCamelContext
@@ -217,7 +219,7 @@ name|managedCamelContext
 init|=
 name|context
 operator|.
-name|adapt
+name|getExtension
 argument_list|(
 name|ManagedCamelContext
 operator|.

@@ -256,6 +256,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
 name|management
 operator|.
 name|ManagedCamelContext
@@ -2368,7 +2370,7 @@ name|mr
 init|=
 name|context
 operator|.
-name|adapt
+name|getExtension
 argument_list|(
 name|ManagedCamelContext
 operator|.
@@ -2381,10 +2383,6 @@ name|route
 operator|.
 name|getId
 argument_list|()
-argument_list|,
-name|ManagedRouteMBean
-operator|.
-name|class
 argument_list|)
 decl_stmt|;
 if|if

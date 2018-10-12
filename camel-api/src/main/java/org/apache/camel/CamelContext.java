@@ -94,34 +94,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|health
-operator|.
-name|HealthCheckRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|runtimecatalog
-operator|.
-name|RuntimeCamelCatalog
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|AsyncProcessorAwaitManager
@@ -775,6 +747,37 @@ argument_list|<
 name|T
 argument_list|>
 name|type
+parameter_list|)
+function_decl|;
+DECL|method|getExtension (Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|getExtension
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+DECL|method|setExtension (Class<T> type, T module)
+parameter_list|<
+name|T
+parameter_list|>
+name|void
+name|setExtension
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|,
+name|T
+name|module
 parameter_list|)
 function_decl|;
 comment|/**      * If CamelContext during the start procedure was vetoed, and therefore causing Camel to not start.      */
@@ -1771,36 +1774,6 @@ name|ManagementStrategy
 name|strategy
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the default backlog tracer      *      * @return the default backlog tracer      */
-DECL|method|getDefaultBacklogTracer ()
-name|InterceptStrategy
-name|getDefaultBacklogTracer
-parameter_list|()
-function_decl|;
-comment|/**      * Sets a custom backlog tracer to be used as the default backlog tracer.      *<p/>      *<b>Note:</b> This must be set before any routes are created,      * changing the default backlog tracer for existing routes is not supported.      *      * @param backlogTracer the custom tracer to use as default backlog tracer      */
-DECL|method|setDefaultBacklogTracer (InterceptStrategy backlogTracer)
-name|void
-name|setDefaultBacklogTracer
-parameter_list|(
-name|InterceptStrategy
-name|backlogTracer
-parameter_list|)
-function_decl|;
-comment|/**      * Gets the default backlog debugger      *      * @return the default backlog debugger      */
-DECL|method|getDefaultBacklogDebugger ()
-name|InterceptStrategy
-name|getDefaultBacklogDebugger
-parameter_list|()
-function_decl|;
-comment|/**      * Sets a custom backlog debugger to be used as the default backlog debugger.      *<p/>      *<b>Note:</b> This must be set before any routes are created,      * changing the default backlog debugger for existing routes is not supported.      *      * @param backlogDebugger the custom debugger to use as default backlog debugger      */
-DECL|method|setDefaultBacklogDebugger (InterceptStrategy backlogDebugger)
-name|void
-name|setDefaultBacklogDebugger
-parameter_list|(
-name|InterceptStrategy
-name|backlogDebugger
-parameter_list|)
-function_decl|;
 comment|/**      * Disables using JMX as {@link org.apache.camel.spi.ManagementStrategy}.      *<p/>      *<b>Important:</b> This method must be called<b>before</b> the {@link CamelContext} is started.      *      * @throws IllegalStateException is thrown if the {@link CamelContext} is not in stopped state.      */
 DECL|method|disableJMX ()
 name|void
@@ -2282,12 +2255,6 @@ name|ReloadStrategy
 name|reloadStrategy
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the associated {@link RuntimeCamelCatalog} for this CamelContext.      */
-DECL|method|getRuntimeCamelCatalog ()
-name|RuntimeCamelCatalog
-name|getRuntimeCamelCatalog
-parameter_list|()
-function_decl|;
 comment|/**      * Gets a list of {@link LogListener}.      */
 DECL|method|getLogListeners ()
 name|Set
@@ -2334,21 +2301,6 @@ name|setHeadersMapFactory
 parameter_list|(
 name|HeadersMapFactory
 name|factory
-parameter_list|)
-function_decl|;
-comment|/**      * Returns an optional {@link HealthCheckRegistry}, by default no registry is      * present and it must be explicit activated. Components can register/unregister      * health checks in response to life-cycle events (i.e. start/stop).      *      * This registry is not used by the camel context but it is up to the impl to      * properly use it, i.e.      *      * - a RouteController could use the registry to decide to restart a route      *   with failing health checks      * - spring boot could integrate such checks within its health endpoint or      *   make it available only as separate endpoint.      */
-DECL|method|getHealthCheckRegistry ()
-name|HealthCheckRegistry
-name|getHealthCheckRegistry
-parameter_list|()
-function_decl|;
-comment|/**      * Sets a {@link HealthCheckRegistry}.      */
-DECL|method|setHealthCheckRegistry (HealthCheckRegistry healthCheckRegistry)
-name|void
-name|setHealthCheckRegistry
-parameter_list|(
-name|HealthCheckRegistry
-name|healthCheckRegistry
 parameter_list|)
 function_decl|;
 block|}

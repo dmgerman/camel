@@ -4696,16 +4696,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{         }
 block|}
 DECL|enum|EventOperation
 specifier|private

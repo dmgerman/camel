@@ -254,6 +254,20 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|CamelInternalProcessorAdvice
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|ContractAdvice
 import|;
 end_import
@@ -297,6 +311,20 @@ operator|.
 name|spi
 operator|.
 name|InterceptStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ManagementInterceptStrategy
 import|;
 end_import
 
@@ -455,10 +483,10 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|field|managedInterceptStrategy
+DECL|field|managementInterceptStrategy
 specifier|private
-name|InterceptStrategy
-name|managedInterceptStrategy
+name|ManagementInterceptStrategy
+name|managementInterceptStrategy
 decl_stmt|;
 DECL|field|routeAdded
 specifier|private
@@ -1139,19 +1167,31 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// wrap in JMX instrumentation processor that is used for performance stats
+if|if
+condition|(
+name|managementInterceptStrategy
+operator|!=
+literal|null
+condition|)
+block|{
 name|internal
 operator|.
 name|addAdvice
 argument_list|(
-operator|new
-name|CamelInternalProcessor
+name|CamelInternalProcessorAdvice
 operator|.
-name|InstrumentationAdvice
+name|wrap
+argument_list|(
+name|managementInterceptStrategy
+operator|.
+name|createProcessor
 argument_list|(
 literal|"route"
 argument_list|)
 argument_list|)
+argument_list|)
 expr_stmt|;
+block|}
 comment|// wrap in route lifecycle
 name|internal
 operator|.
@@ -1784,30 +1824,30 @@ name|interceptStrategy
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setManagedInterceptStrategy (InterceptStrategy interceptStrategy)
+DECL|method|setManagementInterceptStrategy (ManagementInterceptStrategy interceptStrategy)
 specifier|public
 name|void
-name|setManagedInterceptStrategy
+name|setManagementInterceptStrategy
 parameter_list|(
-name|InterceptStrategy
+name|ManagementInterceptStrategy
 name|interceptStrategy
 parameter_list|)
 block|{
 name|this
 operator|.
-name|managedInterceptStrategy
+name|managementInterceptStrategy
 operator|=
 name|interceptStrategy
 expr_stmt|;
 block|}
-DECL|method|getManagedInterceptStrategy ()
+DECL|method|getManagementInterceptStrategy ()
 specifier|public
-name|InterceptStrategy
-name|getManagedInterceptStrategy
+name|ManagementInterceptStrategy
+name|getManagementInterceptStrategy
 parameter_list|()
 block|{
 return|return
-name|managedInterceptStrategy
+name|managementInterceptStrategy
 return|;
 block|}
 DECL|method|isRouteAdded ()

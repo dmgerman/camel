@@ -130,6 +130,11 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
+name|context
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
 comment|// disable it by default
 name|context
 operator|.

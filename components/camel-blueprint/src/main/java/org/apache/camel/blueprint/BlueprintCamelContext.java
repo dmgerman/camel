@@ -565,13 +565,11 @@ operator|=
 name|blueprintContainer
 expr_stmt|;
 block|}
-DECL|method|init ()
+DECL|method|doInit ()
 specifier|public
 name|void
-name|init
+name|doInit
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|log
 operator|.

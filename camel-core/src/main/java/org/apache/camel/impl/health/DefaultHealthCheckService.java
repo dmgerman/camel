@@ -964,10 +964,12 @@ condition|)
 block|{
 name|registry
 operator|=
-name|camelContext
+name|HealthCheckRegistry
 operator|.
-name|getHealthCheckRegistry
-argument_list|()
+name|get
+argument_list|(
+name|camelContext
+argument_list|)
 expr_stmt|;
 block|}
 if|if

@@ -100,6 +100,22 @@ name|api
 operator|.
 name|management
 operator|.
+name|ManagedCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
 name|mbean
 operator|.
 name|ManagedCamelContextMBean
@@ -186,6 +202,11 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
+name|context
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
 comment|// to force a different management name than the camel id
 name|context
 operator|.
@@ -227,7 +248,7 @@ name|client
 init|=
 name|context
 operator|.
-name|adapt
+name|getExtension
 argument_list|(
 name|ManagedCamelContext
 operator|.

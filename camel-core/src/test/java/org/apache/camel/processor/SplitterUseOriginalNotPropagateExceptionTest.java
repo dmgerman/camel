@@ -159,6 +159,11 @@ argument_list|()
 decl_stmt|;
 name|context
 operator|.
+name|init
+argument_list|()
+expr_stmt|;
+name|context
+operator|.
 name|getManagementStrategy
 argument_list|()
 operator|.

@@ -505,6 +505,13 @@ argument_list|(
 name|e
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|p
+operator|!=
+literal|null
+condition|)
+block|{
 name|p
 operator|.
 name|evict
@@ -512,6 +519,7 @@ argument_list|(
 name|s
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Tries to acquire the service with the given key      *      * @param endpoint the endpoint      * @return the acquired service      */
 DECL|method|acquire (Endpoint endpoint)

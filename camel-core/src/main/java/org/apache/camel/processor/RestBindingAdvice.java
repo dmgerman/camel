@@ -231,7 +231,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.processor.CamelInternalProcessorAdvice} that binds the REST DSL incoming  * and outgoing messages from sources of json or xml to Java Objects.  *<p/>  * The binding uses {@link org.apache.camel.spi.DataFormat} for the actual work to transform  * from xml/json to Java Objects and reverse again.  *<p/>  * The rest producer side is implemented in {@link org.apache.camel.component.rest.RestProducerBindingProcessor}  *  * @see CamelInternalProcessor  */
+comment|/**  * A {@link CamelInternalProcessorAdvice} that binds the REST DSL incoming  * and outgoing messages from sources of json or xml to Java Objects.  *<p/>  * The binding uses {@link org.apache.camel.spi.DataFormat} for the actual work to transform  * from xml/json to Java Objects and reverse again.  *<p/>  * The rest producer side is implemented in {@link org.apache.camel.component.rest.RestProducerBindingProcessor}  *  * @see CamelInternalProcessor  */
 end_comment
 
 begin_class

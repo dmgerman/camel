@@ -73,43 +73,6 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Adds a managed object allowing the ManagementStrategy implementation      * to record or expose the object as it sees fit.      *      * @param managedObject the managed object      * @param preferredName representing the preferred name, maybe a String, or a JMX ObjectName      * @throws Exception can be thrown if the object could not be added      */
-DECL|method|manageNamedObject (Object managedObject, Object preferredName)
-name|void
-name|manageNamedObject
-parameter_list|(
-name|Object
-name|managedObject
-parameter_list|,
-name|Object
-name|preferredName
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Construct an object name, where either the object to be managed and/or      * a custom name component are provided      *      * @param managedObject the object to be managed      * @param customName a custom name component      * @param nameType the name type required      * @return an object name of the required type if supported, otherwise<tt>null</tt>      * @throws Exception can be thrown if the object name could not be created      */
-DECL|method|getManagedObjectName (Object managedObject, String customName, Class<T> nameType)
-parameter_list|<
-name|T
-parameter_list|>
-name|T
-name|getManagedObjectName
-parameter_list|(
-name|Object
-name|managedObject
-parameter_list|,
-name|String
-name|customName
-parameter_list|,
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|nameType
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
 comment|/**      * Removes the managed object.      *      * @param managedObject the managed object      * @throws Exception can be thrown if the object could not be removed      */
 DECL|method|unmanageObject (Object managedObject)
 name|void
@@ -121,25 +84,20 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Removes a managed object by name.      *      * @param name an object name previously created by this strategy.      * @throws Exception can be thrown if the object could not be removed      */
-DECL|method|unmanageNamedObject (Object name)
-name|void
-name|unmanageNamedObject
-parameter_list|(
-name|Object
-name|name
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Determines if an object or name is managed.      *      * @param managedObject the object to consider      * @param name the name to consider      * @return<tt>true</tt> if the given object or name is managed      */
-DECL|method|isManaged (Object managedObject, Object name)
+comment|/**      * Determines if an object or name is managed.      *      * @param managedObject the object to consider      * @return<tt>true</tt> if the given object is managed      */
+DECL|method|isManaged (Object managedObject)
 name|boolean
 name|isManaged
 parameter_list|(
 name|Object
 name|managedObject
-parameter_list|,
+parameter_list|)
+function_decl|;
+comment|/**      * Determines if an object or name is managed.      *      * @param name the name to consider      * @return<tt>true</tt> if the given name is managed      */
+DECL|method|isManagedName (Object name)
+name|boolean
+name|isManagedName
+parameter_list|(
 name|Object
 name|name
 parameter_list|)
@@ -163,18 +121,6 @@ name|EventNotifier
 argument_list|>
 name|getEventNotifiers
 parameter_list|()
-function_decl|;
-comment|/**      * Sets the list of event notifier to use.      *      * @param eventNotifier list of event notifiers      */
-DECL|method|setEventNotifiers (List<EventNotifier> eventNotifier)
-name|void
-name|setEventNotifiers
-parameter_list|(
-name|List
-argument_list|<
-name|EventNotifier
-argument_list|>
-name|eventNotifier
-parameter_list|)
 function_decl|;
 comment|/**      * Adds the event notifier to use.      *<p/>      * Ensure the event notifier has been started if its a {@link Service}, as otherwise      * it would not be used.      *      * @param eventNotifier event notifier      */
 DECL|method|addEventNotifier (EventNotifier eventNotifier)

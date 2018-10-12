@@ -120,6 +120,11 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
+name|context
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
 comment|// only routes
 name|context
 operator|.

@@ -1178,30 +1178,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// noop
-block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// noop
-block|}
-annotation|@
-name|Override
 DECL|method|toString ()
 specifier|public
 name|String

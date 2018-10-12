@@ -114,6 +114,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
 name|management
 operator|.
 name|ManagedCamelContext
@@ -509,7 +511,7 @@ if|if
 condition|(
 name|camelContext
 operator|.
-name|adapt
+name|getExtension
 argument_list|(
 name|ManagedCamelContext
 operator|.
@@ -532,7 +534,7 @@ literal|""
 operator|+
 name|camelContext
 operator|.
-name|adapt
+name|getExtension
 argument_list|(
 name|ManagedCamelContext
 operator|.
@@ -556,7 +558,7 @@ literal|""
 operator|+
 name|camelContext
 operator|.
-name|adapt
+name|getExtension
 argument_list|(
 name|ManagedCamelContext
 operator|.
@@ -580,7 +582,7 @@ literal|""
 operator|+
 name|camelContext
 operator|.
-name|adapt
+name|getExtension
 argument_list|(
 name|ManagedCamelContext
 operator|.
