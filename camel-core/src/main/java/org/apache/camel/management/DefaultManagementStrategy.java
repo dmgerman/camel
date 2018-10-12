@@ -82,7 +82,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|impl
 operator|.
 name|event
 operator|.
