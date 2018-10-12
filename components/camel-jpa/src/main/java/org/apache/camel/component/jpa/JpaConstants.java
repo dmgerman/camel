@@ -38,6 +38,15 @@ name|ENTITY_MANAGER
 init|=
 literal|"CamelEntityManager"
 decl_stmt|;
+DECL|field|JPA_PARAMETERS_HEADER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JPA_PARAMETERS_HEADER
+init|=
+literal|"CamelJpaParameters"
+decl_stmt|;
 comment|/**      * @deprecated use {@link #ENTITY_MANAGER}      */
 annotation|@
 name|Deprecated

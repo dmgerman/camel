@@ -616,7 +616,7 @@ name|getHeader
 argument_list|(
 name|JpaConstants
 operator|.
-name|ENTITYMANAGER
+name|ENTITY_MANAGER
 argument_list|,
 name|EntityManager
 operator|.
