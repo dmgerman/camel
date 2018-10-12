@@ -1484,7 +1484,7 @@ init|=
 name|getManagementStrategy
 argument_list|()
 operator|.
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForCamelContext
@@ -1854,7 +1854,7 @@ init|=
 name|getManagementStrategy
 argument_list|()
 operator|.
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForCamelContext
@@ -3839,6 +3839,8 @@ operator|.
 name|isManaged
 argument_list|(
 name|mr
+argument_list|,
+literal|null
 argument_list|)
 condition|)
 block|{

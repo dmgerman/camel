@@ -187,12 +187,11 @@ comment|/**  * Strategy for computing {@link ObjectName} names for the various b
 end_comment
 
 begin_interface
-DECL|interface|ManagementNamingStrategy
+DECL|interface|ManagementObjectNameStrategy
 specifier|public
 interface|interface
-name|ManagementNamingStrategy
+name|ManagementObjectNameStrategy
 block|{
-comment|// TODO: Should be renamed to ManagementObjectNameStrategy
 DECL|method|getObjectNameForCamelContext (String managementName, String name)
 name|ObjectName
 name|getObjectNameForCamelContext

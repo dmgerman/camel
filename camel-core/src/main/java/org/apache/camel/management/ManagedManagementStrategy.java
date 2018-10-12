@@ -342,20 +342,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|ProcessorDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|ManagementAgent
@@ -555,7 +541,7 @@ name|managedObject
 decl_stmt|;
 name|objectName
 operator|=
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForCamelContext
@@ -585,7 +571,7 @@ name|managedObject
 decl_stmt|;
 name|objectName
 operator|=
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForCamelHealth
@@ -615,7 +601,7 @@ name|managedObject
 decl_stmt|;
 name|objectName
 operator|=
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForRouteController
@@ -645,7 +631,7 @@ name|managedObject
 decl_stmt|;
 name|objectName
 operator|=
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForComponent
@@ -680,7 +666,7 @@ name|managedObject
 decl_stmt|;
 name|objectName
 operator|=
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForDataFormat
@@ -715,7 +701,7 @@ name|managedObject
 decl_stmt|;
 name|objectName
 operator|=
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForEndpoint
@@ -737,7 +723,7 @@ condition|)
 block|{
 name|objectName
 operator|=
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForEndpoint
@@ -767,7 +753,7 @@ name|managedObject
 decl_stmt|;
 name|objectName
 operator|=
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForRoute
@@ -797,7 +783,7 @@ name|managedObject
 decl_stmt|;
 name|objectName
 operator|=
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForErrorHandler
@@ -837,7 +823,7 @@ name|managedObject
 decl_stmt|;
 name|objectName
 operator|=
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForProcessor
@@ -877,7 +863,7 @@ name|managedObject
 decl_stmt|;
 name|objectName
 operator|=
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForConsumer
@@ -912,7 +898,7 @@ name|managedObject
 decl_stmt|;
 name|objectName
 operator|=
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForProducer
@@ -947,7 +933,7 @@ name|managedObject
 decl_stmt|;
 name|objectName
 operator|=
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForTracer
@@ -982,7 +968,7 @@ name|managedObject
 decl_stmt|;
 name|objectName
 operator|=
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForTracer
@@ -1017,7 +1003,7 @@ name|managedObject
 decl_stmt|;
 name|objectName
 operator|=
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForEventNotifier
@@ -1052,7 +1038,7 @@ name|managedObject
 decl_stmt|;
 name|objectName
 operator|=
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForThreadPool
@@ -1097,7 +1083,7 @@ name|managedObject
 decl_stmt|;
 name|objectName
 operator|=
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForClusterService
@@ -1148,7 +1134,7 @@ return|;
 block|}
 name|objectName
 operator|=
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForService

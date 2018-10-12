@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy for management.  *<p/>  * This is totally pluggable allowing to use a custom or 3rd party management implementation with Camel.  *  * @see org.apache.camel.spi.EventNotifier  * @see org.apache.camel.spi.EventFactory  * @see org.apache.camel.spi.ManagementNamingStrategy  * @see org.apache.camel.spi.ManagementAgent  */
+comment|/**  * Strategy for management.  *<p/>  * This is totally pluggable allowing to use a custom or 3rd party management implementation with Camel.  *  * @see org.apache.camel.spi.EventNotifier  * @see org.apache.camel.spi.EventFactory  * @see ManagementObjectNameStrategy  * @see org.apache.camel.spi.ManagementAgent  */
 end_comment
 
 begin_interface
@@ -210,17 +210,17 @@ name|eventFactory
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the naming strategy to use      *      * @return naming strategy      */
-DECL|method|getManagementNamingStrategy ()
-name|ManagementNamingStrategy
-name|getManagementNamingStrategy
+DECL|method|getManagementObjectNameStrategy ()
+name|ManagementObjectNameStrategy
+name|getManagementObjectNameStrategy
 parameter_list|()
 function_decl|;
 comment|/**      * Sets the naming strategy to use      *      * @param strategy naming strategy      */
-DECL|method|setManagementNamingStrategy (ManagementNamingStrategy strategy)
+DECL|method|setManagementObjectNameStrategy (ManagementObjectNameStrategy strategy)
 name|void
-name|setManagementNamingStrategy
+name|setManagementObjectNameStrategy
 parameter_list|(
-name|ManagementNamingStrategy
+name|ManagementObjectNameStrategy
 name|strategy
 parameter_list|)
 function_decl|;

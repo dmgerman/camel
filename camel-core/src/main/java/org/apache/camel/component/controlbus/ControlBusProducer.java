@@ -1154,7 +1154,7 @@ operator|.
 name|getManagementStrategy
 argument_list|()
 operator|.
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForCamelContext
@@ -1194,7 +1194,7 @@ operator|.
 name|getManagementStrategy
 argument_list|()
 operator|.
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForRoute

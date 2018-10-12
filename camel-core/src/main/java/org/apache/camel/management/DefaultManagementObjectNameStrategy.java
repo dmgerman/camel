@@ -282,7 +282,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ManagementNamingStrategy
+name|ManagementObjectNameStrategy
 import|;
 end_import
 
@@ -347,12 +347,12 @@ comment|/**  * Naming strategy used when registering MBeans.  */
 end_comment
 
 begin_class
-DECL|class|DefaultManagementNamingStrategy
+DECL|class|DefaultManagementObjectNameStrategy
 specifier|public
 class|class
-name|DefaultManagementNamingStrategy
+name|DefaultManagementObjectNameStrategy
 implements|implements
-name|ManagementNamingStrategy
+name|ManagementObjectNameStrategy
 implements|,
 name|CamelContextAware
 block|{
@@ -553,9 +553,9 @@ specifier|protected
 name|CamelContext
 name|camelContext
 decl_stmt|;
-DECL|method|DefaultManagementNamingStrategy ()
+DECL|method|DefaultManagementObjectNameStrategy ()
 specifier|public
-name|DefaultManagementNamingStrategy
+name|DefaultManagementObjectNameStrategy
 parameter_list|()
 block|{
 name|this
@@ -565,9 +565,9 @@ argument_list|)
 expr_stmt|;
 comment|// default constructor needed for<bean> style configuration
 block|}
-DECL|method|DefaultManagementNamingStrategy (String domainName)
+DECL|method|DefaultManagementObjectNameStrategy (String domainName)
 specifier|public
-name|DefaultManagementNamingStrategy
+name|DefaultManagementObjectNameStrategy
 parameter_list|(
 name|String
 name|domainName

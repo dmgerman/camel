@@ -3298,7 +3298,7 @@ operator|.
 name|getManagementStrategy
 argument_list|()
 operator|.
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForEndpoint

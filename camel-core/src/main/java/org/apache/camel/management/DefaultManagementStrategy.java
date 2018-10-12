@@ -156,7 +156,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ManagementNamingStrategy
+name|ManagementObjectNameStrategy
 import|;
 end_import
 
@@ -304,10 +304,10 @@ operator|new
 name|DefaultEventFactory
 argument_list|()
 decl_stmt|;
-DECL|field|managementNamingStrategy
+DECL|field|managementObjectNameStrategy
 specifier|private
-name|ManagementNamingStrategy
-name|managementNamingStrategy
+name|ManagementObjectNameStrategy
+name|managementObjectNameStrategy
 decl_stmt|;
 DECL|field|managementObjectStrategy
 specifier|private
@@ -439,44 +439,44 @@ operator|=
 name|eventFactory
 expr_stmt|;
 block|}
-DECL|method|getManagementNamingStrategy ()
+DECL|method|getManagementObjectNameStrategy ()
 specifier|public
-name|ManagementNamingStrategy
-name|getManagementNamingStrategy
+name|ManagementObjectNameStrategy
+name|getManagementObjectNameStrategy
 parameter_list|()
 block|{
 if|if
 condition|(
-name|managementNamingStrategy
+name|managementObjectNameStrategy
 operator|==
 literal|null
 condition|)
 block|{
-name|managementNamingStrategy
+name|managementObjectNameStrategy
 operator|=
 operator|new
-name|DefaultManagementNamingStrategy
+name|DefaultManagementObjectNameStrategy
 argument_list|()
 expr_stmt|;
 block|}
 return|return
-name|managementNamingStrategy
+name|managementObjectNameStrategy
 return|;
 block|}
-DECL|method|setManagementNamingStrategy (ManagementNamingStrategy managementNamingStrategy)
+DECL|method|setManagementObjectNameStrategy (ManagementObjectNameStrategy managementObjectNameStrategy)
 specifier|public
 name|void
-name|setManagementNamingStrategy
+name|setManagementObjectNameStrategy
 parameter_list|(
-name|ManagementNamingStrategy
-name|managementNamingStrategy
+name|ManagementObjectNameStrategy
+name|managementObjectNameStrategy
 parameter_list|)
 block|{
 name|this
 operator|.
-name|managementNamingStrategy
+name|managementObjectNameStrategy
 operator|=
-name|managementNamingStrategy
+name|managementObjectNameStrategy
 expr_stmt|;
 block|}
 DECL|method|getManagementObjectStrategy ()
@@ -838,15 +838,15 @@ expr_stmt|;
 comment|// set the naming strategy using the domain name from the agent
 if|if
 condition|(
-name|managementNamingStrategy
+name|managementObjectNameStrategy
 operator|==
 literal|null
 condition|)
 block|{
-name|setManagementNamingStrategy
+name|setManagementObjectNameStrategy
 argument_list|(
 operator|new
-name|DefaultManagementNamingStrategy
+name|DefaultManagementObjectNameStrategy
 argument_list|(
 name|managementAgent
 operator|.
@@ -859,7 +859,7 @@ block|}
 block|}
 if|if
 condition|(
-name|managementNamingStrategy
+name|managementObjectNameStrategy
 operator|instanceof
 name|CamelContextAware
 condition|)
@@ -868,7 +868,7 @@ operator|(
 operator|(
 name|CamelContextAware
 operator|)
-name|managementNamingStrategy
+name|managementObjectNameStrategy
 operator|)
 operator|.
 name|setCamelContext

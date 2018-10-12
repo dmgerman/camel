@@ -486,7 +486,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ManagementNamingStrategy
+name|ManagementObjectNameStrategy
 import|;
 end_import
 
@@ -696,9 +696,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|ObjectHelper
+name|jsse
+operator|.
+name|GlobalSSLContextParametersSupplier
 import|;
 end_import
 
@@ -710,11 +712,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|jsse
-operator|.
-name|GlobalSSLContextParametersSupplier
+name|ObjectHelper
 import|;
 end_import
 
@@ -2288,13 +2288,13 @@ name|registerPropertyForBeanType
 argument_list|(
 name|applicationContext
 argument_list|,
-name|ManagementNamingStrategy
+name|ManagementObjectNameStrategy
 operator|.
 name|class
 argument_list|,
 name|managementStrategy
 operator|::
-name|setManagementNamingStrategy
+name|setManagementObjectNameStrategy
 argument_list|)
 expr_stmt|;
 name|registerPropertyForBeanType

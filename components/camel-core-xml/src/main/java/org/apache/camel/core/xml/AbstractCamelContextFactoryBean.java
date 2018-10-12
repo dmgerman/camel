@@ -1104,7 +1104,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ManagementNamingStrategy
+name|ManagementObjectNameStrategy
 import|;
 end_import
 
@@ -1854,19 +1854,19 @@ name|managementStrategy
 argument_list|)
 expr_stmt|;
 block|}
-name|ManagementNamingStrategy
-name|managementNamingStrategy
+name|ManagementObjectNameStrategy
+name|managementObjectNameStrategy
 init|=
 name|getBeanForType
 argument_list|(
-name|ManagementNamingStrategy
+name|ManagementObjectNameStrategy
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|managementNamingStrategy
+name|managementObjectNameStrategy
 operator|!=
 literal|null
 condition|)
@@ -1875,9 +1875,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom ManagementNamingStrategy: {}"
+literal|"Using custom ManagementObjectNameStrategy: {}"
 argument_list|,
-name|managementNamingStrategy
+name|managementObjectNameStrategy
 argument_list|)
 expr_stmt|;
 name|getContext
@@ -1886,9 +1886,9 @@ operator|.
 name|getManagementStrategy
 argument_list|()
 operator|.
-name|setManagementNamingStrategy
+name|setManagementObjectNameStrategy
 argument_list|(
-name|managementNamingStrategy
+name|managementObjectNameStrategy
 argument_list|)
 expr_stmt|;
 block|}

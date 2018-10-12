@@ -1326,9 +1326,7 @@ name|camel
 operator|.
 name|runtimecatalog
 operator|.
-name|impl
-operator|.
-name|DefaultRuntimeCamelCatalog
+name|RuntimeCamelCatalog
 import|;
 end_import
 
@@ -1342,7 +1340,9 @@ name|camel
 operator|.
 name|runtimecatalog
 operator|.
-name|RuntimeCamelCatalog
+name|impl
+operator|.
+name|DefaultRuntimeCamelCatalog
 import|;
 end_import
 
@@ -5932,7 +5932,7 @@ init|=
 name|getManagementStrategy
 argument_list|()
 operator|.
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForProcessor
@@ -6038,7 +6038,7 @@ init|=
 name|getManagementStrategy
 argument_list|()
 operator|.
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForRoute
@@ -6111,7 +6111,7 @@ init|=
 name|getManagementStrategy
 argument_list|()
 operator|.
-name|getManagementNamingStrategy
+name|getManagementObjectNameStrategy
 argument_list|()
 operator|.
 name|getObjectNameForCamelContext
