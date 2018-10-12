@@ -3837,8 +3837,6 @@ operator|.
 name|isManaged
 argument_list|(
 name|mr
-argument_list|,
-literal|null
 argument_list|)
 condition|)
 block|{

@@ -899,6 +899,8 @@ name|setHeader
 argument_list|(
 name|OPERATION
 argument_list|,
+name|InfinispanOperation
+operator|.
 name|QUERY
 argument_list|)
 expr_stmt|;

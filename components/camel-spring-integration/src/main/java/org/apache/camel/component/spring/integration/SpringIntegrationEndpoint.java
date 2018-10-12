@@ -271,36 +271,6 @@ operator|=
 name|channel
 expr_stmt|;
 block|}
-annotation|@
-name|Deprecated
-DECL|method|SpringIntegrationEndpoint (String uri, MessageChannel channel, CamelContext context)
-specifier|public
-name|SpringIntegrationEndpoint
-parameter_list|(
-name|String
-name|uri
-parameter_list|,
-name|MessageChannel
-name|channel
-parameter_list|,
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|uri
-argument_list|,
-name|context
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|messageChannel
-operator|=
-name|channel
-expr_stmt|;
-block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer

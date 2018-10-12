@@ -320,7 +320,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(

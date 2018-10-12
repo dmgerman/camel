@@ -30,6 +30,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Converter
 import|;
 end_import
@@ -142,11 +154,6 @@ comment|// Helper class
 block|}
 annotation|@
 name|Converter
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|toEndpoint (final MessageChannel channel)
 specifier|public
 specifier|static
@@ -174,6 +181,9 @@ name|toString
 argument_list|()
 argument_list|,
 name|channel
+operator|.
+name|toString
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)
@@ -317,6 +327,9 @@ return|return
 operator|new
 name|SpringIntegrationMessage
 argument_list|(
+operator|(
+name|CamelContext
+operator|)
 literal|null
 argument_list|,
 name|springMessage
