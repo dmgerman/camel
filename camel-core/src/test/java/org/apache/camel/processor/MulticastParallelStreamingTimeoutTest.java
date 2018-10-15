@@ -78,10 +78,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
 name|AggregationStrategy
 import|;
 end_import

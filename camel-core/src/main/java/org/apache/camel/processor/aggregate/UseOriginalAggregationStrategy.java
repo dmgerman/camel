@@ -26,12 +26,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
 
 begin_comment
-comment|/**  * An {@link org.apache.camel.processor.aggregate.AggregationStrategy} which just uses the original exchange  * which can be needed when you want to preserve the original Exchange. For example when splitting an {@link Exchange}  * and then you may want to keep routing using the original {@link Exchange}.  *  * @see org.apache.camel.processor.Splitter  */
+comment|/**  * An {@link AggregationStrategy} which just uses the original exchange  * which can be needed when you want to preserve the original Exchange. For example when splitting an {@link Exchange}  * and then you may want to keep routing using the original {@link Exchange}.  *  * @see org.apache.camel.processor.Splitter  */
 end_comment
 
 begin_class

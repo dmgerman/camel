@@ -158,10 +158,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
 name|AggregationStrategy
 import|;
 end_import
@@ -337,7 +333,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A content enricher that enriches input data by first obtaining additional  * data from a<i>resource</i> represented by an endpoint<code>producer</code>  * and second by aggregating input data and additional data. Aggregation of  * input data and additional data is delegated to an {@link org.apache.camel.processor.aggregate.AggregationStrategy}  * object.  *<p/>  * Uses a {@link org.apache.camel.PollingConsumer} to obtain the additional data as opposed to {@link Enricher}  * that uses a {@link org.apache.camel.Producer}.  *  * @see Enricher  */
+comment|/**  * A content enricher that enriches input data by first obtaining additional  * data from a<i>resource</i> represented by an endpoint<code>producer</code>  * and second by aggregating input data and additional data. Aggregation of  * input data and additional data is delegated to an {@link AggregationStrategy}  * object.  *<p/>  * Uses a {@link org.apache.camel.PollingConsumer} to obtain the additional data as opposed to {@link Enricher}  * that uses a {@link org.apache.camel.Producer}.  *  * @see Enricher  */
 end_comment
 
 begin_class
@@ -668,7 +664,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Enriches the input data (<code>exchange</code>) by first obtaining      * additional data from an endpoint represented by an endpoint      *<code>producer</code> and second by aggregating input data and additional      * data. Aggregation of input data and additional data is delegated to an      * {@link org.apache.camel.processor.aggregate.AggregationStrategy} object set at construction time. If the      * message exchange with the resource endpoint fails then no aggregation      * will be done and the failed exchange content is copied over to the      * original message exchange.      *      * @param exchange input data.      */
+comment|/**      * Enriches the input data (<code>exchange</code>) by first obtaining      * additional data from an endpoint represented by an endpoint      *<code>producer</code> and second by aggregating input data and additional      * data. Aggregation of input data and additional data is delegated to an      * {@link AggregationStrategy} object set at construction time. If the      * message exchange with the resource endpoint fails then no aggregation      * will be done and the failed exchange content is copied over to the      * original message exchange.      *      * @param exchange input data.      */
 annotation|@
 name|Override
 DECL|method|process (Exchange exchange, AsyncCallback callback)

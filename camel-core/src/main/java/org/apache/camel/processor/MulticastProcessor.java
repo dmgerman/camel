@@ -246,6 +246,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|AsyncCallback
 import|;
 end_import
@@ -417,70 +429,6 @@ operator|.
 name|model
 operator|.
 name|RouteDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
-name|AggregationStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
-name|CompletionAwareAggregationStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
-name|DelegateAggregationStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
-name|TimeoutAwareAggregationStrategy
 import|;
 end_import
 
@@ -3140,33 +3088,6 @@ argument_list|(
 literal|null
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|strategy
-operator|instanceof
-name|DelegateAggregationStrategy
-condition|)
-block|{
-name|strategy
-operator|=
-operator|(
-operator|(
-name|DelegateAggregationStrategy
-operator|)
-name|strategy
-operator|)
-operator|.
-name|getDelegate
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|strategy
-operator|instanceof
-name|TimeoutAwareAggregationStrategy
-condition|)
-block|{
 comment|// notify the strategy we timed out
 name|Exchange
 name|oldExchange
@@ -3189,12 +3110,7 @@ operator|=
 name|original
 expr_stmt|;
 block|}
-operator|(
-operator|(
-name|TimeoutAwareAggregationStrategy
-operator|)
 name|strategy
-operator|)
 operator|.
 name|timeout
 argument_list|(
@@ -3213,25 +3129,6 @@ argument_list|,
 name|timeout
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|// log a WARN we timed out since it will not be aggregated and the Exchange will be lost
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Parallel processing timed out after {} millis for number {}. This task will be cancelled and will not be aggregated."
-argument_list|,
-name|timeout
-argument_list|,
-name|aggregated
-operator|.
-name|intValue
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|log
 operator|.
 name|debug
@@ -4522,40 +4419,15 @@ argument_list|(
 name|subExchange
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|strategy
-operator|instanceof
-name|DelegateAggregationStrategy
-condition|)
-block|{
-name|strategy
-operator|=
-operator|(
-operator|(
-name|DelegateAggregationStrategy
-operator|)
-name|strategy
-operator|)
-operator|.
-name|getDelegate
-argument_list|()
-expr_stmt|;
-block|}
 comment|// invoke the on completion callback
 if|if
 condition|(
 name|strategy
-operator|instanceof
-name|CompletionAwareAggregationStrategy
+operator|!=
+literal|null
 condition|)
 block|{
-operator|(
-operator|(
-name|CompletionAwareAggregationStrategy
-operator|)
 name|strategy
-operator|)
 operator|.
 name|onCompletion
 argument_list|(
@@ -4708,7 +4580,7 @@ name|doneSync
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Aggregate the {@link Exchange} with the current result.      * This method is synchronized and is called directly when parallelAggregate is disabled (by default).      *      * @param strategy the aggregation strategy to use      * @param result   the current result      * @param exchange the exchange to be added to the result      * @see #doAggregateInternal(org.apache.camel.processor.aggregate.AggregationStrategy, AtomicReference, org.apache.camel.Exchange)      */
+comment|/**      * Aggregate the {@link Exchange} with the current result.      * This method is synchronized and is called directly when parallelAggregate is disabled (by default).      *      * @param strategy the aggregation strategy to use      * @param result   the current result      * @param exchange the exchange to be added to the result      * @see #doAggregateInternal(AggregationStrategy, AtomicReference, org.apache.camel.Exchange)      */
 DECL|method|doAggregate (AggregationStrategy strategy, AtomicReference<Exchange> result, Exchange exchange)
 specifier|protected
 specifier|synchronized
@@ -5943,7 +5815,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Sets the given {@link org.apache.camel.processor.aggregate.AggregationStrategy} on the {@link Exchange}.      *      * @param exchange            the exchange      * @param aggregationStrategy the strategy      */
+comment|/**      * Sets the given {@link AggregationStrategy} on the {@link Exchange}.      *      * @param exchange            the exchange      * @param aggregationStrategy the strategy      */
 DECL|method|setAggregationStrategyOnExchange (Exchange exchange, AggregationStrategy aggregationStrategy)
 specifier|protected
 name|void
@@ -6044,7 +5916,7 @@ name|map
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Removes the associated {@link org.apache.camel.processor.aggregate.AggregationStrategy} from the {@link Exchange}      * which must be done after use.      *      * @param exchange the current exchange      */
+comment|/**      * Removes the associated {@link AggregationStrategy} from the {@link Exchange}      * which must be done after use.      *      * @param exchange the current exchange      */
 DECL|method|removeAggregationStrategyFromExchange (Exchange exchange)
 specifier|protected
 name|void
@@ -6108,7 +5980,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Is the multicast processor working in streaming mode?      *<p/>      * In streaming mode:      *<ul>      *<li>we use {@link Iterable} to ensure we can send messages as soon as the data becomes available</li>      *<li>for parallel processing, we start aggregating responses as they get send back to the processor;      * this means the {@link org.apache.camel.processor.aggregate.AggregationStrategy} has to take care of handling out-of-order arrival of exchanges</li>      *</ul>      */
+comment|/**      * Is the multicast processor working in streaming mode?      *<p/>      * In streaming mode:      *<ul>      *<li>we use {@link Iterable} to ensure we can send messages as soon as the data becomes available</li>      *<li>for parallel processing, we start aggregating responses as they get send back to the processor;      * this means the {@link AggregationStrategy} has to take care of handling out-of-order arrival of exchanges</li>      *</ul>      */
 DECL|method|isStreaming ()
 specifier|public
 name|boolean

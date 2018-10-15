@@ -322,7 +322,7 @@ name|processor
 operator|.
 name|aggregate
 operator|.
-name|AggregationStrategy
+name|AggregationStrategyBeanAdapter
 import|;
 end_import
 
@@ -334,11 +334,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
-name|AggregationStrategyBeanAdapter
+name|AggregationStrategy
 import|;
 end_import
 

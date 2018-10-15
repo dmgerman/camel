@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|AggregationStrategy
 import|;
 end_import
 
@@ -36,11 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
-name|PreCompletionAwareAggregationStrategy
+name|Exchange
 import|;
 end_import
 
@@ -50,7 +46,7 @@ specifier|public
 class|class
 name|BodyInPreCompleteAggregatingStrategy
 implements|implements
-name|PreCompletionAwareAggregationStrategy
+name|AggregationStrategy
 block|{
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
 specifier|public
@@ -123,6 +119,20 @@ return|return
 name|oldExchange
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|canPreComplete ()
+specifier|public
+name|boolean
+name|canPreComplete
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|preComplete (Exchange oldExchange, Exchange newExchange)
 specifier|public
 name|boolean

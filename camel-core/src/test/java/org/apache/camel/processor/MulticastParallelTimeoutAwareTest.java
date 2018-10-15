@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ContextTestSupport
 import|;
 end_import
@@ -67,22 +79,6 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
-name|TimeoutAwareAggregationStrategy
 import|;
 end_import
 
@@ -327,7 +323,7 @@ specifier|private
 class|class
 name|MyAggregationStrategy
 implements|implements
-name|TimeoutAwareAggregationStrategy
+name|AggregationStrategy
 block|{
 DECL|method|timeout (Exchange oldExchange, int index, int total, long timeout)
 specifier|public

@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -64,7 +76,7 @@ parameter_list|<
 name|V
 parameter_list|>
 implements|implements
-name|CompletionAwareAggregationStrategy
+name|AggregationStrategy
 block|{
 comment|/**      * This method is implemented by the sub-class and is called to retrieve      * an instance of the value that will be aggregated and forwarded to the      * receiving end point.      *<p/>      * If<tt>null</tt> is returned, then the value is<b>not</b> added to the {@link List}.      *      * @param exchange  The exchange that is used to retrieve the value from      * @return An instance of V that is the associated value of the passed exchange      */
 DECL|method|getValue (Exchange exchange)
