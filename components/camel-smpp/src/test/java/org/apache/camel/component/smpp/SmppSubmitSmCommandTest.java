@@ -494,6 +494,13 @@ operator|new
 name|SmppConfiguration
 argument_list|()
 expr_stmt|;
+name|config
+operator|.
+name|setServiceType
+argument_list|(
+literal|"CMT"
+argument_list|)
+expr_stmt|;
 name|command
 operator|=
 operator|new

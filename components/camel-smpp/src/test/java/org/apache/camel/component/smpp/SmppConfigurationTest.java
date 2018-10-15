@@ -203,6 +203,13 @@ operator|new
 name|SmppConfiguration
 argument_list|()
 expr_stmt|;
+name|configuration
+operator|.
+name|setServiceType
+argument_list|(
+literal|"CMT"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -392,7 +399,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"cp"
+literal|""
 argument_list|,
 name|configuration
 operator|.
@@ -1355,7 +1362,7 @@ literal|"port=2775, "
 operator|+
 literal|"systemId=smppclient, "
 operator|+
-literal|"systemType=cp, "
+literal|"systemType=, "
 operator|+
 literal|"dataCoding=0, "
 operator|+

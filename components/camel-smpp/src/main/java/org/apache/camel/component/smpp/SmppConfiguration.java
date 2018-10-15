@@ -303,14 +303,14 @@ literal|"common"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"cp"
+literal|""
 argument_list|)
 DECL|field|systemType
 specifier|private
 name|String
 name|systemType
 init|=
-literal|"cp"
+literal|""
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -438,7 +438,7 @@ literal|"producer"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"CMT"
+literal|""
 argument_list|,
 name|enums
 operator|=
@@ -449,7 +449,7 @@ specifier|private
 name|String
 name|serviceType
 init|=
-literal|"CMT"
+literal|""
 decl_stmt|;
 annotation|@
 name|UriParam

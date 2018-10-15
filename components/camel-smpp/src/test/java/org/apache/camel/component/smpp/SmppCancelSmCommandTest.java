@@ -284,7 +284,7 @@ argument_list|)
 operator|.
 name|cancelShortMessage
 argument_list|(
-literal|"CMT"
+literal|""
 argument_list|,
 literal|"1"
 argument_list|,
