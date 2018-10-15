@@ -173,38 +173,6 @@ specifier|private
 name|String
 name|beanId
 decl_stmt|;
-annotation|@
-name|Deprecated
-comment|/**      * It will be removed in Camel 3.0      *       * @param comp      * @param bean      */
-DECL|method|CxfRsSpringEndpoint (Component component, AbstractJAXRSFactoryBean bean)
-specifier|public
-name|CxfRsSpringEndpoint
-parameter_list|(
-name|Component
-name|component
-parameter_list|,
-name|AbstractJAXRSFactoryBean
-name|bean
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|super
-argument_list|(
-name|bean
-operator|.
-name|getAddress
-argument_list|()
-argument_list|,
-name|component
-argument_list|)
-expr_stmt|;
-name|init
-argument_list|(
-name|bean
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|CxfRsSpringEndpoint (Component component, String uri, AbstractJAXRSFactoryBean bean)
 specifier|public
 name|CxfRsSpringEndpoint
