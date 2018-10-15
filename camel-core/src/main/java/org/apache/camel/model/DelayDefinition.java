@@ -237,14 +237,13 @@ specifier|public
 class|class
 name|DelayDefinition
 extends|extends
-name|ExpressionNode
+name|NoOutputExpressionNode
 implements|implements
 name|ExecutorServiceAwareDefinition
 argument_list|<
 name|DelayDefinition
 argument_list|>
 block|{
-comment|// TODO: Camel 3.0 Should extend NoOutputExpressionNode
 annotation|@
 name|XmlTransient
 DECL|field|executorService
@@ -585,7 +584,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables asynchronous delay which means the thread will<b>noy</b> block while delaying.      */
+comment|/**      * Enables asynchronous delay which means the thread will<b>not</b> block while delaying.      */
 DECL|method|asyncDelayed ()
 specifier|public
 name|DelayDefinition

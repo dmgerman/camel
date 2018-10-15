@@ -66,6 +66,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlTransient
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -116,6 +130,8 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
+annotation|@
+name|XmlTransient
 DECL|class|NoOutputExpressionNode
 specifier|public
 specifier|abstract
@@ -203,30 +219,6 @@ block|{
 return|return
 literal|false
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|addOutput (ProcessorDefinition<?> output)
-specifier|public
-name|void
-name|addOutput
-parameter_list|(
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-name|output
-parameter_list|)
-block|{
-comment|// add it to the parent as we do not support outputs
-name|getParent
-argument_list|()
-operator|.
-name|addOutput
-argument_list|(
-name|output
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override

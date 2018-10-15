@@ -211,13 +211,12 @@ specifier|public
 class|class
 name|SamplingDefinition
 extends|extends
-name|OutputDefinition
+name|NoOutputDefinition
 argument_list|<
 name|SamplingDefinition
 argument_list|>
 block|{
 comment|// use Long to let it be optional in JAXB so when using XML the default is 1 second
-comment|// TODO: Camel 3.0 Should extend NoOutputDefinition
 annotation|@
 name|XmlAttribute
 annotation|@
@@ -303,6 +302,18 @@ name|messageFrequency
 operator|=
 name|messageFrequency
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getShortName ()
+specifier|public
+name|String
+name|getShortName
+parameter_list|()
+block|{
+return|return
+literal|"sample"
+return|;
 block|}
 annotation|@
 name|Override
@@ -417,18 +428,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Processor
-name|childProcessor
-init|=
-name|this
-operator|.
-name|createChildProcessor
-argument_list|(
-name|routeContext
-argument_list|,
-literal|true
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|messageFrequency
@@ -440,8 +439,6 @@ return|return
 operator|new
 name|SamplingThrottler
 argument_list|(
-name|childProcessor
-argument_list|,
 name|messageFrequency
 argument_list|)
 return|;
@@ -482,8 +479,6 @@ return|return
 operator|new
 name|SamplingThrottler
 argument_list|(
-name|childProcessor
-argument_list|,
 name|time
 argument_list|,
 name|tu

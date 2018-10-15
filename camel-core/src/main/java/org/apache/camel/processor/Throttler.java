@@ -144,6 +144,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelContext
 import|;
 end_import
@@ -169,18 +181,6 @@ operator|.
 name|camel
 operator|.
 name|Expression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
 import|;
 end_import
 
@@ -244,6 +244,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -260,8 +274,10 @@ specifier|public
 class|class
 name|Throttler
 extends|extends
-name|DelegateAsyncProcessor
+name|ServiceSupport
 implements|implements
+name|AsyncProcessor
+implements|,
 name|Traceable
 implements|,
 name|IdAware
@@ -384,17 +400,13 @@ name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|method|Throttler (final CamelContext camelContext, final Processor processor, final Expression maxRequestsPerPeriodExpression, final long timePeriodMillis, final ScheduledExecutorService asyncExecutor, final boolean shutdownAsyncExecutor, final boolean rejectExecution, Expression correlation)
+DECL|method|Throttler (final CamelContext camelContext, final Expression maxRequestsPerPeriodExpression, final long timePeriodMillis, final ScheduledExecutorService asyncExecutor, final boolean shutdownAsyncExecutor, final boolean rejectExecution, Expression correlation)
 specifier|public
 name|Throttler
 parameter_list|(
 specifier|final
 name|CamelContext
 name|camelContext
-parameter_list|,
-specifier|final
-name|Processor
-name|processor
 parameter_list|,
 specifier|final
 name|Expression
@@ -420,11 +432,6 @@ name|Expression
 name|correlation
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|processor
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|camelContext
@@ -500,6 +507,29 @@ operator|.
 name|correlationExpression
 operator|=
 name|correlation
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|process (Exchange exchange)
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|AsyncProcessorHelper
+operator|.
+name|process
+argument_list|(
+name|this
+argument_list|,
+name|exchange
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -934,45 +964,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|processor
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|doneSync
-condition|)
-block|{
-return|return
-name|processor
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|,
-name|callback
-argument_list|)
-return|;
-block|}
-else|else
-block|{
-comment|// if we are executing async, then we have to call the nested processor synchronously, and we
-comment|// must not share our AsyncCallback, because the nested processing has no way of knowing that
-comment|// we are already executing asynchronously.
-name|AsyncProcessorHelper
-operator|.
-name|process
-argument_list|(
-name|processor
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 name|callback
 operator|.
 name|done
@@ -1230,11 +1221,6 @@ throw|;
 block|}
 block|}
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
 name|Override
 DECL|method|doStart ()
 specifier|protected
@@ -1262,17 +1248,17 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-name|super
-operator|.
-name|doStart
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
 annotation|@
 name|Override
 DECL|method|doShutdown ()
@@ -2156,12 +2142,7 @@ literal|" per: "
 operator|+
 name|timePeriodMillis
 operator|+
-literal|" (ms) to: "
-operator|+
-name|getProcessor
-argument_list|()
-operator|+
-literal|"]"
+literal|" (ms)]"
 return|;
 block|}
 block|}

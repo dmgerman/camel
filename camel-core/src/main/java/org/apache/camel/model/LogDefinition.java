@@ -833,30 +833,6 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|addOutput (ProcessorDefinition<?> output)
-specifier|public
-name|void
-name|addOutput
-parameter_list|(
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-name|output
-parameter_list|)
-block|{
-comment|// add outputs on parent as this log does not support outputs
-name|getParent
-argument_list|()
-operator|.
-name|addOutput
-argument_list|(
-name|output
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getLoggingLevel ()
 specifier|public
 name|LoggingLevel

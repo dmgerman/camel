@@ -58,7 +58,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|AsyncProcessor
 import|;
 end_import
 
@@ -70,7 +70,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Exchange
 import|;
 end_import
 
@@ -104,9 +104,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|apache
 operator|.
-name|Logger
+name|camel
+operator|.
+name|support
+operator|.
+name|AsyncProcessorHelper
 import|;
 end_import
 
@@ -114,9 +118,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|apache
 operator|.
-name|LoggerFactory
+name|camel
+operator|.
+name|support
+operator|.
+name|ServiceSupport
 import|;
 end_import
 
@@ -130,8 +138,10 @@ specifier|public
 class|class
 name|SamplingThrottler
 extends|extends
-name|DelegateAsyncProcessor
+name|ServiceSupport
 implements|implements
+name|AsyncProcessor
+implements|,
 name|Traceable
 implements|,
 name|IdAware
@@ -199,22 +209,14 @@ operator|new
 name|SampleStats
 argument_list|()
 decl_stmt|;
-DECL|method|SamplingThrottler (Processor processor, long messageFrequency)
+DECL|method|SamplingThrottler (long messageFrequency)
 specifier|public
 name|SamplingThrottler
 parameter_list|(
-name|Processor
-name|processor
-parameter_list|,
 name|long
 name|messageFrequency
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|processor
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|messageFrequency
@@ -237,13 +239,10 @@ operator|=
 name|messageFrequency
 expr_stmt|;
 block|}
-DECL|method|SamplingThrottler (Processor processor, long samplePeriod, TimeUnit units)
+DECL|method|SamplingThrottler (long samplePeriod, TimeUnit units)
 specifier|public
 name|SamplingThrottler
 parameter_list|(
-name|Processor
-name|processor
-parameter_list|,
 name|long
 name|samplePeriod
 parameter_list|,
@@ -251,11 +250,6 @@ name|TimeUnit
 name|units
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|processor
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|samplePeriod
@@ -312,6 +306,26 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -330,12 +344,7 @@ literal|"SamplingThrottler[1 exchange per: "
 operator|+
 name|messageFrequency
 operator|+
-literal|" messages received -> "
-operator|+
-name|getProcessor
-argument_list|()
-operator|+
-literal|"]"
+literal|" messages received]"
 return|;
 block|}
 else|else
@@ -358,11 +367,6 @@ name|Locale
 operator|.
 name|ENGLISH
 argument_list|)
-operator|+
-literal|" -> "
-operator|+
-name|getProcessor
-argument_list|()
 operator|+
 literal|"]"
 return|;
@@ -469,6 +473,29 @@ block|{
 return|return
 name|units
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|process (Exchange exchange)
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|AsyncProcessorHelper
+operator|.
+name|process
+argument_list|(
+name|this
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -592,24 +619,10 @@ block|}
 block|}
 if|if
 condition|(
+operator|!
 name|doSend
 condition|)
 block|{
-comment|// continue routing
-return|return
-name|processor
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|,
-name|callback
-argument_list|)
-return|;
-block|}
-else|else
-block|{
-comment|// okay to invoke this synchronously as the stopper
 comment|// will just set a property
 try|try
 block|{
