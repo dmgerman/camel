@@ -158,20 +158,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ExchangeIdempotentRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|IdAware
 import|;
 end_import
@@ -261,7 +247,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the<a  * href="http://camel.apache.org/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *<p/>  * This implementation supports idempotent repositories implemented as  *<ul>  *<li>IdempotentRepository</li>  *<li>ExchangeIdempotentRepository</li>  *</ul>  *  * @see org.apache.camel.spi.IdempotentRepository  * @see org.apache.camel.spi.ExchangeIdempotentRepository  */
+comment|/**  * An implementation of the<a  * href="http://camel.apache.org/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *<p/>  * This implementation supports idempotent repositories implemented as {@link org.apache.camel.spi.IdempotentRepository}.  *  * @see org.apache.camel.spi.IdempotentRepository  */
 end_comment
 
 begin_class
@@ -309,9 +295,6 @@ DECL|field|idempotentRepository
 specifier|private
 specifier|final
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|idempotentRepository
 decl_stmt|;
 DECL|field|eager
@@ -348,7 +331,7 @@ operator|new
 name|AtomicLong
 argument_list|()
 decl_stmt|;
-DECL|method|IdempotentConsumer (Expression messageIdExpression, IdempotentRepository<String> idempotentRepository, boolean eager, boolean completionEager, boolean skipDuplicate, boolean removeOnFailure, Processor processor)
+DECL|method|IdempotentConsumer (Expression messageIdExpression, IdempotentRepository idempotentRepository, boolean eager, boolean completionEager, boolean skipDuplicate, boolean removeOnFailure, Processor processor)
 specifier|public
 name|IdempotentConsumer
 parameter_list|(
@@ -356,9 +339,6 @@ name|Expression
 name|messageIdExpression
 parameter_list|,
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|idempotentRepository
 parameter_list|,
 name|boolean
@@ -626,24 +606,9 @@ name|eager
 condition|)
 block|{
 comment|// add the key to the repository
-if|if
-condition|(
-name|idempotentRepository
-operator|instanceof
-name|ExchangeIdempotentRepository
-condition|)
-block|{
 name|newKey
 operator|=
-operator|(
-operator|(
-name|ExchangeIdempotentRepository
-argument_list|<
-name|String
-argument_list|>
-operator|)
 name|idempotentRepository
-operator|)
 operator|.
 name|add
 argument_list|(
@@ -652,42 +617,14 @@ argument_list|,
 name|messageId
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|newKey
-operator|=
-name|idempotentRepository
-operator|.
-name|add
-argument_list|(
-name|messageId
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 else|else
 block|{
 comment|// check if we already have the key
-if|if
-condition|(
-name|idempotentRepository
-operator|instanceof
-name|ExchangeIdempotentRepository
-condition|)
-block|{
 name|newKey
 operator|=
 operator|!
-operator|(
-operator|(
-name|ExchangeIdempotentRepository
-argument_list|<
-name|String
-argument_list|>
-operator|)
 name|idempotentRepository
-operator|)
 operator|.
 name|contains
 argument_list|(
@@ -696,20 +633,6 @@ argument_list|,
 name|messageId
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|newKey
-operator|=
-operator|!
-name|idempotentRepository
-operator|.
-name|contains
-argument_list|(
-name|messageId
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -921,9 +844,6 @@ block|}
 DECL|method|getIdempotentRepository ()
 specifier|public
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|getIdempotentRepository
 parameter_list|()
 block|{

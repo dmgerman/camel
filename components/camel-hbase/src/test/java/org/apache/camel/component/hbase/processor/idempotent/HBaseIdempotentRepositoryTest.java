@@ -178,9 +178,6 @@ name|CamelHBaseTestSupport
 block|{
 DECL|field|repository
 name|IdempotentRepository
-argument_list|<
-name|Object
-argument_list|>
 name|repository
 decl_stmt|;
 DECL|field|key01

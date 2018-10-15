@@ -341,7 +341,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of {@link IdempotentRepository} using Cassandra table to store  * message ids.  * Advice: use LeveledCompaction for this table and tune read/write consistency levels.  * Warning: Cassandra is not the best tool for queuing use cases  * See http://www.datastax.com/dev/blog/cassandra-anti-patterns-queues-and-queue-like-datasets  *  * @param<K> Message Id  */
+comment|/**  * Implementation of {@link IdempotentRepository} using Cassandra table to store  * message ids.  * Advice: use LeveledCompaction for this table and tune read/write consistency levels.  * Warning: Cassandra is not the best tool for queuing use cases  * See http://www.datastax.com/dev/blog/cassandra-anti-patterns-queues-and-queue-like-datasets  */
 end_comment
 
 begin_class
@@ -349,16 +349,10 @@ DECL|class|CassandraIdempotentRepository
 specifier|public
 class|class
 name|CassandraIdempotentRepository
-parameter_list|<
-name|K
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
 name|IdempotentRepository
-argument_list|<
-name|K
-argument_list|>
 block|{
 comment|/**      * Logger      */
 DECL|field|LOGGER
@@ -394,12 +388,12 @@ decl_stmt|;
 comment|/**      * Values used as primary key prefix      */
 DECL|field|prefixPKValues
 specifier|private
-name|Object
+name|String
 index|[]
 name|prefixPKValues
 init|=
 operator|new
-name|Object
+name|String
 index|[
 literal|0
 index|]
@@ -596,13 +590,13 @@ literal|"[applied]"
 argument_list|)
 return|;
 block|}
-DECL|method|getPKValues (K key)
+DECL|method|getPKValues (String key)
 specifier|protected
 name|Object
 index|[]
 name|getPKValues
 parameter_list|(
-name|K
+name|String
 name|key
 parameter_list|)
 block|{
@@ -714,12 +708,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|add (K key)
+DECL|method|add (String key)
 specifier|public
 name|boolean
 name|add
 parameter_list|(
-name|K
+name|String
 name|key
 parameter_list|)
 block|{
@@ -813,12 +807,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|contains (K key)
+DECL|method|contains (String key)
 specifier|public
 name|boolean
 name|contains
 parameter_list|(
-name|K
+name|String
 name|key
 parameter_list|)
 block|{
@@ -863,12 +857,12 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|confirm (K key)
+DECL|method|confirm (String key)
 specifier|public
 name|boolean
 name|confirm
 parameter_list|(
-name|K
+name|String
 name|key
 parameter_list|)
 block|{
@@ -927,12 +921,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|remove (K key)
+DECL|method|remove (String key)
 specifier|public
 name|boolean
 name|remove
 parameter_list|(
-name|K
+name|String
 name|key
 parameter_list|)
 block|{
@@ -1218,7 +1212,7 @@ expr_stmt|;
 block|}
 DECL|method|getPrefixPKValues ()
 specifier|public
-name|Object
+name|String
 index|[]
 name|getPrefixPKValues
 parameter_list|()
@@ -1227,12 +1221,12 @@ return|return
 name|prefixPKValues
 return|;
 block|}
-DECL|method|setPrefixPKValues (Object[] prefixPKValues)
+DECL|method|setPrefixPKValues (String[] prefixPKValues)
 specifier|public
 name|void
 name|setPrefixPKValues
 parameter_list|(
-name|Object
+name|String
 index|[]
 name|prefixPKValues
 parameter_list|)

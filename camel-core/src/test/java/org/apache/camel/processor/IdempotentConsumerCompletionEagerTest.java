@@ -192,9 +192,6 @@ decl_stmt|;
 DECL|field|repo
 specifier|protected
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|repo
 decl_stmt|;
 annotation|@

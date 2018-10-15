@@ -117,9 +117,6 @@ class|class
 name|JdbcMessageIdRepository
 extends|extends
 name|AbstractJdbcMessageIdRepository
-argument_list|<
-name|String
-argument_list|>
 block|{
 DECL|field|createTableIfNotExists
 specifier|private

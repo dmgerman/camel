@@ -170,7 +170,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ExchangeIdempotentRepository
+name|IdempotentRepository
 import|;
 end_import
 
@@ -287,10 +287,7 @@ name|JpaMessageIdRepository
 extends|extends
 name|ServiceSupport
 implements|implements
-name|ExchangeIdempotentRepository
-argument_list|<
-name|String
-argument_list|>
+name|IdempotentRepository
 block|{
 DECL|field|QUERY_STRING
 specifier|protected

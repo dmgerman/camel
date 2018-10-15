@@ -284,9 +284,6 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 block|{
 DECL|field|STORE_DELIMITER
 specifier|private
@@ -380,9 +377,6 @@ DECL|method|fileIdempotentRepository (File fileStore)
 specifier|public
 specifier|static
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|fileIdempotentRepository
 parameter_list|(
 name|File
@@ -408,9 +402,6 @@ DECL|method|fileIdempotentRepository (File fileStore, int cacheSize)
 specifier|public
 specifier|static
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|fileIdempotentRepository
 parameter_list|(
 name|File
@@ -444,9 +435,6 @@ DECL|method|fileIdempotentRepository (File fileStore, int cacheSize, long maxFil
 specifier|public
 specifier|static
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|fileIdempotentRepository
 parameter_list|(
 name|File
@@ -491,9 +479,6 @@ DECL|method|fileIdempotentRepository (File store, Map<String, Object> cache)
 specifier|public
 specifier|static
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|fileIdempotentRepository
 parameter_list|(
 name|File

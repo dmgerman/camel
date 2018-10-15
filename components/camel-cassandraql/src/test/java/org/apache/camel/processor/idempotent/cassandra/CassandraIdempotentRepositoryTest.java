@@ -169,9 +169,6 @@ decl_stmt|;
 DECL|field|idempotentRepository
 specifier|private
 name|CassandraIdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|idempotentRepository
 decl_stmt|;
 annotation|@
@@ -212,7 +209,6 @@ name|idempotentRepository
 operator|=
 operator|new
 name|CassandraIdempotentRepository
-argument_list|<>
 argument_list|(
 name|session
 argument_list|)

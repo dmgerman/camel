@@ -191,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for JDBC-based idempotent repositories that allows the schema to be changed.  *<p/>  * Subclasses need only implement theses methods:  *<ul>  *<li>{@link #queryForInt(Object key) queryForInt(T key)}</li>  *<li>{@link #insert(Object key) insert(T key)}</li>  *<li>{@link #delete(Object key) delete(T key)}</li>  *</ul>  *<p/>  * These methods should perform the named database operation.  *<p/>  *<b>Important:</b> Implementations of this should use<tt>String</tt> as the generic type as that is  * what is required by Camel to allow using the idempotent repository with the Idempotent Consumer EIP  * and also as file consumer read-lock. It was a mistake to make {@link IdempotentRepository} parameterized,  * as it should have been a pre-configured to use a<tt>String</tt> type.  */
+comment|/**  * Base class for JDBC-based idempotent repositories that allows the schema to be changed.  *<p/>  * Subclasses need only implement theses methods:  *<ul>  *<li>{@link #queryForInt(String key) queryForInt(String key)}</li>  *<li>{@link #insert(String key) insert(String key)}</li>  *<li>{@link #delete(String key) delete(String key)}</li>  *</ul>  *<p/>  * These methods should perform the named database operation.  *<p/>  *<b>Important:</b> Implementations of this should use<tt>String</tt> as the generic type as that is  * what is required by Camel to allow using the idempotent repository with the Idempotent Consumer EIP  * and also as file consumer read-lock. It was a mistake to make {@link IdempotentRepository} parameterized,  * as it should have been a pre-configured to use a<tt>String</tt> type.  */
 end_comment
 
 begin_class
@@ -207,16 +207,10 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractJdbcMessageIdRepository
-parameter_list|<
-name|T
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
 name|IdempotentRepository
-argument_list|<
-name|T
-argument_list|>
 block|{
 DECL|field|jdbcTemplate
 specifier|protected
@@ -349,35 +343,35 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Operation that returns the number of rows, if any, for the specified key      *      * @param key  the key      * @return int number of rows      */
-DECL|method|queryForInt (T key)
+DECL|method|queryForInt (String key)
 specifier|protected
 specifier|abstract
 name|int
 name|queryForInt
 parameter_list|(
-name|T
+name|String
 name|key
 parameter_list|)
 function_decl|;
 comment|/**      * Operation that inserts the key if it does not already exist      *      * @param key  the key      * @return int number of rows inserted      */
-DECL|method|insert (T key)
+DECL|method|insert (String key)
 specifier|protected
 specifier|abstract
 name|int
 name|insert
 parameter_list|(
-name|T
+name|String
 name|key
 parameter_list|)
 function_decl|;
 comment|/**      * Operations that deletes the key if it exists      *      * @param key  the key      * @return int number of rows deleted      */
-DECL|method|delete (T key)
+DECL|method|delete (String key)
 specifier|protected
 specifier|abstract
 name|int
 name|delete
 parameter_list|(
-name|T
+name|String
 name|key
 parameter_list|)
 function_decl|;
@@ -460,13 +454,13 @@ literal|"Adds the key to the store"
 argument_list|)
 annotation|@
 name|Override
-DECL|method|add (final T key)
+DECL|method|add (final String key)
 specifier|public
 name|boolean
 name|add
 parameter_list|(
 specifier|final
-name|T
+name|String
 name|key
 parameter_list|)
 block|{
@@ -547,13 +541,13 @@ literal|"Does the store contain the given key"
 argument_list|)
 annotation|@
 name|Override
-DECL|method|contains (final T key)
+DECL|method|contains (final String key)
 specifier|public
 name|boolean
 name|contains
 parameter_list|(
 specifier|final
-name|T
+name|String
 name|key
 parameter_list|)
 block|{
@@ -629,13 +623,13 @@ literal|"Remove the key from the store"
 argument_list|)
 annotation|@
 name|Override
-DECL|method|remove (final T key)
+DECL|method|remove (final String key)
 specifier|public
 name|boolean
 name|remove
 parameter_list|(
 specifier|final
-name|T
+name|String
 name|key
 parameter_list|)
 block|{
@@ -750,13 +744,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|confirm (final T key)
+DECL|method|confirm (final String key)
 specifier|public
 name|boolean
 name|confirm
 parameter_list|(
 specifier|final
-name|T
+name|String
 name|key
 parameter_list|)
 block|{

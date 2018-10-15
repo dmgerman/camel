@@ -368,9 +368,6 @@ class|class
 name|MyIdempotentRepository
 implements|implements
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 block|{
 DECL|method|add (String messageId)
 specifier|public

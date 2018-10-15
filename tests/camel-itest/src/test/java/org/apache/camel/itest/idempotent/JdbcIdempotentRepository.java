@@ -63,9 +63,6 @@ class|class
 name|JdbcIdempotentRepository
 implements|implements
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 block|{
 DECL|field|jdbc
 specifier|private

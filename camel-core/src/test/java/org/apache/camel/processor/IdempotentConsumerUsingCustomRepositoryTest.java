@@ -181,9 +181,6 @@ decl_stmt|;
 DECL|field|customRepo
 specifier|protected
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|customRepo
 init|=
 operator|new
@@ -521,9 +518,6 @@ class|class
 name|MyRepo
 implements|implements
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 block|{
 DECL|field|cache
 specifier|private

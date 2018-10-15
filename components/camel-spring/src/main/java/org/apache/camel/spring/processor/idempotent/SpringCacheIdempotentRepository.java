@@ -136,9 +136,6 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|IdempotentRepository
-argument_list|<
-name|Object
-argument_list|>
 block|{
 DECL|field|manager
 specifier|private
@@ -196,12 +193,12 @@ name|description
 operator|=
 literal|"Adds the key to the store"
 argument_list|)
-DECL|method|add (Object key)
+DECL|method|add (String key)
 specifier|public
 name|boolean
 name|add
 parameter_list|(
-name|Object
+name|String
 name|key
 parameter_list|)
 block|{
@@ -227,12 +224,12 @@ name|description
 operator|=
 literal|"Does the store contain the given key"
 argument_list|)
-DECL|method|contains (Object key)
+DECL|method|contains (String key)
 specifier|public
 name|boolean
 name|contains
 parameter_list|(
-name|Object
+name|String
 name|key
 parameter_list|)
 block|{
@@ -256,12 +253,12 @@ name|description
 operator|=
 literal|"Remove the key from the store"
 argument_list|)
-DECL|method|remove (Object key)
+DECL|method|remove (String key)
 specifier|public
 name|boolean
 name|remove
 parameter_list|(
-name|Object
+name|String
 name|key
 parameter_list|)
 block|{
@@ -316,12 +313,12 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|confirm (Object key)
+DECL|method|confirm (String key)
 specifier|public
 name|boolean
 name|confirm
 parameter_list|(
-name|Object
+name|String
 name|key
 parameter_list|)
 block|{

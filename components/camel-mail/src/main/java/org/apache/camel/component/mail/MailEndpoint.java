@@ -367,9 +367,6 @@ argument_list|)
 DECL|field|idempotentRepository
 specifier|private
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|idempotentRepository
 decl_stmt|;
 annotation|@
@@ -982,9 +979,6 @@ block|}
 DECL|method|getIdempotentRepository ()
 specifier|public
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|getIdempotentRepository
 parameter_list|()
 block|{
@@ -993,15 +987,12 @@ name|idempotentRepository
 return|;
 block|}
 comment|/**      * A pluggable repository org.apache.camel.spi.IdempotentRepository which allows to cluster      * consuming from the same mailbox, and let the repository coordinate whether a mail message      * is valid for the consumer to process.      *<p/>      * By default no repository is in use.      */
-DECL|method|setIdempotentRepository (IdempotentRepository<String> idempotentRepository)
+DECL|method|setIdempotentRepository (IdempotentRepository idempotentRepository)
 specifier|public
 name|void
 name|setIdempotentRepository
 parameter_list|(
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|idempotentRepository
 parameter_list|)
 block|{

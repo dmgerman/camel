@@ -257,9 +257,6 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|IdempotentRepository
-argument_list|<
-name|Object
-argument_list|>
 block|{
 DECL|field|tableName
 specifier|private
@@ -353,12 +350,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|add (Object o)
+DECL|method|add (String o)
 specifier|public
 name|boolean
 name|add
 parameter_list|(
-name|Object
+name|String
 name|o
 parameter_list|)
 block|{
@@ -459,12 +456,12 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|contains (Object o)
+DECL|method|contains (String o)
 specifier|public
 name|boolean
 name|contains
 parameter_list|(
-name|Object
+name|String
 name|o
 parameter_list|)
 block|{
@@ -540,12 +537,12 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|remove (Object o)
+DECL|method|remove (String o)
 specifier|public
 name|boolean
 name|remove
 parameter_list|(
-name|Object
+name|String
 name|o
 parameter_list|)
 block|{
@@ -625,12 +622,12 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|confirm (Object o)
+DECL|method|confirm (String o)
 specifier|public
 name|boolean
 name|confirm
 parameter_list|(
-name|Object
+name|String
 name|o
 parameter_list|)
 block|{

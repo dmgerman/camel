@@ -248,9 +248,6 @@ decl_stmt|;
 DECL|field|idempotentRepository
 specifier|private
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|idempotentRepository
 decl_stmt|;
 DECL|field|removeOnRollback
@@ -757,9 +754,6 @@ comment|/**      * The idempotent repository to use as the store for the read lo
 DECL|method|getIdempotentRepository ()
 specifier|public
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|getIdempotentRepository
 parameter_list|()
 block|{
@@ -768,15 +762,12 @@ name|idempotentRepository
 return|;
 block|}
 comment|/**      * The idempotent repository to use as the store for the read locks.      */
-DECL|method|setIdempotentRepository (IdempotentRepository<String> idempotentRepository)
+DECL|method|setIdempotentRepository (IdempotentRepository idempotentRepository)
 specifier|public
 name|void
 name|setIdempotentRepository
 parameter_list|(
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|idempotentRepository
 parameter_list|)
 block|{

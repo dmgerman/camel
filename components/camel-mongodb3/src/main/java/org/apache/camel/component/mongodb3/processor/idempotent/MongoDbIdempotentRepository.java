@@ -210,16 +210,10 @@ DECL|class|MongoDbIdempotentRepository
 specifier|public
 class|class
 name|MongoDbIdempotentRepository
-parameter_list|<
-name|E
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
 name|IdempotentRepository
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|mongoClient
 specifier|private
@@ -307,12 +301,12 @@ literal|"Adds the key to the store"
 argument_list|)
 annotation|@
 name|Override
-DECL|method|add (E key)
+DECL|method|add (String key)
 specifier|public
 name|boolean
 name|add
 parameter_list|(
-name|E
+name|String
 name|key
 parameter_list|)
 block|{
@@ -383,12 +377,12 @@ literal|"Does the store contain the given key"
 argument_list|)
 annotation|@
 name|Override
-DECL|method|contains (E key)
+DECL|method|contains (String key)
 specifier|public
 name|boolean
 name|contains
 parameter_list|(
-name|E
+name|String
 name|key
 parameter_list|)
 block|{
@@ -427,12 +421,12 @@ literal|"Remove the key from the store"
 argument_list|)
 annotation|@
 name|Override
-DECL|method|remove (E key)
+DECL|method|remove (String key)
 specifier|public
 name|boolean
 name|remove
 parameter_list|(
-name|E
+name|String
 name|key
 parameter_list|)
 block|{
@@ -467,12 +461,12 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|confirm (E key)
+DECL|method|confirm (String key)
 specifier|public
 name|boolean
 name|confirm
 parameter_list|(
-name|E
+name|String
 name|key
 parameter_list|)
 block|{

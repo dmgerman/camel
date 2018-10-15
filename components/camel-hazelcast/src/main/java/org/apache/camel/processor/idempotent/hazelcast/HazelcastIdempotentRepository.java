@@ -81,9 +81,6 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 block|{
 DECL|field|repositoryName
 specifier|private

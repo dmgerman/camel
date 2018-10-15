@@ -1242,9 +1242,6 @@ throws|throws
 name|Exception
 block|{
 name|IdempotentRepository
-argument_list|<
-name|?
-argument_list|>
 name|repository
 init|=
 name|context

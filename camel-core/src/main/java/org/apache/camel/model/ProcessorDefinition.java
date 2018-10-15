@@ -4971,7 +4971,7 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param messageIdExpression  expression to test of duplicate messages      * @param idempotentRepository  the repository to use for duplicate check      * @return the builder      */
-DECL|method|idempotentConsumer (Expression messageIdExpression, IdempotentRepository<?> idempotentRepository)
+DECL|method|idempotentConsumer (Expression messageIdExpression, IdempotentRepository idempotentRepository)
 specifier|public
 name|IdempotentConsumerDefinition
 name|idempotentConsumer
@@ -4980,9 +4980,6 @@ name|Expression
 name|messageIdExpression
 parameter_list|,
 name|IdempotentRepository
-argument_list|<
-name|?
-argument_list|>
 name|idempotentRepository
 parameter_list|)
 block|{

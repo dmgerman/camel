@@ -98,9 +98,6 @@ name|AbstractMongoDbTest
 block|{
 DECL|field|repo
 name|MongoDbIdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|repo
 decl_stmt|;
 annotation|@
@@ -140,7 +137,6 @@ name|repo
 operator|=
 operator|new
 name|MongoDbIdempotentRepository
-argument_list|<>
 argument_list|(
 name|mongo
 argument_list|,

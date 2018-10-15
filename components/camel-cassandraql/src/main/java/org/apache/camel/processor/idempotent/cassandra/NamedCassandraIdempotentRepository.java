@@ -57,14 +57,8 @@ DECL|class|NamedCassandraIdempotentRepository
 specifier|public
 class|class
 name|NamedCassandraIdempotentRepository
-parameter_list|<
-name|K
-parameter_list|>
 extends|extends
 name|CassandraIdempotentRepository
-argument_list|<
-name|K
-argument_list|>
 block|{
 DECL|method|NamedCassandraIdempotentRepository ()
 specifier|public

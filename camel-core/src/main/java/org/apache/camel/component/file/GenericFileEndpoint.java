@@ -732,9 +732,6 @@ argument_list|)
 DECL|field|inProgressRepository
 specifier|protected
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|inProgressRepository
 init|=
 name|MemoryIdempotentRepository
@@ -1036,9 +1033,6 @@ argument_list|)
 DECL|field|idempotentRepository
 specifier|protected
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|idempotentRepository
 decl_stmt|;
 annotation|@
@@ -2929,9 +2923,6 @@ block|}
 DECL|method|getIdempotentRepository ()
 specifier|public
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|getIdempotentRepository
 parameter_list|()
 block|{
@@ -2940,15 +2931,12 @@ name|idempotentRepository
 return|;
 block|}
 comment|/**      * A pluggable repository org.apache.camel.spi.IdempotentRepository which by default use MemoryMessageIdRepository      * if none is specified and idempotent is true.      */
-DECL|method|setIdempotentRepository (IdempotentRepository<String> idempotentRepository)
+DECL|method|setIdempotentRepository (IdempotentRepository idempotentRepository)
 specifier|public
 name|void
 name|setIdempotentRepository
 parameter_list|(
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|idempotentRepository
 parameter_list|)
 block|{
@@ -4008,9 +3996,6 @@ block|}
 DECL|method|getInProgressRepository ()
 specifier|public
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|getInProgressRepository
 parameter_list|()
 block|{
@@ -4019,15 +4004,12 @@ name|inProgressRepository
 return|;
 block|}
 comment|/**      * A pluggable in-progress repository org.apache.camel.spi.IdempotentRepository.      * The in-progress repository is used to account the current in progress files being consumed. By default a memory based repository is used.      */
-DECL|method|setInProgressRepository (IdempotentRepository<String> inProgressRepository)
+DECL|method|setInProgressRepository (IdempotentRepository inProgressRepository)
 specifier|public
 name|void
 name|setInProgressRepository
 parameter_list|(
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|inProgressRepository
 parameter_list|)
 block|{

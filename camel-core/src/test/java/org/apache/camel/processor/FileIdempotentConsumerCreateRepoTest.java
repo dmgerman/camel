@@ -209,9 +209,6 @@ name|Exception
 block|{
 comment|// Given
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|repo
 init|=
 name|fileIdempotentRepository

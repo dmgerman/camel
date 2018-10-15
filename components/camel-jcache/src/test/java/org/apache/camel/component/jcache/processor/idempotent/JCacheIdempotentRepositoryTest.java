@@ -174,7 +174,7 @@ DECL|field|cacheManager
 specifier|private
 name|JCacheManager
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|Boolean
 argument_list|>
@@ -184,7 +184,7 @@ DECL|field|cache
 specifier|private
 name|Cache
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|Boolean
 argument_list|>

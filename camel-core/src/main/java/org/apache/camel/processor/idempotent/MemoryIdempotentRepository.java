@@ -152,9 +152,6 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 block|{
 DECL|field|cache
 specifier|private
@@ -218,9 +215,6 @@ DECL|method|memoryIdempotentRepository ()
 specifier|public
 specifier|static
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|memoryIdempotentRepository
 parameter_list|()
 block|{
@@ -240,9 +234,6 @@ DECL|method|memoryIdempotentRepository (int cacheSize)
 specifier|public
 specifier|static
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|memoryIdempotentRepository
 parameter_list|(
 name|int
@@ -266,9 +257,6 @@ DECL|method|memoryIdempotentRepository (Map<String, Object> cache)
 specifier|public
 specifier|static
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|memoryIdempotentRepository
 parameter_list|(
 name|Map

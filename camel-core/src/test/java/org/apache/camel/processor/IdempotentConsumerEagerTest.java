@@ -724,9 +724,6 @@ name|Exception
 block|{
 specifier|final
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|repo
 init|=
 name|MemoryIdempotentRepository
@@ -885,9 +882,6 @@ name|Exception
 block|{
 specifier|final
 name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
 name|repo
 init|=
 name|MemoryIdempotentRepository
