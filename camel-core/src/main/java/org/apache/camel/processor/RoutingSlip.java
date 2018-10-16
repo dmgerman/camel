@@ -1884,7 +1884,7 @@ name|e
 parameter_list|)
 block|{
 comment|// error resolving endpoint so we should break out
-name|exchange
+name|current
 operator|.
 name|setException
 argument_list|(

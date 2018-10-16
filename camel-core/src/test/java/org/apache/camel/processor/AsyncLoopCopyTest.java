@@ -167,7 +167,7 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello Camel"
+literal|"Bye Camel"
 argument_list|)
 expr_stmt|;
 name|String
@@ -192,7 +192,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Hello Camel"
+literal|"Bye Camel"
 argument_list|,
 name|reply
 argument_list|)

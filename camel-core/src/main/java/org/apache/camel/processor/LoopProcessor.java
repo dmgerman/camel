@@ -851,7 +851,7 @@ name|ExchangeHelper
 operator|.
 name|copyResults
 argument_list|(
-name|exchange
+name|original
 argument_list|,
 name|target
 argument_list|)

@@ -1388,6 +1388,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 name|attempts
 operator|.

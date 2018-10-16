@@ -562,10 +562,14 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
 block|}
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 return|return
 literal|true
 return|;

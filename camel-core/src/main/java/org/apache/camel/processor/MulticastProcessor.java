@@ -4072,22 +4072,11 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-comment|// wrap in exception to explain where it failed
-name|subExchange
+name|original
 operator|.
 name|setException
 argument_list|(
-operator|new
-name|CamelExchangeException
-argument_list|(
-literal|"Sequential processing failed for number "
-operator|+
-name|total
-argument_list|,
-name|subExchange
-argument_list|,
 name|e
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// and do the done work
@@ -4095,7 +4084,7 @@ name|doDone
 argument_list|(
 name|original
 argument_list|,
-name|subExchange
+literal|null
 argument_list|,
 name|pairs
 argument_list|,
