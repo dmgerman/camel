@@ -1508,6 +1508,10 @@ name|SERVER_FQDN
 argument_list|,
 name|TARGET_PORT
 argument_list|,
+name|AS2SignatureAlgorithm
+operator|.
+name|SHA256WITHRSA
+argument_list|,
 name|certList
 operator|.
 name|toArray
@@ -1954,6 +1958,8 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|DISPOSITION_NOTIFICATION_TO
 argument_list|,
 name|SIGNED_RECEIPT_MIC_ALGORITHMS
@@ -2383,6 +2389,10 @@ name|US_ASCII
 argument_list|)
 argument_list|,
 literal|null
+argument_list|,
+name|AS2SignatureAlgorithm
+operator|.
+name|SHA256WITHRSA
 argument_list|,
 name|certList
 operator|.
@@ -3314,6 +3324,10 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
+name|AS2SignatureAlgorithm
+operator|.
+name|SHA256WITHRSA
+argument_list|,
 name|certList
 operator|.
 name|toArray
@@ -3872,6 +3886,10 @@ name|US_ASCII
 argument_list|)
 argument_list|,
 literal|null
+argument_list|,
+name|AS2SignatureAlgorithm
+operator|.
+name|SHA256WITHRSA
 argument_list|,
 name|certList
 operator|.
@@ -4500,6 +4518,10 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
+name|AS2SignatureAlgorithm
+operator|.
+name|SHA256WITHRSA
+argument_list|,
 name|certList
 operator|.
 name|toArray
@@ -4711,6 +4733,8 @@ name|AS2Charset
 operator|.
 name|US_ASCII
 argument_list|)
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,

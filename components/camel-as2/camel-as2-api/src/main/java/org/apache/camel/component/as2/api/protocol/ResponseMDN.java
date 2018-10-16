@@ -158,6 +158,24 @@ name|as2
 operator|.
 name|api
 operator|.
+name|AS2SignatureAlgorithm
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|as2
+operator|.
+name|api
+operator|.
 name|AS2SignedDataGenerator
 import|;
 end_import
@@ -539,6 +557,11 @@ specifier|final
 name|String
 name|serverFQDN
 decl_stmt|;
+DECL|field|signingAlgorithm
+specifier|private
+name|AS2SignatureAlgorithm
+name|signingAlgorithm
+decl_stmt|;
 DECL|field|signingCertificateChain
 specifier|private
 name|Certificate
@@ -550,7 +573,7 @@ specifier|private
 name|PrivateKey
 name|signingPrivateKey
 decl_stmt|;
-DECL|method|ResponseMDN (String as2Version, String serverFQDN, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey)
+DECL|method|ResponseMDN (String as2Version, String serverFQDN, AS2SignatureAlgorithm signingAlgorithm, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey)
 specifier|public
 name|ResponseMDN
 parameter_list|(
@@ -559,6 +582,9 @@ name|as2Version
 parameter_list|,
 name|String
 name|serverFQDN
+parameter_list|,
+name|AS2SignatureAlgorithm
+name|signingAlgorithm
 parameter_list|,
 name|Certificate
 index|[]
@@ -579,6 +605,12 @@ operator|.
 name|serverFQDN
 operator|=
 name|serverFQDN
+expr_stmt|;
+name|this
+operator|.
+name|signingAlgorithm
+operator|=
+name|signingAlgorithm
 expr_stmt|;
 name|this
 operator|.
@@ -1134,6 +1166,8 @@ name|SigningUtils
 operator|.
 name|createSigningGenerator
 argument_list|(
+name|signingAlgorithm
+argument_list|,
 name|signingCertificateChain
 argument_list|,
 name|signingPrivateKey

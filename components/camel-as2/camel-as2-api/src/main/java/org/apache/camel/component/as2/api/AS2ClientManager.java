@@ -224,18 +224,6 @@ name|apache
 operator|.
 name|http
 operator|.
-name|NameValuePair
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
 name|entity
 operator|.
 name|ContentType
@@ -253,20 +241,6 @@ operator|.
 name|message
 operator|.
 name|BasicHttpEntityEnclosingRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
-name|message
-operator|.
-name|BasicNameValuePair
 import|;
 end_import
 
@@ -477,17 +451,17 @@ name|CAMEL_AS2_CLIENT_PREFIX
 operator|+
 literal|"as2-to"
 decl_stmt|;
-comment|/**      * The HTTP Context Attribute containing the algorithm name used to sign EDI      * message      */
-DECL|field|SIGNING_ALGORITHM_NAME
+comment|/**      * The HTTP Context Attribute containing the algorithm used to sign EDI      * message      */
+DECL|field|SIGNING_ALGORITHM
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|SIGNING_ALGORITHM_NAME
+name|SIGNING_ALGORITHM
 init|=
 name|CAMEL_AS2_CLIENT_PREFIX
 operator|+
-literal|"signing-algorithm-name"
+literal|"signing-algorithm"
 decl_stmt|;
 comment|/**      * The HTTP Context Attribute containing the certificate chain used to sign      * EDI message      */
 DECL|field|SIGNING_CERTIFICATE_CHAIN
@@ -594,8 +568,8 @@ operator|=
 name|as2ClientConnection
 expr_stmt|;
 block|}
-comment|/**      * Send<code>ediMessage</code> to trading partner.      *      * @param ediMessage      *            - EDI message to transport      * @param requestUri      *            - resource location to deliver message      * @param subject - message subject      * @param from - RFC2822 address of sender      * @param as2From - AS2 name of sender      * @param as2To - AS2 name of recipient      * @param as2MessageStructure - the structure of AS2 to send; see {@link AS2MessageStructure}      * @param ediMessageContentType - the content typw of EDI message      * @param ediMessageTransferEncoding - the transfer encoding used to transport EDI message      * @param signingCertificateChain - the chain of certificates used to sign the message or<code>null</code> if sending EDI message unsigned      * @param signingPrivateKey - the private key used to sign EDI message      * @param dispositionNotificationTo - an RFC2822 address to request a receipt or<code>null</code> if no receipt requested      * @param signedReceiptMicAlgorithms - the senders list of signing algorithms for signing receipt, in preferred order,  or<code>null</code> if requesting an unsigned receipt.      * @param encryptingAlgorithm - the algorithm used to encrypt the message or<code>null</code> if sending EDI message unencrypted      * @param encryptingCertificateChain - the chain of certificates used to encrypt the message or<code>null</code> if sending EDI message unencrypted      * @param encryptingPrivateKey - the private key used to encrypt EDI message      * @return {@link HttpCoreContext} containing request and response used to send EDI message      * @throws HttpException when things go wrong.      */
-DECL|method|send (String ediMessage, String requestUri, String subject, String from, String as2From, String as2To, AS2MessageStructure as2MessageStructure, ContentType ediMessageContentType, String ediMessageTransferEncoding, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey, String dispositionNotificationTo, String[] signedReceiptMicAlgorithms, AS2EncryptionAlgorithm encryptingAlgorithm, Certificate[] encryptingCertificateChain, PrivateKey encryptingPrivateKey)
+comment|/**      * Send<code>ediMessage</code> to trading partner.      *      * @param ediMessage      *            - EDI message to transport      * @param requestUri      *            - resource location to deliver message      * @param subject - message subject      * @param from - RFC2822 address of sender      * @param as2From - AS2 name of sender      * @param as2To - AS2 name of recipient      * @param as2MessageStructure - the structure of AS2 to send; see {@link AS2MessageStructure}      * @param ediMessageContentType - the content typw of EDI message      * @param ediMessageTransferEncoding - the transfer encoding used to transport EDI message      * @param signingAlgorithm - the algorithm used to sign the message or<code>null</code> if sending EDI message unsigned      * @param signingCertificateChain - the chain of certificates used to sign the message or<code>null</code> if sending EDI message unsigned      * @param signingPrivateKey - the private key used to sign EDI message      * @param dispositionNotificationTo - an RFC2822 address to request a receipt or<code>null</code> if no receipt requested      * @param signedReceiptMicAlgorithms - the senders list of signing algorithms for signing receipt, in preferred order,  or<code>null</code> if requesting an unsigned receipt.      * @param encryptingAlgorithm - the algorithm used to encrypt the message or<code>null</code> if sending EDI message unencrypted      * @param encryptingCertificateChain - the chain of certificates used to encrypt the message or<code>null</code> if sending EDI message unencrypted      * @param encryptingPrivateKey - the private key used to encrypt EDI message      * @return {@link HttpCoreContext} containing request and response used to send EDI message      * @throws HttpException when things go wrong.      */
+DECL|method|send (String ediMessage, String requestUri, String subject, String from, String as2From, String as2To, AS2MessageStructure as2MessageStructure, ContentType ediMessageContentType, String ediMessageTransferEncoding, AS2SignatureAlgorithm signingAlgorithm, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey, String dispositionNotificationTo, String[] signedReceiptMicAlgorithms, AS2EncryptionAlgorithm encryptingAlgorithm, Certificate[] encryptingCertificateChain, PrivateKey encryptingPrivateKey)
 specifier|public
 name|HttpCoreContext
 name|send
@@ -626,6 +600,9 @@ name|ediMessageContentType
 parameter_list|,
 name|String
 name|ediMessageTransferEncoding
+parameter_list|,
+name|AS2SignatureAlgorithm
+name|signingAlgorithm
 parameter_list|,
 name|Certificate
 index|[]
@@ -785,6 +762,17 @@ operator|.
 name|EDI_MESSAGE_TRANSFER_ENCODING
 argument_list|,
 name|ediMessageTransferEncoding
+argument_list|)
+expr_stmt|;
+name|httpContext
+operator|.
+name|setAttribute
+argument_list|(
+name|AS2ClientManager
+operator|.
+name|SIGNING_ALGORITHM
+argument_list|,
+name|signingAlgorithm
 argument_list|)
 expr_stmt|;
 name|httpContext
@@ -1216,6 +1204,35 @@ parameter_list|)
 throws|throws
 name|HttpException
 block|{
+name|AS2SignatureAlgorithm
+name|signatureAlgorithm
+init|=
+name|httpContext
+operator|.
+name|getAttribute
+argument_list|(
+name|SIGNING_ALGORITHM
+argument_list|,
+name|AS2SignatureAlgorithm
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|signatureAlgorithm
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|HttpException
+argument_list|(
+literal|"Signing algorithm missing"
+argument_list|)
+throw|;
+block|}
 name|Certificate
 index|[]
 name|certificateChain
@@ -1281,6 +1298,8 @@ name|SigningUtils
 operator|.
 name|createSigningGenerator
 argument_list|(
+name|signatureAlgorithm
+argument_list|,
 name|certificateChain
 argument_list|,
 name|privateKey

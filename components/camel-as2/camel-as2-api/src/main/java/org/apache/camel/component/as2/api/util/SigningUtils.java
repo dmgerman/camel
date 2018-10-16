@@ -92,6 +92,24 @@ name|as2
 operator|.
 name|api
 operator|.
+name|AS2SignatureAlgorithm
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|as2
+operator|.
+name|api
+operator|.
 name|AS2SignedDataGenerator
 import|;
 end_import
@@ -296,12 +314,15 @@ specifier|private
 name|SigningUtils
 parameter_list|()
 block|{     }
-DECL|method|createSigningGenerator (Certificate[] certificateChain, PrivateKey privateKey)
+DECL|method|createSigningGenerator (AS2SignatureAlgorithm signingAlgorithm, Certificate[] certificateChain, PrivateKey privateKey)
 specifier|public
 specifier|static
 name|AS2SignedDataGenerator
 name|createSigningGenerator
 parameter_list|(
+name|AS2SignatureAlgorithm
+name|signingAlgorithm
+parameter_list|,
 name|Certificate
 index|[]
 name|certificateChain
@@ -467,19 +488,6 @@ name|signerInfoGenerator
 init|=
 literal|null
 decl_stmt|;
-for|for
-control|(
-name|String
-name|signingAlgorithmName
-range|:
-name|AS2SignedDataGenerator
-operator|.
-name|getSupportedSignatureAlgorithmNamesForKey
-argument_list|(
-name|privateKey
-argument_list|)
-control|)
-block|{
 try|try
 block|{
 name|signerInfoGenerator
@@ -504,14 +512,16 @@ argument_list|)
 operator|.
 name|build
 argument_list|(
-name|signingAlgorithmName
+name|signingAlgorithm
+operator|.
+name|getSignatureAlgorithmName
+argument_list|()
 argument_list|,
 name|privateKey
 argument_list|,
 name|signingCert
 argument_list|)
 expr_stmt|;
-break|break;
 block|}
 catch|catch
 parameter_list|(
@@ -519,28 +529,30 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|signerInfoGenerator
-operator|=
-literal|null
-expr_stmt|;
-continue|continue;
-block|}
-block|}
-if|if
-condition|(
-name|signerInfoGenerator
-operator|==
-literal|null
-condition|)
-block|{
 throw|throw
 operator|new
 name|HttpException
 argument_list|(
 literal|"Failed to create signer info"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
+comment|//        for (String signingAlgorithmName : AS2SignedDataGenerator.getSupportedSignatureAlgorithmNamesForKey(privateKey)) {
+comment|//            try {
+comment|//                signerInfoGenerator = new JcaSimpleSignerInfoGeneratorBuilder().setProvider("BC")
+comment|//                .setSignedAttributeGenerator(new AttributeTable(attributes))
+comment|//                .build(signingAlgorithmName, privateKey, signingCert);
+comment|//                break;
+comment|//            } catch (Exception e) {
+comment|//                signerInfoGenerator = null;
+comment|//                continue;
+comment|//            }
+comment|//        }
+comment|//        if (signerInfoGenerator == null) {
+comment|//            throw new HttpException("Failed to create signer info");
+comment|//        }
 name|gen
 operator|.
 name|addSignerInfoGenerator

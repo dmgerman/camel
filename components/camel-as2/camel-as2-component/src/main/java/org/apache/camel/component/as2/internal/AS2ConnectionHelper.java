@@ -256,6 +256,11 @@ argument_list|()
 argument_list|,
 name|configuration
 operator|.
+name|getSigningAlgorithm
+argument_list|()
+argument_list|,
+name|configuration
+operator|.
 name|getSigningCertificateChain
 argument_list|()
 argument_list|,

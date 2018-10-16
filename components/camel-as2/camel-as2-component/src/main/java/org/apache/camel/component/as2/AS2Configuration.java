@@ -100,6 +100,24 @@ name|component
 operator|.
 name|as2
 operator|.
+name|api
+operator|.
+name|AS2SignatureAlgorithm
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|as2
+operator|.
 name|internal
 operator|.
 name|AS2ApiName
@@ -376,10 +394,10 @@ name|as2To
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|signingAlgorithmName
+DECL|field|signingAlgorithm
 specifier|private
-name|String
-name|signingAlgorithmName
+name|AS2SignatureAlgorithm
+name|signingAlgorithm
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1075,31 +1093,31 @@ operator|=
 name|as2To
 expr_stmt|;
 block|}
-DECL|method|getSigningAlgorithmName ()
+DECL|method|getSigningAlgorithm ()
 specifier|public
-name|String
-name|getSigningAlgorithmName
+name|AS2SignatureAlgorithm
+name|getSigningAlgorithm
 parameter_list|()
 block|{
 return|return
-name|signingAlgorithmName
+name|signingAlgorithm
 return|;
 block|}
-comment|/**      * The name of algorithm used to sign EDI message.      */
-DECL|method|setSigningAlgorithmName (String signingAlgorithmName)
+comment|/**      * The algorithm used to sign EDI message.      */
+DECL|method|setSigningAlgorithm (AS2SignatureAlgorithm signingAlgorithm)
 specifier|public
 name|void
-name|setSigningAlgorithmName
+name|setSigningAlgorithm
 parameter_list|(
-name|String
-name|signingAlgorithmName
+name|AS2SignatureAlgorithm
+name|signingAlgorithm
 parameter_list|)
 block|{
 name|this
 operator|.
-name|signingAlgorithmName
+name|signingAlgorithm
 operator|=
-name|signingAlgorithmName
+name|signingAlgorithm
 expr_stmt|;
 block|}
 DECL|method|getSigningCertificateChain ()

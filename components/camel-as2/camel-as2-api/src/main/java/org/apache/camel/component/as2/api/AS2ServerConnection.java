@@ -465,7 +465,7 @@ specifier|private
 name|UriHttpRequestHandlerMapper
 name|reqistry
 decl_stmt|;
-DECL|method|RequestListenerThread (String as2Version, String originServer, String serverFqdn, int port, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey)
+DECL|method|RequestListenerThread (String as2Version, String originServer, String serverFqdn, int port, AS2SignatureAlgorithm signatureAlgorithm, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey)
 specifier|public
 name|RequestListenerThread
 parameter_list|(
@@ -480,6 +480,9 @@ name|serverFqdn
 parameter_list|,
 name|int
 name|port
+parameter_list|,
+name|AS2SignatureAlgorithm
+name|signatureAlgorithm
 parameter_list|,
 name|Certificate
 index|[]
@@ -520,6 +523,8 @@ argument_list|,
 name|serverFqdn
 argument_list|,
 name|port
+argument_list|,
+name|signatureAlgorithm
 argument_list|,
 name|signingCertificateChain
 argument_list|,
@@ -1041,6 +1046,11 @@ specifier|private
 name|Integer
 name|serverPortNumber
 decl_stmt|;
+DECL|field|signingAlgorithm
+specifier|private
+name|AS2SignatureAlgorithm
+name|signingAlgorithm
+decl_stmt|;
 DECL|field|signingCertificateChain
 specifier|private
 name|Certificate
@@ -1052,7 +1062,7 @@ specifier|private
 name|PrivateKey
 name|signingPrivateKey
 decl_stmt|;
-DECL|method|AS2ServerConnection (String as2Version, String originServer, String serverFqdn, Integer serverPortNumber, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey)
+DECL|method|AS2ServerConnection (String as2Version, String originServer, String serverFqdn, Integer serverPortNumber, AS2SignatureAlgorithm signingAlgorithm, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey)
 specifier|public
 name|AS2ServerConnection
 parameter_list|(
@@ -1067,6 +1077,9 @@ name|serverFqdn
 parameter_list|,
 name|Integer
 name|serverPortNumber
+parameter_list|,
+name|AS2SignatureAlgorithm
+name|signingAlgorithm
 parameter_list|,
 name|Certificate
 index|[]
@@ -1132,6 +1145,12 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|signingAlgorithm
+operator|=
+name|signingAlgorithm
+expr_stmt|;
+name|this
+operator|.
 name|signingCertificateChain
 operator|=
 name|signingCertificateChain
@@ -1162,6 +1181,10 @@ argument_list|,
 name|this
 operator|.
 name|serverPortNumber
+argument_list|,
+name|this
+operator|.
+name|signingAlgorithm
 argument_list|,
 name|this
 operator|.
@@ -1305,7 +1328,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|initProtocolProcessor (String as2Version, String originServer, String serverFqdn, int port, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey)
+DECL|method|initProtocolProcessor (String as2Version, String originServer, String serverFqdn, int port, AS2SignatureAlgorithm signatureAlgorithm, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey)
 specifier|protected
 name|HttpProcessor
 name|initProtocolProcessor
@@ -1321,6 +1344,9 @@ name|serverFqdn
 parameter_list|,
 name|int
 name|port
+parameter_list|,
+name|AS2SignatureAlgorithm
+name|signatureAlgorithm
 parameter_list|,
 name|Certificate
 index|[]
@@ -1376,6 +1402,8 @@ argument_list|(
 name|as2Version
 argument_list|,
 name|serverFqdn
+argument_list|,
+name|signatureAlgorithm
 argument_list|,
 name|signingCertificateChain
 argument_list|,
