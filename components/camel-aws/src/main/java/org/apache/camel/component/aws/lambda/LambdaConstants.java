@@ -156,6 +156,18 @@ name|SUBNET_IDS
 init|=
 literal|"CamelAwsLambdaSubnetIds"
 decl_stmt|;
+DECL|field|EVENT_SOURCE_ARN
+name|String
+name|EVENT_SOURCE_ARN
+init|=
+literal|"CamelAwsLambdaEventSourceArn"
+decl_stmt|;
+DECL|field|EVENT_SOURCE_BATCH_SIZE
+name|String
+name|EVENT_SOURCE_BATCH_SIZE
+init|=
+literal|"CamelAwsLambdaEventSourceBatchSize"
+decl_stmt|;
 block|}
 end_interface
 
