@@ -109,6 +109,13 @@ argument_list|,
 literal|"fhirXml"
 argument_list|)
 expr_stmt|;
+name|testComponent
+argument_list|(
+name|COMPONENT
+argument_list|,
+literal|"fhir"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
