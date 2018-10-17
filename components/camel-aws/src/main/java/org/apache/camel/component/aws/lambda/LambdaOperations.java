@@ -46,6 +46,9 @@ name|updateFunction
 block|,
 DECL|enumConstant|createEventSourceMapping
 name|createEventSourceMapping
+block|,
+DECL|enumConstant|deleteEventSourceMapping
+name|deleteEventSourceMapping
 block|}
 end_enum
 

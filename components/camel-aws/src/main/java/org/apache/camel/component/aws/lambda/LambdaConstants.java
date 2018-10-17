@@ -168,6 +168,12 @@ name|EVENT_SOURCE_BATCH_SIZE
 init|=
 literal|"CamelAwsLambdaEventSourceBatchSize"
 decl_stmt|;
+DECL|field|EVENT_SOURCE_UUID
+name|String
+name|EVENT_SOURCE_UUID
+init|=
+literal|"CamelAwsLambdaEventSourceUuid"
+decl_stmt|;
 block|}
 end_interface
 
