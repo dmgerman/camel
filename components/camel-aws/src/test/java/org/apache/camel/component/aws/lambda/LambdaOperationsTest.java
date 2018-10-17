@@ -58,7 +58,7 @@ parameter_list|()
 block|{
 name|assertEquals
 argument_list|(
-literal|7
+literal|8
 argument_list|,
 name|LambdaOperations
 operator|.
