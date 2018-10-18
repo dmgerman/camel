@@ -21,6 +21,22 @@ package|;
 end_package
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|maven
+operator|.
+name|packaging
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -505,20 +521,11 @@ block|{
 name|String
 name|text
 init|=
+name|StringHelper
+operator|.
+name|getClassShortName
+argument_list|(
 name|javaType
-operator|.
-name|replaceAll
-argument_list|(
-literal|"<.*>"
-argument_list|,
-literal|""
-argument_list|)
-operator|.
-name|replaceAll
-argument_list|(
-literal|".*[.]([^.]+)"
-argument_list|,
-literal|"$1"
 argument_list|)
 decl_stmt|;
 comment|// if its some kind of java object then lets wrap it as its long

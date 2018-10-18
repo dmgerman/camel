@@ -926,6 +926,46 @@ argument_list|()
 return|;
 block|}
 block|}
+comment|/**      * Returns the base class name, i.e. without package and generic related      * information.      *       * @param className The class name which base class is to be computed.      * @return the base class name, i.e. without package and generic related      *         information.      */
+DECL|method|getClassShortName (String className)
+specifier|public
+specifier|static
+name|String
+name|getClassShortName
+parameter_list|(
+name|String
+name|className
+parameter_list|)
+block|{
+if|if
+condition|(
+name|className
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|className
+operator|.
+name|replaceAll
+argument_list|(
+literal|"<.*>"
+argument_list|,
+literal|""
+argument_list|)
+operator|.
+name|replaceAll
+argument_list|(
+literal|".*[.]([^.]+)"
+argument_list|,
+literal|"$1"
+argument_list|)
+return|;
+block|}
+return|return
+name|className
+return|;
+block|}
 block|}
 end_class
 
