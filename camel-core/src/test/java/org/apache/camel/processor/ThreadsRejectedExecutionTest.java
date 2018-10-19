@@ -385,6 +385,9 @@ argument_list|(
 literal|200
 argument_list|)
 operator|.
+name|syncDelayed
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"log:after"

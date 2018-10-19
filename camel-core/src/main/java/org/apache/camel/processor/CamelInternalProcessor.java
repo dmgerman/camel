@@ -402,6 +402,20 @@ name|camel
 operator|.
 name|support
 operator|.
+name|ReactiveHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
 name|UnitOfWorkHelper
 import|;
 end_import
@@ -580,7 +594,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|process (Exchange exchange, AsyncCallback callback)
+DECL|method|process (Exchange exchange, AsyncCallback ocallback)
 specifier|public
 name|boolean
 name|process
@@ -589,7 +603,7 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|AsyncCallback
-name|callback
+name|ocallback
 parameter_list|)
 block|{
 comment|// ----------------------------------------------------------
@@ -619,7 +633,7 @@ argument_list|)
 condition|)
 block|{
 comment|// no processor or we should not continue then we are done
-name|callback
+name|ocallback
 operator|.
 name|done
 argument_list|(
@@ -707,7 +721,7 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-name|callback
+name|ocallback
 operator|.
 name|done
 argument_list|(
@@ -720,30 +734,99 @@ return|;
 block|}
 block|}
 comment|// create internal callback which will execute the advices in reverse order when done
+name|AsyncCallback
 name|callback
-operator|=
-operator|new
-name|InternalCallback
+init|=
+name|doneSync
+lambda|->
+block|{
+try|try
+block|{
+for|for
+control|(
+name|int
+name|i
+init|=
+name|advices
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|1
+init|;
+name|i
+operator|>=
+literal|0
+condition|;
+name|i
+operator|--
+control|)
+block|{
+name|CamelInternalProcessorAdvice
+name|task
+init|=
+name|advices
+operator|.
+name|get
 argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
+name|Object
+name|state
+init|=
 name|states
-argument_list|,
+index|[
+name|i
+index|]
+decl_stmt|;
+try|try
+block|{
+name|task
+operator|.
+name|after
+argument_list|(
 name|exchange
 argument_list|,
-name|callback
+name|state
 argument_list|)
 expr_stmt|;
-comment|// UNIT_OF_WORK_PROCESS_SYNC is @deprecated and we should remove it from Camel 3.0
-name|Object
-name|synchronous
-init|=
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
 name|exchange
 operator|.
-name|removeProperty
+name|setException
 argument_list|(
-name|Exchange
-operator|.
-name|UNIT_OF_WORK_PROCESS_SYNC
+name|e
 argument_list|)
+expr_stmt|;
+comment|// allow all advices to complete even if there was an exception
+block|}
+block|}
+block|}
+finally|finally
+block|{
+comment|// ----------------------------------------------------------
+comment|// CAMEL END USER - DEBUG ME HERE +++ START +++
+comment|// ----------------------------------------------------------
+comment|// callback must be called
+name|ReactiveHelper
+operator|.
+name|callback
+argument_list|(
+name|ocallback
+argument_list|)
+expr_stmt|;
+comment|// ----------------------------------------------------------
+comment|// CAMEL END USER - DEBUG ME HERE +++ END +++
+comment|// ----------------------------------------------------------
+block|}
+block|}
 decl_stmt|;
 if|if
 condition|(
@@ -751,10 +834,6 @@ name|exchange
 operator|.
 name|isTransacted
 argument_list|()
-operator|||
-name|synchronous
-operator|!=
-literal|null
 condition|)
 block|{
 comment|// must be synchronized for transacted exchanges
@@ -913,9 +992,6 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-name|boolean
-name|sync
-init|=
 name|processor
 operator|.
 name|process
@@ -924,10 +1000,17 @@ name|exchange
 argument_list|,
 name|async
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// ----------------------------------------------------------
 comment|// CAMEL END USER - DEBUG ME HERE +++ END +++
 comment|// ----------------------------------------------------------
+name|ReactiveHelper
+operator|.
+name|scheduleLast
+argument_list|(
+parameter_list|()
+lambda|->
+block|{
 comment|// execute any after processor work (in current thread, not in the callback)
 if|if
 condition|(
@@ -946,7 +1029,7 @@ name|exchange
 argument_list|,
 name|callback
 argument_list|,
-name|sync
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -962,30 +1045,33 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Exchange processed and is continued routed {} for exchangeId: {} -> {}"
+literal|"Exchange processed and is continued routed asynchronously for exchangeId: {} -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
-name|sync
-condition|?
-literal|"synchronously"
-else|:
-literal|"asynchronously"
-block|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-block|,
+argument_list|,
 name|exchange
-block|}
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+argument_list|,
+literal|"CamelInternalProcessor - UnitOfWork - afterProcess - "
+operator|+
+name|processor
+operator|+
+literal|" - "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
-name|sync
+literal|false
 return|;
 block|}
 block|}
@@ -1012,175 +1098,6 @@ operator|.
 name|toString
 argument_list|()
 return|;
-block|}
-comment|/**      * Internal callback that executes the after advices.      */
-DECL|class|InternalCallback
-specifier|private
-specifier|final
-class|class
-name|InternalCallback
-implements|implements
-name|AsyncCallback
-block|{
-DECL|field|states
-specifier|private
-specifier|final
-name|Object
-index|[]
-name|states
-decl_stmt|;
-DECL|field|exchange
-specifier|private
-specifier|final
-name|Exchange
-name|exchange
-decl_stmt|;
-DECL|field|callback
-specifier|private
-specifier|final
-name|AsyncCallback
-name|callback
-decl_stmt|;
-DECL|method|InternalCallback (Object[] states, Exchange exchange, AsyncCallback callback)
-specifier|private
-name|InternalCallback
-parameter_list|(
-name|Object
-index|[]
-name|states
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|,
-name|AsyncCallback
-name|callback
-parameter_list|)
-block|{
-name|this
-operator|.
-name|states
-operator|=
-name|states
-expr_stmt|;
-name|this
-operator|.
-name|exchange
-operator|=
-name|exchange
-expr_stmt|;
-name|this
-operator|.
-name|callback
-operator|=
-name|callback
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|done (boolean doneSync)
-specifier|public
-name|void
-name|done
-parameter_list|(
-name|boolean
-name|doneSync
-parameter_list|)
-block|{
-comment|// NOTE: if you are debugging Camel routes, then all the code in the for loop below is internal only
-comment|// so you can step straight to the finally block and invoke the callback
-comment|// we should call after in reverse order
-try|try
-block|{
-for|for
-control|(
-name|int
-name|i
-init|=
-name|advices
-operator|.
-name|size
-argument_list|()
-operator|-
-literal|1
-init|;
-name|i
-operator|>=
-literal|0
-condition|;
-name|i
-operator|--
-control|)
-block|{
-name|CamelInternalProcessorAdvice
-name|task
-init|=
-name|advices
-operator|.
-name|get
-argument_list|(
-name|i
-argument_list|)
-decl_stmt|;
-name|Object
-name|state
-init|=
-name|states
-index|[
-name|i
-index|]
-decl_stmt|;
-try|try
-block|{
-name|task
-operator|.
-name|after
-argument_list|(
-name|exchange
-argument_list|,
-name|state
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-comment|// allow all advices to complete even if there was an exception
-block|}
-block|}
-block|}
-finally|finally
-block|{
-comment|// ----------------------------------------------------------
-comment|// CAMEL END USER - DEBUG ME HERE +++ START +++
-comment|// ----------------------------------------------------------
-comment|// callback must be called
-name|callback
-operator|.
-name|done
-argument_list|(
-name|doneSync
-argument_list|)
-expr_stmt|;
-comment|// ----------------------------------------------------------
-comment|// CAMEL END USER - DEBUG ME HERE +++ END +++
-comment|// ----------------------------------------------------------
-block|}
-block|}
 block|}
 comment|/**      * Strategy to determine if we should continue processing the {@link Exchange}.      */
 DECL|method|continueProcessing (Exchange exchange)

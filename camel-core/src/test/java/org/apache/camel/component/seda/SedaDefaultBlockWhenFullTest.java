@@ -96,7 +96,7 @@ specifier|final
 name|int
 name|DELAY
 init|=
-literal|10
+literal|100
 decl_stmt|;
 DECL|field|DELAY_LONG
 specifier|private
@@ -105,7 +105,7 @@ specifier|final
 name|int
 name|DELAY_LONG
 init|=
-literal|100
+literal|1000
 decl_stmt|;
 DECL|field|MOCK_URI
 specifier|private

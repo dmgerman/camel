@@ -366,7 +366,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"Parallel processing failed for number "
+literal|"Multicast processing failed for number "
 argument_list|)
 argument_list|)
 expr_stmt|;

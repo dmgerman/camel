@@ -116,7 +116,7 @@ specifier|static
 name|String
 name|url
 init|=
-literal|"file:target/pending?initialDelay=0&delay=10"
+literal|"file:target/pending?initialDelay=0&delay=10&synchronous=true"
 decl_stmt|;
 annotation|@
 name|Override
@@ -321,6 +321,9 @@ name|delay
 argument_list|(
 literal|1000
 argument_list|)
+operator|.
+name|syncDelayed
+argument_list|()
 operator|.
 name|to
 argument_list|(

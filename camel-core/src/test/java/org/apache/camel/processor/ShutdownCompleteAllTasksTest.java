@@ -166,7 +166,7 @@ specifier|static
 name|String
 name|url
 init|=
-literal|"file:target/pending?initialDelay=0&delay=10"
+literal|"file:target/pending?initialDelay=0&delay=10&synchronous=true"
 decl_stmt|;
 DECL|field|counter
 specifier|private

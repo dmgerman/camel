@@ -213,7 +213,7 @@ name|Metadata
 argument_list|(
 name|defaultValue
 operator|=
-literal|"false"
+literal|"true"
 argument_list|)
 DECL|field|asyncDelayed
 specifier|private
@@ -364,6 +364,22 @@ block|{
 name|setAsyncDelayed
 argument_list|(
 literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Enables asynchronous delay which means the thread will<b>not</b> block while delaying.      */
+DECL|method|syncDelayed ()
+specifier|public
+name|DelayDefinition
+name|syncDelayed
+parameter_list|()
+block|{
+name|setAsyncDelayed
+argument_list|(
+literal|false
 argument_list|)
 expr_stmt|;
 return|return

@@ -1791,7 +1791,7 @@ name|e
 parameter_list|)
 block|{
 comment|// error resolving endpoint so we should break out
-name|ex
+name|current
 operator|.
 name|setException
 argument_list|(
@@ -1891,7 +1891,7 @@ expr_stmt|;
 block|}
 comment|// okay we are completely done with the routing slip
 comment|// so we need to signal done on the original callback so it can continue
-name|originalCallback
+name|cb
 operator|.
 name|done
 argument_list|(

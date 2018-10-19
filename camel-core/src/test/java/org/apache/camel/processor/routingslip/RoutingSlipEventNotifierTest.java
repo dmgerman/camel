@@ -362,6 +362,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Sent: {}"
+argument_list|,
+name|event
+argument_list|)
+expr_stmt|;
 name|sent
 operator|++
 expr_stmt|;

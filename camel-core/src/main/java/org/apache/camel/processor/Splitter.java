@@ -749,35 +749,24 @@ argument_list|<
 name|ProcessorExchangePair
 argument_list|>
 name|answer
-decl_stmt|;
-if|if
-condition|(
+init|=
 name|isStreaming
 argument_list|()
-condition|)
-block|{
-name|answer
-operator|=
+condition|?
 name|createProcessorExchangePairsIterable
 argument_list|(
 name|exchange
 argument_list|,
 name|value
 argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|answer
-operator|=
+else|:
 name|createProcessorExchangePairsList
 argument_list|(
 name|exchange
 argument_list|,
 name|value
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 if|if
 condition|(
 name|exchange
@@ -1307,7 +1296,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|updateNewExchange (Exchange exchange, int index, Iterable<ProcessorExchangePair> allPairs, Iterator<ProcessorExchangePair> it)
+DECL|method|updateNewExchange (Exchange exchange, int index, Iterable<ProcessorExchangePair> allPairs, boolean hasNext)
 specifier|protected
 name|void
 name|updateNewExchange
@@ -1324,11 +1313,8 @@ name|ProcessorExchangePair
 argument_list|>
 name|allPairs
 parameter_list|,
-name|Iterator
-argument_list|<
-name|ProcessorExchangePair
-argument_list|>
-name|it
+name|boolean
+name|hasNext
 parameter_list|)
 block|{
 comment|// do not share unit of work
@@ -1383,10 +1369,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|it
-operator|.
 name|hasNext
-argument_list|()
 condition|)
 block|{
 name|exchange

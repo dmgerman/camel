@@ -493,15 +493,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"Adding Exchange to queue: {}"
-argument_list|,
-name|copy
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 comment|// do not copy as we already did the copy

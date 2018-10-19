@@ -216,6 +216,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ReactiveHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -345,91 +359,16 @@ operator|.
 name|getAsyncProcessorAwaitManager
 argument_list|()
 decl_stmt|;
-specifier|final
-name|CountDownLatch
-name|latch
-init|=
-operator|new
-name|CountDownLatch
-argument_list|(
-literal|1
-argument_list|)
-decl_stmt|;
-name|boolean
-name|sync
-init|=
+name|awaitManager
+operator|.
 name|process
 argument_list|(
-name|exchange
-argument_list|,
 operator|new
-name|AsyncCallback
+name|AsyncProcessor
 argument_list|()
 block|{
-specifier|public
-name|void
-name|done
-parameter_list|(
-name|boolean
-name|doneSync
-parameter_list|)
-block|{
-if|if
-condition|(
-operator|!
-name|doneSync
-condition|)
-block|{
-name|awaitManager
-operator|.
-name|countDown
-argument_list|(
-name|exchange
-argument_list|,
-name|latch
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 annotation|@
 name|Override
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"Done "
-operator|+
-name|processor
-return|;
-block|}
-block|}
-argument_list|,
-name|processor
-argument_list|,
-name|resultProcessor
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|sync
-condition|)
-block|{
-name|awaitManager
-operator|.
-name|await
-argument_list|(
-name|exchange
-argument_list|,
-name|latch
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-comment|/**      * Asynchronous API      */
-DECL|method|process (Exchange exchange, AsyncCallback callback, AsyncProcessor processor, Processor resultProcessor)
 specifier|public
 name|boolean
 name|process
@@ -439,6 +378,60 @@ name|exchange
 parameter_list|,
 name|AsyncCallback
 name|callback
+parameter_list|)
+block|{
+return|return
+name|SharedCamelInternalProcessor
+operator|.
+name|this
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|,
+name|callback
+argument_list|,
+name|processor
+argument_list|,
+name|resultProcessor
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|()
+throw|;
+block|}
+block|}
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Asynchronous API      */
+DECL|method|process (Exchange exchange, AsyncCallback ocallback, AsyncProcessor processor, Processor resultProcessor)
+specifier|public
+name|boolean
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|AsyncCallback
+name|ocallback
 parameter_list|,
 name|AsyncProcessor
 name|processor
@@ -476,7 +469,7 @@ argument_list|)
 condition|)
 block|{
 comment|// no processor or we should not continue then we are done
-name|callback
+name|ocallback
 operator|.
 name|done
 argument_list|(
@@ -564,7 +557,7 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-name|callback
+name|ocallback
 operator|.
 name|done
 argument_list|(
@@ -577,8 +570,9 @@ return|;
 block|}
 block|}
 comment|// create internal callback which will execute the advices in reverse order when done
+name|AsyncCallback
 name|callback
-operator|=
+init|=
 operator|new
 name|InternalCallback
 argument_list|(
@@ -586,11 +580,11 @@ name|states
 argument_list|,
 name|exchange
 argument_list|,
-name|callback
+name|ocallback
 argument_list|,
 name|resultProcessor
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// UNIT_OF_WORK_PROCESS_SYNC is @deprecated and we should remove it from Camel 3.0
 name|Object
 name|synchronous
@@ -787,6 +781,13 @@ decl_stmt|;
 comment|// ----------------------------------------------------------
 comment|// CAMEL END USER - DEBUG ME HERE +++ END +++
 comment|// ----------------------------------------------------------
+name|ReactiveHelper
+operator|.
+name|scheduleLast
+argument_list|(
+parameter_list|()
+lambda|->
+block|{
 comment|// execute any after processor work (in current thread, not in the callback)
 if|if
 condition|(
@@ -821,28 +822,31 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Exchange processed and is continued routed {} for exchangeId: {} -> {}"
+literal|"Exchange processed and is continued routed asynchronously for exchangeId: {} -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
-name|sync
-condition|?
-literal|"synchronously"
-else|:
-literal|"asynchronously"
-block|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-block|,
+argument_list|,
 name|exchange
-block|}
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+argument_list|,
+literal|"SharedCamelInternalProcessor - UnitOfWork - afterProcess - "
+operator|+
+name|processor
+operator|+
+literal|" - "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|sync
 return|;
@@ -1051,11 +1055,11 @@ comment|// ----------------------------------------------------------
 comment|// CAMEL END USER - DEBUG ME HERE +++ START +++
 comment|// ----------------------------------------------------------
 comment|// callback must be called
-name|callback
+name|ReactiveHelper
 operator|.
-name|done
+name|callback
 argument_list|(
-name|doneSync
+name|callback
 argument_list|)
 expr_stmt|;
 comment|// ----------------------------------------------------------
