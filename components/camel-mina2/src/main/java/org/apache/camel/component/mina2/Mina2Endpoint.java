@@ -176,7 +176,7 @@ literal|"2.10.0"
 argument_list|,
 name|scheme
 operator|=
-literal|"mina2"
+literal|"mina2,mina"
 argument_list|,
 name|title
 operator|=

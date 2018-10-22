@@ -2992,6 +2992,11 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+name|context
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
 block|}
 return|return
 name|context

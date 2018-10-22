@@ -444,7 +444,7 @@ literal|"2.3.0"
 argument_list|,
 name|scheme
 operator|=
-literal|"http4,https4"
+literal|"http4,https4,http,https"
 argument_list|,
 name|title
 operator|=

@@ -713,6 +713,11 @@ argument_list|(
 name|camelContext
 argument_list|)
 expr_stmt|;
+name|camelContext
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
 return|return
 name|camelContext
 return|;

@@ -549,7 +549,11 @@ name|Bean
 argument_list|(
 name|name
 operator|=
+block|{
+literal|"netty-component"
+block|,
 literal|"netty4-component"
+block|}
 argument_list|)
 annotation|@
 name|ConditionalOnMissingBean

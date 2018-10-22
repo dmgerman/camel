@@ -2938,14 +2938,6 @@ name|getContext
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|healthCheckRegistry
-operator|.
-name|setCamelContext
-argument_list|(
-name|getContext
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 comment|// Health check repository
 name|Set
@@ -3234,6 +3226,12 @@ argument_list|)
 expr_stmt|;
 comment|// init stream caching strategy
 name|initStreamCachingStrategy
+argument_list|()
+expr_stmt|;
+name|getContext
+argument_list|()
+operator|.
+name|init
 argument_list|()
 expr_stmt|;
 block|}

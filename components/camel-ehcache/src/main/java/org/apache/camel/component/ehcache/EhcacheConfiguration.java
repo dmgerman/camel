@@ -338,10 +338,6 @@ argument_list|<
 name|?
 argument_list|>
 name|keyType
-init|=
-name|Object
-operator|.
-name|class
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -365,10 +361,6 @@ argument_list|<
 name|?
 argument_list|>
 name|valueType
-init|=
-name|Object
-operator|.
-name|class
 decl_stmt|;
 annotation|@
 name|UriParam

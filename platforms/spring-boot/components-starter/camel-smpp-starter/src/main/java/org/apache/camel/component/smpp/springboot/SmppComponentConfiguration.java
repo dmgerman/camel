@@ -310,8 +310,6 @@ DECL|field|systemType
 specifier|private
 name|String
 name|systemType
-init|=
-literal|"cp"
 decl_stmt|;
 comment|/**          * Is used to request an SMSC delivery receipt and/or SME originated          * acknowledgements. The following values are defined: 0: No SMSC          * delivery receipt requested. 1: SMSC delivery receipt requested where          * final delivery outcome is success or failure. 2: SMSC delivery          * receipt requested where the final delivery outcome is delivery          * failure.          */
 DECL|field|registeredDelivery
@@ -324,8 +322,6 @@ DECL|field|serviceType
 specifier|private
 name|String
 name|serviceType
-init|=
-literal|"CMT"
 decl_stmt|;
 comment|/**          * Defines the type of number (TON) to be used in the SME originator          * address parameters. The following TON values are defined: 0: Unknown          * 1: International 2: National 3: Network Specific 4: Subscriber Number          * 5: Alphanumeric 6: Abbreviated          */
 DECL|field|sourceAddrTon

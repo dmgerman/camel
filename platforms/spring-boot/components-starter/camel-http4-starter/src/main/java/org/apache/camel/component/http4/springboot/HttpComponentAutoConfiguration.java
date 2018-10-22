@@ -550,7 +550,11 @@ argument_list|(
 name|name
 operator|=
 block|{
+literal|"http-component"
+block|,
 literal|"http4-component"
+block|,
+literal|"https-component"
 block|,
 literal|"https4-component"
 block|}

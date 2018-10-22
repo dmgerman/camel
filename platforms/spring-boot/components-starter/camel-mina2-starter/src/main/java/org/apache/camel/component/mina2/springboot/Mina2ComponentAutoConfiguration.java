@@ -549,7 +549,11 @@ name|Bean
 argument_list|(
 name|name
 operator|=
+block|{
+literal|"mina-component"
+block|,
 literal|"mina2-component"
+block|}
 argument_list|)
 annotation|@
 name|ConditionalOnMissingBean

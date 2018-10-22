@@ -269,7 +269,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|onEvent (CacheEvent<? extends Object, ? extends Object> event)
+DECL|method|onEvent (CacheEvent<?, ?> event)
 specifier|public
 name|void
 name|onEvent
@@ -277,12 +277,8 @@ parameter_list|(
 name|CacheEvent
 argument_list|<
 name|?
-extends|extends
-name|Object
 argument_list|,
 name|?
-extends|extends
-name|Object
 argument_list|>
 name|event
 parameter_list|)

@@ -130,7 +130,7 @@ literal|"2.14.0"
 argument_list|,
 name|scheme
 operator|=
-literal|"hdfs2"
+literal|"hdfs2,hdfs"
 argument_list|,
 name|title
 operator|=

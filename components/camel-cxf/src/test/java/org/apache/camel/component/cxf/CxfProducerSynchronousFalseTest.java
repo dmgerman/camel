@@ -330,18 +330,6 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|assertFalse
-argument_list|(
-literal|"Should use different threads"
-argument_list|,
-name|beforeThreadName
-operator|.
-name|equalsIgnoreCase
-argument_list|(
-name|afterThreadName
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected

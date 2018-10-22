@@ -301,7 +301,7 @@ operator|.
 name|getRouteController
 argument_list|()
 operator|.
-name|resumeRoute
+name|suspendRoute
 argument_list|(
 literal|"testRoute"
 argument_list|)

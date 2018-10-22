@@ -2620,13 +2620,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|// ref track the connector
-name|connectorRef
-operator|.
-name|increment
-argument_list|()
-expr_stmt|;
-block|}
 comment|// check the session support
 if|if
 condition|(
@@ -2644,6 +2637,13 @@ name|server
 argument_list|,
 name|connectorKey
 argument_list|)
+expr_stmt|;
+block|}
+comment|// ref track the connector
+name|connectorRef
+operator|.
+name|increment
+argument_list|()
 expr_stmt|;
 block|}
 if|if

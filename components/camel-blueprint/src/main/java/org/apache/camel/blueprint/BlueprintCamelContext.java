@@ -412,11 +412,6 @@ name|?
 argument_list|>
 name|registration
 decl_stmt|;
-DECL|method|BlueprintCamelContext ()
-specifier|public
-name|BlueprintCamelContext
-parameter_list|()
-block|{     }
 DECL|method|BlueprintCamelContext (BundleContext bundleContext, BlueprintContainer blueprintContainer)
 specifier|public
 name|BlueprintCamelContext
@@ -428,6 +423,11 @@ name|BlueprintContainer
 name|blueprintContainer
 parameter_list|)
 block|{
+name|super
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|bundleContext
@@ -489,6 +489,9 @@ name|getBundle
 argument_list|()
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|init
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -605,6 +608,12 @@ name|this
 argument_list|,
 literal|null
 argument_list|)
+expr_stmt|;
+comment|// call super
+name|super
+operator|.
+name|doInit
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|destroy ()

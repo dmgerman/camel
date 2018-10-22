@@ -1021,6 +1021,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|camelContext
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|camelContext

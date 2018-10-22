@@ -210,6 +210,13 @@ name|void
 name|init
 parameter_list|()
 block|{
+if|if
+condition|(
+name|status
+operator|==
+name|NEW
+condition|)
+block|{
 synchronized|synchronized
 init|(
 name|lock
@@ -236,6 +243,7 @@ name|status
 operator|=
 name|INITIALIZED
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

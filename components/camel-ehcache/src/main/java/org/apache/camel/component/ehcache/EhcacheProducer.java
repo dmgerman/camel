@@ -272,7 +272,10 @@ name|getValue
 argument_list|(
 name|message
 argument_list|,
-name|configuration
+name|cache
+operator|.
+name|getRuntimeConfiguration
+argument_list|()
 operator|.
 name|getValueType
 argument_list|()
@@ -372,7 +375,10 @@ name|getValue
 argument_list|(
 name|message
 argument_list|,
-name|configuration
+name|cache
+operator|.
+name|getRuntimeConfiguration
+argument_list|()
 operator|.
 name|getValueType
 argument_list|()
@@ -658,7 +664,10 @@ name|getValue
 argument_list|(
 name|message
 argument_list|,
-name|configuration
+name|cache
+operator|.
+name|getRuntimeConfiguration
+argument_list|()
 operator|.
 name|getValueType
 argument_list|()
@@ -755,7 +764,10 @@ name|EhcacheConstants
 operator|.
 name|KEY
 argument_list|,
-name|configuration
+name|cache
+operator|.
+name|getRuntimeConfiguration
+argument_list|()
 operator|.
 name|getKeyType
 argument_list|()

@@ -106,6 +106,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FailedToCreateRouteException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -602,7 +614,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|IllegalStateException
+name|FailedToCreateRouteException
 operator|.
 name|class
 argument_list|)

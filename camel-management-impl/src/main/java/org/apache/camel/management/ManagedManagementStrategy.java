@@ -134,6 +134,11 @@ name|ManagedManagementStrategy
 extends|extends
 name|DefaultManagementStrategy
 block|{
+DECL|method|ManagedManagementStrategy ()
+specifier|public
+name|ManagedManagementStrategy
+parameter_list|()
+block|{     }
 DECL|method|ManagedManagementStrategy (CamelContext context, ManagementAgent managementAgent)
 specifier|public
 name|ManagedManagementStrategy

@@ -211,45 +211,6 @@ name|CamelTwitterTestSupport
 argument_list|()
 decl_stmt|;
 annotation|@
-name|Deprecated
-annotation|@
-name|Test
-DECL|method|testDeprecatedUri ()
-specifier|public
-name|void
-name|testDeprecatedUri
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|Endpoint
-name|endpoint
-init|=
-name|context
-operator|.
-name|getEndpoint
-argument_list|(
-literal|"twitter:search?"
-operator|+
-name|support
-operator|.
-name|getUriTokens
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Endpoint not a TwitterEndpoint: "
-operator|+
-name|endpoint
-argument_list|,
-name|endpoint
-operator|instanceof
-name|TwitterEndpoint
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
 name|Test
 DECL|method|testBasicAuthentication ()
 specifier|public

@@ -4685,7 +4685,7 @@ argument_list|,
 name|processor
 argument_list|,
 operator|(
-name|RouteDefinition
+name|ProcessorDefinition
 operator|)
 name|definition
 argument_list|,
@@ -4732,7 +4732,7 @@ argument_list|,
 name|processor
 argument_list|,
 operator|(
-name|RouteDefinition
+name|ProcessorDefinition
 operator|)
 name|definition
 argument_list|,

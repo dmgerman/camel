@@ -269,6 +269,11 @@ argument_list|(
 name|applicationContext
 argument_list|)
 decl_stmt|;
+name|ctx
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
 name|PropertiesComponent
 name|pc
 init|=

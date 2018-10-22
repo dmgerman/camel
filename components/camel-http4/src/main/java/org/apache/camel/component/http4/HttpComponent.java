@@ -1503,15 +1503,6 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|httpClientOptions
-operator|.
-name|put
-argument_list|(
-literal|"contentCompressionEnabled"
-argument_list|,
-literal|"false"
-argument_list|)
-expr_stmt|;
 comment|// timeout values can be configured on both component and endpoint level, where endpoint take priority
 name|int
 name|val
@@ -2560,7 +2551,7 @@ name|builder
 operator|.
 name|register
 argument_list|(
-literal|"https4"
+literal|"https"
 argument_list|,
 operator|new
 name|SSLConnectionSocketFactory
@@ -2578,7 +2569,7 @@ name|builder
 operator|.
 name|register
 argument_list|(
-literal|"https"
+literal|"https4"
 argument_list|,
 operator|new
 name|SSLConnectionSocketFactory

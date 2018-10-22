@@ -191,7 +191,7 @@ argument_list|()
 operator|.
 name|simple
 argument_list|(
-literal|"random(500)"
+literal|"${random(500)}"
 argument_list|)
 operator|.
 name|to

@@ -242,11 +242,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|applicationContext
-operator|.
-name|destroy
-argument_list|()
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|3

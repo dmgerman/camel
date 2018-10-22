@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncProducer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -246,7 +258,7 @@ name|ThriftProducer
 extends|extends
 name|DefaultProducer
 implements|implements
-name|AsyncProcessor
+name|AsyncProducer
 block|{
 DECL|field|configuration
 specifier|protected

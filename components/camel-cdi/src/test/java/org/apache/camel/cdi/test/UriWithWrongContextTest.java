@@ -272,6 +272,18 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|allOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|containsString
 import|;
 end_import
@@ -313,9 +325,22 @@ comment|//        .expectMessage(containsString("Error injecting endpoint annota
 operator|.
 name|expectMessage
 argument_list|(
+name|allOf
+argument_list|(
 name|containsString
 argument_list|(
-literal|"WELD-001408 Unsatisfied dependencies for type [Endpoint] with qualifiers [@Uri @ContextName] at injection point [[field] @Uri @ContextName @Inject org.apache.camel.cdi.test.UriWithWrongContextRoute.inbound]"
+literal|"WELD-001408 Unsatisfied dependencies for type [Endpoint] with qualifiers ["
+argument_list|)
+argument_list|,
+name|containsString
+argument_list|(
+literal|"] at injection point [[field] @"
+argument_list|)
+argument_list|,
+name|containsString
+argument_list|(
+literal|" org.apache.camel.cdi.test.UriWithWrongContextRoute.inbound]"
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;

@@ -256,7 +256,7 @@ literal|"2.14.0"
 argument_list|,
 name|scheme
 operator|=
-literal|"netty4"
+literal|"netty4,netty"
 argument_list|,
 name|title
 operator|=

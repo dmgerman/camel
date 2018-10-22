@@ -3101,7 +3101,7 @@ name|AmazonServiceException
 name|ase
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3319,7 +3319,7 @@ name|AmazonServiceException
 name|ase
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -3494,7 +3494,7 @@ name|AmazonServiceException
 name|ase
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
