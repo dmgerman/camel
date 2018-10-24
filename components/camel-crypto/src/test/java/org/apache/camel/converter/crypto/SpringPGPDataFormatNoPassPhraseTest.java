@@ -55,10 +55,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|SpringPGPDataFormatTest
+DECL|class|SpringPGPDataFormatNoPassPhraseTest
 specifier|public
 class|class
-name|SpringPGPDataFormatTest
+name|SpringPGPDataFormatNoPassPhraseTest
 extends|extends
 name|AbstractPGPDataFormatTest
 block|{
@@ -75,7 +75,7 @@ name|SpringCamelContext
 operator|.
 name|springCamelContext
 argument_list|(
-literal|"/org/apache/camel/component/crypto/SpringPGPDataFormatNoPassPhraseTest.xml"
+literal|"/org/apache/camel/component/crypto/SpringPGPDataFormatTest.xml"
 argument_list|)
 return|;
 block|}
@@ -92,6 +92,22 @@ block|{
 name|doRoundTripEncryptionTests
 argument_list|(
 literal|"direct:inline"
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testEncryptionWithKeyRingByteArray ()
+specifier|public
+name|void
+name|testEncryptionWithKeyRingByteArray
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|doRoundTripEncryptionTests
+argument_list|(
+literal|"direct:pgp-key-ring-byte-array"
 argument_list|)
 expr_stmt|;
 block|}
