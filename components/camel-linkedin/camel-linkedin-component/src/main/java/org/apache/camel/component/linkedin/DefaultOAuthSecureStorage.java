@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -73,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of {@link OAuthSecureStorage}  * with user provided token and expiry time in msecs.  */
+comment|/**  * Default implementation of {@link OAuthSecureStorage}  * with user provided token and optional expiry time in msecs.  */
 end_comment
 
 begin_class
@@ -84,19 +96,14 @@ name|DefaultOAuthSecureStorage
 extends|extends
 name|CachingOAuthSecureStorage
 block|{
-DECL|field|token
-specifier|private
-name|OAuthToken
-name|token
-decl_stmt|;
-DECL|method|DefaultOAuthSecureStorage (String accessToken, long expiryTime)
+DECL|method|DefaultOAuthSecureStorage (String accessToken, Long expiryTime)
 specifier|public
 name|DefaultOAuthSecureStorage
 parameter_list|(
 name|String
 name|accessToken
 parameter_list|,
-name|long
+name|Long
 name|expiryTime
 parameter_list|)
 block|{
@@ -105,6 +112,34 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|expiryTime
+operator|==
+literal|null
+condition|)
+block|{
+name|expiryTime
+operator|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|+
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+operator|.
+name|convert
+argument_list|(
+literal|60
+argument_list|,
+name|TimeUnit
+operator|.
+name|DAYS
+argument_list|)
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|token

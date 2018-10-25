@@ -285,13 +285,11 @@ specifier|private
 name|String
 name|accessToken
 decl_stmt|;
-comment|/**          * LinkedIn access token expiry time in milliseconds since Unix Epoch.          */
+comment|/**          * LinkedIn access token expiry time in milliseconds since Unix Epoch,          * default is 60 days in the future.          */
 DECL|field|expiryTime
 specifier|private
 name|Long
 name|expiryTime
-init|=
-literal|5184000L
 decl_stmt|;
 comment|/**          * LinkedIn application client ID          */
 DECL|field|clientId
