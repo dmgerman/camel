@@ -279,6 +279,20 @@ specifier|private
 name|OAuthSecureStorage
 name|secureStorage
 decl_stmt|;
+comment|/**          * LinkedIn access token to avoid username and password login.          */
+DECL|field|accessToken
+specifier|private
+name|String
+name|accessToken
+decl_stmt|;
+comment|/**          * LinkedIn access token expiry time in milliseconds since Unix Epoch.          */
+DECL|field|expiryTime
+specifier|private
+name|Long
+name|expiryTime
+init|=
+literal|5184000L
+decl_stmt|;
 comment|/**          * LinkedIn application client ID          */
 DECL|field|clientId
 specifier|private
@@ -446,6 +460,58 @@ operator|.
 name|secureStorage
 operator|=
 name|secureStorage
+expr_stmt|;
+block|}
+DECL|method|getAccessToken ()
+specifier|public
+name|String
+name|getAccessToken
+parameter_list|()
+block|{
+return|return
+name|accessToken
+return|;
+block|}
+DECL|method|setAccessToken (String accessToken)
+specifier|public
+name|void
+name|setAccessToken
+parameter_list|(
+name|String
+name|accessToken
+parameter_list|)
+block|{
+name|this
+operator|.
+name|accessToken
+operator|=
+name|accessToken
+expr_stmt|;
+block|}
+DECL|method|getExpiryTime ()
+specifier|public
+name|Long
+name|getExpiryTime
+parameter_list|()
+block|{
+return|return
+name|expiryTime
+return|;
+block|}
+DECL|method|setExpiryTime (Long expiryTime)
+specifier|public
+name|void
+name|setExpiryTime
+parameter_list|(
+name|Long
+name|expiryTime
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expiryTime
+operator|=
+name|expiryTime
 expr_stmt|;
 block|}
 DECL|method|getClientId ()
