@@ -40,18 +40,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -286,28 +274,10 @@ name|accessToken
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"5184000"
-argument_list|)
 DECL|field|expiryTime
 specifier|private
-name|long
+name|Long
 name|expiryTime
-init|=
-name|TimeUnit
-operator|.
-name|SECONDS
-operator|.
-name|convert
-argument_list|(
-literal|60
-argument_list|,
-name|TimeUnit
-operator|.
-name|DAYS
-argument_list|)
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -511,7 +481,7 @@ expr_stmt|;
 block|}
 DECL|method|getExpiryTime ()
 specifier|public
-name|long
+name|Long
 name|getExpiryTime
 parameter_list|()
 block|{
@@ -519,13 +489,13 @@ return|return
 name|expiryTime
 return|;
 block|}
-comment|/**      * LinkedIn access token expiry time in milliseconds since Unix Epoch.      */
-DECL|method|setExpiryTime (long expiryTime)
+comment|/**      * LinkedIn access token expiry time in milliseconds since Unix Epoch, default is 60 days in the future.      */
+DECL|method|setExpiryTime (Long expiryTime)
 specifier|public
 name|void
 name|setExpiryTime
 parameter_list|(
-name|long
+name|Long
 name|expiryTime
 parameter_list|)
 block|{

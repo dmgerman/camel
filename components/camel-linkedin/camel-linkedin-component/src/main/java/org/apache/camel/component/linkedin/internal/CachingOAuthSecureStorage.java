@@ -75,7 +75,7 @@ name|OAuthSecureStorage
 name|secureStorage
 decl_stmt|;
 DECL|field|token
-specifier|private
+specifier|protected
 name|OAuthToken
 name|token
 decl_stmt|;
