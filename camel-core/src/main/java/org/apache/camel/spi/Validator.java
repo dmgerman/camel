@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<a href="http://camel.apache.org/validator.html">Validator</a>  * performs message content validation according to the declared data type.  * {@link ContractAdvice} applies Validator if input/output type is declared on  * a route with validation enabled.  *    * @see {@link ContractAdvice}  * {@link InputTypeDefinition} {@link OutputTypeDefinition}  */
+comment|/**  *<a href="http://camel.apache.org/validator.html">Validator</a>  * performs message content validation according to the declared data type.  * {@link ContractAdvice} applies Validator if input/output type is declared on  * a route with validation enabled.  *    * @see ContractAdvice  * {@link InputTypeDefinition} {@link OutputTypeDefinition}  */
 end_comment
 
 begin_class

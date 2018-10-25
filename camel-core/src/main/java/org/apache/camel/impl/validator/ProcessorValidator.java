@@ -254,6 +254,7 @@ argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
+comment|// create a new exchange to use during validation to avoid side-effects on original exchange
 name|DefaultExchange
 name|validateExchange
 init|=
@@ -289,6 +290,28 @@ argument_list|(
 name|validateExchange
 argument_list|)
 expr_stmt|;
+comment|// if the validation failed then propagate the exception
+if|if
+condition|(
+name|validateExchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|validateExchange
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -325,7 +348,7 @@ argument_list|,
 name|type
 argument_list|)
 argument_list|,
-name|validateExchange
+name|exchange
 argument_list|,
 name|e
 argument_list|)
