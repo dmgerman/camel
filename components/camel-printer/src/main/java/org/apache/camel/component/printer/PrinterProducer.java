@@ -937,11 +937,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|printerName
+name|printer
 operator|.
 name|endsWith
 argument_list|(
-name|printer
+name|printerName
 argument_list|)
 condition|)
 block|{

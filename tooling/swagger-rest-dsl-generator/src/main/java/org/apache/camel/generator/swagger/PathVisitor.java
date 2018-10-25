@@ -30,6 +30,20 @@ name|Path
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_class
 DECL|class|PathVisitor
 class|class
@@ -59,9 +73,13 @@ specifier|final
 name|OperationFilter
 name|filter
 decl_stmt|;
-DECL|method|PathVisitor (final CodeEmitter<T> emitter, OperationFilter filter, final DestinationGenerator destinationGenerator)
+DECL|method|PathVisitor (final String basePath, final CodeEmitter<T> emitter, OperationFilter filter, final DestinationGenerator destinationGenerator)
 name|PathVisitor
 parameter_list|(
+specifier|final
+name|String
+name|basePath
+parameter_list|,
 specifier|final
 name|CodeEmitter
 argument_list|<
@@ -95,6 +113,16 @@ name|destinationGenerator
 operator|=
 name|destinationGenerator
 expr_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|basePath
+argument_list|)
+condition|)
+block|{
 name|emitter
 operator|.
 name|emit
@@ -102,6 +130,19 @@ argument_list|(
 literal|"rest"
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|emitter
+operator|.
+name|emit
+argument_list|(
+literal|"rest"
+argument_list|,
+name|basePath
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|visit (final String path, final Path definition)
 name|void

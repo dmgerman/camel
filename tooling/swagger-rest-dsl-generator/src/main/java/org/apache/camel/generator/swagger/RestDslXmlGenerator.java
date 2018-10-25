@@ -151,6 +151,11 @@ operator|new
 name|PathVisitor
 argument_list|<>
 argument_list|(
+name|swagger
+operator|.
+name|getBasePath
+argument_list|()
+argument_list|,
 name|emitter
 argument_list|,
 name|filter
@@ -278,6 +283,19 @@ argument_list|,
 name|extra
 operator|+
 literal|"\n<rest>"
+argument_list|)
+expr_stmt|;
+name|xml
+operator|=
+name|xml
+operator|.
+name|replaceFirst
+argument_list|(
+literal|"<rest "
+argument_list|,
+name|extra
+operator|+
+literal|"\n<rest "
 argument_list|)
 expr_stmt|;
 block|}

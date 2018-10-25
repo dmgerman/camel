@@ -583,6 +583,11 @@ operator|new
 name|PathVisitor
 argument_list|<>
 argument_list|(
+name|swagger
+operator|.
+name|getBasePath
+argument_list|()
+argument_list|,
 name|emitter
 argument_list|,
 name|filter

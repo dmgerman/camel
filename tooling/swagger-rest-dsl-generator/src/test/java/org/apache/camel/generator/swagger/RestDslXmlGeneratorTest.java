@@ -443,7 +443,7 @@ argument_list|(
 name|xml
 argument_list|)
 operator|.
-name|isEqualToIgnoringWhitespace
+name|isEqualTo
 argument_list|(
 name|expectedContent
 argument_list|)
