@@ -492,8 +492,7 @@ block|{
 name|disconnectAllSessions
 argument_list|()
 expr_stmt|;
-comment|// disconnect all Sessions
-comment|// from the SFTP server
+comment|// disconnect all Sessions from the SFTP server
 block|}
 block|}
 argument_list|)
