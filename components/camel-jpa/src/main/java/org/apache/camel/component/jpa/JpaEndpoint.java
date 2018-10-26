@@ -1759,7 +1759,7 @@ operator|.
 name|usePassedInEntityManager
 return|;
 block|}
-comment|/**      * If set to true, then Camel will use the EntityManager from the header      * JpaConstants.ENTITYMANAGER instead of the configured entity manager on the component/endpoint.      * This allows end users to control which entity manager will be in use.      */
+comment|/**      * If set to true, then Camel will use the EntityManager from the header      * JpaConstants.ENTITY_MANAGER instead of the configured entity manager on the component/endpoint.      * This allows end users to control which entity manager will be in use.      */
 DECL|method|setUsePassedInEntityManager (boolean usePassedIn)
 specifier|public
 name|void
