@@ -54,6 +54,20 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|support
+operator|.
+name|ClassPathXmlApplicationContext
+import|;
+end_import
+
 begin_class
 DECL|class|SpringPGPDataFormatNoPassPhraseTest
 specifier|public
@@ -75,7 +89,13 @@ name|SpringCamelContext
 operator|.
 name|springCamelContext
 argument_list|(
+operator|new
+name|ClassPathXmlApplicationContext
+argument_list|(
 literal|"/org/apache/camel/component/crypto/SpringPGPDataFormatTest.xml"
+argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}

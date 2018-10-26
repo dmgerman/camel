@@ -1290,7 +1290,7 @@ name|Kind
 operator|.
 name|ERROR
 argument_list|,
-literal|"Unable to process elements annotated with @UriEndpoint: "
+literal|"Unable to process elements annotated with @Converter: "
 operator|+
 name|e
 operator|.
