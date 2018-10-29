@@ -849,19 +849,10 @@ operator|)
 operator|.
 name|getApplicationContext
 argument_list|()
-operator|.
-name|getId
-argument_list|()
-operator|.
-name|equals
-argument_list|(
+operator|==
 name|this
 operator|.
 name|applicationContext
-operator|.
-name|getId
-argument_list|()
-argument_list|)
 condition|)
 block|{
 comment|// nominally we would prefer to use Lifecycle interface that
