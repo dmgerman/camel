@@ -555,7 +555,6 @@ operator|==
 name|this
 operator|.
 name|applicationContext
-condition|)
 operator|&&
 name|camelContext
 operator|.
@@ -564,7 +563,7 @@ argument_list|()
 operator|.
 name|isStopped
 argument_list|()
-block|)
+condition|)
 block|{
 name|LOG
 operator|.
@@ -1511,9 +1510,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_class
-
-begin_function
 annotation|@
 name|Override
 DECL|method|getOrder ()
@@ -1539,13 +1535,7 @@ operator|-
 literal|2
 return|;
 block|}
-end_function
-
-begin_comment
 comment|// Helpers
-end_comment
-
-begin_function
 DECL|method|loadXmlRoutes (ApplicationContext applicationContext, CamelContext camelContext, String directory)
 specifier|private
 name|void
@@ -1644,9 +1634,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|loadXmlRests (ApplicationContext applicationContext, CamelContext camelContext, String directory)
 specifier|private
 name|void
@@ -1785,9 +1772,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|terminateMainControllerAfter (final CamelContext camelContext, int seconds, final AtomicBoolean completed, final CountDownLatch latch)
 specifier|private
 name|void
@@ -1892,9 +1876,6 @@ name|SECONDS
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|terminateApplicationContext (final ConfigurableApplicationContext applicationContext, final CamelContext camelContext, int seconds)
 specifier|private
 name|void
@@ -1968,9 +1949,6 @@ name|SECONDS
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|terminateApplicationContext (final ConfigurableApplicationContext applicationContext, final CamelContext camelContext, final CountDownLatch latch)
 specifier|private
 name|void
@@ -2055,8 +2033,8 @@ name|task
 argument_list|)
 expr_stmt|;
 block|}
-end_function
+block|}
+end_class
 
-unit|}
 end_unit
 
