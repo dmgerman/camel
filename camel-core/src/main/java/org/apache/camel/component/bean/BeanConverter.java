@@ -80,6 +80,20 @@ name|TypeConverterRegistry
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|TypeConverter
+operator|.
+name|MISS_VALUE
+import|;
+end_import
+
 begin_comment
 comment|/**  * A set of converter methods for working with beans  */
 end_comment
@@ -169,9 +183,7 @@ condition|)
 block|{
 comment|// not possible to convert at this time as we try to convert the data passed in at first argument
 return|return
-name|Void
-operator|.
-name|TYPE
+name|MISS_VALUE
 return|;
 block|}
 name|Class

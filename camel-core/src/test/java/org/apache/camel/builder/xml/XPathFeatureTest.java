@@ -302,21 +302,6 @@ operator|.
 name|getCause
 argument_list|()
 operator|instanceof
-name|RuntimeCamelException
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Get a wrong exception cause."
-argument_list|,
-name|ex
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getCause
-argument_list|()
-operator|instanceof
 name|FileNotFoundException
 argument_list|)
 expr_stmt|;
@@ -443,21 +428,6 @@ argument_list|(
 literal|"Get a wrong exception cause."
 argument_list|,
 name|ex
-operator|.
-name|getCause
-argument_list|()
-operator|instanceof
-name|RuntimeCamelException
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Get a wrong exception cause."
-argument_list|,
-name|ex
-operator|.
-name|getCause
-argument_list|()
 operator|.
 name|getCause
 argument_list|()

@@ -96,6 +96,20 @@ name|Response
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|TypeConverter
+operator|.
+name|MISS_VALUE
+import|;
+end_import
+
 begin_class
 annotation|@
 name|Converter
@@ -190,9 +204,7 @@ return|return
 operator|(
 name|T
 operator|)
-name|Void
-operator|.
-name|TYPE
+name|MISS_VALUE
 return|;
 block|}
 block|}

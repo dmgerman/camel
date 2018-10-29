@@ -335,9 +335,7 @@ return|return
 operator|(
 name|T
 operator|)
-name|Void
-operator|.
-name|TYPE
+name|MISS_VALUE
 return|;
 block|}
 comment|// do some trace logging as the get is blocking until the response is ready
@@ -375,9 +373,7 @@ return|return
 operator|(
 name|T
 operator|)
-name|Void
-operator|.
-name|TYPE
+name|MISS_VALUE
 return|;
 block|}
 comment|// maybe from is already the type we want

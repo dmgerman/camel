@@ -138,6 +138,20 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|TypeConverter
+operator|.
+name|MISS_VALUE
+import|;
+end_import
+
 begin_comment
 comment|/**  * Default converters for {@link ExecResult}. For details how to extend the  * converters check out<a  * href="http://camel.apache.org/type-converter.html">the Camel docs for type  * converters.</a>  */
 end_comment
@@ -407,9 +421,7 @@ return|return
 operator|(
 name|T
 operator|)
-name|Void
-operator|.
-name|TYPE
+name|MISS_VALUE
 return|;
 block|}
 block|}

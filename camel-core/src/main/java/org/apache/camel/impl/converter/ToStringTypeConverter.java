@@ -156,9 +156,7 @@ return|return
 operator|(
 name|T
 operator|)
-name|Void
-operator|.
-name|TYPE
+name|MISS_VALUE
 return|;
 block|}
 comment|// should not try to convert future
@@ -181,9 +179,7 @@ return|return
 operator|(
 name|T
 operator|)
-name|Void
-operator|.
-name|TYPE
+name|MISS_VALUE
 return|;
 block|}
 comment|// should not try to convert bean invocations
@@ -206,9 +202,7 @@ return|return
 operator|(
 name|T
 operator|)
-name|Void
-operator|.
-name|TYPE
+name|MISS_VALUE
 return|;
 block|}
 comment|// should not try to convert files
@@ -231,9 +225,7 @@ return|return
 operator|(
 name|T
 operator|)
-name|Void
-operator|.
-name|TYPE
+name|MISS_VALUE
 return|;
 block|}
 if|if

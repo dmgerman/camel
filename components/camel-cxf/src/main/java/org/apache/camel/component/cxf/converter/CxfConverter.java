@@ -232,6 +232,20 @@ name|MessageContentsList
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|TypeConverter
+operator|.
+name|MISS_VALUE
+import|;
+end_import
+
 begin_comment
 comment|/**  * The<a href="http://camel.apache.org/type-converter.html">Type Converters</a>  * for CXF related types' converting .  */
 end_comment
@@ -770,9 +784,7 @@ return|return
 operator|(
 name|T
 operator|)
-name|Void
-operator|.
-name|TYPE
+name|MISS_VALUE
 return|;
 block|}
 comment|// CXF-RS Response class
@@ -847,9 +859,7 @@ return|return
 operator|(
 name|T
 operator|)
-name|Void
-operator|.
-name|TYPE
+name|MISS_VALUE
 return|;
 block|}
 return|return

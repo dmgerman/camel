@@ -342,6 +342,20 @@ name|StaxUtils
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|TypeConverter
+operator|.
+name|MISS_VALUE
+import|;
+end_import
+
 begin_class
 annotation|@
 name|Converter
@@ -1256,16 +1270,14 @@ name|e
 parameter_list|)
 block|{
 comment|// the internal conversion to XML can throw an exception if the content is not XML
-comment|// ignore this and return Void.TYPE to indicate that we cannot convert this
+comment|// ignore this and return MISS_VALUE to indicate that we cannot convert this
 block|}
 comment|// no we could not do it currently
 return|return
 operator|(
 name|T
 operator|)
-name|Void
-operator|.
-name|TYPE
+name|MISS_VALUE
 return|;
 block|}
 comment|// Convert a CxfPayload into something else
@@ -1683,9 +1695,7 @@ return|return
 operator|(
 name|T
 operator|)
-name|Void
-operator|.
-name|TYPE
+name|MISS_VALUE
 return|;
 block|}
 else|else
@@ -1771,9 +1781,7 @@ return|return
 operator|(
 name|T
 operator|)
-name|Void
-operator|.
-name|TYPE
+name|MISS_VALUE
 return|;
 block|}
 block|}
@@ -1791,9 +1799,7 @@ return|return
 operator|(
 name|T
 operator|)
-name|Void
-operator|.
-name|TYPE
+name|MISS_VALUE
 return|;
 block|}
 block|}

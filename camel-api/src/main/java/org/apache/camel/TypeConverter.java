@@ -24,6 +24,14 @@ specifier|public
 interface|interface
 name|TypeConverter
 block|{
+DECL|field|MISS_VALUE
+name|Object
+name|MISS_VALUE
+init|=
+name|Void
+operator|.
+name|TYPE
+decl_stmt|;
 comment|/**      * Whether the type converter allows returning null as a valid response.      *<p/>      * By default<tt>null</tt> is not a valid response, returning<tt>false</tt> from this method.      */
 DECL|method|allowNull ()
 name|boolean
