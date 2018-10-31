@@ -3425,21 +3425,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getBaseHitCounter ()
-specifier|public
-name|long
-name|getBaseHitCounter
-parameter_list|()
-block|{
-return|return
-name|baseHitCounter
-operator|.
-name|longValue
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|getMissCounter ()
 specifier|public
 name|long
@@ -3487,11 +3472,6 @@ name|reset
 argument_list|()
 expr_stmt|;
 name|hitCounter
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|baseHitCounter
 operator|.
 name|reset
 argument_list|()
@@ -3550,7 +3530,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"TypeConverterRegistry utilization[noop=%s, attempts=%s, hits=%s, baseHits=%s, misses=%s, failures=%s]"
+literal|"TypeConverterRegistry utilization[noop=%s, attempts=%s, hits=%s, misses=%s, failures=%s]"
 argument_list|,
 name|getNoopCounter
 argument_list|()
@@ -3559,9 +3539,6 @@ name|getAttemptCounter
 argument_list|()
 argument_list|,
 name|getHitCounter
-argument_list|()
-argument_list|,
-name|getBaseHitCounter
 argument_list|()
 argument_list|,
 name|getMissCounter

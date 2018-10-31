@@ -288,22 +288,6 @@ name|getHitCounter
 argument_list|()
 return|;
 block|}
-DECL|method|getBaseHitCounter ()
-specifier|public
-name|long
-name|getBaseHitCounter
-parameter_list|()
-block|{
-return|return
-name|registry
-operator|.
-name|getStatistics
-argument_list|()
-operator|.
-name|getBaseHitCounter
-argument_list|()
-return|;
-block|}
 DECL|method|getMissCounter ()
 specifier|public
 name|long

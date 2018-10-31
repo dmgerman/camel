@@ -113,18 +113,6 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Number of type conversion hits by base core converters (successful conversions)"
-argument_list|)
-DECL|method|getBaseHitCounter ()
-name|long
-name|getBaseHitCounter
-parameter_list|()
-function_decl|;
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
 literal|"Number of type conversion misses (no suitable type converter)"
 argument_list|)
 DECL|method|getMissCounter ()
