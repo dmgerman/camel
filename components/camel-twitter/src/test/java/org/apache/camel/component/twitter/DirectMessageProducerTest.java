@@ -351,7 +351,7 @@ comment|//.to("log:org.apache.camel.component.twitter?level=INFO&showAll=true&mu
 operator|.
 name|to
 argument_list|(
-literal|"twitter-directmessage:user?"
+literal|"twitter-directmessage:cameltweet?"
 operator|+
 name|getUriTokens
 argument_list|()
