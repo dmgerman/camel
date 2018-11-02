@@ -542,14 +542,10 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-operator|new
-name|String
-argument_list|(
 name|msg
 operator|.
 name|getMessage
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|exchange

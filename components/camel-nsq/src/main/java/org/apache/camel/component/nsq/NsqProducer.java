@@ -203,7 +203,8 @@ argument_list|,
 name|topic
 argument_list|)
 expr_stmt|;
-name|String
+name|byte
+index|[]
 name|body
 init|=
 name|exchange
@@ -213,9 +214,10 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|(
-name|String
+name|byte
+index|[]
 operator|.
-name|class
+expr|class
 argument_list|)
 decl_stmt|;
 name|producer
@@ -225,9 +227,6 @@ argument_list|(
 name|topic
 argument_list|,
 name|body
-operator|.
-name|getBytes
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

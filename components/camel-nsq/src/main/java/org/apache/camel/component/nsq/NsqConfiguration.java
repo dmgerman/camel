@@ -100,6 +100,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -307,6 +323,18 @@ name|long
 name|requeueInterval
 init|=
 literal|0
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
+DECL|field|sslContextParameters
+specifier|private
+name|SSLContextParameters
+name|sslContextParameters
 decl_stmt|;
 comment|/*      * URL a NSQ lookup server hostname.      */
 DECL|method|getServers ()
@@ -649,7 +677,7 @@ operator|=
 name|lookupInterval
 expr_stmt|;
 block|}
-comment|/**      * The requeue retry interval      */
+comment|/**      * The requeue interval      */
 DECL|method|getRequeueInterval ()
 specifier|public
 name|long
@@ -674,6 +702,33 @@ operator|.
 name|requeueInterval
 operator|=
 name|requeueInterval
+expr_stmt|;
+block|}
+comment|/**      * To configure security using SSLContextParameters      */
+DECL|method|getSslContextParameters ()
+specifier|public
+name|SSLContextParameters
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|sslContextParameters
+return|;
+block|}
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
 expr_stmt|;
 block|}
 DECL|method|splitServers ()
