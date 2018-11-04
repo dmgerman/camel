@@ -336,6 +336,44 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Automatically finish the NSQ Message when it is retrievd from the queue and before the Exchange is processed."
+argument_list|)
+DECL|field|autoFinish
+specifier|private
+name|Boolean
+name|autoFinish
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"The NSQ consumer timeout period for messages retrieved from the queue."
+argument_list|)
+DECL|field|messageTimeout
+specifier|private
+name|long
+name|messageTimeout
+decl_stmt|;
 comment|/*      * URL a NSQ lookup server hostname.      */
 DECL|method|getServers ()
 specifier|public
@@ -729,6 +767,60 @@ operator|.
 name|sslContextParameters
 operator|=
 name|sslContextParameters
+expr_stmt|;
+block|}
+comment|/**      * Automatically finish the NSQ message when it is retrieved from the quese and before the Exchange is processed.      */
+DECL|method|getAutoFinish ()
+specifier|public
+name|Boolean
+name|getAutoFinish
+parameter_list|()
+block|{
+return|return
+name|autoFinish
+return|;
+block|}
+DECL|method|setAutoFinish (Boolean autoFinish)
+specifier|public
+name|void
+name|setAutoFinish
+parameter_list|(
+name|Boolean
+name|autoFinish
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoFinish
+operator|=
+name|autoFinish
+expr_stmt|;
+block|}
+comment|/**      * The NSQ message timeout for a consumer.      */
+DECL|method|getMessageTimeout ()
+specifier|public
+name|long
+name|getMessageTimeout
+parameter_list|()
+block|{
+return|return
+name|messageTimeout
+return|;
+block|}
+DECL|method|setMessageTimeout (long messageTimeout)
+specifier|public
+name|void
+name|setMessageTimeout
+parameter_list|(
+name|long
+name|messageTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageTimeout
+operator|=
+name|messageTimeout
 expr_stmt|;
 block|}
 DECL|method|splitServers ()
