@@ -311,30 +311,19 @@ literal|"consumer"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"0"
+literal|"-1"
 argument_list|,
 name|description
 operator|=
-literal|"The requeue interval"
+literal|"The requeue interval in milliseconds. A value of -1 is the server default"
 argument_list|)
 DECL|field|requeueInterval
 specifier|private
 name|long
 name|requeueInterval
 init|=
-literal|0
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"security"
-argument_list|)
-DECL|field|sslContextParameters
-specifier|private
-name|SSLContextParameters
-name|sslContextParameters
+operator|-
+literal|1
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -349,7 +338,7 @@ literal|"true"
 argument_list|,
 name|description
 operator|=
-literal|"Automatically finish the NSQ Message when it is retrievd from the queue and before the Exchange is processed."
+literal|"Automatically finish the NSQ Message when it is retrieved from the queue and before the Exchange is processed"
 argument_list|)
 DECL|field|autoFinish
 specifier|private
@@ -365,14 +354,57 @@ name|label
 operator|=
 literal|"consumer"
 argument_list|,
+name|defaultValue
+operator|=
+literal|"-1"
+argument_list|,
 name|description
 operator|=
-literal|"The NSQ consumer timeout period for messages retrieved from the queue."
+literal|"The NSQ consumer timeout period for messages retrieved from the queue. A value of -1 is the server default"
 argument_list|)
 DECL|field|messageTimeout
 specifier|private
 name|long
 name|messageTimeout
+init|=
+operator|-
+literal|1
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|""
+argument_list|)
+DECL|field|userAgent
+specifier|private
+name|String
+name|userAgent
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
+DECL|field|secure
+specifier|private
+name|boolean
+name|secure
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
+DECL|field|sslContextParameters
+specifier|private
+name|SSLContextParameters
+name|sslContextParameters
 decl_stmt|;
 comment|/*      * URL a NSQ lookup server hostname.      */
 DECL|method|getServers ()
@@ -742,33 +774,6 @@ operator|=
 name|requeueInterval
 expr_stmt|;
 block|}
-comment|/**      * To configure security using SSLContextParameters      */
-DECL|method|getSslContextParameters ()
-specifier|public
-name|SSLContextParameters
-name|getSslContextParameters
-parameter_list|()
-block|{
-return|return
-name|sslContextParameters
-return|;
-block|}
-DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
-specifier|public
-name|void
-name|setSslContextParameters
-parameter_list|(
-name|SSLContextParameters
-name|sslContextParameters
-parameter_list|)
-block|{
-name|this
-operator|.
-name|sslContextParameters
-operator|=
-name|sslContextParameters
-expr_stmt|;
-block|}
 comment|/**      * Automatically finish the NSQ message when it is retrieved from the quese and before the Exchange is processed.      */
 DECL|method|getAutoFinish ()
 specifier|public
@@ -821,6 +826,86 @@ operator|.
 name|messageTimeout
 operator|=
 name|messageTimeout
+expr_stmt|;
+block|}
+DECL|method|getUserAgent ()
+specifier|public
+name|String
+name|getUserAgent
+parameter_list|()
+block|{
+return|return
+name|userAgent
+return|;
+block|}
+DECL|method|setUserAgent (String userAgent)
+specifier|public
+name|void
+name|setUserAgent
+parameter_list|(
+name|String
+name|userAgent
+parameter_list|)
+block|{
+name|this
+operator|.
+name|userAgent
+operator|=
+name|userAgent
+expr_stmt|;
+block|}
+comment|/**      * Set secure option indicating TLS is required      */
+DECL|method|isSecure ()
+specifier|public
+name|boolean
+name|isSecure
+parameter_list|()
+block|{
+return|return
+name|secure
+return|;
+block|}
+DECL|method|setSecure (boolean secure)
+specifier|public
+name|void
+name|setSecure
+parameter_list|(
+name|boolean
+name|secure
+parameter_list|)
+block|{
+name|this
+operator|.
+name|secure
+operator|=
+name|secure
+expr_stmt|;
+block|}
+comment|/**      * To configure security using SSLContextParameters      */
+DECL|method|getSslContextParameters ()
+specifier|public
+name|SSLContextParameters
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|sslContextParameters
+return|;
+block|}
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
 expr_stmt|;
 block|}
 DECL|method|splitServers ()
