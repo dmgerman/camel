@@ -194,13 +194,6 @@ annotation|@
 name|EnableAutoConfiguration
 annotation|@
 name|SpringBootTest
-argument_list|(
-name|classes
-operator|=
-name|CustomCamelCamelConfigurationTest
-operator|.
-name|class
-argument_list|)
 DECL|class|CustomCamelCamelConfigurationTest
 specifier|public
 class|class

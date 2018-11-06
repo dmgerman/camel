@@ -2464,6 +2464,27 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// may contain yet another placeholder
+if|if
+condition|(
+name|resolved
+operator|.
+name|contains
+argument_list|(
+literal|"${"
+argument_list|)
+condition|)
+block|{
+name|resolved
+operator|=
+name|resolveVersion
+argument_list|(
+name|project
+argument_list|,
+name|resolved
+argument_list|)
+expr_stmt|;
+block|}
 name|version
 operator|=
 name|version
