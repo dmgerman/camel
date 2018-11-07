@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|Map
 import|;
 end_import
 
@@ -32,7 +32,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|concurrent
+operator|.
+name|ConcurrentHashMap
 import|;
 end_import
 
@@ -100,7 +102,7 @@ argument_list|>
 name|nodeCounters
 init|=
 operator|new
-name|HashMap
+name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -137,7 +139,6 @@ comment|/**      * Returns the counter for the given node key, lazily creating o
 DECL|method|getNodeCounter (String key)
 specifier|protected
 specifier|static
-specifier|synchronized
 name|AtomicInteger
 name|getNodeCounter
 parameter_list|(
@@ -145,50 +146,27 @@ name|String
 name|key
 parameter_list|)
 block|{
-name|AtomicInteger
-name|answer
-init|=
+return|return
 name|nodeCounters
 operator|.
-name|get
+name|computeIfAbsent
 argument_list|(
 name|key
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|answer
-operator|==
-literal|null
-condition|)
-block|{
-name|answer
-operator|=
+argument_list|,
+name|k
+lambda|->
 operator|new
 name|AtomicInteger
 argument_list|(
 literal|0
 argument_list|)
-expr_stmt|;
-name|nodeCounters
-operator|.
-name|put
-argument_list|(
-name|key
-argument_list|,
-name|answer
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|answer
 return|;
 block|}
 comment|/**      * Helper method for test purposes that allows tests to start clean (made protected       *  to ensure that it is not called accidentally)      */
 DECL|method|resetAllCounters ()
 specifier|protected
 specifier|static
-specifier|synchronized
 name|void
 name|resetAllCounters
 parameter_list|()
