@@ -2347,7 +2347,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"elasticsearch-rest://elasticsearch?operation=MultiSearch&indexName=twitter&indexType=tweet&hostAddresses=localhost:"
+literal|"elasticsearch-rest://elasticsearch?operation=MultiSearch&hostAddresses=localhost:"
 operator|+
 name|ES_BASE_HTTP_PORT
 argument_list|)
