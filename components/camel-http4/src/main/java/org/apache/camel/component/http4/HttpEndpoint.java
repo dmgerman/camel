@@ -276,6 +276,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|http
 operator|.
 name|HttpHost
@@ -876,6 +892,26 @@ DECL|field|x509HostnameVerifier
 specifier|private
 name|HostnameVerifier
 name|x509HostnameVerifier
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|description
+operator|=
+literal|"To configure security using SSLContextParameters."
+operator|+
+literal|" Important: Only one instance of org.apache.camel.util.jsse.SSLContextParameters is supported per HttpComponent."
+operator|+
+literal|" If you need to use 2 or more different instances, you need to define a new HttpComponent per instance you need."
+argument_list|)
+DECL|field|sslContextParameters
+specifier|protected
+name|SSLContextParameters
+name|sslContextParameters
 decl_stmt|;
 DECL|method|HttpEndpoint ()
 specifier|public
@@ -1877,6 +1913,33 @@ operator|.
 name|x509HostnameVerifier
 operator|=
 name|x509HostnameVerifier
+expr_stmt|;
+block|}
+DECL|method|getSslContextParameters ()
+specifier|public
+name|SSLContextParameters
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|sslContextParameters
+return|;
+block|}
+comment|/**      * To configure security using SSLContextParameters.      * Important: Only one instance of org.apache.camel.util.jsse.SSLContextParameters is supported per HttpComponent.      * If you need to use 2 or more different instances, you need to define a new HttpComponent per instance you need.      */
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
 expr_stmt|;
 block|}
 DECL|method|getConnectionRequestTimeout ()
