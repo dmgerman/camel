@@ -38,30 +38,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|JAXBContext
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|JAXBException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -84,9 +60,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|impl
 operator|.
-name|ModelJAXBContextFactory
+name|DefaultModelJAXBContextFactory
 import|;
 end_import
 
@@ -111,8 +87,8 @@ DECL|class|BlueprintModelJAXBContextFactory
 specifier|public
 class|class
 name|BlueprintModelJAXBContextFactory
-implements|implements
-name|ModelJAXBContextFactory
+extends|extends
+name|DefaultModelJAXBContextFactory
 block|{
 DECL|field|classLoader
 specifier|private
@@ -135,8 +111,20 @@ operator|=
 name|classLoader
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getClassLoader ()
+specifier|protected
+name|ClassLoader
+name|getClassLoader
+parameter_list|()
+block|{
+return|return
+name|classLoader
+return|;
+block|}
 DECL|method|getPackages ()
-specifier|private
+specifier|protected
 name|String
 name|getPackages
 parameter_list|()
@@ -374,9 +362,7 @@ name|cl
 operator|.
 name|getName
 argument_list|()
-operator|.
-name|substring
-argument_list|(
+argument_list|,
 literal|0
 argument_list|,
 name|cl
@@ -389,7 +375,6 @@ argument_list|(
 literal|'.'
 argument_list|)
 argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -397,28 +382,6 @@ name|packages
 operator|.
 name|toString
 argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|newJAXBContext ()
-specifier|public
-name|JAXBContext
-name|newJAXBContext
-parameter_list|()
-throws|throws
-name|JAXBException
-block|{
-return|return
-name|JAXBContext
-operator|.
-name|newInstance
-argument_list|(
-name|getPackages
-argument_list|()
-argument_list|,
-name|classLoader
-argument_list|)
 return|;
 block|}
 block|}

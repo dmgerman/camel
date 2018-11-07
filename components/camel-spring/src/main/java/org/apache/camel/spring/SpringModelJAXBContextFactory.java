@@ -53,20 +53,6 @@ literal|"org.apache.camel.spring:"
 operator|+
 literal|"org.apache.camel.util.spring:"
 decl_stmt|;
-DECL|method|getClassLoader ()
-specifier|protected
-name|ClassLoader
-name|getClassLoader
-parameter_list|()
-block|{
-return|return
-name|getClass
-argument_list|()
-operator|.
-name|getClassLoader
-argument_list|()
-return|;
-block|}
 DECL|method|getPackages ()
 specifier|protected
 name|String

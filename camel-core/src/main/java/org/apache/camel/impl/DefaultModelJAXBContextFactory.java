@@ -80,6 +80,12 @@ name|DefaultModelJAXBContextFactory
 implements|implements
 name|ModelJAXBContextFactory
 block|{
+DECL|field|context
+specifier|private
+specifier|volatile
+name|JAXBContext
+name|context
+decl_stmt|;
 DECL|method|newJAXBContext ()
 specifier|public
 name|JAXBContext
@@ -88,7 +94,27 @@ parameter_list|()
 throws|throws
 name|JAXBException
 block|{
-return|return
+if|if
+condition|(
+name|context
+operator|==
+literal|null
+condition|)
+block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
+if|if
+condition|(
+name|context
+operator|==
+literal|null
+condition|)
+block|{
+name|context
+operator|=
 name|JAXBContext
 operator|.
 name|newInstance
@@ -99,6 +125,12 @@ argument_list|,
 name|getClassLoader
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+return|return
+name|context
 return|;
 block|}
 DECL|method|getPackages ()

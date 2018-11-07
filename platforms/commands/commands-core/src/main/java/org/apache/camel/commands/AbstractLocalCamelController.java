@@ -3037,7 +3037,7 @@ name|ModelHelper
 operator|.
 name|dumpModelAsXml
 argument_list|(
-literal|null
+name|context
 argument_list|,
 name|route
 argument_list|)
@@ -3326,7 +3326,7 @@ name|ModelHelper
 operator|.
 name|dumpModelAsXml
 argument_list|(
-literal|null
+name|context
 argument_list|,
 name|def
 argument_list|)
