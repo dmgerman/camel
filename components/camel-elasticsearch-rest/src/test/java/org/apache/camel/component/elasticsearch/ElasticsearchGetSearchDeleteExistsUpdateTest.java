@@ -201,34 +201,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|com
-operator|.
-name|fasterxml
-operator|.
-name|jackson
-operator|.
-name|databind
-operator|.
-name|JsonNode
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|fasterxml
-operator|.
-name|jackson
-operator|.
-name|databind
-operator|.
-name|ObjectMapper
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
