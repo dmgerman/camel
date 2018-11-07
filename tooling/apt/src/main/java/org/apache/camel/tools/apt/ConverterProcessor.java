@@ -929,6 +929,20 @@ name|writer
 operator|.
 name|append
 argument_list|(
+literal|"    public static final CoreStaticTypeConverterLoader INSTANCE = new CoreStaticTypeConverterLoader();\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
 literal|"    static abstract class SimpleTypeConverter extends TypeConverterSupport {\n"
 argument_list|)
 expr_stmt|;
@@ -1104,14 +1118,31 @@ name|writer
 operator|.
 name|append
 argument_list|(
-literal|"    @Override\n"
+literal|"    private DoubleMap<Class<?>, Class<?>, SimpleTypeConverter> converters = new DoubleMap<>(256);\n"
 argument_list|)
 expr_stmt|;
 name|writer
 operator|.
 name|append
 argument_list|(
-literal|"    public void load(TypeConverterRegistry registry) throws TypeConverterLoaderException {\n"
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"    private "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|c
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"() {\n"
 argument_list|)
 expr_stmt|;
 for|for
@@ -1260,7 +1291,7 @@ name|writer
 operator|.
 name|append
 argument_list|(
-literal|"        registry.addTypeConverter("
+literal|"        converters.put("
 argument_list|)
 operator|.
 name|append
@@ -1367,6 +1398,41 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"    }\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"    @Override\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"    public void load(TypeConverterRegistry registry) throws TypeConverterLoaderException {\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"        converters.forEach((k, v, c) -> registry.addTypeConverter(k, v, c));\n"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|ExecutableElement
@@ -1650,13 +1716,6 @@ literal|");\n"
 argument_list|)
 expr_stmt|;
 block|}
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
 name|writer
 operator|.
 name|append
