@@ -247,8 +247,11 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|)
-operator|==
+operator|.
+name|equals
+argument_list|(
 name|TEST_MESSAGE
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
