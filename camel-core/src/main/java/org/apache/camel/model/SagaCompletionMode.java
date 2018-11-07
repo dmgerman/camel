@@ -16,11 +16,43 @@ name|model
 package|;
 end_package
 
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlEnum
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlType
+import|;
+end_import
+
 begin_comment
 comment|/**  * Enumerates all saga completion modes.  */
 end_comment
 
 begin_enum
+annotation|@
+name|XmlType
+annotation|@
+name|XmlEnum
 DECL|enum|SagaCompletionMode
 specifier|public
 enum|enum
