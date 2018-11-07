@@ -445,7 +445,7 @@ block|{
 DECL|field|camelContext
 specifier|private
 specifier|final
-name|DefaultCamelContext
+name|AbstractCamelContext
 name|camelContext
 decl_stmt|;
 DECL|field|routeDefinition
@@ -523,11 +523,11 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-DECL|method|RouteService (DefaultCamelContext camelContext, RouteDefinition routeDefinition, List<RouteContext> routeContexts, List<Route> routes)
+DECL|method|RouteService (AbstractCamelContext camelContext, RouteDefinition routeDefinition, List<RouteContext> routeContexts, List<Route> routes)
 specifier|public
 name|RouteService
 parameter_list|(
-name|DefaultCamelContext
+name|AbstractCamelContext
 name|camelContext
 parameter_list|,
 name|RouteDefinition
