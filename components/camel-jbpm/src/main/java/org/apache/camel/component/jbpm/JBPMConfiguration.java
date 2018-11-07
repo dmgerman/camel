@@ -34,6 +34,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -101,38 +111,6 @@ operator|.
 name|spi
 operator|.
 name|UriPath
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|kie
-operator|.
-name|api
-operator|.
-name|task
-operator|.
-name|model
-operator|.
-name|OrganizationalEntity
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|kie
-operator|.
-name|api
-operator|.
-name|task
-operator|.
-name|model
-operator|.
-name|Status
 import|;
 end_import
 
@@ -276,10 +254,21 @@ name|userId
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|language
+DECL|field|page
 specifier|private
-name|String
-name|language
+name|Integer
+name|page
+init|=
+literal|0
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|pageSize
+specifier|private
+name|Integer
+name|pageSize
+init|=
+literal|10
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -320,7 +309,7 @@ DECL|field|entities
 specifier|private
 name|List
 argument_list|<
-name|OrganizationalEntity
+name|String
 argument_list|>
 name|entities
 decl_stmt|;
@@ -335,7 +324,7 @@ DECL|field|statuses
 specifier|private
 name|List
 argument_list|<
-name|Status
+name|String
 argument_list|>
 name|statuses
 decl_stmt|;
@@ -407,6 +396,20 @@ specifier|private
 name|Class
 index|[]
 name|extraJaxbClasses
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|emitterSendItems
+specifier|private
+name|Boolean
+name|emitterSendItems
+decl_stmt|;
+annotation|@
+name|UriPath
+DECL|field|eventListenerType
+specifier|private
+name|String
+name|eventListenerType
 decl_stmt|;
 DECL|method|getOperation ()
 specifier|public
@@ -769,31 +772,58 @@ operator|=
 name|task
 expr_stmt|;
 block|}
-DECL|method|getLanguage ()
+DECL|method|getPage ()
 specifier|public
-name|String
-name|getLanguage
+name|Integer
+name|getPage
 parameter_list|()
 block|{
 return|return
-name|language
+name|page
 return|;
 block|}
-comment|/**      * The language to use when filtering user tasks      */
-DECL|method|setLanguage (String language)
+comment|/**      * The page to use when retrieving user tasks      */
+DECL|method|setPage (Integer page)
 specifier|public
 name|void
-name|setLanguage
+name|setPage
 parameter_list|(
-name|String
-name|language
+name|Integer
+name|page
 parameter_list|)
 block|{
 name|this
 operator|.
-name|language
+name|page
 operator|=
-name|language
+name|page
+expr_stmt|;
+block|}
+DECL|method|getPageSize ()
+specifier|public
+name|Integer
+name|getPageSize
+parameter_list|()
+block|{
+return|return
+name|pageSize
+return|;
+block|}
+comment|/**      * The page size to use when retrieving user tasks      */
+DECL|method|setPageSize (Integer pageSize)
+specifier|public
+name|void
+name|setPageSize
+parameter_list|(
+name|Integer
+name|pageSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pageSize
+operator|=
+name|pageSize
 expr_stmt|;
 block|}
 DECL|method|getTargetUserId ()
@@ -881,7 +911,7 @@ DECL|method|getEntities ()
 specifier|public
 name|List
 argument_list|<
-name|OrganizationalEntity
+name|String
 argument_list|>
 name|getEntities
 parameter_list|()
@@ -891,14 +921,14 @@ name|entities
 return|;
 block|}
 comment|/**      * The potentialOwners when nominateTask operation is performed      */
-DECL|method|setEntities (List<OrganizationalEntity> entities)
+DECL|method|setEntities (List<String> entities)
 specifier|public
 name|void
 name|setEntities
 parameter_list|(
 name|List
 argument_list|<
-name|OrganizationalEntity
+name|String
 argument_list|>
 name|entities
 parameter_list|)
@@ -914,7 +944,7 @@ DECL|method|getStatuses ()
 specifier|public
 name|List
 argument_list|<
-name|Status
+name|String
 argument_list|>
 name|getStatuses
 parameter_list|()
@@ -924,14 +954,14 @@ name|statuses
 return|;
 block|}
 comment|/**      * The list of status to use when filtering tasks      */
-DECL|method|setStatuses (List<Status> statuses)
+DECL|method|setStatuses (List<String> statuses)
 specifier|public
 name|void
 name|setStatuses
 parameter_list|(
 name|List
 argument_list|<
-name|Status
+name|String
 argument_list|>
 name|statuses
 parameter_list|)
@@ -1106,6 +1136,185 @@ name|extraJaxbClasses
 operator|=
 name|extraJaxbClasses
 expr_stmt|;
+block|}
+DECL|method|getEventListenerType ()
+specifier|public
+name|String
+name|getEventListenerType
+parameter_list|()
+block|{
+return|return
+name|eventListenerType
+return|;
+block|}
+comment|/**      * Sets the event listener type to attach to      */
+DECL|method|setEventListenerType (String eventListenerType)
+specifier|public
+name|void
+name|setEventListenerType
+parameter_list|(
+name|String
+name|eventListenerType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|eventListenerType
+operator|=
+name|eventListenerType
+expr_stmt|;
+block|}
+DECL|method|getEmitterSendItems ()
+specifier|public
+name|Boolean
+name|getEmitterSendItems
+parameter_list|()
+block|{
+return|return
+name|emitterSendItems
+return|;
+block|}
+comment|/**      * Sets if event produced by emitter should be sent as single items or complete collection      */
+DECL|method|setEmitterSendItems (Boolean emiterSendItems)
+specifier|public
+name|void
+name|setEmitterSendItems
+parameter_list|(
+name|Boolean
+name|emiterSendItems
+parameter_list|)
+block|{
+name|this
+operator|.
+name|emitterSendItems
+operator|=
+name|emiterSendItems
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"JBPMConfiguration [connectionURL="
+operator|+
+name|connectionURL
+operator|+
+literal|", operation="
+operator|+
+name|operation
+operator|+
+literal|", deploymentId="
+operator|+
+name|deploymentId
+operator|+
+literal|", processInstanceId="
+operator|+
+name|processInstanceId
+operator|+
+literal|", value="
+operator|+
+name|value
+operator|+
+literal|", processId="
+operator|+
+name|processId
+operator|+
+literal|", eventType="
+operator|+
+name|eventType
+operator|+
+literal|", event="
+operator|+
+name|event
+operator|+
+literal|", maxNumber="
+operator|+
+name|maxNumber
+operator|+
+literal|", identifier="
+operator|+
+name|identifier
+operator|+
+literal|", workItemId="
+operator|+
+name|workItemId
+operator|+
+literal|", taskId="
+operator|+
+name|taskId
+operator|+
+literal|", userId="
+operator|+
+name|userId
+operator|+
+literal|", page="
+operator|+
+name|page
+operator|+
+literal|", pageSize="
+operator|+
+name|pageSize
+operator|+
+literal|", targetUserId="
+operator|+
+name|targetUserId
+operator|+
+literal|", attachmentId="
+operator|+
+name|attachmentId
+operator|+
+literal|", contentId="
+operator|+
+name|contentId
+operator|+
+literal|", task="
+operator|+
+name|task
+operator|+
+literal|", entities="
+operator|+
+name|entities
+operator|+
+literal|", statuses="
+operator|+
+name|statuses
+operator|+
+literal|", userName="
+operator|+
+name|userName
+operator|+
+literal|", password="
+operator|+
+name|password
+operator|+
+literal|", timeout="
+operator|+
+name|timeout
+operator|+
+literal|", parameters="
+operator|+
+name|parameters
+operator|+
+literal|", extraJaxbClasses="
+operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|extraJaxbClasses
+argument_list|)
+operator|+
+literal|", eventListenerType="
+operator|+
+name|eventListenerType
+operator|+
+literal|"]"
+return|;
 block|}
 block|}
 end_class
