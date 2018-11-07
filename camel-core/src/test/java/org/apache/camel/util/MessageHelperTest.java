@@ -198,7 +198,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|MessageDump
+name|MessageHelper
 import|;
 end_import
 
@@ -212,7 +212,9 @@ name|camel
 operator|.
 name|support
 operator|.
-name|MessageHelper
+name|dump
+operator|.
+name|MessageDump
 import|;
 end_import
 
