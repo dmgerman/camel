@@ -3203,6 +3203,15 @@ name|void
 name|doInit
 parameter_list|()
 block|{
+comment|// setup management strategy first since end users may use it to add event notifiers
+comment|// using the management strategy before the CamelContext has been started
+name|this
+operator|.
+name|managementStrategy
+operator|=
+name|createManagementStrategy
+argument_list|()
+expr_stmt|;
 comment|// Call all registered trackers with this context
 comment|// Note, this may use a partially constructed object
 name|CamelContextTracker
@@ -5657,6 +5666,8 @@ name|this
 operator|.
 name|routeController
 operator|=
+name|routeController
+expr_stmt|;
 name|doAddService
 argument_list|(
 name|routeController
@@ -14370,7 +14381,7 @@ init|)
 block|{
 if|if
 condition|(
-name|typeConverter
+name|typeConverterRegistry
 operator|==
 literal|null
 condition|)
@@ -21230,6 +21241,9 @@ expr_stmt|;
 name|getPollingConsumerServicePool
 argument_list|()
 expr_stmt|;
+name|getRestRegistry
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|isTypeConverterStatisticsEnabled
@@ -21288,9 +21302,6 @@ name|getDataFormatResolver
 argument_list|()
 expr_stmt|;
 name|getManagementStrategy
-argument_list|()
-expr_stmt|;
-name|getRestRegistry
 argument_list|()
 expr_stmt|;
 name|getHeadersMapFactory
@@ -22688,10 +22699,11 @@ operator|==
 literal|null
 condition|)
 block|{
-name|shutdownStrategy
-operator|=
+name|setShutdownStrategy
+argument_list|(
 name|createShutdownStrategy
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
