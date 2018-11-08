@@ -379,7 +379,7 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
-literal|"A String to identify the userAgent"
+literal|"A String to identify the kind of client"
 argument_list|)
 DECL|field|userAgent
 specifier|private
