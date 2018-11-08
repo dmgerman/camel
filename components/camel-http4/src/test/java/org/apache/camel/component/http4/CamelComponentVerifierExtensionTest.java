@@ -78,18 +78,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ComponentVerifier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|extension
@@ -861,7 +849,7 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Result
 name|result
@@ -883,7 +871,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Result
 operator|.
