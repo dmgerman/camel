@@ -332,7 +332,7 @@ decl_stmt|;
 return|return
 name|component
 operator|.
-name|createSqlSessionFactory
+name|getSqlSessionFactory
 argument_list|()
 operator|.
 name|getConfiguration

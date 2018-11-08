@@ -416,7 +416,7 @@ name|sslContextFactory
 operator|.
 name|setIncludeCipherSuites
 argument_list|(
-literal|"TLS_RSA_WITH_AES_128_CBC_SHA256"
+literal|"TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
 argument_list|)
 expr_stmt|;
 name|sslContextFactory

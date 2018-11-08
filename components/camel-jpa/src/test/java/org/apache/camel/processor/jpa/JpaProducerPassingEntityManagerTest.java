@@ -339,7 +339,7 @@ argument_list|)
 argument_list|,
 name|JpaConstants
 operator|.
-name|ENTITYMANAGER
+name|ENTITY_MANAGER
 argument_list|,
 name|entityManager
 argument_list|)

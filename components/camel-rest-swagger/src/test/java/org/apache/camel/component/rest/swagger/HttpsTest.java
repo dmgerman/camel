@@ -1221,7 +1221,7 @@ name|Collections
 operator|.
 name|singletonList
 argument_list|(
-literal|"TLS_RSA_WITH_AES_128_CBC_SHA256"
+literal|"TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
 argument_list|)
 argument_list|)
 expr_stmt|;

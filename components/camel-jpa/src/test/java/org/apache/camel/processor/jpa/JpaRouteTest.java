@@ -242,7 +242,7 @@ name|header
 argument_list|(
 name|JpaConstants
 operator|.
-name|ENTITYMANAGER
+name|ENTITY_MANAGER
 argument_list|)
 decl_stmt|;
 name|header

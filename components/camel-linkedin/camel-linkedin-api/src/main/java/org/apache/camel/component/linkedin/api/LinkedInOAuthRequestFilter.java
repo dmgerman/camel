@@ -1058,6 +1058,8 @@ expr_stmt|;
 block|}
 name|HtmlPage
 name|authPage
+init|=
+literal|null
 decl_stmt|;
 try|try
 block|{
@@ -1078,6 +1080,13 @@ name|e
 parameter_list|)
 block|{
 comment|// only handle errors returned with redirects
+name|boolean
+name|done
+init|=
+literal|false
+decl_stmt|;
+do|do
+block|{
 if|if
 condition|(
 name|e
@@ -1088,6 +1097,15 @@ operator|==
 name|HttpStatus
 operator|.
 name|SC_MOVED_TEMPORARILY
+operator|||
+name|e
+operator|.
+name|getStatusCode
+argument_list|()
+operator|==
+name|HttpStatus
+operator|.
+name|SC_SEE_OTHER
 condition|)
 block|{
 specifier|final
@@ -1156,6 +1174,8 @@ block|}
 else|else
 block|{
 comment|// follow the redirect to login form
+try|try
+block|{
 name|authPage
 operator|=
 name|webClient
@@ -1165,6 +1185,22 @@ argument_list|(
 name|location
 argument_list|)
 expr_stmt|;
+name|done
+operator|=
+literal|true
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|FailingHttpStatusCodeException
+name|e1
+parameter_list|)
+block|{
+name|e
+operator|=
+name|e1
+expr_stmt|;
+block|}
 block|}
 block|}
 else|else
@@ -1173,6 +1209,13 @@ throw|throw
 name|e
 throw|;
 block|}
+block|}
+do|while
+condition|(
+operator|!
+name|done
+condition|)
+do|;
 block|}
 comment|// look for<div role="alert">
 specifier|final
@@ -1213,9 +1256,12 @@ name|loginForm
 init|=
 name|authPage
 operator|.
-name|getFormByName
+name|getForms
+argument_list|()
+operator|.
+name|get
 argument_list|(
-literal|"oauth2SAuthorizeForm"
+literal|0
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1264,11 +1310,23 @@ specifier|final
 name|HtmlSubmitInput
 name|submitInput
 init|=
+operator|(
+name|HtmlSubmitInput
+operator|)
 name|loginForm
 operator|.
-name|getInputByName
+name|getElementsByAttribute
 argument_list|(
-literal|"authorize"
+literal|"input"
+argument_list|,
+literal|"type"
+argument_list|,
+literal|"submit"
+argument_list|)
+operator|.
+name|get
+argument_list|(
+literal|0
 argument_list|)
 decl_stmt|;
 comment|// validate CSRF and get authorization code
@@ -1414,6 +1472,27 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// check if we got caught in a Captcha!
+if|if
+condition|(
+name|params
+operator|.
+name|get
+argument_list|(
+literal|"challengeId"
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|SecurityException
+argument_list|(
+literal|"Unable to login due to CAPTCHA, use with a valid accessToken instead!"
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|String
 name|state
@@ -1460,7 +1539,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{

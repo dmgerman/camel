@@ -64,6 +64,12 @@ argument_list|(
 literal|"MultiGet"
 argument_list|)
 block|,
+DECL|enumConstant|MultiSearch
+name|MultiSearch
+argument_list|(
+literal|"MultiSearch"
+argument_list|)
+block|,
 DECL|enumConstant|Delete
 name|Delete
 argument_list|(

@@ -68,16 +68,16 @@ name|CachingOAuthSecureStorage
 implements|implements
 name|OAuthSecureStorage
 block|{
+DECL|field|token
+specifier|protected
+name|OAuthToken
+name|token
+decl_stmt|;
 DECL|field|secureStorage
 specifier|private
 specifier|final
 name|OAuthSecureStorage
 name|secureStorage
-decl_stmt|;
-DECL|field|token
-specifier|private
-name|OAuthToken
-name|token
 decl_stmt|;
 DECL|method|CachingOAuthSecureStorage (OAuthSecureStorage secureStorage)
 specifier|public

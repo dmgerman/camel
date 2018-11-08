@@ -787,6 +787,20 @@ condition|(
 name|event
 operator|instanceof
 name|ContextRefreshedEvent
+operator|&&
+operator|(
+operator|(
+name|ContextRefreshedEvent
+operator|)
+name|event
+operator|)
+operator|.
+name|getApplicationContext
+argument_list|()
+operator|==
+name|this
+operator|.
+name|applicationContext
 condition|)
 block|{
 comment|// nominally we would prefer to use Lifecycle interface that

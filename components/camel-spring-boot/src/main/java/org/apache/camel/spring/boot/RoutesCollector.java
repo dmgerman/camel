@@ -565,6 +565,15 @@ decl_stmt|;
 comment|// only add and start Camel if its stopped (initial state)
 if|if
 condition|(
+name|event
+operator|.
+name|getApplicationContext
+argument_list|()
+operator|==
+name|this
+operator|.
+name|applicationContext
+operator|&&
 name|camelContext
 operator|.
 name|getStatus

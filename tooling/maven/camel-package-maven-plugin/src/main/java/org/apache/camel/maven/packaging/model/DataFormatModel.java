@@ -580,6 +580,21 @@ name|String
 name|getDocLink
 parameter_list|()
 block|{
+comment|// special for these components
+if|if
+condition|(
+literal|"camel-fhir"
+operator|.
+name|equals
+argument_list|(
+name|artifactId
+argument_list|)
+condition|)
+block|{
+return|return
+literal|"camel-fhir/camel-fhir-component/src/main/docs"
+return|;
+block|}
 if|if
 condition|(
 literal|"camel-core"
