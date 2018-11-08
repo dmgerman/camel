@@ -295,7 +295,21 @@ parameter_list|)
 block|{
 name|assertTrue
 argument_list|(
-literal|"Get a wrong exception cause."
+literal|"Get a wrong exception cause: "
+operator|+
+name|ex
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getClass
+argument_list|()
+operator|+
+literal|" instead of "
+operator|+
+name|FileNotFoundException
+operator|.
+name|class
 argument_list|,
 name|ex
 operator|.
@@ -371,7 +385,21 @@ parameter_list|)
 block|{
 name|assertTrue
 argument_list|(
-literal|"Get a wrong exception cause."
+literal|"Get a wrong exception cause: "
+operator|+
+name|ex
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getClass
+argument_list|()
+operator|+
+literal|" instead of "
+operator|+
+name|NoTypeConversionAvailableException
+operator|.
+name|class
 argument_list|,
 name|ex
 operator|.
@@ -425,7 +453,21 @@ parameter_list|)
 block|{
 name|assertTrue
 argument_list|(
-literal|"Get a wrong exception cause."
+literal|"Get a wrong exception cause: "
+operator|+
+name|ex
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getClass
+argument_list|()
+operator|+
+literal|" instead of "
+operator|+
+name|SAXParseException
+operator|.
+name|class
 argument_list|,
 name|ex
 operator|.

@@ -203,7 +203,17 @@ literal|" with value "
 operator|+
 name|value
 operator|+
-literal|" due "
+literal|" due to "
+operator|+
+name|cause
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": "
 operator|+
 name|cause
 operator|.

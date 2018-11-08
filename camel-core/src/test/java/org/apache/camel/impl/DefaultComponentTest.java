@@ -763,7 +763,7 @@ literal|"Error during type conversion from type: java.lang.String "
 operator|+
 literal|"to the required type: java.lang.Integer "
 operator|+
-literal|"with value abc due For input string: \"abc\""
+literal|"with value abc due to java.lang.NumberFormatException: For input string: \"abc\""
 argument_list|,
 name|ex
 operator|.
