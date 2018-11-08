@@ -369,6 +369,14 @@ specifier|private
 name|Integer
 name|delaySeconds
 decl_stmt|;
+comment|/**          * Define if you want to apply delaySeconds option to the queue or on          * single messages          */
+DECL|field|delayQueue
+specifier|private
+name|Boolean
+name|delayQueue
+init|=
+literal|false
+decl_stmt|;
 comment|/**          * The maximumMessageSize (in bytes) an SQS message can contain for this          * queue.          */
 DECL|field|maximumMessageSize
 specifier|private
@@ -743,6 +751,32 @@ operator|.
 name|delaySeconds
 operator|=
 name|delaySeconds
+expr_stmt|;
+block|}
+DECL|method|getDelayQueue ()
+specifier|public
+name|Boolean
+name|getDelayQueue
+parameter_list|()
+block|{
+return|return
+name|delayQueue
+return|;
+block|}
+DECL|method|setDelayQueue (Boolean delayQueue)
+specifier|public
+name|void
+name|setDelayQueue
+parameter_list|(
+name|Boolean
+name|delayQueue
+parameter_list|)
+block|{
+name|this
+operator|.
+name|delayQueue
+operator|=
+name|delayQueue
 expr_stmt|;
 block|}
 DECL|method|getMaximumMessageSize ()
