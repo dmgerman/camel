@@ -201,7 +201,7 @@ comment|// needs configuration
 operator|.
 name|dependency
 argument_list|(
-literal|"org.codehaus.groovy:groovy-all:"
+literal|"org.codehaus.groovy:groovy:"
 operator|+
 name|DependencyResolver
 operator|.
