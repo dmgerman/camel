@@ -1590,6 +1590,13 @@ argument_list|(
 name|client
 argument_list|)
 expr_stmt|;
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|restHighLevelClient
+argument_list|)
+expr_stmt|;
 name|client
 operator|=
 literal|null
