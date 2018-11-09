@@ -176,6 +176,11 @@ comment|//                .dependency("com.atomikos:transactions-api:3.9.3")
 comment|//                .dependency("javax.transaction:javax.transaction-api:1.2")
 comment|//                .disableJmx("org.apache.activemq:*")
 operator|.
+name|dependency
+argument_list|(
+literal|"javax.json:javax.json-api"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;
@@ -197,7 +202,6 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
-comment|// Unit tests can be enabled if required
 comment|//this.runModuleUnitTestsIfEnabled(config);
 block|}
 block|}
