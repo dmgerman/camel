@@ -228,7 +228,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
 name|IntrospectionSupport
 import|;
@@ -295,22 +295,6 @@ operator|.
 name|autoconfigure
 operator|.
 name|AutoConfigureAfter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|autoconfigure
-operator|.
-name|condition
-operator|.
-name|ConditionalOnBean
 import|;
 end_import
 
