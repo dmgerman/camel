@@ -486,6 +486,9 @@ block|{
 comment|// discover the bean and get the mapper
 comment|// is the bean a alias type
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|session

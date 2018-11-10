@@ -86,10 +86,10 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|createStatement ()
+DECL|method|getCreateStatement ()
 specifier|protected
 name|String
-name|createStatement
+name|getCreateStatement
 parameter_list|()
 block|{
 return|return
