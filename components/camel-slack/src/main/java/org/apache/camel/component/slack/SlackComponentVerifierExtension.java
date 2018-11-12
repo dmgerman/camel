@@ -791,7 +791,14 @@ init|=
 operator|new
 name|HttpPost
 argument_list|(
-literal|"https://slack.com/api/channels.list"
+name|parameters
+operator|.
+name|get
+argument_list|(
+literal|"serverUrl"
+argument_list|)
+operator|+
+literal|"/api/channels.list"
 argument_list|)
 decl_stmt|;
 name|List

@@ -438,7 +438,12 @@ init|=
 operator|new
 name|HttpPost
 argument_list|(
-literal|"https://slack.com/api/channels.history"
+name|slackEndpoint
+operator|.
+name|getServerUrl
+argument_list|()
+operator|+
+literal|"/api/channels.history"
 argument_list|)
 decl_stmt|;
 name|List
@@ -901,7 +906,12 @@ init|=
 operator|new
 name|HttpPost
 argument_list|(
-literal|"https://slack.com/api/channels.list"
+name|slackEndpoint
+operator|.
+name|getServerUrl
+argument_list|()
+operator|+
+literal|"/api/channels.list"
 argument_list|)
 decl_stmt|;
 name|List

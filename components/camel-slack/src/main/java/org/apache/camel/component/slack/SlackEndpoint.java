@@ -351,6 +351,24 @@ name|maxResults
 init|=
 literal|"10"
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"https://slack.com"
+argument_list|)
+DECL|field|serverUrl
+specifier|private
+name|String
+name|serverUrl
+init|=
+literal|"https://slack.com"
+decl_stmt|;
 comment|/**      * Constructor for SlackEndpoint      *      * @param uri the full component url      * @param channelName the channel or username the message is directed at      * @param component the component that was created      */
 DECL|method|SlackEndpoint (String uri, String channelName, SlackComponent component)
 specifier|public
@@ -662,6 +680,33 @@ operator|.
 name|maxResults
 operator|=
 name|maxResult
+expr_stmt|;
+block|}
+DECL|method|getServerUrl ()
+specifier|public
+name|String
+name|getServerUrl
+parameter_list|()
+block|{
+return|return
+name|serverUrl
+return|;
+block|}
+comment|/**      * The Server URL of the Slack instance      */
+DECL|method|setServerUrl (String serverUrl)
+specifier|public
+name|void
+name|setServerUrl
+parameter_list|(
+name|String
+name|serverUrl
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serverUrl
+operator|=
+name|serverUrl
 expr_stmt|;
 block|}
 DECL|method|createExchange (JSONObject object)
