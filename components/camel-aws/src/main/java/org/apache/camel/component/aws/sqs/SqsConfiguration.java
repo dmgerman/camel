@@ -338,6 +338,19 @@ specifier|private
 name|Integer
 name|delaySeconds
 decl_stmt|;
+comment|// producer properties
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|delayQueue
+specifier|private
+name|boolean
+name|delayQueue
+decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
@@ -761,6 +774,33 @@ operator|.
 name|delaySeconds
 operator|=
 name|delaySeconds
+expr_stmt|;
+block|}
+DECL|method|isDelayQueue ()
+specifier|public
+name|boolean
+name|isDelayQueue
+parameter_list|()
+block|{
+return|return
+name|delayQueue
+return|;
+block|}
+comment|/**      * Define if you want to apply delaySeconds option to the queue or on single messages      */
+DECL|method|setDelayQueue (boolean delayQueue)
+specifier|public
+name|void
+name|setDelayQueue
+parameter_list|(
+name|boolean
+name|delayQueue
+parameter_list|)
+block|{
+name|this
+operator|.
+name|delayQueue
+operator|=
+name|delayQueue
 expr_stmt|;
 block|}
 DECL|method|getMaximumMessageSize ()

@@ -501,6 +501,26 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"security"
+argument_list|,
+name|description
+operator|=
+literal|"To configure security using SSLContextParameters."
+operator|+
+literal|" Important: Only one instance of org.apache.camel.util.jsse.SSLContextParameters is supported per HttpComponent."
+operator|+
+literal|" If you need to use 2 or more different instances, you need to define a new HttpComponent per instance you need."
+argument_list|)
+DECL|field|sslContextParameters
+specifier|protected
+name|SSLContextParameters
+name|sslContextParameters
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"advanced"
 argument_list|,
 name|description
@@ -856,26 +876,6 @@ DECL|field|x509HostnameVerifier
 specifier|private
 name|HostnameVerifier
 name|x509HostnameVerifier
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"security"
-argument_list|,
-name|description
-operator|=
-literal|"To configure security using SSLContextParameters."
-operator|+
-literal|" Important: Only one instance of org.apache.camel.util.jsse.SSLContextParameters is supported per HttpComponent."
-operator|+
-literal|" If you need to use 2 or more different instances, you need to define a new HttpComponent per instance you need."
-argument_list|)
-DECL|field|sslContextParameters
-specifier|protected
-name|SSLContextParameters
-name|sslContextParameters
 decl_stmt|;
 DECL|method|HttpEndpoint ()
 specifier|public
@@ -2001,6 +2001,9 @@ name|getClientConnectionsPoolStatsMax
 parameter_list|()
 block|{
 name|ConnPoolControl
+argument_list|<
+name|?
+argument_list|>
 name|pool
 init|=
 literal|null
@@ -2016,6 +2019,9 @@ name|pool
 operator|=
 operator|(
 name|ConnPoolControl
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|clientConnectionManager
 expr_stmt|;
@@ -2069,6 +2075,9 @@ name|getClientConnectionsPoolStatsAvailable
 parameter_list|()
 block|{
 name|ConnPoolControl
+argument_list|<
+name|?
+argument_list|>
 name|pool
 init|=
 literal|null
@@ -2084,6 +2093,9 @@ name|pool
 operator|=
 operator|(
 name|ConnPoolControl
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|clientConnectionManager
 expr_stmt|;
@@ -2137,6 +2149,9 @@ name|getClientConnectionsPoolStatsLeased
 parameter_list|()
 block|{
 name|ConnPoolControl
+argument_list|<
+name|?
+argument_list|>
 name|pool
 init|=
 literal|null
@@ -2152,6 +2167,9 @@ name|pool
 operator|=
 operator|(
 name|ConnPoolControl
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|clientConnectionManager
 expr_stmt|;
@@ -2207,6 +2225,9 @@ name|getClientConnectionsPoolStatsPending
 parameter_list|()
 block|{
 name|ConnPoolControl
+argument_list|<
+name|?
+argument_list|>
 name|pool
 init|=
 literal|null
@@ -2222,6 +2243,9 @@ name|pool
 operator|=
 operator|(
 name|ConnPoolControl
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|clientConnectionManager
 expr_stmt|;

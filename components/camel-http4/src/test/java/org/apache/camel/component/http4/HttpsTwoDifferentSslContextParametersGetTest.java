@@ -86,7 +86,7 @@ name|conn
 operator|.
 name|ssl
 operator|.
-name|AllowAllHostnameVerifier
+name|NoopHostnameVerifier
 import|;
 end_import
 
@@ -299,7 +299,7 @@ argument_list|(
 literal|"x509HostnameVerifier"
 argument_list|,
 operator|new
-name|AllowAllHostnameVerifier
+name|NoopHostnameVerifier
 argument_list|()
 argument_list|)
 expr_stmt|;

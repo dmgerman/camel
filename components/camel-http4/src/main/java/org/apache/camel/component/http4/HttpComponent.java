@@ -2116,7 +2116,7 @@ expr_stmt|;
 block|}
 name|endpoint
 operator|.
-name|setBinding
+name|setHttpBinding
 argument_list|(
 name|getHttpBinding
 argument_list|()
@@ -2131,7 +2131,7 @@ condition|)
 block|{
 name|endpoint
 operator|.
-name|setBinding
+name|setHttpBinding
 argument_list|(
 name|httpBinding
 argument_list|)
