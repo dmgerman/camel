@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel.support
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|support
 package|;
 end_package
 
@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncCallback
+name|AsyncProcessor
 import|;
 end_import
 
@@ -50,118 +50,21 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|IdAware
+name|AsyncProcessorAwaitManager
 import|;
 end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|AsyncProcessorSupport
-import|;
-end_import
-
-begin_comment
-comment|/**  * Stops continue processing the route and marks it as complete.  */
-end_comment
 
 begin_class
-DECL|class|StopProcessor
+DECL|class|AsyncProcessorSupport
 specifier|public
+specifier|abstract
 class|class
-name|StopProcessor
-extends|extends
 name|AsyncProcessorSupport
+extends|extends
+name|ServiceSupport
 implements|implements
-name|IdAware
+name|AsyncProcessor
 block|{
-DECL|field|id
-specifier|private
-name|String
-name|id
-decl_stmt|;
-DECL|method|process (Exchange exchange, AsyncCallback callback)
-specifier|public
-name|boolean
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
-name|AsyncCallback
-name|callback
-parameter_list|)
-block|{
-comment|// mark the exchange to stop continue routing
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|ROUTE_STOP
-argument_list|,
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
-expr_stmt|;
-name|callback
-operator|.
-name|done
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-return|return
-literal|true
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"Stop"
-return|;
-block|}
-DECL|method|getId ()
-specifier|public
-name|String
-name|getId
-parameter_list|()
-block|{
-return|return
-name|id
-return|;
-block|}
-DECL|method|setId (String id)
-specifier|public
-name|void
-name|setId
-parameter_list|(
-name|String
-name|id
-parameter_list|)
-block|{
-name|this
-operator|.
-name|id
-operator|=
-name|id
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -171,9 +74,7 @@ name|doStart
 parameter_list|()
 throws|throws
 name|Exception
-block|{
-comment|// noop
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|doStop ()
@@ -183,8 +84,40 @@ name|doStop
 parameter_list|()
 throws|throws
 name|Exception
+block|{     }
+annotation|@
+name|Override
+DECL|method|process (Exchange exchange)
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
 block|{
-comment|// noop
+name|AsyncProcessorAwaitManager
+name|awaitManager
+init|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getAsyncProcessorAwaitManager
+argument_list|()
+decl_stmt|;
+name|awaitManager
+operator|.
+name|process
+argument_list|(
+name|this
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

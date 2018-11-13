@@ -58,18 +58,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -110,21 +98,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|AsyncProcessorHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|ServiceSupport
+name|AsyncProcessorSupport
 import|;
 end_import
 
@@ -138,10 +112,8 @@ specifier|public
 class|class
 name|SamplingThrottler
 extends|extends
-name|ServiceSupport
+name|AsyncProcessorSupport
 implements|implements
-name|AsyncProcessor
-implements|,
 name|Traceable
 implements|,
 name|IdAware
@@ -306,26 +278,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{     }
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{     }
-annotation|@
-name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -473,29 +425,6 @@ block|{
 return|return
 name|units
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|AsyncProcessorHelper
-operator|.
-name|process
-argument_list|(
-name|this
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override

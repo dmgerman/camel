@@ -62,7 +62,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncProcessor
+name|Exchange
 import|;
 end_import
 
@@ -74,7 +74,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|support
+operator|.
+name|AsyncProcessorSupport
 import|;
 end_import
 
@@ -131,8 +133,8 @@ DECL|class|UnwrapStreamProcessor
 specifier|public
 class|class
 name|UnwrapStreamProcessor
-implements|implements
-name|AsyncProcessor
+extends|extends
+name|AsyncProcessorSupport
 block|{
 annotation|@
 name|Override
@@ -445,29 +447,6 @@ expr_stmt|;
 return|return
 literal|true
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|AsyncProcessorHelper
-operator|.
-name|process
-argument_list|(
-name|this
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

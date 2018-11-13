@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|CamelContext
 import|;
 end_import
@@ -112,7 +100,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|AsyncProcessorHelper
+name|AsyncProcessorSupport
 import|;
 end_import
 
@@ -130,26 +118,6 @@ name|ServiceHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A {@link Processor} which converts the inbound exchange to a method  * invocation on a POJO  */
 end_comment
@@ -160,25 +128,9 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractBeanProcessor
-implements|implements
-name|AsyncProcessor
+extends|extends
+name|AsyncProcessorSupport
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|AbstractBeanProcessor
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|beanHolder
 specifier|private
 specifier|final
@@ -334,27 +286,6 @@ name|beanHolder
 operator|+
 literal|"]"
 return|;
-block|}
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|AsyncProcessorHelper
-operator|.
-name|process
-argument_list|(
-name|this
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
@@ -575,7 +506,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -584,6 +523,7 @@ argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|target
@@ -670,7 +610,15 @@ comment|// intend to invoke (for example to proxy and invoke using spring remoti
 comment|// and therefore the message body contains a BeanInvocation object.
 comment|// However this can causes problem if we in a Camel route invokes another bean,
 comment|// so we must test whether BeanHolder and BeanInvocation is the same bean or not
-name|LOG
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -679,6 +627,7 @@ argument_list|,
 name|beanInvoke
 argument_list|)
 expr_stmt|;
+block|}
 name|Class
 argument_list|<
 name|?
@@ -705,13 +654,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

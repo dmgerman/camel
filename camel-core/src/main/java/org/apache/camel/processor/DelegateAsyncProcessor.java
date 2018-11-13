@@ -116,9 +116,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|AsyncProcessorAwaitManager
+name|AsyncProcessorConverterHelper
 import|;
 end_import
 
@@ -132,7 +132,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|AsyncProcessorConverterHelper
+name|AsyncProcessorSupport
 import|;
 end_import
 
@@ -150,20 +150,6 @@ name|ServiceHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|ServiceSupport
-import|;
-end_import
-
 begin_comment
 comment|/**  * A Delegate pattern which delegates processing to a nested {@link AsyncProcessor} which can  * be useful for implementation inheritance when writing an {@link org.apache.camel.spi.Policy}  *<p/>  *<b>Important:</b> This implementation<b>does</b> support the asynchronous routing engine.  * If you are implementing a EIP pattern please use this as the delegate.  * @see DelegateSyncProcessor  * @see org.apache.camel.processor.DelegateProcessor  */
 end_comment
@@ -174,11 +160,9 @@ specifier|public
 class|class
 name|DelegateAsyncProcessor
 extends|extends
-name|ServiceSupport
+name|AsyncProcessorSupport
 implements|implements
 name|DelegateProcessor
-implements|,
-name|AsyncProcessor
 implements|,
 name|Navigate
 argument_list|<
@@ -352,41 +336,6 @@ operator|.
 name|stopAndShutdownServices
 argument_list|(
 name|processor
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-specifier|final
-name|AsyncProcessorAwaitManager
-name|awaitManager
-init|=
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|getAsyncProcessorAwaitManager
-argument_list|()
-decl_stmt|;
-name|awaitManager
-operator|.
-name|process
-argument_list|(
-name|this
-argument_list|,
-name|exchange
 argument_list|)
 expr_stmt|;
 block|}

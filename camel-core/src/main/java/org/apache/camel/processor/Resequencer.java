@@ -358,7 +358,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|AsyncProcessorHelper
+name|AsyncProcessorSupport
 import|;
 end_import
 
@@ -412,20 +412,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
-operator|.
-name|ServiceSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -442,10 +428,8 @@ specifier|public
 class|class
 name|Resequencer
 extends|extends
-name|ServiceSupport
+name|AsyncProcessorSupport
 implements|implements
-name|AsyncProcessor
-implements|,
 name|Navigate
 argument_list|<
 name|Processor
@@ -1439,27 +1423,6 @@ name|collection
 operator|.
 name|clear
 argument_list|()
-expr_stmt|;
-block|}
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|AsyncProcessorHelper
-operator|.
-name|process
-argument_list|(
-name|this
-argument_list|,
-name|exchange
-argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Enqueues an exchange for later batch processing.      */

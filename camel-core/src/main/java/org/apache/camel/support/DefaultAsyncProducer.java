@@ -52,6 +52,20 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|AsyncProcessorAwaitManager
+import|;
+end_import
+
 begin_comment
 comment|/**  * A default implementation of {@link org.apache.camel.Producer} for implementation inheritance,  * which can process {@link Exchange}s asynchronously.  */
 end_comment
@@ -92,7 +106,18 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|AsyncProcessorHelper
+name|AsyncProcessorAwaitManager
+name|awaitManager
+init|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getAsyncProcessorAwaitManager
+argument_list|()
+decl_stmt|;
+name|awaitManager
 operator|.
 name|process
 argument_list|(
