@@ -98,6 +98,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Assert
@@ -120,15 +136,8 @@ specifier|public
 class|class
 name|DropboxConsumerTest
 extends|extends
-name|DropboxTestSupport
+name|CamelTestSupport
 block|{
-DECL|method|DropboxConsumerTest ()
-specifier|public
-name|DropboxConsumerTest
-parameter_list|()
-throws|throws
-name|Exception
-block|{     }
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
@@ -136,8 +145,6 @@ specifier|protected
 name|RouteBuilder
 name|createRouteBuilder
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
 operator|new
@@ -155,7 +162,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"dropbox://get?accessToken={{accessToken}}&remotePath=/path"
+literal|"dropbox://get?accessToken=accessToken&remotePath=/path"
 argument_list|)
 operator|.
 name|to
@@ -165,7 +172,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"dropbox://get?accessToken={{accessToken}}&remotePath=/path with spaces/file"
+literal|"dropbox://get?accessToken=accessToken&remotePath=/path with spaces/file"
 argument_list|)
 operator|.
 name|to
@@ -195,7 +202,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"dropbox://get?accessToken={{accessToken}}&remotePath=/path"
+literal|"dropbox://get?accessToken=accessToken&remotePath=/path"
 argument_list|)
 decl_stmt|;
 comment|// When
@@ -227,7 +234,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"dropbox://get?accessToken={{accessToken}}&remotePath=/path with spaces/file"
+literal|"dropbox://get?accessToken=accessToken&remotePath=/path with spaces/file"
 argument_list|)
 decl_stmt|;
 comment|// When
