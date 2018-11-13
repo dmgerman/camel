@@ -794,7 +794,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"* ALL - required allways"
+literal|"* ALL - required always"
 argument_list|)
 expr_stmt|;
 name|System

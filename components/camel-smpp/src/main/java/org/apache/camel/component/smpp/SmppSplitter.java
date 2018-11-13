@@ -76,7 +76,7 @@ name|UDHIE_SAR_REF_NUM_LENGTH
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * The value that identifier length of the SAR fragment.      *<p/>      * {@code 0x00} value must be used if the legnth of the reference number is      * 1 byte.<br/>      * {@code 0x08} value must be used if the legnth of the reference number is      * 2 bytes.      */
+comment|/**      * The value that identifier length of the SAR fragment.      *<p/>      * {@code 0x00} value must be used if the length of the reference number is      * 1 byte.<br/>      * {@code 0x08} value must be used if the length of the reference number is      * 2 bytes.      */
 DECL|field|UDHIE_IDENTIFIER_SAR
 specifier|protected
 specifier|static
@@ -86,7 +86,7 @@ name|UDHIE_IDENTIFIER_SAR
 init|=
 literal|0x00
 decl_stmt|;
-comment|/**      * The length of the SAR fragment.      *<p/>      * {@code 0x03} value must be used if the legnth of the reference number is      * 1 byte.<br/>      * {@code 0x04} value must be used if the legnth of the reference number is      * 2 bytes.      */
+comment|/**      * The length of the SAR fragment.      *<p/>      * {@code 0x03} value must be used if the length of the reference number is      * 1 byte.<br/>      * {@code 0x04} value must be used if the length of the reference number is      * 2 bytes.      */
 DECL|field|UDHIE_SAR_LENGTH
 specifier|protected
 specifier|static

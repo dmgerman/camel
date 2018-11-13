@@ -516,7 +516,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// configure teh route
+comment|// configure the route
 name|controller
 operator|.
 name|setBackOff

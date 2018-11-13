@@ -1023,7 +1023,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Get the wrong wsdl opertion name"
+literal|"Get the wrong wsdl operation name"
 argument_list|,
 literal|"{http://apache.org/hello_world_soap_http}greetMe"
 argument_list|,

@@ -404,7 +404,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Action type should not be overwriten"
+literal|"Action type should not be overwritten"
 argument_list|,
 name|request
 operator|.
@@ -419,7 +419,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Comment should not be overwriten"
+literal|"Comment should not be overwritten"
 argument_list|,
 name|request
 operator|.
@@ -434,7 +434,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Context id should not be overwriten"
+literal|"Context id should not be overwritten"
 argument_list|,
 name|request
 operator|.

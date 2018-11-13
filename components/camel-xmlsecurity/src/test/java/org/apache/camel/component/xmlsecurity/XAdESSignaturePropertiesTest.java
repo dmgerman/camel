@@ -3094,7 +3094,7 @@ name|XmlSignatureException
 operator|.
 name|class
 argument_list|,
-literal|"The XAdES-EPES confguration is invalid. The signature policy identifier is missing."
+literal|"The XAdES-EPES configuration is invalid. The signature policy identifier is missing."
 argument_list|,
 literal|null
 argument_list|)
@@ -3221,7 +3221,7 @@ name|XmlSignatureException
 operator|.
 name|class
 argument_list|,
-literal|"The XAdES-EPES confguration is invalid. The digest value for the signature policy is missing."
+literal|"The XAdES-EPES configuration is invalid. The digest value for the signature policy is missing."
 argument_list|,
 literal|null
 argument_list|)
@@ -3348,7 +3348,7 @@ name|XmlSignatureException
 operator|.
 name|class
 argument_list|,
-literal|"The XAdES-EPES confguration is invalid. The digest algorithm for the signature policy is missing."
+literal|"The XAdES-EPES configuration is invalid. The digest algorithm for the signature policy is missing."
 argument_list|,
 literal|null
 argument_list|)
@@ -3440,7 +3440,7 @@ name|XmlSignatureException
 operator|.
 name|class
 argument_list|,
-literal|"The XAdES confguration is invalid. The list of the claimed roles contains the invalid entry '<ClaimedRole>wrong XML fragment<ClaimedRole>'. An entry must either be a text or"
+literal|"The XAdES configuration is invalid. The list of the claimed roles contains the invalid entry '<ClaimedRole>wrong XML fragment<ClaimedRole>'. An entry must either be a text or"
 operator|+
 literal|" an XML fragment with the root element 'ClaimedRole' with the namespace 'http://uri.etsi.org/01903/v1.3.2#'."
 argument_list|,
@@ -3534,7 +3534,7 @@ name|XmlSignatureException
 operator|.
 name|class
 argument_list|,
-literal|"The XAdES confguration is invalid. The list of the commitment type qualifiers contains the invalid entry '<CommitmentTypeQualifier>wrong XML fragment<CommitmentTypeQualifier>'."
+literal|"The XAdES configuration is invalid. The list of the commitment type qualifiers contains the invalid entry '<CommitmentTypeQualifier>wrong XML fragment<CommitmentTypeQualifier>'."
 operator|+
 literal|" An entry must either be a text or an XML fragment with the root element 'CommitmentTypeQualifier' with the namespace 'http://uri.etsi.org/01903/v1.3.2#'."
 argument_list|,
@@ -3628,7 +3628,7 @@ name|XmlSignatureException
 operator|.
 name|class
 argument_list|,
-literal|"The XAdES confguration is invalid. The list of the signatue policy qualifiers contains the invalid entry '<SigPolicyQualifier>wrong XML fragment<SigPolicyQualifier>'."
+literal|"The XAdES configuration is invalid. The list of the signatue policy qualifiers contains the invalid entry '<SigPolicyQualifier>wrong XML fragment<SigPolicyQualifier>'."
 operator|+
 literal|" An entry must either be a text or an XML fragment with the root element 'SigPolicyQualifier' with the namespace 'http://uri.etsi.org/01903/v1.3.2#'."
 argument_list|,
@@ -3721,7 +3721,7 @@ name|XmlSignatureException
 operator|.
 name|class
 argument_list|,
-literal|"The XAdES confguration is invalid. The root element 'SigPolicyQualifier' of the provided XML fragment "
+literal|"The XAdES configuration is invalid. The root element 'SigPolicyQualifier' of the provided XML fragment "
 operator|+
 literal|"'<SigPolicyQualifier xmlns=\"http://invalid.com\">XML fragment with wrong namespace for root element</SigPolicyQualifier>' has the invalid namespace 'http://invalid.com'."
 operator|+

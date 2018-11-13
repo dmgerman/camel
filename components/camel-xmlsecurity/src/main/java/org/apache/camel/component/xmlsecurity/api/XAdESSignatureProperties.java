@@ -2950,7 +2950,7 @@ expr_stmt|;
 name|String
 name|errorMessage
 init|=
-literal|"The XAdES confguration is invalid. The list of the commitment type qualifiers contains the invalid entry '%s'. An entry must either be a text or an XML fragment "
+literal|"The XAdES configuration is invalid. The list of the commitment type qualifiers contains the invalid entry '%s'. An entry must either be a text or an XML fragment "
 operator|+
 literal|"with the root element '%s' with the namespace '%s'."
 decl_stmt|;
@@ -4032,7 +4032,7 @@ expr_stmt|;
 name|String
 name|errorMessage
 init|=
-literal|"The XAdES confguration is invalid. The list of the claimed roles contains the invalid entry '%s'."
+literal|"The XAdES configuration is invalid. The list of the claimed roles contains the invalid entry '%s'."
 operator|+
 literal|" An entry must either be a text or an XML fragment with the root element '%s' with the namespace '%s'."
 decl_stmt|;
@@ -4409,7 +4409,7 @@ throw|throw
 operator|new
 name|XmlSignatureException
 argument_list|(
-literal|"The XAdES-EPES confguration is invalid. The signature policy identifier is missing."
+literal|"The XAdES-EPES configuration is invalid. The signature policy identifier is missing."
 argument_list|)
 throw|;
 block|}
@@ -4602,7 +4602,7 @@ throw|throw
 operator|new
 name|XmlSignatureException
 argument_list|(
-literal|"The XAdES-EPES confguration is invalid. The digest algorithm for the signature policy is missing."
+literal|"The XAdES-EPES configuration is invalid. The digest algorithm for the signature policy is missing."
 argument_list|)
 throw|;
 block|}
@@ -4656,7 +4656,7 @@ throw|throw
 operator|new
 name|XmlSignatureException
 argument_list|(
-literal|"The XAdES-EPES confguration is invalid. The digest value for the signature policy is missing."
+literal|"The XAdES-EPES configuration is invalid. The digest value for the signature policy is missing."
 argument_list|)
 throw|;
 block|}
@@ -4730,7 +4730,7 @@ expr_stmt|;
 name|String
 name|errorMessage
 init|=
-literal|"The XAdES confguration is invalid. The list of the signatue policy qualifiers contains the invalid entry '%s'."
+literal|"The XAdES configuration is invalid. The list of the signatue policy qualifiers contains the invalid entry '%s'."
 operator|+
 literal|" An entry must either be a text or an XML fragment with the root element '%s' with the namespace '%s'."
 decl_stmt|;
@@ -4939,7 +4939,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"The XAdES confguration is invalid. The root element '%s' of the provided XML fragment '%s' has the invalid namespace '%s'. The correct namespace is '%s'."
+literal|"The XAdES configuration is invalid. The root element '%s' of the provided XML fragment '%s' has the invalid namespace '%s'. The correct namespace is '%s'."
 argument_list|,
 name|child
 operator|.

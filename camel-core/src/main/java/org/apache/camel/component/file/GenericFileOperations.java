@@ -97,7 +97,7 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * Builds the directory structure. Will test if the      * folder already exists.      *      * @param directory the directory path to build as a relative string name      * @param absolute wether the directory is an absolute or relative path      * @return true if build or already exists, false if not possible (could be lack of permissions)      * @throws GenericFileOperationFailedException can be thrown      */
+comment|/**      * Builds the directory structure. Will test if the      * folder already exists.      *      * @param directory the directory path to build as a relative string name      * @param absolute whether the directory is an absolute or relative path      * @return true if build or already exists, false if not possible (could be lack of permissions)      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|buildDirectory (String directory, boolean absolute)
 name|boolean
 name|buildDirectory

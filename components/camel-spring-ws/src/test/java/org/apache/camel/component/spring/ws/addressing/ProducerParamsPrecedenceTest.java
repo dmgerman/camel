@@ -960,7 +960,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// /we set in sample data all precendence fields for simplier tests
-comment|// otherwise it woudl be here annonymous
+comment|// otherwise it would be here anonymous
 name|Assertions
 operator|.
 name|assertThat

@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Route Builder that exposes teh endpoint used by Prometheus to scrape  * monitoring data from the Camel application. When running in a Spring  * Boot 2.x environment, this is not required as Spring Boot already exposes  * this endpoint by default.  */
+comment|/**  * Route Builder that exposes the endpoint used by Prometheus to scrape  * monitoring data from the Camel application. When running in a Spring  * Boot 2.x environment, this is not required as Spring Boot already exposes  * this endpoint by default.  */
 end_comment
 
 begin_class

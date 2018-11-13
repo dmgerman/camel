@@ -237,7 +237,7 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
-comment|// call for the other opertion
+comment|// call for the other operation
 name|out
 operator|=
 name|template

@@ -716,7 +716,7 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|field|writters
+DECL|field|writers
 specifier|private
 specifier|final
 name|Map
@@ -728,7 +728,7 @@ argument_list|>
 argument_list|,
 name|ObjectWriter
 argument_list|>
-name|writters
+name|writers
 init|=
 operator|new
 name|HashMap
@@ -1445,7 +1445,7 @@ name|Optional
 operator|.
 name|ofNullable
 argument_list|(
-name|writters
+name|writers
 operator|.
 name|get
 argument_list|(
