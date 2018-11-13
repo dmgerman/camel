@@ -587,7 +587,7 @@ name|responseMsgs
 return|;
 block|}
 comment|/**      * Sets swagger operation response messages.      */
-DECL|method|setResponseMsgs (List<RestOperationResponseMsgDefinition> params)
+DECL|method|setResponseMsgs (List<RestOperationResponseMsgDefinition> responseMsgs)
 specifier|public
 name|void
 name|setResponseMsgs
@@ -596,7 +596,7 @@ name|List
 argument_list|<
 name|RestOperationResponseMsgDefinition
 argument_list|>
-name|params
+name|responseMsgs
 parameter_list|)
 block|{
 name|this
