@@ -240,8 +240,6 @@ name|String
 name|xml
 parameter_list|)
 block|{
-try|try
-block|{
 specifier|final
 name|Source
 name|source
@@ -263,6 +261,25 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
+return|return
+name|validate
+argument_list|(
+name|source
+argument_list|)
+return|;
+block|}
+comment|/**      * Validates the given XML for given Rules.      *      * @param source      * @return      */
+DECL|method|validate (Source source)
+specifier|public
+name|String
+name|validate
+parameter_list|(
+name|Source
+name|source
+parameter_list|)
+block|{
+try|try
+block|{
 specifier|final
 name|StringWriter
 name|writer
