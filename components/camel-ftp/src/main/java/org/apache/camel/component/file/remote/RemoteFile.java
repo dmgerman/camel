@@ -121,6 +121,29 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|populateHeaders (GenericFileMessage<T> message, boolean isProbeContentTypeFromEndpoint)
+specifier|public
+name|void
+name|populateHeaders
+parameter_list|(
+name|GenericFileMessage
+argument_list|<
+name|T
+argument_list|>
+name|message
+parameter_list|,
+name|boolean
+name|isProbeContentTypeFromEndpoint
+parameter_list|)
+block|{
+name|populateHeaders
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getHostname ()
 specifier|public
 name|String
