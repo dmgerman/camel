@@ -411,10 +411,21 @@ block|}
 comment|/**      * Provides an {@link org.apache.camel.AsyncProcessor} interface to the configured      * processor on the consumer. If the processor does not implement the interface,      * it will be adapted so that it does.      */
 DECL|method|getAsyncProcessor ()
 specifier|public
-specifier|synchronized
 name|AsyncProcessor
 name|getAsyncProcessor
 parameter_list|()
+block|{
+if|if
+condition|(
+name|asyncProcessor
+operator|==
+literal|null
+condition|)
+block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
 block|{
 if|if
 condition|(
@@ -432,6 +443,8 @@ argument_list|(
 name|processor
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 return|return
 name|asyncProcessor

@@ -24,17 +24,21 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|concurrent
+operator|.
+name|ThreadLocalRandom
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Random
+name|camel
+operator|.
+name|AsyncProcessor
 import|;
 end_import
 
@@ -47,18 +51,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
 import|;
 end_import
 
@@ -74,33 +66,19 @@ name|RandomLoadBalancer
 extends|extends
 name|QueueLoadBalancer
 block|{
-DECL|field|RANDOM
-specifier|private
-specifier|static
-specifier|final
-name|Random
-name|RANDOM
-init|=
-operator|new
-name|Random
-argument_list|()
-decl_stmt|;
 DECL|field|index
 specifier|private
 specifier|transient
 name|int
 name|index
 decl_stmt|;
-DECL|method|chooseProcessor (List<Processor> processors, Exchange exchange)
+DECL|method|chooseProcessor (AsyncProcessor[] processors, Exchange exchange)
 specifier|protected
-specifier|synchronized
-name|Processor
+name|AsyncProcessor
 name|chooseProcessor
 parameter_list|(
-name|List
-argument_list|<
-name|Processor
-argument_list|>
+name|AsyncProcessor
+index|[]
 name|processors
 parameter_list|,
 name|Exchange
@@ -112,8 +90,7 @@ name|size
 init|=
 name|processors
 operator|.
-name|size
-argument_list|()
+name|length
 decl_stmt|;
 if|if
 condition|(
@@ -137,17 +114,18 @@ block|{
 comment|// there is only 1
 return|return
 name|processors
-operator|.
-name|get
-argument_list|(
+index|[
 literal|0
-argument_list|)
+index|]
 return|;
 block|}
 comment|// pick a random
 name|index
 operator|=
-name|RANDOM
+name|ThreadLocalRandom
+operator|.
+name|current
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -156,11 +134,9 @@ argument_list|)
 expr_stmt|;
 return|return
 name|processors
-operator|.
-name|get
-argument_list|(
+index|[
 name|index
-argument_list|)
+index|]
 return|;
 block|}
 DECL|method|getLastChosenProcessorIndex ()
@@ -171,16 +147,6 @@ parameter_list|()
 block|{
 return|return
 name|index
-return|;
-block|}
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"RandomLoadBalancer"
 return|;
 block|}
 block|}

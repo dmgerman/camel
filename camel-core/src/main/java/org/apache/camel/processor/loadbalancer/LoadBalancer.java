@@ -65,20 +65,20 @@ extends|extends
 name|AsyncProcessor
 block|{
 comment|/**      * Adds a new processor to the load balancer      *      * @param processor the processor to be added to the load balancer      */
-DECL|method|addProcessor (Processor processor)
+DECL|method|addProcessor (AsyncProcessor processor)
 name|void
 name|addProcessor
 parameter_list|(
-name|Processor
+name|AsyncProcessor
 name|processor
 parameter_list|)
 function_decl|;
 comment|/**      * Removes the given processor from the load balancer      *      * @param processor the processor to be removed from the load balancer      */
-DECL|method|removeProcessor (Processor processor)
+DECL|method|removeProcessor (AsyncProcessor processor)
 name|void
 name|removeProcessor
 parameter_list|(
-name|Processor
+name|AsyncProcessor
 name|processor
 parameter_list|)
 function_decl|;
@@ -86,7 +86,7 @@ comment|/**      * Returns the current processors available to this load balance
 DECL|method|getProcessors ()
 name|List
 argument_list|<
-name|Processor
+name|AsyncProcessor
 argument_list|>
 name|getProcessors
 parameter_list|()

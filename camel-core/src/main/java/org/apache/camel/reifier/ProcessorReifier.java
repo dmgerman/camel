@@ -2472,7 +2472,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Processor
+name|Channel
 name|processor
 init|=
 name|makeProcessor
@@ -2499,49 +2499,18 @@ name|isRouteAdded
 argument_list|()
 condition|)
 block|{
+comment|// are we routing to an endpoint interceptor, if so we should not add it as an event driven
+comment|// processor as we use the producer to trigger the interceptor
 name|boolean
 name|endpointInterceptor
 init|=
-literal|false
-decl_stmt|;
-comment|// are we routing to an endpoint interceptor, if so we should not add it as an event driven
-comment|// processor as we use the producer to trigger the interceptor
-if|if
-condition|(
 name|processor
-operator|instanceof
-name|Channel
-condition|)
-block|{
-name|Channel
-name|channel
-init|=
-operator|(
-name|Channel
-operator|)
-name|processor
-decl_stmt|;
-name|Processor
-name|next
-init|=
-name|channel
 operator|.
 name|getNextProcessor
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|next
 operator|instanceof
 name|InterceptEndpointProcessor
-condition|)
-block|{
-name|endpointInterceptor
-operator|=
-literal|true
-expr_stmt|;
-block|}
-block|}
+decl_stmt|;
 comment|// only add regular processors as event driven
 if|if
 condition|(
@@ -2582,7 +2551,7 @@ block|}
 comment|/**      * Wraps the child processor in whatever necessary interceptors and error handlers      */
 DECL|method|wrapProcessor (RouteContext routeContext, Processor processor)
 specifier|public
-name|Processor
+name|Channel
 name|wrapProcessor
 parameter_list|(
 name|RouteContext
@@ -2603,6 +2572,9 @@ name|Channel
 condition|)
 block|{
 return|return
+operator|(
+name|Channel
+operator|)
 name|processor
 return|;
 block|}
@@ -2619,7 +2591,7 @@ return|;
 block|}
 DECL|method|wrapChannel (RouteContext routeContext, Processor processor, ProcessorDefinition<?> child)
 specifier|protected
-name|Processor
+name|Channel
 name|wrapChannel
 parameter_list|(
 name|RouteContext
@@ -2655,7 +2627,7 @@ return|;
 block|}
 DECL|method|wrapChannel (RouteContext routeContext, Processor processor, ProcessorDefinition<?> child, Boolean inheritErrorHandler)
 specifier|protected
-name|Processor
+name|Channel
 name|wrapChannel
 parameter_list|(
 name|RouteContext
@@ -3684,7 +3656,7 @@ block|}
 comment|/**      * Creates the processor and wraps it in any necessary interceptors and error handlers      */
 DECL|method|makeProcessor (RouteContext routeContext)
 specifier|protected
-name|Processor
+name|Channel
 name|makeProcessor
 parameter_list|(
 name|RouteContext
@@ -3723,7 +3695,7 @@ block|}
 block|}
 DECL|method|makeProcessorImpl (RouteContext routeContext)
 specifier|private
-name|Processor
+name|Channel
 name|makeProcessorImpl
 parameter_list|(
 name|RouteContext

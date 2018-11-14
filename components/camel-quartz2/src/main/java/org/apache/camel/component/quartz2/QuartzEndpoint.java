@@ -2944,7 +2944,7 @@ name|addProcessor
 argument_list|(
 name|quartzConsumer
 operator|.
-name|getProcessor
+name|getAsyncProcessor
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2986,7 +2986,7 @@ name|removeProcessor
 argument_list|(
 name|quartzConsumer
 operator|.
-name|getProcessor
+name|getAsyncProcessor
 argument_list|()
 argument_list|)
 expr_stmt|;
