@@ -92,9 +92,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|component
 operator|.
-name|DefaultProducer
+name|ipfs
+operator|.
+name|IPFSConfiguration
+operator|.
+name|IPFSCommand
 import|;
 end_import
 
@@ -106,13 +110,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|impl
 operator|.
-name|ipfs
-operator|.
-name|IPFSConfiguration
-operator|.
-name|IPFSCommand
+name|DefaultProducer
 import|;
 end_import
 
@@ -433,18 +433,21 @@ name|body
 operator|instanceof
 name|Path
 condition|)
+block|{
 return|return
 operator|(
 name|Path
 operator|)
 name|body
 return|;
+block|}
 if|if
 condition|(
 name|body
 operator|instanceof
 name|String
 condition|)
+block|{
 return|return
 name|Paths
 operator|.
@@ -456,12 +459,14 @@ operator|)
 name|body
 argument_list|)
 return|;
+block|}
 if|if
 condition|(
 name|body
 operator|instanceof
 name|File
 condition|)
+block|{
 return|return
 operator|(
 operator|(
@@ -473,6 +478,7 @@ operator|.
 name|toPath
 argument_list|()
 return|;
+block|}
 throw|throw
 operator|new
 name|IllegalArgumentException

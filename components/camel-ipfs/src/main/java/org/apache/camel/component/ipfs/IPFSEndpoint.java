@@ -86,6 +86,18 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|nessus
+operator|.
+name|ipfs
+operator|.
+name|IPFSClient
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -180,20 +192,8 @@ name|UriParam
 import|;
 end_import
 
-begin_import
-import|import
-name|io
-operator|.
-name|nessus
-operator|.
-name|ipfs
-operator|.
-name|IPFSClient
-import|;
-end_import
-
 begin_comment
-comment|/**  * The camel-ipfs component provides access to the Interplanetary File System (IPFS).  */
+comment|/**  * The camel-ipfs component provides access to the Interplanetary File System  * (IPFS).  */
 end_comment
 
 begin_class

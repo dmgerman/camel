@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * #%L  * Wildfly Camel :: Testsuite  * %%  * Copyright (C) 2013 - 2014 RedHat  * %%  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  * #L%  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -104,6 +104,18 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|nessus
+operator|.
+name|utils
+operator|.
+name|StreamUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -181,18 +193,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|nessus
-operator|.
-name|utils
-operator|.
-name|StreamUtils
 import|;
 end_import
 
@@ -394,7 +394,7 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|HASH
+name|hash
 init|=
 literal|"QmYgjSRbXFPdPYKqQSnUjmXLYLudVahEJQotMaAJKt6Lbd"
 decl_stmt|;
@@ -486,7 +486,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|HASH
+name|hash
 argument_list|,
 name|res
 argument_list|)
@@ -517,7 +517,7 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|HASH
+name|hash
 init|=
 literal|"Qme6hd6tYXTFb7bb7L3JZ5U6ygktpAHKxbaeffYyQN85mW"
 decl_stmt|;
@@ -624,7 +624,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|HASH
+name|hash
 argument_list|,
 name|res
 operator|.
@@ -655,7 +655,7 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|HASH
+name|hash
 init|=
 literal|"QmUD7uG5prAMHbcCfp4x1G1mMSpywcSMHTGpq62sbpDAg6"
 decl_stmt|;
@@ -726,7 +726,7 @@ name|requestBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-name|HASH
+name|hash
 argument_list|,
 name|InputStream
 operator|.
@@ -759,7 +759,7 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|HASH
+name|hash
 init|=
 literal|"QmUD7uG5prAMHbcCfp4x1G1mMSpywcSMHTGpq62sbpDAg6"
 decl_stmt|;
@@ -830,7 +830,7 @@ name|requestBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-name|HASH
+name|hash
 argument_list|,
 name|Path
 operator|.
@@ -847,7 +847,7 @@ name|get
 argument_list|(
 literal|"target"
 argument_list|,
-name|HASH
+name|hash
 argument_list|)
 argument_list|,
 name|res
@@ -886,7 +886,7 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|HASH
+name|hash
 init|=
 literal|"Qme6hd6tYXTFb7bb7L3JZ5U6ygktpAHKxbaeffYyQN85mW"
 decl_stmt|;
@@ -957,7 +957,7 @@ name|requestBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-name|HASH
+name|hash
 argument_list|,
 name|Path
 operator|.
@@ -974,7 +974,7 @@ name|get
 argument_list|(
 literal|"target"
 argument_list|,
-name|HASH
+name|hash
 argument_list|)
 argument_list|,
 name|res
