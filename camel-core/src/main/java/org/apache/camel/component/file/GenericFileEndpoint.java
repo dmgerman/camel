@@ -4904,6 +4904,8 @@ operator|.
 name|stripExt
 argument_list|(
 name|onlyName
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4920,6 +4922,8 @@ operator|.
 name|stripExt
 argument_list|(
 name|onlyName
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
