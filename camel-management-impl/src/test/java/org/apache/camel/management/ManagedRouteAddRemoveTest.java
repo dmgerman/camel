@@ -128,12 +128,14 @@ name|ManagedRouteAddRemoveTest
 extends|extends
 name|ManagementTestSupport
 block|{
-DECL|field|services
+DECL|field|SERVICES
 specifier|private
+specifier|static
+specifier|final
 name|int
-name|services
+name|SERVICES
 init|=
-literal|10
+literal|11
 decl_stmt|;
 annotation|@
 name|Override
@@ -234,7 +236,7 @@ init|=
 name|getMBeanServer
 argument_list|()
 decl_stmt|;
-comment|// number of services
+comment|// number of SERVICES
 name|ObjectName
 name|on
 init|=
@@ -262,7 +264,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -380,7 +382,7 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there should still be the same number of services
+comment|// there should still be the same number of SERVICES
 name|names
 operator|=
 name|mbeanServer
@@ -394,7 +396,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -457,7 +459,7 @@ argument_list|(
 name|removed
 argument_list|)
 expr_stmt|;
-comment|// there should still be the same number of services
+comment|// there should still be the same number of SERVICES
 name|names
 operator|=
 name|mbeanServer
@@ -471,7 +473,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -564,7 +566,7 @@ argument_list|(
 literal|"org.apache.camel:context=camel-1,type=services,*"
 argument_list|)
 decl_stmt|;
-comment|// number of services
+comment|// number of SERVICES
 name|Set
 argument_list|<
 name|ObjectName
@@ -582,7 +584,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -707,7 +709,7 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there should still be the same number of services
+comment|// there should still be the same number of SERVICES
 name|names
 operator|=
 name|mbeanServer
@@ -721,7 +723,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -784,7 +786,7 @@ argument_list|(
 name|removed
 argument_list|)
 expr_stmt|;
-comment|// there should still be the same number of services
+comment|// there should still be the same number of SERVICES
 name|names
 operator|=
 name|mbeanServer
@@ -798,7 +800,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -891,7 +893,7 @@ argument_list|(
 literal|"org.apache.camel:context=camel-1,type=services,*"
 argument_list|)
 decl_stmt|;
-comment|// number of services
+comment|// number of SERVICES
 name|Set
 argument_list|<
 name|ObjectName
@@ -909,7 +911,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -1034,7 +1036,7 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there should still be the same number of services
+comment|// there should still be the same number of SERVICES
 name|names
 operator|=
 name|mbeanServer
@@ -1048,7 +1050,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -1111,7 +1113,7 @@ argument_list|(
 name|removed
 argument_list|)
 expr_stmt|;
-comment|// there should still be the same number of services
+comment|// there should still be the same number of SERVICES
 name|names
 operator|=
 name|mbeanServer
@@ -1125,7 +1127,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -1218,7 +1220,7 @@ argument_list|(
 literal|"org.apache.camel:context=camel-1,type=services,*"
 argument_list|)
 decl_stmt|;
-comment|// number of services
+comment|// number of SERVICES
 name|Set
 argument_list|<
 name|ObjectName
@@ -1236,7 +1238,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -1392,7 +1394,7 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there should still be the same number of services
+comment|// there should still be the same number of SERVICES
 name|names
 operator|=
 name|mbeanServer
@@ -1406,7 +1408,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -1454,7 +1456,7 @@ argument_list|(
 name|removed
 argument_list|)
 expr_stmt|;
-comment|// there should still be the same number of services
+comment|// there should still be the same number of SERVICES
 name|names
 operator|=
 name|mbeanServer
@@ -1468,7 +1470,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -1539,7 +1541,7 @@ argument_list|(
 literal|"org.apache.camel:context=camel-1,type=services,*"
 argument_list|)
 decl_stmt|;
-comment|// number of services
+comment|// number of SERVICES
 name|Set
 argument_list|<
 name|ObjectName
@@ -1557,7 +1559,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -1710,7 +1712,7 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there should still be the same number of services
+comment|// there should still be the same number of SERVICES
 name|names
 operator|=
 name|mbeanServer
@@ -1724,7 +1726,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -1772,7 +1774,7 @@ argument_list|(
 name|removed
 argument_list|)
 expr_stmt|;
-comment|// there should still be the same number of services
+comment|// there should still be the same number of SERVICES
 name|names
 operator|=
 name|mbeanServer
@@ -1786,7 +1788,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -1857,7 +1859,7 @@ argument_list|(
 literal|"org.apache.camel:context=camel-1,type=services,*"
 argument_list|)
 decl_stmt|;
-comment|// number of services
+comment|// number of SERVICES
 name|Set
 argument_list|<
 name|ObjectName
@@ -1875,7 +1877,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -2013,7 +2015,7 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there should still be the same number of services
+comment|// there should still be the same number of SERVICES
 name|names
 operator|=
 name|mbeanServer
@@ -2027,7 +2029,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -2075,7 +2077,7 @@ argument_list|(
 name|removed
 argument_list|)
 expr_stmt|;
-comment|// there should still be the same number of services
+comment|// there should still be the same number of SERVICES
 name|names
 operator|=
 name|mbeanServer
@@ -2089,7 +2091,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -2160,7 +2162,7 @@ argument_list|(
 literal|"org.apache.camel:context=camel-1,type=services,*"
 argument_list|)
 decl_stmt|;
-comment|// number of services
+comment|// number of SERVICES
 name|Set
 argument_list|<
 name|ObjectName
@@ -2178,7 +2180,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -2313,7 +2315,7 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there should still be the same number of services
+comment|// there should still be the same number of SERVICES
 name|names
 operator|=
 name|mbeanServer
@@ -2327,7 +2329,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.
@@ -2375,7 +2377,7 @@ argument_list|(
 name|removed
 argument_list|)
 expr_stmt|;
-comment|// there should still be the same number of services
+comment|// there should still be the same number of SERVICES
 name|names
 operator|=
 name|mbeanServer
@@ -2389,7 +2391,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|services
+name|SERVICES
 argument_list|,
 name|names
 operator|.

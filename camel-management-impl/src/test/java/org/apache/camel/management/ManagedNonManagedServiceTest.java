@@ -118,6 +118,15 @@ name|ManagedNonManagedServiceTest
 extends|extends
 name|ManagementTestSupport
 block|{
+DECL|field|SERVICES
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|SERVICES
+init|=
+literal|11
+decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testService ()
@@ -211,7 +220,9 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|11
+name|SERVICES
+operator|+
+literal|1
 argument_list|,
 name|set
 operator|.
@@ -313,7 +324,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|10
+name|SERVICES
 argument_list|,
 name|set
 operator|.
