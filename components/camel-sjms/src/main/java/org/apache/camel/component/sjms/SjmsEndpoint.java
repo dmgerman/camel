@@ -2529,7 +2529,7 @@ return|return
 name|namedReplyTo
 return|;
 block|}
-comment|/**      * Sets the reply to destination name used for InOut producer endpoints.      */
+comment|/**      * Sets the reply to destination name used for InOut producer endpoints.      * The type of the reply to destination can be determined by the starting       * prefix (topic: or queue:) in its name.       */
 DECL|method|setNamedReplyTo (String namedReplyTo)
 specifier|public
 name|void
