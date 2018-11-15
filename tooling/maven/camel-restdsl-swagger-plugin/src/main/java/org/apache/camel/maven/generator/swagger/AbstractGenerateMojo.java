@@ -626,6 +626,12 @@ name|MavenSession
 name|mavenSession
 decl_stmt|;
 annotation|@
+name|Parameter
+DECL|field|apiContextPath
+name|String
+name|apiContextPath
+decl_stmt|;
+annotation|@
 name|Component
 DECL|field|pluginManager
 specifier|private

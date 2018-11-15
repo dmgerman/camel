@@ -613,6 +613,24 @@ literal|"servlet"
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|apiContextPath
+argument_list|)
+condition|)
+block|{
+name|generator
+operator|.
+name|withApiContextPath
+argument_list|(
+name|apiContextPath
+argument_list|)
+expr_stmt|;
+block|}
 comment|// if its a spring boot project and we use servlet then we should generate additional source code
 if|if
 condition|(

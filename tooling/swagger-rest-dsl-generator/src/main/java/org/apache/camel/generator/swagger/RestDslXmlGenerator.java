@@ -72,6 +72,20 @@ name|RestsDefinition
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_class
 DECL|class|RestDslXmlGenerator
 specifier|public
@@ -250,7 +264,7 @@ literal|"<restConfiguration component=\""
 operator|+
 name|restComponent
 operator|+
-literal|"\"/>"
+literal|"\""
 decl_stmt|;
 if|if
 condition|(
@@ -261,17 +275,51 @@ condition|)
 block|{
 name|extra
 operator|=
-literal|"<restConfiguration component=\""
-operator|+
-name|restComponent
-operator|+
-literal|"\" contextPath=\""
+name|extra
+operator|.
+name|concat
+argument_list|(
+literal|" contextPath=\""
 operator|+
 name|restContextPath
 operator|+
-literal|"\"/>"
+literal|"\""
+argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|apiContextPath
+argument_list|)
+condition|)
+block|{
+name|extra
+operator|=
+name|extra
+operator|.
+name|concat
+argument_list|(
+literal|" apiContextPath=\""
+operator|+
+name|apiContextPath
+operator|+
+literal|"\""
+argument_list|)
+expr_stmt|;
+block|}
+name|extra
+operator|=
+name|extra
+operator|.
+name|concat
+argument_list|(
+literal|"/>"
+argument_list|)
+expr_stmt|;
 name|xml
 operator|=
 name|xml
