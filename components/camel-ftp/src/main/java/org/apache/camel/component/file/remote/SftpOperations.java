@@ -597,7 +597,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SFTP remote file operations  *<p/>  * The JSCH session and channel are not thread-safe so we need to synchronize access to using this operation.  */
+comment|/**  * SFTP remote file operations  *<p/>  * The JSCH session and channel are not thread-safe so we need to synchronize  * access to using this operation.  */
 end_comment
 
 begin_class
@@ -681,7 +681,7 @@ operator|=
 name|proxy
 expr_stmt|;
 block|}
-comment|/**      * Extended user info which supports interactive keyboard mode, by entering the password.      */
+comment|/**      * Extended user info which supports interactive keyboard mode, by entering      * the password.      */
 DECL|interface|ExtendedUserInfo
 specifier|public
 interface|interface
@@ -2172,7 +2172,8 @@ argument_list|,
 name|s
 argument_list|)
 expr_stmt|;
-comment|// Return 'false' indicating modification of the hosts file is disabled.
+comment|// Return 'false' indicating modification of the hosts file is
+comment|// disabled.
 return|return
 literal|false
 return|;
@@ -2887,7 +2888,7 @@ block|{
 name|reconnectIfNecessary
 argument_list|()
 expr_stmt|;
-comment|//make use of the '/' separator because JSch expects this
+comment|// make use of the '/' separator because JSch expects this
 comment|// as the file separator even on Windows
 name|to
 operator|=
@@ -3019,7 +3020,8 @@ name|SftpException
 name|e
 parameter_list|)
 block|{
-comment|// ignore, we could not change directory so try to create it instead
+comment|// ignore, we could not change directory so try to create it
+comment|// instead
 block|}
 if|if
 condition|(
@@ -3056,7 +3058,8 @@ name|SftpException
 name|e
 parameter_list|)
 block|{
-comment|// we are here if the server side doesn't create intermediate folders
+comment|// we are here if the server side doesn't create
+comment|// intermediate folders
 comment|// so create the folder one by one
 name|success
 operator|=
@@ -3339,8 +3342,10 @@ condition|)
 block|{
 return|return;
 block|}
-comment|// must compact path so SFTP server can traverse correctly, make use of the '/'
-comment|// separator because JSch expects this as the file separator even on Windows
+comment|// must compact path so SFTP server can traverse correctly, make use of
+comment|// the '/'
+comment|// separator because JSch expects this as the file separator even on
+comment|// Windows
 name|String
 name|before
 init|=
@@ -3415,7 +3420,8 @@ name|path
 argument_list|)
 condition|)
 block|{
-comment|// extract the path segment relative to the target path and make sure it keeps the preceding '/' for the regex op
+comment|// extract the path segment relative to the target path and make
+comment|// sure it keeps the preceding '/' for the regex op
 name|String
 name|p
 init|=
@@ -3476,7 +3482,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|// if it starts with the root path then a little special handling for that
+comment|// if it starts with the root path then a little special handling for
+comment|// that
 if|if
 condition|(
 name|FileUtil
@@ -3908,7 +3915,8 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// local work directory is configured so we should store file content as files in this local directory
+comment|// local work directory is configured so we should store file
+comment|// content as files in this local directory
 return|return
 name|retrieveFileToFileInLocalWorkDirectory
 argument_list|(
@@ -4087,7 +4095,8 @@ name|getCurrentDirectory
 argument_list|()
 expr_stmt|;
 comment|// change directory to path where the file is to be retrieved
-comment|// (must do this as some FTP servers cannot retrieve using absolute path)
+comment|// (must do this as some FTP servers cannot retrieve using
+comment|// absolute path)
 name|String
 name|path
 init|=
@@ -4111,7 +4120,8 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-comment|// remote name is now only the file name as we just changed directory
+comment|// remote name is now only the file name as we just changed
+comment|// directory
 name|remoteName
 operator|=
 name|FileUtil
@@ -4443,7 +4453,8 @@ name|temp
 argument_list|)
 throw|;
 block|}
-comment|// store content as a file in the local work directory in the temp handle
+comment|// store content as a file in the local work directory in the temp
+comment|// handle
 name|os
 operator|=
 operator|new
@@ -4525,7 +4536,8 @@ name|getCurrentDirectory
 argument_list|()
 expr_stmt|;
 comment|// change directory to path where the file is to be retrieved
-comment|// (must do this as some FTP servers cannot retrieve using absolute path)
+comment|// (must do this as some FTP servers cannot retrieve using
+comment|// absolute path)
 name|String
 name|path
 init|=
@@ -4549,7 +4561,8 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-comment|// remote name is now only the file name as we just changed directory
+comment|// remote name is now only the file name as we just changed
+comment|// directory
 name|remoteName
 operator|=
 name|FileUtil
@@ -4587,7 +4600,8 @@ argument_list|,
 name|temp
 argument_list|)
 expr_stmt|;
-comment|// failed to retrieve the file so we need to close streams and delete in progress file
+comment|// failed to retrieve the file so we need to close streams and
+comment|// delete in progress file
 comment|// must close stream before deleting file
 name|IOHelper
 operator|.
@@ -4681,7 +4695,8 @@ argument_list|(
 literal|"Retrieve file to local work file result: true"
 argument_list|)
 expr_stmt|;
-comment|// operation went okay so rename temp to local after we have retrieved the data
+comment|// operation went okay so rename temp to local after we have retrieved
+comment|// the data
 name|LOG
 operator|.
 name|trace
@@ -4833,7 +4848,8 @@ name|isStepwise
 argument_list|()
 condition|)
 block|{
-comment|// must remember current dir so we stay in that directory after the write
+comment|// must remember current dir so we stay in that directory after
+comment|// the write
 name|currentDir
 operator|=
 name|getCurrentDirectory
@@ -4845,7 +4861,8 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
-comment|// the target name should be without path, as we have changed directory
+comment|// the target name should be without path, as we have changed
+comment|// directory
 name|targetName
 operator|=
 name|FileUtil
@@ -5605,7 +5622,8 @@ name|SftpException
 name|e
 parameter_list|)
 block|{
-comment|// or an exception can be thrown with id 2 which means file does not exists
+comment|// or an exception can be thrown with id 2 which means file does not
+comment|// exists
 if|if
 condition|(
 name|ChannelSftp
@@ -5699,7 +5717,8 @@ name|SftpException
 name|e
 parameter_list|)
 block|{
-comment|// or an exception can be thrown with id 2 which means file does not exists
+comment|// or an exception can be thrown with id 2 which means file does not
+comment|// exists
 if|if
 condition|(
 name|ChannelSftp
@@ -5797,7 +5816,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/*      * adapted from com.jcraft.jsch.Util.createSocket(String, int, int)      *      * added possibility to specify the address of the local network interface, against the      * connection should bind      */
+comment|/*      * adapted from com.jcraft.jsch.Util.createSocket(String, int, int) added      * possibility to specify the address of the local network interface,      * against the connection should bind      */
 DECL|method|createSocketUtil (final String host, final int port, final String bindAddress, final int timeout)
 specifier|static
 name|Socket
@@ -6031,7 +6050,7 @@ parameter_list|(
 name|Exception
 name|eee
 parameter_list|)
-block|{ }
+block|{                         }
 block|}
 name|sockp
 index|[
