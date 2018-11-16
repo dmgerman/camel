@@ -362,24 +362,11 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"We should get the exception cause here"
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"We should get the socket time out exception here"
 argument_list|,
 name|e
-operator|.
-name|getCause
-argument_list|()
 operator|instanceof
 name|SocketTimeoutException
 argument_list|)
