@@ -230,6 +230,26 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@link CamelInternalProcessorAdvice} that binds the REST DSL incoming  * and outgoing messages from sources of json or xml to Java Objects.  *<p/>  * The binding uses {@link org.apache.camel.spi.DataFormat} for the actual work to transform  * from xml/json to Java Objects and reverse again.  *<p/>  * The rest producer side is implemented in {@link org.apache.camel.component.rest.RestProducerBindingProcessor}  *  * @see CamelInternalProcessor  */
 end_comment
@@ -250,6 +270,22 @@ name|Object
 argument_list|>
 argument_list|>
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|RestBindingAdvice
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|STATE_KEY_DO_MARSHAL
 specifier|private
 specifier|static
@@ -1225,6 +1261,15 @@ name|contentType
 argument_list|)
 condition|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Consuming content type does not match contentType header {}. Stopping routing."
+argument_list|,
+name|contentType
+argument_list|)
+expr_stmt|;
 comment|// the content-type is not something we can process so its a HTTP_ERROR 415
 name|exchange
 operator|.
@@ -1266,6 +1311,15 @@ name|accept
 argument_list|)
 condition|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Produced content type does not match accept header {}. Stopping routing."
+argument_list|,
+name|contentType
+argument_list|)
+expr_stmt|;
 comment|// the response type is not accepted by the client so its a HTTP_ERROR 406
 name|exchange
 operator|.
@@ -3036,6 +3090,22 @@ operator|||
 name|target
 operator|==
 literal|null
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+comment|// Any MIME type
+comment|// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept#Directives
+if|if
+condition|(
+literal|"*/*"
+operator|.
+name|equals
+argument_list|(
+name|target
+argument_list|)
 condition|)
 block|{
 return|return
