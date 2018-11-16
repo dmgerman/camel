@@ -490,6 +490,16 @@ name|canSerialize
 argument_list|(
 name|type
 argument_list|)
+operator|&&
+operator|!
+name|Enum
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|type
+argument_list|)
 condition|)
 block|{
 comment|// if the source value type is readable by the mapper then use its read operation
