@@ -2258,6 +2258,16 @@ expr_stmt|;
 comment|// set the SO_TIMEOUT for the time after the connect phase
 if|if
 condition|(
+name|sftpConfig
+operator|.
+name|getServerAliveInterval
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+if|if
+condition|(
 name|configuration
 operator|.
 name|getSoTimeout
@@ -2274,6 +2284,17 @@ name|configuration
 operator|.
 name|getSoTimeout
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"The Server Alive Internal is already set, the socket timeout won't be considered to avoid overidding the provided Server alive interval value"
 argument_list|)
 expr_stmt|;
 block|}
