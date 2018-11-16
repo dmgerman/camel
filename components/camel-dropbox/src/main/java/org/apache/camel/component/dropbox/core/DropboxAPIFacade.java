@@ -654,19 +654,19 @@ name|localPath
 else|:
 name|remotePath
 decl_stmt|;
-name|UploadUploader
-name|entry
+name|boolean
+name|isPresent
+init|=
+literal|true
 decl_stmt|;
 try|try
 block|{
-name|entry
-operator|=
 name|client
 operator|.
 name|files
 argument_list|()
 operator|.
-name|upload
+name|getMetadata
 argument_list|(
 name|dropboxPath
 argument_list|)
@@ -678,17 +678,10 @@ name|DbxException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|DropboxException
-argument_list|(
-name|dropboxPath
-operator|+
-literal|" does not exist or cannot obtain metadata"
-argument_list|,
-name|e
-argument_list|)
-throw|;
+name|isPresent
+operator|=
+literal|false
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -706,7 +699,7 @@ name|mode
 argument_list|,
 name|dropboxPath
 argument_list|,
-name|entry
+name|isPresent
 argument_list|)
 return|;
 block|}
@@ -721,12 +714,12 @@ name|mode
 argument_list|,
 name|dropboxPath
 argument_list|,
-name|entry
+name|isPresent
 argument_list|)
 return|;
 block|}
 block|}
-DECL|method|putFile (String localPath, DropboxUploadMode mode, String dropboxPath, UploadUploader entry)
+DECL|method|putFile (String localPath, DropboxUploadMode mode, String dropboxPath, boolean isPresent)
 specifier|private
 name|DropboxFileUploadResult
 name|putFile
@@ -740,8 +733,8 @@ parameter_list|,
 name|String
 name|dropboxPath
 parameter_list|,
-name|UploadUploader
-name|entry
+name|boolean
+name|isPresent
 parameter_list|)
 throws|throws
 name|DropboxException
@@ -767,9 +760,7 @@ block|{
 comment|// check if dropbox file exists
 if|if
 condition|(
-name|entry
-operator|!=
-literal|null
+name|isPresent
 operator|&&
 operator|!
 name|DropboxUploadMode
@@ -788,7 +779,7 @@ name|DropboxException
 argument_list|(
 name|dropboxPath
 operator|+
-literal|" exists on dropbox and is not a file!"
+literal|" exists on dropbox. Use force upload mode to override"
 argument_list|)
 throw|;
 block|}
@@ -796,9 +787,8 @@ comment|// in case the entry not exists on dropbox check if the filename
 comment|// should be appended
 if|if
 condition|(
-name|entry
-operator|==
-literal|null
+operator|!
+name|isPresent
 condition|)
 block|{
 if|if
@@ -931,9 +921,7 @@ expr_stmt|;
 comment|// check if dropbox folder exists
 if|if
 condition|(
-name|entry
-operator|!=
-literal|null
+name|isPresent
 operator|&&
 operator|!
 name|DropboxUploadMode
@@ -1191,7 +1179,7 @@ literal|null
 return|;
 block|}
 block|}
-DECL|method|putBody (Exchange exchange, DropboxUploadMode mode, String dropboxPath, UploadUploader entry)
+DECL|method|putBody (Exchange exchange, DropboxUploadMode mode, String dropboxPath, boolean isPresent)
 specifier|private
 name|DropboxFileUploadResult
 name|putBody
@@ -1205,8 +1193,8 @@ parameter_list|,
 name|String
 name|dropboxPath
 parameter_list|,
-name|UploadUploader
-name|entry
+name|boolean
+name|isPresent
 parameter_list|)
 throws|throws
 name|DropboxException
@@ -1278,9 +1266,8 @@ comment|// in case the entry not exists on dropbox check if the filename should
 comment|// be appended
 if|if
 condition|(
-name|entry
-operator|==
-literal|null
+operator|!
+name|isPresent
 condition|)
 block|{
 if|if
