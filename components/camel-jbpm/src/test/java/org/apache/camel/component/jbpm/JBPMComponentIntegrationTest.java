@@ -135,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To run this example you need jBPM to run locally, easiest is to use single zip   * distribution - download from jbpm.org  *   * Next, start it and import Evaluation sample project, build and deploy.  * Once done this test can be ran out of the box.  */
+comment|/**  * To run this example you need jBPM to run locally, easiest is to use single  * zip distribution - download from jbpm.org Next, start it and import  * Evaluation sample project, build and deploy. Once done this test can be ran  * out of the box.  */
 end_comment
 
 begin_class

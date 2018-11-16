@@ -259,12 +259,12 @@ name|EXTENSION_NAME
 init|=
 literal|"Camel"
 decl_stmt|;
-DECL|field|logger
+DECL|field|LOGGER
 specifier|private
 specifier|static
 specifier|final
 name|Logger
-name|logger
+name|LOGGER
 init|=
 name|LoggerFactory
 operator|.
@@ -275,12 +275,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|disabled
+DECL|field|DISABLED
 specifier|private
 specifier|static
 specifier|final
 name|Boolean
-name|disabled
+name|DISABLED
 init|=
 name|Boolean
 operator|.
@@ -377,9 +377,8 @@ name|isActive
 parameter_list|()
 block|{
 return|return
-name|disabled
-operator|==
-literal|false
+operator|!
+name|DISABLED
 return|;
 block|}
 annotation|@
@@ -477,7 +476,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|logger
+name|LOGGER
 operator|.
 name|error
 argument_list|(
@@ -556,7 +555,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|logger
+name|LOGGER
 operator|.
 name|error
 argument_list|(
@@ -705,7 +704,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|logger
+name|LOGGER
 operator|.
 name|error
 argument_list|(
@@ -853,7 +852,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|logger
+name|LOGGER
 operator|.
 name|error
 argument_list|(
@@ -1008,7 +1007,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|logger
+name|LOGGER
 operator|.
 name|error
 argument_list|(

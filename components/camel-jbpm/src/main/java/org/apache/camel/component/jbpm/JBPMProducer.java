@@ -638,7 +638,7 @@ DECL|enum|Operation
 enum|enum
 name|Operation
 block|{
-comment|//PROCESS OPERATIONS
+comment|// PROCESS OPERATIONS
 DECL|enumConstant|startProcess
 name|startProcess
 block|{
@@ -704,9 +704,9 @@ name|processInstance
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|abortProcessInstance
 block|}
 block|,
+DECL|enumConstant|abortProcessInstance
 name|abortProcessInstance
 block|{
 annotation|@
@@ -757,9 +757,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|signalEvent
 block|}
 block|,
+DECL|enumConstant|signalEvent
 name|signalEvent
 block|{
 annotation|@
@@ -861,9 +861,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|enumConstant|getProcessInstance
 block|}
 block|,
+DECL|enumConstant|getProcessInstance
 name|getProcessInstance
 block|{
 annotation|@
@@ -924,9 +924,9 @@ name|processInstance
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|getProcessInstances
 block|}
 block|,
+DECL|enumConstant|getProcessInstances
 name|getProcessInstances
 block|{
 annotation|@
@@ -991,7 +991,7 @@ expr_stmt|;
 block|}
 block|}
 block|,
-comment|//RULE OPERATIONS
+comment|// RULE OPERATIONS
 DECL|enumConstant|fireAllRules
 name|fireAllRules
 block|{
@@ -1123,9 +1123,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|getGlobal
 block|}
 block|,
+DECL|enumConstant|getGlobal
 name|getGlobal
 block|{
 annotation|@
@@ -1242,9 +1242,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|setGlobal
 block|}
 block|,
+DECL|enumConstant|setGlobal
 name|setGlobal
 block|{
 annotation|@
@@ -1342,7 +1342,7 @@ expr_stmt|;
 block|}
 block|}
 block|,
-comment|//WORK ITEM OPERATIONS
+comment|// WORK ITEM OPERATIONS
 DECL|enumConstant|abortWorkItem
 name|abortWorkItem
 block|{
@@ -1404,9 +1404,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|completeWorkItem
 block|}
 block|,
+DECL|enumConstant|completeWorkItem
 name|completeWorkItem
 block|{
 annotation|@
@@ -1476,7 +1476,7 @@ expr_stmt|;
 block|}
 block|}
 block|,
-comment|//TASK OPERATIONS
+comment|// TASK OPERATIONS
 DECL|enumConstant|activateTask
 name|activateTask
 block|{
@@ -1535,9 +1535,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|claimTask
 block|}
 block|,
+DECL|enumConstant|claimTask
 name|claimTask
 block|{
 annotation|@
@@ -1595,9 +1595,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|completeTask
 block|}
 block|,
+DECL|enumConstant|completeTask
 name|completeTask
 block|{
 annotation|@
@@ -1662,9 +1662,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|delegateTask
 block|}
 block|,
+DECL|enumConstant|delegateTask
 name|delegateTask
 block|{
 annotation|@
@@ -1729,9 +1729,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|exitTask
 block|}
 block|,
+DECL|enumConstant|exitTask
 name|exitTask
 block|{
 annotation|@
@@ -1789,9 +1789,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|failTask
 block|}
 block|,
+DECL|enumConstant|failTask
 name|failTask
 block|{
 annotation|@
@@ -1856,9 +1856,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|getAttachment
 block|}
 block|,
+DECL|enumConstant|getAttachment
 name|getAttachment
 block|{
 annotation|@
@@ -1929,9 +1929,9 @@ name|attachment
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|getTasksAssignedAsBusinessAdministrator
 block|}
 block|,
+DECL|enumConstant|getTasksAssignedAsBusinessAdministrator
 name|getTasksAssignedAsBusinessAdministrator
 block|{
 annotation|@
@@ -2001,9 +2001,9 @@ name|taskSummaries
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|getTasksAssignedAsPotentialOwnerByStatus
 block|}
 block|,
+DECL|enumConstant|getTasksAssignedAsPotentialOwnerByStatus
 name|getTasksAssignedAsPotentialOwnerByStatus
 block|{
 annotation|@
@@ -2080,9 +2080,9 @@ name|taskSummaries
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|getTaskByWorkItem
 block|}
 block|,
+DECL|enumConstant|getTaskByWorkItem
 name|getTaskByWorkItem
 block|{
 annotation|@
@@ -2138,9 +2138,9 @@ name|task
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|getTaskBy
 block|}
 block|,
+DECL|enumConstant|getTaskBy
 name|getTaskBy
 block|{
 annotation|@
@@ -2196,9 +2196,9 @@ name|task
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|getTaskContent
 block|}
 block|,
+DECL|enumConstant|getTaskContent
 name|getTaskContent
 block|{
 annotation|@
@@ -2264,9 +2264,9 @@ name|content
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|getTasksByProcessInstance
 block|}
 block|,
+DECL|enumConstant|getTasksByProcessInstance
 name|getTasksByProcessInstance
 block|{
 annotation|@
@@ -2344,9 +2344,9 @@ name|processInstanceIds
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|getTasksByStatusByProcessInstance
 block|}
 block|,
+DECL|enumConstant|getTasksByStatusByProcessInstance
 name|getTasksByStatusByProcessInstance
 block|{
 annotation|@
@@ -2426,9 +2426,9 @@ name|taskSummaryList
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|getTasksOwned
 block|}
 block|,
+DECL|enumConstant|getTasksOwned
 name|getTasksOwned
 block|{
 annotation|@
@@ -2498,9 +2498,9 @@ name|summaryList
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|nominateTask
 block|}
 block|,
+DECL|enumConstant|nominateTask
 name|nominateTask
 block|{
 annotation|@
@@ -2565,9 +2565,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|,
 DECL|enumConstant|releaseTask
-block|}
-block|,
 name|releaseTask
 block|{
 annotation|@
@@ -2625,9 +2625,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|,
 DECL|enumConstant|resumeTask
-block|}
-block|,
 name|resumeTask
 block|{
 annotation|@
@@ -2685,9 +2685,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|,
 DECL|enumConstant|skipTask
-block|}
-block|,
 name|skipTask
 block|{
 annotation|@
@@ -2745,9 +2745,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|,
 DECL|enumConstant|startTask
-block|}
-block|,
 name|startTask
 block|{
 annotation|@
@@ -2805,9 +2805,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|,
 DECL|enumConstant|stopTask
-block|}
-block|,
 name|stopTask
 block|{
 annotation|@
@@ -2865,9 +2865,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|enumConstant|suspendTask
 block|}
 block|,
+DECL|enumConstant|suspendTask
 name|suspendTask
 block|{
 annotation|@

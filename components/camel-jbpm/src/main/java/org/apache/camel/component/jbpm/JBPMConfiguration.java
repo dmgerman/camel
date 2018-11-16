@@ -593,7 +593,7 @@ return|return
 name|event
 return|;
 block|}
-comment|/**      * the data associated with this event when signalEvent operation is performed      */
+comment|/**      * the data associated with this event when signalEvent operation is      * performed      */
 DECL|method|setEvent (Object event)
 specifier|public
 name|void
@@ -701,7 +701,7 @@ return|return
 name|taskId
 return|;
 block|}
-comment|/**      *the id of the task      */
+comment|/**      * the id of the task      */
 DECL|method|setTaskId (Long taskId)
 specifier|public
 name|void
@@ -1174,7 +1174,7 @@ return|return
 name|emitterSendItems
 return|;
 block|}
-comment|/**      * Sets if event produced by emitter should be sent as single items or complete collection      */
+comment|/**      * Sets if event produced by emitter should be sent as single items or      * complete collection      */
 DECL|method|setEmitterSendItems (Boolean emiterSendItems)
 specifier|public
 name|void
