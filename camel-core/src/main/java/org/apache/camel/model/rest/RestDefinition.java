@@ -2520,6 +2520,32 @@ return|return
 name|route
 return|;
 block|}
+comment|/**      * Build the from endpoint uri for the verb      */
+DECL|method|buildFromUri (VerbDefinition verb)
+specifier|public
+name|String
+name|buildFromUri
+parameter_list|(
+name|VerbDefinition
+name|verb
+parameter_list|)
+block|{
+return|return
+literal|"rest:"
+operator|+
+name|verb
+operator|.
+name|asVerb
+argument_list|()
+operator|+
+literal|":"
+operator|+
+name|buildUri
+argument_list|(
+name|verb
+argument_list|)
+return|;
+block|}
 comment|// Implementation
 comment|//-------------------------------------------------------------------------
 DECL|method|addVerb (String verb, String uri)
@@ -3189,6 +3215,11 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|addRouteDefinition (CamelContext camelContext, List<RouteDefinition> answer, String component)
 specifier|private
 name|void
@@ -3688,16 +3719,7 @@ comment|// create the from endpoint uri which is using the rest component
 name|String
 name|from
 init|=
-literal|"rest:"
-operator|+
-name|verb
-operator|.
-name|asVerb
-argument_list|()
-operator|+
-literal|":"
-operator|+
-name|buildUri
+name|buildFromUri
 argument_list|(
 name|verb
 argument_list|)
