@@ -595,6 +595,12 @@ name|modelWithXml
 decl_stmt|;
 annotation|@
 name|Parameter
+DECL|field|apiContextPath
+name|String
+name|apiContextPath
+decl_stmt|;
+annotation|@
+name|Parameter
 argument_list|(
 name|defaultValue
 operator|=
@@ -624,12 +630,6 @@ DECL|field|mavenSession
 specifier|private
 name|MavenSession
 name|mavenSession
-decl_stmt|;
-annotation|@
-name|Parameter
-DECL|field|apiContextPath
-name|String
-name|apiContextPath
 decl_stmt|;
 annotation|@
 name|Component
