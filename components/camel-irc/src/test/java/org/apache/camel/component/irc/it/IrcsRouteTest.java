@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.irc
+DECL|package|org.apache.camel.component.irc.it
 package|package
 name|org
 operator|.
@@ -15,22 +15,12 @@ operator|.
 name|component
 operator|.
 name|irc
+operator|.
+name|it
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
-
 begin_class
-annotation|@
-name|Ignore
 DECL|class|IrcsRouteTest
 specifier|public
 class|class
@@ -38,9 +28,6 @@ name|IrcsRouteTest
 extends|extends
 name|IrcRouteTest
 block|{
-comment|// TODO This test is disabled until we can find a public SSL enabled IRC
-comment|// server to test against. To use this you'll need to change the server
-comment|// information below and the username/password.
 annotation|@
 name|Override
 DECL|method|sendUri ()
@@ -50,7 +37,7 @@ name|sendUri
 parameter_list|()
 block|{
 return|return
-literal|"ircs://camel-prd@irc.codehaus.org:6667/#camel-test?nickname=camel-prd&password=blah"
+literal|"ircs://{{camelTo}}@{{server}}?channels={{channel1}}"
 return|;
 block|}
 annotation|@
@@ -62,7 +49,7 @@ name|fromUri
 parameter_list|()
 block|{
 return|return
-literal|"ircs://camel-con@irc.codehaus.org:6667/#camel-test?nickname=camel-con&password=blah"
+literal|"ircs://{{camelFrom}}@{{server}}?channels={{channel1}}"
 return|;
 block|}
 block|}

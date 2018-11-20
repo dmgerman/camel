@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.irc
+DECL|package|org.apache.camel.component.irc.it
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|component
 operator|.
 name|irc
+operator|.
+name|it
 package|;
 end_package
 
@@ -76,9 +78,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|mock
+name|irc
 operator|.
-name|MockEndpoint
+name|IrcConstants
 import|;
 end_import
 
@@ -90,21 +92,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|component
 operator|.
-name|junit4
+name|mock
 operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
+name|MockEndpoint
 import|;
 end_import
 
@@ -119,49 +111,32 @@ import|;
 end_import
 
 begin_class
-DECL|class|IrcMultiChannelRouteTest
+DECL|class|IrcOnReplyTest
 specifier|public
 class|class
-name|IrcMultiChannelRouteTest
+name|IrcOnReplyTest
 extends|extends
-name|CamelTestSupport
+name|IrcIntegrationTestSupport
 block|{
-DECL|field|resultEndpoint
-specifier|protected
-name|MockEndpoint
-name|resultEndpoint
-decl_stmt|;
-DECL|field|body1
+DECL|field|command
 specifier|protected
 name|String
-name|body1
+name|command
 init|=
-literal|"Message One"
+literal|"WHO #camel-test"
 decl_stmt|;
-DECL|field|body2
+DECL|field|resultEnd
 specifier|protected
 name|String
-name|body2
+name|resultEnd
 init|=
-literal|"Message Two"
-decl_stmt|;
-DECL|field|body3
-specifier|protected
-name|String
-name|body3
-init|=
-literal|"Message Three"
+literal|"End of /WHO list."
 decl_stmt|;
 DECL|field|sentMessages
 specifier|private
 name|boolean
 name|sentMessages
 decl_stmt|;
-annotation|@
-name|Ignore
-argument_list|(
-literal|"test manual, irc.codehaus.org has been closed"
-argument_list|)
 annotation|@
 name|Test
 DECL|method|testIrcMessages ()
@@ -173,30 +148,10 @@ throws|throws
 name|Exception
 block|{
 name|resultEndpoint
-operator|=
-name|context
-operator|.
-name|getEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|,
-name|MockEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-comment|//consumer is going to receive two copies of body3
-name|resultEndpoint
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-name|body1
-argument_list|,
-name|body2
-argument_list|,
-name|body3
-argument_list|,
-name|body3
+name|resultEnd
 argument_list|)
 expr_stmt|;
 name|resultEndpoint
@@ -279,12 +234,12 @@ name|header
 argument_list|(
 name|IrcConstants
 operator|.
-name|IRC_MESSAGE_TYPE
+name|IRC_NUM
 argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"PRIVMSG"
+literal|315
 argument_list|)
 argument_list|)
 operator|.
@@ -345,24 +300,34 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|sendUri ()
-specifier|protected
-name|String
-name|sendUri
-parameter_list|()
-block|{
-return|return
-literal|"irc://camel-prd@irc.codehaus.org:6667?nickname=camel-prd&channels=#camel-test1,#camel-test2"
-return|;
-block|}
 DECL|method|fromUri ()
 specifier|protected
 name|String
 name|fromUri
 parameter_list|()
 block|{
+name|StringBuilder
+name|sb
+init|=
+operator|new
+name|StringBuilder
+argument_list|(
+name|super
+operator|.
+name|fromUri
+argument_list|()
+argument_list|)
+decl_stmt|;
 return|return
-literal|"irc://camel-con@irc.codehaus.org:6667?nickname=camel-con&channels=#camel-test1,#camel-test2"
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"&onReply=true"
+argument_list|)
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 comment|/**      * Lets send messages once the consumer has joined      */
@@ -385,40 +350,12 @@ expr_stmt|;
 comment|// now the consumer has joined, lets send some messages
 name|template
 operator|.
-name|sendBodyAndHeader
-argument_list|(
-name|sendUri
-argument_list|()
-argument_list|,
-name|body1
-argument_list|,
-literal|"irc.target"
-argument_list|,
-literal|"#camel-test1"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-name|sendUri
-argument_list|()
-argument_list|,
-name|body2
-argument_list|,
-literal|"irc.target"
-argument_list|,
-literal|"#camel-test2"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
 name|sendBody
 argument_list|(
-name|sendUri
+name|fromUri
 argument_list|()
 argument_list|,
-name|body3
+name|command
 argument_list|)
 expr_stmt|;
 block|}

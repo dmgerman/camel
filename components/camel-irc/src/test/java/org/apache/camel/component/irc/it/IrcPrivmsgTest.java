@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.irc
+DECL|package|org.apache.camel.component.irc.it
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|component
 operator|.
 name|irc
+operator|.
+name|it
 package|;
 end_package
 
@@ -76,6 +78,22 @@ name|camel
 operator|.
 name|component
 operator|.
+name|irc
+operator|.
+name|IrcConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
 name|mock
 operator|.
 name|MockEndpoint
@@ -124,13 +142,8 @@ specifier|public
 class|class
 name|IrcPrivmsgTest
 extends|extends
-name|CamelTestSupport
+name|IrcIntegrationTestSupport
 block|{
-DECL|field|resultEndpoint
-specifier|protected
-name|MockEndpoint
-name|resultEndpoint
-decl_stmt|;
 DECL|field|expectedBody1
 specifier|protected
 name|String
@@ -165,11 +178,6 @@ name|boolean
 name|sentMessages
 decl_stmt|;
 annotation|@
-name|Ignore
-argument_list|(
-literal|"test manual, irc.codehaus.org has been closed"
-argument_list|)
-annotation|@
 name|Test
 DECL|method|testIrcPrivateMessages ()
 specifier|public
@@ -179,19 +187,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|resultEndpoint
-operator|=
-name|context
-operator|.
-name|getEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|,
-name|MockEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
 name|resultEndpoint
 operator|.
 name|expectedBodiesReceived
@@ -292,7 +287,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:result"
+literal|"direct:mock"
 argument_list|)
 operator|.
 name|when
@@ -343,10 +338,45 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:mock"
+argument_list|)
+operator|.
+name|filter
+argument_list|(
+name|e
+lambda|->
+operator|!
+name|e
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+operator|.
+name|contains
+argument_list|(
+literal|"VERSION"
+argument_list|)
+argument_list|)
+operator|.
+name|to
+argument_list|(
+name|resultEndpoint
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendUri ()
 specifier|protected
 name|String
@@ -354,17 +384,7 @@ name|sendUri
 parameter_list|()
 block|{
 return|return
-literal|"irc://camel-prd@irc.codehaus.org:6667/#camel-test?nickname=camel-prd"
-return|;
-block|}
-DECL|method|fromUri ()
-specifier|protected
-name|String
-name|fromUri
-parameter_list|()
-block|{
-return|return
-literal|"irc://camel-con@irc.codehaus.org:6667/#camel-test?nickname=camel-con"
+literal|"ircs://{{camelTo}}@{{server}}?channels={{channel1}}&username={{username}}&password={{password}}"
 return|;
 block|}
 comment|/**      * Lets send messages once the consumer has joined      */
@@ -373,6 +393,8 @@ specifier|protected
 name|void
 name|sendMessages
 parameter_list|()
+throws|throws
+name|InterruptedException
 block|{
 if|if
 condition|(
@@ -384,7 +406,6 @@ name|sentMessages
 operator|=
 literal|true
 expr_stmt|;
-comment|// now the consumer has joined, lets send some messages
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -396,7 +417,12 @@ name|body1
 argument_list|,
 literal|"irc.target"
 argument_list|,
-literal|"camel-con"
+name|properties
+operator|.
+name|get
+argument_list|(
+literal|"camelFrom"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|template
@@ -410,7 +436,12 @@ name|body2
 argument_list|,
 literal|"irc.target"
 argument_list|,
-literal|"camel-con"
+name|properties
+operator|.
+name|get
+argument_list|(
+literal|"camelFrom"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
