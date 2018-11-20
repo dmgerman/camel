@@ -318,6 +318,18 @@ name|getSource
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+name|response
+operator|.
+name|getSource
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -2195,7 +2207,7 @@ expr_stmt|;
 name|String
 name|body
 init|=
-literal|"{\"id\" : 1}"
+literal|"{\"teststringupdate-key\" : \"teststringupdate-updated\"}"
 decl_stmt|;
 name|Map
 argument_list|<
@@ -2243,6 +2255,37 @@ argument_list|(
 literal|"indexId should be set"
 argument_list|,
 name|indexId
+argument_list|)
+expr_stmt|;
+name|GetResponse
+name|response
+init|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"direct:get"
+argument_list|,
+name|indexId
+argument_list|,
+name|GetResponse
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"teststringupdate-updated"
+argument_list|,
+name|response
+operator|.
+name|getSource
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"teststringupdate-key"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
