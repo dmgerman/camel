@@ -241,7 +241,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Prepares the Spring Boot provider camel catalog to include component it supports  *  * @goal prepare-catalog-springboot  */
+comment|/**  * Prepares the Spring Boot provider camel catalog to include component it supports  *  * @goal prepare-catalog-springboot  * @threadSafe  */
 end_comment
 
 begin_class

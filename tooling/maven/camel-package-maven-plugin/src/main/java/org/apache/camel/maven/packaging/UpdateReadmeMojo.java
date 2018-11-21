@@ -465,7 +465,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generate or updates the component/dataformat/language/eip readme.md and .adoc files in the project root directory.  *  * @goal update-readme  */
+comment|/**  * Generate or updates the component/dataformat/language/eip readme.md and .adoc files in the project root directory.  *  * @goal update-readme  * @threadSafe  */
 end_comment
 
 begin_class

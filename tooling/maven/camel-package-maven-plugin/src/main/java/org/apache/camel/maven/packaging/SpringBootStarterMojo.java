@@ -683,7 +683,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generate Spring Boot starter for the component  *  * @goal prepare-spring-boot-starter  */
+comment|/**  * Generate Spring Boot starter for the component  *  * @goal prepare-spring-boot-starter  * @threadSafe  */
 end_comment
 
 begin_class

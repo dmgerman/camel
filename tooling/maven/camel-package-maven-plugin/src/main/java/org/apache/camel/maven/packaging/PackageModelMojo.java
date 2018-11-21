@@ -237,7 +237,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Analyses the Camel EIPs in a project and generates extra descriptor information for easier auto-discovery in Camel.  *  * @goal generate-eips-list  */
+comment|/**  * Analyses the Camel EIPs in a project and generates extra descriptor information for easier auto-discovery in Camel.  *  * @goal generate-eips-list  * @threadSafe  */
 end_comment
 
 begin_class

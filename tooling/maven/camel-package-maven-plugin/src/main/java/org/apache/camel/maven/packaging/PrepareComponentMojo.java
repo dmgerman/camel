@@ -187,7 +187,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Prepares a Camel component analyzing if the maven module contains Camel  *<ul>  *<li>components</li>  *<li>dataformats</li>  *<li>languages</li>  *<li>others</li>  *</ul>  * And for each of those generates extra descriptors and schema files for easier auto-discovery in Camel and tooling.  *  * @goal prepare-components  */
+comment|/**  * Prepares a Camel component analyzing if the maven module contains Camel  *<ul>  *<li>components</li>  *<li>dataformats</li>  *<li>languages</li>  *<li>others</li>  *</ul>  * And for each of those generates extra descriptors and schema files for easier auto-discovery in Camel and tooling.  *  * @goal prepare-components  * @threadSafe  */
 end_comment
 
 begin_class
