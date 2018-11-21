@@ -1036,6 +1036,24 @@ name|callback
 argument_list|)
 decl_stmt|;
 comment|// Run it
+if|if
+condition|(
+name|exchange
+operator|.
+name|isTransacted
+argument_list|()
+condition|)
+block|{
+name|ReactiveHelper
+operator|.
+name|scheduleSync
+argument_list|(
+name|state
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|ReactiveHelper
 operator|.
 name|scheduleMain
@@ -1043,6 +1061,7 @@ argument_list|(
 name|state
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|false
 return|;

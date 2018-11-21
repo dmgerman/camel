@@ -707,6 +707,9 @@ argument_list|(
 literal|2000
 argument_list|)
 operator|.
+name|syncDelayed
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"mock:result"
@@ -726,6 +729,9 @@ name|delay
 argument_list|(
 literal|2000
 argument_list|)
+operator|.
+name|syncDelayed
+argument_list|()
 operator|.
 name|transform
 argument_list|(

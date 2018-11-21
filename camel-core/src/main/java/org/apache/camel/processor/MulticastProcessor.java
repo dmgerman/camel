@@ -1374,6 +1374,24 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|isTransacted
+argument_list|()
+condition|)
+block|{
+name|ReactiveHelper
+operator|.
+name|scheduleSync
+argument_list|(
+name|state
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|ReactiveHelper
 operator|.
 name|scheduleMain
@@ -1381,6 +1399,7 @@ argument_list|(
 name|state
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// the remainder of the multicast will be completed async
 comment|// so we break out now, then the callback will be invoked which then

@@ -86,18 +86,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -130,7 +118,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|DefaultProducer
+name|DefaultAsyncProducer
 import|;
 end_import
 
@@ -140,9 +128,7 @@ specifier|public
 class|class
 name|BeanstalkProducer
 extends|extends
-name|DefaultProducer
-implements|implements
-name|AsyncProcessor
+name|DefaultAsyncProducer
 block|{
 DECL|field|executor
 specifier|private

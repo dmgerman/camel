@@ -356,6 +356,9 @@ argument_list|(
 literal|1000
 argument_list|)
 operator|.
+name|syncDelayed
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"seda:foo"

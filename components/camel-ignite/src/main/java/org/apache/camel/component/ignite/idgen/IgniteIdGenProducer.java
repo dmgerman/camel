@@ -310,12 +310,17 @@ literal|"Operation not supported by Ignite ID Generator producer."
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
+break|break;
 block|}
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 return|return
-literal|true
+literal|false
 return|;
 block|}
 DECL|method|idGenOperationFor (Exchange exchange)

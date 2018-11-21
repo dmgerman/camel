@@ -355,10 +355,7 @@ DECL|field|tasks
 specifier|private
 name|Deque
 argument_list|<
-name|Callable
-argument_list|<
-name|?
-argument_list|>
+name|Object
 argument_list|>
 name|tasks
 init|=
@@ -453,6 +450,9 @@ name|redeliveryDelay
 argument_list|(
 literal|10
 argument_list|)
+operator|.
+name|asyncDelayedRedelivery
+argument_list|()
 operator|.
 name|to
 argument_list|(
@@ -699,12 +699,6 @@ name|tasks
 operator|.
 name|add
 argument_list|(
-operator|(
-name|Callable
-argument_list|<
-name|?
-argument_list|>
-operator|)
 name|args
 index|[
 literal|0
