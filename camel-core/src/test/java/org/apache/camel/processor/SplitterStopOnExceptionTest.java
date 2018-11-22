@@ -237,7 +237,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"Sequential processing failed for number 1."
+literal|"Multicast processing failed for number 1."
 argument_list|)
 argument_list|)
 expr_stmt|;

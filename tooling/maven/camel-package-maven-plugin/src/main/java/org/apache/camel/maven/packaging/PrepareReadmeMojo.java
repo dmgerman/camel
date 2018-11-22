@@ -369,7 +369,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Prepares the readme.md files content up to date with all the artifacts that Apache Camel ships.  *  * @goal prepare-readme  */
+comment|/**  * Prepares the readme.md files content up to date with all the artifacts that Apache Camel ships.  *  * @goal prepare-readme  * @threadSafe  */
 end_comment
 
 begin_class

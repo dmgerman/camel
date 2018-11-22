@@ -437,8 +437,15 @@ break|break;
 default|default:
 break|break;
 block|}
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 return|return
-literal|true
+literal|false
 return|;
 block|}
 annotation|@

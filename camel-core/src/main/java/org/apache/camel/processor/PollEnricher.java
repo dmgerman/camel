@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|CamelContext
 import|;
 end_import
@@ -228,7 +216,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|AsyncProcessorHelper
+name|AsyncProcessorSupport
 import|;
 end_import
 
@@ -303,20 +291,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|ServiceSupport
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -342,10 +316,8 @@ specifier|public
 class|class
 name|PollEnricher
 extends|extends
-name|ServiceSupport
+name|AsyncProcessorSupport
 implements|implements
-name|AsyncProcessor
-implements|,
 name|IdAware
 implements|,
 name|CamelContextAware
@@ -641,27 +613,6 @@ operator|.
 name|ignoreInvalidEndpoint
 operator|=
 name|ignoreInvalidEndpoint
-expr_stmt|;
-block|}
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|AsyncProcessorHelper
-operator|.
-name|process
-argument_list|(
-name|this
-argument_list|,
-name|exchange
-argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Enriches the input data (<code>exchange</code>) by first obtaining      * additional data from an endpoint represented by an endpoint      *<code>producer</code> and second by aggregating input data and additional      * data. Aggregation of input data and additional data is delegated to an      * {@link AggregationStrategy} object set at construction time. If the      * message exchange with the resource endpoint fails then no aggregation      * will be done and the failed exchange content is copied over to the      * original message exchange.      *      * @param exchange input data.      */

@@ -201,6 +201,9 @@ argument_list|(
 name|DELAY_LONG
 argument_list|)
 operator|.
+name|syncDelayed
+argument_list|()
+operator|.
 name|to
 argument_list|(
 name|MOCK_URI
@@ -216,6 +219,9 @@ name|delay
 argument_list|(
 name|DELAY
 argument_list|)
+operator|.
+name|syncDelayed
+argument_list|()
 operator|.
 name|to
 argument_list|(

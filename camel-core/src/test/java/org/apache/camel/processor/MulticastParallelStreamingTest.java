@@ -377,6 +377,9 @@ argument_list|(
 literal|250
 argument_list|)
 operator|.
+name|asyncDelayed
+argument_list|()
+operator|.
 name|setBody
 argument_list|(
 name|constant

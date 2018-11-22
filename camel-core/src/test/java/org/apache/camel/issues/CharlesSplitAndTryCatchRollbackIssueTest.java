@@ -384,7 +384,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"Sequential processing failed for number 2."
+literal|"Multicast processing failed for number 2."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -525,7 +525,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"Sequential processing failed for number 3."
+literal|"Multicast processing failed for number 3."
 argument_list|)
 argument_list|)
 expr_stmt|;

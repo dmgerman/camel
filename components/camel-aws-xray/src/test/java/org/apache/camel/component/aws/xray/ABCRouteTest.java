@@ -134,12 +134,14 @@ name|createSubsegment
 argument_list|(
 literal|"direct:a"
 argument_list|)
+argument_list|)
+argument_list|)
 operator|.
-name|withSubsegment
+name|withSegment
 argument_list|(
 name|TestDataBuilder
 operator|.
-name|createSubsegment
+name|createSegment
 argument_list|(
 literal|"a"
 argument_list|)
@@ -161,8 +163,6 @@ operator|.
 name|createSubsegment
 argument_list|(
 literal|"seda:c"
-argument_list|)
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)

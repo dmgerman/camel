@@ -278,6 +278,16 @@ name|exchange2
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+expr_stmt|;
+name|exchange2
+operator|.
+name|getExchangeId
+argument_list|()
+expr_stmt|;
 name|processor
 operator|.
 name|process

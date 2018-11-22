@@ -335,7 +335,7 @@ name|routeContext
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// is true bt default
+comment|// is true by default
 name|boolean
 name|isCopy
 init|=

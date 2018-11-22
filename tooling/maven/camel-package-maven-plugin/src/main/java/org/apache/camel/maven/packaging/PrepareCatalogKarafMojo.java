@@ -301,7 +301,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Prepares the Karaf provider camel catalog to include component it supports  *  * @goal prepare-catalog-karaf  */
+comment|/**  * Prepares the Karaf provider camel catalog to include component it supports  *  * @goal prepare-catalog-karaf  * @threadSafe  */
 end_comment
 
 begin_class

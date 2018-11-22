@@ -534,7 +534,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|AsyncProcessorHelper
+name|AsyncProcessorSupport
 import|;
 end_import
 
@@ -604,7 +604,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ServiceHelper
+name|NoLock
 import|;
 end_import
 
@@ -618,7 +618,21 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ServiceSupport
+name|ReactiveHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ServiceHelper
 import|;
 end_import
 
@@ -674,10 +688,8 @@ specifier|public
 class|class
 name|AggregateProcessor
 extends|extends
-name|ServiceSupport
+name|AsyncProcessorSupport
 implements|implements
-name|AsyncProcessor
-implements|,
 name|Navigate
 argument_list|<
 name|Processor
@@ -700,15 +712,82 @@ name|AGGREGATE_TIMEOUT_CHECKER
 init|=
 literal|"AggregateTimeoutChecker"
 decl_stmt|;
+DECL|field|AGGREGATE_OPTIMISTIC_LOCKING_EXECUTOR
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|AGGREGATE_OPTIMISTIC_LOCKING_EXECUTOR
+init|=
+literal|"AggregateOptimisticLockingExecutor"
+decl_stmt|;
+DECL|field|COMPLETED_BY_SIZE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|COMPLETED_BY_SIZE
+init|=
+literal|"size"
+decl_stmt|;
+DECL|field|COMPLETED_BY_PREDICATE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|COMPLETED_BY_PREDICATE
+init|=
+literal|"predicate"
+decl_stmt|;
+DECL|field|COMPLETED_BY_CONSUMER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|COMPLETED_BY_CONSUMER
+init|=
+literal|"consumer"
+decl_stmt|;
+DECL|field|COMPLETED_BY_STRATEGY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|COMPLETED_BY_STRATEGY
+init|=
+literal|"strategy"
+decl_stmt|;
+DECL|field|COMPLETED_BY_INTERVAL
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|COMPLETED_BY_INTERVAL
+init|=
+literal|"interval"
+decl_stmt|;
+DECL|field|COMPLETED_BY_TIMEOUT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|COMPLETED_BY_TIMEOUT
+init|=
+literal|"timeout"
+decl_stmt|;
+DECL|field|COMPLETED_BY_FORCE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|COMPLETED_BY_FORCE
+init|=
+literal|"force"
+decl_stmt|;
 DECL|field|lock
 specifier|private
-specifier|final
 name|Lock
 name|lock
-init|=
-operator|new
-name|ReentrantLock
-argument_list|()
 decl_stmt|;
 DECL|field|aggregateRepositoryWarned
 specifier|private
@@ -729,7 +808,7 @@ decl_stmt|;
 DECL|field|processor
 specifier|private
 specifier|final
-name|Processor
+name|AsyncProcessor
 name|processor
 decl_stmt|;
 DECL|field|id
@@ -787,6 +866,16 @@ DECL|field|shutdownTimeoutCheckerExecutorService
 specifier|private
 name|boolean
 name|shutdownTimeoutCheckerExecutorService
+decl_stmt|;
+DECL|field|optimisticLockingExecutorService
+specifier|private
+name|ScheduledExecutorService
+name|optimisticLockingExecutorService
+decl_stmt|;
+DECL|field|shutdownOptimisticLockingExecutorService
+specifier|private
+name|boolean
+name|shutdownOptimisticLockingExecutorService
 decl_stmt|;
 DECL|field|recoverService
 specifier|private
@@ -853,11 +942,7 @@ name|newSetFromMap
 argument_list|(
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1312,14 +1397,14 @@ specifier|private
 name|ProducerTemplate
 name|deadLetterProducerTemplate
 decl_stmt|;
-DECL|method|AggregateProcessor (CamelContext camelContext, Processor processor, Expression correlationExpression, AggregationStrategy aggregationStrategy, ExecutorService executorService, boolean shutdownExecutorService)
+DECL|method|AggregateProcessor (CamelContext camelContext, AsyncProcessor processor, Expression correlationExpression, AggregationStrategy aggregationStrategy, ExecutorService executorService, boolean shutdownExecutorService)
 specifier|public
 name|AggregateProcessor
 parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|,
-name|Processor
+name|AsyncProcessor
 name|processor
 parameter_list|,
 name|Expression
@@ -1542,27 +1627,6 @@ operator|=
 name|id
 expr_stmt|;
 block|}
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|AsyncProcessorHelper
-operator|.
-name|process
-argument_list|(
-name|this
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
 name|boolean
@@ -1580,6 +1644,8 @@ block|{
 name|doProcess
 argument_list|(
 name|exchange
+argument_list|,
+name|callback
 argument_list|)
 expr_stmt|;
 block|}
@@ -1596,25 +1662,28 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-block|}
 name|callback
 operator|.
 name|done
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
+block|}
 return|return
-literal|true
+literal|false
 return|;
 block|}
-DECL|method|doProcess (Exchange exchange)
+DECL|method|doProcess (Exchange exchange, AsyncCallback callback)
 specifier|protected
 name|void
 name|doProcess
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
 parameter_list|)
 throws|throws
 name|Exception
@@ -1635,47 +1704,27 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|//check for the special header to force completion of all groups (and ignore the exchange otherwise)
-name|boolean
-name|completeAllGroups
-init|=
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATION_COMPLETE_ALL_GROUPS
-argument_list|,
-literal|false
-argument_list|,
-name|boolean
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
-name|completeAllGroups
-condition|)
-block|{
-comment|// remove the header so we do not complete again
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|removeHeader
+name|getAndRemoveBooleanHeader
 argument_list|(
+name|exchange
+argument_list|,
 name|Exchange
 operator|.
 name|AGGREGATION_COMPLETE_ALL_GROUPS
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
 name|forceCompletionOfAllGroups
 argument_list|()
+expr_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -1720,11 +1769,13 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 else|else
 block|{
-throw|throw
+name|exchange
+operator|.
+name|setException
+argument_list|(
 operator|new
 name|CamelExchangeException
 argument_list|(
@@ -1732,8 +1783,17 @@ literal|"Invalid correlation key"
 argument_list|,
 name|exchange
 argument_list|)
-throw|;
+argument_list|)
+expr_stmt|;
 block|}
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+return|return;
 block|}
 comment|// is the correlation key closed?
 if|if
@@ -1750,7 +1810,10 @@ name|key
 argument_list|)
 condition|)
 block|{
-throw|throw
+name|exchange
+operator|.
+name|setException
+argument_list|(
 operator|new
 name|ClosedCorrelationKeyException
 argument_list|(
@@ -1758,104 +1821,85 @@ name|key
 argument_list|,
 name|exchange
 argument_list|)
-throw|;
+argument_list|)
+expr_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+return|return;
 block|}
-comment|// when optimist locking is enabled we keep trying until we succeed
 if|if
 condition|(
 name|optimisticLocking
 condition|)
 block|{
-name|List
-argument_list|<
+name|doInOptimisticLock
+argument_list|(
+name|exchange
+argument_list|,
+name|key
+argument_list|,
+name|callback
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|doProcess
+argument_list|(
+name|exchange
+argument_list|,
+name|key
+argument_list|,
+name|callback
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|doInOptimisticLock (Exchange exchange, String key, AsyncCallback callback, int attempt)
+specifier|protected
+name|void
+name|doInOptimisticLock
+parameter_list|(
 name|Exchange
-argument_list|>
-name|aggregated
-init|=
-literal|null
-decl_stmt|;
-name|boolean
-name|exhaustedRetries
-init|=
-literal|true
-decl_stmt|;
+name|exchange
+parameter_list|,
+name|String
+name|key
+parameter_list|,
+name|AsyncCallback
+name|callback
+parameter_list|,
 name|int
 name|attempt
-init|=
-literal|0
-decl_stmt|;
-do|do
+parameter_list|)
+block|{
+while|while
+condition|(
+literal|true
+condition|)
 block|{
 name|attempt
 operator|++
 expr_stmt|;
-comment|// copy exchange, and do not share the unit of work
-comment|// the aggregated output runs in another unit of work
-name|Exchange
-name|copy
-init|=
-name|ExchangeHelper
-operator|.
-name|createCorrelatedCopy
+try|try
+block|{
+name|doProcess
 argument_list|(
 name|exchange
 argument_list|,
-literal|false
-argument_list|)
-decl_stmt|;
-comment|// remove the complete all groups headers as it should not be on the copy
-name|copy
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|removeHeader
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATION_COMPLETE_CURRENT_GROUP
-argument_list|)
-expr_stmt|;
-name|copy
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|removeHeader
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATION_COMPLETE_ALL_GROUPS
-argument_list|)
-expr_stmt|;
-name|copy
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|removeHeader
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATION_COMPLETE_ALL_GROUPS_INCLUSIVE
-argument_list|)
-expr_stmt|;
-try|try
-block|{
-name|aggregated
-operator|=
-name|doAggregation
-argument_list|(
 name|key
 argument_list|,
-name|copy
+name|callback
 argument_list|)
 expr_stmt|;
-name|exhaustedRetries
-operator|=
-literal|false
-expr_stmt|;
-break|break;
+return|return;
 block|}
 catch|catch
 parameter_list|(
@@ -1869,34 +1913,18 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"On attempt {} OptimisticLockingAggregationRepository: {} threw OptimisticLockingException while trying to add() key: {} and exchange: {}"
+literal|"On attempt {} OptimisticLockingAggregationRepository: {} threw OptimisticLockingException while trying to aggregate exchange: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|attempt
-block|,
+argument_list|,
 name|aggregationRepository
-block|,
-name|key
-block|,
-name|copy
-block|,
+argument_list|,
+name|exchange
+argument_list|,
 name|e
-block|}
 argument_list|)
 expr_stmt|;
-name|optimisticLockRetryPolicy
-operator|.
-name|doDelay
-argument_list|(
-name|attempt
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-do|while
+if|if
 condition|(
 name|optimisticLockRetryPolicy
 operator|.
@@ -1905,13 +1933,62 @@ argument_list|(
 name|attempt
 argument_list|)
 condition|)
-do|;
+block|{
+name|long
+name|delay
+init|=
+name|optimisticLockRetryPolicy
+operator|.
+name|getDelay
+argument_list|(
+name|attempt
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|exhaustedRetries
+name|delay
+operator|>
+literal|0
 condition|)
 block|{
-throw|throw
+name|int
+name|nextAttempt
+init|=
+name|attempt
+decl_stmt|;
+name|getOptimisticLockingExecutorService
+argument_list|()
+operator|.
+name|schedule
+argument_list|(
+parameter_list|()
+lambda|->
+name|doInOptimisticLock
+argument_list|(
+name|exchange
+argument_list|,
+name|key
+argument_list|,
+name|callback
+argument_list|,
+name|nextAttempt
+argument_list|)
+argument_list|,
+name|delay
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
 operator|new
 name|CamelExchangeException
 argument_list|(
@@ -1929,36 +2006,34 @@ operator|.
 name|OptimisticLockingException
 argument_list|()
 argument_list|)
-throw|;
-block|}
-elseif|else
-if|if
-condition|(
-name|aggregated
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// we are completed so submit to completion
-for|for
-control|(
-name|Exchange
-name|agg
-range|:
-name|aggregated
-control|)
-block|{
-name|onSubmitCompletion
-argument_list|(
-name|key
-argument_list|,
-name|agg
 argument_list|)
 expr_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+return|return;
 block|}
 block|}
 block|}
-else|else
+block|}
+DECL|method|doProcess (Exchange exchange, String key, AsyncCallback callback)
+specifier|protected
+name|void
+name|doProcess
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|String
+name|key
+parameter_list|,
+name|AsyncCallback
+name|callback
+parameter_list|)
 block|{
 comment|// copy exchange, and do not share the unit of work
 comment|// the aggregated output runs in another unit of work
@@ -2011,14 +2086,13 @@ operator|.
 name|AGGREGATION_COMPLETE_ALL_GROUPS_INCLUSIVE
 argument_list|)
 expr_stmt|;
-comment|// when memory based then its fast using synchronized, but if the aggregation repository is IO
-comment|// bound such as JPA etc then concurrent aggregation per correlation key could
-comment|// improve performance as we can run aggregation repository get/add in parallel
 name|List
 argument_list|<
 name|Exchange
 argument_list|>
 name|aggregated
+init|=
+literal|null
 decl_stmt|;
 name|lock
 operator|.
@@ -2034,6 +2108,20 @@ argument_list|(
 name|key
 argument_list|,
 name|copy
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CamelExchangeException
+name|e
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2053,52 +2141,143 @@ operator|!=
 literal|null
 condition|)
 block|{
-for|for
-control|(
-name|Exchange
-name|agg
-range|:
+comment|// we are completed so submit to completion
 name|aggregated
-control|)
-block|{
+operator|.
+name|forEach
+argument_list|(
+name|agg
+lambda|->
 name|onSubmitCompletion
 argument_list|(
 name|key
 argument_list|,
 name|agg
 argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
 comment|// check for the special header to force completion of all groups (inclusive of the message)
-name|boolean
-name|completeAllGroupsInclusive
-init|=
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
+if|if
+condition|(
+name|getAndRemoveBooleanHeader
 argument_list|(
+name|exchange
+argument_list|,
 name|Exchange
 operator|.
 name|AGGREGATION_COMPLETE_ALL_GROUPS_INCLUSIVE
-argument_list|,
+argument_list|)
+condition|)
+block|{
+name|forceCompletionOfAllGroups
+argument_list|()
+expr_stmt|;
+block|}
+name|callback
+operator|.
+name|done
+argument_list|(
 literal|false
-argument_list|,
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getBooleanProperty (Exchange exchange, String key)
+specifier|protected
+name|boolean
+name|getBooleanProperty
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|String
+name|key
+parameter_list|)
+block|{
+return|return
+name|camelContext
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
 name|boolean
 operator|.
 name|class
+argument_list|,
+name|exchange
+argument_list|,
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|key
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|completeAllGroupsInclusive
-condition|)
+argument_list|)
+return|;
+block|}
+DECL|method|getAndRemoveBooleanProperty (Exchange exchange, String key)
+specifier|protected
+name|boolean
+name|getAndRemoveBooleanProperty
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|String
+name|key
+parameter_list|)
 block|{
-comment|// remove the header so we do not complete again
+return|return
+name|camelContext
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|boolean
+operator|.
+name|class
+argument_list|,
+name|exchange
+argument_list|,
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|key
+argument_list|)
+argument_list|)
+return|;
+block|}
+DECL|method|getAndRemoveBooleanHeader (Exchange exchange, String key)
+specifier|protected
+name|boolean
+name|getAndRemoveBooleanHeader
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|String
+name|key
+parameter_list|)
+block|{
+return|return
+name|camelContext
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|boolean
+operator|.
+name|class
+argument_list|,
+name|exchange
+argument_list|,
 name|exchange
 operator|.
 name|getIn
@@ -2106,15 +2285,10 @@ argument_list|()
 operator|.
 name|removeHeader
 argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATION_COMPLETE_ALL_GROUPS_INCLUSIVE
+name|key
 argument_list|)
-expr_stmt|;
-name|forceCompletionOfAllGroups
-argument_list|()
-expr_stmt|;
-block|}
+argument_list|)
+return|;
 block|}
 comment|/**      * Aggregates the exchange with the given correlation key      *<p/>      * This method<b>must</b> be run synchronized as we cannot aggregate the same correlation key      * in parallel.      *<p/>      * The returned {@link Exchange} should be send downstream using the {@link #onSubmitCompletion(String, org.apache.camel.Exchange)}      * method which sends out the aggregated and completed {@link Exchange}.      *      * @param key      the correlation key      * @param newExchange the exchange      * @return the aggregated exchange(s) which is complete, or<tt>null</tt> if not yet complete      * @throws org.apache.camel.CamelExchangeException is thrown if error aggregating      */
 DECL|method|doAggregation (String key, Exchange newExchange)
@@ -2482,39 +2656,18 @@ argument_list|)
 throw|;
 block|}
 comment|// check for the special exchange property to force completion of all groups
-name|boolean
-name|completeAllGroups
-init|=
-name|answer
-operator|.
-name|getProperty
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATION_COMPLETE_ALL_GROUPS
-argument_list|,
-literal|false
-argument_list|,
-name|boolean
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
-name|completeAllGroups
-condition|)
-block|{
-comment|// remove the exchange property so we do not complete again
-name|answer
-operator|.
-name|removeProperty
+name|getAndRemoveBooleanProperty
 argument_list|(
+name|answer
+argument_list|,
 name|Exchange
 operator|.
 name|AGGREGATION_COMPLETE_ALL_GROUPS
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
 name|forceCompletionOfAllGroups
 argument_list|()
 expr_stmt|;
@@ -2717,7 +2870,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-literal|"consumer"
+name|COMPLETED_BY_CONSUMER
 operator|.
 name|equals
 argument_list|(
@@ -3083,30 +3236,24 @@ literal|0
 argument_list|)
 expr_stmt|;
 return|return
-literal|"consumer"
+name|COMPLETED_BY_CONSUMER
 return|;
 block|}
 block|}
 if|if
 condition|(
-name|exchange
-operator|.
-name|getProperty
+name|getBooleanProperty
 argument_list|(
+name|exchange
+argument_list|,
 name|Exchange
 operator|.
 name|AGGREGATION_COMPLETE_CURRENT_GROUP
-argument_list|,
-literal|false
-argument_list|,
-name|boolean
-operator|.
-name|class
 argument_list|)
 condition|)
 block|{
 return|return
-literal|"strategy"
+name|COMPLETED_BY_STRATEGY
 return|;
 block|}
 if|if
@@ -3134,7 +3281,7 @@ name|answer
 condition|)
 block|{
 return|return
-literal|"predicate"
+name|COMPLETED_BY_PREDICATE
 return|;
 block|}
 block|}
@@ -3208,7 +3355,7 @@ name|value
 condition|)
 block|{
 return|return
-literal|"size"
+name|COMPLETED_BY_SIZE
 return|;
 block|}
 block|}
@@ -3251,7 +3398,7 @@ argument_list|()
 condition|)
 block|{
 return|return
-literal|"size"
+name|COMPLETED_BY_SIZE
 return|;
 block|}
 block|}
@@ -3327,16 +3474,11 @@ name|trace
 argument_list|(
 literal|"Updating correlation key {} to timeout after {} ms. as exchange received: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|key
-block|,
+argument_list|,
 name|value
-block|,
+argument_list|,
 name|exchange
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -3381,17 +3523,12 @@ name|trace
 argument_list|(
 literal|"Updating correlation key {} to timeout after {} ms. as exchange received: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|key
-block|,
+argument_list|,
 name|getCompletionTimeout
 argument_list|()
-block|,
+argument_list|,
 name|exchange
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -3754,139 +3891,76 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-if|if
+switch|switch
 condition|(
-literal|"interval"
-operator|.
-name|equals
-argument_list|(
 name|completedBy
-argument_list|)
 condition|)
 block|{
+case|case
+name|COMPLETED_BY_INTERVAL
+case|:
 name|completedByInterval
 operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-literal|"timeout"
-operator|.
-name|equals
-argument_list|(
-name|completedBy
-argument_list|)
-condition|)
-block|{
+break|break;
+case|case
+name|COMPLETED_BY_TIMEOUT
+case|:
 name|completedByTimeout
 operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-literal|"force"
-operator|.
-name|equals
-argument_list|(
-name|completedBy
-argument_list|)
-condition|)
-block|{
+break|break;
+case|case
+name|COMPLETED_BY_FORCE
+case|:
 name|completedByForce
 operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-literal|"consumer"
-operator|.
-name|equals
-argument_list|(
-name|completedBy
-argument_list|)
-condition|)
-block|{
+break|break;
+case|case
+name|COMPLETED_BY_CONSUMER
+case|:
 name|completedByBatchConsumer
 operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-literal|"predicate"
-operator|.
-name|equals
-argument_list|(
-name|completedBy
-argument_list|)
-condition|)
-block|{
+break|break;
+case|case
+name|COMPLETED_BY_PREDICATE
+case|:
 name|completedByPredicate
 operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-literal|"size"
-operator|.
-name|equals
-argument_list|(
-name|completedBy
-argument_list|)
-condition|)
-block|{
+break|break;
+case|case
+name|COMPLETED_BY_SIZE
+case|:
 name|completedBySize
 operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-literal|"strategy"
-operator|.
-name|equals
-argument_list|(
-name|completedBy
-argument_list|)
-condition|)
-block|{
+break|break;
+case|case
+name|COMPLETED_BY_STRATEGY
+case|:
 name|completedByStrategy
 operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
+break|break;
 block|}
 block|}
-comment|// send this exchange
-name|executorService
-operator|.
-name|submit
-argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-specifier|public
-name|void
-name|run
-parameter_list|()
-block|{
 name|log
 operator|.
 name|debug
@@ -3911,40 +3985,35 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
-block|{
+comment|// send this exchange
+comment|// the call to schedule last if needed to ensure in-order processing of the aggregates
+name|executorService
+operator|.
+name|submit
+argument_list|(
+parameter_list|()
+lambda|->
+name|ReactiveHelper
+operator|.
+name|scheduleLast
+argument_list|(
+parameter_list|()
+lambda|->
 name|processor
 operator|.
 name|process
 argument_list|(
 name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
+argument_list|,
+name|done
+lambda|->
 block|{
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 comment|// log exception if there was a problem
-if|if
-condition|(
-name|exchange
-operator|.
-name|getException
-argument_list|()
+block|if (exchange.getException(
+argument_list|)
 operator|!=
 literal|null
-condition|)
+block|)
 block|{
 comment|// if there was an exception then let the exception handler handle it
 name|getExceptionHandler
@@ -3976,13 +4045,30 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-argument_list|)
-expr_stmt|;
-block|}
+end_class
+
+begin_operator
+unit|)
+operator|,
+end_operator
+
+begin_expr_stmt
+literal|"sending aggregated exchange"
+end_expr_stmt
+
+begin_empty_stmt
+unit|))
+empty_stmt|;
+end_empty_stmt
+
+begin_comment
+unit|}
 comment|/**      * Restores the timeout map with timeout values from the aggregation repository.      *<p/>      * This is needed in case the aggregator has been stopped and started again (for example a server restart).      * Then the existing exchanges from the {@link AggregationRepository} must have their timeout conditions restored.      */
+end_comment
+
+begin_function
 DECL|method|restoreTimeoutMapFromAggregationRepository ()
-specifier|protected
+unit|protected
 name|void
 name|restoreTimeoutMapFromAggregationRepository
 parameter_list|()
@@ -4136,7 +4222,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Adds the given exchange to the timeout map, which is used by the timeout checker task to trigger timeouts.      *      * @param key      the correlation key      * @param exchange the exchange      * @param timeout  the timeout value in millis      */
+end_comment
+
+begin_function
 DECL|method|addExchangeToTimeoutMap (String key, Exchange exchange, long timeout)
 specifier|private
 name|void
@@ -4179,7 +4271,13 @@ name|timeout
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Current number of closed correlation keys in the memory cache      */
+end_comment
+
+begin_function
 DECL|method|getClosedCorrelationKeysCacheSize ()
 specifier|public
 name|int
@@ -4207,7 +4305,13 @@ literal|0
 return|;
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Clear all the closed correlation keys stored in the cache      */
+end_comment
+
+begin_function
 DECL|method|clearClosedCorrelationKeysCache ()
 specifier|public
 name|void
@@ -4228,6 +4332,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|getStatistics ()
 specifier|public
 name|AggregateProcessorStatistics
@@ -4238,6 +4345,9 @@ return|return
 name|statistics
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getInProgressCompleteExchanges ()
 specifier|public
 name|int
@@ -4251,6 +4361,9 @@ name|size
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getCompletionPredicate ()
 specifier|public
 name|Predicate
@@ -4261,6 +4374,9 @@ return|return
 name|completionPredicate
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setCompletionPredicate (Predicate completionPredicate)
 specifier|public
 name|void
@@ -4277,6 +4393,9 @@ operator|=
 name|completionPredicate
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|isEagerCheckCompletion ()
 specifier|public
 name|boolean
@@ -4287,6 +4406,9 @@ return|return
 name|eagerCheckCompletion
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setEagerCheckCompletion (boolean eagerCheckCompletion)
 specifier|public
 name|void
@@ -4303,6 +4425,9 @@ operator|=
 name|eagerCheckCompletion
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getCompletionTimeout ()
 specifier|public
 name|long
@@ -4313,6 +4438,9 @@ return|return
 name|completionTimeout
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setCompletionTimeout (long completionTimeout)
 specifier|public
 name|void
@@ -4329,6 +4457,9 @@ operator|=
 name|completionTimeout
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getCompletionTimeoutExpression ()
 specifier|public
 name|Expression
@@ -4339,6 +4470,9 @@ return|return
 name|completionTimeoutExpression
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setCompletionTimeoutExpression (Expression completionTimeoutExpression)
 specifier|public
 name|void
@@ -4355,6 +4489,9 @@ operator|=
 name|completionTimeoutExpression
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getCompletionInterval ()
 specifier|public
 name|long
@@ -4365,6 +4502,9 @@ return|return
 name|completionInterval
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setCompletionInterval (long completionInterval)
 specifier|public
 name|void
@@ -4381,6 +4521,9 @@ operator|=
 name|completionInterval
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getCompletionSize ()
 specifier|public
 name|int
@@ -4391,6 +4534,9 @@ return|return
 name|completionSize
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setCompletionSize (int completionSize)
 specifier|public
 name|void
@@ -4407,6 +4553,9 @@ operator|=
 name|completionSize
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getCompletionSizeExpression ()
 specifier|public
 name|Expression
@@ -4417,6 +4566,9 @@ return|return
 name|completionSizeExpression
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setCompletionSizeExpression (Expression completionSizeExpression)
 specifier|public
 name|void
@@ -4433,6 +4585,9 @@ operator|=
 name|completionSizeExpression
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|isIgnoreInvalidCorrelationKeys ()
 specifier|public
 name|boolean
@@ -4443,6 +4598,9 @@ return|return
 name|ignoreInvalidCorrelationKeys
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setIgnoreInvalidCorrelationKeys (boolean ignoreInvalidCorrelationKeys)
 specifier|public
 name|void
@@ -4459,6 +4617,9 @@ operator|=
 name|ignoreInvalidCorrelationKeys
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getCloseCorrelationKeyOnCompletion ()
 specifier|public
 name|Integer
@@ -4469,6 +4630,9 @@ return|return
 name|closeCorrelationKeyOnCompletion
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setCloseCorrelationKeyOnCompletion (Integer closeCorrelationKeyOnCompletion)
 specifier|public
 name|void
@@ -4485,6 +4649,9 @@ operator|=
 name|closeCorrelationKeyOnCompletion
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|isCompletionFromBatchConsumer ()
 specifier|public
 name|boolean
@@ -4495,6 +4662,9 @@ return|return
 name|completionFromBatchConsumer
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setCompletionFromBatchConsumer (boolean completionFromBatchConsumer)
 specifier|public
 name|void
@@ -4511,6 +4681,9 @@ operator|=
 name|completionFromBatchConsumer
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|isCompletionOnNewCorrelationGroup ()
 specifier|public
 name|boolean
@@ -4521,6 +4694,9 @@ return|return
 name|completionOnNewCorrelationGroup
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setCompletionOnNewCorrelationGroup (boolean completionOnNewCorrelationGroup)
 specifier|public
 name|void
@@ -4537,6 +4713,9 @@ operator|=
 name|completionOnNewCorrelationGroup
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|isCompleteAllOnStop ()
 specifier|public
 name|boolean
@@ -4547,6 +4726,9 @@ return|return
 name|completeAllOnStop
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getCompletionTimeoutCheckerInterval ()
 specifier|public
 name|long
@@ -4557,6 +4739,9 @@ return|return
 name|completionTimeoutCheckerInterval
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setCompletionTimeoutCheckerInterval (long completionTimeoutCheckerInterval)
 specifier|public
 name|void
@@ -4573,6 +4758,9 @@ operator|=
 name|completionTimeoutCheckerInterval
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getExceptionHandler ()
 specifier|public
 name|ExceptionHandler
@@ -4583,6 +4771,9 @@ return|return
 name|exceptionHandler
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setExceptionHandler (ExceptionHandler exceptionHandler)
 specifier|public
 name|void
@@ -4599,6 +4790,9 @@ operator|=
 name|exceptionHandler
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|isParallelProcessing ()
 specifier|public
 name|boolean
@@ -4609,6 +4803,9 @@ return|return
 name|parallelProcessing
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setParallelProcessing (boolean parallelProcessing)
 specifier|public
 name|void
@@ -4625,6 +4822,9 @@ operator|=
 name|parallelProcessing
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|isOptimisticLocking ()
 specifier|public
 name|boolean
@@ -4635,6 +4835,9 @@ return|return
 name|optimisticLocking
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setOptimisticLocking (boolean optimisticLocking)
 specifier|public
 name|void
@@ -4651,6 +4854,9 @@ operator|=
 name|optimisticLocking
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getAggregationRepository ()
 specifier|public
 name|AggregationRepository
@@ -4661,6 +4867,9 @@ return|return
 name|aggregationRepository
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setAggregationRepository (AggregationRepository aggregationRepository)
 specifier|public
 name|void
@@ -4677,6 +4886,9 @@ operator|=
 name|aggregationRepository
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|isDiscardOnCompletionTimeout ()
 specifier|public
 name|boolean
@@ -4687,6 +4899,9 @@ return|return
 name|discardOnCompletionTimeout
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setDiscardOnCompletionTimeout (boolean discardOnCompletionTimeout)
 specifier|public
 name|void
@@ -4703,6 +4918,9 @@ operator|=
 name|discardOnCompletionTimeout
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|setForceCompletionOnStop (boolean forceCompletionOnStop)
 specifier|public
 name|void
@@ -4719,6 +4937,9 @@ operator|=
 name|forceCompletionOnStop
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|setCompleteAllOnStop (boolean completeAllOnStop)
 specifier|public
 name|void
@@ -4735,6 +4956,9 @@ operator|=
 name|completeAllOnStop
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|setTimeoutCheckerExecutorService (ScheduledExecutorService timeoutCheckerExecutorService)
 specifier|public
 name|void
@@ -4751,6 +4975,9 @@ operator|=
 name|timeoutCheckerExecutorService
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getTimeoutCheckerExecutorService ()
 specifier|public
 name|ScheduledExecutorService
@@ -4761,6 +4988,9 @@ return|return
 name|timeoutCheckerExecutorService
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|isShutdownTimeoutCheckerExecutorService ()
 specifier|public
 name|boolean
@@ -4771,6 +5001,9 @@ return|return
 name|shutdownTimeoutCheckerExecutorService
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setShutdownTimeoutCheckerExecutorService (boolean shutdownTimeoutCheckerExecutorService)
 specifier|public
 name|void
@@ -4787,6 +5020,73 @@ operator|=
 name|shutdownTimeoutCheckerExecutorService
 expr_stmt|;
 block|}
+end_function
+
+begin_function
+DECL|method|setOptimisticLockingExecutorService (ScheduledExecutorService optimisticLockingExecutorService)
+specifier|public
+name|void
+name|setOptimisticLockingExecutorService
+parameter_list|(
+name|ScheduledExecutorService
+name|optimisticLockingExecutorService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|optimisticLockingExecutorService
+operator|=
+name|optimisticLockingExecutorService
+expr_stmt|;
+block|}
+end_function
+
+begin_function
+DECL|method|getOptimisticLockingExecutorService ()
+specifier|public
+name|ScheduledExecutorService
+name|getOptimisticLockingExecutorService
+parameter_list|()
+block|{
+return|return
+name|optimisticLockingExecutorService
+return|;
+block|}
+end_function
+
+begin_function
+DECL|method|isShutdownOptimisticLockingExecutorService ()
+specifier|public
+name|boolean
+name|isShutdownOptimisticLockingExecutorService
+parameter_list|()
+block|{
+return|return
+name|shutdownOptimisticLockingExecutorService
+return|;
+block|}
+end_function
+
+begin_function
+DECL|method|setShutdownOptimisticLockingExecutorService (boolean shutdownOptimisticLockingExecutorService)
+specifier|public
+name|void
+name|setShutdownOptimisticLockingExecutorService
+parameter_list|(
+name|boolean
+name|shutdownOptimisticLockingExecutorService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shutdownOptimisticLockingExecutorService
+operator|=
+name|shutdownOptimisticLockingExecutorService
+expr_stmt|;
+block|}
+end_function
+
+begin_function
 DECL|method|setOptimisticLockRetryPolicy (OptimisticLockRetryPolicy optimisticLockRetryPolicy)
 specifier|public
 name|void
@@ -4803,6 +5103,9 @@ operator|=
 name|optimisticLockRetryPolicy
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getOptimisticLockRetryPolicy ()
 specifier|public
 name|OptimisticLockRetryPolicy
@@ -4813,6 +5116,9 @@ return|return
 name|optimisticLockRetryPolicy
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getAggregationStrategy ()
 specifier|public
 name|AggregationStrategy
@@ -4823,6 +5129,9 @@ return|return
 name|aggregationStrategy
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setAggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|void
@@ -4839,6 +5148,9 @@ operator|=
 name|aggregationStrategy
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getCorrelationExpression ()
 specifier|public
 name|Expression
@@ -4849,6 +5161,9 @@ return|return
 name|correlationExpression
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setCorrelationExpression (Expression correlationExpression)
 specifier|public
 name|void
@@ -4865,6 +5180,9 @@ operator|=
 name|correlationExpression
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getAggregateController ()
 specifier|public
 name|AggregateController
@@ -4875,6 +5193,9 @@ return|return
 name|aggregateController
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setAggregateController (AggregateController aggregateController)
 specifier|public
 name|void
@@ -4891,7 +5212,13 @@ operator|=
 name|aggregateController
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * On completion task which keeps the booking of the in progress up to date      */
+end_comment
+
+begin_class
 DECL|class|AggregateOnCompletion
 specifier|private
 specifier|final
@@ -5017,7 +5344,13 @@ literal|"AggregateOnCompletion"
 return|;
 block|}
 block|}
+end_class
+
+begin_comment
 comment|/**      * Background task that looks for aggregated exchanges which is triggered by completion timeouts.      */
+end_comment
+
+begin_class
 DECL|class|AggregationTimeoutMap
 specifier|private
 specifier|final
@@ -5062,18 +5395,11 @@ name|purge
 parameter_list|()
 block|{
 comment|// must acquire the shared aggregation lock to be able to purge
-if|if
-condition|(
-operator|!
-name|optimisticLocking
-condition|)
-block|{
 name|lock
 operator|.
 name|lock
 argument_list|()
 expr_stmt|;
-block|}
 try|try
 block|{
 name|super
@@ -5084,18 +5410,11 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-operator|!
-name|optimisticLocking
-condition|)
-block|{
 name|lock
 operator|.
 name|unlock
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 annotation|@
@@ -5190,7 +5509,7 @@ name|Exchange
 operator|.
 name|AGGREGATED_COMPLETED_BY
 argument_list|,
-literal|"timeout"
+name|COMPLETED_BY_TIMEOUT
 argument_list|)
 expr_stmt|;
 try|try
@@ -5264,7 +5583,13 @@ literal|true
 return|;
 block|}
 block|}
+end_class
+
+begin_comment
 comment|/**      * Background task that triggers completion based on interval.      */
+end_comment
+
+begin_class
 DECL|class|AggregationIntervalTask
 specifier|private
 specifier|final
@@ -5339,18 +5664,11 @@ argument_list|()
 condition|)
 block|{
 comment|// must acquire the shared aggregation lock to be able to trigger interval completion
-if|if
-condition|(
-operator|!
-name|optimisticLocking
-condition|)
-block|{
 name|lock
 operator|.
 name|lock
 argument_list|()
 expr_stmt|;
-block|}
 try|try
 block|{
 for|for
@@ -5410,7 +5728,7 @@ name|Exchange
 operator|.
 name|AGGREGATED_COMPLETED_BY
 argument_list|,
-literal|"interval"
+name|COMPLETED_BY_INTERVAL
 argument_list|)
 expr_stmt|;
 try|try
@@ -5480,18 +5798,11 @@ block|}
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-operator|!
-name|optimisticLocking
-condition|)
-block|{
 name|lock
 operator|.
 name|unlock
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 name|log
@@ -5503,7 +5814,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_class
+
+begin_comment
 comment|/**      * Background task that looks for aggregated exchanges to recover.      */
+end_comment
+
+begin_class
 DECL|class|RecoverTask
 specifier|private
 specifier|final
@@ -5626,18 +5943,11 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-if|if
-condition|(
-operator|!
-name|optimisticLocking
-condition|)
-block|{
 name|lock
 operator|.
 name|lock
 argument_list|()
 expr_stmt|;
-block|}
 try|try
 block|{
 comment|// consider in progress if it was in progress before we did the scan, or currently after we did the scan
@@ -6009,18 +6319,11 @@ block|}
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-operator|!
-name|optimisticLocking
-condition|)
-block|{
 name|lock
 operator|.
 name|unlock
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 name|log
@@ -6032,6 +6335,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_class
+
+begin_function
 annotation|@
 name|Override
 annotation|@
@@ -6648,7 +6954,61 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|optimisticLocking
+condition|)
+block|{
+name|lock
+operator|=
+operator|new
+name|NoLock
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|getOptimisticLockingExecutorService
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|setOptimisticLockingExecutorService
+argument_list|(
+name|camelContext
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|newScheduledThreadPool
+argument_list|(
+name|this
+argument_list|,
+name|AGGREGATE_OPTIMISTIC_LOCKING_EXECUTOR
+argument_list|,
+literal|1
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|shutdownOptimisticLockingExecutorService
+operator|=
+literal|true
+expr_stmt|;
 block|}
+block|}
+else|else
+block|{
+name|lock
+operator|=
+operator|new
+name|ReentrantLock
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|doStop ()
@@ -6766,6 +7126,9 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|prepareShutdown (boolean suspendOnly, boolean forced)
@@ -6797,6 +7160,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
@@ -6813,6 +7179,9 @@ return|return
 literal|true
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|getPendingExchangesSize ()
@@ -6859,6 +7228,9 @@ literal|0
 return|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|doForceCompletionOnStop ()
 specifier|private
 name|void
@@ -6956,6 +7328,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|doShutdown ()
@@ -7018,12 +7393,35 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|shutdownOptimisticLockingExecutorService
+condition|)
+block|{
+name|camelContext
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdownNow
+argument_list|(
+name|optimisticLockingExecutorService
+argument_list|)
+expr_stmt|;
+name|optimisticLockingExecutorService
+operator|=
+literal|null
+expr_stmt|;
+block|}
 name|super
 operator|.
 name|doShutdown
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|forceCompletionOfGroup (String key)
 specifier|public
 name|int
@@ -7039,18 +7437,11 @@ name|total
 init|=
 literal|0
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|optimisticLocking
-condition|)
-block|{
 name|lock
 operator|.
 name|lock
 argument_list|()
 expr_stmt|;
-block|}
 try|try
 block|{
 name|Exchange
@@ -7094,7 +7485,7 @@ name|Exchange
 operator|.
 name|AGGREGATED_COMPLETED_BY
 argument_list|,
-literal|"force"
+name|COMPLETED_BY_FORCE
 argument_list|)
 expr_stmt|;
 name|Exchange
@@ -7130,18 +7521,11 @@ block|}
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-operator|!
-name|optimisticLocking
-condition|)
-block|{
 name|lock
 operator|.
 name|unlock
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 name|log
 operator|.
@@ -7175,6 +7559,9 @@ return|return
 name|total
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|forceCompletionOfAllGroups ()
 specifier|public
 name|int
@@ -7261,18 +7648,11 @@ argument_list|()
 condition|)
 block|{
 comment|// must acquire the shared aggregation lock to be able to trigger force completion
-if|if
-condition|(
-operator|!
-name|optimisticLocking
-condition|)
-block|{
 name|lock
 operator|.
 name|lock
 argument_list|()
 expr_stmt|;
-block|}
 name|total
 operator|=
 name|keys
@@ -7327,7 +7707,7 @@ name|Exchange
 operator|.
 name|AGGREGATED_COMPLETED_BY
 argument_list|,
-literal|"force"
+name|COMPLETED_BY_FORCE
 argument_list|)
 expr_stmt|;
 name|Exchange
@@ -7364,18 +7744,11 @@ block|}
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-operator|!
-name|optimisticLocking
-condition|)
-block|{
 name|lock
 operator|.
 name|unlock
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 name|log
@@ -7406,8 +7779,8 @@ return|return
 name|total
 return|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 

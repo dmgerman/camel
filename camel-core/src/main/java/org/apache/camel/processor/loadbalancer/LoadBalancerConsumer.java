@@ -121,7 +121,7 @@ name|loadBalancer
 operator|.
 name|addProcessor
 argument_list|(
-name|getProcessor
+name|getAsyncProcessor
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -140,7 +140,7 @@ name|loadBalancer
 operator|.
 name|removeProcessor
 argument_list|(
-name|getProcessor
+name|getAsyncProcessor
 argument_list|()
 argument_list|)
 expr_stmt|;

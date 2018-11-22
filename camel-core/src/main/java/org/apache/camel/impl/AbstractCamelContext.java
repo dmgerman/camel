@@ -2613,21 +2613,6 @@ specifier|private
 name|ErrorHandlerFactory
 name|errorHandlerBuilder
 decl_stmt|;
-DECL|field|errorHandlerExecutorServiceLock
-specifier|private
-specifier|final
-name|Object
-name|errorHandlerExecutorServiceLock
-init|=
-operator|new
-name|Object
-argument_list|()
-decl_stmt|;
-DECL|field|errorHandlerExecutorService
-specifier|private
-name|ScheduledExecutorService
-name|errorHandlerExecutorService
-decl_stmt|;
 DECL|field|dataFormats
 specifier|private
 name|Map
@@ -2711,6 +2696,16 @@ name|LinkedHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+DECL|field|lock
+specifier|private
+specifier|final
+name|Object
+name|lock
+init|=
+operator|new
+name|Object
+argument_list|()
+decl_stmt|;
 DECL|field|nameStrategy
 specifier|private
 specifier|volatile
@@ -2725,6 +2720,7 @@ name|managementNameStrategy
 decl_stmt|;
 DECL|field|registry
 specifier|private
+specifier|volatile
 name|Registry
 name|registry
 decl_stmt|;
@@ -2907,6 +2903,12 @@ specifier|private
 specifier|volatile
 name|RouteController
 name|routeController
+decl_stmt|;
+DECL|field|errorHandlerExecutorService
+specifier|private
+specifier|volatile
+name|ScheduledExecutorService
+name|errorHandlerExecutorService
 decl_stmt|;
 DECL|field|transformerRegistry
 specifier|private
@@ -3483,7 +3485,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -3540,7 +3542,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -5691,7 +5693,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -14319,7 +14321,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -14376,7 +14378,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -14433,7 +14435,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -14521,7 +14523,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -14578,7 +14580,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -14661,7 +14663,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -16011,9 +16013,16 @@ name|ScheduledExecutorService
 name|getErrorHandlerExecutorService
 parameter_list|()
 block|{
+if|if
+condition|(
+name|errorHandlerExecutorService
+operator|==
+literal|null
+condition|)
+block|{
 synchronized|synchronized
 init|(
-name|errorHandlerExecutorServiceLock
+name|lock
 init|)
 block|{
 if|if
@@ -16026,6 +16035,23 @@ block|{
 comment|// setup default thread pool for error handler
 name|errorHandlerExecutorService
 operator|=
+name|createErrorHandlerExecutorService
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
+return|return
+name|errorHandlerExecutorService
+return|;
+block|}
+DECL|method|createErrorHandlerExecutorService ()
+specifier|protected
+name|ScheduledExecutorService
+name|createErrorHandlerExecutorService
+parameter_list|()
+block|{
+return|return
 name|getExecutorServiceManager
 argument_list|()
 operator|.
@@ -16035,12 +16061,23 @@ literal|"ErrorHandlerRedeliveryThreadPool"
 argument_list|,
 literal|"ErrorHandlerRedeliveryTask"
 argument_list|)
-expr_stmt|;
-block|}
-block|}
-return|return
-name|errorHandlerExecutorService
 return|;
+block|}
+DECL|method|setErrorHandlerExecutorService (ScheduledExecutorService errorHandlerExecutorService)
+specifier|public
+name|void
+name|setErrorHandlerExecutorService
+parameter_list|(
+name|ScheduledExecutorService
+name|errorHandlerExecutorService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|errorHandlerExecutorService
+operator|=
+name|errorHandlerExecutorService
+expr_stmt|;
 block|}
 DECL|method|setProducerServicePool (ServicePool<Producer> producerServicePool)
 specifier|public
@@ -16082,7 +16119,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -16123,7 +16160,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -16183,7 +16220,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -16332,7 +16369,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -21591,7 +21628,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -21634,7 +21671,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -21736,7 +21773,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -21793,7 +21830,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -21892,7 +21929,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -21950,7 +21987,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -22007,7 +22044,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -22121,7 +22158,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -22178,7 +22215,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -22437,7 +22474,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -22689,7 +22726,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -22828,7 +22865,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -22890,7 +22927,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -22947,7 +22984,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -23047,7 +23084,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -23104,7 +23141,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -23165,7 +23202,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if
@@ -23533,7 +23570,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|lock
 init|)
 block|{
 if|if

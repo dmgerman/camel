@@ -337,6 +337,9 @@ argument_list|(
 literal|100
 argument_list|)
 operator|.
+name|syncDelayed
+argument_list|()
+operator|.
 name|process
 argument_list|(
 operator|new
@@ -392,6 +395,9 @@ name|delay
 argument_list|(
 literal|50
 argument_list|)
+operator|.
+name|syncDelayed
+argument_list|()
 operator|.
 name|process
 argument_list|(

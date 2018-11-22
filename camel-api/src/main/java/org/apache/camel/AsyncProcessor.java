@@ -14,6 +14,18 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CompletableFuture
+import|;
+end_import
+
 begin_comment
 comment|/**  * An<b>asynchronous</b> processor which can process an {@link Exchange} in an asynchronous fashion  * and signal completion by invoking the {@link AsyncCallback}.  *<p/>  * Any processor can be coerced to have an {@link AsyncProcessor} interface by using the  * {@link org.apache.camel.support.AsyncProcessorConverterHelper#convert AsyncProcessorConverterHelper.convert}  * method.  */
 end_comment
@@ -36,6 +48,17 @@ name|exchange
 parameter_list|,
 name|AsyncCallback
 name|callback
+parameter_list|)
+function_decl|;
+DECL|method|processAsync (Exchange exchange)
+name|CompletableFuture
+argument_list|<
+name|Exchange
+argument_list|>
+name|processAsync
+parameter_list|(
+name|Exchange
+name|exchange
 parameter_list|)
 function_decl|;
 block|}

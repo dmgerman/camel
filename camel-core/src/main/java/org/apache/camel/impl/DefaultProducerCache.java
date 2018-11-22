@@ -1202,10 +1202,9 @@ return|;
 block|}
 try|try
 block|{
+comment|// record timing for sending the exchange using the producer
 name|StopWatch
-name|sw
-init|=
-literal|null
+name|watch
 decl_stmt|;
 if|if
 condition|(
@@ -1238,21 +1237,28 @@ condition|(
 name|sending
 condition|)
 block|{
-name|sw
+name|watch
 operator|=
 operator|new
 name|StopWatch
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-comment|// record timing for sending the exchange using the producer
-specifier|final
-name|StopWatch
+else|else
+block|{
 name|watch
-init|=
-name|sw
-decl_stmt|;
+operator|=
+literal|null
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|watch
+operator|=
+literal|null
+expr_stmt|;
+block|}
 comment|// invoke the callback
 return|return
 name|producerCallback

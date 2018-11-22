@@ -237,7 +237,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Validate a Camel component analyzing if the meta-data files for  *<ul>  *<li>components</li>  *<li>dataformats</li>  *<li>languages</li>  *</ul>  * all contains the needed meta-data such as assigned labels, documentation for each option  *  * @goal validate-components  */
+comment|/**  * Validate a Camel component analyzing if the meta-data files for  *<ul>  *<li>components</li>  *<li>dataformats</li>  *<li>languages</li>  *</ul>  * all contains the needed meta-data such as assigned labels, documentation for each option  *  * @goal validate-components  * @threadSafe  */
 end_comment
 
 begin_class

@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -173,28 +185,18 @@ name|getNodeId
 parameter_list|()
 function_decl|;
 block|}
-comment|/**      * Registers the exchange to await for the callback to be triggered by another thread which has taken over processing      * this exchange. The current thread will await until that callback happens in the future (blocking until this happens).      *      * @param exchange   the exchange      * @param latch      the latch used to wait for other thread to signal when its done      */
-DECL|method|await (Exchange exchange, CountDownLatch latch)
+comment|/**      * Process the given exchange sychronously.      *      * @param processor the async processor to call      * @param exchange the exchange to process      */
+DECL|method|process (final AsyncProcessor processor, final Exchange exchange)
 name|void
-name|await
+name|process
 parameter_list|(
+specifier|final
+name|AsyncProcessor
+name|processor
+parameter_list|,
+specifier|final
 name|Exchange
 name|exchange
-parameter_list|,
-name|CountDownLatch
-name|latch
-parameter_list|)
-function_decl|;
-comment|/**      * Triggered when the other thread is done processing the exchange, to signal to the waiting thread is done, and can take      * over control to further process the exchange.      *      * @param exchange   the exchange      * @param latch      the latch used to wait for other thread to signal when its done      */
-DECL|method|countDown (Exchange exchange, CountDownLatch latch)
-name|void
-name|countDown
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
-name|CountDownLatch
-name|latch
 parameter_list|)
 function_decl|;
 comment|/**      * Number of threads that are blocked waiting for other threads to trigger the callback when they are done processing      * the exchange.      */

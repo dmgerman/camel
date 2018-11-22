@@ -543,7 +543,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generate BOM by flattening the current project's dependency management section and applying exclusions.  *  * @goal generate  * @phase validate  */
+comment|/**  * Generate BOM by flattening the current project's dependency management section and applying exclusions.  *  * @goal generate  * @phase validate  * @threadSafe  */
 end_comment
 
 begin_class

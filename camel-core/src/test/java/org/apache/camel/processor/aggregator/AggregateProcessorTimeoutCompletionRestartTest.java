@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ContextTestSupport
 import|;
 end_import
@@ -286,7 +298,7 @@ argument_list|,
 literal|"timeout"
 argument_list|)
 expr_stmt|;
-name|Processor
+name|AsyncProcessor
 name|done
 init|=
 operator|new
@@ -510,7 +522,7 @@ argument_list|,
 literal|"timeout"
 argument_list|)
 expr_stmt|;
-name|Processor
+name|AsyncProcessor
 name|done
 init|=
 operator|new
@@ -763,7 +775,7 @@ argument_list|,
 literal|"timeout"
 argument_list|)
 expr_stmt|;
-name|Processor
+name|AsyncProcessor
 name|done
 init|=
 operator|new

@@ -211,9 +211,9 @@ name|definition
 operator|.
 name|getAsyncDelayed
 argument_list|()
-operator|!=
+operator|==
 literal|null
-operator|&&
+operator|||
 name|definition
 operator|.
 name|getAsyncDelayed

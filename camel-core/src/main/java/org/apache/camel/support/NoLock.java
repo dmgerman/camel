@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor.loadbalancer
+DECL|package|org.apache.camel.support
 package|package
 name|org
 operator|.
@@ -12,106 +12,130 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|loadbalancer
+name|support
 package|;
 end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
+name|concurrent
 operator|.
-name|AsyncCallback
+name|TimeUnit
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
+name|concurrent
 operator|.
-name|Exchange
+name|locks
+operator|.
+name|Condition
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|locks
+operator|.
+name|Lock
 import|;
 end_import
 
 begin_comment
-comment|/**  * A default base class for a {@link LoadBalancer} implementation.  *<p/>  * This implementation is dedicated for simple synchronous load balancers.  *<p/>  * Consider using the {@link LoadBalancerSupport} if you want to support  * the asynchronous routing engine in Camel.  */
+comment|/**  * Empty lock implementation  */
 end_comment
 
 begin_class
-DECL|class|SimpleLoadBalancerSupport
+DECL|class|NoLock
 specifier|public
-specifier|abstract
 class|class
-name|SimpleLoadBalancerSupport
-extends|extends
-name|LoadBalancerSupport
+name|NoLock
+implements|implements
+name|Lock
 block|{
-DECL|method|process (Exchange exchange, AsyncCallback callback)
+annotation|@
+name|Override
+DECL|method|lock ()
+specifier|public
+name|void
+name|lock
+parameter_list|()
+block|{     }
+annotation|@
+name|Override
+DECL|method|lockInterruptibly ()
+specifier|public
+name|void
+name|lockInterruptibly
+parameter_list|()
+block|{     }
+annotation|@
+name|Override
+DECL|method|tryLock ()
 specifier|public
 name|boolean
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
-name|AsyncCallback
-name|callback
-parameter_list|)
+name|tryLock
+parameter_list|()
 block|{
-try|try
-block|{
-name|process
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-name|callback
-operator|.
-name|done
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 return|return
 literal|true
 return|;
 block|}
-DECL|method|process (Exchange exchange)
+annotation|@
+name|Override
+DECL|method|tryLock (long time, TimeUnit unit)
 specifier|public
-specifier|abstract
-name|void
-name|process
+name|boolean
+name|tryLock
 parameter_list|(
-name|Exchange
-name|exchange
+name|long
+name|time
+parameter_list|,
+name|TimeUnit
+name|unit
 parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|unlock ()
+specifier|public
+name|void
+name|unlock
+parameter_list|()
+block|{     }
+annotation|@
+name|Override
+DECL|method|newCondition ()
+specifier|public
+name|Condition
+name|newCondition
+parameter_list|()
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
+block|}
 block|}
 end_class
 

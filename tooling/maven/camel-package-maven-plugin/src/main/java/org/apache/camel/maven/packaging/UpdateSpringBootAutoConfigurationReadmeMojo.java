@@ -307,7 +307,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For all the Camel components that has Spring Boot starter JAR, their documentation  * .adoc files in their component directory is updated to include spring boot auto configuration options.  *  * @goal update-spring-boot-auto-configuration-readme  */
+comment|/**  * For all the Camel components that has Spring Boot starter JAR, their documentation  * .adoc files in their component directory is updated to include spring boot auto configuration options.  *  * @goal update-spring-boot-auto-configuration-readme  * @threadSafe  */
 end_comment
 
 begin_class

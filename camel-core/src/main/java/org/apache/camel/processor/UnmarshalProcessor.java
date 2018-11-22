@@ -56,18 +56,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|CamelContext
 import|;
 end_import
@@ -170,7 +158,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|AsyncProcessorHelper
+name|AsyncProcessorSupport
 import|;
 end_import
 
@@ -185,20 +173,6 @@ operator|.
 name|support
 operator|.
 name|ServiceHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|ServiceSupport
 import|;
 end_import
 
@@ -240,10 +214,8 @@ specifier|public
 class|class
 name|UnmarshalProcessor
 extends|extends
-name|ServiceSupport
+name|AsyncProcessorSupport
 implements|implements
-name|AsyncProcessor
-implements|,
 name|Traceable
 implements|,
 name|CamelContextAware
@@ -279,27 +251,6 @@ operator|.
 name|dataFormat
 operator|=
 name|dataFormat
-expr_stmt|;
-block|}
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|AsyncProcessorHelper
-operator|.
-name|process
-argument_list|(
-name|this
-argument_list|,
-name|exchange
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange, AsyncCallback callback)

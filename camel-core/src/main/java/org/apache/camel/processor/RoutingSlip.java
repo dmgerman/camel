@@ -58,18 +58,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncProducer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|CamelContext
 import|;
 end_import
@@ -254,6 +242,20 @@ name|camel
 operator|.
 name|support
 operator|.
+name|AsyncProcessorSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
 name|DefaultExchange
 import|;
 end_import
@@ -315,20 +317,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|ServiceSupport
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -370,10 +358,8 @@ specifier|public
 class|class
 name|RoutingSlip
 extends|extends
-name|ServiceSupport
+name|AsyncProcessorSupport
 implements|implements
-name|AsyncProcessor
-implements|,
 name|Traceable
 implements|,
 name|IdAware
@@ -702,27 +688,6 @@ name|expression
 operator|+
 literal|"]"
 return|;
-block|}
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|AsyncProcessorHelper
-operator|.
-name|process
-argument_list|(
-name|this
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
@@ -1791,7 +1756,7 @@ name|e
 parameter_list|)
 block|{
 comment|// error resolving endpoint so we should break out
-name|ex
+name|current
 operator|.
 name|setException
 argument_list|(
@@ -1891,7 +1856,7 @@ expr_stmt|;
 block|}
 comment|// okay we are completely done with the routing slip
 comment|// so we need to signal done on the original callback so it can continue
-name|originalCallback
+name|cb
 operator|.
 name|done
 argument_list|(
@@ -2117,32 +2082,9 @@ specifier|private
 specifier|final
 class|class
 name|RoutingSlipProcessor
-implements|implements
-name|AsyncProcessor
+extends|extends
+name|AsyncProcessorSupport
 block|{
-annotation|@
-name|Override
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|AsyncProcessorHelper
-operator|.
-name|process
-argument_list|(
-name|this
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|process (Exchange exchange, AsyncCallback callback)

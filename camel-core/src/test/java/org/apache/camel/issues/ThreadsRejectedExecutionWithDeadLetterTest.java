@@ -404,7 +404,7 @@ argument_list|)
 operator|.
 name|redeliveryDelay
 argument_list|(
-literal|10
+literal|100L
 argument_list|)
 argument_list|)
 operator|.
@@ -464,11 +464,11 @@ name|latch
 operator|.
 name|await
 argument_list|(
-literal|5
+literal|500
 argument_list|,
 name|TimeUnit
 operator|.
-name|SECONDS
+name|MILLISECONDS
 argument_list|)
 expr_stmt|;
 block|}

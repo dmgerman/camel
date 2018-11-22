@@ -1105,7 +1105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generate Spring Boot auto configuration files for Camel components and data formats.  *  * @goal prepare-spring-boot-auto-configuration  * @requiresDependencyResolution compile+runtime  */
+comment|/**  * Generate Spring Boot auto configuration files for Camel components and data formats.  *  * @goal prepare-spring-boot-auto-configuration  * @threadSafe  * @requiresDependencyResolution compile+runtime  */
 end_comment
 
 begin_class

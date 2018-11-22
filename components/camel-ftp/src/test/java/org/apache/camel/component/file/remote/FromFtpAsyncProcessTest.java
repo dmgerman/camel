@@ -74,18 +74,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -101,6 +89,20 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|AsyncProcessorSupport
 import|;
 end_import
 
@@ -335,8 +337,8 @@ DECL|class|MyAsyncProcessor
 specifier|private
 class|class
 name|MyAsyncProcessor
-implements|implements
-name|AsyncProcessor
+extends|extends
+name|AsyncProcessorSupport
 block|{
 DECL|field|executor
 specifier|private
@@ -423,21 +425,6 @@ expr_stmt|;
 return|return
 literal|false
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// noop
 block|}
 block|}
 block|}

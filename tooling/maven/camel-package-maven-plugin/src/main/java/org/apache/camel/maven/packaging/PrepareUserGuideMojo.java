@@ -315,7 +315,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Prepares the user guide to keep the table of content up to date with the components, data formats, and languages.  *  * @goal prepare-user-guide  */
+comment|/**  * Prepares the user guide to keep the table of content up to date with the components, data formats, and languages.  *  * @goal prepare-user-guide  * @threadSafe  */
 end_comment
 
 begin_class

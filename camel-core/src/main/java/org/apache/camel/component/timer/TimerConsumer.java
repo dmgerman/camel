@@ -160,6 +160,20 @@ name|DefaultConsumer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ReactiveHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * The timer consumer.  */
 end_comment
@@ -852,6 +866,30 @@ DECL|method|sendTimerExchange (long counter)
 specifier|protected
 name|void
 name|sendTimerExchange
+parameter_list|(
+name|long
+name|counter
+parameter_list|)
+block|{
+name|ReactiveHelper
+operator|.
+name|schedule
+argument_list|(
+parameter_list|()
+lambda|->
+name|doSendTimerExchange
+argument_list|(
+name|counter
+argument_list|)
+argument_list|,
+literal|"Send timer exchange"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|doSendTimerExchange (long counter)
+specifier|protected
+name|void
+name|doSendTimerExchange
 parameter_list|(
 name|long
 name|counter

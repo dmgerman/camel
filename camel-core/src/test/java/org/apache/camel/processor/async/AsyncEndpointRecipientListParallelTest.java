@@ -161,17 +161,13 @@ argument_list|,
 name|reply
 argument_list|)
 expr_stmt|;
-comment|// to hard to do parallel async routing so the caller thread is synchronized
-name|assertTrue
+name|assertNotEquals
 argument_list|(
-literal|"Should use same threads"
+literal|"Should use different threads"
 argument_list|,
 name|beforeThreadName
-operator|.
-name|equalsIgnoreCase
-argument_list|(
+argument_list|,
 name|afterThreadName
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

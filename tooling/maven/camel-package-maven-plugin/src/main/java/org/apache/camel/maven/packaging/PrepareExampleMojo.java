@@ -309,7 +309,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Prepares the readme.md files content up to date with all the examples that Apache Camel ships.  *  * @goal prepare-example  */
+comment|/**  * Prepares the readme.md files content up to date with all the examples that Apache Camel ships.  *  * @goal prepare-example  * @threadSafe  */
 end_comment
 
 begin_class
