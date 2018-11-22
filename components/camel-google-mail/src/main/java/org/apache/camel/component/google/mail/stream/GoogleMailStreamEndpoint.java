@@ -26,16 +26,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|UnsupportedEncodingException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|nio
 operator|.
 name|charset
@@ -61,18 +51,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|mail
-operator|.
-name|internet
-operator|.
-name|AddressException
 import|;
 end_import
 
@@ -775,8 +753,6 @@ operator|.
 name|Message
 name|mail
 parameter_list|)
-throws|throws
-name|UnsupportedEncodingException
 block|{
 name|Exchange
 name|exchange
@@ -784,7 +760,9 @@ init|=
 name|super
 operator|.
 name|createExchange
-argument_list|()
+argument_list|(
+name|pattern
+argument_list|)
 decl_stmt|;
 name|Message
 name|message
@@ -869,9 +847,6 @@ name|getData
 argument_list|()
 operator|.
 name|trim
-argument_list|()
-operator|.
-name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1082,8 +1057,6 @@ parameter_list|(
 name|String
 name|labels
 parameter_list|)
-throws|throws
-name|AddressException
 block|{
 return|return
 name|Splitter
