@@ -167,6 +167,19 @@ argument_list|(
 literal|"start"
 argument_list|)
 operator|.
+name|inRandomOrder
+argument_list|()
+operator|.
+name|withSubsegment
+argument_list|(
+name|TestDataBuilder
+operator|.
+name|createSubsegment
+argument_list|(
+literal|"seda:d"
+argument_list|)
+argument_list|)
+operator|.
 name|withSubsegment
 argument_list|(
 name|TestDataBuilder
@@ -175,12 +188,14 @@ name|createSubsegment
 argument_list|(
 literal|"direct:a"
 argument_list|)
+argument_list|)
+argument_list|)
 operator|.
-name|withSubsegment
+name|withSegment
 argument_list|(
 name|TestDataBuilder
 operator|.
-name|createSubsegment
+name|createSegment
 argument_list|(
 literal|"a"
 argument_list|)
@@ -204,21 +219,8 @@ argument_list|(
 literal|"seda:c"
 argument_list|)
 argument_list|)
-comment|// note that the subsegment name matches the routeId
-operator|.
-name|withSubsegment
-argument_list|(
-name|TestDataBuilder
-operator|.
-name|createSubsegment
-argument_list|(
-literal|"test"
-argument_list|)
-argument_list|)
 comment|// no tracing of the invoke checker bean as it wasn't annotated with
 comment|// @XRayTrace
-argument_list|)
-argument_list|)
 argument_list|)
 operator|.
 name|withSegment
@@ -252,7 +254,16 @@ argument_list|(
 literal|"d"
 argument_list|)
 argument_list|)
-comment|// note no test-segment here!
+operator|.
+name|withSegment
+argument_list|(
+name|TestDataBuilder
+operator|.
+name|createSegment
+argument_list|(
+literal|"test"
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
