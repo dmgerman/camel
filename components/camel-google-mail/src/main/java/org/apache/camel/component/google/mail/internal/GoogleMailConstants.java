@@ -26,14 +26,18 @@ begin_comment
 comment|/**  * Constants for GoogleMail component.  */
 end_comment
 
-begin_interface
-DECL|interface|GoogleMailConstants
+begin_class
+DECL|class|GoogleMailConstants
 specifier|public
-interface|interface
+specifier|final
+class|class
 name|GoogleMailConstants
 block|{
 comment|// suffix for parameters when passed as exchange header properties
 DECL|field|PROPERTY_PREFIX
+specifier|public
+specifier|static
+specifier|final
 name|String
 name|PROPERTY_PREFIX
 init|=
@@ -41,13 +45,26 @@ literal|"CamelGoogleMail."
 decl_stmt|;
 comment|// thread profile name for this component
 DECL|field|THREAD_PROFILE_NAME
+specifier|public
+specifier|static
+specifier|final
 name|String
 name|THREAD_PROFILE_NAME
 init|=
 literal|"CamelGoogleMail"
 decl_stmt|;
+comment|/**      * Prevent instantiation.      */
+DECL|method|GoogleMailConstants ()
+specifier|private
+name|GoogleMailConstants
+parameter_list|()
+block|{
+name|super
+argument_list|()
+expr_stmt|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

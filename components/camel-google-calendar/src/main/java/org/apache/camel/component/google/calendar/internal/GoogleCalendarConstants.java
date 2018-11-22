@@ -26,14 +26,18 @@ begin_comment
 comment|/**  * Constants for GoogleCalendar component.  */
 end_comment
 
-begin_interface
-DECL|interface|GoogleCalendarConstants
+begin_class
+DECL|class|GoogleCalendarConstants
 specifier|public
-interface|interface
+specifier|final
+class|class
 name|GoogleCalendarConstants
 block|{
 comment|// suffix for parameters when passed as exchange header properties
 DECL|field|PROPERTY_PREFIX
+specifier|public
+specifier|static
+specifier|final
 name|String
 name|PROPERTY_PREFIX
 init|=
@@ -41,13 +45,26 @@ literal|"CamelGoogleCalendar."
 decl_stmt|;
 comment|// thread profile name for this component
 DECL|field|THREAD_PROFILE_NAME
+specifier|public
+specifier|static
+specifier|final
 name|String
 name|THREAD_PROFILE_NAME
 init|=
 literal|"CamelGoogleCalendar"
 decl_stmt|;
+comment|/**      * Prevent instantiation.      */
+DECL|method|GoogleCalendarConstants ()
+specifier|private
+name|GoogleCalendarConstants
+parameter_list|()
+block|{
+name|super
+argument_list|()
+expr_stmt|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

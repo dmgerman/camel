@@ -20,38 +20,61 @@ name|bigquery
 package|;
 end_package
 
-begin_interface
-DECL|interface|GoogleBigQueryConstants
+begin_class
+DECL|class|GoogleBigQueryConstants
 specifier|public
-interface|interface
+specifier|final
+class|class
 name|GoogleBigQueryConstants
 block|{
 DECL|field|TABLE_SUFFIX
+specifier|public
+specifier|static
+specifier|final
 name|String
 name|TABLE_SUFFIX
 init|=
 literal|"CamelGoogleBigQueryTableSuffix"
 decl_stmt|;
 DECL|field|TABLE_ID
+specifier|public
+specifier|static
+specifier|final
 name|String
 name|TABLE_ID
 init|=
 literal|"CamelGoogleBigQueryTableId"
 decl_stmt|;
 DECL|field|INSERT_ID
+specifier|public
+specifier|static
+specifier|final
 name|String
 name|INSERT_ID
 init|=
 literal|"CamelGoogleBigQueryInsertId"
 decl_stmt|;
 DECL|field|PARTITION_DECORATOR
+specifier|public
+specifier|static
+specifier|final
 name|String
 name|PARTITION_DECORATOR
 init|=
 literal|"CamelGoogleBigQueryPartitionDecorator"
 decl_stmt|;
+comment|/**      * Prevent instantiation.      */
+DECL|method|GoogleBigQueryConstants ()
+specifier|private
+name|GoogleBigQueryConstants
+parameter_list|()
+block|{
+name|super
+argument_list|()
+expr_stmt|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 
