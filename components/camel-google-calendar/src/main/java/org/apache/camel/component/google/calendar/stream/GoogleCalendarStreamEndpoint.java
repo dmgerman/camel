@@ -24,16 +24,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|UnsupportedEncodingException
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|google
@@ -426,8 +416,6 @@ parameter_list|,
 name|Event
 name|event
 parameter_list|)
-throws|throws
-name|UnsupportedEncodingException
 block|{
 name|Exchange
 name|exchange
@@ -435,7 +423,9 @@ init|=
 name|super
 operator|.
 name|createExchange
-argument_list|()
+argument_list|(
+name|pattern
+argument_list|)
 decl_stmt|;
 name|Message
 name|message
@@ -450,6 +440,20 @@ operator|.
 name|setBody
 argument_list|(
 name|event
+argument_list|)
+expr_stmt|;
+name|message
+operator|.
+name|setHeader
+argument_list|(
+name|GoogleCalendarStreamConstants
+operator|.
+name|EVENT_ID
+argument_list|,
+name|event
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

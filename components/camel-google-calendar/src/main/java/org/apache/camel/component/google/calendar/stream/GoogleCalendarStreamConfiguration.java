@@ -28,7 +28,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
+name|Collections
 import|;
 end_import
 
@@ -136,9 +136,9 @@ name|String
 argument_list|>
 name|DEFAULT_SCOPES
 init|=
-name|Arrays
+name|Collections
 operator|.
-name|asList
+name|singletonList
 argument_list|(
 name|CalendarScopes
 operator|.
@@ -270,7 +270,7 @@ return|return
 name|clientId
 return|;
 block|}
-comment|/**      * Client ID of the mail application      */
+comment|/**      * Client ID of the calendar application      */
 DECL|method|setClientId (String clientId)
 specifier|public
 name|void
@@ -297,7 +297,7 @@ return|return
 name|clientSecret
 return|;
 block|}
-comment|/**      * Client secret of the mail application      */
+comment|/**      * Client secret of the calendar application      */
 DECL|method|setClientSecret (String clientSecret)
 specifier|public
 name|void
@@ -408,7 +408,7 @@ return|return
 name|scopes
 return|;
 block|}
-comment|/**      * Specifies the level of permissions you want a mail application to have to      * a user account. See https://developers.google.com/calendar/api/auth/scopes      * for more info.      */
+comment|/**      * Specifies the level of permissions you want a calendar application to have to      * a user account. See https://developers.google.com/calendar/auth      * for more info.      */
 DECL|method|setScopes (List<String> scopes)
 specifier|public
 name|void
