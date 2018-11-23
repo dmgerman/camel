@@ -206,7 +206,7 @@ name|UriEndpoint
 argument_list|(
 name|firstVersion
 operator|=
-literal|"2.22.0"
+literal|"2.23.0"
 argument_list|,
 name|scheme
 operator|=
@@ -214,7 +214,7 @@ literal|"nsq"
 argument_list|,
 name|title
 operator|=
-literal|"nsq"
+literal|"NSQ"
 argument_list|,
 name|syntax
 operator|=
