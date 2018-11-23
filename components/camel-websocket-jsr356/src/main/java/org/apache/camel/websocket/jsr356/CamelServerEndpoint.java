@@ -4,13 +4,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.jsr356
+DECL|package|org.apache.camel.websocket.jsr356
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|websocket
 operator|.
 name|jsr356
 package|;

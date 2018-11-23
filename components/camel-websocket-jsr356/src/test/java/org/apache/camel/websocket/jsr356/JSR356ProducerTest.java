@@ -4,13 +4,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.jsr356
+DECL|package|org.apache.camel.websocket.jsr356
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|websocket
 operator|.
 name|jsr356
 package|;
@@ -257,7 +259,7 @@ parameter_list|()
 constructor_decl|;
 name|setScanningPackageIncludes
 argument_list|(
-literal|"org.apache.camel.jsr356.JSR356ProducerTest$"
+literal|"org.apache.camel.websocket.jsr356.JSR356ProducerTest$"
 argument_list|)
 expr_stmt|;
 comment|// deploy test classes
@@ -386,7 +388,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jsr356://ws://localhost:"
+literal|"websocket-jsr356://ws://localhost:"
 operator|+
 name|servlet
 operator|.
