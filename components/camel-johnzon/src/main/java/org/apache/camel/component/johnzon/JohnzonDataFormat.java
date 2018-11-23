@@ -853,9 +853,7 @@ expr_stmt|;
 block|}
 name|objectMapper
 operator|=
-operator|new
-name|MapperBuilder
-argument_list|()
+name|builder
 operator|.
 name|build
 argument_list|()
