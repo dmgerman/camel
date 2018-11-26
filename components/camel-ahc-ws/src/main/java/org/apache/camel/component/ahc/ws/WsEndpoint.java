@@ -958,6 +958,33 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|onPingFrame (byte[] payload)
+specifier|public
+name|void
+name|onPingFrame
+parameter_list|(
+name|byte
+index|[]
+name|payload
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Received ping --> {}"
+argument_list|,
+name|payload
+argument_list|)
+expr_stmt|;
+name|websocket
+operator|.
+name|sendPongFrame
+argument_list|(
+name|payload
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
