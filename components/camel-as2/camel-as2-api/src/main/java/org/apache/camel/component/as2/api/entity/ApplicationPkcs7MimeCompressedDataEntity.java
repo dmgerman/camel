@@ -54,16 +54,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|security
-operator|.
-name|PrivateKey
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -222,7 +212,7 @@ name|bouncycastle
 operator|.
 name|cms
 operator|.
-name|CMSEnvelopedData
+name|CMSCompressedData
 import|;
 end_import
 
@@ -234,7 +224,7 @@ name|bouncycastle
 operator|.
 name|cms
 operator|.
-name|CMSEnvelopedDataGenerator
+name|CMSCompressedDataGenerator
 import|;
 end_import
 
@@ -270,15 +260,27 @@ name|bouncycastle
 operator|.
 name|operator
 operator|.
-name|OutputEncryptor
+name|InputExpanderProvider
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|bouncycastle
+operator|.
+name|operator
+operator|.
+name|OutputCompressor
 import|;
 end_import
 
 begin_class
-DECL|class|ApplicationPkcs7MimeEntity
+DECL|class|ApplicationPkcs7MimeCompressedDataEntity
 specifier|public
 class|class
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeCompressedDataEntity
 extends|extends
 name|MimeEntity
 block|{
@@ -289,29 +291,29 @@ specifier|final
 name|String
 name|CONTENT_DISPOSITION
 init|=
-literal|"attachment; filename=\"smime.p7m\""
+literal|"attachment; filename=\"smime.p7z\""
 decl_stmt|;
-DECL|field|encryptedData
+DECL|field|compressedData
 specifier|private
 name|byte
 index|[]
-name|encryptedData
+name|compressedData
 decl_stmt|;
-DECL|method|ApplicationPkcs7MimeEntity (MimeEntity entity2Encrypt, CMSEnvelopedDataGenerator dataGenerator, OutputEncryptor encryptor, String encryptedContentTransferEncoding, boolean isMainBody)
+DECL|method|ApplicationPkcs7MimeCompressedDataEntity (MimeEntity entity2Encrypt, CMSCompressedDataGenerator dataGenerator, OutputCompressor compressor, String compressedContentTransferEncoding, boolean isMainBody)
 specifier|public
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeCompressedDataEntity
 parameter_list|(
 name|MimeEntity
 name|entity2Encrypt
 parameter_list|,
-name|CMSEnvelopedDataGenerator
+name|CMSCompressedDataGenerator
 name|dataGenerator
 parameter_list|,
-name|OutputEncryptor
-name|encryptor
+name|OutputCompressor
+name|compressor
 parameter_list|,
 name|String
-name|encryptedContentTransferEncoding
+name|compressedContentTransferEncoding
 parameter_list|,
 name|boolean
 name|isMainBody
@@ -332,7 +334,7 @@ name|BasicNameValuePair
 argument_list|(
 literal|"smime-type"
 argument_list|,
-literal|"enveloped-data"
+literal|"compressed-data"
 argument_list|)
 argument_list|,
 operator|new
@@ -340,14 +342,14 @@ name|BasicNameValuePair
 argument_list|(
 literal|"name"
 argument_list|,
-literal|"smime.p7m"
+literal|"smime.p7z"
 argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|setContentTransferEncoding
 argument_list|(
-name|encryptedContentTransferEncoding
+name|compressedContentTransferEncoding
 argument_list|)
 expr_stmt|;
 name|addHeader
@@ -368,15 +370,15 @@ try|try
 block|{
 name|this
 operator|.
-name|encryptedData
+name|compressedData
 operator|=
-name|createEncryptedData
+name|createCompressedData
 argument_list|(
 name|entity2Encrypt
 argument_list|,
 name|dataGenerator
 argument_list|,
-name|encryptor
+name|compressor
 argument_list|)
 expr_stmt|;
 block|}
@@ -395,16 +397,16 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|ApplicationPkcs7MimeEntity (byte[] encryptedData, String encryptedContentTransferEncoding, boolean isMainBody)
+DECL|method|ApplicationPkcs7MimeCompressedDataEntity (byte[] compressedData, String compressedContentTransferEncoding, boolean isMainBody)
 specifier|public
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeCompressedDataEntity
 parameter_list|(
 name|byte
 index|[]
-name|encryptedData
+name|compressedData
 parameter_list|,
 name|String
-name|encryptedContentTransferEncoding
+name|compressedContentTransferEncoding
 parameter_list|,
 name|boolean
 name|isMainBody
@@ -412,13 +414,13 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|encryptedData
+name|compressedData
 operator|=
 name|Args
 operator|.
 name|notNull
 argument_list|(
-name|encryptedData
+name|compressedData
 argument_list|,
 literal|"encryptedData"
 argument_list|)
@@ -436,7 +438,7 @@ name|BasicNameValuePair
 argument_list|(
 literal|"smime-type"
 argument_list|,
-literal|"enveloped-datat"
+literal|"compressed-datat"
 argument_list|)
 argument_list|,
 operator|new
@@ -444,14 +446,14 @@ name|BasicNameValuePair
 argument_list|(
 literal|"name"
 argument_list|,
-literal|"smime.p7m"
+literal|"smime.p7z"
 argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|setContentTransferEncoding
 argument_list|(
-name|encryptedContentTransferEncoding
+name|compressedContentTransferEncoding
 argument_list|)
 expr_stmt|;
 name|addHeader
@@ -594,7 +596,7 @@ name|transferEncodedStream
 operator|.
 name|write
 argument_list|(
-name|encryptedData
+name|compressedData
 argument_list|)
 expr_stmt|;
 block|}
@@ -615,13 +617,13 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|getEncryptedEntity (PrivateKey privateKey)
+DECL|method|getCompressedEntity (InputExpanderProvider expanderProvider)
 specifier|public
 name|MimeEntity
-name|getEncryptedEntity
+name|getCompressedEntity
 parameter_list|(
-name|PrivateKey
-name|privateKey
+name|InputExpanderProvider
+name|expanderProvider
 parameter_list|)
 throws|throws
 name|HttpException
@@ -629,28 +631,28 @@ block|{
 return|return
 name|EntityParser
 operator|.
-name|parseEnvelopedEntity
+name|parseCompressedEntity
 argument_list|(
-name|encryptedData
+name|compressedData
 argument_list|,
-name|privateKey
+name|expanderProvider
 argument_list|)
 return|;
 block|}
-DECL|method|createEncryptedData (MimeEntity entity2Encrypt, CMSEnvelopedDataGenerator envelopedDataGenerator, OutputEncryptor encryptor)
+DECL|method|createCompressedData (MimeEntity entity2Encrypt, CMSCompressedDataGenerator compressedDataGenerator, OutputCompressor compressor)
 specifier|private
 name|byte
 index|[]
-name|createEncryptedData
+name|createCompressedData
 parameter_list|(
 name|MimeEntity
 name|entity2Encrypt
 parameter_list|,
-name|CMSEnvelopedDataGenerator
-name|envelopedDataGenerator
+name|CMSCompressedDataGenerator
+name|compressedDataGenerator
 parameter_list|,
-name|OutputEncryptor
-name|encryptor
+name|OutputCompressor
+name|compressor
 parameter_list|)
 throws|throws
 name|Exception
@@ -689,20 +691,20 @@ name|toByteArray
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|CMSEnvelopedData
-name|envelopedData
+name|CMSCompressedData
+name|compressedData
 init|=
-name|envelopedDataGenerator
+name|compressedDataGenerator
 operator|.
 name|generate
 argument_list|(
 name|contentData
 argument_list|,
-name|encryptor
+name|compressor
 argument_list|)
 decl_stmt|;
 return|return
-name|envelopedData
+name|compressedData
 operator|.
 name|getEncoded
 argument_list|()
