@@ -691,9 +691,7 @@ name|id
 operator|+
 literal|"_CamelService"
 argument_list|,
-name|this
-operator|.
-name|camel
+name|context
 argument_list|)
 expr_stmt|;
 block|}
