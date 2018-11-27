@@ -40,6 +40,16 @@ name|javax
 operator|.
 name|xml
 operator|.
+name|XMLConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
 name|transform
 operator|.
 name|ErrorListener
@@ -67,6 +77,18 @@ operator|.
 name|transform
 operator|.
 name|Transformer
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|TransformerConfigurationException
 import|;
 end_import
 
@@ -690,6 +712,30 @@ argument_list|(
 literal|"Cannot resolve a transformer factory"
 argument_list|)
 throw|;
+block|}
+try|try
+block|{
+name|transformerFactory
+operator|.
+name|setFeature
+argument_list|(
+name|XMLConstants
+operator|.
+name|FEATURE_SECURE_PROCESSING
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|TransformerConfigurationException
+name|ex
+parameter_list|)
+block|{
+comment|// ignore
 block|}
 name|transformerFactory
 operator|.
