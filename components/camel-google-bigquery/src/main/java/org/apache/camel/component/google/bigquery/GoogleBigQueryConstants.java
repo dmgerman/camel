@@ -63,6 +63,15 @@ name|PARTITION_DECORATOR
 init|=
 literal|"CamelGoogleBigQueryPartitionDecorator"
 decl_stmt|;
+DECL|field|TRANSLATED_QUERY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TRANSLATED_QUERY
+init|=
+literal|"CamelGoogleBigQueryTranslatedQuery"
+decl_stmt|;
 comment|/**      * Prevent instantiation.      */
 DECL|method|GoogleBigQueryConstants ()
 specifier|private
