@@ -66,6 +66,24 @@ name|as2
 operator|.
 name|api
 operator|.
+name|AS2CompressionAlgorithm
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|as2
+operator|.
+name|api
+operator|.
 name|AS2EncryptionAlgorithm
 import|;
 end_import
@@ -413,6 +431,13 @@ DECL|field|signingPrivateKey
 specifier|private
 name|PrivateKey
 name|signingPrivateKey
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|compressionAlgorithm
+specifier|private
+name|AS2CompressionAlgorithm
+name|compressionAlgorithm
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1176,6 +1201,33 @@ operator|=
 name|signingPrivateKey
 expr_stmt|;
 block|}
+DECL|method|getCompressionAlgorithm ()
+specifier|public
+name|AS2CompressionAlgorithm
+name|getCompressionAlgorithm
+parameter_list|()
+block|{
+return|return
+name|compressionAlgorithm
+return|;
+block|}
+comment|/**      * The algorithm used to compress EDI message.      */
+DECL|method|setCompressionAlgorithm (AS2CompressionAlgorithm compressionAlgorithm)
+specifier|public
+name|void
+name|setCompressionAlgorithm
+parameter_list|(
+name|AS2CompressionAlgorithm
+name|compressionAlgorithm
+parameter_list|)
+block|{
+name|this
+operator|.
+name|compressionAlgorithm
+operator|=
+name|compressionAlgorithm
+expr_stmt|;
+block|}
 DECL|method|getDispositionNotificationTo ()
 specifier|public
 name|String
@@ -1232,10 +1284,10 @@ operator|=
 name|signedReceiptMicAlgorithms
 expr_stmt|;
 block|}
-DECL|method|getEncryptingingAlgorithm ()
+DECL|method|getEncryptingAlgorithm ()
 specifier|public
 name|AS2EncryptionAlgorithm
-name|getEncryptingingAlgorithm
+name|getEncryptingAlgorithm
 parameter_list|()
 block|{
 return|return

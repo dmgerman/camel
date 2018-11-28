@@ -275,10 +275,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ApplicationPkcs7MimeEntity
+DECL|class|ApplicationPkcs7MimeEnvelopedDataEntity
 specifier|public
 class|class
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeEnvelopedDataEntity
 extends|extends
 name|MimeEntity
 block|{
@@ -297,9 +297,9 @@ name|byte
 index|[]
 name|encryptedData
 decl_stmt|;
-DECL|method|ApplicationPkcs7MimeEntity (MimeEntity entity2Encrypt, CMSEnvelopedDataGenerator dataGenerator, OutputEncryptor encryptor, String encryptedContentTransferEncoding, boolean isMainBody)
+DECL|method|ApplicationPkcs7MimeEnvelopedDataEntity (MimeEntity entity2Encrypt, CMSEnvelopedDataGenerator dataGenerator, OutputEncryptor encryptor, String encryptedContentTransferEncoding, boolean isMainBody)
 specifier|public
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeEnvelopedDataEntity
 parameter_list|(
 name|MimeEntity
 name|entity2Encrypt
@@ -395,9 +395,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|ApplicationPkcs7MimeEntity (byte[] encryptedData, String encryptedContentTransferEncoding, boolean isMainBody)
+DECL|method|ApplicationPkcs7MimeEnvelopedDataEntity (byte[] encryptedData, String encryptedContentTransferEncoding, boolean isMainBody)
 specifier|public
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeEnvelopedDataEntity
 parameter_list|(
 name|byte
 index|[]

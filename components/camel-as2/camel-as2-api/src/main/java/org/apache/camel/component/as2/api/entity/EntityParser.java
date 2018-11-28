@@ -4629,7 +4629,7 @@ block|}
 DECL|method|parseApplicationPkcs7MimeEntityBody (AS2SessionInputBuffer inbuffer, String boundary, ContentType contentType, String contentTransferEncoding)
 specifier|public
 specifier|static
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeEnvelopedDataEntity
 name|parseApplicationPkcs7MimeEntityBody
 parameter_list|(
 name|AS2SessionInputBuffer
@@ -4727,11 +4727,11 @@ argument_list|,
 name|contentTransferEncoding
 argument_list|)
 decl_stmt|;
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeEnvelopedDataEntity
 name|applicationPkcs7MimeEntity
 init|=
 operator|new
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeEnvelopedDataEntity
 argument_list|(
 name|encryptedContent
 argument_list|,

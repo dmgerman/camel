@@ -1863,11 +1863,11 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeEnvelopedDataEntity
 name|applicationPkcs7MimeEntity
 init|=
 operator|new
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeEnvelopedDataEntity
 argument_list|(
 name|textEntity
 argument_list|,

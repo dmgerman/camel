@@ -250,7 +250,7 @@ name|api
 operator|.
 name|entity
 operator|.
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeEnvelopedDataEntity
 import|;
 end_import
 
@@ -1960,6 +1960,8 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|DISPOSITION_NOTIFICATION_TO
 argument_list|,
 name|SIGNED_RECEIPT_MIC_ALGORITHMS
@@ -2409,6 +2411,8 @@ name|signingKP
 operator|.
 name|getPrivate
 argument_list|()
+argument_list|,
+literal|null
 argument_list|,
 name|DISPOSITION_NOTIFICATION_TO
 argument_list|,
@@ -3344,6 +3348,8 @@ operator|.
 name|getPrivate
 argument_list|()
 argument_list|,
+literal|null
+argument_list|,
 name|DISPOSITION_NOTIFICATION_TO
 argument_list|,
 name|SIGNED_RECEIPT_MIC_ALGORITHMS
@@ -3670,14 +3676,14 @@ literal|"Unexpected request entity type"
 argument_list|,
 name|entity
 operator|instanceof
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeEnvelopedDataEntity
 argument_list|)
 expr_stmt|;
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeEnvelopedDataEntity
 name|envelopedEntity
 init|=
 operator|(
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeEnvelopedDataEntity
 operator|)
 name|entity
 decl_stmt|;
@@ -3870,7 +3876,7 @@ name|AS2_NAME
 argument_list|,
 name|AS2MessageStructure
 operator|.
-name|ENCRYPTED_SIGNED
+name|SIGNED_ENCRYPTED
 argument_list|,
 name|ContentType
 operator|.
@@ -3906,6 +3912,8 @@ name|signingKP
 operator|.
 name|getPrivate
 argument_list|()
+argument_list|,
+literal|null
 argument_list|,
 name|DISPOSITION_NOTIFICATION_TO
 argument_list|,
@@ -4233,14 +4241,14 @@ literal|"Unexpected request entity type"
 argument_list|,
 name|entity
 operator|instanceof
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeEnvelopedDataEntity
 argument_list|)
 expr_stmt|;
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeEnvelopedDataEntity
 name|envelopedEntity
 init|=
 operator|(
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeEnvelopedDataEntity
 operator|)
 name|entity
 decl_stmt|;
@@ -4538,6 +4546,8 @@ operator|.
 name|getPrivate
 argument_list|()
 argument_list|,
+literal|null
+argument_list|,
 name|DISPOSITION_NOTIFICATION_TO
 argument_list|,
 name|SIGNED_RECEIPT_MIC_ALGORITHMS
@@ -4733,6 +4743,8 @@ name|AS2Charset
 operator|.
 name|US_ASCII
 argument_list|)
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,

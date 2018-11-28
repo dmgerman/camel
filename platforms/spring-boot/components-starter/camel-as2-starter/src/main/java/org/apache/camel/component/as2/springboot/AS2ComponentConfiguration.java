@@ -66,6 +66,24 @@ name|as2
 operator|.
 name|api
 operator|.
+name|AS2CompressionAlgorithm
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|as2
+operator|.
+name|api
+operator|.
 name|AS2EncryptionAlgorithm
 import|;
 end_import
@@ -431,6 +449,12 @@ DECL|field|signingPrivateKey
 specifier|private
 name|PrivateKey
 name|signingPrivateKey
+decl_stmt|;
+comment|/**          * The algorithm used to compress EDI message.          */
+DECL|field|compressionAlgorithm
+specifier|private
+name|AS2CompressionAlgorithm
+name|compressionAlgorithm
 decl_stmt|;
 comment|/**          * The value of the Disposition-Notification-To header. Assigning a          * value to this parameter requests a message disposition notification          * (MDN) for the AS2 message.          */
 DECL|field|dispositionNotificationTo
@@ -1010,6 +1034,32 @@ operator|.
 name|signingPrivateKey
 operator|=
 name|signingPrivateKey
+expr_stmt|;
+block|}
+DECL|method|getCompressionAlgorithm ()
+specifier|public
+name|AS2CompressionAlgorithm
+name|getCompressionAlgorithm
+parameter_list|()
+block|{
+return|return
+name|compressionAlgorithm
+return|;
+block|}
+DECL|method|setCompressionAlgorithm ( AS2CompressionAlgorithm compressionAlgorithm)
+specifier|public
+name|void
+name|setCompressionAlgorithm
+parameter_list|(
+name|AS2CompressionAlgorithm
+name|compressionAlgorithm
+parameter_list|)
+block|{
+name|this
+operator|.
+name|compressionAlgorithm
+operator|=
+name|compressionAlgorithm
 expr_stmt|;
 block|}
 DECL|method|getDispositionNotificationTo ()

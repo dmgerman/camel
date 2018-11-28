@@ -470,7 +470,7 @@ name|api
 operator|.
 name|entity
 operator|.
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeEnvelopedDataEntity
 import|;
 end_import
 
@@ -2658,7 +2658,7 @@ literal|"Request body does not contain ApplicationPkcs7Mime entity"
 argument_list|,
 name|entity
 operator|instanceof
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeEnvelopedDataEntity
 argument_list|)
 expr_stmt|;
 name|MimeEntity
@@ -2666,7 +2666,7 @@ name|envelopeEntity
 init|=
 operator|(
 operator|(
-name|ApplicationPkcs7MimeEntity
+name|ApplicationPkcs7MimeEnvelopedDataEntity
 operator|)
 name|entity
 operator|)
