@@ -26,6 +26,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -123,12 +133,14 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|util
+name|junit
 operator|.
-name|Set
+name|Assert
+operator|.
+name|assertEquals
 import|;
 end_import
 
@@ -140,7 +152,19 @@ name|junit
 operator|.
 name|Assert
 operator|.
-name|*
+name|assertTrue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
 import|;
 end_import
 
@@ -174,6 +198,84 @@ specifier|public
 class|class
 name|SqlHelperTest
 block|{
+DECL|field|query
+name|String
+name|query
+init|=
+literal|"INSERT INTO ${report}.test( -- TODO \n"
+operator|+
+literal|"  id,\n"
+operator|+
+literal|"  region\n"
+operator|+
+literal|")\n"
+operator|+
+literal|"SELECT\n"
+operator|+
+literal|"  id,\n"
+operator|+
+literal|"  region\n"
+operator|+
+literal|"FROM\n"
+operator|+
+literal|"  ${import}.test\n"
+operator|+
+literal|"WHERE\n"
+operator|+
+literal|"  rec_date = @date AND id = @id\n"
+decl_stmt|;
+DECL|field|expected
+name|String
+name|expected
+init|=
+literal|"INSERT INTO report_data.test( -- TODO \n"
+operator|+
+literal|"  id,\n"
+operator|+
+literal|"  region\n"
+operator|+
+literal|")\n"
+operator|+
+literal|"SELECT\n"
+operator|+
+literal|"  id,\n"
+operator|+
+literal|"  region\n"
+operator|+
+literal|"FROM\n"
+operator|+
+literal|"  import_data.test\n"
+operator|+
+literal|"WHERE\n"
+operator|+
+literal|"  rec_date = @date AND id = @id\n"
+decl_stmt|;
+DECL|field|exchange
+name|Exchange
+name|exchange
+init|=
+name|Mockito
+operator|.
+name|mock
+argument_list|(
+name|Exchange
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+DECL|field|message
+name|Message
+name|message
+init|=
+name|Mockito
+operator|.
+name|mock
+argument_list|(
+name|Message
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|context
 specifier|private
 name|CamelContext
@@ -254,84 +356,6 @@ name|answer
 argument_list|)
 expr_stmt|;
 block|}
-DECL|field|query
-name|String
-name|query
-init|=
-literal|"INSERT INTO ${report}.test( -- TODO \n"
-operator|+
-literal|"  id,\n"
-operator|+
-literal|"  region\n"
-operator|+
-literal|")\n"
-operator|+
-literal|"SELECT\n"
-operator|+
-literal|"  id,\n"
-operator|+
-literal|"  region\n"
-operator|+
-literal|"FROM\n"
-operator|+
-literal|"  ${import}.test\n"
-operator|+
-literal|"WHERE\n"
-operator|+
-literal|"  rec_date = @date AND id = @id\n"
-decl_stmt|;
-DECL|field|expected
-name|String
-name|expected
-init|=
-literal|"INSERT INTO report_data.test( -- TODO \n"
-operator|+
-literal|"  id,\n"
-operator|+
-literal|"  region\n"
-operator|+
-literal|")\n"
-operator|+
-literal|"SELECT\n"
-operator|+
-literal|"  id,\n"
-operator|+
-literal|"  region\n"
-operator|+
-literal|"FROM\n"
-operator|+
-literal|"  import_data.test\n"
-operator|+
-literal|"WHERE\n"
-operator|+
-literal|"  rec_date = @date AND id = @id\n"
-decl_stmt|;
-DECL|field|exchange
-name|Exchange
-name|exchange
-init|=
-name|Mockito
-operator|.
-name|mock
-argument_list|(
-name|Exchange
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-DECL|field|message
-name|Message
-name|message
-init|=
-name|Mockito
-operator|.
-name|mock
-argument_list|(
-name|Message
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testTranslateQuery ()

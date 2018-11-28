@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p>  * http://www.apache.org/licenses/LICENSE-2.0  *<p>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -21,32 +21,6 @@ operator|.
 name|sql
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|ResourceHelper
-import|;
-end_import
 
 begin_import
 import|import
@@ -112,6 +86,80 @@ name|Pattern
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|NoTypeConversionAvailableException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ResourceHelper
+import|;
+end_import
+
 begin_class
 DECL|class|SqlHelper
 specifier|public
@@ -150,7 +198,7 @@ specifier|private
 name|SqlHelper
 parameter_list|()
 block|{     }
-comment|/**      * Resolve the query by loading the query from the classpath or file resource if needed.      */
+comment|/**      * Resolve the query by loading the query from the classpath or file      * resource if needed.      */
 DECL|method|resolveQuery (CamelContext camelContext, String query, String placeholder)
 specifier|public
 specifier|static
@@ -238,7 +286,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Replaces pattern in query in form of "${param}" with values from message header      * Raises an error if param value not found in headers      * @param exchange      * @return Translated query text      */
+comment|/**      * Replaces pattern in query in form of "${param}" with values from message      * header Raises an error if param value not found in headers      *       * @param exchange      * @return Translated query text      */
 DECL|method|translateQuery (String query, Exchange exchange)
 specifier|public
 specifier|static
@@ -335,6 +383,7 @@ name|value
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|RuntimeExchangeException
@@ -348,6 +397,7 @@ argument_list|,
 name|exchange
 argument_list|)
 throw|;
+block|}
 block|}
 name|String
 name|replacement
@@ -383,7 +433,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Extracts list of parameters in form "@name" from query text      * @param query      * @return list of parameter names      */
+comment|/**      * Extracts list of parameters in form "@name" from query text      *       * @param query      * @return list of parameter names      */
 DECL|method|extractParameterNames (String query)
 specifier|public
 specifier|static

@@ -285,7 +285,7 @@ return|return
 name|connectionFactory
 return|;
 block|}
-comment|/**      * ConnectionFactory to obtain connection to Bigquery Service. If non provided the default one will be used      */
+comment|/**      * ConnectionFactory to obtain connection to Bigquery Service. If non      * provided the default one will be used      */
 DECL|method|setConnectionFactory (GoogleBigQueryConnectionFactory connectionFactory)
 specifier|public
 name|void
