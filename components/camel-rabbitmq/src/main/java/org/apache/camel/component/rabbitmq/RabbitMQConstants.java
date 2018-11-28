@@ -269,6 +269,15 @@ name|RABBITMQ_QUEUE_LENGTH_LIMIT_KEY
 init|=
 literal|"x-max-length"
 decl_stmt|;
+DECL|field|RABBITMQ_QUEUE_MAX_PRIORITY_KEY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|RABBITMQ_QUEUE_MAX_PRIORITY_KEY
+init|=
+literal|"x-max-priority"
+decl_stmt|;
 DECL|field|RABBITMQ_QUEUE_MESSAGE_TTL_KEY
 specifier|public
 specifier|static
