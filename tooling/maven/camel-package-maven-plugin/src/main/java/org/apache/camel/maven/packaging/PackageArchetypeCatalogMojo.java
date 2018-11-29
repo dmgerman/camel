@@ -158,6 +158,54 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Mojo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Parameter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|project
 operator|.
 name|MavenProject
@@ -197,10 +245,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates the Maven catalog for the Camel archetypes  *  * @goal generate-and-attach-archetype-catalog  * @threadSafe  */
+comment|/**  * Creates the Maven catalog for the Camel archetypes  */
 end_comment
 
 begin_class
+annotation|@
+name|Mojo
+argument_list|(
+name|name
+operator|=
+literal|"generate-and-attach-archetype-catalog"
+argument_list|,
+name|threadSafe
+operator|=
+literal|true
+argument_list|)
 DECL|class|PackageArchetypeCatalogMojo
 specifier|public
 class|class
@@ -208,25 +267,56 @@ name|PackageArchetypeCatalogMojo
 extends|extends
 name|AbstractMojo
 block|{
-comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
+comment|/**      * The maven project.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"project"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|,
+name|readonly
+operator|=
+literal|true
+argument_list|)
 DECL|field|project
 specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The output directory for generated components file      *      * @parameter default-value="${project.build.directory}/classes/"      */
+comment|/**      * The output directory for generated components file      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/"
+argument_list|)
 DECL|field|outDir
 specifier|protected
 name|File
 name|outDir
 decl_stmt|;
-comment|/**      * The build directory      *      * @parameter default-value="${project.build.directory}"      */
+comment|/**      * The build directory      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}"
+argument_list|)
 DECL|field|projectBuildDir
 specifier|protected
 name|File
 name|projectBuildDir
 decl_stmt|;
-comment|/**      * Maven ProjectHelper.      *      * @component      * @readonly      */
+comment|/**      * Maven ProjectHelper.      */
+annotation|@
+name|Component
 DECL|field|projectHelper
 specifier|private
 name|MavenProjectHelper

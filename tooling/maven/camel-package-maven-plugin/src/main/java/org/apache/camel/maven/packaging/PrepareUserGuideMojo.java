@@ -120,14 +120,6 @@ end_import
 
 begin_import
 import|import
-name|edu
-operator|.
-name|emory
-operator|.
-name|mathcs
-operator|.
-name|backport
-operator|.
 name|java
 operator|.
 name|util
@@ -258,6 +250,54 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Mojo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Parameter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|project
 operator|.
 name|MavenProject
@@ -315,10 +355,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Prepares the user guide to keep the table of content up to date with the components, data formats, and languages.  *  * @goal prepare-user-guide  * @threadSafe  */
+comment|/**  * Prepares the user guide to keep the table of content up to date with the components, data formats, and languages.  */
 end_comment
 
 begin_class
+annotation|@
+name|Mojo
+argument_list|(
+name|name
+operator|=
+literal|"prepare-user-guide"
+argument_list|,
+name|threadSafe
+operator|=
+literal|true
+argument_list|)
 DECL|class|PrepareUserGuideMojo
 specifier|public
 class|class
@@ -326,43 +377,95 @@ name|PrepareUserGuideMojo
 extends|extends
 name|AbstractMojo
 block|{
-comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
+comment|/**      * The maven project.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"project"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|,
+name|readonly
+operator|=
+literal|true
+argument_list|)
 DECL|field|project
 specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The directory for components catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/components"      */
+comment|/**      * The directory for components catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/components"
+argument_list|)
 DECL|field|componentsDir
 specifier|protected
 name|File
 name|componentsDir
 decl_stmt|;
-comment|/**      * The directory for data formats catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/dataformats"      */
+comment|/**      * The directory for data formats catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/dataformats"
+argument_list|)
 DECL|field|dataFormatsDir
 specifier|protected
 name|File
 name|dataFormatsDir
 decl_stmt|;
-comment|/**      * The directory for languages catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/languages"      */
+comment|/**      * The directory for languages catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/languages"
+argument_list|)
 DECL|field|languagesDir
 specifier|protected
 name|File
 name|languagesDir
 decl_stmt|;
-comment|/**      * The directory for others catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/others"      */
+comment|/**      * The directory for others catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/others"
+argument_list|)
 DECL|field|othersDir
 specifier|protected
 name|File
 name|othersDir
 decl_stmt|;
-comment|/**      * The directory for the user guide      *      * @parameter default-value="${project.directory}/../../../docs/user-manual/en"      */
+comment|/**      * The directory for the user guide      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.directory}/../../../docs/user-manual/en"
+argument_list|)
 DECL|field|userGuideDir
 specifier|protected
 name|File
 name|userGuideDir
 decl_stmt|;
-comment|/**      * Maven ProjectHelper.      *      * @component      * @readonly      */
+comment|/**      * Maven ProjectHelper.      */
+annotation|@
+name|Component
 DECL|field|projectHelper
 specifier|private
 name|MavenProjectHelper

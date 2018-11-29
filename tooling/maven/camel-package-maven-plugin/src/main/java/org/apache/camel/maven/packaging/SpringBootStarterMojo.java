@@ -612,6 +612,54 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Mojo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Parameter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|project
 operator|.
 name|MavenProject
@@ -693,10 +741,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generate Spring Boot starter for the component  *  * @goal prepare-spring-boot-starter  * @threadSafe  */
+comment|/**  * Generate Spring Boot starter for the component  */
 end_comment
 
 begin_class
+annotation|@
+name|Mojo
+argument_list|(
+name|name
+operator|=
+literal|"prepare-spring-boot-starter"
+argument_list|,
+name|threadSafe
+operator|=
+literal|true
+argument_list|)
 DECL|class|SpringBootStarterMojo
 specifier|public
 class|class
@@ -798,49 +857,100 @@ name|GENERATED_SECTION_END
 operator|+
 literal|"-->"
 decl_stmt|;
-comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
+comment|/**      * The maven project.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"project"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|,
+name|readonly
+operator|=
+literal|true
+argument_list|)
 DECL|field|project
 specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * Allows using the existing pom.xml file if present.      *      * @parameter property="reuseExistingPom" default-value="true"      */
+comment|/**      * Allows using the existing pom.xml file if present.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"reuseExistingPom"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|reuseExistingPom
 specifier|protected
 name|boolean
 name|reuseExistingPom
 decl_stmt|;
-comment|/**      * The project directory      *      * @parameter default-value="${basedir}"      */
+comment|/**      * The project directory      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${basedir}"
+argument_list|)
 DECL|field|baseDir
 specifier|protected
 name|File
 name|baseDir
 decl_stmt|;
-comment|/**      * @component      * @required      * @readonly      */
+annotation|@
+name|Component
 DECL|field|artifactFactory
 specifier|protected
 name|ArtifactFactory
 name|artifactFactory
 decl_stmt|;
-comment|/**      * @component      * @required      * @readonly      */
+annotation|@
+name|Component
 DECL|field|artifactMetadataSource
 specifier|protected
 name|ArtifactMetadataSource
 name|artifactMetadataSource
 decl_stmt|;
-comment|/**      * @component      * @required      * @readonly      */
+annotation|@
+name|Component
 DECL|field|artifactCollector
 specifier|protected
 name|ArtifactCollector
 name|artifactCollector
 decl_stmt|;
-comment|/**      * @component      * @required      * @readonly      */
+annotation|@
+name|Component
 DECL|field|treeBuilder
 specifier|protected
 name|DependencyTreeBuilder
 name|treeBuilder
 decl_stmt|;
-comment|/**      * @parameter default-value="${localRepository}"      * @readonly      * @required      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${localRepository}"
+argument_list|,
+name|readonly
+operator|=
+literal|true
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|field|localRepository
 specifier|protected
 name|ArtifactRepository

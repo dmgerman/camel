@@ -560,6 +560,54 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Mojo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Parameter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|ResolutionScope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|project
 operator|.
 name|MavenProject
@@ -1105,10 +1153,27 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generate Spring Boot auto configuration files for Camel components and data formats.  *  * @goal prepare-spring-boot-auto-configuration  * @threadSafe  * @requiresDependencyResolution compile+runtime  */
+comment|/**  * Generate Spring Boot auto configuration files for Camel components and data formats.  */
 end_comment
 
 begin_class
+annotation|@
+name|Mojo
+argument_list|(
+name|name
+operator|=
+literal|"prepare-spring-boot-auto-configuration"
+argument_list|,
+name|threadSafe
+operator|=
+literal|true
+argument_list|,
+name|requiresDependencyResolution
+operator|=
+name|ResolutionScope
+operator|.
+name|COMPILE_PLUS_RUNTIME
+argument_list|)
 DECL|class|SpringBootAutoConfigurationMojo
 specifier|public
 class|class
@@ -1316,25 +1381,61 @@ block|,
 literal|"camel-connector"
 block|}
 decl_stmt|;
-comment|/**      * The output directory for generated component schema file      *      * @parameter default-value="${project.build.directory}/classes"      */
+comment|/**      * The output directory for generated component schema file      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes"
+argument_list|)
 DECL|field|classesDir
 specifier|protected
 name|File
 name|classesDir
 decl_stmt|;
-comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
+comment|/**      * The maven project.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"project"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|,
+name|readonly
+operator|=
+literal|true
+argument_list|)
 DECL|field|project
 specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The project build directory      *      * @parameter default-value="${project.build.directory}"      */
+comment|/**      * The project build directory      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}"
+argument_list|)
 DECL|field|buildDir
 specifier|protected
 name|File
 name|buildDir
 decl_stmt|;
-comment|/**      * The base directory      *      * @parameter default-value="${basedir}"      */
+comment|/**      * The base directory      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${basedir}"
+argument_list|)
 DECL|field|baseDir
 specifier|protected
 name|File

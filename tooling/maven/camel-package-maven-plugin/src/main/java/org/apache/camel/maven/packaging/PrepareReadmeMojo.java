@@ -74,6 +74,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Comparator
 import|;
 end_import
@@ -125,38 +135,6 @@ operator|.
 name|util
 operator|.
 name|TreeSet
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Collectors
-operator|.
-name|toSet
-import|;
-end_import
-
-begin_import
-import|import
-name|edu
-operator|.
-name|emory
-operator|.
-name|mathcs
-operator|.
-name|backport
-operator|.
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 
@@ -300,6 +278,54 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Mojo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Parameter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|project
 operator|.
 name|MavenProject
@@ -329,6 +355,20 @@ operator|.
 name|templates
 operator|.
 name|TemplateRuntime
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+operator|.
+name|toSet
 import|;
 end_import
 
@@ -369,10 +409,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Prepares the readme.md files content up to date with all the artifacts that Apache Camel ships.  *  * @goal prepare-readme  * @threadSafe  */
+comment|/**  * Prepares the readme.md files content up to date with all the artifacts that Apache Camel ships.  */
 end_comment
 
 begin_class
+annotation|@
+name|Mojo
+argument_list|(
+name|name
+operator|=
+literal|"prepare-readme"
+argument_list|,
+name|threadSafe
+operator|=
+literal|true
+argument_list|)
 DECL|class|PrepareReadmeMojo
 specifier|public
 class|class
@@ -380,61 +431,127 @@ name|PrepareReadmeMojo
 extends|extends
 name|AbstractMojo
 block|{
-comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
+comment|/**      * The maven project.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"project"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|,
+name|readonly
+operator|=
+literal|true
+argument_list|)
 DECL|field|project
 specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The directory for EIPs (model) catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/models"      */
+comment|/**      * The directory for EIPs (model) catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/models"
+argument_list|)
 DECL|field|eipsDir
 specifier|protected
 name|File
 name|eipsDir
 decl_stmt|;
-comment|/**      * The directory for components catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/components"      */
+comment|/**      * The directory for components catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/components"
+argument_list|)
 DECL|field|componentsDir
 specifier|protected
 name|File
 name|componentsDir
 decl_stmt|;
-comment|/**      * The directory for data formats catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/dataformats"      */
+comment|/**      * The directory for data formats catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/dataformats"
+argument_list|)
 DECL|field|dataFormatsDir
 specifier|protected
 name|File
 name|dataFormatsDir
 decl_stmt|;
-comment|/**      * The directory for languages catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/languages"      */
+comment|/**      * The directory for languages catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/languages"
+argument_list|)
 DECL|field|languagesDir
 specifier|protected
 name|File
 name|languagesDir
 decl_stmt|;
-comment|/**      * The directory for others catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/others"      */
+comment|/**      * The directory for others catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/others"
+argument_list|)
 DECL|field|othersDir
 specifier|protected
 name|File
 name|othersDir
 decl_stmt|;
-comment|/**      * The directory for camel-core      *      * @parameter default-value="${project.directory}/../../../camel-core"      */
+comment|/**      * The directory for camel-core      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.directory}/../../../camel-core"
+argument_list|)
 DECL|field|readmeCoreDir
 specifier|protected
 name|File
 name|readmeCoreDir
 decl_stmt|;
-comment|/**      * The directory for components      *      * @parameter default-value="${project.directory}/../../../components"      */
+comment|/**      * The directory for components      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.directory}/../../../components"
+argument_list|)
 DECL|field|readmeComponentsDir
 specifier|protected
 name|File
 name|readmeComponentsDir
 decl_stmt|;
-comment|/**      * Maven ProjectHelper.      *      * @component      * @readonly      */
+comment|/**      * Maven ProjectHelper.      */
+annotation|@
+name|Component
 DECL|field|projectHelper
 specifier|private
 name|MavenProjectHelper
 name|projectHelper
 decl_stmt|;
-comment|/**      * Execute goal.      *      * @throws MojoExecutionException execution of the main class or one of the      *                                                        threads it generated failed.      * @throws MojoFailureException   something bad happened...      */
+comment|/**      * Execute goal.      *      * @throws MojoExecutionException execution of the main class or one of the      *                                threads it generated failed.      * @throws MojoFailureException   something bad happened...      */
 DECL|method|execute ()
 specifier|public
 name|void

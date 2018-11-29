@@ -546,6 +546,70 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|LifecyclePhase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Mojo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Parameter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|project
 operator|.
 name|MavenProject
@@ -553,10 +617,27 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generate BOM by flattening the current project's dependency management section and applying exclusions.  *  * @goal generate  * @phase validate  * @threadSafe  */
+comment|/**  * Generate BOM by flattening the current project's dependency management section and applying exclusions.  */
 end_comment
 
 begin_class
+annotation|@
+name|Mojo
+argument_list|(
+name|name
+operator|=
+literal|"generate"
+argument_list|,
+name|defaultPhase
+operator|=
+name|LifecyclePhase
+operator|.
+name|VALIDATE
+argument_list|,
+name|threadSafe
+operator|=
+literal|true
+argument_list|)
 DECL|class|BomGeneratorMojo
 specifier|public
 class|class
@@ -564,55 +645,128 @@ name|BomGeneratorMojo
 extends|extends
 name|AbstractMojo
 block|{
-comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
+comment|/**      * The maven project.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project}"
+argument_list|,
+name|readonly
+operator|=
+literal|true
+argument_list|)
 DECL|field|project
 specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The source pom template file.      *      * @parameter default-value="${basedir}/pom.xml"      */
+comment|/**      * The source pom template file.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${basedir}/pom.xml"
+argument_list|)
 DECL|field|sourcePom
 specifier|protected
 name|File
 name|sourcePom
 decl_stmt|;
-comment|/**      * The pom file.      *      * @parameter default-value="${project.build.directory}/${project.name}-pom.xml"      */
+comment|/**      * The pom file.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/${project.name}-pom.xml"
+argument_list|)
 DECL|field|targetPom
 specifier|protected
 name|File
 name|targetPom
 decl_stmt|;
-comment|/**      * The user configuration      *      * @parameter      * @readonly      */
+comment|/**      * The user configuration      */
+annotation|@
+name|Parameter
+argument_list|(
+name|readonly
+operator|=
+literal|true
+argument_list|)
 DECL|field|dependencies
 specifier|protected
 name|DependencySet
 name|dependencies
 decl_stmt|;
-comment|/**      * The conflict checks configured by the user      *      * @parameter      * @readonly      */
+comment|/**      * The conflict checks configured by the user      */
+annotation|@
+name|Parameter
+argument_list|(
+name|readonly
+operator|=
+literal|true
+argument_list|)
 DECL|field|checkConflicts
 specifier|protected
 name|ExternalBomConflictCheckSet
 name|checkConflicts
 decl_stmt|;
-comment|/**      * Used to look up Artifacts in the remote repository.      *      * @component role="org.apache.maven.artifact.factory.ArtifactFactory"      * @required      * @readonly      */
+comment|/**      * Used to look up Artifacts in the remote repository.      */
+annotation|@
+name|Component
 DECL|field|artifactFactory
 specifier|protected
 name|ArtifactFactory
 name|artifactFactory
 decl_stmt|;
-comment|/**      * Used to look up Artifacts in the remote repository.      *      * @component role="org.apache.maven.artifact.resolver.ArtifactResolver"      * @required      * @readonly      */
+comment|/**      * Used to look up Artifacts in the remote repository.      */
+annotation|@
+name|Component
 DECL|field|artifactResolver
 specifier|protected
 name|ArtifactResolver
 name|artifactResolver
 decl_stmt|;
-comment|/**      * List of Remote Repositories used by the resolver      *      * @parameter property="project.remoteArtifactRepositories"      * @readonly      * @required      */
+comment|/**      * List of Remote Repositories used by the resolver      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"project.remoteArtifactRepositories"
+argument_list|,
+name|readonly
+operator|=
+literal|true
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|field|remoteRepositories
 specifier|protected
 name|List
 name|remoteRepositories
 decl_stmt|;
-comment|/**      * Location of the local repository.      *      * @parameter property="localRepository"      * @readonly      * @required      */
+comment|/**      * Location of the local repository.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"localRepository"
+argument_list|,
+name|readonly
+operator|=
+literal|true
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|field|localRepository
 specifier|protected
 name|ArtifactRepository

@@ -362,6 +362,38 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Mojo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Parameter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|project
 operator|.
 name|MavenProject
@@ -431,10 +463,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Performs route coverage reports after running Camel unit tests with camel-test modules  *  * @goal route-coverage  * @threadSafe  */
+comment|/**  * Performs route coverage reports after running Camel unit tests with camel-test modules  */
 end_comment
 
 begin_class
+annotation|@
+name|Mojo
+argument_list|(
+name|name
+operator|=
+literal|"route-coverage"
+argument_list|,
+name|threadSafe
+operator|=
+literal|true
+argument_list|)
 DECL|class|RouteCoverageMojo
 specifier|public
 class|class
@@ -442,13 +485,39 @@ name|RouteCoverageMojo
 extends|extends
 name|AbstractExecMojo
 block|{
-comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
+comment|/**      * The maven project.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"project"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|,
+name|readonly
+operator|=
+literal|true
+argument_list|)
 DECL|field|project
 specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
 comment|/**      * Whether to fail if a route was not fully covered.      *       * Note the option coverageThreshold can be used      * to set a minimum coverage threshold in percentage.      *      * @parameter property="camel.failOnError"      *            default-value="false"      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.failOnError"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|failOnError
 specifier|private
 name|boolean
@@ -462,25 +531,61 @@ name|coverageThreshold
 init|=
 literal|100
 decl_stmt|;
-comment|/**      * Whether to include test source code      *      * @parameter property="camel.includeTest"      *            default-value="false"      */
+comment|/**      * Whether to include test source code      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.includeTest"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|includeTest
 specifier|private
 name|boolean
 name|includeTest
 decl_stmt|;
-comment|/**      * To filter the names of java and xml files to only include files matching any of the given list of patterns (wildcard and regular expression).      * Multiple values can be separated by comma.      *      * @parameter property="camel.includes"      */
+comment|/**      * To filter the names of java and xml files to only include files matching any of the given list of patterns (wildcard and regular expression).      * Multiple values can be separated by comma.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.includes"
+argument_list|)
 DECL|field|includes
 specifier|private
 name|String
 name|includes
 decl_stmt|;
-comment|/**      * To filter the names of java and xml files to exclude files matching any of the given list of patterns (wildcard and regular expression).      * Multiple values can be separated by comma.      *      * @parameter property="camel.excludes"      */
+comment|/**      * To filter the names of java and xml files to exclude files matching any of the given list of patterns (wildcard and regular expression).      * Multiple values can be separated by comma.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.excludes"
+argument_list|)
 DECL|field|excludes
 specifier|private
 name|String
 name|excludes
 decl_stmt|;
-comment|/**      * Whether to allow anonymous routes (routes without any route id assigned).      * By using route id's then its safer to match the route cover data with the route source code.      * Anonymous routes are less safe to use for route coverage as its harder to know      * exactly which route that was tested corresponds to which of the routes from the source code.      *      * @parameter property="camel.anonymousRoutes"      *            default-value="false"      */
+comment|/**      * Whether to allow anonymous routes (routes without any route id assigned).      * By using route id's then its safer to match the route cover data with the route source code.      * Anonymous routes are less safe to use for route coverage as its harder to know      * exactly which route that was tested corresponds to which of the routes from the source code.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.anonymousRoutes"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|anonymousRoutes
 specifier|private
 name|boolean

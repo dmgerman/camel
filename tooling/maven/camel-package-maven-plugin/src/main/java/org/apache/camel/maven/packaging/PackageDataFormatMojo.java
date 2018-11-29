@@ -242,6 +242,54 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Mojo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Parameter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|project
 operator|.
 name|MavenProject
@@ -333,10 +381,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Analyses the Camel plugins in a project and generates extra descriptor information for easier auto-discovery in Camel.  *  * @goal generate-dataformats-list  * @threadSafe  */
+comment|/**  * Analyses the Camel plugins in a project and generates extra descriptor information for easier auto-discovery in Camel.  */
 end_comment
 
 begin_class
+annotation|@
+name|Mojo
+argument_list|(
+name|name
+operator|=
+literal|"generate-dataformats-list"
+argument_list|,
+name|threadSafe
+operator|=
+literal|true
+argument_list|)
 DECL|class|PackageDataFormatMojo
 specifier|public
 class|class
@@ -344,31 +403,64 @@ name|PackageDataFormatMojo
 extends|extends
 name|AbstractMojo
 block|{
-comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
+comment|/**      * The maven project.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"project"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|,
+name|readonly
+operator|=
+literal|true
+argument_list|)
 DECL|field|project
 specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The output directory for generated dataformats file      *      * @parameter default-value="${project.build.directory}/generated/camel/dataformats"      */
+comment|/**      * The output directory for generated dataformats file      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/generated/camel/dataformats"
+argument_list|)
 DECL|field|dataFormatOutDir
 specifier|protected
 name|File
 name|dataFormatOutDir
 decl_stmt|;
-comment|/**      * The output directory for generated dataformats file      *      * @parameter default-value="${project.build.directory}/classes"      */
+comment|/**      * The output directory for generated dataformats file      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes"
+argument_list|)
 DECL|field|schemaOutDir
 specifier|protected
 name|File
 name|schemaOutDir
 decl_stmt|;
-comment|/**      * Maven ProjectHelper.      *      * @component      * @readonly      */
+comment|/**      * Maven ProjectHelper.      */
+annotation|@
+name|Component
 DECL|field|projectHelper
 specifier|private
 name|MavenProjectHelper
 name|projectHelper
 decl_stmt|;
-comment|/**      * build context to check changed files and mark them for refresh (used for      * m2e compatibility)      *       * @component      * @readonly      */
+comment|/**      * build context to check changed files and mark them for refresh (used for      * m2e compatibility)      */
+annotation|@
+name|Component
 DECL|field|buildContext
 specifier|private
 name|BuildContext

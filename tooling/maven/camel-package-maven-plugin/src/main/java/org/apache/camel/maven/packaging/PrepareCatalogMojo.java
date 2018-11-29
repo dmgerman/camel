@@ -258,6 +258,54 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Mojo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Parameter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|project
 operator|.
 name|MavenProject
@@ -317,10 +365,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Prepares the camel catalog to include component, data format, and eip descriptors,  * and generates a report.  *  * @goal prepare-catalog  * @threadSafe  */
+comment|/**  * Prepares the camel catalog to include component, data format, and eip descriptors,  * and generates a report.  */
 end_comment
 
 begin_class
+annotation|@
+name|Mojo
+argument_list|(
+name|name
+operator|=
+literal|"prepare-catalog"
+argument_list|,
+name|threadSafe
+operator|=
+literal|true
+argument_list|)
 DECL|class|PrepareCatalogMojo
 specifier|public
 class|class
@@ -382,103 +441,225 @@ name|UNUSED_LABELS_WARN
 init|=
 literal|15
 decl_stmt|;
-comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
+comment|/**      * The maven project.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"project"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|,
+name|readonly
+operator|=
+literal|true
+argument_list|)
 DECL|field|project
 specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * Whether to validate if the components, data formats, and languages are properly documented and have all the needed details.      *      * @parameter default-value="true"      */
+comment|/**      * Whether to validate if the components, data formats, and languages are properly documented and have all the needed details.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|validate
 specifier|protected
 name|Boolean
 name|validate
 decl_stmt|;
-comment|/**      * The output directory for components catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/components"      */
+comment|/**      * The output directory for components catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/components"
+argument_list|)
 DECL|field|componentsOutDir
 specifier|protected
 name|File
 name|componentsOutDir
 decl_stmt|;
-comment|/**      * The output directory for dataformats catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/dataformats"      */
+comment|/**      * The output directory for dataformats catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/dataformats"
+argument_list|)
 DECL|field|dataFormatsOutDir
 specifier|protected
 name|File
 name|dataFormatsOutDir
 decl_stmt|;
-comment|/**      * The output directory for languages catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/languages"      */
+comment|/**      * The output directory for languages catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/languages"
+argument_list|)
 DECL|field|languagesOutDir
 specifier|protected
 name|File
 name|languagesOutDir
 decl_stmt|;
-comment|/**      * The output directory for others catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/others"      */
+comment|/**      * The output directory for others catalog      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/others"
+argument_list|)
 DECL|field|othersOutDir
 specifier|protected
 name|File
 name|othersOutDir
 decl_stmt|;
-comment|/**      * The output directory for documents catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/docs"      */
+comment|/**      * The output directory for documents catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/docs"
+argument_list|)
 DECL|field|documentsOutDir
 specifier|protected
 name|File
 name|documentsOutDir
 decl_stmt|;
-comment|/**      * The output directory for models catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/models"      */
+comment|/**      * The output directory for models catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/models"
+argument_list|)
 DECL|field|modelsOutDir
 specifier|protected
 name|File
 name|modelsOutDir
 decl_stmt|;
-comment|/**      * The output directory for archetypes catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/archetypes"      */
+comment|/**      * The output directory for archetypes catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/archetypes"
+argument_list|)
 DECL|field|archetypesOutDir
 specifier|protected
 name|File
 name|archetypesOutDir
 decl_stmt|;
-comment|/**      * The output directory for XML schemas catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/schemas"      */
+comment|/**      * The output directory for XML schemas catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/schemas"
+argument_list|)
 DECL|field|schemasOutDir
 specifier|protected
 name|File
 name|schemasOutDir
 decl_stmt|;
-comment|/**      * The components directory where all the Apache Camel components are      *      * @parameter default-value="${project.build.directory}/../../../components"      */
+comment|/**      * The components directory where all the Apache Camel components are      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/../../../components"
+argument_list|)
 DECL|field|componentsDir
 specifier|protected
 name|File
 name|componentsDir
 decl_stmt|;
-comment|/**      * The camel-core directory where camel-core components are      *      * @parameter default-value="${project.build.directory}/../../../camel-core"      */
+comment|/**      * The camel-core directory where camel-core components are      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/../../../camel-core"
+argument_list|)
 DECL|field|coreDir
 specifier|protected
 name|File
 name|coreDir
 decl_stmt|;
-comment|/**      * The directory where the camel-spring XML models are      *      * @parameter default-value="${project.build.directory}/../../../components/camel-spring"      */
+comment|/**      * The directory where the camel-spring XML models are      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/../../../components/camel-spring"
+argument_list|)
 DECL|field|springDir
 specifier|protected
 name|File
 name|springDir
 decl_stmt|;
-comment|/**      * The archetypes directory where all the Apache Camel Maven archetypes are      *      * @parameter default-value="${project.build.directory}/../../../archetypes"      */
+comment|/**      * The archetypes directory where all the Apache Camel Maven archetypes are      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/../../../archetypes"
+argument_list|)
 DECL|field|archetypesDir
 specifier|protected
 name|File
 name|archetypesDir
 decl_stmt|;
-comment|/**      * The directory where the camel-spring XML schema are      *      * @parameter default-value="${project.build.directory}/../../../components/camel-spring/target/schema"      */
+comment|/**      * The directory where the camel-spring XML schema are      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/../../../components/camel-spring/target/schema"
+argument_list|)
 DECL|field|springSchemaDir
 specifier|protected
 name|File
 name|springSchemaDir
 decl_stmt|;
-comment|/**      * The directory where the camel-blueprint XML schema are      *      * @parameter default-value="${project.build.directory}/../../../components/camel-blueprint/target/schema"      */
+comment|/**      * The directory where the camel-blueprint XML schema are      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/../../../components/camel-blueprint/target/schema"
+argument_list|)
 DECL|field|blueprintSchemaDir
 specifier|protected
 name|File
 name|blueprintSchemaDir
 decl_stmt|;
-comment|/**      * Maven ProjectHelper.      *      * @component      * @readonly      */
+comment|/**      * Maven ProjectHelper.      */
+annotation|@
+name|Component
 DECL|field|projectHelper
 specifier|private
 name|MavenProjectHelper

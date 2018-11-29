@@ -78,6 +78,54 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Mojo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Parameter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|project
 operator|.
 name|MavenProject
@@ -187,10 +235,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Prepares a Camel component analyzing if the maven module contains Camel  *<ul>  *<li>components</li>  *<li>dataformats</li>  *<li>languages</li>  *<li>others</li>  *</ul>  * And for each of those generates extra descriptors and schema files for easier auto-discovery in Camel and tooling.  *  * @goal prepare-components  * @threadSafe  */
+comment|/**  * Prepares a Camel component analyzing if the maven module contains Camel  *<ul>  *<li>components</li>  *<li>dataformats</li>  *<li>languages</li>  *<li>others</li>  *</ul>  * And for each of those generates extra descriptors and schema files for easier auto-discovery in Camel and tooling.  */
 end_comment
 
 begin_class
+annotation|@
+name|Mojo
+argument_list|(
+name|name
+operator|=
+literal|"prepare-components"
+argument_list|,
+name|threadSafe
+operator|=
+literal|true
+argument_list|)
 DECL|class|PrepareComponentMojo
 specifier|public
 class|class
@@ -198,49 +257,103 @@ name|PrepareComponentMojo
 extends|extends
 name|AbstractMojo
 block|{
-comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
+comment|/**      * The maven project.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"project"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|,
+name|readonly
+operator|=
+literal|true
+argument_list|)
 DECL|field|project
 specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The output directory for generated components file      *      * @parameter default-value="${project.build.directory}/generated/camel/components"      */
+comment|/**      * The output directory for generated components file      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/generated/camel/components"
+argument_list|)
 DECL|field|componentOutDir
 specifier|protected
 name|File
 name|componentOutDir
 decl_stmt|;
-comment|/**      * The output directory for generated dataformats file      *      * @parameter default-value="${project.build.directory}/generated/camel/dataformats"      */
+comment|/**      * The output directory for generated dataformats file      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/generated/camel/dataformats"
+argument_list|)
 DECL|field|dataFormatOutDir
 specifier|protected
 name|File
 name|dataFormatOutDir
 decl_stmt|;
-comment|/**      * The output directory for generated languages file      *      * @parameter default-value="${project.build.directory}/generated/camel/languages"      */
+comment|/**      * The output directory for generated languages file      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/generated/camel/languages"
+argument_list|)
 DECL|field|languageOutDir
 specifier|protected
 name|File
 name|languageOutDir
 decl_stmt|;
-comment|/**      * The output directory for generated others file      *      * @parameter default-value="${project.build.directory}/generated/camel/others"      */
+comment|/**      * The output directory for generated others file      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/generated/camel/others"
+argument_list|)
 DECL|field|otherOutDir
 specifier|protected
 name|File
 name|otherOutDir
 decl_stmt|;
-comment|/**      * The output directory for generated schema file      *      * @parameter default-value="${project.build.directory}/classes"      */
+comment|/**      * The output directory for generated schema file      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes"
+argument_list|)
 DECL|field|schemaOutDir
 specifier|protected
 name|File
 name|schemaOutDir
 decl_stmt|;
-comment|/**      * Maven ProjectHelper.      *      * @component      * @readonly      */
+comment|/**      * Maven ProjectHelper.      */
+annotation|@
+name|Component
 DECL|field|projectHelper
 specifier|private
 name|MavenProjectHelper
 name|projectHelper
 decl_stmt|;
-comment|/**      * build context to check changed files and mark them for refresh      * (used for m2e compatibility)      *       * @component      * @readonly      */
+comment|/**      * build context to check changed files and mark them for refresh      * (used for m2e compatibility)      */
+annotation|@
+name|Component
 DECL|field|buildContext
 specifier|private
 name|BuildContext

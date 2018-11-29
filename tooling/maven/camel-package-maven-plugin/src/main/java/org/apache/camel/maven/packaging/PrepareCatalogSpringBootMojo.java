@@ -202,6 +202,54 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Mojo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Parameter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|project
 operator|.
 name|MavenProject
@@ -241,10 +289,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Prepares the Spring Boot provider camel catalog to include component it supports  *  * @goal prepare-catalog-springboot  * @threadSafe  */
+comment|/**  * Prepares the Spring Boot provider camel catalog to include component it supports  */
 end_comment
 
 begin_class
+annotation|@
+name|Mojo
+argument_list|(
+name|name
+operator|=
+literal|"prepare-catalog-springboot"
+argument_list|,
+name|threadSafe
+operator|=
+literal|true
+argument_list|)
 DECL|class|PrepareCatalogSpringBootMojo
 specifier|public
 class|class
@@ -277,55 +336,121 @@ argument_list|(
 literal|"\"artifactId\": \"camel-(.*)\""
 argument_list|)
 decl_stmt|;
-comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
+comment|/**      * The maven project.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"project"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|,
+name|readonly
+operator|=
+literal|true
+argument_list|)
 DECL|field|project
 specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The output directory for components catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/springboot/components"      */
+comment|/**      * The output directory for components catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/springboot/components"
+argument_list|)
 DECL|field|componentsOutDir
 specifier|protected
 name|File
 name|componentsOutDir
 decl_stmt|;
-comment|/**      * The output directory for dataformats catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/springboot/dataformats"      */
+comment|/**      * The output directory for dataformats catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/springboot/dataformats"
+argument_list|)
 DECL|field|dataFormatsOutDir
 specifier|protected
 name|File
 name|dataFormatsOutDir
 decl_stmt|;
-comment|/**      * The output directory for languages catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/springboot/languages"      */
+comment|/**      * The output directory for languages catalog      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/springboot/languages"
+argument_list|)
 DECL|field|languagesOutDir
 specifier|protected
 name|File
 name|languagesOutDir
 decl_stmt|;
-comment|/**      * The output directory for others catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/springboot/others"      */
+comment|/**      * The output directory for others catalog      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/classes/org/apache/camel/catalog/springboot/others"
+argument_list|)
 DECL|field|othersOutDir
 specifier|protected
 name|File
 name|othersOutDir
 decl_stmt|;
-comment|/**      * The directory where all spring-boot starters are      *      * @parameter default-value="${project.build.directory}/../../../platforms/spring-boot/components-starter"      */
+comment|/**      * The directory where all spring-boot starters are      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/../../../platforms/spring-boot/components-starter"
+argument_list|)
 DECL|field|componentsStarterDir
 specifier|protected
 name|File
 name|componentsStarterDir
 decl_stmt|;
-comment|/**      * The components directory where all the Apache Camel components are      *      * @parameter default-value="${project.build.directory}/../../../components"      */
+comment|/**      * The components directory where all the Apache Camel components are      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/../../../components"
+argument_list|)
 DECL|field|componentsDir
 specifier|protected
 name|File
 name|componentsDir
 decl_stmt|;
-comment|/**      * The camel-core directory where camel-core components are      *      * @parameter default-value="${project.build.directory}/../../../camel-core"      */
+comment|/**      * The camel-core directory where camel-core components are      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/../../../camel-core"
+argument_list|)
 DECL|field|coreDir
 specifier|protected
 name|File
 name|coreDir
 decl_stmt|;
-comment|/**      * Maven ProjectHelper.      *      * @component      * @readonly      */
+comment|/**      * Maven ProjectHelper.      */
+annotation|@
+name|Component
 DECL|field|projectHelper
 specifier|private
 name|MavenProjectHelper

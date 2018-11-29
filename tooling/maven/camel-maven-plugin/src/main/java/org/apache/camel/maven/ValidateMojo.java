@@ -356,6 +356,38 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Mojo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Parameter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|project
 operator|.
 name|MavenProject
@@ -425,10 +457,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Parses the source code and validates the Camel routes has valid endpoint uris and simple expressions.  *  * @goal validate  * @threadSafe  */
+comment|/**  * Parses the source code and validates the Camel routes has valid endpoint uris and simple expressions.  */
 end_comment
 
 begin_class
+annotation|@
+name|Mojo
+argument_list|(
+name|name
+operator|=
+literal|"validate"
+argument_list|,
+name|threadSafe
+operator|=
+literal|true
+argument_list|)
 DECL|class|ValidateMojo
 specifier|public
 class|class
@@ -436,97 +479,269 @@ name|ValidateMojo
 extends|extends
 name|AbstractExecMojo
 block|{
-comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
+comment|/**      * The maven project.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"project"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|,
+name|readonly
+operator|=
+literal|true
+argument_list|)
 DECL|field|project
 specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * Whether to fail if invalid Camel endpoints was found. By default the plugin logs the errors at WARN level      *      * @parameter property="camel.failOnError"      *            default-value="false"      */
+comment|/**      * Whether to fail if invalid Camel endpoints was found. By default the plugin logs the errors at WARN level      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.failOnError"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|failOnError
 specifier|private
 name|boolean
 name|failOnError
 decl_stmt|;
-comment|/**      * Whether to log endpoint URIs which was un-parsable and therefore not possible to validate      *      * @parameter property="camel.logUnparseable"      *            default-value="false"      */
+comment|/**      * Whether to log endpoint URIs which was un-parsable and therefore not possible to validate      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.logUnparseable"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|logUnparseable
 specifier|private
 name|boolean
 name|logUnparseable
 decl_stmt|;
-comment|/**      * Whether to include Java files to be validated for invalid Camel endpoints      *      * @parameter property="camel.includeJava"      *            default-value="true"      */
+comment|/**      * Whether to include Java files to be validated for invalid Camel endpoints      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.includeJava"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|includeJava
 specifier|private
 name|boolean
 name|includeJava
 decl_stmt|;
-comment|/**      * Whether to include XML files to be validated for invalid Camel endpoints      *      * @parameter property="camel.includeXml"      *            default-value="true"      */
+comment|/**      * Whether to include XML files to be validated for invalid Camel endpoints      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.includeXml"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|includeXml
 specifier|private
 name|boolean
 name|includeXml
 decl_stmt|;
-comment|/**      * Whether to include test source code      *      * @parameter property="camel.includeTest"      *            default-value="false"      */
+comment|/**      * Whether to include test source code      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.includeTest"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|includeTest
 specifier|private
 name|boolean
 name|includeTest
 decl_stmt|;
-comment|/**      * To filter the names of java and xml files to only include files matching any of the given list of patterns (wildcard and regular expression).      * Multiple values can be separated by comma.      *      * @parameter property="camel.includes"      */
+comment|/**      * To filter the names of java and xml files to only include files matching any of the given list of patterns (wildcard and regular expression).      * Multiple values can be separated by comma.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.includes"
+argument_list|)
 DECL|field|includes
 specifier|private
 name|String
 name|includes
 decl_stmt|;
-comment|/**      * To filter the names of java and xml files to exclude files matching any of the given list of patterns (wildcard and regular expression).      * Multiple values can be separated by comma.      *      * @parameter property="camel.excludes"      */
+comment|/**      * To filter the names of java and xml files to exclude files matching any of the given list of patterns (wildcard and regular expression).      * Multiple values can be separated by comma.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.excludes"
+argument_list|)
 DECL|field|excludes
 specifier|private
 name|String
 name|excludes
 decl_stmt|;
-comment|/**      * Whether to ignore unknown components      *      * @parameter property="camel.ignoreUnknownComponent"      *            default-value="true"      */
+comment|/**      * Whether to ignore unknown components      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.ignoreUnknownComponent"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|ignoreUnknownComponent
 specifier|private
 name|boolean
 name|ignoreUnknownComponent
 decl_stmt|;
-comment|/**      * Whether to ignore incapable of parsing the endpoint uri      *      * @parameter property="camel.ignoreIncapable"      *            default-value="true"      */
+comment|/**      * Whether to ignore incapable of parsing the endpoint uri      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.ignoreIncapable"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|ignoreIncapable
 specifier|private
 name|boolean
 name|ignoreIncapable
 decl_stmt|;
-comment|/**      * Whether to ignore deprecated options being used in the endpoint uri      *      * @parameter property="camel.ignoreDeprecated"      *            default-value="true"      */
+comment|/**      * Whether to ignore deprecated options being used in the endpoint uri      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.ignoreDeprecated"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|ignoreDeprecated
 specifier|private
 name|boolean
 name|ignoreDeprecated
 decl_stmt|;
-comment|/**      * Whether to ignore components that uses lenient properties. When this is true, then the uri validation is stricter      * but would fail on properties that are not part of the component but in the uri because of using lenient properties.      * For example using the HTTP components to provide query parameters in the endpoint uri.      *      * @parameter property="camel.ignoreLenientProperties"      *            default-value="true"      */
+comment|/**      * Whether to ignore components that uses lenient properties. When this is true, then the uri validation is stricter      * but would fail on properties that are not part of the component but in the uri because of using lenient properties.      * For example using the HTTP components to provide query parameters in the endpoint uri.      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.ignoreLenientProperties"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|ignoreLenientProperties
 specifier|private
 name|boolean
 name|ignoreLenientProperties
 decl_stmt|;
-comment|/**      * Whether to show all endpoints and simple expressions (both invalid and valid).      *      * @parameter property="camel.showAll"      *            default-value="false"      */
+comment|/**      * Whether to show all endpoints and simple expressions (both invalid and valid).      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.showAll"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|showAll
 specifier|private
 name|boolean
 name|showAll
 decl_stmt|;
-comment|/**      * Whether to allow downloading Camel catalog version from the internet. This is needed if the project      * uses a different Camel version than this plugin is using by default.      *      * @parameter property="camel.downloadVersion"      *            default-value="true"      */
+comment|/**      * Whether to allow downloading Camel catalog version from the internet. This is needed if the project      * uses a different Camel version than this plugin is using by default.      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.downloadVersion"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|downloadVersion
 specifier|private
 name|boolean
 name|downloadVersion
 decl_stmt|;
-comment|/**      * Whether to validate for duplicate route ids. Route ids should be unique and if there are duplicates      * then Camel will fail to startup.      *      * @parameter property="camel.duplicateRouteId"      *            default-value="true"      */
+comment|/**      * Whether to validate for duplicate route ids. Route ids should be unique and if there are duplicates      * then Camel will fail to startup.      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.duplicateRouteId"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|duplicateRouteId
 specifier|private
 name|boolean
 name|duplicateRouteId
 decl_stmt|;
-comment|/**      * Whether to validate direct/seda endpoints sending to non existing consumers.      *      * @parameter property="camel.directOrSedaPairCheck"      *            default-value="true"      */
+comment|/**      * Whether to validate direct/seda endpoints sending to non existing consumers.      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.directOrSedaPairCheck"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|directOrSedaPairCheck
 specifier|private
 name|boolean

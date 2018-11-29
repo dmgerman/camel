@@ -188,6 +188,54 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Mojo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Parameter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|project
 operator|.
 name|MavenProject
@@ -307,10 +355,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For all the Camel components that has Spring Boot starter JAR, their documentation  * .adoc files in their component directory is updated to include spring boot auto configuration options.  *  * @goal update-spring-boot-auto-configuration-readme  * @threadSafe  */
+comment|/**  * For all the Camel components that has Spring Boot starter JAR, their documentation  * .adoc files in their component directory is updated to include spring boot auto configuration options.  */
 end_comment
 
 begin_class
+annotation|@
+name|Mojo
+argument_list|(
+name|name
+operator|=
+literal|"update-spring-boot-auto-configuration-readme"
+argument_list|,
+name|threadSafe
+operator|=
+literal|true
+argument_list|)
 DECL|class|UpdateSpringBootAutoConfigurationReadmeMojo
 specifier|public
 class|class
@@ -318,37 +377,72 @@ name|UpdateSpringBootAutoConfigurationReadmeMojo
 extends|extends
 name|AbstractMojo
 block|{
-comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
+comment|/**      * The maven project.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"project"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|,
+name|readonly
+operator|=
+literal|true
+argument_list|)
 DECL|field|project
 specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The project build directory      *      * @parameter default-value="${project.build.directory}"      */
+comment|/**      * The project build directory      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}"
+argument_list|)
 DECL|field|buildDir
 specifier|protected
 name|File
 name|buildDir
 decl_stmt|;
-comment|/**      * The documentation directory      *      * @parameter default-value="${basedir}/../../../../components/"      */
+comment|/**      * The documentation directory      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${basedir}/../../../../components/"
+argument_list|)
 DECL|field|componentsDir
 specifier|protected
 name|File
 name|componentsDir
 decl_stmt|;
-comment|/**      * Whether to fail the build fast if any Warnings was detected.      *      * @parameter      */
+comment|/**      * Whether to fail the build fast if any Warnings was detected.      */
+annotation|@
+name|Parameter
 DECL|field|failFast
 specifier|protected
 name|Boolean
 name|failFast
 decl_stmt|;
-comment|/**      * Whether to fail if an option has no documentation.      *      * @parameter      */
+comment|/**      * Whether to fail if an option has no documentation.      */
+annotation|@
+name|Parameter
 DECL|field|failOnMissingDescription
 specifier|protected
 name|Boolean
 name|failOnMissingDescription
 decl_stmt|;
-comment|/**      * build context to check changed files and mark them for refresh (used for      * m2e compatibility)      *      * @component      * @readonly      */
+comment|/**      * build context to check changed files and mark them for refresh (used for      * m2e compatibility)      */
+annotation|@
+name|Component
 DECL|field|buildContext
 specifier|private
 name|BuildContext
