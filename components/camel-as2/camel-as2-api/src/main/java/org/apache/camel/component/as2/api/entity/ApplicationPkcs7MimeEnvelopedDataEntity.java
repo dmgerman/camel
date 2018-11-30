@@ -436,7 +436,7 @@ name|BasicNameValuePair
 argument_list|(
 literal|"smime-type"
 argument_list|,
-literal|"enveloped-datat"
+literal|"enveloped-data"
 argument_list|)
 argument_list|,
 operator|new

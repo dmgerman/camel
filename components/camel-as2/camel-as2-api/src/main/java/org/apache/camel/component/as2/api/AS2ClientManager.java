@@ -1249,7 +1249,7 @@ name|AS2TransferEncoding
 operator|.
 name|BASE64
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// Add Compressed Entity to main body of request.
@@ -1333,7 +1333,7 @@ name|AS2TransferEncoding
 operator|.
 name|BASE64
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// Add Compressed Entity to main body of request.

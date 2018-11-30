@@ -46,15 +46,25 @@ name|APPLICATION_PKCS7_SIGNATURE
 init|=
 literal|"application/pkcs7-signature; name=smime.p7s; smime-type=signed-data"
 decl_stmt|;
-comment|/**      * Media Type for Application PKCS7 Signature      */
-DECL|field|APPLICATION_PKCS7_MIME
+comment|/**      * Media Type for Application PKCS7 Enveloped Data      */
+DECL|field|APPLICATION_PKCS7_MIME_ENVELOPED
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|APPLICATION_PKCS7_MIME
+name|APPLICATION_PKCS7_MIME_ENVELOPED
 init|=
-literal|"application/pkcs7-mime; name=smime.p7m; smime-type=enveloped-data; name=smime.p7m"
+literal|"application/pkcs7-mime; smime-type=enveloped-data; name=smime.p7m"
+decl_stmt|;
+comment|/**      * Media Type for Application PKCS7 Compressed Data      */
+DECL|field|APPLICATION_PKCS7_MIME_COMPRESSED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|APPLICATION_PKCS7_MIME_COMPRESSED
+init|=
+literal|"application/pkcs7-mime; smime-type=compressed-data; name=smime.p7z"
 decl_stmt|;
 comment|/**      * Media Type for Text/Plain Data      */
 DECL|field|TEXT_PLAIN

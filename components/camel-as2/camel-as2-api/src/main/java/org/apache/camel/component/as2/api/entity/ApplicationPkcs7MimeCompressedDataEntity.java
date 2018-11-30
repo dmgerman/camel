@@ -438,7 +438,7 @@ name|BasicNameValuePair
 argument_list|(
 literal|"smime-type"
 argument_list|,
-literal|"compressed-datat"
+literal|"compressed-data"
 argument_list|)
 argument_list|,
 operator|new
