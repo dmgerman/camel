@@ -167,7 +167,6 @@ operator|.
 name|GLOBAL_CAMEL_CONTEXT_SERVICE_KEY
 argument_list|)
 decl_stmt|;
-comment|// TODO: Should we allow to set the maximumCacheSize on the producer?
 name|this
 operator|.
 name|globalContextProducerTemplate
