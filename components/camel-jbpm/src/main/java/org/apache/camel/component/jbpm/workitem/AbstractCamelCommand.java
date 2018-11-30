@@ -28,18 +28,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -102,22 +90,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|jbpm
-operator|.
-name|services
-operator|.
-name|api
-operator|.
-name|service
-operator|.
-name|ServiceRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|kie
 operator|.
 name|api
@@ -153,22 +125,6 @@ operator|.
 name|executor
 operator|.
 name|ExecutionResults
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|kie
-operator|.
-name|api
-operator|.
-name|runtime
-operator|.
-name|manager
-operator|.
-name|RuntimeManager
 import|;
 end_import
 
@@ -237,12 +193,12 @@ name|Command
 implements|,
 name|Cacheable
 block|{
-DECL|field|logger
+DECL|field|LOGGER
 specifier|private
 specifier|static
 specifier|final
 name|Logger
-name|logger
+name|LOGGER
 init|=
 name|LoggerFactory
 operator|.
@@ -257,7 +213,7 @@ DECL|method|AbstractCamelCommand ()
 specifier|public
 name|AbstractCamelCommand
 parameter_list|()
-block|{ 	}
+block|{     }
 annotation|@
 name|Override
 DECL|method|execute (CommandContext ctx)

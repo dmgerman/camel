@@ -122,18 +122,12 @@ name|GlobalContextCamelCommand
 extends|extends
 name|AbstractCamelCommand
 block|{
-DECL|field|globalContextProducerTemplate
-specifier|private
-specifier|final
-name|ProducerTemplate
-name|globalContextProducerTemplate
-decl_stmt|;
-DECL|field|logger
+DECL|field|LOGGER
 specifier|private
 specifier|static
 specifier|final
 name|Logger
-name|logger
+name|LOGGER
 init|=
 name|LoggerFactory
 operator|.
@@ -143,6 +137,12 @@ name|GlobalContextCamelCommand
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|globalContextProducerTemplate
+specifier|private
+specifier|final
+name|ProducerTemplate
+name|globalContextProducerTemplate
 decl_stmt|;
 DECL|method|GlobalContextCamelCommand ()
 specifier|public
@@ -216,7 +216,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|logger
+name|LOGGER
 operator|.
 name|warn
 argument_list|(
