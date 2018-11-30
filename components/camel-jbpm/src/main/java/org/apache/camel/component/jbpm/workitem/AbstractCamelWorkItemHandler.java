@@ -72,6 +72,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jbpm
+operator|.
+name|JBPMConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|jbpm
 operator|.
 name|process
@@ -199,7 +215,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Camel jBPM {@link WorkItemHandler} which allows to call Camel routes with a<code>direct</code> endpoint.  *<p/>  * The handler passes the {@WorkItem} to the route that has a consumer on the endpoint-id that can be passed with the  *<code>camel-endpoint-id</code>{@link WorkItem} parameter. E.g. when a the value "myCamelEndpoint" is passed to the {link WorkItem} via  * the<code>camel-endpoint-id</code> parameter, this command will send the {@link WorkItem} to the Camel URI  *<code>direct://myCamelEndpoint</code>.  *<p/>  * The body of the result {@link Message} of the invocation is returned via the<code>response</code> parameter. Access to the raw response  * {@link Message} is provided via the<code>message</code> parameter. This gives the user access to more advanced fields like message  * headers and attachments.  *<p/>  * This handler can be constructed in multiple ways. When you don't pass a {@link RuntimeManager} to the constructor, the handler will try  * to find the global KIE {@link CamelContext} from the<code>jBPM</code> {@link ServiceRegistry}. When the {@link RuntimeManager} is passed  * to the constructor, the handler will retrieve and use the {@link CamelContext} bound to the {@link RuntimeManage} from the  * {@link ServiceRegistry}. When a<code>camel-endpoint-id</code> is passed to the constructor, the handler will send all requests to the  * Camel route that is consuming from that endpoint, unless the endpoint is overridden by passing a the<code>camel-endpoint-id</code> in  * the {@link WorkItem} parameters.  *   */
+comment|/**  * Camel jBPM {@link WorkItemHandler} which allows to call Camel routes with a<code>direct</code> endpoint.  *<p/>  * The handler passes the {@WorkItem} to the route that has a consumer on the endpoint-id that can be passed with the  *<code>CamelEndpointId</code>{@link WorkItem} parameter. E.g. when a the value "myCamelEndpoint" is passed to the {link WorkItem} via  * the<code>CamelEndpointId</code> parameter, this command will send the {@link WorkItem} to the Camel URI  *<code>direct://myCamelEndpoint</code>.  *<p/>  * The body of the result {@link Message} of the invocation is returned via the<code>Response</code> parameter. Access to the raw response  * {@link Message} is provided via the<code>Message</code> parameter. This gives the user access to more advanced fields like message  * headers and attachments.  *<p/>  * This handler can be constructed in multiple ways. When you don't pass a {@link RuntimeManager} to the constructor, the handler will try  * to find the global KIE {@link CamelContext} from the<code>jBPM</code> {@link ServiceRegistry}. When the {@link RuntimeManager} is passed  * to the constructor, the handler will retrieve and use the {@link CamelContext} bound to the {@link RuntimeManage} from the  * {@link ServiceRegistry}. When a<code>CamelEndpointId</code> is passed to the constructor, the handler will send all requests to the  * Camel route that is consuming from that endpoint, unless the endpoint is overridden by passing a the<code>CamelEndpointId</code> in  * the {@link WorkItem} parameters.  *   */
 end_comment
 
 begin_class
@@ -213,33 +229,6 @@ name|AbstractLogOrThrowWorkItemHandler
 implements|implements
 name|Cacheable
 block|{
-DECL|field|GLOBAL_CAMEL_CONTEXT_SERVICE_KEY
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|GLOBAL_CAMEL_CONTEXT_SERVICE_KEY
-init|=
-literal|"GlobalCamelService"
-decl_stmt|;
-DECL|field|RUNTIME_CAMEL_CONTEXT_SERVICE_POSTFIX
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|RUNTIME_CAMEL_CONTEXT_SERVICE_POSTFIX
-init|=
-literal|"_CamelService"
-decl_stmt|;
-DECL|field|CAMEL_ENDPOINT_ID_PARAM
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|CAMEL_ENDPOINT_ID_PARAM
-init|=
-literal|"camel-endpoint-id"
-decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|static
@@ -300,6 +289,8 @@ argument_list|()
 operator|.
 name|service
 argument_list|(
+name|JBPMConstants
+operator|.
 name|GLOBAL_CAMEL_CONTEXT_SERVICE_KEY
 argument_list|)
 decl_stmt|;
@@ -356,7 +347,9 @@ operator|.
 name|getIdentifier
 argument_list|()
 operator|+
-name|RUNTIME_CAMEL_CONTEXT_SERVICE_POSTFIX
+name|JBPMConstants
+operator|.
+name|DEPLOYMENT_CAMEL_CONTEXT_SERVICE_KEY_POSTFIX
 decl_stmt|;
 name|CamelContext
 name|runtimeCamelContext
@@ -495,7 +488,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|getCamelEndpointId (WorkItem workItem)
-specifier|private
+specifier|protected
 name|String
 name|getCamelEndpointId
 parameter_list|(
@@ -513,7 +506,9 @@ name|workItem
 operator|.
 name|getParameter
 argument_list|(
-name|CAMEL_ENDPOINT_ID_PARAM
+name|JBPMConstants
+operator|.
+name|CAMEL_ENDPOINT_ID_WI_PARAM
 argument_list|)
 decl_stmt|;
 if|if
@@ -546,7 +541,13 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"The Camel Endpoint ID has been set on both the WorkItemHanlder and WorkItem. The camel-endpoint-id configured on the WorkItem overrides the global configuation."
+literal|"The Camel Endpoint ID has been set on both the WorkItemHanlder and WorkItem. The '"
+operator|+
+name|JBPMConstants
+operator|.
+name|CAMEL_ENDPOINT_ID_WI_PARAM
+operator|+
+literal|"' configured on the WorkItem overrides the global configuation."
 argument_list|)
 expr_stmt|;
 block|}
@@ -574,9 +575,17 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No Camel Endpoint ID specified. Please configure the 'camel-endpoint-id' in either the constructor of this WorkItemHandler, or pass it via the "
+literal|"No Camel Endpoint ID specified. Please configure the '"
 operator|+
-name|CAMEL_ENDPOINT_ID_PARAM
+name|JBPMConstants
+operator|.
+name|CAMEL_ENDPOINT_ID_WI_PARAM
+operator|+
+literal|"' in either the constructor of this WorkItemHandler, or pass it via the "
+operator|+
+name|JBPMConstants
+operator|.
+name|CAMEL_ENDPOINT_ID_WI_PARAM
 operator|+
 literal|"' WorkItem parameter."
 argument_list|)

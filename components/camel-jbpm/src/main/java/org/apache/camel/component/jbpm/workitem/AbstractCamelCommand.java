@@ -86,6 +86,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jbpm
+operator|.
+name|JBPMConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|jbpm
 operator|.
 name|services
@@ -207,7 +223,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Camel jBPM {@link Command} which allows to call Camel routes with a<code>direct</code> endpoint.  *<p/>  * The command passes the {@WorkItem} retrieved from the {@link CommandContext} to the route that has a consumer on the endpoint-id   * that can be passed with the<code>camel-endpoint-id</code> {@link WorkItem} parameter. E.g. when a the value "myCamelEndpoint" is passed to the   * {link WorkItem} via the<code>camel-endpoint-id</code> parameter, this {@link Command} will send the {@link WorkItem} to   * the Camel URI<code>direct://myCamelEndpoint</code>.    *<p/>  * The body of the result {@link Message} of the invocation is returned via the<code>response</code> parameter. Access to the raw response   * {@link Message} is provided via the<code>message</code> parameter. This gives the user access to more advanced fields like message headers   * and attachments.  */
+comment|/**  * Camel jBPM {@link Command} which allows to call Camel routes with a<code>direct</code> endpoint.  *<p/>  * The command passes the {@WorkItem} retrieved from the {@link CommandContext} to the route that has a consumer on the endpoint-id   * that can be passed with the<code>camel-endpoint-id</code> {@link WorkItem} parameter. E.g. when a the value "myCamelEndpoint" is passed to the   * {link WorkItem} via the<code>camel-endpoint-id</code> parameter, this {@link Command} will send the {@link WorkItem} to   * the Camel URI<code>direct://myCamelEndpoint</code>.    *<p/>  * The body of the result {@link Message} of the invocation is returned via the<code>Response</code> parameter. Access to the raw response   * {@link Message} is provided via the<code>Message</code> parameter. This gives the user access to more advanced fields like message headers   * and attachments.  */
 end_comment
 
 begin_class
@@ -221,33 +237,6 @@ name|Command
 implements|,
 name|Cacheable
 block|{
-DECL|field|CAMEL_ENDPOINT_ID_PARAM
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|CAMEL_ENDPOINT_ID_PARAM
-init|=
-literal|"camel-endpoint-id"
-decl_stmt|;
-DECL|field|RESPONSE_PARAM
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|RESPONSE_PARAM
-init|=
-literal|"response"
-decl_stmt|;
-DECL|field|MESSAGE_PARAM
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|MESSAGE_PARAM
-init|=
-literal|"out-headers"
-decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|static
@@ -305,7 +294,9 @@ name|workItem
 operator|.
 name|getParameter
 argument_list|(
-name|CAMEL_ENDPOINT_ID_PARAM
+name|JBPMConstants
+operator|.
+name|CAMEL_ENDPOINT_ID_WI_PARAM
 argument_list|)
 decl_stmt|;
 comment|// We only support direct. We don't need to support more, as direct simply gives us the entrypoint into the actual Camel Routes.
@@ -402,7 +393,9 @@ name|results
 operator|.
 name|setData
 argument_list|(
-name|RESPONSE_PARAM
+name|JBPMConstants
+operator|.
+name|RESPONSE_WI_PARAM
 argument_list|,
 name|response
 argument_list|)
@@ -411,7 +404,9 @@ name|results
 operator|.
 name|setData
 argument_list|(
-name|MESSAGE_PARAM
+name|JBPMConstants
+operator|.
+name|MESSAGE_WI_PARAM
 argument_list|,
 name|outMessage
 argument_list|)
