@@ -189,7 +189,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The google-calendar component provides access to Google Calendar in a streaming mod.  */
+comment|/**  * The google-calendar component provides access to Google Calendar in a streaming mode.  */
 end_comment
 
 begin_class
