@@ -1437,7 +1437,7 @@ expr_stmt|;
 break|break;
 block|}
 case|case
-name|SIGNED_ENCRYPTED_COMPRESSED
+name|ENCRYPTED_COMPRESSED_SIGNED
 case|:
 block|{
 comment|// Create Multipart Signed Entity containing EDI Entity
@@ -1467,7 +1467,7 @@ name|AS2TransferEncoding
 operator|.
 name|BASE64
 argument_list|,
-literal|true
+literal|false
 argument_list|,
 literal|null
 argument_list|)

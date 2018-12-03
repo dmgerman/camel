@@ -96,8 +96,8 @@ argument_list|,
 literal|true
 argument_list|)
 block|,
-DECL|enumConstant|SIGNED_ENCRYPTED_COMPRESSED
-name|SIGNED_ENCRYPTED_COMPRESSED
+DECL|enumConstant|ENCRYPTED_COMPRESSED_SIGNED
+name|ENCRYPTED_COMPRESSED_SIGNED
 argument_list|(
 literal|true
 argument_list|,
