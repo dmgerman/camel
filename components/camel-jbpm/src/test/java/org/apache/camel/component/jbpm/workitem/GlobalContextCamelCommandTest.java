@@ -323,7 +323,7 @@ decl_stmt|;
 name|String
 name|camelRouteUri
 init|=
-literal|"direct://"
+literal|"direct:"
 operator|+
 name|camelEndpointId
 decl_stmt|;
@@ -414,7 +414,9 @@ argument_list|(
 name|testReponse
 argument_list|)
 expr_stmt|;
-comment|//Register the RuntimeManager bound camelContext.
+comment|// Register the RuntimeManager bound camelcontext.
+try|try
+block|{
 name|ServiceRegistry
 operator|.
 name|get
@@ -524,6 +526,22 @@ name|RESPONSE_WI_PARAM
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|ServiceRegistry
+operator|.
+name|get
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|JBPMConstants
+operator|.
+name|GLOBAL_CAMEL_CONTEXT_SERVICE_KEY
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

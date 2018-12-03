@@ -341,7 +341,7 @@ decl_stmt|;
 name|String
 name|camelRouteUri
 init|=
-literal|"direct://"
+literal|"direct:"
 operator|+
 name|camelEndpointId
 decl_stmt|;
@@ -442,6 +442,8 @@ name|hmf
 argument_list|)
 expr_stmt|;
 comment|// Register the RuntimeManager bound camelcontext.
+try|try
+block|{
 name|ServiceRegistry
 operator|.
 name|get
@@ -543,7 +545,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//InOnly does not complete WorkItem.
+comment|// InOnly does not complete WorkItem.
 name|assertThat
 argument_list|(
 name|manager
@@ -560,6 +562,22 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|ServiceRegistry
+operator|.
+name|get
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|runtimeManagerId
+operator|+
+literal|"_CamelService"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

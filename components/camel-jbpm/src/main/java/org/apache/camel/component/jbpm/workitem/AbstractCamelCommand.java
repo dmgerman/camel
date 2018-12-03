@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Camel jBPM {@link Command} which allows to call Camel routes with a<code>direct</code> endpoint.  *<p/>  * The command passes the {@WorkItem} retrieved from the {@link CommandContext} to the route that has a consumer on the endpoint-id   * that can be passed with the<code>camel-endpoint-id</code> {@link WorkItem} parameter. E.g. when a the value "myCamelEndpoint" is passed to the   * {link WorkItem} via the<code>camel-endpoint-id</code> parameter, this {@link Command} will send the {@link WorkItem} to   * the Camel URI<code>direct://myCamelEndpoint</code>.    *<p/>  * The body of the result {@link Message} of the invocation is returned via the<code>Response</code> parameter. Access to the raw response   * {@link Message} is provided via the<code>Message</code> parameter. This gives the user access to more advanced fields like message headers   * and attachments.  */
+comment|/**  * Camel jBPM {@link Command} which allows to call Camel routes with a<code>direct</code> endpoint.  *<p/>  * The command passes the {@WorkItem} retrieved from the {@link CommandContext} to the route that has a consumer on the endpoint-id   * that can be passed with the<code>camel-endpoint-id</code> {@link WorkItem} parameter. E.g. when a the value "myCamelEndpoint" is passed to the   * {link WorkItem} via the<code>camel-endpoint-id</code> parameter, this {@link Command} will send the {@link WorkItem} to   * the Camel URI<code>direct:myCamelEndpoint</code>.    *<p/>  * The body of the result {@link Message} of the invocation is returned via the<code>Response</code> parameter. Access to the raw response   * {@link Message} is provided via the<code>Message</code> parameter. This gives the user access to more advanced fields like message headers   * and attachments.  */
 end_comment
 
 begin_class
@@ -259,7 +259,7 @@ comment|// We only support direct. We don't need to support more, as direct simp
 name|String
 name|camelUri
 init|=
-literal|"direct://"
+literal|"direct:"
 operator|+
 name|camelEndpointId
 decl_stmt|;
