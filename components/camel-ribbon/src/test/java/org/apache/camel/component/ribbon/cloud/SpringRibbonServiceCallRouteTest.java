@@ -62,6 +62,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|PropertyInject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Route
 import|;
 end_import
@@ -144,6 +156,26 @@ extends|extends
 name|CamelSpringTestSupport
 block|{
 annotation|@
+name|PropertyInject
+argument_list|(
+literal|"firstPort"
+argument_list|)
+DECL|field|firstPort
+specifier|private
+name|String
+name|firstPort
+decl_stmt|;
+annotation|@
+name|PropertyInject
+argument_list|(
+literal|"secondPort"
+argument_list|)
+DECL|field|secondPort
+specifier|private
+name|String
+name|secondPort
+decl_stmt|;
+annotation|@
 name|Test
 DECL|method|testServiceCall ()
 specifier|public
@@ -155,10 +187,7 @@ name|Exception
 block|{
 name|getMockEndpoint
 argument_list|(
-literal|"mock:"
-operator|+
-name|getFirstPort
-argument_list|()
+literal|"mock:{{firstPort}}"
 argument_list|)
 operator|.
 name|expectedMessageCount
@@ -168,10 +197,7 @@ argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
-literal|"mock:"
-operator|+
-name|getSecondPort
-argument_list|()
+literal|"mock:{{secondPort}}"
 argument_list|)
 operator|.
 name|expectedMessageCount
@@ -223,16 +249,14 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|getSecondPort
-argument_list|()
+name|secondPort
 argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|getFirstPort
-argument_list|()
+name|firstPort
 argument_list|,
 name|out2
 argument_list|)
@@ -241,20 +265,6 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|getSecondPort ()
-specifier|protected
-specifier|abstract
-name|String
-name|getSecondPort
-parameter_list|()
-function_decl|;
-DECL|method|getFirstPort ()
-specifier|protected
-specifier|abstract
-name|String
-name|getFirstPort
-parameter_list|()
-function_decl|;
 comment|// ************************************
 comment|// Helpers
 comment|// ************************************
