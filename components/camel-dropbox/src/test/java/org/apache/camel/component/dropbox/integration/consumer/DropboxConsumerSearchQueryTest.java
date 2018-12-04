@@ -140,10 +140,8 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
-name|startRoute
-argument_list|(
-literal|"consumer"
-argument_list|)
+name|start
+argument_list|()
 expr_stmt|;
 name|MockEndpoint
 name|mock
