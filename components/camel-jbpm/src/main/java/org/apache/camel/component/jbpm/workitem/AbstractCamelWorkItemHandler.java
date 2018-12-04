@@ -265,8 +265,6 @@ DECL|field|initialized
 specifier|private
 name|boolean
 name|initialized
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Default Constructor. This creates a {@link ProducerTemplate} for the global {@link CamelContext}.      */
 DECL|method|AbstractCamelWorkItemHandler ()
@@ -397,7 +395,9 @@ literal|"CamelContext with identifier '"
 operator|+
 name|camelContextKey
 operator|+
-literal|"' not found in ServiceRegistry. This can be caused by the order in which the platform extensions are initialized. Deferring Camel ProducerTemplate creation until the first WorkItemHandler call."
+literal|"' not found in ServiceRegistry. This can be caused by the order in which the platform extensions are initialized. "
+operator|+
+literal|"Deferring Camel ProducerTemplate creation until the first WorkItemHandler call."
 decl_stmt|;
 name|logger
 operator|.
