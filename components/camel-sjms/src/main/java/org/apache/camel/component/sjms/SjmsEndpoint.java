@@ -438,20 +438,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
-operator|.
-name|DefaultEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|HeaderFilterStrategy
@@ -538,7 +524,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|LoggingExceptionHandler
+name|DefaultEndpoint
 import|;
 end_import
 
@@ -553,6 +539,20 @@ operator|.
 name|support
 operator|.
 name|EndpointHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|LoggingExceptionHandler
 import|;
 end_import
 
