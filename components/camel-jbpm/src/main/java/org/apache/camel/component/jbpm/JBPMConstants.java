@@ -198,6 +198,12 @@ name|MESSAGE_WI_PARAM
 init|=
 literal|"Message"
 decl_stmt|;
+DECL|field|CAMEL_CONTEXT_BUILDER_KEY
+name|String
+name|CAMEL_CONTEXT_BUILDER_KEY
+init|=
+literal|"CamelContextBuilder"
+decl_stmt|;
 block|}
 end_interface
 
