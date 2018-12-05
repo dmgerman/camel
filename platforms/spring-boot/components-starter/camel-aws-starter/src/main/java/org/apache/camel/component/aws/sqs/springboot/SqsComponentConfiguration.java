@@ -467,6 +467,26 @@ specifier|private
 name|Integer
 name|proxyPort
 decl_stmt|;
+comment|/**          * The ID of an AWS-managed customer master key (CMK) for Amazon SQS or          * a custom CMK.          */
+DECL|field|kmsMasterKeyId
+specifier|private
+name|String
+name|kmsMasterKeyId
+decl_stmt|;
+comment|/**          * The length of time, in seconds, for which Amazon SQS can reuse a data          * key to encrypt or decrypt messages before calling AWS KMS again. An          * integer representing seconds, between 60 seconds (1 minute) and          * 86,400 seconds (24 hours). Default: 300 (5 minutes).          */
+DECL|field|kmsDataKeyReusePeriodSeconds
+specifier|private
+name|Integer
+name|kmsDataKeyReusePeriodSeconds
+decl_stmt|;
+comment|/**          * Define if Server Side Encryption is enabled or not on the queue          */
+DECL|field|serverSideEncryptionEnabled
+specifier|private
+name|Boolean
+name|serverSideEncryptionEnabled
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getAmazonAWSHost ()
 specifier|public
 name|String
@@ -1141,6 +1161,84 @@ operator|.
 name|proxyPort
 operator|=
 name|proxyPort
+expr_stmt|;
+block|}
+DECL|method|getKmsMasterKeyId ()
+specifier|public
+name|String
+name|getKmsMasterKeyId
+parameter_list|()
+block|{
+return|return
+name|kmsMasterKeyId
+return|;
+block|}
+DECL|method|setKmsMasterKeyId (String kmsMasterKeyId)
+specifier|public
+name|void
+name|setKmsMasterKeyId
+parameter_list|(
+name|String
+name|kmsMasterKeyId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|kmsMasterKeyId
+operator|=
+name|kmsMasterKeyId
+expr_stmt|;
+block|}
+DECL|method|getKmsDataKeyReusePeriodSeconds ()
+specifier|public
+name|Integer
+name|getKmsDataKeyReusePeriodSeconds
+parameter_list|()
+block|{
+return|return
+name|kmsDataKeyReusePeriodSeconds
+return|;
+block|}
+DECL|method|setKmsDataKeyReusePeriodSeconds ( Integer kmsDataKeyReusePeriodSeconds)
+specifier|public
+name|void
+name|setKmsDataKeyReusePeriodSeconds
+parameter_list|(
+name|Integer
+name|kmsDataKeyReusePeriodSeconds
+parameter_list|)
+block|{
+name|this
+operator|.
+name|kmsDataKeyReusePeriodSeconds
+operator|=
+name|kmsDataKeyReusePeriodSeconds
+expr_stmt|;
+block|}
+DECL|method|getServerSideEncryptionEnabled ()
+specifier|public
+name|Boolean
+name|getServerSideEncryptionEnabled
+parameter_list|()
+block|{
+return|return
+name|serverSideEncryptionEnabled
+return|;
+block|}
+DECL|method|setServerSideEncryptionEnabled ( Boolean serverSideEncryptionEnabled)
+specifier|public
+name|void
+name|setServerSideEncryptionEnabled
+parameter_list|(
+name|Boolean
+name|serverSideEncryptionEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serverSideEncryptionEnabled
+operator|=
+name|serverSideEncryptionEnabled
 expr_stmt|;
 block|}
 block|}
