@@ -1005,7 +1005,7 @@ index|[]
 name|payload
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
