@@ -228,7 +228,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
 name|IntrospectionSupport
 import|;
