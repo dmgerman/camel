@@ -238,10 +238,8 @@ expr_stmt|;
 name|context
 argument_list|()
 operator|.
-name|startRoute
-argument_list|(
-literal|"google-stream-test"
-argument_list|)
+name|start
+argument_list|()
 expr_stmt|;
 name|MockEndpoint
 name|mock
