@@ -482,6 +482,13 @@ name|exchange
 operator|.
 name|getUnitOfWork
 argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
 operator|.
 name|isTransactedBy
 argument_list|(
@@ -606,6 +613,15 @@ decl_stmt|;
 try|try
 block|{
 comment|// mark the beginning of this transaction boundary
+if|if
+condition|(
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|!=
+literal|null
+condition|)
 name|exchange
 operator|.
 name|getUnitOfWork
@@ -684,6 +700,15 @@ block|}
 finally|finally
 block|{
 comment|// mark the end of this transaction boundary
+if|if
+condition|(
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|!=
+literal|null
+condition|)
 name|exchange
 operator|.
 name|getUnitOfWork
