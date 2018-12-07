@@ -1392,7 +1392,7 @@ return|return
 operator|new
 name|CamelContextBuilder
 argument_list|()
-block|{}
+block|{         }
 operator|.
 name|buildCamelContext
 argument_list|()
@@ -1470,7 +1470,7 @@ return|return
 operator|new
 name|CamelContextBuilder
 argument_list|()
-block|{}
+block|{         }
 operator|.
 name|buildCamelContext
 argument_list|()
