@@ -178,7 +178,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Error: DOB is an empty string!"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>Error: DOB is an empty string!"
 argument_list|,
 name|error
 operator|.
