@@ -622,6 +622,7 @@ argument_list|()
 operator|!=
 literal|null
 condition|)
+block|{
 name|exchange
 operator|.
 name|getUnitOfWork
@@ -632,6 +633,7 @@ argument_list|(
 name|transactionKey
 argument_list|)
 expr_stmt|;
+block|}
 comment|// do in transaction
 name|logTransactionBegin
 argument_list|(
@@ -709,6 +711,7 @@ argument_list|()
 operator|!=
 literal|null
 condition|)
+block|{
 name|exchange
 operator|.
 name|getUnitOfWork
@@ -719,6 +722,7 @@ argument_list|(
 name|transactionKey
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// if it was a local rollback only then remove its marker so outer transaction wont see the marker
 name|Boolean
