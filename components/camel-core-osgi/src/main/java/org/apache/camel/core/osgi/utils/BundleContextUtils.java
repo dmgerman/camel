@@ -122,9 +122,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
-operator|.
-name|CamelContextHelper
+name|LoadPropertiesException
 import|;
 end_import
 
@@ -136,7 +134,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|LoadPropertiesException
+name|support
+operator|.
+name|CamelContextHelper
 import|;
 end_import
 

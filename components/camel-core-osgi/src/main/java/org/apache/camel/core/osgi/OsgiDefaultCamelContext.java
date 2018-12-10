@@ -56,6 +56,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|LoadPropertiesException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TypeConverter
 import|;
 end_import
@@ -135,18 +147,6 @@ operator|.
 name|spi
 operator|.
 name|Registry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|LoadPropertiesException
 import|;
 end_import
 
