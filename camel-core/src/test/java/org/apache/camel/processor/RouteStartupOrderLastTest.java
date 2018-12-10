@@ -321,7 +321,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// should start last after the default routes route
+comment|// should start last after the default routes
 name|from
 argument_list|(
 literal|"direct:bar"
