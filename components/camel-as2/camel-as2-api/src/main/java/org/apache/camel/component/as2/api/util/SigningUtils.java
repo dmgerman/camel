@@ -539,20 +539,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|//        for (String signingAlgorithmName : AS2SignedDataGenerator.getSupportedSignatureAlgorithmNamesForKey(privateKey)) {
-comment|//            try {
-comment|//                signerInfoGenerator = new JcaSimpleSignerInfoGeneratorBuilder().setProvider("BC")
-comment|//                .setSignedAttributeGenerator(new AttributeTable(attributes))
-comment|//                .build(signingAlgorithmName, privateKey, signingCert);
-comment|//                break;
-comment|//            } catch (Exception e) {
-comment|//                signerInfoGenerator = null;
-comment|//                continue;
-comment|//            }
-comment|//        }
-comment|//        if (signerInfoGenerator == null) {
-comment|//            throw new HttpException("Failed to create signer info");
-comment|//        }
 name|gen
 operator|.
 name|addSignerInfoGenerator

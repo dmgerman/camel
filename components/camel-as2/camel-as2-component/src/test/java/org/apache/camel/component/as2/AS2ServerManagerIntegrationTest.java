@@ -1018,8 +1018,6 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -1627,8 +1625,6 @@ argument_list|,
 name|DISPOSITION_NOTIFICATION_TO
 argument_list|,
 name|SIGNED_RECEIPT_MIC_ALGORITHMS
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,

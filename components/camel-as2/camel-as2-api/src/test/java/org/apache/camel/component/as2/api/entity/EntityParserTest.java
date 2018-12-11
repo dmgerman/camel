@@ -1194,7 +1194,7 @@ argument_list|)
 expr_stmt|;
 name|EntityParser
 operator|.
-name|parseMessageDispositionNotificationReportEntity
+name|parseAS2MessageEntity
 argument_list|(
 name|response
 argument_list|)

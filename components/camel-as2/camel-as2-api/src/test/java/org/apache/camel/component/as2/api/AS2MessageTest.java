@@ -2003,8 +2003,6 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|HttpRequest
@@ -2451,8 +2449,6 @@ argument_list|,
 name|DISPOSITION_NOTIFICATION_TO
 argument_list|,
 name|SIGNED_RECEIPT_MIC_ALGORITHMS
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -3400,11 +3396,6 @@ index|[
 literal|0
 index|]
 argument_list|)
-argument_list|,
-name|signingKP
-operator|.
-name|getPrivate
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|HttpRequest
@@ -3965,11 +3956,6 @@ index|[
 literal|0
 index|]
 argument_list|)
-argument_list|,
-name|signingKP
-operator|.
-name|getPrivate
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|HttpRequest
@@ -4589,8 +4575,6 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|HttpRequest
@@ -4791,8 +4775,6 @@ argument_list|,
 name|DISPOSITION_NOTIFICATION_TO
 argument_list|,
 name|SIGNED_RECEIPT_MIC_ALGORITHMS
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -5737,8 +5719,6 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|HttpRequest
@@ -6213,7 +6193,7 @@ operator|.
 name|US_ASCII
 argument_list|)
 argument_list|,
-literal|null
+literal|"base64"
 argument_list|,
 name|AS2SignatureAlgorithm
 operator|.
@@ -6242,8 +6222,6 @@ argument_list|,
 name|DISPOSITION_NOTIFICATION_TO
 argument_list|,
 name|SIGNED_RECEIPT_MIC_ALGORITHMS
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -6850,7 +6828,7 @@ operator|.
 name|US_ASCII
 argument_list|)
 argument_list|,
-literal|null
+literal|"base64"
 argument_list|,
 literal|null
 argument_list|,
@@ -6880,11 +6858,6 @@ index|[
 literal|0
 index|]
 argument_list|)
-argument_list|,
-name|signingKP
-operator|.
-name|getPrivate
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|HttpRequest
@@ -7490,11 +7463,6 @@ index|[
 literal|0
 index|]
 argument_list|)
-argument_list|,
-name|signingKP
-operator|.
-name|getPrivate
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|HttpRequest
