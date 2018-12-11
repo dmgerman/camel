@@ -112,6 +112,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Registry
@@ -213,6 +225,8 @@ extends|extends
 name|LifecycleStrategySupport
 implements|implements
 name|Registry
+implements|,
+name|Service
 block|{
 DECL|field|LOG
 specifier|private
@@ -295,8 +309,6 @@ argument_list|<
 name|?
 argument_list|>
 name|sr
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -777,16 +789,28 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|onContextStop (CamelContext context)
+DECL|method|start ()
 specifier|public
 name|void
-name|onContextStop
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
+name|start
+parameter_list|()
+throws|throws
+name|Exception
 block|{
-comment|// Unget the OSGi service
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// Unget the OSGi service as OSGi uses reference counting
+comment|// and we should do this as one of the last actions when stopping Camel
 name|ServiceReference
 argument_list|<
 name|?
