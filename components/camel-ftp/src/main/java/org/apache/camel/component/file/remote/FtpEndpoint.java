@@ -674,6 +674,12 @@ argument_list|,
 name|createRemoteFileOperations
 argument_list|()
 argument_list|,
+name|processStrategy
+operator|!=
+literal|null
+condition|?
+name|processStrategy
+else|:
 name|createGenericFileStrategy
 argument_list|()
 argument_list|)
