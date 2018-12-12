@@ -1327,6 +1327,21 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * This option is not supported / in-use for blueprint      */
+annotation|@
+name|Deprecated
+annotation|@
+name|Override
+DECL|method|isCreateCamelContextPerClass ()
+specifier|public
+name|boolean
+name|isCreateCamelContextPerClass
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 annotation|@
 name|Before
 annotation|@
