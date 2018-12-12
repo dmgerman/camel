@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|nats
+operator|.
+name|client
+operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -125,18 +137,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|nats
-operator|.
-name|client
-operator|.
-name|Message
 import|;
 end_import
 
@@ -388,9 +388,11 @@ argument_list|(
 literal|"test"
 argument_list|)
 condition|)
+block|{
 return|return
 literal|true
 return|;
+block|}
 return|return
 literal|false
 return|;
