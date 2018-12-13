@@ -19,18 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-operator|.
-name|ofNullable
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -49,6 +37,18 @@ operator|.
 name|function
 operator|.
 name|BiConsumer
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+operator|.
+name|ofNullable
 import|;
 end_import
 
@@ -151,8 +151,6 @@ DECL|field|closeTask
 specifier|private
 name|Runnable
 name|closeTask
-init|=
-literal|null
 decl_stmt|;
 DECL|field|onMessage
 specifier|private
@@ -367,7 +365,8 @@ operator|.
 name|create
 argument_list|()
 decl_stmt|;
-comment|// todo: config
+comment|// todo:
+comment|// config
 name|manager
 operator|=
 operator|new

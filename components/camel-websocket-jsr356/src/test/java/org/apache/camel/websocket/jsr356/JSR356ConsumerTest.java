@@ -280,7 +280,6 @@ argument_list|(
 literal|"org.apache.camel.websocket.jsr356.JSR356ConsumerTest$"
 argument_list|)
 expr_stmt|;
-comment|// deploy test classes
 block|}
 block|}
 argument_list|,
@@ -355,7 +354,9 @@ operator|.
 name|doSend
 argument_list|()
 expr_stmt|;
-comment|// to avoid lifecycle issue suring startup we send the message only here
+comment|// to avoid lifecycle issue suring
+comment|// startup we send the message
+comment|// only here
 name|mockEndpoint
 operator|.
 name|assertIsSatisfied

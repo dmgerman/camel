@@ -19,18 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-operator|.
-name|ofNullable
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -89,6 +77,18 @@ operator|.
 name|concurrent
 operator|.
 name|ConcurrentHashMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+operator|.
+name|ofNullable
 import|;
 end_import
 
@@ -186,7 +186,8 @@ name|JSR356WebSocketComponent
 extends|extends
 name|DefaultComponent
 block|{
-comment|// didn't find a better way to handle that unless we can assume the CamelContext is in the ServletContext
+comment|// didn't find a better way to handle that unless we can assume the
+comment|// CamelContext is in the ServletContext
 DECL|field|SERVER_CONTAINERS
 specifier|private
 specifier|static
@@ -279,7 +280,9 @@ operator|.
 name|getBasicRemote
 argument_list|()
 decl_stmt|;
-comment|// todo: handle async?
+comment|// todo:
+comment|// handle
+comment|// async?
 synchronized|synchronized
 init|(
 name|session
@@ -492,6 +495,7 @@ block|}
 DECL|class|ContextBag
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|ContextBag
 block|{

@@ -19,18 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|singletonList
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -59,6 +47,18 @@ operator|.
 name|concurrent
 operator|.
 name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singletonList
 import|;
 end_import
 
@@ -262,7 +262,6 @@ argument_list|(
 literal|"org.apache.camel.websocket.jsr356.JSR356ProducerTest$"
 argument_list|)
 expr_stmt|;
-comment|// deploy test classes
 block|}
 block|}
 argument_list|,

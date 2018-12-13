@@ -19,18 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-operator|.
-name|ofNullable
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -59,6 +47,18 @@ operator|.
 name|function
 operator|.
 name|BiConsumer
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+operator|.
+name|ofNullable
 import|;
 end_import
 
@@ -330,7 +330,8 @@ literal|"://"
 argument_list|)
 condition|)
 block|{
-comment|// we act as a client in all cases here
+comment|// we act as a client in all cases
+comment|// here
 throw|throw
 operator|new
 name|IllegalArgumentException
