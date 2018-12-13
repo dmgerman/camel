@@ -3233,12 +3233,16 @@ condition|)
 block|{
 throw|throw
 operator|new
+name|InvocationException
+argument_list|(
+operator|new
 name|RuntimeException
 argument_list|(
 name|message
 operator|.
 name|toString
 argument_list|()
+argument_list|)
 argument_list|)
 throw|;
 block|}
