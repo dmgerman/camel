@@ -202,6 +202,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Rule
 import|;
 end_import
@@ -292,6 +302,8 @@ specifier|private
 name|ProducerTemplate
 name|serverProducer
 decl_stmt|;
+annotation|@
+name|Ignore
 annotation|@
 name|Test
 DECL|method|ensureServerModeSendsProperly ()
