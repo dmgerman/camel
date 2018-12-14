@@ -2393,6 +2393,16 @@ argument_list|,
 literal|"message entity"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|entity
+operator|instanceof
+name|MimeEntity
+condition|)
+block|{
+comment|// already parsed
+return|return;
+block|}
 try|try
 block|{
 comment|// Determine Content Type of Message
@@ -5823,16 +5833,17 @@ case|:
 block|{
 if|if
 condition|(
+operator|!
+literal|"compressed-data"
+operator|.
+name|equals
+argument_list|(
 name|contentType
 operator|.
 name|getParameter
 argument_list|(
-literal|"mime-type"
+literal|"smime-type"
 argument_list|)
-operator|.
-name|equals
-argument_list|(
-literal|"compressed-data"
 argument_list|)
 condition|)
 block|{
@@ -5846,7 +5857,7 @@ name|contentType
 operator|.
 name|getParameter
 argument_list|(
-literal|"mime-type"
+literal|"smime-type"
 argument_list|)
 operator|+
 literal|"' for AS2 enveloped entity"

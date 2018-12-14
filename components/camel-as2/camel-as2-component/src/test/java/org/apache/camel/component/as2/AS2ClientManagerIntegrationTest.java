@@ -1513,6 +1513,11 @@ specifier|private
 name|KeyPair
 name|signingKP
 decl_stmt|;
+DECL|field|decryptingKP
+specifier|private
+name|KeyPair
+name|decryptingKP
+decl_stmt|;
 DECL|field|signingCert
 specifier|private
 name|X509Certificate
@@ -2520,19 +2525,6 @@ argument_list|,
 name|certList
 argument_list|)
 expr_stmt|;
-comment|// parameter type is java.security.PrivateKey
-name|headers
-operator|.
-name|put
-argument_list|(
-literal|"CamelAS2.encryptingPrivateKey"
-argument_list|,
-name|signingKP
-operator|.
-name|getPrivate
-argument_list|()
-argument_list|)
-expr_stmt|;
 specifier|final
 name|org
 operator|.
@@ -2635,7 +2627,7 @@ operator|)
 operator|.
 name|getEncryptedEntity
 argument_list|(
-name|signingKP
+name|decryptingKP
 operator|.
 name|getPrivate
 argument_list|()
@@ -3829,6 +3821,11 @@ operator|(
 name|HttpEntityEnclosingRequest
 operator|)
 name|request
+argument_list|,
+name|decryptingKP
+operator|.
+name|getPrivate
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -4605,6 +4602,11 @@ operator|(
 name|HttpEntityEnclosingRequest
 operator|)
 name|request
+argument_list|,
+name|decryptingKP
+operator|.
+name|getPrivate
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -4956,6 +4958,11 @@ argument_list|,
 literal|"boundary"
 argument_list|,
 literal|true
+argument_list|,
+name|serverSigningKP
+operator|.
+name|getPrivate
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// Send MDN
@@ -5359,6 +5366,11 @@ name|serverSigningKP
 operator|.
 name|getPrivate
 argument_list|()
+argument_list|,
+name|serverSigningKP
+operator|.
+name|getPrivate
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|serverConnection
@@ -5484,6 +5496,11 @@ name|add
 argument_list|(
 name|issueCert
 argument_list|)
+expr_stmt|;
+comment|// keys used to encrypt/decrypt
+name|decryptingKP
+operator|=
+name|signingKP
 expr_stmt|;
 block|}
 block|}

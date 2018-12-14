@@ -26,6 +26,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|security
+operator|.
+name|PrivateKey
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -235,7 +245,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|DispositionNotificationMultipartReportEntity (HttpEntityEnclosingRequest request, HttpResponse response, DispositionMode dispositionMode, AS2DispositionType dispositionType, AS2DispositionModifier dispositionModifier, String[] failureFields, String[] errorFields, String[] warningFields, Map<String, String> extensionFields, String charset, String boundary, boolean isMainBody)
+DECL|method|DispositionNotificationMultipartReportEntity (HttpEntityEnclosingRequest request, HttpResponse response, DispositionMode dispositionMode, AS2DispositionType dispositionType, AS2DispositionModifier dispositionModifier, String[] failureFields, String[] errorFields, String[] warningFields, Map<String, String> extensionFields, String charset, String boundary, boolean isMainBody, PrivateKey decryptingPrivateKey)
 specifier|public
 name|DispositionNotificationMultipartReportEntity
 parameter_list|(
@@ -282,6 +292,9 @@ name|boundary
 parameter_list|,
 name|boolean
 name|isMainBody
+parameter_list|,
+name|PrivateKey
+name|decryptingPrivateKey
 parameter_list|)
 throws|throws
 name|HttpException
@@ -360,6 +373,8 @@ argument_list|,
 name|charset
 argument_list|,
 literal|false
+argument_list|,
+name|decryptingPrivateKey
 argument_list|)
 argument_list|)
 expr_stmt|;

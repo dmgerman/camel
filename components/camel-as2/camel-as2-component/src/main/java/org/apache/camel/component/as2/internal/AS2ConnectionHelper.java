@@ -268,6 +268,11 @@ name|configuration
 operator|.
 name|getSigningPrivateKey
 argument_list|()
+argument_list|,
+name|configuration
+operator|.
+name|getDecryptingPrivateKey
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|serverConnections

@@ -465,7 +465,7 @@ specifier|private
 name|UriHttpRequestHandlerMapper
 name|reqistry
 decl_stmt|;
-DECL|method|RequestListenerThread (String as2Version, String originServer, String serverFqdn, int port, AS2SignatureAlgorithm signatureAlgorithm, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey)
+DECL|method|RequestListenerThread (String as2Version, String originServer, String serverFqdn, int port, AS2SignatureAlgorithm signatureAlgorithm, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey, PrivateKey decryptingPrivateKey)
 specifier|public
 name|RequestListenerThread
 parameter_list|(
@@ -490,6 +490,9 @@ name|signingCertificateChain
 parameter_list|,
 name|PrivateKey
 name|signingPrivateKey
+parameter_list|,
+name|PrivateKey
+name|decryptingPrivateKey
 parameter_list|)
 throws|throws
 name|IOException
@@ -529,6 +532,8 @@ argument_list|,
 name|signingCertificateChain
 argument_list|,
 name|signingPrivateKey
+argument_list|,
+name|decryptingPrivateKey
 argument_list|)
 decl_stmt|;
 name|reqistry
@@ -986,6 +991,11 @@ name|HttpException
 name|ex
 parameter_list|)
 block|{
+name|ex
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
 name|LOG
 operator|.
 name|error
@@ -1062,7 +1072,12 @@ specifier|private
 name|PrivateKey
 name|signingPrivateKey
 decl_stmt|;
-DECL|method|AS2ServerConnection (String as2Version, String originServer, String serverFqdn, Integer serverPortNumber, AS2SignatureAlgorithm signingAlgorithm, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey)
+DECL|field|decryptingPrivateKey
+specifier|private
+name|PrivateKey
+name|decryptingPrivateKey
+decl_stmt|;
+DECL|method|AS2ServerConnection (String as2Version, String originServer, String serverFqdn, Integer serverPortNumber, AS2SignatureAlgorithm signingAlgorithm, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey, PrivateKey decryptingPrivateKey)
 specifier|public
 name|AS2ServerConnection
 parameter_list|(
@@ -1087,6 +1102,9 @@ name|signingCertificateChain
 parameter_list|,
 name|PrivateKey
 name|signingPrivateKey
+parameter_list|,
+name|PrivateKey
+name|decryptingPrivateKey
 parameter_list|)
 throws|throws
 name|IOException
@@ -1161,6 +1179,12 @@ name|signingPrivateKey
 operator|=
 name|signingPrivateKey
 expr_stmt|;
+name|this
+operator|.
+name|decryptingPrivateKey
+operator|=
+name|decryptingPrivateKey
+expr_stmt|;
 name|listenerThread
 operator|=
 operator|new
@@ -1193,6 +1217,10 @@ argument_list|,
 name|this
 operator|.
 name|signingPrivateKey
+argument_list|,
+name|this
+operator|.
+name|decryptingPrivateKey
 argument_list|)
 expr_stmt|;
 name|listenerThread
@@ -1328,7 +1356,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|initProtocolProcessor (String as2Version, String originServer, String serverFqdn, int port, AS2SignatureAlgorithm signatureAlgorithm, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey)
+DECL|method|initProtocolProcessor (String as2Version, String originServer, String serverFqdn, int port, AS2SignatureAlgorithm signatureAlgorithm, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey, PrivateKey decryptingPrivateKey)
 specifier|protected
 name|HttpProcessor
 name|initProtocolProcessor
@@ -1354,6 +1382,9 @@ name|signingCertificateChain
 parameter_list|,
 name|PrivateKey
 name|signingPrivateKey
+parameter_list|,
+name|PrivateKey
+name|decryptingPrivateKey
 parameter_list|)
 block|{
 return|return
@@ -1408,6 +1439,8 @@ argument_list|,
 name|signingCertificateChain
 argument_list|,
 name|signingPrivateKey
+argument_list|,
+name|decryptingPrivateKey
 argument_list|)
 argument_list|)
 operator|.

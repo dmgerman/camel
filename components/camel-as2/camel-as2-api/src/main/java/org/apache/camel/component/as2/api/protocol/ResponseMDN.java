@@ -573,7 +573,12 @@ specifier|private
 name|PrivateKey
 name|signingPrivateKey
 decl_stmt|;
-DECL|method|ResponseMDN (String as2Version, String serverFQDN, AS2SignatureAlgorithm signingAlgorithm, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey)
+DECL|field|decryptingPrivateKey
+specifier|private
+name|PrivateKey
+name|decryptingPrivateKey
+decl_stmt|;
+DECL|method|ResponseMDN (String as2Version, String serverFQDN, AS2SignatureAlgorithm signingAlgorithm, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey, PrivateKey decryptingPrivateKey)
 specifier|public
 name|ResponseMDN
 parameter_list|(
@@ -592,6 +597,9 @@ name|signingCertificateChain
 parameter_list|,
 name|PrivateKey
 name|signingPrivateKey
+parameter_list|,
+name|PrivateKey
+name|decryptingPrivateKey
 parameter_list|)
 block|{
 name|this
@@ -623,6 +631,12 @@ operator|.
 name|signingPrivateKey
 operator|=
 name|signingPrivateKey
+expr_stmt|;
+name|this
+operator|.
+name|decryptingPrivateKey
+operator|=
+name|decryptingPrivateKey
 expr_stmt|;
 block|}
 annotation|@
@@ -807,6 +821,8 @@ argument_list|,
 name|boundary
 argument_list|,
 literal|true
+argument_list|,
+name|decryptingPrivateKey
 argument_list|)
 decl_stmt|;
 name|DispositionNotificationOptions

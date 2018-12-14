@@ -483,10 +483,10 @@ index|[]
 name|encryptingCertificateChain
 decl_stmt|;
 comment|/**          * The key used to encrypt the EDI message.          */
-DECL|field|encryptingPrivateKey
+DECL|field|decryptingPrivateKey
 specifier|private
 name|PrivateKey
-name|encryptingPrivateKey
+name|decryptingPrivateKey
 decl_stmt|;
 DECL|method|getApiName ()
 specifier|public
@@ -1170,30 +1170,30 @@ operator|=
 name|encryptingCertificateChain
 expr_stmt|;
 block|}
-DECL|method|getEncryptingPrivateKey ()
+DECL|method|getDecryptingPrivateKey ()
 specifier|public
 name|PrivateKey
-name|getEncryptingPrivateKey
+name|getDecryptingPrivateKey
 parameter_list|()
 block|{
 return|return
-name|encryptingPrivateKey
+name|decryptingPrivateKey
 return|;
 block|}
-DECL|method|setEncryptingPrivateKey (PrivateKey encryptingPrivateKey)
+DECL|method|setDecryptingPrivateKey (PrivateKey decryptingPrivateKey)
 specifier|public
 name|void
-name|setEncryptingPrivateKey
+name|setDecryptingPrivateKey
 parameter_list|(
 name|PrivateKey
-name|encryptingPrivateKey
+name|decryptingPrivateKey
 parameter_list|)
 block|{
 name|this
 operator|.
-name|encryptingPrivateKey
+name|decryptingPrivateKey
 operator|=
-name|encryptingPrivateKey
+name|decryptingPrivateKey
 expr_stmt|;
 block|}
 block|}

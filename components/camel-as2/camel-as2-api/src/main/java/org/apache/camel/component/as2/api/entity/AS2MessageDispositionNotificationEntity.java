@@ -46,6 +46,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|security
+operator|.
+name|PrivateKey
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
@@ -491,7 +501,7 @@ specifier|private
 name|ReceivedContentMic
 name|receivedContentMic
 decl_stmt|;
-DECL|method|AS2MessageDispositionNotificationEntity (HttpEntityEnclosingRequest request, HttpResponse response, DispositionMode dispositionMode, AS2DispositionType dispositionType, AS2DispositionModifier dispositionModifier, String[] failureFields, String[] errorFields, String[] warningFields, Map<String, String> extensionFields, String charset, boolean isMainBody)
+DECL|method|AS2MessageDispositionNotificationEntity (HttpEntityEnclosingRequest request, HttpResponse response, DispositionMode dispositionMode, AS2DispositionType dispositionType, AS2DispositionModifier dispositionModifier, String[] failureFields, String[] errorFields, String[] warningFields, Map<String, String> extensionFields, String charset, boolean isMainBody, PrivateKey decryptingPrivateKey)
 specifier|public
 name|AS2MessageDispositionNotificationEntity
 parameter_list|(
@@ -535,6 +545,9 @@ name|charset
 parameter_list|,
 name|boolean
 name|isMainBody
+parameter_list|,
+name|PrivateKey
+name|decryptingPrivateKey
 parameter_list|)
 throws|throws
 name|HttpException
@@ -620,6 +633,8 @@ operator|.
 name|createReceivedContentMic
 argument_list|(
 name|request
+argument_list|,
+name|decryptingPrivateKey
 argument_list|)
 expr_stmt|;
 name|this
