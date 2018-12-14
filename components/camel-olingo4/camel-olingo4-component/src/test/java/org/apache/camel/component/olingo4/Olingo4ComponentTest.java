@@ -568,7 +568,7 @@ name|Edm
 operator|)
 name|requestBodyAndHeaders
 argument_list|(
-literal|"direct://readmetadata"
+literal|"direct:readmetadata"
 argument_list|,
 literal|null
 argument_list|,
@@ -603,7 +603,7 @@ name|ClientServiceDocument
 operator|)
 name|requestBodyAndHeaders
 argument_list|(
-literal|"direct://readdocument"
+literal|"direct:readdocument"
 argument_list|,
 literal|null
 argument_list|,
@@ -653,7 +653,7 @@ name|ClientEntitySet
 operator|)
 name|requestBodyAndHeaders
 argument_list|(
-literal|"direct://readentities"
+literal|"direct:readentities"
 argument_list|,
 literal|null
 argument_list|,
@@ -688,7 +688,7 @@ name|Long
 operator|)
 name|requestBodyAndHeaders
 argument_list|(
-literal|"direct://readcount"
+literal|"direct:readcount"
 argument_list|,
 literal|null
 argument_list|,
@@ -714,7 +714,7 @@ name|ClientPrimitiveValue
 operator|)
 name|requestBodyAndHeaders
 argument_list|(
-literal|"direct://readvalue"
+literal|"direct:readvalue"
 argument_list|,
 literal|null
 argument_list|,
@@ -757,7 +757,7 @@ name|ClientPrimitiveValue
 operator|)
 name|requestBodyAndHeaders
 argument_list|(
-literal|"direct://readsingleprop"
+literal|"direct:readsingleprop"
 argument_list|,
 literal|null
 argument_list|,
@@ -791,7 +791,7 @@ name|ClientComplexValue
 operator|)
 name|requestBodyAndHeaders
 argument_list|(
-literal|"direct://readcomplexprop"
+literal|"direct:readcomplexprop"
 argument_list|,
 literal|null
 argument_list|,
@@ -841,7 +841,7 @@ name|ClientEntity
 operator|)
 name|requestBodyAndHeaders
 argument_list|(
-literal|"direct://readentitybyid"
+literal|"direct:readentitybyid"
 argument_list|,
 literal|null
 argument_list|,
@@ -880,7 +880,7 @@ name|ClientEntity
 operator|)
 name|requestBodyAndHeaders
 argument_list|(
-literal|"direct://callunboundfunction"
+literal|"direct:callunboundfunction"
 argument_list|,
 literal|null
 argument_list|,
@@ -911,7 +911,7 @@ name|ClientEntitySet
 operator|)
 name|requestBody
 argument_list|(
-literal|"direct://readwithfilter"
+literal|"direct:readwithfilter"
 argument_list|,
 literal|null
 argument_list|)
@@ -957,7 +957,7 @@ name|entity
 init|=
 name|requestBody
 argument_list|(
-literal|"direct://create-entity"
+literal|"direct:create-entity"
 argument_list|,
 name|clientEntity
 argument_list|)
@@ -1034,7 +1034,7 @@ name|status
 init|=
 name|requestBody
 argument_list|(
-literal|"direct://update-entity"
+literal|"direct:update-entity"
 argument_list|,
 name|clientEntity
 argument_list|)
@@ -1077,7 +1077,7 @@ name|status
 operator|=
 name|requestBody
 argument_list|(
-literal|"direct://delete-entity"
+literal|"direct:delete-entity"
 argument_list|,
 literal|null
 argument_list|)
@@ -1120,7 +1120,7 @@ try|try
 block|{
 name|requestBody
 argument_list|(
-literal|"direct://read-deleted-entity"
+literal|"direct:read-deleted-entity"
 argument_list|,
 literal|null
 argument_list|)
@@ -1162,7 +1162,7 @@ name|entity
 init|=
 name|requestBody
 argument_list|(
-literal|"direct://create-entity"
+literal|"direct:create-entity"
 argument_list|,
 name|TEST_CREATE_JSON
 argument_list|)
@@ -1250,7 +1250,7 @@ name|status
 init|=
 name|requestBody
 argument_list|(
-literal|"direct://update-entity"
+literal|"direct:update-entity"
 argument_list|,
 name|TEST_UPDATE_JSON
 argument_list|)
@@ -1293,7 +1293,7 @@ name|status
 operator|=
 name|requestBody
 argument_list|(
-literal|"direct://delete-entity"
+literal|"direct:delete-entity"
 argument_list|,
 literal|null
 argument_list|)
@@ -1336,7 +1336,7 @@ try|try
 block|{
 name|requestBody
 argument_list|(
-literal|"direct://read-deleted-entity"
+literal|"direct:read-deleted-entity"
 argument_list|,
 literal|null
 argument_list|)
@@ -1765,7 +1765,7 @@ name|responseParts
 init|=
 name|requestBody
 argument_list|(
-literal|"direct://batch"
+literal|"direct:batch"
 argument_list|,
 name|batchParts
 argument_list|)
@@ -2129,7 +2129,7 @@ name|ClientEntity
 operator|)
 name|requestBodyAndHeaders
 argument_list|(
-literal|"direct://read-etag"
+literal|"direct:read-etag"
 argument_list|,
 literal|null
 argument_list|,
@@ -2241,7 +2241,7 @@ argument_list|)
 expr_stmt|;
 name|requestBodyAndHeaders
 argument_list|(
-literal|"direct://delete-with-etag"
+literal|"direct:delete-with-etag"
 argument_list|,
 literal|null
 argument_list|,
@@ -2253,7 +2253,7 @@ try|try
 block|{
 name|requestBody
 argument_list|(
-literal|"direct://read-etag"
+literal|"direct:read-etag"
 argument_list|,
 literal|null
 argument_list|)
@@ -2303,7 +2303,7 @@ block|{
 comment|// test routes for read
 name|from
 argument_list|(
-literal|"direct://readmetadata"
+literal|"direct:readmetadata"
 argument_list|)
 operator|.
 name|to
@@ -2313,7 +2313,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct://readdocument"
+literal|"direct:readdocument"
 argument_list|)
 operator|.
 name|to
@@ -2323,7 +2323,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct://readentities"
+literal|"direct:readentities"
 argument_list|)
 operator|.
 name|to
@@ -2333,7 +2333,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct://readcount"
+literal|"direct:readcount"
 argument_list|)
 operator|.
 name|to
@@ -2343,7 +2343,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct://readvalue"
+literal|"direct:readvalue"
 argument_list|)
 operator|.
 name|to
@@ -2353,7 +2353,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct://readsingleprop"
+literal|"direct:readsingleprop"
 argument_list|)
 operator|.
 name|to
@@ -2363,7 +2363,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct://readcomplexprop"
+literal|"direct:readcomplexprop"
 argument_list|)
 operator|.
 name|to
@@ -2373,7 +2373,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct://readentitybyid"
+literal|"direct:readentitybyid"
 argument_list|)
 operator|.
 name|to
@@ -2383,7 +2383,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct://readwithfilter"
+literal|"direct:readwithfilter"
 argument_list|)
 operator|.
 name|to
@@ -2393,7 +2393,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct://callunboundfunction"
+literal|"direct:callunboundfunction"
 argument_list|)
 operator|.
 name|to
@@ -2404,7 +2404,7 @@ expr_stmt|;
 comment|// test route for create individual entity
 name|from
 argument_list|(
-literal|"direct://create-entity"
+literal|"direct:create-entity"
 argument_list|)
 operator|.
 name|to
@@ -2415,7 +2415,7 @@ expr_stmt|;
 comment|// test route for update
 name|from
 argument_list|(
-literal|"direct://update-entity"
+literal|"direct:update-entity"
 argument_list|)
 operator|.
 name|to
@@ -2426,7 +2426,7 @@ expr_stmt|;
 comment|// test route for delete
 name|from
 argument_list|(
-literal|"direct://delete-entity"
+literal|"direct:delete-entity"
 argument_list|)
 operator|.
 name|to
@@ -2437,7 +2437,7 @@ expr_stmt|;
 comment|// test route for delete
 name|from
 argument_list|(
-literal|"direct://read-deleted-entity"
+literal|"direct:read-deleted-entity"
 argument_list|)
 operator|.
 name|to
@@ -2448,7 +2448,7 @@ expr_stmt|;
 comment|// test route for batch
 name|from
 argument_list|(
-literal|"direct://batch"
+literal|"direct:batch"
 argument_list|)
 operator|.
 name|to
@@ -2458,7 +2458,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct://read-etag"
+literal|"direct:read-etag"
 argument_list|)
 operator|.
 name|to
@@ -2473,7 +2473,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct://delete-with-etag"
+literal|"direct:delete-with-etag"
 argument_list|)
 operator|.
 name|to
