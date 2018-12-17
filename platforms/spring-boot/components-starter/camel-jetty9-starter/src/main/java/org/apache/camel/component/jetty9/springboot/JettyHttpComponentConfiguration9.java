@@ -276,7 +276,7 @@ name|useXForwardedForHeader
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * If the option is true, jetty server will send the date header to the      * client which sends the request. NOTE please make sure there is no any      * other camel-jetty endpoint is share the same port, otherwise this option      * may not work as expected.      */
+comment|/**      * If the option is true, jetty will send the server header with the jetty      * version information to the client which sends the request. NOTE please      * make sure there is no any other camel-jetty endpoint is share the same      * port, otherwise this option may not work as expected.      */
 DECL|field|sendServerVersion
 specifier|private
 name|Boolean
