@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Accesses the private key from a key-store and returns a KeyInfo which  * contains the X.509 certificate chain corresponding to the private key.  */
+comment|/**  * Accesses the public key from a key-store and returns a KeyInfo which  * contains the X.509 certificate chain corresponding to the public key.  */
 end_comment
 
 begin_class
