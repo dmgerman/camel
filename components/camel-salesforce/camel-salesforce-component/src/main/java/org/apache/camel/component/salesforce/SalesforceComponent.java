@@ -747,7 +747,7 @@ name|Metadata
 argument_list|(
 name|description
 operator|=
-literal|"URL of the Salesforce instance used after authantication, by default received from"
+literal|"URL of the Salesforce instance used after authentication, by default received from"
 operator|+
 literal|" Salesforce on successful authentication"
 argument_list|,
@@ -956,7 +956,7 @@ name|description
 operator|=
 literal|"If set to true prevents the component from authenticating to Salesforce with the start of"
 operator|+
-literal|" the component. You would generaly set this to the (default) false and authenticate early and be immediately"
+literal|" the component. You would generally set this to the (default) false and authenticate early and be immediately"
 operator|+
 literal|" aware of any authentication issues."
 argument_list|,
