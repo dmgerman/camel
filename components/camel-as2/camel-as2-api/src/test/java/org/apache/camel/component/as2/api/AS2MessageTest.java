@@ -1251,11 +1251,6 @@ specifier|static
 name|AS2ServerConnection
 name|testServer
 decl_stmt|;
-DECL|field|gen
-specifier|private
-name|AS2SignedDataGenerator
-name|gen
-decl_stmt|;
 DECL|field|issueKP
 specifier|private
 specifier|static
@@ -1288,6 +1283,11 @@ argument_list|<
 name|X509Certificate
 argument_list|>
 name|certList
+decl_stmt|;
+DECL|field|gen
+specifier|private
+name|AS2SignedDataGenerator
+name|gen
 decl_stmt|;
 annotation|@
 name|BeforeClass
