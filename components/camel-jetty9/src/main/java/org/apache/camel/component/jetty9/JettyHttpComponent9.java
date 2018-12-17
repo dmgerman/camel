@@ -444,16 +444,6 @@ name|isSendDateHeader
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|httpConfig
-operator|.
-name|setSendDateHeader
-argument_list|(
-name|endpoint
-operator|.
-name|isSendDateHeader
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|requestBufferSize
