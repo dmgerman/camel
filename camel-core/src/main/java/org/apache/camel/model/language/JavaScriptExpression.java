@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use JavaScript in Camel expressions or predicates.  */
+comment|/**  * To use JavaScript in Camel expressions or predicates.  *  * @deprecated JavaScript is deprecated in Java 11 onwards  */
 end_comment
 
 begin_class
@@ -93,6 +93,10 @@ argument_list|,
 name|title
 operator|=
 literal|"JavaScript"
+argument_list|,
+name|deprecationNode
+operator|=
+literal|"JavaScript is deprecated in Java 11 onwards"
 argument_list|)
 annotation|@
 name|XmlRootElement
@@ -108,6 +112,8 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|class|JavaScriptExpression
 specifier|public
 class|class
