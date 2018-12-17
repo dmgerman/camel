@@ -306,7 +306,7 @@ argument_list|()
 operator|.
 name|withPath
 argument_list|(
-literal|"/apis/autoscaling/v1/namespaces/test/horizontalpodautoscalers"
+literal|"/apis/autoscaling/v2beta1/namespaces/test/horizontalpodautoscalers"
 argument_list|)
 operator|.
 name|andReturn
@@ -389,7 +389,7 @@ argument_list|()
 operator|.
 name|withPath
 argument_list|(
-literal|"/apis/autoscaling/v1/namespaces/test/horizontalpodautoscalers?labelSelector="
+literal|"/apis/autoscaling/v2beta1/namespaces/test/horizontalpodautoscalers?labelSelector="
 operator|+
 name|toUrlEncoded
 argument_list|(
@@ -602,7 +602,7 @@ argument_list|()
 operator|.
 name|withPath
 argument_list|(
-literal|"/apis/autoscaling/v1/namespaces/test/horizontalpodautoscalers/hpa1"
+literal|"/apis/autoscaling/v2beta1/namespaces/test/horizontalpodautoscalers/hpa1"
 argument_list|)
 operator|.
 name|andReturn
@@ -622,7 +622,7 @@ argument_list|()
 operator|.
 name|withPath
 argument_list|(
-literal|"/apis/autoscaling/v1/namespaces/ns1/horizontalpodautoscalers/hpa2"
+literal|"/apis/autoscaling/v2beta1/namespaces/ns1/horizontalpodautoscalers/hpa2"
 argument_list|)
 operator|.
 name|andReturn
@@ -764,7 +764,7 @@ argument_list|()
 operator|.
 name|withPath
 argument_list|(
-literal|"/apis/autoscaling/v1/namespaces/test/horizontalpodautoscalers/hpa1"
+literal|"/apis/autoscaling/v2beta1/namespaces/test/horizontalpodautoscalers/hpa1"
 argument_list|)
 operator|.
 name|andReturn
