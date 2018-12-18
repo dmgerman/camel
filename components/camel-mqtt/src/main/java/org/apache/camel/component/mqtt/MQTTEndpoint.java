@@ -1471,6 +1471,9 @@ expr_stmt|;
 name|createConnection
 argument_list|()
 expr_stmt|;
+name|connect
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|createConnection ()
 specifier|protected
