@@ -78,6 +78,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|CloudServiceFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -85,6 +101,11 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|CloudServiceFactory
+argument_list|(
+literal|"caching-service-discovery"
+argument_list|)
 DECL|class|CachingServiceDiscoveryFactory
 specifier|public
 class|class

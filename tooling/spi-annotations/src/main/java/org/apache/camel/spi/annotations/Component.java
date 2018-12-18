@@ -97,6 +97,11 @@ operator|.
 name|TYPE
 block|}
 argument_list|)
+annotation|@
+name|ServiceFactory
+argument_list|(
+literal|"component"
+argument_list|)
 DECL|annotation|Component
 specifier|public
 annotation_defn|@interface

@@ -97,6 +97,11 @@ operator|.
 name|TYPE
 block|}
 argument_list|)
+annotation|@
+name|ServiceFactory
+argument_list|(
+literal|"dataformat"
+argument_list|)
 DECL|annotation|Dataformat
 specifier|public
 annotation_defn|@interface

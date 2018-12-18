@@ -84,6 +84,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|CloudServiceFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|jsse
@@ -93,6 +109,11 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|CloudServiceFactory
+argument_list|(
+literal|"consul-service-discovery"
+argument_list|)
 DECL|class|ConsulServiceDiscoveryFactory
 specifier|public
 class|class

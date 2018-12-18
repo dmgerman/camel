@@ -97,6 +97,11 @@ operator|.
 name|TYPE
 block|}
 argument_list|)
+annotation|@
+name|ServiceFactory
+argument_list|(
+literal|"language"
+argument_list|)
 DECL|annotation|Language
 specifier|public
 annotation_defn|@interface

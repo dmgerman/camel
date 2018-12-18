@@ -86,7 +86,7 @@ name|spi
 operator|.
 name|annotations
 operator|.
-name|Factory
+name|SubServiceFactory
 import|;
 end_import
 
@@ -110,7 +110,7 @@ name|TYPE
 block|}
 argument_list|)
 annotation|@
-name|Factory
+name|SubServiceFactory
 argument_list|(
 literal|"strategy.factory"
 argument_list|)
