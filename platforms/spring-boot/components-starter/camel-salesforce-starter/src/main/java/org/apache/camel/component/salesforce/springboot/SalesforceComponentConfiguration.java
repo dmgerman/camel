@@ -352,7 +352,7 @@ specifier|private
 name|SalesforceLoginConfigNestedConfiguration
 name|loginConfig
 decl_stmt|;
-comment|/**      * URL of the Salesforce instance used after authantication, by default      * received from Salesforce on successful authentication      */
+comment|/**      * URL of the Salesforce instance used after authentication, by default      * received from Salesforce on successful authentication      */
 DECL|field|instanceUrl
 specifier|private
 name|String
@@ -402,7 +402,7 @@ specifier|private
 name|String
 name|password
 decl_stmt|;
-comment|/**      * If set to true prevents the component from authenticating to Salesforce      * with the start of the component. You would generaly set this to the      * (default) false and authenticate early and be immediately aware of any      * authentication issues.      */
+comment|/**      * If set to true prevents the component from authenticating to Salesforce      * with the start of the component. You would generally set this to the      * (default) false and authenticate early and be immediately aware of any      * authentication issues.      */
 DECL|field|lazyLogin
 specifier|private
 name|Boolean
