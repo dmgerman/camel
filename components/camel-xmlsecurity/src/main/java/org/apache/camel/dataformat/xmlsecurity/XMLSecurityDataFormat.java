@@ -198,6 +198,16 @@ name|javax
 operator|.
 name|crypto
 operator|.
+name|SecretKey
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|crypto
+operator|.
 name|SecretKeyFactory
 import|;
 end_import
@@ -223,18 +233,6 @@ operator|.
 name|spec
 operator|.
 name|SecretKeySpec
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|security
-operator|.
-name|auth
-operator|.
-name|Destroyable
 import|;
 end_import
 
@@ -2265,7 +2263,7 @@ literal|"the configured trust store."
 argument_list|)
 throw|;
 block|}
-name|Key
+name|SecretKey
 name|dataEncryptionKey
 init|=
 name|generateDataEncryptionKey
@@ -2345,6 +2343,40 @@ argument_list|,
 name|keyEncryptionKey
 argument_list|)
 expr_stmt|;
+comment|// Clean the secret key from memory
+try|try
+block|{
+name|dataEncryptionKey
+operator|.
+name|destroy
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|javax
+operator|.
+name|security
+operator|.
+name|auth
+operator|.
+name|DestroyFailedException
+name|ex
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Error destroying key: {}"
+argument_list|,
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|encryptSymmetric (Exchange exchange, Document document, OutputStream stream)
 specifier|private
@@ -2363,10 +2395,10 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Key
+name|SecretKey
 name|keyEncryptionKey
 decl_stmt|;
-name|Key
+name|SecretKey
 name|dataEncryptionKey
 decl_stmt|;
 if|if
@@ -2496,12 +2528,79 @@ argument_list|,
 name|keyEncryptionKey
 argument_list|)
 expr_stmt|;
+comment|// Clean the secret keys from memory
+try|try
+block|{
+name|dataEncryptionKey
+operator|.
+name|destroy
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|javax
+operator|.
+name|security
+operator|.
+name|auth
+operator|.
+name|DestroyFailedException
+name|ex
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Error destroying key: {}"
+argument_list|,
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|keyEncryptionKey
+operator|.
+name|destroy
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|javax
+operator|.
+name|security
+operator|.
+name|auth
+operator|.
+name|DestroyFailedException
+name|ex
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Error destroying key: {}"
+argument_list|,
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Returns the private key for the specified alias, or null if the alias or private key is not found.      */
 comment|// TODO Move this to a crypto utility class
 DECL|method|getPrivateKey (KeyStore keystore, String alias, String password)
 specifier|private
-name|Key
+name|PrivateKey
 name|getPrivateKey
 parameter_list|(
 name|KeyStore
@@ -2539,6 +2638,9 @@ name|PrivateKey
 condition|)
 block|{
 return|return
+operator|(
+name|PrivateKey
+operator|)
 name|key
 return|;
 block|}
@@ -3028,7 +3130,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Key
+name|SecretKey
 name|keyEncryptionKey
 decl_stmt|;
 if|if
@@ -3133,6 +3235,40 @@ name|ex
 throw|;
 block|}
 block|}
+comment|// Clean the secret key from memory
+try|try
+block|{
+name|keyEncryptionKey
+operator|.
+name|destroy
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|javax
+operator|.
+name|security
+operator|.
+name|auth
+operator|.
+name|DestroyFailedException
+name|ex
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Error destroying key: {}"
+argument_list|,
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|ret
 return|;
@@ -3194,7 +3330,7 @@ literal|"A key store must be defined for asymmetric key decryption."
 argument_list|)
 throw|;
 block|}
-name|Key
+name|PrivateKey
 name|keyEncryptionKey
 init|=
 name|getPrivateKey
@@ -3295,21 +3431,9 @@ throw|;
 block|}
 block|}
 comment|// Clean the private key from memory
-if|if
-condition|(
-name|keyEncryptionKey
-operator|instanceof
-name|Destroyable
-condition|)
-block|{
 try|try
 block|{
-operator|(
-operator|(
-name|Destroyable
-operator|)
 name|keyEncryptionKey
-operator|)
 operator|.
 name|destroy
 argument_list|()
@@ -3331,7 +3455,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Error destroying private key: {}"
+literal|"Error destroying key: {}"
 argument_list|,
 name|ex
 operator|.
@@ -3339,7 +3463,6 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|ret
@@ -3738,7 +3861,7 @@ return|;
 block|}
 DECL|method|generateKeyEncryptionKey (String algorithm)
 specifier|private
-name|Key
+name|SecretKey
 name|generateKeyEncryptionKey
 parameter_list|(
 name|String
@@ -3754,7 +3877,7 @@ block|{
 name|DESedeKeySpec
 name|keySpec
 decl_stmt|;
-name|Key
+name|SecretKey
 name|secretKey
 decl_stmt|;
 try|try
@@ -3942,7 +4065,7 @@ return|;
 block|}
 DECL|method|generateDataEncryptionKey ()
 specifier|private
-name|Key
+name|SecretKey
 name|generateDataEncryptionKey
 parameter_list|()
 throws|throws
