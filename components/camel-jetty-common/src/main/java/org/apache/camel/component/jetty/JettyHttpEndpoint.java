@@ -1019,11 +1019,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|HttpConsumer
+name|JettyHttpConsumer
 name|answer
 init|=
 operator|new
-name|HttpConsumer
+name|JettyHttpConsumer
 argument_list|(
 name|this
 argument_list|,

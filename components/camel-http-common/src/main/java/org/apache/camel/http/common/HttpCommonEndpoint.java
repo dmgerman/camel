@@ -1059,6 +1059,26 @@ name|consumer
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|canConnect (HttpConsumer consumer)
+specifier|public
+name|boolean
+name|canConnect
+parameter_list|(
+name|HttpConsumer
+name|consumer
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+name|component
+operator|.
+name|canConnect
+argument_list|(
+name|consumer
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|getComponent ()

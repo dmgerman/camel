@@ -277,6 +277,22 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{     }
+comment|/**      * Checks whether the consumer is possible to connect to the endoint.      *      * @param consumer the consumer      * @throws Exception can be thrown      */
+DECL|method|canConnect (HttpConsumer consumer)
+specifier|public
+name|boolean
+name|canConnect
+parameter_list|(
+name|HttpConsumer
+name|consumer
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|useIntrospectionOnEndpoint ()

@@ -146,6 +146,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
+name|context
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
