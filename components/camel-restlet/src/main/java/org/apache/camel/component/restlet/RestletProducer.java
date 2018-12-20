@@ -206,9 +206,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|URISupport
+name|jsse
+operator|.
+name|SSLContextParameters
 import|;
 end_import
 
@@ -220,11 +222,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|jsse
-operator|.
-name|SSLContextParameters
+name|URISupport
 import|;
 end_import
 
