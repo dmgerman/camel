@@ -156,7 +156,7 @@ specifier|private
 name|String
 name|javaRoutesExcludePattern
 decl_stmt|;
-comment|/**      * Directory to scan for adding additional XML routes.      * You can turn this off by setting the value to false.      */
+comment|/**      * Directory to scan for adding additional XML routes.      * You can turn this off by setting the value to false.      *      * Files can be loaded from either classpath or file by prefixing with classpath: or file:      * Wildcards is supported using a ANT pattern style paths, such as classpath:&#42;&#42;/&#42;camel&#42;.xml      *      * Multiple directories can be specified and separated by comma, such as:      * file:/myapp/mycamel/&#42;.xml,file:/myapp/myothercamel/&#42;.xml      */
 DECL|field|xmlRoutes
 specifier|private
 name|String
@@ -164,7 +164,7 @@ name|xmlRoutes
 init|=
 literal|"classpath:camel/*.xml"
 decl_stmt|;
-comment|/**      * Directory to scan for adding additional XML rests.      * You can turn this off by setting the value to false.      */
+comment|/**      * Directory to scan for adding additional XML rests.      * You can turn this off by setting the value to false.      *      * Files can be loaded from either classpath or file by prefixing with classpath: or file:      * Wildcards is supported using a ANT pattern style paths, such as classpath:&#42;&#42;/&#42;camel&#42;.xml      *      * Multiple directories can be specified and separated by comma, such as:      * file:/myapp/mycamel/&#42;.xml,file:/myapp/myothercamel/&#42;.xml      */
 DECL|field|xmlRests
 specifier|private
 name|String

@@ -1576,13 +1576,32 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|String
+index|[]
+name|parts
+init|=
+name|directory
+operator|.
+name|split
+argument_list|(
+literal|","
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|String
+name|part
+range|:
+name|parts
+control|)
+block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
 literal|"Loading additional Camel XML routes from: {}"
 argument_list|,
-name|directory
+name|part
 argument_list|)
 expr_stmt|;
 try|try
@@ -1595,7 +1614,7 @@ name|applicationContext
 operator|.
 name|getResources
 argument_list|(
-name|directory
+name|part
 argument_list|)
 decl_stmt|;
 for|for
@@ -1666,9 +1685,10 @@ name|debug
 argument_list|(
 literal|"No XML routes found in {}. Skipping XML routes detection."
 argument_list|,
-name|directory
+name|part
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|loadXmlRests (ApplicationContext applicationContext, CamelContext camelContext, String directory)
@@ -1685,6 +1705,27 @@ parameter_list|,
 name|String
 name|directory
 parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|String
+index|[]
+name|parts
+init|=
+name|directory
+operator|.
+name|split
+argument_list|(
+literal|","
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|String
+name|part
+range|:
+name|parts
+control|)
 block|{
 name|LOG
 operator|.
@@ -1692,7 +1733,7 @@ name|info
 argument_list|(
 literal|"Loading additional Camel XML rests from: {}"
 argument_list|,
-name|directory
+name|part
 argument_list|)
 expr_stmt|;
 try|try
@@ -1706,7 +1747,7 @@ name|applicationContext
 operator|.
 name|getResources
 argument_list|(
-name|directory
+name|part
 argument_list|)
 decl_stmt|;
 for|for
@@ -1811,23 +1852,10 @@ name|debug
 argument_list|(
 literal|"No XML rests found in {}. Skipping XML rests detection."
 argument_list|,
-name|directory
+name|part
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
 block|}
 block|}
 DECL|method|terminateMainControllerAfter (final CamelContext camelContext, int seconds, final AtomicBoolean completed, final CountDownLatch latch)
