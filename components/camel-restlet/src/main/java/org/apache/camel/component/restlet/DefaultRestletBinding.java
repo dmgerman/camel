@@ -2193,7 +2193,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// include body if PUT or POST
+comment|// include body if PUT, POST or PATCH
 if|if
 condition|(
 name|request
@@ -2218,6 +2218,18 @@ argument_list|(
 name|Method
 operator|.
 name|POST
+argument_list|)
+operator|||
+name|request
+operator|.
+name|getMethod
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|Method
+operator|.
+name|PATCH
 argument_list|)
 condition|)
 block|{
