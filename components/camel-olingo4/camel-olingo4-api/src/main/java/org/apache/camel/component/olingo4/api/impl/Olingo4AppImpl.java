@@ -6237,7 +6237,7 @@ name|absolutUri
 operator|.
 name|append
 argument_list|(
-literal|"/?"
+literal|"?"
 operator|+
 name|queryOptions
 argument_list|)
