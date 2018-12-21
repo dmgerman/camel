@@ -361,6 +361,37 @@ literal|false
 return|;
 block|}
 block|}
+if|if
+condition|(
+operator|!
+name|target
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+name|CamelLogger
+operator|.
+name|log
+argument_list|(
+name|LOG
+argument_list|,
+name|readLockLoggingLevel
+argument_list|,
+literal|"File "
+operator|+
+name|target
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" got deleted."
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 name|long
 name|newLastModified
 init|=
