@@ -456,6 +456,32 @@ literal|false
 return|;
 block|}
 block|}
+if|if
+condition|(
+operator|!
+name|target
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+name|CamelLogger
+operator|.
+name|log
+argument_list|(
+name|LOG
+argument_list|,
+name|readLockLoggingLevel
+argument_list|,
+literal|"Cannot acquire read lock as file no longer exists. Will skip the file: "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 comment|// get the lock using either try lock or not depending on if we are using timeout or not
 try|try
 block|{

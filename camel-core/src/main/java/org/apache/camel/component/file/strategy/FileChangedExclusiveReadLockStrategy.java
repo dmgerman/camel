@@ -378,14 +378,9 @@ name|LOG
 argument_list|,
 name|readLockLoggingLevel
 argument_list|,
-literal|"File "
+literal|"Cannot acquire read lock as file no longer exists. Will skip the file: "
 operator|+
-name|target
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|" got deleted."
+name|file
 argument_list|)
 expr_stmt|;
 return|return
