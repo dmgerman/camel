@@ -36,6 +36,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|sqs
+operator|.
+name|AmazonSQS
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -147,6 +161,27 @@ DECL|field|proxyPort
 specifier|private
 name|Integer
 name|proxyPort
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|amazonSQSClient
+specifier|private
+name|AmazonSQS
+name|amazonSQSClient
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|queueUrl
+specifier|private
+name|String
+name|queueUrl
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|subscribeSNStoSQS
+specifier|private
+name|boolean
+name|subscribeSNStoSQS
 decl_stmt|;
 comment|// Producer only properties
 annotation|@
@@ -472,6 +507,87 @@ operator|.
 name|region
 operator|=
 name|region
+expr_stmt|;
+block|}
+DECL|method|getAmazonSQSClient ()
+specifier|public
+name|AmazonSQS
+name|getAmazonSQSClient
+parameter_list|()
+block|{
+return|return
+name|amazonSQSClient
+return|;
+block|}
+comment|/**      * An SQS Client to use as bridge between SNS and SQS      */
+DECL|method|setAmazonSQSClient (AmazonSQS amazonSQSClient)
+specifier|public
+name|void
+name|setAmazonSQSClient
+parameter_list|(
+name|AmazonSQS
+name|amazonSQSClient
+parameter_list|)
+block|{
+name|this
+operator|.
+name|amazonSQSClient
+operator|=
+name|amazonSQSClient
+expr_stmt|;
+block|}
+DECL|method|getQueueUrl ()
+specifier|public
+name|String
+name|getQueueUrl
+parameter_list|()
+block|{
+return|return
+name|queueUrl
+return|;
+block|}
+comment|/**      * The queueUrl to subscribe to      */
+DECL|method|setQueueUrl (String queueUrl)
+specifier|public
+name|void
+name|setQueueUrl
+parameter_list|(
+name|String
+name|queueUrl
+parameter_list|)
+block|{
+name|this
+operator|.
+name|queueUrl
+operator|=
+name|queueUrl
+expr_stmt|;
+block|}
+DECL|method|isSubscribeSNStoSQS ()
+specifier|public
+name|boolean
+name|isSubscribeSNStoSQS
+parameter_list|()
+block|{
+return|return
+name|subscribeSNStoSQS
+return|;
+block|}
+comment|/**      * Define if the subscription between SNS Topic and SQS must be done or not      */
+DECL|method|setSubscribeSNStoSQS (boolean subscribeSNStoSQS)
+specifier|public
+name|void
+name|setSubscribeSNStoSQS
+parameter_list|(
+name|boolean
+name|subscribeSNStoSQS
+parameter_list|)
+block|{
+name|this
+operator|.
+name|subscribeSNStoSQS
+operator|=
+name|subscribeSNStoSQS
 expr_stmt|;
 block|}
 comment|// *************************************************
