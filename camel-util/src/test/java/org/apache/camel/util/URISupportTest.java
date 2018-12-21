@@ -70,16 +70,14 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|camel
-operator|.
-name|ContextTestSupport
+name|Test
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|assertj
@@ -89,16 +87,68 @@ operator|.
 name|api
 operator|.
 name|Assertions
+operator|.
+name|assertThat
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|junit
 operator|.
-name|Test
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotSame
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
 import|;
 end_import
 
@@ -107,8 +157,6 @@ DECL|class|URISupportTest
 specifier|public
 class|class
 name|URISupportTest
-extends|extends
-name|ContextTestSupport
 block|{
 annotation|@
 name|Test
@@ -2207,8 +2255,6 @@ name|void
 name|shouldStripPrefixes
 parameter_list|()
 block|{
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2224,8 +2270,6 @@ operator|.
 name|isNull
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2241,8 +2285,6 @@ operator|.
 name|isEmpty
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2258,8 +2300,6 @@ operator|.
 name|isNull
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2275,8 +2315,6 @@ operator|.
 name|isEmpty
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2294,8 +2332,6 @@ argument_list|(
 literal|"a"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2311,8 +2347,6 @@ operator|.
 name|isEmpty
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2330,8 +2364,6 @@ argument_list|(
 literal|"ab"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2358,8 +2390,6 @@ name|void
 name|shouldStripSuffixes
 parameter_list|()
 block|{
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2375,8 +2405,6 @@ operator|.
 name|isNull
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2392,8 +2420,6 @@ operator|.
 name|isEmpty
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2409,8 +2435,6 @@ operator|.
 name|isNull
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2426,8 +2450,6 @@ operator|.
 name|isEmpty
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2445,8 +2467,6 @@ argument_list|(
 literal|"a"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2462,8 +2482,6 @@ operator|.
 name|isEmpty
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2481,8 +2499,6 @@ argument_list|(
 literal|"a"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2509,8 +2525,6 @@ name|void
 name|shouldJoinPaths
 parameter_list|()
 block|{
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2526,8 +2540,6 @@ operator|.
 name|isEmpty
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2543,8 +2555,6 @@ operator|.
 name|isEmpty
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2560,8 +2570,6 @@ operator|.
 name|isEmpty
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2577,8 +2585,6 @@ operator|.
 name|isEmpty
 argument_list|()
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2596,8 +2602,6 @@ argument_list|(
 literal|"a"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2615,8 +2619,6 @@ argument_list|(
 literal|"a/b"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2634,8 +2636,6 @@ argument_list|(
 literal|"/a/b"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2653,8 +2653,6 @@ argument_list|(
 literal|"/a/b/"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2672,8 +2670,6 @@ argument_list|(
 literal|"/a/b/"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2691,8 +2687,6 @@ argument_list|(
 literal|"/a/b/"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2712,8 +2706,6 @@ argument_list|(
 literal|"a/b/c"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2733,8 +2725,6 @@ argument_list|(
 literal|"a/c"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2756,8 +2746,6 @@ argument_list|(
 literal|"/a/b/c/d/"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2779,8 +2767,6 @@ argument_list|(
 literal|"/a/b/c/"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
@@ -2802,8 +2788,6 @@ argument_list|(
 literal|"/a/"
 argument_list|)
 expr_stmt|;
-name|Assertions
-operator|.
 name|assertThat
 argument_list|(
 name|URISupport
