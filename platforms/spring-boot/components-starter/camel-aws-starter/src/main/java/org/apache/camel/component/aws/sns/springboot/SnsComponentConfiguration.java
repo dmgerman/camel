@@ -48,6 +48,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|sqs
+operator|.
+name|AmazonSQS
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -365,6 +379,26 @@ specifier|private
 name|String
 name|region
 decl_stmt|;
+comment|/**          * An SQS Client to use as bridge between SNS and SQS          */
+DECL|field|amazonSQSClient
+specifier|private
+name|AmazonSQS
+name|amazonSQSClient
+decl_stmt|;
+comment|/**          * The queueUrl to subscribe to          */
+DECL|field|queueUrl
+specifier|private
+name|String
+name|queueUrl
+decl_stmt|;
+comment|/**          * Define if the subscription between SNS Topic and SQS must be done or          * not          */
+DECL|field|subscribeSNStoSQS
+specifier|private
+name|Boolean
+name|subscribeSNStoSQS
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getSubject ()
 specifier|public
 name|String
@@ -649,6 +683,84 @@ operator|.
 name|region
 operator|=
 name|region
+expr_stmt|;
+block|}
+DECL|method|getAmazonSQSClient ()
+specifier|public
+name|AmazonSQS
+name|getAmazonSQSClient
+parameter_list|()
+block|{
+return|return
+name|amazonSQSClient
+return|;
+block|}
+DECL|method|setAmazonSQSClient (AmazonSQS amazonSQSClient)
+specifier|public
+name|void
+name|setAmazonSQSClient
+parameter_list|(
+name|AmazonSQS
+name|amazonSQSClient
+parameter_list|)
+block|{
+name|this
+operator|.
+name|amazonSQSClient
+operator|=
+name|amazonSQSClient
+expr_stmt|;
+block|}
+DECL|method|getQueueUrl ()
+specifier|public
+name|String
+name|getQueueUrl
+parameter_list|()
+block|{
+return|return
+name|queueUrl
+return|;
+block|}
+DECL|method|setQueueUrl (String queueUrl)
+specifier|public
+name|void
+name|setQueueUrl
+parameter_list|(
+name|String
+name|queueUrl
+parameter_list|)
+block|{
+name|this
+operator|.
+name|queueUrl
+operator|=
+name|queueUrl
+expr_stmt|;
+block|}
+DECL|method|getSubscribeSNStoSQS ()
+specifier|public
+name|Boolean
+name|getSubscribeSNStoSQS
+parameter_list|()
+block|{
+return|return
+name|subscribeSNStoSQS
+return|;
+block|}
+DECL|method|setSubscribeSNStoSQS (Boolean subscribeSNStoSQS)
+specifier|public
+name|void
+name|setSubscribeSNStoSQS
+parameter_list|(
+name|Boolean
+name|subscribeSNStoSQS
+parameter_list|)
+block|{
+name|this
+operator|.
+name|subscribeSNStoSQS
+operator|=
+name|subscribeSNStoSQS
 expr_stmt|;
 block|}
 block|}
