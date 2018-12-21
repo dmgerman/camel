@@ -870,7 +870,9 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"aws-sns://MyTopic?amazonSNSClient=#amazonSNSClient&accessKey=xxx&secretKey=yyy&amazonSQSClient=#amazonSQSClient&queueUrl=arn:aws:sqs:us-east-1:541925086079:MyQueue&subscribeSNStoSQS=true"
+literal|"aws-sns://MyTopic?amazonSNSClient=#amazonSNSClient&"
+operator|+
+literal|"accessKey=xxx&secretKey=yyy&amazonSQSClient=#amazonSQSClient&queueUrl=arn:aws:sqs:us-east-1:541925086079:MyQueue&subscribeSNStoSQS=true"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -983,6 +985,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+argument_list|(
+name|expected
+operator|=
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|)
 DECL|method|createEndpointWithSQSSubscriptionIllegalArgument ()
 specifier|public
 name|void
@@ -1074,7 +1083,9 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"aws-sns://MyTopic?amazonSNSClient=#amazonSNSClient&accessKey=xxx&secretKey=yyy&amazonSQSClient=#amazonSQSClient&subscribeSNStoSQS=true"
+literal|"aws-sns://MyTopic?amazonSNSClient=#amazonSNSClient&accessKey=xxx"
+operator|+
+literal|"&secretKey=yyy&amazonSQSClient=#amazonSQSClient&subscribeSNStoSQS=true"
 argument_list|)
 decl_stmt|;
 name|assertEquals
