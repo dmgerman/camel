@@ -178,9 +178,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|DefaultProducer
+name|HeaderFilterStrategy
 import|;
 end_import
 
@@ -192,9 +192,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|HeaderFilterStrategy
+name|DefaultProducer
 import|;
 end_import
 
