@@ -174,6 +174,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|StringHelper
@@ -205,22 +221,6 @@ operator|.
 name|util
 operator|.
 name|UnsafeUriCharactersEncoder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|jsse
-operator|.
-name|SSLContextParameters
 import|;
 end_import
 
@@ -655,6 +655,20 @@ DECL|field|nickPassword
 specifier|private
 name|String
 name|nickPassword
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"5000"
+argument_list|)
+DECL|field|commandTimeout
+specifier|private
+name|long
+name|commandTimeout
+init|=
+literal|5000L
 decl_stmt|;
 DECL|method|IrcConfiguration ()
 specifier|public
@@ -1866,6 +1880,33 @@ name|nickPassword
 operator|=
 name|nickPassword
 expr_stmt|;
+block|}
+comment|/**      * Delay in milliseconds before sending commands after the connection is established.      * @param timeout timeout value in milliseconds      */
+DECL|method|setCommandTimeout (long timeout)
+specifier|public
+name|void
+name|setCommandTimeout
+parameter_list|(
+name|long
+name|timeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|commandTimeout
+operator|=
+name|timeout
+expr_stmt|;
+block|}
+DECL|method|getCommandTimeout ()
+specifier|public
+name|long
+name|getCommandTimeout
+parameter_list|()
+block|{
+return|return
+name|commandTimeout
+return|;
 block|}
 DECL|method|isNamesOnJoin ()
 specifier|public

@@ -157,6 +157,12 @@ block|,
 literal|"USERHOST"
 block|}
 decl_stmt|;
+DECL|field|configuration
+specifier|private
+specifier|final
+name|IrcConfiguration
+name|configuration
+decl_stmt|;
 DECL|field|connection
 specifier|private
 name|IRCConnection
@@ -199,6 +205,15 @@ operator|.
 name|connection
 operator|=
 name|connection
+expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
@@ -401,6 +416,42 @@ argument_list|(
 name|listener
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Sleeping for {} seconds before sending commands."
+argument_list|,
+name|configuration
+operator|.
+name|getCommandTimeout
+argument_list|()
+operator|/
+literal|1000
+argument_list|)
+expr_stmt|;
+comment|// sleep for a few seconds as the server sometimes takes a moment to fully connect, print banners, etc after connection established
+try|try
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+name|configuration
+operator|.
+name|getCommandTimeout
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|ex
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 name|endpoint
 operator|.
 name|joinChannels

@@ -292,6 +292,42 @@ argument_list|(
 name|listener
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Sleeping for {} seconds before sending commands."
+argument_list|,
+name|configuration
+operator|.
+name|getCommandTimeout
+argument_list|()
+operator|/
+literal|1000
+argument_list|)
+expr_stmt|;
+comment|// sleep for a few seconds as the server sometimes takes a moment to fully connect, print banners, etc after connection established
+try|try
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+name|configuration
+operator|.
+name|getCommandTimeout
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|ex
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -305,33 +341,6 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-try|try
-block|{
-comment|// TODO : sleep before joinChannels() may be another useful config param (even when not identifying)
-comment|// sleep for a few seconds as the server sometimes takes a moment to fully connect, print banners, etc after connection established
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Sleeping for 5 seconds before identifying to NickServ."
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|5000
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|ex
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 name|log
 operator|.
 name|debug
