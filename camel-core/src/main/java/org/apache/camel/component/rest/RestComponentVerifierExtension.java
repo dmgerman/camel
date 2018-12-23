@@ -158,9 +158,7 @@ name|camel
 operator|.
 name|runtimecatalog
 operator|.
-name|impl
-operator|.
-name|JSonSchemaHelper
+name|RuntimeCamelCatalog
 import|;
 end_import
 
@@ -174,7 +172,9 @@ name|camel
 operator|.
 name|runtimecatalog
 operator|.
-name|RuntimeCamelCatalog
+name|impl
+operator|.
+name|JSonSchemaHelper
 import|;
 end_import
 

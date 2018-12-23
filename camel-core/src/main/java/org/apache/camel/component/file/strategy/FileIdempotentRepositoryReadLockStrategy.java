@@ -176,7 +176,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|IdempotentRepository
+name|CamelLogger
 import|;
 end_import
 
@@ -190,7 +190,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|CamelLogger
+name|IdempotentRepository
 import|;
 end_import
 

@@ -128,7 +128,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|RouteContext
+name|CamelLogger
 import|;
 end_import
 
@@ -142,7 +142,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|CamelLogger
+name|RouteContext
 import|;
 end_import
 

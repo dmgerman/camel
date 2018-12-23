@@ -146,7 +146,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Language
+name|CamelLogger
 import|;
 end_import
 
@@ -160,7 +160,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|CamelLogger
+name|Language
 import|;
 end_import
 

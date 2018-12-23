@@ -36,11 +36,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|spi
 operator|.
-name|concurrent
-operator|.
-name|ThreadPoolRejectedPolicy
+name|ThreadPoolProfile
 import|;
 end_import
 
@@ -52,9 +50,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|util
 operator|.
-name|ThreadPoolProfile
+name|concurrent
+operator|.
+name|ThreadPoolRejectedPolicy
 import|;
 end_import
 
