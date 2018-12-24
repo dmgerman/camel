@@ -144,7 +144,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|InterceptSendToEndpoint
+name|DefaultProducerCache
 import|;
 end_import
 
@@ -158,7 +158,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultProducerCache
+name|InterceptSendToEndpoint
 import|;
 end_import
 

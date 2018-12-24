@@ -3959,6 +3959,21 @@ name|incrementAndGet
 argument_list|()
 expr_stmt|;
 break|break;
+default|default:
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Invalid value of {} property: {}"
+argument_list|,
+name|Exchange
+operator|.
+name|AGGREGATED_COMPLETED_BY
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+break|break;
 block|}
 block|}
 name|log

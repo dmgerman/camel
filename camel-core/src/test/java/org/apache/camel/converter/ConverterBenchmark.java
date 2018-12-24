@@ -652,6 +652,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|bh
 operator|.
 name|consume
@@ -668,6 +669,7 @@ literal|"DEBUG"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Benchmark
@@ -704,6 +706,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|bh
 operator|.
 name|consume
@@ -720,6 +723,7 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Benchmark
@@ -756,6 +760,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|bh
 operator|.
 name|consume
@@ -773,6 +778,7 @@ literal|"Hello world"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Benchmark
@@ -809,6 +815,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|bh
 operator|.
 name|consume
@@ -825,6 +832,7 @@ literal|"uri:foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Benchmark
@@ -861,6 +869,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|bh
 operator|.
 name|consume
@@ -883,6 +892,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Ignore

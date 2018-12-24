@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelContextAware
 import|;
 end_import
@@ -173,18 +185,6 @@ operator|.
 name|aggregate
 operator|.
 name|AggregateProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|AggregationStrategy
 import|;
 end_import
 

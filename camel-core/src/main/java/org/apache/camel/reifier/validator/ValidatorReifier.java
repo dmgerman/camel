@@ -247,6 +247,26 @@ operator|=
 name|map
 expr_stmt|;
 block|}
+DECL|field|definition
+specifier|protected
+specifier|final
+name|T
+name|definition
+decl_stmt|;
+DECL|method|ValidatorReifier (T definition)
+name|ValidatorReifier
+parameter_list|(
+name|T
+name|definition
+parameter_list|)
+block|{
+name|this
+operator|.
+name|definition
+operator|=
+name|definition
+expr_stmt|;
+block|}
 DECL|method|reifier (ValidatorDefinition definition)
 specifier|public
 specifier|static
@@ -310,26 +330,6 @@ operator|+
 name|definition
 argument_list|)
 throw|;
-block|}
-DECL|field|definition
-specifier|protected
-specifier|final
-name|T
-name|definition
-decl_stmt|;
-DECL|method|ValidatorReifier (T definition)
-name|ValidatorReifier
-parameter_list|(
-name|T
-name|definition
-parameter_list|)
-block|{
-name|this
-operator|.
-name|definition
-operator|=
-name|definition
-expr_stmt|;
 block|}
 DECL|method|createValidator (CamelContext context)
 specifier|public

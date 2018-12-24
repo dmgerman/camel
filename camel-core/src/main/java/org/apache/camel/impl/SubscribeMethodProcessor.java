@@ -206,9 +206,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|processor
 operator|.
-name|AsyncProcessorSupport
+name|CamelInternalProcessor
 import|;
 end_import
 
@@ -220,9 +220,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|support
 operator|.
-name|CamelInternalProcessor
+name|AsyncProcessorSupport
 import|;
 end_import
 

@@ -74,11 +74,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|builder
 operator|.
-name|concurrent
-operator|.
-name|ThreadPoolRejectedPolicy
+name|RouteBuilder
 import|;
 end_import
 
@@ -90,9 +88,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|util
 operator|.
-name|RouteBuilder
+name|concurrent
+operator|.
+name|ThreadPoolRejectedPolicy
 import|;
 end_import
 

@@ -716,8 +716,6 @@ comment|// directly into the original exchange
 DECL|field|copy
 name|Exchange
 name|copy
-init|=
-literal|null
 decl_stmt|;
 DECL|method|State (Exchange exchange, AsyncCallback callback, AsyncProcessor[] processors)
 specifier|public
@@ -793,7 +791,6 @@ name|updateAndGet
 argument_list|(
 name|x
 lambda|->
-operator|(
 operator|++
 name|x
 operator|<
@@ -804,7 +801,6 @@ condition|?
 name|x
 else|:
 literal|0
-operator|)
 argument_list|)
 expr_stmt|;
 block|}

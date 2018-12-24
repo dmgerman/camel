@@ -130,20 +130,6 @@ name|RouteContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|AsyncProcessorConverterHelper
-import|;
-end_import
-
 begin_class
 DECL|class|LoadBalanceReifier
 class|class

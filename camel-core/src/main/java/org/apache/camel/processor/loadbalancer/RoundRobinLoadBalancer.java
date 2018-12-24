@@ -109,7 +109,6 @@ name|updateAndGet
 argument_list|(
 name|x
 lambda|->
-operator|(
 operator|++
 name|x
 operator|<
@@ -118,7 +117,6 @@ condition|?
 name|x
 else|:
 literal|0
-operator|)
 argument_list|)
 decl_stmt|;
 return|return

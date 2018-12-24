@@ -107,22 +107,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|RoutingSlipDefinition
-operator|.
-name|DEFAULT_DELIMITER
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -147,6 +131,22 @@ operator|.
 name|spi
 operator|.
 name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|RoutingSlipDefinition
+operator|.
+name|DEFAULT_DELIMITER
 import|;
 end_import
 

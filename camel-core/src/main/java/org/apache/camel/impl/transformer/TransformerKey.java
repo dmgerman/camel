@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ValueHolder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
@@ -57,18 +69,6 @@ operator|.
 name|util
 operator|.
 name|StringHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ValueHolder
 import|;
 end_import
 

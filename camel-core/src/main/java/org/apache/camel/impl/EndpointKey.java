@@ -24,9 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
-operator|.
-name|StringHelper
+name|ValueHolder
 import|;
 end_import
 
@@ -38,7 +36,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ValueHolder
+name|util
+operator|.
+name|StringHelper
 import|;
 end_import
 

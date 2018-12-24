@@ -393,6 +393,26 @@ operator|=
 name|map
 expr_stmt|;
 block|}
+DECL|field|definition
+specifier|protected
+specifier|final
+name|T
+name|definition
+decl_stmt|;
+DECL|method|LoadBalancerReifier (T definition)
+name|LoadBalancerReifier
+parameter_list|(
+name|T
+name|definition
+parameter_list|)
+block|{
+name|this
+operator|.
+name|definition
+operator|=
+name|definition
+expr_stmt|;
+block|}
 DECL|method|reifier (LoadBalancerDefinition definition)
 specifier|public
 specifier|static
@@ -456,26 +476,6 @@ operator|+
 name|definition
 argument_list|)
 throw|;
-block|}
-DECL|field|definition
-specifier|protected
-specifier|final
-name|T
-name|definition
-decl_stmt|;
-DECL|method|LoadBalancerReifier (T definition)
-name|LoadBalancerReifier
-parameter_list|(
-name|T
-name|definition
-parameter_list|)
-block|{
-name|this
-operator|.
-name|definition
-operator|=
-name|definition
-expr_stmt|;
 block|}
 comment|/**      * Factory method to create the load balancer from the loadBalancerTypeName      */
 DECL|method|createLoadBalancer (RouteContext routeContext)

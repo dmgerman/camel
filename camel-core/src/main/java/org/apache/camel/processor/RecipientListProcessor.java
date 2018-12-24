@@ -96,6 +96,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|AsyncProducer
 import|;
 end_import
@@ -183,18 +195,6 @@ operator|.
 name|impl
 operator|.
 name|DefaultProducerCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|AggregationStrategy
 import|;
 end_import
 
@@ -342,12 +342,12 @@ name|RecipientListProcessor
 extends|extends
 name|MulticastProcessor
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 name|Logger
-name|log
+name|LOG
 init|=
 name|LoggerFactory
 operator|.
@@ -554,7 +554,7 @@ name|begin
 parameter_list|()
 block|{
 comment|// we have already acquired and prepare the producer
-name|log
+name|LOG
 operator|.
 name|trace
 argument_list|(
@@ -605,7 +605,7 @@ operator|.
 name|getPattern
 argument_list|()
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|trace
 argument_list|(
@@ -631,7 +631,7 @@ name|void
 name|done
 parameter_list|()
 block|{
-name|log
+name|LOG
 operator|.
 name|trace
 argument_list|(
@@ -679,13 +679,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(

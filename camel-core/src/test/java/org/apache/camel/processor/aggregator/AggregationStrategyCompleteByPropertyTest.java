@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ContextTestSupport
 import|;
 end_import
@@ -76,27 +88,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|AggregationStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|AggregationStrategyCompleteByPropertyTest

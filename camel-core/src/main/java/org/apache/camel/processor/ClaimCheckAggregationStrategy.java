@@ -54,7 +54,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|AggregationStrategy
 import|;
 end_import
 
@@ -66,7 +66,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AggregationStrategy
+name|Exchange
 import|;
 end_import
 

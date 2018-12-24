@@ -84,11 +84,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|impl
 operator|.
-name|concurrent
-operator|.
-name|ThreadPoolRejectedPolicy
+name|JndiRegistry
 import|;
 end_import
 
@@ -100,9 +98,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|util
 operator|.
-name|JndiRegistry
+name|concurrent
+operator|.
+name|ThreadPoolRejectedPolicy
 import|;
 end_import
 

@@ -59,14 +59,6 @@ name|WeightedLoadBalancer
 extends|extends
 name|QueueLoadBalancer
 block|{
-DECL|field|lastIndex
-specifier|transient
-name|int
-name|lastIndex
-init|=
-operator|-
-literal|1
-decl_stmt|;
 DECL|field|ratios
 specifier|protected
 specifier|final
@@ -86,6 +78,14 @@ DECL|field|runtimeRatioSum
 specifier|protected
 name|int
 name|runtimeRatioSum
+decl_stmt|;
+DECL|field|lastIndex
+specifier|transient
+name|int
+name|lastIndex
+init|=
+operator|-
+literal|1
 decl_stmt|;
 DECL|method|WeightedLoadBalancer (List<Integer> distributionRatios)
 specifier|public

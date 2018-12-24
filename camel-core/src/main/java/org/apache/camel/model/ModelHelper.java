@@ -1480,11 +1480,11 @@ specifier|static
 class|class
 name|ModelJAXBContextFactoryHolder
 block|{
-DECL|field|INSTANCE
+DECL|field|defaultInstance
 specifier|private
 specifier|static
 name|ModelJAXBContextFactory
-name|INSTANCE
+name|defaultInstance
 init|=
 operator|new
 name|DefaultModelJAXBContextFactory
@@ -1501,7 +1501,7 @@ block|{
 return|return
 name|ModelJAXBContextFactoryHolder
 operator|.
-name|INSTANCE
+name|defaultInstance
 return|;
 block|}
 comment|/**      * Extract all XML namespaces from the expressions in the route      *      * @param route       the route      * @param namespaces  the map of namespaces to add discovered XML namespaces into      */

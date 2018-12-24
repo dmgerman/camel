@@ -247,6 +247,27 @@ operator|=
 name|map
 expr_stmt|;
 block|}
+DECL|field|definition
+specifier|protected
+specifier|final
+name|T
+name|definition
+decl_stmt|;
+DECL|method|TransformerReifier (T definition)
+specifier|public
+name|TransformerReifier
+parameter_list|(
+name|T
+name|definition
+parameter_list|)
+block|{
+name|this
+operator|.
+name|definition
+operator|=
+name|definition
+expr_stmt|;
+block|}
 DECL|method|reifier (TransformerDefinition definition)
 specifier|public
 specifier|static
@@ -310,27 +331,6 @@ operator|+
 name|definition
 argument_list|)
 throw|;
-block|}
-DECL|field|definition
-specifier|protected
-specifier|final
-name|T
-name|definition
-decl_stmt|;
-DECL|method|TransformerReifier (T definition)
-specifier|public
-name|TransformerReifier
-parameter_list|(
-name|T
-name|definition
-parameter_list|)
-block|{
-name|this
-operator|.
-name|definition
-operator|=
-name|definition
-expr_stmt|;
 block|}
 DECL|method|createTransformer (CamelContext context)
 specifier|public
