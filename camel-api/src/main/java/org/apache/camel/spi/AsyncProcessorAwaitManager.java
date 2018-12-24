@@ -28,18 +28,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|CountDownLatch
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -186,15 +174,13 @@ parameter_list|()
 function_decl|;
 block|}
 comment|/**      * Process the given exchange sychronously.      *      * @param processor the async processor to call      * @param exchange the exchange to process      */
-DECL|method|process (final AsyncProcessor processor, final Exchange exchange)
+DECL|method|process (AsyncProcessor processor, Exchange exchange)
 name|void
 name|process
 parameter_list|(
-specifier|final
 name|AsyncProcessor
 name|processor
 parameter_list|,
-specifier|final
 name|Exchange
 name|exchange
 parameter_list|)
