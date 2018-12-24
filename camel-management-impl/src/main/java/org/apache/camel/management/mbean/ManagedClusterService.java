@@ -124,11 +124,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|cluster
-operator|.
-name|ClusterServiceHelper
+name|ManagementStrategy
 import|;
 end_import
 
@@ -140,9 +138,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|ManagementStrategy
+name|cluster
+operator|.
+name|ClusterServiceHelper
 import|;
 end_import
 

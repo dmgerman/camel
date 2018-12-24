@@ -44,6 +44,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -120,18 +132,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AggregationStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|aggregate
@@ -149,10 +149,6 @@ operator|.
 name|Test
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|ManagedAggregateControllerTest
