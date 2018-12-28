@@ -713,6 +713,11 @@ name|support
 operator|.
 name|renderResourceListing
 argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 name|adapter
 argument_list|,
 name|swaggerConfig
