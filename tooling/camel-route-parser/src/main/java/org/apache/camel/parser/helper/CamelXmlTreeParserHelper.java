@@ -419,6 +419,24 @@ name|name
 argument_list|)
 operator|)
 decl_stmt|;
+comment|// skip when/otherwise (as we do this in Java DSL)
+name|boolean
+name|isWhenOrOtherwise
+init|=
+literal|"when"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+operator|||
+literal|"otherwise"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
 comment|// only include if its a known Camel model (dont include languages)
 if|if
 condition|(
@@ -427,7 +445,7 @@ operator|||
 name|isEip
 condition|)
 block|{
-comment|// skip route as we just keep from
+comment|// skip route as we just keep from (and also skip when/otherwise)
 if|if
 condition|(
 operator|!
@@ -437,6 +455,9 @@ name|equals
 argument_list|(
 name|name
 argument_list|)
+operator|&&
+operator|!
+name|isWhenOrOtherwise
 condition|)
 block|{
 name|String
