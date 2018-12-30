@@ -2987,7 +2987,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"skipBindingOnErrorcode"
+literal|"skipBindingOnErrorCode"
 operator|.
 name|equals
 argument_list|(
