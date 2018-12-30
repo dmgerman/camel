@@ -850,6 +850,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|drainServiceUsage (ServiceReference<?> serviceReference, AtomicLong serviceUsageCount)
+specifier|private
 name|void
 name|drainServiceUsage
 parameter_list|(
@@ -897,6 +898,7 @@ block|}
 block|}
 block|}
 DECL|method|incrementServiceUsage (ServiceReference<?> sr)
+specifier|private
 name|void
 name|incrementServiceUsage
 parameter_list|(
