@@ -478,6 +478,7 @@ name|answer
 init|=
 operator|new
 name|LinkedHashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|File
@@ -824,7 +825,7 @@ name|key
 argument_list|)
 condition|)
 block|{
-name|Integer
+name|int
 name|count
 init|=
 literal|0
@@ -853,7 +854,7 @@ name|count
 operator|=
 name|Integer
 operator|.
-name|valueOf
+name|parseInt
 argument_list|(
 name|total
 operator|.
