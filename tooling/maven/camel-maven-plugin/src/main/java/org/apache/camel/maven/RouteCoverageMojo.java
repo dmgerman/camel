@@ -448,11 +448,19 @@ specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * Whether to fail if a route was not fully covered      *      * @parameter property="camel.failOnError"      *            default-value="false"      */
+comment|/**      * Whether to fail if a route was not fully covered.      *       * Note the option coverageThreshold can be used      * to set a minimum coverage threshold in percentage.      *      * @parameter property="camel.failOnError"      *            default-value="false"      */
 DECL|field|failOnError
 specifier|private
 name|boolean
 name|failOnError
+decl_stmt|;
+comment|/**      * The minimum route coverage in percent when using failOnError.      *      * @parameter property="camel.coverageThreshold"      *            default-value="100"      */
+DECL|field|coverageThreshold
+specifier|private
+name|byte
+name|coverageThreshold
+init|=
+literal|100
 decl_stmt|;
 comment|/**      * Whether to include test source code      *      * @parameter property="camel.includeTest"      *            default-value="false"      */
 DECL|field|includeTest
@@ -1918,7 +1926,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"%8s   %8s   %s"
+literal|"%8s    %8s    %s"
 argument_list|,
 literal|"Line #"
 argument_list|,
@@ -1936,7 +1944,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"%8s   %8s   %s"
+literal|"%8s    %8s    %s"
 argument_list|,
 literal|"------"
 argument_list|,
@@ -1992,7 +2000,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"%8s   %8s   %s"
+literal|"%8s    %8s    %s"
 argument_list|,
 name|node
 operator|.
@@ -2012,23 +2020,6 @@ name|getName
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|covered
-operator|!=
-name|model
-operator|.
-name|size
-argument_list|()
-condition|)
-block|{
-comment|// okay here is a route that was not fully covered
-name|notCovered
-operator|.
-name|incrementAndGet
-argument_list|()
 expr_stmt|;
 block|}
 comment|// calculate percentage of route coverage (must use double to have decimals)
@@ -2052,6 +2043,36 @@ operator|)
 operator|*
 literal|100
 decl_stmt|;
+name|boolean
+name|success
+init|=
+literal|true
+decl_stmt|;
+if|if
+condition|(
+name|covered
+operator|!=
+name|model
+operator|.
+name|size
+argument_list|()
+operator|&&
+name|percentage
+operator|<
+name|coverageThreshold
+condition|)
+block|{
+comment|// okay here is a route that was not fully covered
+name|notCovered
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+name|success
+operator|=
+literal|false
+expr_stmt|;
+block|}
 name|sw
 operator|.
 name|println
@@ -2083,7 +2104,26 @@ argument_list|,
 name|percentage
 argument_list|)
 operator|+
-literal|"%)"
+literal|"% / threshold "
+operator|+
+name|coverageThreshold
+operator|+
+literal|".0%)"
+argument_list|)
+expr_stmt|;
+name|sw
+operator|.
+name|println
+argument_list|(
+literal|"Status: "
+operator|+
+operator|(
+name|success
+condition|?
+literal|"Success"
+else|:
+literal|"Failed"
+operator|)
 argument_list|)
 expr_stmt|;
 name|sw
