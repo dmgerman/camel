@@ -102,6 +102,16 @@ specifier|private
 name|IncomingMessage
 name|message
 decl_stmt|;
+annotation|@
+name|JsonProperty
+argument_list|(
+literal|"channel_post"
+argument_list|)
+DECL|field|channelpost
+specifier|private
+name|IncomingMessage
+name|channelpost
+decl_stmt|;
 DECL|method|Update ()
 specifier|public
 name|Update
@@ -159,6 +169,32 @@ operator|=
 name|message
 expr_stmt|;
 block|}
+DECL|method|getChannelPost ()
+specifier|public
+name|IncomingMessage
+name|getChannelPost
+parameter_list|()
+block|{
+return|return
+name|channelpost
+return|;
+block|}
+DECL|method|setChannelpost (IncomingMessage channelpost)
+specifier|public
+name|void
+name|setChannelpost
+parameter_list|(
+name|IncomingMessage
+name|channelpost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|channelpost
+operator|=
+name|channelpost
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -199,6 +235,18 @@ operator|.
 name|append
 argument_list|(
 name|message
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", channel_post="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|channelpost
 argument_list|)
 expr_stmt|;
 name|sb
