@@ -707,31 +707,7 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
-if|if
-condition|(
-operator|!
-name|doneSync
-condition|)
-block|{
-comment|// must clear MDC on current thread as the exchange is being processed asynchronously
-comment|// by another thread
-name|clear
-argument_list|()
-expr_stmt|;
-block|}
-name|super
-operator|.
-name|afterProcess
-argument_list|(
-name|processor
-argument_list|,
-name|exchange
-argument_list|,
-name|callback
-argument_list|,
-name|doneSync
-argument_list|)
-expr_stmt|;
+comment|/*         if (!doneSync) {             // must clear MDC on current thread as the exchange is being processed asynchronously             // by another thread             clear();         }         super.afterProcess(processor, exchange, callback, doneSync);         */
 block|}
 comment|/**      * Clears information put on the MDC by this {@link MDCUnitOfWork}      */
 DECL|method|clear ()

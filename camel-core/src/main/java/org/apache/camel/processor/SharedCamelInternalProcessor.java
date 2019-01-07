@@ -849,7 +849,7 @@ comment|// CAMEL END USER - DEBUG ME HERE +++ END +++
 comment|// ----------------------------------------------------------
 name|ReactiveHelper
 operator|.
-name|scheduleLast
+name|schedule
 argument_list|(
 parameter_list|()
 lambda|->

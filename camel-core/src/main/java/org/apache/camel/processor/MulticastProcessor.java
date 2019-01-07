@@ -1442,7 +1442,7 @@ else|else
 block|{
 name|ReactiveHelper
 operator|.
-name|scheduleLast
+name|schedule
 argument_list|(
 name|runnable
 argument_list|,
