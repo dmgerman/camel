@@ -82,6 +82,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|chatscript
+operator|.
+name|utils
+operator|.
+name|ChatScriptConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Metadata
@@ -174,7 +192,7 @@ name|utils
 operator|.
 name|ChatScriptConstants
 operator|.
-name|*
+name|DEFAULT_PORT
 import|;
 end_import
 
@@ -217,15 +235,6 @@ name|ChatScriptEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|URI_ERROR
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|URI_ERROR
-init|=
-literal|"Invalid URI. Format must be of the form chatscript://host[:port]/botname?[options...]"
-decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
@@ -277,10 +286,10 @@ name|required
 operator|=
 literal|"true"
 argument_list|)
-DECL|field|botname
+DECL|field|botName
 specifier|private
 name|String
-name|botname
+name|botName
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -293,10 +302,10 @@ name|label
 operator|=
 literal|"username"
 argument_list|)
-DECL|field|chatusername
+DECL|field|chatUserName
 specifier|private
 name|String
-name|chatusername
+name|chatUserName
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -396,6 +405,8 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
+name|ChatScriptConstants
+operator|.
 name|URI_ERROR
 argument_list|)
 throw|;
@@ -421,11 +432,13 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
+name|ChatScriptConstants
+operator|.
 name|URI_ERROR
 argument_list|)
 throw|;
 block|}
-name|botname
+name|botName
 operator|=
 name|remainingUri
 operator|.
@@ -438,7 +451,7 @@ name|ObjectHelper
 operator|.
 name|isEmpty
 argument_list|(
-name|botname
+name|botName
 argument_list|)
 condition|)
 block|{
@@ -446,13 +459,15 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
+name|ChatScriptConstants
+operator|.
 name|URI_ERROR
 argument_list|)
 throw|;
 block|}
-name|botname
+name|botName
 operator|=
-name|botname
+name|botName
 operator|.
 name|substring
 argument_list|(
@@ -464,7 +479,7 @@ argument_list|(
 operator|new
 name|ChatScriptBot
 argument_list|(
-name|getHostName
+name|getHost
 argument_list|()
 argument_list|,
 name|getPort
@@ -511,7 +526,7 @@ name|getChatUserName
 parameter_list|()
 block|{
 return|return
-name|chatusername
+name|chatUserName
 return|;
 block|}
 DECL|method|setChatUserName (String chatusername)
@@ -525,7 +540,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|chatusername
+name|chatUserName
 operator|=
 name|chatusername
 expr_stmt|;
@@ -575,20 +590,20 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|getHostName ()
+DECL|method|getHost ()
 specifier|public
 name|String
-name|getHostName
+name|getHost
 parameter_list|()
 block|{
 return|return
 name|host
 return|;
 block|}
-DECL|method|setHostName (String hostName)
+DECL|method|setHost (String hostName)
 specifier|public
 name|void
-name|setHostName
+name|setHost
 parameter_list|(
 name|String
 name|hostName
@@ -634,7 +649,7 @@ name|getBotName
 parameter_list|()
 block|{
 return|return
-name|botname
+name|botName
 return|;
 block|}
 DECL|method|setBotName (String botname)
@@ -648,7 +663,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|botname
+name|botName
 operator|=
 name|botname
 expr_stmt|;

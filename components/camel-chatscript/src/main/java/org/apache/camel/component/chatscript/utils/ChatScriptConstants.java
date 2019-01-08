@@ -36,6 +36,15 @@ name|DEFAULT_PORT
 init|=
 literal|1024
 decl_stmt|;
+DECL|field|URI_ERROR
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|URI_ERROR
+init|=
+literal|"Invalid URI. Format must be of the form chatscript://host[:port]/botname?[options...]"
+decl_stmt|;
 DECL|method|ChatScriptConstants ()
 specifier|private
 name|ChatScriptConstants
