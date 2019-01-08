@@ -32,6 +32,12 @@ name|CLONE_OPERATION
 init|=
 literal|"clone"
 decl_stmt|;
+DECL|field|CHECKOUT_OPERATION
+name|String
+name|CHECKOUT_OPERATION
+init|=
+literal|"checkout"
+decl_stmt|;
 DECL|field|INIT_OPERATION
 name|String
 name|INIT_OPERATION
