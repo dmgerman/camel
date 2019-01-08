@@ -85,15 +85,16 @@ end_import
 begin_class
 DECL|class|TestUtils
 specifier|public
+specifier|final
 class|class
 name|TestUtils
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 name|Logger
-name|log
+name|LOG
 init|=
 name|LoggerFactory
 operator|.
@@ -104,12 +105,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|basePath
+DECL|field|BASEPATH
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
-name|basePath
+name|BASEPATH
 init|=
 name|System
 operator|.
@@ -120,24 +121,29 @@ argument_list|)
 operator|+
 literal|"/target/data"
 decl_stmt|;
-DECL|field|numOfRecords
+DECL|field|NUM_RECORDS
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|int
-name|numOfRecords
+name|NUM_RECORDS
 init|=
 literal|40000
 decl_stmt|;
-DECL|field|maxWaitTime
+DECL|field|MAX_WAIT_TIME
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|int
-name|maxWaitTime
+name|MAX_WAIT_TIME
 init|=
 literal|5000
 decl_stmt|;
+DECL|method|TestUtils ()
+specifier|private
+name|TestUtils
+parameter_list|()
+block|{     }
 DECL|method|getBasePath ()
 specifier|public
 specifier|static
@@ -146,7 +152,7 @@ name|getBasePath
 parameter_list|()
 block|{
 return|return
-name|basePath
+name|BASEPATH
 return|;
 block|}
 DECL|method|getNumOfRecords ()
@@ -157,7 +163,7 @@ name|getNumOfRecords
 parameter_list|()
 block|{
 return|return
-name|numOfRecords
+name|NUM_RECORDS
 return|;
 block|}
 DECL|method|getMaxWaitTime ()
@@ -168,7 +174,7 @@ name|getMaxWaitTime
 parameter_list|()
 block|{
 return|return
-name|maxWaitTime
+name|MAX_WAIT_TIME
 return|;
 block|}
 DECL|method|buildTestXml ()
@@ -183,7 +189,7 @@ block|{
 operator|new
 name|File
 argument_list|(
-name|basePath
+name|BASEPATH
 argument_list|)
 operator|.
 name|mkdir
@@ -195,7 +201,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|basePath
+name|BASEPATH
 operator|+
 literal|"/test.xml"
 argument_list|)
@@ -209,7 +215,7 @@ name|exists
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -276,7 +282,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|numOfRecords
+name|NUM_RECORDS
 condition|;
 name|i
 operator|++
@@ -348,7 +354,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
