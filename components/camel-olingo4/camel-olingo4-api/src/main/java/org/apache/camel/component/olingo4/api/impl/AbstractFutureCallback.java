@@ -405,6 +405,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|responseContentType
+operator|!=
+literal|null
+operator|&&
 name|ODATA_MIME_TYPE_PATTERN
 operator|.
 name|matcher
