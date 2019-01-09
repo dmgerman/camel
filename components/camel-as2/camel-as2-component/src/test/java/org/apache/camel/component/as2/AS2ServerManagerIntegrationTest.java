@@ -598,20 +598,6 @@ name|http
 operator|.
 name|entity
 operator|.
-name|ByteArrayEntity
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
-name|entity
-operator|.
 name|ContentType
 import|;
 end_import
@@ -3635,7 +3621,7 @@ argument_list|)
 expr_stmt|;
 comment|// test route processing exception
 name|Processor
-name|failing_processor
+name|failingProcessor
 init|=
 operator|new
 name|Processor
@@ -3678,7 +3664,7 @@ argument_list|)
 operator|.
 name|process
 argument_list|(
-name|failing_processor
+name|failingProcessor
 argument_list|)
 operator|.
 name|to
