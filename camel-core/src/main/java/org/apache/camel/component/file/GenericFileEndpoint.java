@@ -699,6 +699,24 @@ specifier|protected
 name|boolean
 name|allowNullBody
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|jailStartingDirectory
+specifier|protected
+name|boolean
+name|jailStartingDirectory
+init|=
+literal|true
+decl_stmt|;
 comment|// consumer options
 annotation|@
 name|UriParam
@@ -4072,6 +4090,33 @@ operator|.
 name|allowNullBody
 operator|=
 name|allowNullBody
+expr_stmt|;
+block|}
+DECL|method|isJailStartingDirectory ()
+specifier|public
+name|boolean
+name|isJailStartingDirectory
+parameter_list|()
+block|{
+return|return
+name|jailStartingDirectory
+return|;
+block|}
+comment|/**      * Used for jailing (restricting) writing files to the starting directory (and sub) only.      * This is enabled by default to not allow Camel to write files to outside directories (to be more secured out of the box).      * You can turn this off to allow writing files to directories outside the starting directory, such as parent or root folders.      */
+DECL|method|setJailStartingDirectory (boolean jailStartingDirectory)
+specifier|public
+name|void
+name|setJailStartingDirectory
+parameter_list|(
+name|boolean
+name|jailStartingDirectory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jailStartingDirectory
+operator|=
+name|jailStartingDirectory
 expr_stmt|;
 block|}
 DECL|method|getOnCompletionExceptionHandler ()

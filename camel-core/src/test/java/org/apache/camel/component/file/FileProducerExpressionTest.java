@@ -374,7 +374,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"file://target/filelanguage?fileName="
+literal|"file://target/filelanguage?jailStartingDirectory=false&fileName="
 operator|+
 name|expression
 argument_list|,
