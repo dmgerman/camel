@@ -144,9 +144,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|IOHelper
+name|ObjectHelper
 import|;
 end_import
 
@@ -158,9 +158,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|ObjectHelper
+name|IOHelper
 import|;
 end_import
 
@@ -198,6 +198,7 @@ end_comment
 
 begin_class
 DECL|class|CsvMarshaller
+specifier|public
 specifier|abstract
 class|class
 name|CsvMarshaller
@@ -209,7 +210,7 @@ name|CSVFormat
 name|format
 decl_stmt|;
 DECL|method|CsvMarshaller (CSVFormat format)
-specifier|private
+specifier|protected
 name|CsvMarshaller
 parameter_list|(
 name|CSVFormat
@@ -323,23 +324,11 @@ block|{
 name|CSVPrinter
 name|printer
 init|=
-operator|new
-name|CSVPrinter
-argument_list|(
-operator|new
-name|OutputStreamWriter
-argument_list|(
-name|outputStream
-argument_list|,
-name|ExchangeHelper
-operator|.
-name|getCharsetName
+name|createPrinter
 argument_list|(
 name|exchange
-argument_list|)
-argument_list|)
 argument_list|,
-name|format
+name|outputStream
 argument_list|)
 decl_stmt|;
 try|try
@@ -394,6 +383,42 @@ name|printer
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Creates and returns a {@link CSVPrinter}.      *      * @param exchange     Exchange (used for access to type conversion). Could NOT be<code>null</code>.      * @param outputStream Output stream of the CSV. Could NOT be<code>null</code>.      * @return a new {@link CSVPrinter}. Never<code>null</code>.      */
+DECL|method|createPrinter (Exchange exchange, OutputStream outputStream)
+specifier|protected
+name|CSVPrinter
+name|createPrinter
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|OutputStream
+name|outputStream
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+operator|new
+name|CSVPrinter
+argument_list|(
+operator|new
+name|OutputStreamWriter
+argument_list|(
+name|outputStream
+argument_list|,
+name|ExchangeHelper
+operator|.
+name|getCharsetName
+argument_list|(
+name|exchange
+argument_list|)
+argument_list|)
+argument_list|,
+name|format
+argument_list|)
+return|;
 block|}
 DECL|method|getRecordValues (Exchange exchange, Object data)
 specifier|private

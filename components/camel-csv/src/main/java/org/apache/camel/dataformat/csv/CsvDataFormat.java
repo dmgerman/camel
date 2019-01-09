@@ -307,6 +307,15 @@ name|?
 argument_list|>
 name|recordConverter
 decl_stmt|;
+DECL|field|marshallerFactory
+specifier|private
+name|CsvMarshallerFactory
+name|marshallerFactory
+init|=
+name|CsvMarshallerFactory
+operator|.
+name|DEFAULT
+decl_stmt|;
 DECL|field|marshaller
 specifier|private
 specifier|volatile
@@ -416,7 +425,7 @@ name|Exception
 block|{
 name|marshaller
 operator|=
-name|CsvMarshaller
+name|marshallerFactory
 operator|.
 name|create
 argument_list|(
@@ -866,6 +875,47 @@ name|format
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Sets the {@link CsvMarshaller} factory.      * If {@code null}, then {@link CsvMarshallerFactory#DEFAULT} is used instead.      *      * @param marshallerFactory      * @return Current {@code CsvDataFormat}, fluent API      */
+DECL|method|setMarshallerFactory (CsvMarshallerFactory marshallerFactory)
+specifier|public
+name|CsvDataFormat
+name|setMarshallerFactory
+parameter_list|(
+name|CsvMarshallerFactory
+name|marshallerFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|marshallerFactory
+operator|=
+operator|(
+name|marshallerFactory
+operator|==
+literal|null
+operator|)
+condition|?
+name|CsvMarshallerFactory
+operator|.
+name|DEFAULT
+else|:
+name|marshallerFactory
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Returns the used {@link CsvMarshallerFactory}.      *      * @return never {@code null}.      */
+DECL|method|getMarshallerFactory ()
+specifier|public
+name|CsvMarshallerFactory
+name|getMarshallerFactory
+parameter_list|()
+block|{
+return|return
+name|marshallerFactory
 return|;
 block|}
 comment|/**      * Sets the CSV format by name before applying any changes.      *      * @param name CSV format name      * @return Current {@code CsvDataFormat}, fluent API      * @see #setFormat(org.apache.commons.csv.CSVFormat)      * @see org.apache.commons.csv.CSVFormat      */
