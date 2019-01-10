@@ -246,7 +246,7 @@ name|Metadata
 argument_list|(
 name|required
 operator|=
-literal|"true"
+literal|true
 argument_list|)
 DECL|field|metricsType
 specifier|protected
@@ -268,7 +268,7 @@ name|Metadata
 argument_list|(
 name|required
 operator|=
-literal|"true"
+literal|true
 argument_list|)
 DECL|field|metricsName
 specifier|protected

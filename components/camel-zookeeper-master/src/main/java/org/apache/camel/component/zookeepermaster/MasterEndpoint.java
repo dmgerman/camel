@@ -248,7 +248,7 @@ name|Metadata
 argument_list|(
 name|required
 operator|=
-literal|"true"
+literal|true
 argument_list|)
 DECL|field|groupName
 specifier|private
@@ -268,7 +268,7 @@ name|Metadata
 argument_list|(
 name|required
 operator|=
-literal|"true"
+literal|true
 argument_list|)
 DECL|field|consumerEndpointUri
 specifier|private

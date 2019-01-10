@@ -111,7 +111,7 @@ name|Metadata
 argument_list|(
 name|required
 operator|=
-literal|"true"
+literal|true
 argument_list|)
 DECL|field|type
 specifier|private
@@ -134,7 +134,7 @@ name|Metadata
 argument_list|(
 name|required
 operator|=
-literal|"true"
+literal|true
 argument_list|)
 DECL|field|authorizationToken
 specifier|private

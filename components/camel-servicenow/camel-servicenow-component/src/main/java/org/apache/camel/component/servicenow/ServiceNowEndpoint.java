@@ -211,7 +211,7 @@ name|Metadata
 argument_list|(
 name|required
 operator|=
-literal|"true"
+literal|true
 argument_list|)
 DECL|field|instanceName
 specifier|private

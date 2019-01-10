@@ -165,7 +165,7 @@ name|Metadata
 argument_list|(
 name|required
 operator|=
-literal|"true"
+literal|true
 argument_list|)
 DECL|field|host
 specifier|private
@@ -179,7 +179,7 @@ name|Metadata
 argument_list|(
 name|required
 operator|=
-literal|"true"
+literal|true
 argument_list|)
 DECL|field|port
 specifier|private
@@ -193,7 +193,7 @@ name|Metadata
 argument_list|(
 name|required
 operator|=
-literal|"true"
+literal|true
 argument_list|)
 DECL|field|service
 specifier|private

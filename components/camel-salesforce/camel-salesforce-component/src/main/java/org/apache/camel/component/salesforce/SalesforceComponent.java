@@ -780,7 +780,7 @@ name|DEFAULT_LOGIN_URL
 argument_list|,
 name|required
 operator|=
-literal|"true"
+literal|true
 argument_list|)
 DECL|field|loginUrl
 specifier|private
@@ -802,7 +802,7 @@ literal|"common,security"
 argument_list|,
 name|required
 operator|=
-literal|"true"
+literal|true
 argument_list|)
 DECL|field|clientId
 specifier|private

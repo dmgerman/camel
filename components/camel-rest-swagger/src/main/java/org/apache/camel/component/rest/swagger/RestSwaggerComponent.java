@@ -270,7 +270,7 @@ literal|"producer"
 argument_list|,
 name|required
 operator|=
-literal|"false"
+literal|false
 argument_list|)
 DECL|field|basePath
 specifier|private
@@ -298,7 +298,7 @@ literal|"producer"
 argument_list|,
 name|required
 operator|=
-literal|"false"
+literal|false
 argument_list|)
 DECL|field|componentName
 specifier|private
@@ -324,7 +324,7 @@ literal|"producer"
 argument_list|,
 name|required
 operator|=
-literal|"false"
+literal|false
 argument_list|)
 DECL|field|consumes
 specifier|private
@@ -354,7 +354,7 @@ literal|"producer"
 argument_list|,
 name|required
 operator|=
-literal|"false"
+literal|false
 argument_list|)
 DECL|field|host
 specifier|private
@@ -378,7 +378,7 @@ literal|"producer"
 argument_list|,
 name|required
 operator|=
-literal|"false"
+literal|false
 argument_list|)
 DECL|field|produces
 specifier|private
@@ -412,7 +412,7 @@ literal|"producer"
 argument_list|,
 name|required
 operator|=
-literal|"false"
+literal|false
 argument_list|)
 DECL|field|specificationUri
 specifier|private
@@ -434,7 +434,7 @@ literal|"security"
 argument_list|,
 name|required
 operator|=
-literal|"false"
+literal|false
 argument_list|)
 DECL|field|sslContextParameters
 specifier|private

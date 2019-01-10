@@ -138,11 +138,12 @@ literal|""
 function_decl|;
 comment|/**      * To define that this entity is required.      */
 DECL|method|required ()
-name|String
+DECL|field|false
+name|boolean
 name|required
 parameter_list|()
 default|default
-literal|""
+literal|false
 function_decl|;
 comment|/**      * An optional human readable title of this entity, to be used instead of a computed title.      */
 DECL|method|title ()

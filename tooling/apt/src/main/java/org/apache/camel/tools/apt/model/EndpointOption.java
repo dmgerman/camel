@@ -74,7 +74,7 @@ name|type
 decl_stmt|;
 DECL|field|required
 specifier|private
-name|String
+name|boolean
 name|required
 decl_stmt|;
 DECL|field|defaultValue
@@ -145,7 +145,7 @@ name|String
 argument_list|>
 name|enums
 decl_stmt|;
-DECL|method|EndpointOption (String name, String displayName, String type, String required, String defaultValue, String defaultValueNote, String documentation, String optionalPrefix, String prefix, boolean multiValue, boolean deprecated, String deprecationNote, boolean secret, String group, String label, boolean enumType, Set<String> enums)
+DECL|method|EndpointOption (String name, String displayName, String type, boolean required, String defaultValue, String defaultValueNote, String documentation, String optionalPrefix, String prefix, boolean multiValue, boolean deprecated, String deprecationNote, boolean secret, String group, String label, boolean enumType, Set<String> enums)
 specifier|public
 name|EndpointOption
 parameter_list|(
@@ -158,7 +158,7 @@ parameter_list|,
 name|String
 name|type
 parameter_list|,
-name|String
+name|boolean
 name|required
 parameter_list|,
 name|String
@@ -337,10 +337,10 @@ return|return
 name|type
 return|;
 block|}
-DECL|method|getRequired ()
+DECL|method|isRequired ()
 specifier|public
-name|String
-name|getRequired
+name|boolean
+name|isRequired
 parameter_list|()
 block|{
 return|return

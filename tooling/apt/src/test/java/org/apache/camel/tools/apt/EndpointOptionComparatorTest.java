@@ -208,7 +208,7 @@ literal|"First"
 argument_list|,
 literal|"string"
 argument_list|,
-literal|"true"
+literal|true
 argument_list|,
 literal|""
 argument_list|,
@@ -249,7 +249,7 @@ literal|"Synchronous"
 argument_list|,
 literal|"string"
 argument_list|,
-literal|"true"
+literal|true
 argument_list|,
 literal|""
 argument_list|,
@@ -290,7 +290,7 @@ literal|"Second"
 argument_list|,
 literal|"string"
 argument_list|,
-literal|"true"
+literal|true
 argument_list|,
 literal|""
 argument_list|,
@@ -331,7 +331,7 @@ literal|"Country"
 argument_list|,
 literal|"string"
 argument_list|,
-literal|"true"
+literal|true
 argument_list|,
 literal|""
 argument_list|,
