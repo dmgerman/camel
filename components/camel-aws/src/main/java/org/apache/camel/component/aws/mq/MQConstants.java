@@ -90,6 +90,12 @@ name|BROKER_USERS
 init|=
 literal|"CamelAwsMQBrokerUsers"
 decl_stmt|;
+DECL|field|BROKER_PUBLICLY_ACCESSIBLE
+name|String
+name|BROKER_PUBLICLY_ACCESSIBLE
+init|=
+literal|"CamelAwsMQBrokerPubliclyAccessible"
+decl_stmt|;
 block|}
 end_interface
 
