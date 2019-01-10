@@ -76,7 +76,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
-comment|/**      * Creates and returns a new {@link CsvMarshaller}.      *      * @param format     the<b>CSV</b> format. Can NOT be<code>null</code>.      * @param dataFormat the<b>CSV</b> data format. Can NOT be<code>null</code>.      * @return a new {@link CsvMarshaller}.      */
+comment|/**      * Creates and returns a new {@link CsvMarshaller}.      *      * @param format     the<b>CSV</b> format. Can NOT be<code>null</code>.      * @param dataFormat the<b>CSV</b> data format. Can NOT be<code>null</code>.      * @return a new {@link CsvMarshaller}. Never<code>null</code>.      */
 DECL|method|create (CSVFormat format, CsvDataFormat dataFormat)
 name|CsvMarshaller
 name|create
