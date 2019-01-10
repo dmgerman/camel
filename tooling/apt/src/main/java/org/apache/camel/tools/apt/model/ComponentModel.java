@@ -107,10 +107,10 @@ specifier|private
 name|boolean
 name|deprecated
 decl_stmt|;
-DECL|field|deprecationNode
+DECL|field|deprecationNote
 specifier|private
 name|String
-name|deprecationNode
+name|deprecationNote
 decl_stmt|;
 DECL|field|lenientProperties
 specifier|private
@@ -537,30 +537,30 @@ operator|=
 name|deprecated
 expr_stmt|;
 block|}
-DECL|method|getDeprecationNode ()
+DECL|method|getDeprecationNote ()
 specifier|public
 name|String
-name|getDeprecationNode
+name|getDeprecationNote
 parameter_list|()
 block|{
 return|return
-name|deprecationNode
+name|deprecationNote
 return|;
 block|}
-DECL|method|setDeprecationNode (String deprecationNode)
+DECL|method|setDeprecationNote (String deprecationNote)
 specifier|public
 name|void
-name|setDeprecationNode
+name|setDeprecationNote
 parameter_list|(
 name|String
-name|deprecationNode
+name|deprecationNote
 parameter_list|)
 block|{
 name|this
 operator|.
-name|deprecationNode
+name|deprecationNote
 operator|=
-name|deprecationNode
+name|deprecationNote
 expr_stmt|;
 block|}
 DECL|method|isLenientProperties ()

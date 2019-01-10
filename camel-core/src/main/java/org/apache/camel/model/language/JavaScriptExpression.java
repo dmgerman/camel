@@ -94,7 +94,7 @@ name|title
 operator|=
 literal|"JavaScript"
 argument_list|,
-name|deprecationNode
+name|deprecationNote
 operator|=
 literal|"JavaScript is deprecated in Java 11 onwards"
 argument_list|)

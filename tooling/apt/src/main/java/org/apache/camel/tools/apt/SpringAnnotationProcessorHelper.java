@@ -2147,7 +2147,7 @@ name|deprecationNote
 operator|=
 name|metadata
 operator|.
-name|deprecationNode
+name|deprecationNote
 argument_list|()
 expr_stmt|;
 block|}
@@ -3065,7 +3065,7 @@ name|deprecationNote
 operator|=
 name|metadata
 operator|.
-name|deprecationNode
+name|deprecationNote
 argument_list|()
 expr_stmt|;
 block|}
@@ -3380,7 +3380,7 @@ name|deprecationNote
 operator|=
 name|metadata
 operator|.
-name|deprecationNode
+name|deprecationNote
 argument_list|()
 expr_stmt|;
 block|}

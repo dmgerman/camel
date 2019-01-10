@@ -195,9 +195,9 @@ default|default
 literal|""
 function_decl|;
 comment|/**      * Additional description that can explain the user about the deprecation and give reference to what to use instead.      */
-DECL|method|deprecationNode ()
+DECL|method|deprecationNote ()
 name|String
-name|deprecationNode
+name|deprecationNote
 parameter_list|()
 default|default
 literal|""

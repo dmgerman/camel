@@ -1699,7 +1699,7 @@ name|getOrElse
 argument_list|(
 name|componentModel
 operator|.
-name|getDeprecationNode
+name|getDeprecationNote
 argument_list|()
 argument_list|,
 literal|""
@@ -2141,7 +2141,7 @@ argument_list|()
 argument_list|,
 name|entry
 operator|.
-name|getDeprecationNode
+name|getDeprecationNote
 argument_list|()
 argument_list|,
 name|entry
@@ -3304,13 +3304,13 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|deprecationNode
+name|deprecationNote
 argument_list|()
 expr_stmt|;
 block|}
 name|model
 operator|.
-name|setDeprecationNode
+name|setDeprecationNote
 argument_list|(
 name|deprecationNote
 argument_list|)
@@ -3661,7 +3661,7 @@ name|deprecationNote
 operator|=
 name|metadata
 operator|.
-name|deprecationNode
+name|deprecationNote
 argument_list|()
 expr_stmt|;
 block|}
@@ -4458,7 +4458,7 @@ name|deprecationNote
 operator|=
 name|metadata
 operator|.
-name|deprecationNode
+name|deprecationNote
 argument_list|()
 expr_stmt|;
 block|}

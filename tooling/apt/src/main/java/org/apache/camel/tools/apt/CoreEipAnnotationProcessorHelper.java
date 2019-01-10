@@ -1309,7 +1309,7 @@ if|if
 condition|(
 name|eipModel
 operator|.
-name|getDeprecationNode
+name|getDeprecationNote
 argument_list|()
 operator|!=
 literal|null
@@ -1328,7 +1328,7 @@ name|safeNull
 argument_list|(
 name|eipModel
 operator|.
-name|getDeprecationNode
+name|getDeprecationNote
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1543,7 +1543,7 @@ argument_list|()
 argument_list|,
 name|entry
 operator|.
-name|getDeprecationNode
+name|getDeprecationNote
 argument_list|()
 argument_list|,
 literal|false
@@ -2801,7 +2801,7 @@ name|deprecationNote
 operator|=
 name|metadata
 operator|.
-name|deprecationNode
+name|deprecationNote
 argument_list|()
 expr_stmt|;
 block|}
@@ -3069,7 +3069,7 @@ name|deprecationNote
 operator|=
 name|metadata
 operator|.
-name|deprecationNode
+name|deprecationNote
 argument_list|()
 expr_stmt|;
 block|}
@@ -3723,7 +3723,7 @@ name|deprecationNote
 operator|=
 name|metadata
 operator|.
-name|deprecationNode
+name|deprecationNote
 argument_list|()
 expr_stmt|;
 block|}
@@ -4004,7 +4004,7 @@ name|deprecationNote
 operator|=
 name|metadata
 operator|.
-name|deprecationNode
+name|deprecationNote
 argument_list|()
 expr_stmt|;
 block|}
@@ -5855,7 +5855,7 @@ name|deprecationNote
 operator|=
 name|metadata
 operator|.
-name|deprecationNode
+name|deprecationNote
 argument_list|()
 expr_stmt|;
 block|}
@@ -6191,7 +6191,7 @@ name|deprecationNote
 operator|=
 name|metadata
 operator|.
-name|deprecationNode
+name|deprecationNote
 argument_list|()
 expr_stmt|;
 block|}
@@ -6596,7 +6596,7 @@ name|deprecationNote
 operator|=
 name|metadata
 operator|.
-name|deprecationNode
+name|deprecationNote
 argument_list|()
 expr_stmt|;
 block|}
@@ -6857,7 +6857,7 @@ name|deprecationNote
 operator|=
 name|metadata
 operator|.
-name|deprecationNode
+name|deprecationNote
 argument_list|()
 expr_stmt|;
 block|}
@@ -7373,10 +7373,10 @@ specifier|private
 name|boolean
 name|deprecated
 decl_stmt|;
-DECL|field|deprecationNode
+DECL|field|deprecationNote
 specifier|private
 name|String
-name|deprecationNode
+name|deprecationNote
 decl_stmt|;
 DECL|field|input
 specifier|private
@@ -7549,30 +7549,30 @@ operator|=
 name|deprecated
 expr_stmt|;
 block|}
-DECL|method|getDeprecationNode ()
+DECL|method|getDeprecationNote ()
 specifier|public
 name|String
-name|getDeprecationNode
+name|getDeprecationNote
 parameter_list|()
 block|{
 return|return
-name|deprecationNode
+name|deprecationNote
 return|;
 block|}
-DECL|method|setDeprecationNode (String deprecationNode)
+DECL|method|setDeprecationNote (String deprecationNote)
 specifier|public
 name|void
-name|setDeprecationNode
+name|setDeprecationNote
 parameter_list|(
 name|String
-name|deprecationNode
+name|deprecationNote
 parameter_list|)
 block|{
 name|this
 operator|.
-name|deprecationNode
+name|deprecationNote
 operator|=
-name|deprecationNode
+name|deprecationNote
 expr_stmt|;
 block|}
 DECL|method|isInput ()
@@ -7729,10 +7729,10 @@ specifier|private
 name|boolean
 name|deprecated
 decl_stmt|;
-DECL|field|deprecationNode
+DECL|field|deprecationNote
 specifier|private
 name|String
-name|deprecationNode
+name|deprecationNote
 decl_stmt|;
 DECL|field|enumType
 specifier|private
@@ -7765,7 +7765,7 @@ specifier|private
 name|boolean
 name|asPredicate
 decl_stmt|;
-DECL|method|EipOption (String name, String displayName, String kind, String type, boolean required, String defaultValue, String documentation, boolean deprecated, String deprecationNode, boolean enumType, Set<String> enums, boolean oneOf, Set<String> oneOfTypes, boolean asPredicate)
+DECL|method|EipOption (String name, String displayName, String kind, String type, boolean required, String defaultValue, String documentation, boolean deprecated, String deprecationNote, boolean enumType, Set<String> enums, boolean oneOf, Set<String> oneOfTypes, boolean asPredicate)
 specifier|private
 name|EipOption
 parameter_list|(
@@ -7794,7 +7794,7 @@ name|boolean
 name|deprecated
 parameter_list|,
 name|String
-name|deprecationNode
+name|deprecationNote
 parameter_list|,
 name|boolean
 name|enumType
@@ -7868,9 +7868,9 @@ name|deprecated
 expr_stmt|;
 name|this
 operator|.
-name|deprecationNode
+name|deprecationNote
 operator|=
-name|deprecationNode
+name|deprecationNote
 expr_stmt|;
 name|this
 operator|.
@@ -7983,14 +7983,14 @@ return|return
 name|deprecated
 return|;
 block|}
-DECL|method|getDeprecationNode ()
+DECL|method|getDeprecationNote ()
 specifier|public
 name|String
-name|getDeprecationNode
+name|getDeprecationNote
 parameter_list|()
 block|{
 return|return
-name|deprecationNode
+name|deprecationNote
 return|;
 block|}
 DECL|method|isEnumType ()

@@ -97,10 +97,10 @@ specifier|private
 name|boolean
 name|deprecated
 decl_stmt|;
-DECL|field|deprecationNode
+DECL|field|deprecationNote
 specifier|private
 name|String
-name|deprecationNode
+name|deprecationNote
 decl_stmt|;
 DECL|field|secret
 specifier|private
@@ -130,7 +130,7 @@ name|String
 argument_list|>
 name|enums
 decl_stmt|;
-DECL|method|ComponentOption (String name, String displayName, String type, boolean required, String defaultValue, String defaultValueNote, String documentation, boolean deprecated, String deprecationNode, boolean secret, String group, String label, boolean enumType, Set<String> enums)
+DECL|method|ComponentOption (String name, String displayName, String type, boolean required, String defaultValue, String defaultValueNote, String documentation, boolean deprecated, String deprecationNote, boolean secret, String group, String label, boolean enumType, Set<String> enums)
 specifier|public
 name|ComponentOption
 parameter_list|(
@@ -159,7 +159,7 @@ name|boolean
 name|deprecated
 parameter_list|,
 name|String
-name|deprecationNode
+name|deprecationNote
 parameter_list|,
 name|boolean
 name|secret
@@ -230,9 +230,9 @@ name|deprecated
 expr_stmt|;
 name|this
 operator|.
-name|deprecationNode
+name|deprecationNote
 operator|=
-name|deprecationNode
+name|deprecationNote
 expr_stmt|;
 name|this
 operator|.
@@ -335,14 +335,14 @@ return|return
 name|deprecated
 return|;
 block|}
-DECL|method|getDeprecationNode ()
+DECL|method|getDeprecationNote ()
 specifier|public
 name|String
-name|getDeprecationNode
+name|getDeprecationNote
 parameter_list|()
 block|{
 return|return
-name|deprecationNode
+name|deprecationNote
 return|;
 block|}
 DECL|method|isSecret ()
@@ -402,7 +402,7 @@ condition|(
 operator|!
 name|isNullOrEmpty
 argument_list|(
-name|deprecationNode
+name|deprecationNote
 argument_list|)
 condition|)
 block|{
@@ -415,7 +415,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|deprecationNode
+name|deprecationNote
 argument_list|)
 expr_stmt|;
 block|}
