@@ -736,8 +736,6 @@ literal|"camel-mina"
 block|,
 literal|"camel-ibatis"
 block|,
-literal|"camel-quartz"
-block|,
 comment|/* currently incompatible */
 literal|"camel-spark-rest"
 block|,
