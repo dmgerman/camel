@@ -744,8 +744,6 @@ block|,
 comment|/* others (not managed) -> */
 literal|"camel-core-xml"
 block|,
-literal|"camel-groovy-dsl"
-block|,
 literal|"camel-scala"
 block|}
 decl_stmt|;
