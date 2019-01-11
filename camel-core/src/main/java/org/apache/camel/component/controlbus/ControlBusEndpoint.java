@@ -255,7 +255,7 @@ name|UriPath
 argument_list|(
 name|enums
 operator|=
-literal|"bean,constant,el,exchangeProperty,file,groovy,header,jsonpath,jxpath,mvel,ognl,ref,simple,spel,sql,terser,tokenize,xpath,xquery,xtokenize"
+literal|"bean,constant,el,exchangeProperty,file,groovy,header,jsonpath,mvel,ognl,ref,simple,spel,sql,terser,tokenize,xpath,xquery,xtokenize"
 argument_list|)
 DECL|field|language
 specifier|private
