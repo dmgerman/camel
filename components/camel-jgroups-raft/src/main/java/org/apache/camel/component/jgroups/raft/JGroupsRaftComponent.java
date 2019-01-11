@@ -98,6 +98,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -155,6 +171,11 @@ comment|/**  * Component providing support for JGroups-raft leader election and 
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"jgroups-raft"
+argument_list|)
 DECL|class|JGroupsRaftComponent
 specifier|public
 class|class

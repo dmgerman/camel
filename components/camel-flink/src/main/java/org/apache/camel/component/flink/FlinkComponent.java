@@ -48,6 +48,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -93,6 +109,11 @@ comment|/**  * The flink component can be used to send DataSet or DataStream job
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"flink"
+argument_list|)
 DECL|class|FlinkComponent
 specifier|public
 class|class

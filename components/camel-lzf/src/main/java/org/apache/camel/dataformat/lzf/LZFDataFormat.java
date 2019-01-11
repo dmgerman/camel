@@ -146,6 +146,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Dataformat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -171,6 +187,11 @@ comment|/**  * LZF data format.  * See {@link org.apache.camel.model.dataformat.
 end_comment
 
 begin_class
+annotation|@
+name|Dataformat
+argument_list|(
+literal|"lzf"
+argument_list|)
 DECL|class|LZFDataFormat
 specifier|public
 class|class

@@ -84,11 +84,32 @@ name|Metadata
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
 begin_comment
 comment|/**  * The<a href="http://camel.apache.org/msv.html">MSV Component</a> uses the  *<a href="https://msv.dev.java.net/">MSV library</a> to perform XML validation using pluggable XML schema languages.  *  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"msv"
+argument_list|)
 DECL|class|MsvComponent
 specifier|public
 class|class

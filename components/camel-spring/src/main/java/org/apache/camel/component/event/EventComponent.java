@@ -56,6 +56,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -147,6 +163,11 @@ comment|/**  * The<a href="http://camel.apache.org/event.html">Event Component</
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"spring-event"
+argument_list|)
 DECL|class|EventComponent
 specifier|public
 class|class

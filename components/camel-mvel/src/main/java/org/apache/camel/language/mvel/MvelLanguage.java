@@ -52,6 +52,8 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|annotations
+operator|.
 name|Language
 import|;
 end_import
@@ -71,10 +73,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://mvel.codehaus.org/">MVEL</a> {@link Language} plugin  */
+comment|/**  * An<a href="http://mvel.codehaus.org/">MVEL</a> {@link org.apache.camel.spi.Language} plugin  */
 end_comment
 
 begin_class
+annotation|@
+name|Language
+argument_list|(
+literal|"mvel"
+argument_list|)
 DECL|class|MvelLanguage
 specifier|public
 class|class

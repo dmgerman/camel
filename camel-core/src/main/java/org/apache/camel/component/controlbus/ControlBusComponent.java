@@ -71,6 +71,21 @@ comment|/**  * The<a href="http://camel.apache.org/controlbus.html">Control Bus 
 end_comment
 
 begin_class
+annotation|@
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+argument_list|(
+literal|"controlbus"
+argument_list|)
 DECL|class|ControlBusComponent
 specifier|public
 class|class

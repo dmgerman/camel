@@ -96,6 +96,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|component
@@ -143,6 +159,11 @@ comment|/**  * Represents the component that manages {@link AS2Endpoint}.  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"as2"
+argument_list|)
 DECL|class|AS2Component
 specifier|public
 class|class

@@ -62,11 +62,32 @@ name|AhcEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
 begin_comment
 comment|/**  * To exchange data with external Websocket servers using<a href="http://github.com/sonatype/async-http-client">Async Http Client</a>  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"ahc-ws,ahc-wss"
+argument_list|)
 DECL|class|WsComponent
 specifier|public
 class|class

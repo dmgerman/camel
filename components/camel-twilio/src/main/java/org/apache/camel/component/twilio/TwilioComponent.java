@@ -112,6 +112,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -139,6 +155,11 @@ comment|/**  * Represents the component that manages {@link TwilioEndpoint}.  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"twilio"
+argument_list|)
 DECL|class|TwilioComponent
 specifier|public
 class|class

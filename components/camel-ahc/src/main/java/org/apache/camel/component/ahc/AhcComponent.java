@@ -108,6 +108,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|IntrospectionSupport
@@ -229,6 +245,11 @@ comment|/**  *  To call external HTTP services using<a href="http://github.com/s
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"ahc"
+argument_list|)
 DECL|class|AhcComponent
 specifier|public
 class|class

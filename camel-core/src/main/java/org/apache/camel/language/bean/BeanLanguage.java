@@ -115,6 +115,21 @@ comment|/**  * A<a href="http://camel.apache.org/bean-language.html">bean langua
 end_comment
 
 begin_class
+annotation|@
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Language
+argument_list|(
+literal|"bean"
+argument_list|)
 DECL|class|BeanLanguage
 specifier|public
 class|class

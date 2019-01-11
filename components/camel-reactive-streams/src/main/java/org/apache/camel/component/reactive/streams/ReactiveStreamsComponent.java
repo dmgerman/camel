@@ -102,6 +102,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -141,6 +157,11 @@ comment|/**  * The Camel reactive-streams component.  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"reactive-streams"
+argument_list|)
 DECL|class|ReactiveStreamsComponent
 specifier|public
 class|class

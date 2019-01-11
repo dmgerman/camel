@@ -128,6 +128,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|IOHelper
@@ -169,6 +185,11 @@ comment|/**  * The Zendesk Component.  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"zendesk"
+argument_list|)
 DECL|class|ZendeskComponent
 specifier|public
 class|class

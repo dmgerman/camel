@@ -456,6 +456,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Dataformat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ExchangeHelper
@@ -537,6 +553,11 @@ comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</
 end_comment
 
 begin_class
+annotation|@
+name|Dataformat
+argument_list|(
+literal|"jaxb"
+argument_list|)
 DECL|class|JaxbDataFormat
 specifier|public
 class|class

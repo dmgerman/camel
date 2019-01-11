@@ -74,6 +74,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -159,6 +175,11 @@ comment|/**  * The master camel component provides a way to ensures that only a 
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"master"
+argument_list|)
 DECL|class|MasterComponent
 specifier|public
 class|class

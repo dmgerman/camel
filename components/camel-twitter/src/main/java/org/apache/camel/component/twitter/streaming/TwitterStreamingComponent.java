@@ -100,6 +100,22 @@ name|Metadata
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
 begin_comment
 comment|/**  * Twitter Streaming component.  */
 end_comment
@@ -115,6 +131,11 @@ argument_list|,
 name|enums
 operator|=
 literal|"parameters,connectivity"
+argument_list|)
+annotation|@
+name|Component
+argument_list|(
+literal|"twitter-streaming"
 argument_list|)
 DECL|class|TwitterStreamingComponent
 specifier|public

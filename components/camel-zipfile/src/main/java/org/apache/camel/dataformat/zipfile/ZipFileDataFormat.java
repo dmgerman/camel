@@ -182,6 +182,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Dataformat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -235,6 +251,11 @@ comment|/**  * Zip file data format.  * See {@link org.apache.camel.model.datafo
 end_comment
 
 begin_class
+annotation|@
+name|Dataformat
+argument_list|(
+literal|"zipfile"
+argument_list|)
 DECL|class|ZipFileDataFormat
 specifier|public
 class|class

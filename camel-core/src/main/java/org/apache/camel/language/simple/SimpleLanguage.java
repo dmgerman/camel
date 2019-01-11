@@ -86,6 +86,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Language
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|CamelContextHelper
@@ -187,6 +203,11 @@ comment|/**  * A<a href="http://camel.apache.org/simple.html">simple language</a
 end_comment
 
 begin_class
+annotation|@
+name|Language
+argument_list|(
+literal|"simple"
+argument_list|)
 DECL|class|SimpleLanguage
 specifier|public
 class|class

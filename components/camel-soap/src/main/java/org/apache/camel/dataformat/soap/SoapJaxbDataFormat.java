@@ -282,11 +282,32 @@ name|TypeNameStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Dataformat
+import|;
+end_import
+
 begin_comment
 comment|/**  * Data format supporting SOAP 1.1 and 1.2.  */
 end_comment
 
 begin_class
+annotation|@
+name|Dataformat
+argument_list|(
+literal|"soapjaxb"
+argument_list|)
 DECL|class|SoapJaxbDataFormat
 specifier|public
 class|class

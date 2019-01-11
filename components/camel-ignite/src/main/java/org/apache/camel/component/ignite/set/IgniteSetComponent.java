@@ -86,6 +86,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -123,6 +139,11 @@ comment|/**  * The Ignite Set Component.  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"ignite-set"
+argument_list|)
 DECL|class|IgniteSetComponent
 specifier|public
 class|class

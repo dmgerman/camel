@@ -60,6 +60,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -95,6 +111,11 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"jolt"
+argument_list|)
 DECL|class|JoltComponent
 specifier|public
 class|class

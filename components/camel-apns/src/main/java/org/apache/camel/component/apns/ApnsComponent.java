@@ -74,6 +74,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -85,6 +101,11 @@ comment|/**  * For sending notifications to Apple iOS devices  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"apns"
+argument_list|)
 DECL|class|ApnsComponent
 specifier|public
 class|class

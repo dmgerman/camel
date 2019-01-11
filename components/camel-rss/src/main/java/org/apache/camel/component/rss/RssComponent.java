@@ -90,6 +90,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|URISupport
@@ -101,6 +117,11 @@ comment|/**  * An<a href="http://camel.apache.org/rss.html">RSS Component</a>.  
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"rss"
+argument_list|)
 DECL|class|RssComponent
 specifier|public
 class|class

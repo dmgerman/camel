@@ -163,6 +163,21 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Language
+argument_list|(
+literal|"terser"
+argument_list|)
 DECL|class|TerserLanguage
 specifier|public
 class|class

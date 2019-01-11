@@ -84,6 +84,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -211,6 +227,11 @@ comment|/**  * An awesome REST component backed by Swagger specifications. Creat
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"rest-swagger"
+argument_list|)
 DECL|class|RestSwaggerComponent
 specifier|public
 specifier|final

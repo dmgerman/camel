@@ -48,6 +48,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -59,6 +75,11 @@ comment|/**  * This is a component for Camel to run DNS queries, using DNSJava. 
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"dns"
+argument_list|)
 DECL|class|DnsComponent
 specifier|public
 class|class

@@ -80,6 +80,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -105,6 +121,11 @@ comment|/**  * Component that creates {@link ZooKeeperEndpoint}s for interacting
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"zookeeper"
+argument_list|)
 DECL|class|ZooKeeperComponent
 specifier|public
 class|class

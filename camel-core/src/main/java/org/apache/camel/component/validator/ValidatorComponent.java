@@ -73,6 +73,21 @@ comment|/**  * The<a href="http://camel.apache.org/validation.html">Validator Co
 end_comment
 
 begin_class
+annotation|@
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+argument_list|(
+literal|"validator"
+argument_list|)
 DECL|class|ValidatorComponent
 specifier|public
 class|class

@@ -125,6 +125,21 @@ comment|/**  * The<a href="http://camel.apache.org/language-component.html">Lang
 end_comment
 
 begin_class
+annotation|@
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+argument_list|(
+literal|"language"
+argument_list|)
 DECL|class|LanguageComponent
 specifier|public
 class|class

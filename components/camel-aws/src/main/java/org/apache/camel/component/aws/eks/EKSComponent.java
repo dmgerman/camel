@@ -76,6 +76,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -101,6 +117,11 @@ comment|/**  * For working with Amazon EKS.  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"aws-eks"
+argument_list|)
 DECL|class|EKSComponent
 specifier|public
 class|class

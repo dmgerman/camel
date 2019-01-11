@@ -136,6 +136,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Dataformat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|IOHelper
@@ -147,6 +163,11 @@ comment|/**  * "Deflate" compression data format.  * See {@link org.apache.camel
 end_comment
 
 begin_class
+annotation|@
+name|Dataformat
+argument_list|(
+literal|"zip"
+argument_list|)
 DECL|class|ZipDataFormat
 specifier|public
 class|class

@@ -48,6 +48,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -87,6 +103,11 @@ comment|/**  * Component for connecting JMX Notification events to a camel route
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"jmx"
+argument_list|)
 DECL|class|JMXComponent
 specifier|public
 class|class

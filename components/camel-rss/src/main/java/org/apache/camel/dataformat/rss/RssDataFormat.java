@@ -102,6 +102,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Dataformat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -127,6 +143,11 @@ comment|/**  * RSS DataFormat  *<p/>  * This data format supports two operations
 end_comment
 
 begin_class
+annotation|@
+name|Dataformat
+argument_list|(
+literal|"rss"
+argument_list|)
 DECL|class|RssDataFormat
 specifier|public
 class|class

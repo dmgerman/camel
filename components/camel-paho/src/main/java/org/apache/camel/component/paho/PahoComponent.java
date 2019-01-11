@@ -60,6 +60,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -101,6 +117,11 @@ comment|/**  * Component to integrate with the Eclispe Paho MQTT library.  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"paho"
+argument_list|)
 DECL|class|PahoComponent
 specifier|public
 class|class

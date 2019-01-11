@@ -122,11 +122,32 @@ name|FixedWidthWriterSettings
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Dataformat
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class is the data format that uses the fixed-width uniVocity parser.  */
 end_comment
 
 begin_class
+annotation|@
+name|Dataformat
+argument_list|(
+literal|"univocity-fixed"
+argument_list|)
 DECL|class|UniVocityFixedWidthDataFormat
 specifier|public
 class|class

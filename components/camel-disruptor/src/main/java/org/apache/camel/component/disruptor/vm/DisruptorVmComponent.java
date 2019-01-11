@@ -86,11 +86,32 @@ name|DisruptorReference
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
 begin_comment
 comment|/**  * An implementation of the<a href="http://camel.apache.org/vm.html">VM components</a>  * for asynchronous SEDA exchanges on a  *<a href="https://github.com/LMAX-Exchange/disruptor">LMAX Disruptor</a> within the classloader tree containing  * the camel-disruptor.jar. i.e. to handle communicating across CamelContext instances and possibly across  * web application contexts, providing that camel-disruptor.jar is on the system classpath.  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"disruptor-vm"
+argument_list|)
 DECL|class|DisruptorVmComponent
 specifier|public
 class|class

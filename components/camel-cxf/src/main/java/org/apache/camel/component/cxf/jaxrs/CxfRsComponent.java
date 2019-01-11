@@ -160,6 +160,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|CamelContextHelper
@@ -233,6 +249,11 @@ comment|/**  * Defines the<a href="http://camel.apache.org/cxfrs.html">CXF RS Co
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"cxfrs"
+argument_list|)
 DECL|class|CxfRsComponent
 specifier|public
 class|class

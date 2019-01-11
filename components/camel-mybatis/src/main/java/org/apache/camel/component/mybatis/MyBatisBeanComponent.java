@@ -48,6 +48,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -69,6 +85,11 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"mybatis-bean"
+argument_list|)
 DECL|class|MyBatisBeanComponent
 specifier|public
 class|class

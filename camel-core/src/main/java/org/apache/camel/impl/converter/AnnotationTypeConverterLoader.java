@@ -649,15 +649,31 @@ operator|>
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
 literal|"Found converter packages to scan: {}"
 argument_list|,
+name|String
+operator|.
+name|join
+argument_list|(
+literal|", "
+argument_list|,
 name|packageNames
 argument_list|)
+argument_list|)
 expr_stmt|;
+block|}
 name|Set
 argument_list|<
 name|Class

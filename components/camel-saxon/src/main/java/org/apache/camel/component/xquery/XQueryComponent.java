@@ -94,6 +94,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -133,6 +149,11 @@ comment|/**  * An<a href="http://camel.apache.org/xquery.html">XQuery Component<
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"xquery"
+argument_list|)
 DECL|class|XQueryComponent
 specifier|public
 class|class

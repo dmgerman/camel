@@ -18,11 +18,32 @@ name|simple
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Language
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|Language
+argument_list|(
+literal|"file"
+argument_list|)
 DECL|class|FileLanguage
 specifier|public
 class|class

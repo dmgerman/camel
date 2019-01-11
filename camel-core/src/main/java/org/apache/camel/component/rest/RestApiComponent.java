@@ -59,6 +59,21 @@ comment|/**  * Rest API component.  */
 end_comment
 
 begin_class
+annotation|@
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+argument_list|(
+literal|"rest-api"
+argument_list|)
 DECL|class|RestApiComponent
 specifier|public
 class|class

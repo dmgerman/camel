@@ -60,6 +60,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Language
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|LanguageSupport
@@ -67,6 +83,11 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Language
+argument_list|(
+literal|"jsonpath"
+argument_list|)
 DECL|class|JsonPathLanguage
 specifier|public
 class|class

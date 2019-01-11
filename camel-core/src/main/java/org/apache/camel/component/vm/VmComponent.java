@@ -153,6 +153,21 @@ comment|/**  * The<a href="http://camel.apache.org/vm.html">VM component</a> is 
 end_comment
 
 begin_class
+annotation|@
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+argument_list|(
+literal|"vm"
+argument_list|)
 DECL|class|VmComponent
 specifier|public
 class|class

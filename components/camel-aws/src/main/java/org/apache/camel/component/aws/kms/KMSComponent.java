@@ -64,6 +64,22 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Metadata
 import|;
 end_import
@@ -101,6 +117,11 @@ comment|/**  * For working with Amazon KMS.  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"aws-kms"
+argument_list|)
 DECL|class|KMSComponent
 specifier|public
 class|class

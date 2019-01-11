@@ -82,11 +82,32 @@ name|ServletEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
 begin_comment
 comment|/**  * To exchange data with external Websocket clients using Atmosphere  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"atmosphere-websocket"
+argument_list|)
 DECL|class|WebsocketComponent
 specifier|public
 class|class

@@ -124,6 +124,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Dataformat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|IOHelper
@@ -135,6 +151,11 @@ comment|/**  * GZip {@link org.apache.camel.spi.DataFormat} for reading/writing 
 end_comment
 
 begin_class
+annotation|@
+name|Dataformat
+argument_list|(
+literal|"gzip"
+argument_list|)
 DECL|class|GzipDataFormat
 specifier|public
 class|class

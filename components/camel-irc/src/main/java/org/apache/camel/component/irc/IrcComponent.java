@@ -72,6 +72,22 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Metadata
 import|;
 end_import
@@ -155,6 +171,11 @@ comment|/**  * Defines the<a href="http://camel.apache.org/irc.html">IRC Compone
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"irc,ircs"
+argument_list|)
 DECL|class|IrcComponent
 specifier|public
 class|class

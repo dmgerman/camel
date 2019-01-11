@@ -354,6 +354,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Dataformat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultAttachment
@@ -437,6 +453,11 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Dataformat
+argument_list|(
+literal|"mime-multipart"
+argument_list|)
 DECL|class|MimeMultipartDataFormat
 specifier|public
 class|class

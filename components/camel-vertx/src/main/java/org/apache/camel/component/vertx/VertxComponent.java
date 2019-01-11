@@ -160,6 +160,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -199,6 +215,11 @@ comment|/**  * A Camel Component for<a href="http://vertx.io/">vert.x</a>  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"vertx"
+argument_list|)
 DECL|class|VertxComponent
 specifier|public
 class|class

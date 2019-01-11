@@ -115,6 +115,21 @@ comment|/**  * A language for tokenizer expressions.  *<p/>  * This tokenizer la
 end_comment
 
 begin_class
+annotation|@
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Language
+argument_list|(
+literal|"tokenize"
+argument_list|)
 DECL|class|TokenizeLanguage
 specifier|public
 class|class

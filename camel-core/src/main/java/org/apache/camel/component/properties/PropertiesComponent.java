@@ -154,6 +154,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -207,6 +223,11 @@ comment|/**  * The<a href="http://camel.apache.org/properties">Properties Compon
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"properties"
+argument_list|)
 DECL|class|PropertiesComponent
 specifier|public
 class|class

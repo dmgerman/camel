@@ -156,6 +156,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Dataformat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -293,6 +309,11 @@ comment|/**  * Tar file data format.  * Based on ZipFileDataFormat from camel-zi
 end_comment
 
 begin_class
+annotation|@
+name|Dataformat
+argument_list|(
+literal|"tarfile"
+argument_list|)
 DECL|class|TarFileDataFormat
 specifier|public
 class|class

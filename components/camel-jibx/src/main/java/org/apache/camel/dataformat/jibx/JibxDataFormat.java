@@ -86,6 +86,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Dataformat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -167,6 +183,11 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Dataformat
+argument_list|(
+literal|"jibx"
+argument_list|)
 DECL|class|JibxDataFormat
 specifier|public
 class|class

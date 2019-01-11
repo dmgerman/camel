@@ -94,6 +94,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -149,6 +165,11 @@ comment|/**  * Component for Apache MINA 2.x.  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"mina,mina2"
+argument_list|)
 DECL|class|Mina2Component
 specifier|public
 class|class

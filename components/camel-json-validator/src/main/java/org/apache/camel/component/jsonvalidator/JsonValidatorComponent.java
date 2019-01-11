@@ -48,6 +48,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -59,6 +75,11 @@ comment|/**  * The JSON Schema Validator Component is for validating JSON agains
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"json-validator"
+argument_list|)
 DECL|class|JsonValidatorComponent
 specifier|public
 class|class

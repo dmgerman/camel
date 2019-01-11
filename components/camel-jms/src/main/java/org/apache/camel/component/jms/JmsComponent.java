@@ -152,6 +152,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -347,6 +363,11 @@ comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Component</a> 
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"jms"
+argument_list|)
 DECL|class|JmsComponent
 specifier|public
 class|class

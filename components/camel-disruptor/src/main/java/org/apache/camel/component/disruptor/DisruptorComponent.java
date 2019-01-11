@@ -58,6 +58,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -103,6 +119,11 @@ comment|/**  * An implementation of the<a href="https://github.com/sirchia/camel
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"disruptor"
+argument_list|)
 DECL|class|DisruptorComponent
 specifier|public
 class|class

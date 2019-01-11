@@ -244,6 +244,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|FileUtil
@@ -293,6 +309,11 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"servlet"
+argument_list|)
 DECL|class|ServletComponent
 specifier|public
 class|class

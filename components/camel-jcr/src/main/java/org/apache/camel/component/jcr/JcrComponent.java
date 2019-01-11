@@ -60,6 +60,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -71,6 +87,11 @@ comment|/**  * A component for integrating with JSR-170 (JCR) compliant content 
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"jcr"
+argument_list|)
 DECL|class|JcrComponent
 specifier|public
 class|class

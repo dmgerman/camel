@@ -88,6 +88,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|qpid
 operator|.
 name|jms
@@ -101,6 +117,11 @@ comment|/**  * Messaging with AMQP protocol using Apache QPid Client.  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"amqp"
+argument_list|)
 DECL|class|AMQPComponent
 specifier|public
 class|class

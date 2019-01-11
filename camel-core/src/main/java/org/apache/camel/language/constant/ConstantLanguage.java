@@ -101,6 +101,21 @@ comment|/**  * A language for constant expressions.  */
 end_comment
 
 begin_class
+annotation|@
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Language
+argument_list|(
+literal|"constant"
+argument_list|)
 DECL|class|ConstantLanguage
 specifier|public
 class|class

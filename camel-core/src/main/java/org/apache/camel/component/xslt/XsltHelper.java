@@ -307,8 +307,6 @@ operator|.
 name|invoke
 argument_list|(
 name|factory
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 if|if
@@ -443,8 +441,6 @@ operator|.
 name|invoke
 argument_list|(
 name|factory
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 if|if

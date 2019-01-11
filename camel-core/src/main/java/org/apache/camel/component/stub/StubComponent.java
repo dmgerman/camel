@@ -101,6 +101,21 @@ comment|/**  * The<a href="http://camel.apache.org/stub.html">Stub Component</a>
 end_comment
 
 begin_class
+annotation|@
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+argument_list|(
+literal|"stub"
+argument_list|)
 DECL|class|StubComponent
 specifier|public
 class|class

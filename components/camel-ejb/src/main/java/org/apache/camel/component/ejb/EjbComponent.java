@@ -140,11 +140,32 @@ name|Registry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
 begin_comment
 comment|/**  * EJB component to invoke EJBs like the {@link org.apache.camel.component.bean.BeanComponent}.  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"ejb"
+argument_list|)
 DECL|class|EjbComponent
 specifier|public
 class|class

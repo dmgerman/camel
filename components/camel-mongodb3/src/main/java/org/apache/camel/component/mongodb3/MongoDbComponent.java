@@ -90,6 +90,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -101,6 +117,11 @@ comment|/**  * Represents the component that manages {@link MongoDbEndpoint}.  *
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"mongodb,mongodb3"
+argument_list|)
 DECL|class|MongoDbComponent
 specifier|public
 class|class

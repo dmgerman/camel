@@ -70,6 +70,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|CamelContextHelper
@@ -135,6 +151,11 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"elsql"
+argument_list|)
 DECL|class|ElsqlComponent
 specifier|public
 class|class

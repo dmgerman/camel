@@ -282,6 +282,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -663,6 +679,11 @@ comment|/**  * OPC UA Server based component  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"milo-server"
+argument_list|)
 DECL|class|MiloServerComponent
 specifier|public
 class|class

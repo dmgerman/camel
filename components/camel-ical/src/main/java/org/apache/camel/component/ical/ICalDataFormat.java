@@ -128,6 +128,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Dataformat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -139,6 +155,11 @@ comment|/**  * Bridge ICal data format to camel world.  */
 end_comment
 
 begin_class
+annotation|@
+name|Dataformat
+argument_list|(
+literal|"ical"
+argument_list|)
 DECL|class|ICalDataFormat
 specifier|public
 class|class

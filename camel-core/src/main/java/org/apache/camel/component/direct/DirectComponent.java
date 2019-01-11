@@ -72,6 +72,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -97,6 +113,11 @@ comment|/**  * The<a href="http://camel.apache.org/direct.html">Direct Component
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"direct"
+argument_list|)
 DECL|class|DirectComponent
 specifier|public
 class|class

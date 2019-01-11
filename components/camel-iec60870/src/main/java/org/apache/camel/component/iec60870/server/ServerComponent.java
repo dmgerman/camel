@@ -132,6 +132,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|eclipse
 operator|.
 name|neoscada
@@ -149,6 +165,11 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"iec60870-server"
+argument_list|)
 DECL|class|ServerComponent
 specifier|public
 class|class

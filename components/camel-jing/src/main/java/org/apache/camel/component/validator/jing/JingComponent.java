@@ -50,6 +50,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -61,6 +77,11 @@ comment|/**  * A component for validating XML payloads using the  *<a href="http
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"jing"
+argument_list|)
 DECL|class|JingComponent
 specifier|public
 class|class

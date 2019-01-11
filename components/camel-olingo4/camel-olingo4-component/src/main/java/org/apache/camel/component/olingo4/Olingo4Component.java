@@ -174,6 +174,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|component
@@ -265,6 +281,11 @@ comment|/**  * Represents the component that manages {@link Olingo4Endpoint}.  *
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"olingo4"
+argument_list|)
 DECL|class|Olingo4Component
 specifier|public
 class|class

@@ -64,6 +64,8 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|annotations
+operator|.
 name|Language
 import|;
 end_import
@@ -165,10 +167,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Spring Expression {@link Language} plugin  */
+comment|/**  * A Spring Expression {@link org.apache.camel.spi.Language} plugin  */
 end_comment
 
 begin_class
+annotation|@
+name|Language
+argument_list|(
+literal|"spel"
+argument_list|)
 DECL|class|SpelLanguage
 specifier|public
 class|class

@@ -60,6 +60,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultComponent
@@ -101,6 +117,11 @@ comment|/**  * The class is the Camel component for the Lumberjack server  */
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"lumberjack"
+argument_list|)
 DECL|class|LumberjackComponent
 specifier|public
 class|class

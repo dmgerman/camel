@@ -87,6 +87,21 @@ comment|/**  * The<a href="http://camel.apache.org/test.html">Test Component</a>
 end_comment
 
 begin_class
+annotation|@
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+argument_list|(
+literal|"test"
+argument_list|)
 DECL|class|TestComponent
 specifier|public
 class|class

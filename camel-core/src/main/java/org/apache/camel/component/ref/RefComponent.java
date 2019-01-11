@@ -59,6 +59,21 @@ comment|/**  * The<a href="http://camel.apache.org/ref.html">Ref Component</a> i
 end_comment
 
 begin_class
+annotation|@
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+argument_list|(
+literal|"ref"
+argument_list|)
 DECL|class|RefComponent
 specifier|public
 class|class

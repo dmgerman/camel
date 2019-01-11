@@ -485,6 +485,21 @@ comment|/**  * A Camel component embedded Restlet that produces and consumes exc
 end_comment
 
 begin_class
+annotation|@
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+argument_list|(
+literal|"restlet"
+argument_list|)
 DECL|class|RestletComponent
 specifier|public
 class|class

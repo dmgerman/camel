@@ -120,6 +120,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|CamelContextHelper
@@ -159,6 +175,11 @@ comment|/**  * Defines the<a href="http://camel.apache.org/cxf.html">CXF Compone
 end_comment
 
 begin_class
+annotation|@
+name|Component
+argument_list|(
+literal|"cxf"
+argument_list|)
 DECL|class|CxfComponent
 specifier|public
 class|class
