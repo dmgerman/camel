@@ -404,7 +404,7 @@ argument_list|,
 name|version
 argument_list|)
 expr_stmt|;
-comment|// no need to download transitive dependencies as we only need to check the component or connector itself
+comment|// no need to download transitive dependencies as we only need to check the component itself
 name|param
 operator|.
 name|put
