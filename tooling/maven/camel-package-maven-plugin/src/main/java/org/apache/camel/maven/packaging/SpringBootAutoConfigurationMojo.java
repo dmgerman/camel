@@ -1377,8 +1377,6 @@ init|=
 block|{
 comment|/* Non-standard -> */
 literal|"camel-grape"
-block|,
-literal|"camel-connector"
 block|}
 decl_stmt|;
 comment|/**      * The output directory for generated component schema file      *      */
