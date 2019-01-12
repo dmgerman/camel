@@ -42,22 +42,6 @@ name|CamelCatalog
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|catalog
-operator|.
-name|connector
-operator|.
-name|CamelConnectorCatalog
-import|;
-end_import
-
 begin_comment
 comment|/**  * Provider which allows downloading artifact using Maven and add content to the {@link CamelCatalog}.  */
 end_comment
@@ -89,8 +73,8 @@ name|String
 name|url
 parameter_list|)
 function_decl|;
-comment|/**      * Downloads the artifact using the Maven coordinates and scans the JAR for Camel components      * which will be added to the CamelCatalog or CamelConnectorCatalog.      *      * @param camelCatalog          The Camel Catalog      * @param camelConnectorCatalog The Camel Connector Catalog      * @param groupId               Maven group id      * @param artifactId            Maven artifact id      * @param version               Maven version      * @return the names of the components that was added, or an empty set if none found or they already exists in the catalog      */
-DECL|method|addArtifactToCatalog (CamelCatalog camelCatalog, CamelConnectorCatalog camelConnectorCatalog, String groupId, String artifactId, String version)
+comment|/**      * Downloads the artifact using the Maven coordinates and scans the JAR for Camel components      * which will be added to the CamelCatalog.      *      * @param camelCatalog          The Camel Catalog      * @param groupId               Maven group id      * @param artifactId            Maven artifact id      * @param version               Maven version      * @return the names of the components that was added, or an empty set if none found or they already exists in the catalog      */
+DECL|method|addArtifactToCatalog (CamelCatalog camelCatalog, String groupId, String artifactId, String version)
 name|Set
 argument_list|<
 name|String
@@ -99,9 +83,6 @@ name|addArtifactToCatalog
 parameter_list|(
 name|CamelCatalog
 name|camelCatalog
-parameter_list|,
-name|CamelConnectorCatalog
-name|camelConnectorCatalog
 parameter_list|,
 name|String
 name|groupId
