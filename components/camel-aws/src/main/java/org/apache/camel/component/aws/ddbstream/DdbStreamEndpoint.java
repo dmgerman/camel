@@ -254,12 +254,6 @@ name|syntax
 operator|=
 literal|"aws-ddbstream:tableName"
 argument_list|,
-name|consumerClass
-operator|=
-name|DdbStreamConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"cloud,messaging,streams"

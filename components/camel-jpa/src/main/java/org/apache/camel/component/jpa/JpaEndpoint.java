@@ -384,12 +384,6 @@ name|syntax
 operator|=
 literal|"jpa:entityType"
 argument_list|,
-name|consumerClass
-operator|=
-name|JpaConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"database,sql"

@@ -222,12 +222,6 @@ name|consumerOnly
 operator|=
 literal|true
 argument_list|,
-name|consumerClass
-operator|=
-name|ServletConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"http"

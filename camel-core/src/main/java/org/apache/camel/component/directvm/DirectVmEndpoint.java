@@ -190,12 +190,6 @@ name|syntax
 operator|=
 literal|"direct-vm:name"
 argument_list|,
-name|consumerClass
-operator|=
-name|DirectConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"core,endpoint"

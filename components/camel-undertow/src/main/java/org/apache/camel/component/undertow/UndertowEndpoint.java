@@ -432,12 +432,6 @@ name|syntax
 operator|=
 literal|"undertow:httpURI"
 argument_list|,
-name|consumerClass
-operator|=
-name|UndertowConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"http,websocket"

@@ -160,12 +160,6 @@ name|alternativeSyntax
 operator|=
 literal|"ssh:username:password@host:port"
 argument_list|,
-name|consumerClass
-operator|=
-name|SshConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"file"

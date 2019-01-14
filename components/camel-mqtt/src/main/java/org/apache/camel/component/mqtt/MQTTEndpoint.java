@@ -548,12 +548,6 @@ name|syntax
 operator|=
 literal|"mqtt:name"
 argument_list|,
-name|consumerClass
-operator|=
-name|MQTTConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"messaging,iot"

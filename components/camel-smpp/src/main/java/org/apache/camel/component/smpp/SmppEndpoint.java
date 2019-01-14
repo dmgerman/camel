@@ -192,12 +192,6 @@ name|syntax
 operator|=
 literal|"smpp:host:port"
 argument_list|,
-name|consumerClass
-operator|=
-name|SmppConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"mobile"

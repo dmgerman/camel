@@ -84,12 +84,6 @@ name|syntax
 operator|=
 literal|"jclouds:command:providerId"
 argument_list|,
-name|consumerClass
-operator|=
-name|JcloudsConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"api,cloud"

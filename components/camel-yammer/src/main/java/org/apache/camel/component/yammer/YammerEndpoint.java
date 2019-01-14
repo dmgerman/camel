@@ -120,12 +120,6 @@ name|syntax
 operator|=
 literal|"yammer:function"
 argument_list|,
-name|consumerClass
-operator|=
-name|YammerMessagePollingConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"social"

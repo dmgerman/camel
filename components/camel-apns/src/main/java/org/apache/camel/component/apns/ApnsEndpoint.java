@@ -182,12 +182,6 @@ name|syntax
 operator|=
 literal|"apns:name"
 argument_list|,
-name|consumerClass
-operator|=
-name|ApnsConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"eventbus,mobile"

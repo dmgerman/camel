@@ -162,12 +162,6 @@ name|syntax
 operator|=
 literal|"azure-blob:containerOrBlobUri"
 argument_list|,
-name|consumerClass
-operator|=
-name|BlobServiceConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"cloud,database,nosql"

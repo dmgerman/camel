@@ -130,12 +130,6 @@ name|syntax
 operator|=
 literal|"websocket-jsr356:/resourceUri"
 argument_list|,
-name|consumerClass
-operator|=
-name|JSR356Consumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"jsr356"

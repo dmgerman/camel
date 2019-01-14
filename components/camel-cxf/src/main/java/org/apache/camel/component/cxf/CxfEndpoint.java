@@ -1334,12 +1334,6 @@ name|syntax
 operator|=
 literal|"cxf:beanId:address"
 argument_list|,
-name|consumerClass
-operator|=
-name|CxfConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"soap,webservice"

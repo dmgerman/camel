@@ -296,12 +296,6 @@ name|syntax
 operator|=
 literal|"file:directoryName"
 argument_list|,
-name|consumerClass
-operator|=
-name|FileConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"core,file"

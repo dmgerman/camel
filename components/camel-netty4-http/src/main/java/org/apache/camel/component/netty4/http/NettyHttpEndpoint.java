@@ -318,12 +318,6 @@ name|syntax
 operator|=
 literal|"netty4-http:protocol:host:port/path"
 argument_list|,
-name|consumerClass
-operator|=
-name|NettyHttpConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"http"

@@ -522,12 +522,6 @@ name|syntax
 operator|=
 literal|"couchbase:protocol:hostname:port"
 argument_list|,
-name|consumerClass
-operator|=
-name|CouchbaseConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"database,nosql"

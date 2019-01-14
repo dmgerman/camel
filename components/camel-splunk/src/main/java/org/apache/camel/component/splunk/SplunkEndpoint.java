@@ -174,12 +174,6 @@ name|syntax
 operator|=
 literal|"splunk:name"
 argument_list|,
-name|consumerClass
-operator|=
-name|SplunkConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"log,monitoring"

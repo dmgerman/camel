@@ -342,12 +342,6 @@ name|syntax
 operator|=
 literal|"google-mail-stream:index"
 argument_list|,
-name|consumerClass
-operator|=
-name|GoogleMailStreamConsumer
-operator|.
-name|class
-argument_list|,
 name|consumerOnly
 operator|=
 literal|true

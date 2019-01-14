@@ -146,12 +146,6 @@ name|syntax
 operator|=
 literal|"kubernetes-pods:masterUrl"
 argument_list|,
-name|consumerClass
-operator|=
-name|KubernetesPodsConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"container,cloud,paas"

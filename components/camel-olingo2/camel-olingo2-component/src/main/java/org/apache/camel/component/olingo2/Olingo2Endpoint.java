@@ -276,12 +276,6 @@ name|syntax
 operator|=
 literal|"olingo2:apiName/methodName"
 argument_list|,
-name|consumerClass
-operator|=
-name|Olingo2Consumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"cloud"

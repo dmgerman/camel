@@ -217,12 +217,6 @@ argument_list|,
 name|label
 operator|=
 literal|"messaging"
-argument_list|,
-name|consumerClass
-operator|=
-name|NatsConsumer
-operator|.
-name|class
 argument_list|)
 DECL|class|NatsEndpoint
 specifier|public

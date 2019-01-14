@@ -160,12 +160,6 @@ name|syntax
 operator|=
 literal|"sql:query"
 argument_list|,
-name|consumerClass
-operator|=
-name|SqlConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"database,sql"

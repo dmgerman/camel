@@ -140,12 +140,6 @@ name|syntax
 operator|=
 literal|"hdfs2:hostName:port/path"
 argument_list|,
-name|consumerClass
-operator|=
-name|HdfsConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"hadoop,file"

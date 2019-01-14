@@ -192,12 +192,6 @@ name|syntax
 operator|=
 literal|"cometd:host:port/channelName"
 argument_list|,
-name|consumerClass
-operator|=
-name|CometdConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"websocket"

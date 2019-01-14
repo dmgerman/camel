@@ -176,12 +176,6 @@ name|syntax
 operator|=
 literal|"atmosphere-websocket:servicePath"
 argument_list|,
-name|consumerClass
-operator|=
-name|WebsocketConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"websocket"

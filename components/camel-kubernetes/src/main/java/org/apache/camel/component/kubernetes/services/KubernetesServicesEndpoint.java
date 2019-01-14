@@ -146,12 +146,6 @@ name|syntax
 operator|=
 literal|"kubernetes-services:masterUrl"
 argument_list|,
-name|consumerClass
-operator|=
-name|KubernetesServicesConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"container,cloud,paas"

@@ -328,12 +328,6 @@ name|syntax
 operator|=
 literal|"kafka:topic"
 argument_list|,
-name|consumerClass
-operator|=
-name|KafkaConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"messaging"

@@ -296,12 +296,6 @@ name|syntax
 operator|=
 literal|"beanstalk:connectionSettings"
 argument_list|,
-name|consumerClass
-operator|=
-name|BeanstalkConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"messaging"

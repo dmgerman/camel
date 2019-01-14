@@ -258,12 +258,6 @@ name|syntax
 operator|=
 literal|"ahc-ws:httpUri"
 argument_list|,
-name|consumerClass
-operator|=
-name|WsConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"websocket"

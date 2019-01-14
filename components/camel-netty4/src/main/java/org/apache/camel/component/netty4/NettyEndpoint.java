@@ -266,12 +266,6 @@ name|syntax
 operator|=
 literal|"netty4:protocol:host:port"
 argument_list|,
-name|consumerClass
-operator|=
-name|NettyConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"networking,tcp,udp"

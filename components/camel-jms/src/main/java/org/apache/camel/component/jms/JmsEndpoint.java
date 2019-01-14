@@ -593,12 +593,6 @@ name|syntax
 operator|=
 literal|"jms:destinationType:destinationName"
 argument_list|,
-name|consumerClass
-operator|=
-name|JmsConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"messaging"

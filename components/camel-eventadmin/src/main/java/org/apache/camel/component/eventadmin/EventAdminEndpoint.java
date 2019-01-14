@@ -146,12 +146,6 @@ name|syntax
 operator|=
 literal|"eventadmin:topic"
 argument_list|,
-name|consumerClass
-operator|=
-name|EventAdminConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"eventbus"

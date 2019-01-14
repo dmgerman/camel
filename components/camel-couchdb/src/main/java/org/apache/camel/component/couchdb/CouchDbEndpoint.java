@@ -192,12 +192,6 @@ name|syntax
 operator|=
 literal|"couchdb:protocol:hostname:port/database"
 argument_list|,
-name|consumerClass
-operator|=
-name|CouchDbConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"database,nosql"

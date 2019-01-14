@@ -220,12 +220,6 @@ name|syntax
 operator|=
 literal|"twitter-streaming:streamingType"
 argument_list|,
-name|consumerClass
-operator|=
-name|AbstractStreamingConsumerHandler
-operator|.
-name|class
-argument_list|,
 name|consumerOnly
 operator|=
 literal|true

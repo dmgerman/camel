@@ -390,12 +390,6 @@ name|syntax
 operator|=
 literal|"rabbitmq:exchangeName"
 argument_list|,
-name|consumerClass
-operator|=
-name|RabbitMQConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"messaging"

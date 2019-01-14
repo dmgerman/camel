@@ -242,12 +242,6 @@ name|alternativeSyntax
 operator|=
 literal|"jcr:username:password@host/base"
 argument_list|,
-name|consumerClass
-operator|=
-name|JcrConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"cms,database"

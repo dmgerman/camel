@@ -283,12 +283,6 @@ name|syntax
 operator|=
 literal|"service:serviceName:delegateUri"
 argument_list|,
-name|consumerClass
-operator|=
-name|ServiceConsumer
-operator|.
-name|class
-argument_list|,
 name|consumerOnly
 operator|=
 literal|true

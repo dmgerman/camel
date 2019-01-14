@@ -472,12 +472,6 @@ name|syntax
 operator|=
 literal|"stomp:destination"
 argument_list|,
-name|consumerClass
-operator|=
-name|StompConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"messaging"

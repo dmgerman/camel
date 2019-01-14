@@ -162,12 +162,6 @@ name|syntax
 operator|=
 literal|"asterisk:name"
 argument_list|,
-name|consumerClass
-operator|=
-name|AsteriskConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"voip"

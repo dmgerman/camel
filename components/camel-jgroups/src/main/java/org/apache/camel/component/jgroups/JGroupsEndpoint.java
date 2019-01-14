@@ -216,12 +216,6 @@ name|syntax
 operator|=
 literal|"jgroups:clusterName"
 argument_list|,
-name|consumerClass
-operator|=
-name|JGroupsConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"clustering,messaging"

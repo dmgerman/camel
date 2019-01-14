@@ -128,12 +128,6 @@ name|syntax
 operator|=
 literal|"atomix-messaging:resourceName"
 argument_list|,
-name|consumerClass
-operator|=
-name|AtomixMessagingConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"clustering"

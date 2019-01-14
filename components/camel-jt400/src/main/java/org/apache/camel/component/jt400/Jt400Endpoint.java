@@ -230,12 +230,6 @@ name|syntax
 operator|=
 literal|"jt400:userID:password/systemName/objectPath.type"
 argument_list|,
-name|consumerClass
-operator|=
-name|Jt400DataQueueConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"messaging"

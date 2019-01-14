@@ -122,12 +122,6 @@ name|syntax
 operator|=
 literal|"etcd:namespace/path"
 argument_list|,
-name|consumerClass
-operator|=
-name|AbstractEtcdConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"clustering,database"

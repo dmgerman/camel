@@ -302,12 +302,6 @@ name|syntax
 operator|=
 literal|"dataset:name"
 argument_list|,
-name|consumerClass
-operator|=
-name|DataSetConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"core,testing"

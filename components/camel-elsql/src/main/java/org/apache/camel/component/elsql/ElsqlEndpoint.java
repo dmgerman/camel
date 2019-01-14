@@ -358,12 +358,6 @@ name|syntax
 operator|=
 literal|"elsql:elsqlName:resourceUri"
 argument_list|,
-name|consumerClass
-operator|=
-name|ElsqlConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"database,sql"

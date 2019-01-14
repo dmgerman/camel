@@ -156,12 +156,6 @@ name|syntax
 operator|=
 literal|"coap:uri"
 argument_list|,
-name|consumerClass
-operator|=
-name|CoAPConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"iot"

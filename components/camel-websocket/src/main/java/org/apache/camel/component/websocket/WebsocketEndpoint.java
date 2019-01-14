@@ -232,12 +232,6 @@ name|syntax
 operator|=
 literal|"websocket:host:port/resourceUri"
 argument_list|,
-name|consumerClass
-operator|=
-name|WebsocketConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"websocket"

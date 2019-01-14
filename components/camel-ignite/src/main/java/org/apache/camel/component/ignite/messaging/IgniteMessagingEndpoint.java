@@ -205,12 +205,6 @@ argument_list|,
 name|label
 operator|=
 literal|"nosql,cache,messaging"
-argument_list|,
-name|consumerClass
-operator|=
-name|IgniteMessagingConsumer
-operator|.
-name|class
 argument_list|)
 DECL|class|IgniteMessagingEndpoint
 specifier|public

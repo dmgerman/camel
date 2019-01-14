@@ -265,12 +265,6 @@ argument_list|,
 name|consumerOnly
 operator|=
 literal|true
-argument_list|,
-name|consumerClass
-operator|=
-name|IgniteEventsConsumer
-operator|.
-name|class
 argument_list|)
 DECL|class|IgniteEventsEndpoint
 specifier|public

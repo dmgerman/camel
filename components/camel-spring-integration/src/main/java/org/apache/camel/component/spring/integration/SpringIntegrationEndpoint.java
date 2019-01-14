@@ -176,12 +176,6 @@ name|syntax
 operator|=
 literal|"spring-integration:defaultChannel"
 argument_list|,
-name|consumerClass
-operator|=
-name|SpringIntegrationConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"spring,eventbus"

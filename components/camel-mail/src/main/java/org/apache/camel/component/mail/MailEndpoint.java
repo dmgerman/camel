@@ -200,12 +200,6 @@ name|alternativeSyntax
 operator|=
 literal|"imap:username:password@host:port"
 argument_list|,
-name|consumerClass
-operator|=
-name|MailConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"mail"

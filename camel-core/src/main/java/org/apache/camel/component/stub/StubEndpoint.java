@@ -164,12 +164,6 @@ name|syntax
 operator|=
 literal|"stub:name"
 argument_list|,
-name|consumerClass
-operator|=
-name|VmConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"core,testing"

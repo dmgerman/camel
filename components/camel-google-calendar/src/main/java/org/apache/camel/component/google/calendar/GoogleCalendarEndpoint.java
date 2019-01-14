@@ -262,12 +262,6 @@ name|syntax
 operator|=
 literal|"google-calendar:apiName/methodName"
 argument_list|,
-name|consumerClass
-operator|=
-name|GoogleCalendarConsumer
-operator|.
-name|class
-argument_list|,
 name|consumerPrefix
 operator|=
 literal|"consumer"

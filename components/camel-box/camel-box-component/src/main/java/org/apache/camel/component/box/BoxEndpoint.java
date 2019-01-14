@@ -446,12 +446,6 @@ name|syntax
 operator|=
 literal|"box:apiName/methodName"
 argument_list|,
-name|consumerClass
-operator|=
-name|BoxConsumer
-operator|.
-name|class
-argument_list|,
 name|consumerPrefix
 operator|=
 literal|"consumer"

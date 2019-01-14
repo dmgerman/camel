@@ -516,12 +516,6 @@ name|syntax
 operator|=
 literal|"fhir:apiName/methodName"
 argument_list|,
-name|consumerClass
-operator|=
-name|FhirConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"hl7,api"

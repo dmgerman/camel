@@ -614,12 +614,6 @@ name|syntax
 operator|=
 literal|"cxfrs:beanId:address"
 argument_list|,
-name|consumerClass
-operator|=
-name|CxfRsConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"rest"

@@ -290,12 +290,6 @@ name|syntax
 operator|=
 literal|"restlet:protocol:host:port/uriPattern"
 argument_list|,
-name|consumerClass
-operator|=
-name|RestletConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"rest"

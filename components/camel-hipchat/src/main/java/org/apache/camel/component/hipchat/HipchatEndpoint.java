@@ -120,12 +120,6 @@ name|syntax
 operator|=
 literal|"hipchat:protocol:host:port"
 argument_list|,
-name|consumerClass
-operator|=
-name|HipchatConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"api,cloud"

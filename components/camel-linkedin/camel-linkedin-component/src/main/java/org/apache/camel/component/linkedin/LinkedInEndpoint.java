@@ -500,12 +500,6 @@ name|label
 operator|=
 literal|"api,cloud,social"
 argument_list|,
-name|consumerClass
-operator|=
-name|LinkedInConsumer
-operator|.
-name|class
-argument_list|,
 name|lenientProperties
 operator|=
 literal|true

@@ -188,12 +188,6 @@ name|syntax
 operator|=
 literal|"reactive-streams:stream"
 argument_list|,
-name|consumerClass
-operator|=
-name|ReactiveStreamsConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"reactive,streams"

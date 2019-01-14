@@ -200,12 +200,6 @@ name|syntax
 operator|=
 literal|"guava-eventbus:eventBusRef"
 argument_list|,
-name|consumerClass
-operator|=
-name|GuavaEventBusConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"eventbus"

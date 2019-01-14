@@ -358,12 +358,6 @@ name|syntax
 operator|=
 literal|"as2:apiName"
 argument_list|,
-name|consumerClass
-operator|=
-name|AS2Consumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"AS2"

@@ -274,12 +274,6 @@ name|syntax
 operator|=
 literal|"cql:beanRef:hosts:port/keyspace"
 argument_list|,
-name|consumerClass
-operator|=
-name|CassandraConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"database,nosql"

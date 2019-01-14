@@ -254,12 +254,6 @@ name|syntax
 operator|=
 literal|"jgroup-raft:clusterName"
 argument_list|,
-name|consumerClass
-operator|=
-name|JGroupsRaftConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"clustering,messaging"

@@ -292,12 +292,6 @@ name|title
 operator|=
 literal|"Paho"
 argument_list|,
-name|consumerClass
-operator|=
-name|PahoConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"messaging,iot"

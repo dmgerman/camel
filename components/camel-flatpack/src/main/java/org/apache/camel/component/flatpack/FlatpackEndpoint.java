@@ -372,12 +372,6 @@ name|syntax
 operator|=
 literal|"flatpack:type:resourceUri"
 argument_list|,
-name|consumerClass
-operator|=
-name|FlatpackConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"transformation"

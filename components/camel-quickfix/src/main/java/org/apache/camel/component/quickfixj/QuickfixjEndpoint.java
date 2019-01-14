@@ -252,15 +252,9 @@ name|syntax
 operator|=
 literal|"quickfix:configurationName"
 argument_list|,
-name|consumerClass
-operator|=
-name|QuickfixjConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
-literal|"engine,messaging"
+literal|"messaging"
 argument_list|)
 DECL|class|QuickfixjEndpoint
 specifier|public

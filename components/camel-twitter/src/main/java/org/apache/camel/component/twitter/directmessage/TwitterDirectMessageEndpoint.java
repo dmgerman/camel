@@ -170,12 +170,6 @@ name|syntax
 operator|=
 literal|"twitter-directmessage:user"
 argument_list|,
-name|consumerClass
-operator|=
-name|DirectMessageConsumerHandler
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"api,social"

@@ -182,12 +182,6 @@ name|title
 operator|=
 literal|"OPC UA Client"
 argument_list|,
-name|consumerClass
-operator|=
-name|MiloClientConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"iot"

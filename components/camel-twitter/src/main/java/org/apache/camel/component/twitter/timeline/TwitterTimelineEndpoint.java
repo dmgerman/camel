@@ -220,12 +220,6 @@ name|syntax
 operator|=
 literal|"twitter-timeline:timelineType"
 argument_list|,
-name|consumerClass
-operator|=
-name|AbstractStatusConsumerHandler
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"api,social"

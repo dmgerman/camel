@@ -136,12 +136,6 @@ name|syntax
 operator|=
 literal|"vm:name"
 argument_list|,
-name|consumerClass
-operator|=
-name|VmConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"core,endpoint"

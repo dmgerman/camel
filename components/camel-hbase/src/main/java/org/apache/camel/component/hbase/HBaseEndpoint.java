@@ -348,12 +348,6 @@ name|syntax
 operator|=
 literal|"hbase:tableName"
 argument_list|,
-name|consumerClass
-operator|=
-name|HBaseConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"hadoop"

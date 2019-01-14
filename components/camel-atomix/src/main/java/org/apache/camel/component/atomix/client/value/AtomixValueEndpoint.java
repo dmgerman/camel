@@ -128,12 +128,6 @@ name|syntax
 operator|=
 literal|"atomix-value:resourceName"
 argument_list|,
-name|consumerClass
-operator|=
-name|AtomixValueConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"clustering"

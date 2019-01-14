@@ -180,12 +180,6 @@ name|syntax
 operator|=
 literal|"avro:transport:host:port/messageName"
 argument_list|,
-name|consumerClass
-operator|=
-name|AvroConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"messaging,transformation"

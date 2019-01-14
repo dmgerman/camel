@@ -120,12 +120,6 @@ name|syntax
 operator|=
 literal|"weather:name"
 argument_list|,
-name|consumerClass
-operator|=
-name|WeatherConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"api"

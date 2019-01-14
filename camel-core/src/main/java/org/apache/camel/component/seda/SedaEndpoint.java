@@ -421,12 +421,6 @@ name|syntax
 operator|=
 literal|"seda:name"
 argument_list|,
-name|consumerClass
-operator|=
-name|SedaConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"core,endpoint"

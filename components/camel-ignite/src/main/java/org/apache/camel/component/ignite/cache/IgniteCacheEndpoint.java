@@ -261,12 +261,6 @@ argument_list|,
 name|label
 operator|=
 literal|"nosql,cache,compute"
-argument_list|,
-name|consumerClass
-operator|=
-name|IgniteCacheContinuousQueryConsumer
-operator|.
-name|class
 argument_list|)
 DECL|class|IgniteCacheEndpoint
 specifier|public

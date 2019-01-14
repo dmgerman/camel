@@ -128,12 +128,6 @@ name|syntax
 operator|=
 literal|"atomix-queue:resourceName"
 argument_list|,
-name|consumerClass
-operator|=
-name|AtomixQueueConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"clustering"

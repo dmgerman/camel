@@ -193,12 +193,6 @@ name|syntax
 operator|=
 literal|"zookeeper-master:groupName:consumerEndpointUri"
 argument_list|,
-name|consumerClass
-operator|=
-name|MasterConsumer
-operator|.
-name|class
-argument_list|,
 name|consumerOnly
 operator|=
 literal|true

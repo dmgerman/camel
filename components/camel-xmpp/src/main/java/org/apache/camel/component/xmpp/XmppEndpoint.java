@@ -488,12 +488,6 @@ name|alternativeSyntax
 operator|=
 literal|"xmpp:user:password@host:port/participant"
 argument_list|,
-name|consumerClass
-operator|=
-name|XmppConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"chat,messaging"

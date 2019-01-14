@@ -148,12 +148,6 @@ name|syntax
 operator|=
 literal|"jcache:cacheName"
 argument_list|,
-name|consumerClass
-operator|=
-name|JCacheConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"cache,datagrid,clustering"

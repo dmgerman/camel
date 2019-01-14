@@ -488,12 +488,6 @@ name|syntax
 operator|=
 literal|"mongodb3:connectionBean"
 argument_list|,
-name|consumerClass
-operator|=
-name|MongoDbTailableCursorConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"database,nosql"

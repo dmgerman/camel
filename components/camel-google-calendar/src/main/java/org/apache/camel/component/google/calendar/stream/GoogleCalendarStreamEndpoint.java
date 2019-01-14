@@ -212,12 +212,6 @@ name|syntax
 operator|=
 literal|"google-calendar-stream:index"
 argument_list|,
-name|consumerClass
-operator|=
-name|GoogleCalendarStreamConsumer
-operator|.
-name|class
-argument_list|,
 name|consumerOnly
 operator|=
 literal|true

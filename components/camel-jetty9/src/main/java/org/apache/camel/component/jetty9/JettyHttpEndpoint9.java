@@ -172,12 +172,6 @@ name|syntax
 operator|=
 literal|"jetty:httpUri"
 argument_list|,
-name|consumerClass
-operator|=
-name|HttpConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"http"

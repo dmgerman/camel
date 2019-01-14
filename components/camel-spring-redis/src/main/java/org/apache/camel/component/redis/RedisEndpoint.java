@@ -120,12 +120,6 @@ name|syntax
 operator|=
 literal|"spring-redist:host:port"
 argument_list|,
-name|consumerClass
-operator|=
-name|RedisConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"spring,nosql"

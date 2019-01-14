@@ -208,12 +208,6 @@ name|alternativeSyntax
 operator|=
 literal|"irc:username:password@hostname:port"
 argument_list|,
-name|consumerClass
-operator|=
-name|IrcConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"chat"

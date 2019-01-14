@@ -158,12 +158,6 @@ name|consumerOnly
 operator|=
 literal|true
 argument_list|,
-name|consumerClass
-operator|=
-name|HazelcastInstanceConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"cache,datagrid"

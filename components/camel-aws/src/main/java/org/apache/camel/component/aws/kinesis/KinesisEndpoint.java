@@ -266,12 +266,6 @@ name|syntax
 operator|=
 literal|"aws-kinesis:streamName"
 argument_list|,
-name|consumerClass
-operator|=
-name|KinesisConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"cloud,messaging"

@@ -600,12 +600,6 @@ name|syntax
 operator|=
 literal|"sjms:destinationType:destinationName"
 argument_list|,
-name|consumerClass
-operator|=
-name|SjmsConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"messaging"

@@ -318,12 +318,6 @@ name|syntax
 operator|=
 literal|"twilio:apiName/methodName"
 argument_list|,
-name|consumerClass
-operator|=
-name|TwilioConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"api,messaging,cloud"

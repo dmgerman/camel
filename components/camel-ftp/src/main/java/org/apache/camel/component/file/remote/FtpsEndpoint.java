@@ -288,12 +288,6 @@ name|alternativeSyntax
 operator|=
 literal|"ftps:username:password@host:port/directoryName"
 argument_list|,
-name|consumerClass
-operator|=
-name|FtpConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"file"

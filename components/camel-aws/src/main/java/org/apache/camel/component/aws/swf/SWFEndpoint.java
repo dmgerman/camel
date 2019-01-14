@@ -316,12 +316,6 @@ name|syntax
 operator|=
 literal|"aws-swf:type"
 argument_list|,
-name|consumerClass
-operator|=
-name|SWFWorkflowConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"cloud,workflow"

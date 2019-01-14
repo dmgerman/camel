@@ -203,12 +203,6 @@ argument_list|,
 name|label
 operator|=
 literal|"api,cloud,crm"
-argument_list|,
-name|consumerClass
-operator|=
-name|SalesforceConsumer
-operator|.
-name|class
 argument_list|)
 DECL|class|SalesforceEndpoint
 specifier|public

@@ -247,12 +247,6 @@ name|consumerOnly
 operator|=
 literal|true
 argument_list|,
-name|consumerClass
-operator|=
-name|TimerConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"core,scheduling"

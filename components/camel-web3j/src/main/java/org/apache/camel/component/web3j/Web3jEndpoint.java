@@ -324,12 +324,6 @@ name|syntax
 operator|=
 literal|"web3j:nodeAddress"
 argument_list|,
-name|consumerClass
-operator|=
-name|Web3jConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"bitcoin,blockchain"

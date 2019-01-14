@@ -420,12 +420,6 @@ name|syntax
 operator|=
 literal|"facebook:methodName"
 argument_list|,
-name|consumerClass
-operator|=
-name|FacebookConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"social"

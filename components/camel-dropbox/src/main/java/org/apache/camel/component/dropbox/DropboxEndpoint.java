@@ -354,12 +354,6 @@ name|syntax
 operator|=
 literal|"dropbox:operation"
 argument_list|,
-name|consumerClass
-operator|=
-name|DropboxScheduledPollConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"api,file"

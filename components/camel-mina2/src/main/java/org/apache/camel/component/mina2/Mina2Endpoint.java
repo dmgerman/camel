@@ -186,12 +186,6 @@ name|syntax
 operator|=
 literal|"mina2:protocol:host:port"
 argument_list|,
-name|consumerClass
-operator|=
-name|Mina2Consumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"networking,tcp,udp"

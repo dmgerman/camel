@@ -273,12 +273,6 @@ name|syntax
 operator|=
 literal|"mllp:hostname:port"
 argument_list|,
-name|consumerClass
-operator|=
-name|MllpTcpServerConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"mllp"

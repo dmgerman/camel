@@ -148,12 +148,6 @@ name|syntax
 operator|=
 literal|"ehcache:cacheName"
 argument_list|,
-name|consumerClass
-operator|=
-name|EhcacheConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"cache,datagrid,clustering"

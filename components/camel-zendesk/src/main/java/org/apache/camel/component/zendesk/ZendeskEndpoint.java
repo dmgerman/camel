@@ -282,12 +282,6 @@ name|syntax
 operator|=
 literal|"zendesk:methodName"
 argument_list|,
-name|consumerClass
-operator|=
-name|ZendeskConsumer
-operator|.
-name|class
-argument_list|,
 name|consumerPrefix
 operator|=
 literal|"consumer"

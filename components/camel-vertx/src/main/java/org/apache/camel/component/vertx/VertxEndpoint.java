@@ -198,12 +198,6 @@ name|syntax
 operator|=
 literal|"vertx:address"
 argument_list|,
-name|consumerClass
-operator|=
-name|VertxConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"eventbus,reactive"

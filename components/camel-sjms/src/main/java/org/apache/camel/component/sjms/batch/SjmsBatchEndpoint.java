@@ -396,12 +396,6 @@ name|syntax
 operator|=
 literal|"sjms-batch:destinationName"
 argument_list|,
-name|consumerClass
-operator|=
-name|SjmsBatchComponent
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"messaging"

@@ -158,12 +158,6 @@ name|syntax
 operator|=
 literal|"cmis:cmsUrl"
 argument_list|,
-name|consumerClass
-operator|=
-name|CMISConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"cms,database"

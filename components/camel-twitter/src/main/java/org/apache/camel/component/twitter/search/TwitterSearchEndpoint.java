@@ -170,12 +170,6 @@ name|syntax
 operator|=
 literal|"twitter-search:keywords"
 argument_list|,
-name|consumerClass
-operator|=
-name|SearchConsumerHandler
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"api,social"

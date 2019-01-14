@@ -368,12 +368,6 @@ name|syntax
 operator|=
 literal|"aws-s3:bucketNameOrArn"
 argument_list|,
-name|consumerClass
-operator|=
-name|S3Consumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"cloud,file"

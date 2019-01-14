@@ -341,12 +341,6 @@ name|syntax
 operator|=
 literal|"disruptor:name"
 argument_list|,
-name|consumerClass
-operator|=
-name|DisruptorConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"endpoint"

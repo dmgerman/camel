@@ -150,12 +150,6 @@ name|syntax
 operator|=
 literal|"sftp:host:port/directoryName"
 argument_list|,
-name|consumerClass
-operator|=
-name|SftpConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"file"

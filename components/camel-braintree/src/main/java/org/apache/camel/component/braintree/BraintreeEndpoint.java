@@ -270,12 +270,6 @@ name|syntax
 operator|=
 literal|"braintree:apiName/methodName"
 argument_list|,
-name|consumerClass
-operator|=
-name|BraintreeConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"api,cloud,payment"

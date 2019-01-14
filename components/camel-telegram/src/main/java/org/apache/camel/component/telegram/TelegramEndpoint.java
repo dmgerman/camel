@@ -162,12 +162,6 @@ name|syntax
 operator|=
 literal|"telegram:type/authorizationToken"
 argument_list|,
-name|consumerClass
-operator|=
-name|TelegramConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"chat"

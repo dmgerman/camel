@@ -221,12 +221,6 @@ name|syntax
 operator|=
 literal|"master:namespace:delegateUri"
 argument_list|,
-name|consumerClass
-operator|=
-name|MasterConsumer
-operator|.
-name|class
-argument_list|,
 name|consumerOnly
 operator|=
 literal|true

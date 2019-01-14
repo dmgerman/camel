@@ -148,12 +148,6 @@ name|syntax
 operator|=
 literal|"infinispan:cacheName"
 argument_list|,
-name|consumerClass
-operator|=
-name|InfinispanConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"cache,datagrid,clustering"

@@ -134,15 +134,9 @@ name|syntax
 operator|=
 literal|"spring-ws:type:lookupKey:webServiceEndpointUri"
 argument_list|,
-name|consumerClass
-operator|=
-name|SpringWebserviceConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
-literal|"soap,webservice"
+literal|"spring,soap,webservice"
 argument_list|)
 DECL|class|SpringWebserviceEndpoint
 specifier|public

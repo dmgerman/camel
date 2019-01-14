@@ -185,12 +185,6 @@ name|syntax
 operator|=
 literal|"zookeeper:serverUrls/path"
 argument_list|,
-name|consumerClass
-operator|=
-name|ZooKeeperConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"clustering"

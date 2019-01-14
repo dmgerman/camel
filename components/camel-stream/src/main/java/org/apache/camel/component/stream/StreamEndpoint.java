@@ -194,12 +194,6 @@ name|syntax
 operator|=
 literal|"stream:kind"
 argument_list|,
-name|consumerClass
-operator|=
-name|StreamConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"file,system"

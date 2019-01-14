@@ -204,12 +204,6 @@ name|title
 operator|=
 literal|"IronMQ"
 argument_list|,
-name|consumerClass
-operator|=
-name|IronMQConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"cloud,messaging"

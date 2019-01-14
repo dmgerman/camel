@@ -184,12 +184,6 @@ name|syntax
 operator|=
 literal|"chronicle-engine:addresses/path"
 argument_list|,
-name|consumerClass
-operator|=
-name|ChronicleEngineConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"datagrid,cache"

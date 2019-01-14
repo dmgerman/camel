@@ -504,12 +504,6 @@ name|syntax
 operator|=
 literal|"aws-sqs:queueNameOrArn"
 argument_list|,
-name|consumerClass
-operator|=
-name|SqsConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"cloud,messaging"

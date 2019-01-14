@@ -160,12 +160,6 @@ name|syntax
 operator|=
 literal|"mybatis:statement"
 argument_list|,
-name|consumerClass
-operator|=
-name|MyBatisConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"database,sql"

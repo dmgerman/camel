@@ -220,12 +220,6 @@ name|syntax
 operator|=
 literal|"nsq:lookupServer"
 argument_list|,
-name|consumerClass
-operator|=
-name|NsqConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"messaging"

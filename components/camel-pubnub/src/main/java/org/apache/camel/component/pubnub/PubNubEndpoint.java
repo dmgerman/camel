@@ -158,12 +158,6 @@ name|syntax
 operator|=
 literal|"pubnub:channel"
 argument_list|,
-name|consumerClass
-operator|=
-name|PubNubConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"cloud,iot,messaging"

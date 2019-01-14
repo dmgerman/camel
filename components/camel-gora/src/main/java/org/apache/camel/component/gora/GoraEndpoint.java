@@ -148,12 +148,6 @@ name|syntax
 operator|=
 literal|"gora:name"
 argument_list|,
-name|consumerClass
-operator|=
-name|GoraConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"database,hadoop,nosql"

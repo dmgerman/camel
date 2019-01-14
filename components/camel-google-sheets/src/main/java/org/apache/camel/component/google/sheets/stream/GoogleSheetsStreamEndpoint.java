@@ -224,12 +224,6 @@ name|syntax
 operator|=
 literal|"google-sheets-stream:apiName"
 argument_list|,
-name|consumerClass
-operator|=
-name|GoogleSheetsStreamConsumer
-operator|.
-name|class
-argument_list|,
 name|consumerOnly
 operator|=
 literal|true

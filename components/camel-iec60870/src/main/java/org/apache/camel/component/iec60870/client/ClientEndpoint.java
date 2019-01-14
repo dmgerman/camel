@@ -152,12 +152,6 @@ name|title
 operator|=
 literal|"IEC 60870 Client"
 argument_list|,
-name|consumerClass
-operator|=
-name|ClientConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"iot"

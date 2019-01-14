@@ -236,12 +236,6 @@ name|syntax
 operator|=
 literal|"rmi:hostname:port/name"
 argument_list|,
-name|consumerClass
-operator|=
-name|RmiConsumer
-operator|.
-name|class
-argument_list|,
 name|label
 operator|=
 literal|"messaging"
