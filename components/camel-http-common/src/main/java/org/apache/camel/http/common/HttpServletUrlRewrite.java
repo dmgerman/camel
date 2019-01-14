@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Extended {@link UrlRewrite} which leverages {@link HttpServletRequest}  * during the rewrite process.  *<p/>  * For example the camel-urlrewrite component supports  * {@link HttpServletUrlRewrite} implementations.  */
+comment|/**  * Extended {@link UrlRewrite} which leverages {@link HttpServletRequest}  * during the rewrite process.  */
 end_comment
 
 begin_interface
