@@ -321,7 +321,7 @@ name|TrustManagerFactory
 operator|.
 name|getInstance
 argument_list|(
-name|KeyManagerFactory
+name|TrustManagerFactory
 operator|.
 name|getDefaultAlgorithm
 argument_list|()
