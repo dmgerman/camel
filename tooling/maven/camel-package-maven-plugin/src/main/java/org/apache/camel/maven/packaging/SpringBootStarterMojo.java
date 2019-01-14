@@ -3529,16 +3529,6 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"camel-testng"
-argument_list|)
-operator|||
-name|project
-operator|.
-name|getArtifactId
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
 literal|"camel-testcontainers"
 argument_list|)
 operator|)
