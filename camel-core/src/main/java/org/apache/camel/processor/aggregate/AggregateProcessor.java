@@ -4010,7 +4010,7 @@ parameter_list|()
 lambda|->
 name|ReactiveHelper
 operator|.
-name|scheduleLast
+name|scheduleSync
 argument_list|(
 parameter_list|()
 lambda|->
