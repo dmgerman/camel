@@ -141,6 +141,8 @@ default|default
 literal|""
 function_decl|;
 comment|/**      * Represents the consumer class which is injected and created by consumers      */
+annotation|@
+name|Deprecated
 DECL|method|consumerClass ()
 DECL|field|Object.class
 name|Class
