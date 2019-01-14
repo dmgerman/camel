@@ -1213,6 +1213,38 @@ name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// special for deprecated where you can quickly specify that in the pom.xml name
+name|boolean
+name|deprecated
+init|=
+name|project
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"(deprecated)"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|deprecated
+condition|)
+block|{
+comment|// must start with 4 leading spaces as we want to replace the marker in the top of the file
+name|text
+operator|=
+name|text
+operator|.
+name|replaceFirst
+argument_list|(
+literal|" {4}\"deprecated\": false,"
+argument_list|,
+literal|"    \"deprecated\": true,"
+argument_list|)
+expr_stmt|;
+block|}
 name|writeText
 argument_list|(
 name|file
