@@ -343,6 +343,19 @@ specifier|protected
 name|File
 name|schemaOutDir
 decl_stmt|;
+comment|/**      * The project build directory      *      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}"
+argument_list|)
+DECL|field|buildDir
+specifier|protected
+name|File
+name|buildDir
+decl_stmt|;
 comment|/**      * Maven ProjectHelper.      */
 annotation|@
 name|Component
@@ -378,6 +391,8 @@ argument_list|,
 name|project
 argument_list|,
 name|projectHelper
+argument_list|,
+name|buildDir
 argument_list|,
 name|componentOutDir
 argument_list|,
