@@ -798,8 +798,6 @@ literal|"camel-spark-rest"
 block|,
 comment|/* others (not managed) -> */
 literal|"camel-core-xml"
-block|,
-literal|"camel-scala"
 block|}
 decl_stmt|;
 DECL|field|IGNORE_TEST_MODULES
