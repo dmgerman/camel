@@ -781,8 +781,6 @@ literal|"camel-eventadmin"
 block|,
 literal|"camel-paxlogging"
 block|,
-literal|"camel-scr"
-block|,
 comment|/* Java EE -> */
 literal|"camel-cdi"
 block|,
