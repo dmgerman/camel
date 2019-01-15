@@ -320,7 +320,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"checking  if "
+literal|"Checking  if "
 operator|+
 name|path
 operator|+

@@ -383,6 +383,13 @@ name|MojoExecutionException
 throws|,
 name|MojoFailureException
 block|{
+name|int
+name|count
+init|=
+literal|0
+decl_stmt|;
+name|count
+operator|+=
 name|prepareComponent
 argument_list|(
 name|getLog
@@ -399,6 +406,8 @@ argument_list|,
 name|buildContext
 argument_list|)
 expr_stmt|;
+name|count
+operator|+=
 name|prepareDataFormat
 argument_list|(
 name|getLog
@@ -415,6 +424,8 @@ argument_list|,
 name|buildContext
 argument_list|)
 expr_stmt|;
+name|count
+operator|+=
 name|prepareLanguage
 argument_list|(
 name|getLog
@@ -431,6 +442,14 @@ argument_list|,
 name|buildContext
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|count
+operator|==
+literal|0
+condition|)
+block|{
+comment|// okay its not any of the above then its other
 name|prepareOthers
 argument_list|(
 name|getLog
@@ -447,6 +466,7 @@ argument_list|,
 name|buildContext
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

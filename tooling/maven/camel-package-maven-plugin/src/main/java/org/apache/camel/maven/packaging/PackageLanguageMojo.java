@@ -170,20 +170,6 @@ name|apache
 operator|.
 name|maven
 operator|.
-name|model
-operator|.
-name|Resource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
 name|plugin
 operator|.
 name|AbstractMojo
@@ -497,7 +483,7 @@ block|}
 DECL|method|prepareLanguage (Log log, MavenProject project, MavenProjectHelper projectHelper, File languageOutDir, File schemaOutDir, BuildContext buildContext)
 specifier|public
 specifier|static
-name|void
+name|int
 name|prepareLanguage
 parameter_list|(
 name|Log
@@ -583,7 +569,9 @@ literal|"META-INF/services/org/apache/camel/language"
 argument_list|)
 condition|)
 block|{
-return|return;
+return|return
+literal|0
+return|;
 block|}
 name|Map
 argument_list|<
@@ -1216,15 +1204,24 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Model "
+literal|"Model: "
 operator|+
 name|languageModel
 argument_list|)
 expr_stmt|;
+block|}
 comment|// build json schema for the data format
 name|String
 name|properties
@@ -1246,6 +1243,14 @@ argument_list|,
 name|properties
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -1255,6 +1260,7 @@ operator|+
 name|schema
 argument_list|)
 expr_stmt|;
+block|}
 comment|// write this to the directory
 name|File
 name|dir
@@ -1547,7 +1553,9 @@ argument_list|(
 literal|"No language changes detected"
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+name|count
+return|;
 block|}
 block|}
 catch|catch
@@ -1612,6 +1620,13 @@ operator|+
 name|names
 argument_list|)
 expr_stmt|;
+name|buildContext
+operator|.
+name|refresh
+argument_list|(
+name|outFile
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1646,6 +1661,9 @@ literal|"No META-INF/services/org/apache/camel/language directory found. Are you
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|count
+return|;
 block|}
 DECL|method|readClassFromCamelResource (File file, StringBuilder buffer, BuildContext buildContext)
 specifier|private

@@ -170,20 +170,6 @@ name|apache
 operator|.
 name|maven
 operator|.
-name|model
-operator|.
-name|Resource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
 name|plugin
 operator|.
 name|AbstractMojo
@@ -497,7 +483,7 @@ block|}
 DECL|method|prepareDataFormat (Log log, MavenProject project, MavenProjectHelper projectHelper, File dataFormatOutDir, File schemaOutDir, BuildContext buildContext)
 specifier|public
 specifier|static
-name|void
+name|int
 name|prepareDataFormat
 parameter_list|(
 name|Log
@@ -583,7 +569,9 @@ literal|"META-INF/services/org/apache/camel/dataformat"
 argument_list|)
 condition|)
 block|{
-return|return;
+return|return
+literal|0
+return|;
 block|}
 name|Map
 argument_list|<
@@ -931,15 +919,24 @@ argument_list|,
 name|javaType
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Model "
+literal|"Model: "
 operator|+
 name|dataFormatModel
 argument_list|)
 expr_stmt|;
+block|}
 comment|// build json schema for the data format
 name|String
 name|properties
@@ -980,15 +977,24 @@ argument_list|,
 name|properties
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"JSon schema\n"
+literal|"JSon schema:\n"
 operator|+
 name|schema
 argument_list|)
 expr_stmt|;
+block|}
 comment|// write this to the directory
 name|File
 name|dir
@@ -1049,6 +1055,13 @@ name|fos
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+name|buildContext
+operator|.
+name|refresh
+argument_list|(
+name|out
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1274,7 +1287,9 @@ argument_list|(
 literal|"No dataformat changes detected"
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+name|count
+return|;
 block|}
 block|}
 catch|catch
@@ -1339,6 +1354,13 @@ operator|+
 name|names
 argument_list|)
 expr_stmt|;
+name|buildContext
+operator|.
+name|refresh
+argument_list|(
+name|outFile
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1373,6 +1395,9 @@ literal|"No META-INF/services/org/apache/camel/dataformat directory found. Are y
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|count
+return|;
 block|}
 DECL|method|extractDataFormatModel (MavenProject project, String json, String modelName, String name, String javaType)
 specifier|private

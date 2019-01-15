@@ -315,7 +315,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Analyses the Camel plugins in a project and generates extra descriptor information for easier auto-discovery in Camel.  */
+comment|/**  * Analyses the Camel plugins in a project and generates legal files.  */
 end_comment
 
 begin_class
@@ -445,6 +445,8 @@ parameter_list|(
 name|Path
 name|legalOutDir
 parameter_list|)
+throws|throws
+name|MojoExecutionException
 block|{
 comment|// Only take care about camel legal stuff
 if|if
@@ -572,8 +574,12 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|IOError
+name|MojoExecutionException
 argument_list|(
+literal|"Failed to write legal files. Reason: "
+operator|+
+name|e
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -688,8 +694,12 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|IOError
+name|MojoExecutionException
 argument_list|(
+literal|"Failed to write legal files. Reason: "
+operator|+
+name|e
+argument_list|,
 name|e
 argument_list|)
 throw|;

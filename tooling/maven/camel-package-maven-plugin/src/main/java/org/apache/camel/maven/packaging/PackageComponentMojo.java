@@ -421,7 +421,7 @@ block|}
 DECL|method|prepareComponent (Log log, MavenProject project, MavenProjectHelper projectHelper, File buildDir, File componentOutDir, BuildContext buildContext)
 specifier|public
 specifier|static
-name|void
+name|int
 name|prepareComponent
 parameter_list|(
 name|Log
@@ -507,7 +507,9 @@ literal|"META-INF/services/org/apache/camel/component"
 argument_list|)
 condition|)
 block|{
-return|return;
+return|return
+literal|0
+return|;
 block|}
 name|StringBuilder
 name|buffer
@@ -734,6 +736,13 @@ block|}
 block|}
 block|}
 block|}
+if|if
+condition|(
+name|count
+operator|>
+literal|0
+condition|)
+block|{
 comment|// we need to enrich the component json files with data we know have from this plugin
 name|enrichComponentJsonFiles
 argument_list|(
@@ -746,6 +755,7 @@ argument_list|,
 name|components
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|count
@@ -922,7 +932,9 @@ argument_list|(
 literal|"No component changes detected"
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+name|count
+return|;
 block|}
 block|}
 catch|catch
@@ -987,6 +999,13 @@ operator|+
 name|names
 argument_list|)
 expr_stmt|;
+name|buildContext
+operator|.
+name|refresh
+argument_list|(
+name|outFile
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1021,6 +1040,9 @@ literal|"No META-INF/services/org/apache/camel/component directory found. Are yo
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|count
+return|;
 block|}
 DECL|method|enrichComponentJsonFiles (Log log, MavenProject project, File buildDir, Map<String, String> components)
 specifier|private
