@@ -254,7 +254,7 @@ name|spi
 operator|.
 name|annotations
 operator|.
-name|Component
+name|Dataformat
 import|;
 end_import
 
@@ -368,7 +368,7 @@ end_comment
 
 begin_class
 annotation|@
-name|Component
+name|Dataformat
 argument_list|(
 literal|"tidyMarkup"
 argument_list|)
