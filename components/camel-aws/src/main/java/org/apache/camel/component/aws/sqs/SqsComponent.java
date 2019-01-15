@@ -76,9 +76,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|annotations
-operator|.
-name|Component
+name|Metadata
 import|;
 end_import
 
@@ -92,7 +90,9 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Metadata
+name|annotations
+operator|.
+name|Component
 import|;
 end_import
 
