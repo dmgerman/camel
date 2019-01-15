@@ -114,7 +114,7 @@ begin_class
 annotation|@
 name|Component
 argument_list|(
-literal|"mila-client"
+literal|"milo-client"
 argument_list|)
 DECL|class|MiloClientComponent
 specifier|public
