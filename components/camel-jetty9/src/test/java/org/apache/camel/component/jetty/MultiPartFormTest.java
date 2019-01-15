@@ -206,7 +206,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"src/main/resources/META-INF/NOTICE.txt"
+literal|"src/test/resources/log4j2.properties"
 argument_list|)
 decl_stmt|;
 return|return
@@ -479,12 +479,12 @@ name|in
 operator|.
 name|getAttachment
 argument_list|(
-literal|"NOTICE.txt"
+literal|"log4j2.properties"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Should get the DataHandle NOTICE.txt"
+literal|"Should get the DataHandle log4j2.properties"
 argument_list|,
 name|data
 argument_list|)
@@ -501,7 +501,7 @@ name|assertEquals
 argument_list|(
 literal|"Got the wrong name"
 argument_list|,
-literal|"NOTICE.txt"
+literal|"log4j2.properties"
 argument_list|,
 name|data
 operator|.
@@ -537,7 +537,7 @@ name|in
 operator|.
 name|getHeader
 argument_list|(
-literal|"NOTICE.txt"
+literal|"log4j2.properties"
 argument_list|)
 decl_stmt|;
 name|assertEquals
