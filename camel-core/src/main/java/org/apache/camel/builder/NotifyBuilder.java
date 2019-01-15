@@ -354,6 +354,20 @@ name|camel
 operator|.
 name|support
 operator|.
+name|PatternHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
 name|ServiceHelper
 import|;
 end_import
@@ -731,7 +745,7 @@ expr_stmt|;
 block|}
 comment|// filter non matching exchanges
 return|return
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(
@@ -831,7 +845,7 @@ literal|true
 return|;
 block|}
 return|return
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(

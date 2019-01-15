@@ -170,7 +170,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|EndpointHelper
+name|PatternHelper
 import|;
 end_import
 
@@ -565,7 +565,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(

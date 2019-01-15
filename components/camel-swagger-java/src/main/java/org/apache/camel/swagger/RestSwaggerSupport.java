@@ -440,7 +440,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|EndpointHelper
+name|PatternHelper
 import|;
 end_import
 
@@ -2306,7 +2306,7 @@ else|else
 block|{
 name|match
 operator|=
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(

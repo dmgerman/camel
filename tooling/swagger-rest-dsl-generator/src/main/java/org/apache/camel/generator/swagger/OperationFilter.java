@@ -38,7 +38,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|EndpointHelper
+name|PatternHelper
 import|;
 end_import
 
@@ -123,7 +123,7 @@ name|anyMatch
 argument_list|(
 name|pattern
 lambda|->
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(

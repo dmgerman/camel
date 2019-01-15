@@ -122,7 +122,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|EndpointHelper
+name|PatternHelper
 import|;
 end_import
 

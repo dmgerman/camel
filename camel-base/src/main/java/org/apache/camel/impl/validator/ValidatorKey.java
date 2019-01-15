@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ValueHolder
+name|CamelContext
 import|;
 end_import
 
@@ -38,9 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultCamelContext
+name|ValueHolder
 import|;
 end_import
 
@@ -59,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Key used in {@link org.apache.camel.spi.ValidatorRegistry} in {@link DefaultCamelContext},  * to ensure a consistent lookup.  */
+comment|/**  * Key used in {@link org.apache.camel.spi.ValidatorRegistry} in {@link CamelContext},  * to ensure a consistent lookup.  */
 end_comment
 
 begin_class

@@ -324,18 +324,6 @@ name|xml
 operator|.
 name|bind
 operator|.
-name|JAXBContext
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
 name|Unmarshaller
 import|;
 end_import
@@ -14242,10 +14230,7 @@ block|{
 comment|// lookup existing properties component, or force create a new default component
 name|pc
 operator|=
-operator|(
 name|PropertiesComponent
-operator|)
-name|CamelContextHelper
 operator|.
 name|lookupPropertiesComponent
 argument_list|(
@@ -18227,10 +18212,10 @@ expr_stmt|;
 block|}
 comment|// eager lookup any configured properties component to avoid subsequent lookup attempts which may impact performance
 comment|// due we use properties component for property placeholder resolution at runtime
-name|Component
+name|PropertiesComponent
 name|existing
 init|=
-name|CamelContextHelper
+name|PropertiesComponent
 operator|.
 name|lookupPropertiesComponent
 argument_list|(
@@ -18247,43 +18232,10 @@ literal|null
 condition|)
 block|{
 comment|// store reference to the existing properties component
-if|if
-condition|(
-name|existing
-operator|instanceof
-name|PropertiesComponent
-condition|)
-block|{
 name|propertiesComponent
 operator|=
-operator|(
-name|PropertiesComponent
-operator|)
 name|existing
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|// properties component must be expected type
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Found properties component of type: "
-operator|+
-name|existing
-operator|.
-name|getClass
-argument_list|()
-operator|+
-literal|" instead of expected: "
-operator|+
-name|PropertiesComponent
-operator|.
-name|class
-argument_list|)
-throw|;
-block|}
 block|}
 comment|// start components
 name|startServices

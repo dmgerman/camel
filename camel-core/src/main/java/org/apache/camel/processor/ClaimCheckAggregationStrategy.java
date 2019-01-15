@@ -80,7 +80,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|EndpointHelper
+name|ObjectHelper
 import|;
 end_import
 
@@ -94,7 +94,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ObjectHelper
+name|PatternHelper
 import|;
 end_import
 
@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default {@link AggregationStrategy} used by the {@link ClaimCheckProcessor} EIP.  *<p/>  * This strategy supports the following include rules syntax:  *<ul>  *<li>body</li> - to aggregate the message body  *<li>attachments</li> - to aggregate all the message attachments  *<li>headers</li> - to aggregate all the message headers  *<li>header:pattern</li> - to aggregate all the message headers that matches the pattern.  *     The pattern syntax is documented by: {@link EndpointHelper#matchPattern(String, String)}.  *</ul>  * You can specify multiple rules separated by comma. For example to include the message body and all headers starting with foo  *<tt>body,header:foo*</tt>.  * If the include rule is specified as empty or as wildcard then everything is merged.  * If you have configured both include and exclude then exclude take precedence over include.  */
+comment|/**  * Default {@link AggregationStrategy} used by the {@link ClaimCheckProcessor} EIP.  *<p/>  * This strategy supports the following include rules syntax:  *<ul>  *<li>body</li> - to aggregate the message body  *<li>attachments</li> - to aggregate all the message attachments  *<li>headers</li> - to aggregate all the message headers  *<li>header:pattern</li> - to aggregate all the message headers that matches the pattern.  *     The pattern syntax is documented by: {@link PatternHelper#matchPattern(String, String)}.  *</ul>  * You can specify multiple rules separated by comma. For example to include the message body and all headers starting with foo  *<tt>body,header:foo*</tt>.  * If the include rule is specified as empty or as wildcard then everything is merged.  * If you have configured both include and exclude then exclude take precedence over include.  */
 end_comment
 
 begin_class
@@ -975,7 +975,7 @@ decl_stmt|;
 name|boolean
 name|matched
 init|=
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(
@@ -1269,7 +1269,7 @@ name|header
 operator|!=
 literal|null
 operator|&&
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(
@@ -1359,7 +1359,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(
@@ -1442,7 +1442,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(

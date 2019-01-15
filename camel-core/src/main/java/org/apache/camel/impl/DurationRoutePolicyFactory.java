@@ -78,7 +78,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|EndpointHelper
+name|PatternHelper
 import|;
 end_import
 
@@ -150,7 +150,7 @@ name|fromRouteId
 operator|==
 literal|null
 operator|||
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(
@@ -206,7 +206,7 @@ return|return
 name|fromRouteId
 return|;
 block|}
-comment|/**      * Limit the route policy to the route which matches this pattern      *      * @see EndpointHelper#matchPattern(String, String)      */
+comment|/**      * Limit the route policy to the route which matches this pattern      *      * @see PatternHelper#matchPattern(String, String)      */
 DECL|method|setFromRouteId (String fromRouteId)
 specifier|public
 name|void

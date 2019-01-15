@@ -166,7 +166,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|EndpointHelper
+name|PatternHelper
 import|;
 end_import
 
@@ -316,7 +316,7 @@ literal|true
 return|;
 block|}
 return|return
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(
@@ -384,7 +384,7 @@ name|processor
 parameter_list|)
 block|{
 return|return
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(
@@ -472,7 +472,7 @@ name|getEndpointUri
 argument_list|()
 decl_stmt|;
 return|return
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(

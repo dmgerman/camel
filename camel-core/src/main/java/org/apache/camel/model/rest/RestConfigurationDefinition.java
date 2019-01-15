@@ -192,7 +192,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|EndpointHelper
+name|PatternHelper
 import|;
 end_import
 
@@ -910,7 +910,7 @@ return|return
 name|apiContextIdPattern
 return|;
 block|}
-comment|/**      * Sets an CamelContext id pattern to only allow Rest APIs from rest services within CamelContext's which name matches the pattern.      *<p/>      * The pattern<tt>#name#</tt> refers to the CamelContext name, to match on the current CamelContext only.      * For any other value, the pattern uses the rules from {@link EndpointHelper#matchPattern(String, String)}      *      * @param apiContextIdPattern  the pattern      */
+comment|/**      * Sets an CamelContext id pattern to only allow Rest APIs from rest services within CamelContext's which name matches the pattern.      *<p/>      * The pattern<tt>#name#</tt> refers to the CamelContext name, to match on the current CamelContext only.      * For any other value, the pattern uses the rules from {@link PatternHelper#matchPattern(String, String)}      *      * @param apiContextIdPattern  the pattern      */
 DECL|method|setApiContextIdPattern (String apiContextIdPattern)
 specifier|public
 name|void

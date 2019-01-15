@@ -60,12 +60,12 @@ name|camel
 operator|.
 name|support
 operator|.
-name|EndpointHelper
+name|PatternHelper
 import|;
 end_import
 
 begin_comment
-comment|/**  * A default {@link SecurityConstraint} which can be used to define a set of mappings to  * as constraints.  *<p/>  * This constraint will match as<tt>true</tt> if no inclusions has been defined.  * First all the inclusions is check for matching. If a inclusion matches,  * then the exclusion is checked, and if any of them matches, then the exclusion  * will override the match and force returning<tt>false</tt>.  *<p/>  * Wildcards and regular expressions is supported as this implementation uses  * {@link EndpointHelper#matchPattern(String, String)} method for matching.  *<p/>  * This restricted constraint allows you to setup context path rules that will restrict  * access to paths, and then override and have exclusions that may allow access to  * public paths.  */
+comment|/**  * A default {@link SecurityConstraint} which can be used to define a set of mappings to  * as constraints.  *<p/>  * This constraint will match as<tt>true</tt> if no inclusions has been defined.  * First all the inclusions is check for matching. If a inclusion matches,  * then the exclusion is checked, and if any of them matches, then the exclusion  * will override the match and force returning<tt>false</tt>.  *<p/>  * Wildcards and regular expressions is supported as this implementation uses  * {@link PatternHelper#matchPattern(String, String)} method for matching.  *<p/>  * This restricted constraint allows you to setup context path rules that will restrict  * access to paths, and then override and have exclusions that may allow access to  * public paths.  */
 end_comment
 
 begin_class
@@ -216,7 +216,7 @@ control|)
 block|{
 if|if
 condition|(
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(
@@ -302,7 +302,7 @@ control|)
 block|{
 if|if
 condition|(
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(

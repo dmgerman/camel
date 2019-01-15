@@ -106,31 +106,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NamedNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
 import|;
 end_import
 
@@ -202,23 +178,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|InterceptStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|support
 operator|.
-name|EndpointHelper
+name|PatternHelper
 import|;
 end_import
 
@@ -558,7 +520,7 @@ decl_stmt|;
 comment|// use matchPattern method from endpoint helper that has a good matcher we use in Camel
 if|if
 condition|(
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(
@@ -598,7 +560,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(

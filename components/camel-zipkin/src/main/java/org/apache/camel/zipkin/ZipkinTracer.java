@@ -32,16 +32,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -472,6 +462,20 @@ name|camel
 operator|.
 name|support
 operator|.
+name|PatternHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
 name|RoutePolicySupport
 import|;
 end_import
@@ -651,7 +655,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use Zipkin with Camel then setup this {@link ZipkinTracer} in your Camel application.  *<p/>  * Events (span) are captured for incoming and outgoing messages being sent to/from Camel.  * This means you need to configure which which Camel endpoints that maps to zipkin service names.  * The mapping can be configured using  *<ul>  *<li>route id - A Camel route id</li>  *<li>endpoint url - A Camel endpoint url</li>  *</ul>  * For both kinds you can use wildcards and regular expressions to match, which is using the rules from  * {@link EndpointHelper#matchPattern(String, String)} and {@link EndpointHelper#matchEndpoint(CamelContext, String, String)}  *<p/>  * To match all Camel messages you can use<tt>*</tt> in the pattern and configure that to the same service name.  *<br/>  * If no mapping has been configured then Camel will fallback and use endpoint uri's as service names.  * However its recommended to configure service mappings so you can use human logic names instead of Camel  * endpoint uris in the names.  *<p/>  * Camel will auto-configure a {@link Reporter span reporter} one hasn't been explicitly configured,  * and if the hostname and port to a zipkin collector has been configured as environment variables  *<ul>  *<li>ZIPKIN_COLLECTOR_HTTP_SERVICE_HOST - The http hostname</li>  *<li>ZIPKIN_COLLECTOR_HTTP_SERVICE_PORT - The port number</li>  *</ul>  * or  *<ul>  *<li>ZIPKIN_COLLECTOR_THRIFT_SERVICE_HOST - The Scribe (Thrift RPC) hostname</li>  *<li>ZIPKIN_COLLECTOR_THRIFT_SERVICE_PORT - The port number</li>  *</ul>  *<p/>  * This class is implemented as both an {@link org.apache.camel.spi.EventNotifier} and {@link RoutePolicy} that allows  * to trap when Camel starts/ends an {@link Exchange} being routed using the {@link RoutePolicy} and during the routing  * if the {@link Exchange} sends messages, then we track them using the {@link org.apache.camel.spi.EventNotifier}.  */
+comment|/**  * To use Zipkin with Camel then setup this {@link ZipkinTracer} in your Camel application.  *<p/>  * Events (span) are captured for incoming and outgoing messages being sent to/from Camel.  * This means you need to configure which which Camel endpoints that maps to zipkin service names.  * The mapping can be configured using  *<ul>  *<li>route id - A Camel route id</li>  *<li>endpoint url - A Camel endpoint url</li>  *</ul>  * For both kinds you can use wildcards and regular expressions to match, which is using the rules from  * {@link PatternHelper#matchPattern(String, String)} and {@link EndpointHelper#matchEndpoint(CamelContext, String, String)}  *<p/>  * To match all Camel messages you can use<tt>*</tt> in the pattern and configure that to the same service name.  *<br/>  * If no mapping has been configured then Camel will fallback and use endpoint uri's as service names.  * However its recommended to configure service mappings so you can use human logic names instead of Camel  * endpoint uris in the names.  *<p/>  * Camel will auto-configure a {@link Reporter span reporter} one hasn't been explicitly configured,  * and if the hostname and port to a zipkin collector has been configured as environment variables  *<ul>  *<li>ZIPKIN_COLLECTOR_HTTP_SERVICE_HOST - The http hostname</li>  *<li>ZIPKIN_COLLECTOR_HTTP_SERVICE_PORT - The port number</li>  *</ul>  * or  *<ul>  *<li>ZIPKIN_COLLECTOR_THRIFT_SERVICE_HOST - The Scribe (Thrift RPC) hostname</li>  *<li>ZIPKIN_COLLECTOR_THRIFT_SERVICE_PORT - The port number</li>  *</ul>  *<p/>  * This class is implemented as both an {@link org.apache.camel.spi.EventNotifier} and {@link RoutePolicy} that allows  * to trap when Camel starts/ends an {@link Exchange} being routed using the {@link RoutePolicy} and during the routing  * if the {@link Exchange} sends messages, then we track them using the {@link org.apache.camel.spi.EventNotifier}.  */
 end_comment
 
 begin_comment
@@ -2400,7 +2404,7 @@ control|)
 block|{
 if|if
 condition|(
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(
@@ -2443,7 +2447,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(
@@ -2498,7 +2502,7 @@ control|)
 block|{
 if|if
 condition|(
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(
@@ -2541,7 +2545,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(
@@ -2625,7 +2629,7 @@ control|)
 block|{
 if|if
 condition|(
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(

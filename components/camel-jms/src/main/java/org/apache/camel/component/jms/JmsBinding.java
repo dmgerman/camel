@@ -442,7 +442,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|EndpointHelper
+name|ExchangeHelper
 import|;
 end_import
 
@@ -456,7 +456,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ExchangeHelper
+name|PatternHelper
 import|;
 end_import
 
@@ -2737,7 +2737,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|EndpointHelper
+name|PatternHelper
 operator|.
 name|matchPattern
 argument_list|(
