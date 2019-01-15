@@ -1532,7 +1532,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"serviceUri"
+literal|"serviceUri is not set"
 argument_list|)
 throw|;
 block|}

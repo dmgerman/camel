@@ -670,7 +670,7 @@ name|document
 init|=
 name|requestBodyAndHeaders
 argument_list|(
-literal|"direct://READSERVICEDOC"
+literal|"direct:READSERVICEDOC"
 argument_list|,
 literal|null
 argument_list|,
@@ -755,7 +755,7 @@ name|manufacturers
 init|=
 name|requestBodyAndHeaders
 argument_list|(
-literal|"direct://READFEED"
+literal|"direct:READFEED"
 argument_list|,
 literal|null
 argument_list|,
@@ -826,7 +826,7 @@ name|manufacturer
 init|=
 name|requestBodyAndHeaders
 argument_list|(
-literal|"direct://READENTRY"
+literal|"direct:READENTRY"
 argument_list|,
 literal|null
 argument_list|,
@@ -912,7 +912,7 @@ name|manufacturer
 init|=
 name|requestBody
 argument_list|(
-literal|"direct://CREATE"
+literal|"direct:CREATE"
 argument_list|,
 name|data
 argument_list|)
@@ -1002,7 +1002,7 @@ name|status
 init|=
 name|requestBody
 argument_list|(
-literal|"direct://UPDATE"
+literal|"direct:UPDATE"
 argument_list|,
 name|data
 argument_list|)
@@ -1045,7 +1045,7 @@ name|status
 operator|=
 name|requestBody
 argument_list|(
-literal|"direct://DELETE"
+literal|"direct:DELETE"
 argument_list|,
 literal|null
 argument_list|)
@@ -1528,7 +1528,7 @@ name|responseParts
 init|=
 name|requestBody
 argument_list|(
-literal|"direct://BATCH"
+literal|"direct:BATCH"
 argument_list|,
 name|batchParts
 argument_list|)
@@ -1892,7 +1892,7 @@ block|{
 comment|// test routes for read
 name|from
 argument_list|(
-literal|"direct://READSERVICEDOC"
+literal|"direct:READSERVICEDOC"
 argument_list|)
 operator|.
 name|to
@@ -1902,7 +1902,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct://READFEED"
+literal|"direct:READFEED"
 argument_list|)
 operator|.
 name|to
@@ -1912,7 +1912,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct://READENTRY"
+literal|"direct:READENTRY"
 argument_list|)
 operator|.
 name|to
@@ -1923,7 +1923,7 @@ expr_stmt|;
 comment|// test route for create
 name|from
 argument_list|(
-literal|"direct://CREATE"
+literal|"direct:CREATE"
 argument_list|)
 operator|.
 name|to
@@ -1934,7 +1934,7 @@ expr_stmt|;
 comment|// test route for update
 name|from
 argument_list|(
-literal|"direct://UPDATE"
+literal|"direct:UPDATE"
 argument_list|)
 operator|.
 name|to
@@ -1945,7 +1945,7 @@ expr_stmt|;
 comment|// test route for delete
 name|from
 argument_list|(
-literal|"direct://DELETE"
+literal|"direct:DELETE"
 argument_list|)
 operator|.
 name|to
@@ -1953,11 +1953,11 @@ argument_list|(
 literal|"olingo2://delete/Manufacturers('123')"
 argument_list|)
 expr_stmt|;
-comment|/*                 // test route for merge                 from("direct://MERGE")                     .to("olingo2://merge");                  // test route for patch                 from("direct://PATCH")                     .to("olingo2://patch"); */
+comment|/*                 // test route for merge                 from("direct:MERGE")                     .to("olingo2://merge");                  // test route for patch                 from("direct:PATCH")                     .to("olingo2://patch"); */
 comment|// test route for batch
 name|from
 argument_list|(
-literal|"direct://BATCH"
+literal|"direct:BATCH"
 argument_list|)
 operator|.
 name|to
