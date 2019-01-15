@@ -474,6 +474,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|PropertiesComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Registry
 import|;
 end_import
@@ -1469,6 +1483,21 @@ DECL|method|getPropertySuffixToken ()
 name|String
 name|getPropertySuffixToken
 parameter_list|()
+function_decl|;
+comment|/**      * Returns the configured properties component or create one if none has been configured.      *      * @return the properties component      */
+DECL|method|getPropertiesComponent ()
+name|PropertiesComponent
+name|getPropertiesComponent
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the configured properties component or create one if none has been configured.      *      * @param autoCreate whether the component should be created if none is configured      * @return the properties component      */
+DECL|method|getPropertiesComponent (boolean autoCreate)
+name|PropertiesComponent
+name|getPropertiesComponent
+parameter_list|(
+name|boolean
+name|autoCreate
+parameter_list|)
 function_decl|;
 comment|/**      * Gets a readonly list with the names of the languages currently registered.      *      * @return a readonly list with the names of the languages      */
 DECL|method|getLanguageNames ()

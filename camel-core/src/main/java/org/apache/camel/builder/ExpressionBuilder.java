@@ -400,9 +400,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|properties
+name|spi
 operator|.
 name|PropertiesComponent
 import|;
@@ -9520,19 +9518,6 @@ condition|)
 block|{
 comment|// the properties component is optional as we got locations
 comment|// getComponent will create a new component if none already exists
-name|Component
-name|component
-init|=
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|getComponent
-argument_list|(
-literal|"properties"
-argument_list|)
-decl_stmt|;
 name|PropertiesComponent
 name|pc
 init|=
@@ -9541,16 +9526,9 @@ operator|.
 name|getContext
 argument_list|()
 operator|.
-name|getTypeConverter
-argument_list|()
-operator|.
-name|mandatoryConvertTo
+name|getPropertiesComponent
 argument_list|(
-name|PropertiesComponent
-operator|.
-name|class
-argument_list|,
-name|component
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// enclose key with {{ }} to force parsing
@@ -9589,22 +9567,22 @@ block|}
 else|else
 block|{
 comment|// the properties component is mandatory if no locations provided
-name|Component
-name|component
+name|PropertiesComponent
+name|pc
 init|=
 name|exchange
 operator|.
 name|getContext
 argument_list|()
 operator|.
-name|hasComponent
+name|getPropertiesComponent
 argument_list|(
-literal|"properties"
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|component
+name|pc
 operator|==
 literal|null
 condition|)
@@ -9619,26 +9597,6 @@ literal|" in CamelContext to support property placeholders in expressions"
 argument_list|)
 throw|;
 block|}
-name|PropertiesComponent
-name|pc
-init|=
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|getTypeConverter
-argument_list|()
-operator|.
-name|mandatoryConvertTo
-argument_list|(
-name|PropertiesComponent
-operator|.
-name|class
-argument_list|,
-name|component
-argument_list|)
-decl_stmt|;
 comment|// enclose key with {{ }} to force parsing
 return|return
 name|pc

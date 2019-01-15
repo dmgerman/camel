@@ -1248,8 +1248,17 @@ literal|null
 operator|||
 name|propertiesComponent
 operator|.
-name|isDefaultCreated
+name|getCamelContext
 argument_list|()
+operator|.
+name|getGlobalOption
+argument_list|(
+name|PropertiesComponent
+operator|.
+name|DEFAULT_CREATED
+argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 comment|// if the component was auto created then include more information that the end user should define it

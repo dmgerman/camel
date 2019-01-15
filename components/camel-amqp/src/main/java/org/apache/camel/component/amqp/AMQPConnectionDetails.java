@@ -38,9 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|properties
+name|spi
 operator|.
 name|PropertiesComponent
 import|;

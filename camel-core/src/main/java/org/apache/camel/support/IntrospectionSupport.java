@@ -290,9 +290,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|properties
+name|spi
 operator|.
 name|PropertiesComponent
 import|;
@@ -3644,12 +3642,10 @@ block|{
 name|PropertiesComponent
 name|pc
 init|=
-name|PropertiesComponent
-operator|.
-name|lookupPropertiesComponent
-argument_list|(
 name|context
-argument_list|,
+operator|.
+name|getPropertiesComponent
+argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
