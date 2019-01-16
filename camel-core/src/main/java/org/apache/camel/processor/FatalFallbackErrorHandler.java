@@ -76,19 +76,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|apache
 operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|camel
 operator|.
-name|slf4j
+name|support
 operator|.
-name|LoggerFactory
+name|processor
+operator|.
+name|DelegateAsyncProcessor
 import|;
 end_import
 

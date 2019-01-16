@@ -4,13 +4,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel.support.processor
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|support
 operator|.
 name|processor
 package|;
@@ -151,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Delegate pattern which delegates synchronous processing to a nested {@link org.apache.camel.Processor} which can  * be useful for implementation inheritance when writing an {@link org.apache.camel.spi.Policy}  *<p/>  *<b>Important:</b> This implementation<b>does</b> support the asynchronous routing engine,<b>only</b>.  * if the logic in the {@link #process(org.apache.camel.Exchange)} does not invoke EIPs; as it forces using  * synchronous processing during the {@link #process(org.apache.camel.Exchange)} method call.  * If you are implementing a EIP pattern please use this as the delegate, for simple EIPs.  * @see DelegateAsyncProcessor  * @see org.apache.camel.processor.DelegateProcessor  */
+comment|/**  * A Delegate pattern which delegates synchronous processing to a nested {@link org.apache.camel.Processor} which can  * be useful for implementation inheritance when writing an {@link org.apache.camel.spi.Policy}  *<p/>  *<b>Important:</b> This implementation<b>does</b> support the asynchronous routing engine,<b>only</b>.  * if the logic in the {@link #process(org.apache.camel.Exchange)} does not invoke EIPs; as it forces using  * synchronous processing during the {@link #process(org.apache.camel.Exchange)} method call.  * If you are implementing a EIP pattern please use this as the delegate, for simple EIPs.  * @see DelegateAsyncProcessor  * @see DelegateProcessor  */
 end_comment
 
 begin_class

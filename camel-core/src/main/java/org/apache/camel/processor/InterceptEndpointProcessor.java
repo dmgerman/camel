@@ -28,6 +28,22 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|processor
+operator|.
+name|DelegateAsyncProcessor
+import|;
+end_import
+
 begin_comment
 comment|/**  * Endpoint intercept processor so we know the processor is supposed to intercept an endpoint.  */
 end_comment

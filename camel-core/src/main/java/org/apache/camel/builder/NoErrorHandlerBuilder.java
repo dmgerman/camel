@@ -60,6 +60,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
 name|processor
 operator|.
 name|DelegateAsyncProcessor
