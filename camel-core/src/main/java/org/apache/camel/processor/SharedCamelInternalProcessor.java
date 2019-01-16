@@ -66,18 +66,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|CountDownLatch
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|RejectedExecutionException
 import|;
 end_import
@@ -162,7 +150,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|AsyncCallbackToCompletableFutureAdapter
 import|;
