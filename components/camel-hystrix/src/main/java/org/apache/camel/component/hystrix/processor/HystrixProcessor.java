@@ -188,9 +188,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|AsyncProcessorSupport
+name|IdAware
 import|;
 end_import
 
@@ -202,9 +202,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|IdAware
+name|AsyncProcessorSupport
 import|;
 end_import
 
