@@ -220,7 +220,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ServiceSupport
+name|ExchangeHelper
 import|;
 end_import
 
@@ -234,7 +234,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ExchangeHelper
+name|ServiceSupport
 import|;
 end_import
 
