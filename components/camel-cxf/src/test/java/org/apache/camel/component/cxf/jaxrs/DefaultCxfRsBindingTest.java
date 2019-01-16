@@ -116,9 +116,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|impl
 operator|.
-name|DefaultExchange
+name|DefaultHeaderFilterStrategy
 import|;
 end_import
 
@@ -130,9 +130,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
-name|DefaultHeaderFilterStrategy
+name|DefaultExchange
 import|;
 end_import
 

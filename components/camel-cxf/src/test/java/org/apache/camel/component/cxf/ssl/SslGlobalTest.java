@@ -132,11 +132,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|support
 operator|.
-name|spring
+name|jsse
 operator|.
-name|CamelSpringTestSupport
+name|SSLContextParameters
 import|;
 end_import
 
@@ -148,11 +148,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|test
 operator|.
-name|jsse
+name|spring
 operator|.
-name|SSLContextParameters
+name|CamelSpringTestSupport
 import|;
 end_import
 

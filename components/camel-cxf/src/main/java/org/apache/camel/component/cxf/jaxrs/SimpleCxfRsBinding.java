@@ -320,9 +320,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|DefaultAttachment
+name|HeaderFilterStrategy
 import|;
 end_import
 
@@ -334,9 +334,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|HeaderFilterStrategy
+name|DefaultAttachment
 import|;
 end_import
 

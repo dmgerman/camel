@@ -568,19 +568,9 @@ name|CookieHandler
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|DefaultEndpoint
-import|;
-end_import
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 
 begin_import
 import|import
@@ -674,9 +664,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|CastUtils
+name|DefaultEndpoint
 import|;
 end_import
 
@@ -691,6 +681,36 @@ operator|.
 name|support
 operator|.
 name|EndpointHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CastUtils
 import|;
 end_import
 
@@ -719,22 +739,6 @@ operator|.
 name|util
 operator|.
 name|UnsafeUriCharactersEncoder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|jsse
-operator|.
-name|SSLContextParameters
 import|;
 end_import
 
