@@ -48,6 +48,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|netflix
+operator|.
+name|hystrix
+operator|.
+name|exception
+operator|.
+name|HystrixBadRequestException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -635,16 +649,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|// and copy the result
-name|ExchangeHelper
-operator|.
-name|copyResults
-argument_list|(
-name|exchange
-argument_list|,
-name|copy
-argument_list|)
-expr_stmt|;
 comment|// execution exception must take precedence over exchange exception
 comment|// because hystrix may have caused this command to fail due timeout or something else
 if|if
@@ -670,6 +674,52 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// special for HystrixBadRequestException which should not trigger fallback
+if|if
+condition|(
+name|camelExchangeException
+operator|instanceof
+name|HystrixBadRequestException
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Running processor: {} with exchange: {} done as bad request"
+argument_list|,
+name|processor
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+return|return
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+condition|?
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+else|:
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+return|;
+block|}
+comment|// copy the result before its regarded as success
+name|ExchangeHelper
+operator|.
+name|copyResults
+argument_list|(
+name|exchange
+argument_list|,
+name|copy
+argument_list|)
+expr_stmt|;
 comment|// in case of an exception in the exchange
 comment|// we need to trigger this by throwing the exception so hystrix will execute the fallback
 comment|// or open the circuit
