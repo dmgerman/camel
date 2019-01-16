@@ -1688,8 +1688,9 @@ block|{
 return|return;
 block|}
 comment|// Check if the iterator is empty
-comment|// This can only happen the very first time we check the existence
+comment|// This can happen the very first time we check the existence
 comment|// of an item before queuing the run.
+comment|// or some iterators may return true for hasNext() but then null in next()
 if|if
 condition|(
 operator|!
@@ -1701,7 +1702,10 @@ condition|)
 block|{
 name|doDone
 argument_list|(
-literal|null
+name|result
+operator|.
+name|get
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -1724,6 +1728,29 @@ operator|.
 name|hasNext
 argument_list|()
 decl_stmt|;
+comment|// some iterators may return true for hasNext() but then null in next()
+if|if
+condition|(
+name|pair
+operator|==
+literal|null
+operator|&&
+operator|!
+name|hasNext
+condition|)
+block|{
+name|doDone
+argument_list|(
+name|result
+operator|.
+name|get
+argument_list|()
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|Exchange
 name|exchange
 init|=
