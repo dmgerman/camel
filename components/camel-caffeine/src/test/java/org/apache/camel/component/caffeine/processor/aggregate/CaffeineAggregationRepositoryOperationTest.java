@@ -52,9 +52,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|impl
 operator|.
-name|DefaultExchange
+name|DefaultExchangeHolder
 import|;
 end_import
 
@@ -66,9 +66,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
-name|DefaultExchangeHolder
+name|DefaultExchange
 import|;
 end_import
 
