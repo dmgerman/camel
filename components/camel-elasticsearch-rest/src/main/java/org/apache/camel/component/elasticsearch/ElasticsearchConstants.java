@@ -54,6 +54,24 @@ name|PARAM_WAIT_FOR_ACTIVE_SHARDS
 init|=
 literal|"waitForActiveShards"
 decl_stmt|;
+DECL|field|PARAM_SCROLL_KEEP_ALIVE_MS
+name|String
+name|PARAM_SCROLL_KEEP_ALIVE_MS
+init|=
+literal|"scrollKeepAliveMs"
+decl_stmt|;
+DECL|field|PARAM_SCROLL
+name|String
+name|PARAM_SCROLL
+init|=
+literal|"useScroll"
+decl_stmt|;
+DECL|field|PROPERTY_SCROLL_ES_QUERY_COUNT
+name|String
+name|PROPERTY_SCROLL_ES_QUERY_COUNT
+init|=
+literal|"CamelElasticsearchScrollQueryCount"
+decl_stmt|;
 DECL|field|DEFAULT_PORT
 name|int
 name|DEFAULT_PORT
@@ -104,6 +122,13 @@ init|=
 literal|60000
 decl_stmt|;
 comment|// Meaning when should the sniff execution scheduled after a failure
+DECL|field|DEFAULT_SCROLL_KEEP_ALIVE_MS
+name|int
+name|DEFAULT_SCROLL_KEEP_ALIVE_MS
+init|=
+literal|60000
+decl_stmt|;
+comment|// Meaning how many milliseconds elasticsearch will keep the search context
 block|}
 end_interface
 
