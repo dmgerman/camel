@@ -1843,7 +1843,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"groupSize\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"integer\","
+literal|"\"groupSize\": { \"kind\": \"parameter\", \"group\": \"producer\", \"required\": \"false\", \"type\": \"integer\","
 operator|+
 literal|" \"javaType\": \"java.lang.Integer\", \"deprecated\": \"false\", \"secret\": \"false\", \"value\": \"5\""
 argument_list|)
@@ -2031,7 +2031,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"groupSize\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"integer\","
+literal|"\"groupSize\": { \"kind\": \"parameter\", \"group\": \"producer\", \"required\": \"false\", \"type\": \"integer\","
 operator|+
 literal|" \"javaType\": \"java.lang.Integer\", \"deprecated\": \"false\", \"secret\": \"false\", \"value\": \"5\""
 argument_list|)
