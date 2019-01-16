@@ -100,7 +100,7 @@ name|remote
 operator|.
 name|strategy
 operator|.
-name|FtpProcessStrategyFactory
+name|SftpProcessStrategyFactory
 import|;
 end_import
 
@@ -133,7 +133,7 @@ argument_list|)
 annotation|@
 name|FileProcessStrategy
 argument_list|(
-name|FtpProcessStrategyFactory
+name|SftpProcessStrategyFactory
 operator|.
 name|class
 argument_list|)
