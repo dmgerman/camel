@@ -154,9 +154,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|ObjectHelper
+name|jsse
+operator|.
+name|SSLContextParameters
 import|;
 end_import
 
@@ -168,11 +170,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|jsse
-operator|.
-name|SSLContextParameters
+name|ObjectHelper
 import|;
 end_import
 
