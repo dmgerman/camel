@@ -233,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The browse component is used for viewing the messages received on endpoints that supports {@link BrowsableEndpoint}.  *  * This can be useful for testing, visualisation tools or debugging. he exchanges sent to the endpoint are all available to be browsed.  */
+comment|/**  * The browse component is used for viewing the messages received on endpoints that supports {@link BrowsableEndpoint}.  *  * This can be useful for testing, visualisation tools or debugging. The exchanges sent to the endpoint are all available to be browsed.  */
 end_comment
 
 begin_class
