@@ -287,6 +287,7 @@ name|ServiceSupport
 implements|implements
 name|Component
 block|{
+comment|/**      * Simple RAW() pattern used only for validating URI in this class      */
 DECL|field|RAW_PATTERN
 specifier|private
 specifier|static
@@ -298,7 +299,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"RAW(.*&&.*)"
+literal|"RAW[({].*&&.*[)}]"
 argument_list|)
 decl_stmt|;
 DECL|field|extensions
