@@ -284,7 +284,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ResourceHelper
+name|ObjectHelper
 import|;
 end_import
 
@@ -298,7 +298,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ObjectHelper
+name|ResourceHelper
 import|;
 end_import
 
