@@ -227,9 +227,9 @@ expr_stmt|;
 comment|// to make unit test faster
 name|reloadStrategy
 operator|.
-name|setPollTimeout
+name|setDelay
 argument_list|(
-literal|100
+literal|20
 argument_list|)
 expr_stmt|;
 name|context
@@ -282,6 +282,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// create an xml file with some routes
 name|log
 operator|.
 name|info
@@ -289,7 +290,13 @@ argument_list|(
 literal|"Copying file to target/dummy"
 argument_list|)
 expr_stmt|;
-comment|// create an xml file with some routes
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
 name|FileUtil
 operator|.
 name|copyFile
@@ -308,13 +315,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// wait for that file to be processed
-comment|// (is slow on osx, so wait up till 20 seconds)
 name|await
 argument_list|()
 operator|.
 name|atMost
 argument_list|(
-literal|20
+literal|10
 argument_list|,
 name|TimeUnit
 operator|.
@@ -532,6 +538,7 @@ expr_stmt|;
 name|resetMocks
 argument_list|()
 expr_stmt|;
+comment|// create an xml file with some routes
 name|log
 operator|.
 name|info
@@ -539,7 +546,13 @@ argument_list|(
 literal|"Copying file to target/dummy"
 argument_list|)
 expr_stmt|;
-comment|// create an xml file with some routes
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
 name|FileUtil
 operator|.
 name|copyFile
@@ -558,7 +571,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// wait for that file to be processed and remove/add the route
-comment|// (is slow on osx, so wait up till 20 seconds)
 name|boolean
 name|done
 init|=
@@ -566,7 +578,7 @@ name|latch
 operator|.
 name|await
 argument_list|(
-literal|20
+literal|10
 argument_list|,
 name|TimeUnit
 operator|.
@@ -719,6 +731,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// create an xml file with some routes
 name|log
 operator|.
 name|info
@@ -726,7 +739,6 @@ argument_list|(
 literal|"Copying file to target/dummy"
 argument_list|)
 expr_stmt|;
-comment|// create an xml file with some routes
 name|FileUtil
 operator|.
 name|copyFile
@@ -745,13 +757,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// wait for that file to be processed
-comment|// (is slow on osx, so wait up till 20 seconds)
 name|await
 argument_list|()
 operator|.
 name|atMost
 argument_list|(
-literal|20
+literal|10
 argument_list|,
 name|TimeUnit
 operator|.
@@ -782,9 +793,9 @@ argument_list|(
 literal|"mock:bar"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedBodiesReceived
 argument_list|(
-literal|1
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|template
@@ -810,7 +821,13 @@ argument_list|(
 literal|"Updating file in target/dummy"
 argument_list|)
 expr_stmt|;
-comment|// create an xml file with some routes
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|200
+argument_list|)
+expr_stmt|;
 name|FileUtil
 operator|.
 name|copyFile
@@ -829,7 +846,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// wait for that file to be processed and remove/add the route
-comment|// (is slow on osx, so wait up till 20 seconds)
 name|boolean
 name|done
 init|=
@@ -837,7 +853,7 @@ name|latch
 operator|.
 name|await
 argument_list|(
-literal|20
+literal|10
 argument_list|,
 name|TimeUnit
 operator|.
@@ -846,7 +862,7 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should reload file within 20 seconds"
+literal|"Should reload file within 10 seconds"
 argument_list|,
 name|done
 argument_list|)

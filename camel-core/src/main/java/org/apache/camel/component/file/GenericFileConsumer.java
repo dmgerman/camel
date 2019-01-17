@@ -2193,6 +2193,17 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Evaluated idempotentKey: {} for file: {}"
+argument_list|,
+name|key
+argument_list|,
+name|file
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
