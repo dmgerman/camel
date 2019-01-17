@@ -118,7 +118,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|DefaultProducer
+name|CamelContextHelper
 import|;
 end_import
 
@@ -132,7 +132,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|CamelContextHelper
+name|DefaultProducer
 import|;
 end_import
 
