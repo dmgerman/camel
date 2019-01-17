@@ -82,6 +82,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ScheduledExecutorService
 import|;
 end_import
@@ -1551,6 +1563,24 @@ name|createConsumerTemplate
 parameter_list|(
 name|int
 name|maximumCacheSize
+parameter_list|)
+function_decl|;
+comment|/**      * Creates a new multicast processor which sends an exchange to all the processors.      *      * @param processors the list of processors to send to      * @param executor the executor to use      * @return a multicasting processor      */
+DECL|method|createMulticast (Collection<Processor> processors, ExecutorService executor, boolean shutdownExecutorService)
+name|AsyncProcessor
+name|createMulticast
+parameter_list|(
+name|Collection
+argument_list|<
+name|Processor
+argument_list|>
+name|processors
+parameter_list|,
+name|ExecutorService
+name|executor
+parameter_list|,
+name|boolean
+name|shutdownExecutorService
 parameter_list|)
 function_decl|;
 comment|/**      * Adds the given interceptor strategy      *      * @param interceptStrategy the strategy      */

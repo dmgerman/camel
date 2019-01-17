@@ -1069,7 +1069,7 @@ name|onPrepare
 argument_list|,
 name|shareUnitOfWork
 argument_list|,
-literal|false
+name|parallelAggregate
 argument_list|,
 literal|false
 argument_list|)

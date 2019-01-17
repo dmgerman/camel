@@ -194,20 +194,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|MulticastProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|ExceptionHandler
@@ -1289,7 +1275,7 @@ name|handoverCompletions
 argument_list|()
 decl_stmt|;
 comment|// use a multicast processor to process it
-name|MulticastProcessor
+name|AsyncProcessor
 name|mp
 init|=
 name|endpoint
@@ -1315,17 +1301,8 @@ name|process
 argument_list|(
 name|exchange
 argument_list|,
-operator|new
-name|AsyncCallback
-argument_list|()
-block|{
-specifier|public
-name|void
-name|done
-parameter_list|(
-name|boolean
 name|doneSync
-parameter_list|)
+lambda|->
 block|{
 comment|// done the uow on the completions
 name|UnitOfWorkHelper
@@ -1339,7 +1316,6 @@ argument_list|,
 name|log
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
