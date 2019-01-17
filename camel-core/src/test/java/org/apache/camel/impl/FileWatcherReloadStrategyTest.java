@@ -739,6 +739,13 @@ argument_list|(
 literal|"Copying file to target/dummy"
 argument_list|)
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
 name|FileUtil
 operator|.
 name|copyFile

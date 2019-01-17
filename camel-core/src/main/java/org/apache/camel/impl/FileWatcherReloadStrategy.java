@@ -38,16 +38,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -438,6 +428,7 @@ argument_list|,
 name|dir
 argument_list|)
 expr_stmt|;
+comment|// only include xml files
 name|endpoint
 operator|=
 name|getCamelContext
@@ -457,7 +448,7 @@ literal|"&recursive="
 operator|+
 name|isRecursive
 operator|+
-literal|"&readLock=none&noop=true&idempotentKey=${file:name}-${file:modified}"
+literal|"&include=.*xml$&readLock=none&noop=true&idempotentKey=${file:name}-${file:modified}"
 argument_list|)
 expr_stmt|;
 comment|// must wrap in unit of work
@@ -561,14 +552,14 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|UpdatedFileProcessor
-specifier|protected
+specifier|private
 class|class
 name|UpdatedFileProcessor
 extends|extends
 name|DefaultProducer
 block|{
 DECL|method|UpdatedFileProcessor (Endpoint endpoint)
-specifier|public
+specifier|private
 name|UpdatedFileProcessor
 parameter_list|(
 name|Endpoint
@@ -615,36 +606,9 @@ argument_list|)
 decl_stmt|;
 name|log
 operator|.
-name|trace
-argument_list|(
-literal|"Modified/Created file: {}"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-comment|// must be an .xml file
-if|if
-condition|(
-name|name
-operator|.
-name|toLowerCase
-argument_list|(
-name|Locale
-operator|.
-name|US
-argument_list|)
-operator|.
-name|endsWith
-argument_list|(
-literal|".xml"
-argument_list|)
-condition|)
-block|{
-name|log
-operator|.
 name|debug
 argument_list|(
-literal|"Modified/Created XML file: {}"
+literal|"Modified/Created file: {}"
 argument_list|,
 name|name
 argument_list|)
@@ -710,7 +674,6 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
