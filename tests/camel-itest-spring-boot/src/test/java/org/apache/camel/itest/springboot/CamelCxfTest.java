@@ -199,15 +199,6 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|runComponentTest
-argument_list|(
-name|config
-argument_list|,
-literal|"cxfbean"
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
 name|runModuleUnitTestsIfEnabled
 argument_list|(
 name|config

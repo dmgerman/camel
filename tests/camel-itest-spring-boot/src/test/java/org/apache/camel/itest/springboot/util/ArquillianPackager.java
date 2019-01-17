@@ -2489,6 +2489,13 @@ argument_list|(
 literal|"org.jgroups:jgroups-raft"
 argument_list|)
 expr_stmt|;
+name|ignore
+operator|.
+name|add
+argument_list|(
+literal|"net.sourceforge.htmlunit:htmlunit"
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String
