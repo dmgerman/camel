@@ -65,15 +65,6 @@ name|PLACEHOLDER_QNAME
 init|=
 literal|"http://camel.apache.org/schema/placeholder"
 decl_stmt|;
-DECL|field|CUSTOM_LOG_MASK_REF
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|CUSTOM_LOG_MASK_REF
-init|=
-literal|"CamelCustomLogMask"
-decl_stmt|;
 DECL|method|Constants ()
 specifier|private
 name|Constants

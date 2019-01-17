@@ -26,6 +26,12 @@ specifier|public
 interface|interface
 name|MaskingFormatter
 block|{
+DECL|field|CUSTOM_LOG_MASK_REF
+name|String
+name|CUSTOM_LOG_MASK_REF
+init|=
+literal|"CamelCustomLogMask"
+decl_stmt|;
 comment|/**      * Format a given string.      *      * @param source the source string      * @return formatted string      */
 DECL|method|format (String source)
 name|String
