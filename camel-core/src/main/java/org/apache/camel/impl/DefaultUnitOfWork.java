@@ -1687,25 +1687,11 @@ name|RouteContext
 name|popRouteContext
 parameter_list|()
 block|{
-try|try
-block|{
 return|return
 name|routeContextStack
 operator|.
-name|pop
+name|pollFirst
 argument_list|()
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|NoSuchElementException
-name|e
-parameter_list|)
-block|{
-comment|// ignore and return null
-block|}
-return|return
-literal|null
 return|;
 block|}
 DECL|method|beforeProcess (Processor processor, Exchange exchange, AsyncCallback callback)
