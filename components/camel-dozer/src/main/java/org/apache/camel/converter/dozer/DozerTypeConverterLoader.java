@@ -216,7 +216,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ServiceSupport
+name|ResourceHelper
 import|;
 end_import
 
@@ -230,7 +230,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ResourceHelper
+name|ServiceSupport
 import|;
 end_import
 
