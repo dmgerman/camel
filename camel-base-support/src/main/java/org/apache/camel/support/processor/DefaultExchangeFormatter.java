@@ -233,6 +233,10 @@ argument_list|(
 name|label
 operator|=
 literal|"formatting"
+argument_list|,
+name|description
+operator|=
+literal|"Show the unique exchange ID."
 argument_list|)
 DECL|field|showExchangeId
 specifier|private
@@ -249,6 +253,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Shows the Message Exchange Pattern (or MEP for short)."
 argument_list|)
 DECL|field|showExchangePattern
 specifier|private
@@ -263,6 +271,10 @@ argument_list|(
 name|label
 operator|=
 literal|"formatting"
+argument_list|,
+name|description
+operator|=
+literal|"Show the exchange properties."
 argument_list|)
 DECL|field|showProperties
 specifier|private
@@ -275,6 +287,10 @@ argument_list|(
 name|label
 operator|=
 literal|"formatting"
+argument_list|,
+name|description
+operator|=
+literal|"Show the message headers."
 argument_list|)
 DECL|field|showHeaders
 specifier|private
@@ -291,6 +307,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Whether to skip line separators when logging the message body. This allows to log the message body in one line, setting this option to false will preserve any line separators from the body, which then will log the body as is."
 argument_list|)
 DECL|field|skipBodyLineSeparator
 specifier|private
@@ -331,6 +351,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Show the body Java type."
 argument_list|)
 DECL|field|showBodyType
 specifier|private
@@ -345,6 +369,10 @@ argument_list|(
 name|label
 operator|=
 literal|"formatting"
+argument_list|,
+name|description
+operator|=
+literal|"If the exchange has an out message, show the out message."
 argument_list|)
 DECL|field|showOut
 specifier|private
@@ -357,6 +385,10 @@ argument_list|(
 name|label
 operator|=
 literal|"formatting"
+argument_list|,
+name|description
+operator|=
+literal|"If the exchange has an exception, show the exception message (no stacktrace)"
 argument_list|)
 DECL|field|showException
 specifier|private
@@ -369,6 +401,10 @@ argument_list|(
 name|label
 operator|=
 literal|"formatting"
+argument_list|,
+name|description
+operator|=
+literal|"f the exchange has a caught exception, show the exception message (no stack trace). A caught exception is stored as a property on the exchange (using the key org.apache.camel.Exchange#EXCEPTION_CAUGHT and for instance a doCatch can catch exceptions."
 argument_list|)
 DECL|field|showCaughtException
 specifier|private
@@ -381,6 +417,10 @@ argument_list|(
 name|label
 operator|=
 literal|"formatting"
+argument_list|,
+name|description
+operator|=
+literal|"Show the stack trace, if an exchange has an exception. Only effective if one of showAll, showException or showCaughtException are enabled."
 argument_list|)
 DECL|field|showStackTrace
 specifier|private
@@ -393,6 +433,10 @@ argument_list|(
 name|label
 operator|=
 literal|"formatting"
+argument_list|,
+name|description
+operator|=
+literal|"Quick option for turning all options on. (multiline, maxChars has to be manually set if to be used)"
 argument_list|)
 DECL|field|showAll
 specifier|private
@@ -405,6 +449,10 @@ argument_list|(
 name|label
 operator|=
 literal|"formatting"
+argument_list|,
+name|description
+operator|=
+literal|"If enabled then each information is outputted on a newline."
 argument_list|)
 DECL|field|multiline
 specifier|private
@@ -417,6 +465,10 @@ argument_list|(
 name|label
 operator|=
 literal|"formatting"
+argument_list|,
+name|description
+operator|=
+literal|"If enabled Camel will on Future objects wait for it to complete to obtain the payload to be logged."
 argument_list|)
 DECL|field|showFuture
 specifier|private
@@ -429,6 +481,10 @@ argument_list|(
 name|label
 operator|=
 literal|"formatting"
+argument_list|,
+name|description
+operator|=
+literal|"Whether Camel should show stream bodies or not (eg such as java.io.InputStream). Beware if you enable this option then you may not be able later to access the message body as the stream have already been read by this logger. To remedy this you will have to use Stream Caching."
 argument_list|)
 DECL|field|showStreams
 specifier|private
@@ -441,6 +497,10 @@ argument_list|(
 name|label
 operator|=
 literal|"formatting"
+argument_list|,
+name|description
+operator|=
+literal|"If enabled Camel will output files"
 argument_list|)
 DECL|field|showFiles
 specifier|private
@@ -457,6 +517,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"10000"
+argument_list|,
+name|description
+operator|=
+literal|"Limits the number of characters logged per line."
 argument_list|)
 DECL|field|maxChars
 specifier|private
@@ -479,6 +543,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"Default"
+argument_list|,
+name|description
+operator|=
+literal|"Sets the outputs style to use."
 argument_list|)
 DECL|field|style
 specifier|private
@@ -1755,7 +1823,7 @@ return|return
 name|showCaughtException
 return|;
 block|}
-comment|/**      * f the exchange has a caught exception, show the exception message (no stack trace).      * A caught exception is stored as a property on the exchange (using the key {@link org.apache.camel.Exchange#EXCEPTION_CAUGHT}      * and for instance a doCatch can catch exceptions.      */
+comment|/**      * If the exchange has a caught exception, show the exception message (no stack trace).      * A caught exception is stored as a property on the exchange (using the key {@link org.apache.camel.Exchange#EXCEPTION_CAUGHT}      * and for instance a doCatch can catch exceptions.      */
 DECL|method|setShowCaughtException (boolean showCaughtException)
 specifier|public
 name|void
