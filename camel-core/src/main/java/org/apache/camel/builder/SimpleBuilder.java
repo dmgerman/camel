@@ -90,7 +90,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ResourceHelper
+name|ScriptHelper
 import|;
 end_import
 
@@ -451,7 +451,7 @@ decl_stmt|;
 comment|// and optional it be refer to an external script on the file/classpath
 name|resolve
 operator|=
-name|ResourceHelper
+name|ScriptHelper
 operator|.
 name|resolveOptionalExternalScript
 argument_list|(
@@ -536,7 +536,7 @@ decl_stmt|;
 comment|// and optional it be refer to an external script on the file/classpath
 name|resolve
 operator|=
-name|ResourceHelper
+name|ScriptHelper
 operator|.
 name|resolveOptionalExternalScript
 argument_list|(

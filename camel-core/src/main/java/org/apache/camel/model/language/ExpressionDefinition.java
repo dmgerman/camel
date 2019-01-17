@@ -354,7 +354,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ResourceHelper
+name|ScriptHelper
 import|;
 end_import
 
@@ -1053,7 +1053,7 @@ block|}
 comment|// resolve the expression as it may be an external script from the classpath/file etc
 name|exp
 operator|=
-name|ResourceHelper
+name|ScriptHelper
 operator|.
 name|resolveOptionalExternalScript
 argument_list|(
@@ -1247,7 +1247,7 @@ block|}
 comment|// resolve the expression as it may be an external script from the classpath/file etc
 name|exp
 operator|=
-name|ResourceHelper
+name|ScriptHelper
 operator|.
 name|resolveOptionalExternalScript
 argument_list|(
