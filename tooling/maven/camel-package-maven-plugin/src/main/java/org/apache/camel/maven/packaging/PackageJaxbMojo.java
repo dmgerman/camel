@@ -884,6 +884,11 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
+name|int
+name|count
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|Map
@@ -993,9 +998,28 @@ argument_list|(
 literal|"\n"
 argument_list|)
 expr_stmt|;
+name|count
+operator|++
+expr_stmt|;
 block|}
 block|}
 block|}
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Generated "
+operator|+
+name|jaxbIndexOutDir
+operator|+
+literal|" containing "
+operator|+
+name|count
+operator|+
+literal|" jaxb.index elements"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
