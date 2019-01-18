@@ -102,9 +102,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|impl
 operator|.
-name|DefaultAsyncProducer
+name|DefaultExchangeHolder
 import|;
 end_import
 
@@ -116,9 +116,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
-name|DefaultExchangeHolder
+name|DefaultAsyncProducer
 import|;
 end_import
 
