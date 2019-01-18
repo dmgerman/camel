@@ -72,9 +72,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|ScheduledPollConsumer
+name|Registry
 import|;
 end_import
 
@@ -86,9 +86,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|Registry
+name|ScheduledPollConsumer
 import|;
 end_import
 
