@@ -84,9 +84,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|DefaultComponent
+name|annotations
+operator|.
+name|Component
 import|;
 end_import
 
@@ -98,11 +100,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|annotations
-operator|.
-name|Component
+name|DefaultComponent
 import|;
 end_import
 
