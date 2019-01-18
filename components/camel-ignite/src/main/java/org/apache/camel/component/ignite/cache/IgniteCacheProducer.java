@@ -150,9 +150,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|DefaultAsyncProducer
+name|Synchronization
 import|;
 end_import
 
@@ -164,9 +164,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|Synchronization
+name|DefaultAsyncProducer
 import|;
 end_import
 
