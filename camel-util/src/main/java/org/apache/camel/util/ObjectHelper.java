@@ -323,6 +323,28 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|FLOAT_NAN
+specifier|private
+specifier|static
+specifier|final
+name|Float
+name|FLOAT_NAN
+init|=
+name|Float
+operator|.
+name|NaN
+decl_stmt|;
+DECL|field|DOUBLE_NAN
+specifier|private
+specifier|static
+specifier|final
+name|Double
+name|DOUBLE_NAN
+init|=
+name|Double
+operator|.
+name|NaN
+decl_stmt|;
 comment|/**      * Utility classes should not have a public constructor.      */
 DECL|method|ObjectHelper ()
 specifier|private
@@ -2181,9 +2203,11 @@ name|url
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 name|url
 return|;
+block|}
 block|}
 comment|// #2 Next, is the TCCL
 name|ClassLoader
@@ -2219,9 +2243,11 @@ name|url
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 name|url
 return|;
+block|}
 comment|// #3 The TCCL may be able to see camel-core, but not META-INF resources
 try|try
 block|{
@@ -2256,9 +2282,11 @@ name|url
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 name|url
 return|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2290,9 +2318,11 @@ name|url
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 name|url
 return|;
+block|}
 name|url
 operator|=
 name|ObjectHelper
@@ -2381,9 +2411,11 @@ name|res
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 name|res
 return|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2430,9 +2462,11 @@ name|res
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 name|res
 return|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2476,9 +2510,11 @@ name|res
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 name|res
 return|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2521,7 +2557,7 @@ return|return
 name|res
 return|;
 block|}
-comment|/**      * Helper operation used to remove relative path notation from       * resources.  Most critical for resources on the Classpath      * as resource loaders will not resolve the relative paths correctly.      *       * @param name the name of the resource to load      * @return the modified or unmodified string if there were no changes      */
+comment|/**      * Helper operation used to remove relative path notation from       * resources.  Most critical for resources on the Classpath      * as resource loaders will not resolve the relative paths correctly.      *      * @param name the name of the resource to load      * @return the modified or unmodified string if there were no changes      */
 DECL|method|resolveUriPath (String name)
 specifier|private
 specifier|static
@@ -3313,7 +3349,7 @@ name|b
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns if the given {@code clazz} type is a Java primitive array type.      *       * @param clazz the Java type to be checked      * @return {@code true} if the given type is a Java primitive array type      */
+comment|/**      * Returns if the given {@code clazz} type is a Java primitive array type.      *      * @param clazz the Java type to be checked      * @return {@code true} if the given type is a Java primitive array type      */
 DECL|method|isPrimitiveArrayType (Class<?> clazz)
 specifier|public
 specifier|static
@@ -4391,29 +4427,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|field|FLOAT_NAN
-specifier|private
-specifier|static
-specifier|final
-name|Float
-name|FLOAT_NAN
-init|=
-name|Float
-operator|.
-name|NaN
-decl_stmt|;
-DECL|field|DOUBLE_NAN
-specifier|private
-specifier|static
-specifier|final
-name|Double
-name|DOUBLE_NAN
-init|=
-name|Double
-operator|.
-name|NaN
-decl_stmt|;
-comment|/**      * Is the given value a numeric NaN type      *       * @param value the value      * @return<tt>true</tt> if its a {@link Float#NaN} or {@link Double#NaN}.      */
+comment|/**      * Is the given value a numeric NaN type      *      * @param value the value      * @return<tt>true</tt> if its a {@link Float#NaN} or {@link Double#NaN}.      */
 DECL|method|isNaN (Object value)
 specifier|public
 specifier|static
