@@ -108,7 +108,7 @@ specifier|private
 name|String
 name|httpRegistry
 decl_stmt|;
-comment|/**      * Whether to automatic bind multipart/form-data as attachments on the Camel      * Exchange}. The options attachmentMultipartBinding=true and      * disableStreamCache=false cannot work together. Remove disableStreamCache      * to use AttachmentMultipartBinding. This is turn off by default as this      * may require servlet specific configuration to enable this when using      * Servlet's.      */
+comment|/**      * Whether to automatic bind multipart/form-data as attachments on the Camel      * Exchange. The options attachmentMultipartBinding=true and      * disableStreamCache=false cannot work together. Remove disableStreamCache      * to use AttachmentMultipartBinding. This is turn off by default as this      * may require servlet specific configuration to enable this when using      * Servlet's.      */
 DECL|field|attachmentMultipartBinding
 specifier|private
 name|Boolean
