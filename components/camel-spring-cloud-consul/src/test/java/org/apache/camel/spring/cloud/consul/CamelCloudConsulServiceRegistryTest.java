@@ -369,7 +369,7 @@ init|=
 operator|new
 name|GenericContainer
 argument_list|(
-literal|"consul:1.0.7"
+literal|"consul:1.4.0"
 argument_list|)
 operator|.
 name|withExposedPorts
@@ -497,8 +497,12 @@ argument_list|,
 literal|"--spring.cloud.service-registry.auto-registration.enabled=false"
 argument_list|,
 literal|"--camel.cloud.service-registry.service-host=localhost"
+argument_list|,
+literal|"--spring.main.allow-bean-definition-overriding=true"
 argument_list|)
 decl_stmt|;
+comment|// TODO: Remove --spring.main.allow-bean-definition-overriding=true when new version of spring-cloud
+comment|//  is released that supports Spring Boot 2.1 more properly
 try|try
 block|{
 specifier|final

@@ -211,8 +211,12 @@ argument_list|,
 literal|"--spring.cloud.consul.discovery.enabled=true"
 argument_list|,
 literal|"--spring.cloud.service-registry.auto-registration.enabled=false"
+argument_list|,
+literal|"--spring.main.allow-bean-definition-overriding=true"
 argument_list|)
 decl_stmt|;
+comment|// TODO: Remove --spring.main.allow-bean-definition-overriding=true when new version of spring-cloud
+comment|//  is released that supports Spring Boot 2.1 more properly
 try|try
 block|{
 name|Map
@@ -330,8 +334,12 @@ argument_list|,
 literal|"--spring.cloud.consul.discovery.enabled=true"
 argument_list|,
 literal|"--spring.cloud.service-registry.auto-registration.enabled=false"
+argument_list|,
+literal|"--spring.main.allow-bean-definition-overriding=true"
 argument_list|)
 decl_stmt|;
+comment|// TODO: Remove --spring.main.allow-bean-definition-overriding=true when new version of spring-cloud
+comment|//  is released that supports Spring Boot 2.1 more properly
 try|try
 block|{
 name|Map
