@@ -120,11 +120,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|support
 operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
+name|IntrospectionSupport
 import|;
 end_import
 
@@ -136,9 +134,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|test
 operator|.
-name|IntrospectionSupport
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
