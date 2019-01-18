@@ -381,6 +381,14 @@ specifier|private
 name|HttpClientBuilder
 name|httpClientBuilder
 decl_stmt|;
+comment|/**          * Set this to true to filter out results that have already been          * communicated by this component.          */
+DECL|field|filterAlreadySeen
+specifier|private
+name|Boolean
+name|filterAlreadySeen
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getApiName ()
 specifier|public
 name|Olingo4ApiName
@@ -665,6 +673,32 @@ operator|.
 name|httpClientBuilder
 operator|=
 name|httpClientBuilder
+expr_stmt|;
+block|}
+DECL|method|getFilterAlreadySeen ()
+specifier|public
+name|Boolean
+name|getFilterAlreadySeen
+parameter_list|()
+block|{
+return|return
+name|filterAlreadySeen
+return|;
+block|}
+DECL|method|setFilterAlreadySeen (Boolean filterAlreadySeen)
+specifier|public
+name|void
+name|setFilterAlreadySeen
+parameter_list|(
+name|Boolean
+name|filterAlreadySeen
+parameter_list|)
+block|{
+name|this
+operator|.
+name|filterAlreadySeen
+operator|=
+name|filterAlreadySeen
 expr_stmt|;
 block|}
 block|}
