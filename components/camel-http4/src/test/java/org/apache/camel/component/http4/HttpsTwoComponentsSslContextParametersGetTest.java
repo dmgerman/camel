@@ -54,9 +54,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|support
 operator|.
-name|AvailablePortFinder
+name|jsse
+operator|.
+name|SSLContextParameters
 import|;
 end_import
 
@@ -68,11 +70,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|test
 operator|.
-name|jsse
-operator|.
-name|SSLContextParameters
+name|AvailablePortFinder
 import|;
 end_import
 
