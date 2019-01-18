@@ -2902,7 +2902,7 @@ return|return
 name|idempotentKey
 return|;
 block|}
-comment|/**      * To use a custom idempotent key. By default the absolute path of the file is used.      * You can use the File Language, for example to use the file name and file size, you can do:      *<tt>idempotentKey=${file:name}-${file:size}</tt>      */
+comment|/**      * To use a custom idempotent key. By default the absolute path of the file is used.      * You can use the File Language, for example to use the file name and file size, you can do:      * idempotentKey=${file:name}-${file:size}      */
 DECL|method|setIdempotentKey (Expression idempotentKey)
 specifier|public
 name|void

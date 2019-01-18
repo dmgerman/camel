@@ -243,7 +243,7 @@ name|maximumSize
 init|=
 literal|10
 decl_stmt|;
-comment|/**      * Keep-alive time in minutes that gets passed to link      * ThreadPoolExecutor#setKeepAliveTime(long, TimeUnit)      */
+comment|/**      * Keep-alive time in minutes that gets passed to {link      * ThreadPoolExecutor#setKeepAliveTime(long, TimeUnit)}      */
 DECL|field|keepAliveTime
 specifier|private
 name|Integer

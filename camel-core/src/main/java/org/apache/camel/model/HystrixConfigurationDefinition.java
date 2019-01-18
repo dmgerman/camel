@@ -24,43 +24,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|BlockingQueue
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Future
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|ThreadPoolExecutor
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
 import|;
 end_import
 
@@ -281,7 +245,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If true the HystrixCircuitBreaker#allowRequest() will always return true to allow requests regardless of      * the error percentage from HystrixCommandMetrics.getHealthCounts().      *<p>      * The circuitBreakerForceOpen() property takes precedence so if it set to true this property does nothing.      */
+comment|/**      * If true the HystrixCircuitBreaker.allowRequest() will always return true to allow requests regardless of      * the error percentage from HystrixCommandMetrics.getHealthCounts().      *<p>      * The circuitBreakerForceOpen() property takes precedence so if it set to true this property does nothing.      */
 DECL|method|circuitBreakerForceClosed (Boolean circuitBreakerForceClosed)
 specifier|public
 name|HystrixConfigurationDefinition
@@ -357,7 +321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Number of concurrent requests permitted to HystrixCommand.run(). Requests beyond the concurrent limit will be rejected.      *<p>      * Applicable only when executionIsolationStrategy == SEMAPHORE.      */
+comment|/**      * Number of concurrent requests permitted to HystrixCommand.run(). Requests beyond the concurrent limit will be rejected.      *<p>      * Applicable only when executionIsolationStrategy is SEMAPHORE.      */
 DECL|method|executionIsolationSemaphoreMaxConcurrentRequests (Integer executionIsolationSemaphoreMaxConcurrentRequests)
 specifier|public
 name|HystrixConfigurationDefinition
@@ -395,7 +359,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Whether the execution thread should attempt an interrupt (using {@link Future#cancel}) when a thread times out.      *<p>      * Applicable only when executionIsolationStrategy() == THREAD.      */
+comment|/**      * Whether the execution thread should attempt an interrupt (using Future cancel) when a thread times out.      *<p>      * Applicable only when executionIsolationStrategy() is set to THREAD.      */
 DECL|method|executionIsolationThreadInterruptOnTimeout (Boolean executionIsolationThreadInterruptOnTimeout)
 specifier|public
 name|HystrixConfigurationDefinition
@@ -414,7 +378,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Time in milliseconds at which point the command will timeout and halt execution.      *<p>      * If {@link #executionIsolationThreadInterruptOnTimeout} == true and the command is thread-isolated, the executing thread will be interrupted.      * If the command is semaphore-isolated and a HystrixObservableCommand, that command will get unsubscribed.      */
+comment|/**      * Time in milliseconds at which point the command will timeout and halt execution.      *<p>      * If executionIsolationThreadInterruptOnTimeout is true and the command is thread-isolated, the executing thread will be interrupted.      * If the command is semaphore-isolated and a HystrixObservableCommand, that command will get unsubscribed.      */
 DECL|method|executionTimeoutInMilliseconds (Integer executionTimeoutInMilliseconds)
 specifier|public
 name|HystrixConfigurationDefinition
@@ -642,7 +606,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Core thread-pool size that gets passed to {@link java.util.concurrent.ThreadPoolExecutor#setCorePoolSize(int)}      */
+comment|/**      * Core thread-pool size.      */
 DECL|method|corePoolSize (Integer corePoolSize)
 specifier|public
 name|HystrixConfigurationDefinition
@@ -661,7 +625,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Keep-alive time in minutes that gets passed to {@link ThreadPoolExecutor#setKeepAliveTime(long, TimeUnit)}      */
+comment|/**      * Keep-alive time in minutes.      */
 DECL|method|keepAliveTime (Integer keepAliveTime)
 specifier|public
 name|HystrixConfigurationDefinition
@@ -680,7 +644,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Max queue size that gets passed to {@link BlockingQueue} in HystrixConcurrencyStrategy.getBlockingQueue(int)      *      * This should only affect the instantiation of a threadpool - it is not eliglible to change a queue size on the fly.      * For that, use queueSizeRejectionThreshold().      */
+comment|/**      * Max queue size.      *      * This should only affect the instantiation of the thread-pool - it is not eligible to change a queue size on the fly.      */
 DECL|method|maxQueueSize (Integer maxQueueSize)
 specifier|public
 name|HystrixConfigurationDefinition
@@ -718,7 +682,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Queue size rejection threshold is an artificial "max" size at which rejections will occur even      * if {@link #maxQueueSize} has not been reached. This is done because the {@link #maxQueueSize}      * of a {@link BlockingQueue} can not be dynamically changed and we want to support dynamically      * changing the queue size that affects rejections.      *<p>      * This is used by HystrixCommand when queuing a thread for execution.      */
+comment|/**      * Queue size rejection threshold is an artificial max size at which rejections will occur even      * if maxQueueSize has not been reached. This is done because the maxQueueSize      * of a blocking queue can not be dynamically changed and we want to support dynamically      * changing the queue size that affects rejections.      *<p>      * This is used by HystrixCommand when queuing a thread for execution.      */
 DECL|method|queueSizeRejectionThreshold (Integer queueSizeRejectionThreshold)
 specifier|public
 name|HystrixConfigurationDefinition
@@ -794,7 +758,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * End of configuration      */
+comment|/**      * End of configuration.      */
 DECL|method|end ()
 specifier|public
 name|HystrixDefinition

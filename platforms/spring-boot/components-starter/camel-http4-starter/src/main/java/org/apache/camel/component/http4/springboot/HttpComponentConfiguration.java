@@ -124,7 +124,7 @@ name|useGlobalSslContextParameters
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * To use a custom X509HostnameVerifier such as DefaultHostnameVerifier or      * org.apache.http.conn.ssl.NoopHostnameVerifier. The option is a      * javax.net.ssl.HostnameVerifier type.      */
+comment|/**      * To use a custom X509HostnameVerifier such as DefaultHostnameVerifier or      * NoopHostnameVerifier. The option is a javax.net.ssl.HostnameVerifier      * type.      */
 DECL|field|x509HostnameVerifier
 specifier|private
 name|String
@@ -158,7 +158,7 @@ specifier|private
 name|String
 name|cookieStore
 decl_stmt|;
-comment|/**      * The timeout in milliseconds used when requesting a connection from the      * connection manager. A timeout value of zero is interpreted as an infinite      * timeout. A timeout value of zero is interpreted as an infinite timeout. A      * negative value is interpreted as undefined (system default). Default:      * code -1      */
+comment|/**      * The timeout in milliseconds used when requesting a connection from the      * connection manager. A timeout value of zero is interpreted as an infinite      * timeout. A timeout value of zero is interpreted as an infinite timeout. A      * negative value is interpreted as undefined (system default). Default: -1      */
 DECL|field|connectionRequestTimeout
 specifier|private
 name|Integer
@@ -167,7 +167,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/**      * Determines the timeout in milliseconds until a connection is established.      * A timeout value of zero is interpreted as an infinite timeout. A timeout      * value of zero is interpreted as an infinite timeout. A negative value is      * interpreted as undefined (system default). Default: code -1      */
+comment|/**      * Determines the timeout in milliseconds until a connection is established.      * A timeout value of zero is interpreted as an infinite timeout. A timeout      * value of zero is interpreted as an infinite timeout. A negative value is      * interpreted as undefined (system default). Default: -1      */
 DECL|field|connectTimeout
 specifier|private
 name|Integer
@@ -176,7 +176,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/**      * Defines the socket timeout (SO_TIMEOUT) in milliseconds, which is the      * timeout for waiting for data or, put differently, a maximum period      * inactivity between two consecutive data packets). A timeout value of zero      * is interpreted as an infinite timeout. A negative value is interpreted as      * undefined (system default). Default: code -1      */
+comment|/**      * Defines the socket timeout (SO_TIMEOUT) in milliseconds, which is the      * timeout for waiting for data or, put differently, a maximum period      * inactivity between two consecutive data packets). A timeout value of zero      * is interpreted as an infinite timeout. A negative value is interpreted as      * undefined (system default). Default: -1      */
 DECL|field|socketTimeout
 specifier|private
 name|Integer

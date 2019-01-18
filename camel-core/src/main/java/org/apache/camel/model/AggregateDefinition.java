@@ -1816,7 +1816,7 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-comment|/**      * Use eager completion checking which means that the {{completionPredicate}} will use the incoming Exchange.      * As opposed to without eager completion checking the {{completionPredicate}} will use the aggregated Exchange.      *      * @return builder      */
+comment|/**      * Use eager completion checking which means that the completionPredicate will use the incoming Exchange.      * As opposed to without eager completion checking the completionPredicate will use the aggregated Exchange.      *      * @return builder      */
 DECL|method|eagerCheckCompletion ()
 specifier|public
 name|AggregateDefinition
@@ -1832,7 +1832,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If a correlation key cannot be successfully evaluated it will be ignored by logging a {{DEBUG}} and then just      * ignore the incoming Exchange.      *      * @return builder      */
+comment|/**      * If a correlation key cannot be successfully evaluated it will be ignored by logging a DEBUG and then just      * ignore the incoming Exchange.      *      * @return builder      */
 DECL|method|ignoreInvalidCorrelationKeys ()
 specifier|public
 name|AggregateDefinition
@@ -1848,7 +1848,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Closes a correlation key when its complete. Any<i>late</i> received exchanges which has a correlation key      * that has been closed, it will be defined and a {@link ClosedCorrelationKeyException}      * is thrown.      *      * @param capacity the maximum capacity of the closed correlation key cache.      *                 Use<tt>0</tt> or negative value for unbounded capacity.      * @return builder      */
+comment|/**      * Closes a correlation key when its complete. Any<i>late</i> received exchanges which has a correlation key      * that has been closed, it will be defined and a ClosedCorrelationKeyException      * is thrown.      *      * @param capacity the maximum capacity of the closed correlation key cache.      *                 Use<tt>0</tt> or negative value for unbounded capacity.      * @return builder      */
 DECL|method|closeCorrelationKeyOnCompletion (int capacity)
 specifier|public
 name|AggregateDefinition

@@ -387,7 +387,7 @@ specifier|private
 name|String
 name|tableName
 decl_stmt|;
-comment|/**          * Defines where in the DynaboDB stream to start getting records. Note          * that using TRIM_HORIZON can cause a significant delay before the          * stream has caught up to real-time. if AT,AFTER_SEQUENCE_NUMBER are          * used, then a sequenceNumberProvider MUST be supplied.          */
+comment|/**          * Defines where in the DynaboDB stream to start getting records. Note          * that using TRIM_HORIZON can cause a significant delay before the          * stream has caught up to real-time. if {AT,AFTER}_SEQUENCE_NUMBER are          * used, then a sequenceNumberProvider MUST be supplied.          */
 DECL|field|iteratorType
 specifier|private
 name|ShardIteratorType
@@ -397,7 +397,7 @@ name|ShardIteratorType
 operator|.
 name|LATEST
 decl_stmt|;
-comment|/**          * Provider for the sequence number when using one of the two          * ShardIteratorType.AT,AFTER_SEQUENCE_NUMBER iterator types. Can be a          * registry reference or a literal sequence number.          */
+comment|/**          * Provider for the sequence number when using one of the two          * ShardIteratorType.{AT,AFTER}_SEQUENCE_NUMBER iterator types. Can be a          * registry reference or a literal sequence number.          */
 DECL|field|sequenceNumberProvider
 specifier|private
 name|SequenceNumberProvider

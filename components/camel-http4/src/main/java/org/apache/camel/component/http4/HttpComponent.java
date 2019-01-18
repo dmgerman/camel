@@ -3258,7 +3258,7 @@ return|return
 name|x509HostnameVerifier
 return|;
 block|}
-comment|/**      * To use a custom X509HostnameVerifier such as {@link DefaultHostnameVerifier}      * or {@link org.apache.http.conn.ssl.NoopHostnameVerifier}.      */
+comment|/**      * To use a custom X509HostnameVerifier such as DefaultHostnameVerifier or NoopHostnameVerifier.      */
 DECL|method|setX509HostnameVerifier (HostnameVerifier x509HostnameVerifier)
 specifier|public
 name|void
@@ -3393,7 +3393,7 @@ return|return
 name|connectionRequestTimeout
 return|;
 block|}
-comment|/**      * The timeout in milliseconds used when requesting a connection      * from the connection manager. A timeout value of zero is interpreted      * as an infinite timeout.      *<p>      * A timeout value of zero is interpreted as an infinite timeout.      * A negative value is interpreted as undefined (system default).      *</p>      *<p>      * Default: {@code -1}      *</p>      */
+comment|/**      * The timeout in milliseconds used when requesting a connection      * from the connection manager. A timeout value of zero is interpreted      * as an infinite timeout.      *<p>      * A timeout value of zero is interpreted as an infinite timeout.      * A negative value is interpreted as undefined (system default).      *</p>      *<p>      * Default: -1      *</p>      */
 DECL|method|setConnectionRequestTimeout (int connectionRequestTimeout)
 specifier|public
 name|void
@@ -3420,7 +3420,7 @@ return|return
 name|connectTimeout
 return|;
 block|}
-comment|/**      * Determines the timeout in milliseconds until a connection is established.      * A timeout value of zero is interpreted as an infinite timeout.      *<p>      * A timeout value of zero is interpreted as an infinite timeout.      * A negative value is interpreted as undefined (system default).      *</p>      *<p>      * Default: {@code -1}      *</p>      */
+comment|/**      * Determines the timeout in milliseconds until a connection is established.      * A timeout value of zero is interpreted as an infinite timeout.      *<p>      * A timeout value of zero is interpreted as an infinite timeout.      * A negative value is interpreted as undefined (system default).      *</p>      *<p>      * Default: -1      *</p>      */
 DECL|method|setConnectTimeout (int connectTimeout)
 specifier|public
 name|void
@@ -3447,7 +3447,7 @@ return|return
 name|socketTimeout
 return|;
 block|}
-comment|/**      * Defines the socket timeout ({@code SO_TIMEOUT}) in milliseconds,      * which is the timeout for waiting for data  or, put differently,      * a maximum period inactivity between two consecutive data packets).      *<p>      * A timeout value of zero is interpreted as an infinite timeout.      * A negative value is interpreted as undefined (system default).      *</p>      *<p>      * Default: {@code -1}      *</p>      */
+comment|/**      * Defines the socket timeout (SO_TIMEOUT) in milliseconds,      * which is the timeout for waiting for data  or, put differently,      * a maximum period inactivity between two consecutive data packets).      *<p>      * A timeout value of zero is interpreted as an infinite timeout.      * A negative value is interpreted as undefined (system default).      *</p>      *<p>      * Default: -1      *</p>      */
 DECL|method|setSocketTimeout (int socketTimeout)
 specifier|public
 name|void

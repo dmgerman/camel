@@ -132,7 +132,7 @@ name|omitResourceId
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * If provided, tells the parse which resource types to apply link      * #setEncodeElements(Set) encode elements to. Any resource types not      * specified here will be encoded completely, with no elements excluded. The      * option is a java.util.Set<java.lang.String> type.      */
+comment|/**      * If provided, tells the parse which resource types to apply {link      * #setEncodeElements(Set) encode elements} to. Any resource types not      * specified here will be encoded completely, with no elements excluded. The      * option is a java.util.Set<java.lang.String> type.      */
 DECL|field|encodeElementsAppliesToResourceTypes
 specifier|private
 name|String
