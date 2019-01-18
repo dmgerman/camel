@@ -651,11 +651,6 @@ comment|/**  * This PGP Data Format uses the interfaces {@link PGPPublicKeyAcces
 end_comment
 
 begin_class
-annotation|@
-name|Dataformat
-argument_list|(
-literal|"pgp"
-argument_list|)
 DECL|class|PGPKeyAccessDataFormat
 specifier|public
 class|class
