@@ -472,7 +472,7 @@ name|deliveryPersistent
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Specifies the delivery mode to be used. Possible values are Possibles      * values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1      * and PERSISTENT = 2.      */
+comment|/**      * Specifies the delivery mode to be used. Possibles values are those      * defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2.      */
 DECL|field|deliveryMode
 specifier|private
 name|Integer
@@ -589,7 +589,7 @@ name|mapJmsMessage
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * When sending, specifies whether message IDs should be added. This is just      * an hint to the JMS Broker. If the JMS provider accepts this hint, these      * messages must have the message ID set to null; if the provider ignores      * the hint, the message ID must be set to its normal unique value      */
+comment|/**      * When sending, specifies whether message IDs should be added. This is just      * an hint to the JMS Broker. If the JMS provider accepts this hint, these      * messages must have the message ID set to null; if the provider ignores      * the hint, the message ID must be set to its normal unique value.      */
 DECL|field|messageIdEnabled
 specifier|private
 name|Boolean
@@ -597,7 +597,7 @@ name|messageIdEnabled
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Specifies whether timestamps should be enabled by default on sending      * messages.      */
+comment|/**      * Specifies whether timestamps should be enabled by default on sending      * messages. This is just an hint to the JMS broker. If the JMS provider      * accepts this hint, these messages must have the timestamp set to zero; if      * the provider ignores the hint the timestamp must be set to its normal      * value.      */
 DECL|field|messageTimestampEnabled
 specifier|private
 name|Boolean
@@ -605,7 +605,7 @@ name|messageTimestampEnabled
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * If true, Camel will always make a JMS message copy of the message when it      * is passed to the producer for sending. Copying the message is needed in      * some situations, such as when a replyToDestinationSelectorName is set      * (incidentally, Camel will set the alwaysCopyMessage option to true, if a      * replyToDestinationSelectorName is set)      */
+comment|/**      * If true, Camel will always make a JMS message copy of the message when it      * is passed to the producer for sending. Copying the message is needed in      * some situations, such as when a replyToDestinationSelectorName is set      * (incidentally, Camel will set the alwaysCopyMessage option to true, if a      * replyToDestinationSelectorName is set).      */
 DECL|field|alwaysCopyMessage
 specifier|private
 name|Boolean
@@ -3363,7 +3363,7 @@ name|messageIdEnabled
 init|=
 literal|true
 decl_stmt|;
-comment|/**          * Specifies whether timestamps should be enabled by default on sending          * messages. This is just an hint to the JMS Broker. If the JMS provider          * accepts this hint, these messages must have the timestamp set to          * zero; if the provider ignores the hint, the timestamp must be set to          * its normal value          */
+comment|/**          * Specifies whether timestamps should be enabled by default on sending          * messages. This is just an hint to the JMS Broker. If the JMS provider          * accepts this hint, these messages must have the timestamp set to          * zero; if the provider ignores the hint, the timestamp must be set to          * its normal value.          */
 DECL|field|messageTimestampEnabled
 specifier|private
 name|Boolean

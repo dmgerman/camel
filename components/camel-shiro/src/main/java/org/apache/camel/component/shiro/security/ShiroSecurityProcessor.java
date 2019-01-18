@@ -1090,7 +1090,7 @@ argument_list|()
 operator|+
 literal|" is locked."
 operator|+
-literal|"Please contact your administrator to unlock it."
+literal|" Please contact your administrator to unlock it."
 argument_list|,
 name|lae
 operator|.

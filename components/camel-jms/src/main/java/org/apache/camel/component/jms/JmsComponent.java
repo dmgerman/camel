@@ -955,7 +955,7 @@ name|description
 operator|=
 literal|"The JMS acknowledgement mode defined as an Integer. Allows you to set vendor-specific extensions to the acknowledgment mode."
 operator|+
-literal|"For the regular modes, it is preferable to use the acknowledgementModeName instead."
+literal|" For the regular modes, it is preferable to use the acknowledgementModeName instead."
 argument_list|)
 DECL|method|setAcknowledgementMode (int consumerAcknowledgementMode)
 specifier|public
@@ -1435,7 +1435,7 @@ name|deliveryPersistent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Specifies the delivery mode to be used. Possible values are      * Possibles values are those defined by javax.jms.DeliveryMode.      * NON_PERSISTENT = 1 and PERSISTENT = 2.      */
+comment|/**      * Specifies the delivery mode to be used.      * Possibles values are those defined by javax.jms.DeliveryMode.      * NON_PERSISTENT = 1 and PERSISTENT = 2.      */
 annotation|@
 name|Metadata
 argument_list|(
@@ -1981,7 +1981,7 @@ name|mapJmsMessage
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * When sending, specifies whether message IDs should be added. This is just an hint to the JMS Broker.      * If the JMS provider accepts this hint, these messages must have the message ID set to null; if the provider ignores the hint, the message ID must be set to its normal unique value      */
+comment|/**      * When sending, specifies whether message IDs should be added. This is just an hint to the JMS Broker.      * If the JMS provider accepts this hint, these messages must have the message ID set to null; if the provider ignores the hint, the message ID must be set to its normal unique value.      */
 annotation|@
 name|Metadata
 argument_list|(
@@ -1997,9 +1997,9 @@ name|description
 operator|=
 literal|"When sending, specifies whether message IDs should be added. This is just an hint to the JMS broker."
 operator|+
-literal|"If the JMS provider accepts this hint, these messages must have the message ID set to null; if the provider ignores the hint, "
+literal|" If the JMS provider accepts this hint, these messages must have the message ID set to null; if the provider ignores the hint, "
 operator|+
-literal|"the message ID must be set to its normal unique value"
+literal|"the message ID must be set to its normal unique value."
 argument_list|)
 DECL|method|setMessageIdEnabled (boolean messageIdEnabled)
 specifier|public
@@ -2019,7 +2019,7 @@ name|messageIdEnabled
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Specifies whether timestamps should be enabled by default on sending messages.      */
+comment|/**      * Specifies whether timestamps should be enabled by default on sending messages. This is just an hint to the JMS broker.      * If the JMS provider accepts this hint, these messages must have the timestamp set to zero;      * if the provider ignores the hint the timestamp must be set to its normal value.      */
 annotation|@
 name|Metadata
 argument_list|(
@@ -2035,9 +2035,9 @@ name|description
 operator|=
 literal|"Specifies whether timestamps should be enabled by default on sending messages. This is just an hint to the JMS broker."
 operator|+
-literal|"If the JMS provider accepts this hint, these messages must have the timestamp set to zero; if the provider ignores the hint "
+literal|" If the JMS provider accepts this hint, these messages must have the timestamp set to zero; if the provider ignores the hint "
 operator|+
-literal|"the timestamp must be set to its normal value"
+literal|"the timestamp must be set to its normal value."
 argument_list|)
 DECL|method|setMessageTimestampEnabled (boolean messageTimestampEnabled)
 specifier|public
@@ -2057,7 +2057,7 @@ name|messageTimestampEnabled
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * If true, Camel will always make a JMS message copy of the message when it is passed to the producer for sending.      * Copying the message is needed in some situations, such as when a replyToDestinationSelectorName is set      * (incidentally, Camel will set the alwaysCopyMessage option to true, if a replyToDestinationSelectorName is set)      */
+comment|/**      * If true, Camel will always make a JMS message copy of the message when it is passed to the producer for sending.      * Copying the message is needed in some situations, such as when a replyToDestinationSelectorName is set      * (incidentally, Camel will set the alwaysCopyMessage option to true, if a replyToDestinationSelectorName is set).      */
 annotation|@
 name|Metadata
 argument_list|(
@@ -2071,7 +2071,7 @@ literal|"If true, Camel will always make a JMS message copy of the message when 
 operator|+
 literal|" Copying the message is needed in some situations, such as when a replyToDestinationSelectorName is set"
 operator|+
-literal|" (incidentally, Camel will set the alwaysCopyMessage option to true, if a replyToDestinationSelectorName is set)"
+literal|" (incidentally, Camel will set the alwaysCopyMessage option to true, if a replyToDestinationSelectorName is set)."
 argument_list|)
 DECL|method|setAlwaysCopyMessage (boolean alwaysCopyMessage)
 specifier|public

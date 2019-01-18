@@ -5211,6 +5211,13 @@ name|nestedTypes
 argument_list|,
 name|javaClassSource
 argument_list|)
+operator|||
+literal|"org.apache.camel.converter.jaxp.XmlConverter"
+operator|.
+name|equals
+argument_list|(
+name|type
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

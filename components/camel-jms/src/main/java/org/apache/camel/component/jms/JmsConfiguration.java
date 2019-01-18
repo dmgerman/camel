@@ -1426,9 +1426,9 @@ name|description
 operator|=
 literal|"When sending, specifies whether message IDs should be added. This is just an hint to the JMS broker."
 operator|+
-literal|"If the JMS provider accepts this hint, these messages must have the message ID set to null; if the provider ignores the hint, "
+literal|" If the JMS provider accepts this hint, these messages must have the message ID set to null; if the provider ignores the hint, "
 operator|+
-literal|"the message ID must be set to its normal unique value"
+literal|"the message ID must be set to its normal unique value."
 argument_list|)
 DECL|field|messageIdEnabled
 specifier|private
@@ -1452,9 +1452,9 @@ name|description
 operator|=
 literal|"Specifies whether timestamps should be enabled by default on sending messages. This is just an hint to the JMS broker."
 operator|+
-literal|"If the JMS provider accepts this hint, these messages must have the timestamp set to zero; if the provider ignores the hint "
+literal|" If the JMS provider accepts this hint, these messages must have the timestamp set to zero; if the provider ignores the hint "
 operator|+
-literal|"the timestamp must be set to its normal value"
+literal|"the timestamp must be set to its normal value."
 argument_list|)
 DECL|field|messageTimestampEnabled
 specifier|private
@@ -4944,7 +4944,7 @@ return|return
 name|messageTimestampEnabled
 return|;
 block|}
-comment|/**      * Specifies whether timestamps should be enabled by default on sending messages. This is just an hint to the JMS Broker.      * If the JMS provider accepts this hint, these messages must have the timestamp set to zero; if the provider ignores the hint, the timestamp must be set to its normal value      */
+comment|/**      * Specifies whether timestamps should be enabled by default on sending messages. This is just an hint to the JMS Broker.      * If the JMS provider accepts this hint, these messages must have the timestamp set to zero; if the provider ignores the hint, the timestamp must be set to its normal value.      */
 DECL|method|setMessageTimestampEnabled (boolean messageTimestampEnabled)
 specifier|public
 name|void

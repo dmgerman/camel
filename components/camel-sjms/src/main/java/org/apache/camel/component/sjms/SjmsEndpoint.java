@@ -1184,7 +1184,7 @@ name|description
 operator|=
 literal|"Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification."
 operator|+
-literal|"Camel provides two implementations out of the box: default and passthrough. The default strategy will safely marshal dots and hyphens (. and -)."
+literal|" Camel provides two implementations out of the box: default and passthrough. The default strategy will safely marshal dots and hyphens (. and -)."
 operator|+
 literal|" The passthrough strategy leaves the key as is. Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters."
 operator|+

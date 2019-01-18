@@ -308,7 +308,7 @@ name|description
 operator|=
 literal|"Define what will be the behavior in case of shard closed. Possible value are ignore, silent and fail."
 operator|+
-literal|"In case of ignore a message will be logged and the consumer will restart from the beginning,"
+literal|" In case of ignore a message will be logged and the consumer will restart from the beginning,"
 operator|+
 literal|"in case of silent there will be no logging and the consumer will start from the beginning,"
 operator|+

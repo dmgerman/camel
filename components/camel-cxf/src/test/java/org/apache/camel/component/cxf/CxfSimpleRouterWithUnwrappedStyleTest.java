@@ -102,7 +102,7 @@ literal|"As the refelection can't tell the paramenter name from SEI without anno
 operator|+
 literal|"CXF cannot send a meaningful request for unwrapped message."
 operator|+
-literal|"We need to use the annontated SEI for testing"
+literal|" We need to use the annontated SEI for testing"
 argument_list|)
 DECL|class|CxfSimpleRouterWithUnwrappedStyleTest
 specifier|public

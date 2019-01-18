@@ -174,7 +174,7 @@ name|allowReplyManagerQuickStop
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * The JMS acknowledgement mode defined as an Integer. Allows you to set      * vendor-specific extensions to the acknowledgment mode.For the regular      * modes, it is preferable to use the acknowledgementModeName instead.      */
+comment|/**      * The JMS acknowledgement mode defined as an Integer. Allows you to set      * vendor-specific extensions to the acknowledgment mode. For the regular      * modes, it is preferable to use the acknowledgementModeName instead.      */
 DECL|field|acknowledgementMode
 specifier|private
 name|Integer
@@ -381,7 +381,7 @@ specifier|private
 name|String
 name|messageConverter
 decl_stmt|;
-comment|/**      * Specifies whether Camel should auto map the received JMS message to a      * suited payload type, such as javax.jms.TextMessage to a String etc.      */
+comment|/**      * Specifies whether Camel should auto map the received JMS message to a      * suited payload type, such as javax.jms.TextMessage to a String etc. See      * section about how mapping works below for more details.      */
 DECL|field|mapJmsMessage
 specifier|private
 name|Boolean
@@ -389,7 +389,7 @@ name|mapJmsMessage
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * When sending, specifies whether message IDs should be added. This is just      * an hint to the JMS broker.If the JMS provider accepts this hint, these      * messages must have the message ID set to null; if the provider ignores      * the hint, the message ID must be set to its normal unique value      */
+comment|/**      * When sending, specifies whether message IDs should be added. This is just      * an hint to the JMS Broker. If the JMS provider accepts this hint, these      * messages must have the message ID set to null; if the provider ignores      * the hint, the message ID must be set to its normal unique value.      */
 DECL|field|messageIdEnabled
 specifier|private
 name|Boolean
@@ -397,7 +397,7 @@ name|messageIdEnabled
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Specifies whether timestamps should be enabled by default on sending      * messages. This is just an hint to the JMS broker.If the JMS provider      * accepts this hint, these messages must have the timestamp set to zero; if      * the provider ignores the hint the timestamp must be set to its normal      * value      */
+comment|/**      * Specifies whether timestamps should be enabled by default on sending      * messages. This is just an hint to the JMS broker. If the JMS provider      * accepts this hint, these messages must have the timestamp set to zero; if      * the provider ignores the hint the timestamp must be set to its normal      * value.      */
 DECL|field|messageTimestampEnabled
 specifier|private
 name|Boolean
@@ -405,7 +405,7 @@ name|messageTimestampEnabled
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * If true, Camel will always make a JMS message copy of the message when it      * is passed to the producer for sending. Copying the message is needed in      * some situations, such as when a replyToDestinationSelectorName is set      * (incidentally, Camel will set the alwaysCopyMessage option to true, if a      * replyToDestinationSelectorName is set)      */
+comment|/**      * If true, Camel will always make a JMS message copy of the message when it      * is passed to the producer for sending. Copying the message is needed in      * some situations, such as when a replyToDestinationSelectorName is set      * (incidentally, Camel will set the alwaysCopyMessage option to true, if a      * replyToDestinationSelectorName is set).      */
 DECL|field|alwaysCopyMessage
 specifier|private
 name|Boolean
@@ -569,7 +569,7 @@ name|transferException
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * If enabled and you are using Request Reply messaging (InOut) and an      * Exchange failed with a SOAP fault (not exception) on the consumer side,      * then the fault flag on Message#isFault() will be send back in the      * response as a JMS header with the key      * org.apache.camel.component.jms.JmsConstants      * #JMS_TRANSFER_FAULT#JMS_TRANSFER_FAULT. If the client is Camel, the      * returned fault flag will be set on the      * org.apache.camel.Message#setFault(boolean). You may want to enable this      * when using Camel components that support faults such as SOAP based such      * as cxf or spring-ws.      */
+comment|/**      * If enabled and you are using Request Reply messaging (InOut) and an      * Exchange failed with a SOAP fault (not exception) on the consumer side,      * then the fault flag on org.apache.camel.Message#isFault() will be send      * back in the response as a JMS header with the key      * JmsConstants#JMS_TRANSFER_FAULT. If the client is Camel, the returned      * fault flag will be set on the org.apache.camel.Message#setFault(boolean).      * You may want to enable this when using Camel components that support      * faults such as SOAP based such as cxf or spring-ws.      */
 DECL|field|transferFault
 specifier|private
 name|Boolean

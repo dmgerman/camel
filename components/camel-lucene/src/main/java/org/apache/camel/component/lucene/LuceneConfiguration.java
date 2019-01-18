@@ -359,7 +359,7 @@ argument_list|()
 argument_list|,
 literal|"Incorrect URI syntax and/or Operation specified for the Lucene endpoint."
 operator|+
-literal|"Please specify the syntax as \"lucene:[Endpoint Name]:[Operation]?[Query]\""
+literal|" Please specify the syntax as \"lucene:[Endpoint Name]:[Operation]?[Query]\""
 argument_list|)
 throw|;
 block|}
