@@ -429,9 +429,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|component
 operator|.
-name|jaxp
+name|xslt
 operator|.
 name|XmlConverter
 operator|.
