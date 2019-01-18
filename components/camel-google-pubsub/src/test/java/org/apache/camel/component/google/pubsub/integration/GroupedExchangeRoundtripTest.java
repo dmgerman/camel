@@ -148,9 +148,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|processor
 operator|.
-name|DefaultExchange
+name|aggregate
+operator|.
+name|GroupedExchangeAggregationStrategy
 import|;
 end_import
 
@@ -162,11 +164,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|support
 operator|.
-name|aggregate
-operator|.
-name|GroupedExchangeAggregationStrategy
+name|DefaultExchange
 import|;
 end_import
 
