@@ -108,9 +108,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|DefaultComponent
+name|UriEndpoint
 import|;
 end_import
 
@@ -122,9 +122,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|UriEndpoint
+name|DefaultComponent
 import|;
 end_import
 
