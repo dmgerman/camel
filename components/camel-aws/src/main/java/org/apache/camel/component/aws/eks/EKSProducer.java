@@ -771,7 +771,7 @@ name|getHeader
 argument_list|(
 name|EKSConstants
 operator|.
-name|ROLE_ARN
+name|VPC_CONFIG
 argument_list|)
 argument_list|)
 condition|)
@@ -788,7 +788,7 @@ name|getHeader
 argument_list|(
 name|EKSConstants
 operator|.
-name|ROLE_ARN
+name|VPC_CONFIG
 argument_list|,
 name|VpcConfigRequest
 operator|.
