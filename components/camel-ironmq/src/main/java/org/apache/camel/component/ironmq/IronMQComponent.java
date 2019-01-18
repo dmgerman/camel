@@ -78,7 +78,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ScheduledPollEndpoint
+name|DefaultComponent
 import|;
 end_import
 
@@ -92,7 +92,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|DefaultComponent
+name|ScheduledPollEndpoint
 import|;
 end_import
 

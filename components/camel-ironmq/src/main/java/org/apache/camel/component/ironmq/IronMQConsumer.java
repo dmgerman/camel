@@ -118,20 +118,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
-operator|.
-name|ScheduledBatchPollingConsumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|Synchronization
@@ -146,9 +132,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|CastUtils
+name|ExchangeHelper
 import|;
 end_import
 
@@ -162,7 +148,21 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ExchangeHelper
+name|ScheduledBatchPollingConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CastUtils
 import|;
 end_import
 
