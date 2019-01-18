@@ -280,7 +280,7 @@ name|in
 operator|.
 name|addAttachment
 argument_list|(
-literal|"license.txt"
+literal|"log4j2.properties"
 argument_list|,
 operator|new
 name|DataHandler
@@ -288,7 +288,7 @@ argument_list|(
 operator|new
 name|FileDataSource
 argument_list|(
-literal|"src/main/resources/META-INF/LICENSE.txt"
+literal|"src/test/resources/log4j2.properties"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -460,14 +460,14 @@ name|file1
 operator|.
 name|equals
 argument_list|(
-literal|"license.txt"
+literal|"log4j2.properties"
 argument_list|)
 operator|||
 name|file2
 operator|.
 name|equals
 argument_list|(
-literal|"license.txt"
+literal|"log4j2.properties"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -479,7 +479,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should have license.txt file attachment"
+literal|"Should have log4j2.properties file attachment"
 argument_list|,
 name|license
 argument_list|)
@@ -616,7 +616,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"license.txt"
+literal|"log4j2.properties"
 argument_list|,
 name|second
 operator|.
@@ -655,7 +655,7 @@ argument_list|(
 operator|new
 name|FileDataSource
 argument_list|(
-literal|"src/main/resources/META-INF/LICENSE.txt"
+literal|"src/test/resources/log4j2.properties"
 argument_list|)
 operator|.
 name|getInputStream
