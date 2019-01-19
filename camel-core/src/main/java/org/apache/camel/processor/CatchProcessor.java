@@ -199,12 +199,6 @@ specifier|final
 name|Predicate
 name|onWhen
 decl_stmt|;
-DECL|field|handled
-specifier|private
-specifier|final
-name|Predicate
-name|handled
-decl_stmt|;
 DECL|method|CatchProcessor (List<Class<? extends Throwable>> exceptions, Processor processor, Predicate onWhen, Predicate handled)
 specifier|public
 name|CatchProcessor
@@ -246,12 +240,6 @@ operator|.
 name|onWhen
 operator|=
 name|onWhen
-expr_stmt|;
-name|this
-operator|.
-name|handled
-operator|=
-name|handled
 expr_stmt|;
 block|}
 annotation|@
@@ -478,16 +466,6 @@ operator|.
 name|REDELIVERY_EXHAUSTED
 argument_list|)
 expr_stmt|;
-comment|// is the exception handled by the catch clause
-specifier|final
-name|boolean
-name|handled
-init|=
-name|handles
-argument_list|(
-name|exchange
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|log
@@ -500,14 +478,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"The exception is handled: {} for the exception: {} caused by: {}"
+literal|"The exception is handled for the exception: {} caused by: {}"
 argument_list|,
 operator|new
 name|Object
 index|[]
 block|{
-name|handled
-block|,
 name|e
 operator|.
 name|getClass
@@ -524,11 +500,6 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|handled
-condition|)
-block|{
 comment|// emit event that the failure is being handled
 name|EventHelper
 operator|.
@@ -548,7 +519,6 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|sync
 init|=
@@ -570,11 +540,6 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
-if|if
-condition|(
-name|handled
-condition|)
-block|{
 comment|// emit event that the failure was handled
 name|EventHelper
 operator|.
@@ -594,39 +559,6 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-if|if
-condition|(
-name|exchange
-operator|.
-name|getException
-argument_list|()
-operator|==
-literal|null
-condition|)
-block|{
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|exchange
-operator|.
-name|getProperty
-argument_list|(
-name|Exchange
-operator|.
-name|EXCEPTION_CAUGHT
-argument_list|,
-name|Exception
-operator|.
-name|class
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 comment|// always clear redelivery exhausted in a catch clause
 name|exchange
 operator|.
@@ -732,37 +664,6 @@ block|}
 comment|// not found
 return|return
 literal|null
-return|;
-block|}
-comment|/**      * Whether this catch processor handles the exception it have caught      *      * @param exchange  the current exchange      * @return<tt>true</tt> if this processor handles it,<tt>false</tt> otherwise.      */
-DECL|method|handles (Exchange exchange)
-specifier|protected
-name|boolean
-name|handles
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-if|if
-condition|(
-name|handled
-operator|==
-literal|null
-condition|)
-block|{
-comment|// handle by default
-return|return
-literal|true
-return|;
-block|}
-return|return
-name|handled
-operator|.
-name|matches
-argument_list|(
-name|exchange
-argument_list|)
 return|;
 block|}
 DECL|method|getExceptions ()
