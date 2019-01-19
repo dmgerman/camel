@@ -1551,7 +1551,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"camel-core"
+literal|"camel-seda"
 argument_list|,
 name|prop
 operator|.
