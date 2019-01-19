@@ -64,9 +64,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|processor
-operator|.
-name|DelegateAsyncProcessor
+name|ExchangeHelper
 import|;
 end_import
 
@@ -80,7 +78,9 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ExchangeHelper
+name|processor
+operator|.
+name|DelegateAsyncProcessor
 import|;
 end_import
 
