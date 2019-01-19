@@ -2916,7 +2916,7 @@ block|}
 name|getLog
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Reusing the existing pom.xml for the starter"
 argument_list|)
