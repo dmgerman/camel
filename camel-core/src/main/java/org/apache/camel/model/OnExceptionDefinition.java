@@ -2212,6 +2212,7 @@ return|return
 name|redeliveryPolicyType
 return|;
 block|}
+comment|/**      * Used for configuring redelivery options      */
 DECL|method|setRedeliveryPolicyType (RedeliveryPolicyDefinition redeliveryPolicyType)
 specifier|public
 name|void

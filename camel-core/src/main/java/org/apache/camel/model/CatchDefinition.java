@@ -239,6 +239,15 @@ literal|"handled"
 argument_list|)
 annotation|@
 name|AsPredicate
+annotation|@
+name|Metadata
+argument_list|(
+name|deprecationNote
+operator|=
+literal|"not in use"
+argument_list|)
+annotation|@
+name|Deprecated
 DECL|field|handled
 specifier|private
 name|ExpressionSubElementDefinition
@@ -735,6 +744,9 @@ return|return
 name|handled
 return|;
 block|}
+comment|/**      * Expression to be used for evaluate whether the doCatch should catch the exception or not.      *      * @deprecated not in use      */
+annotation|@
+name|Deprecated
 DECL|method|setHandled (ExpressionSubElementDefinition handled)
 specifier|public
 name|void
