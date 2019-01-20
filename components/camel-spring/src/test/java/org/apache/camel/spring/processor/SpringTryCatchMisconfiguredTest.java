@@ -242,7 +242,7 @@ name|createSpringCamelContext
 argument_list|(
 name|this
 argument_list|,
-literal|"org/apache/camel/spring/processor/SpringTryProcessorHandledTest.xml"
+literal|"org/apache/camel/spring/processor/convertBody.xml"
 argument_list|)
 return|;
 block|}

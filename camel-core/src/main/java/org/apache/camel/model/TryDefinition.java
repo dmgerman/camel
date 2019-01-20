@@ -464,24 +464,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Rethrow the exception that has been caught by Camel.      *      * @return the builder      */
-DECL|method|rethrow ()
-specifier|public
-name|TryDefinition
-name|rethrow
-parameter_list|()
-block|{
-name|addOutput
-argument_list|(
-operator|new
-name|RethrowDefinition
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getCatchClauses ()
