@@ -228,6 +228,8 @@ name|camel
 operator|.
 name|support
 operator|.
+name|service
+operator|.
 name|ServiceHelper
 import|;
 end_import

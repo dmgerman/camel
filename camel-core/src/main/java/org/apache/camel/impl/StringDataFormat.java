@@ -116,6 +116,22 @@ name|ExchangeHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|service
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * The text based<a href="http://camel.apache.org/data-format.html">data format</a> supporting  * charset encoding.  */
 end_comment
@@ -131,14 +147,6 @@ specifier|public
 class|class
 name|StringDataFormat
 extends|extends
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
 name|ServiceSupport
 implements|implements
 name|DataFormat

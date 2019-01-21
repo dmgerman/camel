@@ -248,6 +248,8 @@ name|camel
 operator|.
 name|support
 operator|.
+name|service
+operator|.
 name|ServiceHelper
 operator|.
 name|startService

@@ -62,6 +62,8 @@ name|camel
 operator|.
 name|support
 operator|.
+name|service
+operator|.
 name|ServiceSupport
 import|;
 end_import

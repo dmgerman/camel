@@ -44,6 +44,22 @@ name|EventNotifier
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|service
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class to extend for custom {@link EventNotifier} implementations.  */
 end_comment

@@ -76,6 +76,22 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|service
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A default implementation of an event driven {@link org.apache.camel.Consumer} which uses the  * {@link PollingConsumer}  */
 end_comment

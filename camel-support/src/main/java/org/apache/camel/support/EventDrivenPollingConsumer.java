@@ -174,6 +174,22 @@ name|ExceptionHandler
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|service
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A default implementation of the {@link org.apache.camel.PollingConsumer} which uses the normal  * asynchronous consumer mechanism along with a {@link BlockingQueue} to allow  * the caller to pull messages on demand.  */
 end_comment

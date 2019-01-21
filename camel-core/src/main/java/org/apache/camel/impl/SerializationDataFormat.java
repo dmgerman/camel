@@ -136,6 +136,22 @@ name|ExchangeHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|service
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * The<a href="http://camel.apache.org/data-format.html">data format</a>  * using Java Serialization.  */
 end_comment
@@ -151,14 +167,6 @@ specifier|public
 class|class
 name|SerializationDataFormat
 extends|extends
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
 name|ServiceSupport
 implements|implements
 name|DataFormat

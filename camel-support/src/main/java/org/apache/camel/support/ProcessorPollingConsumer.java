@@ -88,6 +88,22 @@ name|RuntimeExchangeException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|service
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A simple implementation of {@link org.apache.camel.PollingConsumer} which just uses  * a {@link Processor}. This implementation does not support timeout based  * receive methods such as {@link #receive(long)}  */
 end_comment

@@ -138,6 +138,8 @@ name|camel
 operator|.
 name|support
 operator|.
+name|service
+operator|.
 name|ServiceSupport
 import|;
 end_import
@@ -197,26 +199,6 @@ operator|.
 name|reflection
 operator|.
 name|JohnzonParameterizedType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
 import|;
 end_import
 

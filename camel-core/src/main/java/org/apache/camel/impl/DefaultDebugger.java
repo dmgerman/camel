@@ -326,6 +326,8 @@ name|camel
 operator|.
 name|support
 operator|.
+name|service
+operator|.
 name|ServiceHelper
 import|;
 end_import
@@ -339,6 +341,8 @@ operator|.
 name|camel
 operator|.
 name|support
+operator|.
+name|service
 operator|.
 name|ServiceSupport
 import|;
@@ -355,26 +359,6 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
 import|;
 end_import
 
