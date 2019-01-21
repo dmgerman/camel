@@ -33,9 +33,15 @@ end_comment
 begin_class
 DECL|class|IntrospectionSupport
 specifier|public
+specifier|final
 class|class
 name|IntrospectionSupport
 block|{
+DECL|method|IntrospectionSupport ()
+specifier|private
+name|IntrospectionSupport
+parameter_list|()
+block|{     }
 DECL|method|extractProperties (Map<String, Object> properties, String optionPrefix)
 specifier|public
 specifier|static
