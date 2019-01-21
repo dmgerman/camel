@@ -226,6 +226,11 @@ argument_list|(
 name|brokerUri
 argument_list|)
 decl_stmt|;
+name|setupFactoryExternal
+argument_list|(
+name|connectionFactory
+argument_list|)
+expr_stmt|;
 name|SjmsComponent
 name|component
 init|=
