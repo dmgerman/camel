@@ -267,6 +267,12 @@ name|trailingDelimiter
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * Sets the CsvMarshallerFactory reference.      */
+DECL|field|marshallerFactoryRef
+specifier|private
+name|String
+name|marshallerFactoryRef
+decl_stmt|;
 comment|/**      * Whether the unmarshalling should produce an iterator that reads the lines      * on the fly or if all the lines must be read at one.      */
 DECL|field|lazyLoad
 specifier|private
@@ -907,6 +913,32 @@ operator|.
 name|trailingDelimiter
 operator|=
 name|trailingDelimiter
+expr_stmt|;
+block|}
+DECL|method|getMarshallerFactoryRef ()
+specifier|public
+name|String
+name|getMarshallerFactoryRef
+parameter_list|()
+block|{
+return|return
+name|marshallerFactoryRef
+return|;
+block|}
+DECL|method|setMarshallerFactoryRef (String marshallerFactoryRef)
+specifier|public
+name|void
+name|setMarshallerFactoryRef
+parameter_list|(
+name|String
+name|marshallerFactoryRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|marshallerFactoryRef
+operator|=
+name|marshallerFactoryRef
 expr_stmt|;
 block|}
 DECL|method|getLazyLoad ()

@@ -400,6 +400,13 @@ specifier|private
 name|Boolean
 name|trailingDelimiter
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|marshallerFactoryRef
+specifier|private
+name|String
+name|marshallerFactoryRef
+decl_stmt|;
 comment|// Unmarshall options
 annotation|@
 name|XmlAttribute
@@ -1075,6 +1082,43 @@ name|recordConverter
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|marshallerFactoryRef
+argument_list|)
+condition|)
+block|{
+name|Object
+name|marshallerFactory
+init|=
+name|CamelContextHelper
+operator|.
+name|mandatoryLookup
+argument_list|(
+name|camelContext
+argument_list|,
+name|marshallerFactoryRef
+operator|.
+name|trim
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"marshallerFactory"
+argument_list|,
+name|marshallerFactory
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|singleChar (String value, String attributeName)
 specifier|private
@@ -1121,6 +1165,34 @@ name|charAt
 argument_list|(
 literal|0
 argument_list|)
+return|;
+block|}
+comment|/**      * Sets the<code>CsvMarshallerFactory</code> reference.      *      * @param marshallerFactoryRef the<code>CsvMarshallerFactory</code> reference. Could be<code>null</code>.      */
+DECL|method|setMarshallerFactoryRef (String marshallerFactoryRef)
+specifier|public
+name|void
+name|setMarshallerFactoryRef
+parameter_list|(
+name|String
+name|marshallerFactoryRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|marshallerFactoryRef
+operator|=
+name|marshallerFactoryRef
+expr_stmt|;
+block|}
+comment|/**      * Returns the<code>CsvMarshallerFactory</code> reference.      *      * @return the<code>CsvMarshallerFactory</code> or<code>null</code> if none has been specified.      */
+DECL|method|getMarshallerFactoryRef ()
+specifier|public
+name|String
+name|getMarshallerFactoryRef
+parameter_list|()
+block|{
+return|return
+name|marshallerFactoryRef
 return|;
 block|}
 DECL|method|getFormatRef ()
