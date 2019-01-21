@@ -162,20 +162,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
-operator|.
-name|ScheduledPollEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|Metadata
@@ -246,9 +232,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|CastUtils
+name|IntrospectionSupport
 import|;
 end_import
 
@@ -262,7 +248,21 @@ name|camel
 operator|.
 name|support
 operator|.
-name|IntrospectionSupport
+name|ScheduledPollEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CastUtils
 import|;
 end_import
 

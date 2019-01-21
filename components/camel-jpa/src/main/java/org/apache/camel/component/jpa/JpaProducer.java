@@ -112,9 +112,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|language
 operator|.
-name|DefaultProducer
+name|simple
+operator|.
+name|SimpleLanguage
 import|;
 end_import
 
@@ -126,11 +128,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
+name|support
 operator|.
-name|simple
-operator|.
-name|SimpleLanguage
+name|DefaultProducer
 import|;
 end_import
 
