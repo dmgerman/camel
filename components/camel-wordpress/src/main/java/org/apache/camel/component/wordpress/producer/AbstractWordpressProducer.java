@@ -249,7 +249,7 @@ condition|)
 block|{
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody
@@ -280,7 +280,7 @@ condition|)
 block|{
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody
@@ -298,7 +298,7 @@ else|else
 block|{
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody

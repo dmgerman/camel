@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
@@ -241,7 +231,7 @@ specifier|private
 name|String
 name|user
 decl_stmt|;
-comment|/**          * The entity id          */
+comment|/**          * The entity ID. Should be passed when the operation performed requires          * a specific entity, e.g. deleting a post          */
 DECL|field|id
 specifier|private
 name|Integer
@@ -255,15 +245,11 @@ name|force
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * Search criteria          */
 DECL|field|searchCriteria
 specifier|private
 name|SearchCriteria
 name|searchCriteria
-decl_stmt|;
-DECL|field|criteriaProperties
-specifier|private
-name|Map
-name|criteriaProperties
 decl_stmt|;
 DECL|method|getUrl ()
 specifier|public
@@ -445,32 +431,6 @@ operator|.
 name|searchCriteria
 operator|=
 name|searchCriteria
-expr_stmt|;
-block|}
-DECL|method|getCriteriaProperties ()
-specifier|public
-name|Map
-name|getCriteriaProperties
-parameter_list|()
-block|{
-return|return
-name|criteriaProperties
-return|;
-block|}
-DECL|method|setCriteriaProperties (Map criteriaProperties)
-specifier|public
-name|void
-name|setCriteriaProperties
-parameter_list|(
-name|Map
-name|criteriaProperties
-parameter_list|)
-block|{
-name|this
-operator|.
-name|criteriaProperties
-operator|=
-name|criteriaProperties
 expr_stmt|;
 block|}
 block|}

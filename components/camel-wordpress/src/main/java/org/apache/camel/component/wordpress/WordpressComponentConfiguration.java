@@ -44,26 +44,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -156,20 +136,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
-operator|.
-name|IntrospectionSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|StringHelper
@@ -184,6 +150,11 @@ specifier|public
 class|class
 name|WordpressComponentConfiguration
 block|{
+DECL|field|uri
+specifier|private
+name|URI
+name|uri
+decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
@@ -312,22 +283,18 @@ name|force
 init|=
 literal|false
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"Search criteria"
+argument_list|)
 DECL|field|searchCriteria
 specifier|private
 name|SearchCriteria
 name|searchCriteria
 decl_stmt|;
-comment|/**      * Wordpress URL in {@link URI} format      */
-DECL|field|uri
-specifier|private
-name|URI
-name|uri
-decl_stmt|;
-DECL|method|WordpressComponentConfiguration ()
-specifier|public
-name|WordpressComponentConfiguration
-parameter_list|()
-block|{      }
 DECL|method|getUrl ()
 specifier|public
 name|String
@@ -442,7 +409,6 @@ operator|=
 name|user
 expr_stmt|;
 block|}
-comment|/**      * The entity id      */
 DECL|method|getId ()
 specifier|public
 name|Integer
@@ -495,7 +461,6 @@ operator|=
 name|force
 expr_stmt|;
 block|}
-comment|/**      * The search criteria      *       * @return      */
 DECL|method|getSearchCriteria ()
 specifier|public
 name|SearchCriteria
@@ -521,104 +486,6 @@ name|searchCriteria
 operator|=
 name|searchCriteria
 expr_stmt|;
-block|}
-DECL|method|getCriteriaProperties ()
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|getCriteriaProperties
-parameter_list|()
-block|{
-if|if
-condition|(
-name|criteria
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|Collections
-operator|.
-name|unmodifiableMap
-argument_list|(
-name|criteria
-argument_list|)
-return|;
-block|}
-return|return
-literal|null
-return|;
-block|}
-DECL|method|setCriteriaProperties (Map<String, Object> criteriaProperties)
-specifier|public
-name|void
-name|setCriteriaProperties
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|criteriaProperties
-parameter_list|)
-block|{
-name|this
-operator|.
-name|criteria
-operator|=
-name|Collections
-operator|.
-name|unmodifiableMap
-argument_list|(
-name|criteriaProperties
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Return all configuration properties on a map.      *       * @return      */
-DECL|method|asMap ()
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|asMap
-parameter_list|()
-block|{
-specifier|final
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|map
-init|=
-operator|new
-name|HashMap
-argument_list|<>
-argument_list|()
-decl_stmt|;
-name|IntrospectionSupport
-operator|.
-name|getProperties
-argument_list|(
-name|this
-argument_list|,
-name|map
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
-return|return
-name|map
-return|;
 block|}
 DECL|method|validate ()
 specifier|public

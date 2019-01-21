@@ -58,6 +58,10 @@ name|toStringHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * Search criterias.  */
+end_comment
+
 begin_class
 DECL|class|SearchCriteria
 specifier|public
@@ -111,11 +115,6 @@ name|Integer
 argument_list|>
 name|include
 decl_stmt|;
-DECL|method|SearchCriteria ()
-specifier|public
-name|SearchCriteria
-parameter_list|()
-block|{      }
 DECL|method|getPage ()
 specifier|public
 name|Integer
