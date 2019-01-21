@@ -168,9 +168,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|DefaultProducer
+name|Synchronization
 import|;
 end_import
 
@@ -182,9 +182,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|Synchronization
+name|DefaultProducer
 import|;
 end_import
 
