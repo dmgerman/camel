@@ -230,9 +230,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|DefaultAsyncProducer
+name|HeaderFilterStrategy
 import|;
 end_import
 
@@ -244,9 +244,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|HeaderFilterStrategy
+name|DefaultAsyncProducer
 import|;
 end_import
 
