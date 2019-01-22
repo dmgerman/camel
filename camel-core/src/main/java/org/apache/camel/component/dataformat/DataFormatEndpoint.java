@@ -110,6 +110,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
 name|processor
 operator|.
 name|MarshalProcessor
@@ -123,6 +125,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|support
 operator|.
 name|processor
 operator|.
