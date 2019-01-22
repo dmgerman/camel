@@ -60,9 +60,13 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|lucene
+operator|.
 name|support
 operator|.
-name|DefaultProducer
+name|Hits
 import|;
 end_import
 
@@ -74,13 +78,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|lucene
-operator|.
 name|support
 operator|.
-name|Hits
+name|DefaultProducer
 import|;
 end_import
 
