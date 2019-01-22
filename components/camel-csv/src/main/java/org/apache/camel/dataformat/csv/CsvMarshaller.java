@@ -336,6 +336,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Marshals the given object into the given stream.      *      * @param exchange     Exchange (used for access to type conversion)      * @param object       Body to marshal      * @param outputStream Output stream of the CSV      * @throws NoTypeConversionAvailableException if the body cannot be converted      * @throws IOException                        if we cannot write into the given stream      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|marshal (Exchange exchange, Object object, OutputStream outputStream)
 specifier|public
 name|void

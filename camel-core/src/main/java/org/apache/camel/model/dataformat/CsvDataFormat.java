@@ -402,6 +402,13 @@ name|trailingDelimiter
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|marshallerFactoryRef
 specifier|private
 name|String
@@ -1167,7 +1174,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the<code>CsvMarshallerFactory</code> reference.      *      * @param marshallerFactoryRef the<code>CsvMarshallerFactory</code> reference. Could be<code>null</code>.      */
+comment|/**      * Sets the implementation of the CsvMarshallerFactory interface which is able to customize marshalling/unmarshalling       * behavior by extending CsvMarshaller or creating it from scratch.      *      * @param marshallerFactoryRef the<code>CsvMarshallerFactory</code> reference.      */
 DECL|method|setMarshallerFactoryRef (String marshallerFactoryRef)
 specifier|public
 name|void
