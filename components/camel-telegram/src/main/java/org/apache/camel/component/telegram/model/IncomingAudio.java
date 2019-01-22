@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ontains information about an audio file.  */
+comment|/**  * Contains information about an audio file.  */
 end_comment
 
 begin_class

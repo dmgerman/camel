@@ -256,6 +256,9 @@ name|getHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|Object
+name|receivedMessage
+init|=
 name|service
 operator|.
 name|sendMessage
@@ -266,6 +269,25 @@ name|getAuthorizationToken
 argument_list|()
 argument_list|,
 name|message
+argument_list|)
+decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Message being received is: {}"
+argument_list|,
+name|receivedMessage
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|receivedMessage
 argument_list|)
 expr_stmt|;
 block|}

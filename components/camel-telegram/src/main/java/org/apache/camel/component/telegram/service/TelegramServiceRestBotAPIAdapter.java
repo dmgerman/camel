@@ -164,6 +164,42 @@ name|telegram
 operator|.
 name|model
 operator|.
+name|EditMessageLiveLocationMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|telegram
+operator|.
+name|model
+operator|.
+name|MessageResult
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|telegram
+operator|.
+name|model
+operator|.
 name|OutgoingAudioMessage
 import|;
 end_import
@@ -255,6 +291,24 @@ operator|.
 name|model
 operator|.
 name|OutgoingVideoMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|telegram
+operator|.
+name|model
+operator|.
+name|SendLocationMessage
 import|;
 end_import
 
@@ -412,6 +466,21 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|TelegramServiceRestBotAPIAdapter (RestBotAPI api)
+specifier|public
+name|TelegramServiceRestBotAPIAdapter
+parameter_list|(
+name|RestBotAPI
+name|api
+parameter_list|)
+block|{
+name|this
+operator|.
+name|api
+operator|=
+name|api
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|getUpdates (String authorizationToken, Long offset, Integer limit, Integer timeoutSeconds)
@@ -451,7 +520,7 @@ annotation|@
 name|Override
 DECL|method|sendMessage (String authorizationToken, OutgoingMessage message)
 specifier|public
-name|void
+name|Object
 name|sendMessage
 parameter_list|(
 name|String
@@ -461,6 +530,9 @@ name|OutgoingMessage
 name|message
 parameter_list|)
 block|{
+name|Object
+name|resultMessage
+decl_stmt|;
 if|if
 condition|(
 name|message
@@ -468,6 +540,8 @@ operator|instanceof
 name|OutgoingTextMessage
 condition|)
 block|{
+name|resultMessage
+operator|=
 name|this
 operator|.
 name|sendMessage
@@ -489,6 +563,8 @@ operator|instanceof
 name|OutgoingPhotoMessage
 condition|)
 block|{
+name|resultMessage
+operator|=
 name|this
 operator|.
 name|sendMessage
@@ -510,6 +586,8 @@ operator|instanceof
 name|OutgoingAudioMessage
 condition|)
 block|{
+name|resultMessage
+operator|=
 name|this
 operator|.
 name|sendMessage
@@ -531,6 +609,8 @@ operator|instanceof
 name|OutgoingVideoMessage
 condition|)
 block|{
+name|resultMessage
+operator|=
 name|this
 operator|.
 name|sendMessage
@@ -552,6 +632,8 @@ operator|instanceof
 name|OutgoingDocumentMessage
 condition|)
 block|{
+name|resultMessage
+operator|=
 name|this
 operator|.
 name|sendMessage
@@ -560,6 +642,52 @@ name|authorizationToken
 argument_list|,
 operator|(
 name|OutgoingDocumentMessage
+operator|)
+name|message
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|message
+operator|instanceof
+name|SendLocationMessage
+condition|)
+block|{
+name|resultMessage
+operator|=
+name|api
+operator|.
+name|sendLocation
+argument_list|(
+name|authorizationToken
+argument_list|,
+operator|(
+name|SendLocationMessage
+operator|)
+name|message
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|message
+operator|instanceof
+name|EditMessageLiveLocationMessage
+condition|)
+block|{
+name|resultMessage
+operator|=
+name|api
+operator|.
+name|editMessageLiveLocation
+argument_list|(
+name|authorizationToken
+argument_list|,
+operator|(
+name|EditMessageLiveLocationMessage
 operator|)
 name|message
 argument_list|)
@@ -591,10 +719,13 @@ operator|)
 argument_list|)
 throw|;
 block|}
+return|return
+name|resultMessage
+return|;
 block|}
 DECL|method|sendMessage (String authorizationToken, OutgoingTextMessage message)
 specifier|private
-name|void
+name|MessageResult
 name|sendMessage
 parameter_list|(
 name|String
@@ -604,6 +735,7 @@ name|OutgoingTextMessage
 name|message
 parameter_list|)
 block|{
+return|return
 name|api
 operator|.
 name|sendMessage
@@ -612,11 +744,11 @@ name|authorizationToken
 argument_list|,
 name|message
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|sendMessage (String authorizationToken, OutgoingPhotoMessage message)
 specifier|private
-name|void
+name|MessageResult
 name|sendMessage
 parameter_list|(
 name|String
@@ -690,6 +822,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+return|return
 name|api
 operator|.
 name|sendPhoto
@@ -698,11 +831,11 @@ name|authorizationToken
 argument_list|,
 name|parts
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|sendMessage (String authorizationToken, OutgoingAudioMessage message)
 specifier|private
-name|void
+name|MessageResult
 name|sendMessage
 parameter_list|(
 name|String
@@ -833,6 +966,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+return|return
 name|api
 operator|.
 name|sendAudio
@@ -841,11 +975,11 @@ name|authorizationToken
 argument_list|,
 name|parts
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|sendMessage (String authorizationToken, OutgoingVideoMessage message)
 specifier|private
-name|void
+name|MessageResult
 name|sendMessage
 parameter_list|(
 name|String
@@ -1012,6 +1146,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+return|return
 name|api
 operator|.
 name|sendVideo
@@ -1020,11 +1155,11 @@ name|authorizationToken
 argument_list|,
 name|parts
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|sendMessage (String authorizationToken, OutgoingDocumentMessage message)
 specifier|private
-name|void
+name|MessageResult
 name|sendMessage
 parameter_list|(
 name|String
@@ -1098,6 +1233,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+return|return
 name|api
 operator|.
 name|sendDocument
@@ -1106,7 +1242,7 @@ name|authorizationToken
 argument_list|,
 name|parts
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|fillCommonMediaParts (List<Attachment> parts, OutgoingMessage message)
 specifier|private

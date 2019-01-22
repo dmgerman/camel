@@ -82,7 +82,7 @@ name|timeoutSeconds
 parameter_list|)
 function_decl|;
 DECL|method|sendMessage (String authorizationToken, OutgoingMessage message)
-name|void
+name|Object
 name|sendMessage
 parameter_list|(
 name|String

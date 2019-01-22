@@ -185,6 +185,16 @@ specifier|private
 name|IncomingDocument
 name|document
 decl_stmt|;
+annotation|@
+name|JsonProperty
+argument_list|(
+literal|"location"
+argument_list|)
+DECL|field|location
+specifier|private
+name|Location
+name|location
+decl_stmt|;
 DECL|method|IncomingMessage ()
 specifier|public
 name|IncomingMessage
@@ -430,6 +440,32 @@ operator|=
 name|document
 expr_stmt|;
 block|}
+DECL|method|getLocation ()
+specifier|public
+name|Location
+name|getLocation
+parameter_list|()
+block|{
+return|return
+name|location
+return|;
+block|}
+DECL|method|setLocation (Location location)
+specifier|public
+name|void
+name|setLocation
+parameter_list|(
+name|Location
+name|location
+parameter_list|)
+block|{
+name|this
+operator|.
+name|location
+operator|=
+name|location
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -559,6 +595,18 @@ operator|.
 name|append
 argument_list|(
 name|document
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", location="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|location
 argument_list|)
 expr_stmt|;
 name|sb
