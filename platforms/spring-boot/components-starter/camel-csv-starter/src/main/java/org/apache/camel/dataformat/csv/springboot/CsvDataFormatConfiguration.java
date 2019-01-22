@@ -267,7 +267,7 @@ name|trailingDelimiter
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Sets the CsvMarshallerFactory reference.      */
+comment|/**      * Sets the implementation of the CsvMarshallerFactory interface which is      * able to customize marshalling/unmarshalling behavior by extending      * CsvMarshaller or creating it from scratch.      */
 DECL|field|marshallerFactoryRef
 specifier|private
 name|String
