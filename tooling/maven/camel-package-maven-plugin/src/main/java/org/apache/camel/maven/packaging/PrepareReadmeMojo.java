@@ -139,6 +139,20 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+operator|.
+name|toSet
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -355,20 +369,6 @@ operator|.
 name|templates
 operator|.
 name|TemplateRuntime
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Collectors
-operator|.
-name|toSet
 import|;
 end_import
 
