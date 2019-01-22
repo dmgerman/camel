@@ -75,6 +75,10 @@ import|;
 end_import
 
 begin_comment
+comment|// TODO: We can move this under org.apache.camel.support to have them all under the same package name
+end_comment
+
+begin_comment
 comment|/**  * Utility to hide the complexity of choosing which OutputStream  * implementation to choose.  *<p/>  * Itself masquerades as an OutputStream, but really delegates to a  * CachedOutputStream of a ByteArrayOutputStream.  */
 end_comment
 
