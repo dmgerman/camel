@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.support
+DECL|package|org.apache.camel.management.mbean
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|management
+operator|.
+name|mbean
 package|;
 end_package
 
@@ -105,22 +107,6 @@ operator|.
 name|model
 operator|.
 name|RouteDefinition
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|notNull
 import|;
 end_import
 

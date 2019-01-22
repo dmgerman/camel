@@ -50,8 +50,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
 name|cloud
 operator|.
 name|ServiceCallConstants

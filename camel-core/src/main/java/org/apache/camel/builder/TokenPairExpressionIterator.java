@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.support
+DECL|package|org.apache.camel.builder
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|builder
 package|;
 end_package
 
@@ -104,6 +104,34 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
+name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ExpressionAdapter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|IOHelper
@@ -153,7 +181,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link org.apache.camel.Expression} to walk a {@link org.apache.camel.Message} body  * using an {@link Iterator}, which grabs the content between a start and end token.  *<p/>  * The message body must be able to convert to {@link InputStream} type which is used as stream  * to access the message body.  *<p/>  * For splitting XML files use {@link org.apache.camel.support.TokenXMLExpressionIterator} instead.  */
+comment|/**  * {@link org.apache.camel.Expression} to walk a {@link org.apache.camel.Message} body  * using an {@link Iterator}, which grabs the content between a start and end token.  *<p/>  * The message body must be able to convert to {@link InputStream} type which is used as stream  * to access the message body.  *<p/>  * For splitting XML files use {@link TokenXMLExpressionIterator} instead.  */
 end_comment
 
 begin_class

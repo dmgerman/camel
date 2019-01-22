@@ -42,7 +42,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|cloud
 operator|.
 name|ServiceCallExpressionSupport
 import|;
