@@ -279,7 +279,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Prepares the apache-camel/pom.xml to keep the Camel artifacts up-to-date.  */
+comment|/**  * Prepares the apache-camel/pom.xml and common-bin to keep the Camel artifacts up-to-date.  */
 end_comment
 
 begin_class
@@ -335,6 +335,19 @@ specifier|protected
 name|File
 name|releasePom
 decl_stmt|;
+comment|/**      * The apache-camel/descriptors/common-bin.xml      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/../../../apache-camel/src/main/descriptors/common-bin.xml"
+argument_list|)
+DECL|field|commonBinXml
+specifier|protected
+name|File
+name|commonBinXml
+decl_stmt|;
 comment|/**      * The directory for components      */
 annotation|@
 name|Parameter
@@ -380,14 +393,14 @@ name|MojoExecutionException
 throws|,
 name|MojoFailureException
 block|{
-name|updatePom
+name|updatePomAndCommonBin
 argument_list|(
 name|componentsDir
 argument_list|,
 literal|"camel components"
 argument_list|)
 expr_stmt|;
-name|updatePom
+name|updatePomAndCommonBin
 argument_list|(
 name|startersDir
 argument_list|,
@@ -395,10 +408,10 @@ literal|"camel starters"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|updatePom (File dir, String token)
+DECL|method|updatePomAndCommonBin (File dir, String token)
 specifier|protected
 name|void
-name|updatePom
+name|updatePomAndCommonBin
 parameter_list|(
 name|File
 name|dir
@@ -507,6 +520,7 @@ operator|+
 name|artifactIds
 argument_list|)
 expr_stmt|;
+comment|// update pom.xml
 name|StringBuilder
 name|sb
 init|=
@@ -573,13 +587,15 @@ decl_stmt|;
 name|boolean
 name|updated
 init|=
-name|updateParentPom
+name|updateXmlFile
 argument_list|(
 name|releasePom
 argument_list|,
 name|token
 argument_list|,
 name|changed
+argument_list|,
+literal|"    "
 argument_list|)
 decl_stmt|;
 if|if
@@ -613,6 +629,97 @@ operator|.
 name|info
 argument_list|(
 literal|"apache-camel/pom.xml contains "
+operator|+
+name|artifactIds
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" "
+operator|+
+name|token
+operator|+
+literal|" dependencies"
+argument_list|)
+expr_stmt|;
+comment|// update common-bin.xml
+name|sb
+operator|=
+operator|new
+name|StringBuilder
+argument_list|()
+expr_stmt|;
+for|for
+control|(
+name|String
+name|aid
+range|:
+name|artifactIds
+control|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"<include>org.apache.camel:"
+operator|+
+name|aid
+operator|+
+literal|"</include>\n"
+argument_list|)
+expr_stmt|;
+block|}
+name|changed
+operator|=
+name|sb
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+name|updated
+operator|=
+name|updateXmlFile
+argument_list|(
+name|commonBinXml
+argument_list|,
+name|token
+argument_list|,
+name|changed
+argument_list|,
+literal|"        "
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|updated
+condition|)
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Updated apache-camel/src/main/descriptors/common-bin.xml file"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"No changes to apache-camel/src/main/descriptors/common-bin.xml file"
+argument_list|)
+expr_stmt|;
+block|}
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"apache-camel/src/main/descriptors/common-bin.xml contains "
 operator|+
 name|artifactIds
 operator|.
@@ -812,10 +919,10 @@ literal|"-parent"
 argument_list|)
 return|;
 block|}
-DECL|method|updateParentPom (File file, String token, String changed)
+DECL|method|updateXmlFile (File file, String token, String changed, String spaces)
 specifier|private
 name|boolean
-name|updateParentPom
+name|updateXmlFile
 parameter_list|(
 name|File
 name|file
@@ -825,6 +932,9 @@ name|token
 parameter_list|,
 name|String
 name|changed
+parameter_list|,
+name|String
+name|spaces
 parameter_list|)
 throws|throws
 name|MojoExecutionException
@@ -954,11 +1064,15 @@ name|before
 operator|+
 name|start
 operator|+
-literal|"\n    "
+literal|"\n"
+operator|+
+name|spaces
 operator|+
 name|changed
 operator|+
-literal|"\n    "
+literal|"\n"
+operator|+
+name|spaces
 operator|+
 name|end
 operator|+
