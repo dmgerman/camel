@@ -48,9 +48,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|DefaultPollingEndpoint
+name|UriParam
 import|;
 end_import
 
@@ -62,9 +62,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|UriParam
+name|DefaultPollingEndpoint
 import|;
 end_import
 
