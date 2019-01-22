@@ -460,9 +460,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|isValidArtifactId
+argument_list|(
 name|aid
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 name|artifactIds
@@ -544,6 +545,13 @@ operator|+
 name|aid
 operator|+
 literal|"</artifactId>\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"<version>${project.version}</version>\n"
 argument_list|)
 expr_stmt|;
 name|sb
@@ -758,8 +766,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|text
-operator|=
+return|return
 name|between
 argument_list|(
 name|text
@@ -768,13 +775,41 @@ literal|"<artifactId>"
 argument_list|,
 literal|"</artifactId>"
 argument_list|)
-expr_stmt|;
-return|return
-name|text
 return|;
 block|}
 return|return
 literal|null
+return|;
+block|}
+DECL|method|isValidArtifactId (String aid)
+specifier|private
+name|boolean
+name|isValidArtifactId
+parameter_list|(
+name|String
+name|aid
+parameter_list|)
+block|{
+return|return
+name|aid
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|aid
+operator|.
+name|endsWith
+argument_list|(
+literal|"-maven-plugin"
+argument_list|)
+operator|&&
+operator|!
+name|aid
+operator|.
+name|endsWith
+argument_list|(
+literal|"-parent"
+argument_list|)
 return|;
 block|}
 DECL|method|updateParentPom (File file, String token, String changed)
@@ -919,11 +954,11 @@ name|before
 operator|+
 name|start
 operator|+
-literal|"\n      "
+literal|"\n    "
 operator|+
 name|changed
 operator|+
-literal|"\n      "
+literal|"\n    "
 operator|+
 name|end
 operator|+
