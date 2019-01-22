@@ -853,6 +853,13 @@ operator|.
 name|trim
 argument_list|()
 expr_stmt|;
+name|changed
+operator|=
+name|changed
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|existing
@@ -899,11 +906,11 @@ name|before
 operator|+
 name|start
 operator|+
-literal|"\n"
+literal|"\n      "
 operator|+
 name|changed
 operator|+
-literal|"\n"
+literal|"\n      "
 operator|+
 name|end
 operator|+
