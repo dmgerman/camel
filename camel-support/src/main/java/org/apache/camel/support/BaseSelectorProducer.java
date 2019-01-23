@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.support
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 package|;
 end_package
 
@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangePattern
+name|Processor
 import|;
 end_import
 
@@ -60,56 +60,41 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Producer
+name|support
+operator|.
+name|DefaultProducer
 import|;
 end_import
 
 begin_comment
-comment|/**  * To process the delegated producer in synchronous mode.  *<p/>  * This is used to enforce asynchronous producers to run in synchronous mode  * when it has been configured to do so.  *<p/>  * This delegate allows the component developers easily to support their  * existing asynchronous producer to behave synchronously by wrapping their  * producer in this synchronous delegate.  */
+comment|/**  * A base class for selector-based producers.  */
 end_comment
 
 begin_class
-DECL|class|SynchronousDelegateProducer
+DECL|class|BaseSelectorProducer
 specifier|public
+specifier|abstract
 class|class
-name|SynchronousDelegateProducer
-implements|implements
-name|Producer
+name|BaseSelectorProducer
+extends|extends
+name|DefaultProducer
 block|{
-DECL|field|producer
-specifier|private
-specifier|final
-name|Producer
-name|producer
-decl_stmt|;
-DECL|method|SynchronousDelegateProducer (Producer producer)
-specifier|public
-name|SynchronousDelegateProducer
+DECL|method|BaseSelectorProducer (Endpoint endpoint)
+specifier|protected
+name|BaseSelectorProducer
 parameter_list|(
-name|Producer
-name|producer
+name|Endpoint
+name|endpoint
 parameter_list|)
 block|{
-name|this
-operator|.
-name|producer
-operator|=
-name|producer
+name|super
+argument_list|(
+name|endpoint
+argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getEndpoint ()
-specifier|public
-name|Endpoint
-name|getEndpoint
-parameter_list|()
-block|{
-return|return
-name|producer
-operator|.
-name|getEndpoint
-argument_list|()
-return|;
-block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -121,7 +106,23 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|producer
+specifier|final
+name|Processor
+name|processor
+init|=
+name|getProcessor
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|processor
+operator|!=
+literal|null
+condition|)
+block|{
+name|processor
 operator|.
 name|process
 argument_list|(
@@ -129,62 +130,41 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|start ()
-specifier|public
-name|void
-name|start
-parameter_list|()
-throws|throws
-name|Exception
+else|else
 block|{
-name|producer
-operator|.
-name|start
-argument_list|()
+name|onMissingProcessor
+argument_list|(
+name|exchange
+argument_list|)
 expr_stmt|;
 block|}
-DECL|method|stop ()
-specifier|public
-name|void
-name|stop
-parameter_list|()
+block|}
+comment|/**      * Determine the processor to use to handle the exchange.      *      * @param exchange the message exchange      * @return the processor to processes the message exchange      * @throws Exception      */
+DECL|method|getProcessor (Exchange exchange)
+specifier|protected
+specifier|abstract
+name|Processor
+name|getProcessor
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 throws|throws
 name|Exception
-block|{
-name|producer
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-name|producer
-operator|.
-name|isSingleton
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-name|producer
-operator|.
-name|toString
-argument_list|()
-return|;
-block|}
+function_decl|;
+comment|/**      * Invoked when no processor has been defined to process the message exchnage.      *      * @param exchange the message exchange      * @throws Exception      */
+DECL|method|onMissingProcessor (Exchange exchange)
+specifier|protected
+specifier|abstract
+name|void
+name|onMissingProcessor
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 block|}
 end_class
 
