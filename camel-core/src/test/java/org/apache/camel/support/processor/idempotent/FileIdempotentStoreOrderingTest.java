@@ -4,13 +4,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor.idempotent
+DECL|package|org.apache.camel.support.processor.idempotent
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|support
 operator|.
 name|processor
 operator|.
@@ -81,24 +83,6 @@ operator|.
 name|stream
 operator|.
 name|Stream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|processor
-operator|.
-name|idempotent
-operator|.
-name|FileIdempotentRepository
 import|;
 end_import
 
