@@ -412,7 +412,7 @@ return|return
 operator|new
 name|File
 argument_list|(
-literal|"../../camel-core/target/classes/org/apache/camel/component/file/file.json"
+literal|"../camel-file/target/classes/org/apache/camel/component/file/file.json"
 argument_list|)
 return|;
 block|}
