@@ -190,11 +190,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|concurrent
+name|jsse
 operator|.
-name|CamelThreadFactory
+name|SSLContextParameters
 import|;
 end_import
 
@@ -206,11 +206,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|jsse
+name|concurrent
 operator|.
-name|SSLContextParameters
+name|CamelThreadFactory
 import|;
 end_import
 

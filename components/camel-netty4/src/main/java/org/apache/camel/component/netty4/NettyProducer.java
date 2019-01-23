@@ -400,9 +400,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|service
-operator|.
-name|ServiceHelper
+name|SynchronizationAdapter
 import|;
 end_import
 
@@ -416,7 +414,9 @@ name|camel
 operator|.
 name|support
 operator|.
-name|SynchronizationAdapter
+name|service
+operator|.
+name|ServiceHelper
 import|;
 end_import
 
