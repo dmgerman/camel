@@ -8263,6 +8263,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|beanExpression (final Class<?> beanType, final String methodName)
 specifier|public
 specifier|static
@@ -8292,6 +8294,8 @@ name|methodName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|beanExpression (final Object bean, final String methodName)
 specifier|public
 specifier|static
@@ -8318,6 +8322,8 @@ name|methodName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|beanExpression (final String beanRef, final String methodName)
 specifier|public
 specifier|static

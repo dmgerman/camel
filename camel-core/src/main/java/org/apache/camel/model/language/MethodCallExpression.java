@@ -938,7 +938,7 @@ parameter_list|)
 block|{
 return|return
 operator|(
-name|BeanExpression
+name|Predicate
 operator|)
 name|createExpression
 argument_list|(
