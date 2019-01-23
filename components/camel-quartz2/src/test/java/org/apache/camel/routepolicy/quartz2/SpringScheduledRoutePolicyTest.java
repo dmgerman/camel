@@ -156,11 +156,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|support
 operator|.
-name|junit4
+name|service
 operator|.
-name|TestSupport
+name|ServiceHelper
 import|;
 end_import
 
@@ -172,11 +172,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|test
 operator|.
-name|service
+name|junit4
 operator|.
-name|ServiceHelper
+name|TestSupport
 import|;
 end_import
 
