@@ -184,9 +184,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|impl
 operator|.
-name|DefaultExchange
+name|JndiRegistry
 import|;
 end_import
 
@@ -198,9 +198,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
-name|JndiRegistry
+name|DefaultExchange
 import|;
 end_import
 
