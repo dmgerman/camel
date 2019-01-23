@@ -91,6 +91,15 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * A list of locations to load properties. You can use comma to separate multiple locations.      * This option will override any default locations and only use the locations from this option.      */
+DECL|method|setLocation (String location)
+name|void
+name|setLocation
+parameter_list|(
+name|String
+name|location
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

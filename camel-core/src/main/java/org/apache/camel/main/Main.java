@@ -68,22 +68,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|properties
-operator|.
-name|PropertiesComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|CompositeRegistry
@@ -373,38 +357,6 @@ literal|"Error creating CamelContext"
 argument_list|)
 throw|;
 block|}
-block|}
-comment|/**      * A list of locations to load properties. You can use comma to separate multiple locations.      * This option will override any default locations and only use the locations from this option.      */
-DECL|method|setPropertyPlaceholderLocations (String location)
-specifier|public
-name|void
-name|setPropertyPlaceholderLocations
-parameter_list|(
-name|String
-name|location
-parameter_list|)
-block|{
-name|PropertiesComponent
-name|pc
-init|=
-operator|new
-name|PropertiesComponent
-argument_list|()
-decl_stmt|;
-name|pc
-operator|.
-name|setLocation
-argument_list|(
-name|location
-argument_list|)
-expr_stmt|;
-name|bind
-argument_list|(
-literal|"properties"
-argument_list|,
-name|pc
-argument_list|)
-expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------

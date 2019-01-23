@@ -260,6 +260,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|PropertiesComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|ReloadStrategy
 import|;
 end_import
@@ -545,6 +559,11 @@ DECL|field|reloadStrategy
 specifier|protected
 name|ReloadStrategy
 name|reloadStrategy
+decl_stmt|;
+DECL|field|propertyPlaceholderLocations
+specifier|protected
+name|String
+name|propertyPlaceholderLocations
 decl_stmt|;
 comment|/**      * A class for intercepting the hang up signal and do a graceful shutdown of the Camel.      */
 DECL|class|HangupInterceptor
@@ -1835,6 +1854,33 @@ operator|=
 name|reloadStrategy
 expr_stmt|;
 block|}
+DECL|method|getPropertyPlaceholderLocations ()
+specifier|public
+name|String
+name|getPropertyPlaceholderLocations
+parameter_list|()
+block|{
+return|return
+name|propertyPlaceholderLocations
+return|;
+block|}
+comment|/**      * A list of locations to load properties. You can use comma to separate multiple locations.      * This option will override any default locations and only use the locations from this option.      */
+DECL|method|setPropertyPlaceholderLocations (String location)
+specifier|public
+name|void
+name|setPropertyPlaceholderLocations
+parameter_list|(
+name|String
+name|location
+parameter_list|)
+block|{
+name|this
+operator|.
+name|propertyPlaceholderLocations
+operator|=
+name|location
+expr_stmt|;
+block|}
 DECL|method|isTrace ()
 specifier|public
 name|boolean
@@ -2426,6 +2472,29 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|propertyPlaceholderLocations
+operator|!=
+literal|null
+condition|)
+block|{
+name|PropertiesComponent
+name|pc
+init|=
+name|camelContext
+operator|.
+name|getPropertiesComponent
+argument_list|()
+decl_stmt|;
+name|pc
+operator|.
+name|setLocation
+argument_list|(
+name|propertyPlaceholderLocations
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|trace
