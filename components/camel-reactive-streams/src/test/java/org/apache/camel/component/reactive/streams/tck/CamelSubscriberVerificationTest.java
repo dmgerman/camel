@@ -102,9 +102,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|impl
 operator|.
-name|DefaultExchange
+name|DefaultShutdownStrategy
 import|;
 end_import
 
@@ -116,9 +116,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
-name|DefaultShutdownStrategy
+name|DefaultExchange
 import|;
 end_import
 

@@ -152,9 +152,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|throttling
+name|test
 operator|.
-name|ThrottlingInflightRoutePolicy
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -166,11 +168,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|throttling
 operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
+name|ThrottlingInflightRoutePolicy
 import|;
 end_import
 

@@ -76,7 +76,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|AsyncProcessorSupport
+name|AsyncProcessorHelper
 import|;
 end_import
 
@@ -90,7 +90,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|AsyncProcessorHelper
+name|AsyncProcessorSupport
 import|;
 end_import
 
