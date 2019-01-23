@@ -278,9 +278,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|IOHelper
+name|service
+operator|.
+name|ServiceHelper
 import|;
 end_import
 
@@ -292,11 +294,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|service
-operator|.
-name|ServiceHelper
+name|IOHelper
 import|;
 end_import
 
