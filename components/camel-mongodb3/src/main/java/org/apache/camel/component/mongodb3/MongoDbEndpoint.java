@@ -1646,42 +1646,6 @@ name|doStart
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|mongoConnection
-operator|!=
-literal|null
-condition|)
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Closing connection"
-argument_list|)
-expr_stmt|;
-name|mongoConnection
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 comment|// ======= Getters and setters
 comment|// ===============================================
 DECL|method|getConnectionBean ()
