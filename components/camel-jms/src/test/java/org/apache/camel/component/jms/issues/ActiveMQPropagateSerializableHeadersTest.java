@@ -604,7 +604,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: example
-comment|// prevent java.io.NotSerializableException: org.apache.camel.impl.DefaultMessageHistory
+comment|// prevent java.io.NotSerializableException: org.apache.camel.support.DefaultMessageHistory
 name|camelContext
 operator|.
 name|setMessageHistory

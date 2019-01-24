@@ -112,9 +112,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|MDCUnitOfWork
+name|UnitOfWork
 import|;
 end_import
 
@@ -615,7 +615,7 @@ name|MDC
 operator|.
 name|put
 argument_list|(
-name|MDCUnitOfWork
+name|UnitOfWork
 operator|.
 name|MDC_CAMEL_CONTEXT_ID
 argument_list|,
@@ -665,7 +665,7 @@ name|MDC
 operator|.
 name|put
 argument_list|(
-name|MDCUnitOfWork
+name|UnitOfWork
 operator|.
 name|MDC_ROUTE_ID
 argument_list|,

@@ -112,9 +112,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|MDCUnitOfWork
+name|UnitOfWork
 operator|.
 name|MDC_BREADCRUMB_ID
 import|;
@@ -128,9 +128,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|MDCUnitOfWork
+name|UnitOfWork
 operator|.
 name|MDC_CAMEL_CONTEXT_ID
 import|;
@@ -144,9 +144,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|MDCUnitOfWork
+name|UnitOfWork
 operator|.
 name|MDC_EXCHANGE_ID
 import|;
@@ -160,9 +160,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|MDCUnitOfWork
+name|UnitOfWork
 operator|.
 name|MDC_ROUTE_ID
 import|;
