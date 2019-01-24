@@ -66,11 +66,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|spi
 operator|.
-name|validation
-operator|.
-name|ValidatingProcessor
+name|UriEndpoint
 import|;
 end_import
 
@@ -82,9 +80,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|UriEndpoint
+name|processor
+operator|.
+name|validation
+operator|.
+name|ValidatingProcessor
 import|;
 end_import
 
