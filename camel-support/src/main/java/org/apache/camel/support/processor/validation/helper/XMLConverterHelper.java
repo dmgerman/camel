@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.support.processor.validation
+DECL|package|org.apache.camel.support.processor.validation.helper
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|processor
 operator|.
 name|validation
+operator|.
+name|helper
 package|;
 end_package
 
@@ -129,6 +131,24 @@ operator|.
 name|dom
 operator|.
 name|DOMSource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|processor
+operator|.
+name|validation
+operator|.
+name|ValidatingProcessor
 import|;
 end_import
 
