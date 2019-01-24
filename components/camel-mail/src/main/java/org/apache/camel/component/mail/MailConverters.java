@@ -24,6 +24,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|ByteArrayInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -248,9 +258,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|spi
 operator|.
-name|IOConverter
+name|TypeConverterRegistry
 import|;
 end_import
 
@@ -262,9 +272,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|TypeConverterRegistry
+name|ExchangeHelper
 import|;
 end_import
 
@@ -593,13 +603,20 @@ literal|null
 return|;
 block|}
 return|return
-name|IOConverter
-operator|.
-name|toInputStream
+operator|new
+name|ByteArrayInputStream
 argument_list|(
 name|s
-argument_list|,
+operator|.
+name|getBytes
+argument_list|(
+name|ExchangeHelper
+operator|.
+name|getCharsetName
+argument_list|(
 name|exchange
+argument_list|)
+argument_list|)
 argument_list|)
 return|;
 block|}
