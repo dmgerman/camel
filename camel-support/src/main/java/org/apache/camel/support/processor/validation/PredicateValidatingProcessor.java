@@ -4,13 +4,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor.validation
+DECL|package|org.apache.camel.support.processor.validation
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|support
 operator|.
 name|processor
 operator|.

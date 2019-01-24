@@ -604,20 +604,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
-operator|.
-name|IOConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|support
 operator|.
 name|CamelContextHelper
@@ -3592,20 +3578,20 @@ if|if
 condition|(
 name|in
 operator|instanceof
-name|IOConverter
+name|IOHelper
 operator|.
 name|EncodingInputStream
 condition|)
 block|{
 comment|// DocumentBuilder detects encoding from XML declaration, so we need to
 comment|// revert the converted encoding for the input stream
-name|IOConverter
+name|IOHelper
 operator|.
 name|EncodingInputStream
 name|encIn
 init|=
 operator|(
-name|IOConverter
+name|IOHelper
 operator|.
 name|EncodingInputStream
 operator|)

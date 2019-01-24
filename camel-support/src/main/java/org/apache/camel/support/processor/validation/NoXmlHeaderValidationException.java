@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor.validation
+DECL|package|org.apache.camel.support.processor.validation
 package|package
 name|org
 operator|.
@@ -12,47 +12,13 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
 name|processor
 operator|.
 name|validation
 package|;
 end_package
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
-name|Result
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|validation
-operator|.
-name|Schema
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|xml
-operator|.
-name|sax
-operator|.
-name|ErrorHandler
-import|;
-end_import
 
 begin_import
 import|import
@@ -79,42 +45,79 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Validator error handler.  */
+comment|/**  * An exception thrown if the XML header is not available on the inbound message  */
 end_comment
 
-begin_interface
-DECL|interface|ValidatorErrorHandler
+begin_class
+DECL|class|NoXmlHeaderValidationException
 specifier|public
-interface|interface
-name|ValidatorErrorHandler
+class|class
+name|NoXmlHeaderValidationException
 extends|extends
-name|ErrorHandler
+name|ValidationException
 block|{
-comment|/**      * Resets any state within this error handler      */
-DECL|method|reset ()
-name|void
-name|reset
-parameter_list|()
-function_decl|;
-comment|/**      * Process any errors which may have occurred during validation      *      * @param exchange the exchange      * @param schema   the schema      * @param result   the result      * @throws ValidationException is thrown in case of validation errors      */
-DECL|method|handleErrors (Exchange exchange, Schema schema, Result result)
-name|void
-name|handleErrors
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|4502520681354358599L
+decl_stmt|;
+DECL|method|NoXmlHeaderValidationException (Exchange exchange, String header)
+specifier|public
+name|NoXmlHeaderValidationException
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|Schema
-name|schema
-parameter_list|,
-name|Result
-name|result
+name|String
+name|header
 parameter_list|)
-throws|throws
-name|ValidationException
-function_decl|;
+block|{
+name|super
+argument_list|(
+name|exchange
+argument_list|,
+literal|"XML header \""
+operator|+
+name|header
+operator|+
+literal|"\" could not be found on the input message"
+argument_list|)
+expr_stmt|;
 block|}
-end_interface
+DECL|method|NoXmlHeaderValidationException (Exchange exchange, String header, Throwable cause)
+specifier|public
+name|NoXmlHeaderValidationException
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|String
+name|header
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"XML header \""
+operator|+
+name|header
+operator|+
+literal|"\"  could not found on the input message"
+argument_list|,
+name|exchange
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+end_class
 
 end_unit
 

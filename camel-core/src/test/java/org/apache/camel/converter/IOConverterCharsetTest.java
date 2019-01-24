@@ -130,6 +130,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -644,7 +658,7 @@ init|(
 name|BufferedReader
 name|reader
 init|=
-name|IOConverter
+name|IOHelper
 operator|.
 name|toReader
 argument_list|(
@@ -740,7 +754,7 @@ init|(
 name|BufferedReader
 name|reader
 init|=
-name|IOConverter
+name|IOHelper
 operator|.
 name|toReader
 argument_list|(
@@ -821,7 +835,7 @@ name|Charset
 name|charset
 parameter_list|)
 block|{
-name|IOConverter
+name|IOHelper
 operator|.
 name|defaultCharset
 operator|=

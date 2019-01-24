@@ -98,11 +98,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|spi
 operator|.
-name|validation
-operator|.
-name|PredicateValidatingProcessor
+name|Validator
 import|;
 end_import
 
@@ -114,9 +112,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|Validator
+name|processor
+operator|.
+name|validation
+operator|.
+name|PredicateValidatingProcessor
 import|;
 end_import
 

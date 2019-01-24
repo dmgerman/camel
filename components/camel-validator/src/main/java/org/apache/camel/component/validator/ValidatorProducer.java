@@ -62,11 +62,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|support
 operator|.
-name|validation
-operator|.
-name|ValidatingProcessor
+name|DefaultAsyncProducer
 import|;
 end_import
 
@@ -80,7 +78,11 @@ name|camel
 operator|.
 name|support
 operator|.
-name|DefaultAsyncProducer
+name|processor
+operator|.
+name|validation
+operator|.
+name|ValidatingProcessor
 import|;
 end_import
 

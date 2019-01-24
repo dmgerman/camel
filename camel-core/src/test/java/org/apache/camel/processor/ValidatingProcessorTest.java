@@ -112,6 +112,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
 name|processor
 operator|.
 name|validation
@@ -128,6 +130,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
 name|processor
 operator|.
 name|validation
@@ -143,6 +147,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|support
 operator|.
 name|processor
 operator|.
