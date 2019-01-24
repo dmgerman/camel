@@ -56,9 +56,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|itest
 operator|.
-name|DefaultExchange
+name|typeconverter
+operator|.
+name|MyConverter
 import|;
 end_import
 
@@ -70,11 +72,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|itest
+name|support
 operator|.
-name|typeconverter
-operator|.
-name|MyConverter
+name|DefaultExchange
 import|;
 end_import
 

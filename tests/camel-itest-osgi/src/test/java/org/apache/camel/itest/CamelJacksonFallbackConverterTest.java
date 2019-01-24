@@ -62,7 +62,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultExchange
 import|;
@@ -258,7 +258,7 @@ decl_stmt|;
 comment|// enable Jackson json type converter
 name|camel
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put
@@ -273,7 +273,7 @@ expr_stmt|;
 comment|// allow Jackson json to convert to pojo types also (by default jackson only converts to String and other simple types)
 name|camel
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put
