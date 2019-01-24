@@ -202,11 +202,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|support
 operator|.
-name|validation
-operator|.
-name|DefaultValidationErrorHandler
+name|ExchangeHelper
 import|;
 end_import
 
@@ -220,7 +218,11 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ExchangeHelper
+name|processor
+operator|.
+name|validation
+operator|.
+name|DefaultValidationErrorHandler
 import|;
 end_import
 
