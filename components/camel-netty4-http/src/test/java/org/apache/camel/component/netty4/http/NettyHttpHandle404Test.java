@@ -28,6 +28,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -71,18 +83,6 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|AggregationStrategy
 import|;
 end_import
 
