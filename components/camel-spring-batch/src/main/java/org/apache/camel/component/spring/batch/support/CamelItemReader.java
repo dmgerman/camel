@@ -58,21 +58,7 @@ name|support
 operator|.
 name|service
 operator|.
-name|ServiceSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
+name|ServiceHelper
 import|;
 end_import
 
@@ -88,7 +74,21 @@ name|support
 operator|.
 name|service
 operator|.
-name|ServiceHelper
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
