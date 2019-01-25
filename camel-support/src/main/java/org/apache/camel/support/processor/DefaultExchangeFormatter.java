@@ -310,7 +310,9 @@ literal|"true"
 argument_list|,
 name|description
 operator|=
-literal|"Whether to skip line separators when logging the message body. This allows to log the message body in one line, setting this option to false will preserve any line separators from the body, which then will log the body as is."
+literal|"Whether to skip line separators when logging the message body."
+operator|+
+literal|"This allows to log the message body in one line, setting this option to false will preserve any line separators from the body, which then will log the body as is."
 argument_list|)
 DECL|field|skipBodyLineSeparator
 specifier|private
@@ -404,7 +406,9 @@ literal|"formatting"
 argument_list|,
 name|description
 operator|=
-literal|"f the exchange has a caught exception, show the exception message (no stack trace). A caught exception is stored as a property on the exchange (using the key org.apache.camel.Exchange#EXCEPTION_CAUGHT and for instance a doCatch can catch exceptions."
+literal|"f the exchange has a caught exception, show the exception message (no stack trace)."
+operator|+
+literal|"A caught exception is stored as a property on the exchange (using the key org.apache.camel.Exchange#EXCEPTION_CAUGHT and for instance a doCatch can catch exceptions."
 argument_list|)
 DECL|field|showCaughtException
 specifier|private
@@ -484,7 +488,9 @@ literal|"formatting"
 argument_list|,
 name|description
 operator|=
-literal|"Whether Camel should show stream bodies or not (eg such as java.io.InputStream). Beware if you enable this option then you may not be able later to access the message body as the stream have already been read by this logger. To remedy this you will have to use Stream Caching."
+literal|"Whether Camel should show stream bodies or not (eg such as java.io.InputStream). Beware if you enable this option then "
+operator|+
+literal|"you may not be able later to access the message body as the stream have already been read by this logger. To remedy this you will have to use Stream Caching."
 argument_list|)
 DECL|field|showStreams
 specifier|private

@@ -21,26 +21,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|processor
-operator|.
-name|validation
-operator|.
-name|SchemaReader
-operator|.
-name|ACCESS_EXTERNAL_DTD
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -272,6 +252,56 @@ begin_import
 import|import
 name|org
 operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Node
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|ls
+operator|.
+name|LSResourceResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|SAXException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|SAXParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -377,52 +407,22 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|w3c
+name|apache
 operator|.
-name|dom
+name|camel
 operator|.
-name|Node
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|support
 operator|.
-name|w3c
+name|processor
 operator|.
-name|dom
+name|validation
 operator|.
-name|ls
+name|SchemaReader
 operator|.
-name|LSResourceResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|xml
-operator|.
-name|sax
-operator|.
-name|SAXException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|xml
-operator|.
-name|sax
-operator|.
-name|SAXParseException
+name|ACCESS_EXTERNAL_DTD
 import|;
 end_import
 
@@ -508,7 +508,8 @@ name|SchemaReader
 name|schemaReader
 parameter_list|)
 block|{
-comment|// schema reader can be a singelton per schema, therefore make reuse, see
+comment|// schema reader can be a singelton per schema, therefore make reuse,
+comment|// see
 comment|// ValidatorEndpoint and ValidatorProducer
 name|this
 operator|.
@@ -679,7 +680,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// the underlying input stream, which we need to close to avoid locking files or
+comment|// the underlying input stream, which we need to close to avoid locking
+comment|// files or
 comment|// other resources
 name|Source
 name|source
@@ -812,7 +814,8 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// CAMEL-7036 We don't need to set the result if the source is an instance of
+comment|// CAMEL-7036 We don't need to set the result if the source is an
+comment|// instance of
 comment|// StreamSource
 if|if
 condition|(
@@ -868,7 +871,8 @@ literal|null
 condition|)
 block|{
 comment|// create a new errorHandler and set it on the validator
-comment|// must be a local instance to avoid problems with concurrency (to be
+comment|// must be a local instance to avoid problems with concurrency
+comment|// (to be
 comment|// thread safe)
 name|ValidatorErrorHandler
 name|handler
@@ -1519,7 +1523,7 @@ name|createSchema
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Checks whether we need an {@link InputStream} to access the message body or 	 * header. 	 *<p/> 	 * Depending on the content in the message body or header, we may not need to 	 * convert to {@link InputStream}. 	 * 	 * @param exchange 	 *            the current exchange 	 * @return<tt>true</tt> to convert to {@link InputStream} beforehand converting 	 *         to {@link Source} afterwards. 	 */
+comment|/**      * Checks whether we need an {@link InputStream} to access the message body      * or header.      *<p/>      * Depending on the content in the message body or header, we may not need      * to convert to {@link InputStream}.      *      * @param exchange the current exchange      * @return<tt>true</tt> to convert to {@link InputStream} beforehand      *         converting to {@link Source} afterwards.      */
 DECL|method|isInputStreamNeeded (Exchange exchange)
 specifier|protected
 name|boolean
@@ -1644,7 +1648,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/** 	 * Converts the inbound body or header to a {@link Source}, if it is<b>not</b> 	 * already a {@link Source}. 	 *<p/> 	 * This implementation will prefer to source in the following order: 	 *<ul> 	 *<li>DOM - DOM if explicit configured to use DOM</li> 	 *<li>SAX - SAX as 2nd choice</li> 	 *<li>Stream - Stream as 3rd choice</li> 	 *<li>DOM - DOM as 4th choice</li> 	 *</ul> 	 */
+comment|/**      * Converts the inbound body or header to a {@link Source}, if it is      *<b>not</b> already a {@link Source}.      *<p/>      * This implementation will prefer to source in the following order:      *<ul>      *<li>DOM - DOM if explicit configured to use DOM</li>      *<li>SAX - SAX as 2nd choice</li>      *<li>Stream - Stream as 3rd choice</li>      *<li>DOM - DOM as 4th choice</li>      *</ul>      */
 DECL|method|getSource (Exchange exchange, Object content)
 specifier|protected
 name|Source

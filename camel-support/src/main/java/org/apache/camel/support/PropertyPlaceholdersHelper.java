@@ -71,6 +71,7 @@ end_import
 begin_class
 DECL|class|PropertyPlaceholdersHelper
 specifier|public
+specifier|final
 class|class
 name|PropertyPlaceholdersHelper
 block|{

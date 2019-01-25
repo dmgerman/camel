@@ -52,20 +52,6 @@ name|Processor
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|DefaultProducer
-import|;
-end_import
-
 begin_comment
 comment|/**  * A base class for selector-based producers.  */
 end_comment
