@@ -170,6 +170,24 @@ name|component
 operator|.
 name|as2
 operator|.
+name|AS2ClientManagerIntegrationTest
+operator|.
+name|RequestHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|as2
+operator|.
 name|api
 operator|.
 name|AS2AsynchronousMDNManager
@@ -4963,6 +4981,8 @@ name|serverSigningKP
 operator|.
 name|getPrivate
 argument_list|()
+argument_list|,
+literal|"Got your message!"
 argument_list|)
 decl_stmt|;
 comment|// Send MDN

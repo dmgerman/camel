@@ -5237,6 +5237,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|null
+argument_list|,
+literal|"Got ya message!"
 argument_list|)
 decl_stmt|;
 comment|// Send MDN
