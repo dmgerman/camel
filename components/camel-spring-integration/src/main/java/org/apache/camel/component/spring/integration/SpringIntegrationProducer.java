@@ -52,9 +52,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spring
 operator|.
-name|DefaultProducer
+name|SpringCamelContext
 import|;
 end_import
 
@@ -66,9 +66,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|support
 operator|.
-name|SpringCamelContext
+name|DefaultProducer
 import|;
 end_import
 
