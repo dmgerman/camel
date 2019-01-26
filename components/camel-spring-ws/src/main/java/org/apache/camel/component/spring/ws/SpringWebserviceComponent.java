@@ -258,6 +258,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|annotations
 operator|.
 name|Component
@@ -274,21 +288,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|DefaultComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Metadata
+name|CamelContextHelper
 import|;
 end_import
 
@@ -302,7 +302,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|CamelContextHelper
+name|DefaultComponent
 import|;
 end_import
 
