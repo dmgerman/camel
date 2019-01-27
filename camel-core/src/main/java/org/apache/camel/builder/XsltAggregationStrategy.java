@@ -154,9 +154,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|component
 operator|.
-name|xml
+name|xslt
 operator|.
 name|XsltBuilder
 import|;
@@ -170,9 +170,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|component
 operator|.
-name|xml
+name|xslt
 operator|.
 name|XsltUriResolver
 import|;
@@ -276,6 +276,7 @@ name|AggregationStrategy
 implements|,
 name|CamelContextAware
 block|{
+comment|// TODO: move to camel-xslt in org.apache.camel.component.xslt package (not having split osgi packages)
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -963,9 +964,6 @@ name|factoryClass
 argument_list|)
 decl_stmt|;
 name|xslt
-operator|.
-name|getConverter
-argument_list|()
 operator|.
 name|setTransformerFactory
 argument_list|(

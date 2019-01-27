@@ -134,9 +134,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|component
 operator|.
-name|xml
+name|xslt
 operator|.
 name|XsltBuilder
 operator|.
