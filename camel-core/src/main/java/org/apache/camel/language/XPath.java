@@ -141,19 +141,20 @@ specifier|public
 annotation_defn|@interface
 name|XPath
 block|{
-comment|/**      * @return The XPath which will be applied      */
+comment|/**      * The XPath which will be applied      */
 DECL|method|value ()
 name|String
 name|value
 parameter_list|()
 function_decl|;
+comment|/**      * Namespace prefix mappings      */
 DECL|method|namespaces ()
 name|NamespacePrefix
 index|[]
 name|namespaces
 argument_list|()
 expr|default
-block|{     @
+block|{         @
 name|NamespacePrefix
 argument_list|(
 name|prefix
@@ -164,7 +165,7 @@ name|uri
 operator|=
 literal|"http://www.w3.org/2003/05/soap-envelope"
 argument_list|)
-block|,     @
+block|,         @
 name|NamespacePrefix
 argument_list|(
 name|prefix
@@ -177,6 +178,7 @@ literal|"http://www.w3.org/2001/XMLSchema"
 argument_list|)
 block|}
 expr_stmt|;
+comment|/**      * The desired return type from the evaluated XPath expression.      */
 DECL|method|resultType ()
 DECL|field|Object.class
 name|Class
@@ -190,7 +192,7 @@ name|Object
 operator|.
 name|class
 function_decl|;
-comment|/**      * @return The name of the header we want to apply the XPath expression to.      *  If this is empty then the XPath expression will be applied to the body instead.      */
+comment|/**      * The name of the header we want to apply the XPath expression to.      * If this is empty then the XPath expression will be applied to the body instead.      */
 DECL|method|headerName ()
 name|String
 name|headerName
