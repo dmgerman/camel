@@ -70,9 +70,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|service
-operator|.
-name|ServiceSupport
+name|LRUCacheFactory
 import|;
 end_import
 
@@ -86,7 +84,9 @@ name|camel
 operator|.
 name|support
 operator|.
-name|LRUCacheFactory
+name|service
+operator|.
+name|ServiceSupport
 import|;
 end_import
 

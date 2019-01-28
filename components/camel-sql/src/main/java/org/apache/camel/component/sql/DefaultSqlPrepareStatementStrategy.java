@@ -170,9 +170,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|CollectionStringBuffer
+name|ObjectHelper
 import|;
 end_import
 
@@ -184,9 +184,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|ObjectHelper
+name|CollectionStringBuffer
 import|;
 end_import
 
