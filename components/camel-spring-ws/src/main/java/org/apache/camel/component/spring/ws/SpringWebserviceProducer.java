@@ -198,22 +198,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
-operator|.
-name|jaxp
-operator|.
-name|XmlConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|support
 operator|.
 name|DefaultProducer
@@ -480,6 +464,26 @@ name|HttpUrlConnectionMessageSender
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|spring
+operator|.
+name|ws
+operator|.
+name|SpringWebserviceHelper
+operator|.
+name|toResult
+import|;
+end_import
+
 begin_class
 DECL|class|SpringWebserviceProducer
 specifier|public
@@ -488,17 +492,6 @@ name|SpringWebserviceProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|XML_CONVERTER
-specifier|private
-specifier|static
-specifier|final
-name|XmlConverter
-name|XML_CONVERTER
-init|=
-operator|new
-name|XmlConverter
-argument_list|()
-decl_stmt|;
 DECL|method|SpringWebserviceProducer (Endpoint endpoint)
 specifier|public
 name|SpringWebserviceProducer
@@ -760,8 +753,6 @@ name|IOException
 throws|,
 name|TransformerException
 block|{
-name|XML_CONVERTER
-operator|.
 name|toResult
 argument_list|(
 name|sourcePayload
@@ -878,7 +869,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Populates soap message headers and attachments from soap response      *       * @param inOrOut      *            {@link Message}      * @param soapMessage      *            {@link SoapMessage}      */
+comment|/**      * Populates soap message headers and attachments from soap response      */
 DECL|method|populateHeaderAndAttachmentsFromResponse (Message inOrOut, SoapMessage soapMessage)
 specifier|private
 name|void
@@ -952,7 +943,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Populates message headers from soapHeader response      *       * @param message      *            Message      * @param soapHeader      *            SoapHeader      */
+comment|/**      * Populates message headers from soapHeader response      */
 DECL|method|populateMessageHeaderFromResponse (Message message, SoapHeader soapHeader)
 specifier|private
 name|void
@@ -1081,7 +1072,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Populates message attachments from soap response attachments       * @param inOrOut {@link Message}      * @param soapMessage {@link SoapMessage}      */
+comment|/**      * Populates message attachments from soap response attachments       */
 DECL|method|populateMessageAttachmentsFromResponse (Message inOrOut, Iterator<Attachment> attachments)
 specifier|private
 name|void
@@ -1867,8 +1858,6 @@ operator|.
 name|getSoapHeader
 argument_list|()
 decl_stmt|;
-name|XML_CONVERTER
-operator|.
 name|toResult
 argument_list|(
 name|soapHeaderSource

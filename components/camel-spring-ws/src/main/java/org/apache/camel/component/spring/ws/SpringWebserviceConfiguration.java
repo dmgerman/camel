@@ -128,22 +128,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
-operator|.
-name|jaxp
-operator|.
-name|XmlConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|UriParam
@@ -294,11 +278,6 @@ specifier|public
 class|class
 name|SpringWebserviceConfiguration
 block|{
-DECL|field|xmlConverter
-specifier|private
-name|XmlConverter
-name|xmlConverter
-decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
@@ -909,32 +888,6 @@ operator|.
 name|endpointDispatcher
 operator|=
 name|endpointDispatcher
-expr_stmt|;
-block|}
-DECL|method|getXmlConverter ()
-specifier|public
-name|XmlConverter
-name|getXmlConverter
-parameter_list|()
-block|{
-return|return
-name|xmlConverter
-return|;
-block|}
-DECL|method|setXmlConverter (XmlConverter xmlConverter)
-specifier|public
-name|void
-name|setXmlConverter
-parameter_list|(
-name|XmlConverter
-name|xmlConverter
-parameter_list|)
-block|{
-name|this
-operator|.
-name|xmlConverter
-operator|=
-name|xmlConverter
 expr_stmt|;
 block|}
 DECL|method|encode (String uri)
