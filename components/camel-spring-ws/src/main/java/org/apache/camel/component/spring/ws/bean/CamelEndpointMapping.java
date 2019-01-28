@@ -26,16 +26,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|URISyntaxException
@@ -92,30 +82,6 @@ name|javax
 operator|.
 name|xml
 operator|.
-name|parsers
-operator|.
-name|ParserConfigurationException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|stream
-operator|.
-name|XMLStreamException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
 name|transform
 operator|.
 name|TransformerException
@@ -150,11 +116,23 @@ begin_import
 import|import
 name|org
 operator|.
-name|xml
+name|apache
 operator|.
-name|sax
+name|camel
 operator|.
-name|SAXException
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContextAware
 import|;
 end_import
 
@@ -207,22 +185,6 @@ operator|.
 name|type
 operator|.
 name|EndpointMappingType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|jaxp
-operator|.
-name|XmlConverter
 import|;
 end_import
 
@@ -396,24 +358,6 @@ name|ws
 operator|.
 name|soap
 operator|.
-name|addressing
-operator|.
-name|server
-operator|.
-name|AbstractAddressingEndpointMapping
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|ws
-operator|.
-name|soap
-operator|.
 name|server
 operator|.
 name|SoapEndpointInvocationChain
@@ -513,6 +457,8 @@ implements|,
 name|CamelSpringWSEndpointMapping
 implements|,
 name|SoapEndpointMapping
+implements|,
+name|CamelContextAware
 block|{
 DECL|field|DOUBLE_QUOTE
 specifier|private
@@ -552,10 +498,10 @@ specifier|private
 name|TransformerFactory
 name|transformerFactory
 decl_stmt|;
-DECL|field|xmlConverter
+DECL|field|camelContext
 specifier|private
-name|XmlConverter
-name|xmlConverter
+name|CamelContext
+name|camelContext
 decl_stmt|;
 DECL|field|actorsOrRoles
 specifier|private
@@ -570,6 +516,36 @@ name|isUltimateReceiver
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|camelContext
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setCamelContext (CamelContext camelContext)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|getEndpointInternal (MessageContext messageContext)
@@ -732,10 +708,6 @@ throw|;
 block|}
 if|if
 condition|(
-name|messageKey
-operator|!=
-literal|null
-operator|&&
 name|key
 operator|.
 name|getLookupKey
@@ -816,10 +788,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|messageKey
-operator|!=
-literal|null
-operator|&&
 name|key
 operator|.
 name|getLookupKey
@@ -1071,8 +1039,6 @@ name|messageContext
 parameter_list|)
 throws|throws
 name|TransformerException
-throws|,
-name|XMLStreamException
 block|{
 name|QName
 name|qName
@@ -1116,16 +1082,6 @@ parameter_list|,
 name|XPathExpression
 name|expression
 parameter_list|)
-throws|throws
-name|TransformerException
-throws|,
-name|XMLStreamException
-throws|,
-name|ParserConfigurationException
-throws|,
-name|IOException
-throws|,
-name|SAXException
 block|{
 if|if
 condition|(
@@ -1137,10 +1093,17 @@ block|{
 name|Node
 name|domNode
 init|=
-name|xmlConverter
+name|camelContext
 operator|.
-name|toDOMNode
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
 argument_list|(
+name|Node
+operator|.
+name|class
+argument_list|,
 name|messageContext
 operator|.
 name|getRequest
@@ -1174,7 +1137,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Used by Camel Spring Web Services endpoint to register consumers      *       * @param key unique consumer key      * @param endpoint consumer      */
+comment|/**      * Used by Camel Spring Web Services endpoint to register consumers      */
 DECL|method|addConsumer (EndpointMappingKey key, MessageEndpoint endpoint)
 specifier|public
 name|void
@@ -1197,7 +1160,7 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Used by Camel Spring Web Services endpoint to unregister consumers      *       * @param key unique consumer key      */
+comment|/**      * Used by Camel Spring Web Services endpoint to unregister consumers      */
 DECL|method|removeConsumer (Object key)
 specifier|public
 name|void
@@ -1215,7 +1178,7 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Gets the configured TransformerFactory      *       * @return instance of TransformerFactory      */
+comment|/**      * Gets the configured TransformerFactory      */
 DECL|method|getTransformerFactory ()
 specifier|public
 name|TransformerFactory
@@ -1226,7 +1189,7 @@ return|return
 name|transformerFactory
 return|;
 block|}
-comment|/**      * Optional setter to override default TransformerFactory      *       * @param transformerFactory non-default TransformerFactory      */
+comment|/**      * Optional setter to override default TransformerFactory      */
 DECL|method|setTransformerFactory (TransformerFactory transformerFactory)
 specifier|public
 name|void
@@ -1251,28 +1214,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|xmlConverter
-operator|=
-operator|new
-name|XmlConverter
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|transformerFactory
-operator|!=
+operator|==
 literal|null
 condition|)
-block|{
-name|xmlConverter
-operator|.
-name|setTransformerFactory
-argument_list|(
-name|transformerFactory
-argument_list|)
-expr_stmt|;
-block|}
-else|else
 block|{
 name|transformerFactory
 operator|=
@@ -1296,7 +1243,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @see {@link AbstractAddressingEndpointMapping}      * @param actorOrRole      */
 DECL|method|setActorOrRole (String actorOrRole)
 specifier|public
 specifier|final
@@ -1326,7 +1272,6 @@ name|actorOrRole
 block|}
 expr_stmt|;
 block|}
-comment|/**      * @see {@link AbstractAddressingEndpointMapping}      * @param actorsOrRoles      */
 DECL|method|setActorsOrRoles (String[] actorsOrRoles)
 specifier|public
 specifier|final
@@ -1354,7 +1299,6 @@ operator|=
 name|actorsOrRoles
 expr_stmt|;
 block|}
-comment|/**      * @see {@link AbstractAddressingEndpointMapping}      * @param ultimateReceiver      */
 DECL|method|setUltimateReceiver (boolean ultimateReceiver)
 specifier|public
 specifier|final
