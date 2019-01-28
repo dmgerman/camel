@@ -272,7 +272,7 @@ decl_stmt|;
 name|String
 name|message
 init|=
-name|CxfUtils
+name|CxfUtilsTestHelper
 operator|.
 name|elementToString
 argument_list|(
@@ -377,7 +377,7 @@ decl_stmt|;
 name|String
 name|message
 init|=
-name|CxfUtils
+name|CxfUtilsTestHelper
 operator|.
 name|elementToString
 argument_list|(
