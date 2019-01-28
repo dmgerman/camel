@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p>  * http://www.apache.org/licenses/LICENSE-2.0  *<p>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -105,16 +105,6 @@ operator|.
 name|util
 operator|.
 name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
 import|;
 end_import
 
@@ -327,6 +317,24 @@ operator|.
 name|PackageHelper
 operator|.
 name|after
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|maven
+operator|.
+name|packaging
+operator|.
+name|PackageHelper
+operator|.
+name|findCamelCoreDirectory
 import|;
 end_import
 
@@ -748,28 +756,13 @@ operator|>
 literal|0
 condition|)
 block|{
-name|Artifact
-name|camelCore
-init|=
-name|findCamelCoreArtifact
-argument_list|(
-name|project
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|camelCore
-operator|!=
-literal|null
-condition|)
-block|{
 name|File
 name|core
 init|=
-name|camelCore
-operator|.
-name|getFile
-argument_list|()
+name|findCamelCoreJar
+argument_list|(
+name|project
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -1356,6 +1349,22 @@ block|}
 block|}
 block|}
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|MojoExecutionException
+argument_list|(
+literal|"Error finding camel-core/target/camel-core-"
+operator|+
+name|project
+operator|.
+name|getVersion
+argument_list|()
+operator|+
+literal|".jar file. Make sure camel-core has been built first."
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
@@ -1929,11 +1938,11 @@ return|return
 name|description
 return|;
 block|}
-DECL|method|findCamelCoreArtifact (MavenProject project)
+DECL|method|findCamelCoreJar (MavenProject project)
 specifier|private
 specifier|static
-name|Artifact
-name|findCamelCoreArtifact
+name|File
+name|findCamelCoreJar
 parameter_list|(
 name|MavenProject
 name|project
@@ -1973,71 +1982,22 @@ condition|)
 block|{
 return|return
 name|artifact
+operator|.
+name|getFile
+argument_list|()
 return|;
 block|}
-comment|// or its a component which has a dependency to camel-core
-name|Iterator
-argument_list|<
-name|?
-argument_list|>
-name|it
-init|=
+comment|// okay we are a custom dataformat so we need to find camel-core by walking down the folders
+return|return
+name|findCamelCoreDirectory
+argument_list|(
+name|project
+argument_list|,
 name|project
 operator|.
-name|getDependencyArtifacts
+name|getBasedir
 argument_list|()
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-while|while
-condition|(
-name|it
-operator|.
-name|hasNext
-argument_list|()
-condition|)
-block|{
-name|artifact
-operator|=
-operator|(
-name|Artifact
-operator|)
-name|it
-operator|.
-name|next
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|artifact
-operator|.
-name|getGroupId
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"org.apache.camel"
 argument_list|)
-operator|&&
-name|artifact
-operator|.
-name|getArtifactId
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"camel-core"
-argument_list|)
-condition|)
-block|{
-return|return
-name|artifact
-return|;
-block|}
-block|}
-return|return
-literal|null
 return|;
 block|}
 DECL|method|schemaSubDirectory (String javaType)
