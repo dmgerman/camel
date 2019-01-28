@@ -350,9 +350,9 @@ name|camel
 operator|.
 name|support
 operator|.
-name|service
+name|jsse
 operator|.
-name|ServiceHelper
+name|SSLContextParameters
 import|;
 end_import
 
@@ -366,9 +366,9 @@ name|camel
 operator|.
 name|support
 operator|.
-name|jsse
+name|service
 operator|.
-name|SSLContextParameters
+name|ServiceHelper
 import|;
 end_import
 
