@@ -118,7 +118,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|DefaultHeaderFilterStrategy
+name|DefaultExchange
 import|;
 end_import
 
@@ -132,7 +132,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|DefaultExchange
+name|DefaultHeaderFilterStrategy
 import|;
 end_import
 
