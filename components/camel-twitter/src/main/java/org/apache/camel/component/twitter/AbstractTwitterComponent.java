@@ -76,9 +76,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|DefaultComponent
+name|Metadata
 import|;
 end_import
 
@@ -90,9 +90,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|Metadata
+name|DefaultComponent
 import|;
 end_import
 
