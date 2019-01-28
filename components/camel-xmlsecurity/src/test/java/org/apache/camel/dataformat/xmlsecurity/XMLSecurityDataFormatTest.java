@@ -174,11 +174,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|support
 operator|.
-name|junit4
+name|jsse
 operator|.
-name|CamelTestSupport
+name|KeyStoreParameters
 import|;
 end_import
 
@@ -190,11 +190,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|test
 operator|.
-name|jsse
+name|junit4
 operator|.
-name|KeyStoreParameters
+name|CamelTestSupport
 import|;
 end_import
 
