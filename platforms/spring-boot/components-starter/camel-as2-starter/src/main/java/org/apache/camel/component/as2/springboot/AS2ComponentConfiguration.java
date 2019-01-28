@@ -488,6 +488,12 @@ specifier|private
 name|PrivateKey
 name|decryptingPrivateKey
 decl_stmt|;
+comment|/**          * The template used to format MDN message          */
+DECL|field|mdnMessageTemplate
+specifier|private
+name|String
+name|mdnMessageTemplate
+decl_stmt|;
 DECL|method|getApiName ()
 specifier|public
 name|AS2ApiName
@@ -1194,6 +1200,32 @@ operator|.
 name|decryptingPrivateKey
 operator|=
 name|decryptingPrivateKey
+expr_stmt|;
+block|}
+DECL|method|getMdnMessageTemplate ()
+specifier|public
+name|String
+name|getMdnMessageTemplate
+parameter_list|()
+block|{
+return|return
+name|mdnMessageTemplate
+return|;
+block|}
+DECL|method|setMdnMessageTemplate (String mdnMessageTemplate)
+specifier|public
+name|void
+name|setMdnMessageTemplate
+parameter_list|(
+name|String
+name|mdnMessageTemplate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mdnMessageTemplate
+operator|=
+name|mdnMessageTemplate
 expr_stmt|;
 block|}
 block|}
