@@ -217,6 +217,7 @@ end_import
 begin_class
 DECL|class|CxfUtilsTestHelper
 specifier|public
+specifier|final
 class|class
 name|CxfUtilsTestHelper
 block|{
