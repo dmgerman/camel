@@ -160,9 +160,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|xml
+name|model
 operator|.
 name|TimeUnitAdapter
 import|;
