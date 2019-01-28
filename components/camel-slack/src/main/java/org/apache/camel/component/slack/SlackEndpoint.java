@@ -208,11 +208,15 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|json
 operator|.
-name|simple
-operator|.
-name|JSONObject
+name|JsonObject
 import|;
 end_import
 
@@ -709,12 +713,12 @@ operator|=
 name|serverUrl
 expr_stmt|;
 block|}
-DECL|method|createExchange (JSONObject object)
+DECL|method|createExchange (JsonObject object)
 specifier|public
 name|Exchange
 name|createExchange
 parameter_list|(
-name|JSONObject
+name|JsonObject
 name|object
 parameter_list|)
 block|{
@@ -728,7 +732,7 @@ name|object
 argument_list|)
 return|;
 block|}
-DECL|method|createExchange (ExchangePattern pattern, JSONObject object)
+DECL|method|createExchange (ExchangePattern pattern, JsonObject object)
 specifier|public
 name|Exchange
 name|createExchange
@@ -736,7 +740,7 @@ parameter_list|(
 name|ExchangePattern
 name|pattern
 parameter_list|,
-name|JSONObject
+name|JsonObject
 name|object
 parameter_list|)
 block|{
@@ -760,12 +764,9 @@ decl_stmt|;
 name|String
 name|text
 init|=
-operator|(
-name|String
-operator|)
 name|object
 operator|.
-name|get
+name|getString
 argument_list|(
 literal|"text"
 argument_list|)
@@ -773,12 +774,9 @@ decl_stmt|;
 name|String
 name|username
 init|=
-operator|(
-name|String
-operator|)
 name|object
 operator|.
-name|get
+name|getString
 argument_list|(
 literal|"username"
 argument_list|)
@@ -803,9 +801,6 @@ name|ObjectHelper
 operator|.
 name|isNotEmpty
 argument_list|(
-operator|(
-name|JSONObject
-operator|)
 name|object
 operator|.
 name|get
@@ -815,15 +810,12 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-name|JSONObject
+name|JsonObject
 name|icons
 init|=
-operator|(
-name|JSONObject
-operator|)
 name|object
 operator|.
-name|get
+name|getMap
 argument_list|(
 literal|"icons"
 argument_list|)
@@ -834,9 +826,6 @@ name|ObjectHelper
 operator|.
 name|isNotEmpty
 argument_list|(
-operator|(
-name|String
-operator|)
 name|icons
 operator|.
 name|get
@@ -850,12 +839,9 @@ name|slackMessage
 operator|.
 name|setIconEmoji
 argument_list|(
-operator|(
-name|String
-operator|)
 name|icons
 operator|.
-name|get
+name|getString
 argument_list|(
 literal|"emoji"
 argument_list|)

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.json.simple
+DECL|package|org.apache.camel.util.json
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|json
+name|util
 operator|.
-name|simple
+name|json
 package|;
 end_package
 
@@ -95,30 +95,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|json
-operator|.
-name|simple
-operator|.
-name|JsonObject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|json
-operator|.
-name|simple
-operator|.
-name|Jsoner
 import|;
 end_import
 
