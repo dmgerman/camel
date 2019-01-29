@@ -54,11 +54,36 @@ name|XmlAdapter
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|adapters
+operator|.
+name|XmlJavaTypeAdapter
+import|;
+end_import
+
 begin_comment
 comment|/**  *<code>TimeUnitAdapter</code> is a simple adapter to convert between Strings  * and instances of the {@link TimeUnit} enumeration  */
 end_comment
 
 begin_class
+annotation|@
+name|XmlJavaTypeAdapter
+argument_list|(
+name|value
+operator|=
+name|TimeUnitAdapter
+operator|.
+name|class
+argument_list|)
 DECL|class|TimeUnitAdapter
 specifier|public
 class|class
