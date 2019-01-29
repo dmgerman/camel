@@ -28,9 +28,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|DefaultHeaderFilterStrategy
+name|HeaderFilterStrategy
 import|;
 end_import
 
@@ -42,9 +42,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|HeaderFilterStrategy
+name|DefaultHeaderFilterStrategy
 import|;
 end_import
 

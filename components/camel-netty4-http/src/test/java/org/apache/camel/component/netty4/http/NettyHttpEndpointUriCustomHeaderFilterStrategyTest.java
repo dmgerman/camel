@@ -70,9 +70,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|impl
 operator|.
-name|DefaultHeaderFilterStrategy
+name|JndiRegistry
 import|;
 end_import
 
@@ -84,9 +84,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
-name|JndiRegistry
+name|DefaultHeaderFilterStrategy
 import|;
 end_import
 
