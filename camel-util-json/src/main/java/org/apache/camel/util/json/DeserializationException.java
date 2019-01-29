@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/* Copyright 2016 Clifton Labs  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  * http://www.apache.org/licenses/LICENSE-2.0  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License. */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/** DeserializationException explains how and where the problem occurs in the source JSON text during deserialization.  * @since 2.0.0 */
+comment|/**  * DeserializationException explains how and where the problem occurs in the  * source JSON text during deserialization.  *   * @since 2.0.0  */
 end_comment
 
 begin_class
@@ -42,27 +42,27 @@ argument_list|(
 literal|"javadoc"
 argument_list|)
 DECL|enumConstant|DISALLOWED_TOKEN
+DECL|enumConstant|SuppressWarnings
 name|DISALLOWED_TOKEN
 block|,
-DECL|enumConstant|SuppressWarnings
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"javadoc"
 argument_list|)
 DECL|enumConstant|UNEXPECTED_CHARACTER
+DECL|enumConstant|SuppressWarnings
 name|UNEXPECTED_CHARACTER
 block|,
-DECL|enumConstant|SuppressWarnings
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"javadoc"
 argument_list|)
 DECL|enumConstant|UNEXPECTED_EXCEPTION
+DECL|enumConstant|SuppressWarnings
 name|UNEXPECTED_EXCEPTION
 block|,
-DECL|enumConstant|SuppressWarnings
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -100,7 +100,7 @@ specifier|final
 name|Object
 name|unexpectedObject
 decl_stmt|;
-comment|/** @param position where the exception occurred.      * @param problemType how the exception occurred.      * @param unexpectedObject what caused the exception. */
+comment|/**      * @param position where the exception occurred.      * @param problemType how the exception occurred.      * @param unexpectedObject what caused the exception.      */
 DECL|method|DeserializationException (final int position, final Problems problemType, final Object unexpectedObject)
 specifier|public
 name|DeserializationException

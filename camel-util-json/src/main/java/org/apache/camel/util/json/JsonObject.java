@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/* Copyright 2016 Clifton Labs  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  * http://www.apache.org/licenses/LICENSE-2.0  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License. */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -74,7 +74,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|LinkedHashMap
+name|Iterator
 import|;
 end_import
 
@@ -84,7 +84,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
+name|LinkedHashMap
 import|;
 end_import
 
@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** JsonObject is a common non-thread safe data format for string to data mappings. The contents of a JsonObject are  * only validated as JSON values on serialization.  * @see Jsoner  * @since 2.0.0 */
+comment|/**  * JsonObject is a common non-thread safe data format for string to data  * mappings. The contents of a JsonObject are only validated as JSON values on  * serialization.  *   * @see Jsoner  * @since 2.0.0  */
 end_comment
 
 begin_class
@@ -117,7 +117,7 @@ argument_list|>
 implements|implements
 name|Jsonable
 block|{
-comment|/** The serialization version this class is compatible 	 * with. This value doesn't need to be incremented if and only if the only changes to occur were updating comments, 	 * updating javadocs, adding new 	 * fields to the class, changing the fields from static to non-static, or changing the fields from transient to non 	 * transient. All other changes require this number be incremented. */
+comment|/**      * The serialization version this class is compatible with. This value      * doesn't need to be incremented if and only if the only changes to occur      * were updating comments, updating javadocs, adding new fields to the      * class, changing the fields from static to non-static, or changing the      * fields from transient to non transient. All other changes require this      * number be incremented.      */
 DECL|field|serialVersionUID
 specifier|private
 specifier|static
@@ -137,7 +137,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** Instantiate a new JsonObject by accepting a map's entries, which could lead to de/serialization issues of the 	 * resulting JsonObject since the entry values aren't validated as JSON values. 	 * @param map represents the mappings to produce the JsonObject with. */
+comment|/**      * Instantiate a new JsonObject by accepting a map's entries, which could      * lead to de/serialization issues of the resulting JsonObject since the      * entry values aren't validated as JSON values.      *       * @param map represents the mappings to produce the JsonObject with.      */
 DECL|method|JsonObject (final Map<String, ?> map)
 specifier|public
 name|JsonObject
@@ -158,7 +158,7 @@ name|map
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** A convenience method that assumes there is a BigDecimal, Number, or String at the given key. If a Number is 	 * there 	 * its Number#toString() is used to construct a new BigDecimal(String). If a String is there it is used to 	 * construct a new BigDecimal(String). 	 * @param key representing where the value ought to be stored at. 	 * @return the value stored at the key. 	 * @throws ClassCastException if the value didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @see BigDecimal 	 * @see Number#toString() */
+comment|/**      * A convenience method that assumes there is a BigDecimal, Number, or      * String at the given key. If a Number is there its Number#toString() is      * used to construct a new BigDecimal(String). If a String is there it is      * used to construct a new BigDecimal(String).      *       * @param key representing where the value ought to be stored at.      * @return the value stored at the key.      * @throws ClassCastException if the value didn't match the assumed return      *             type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @see BigDecimal      * @see Number#toString()      */
 DECL|method|getBigDecimal (final String key)
 specifier|public
 name|BigDecimal
@@ -237,7 +237,7 @@ operator|)
 name|returnable
 return|;
 block|}
-comment|/** A convenience method that assumes there is a BigDecimal, Number, or String at the given key. If a Number is 	 * there 	 * its Number#toString() is used to construct a new BigDecimal(String). If a String is there it is used to 	 * construct a new BigDecimal(String). 	 * @param key representing where the value ought to be stored at. 	 * @param defaultValue representing what is returned when the key isn't in the JsonObject. 	 * @return the value stored at the key or the default provided if the key doesn't exist. 	 * @throws ClassCastException if there was a value but didn't match the assumed return types. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @see BigDecimal 	 * @see Number#toString() */
+comment|/**      * A convenience method that assumes there is a BigDecimal, Number, or      * String at the given key. If a Number is there its Number#toString() is      * used to construct a new BigDecimal(String). If a String is there it is      * used to construct a new BigDecimal(String).      *       * @param key representing where the value ought to be stored at.      * @param defaultValue representing what is returned when the key isn't in      *            the JsonObject.      * @return the value stored at the key or the default provided if the key      *         doesn't exist.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return types.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @see BigDecimal      * @see Number#toString()      */
 DECL|method|getBigDecimalOrDefault (final String key, final BigDecimal defaultValue)
 specifier|public
 name|BigDecimal
@@ -339,7 +339,7 @@ operator|)
 name|returnable
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Boolean or String value at the given key. 	 * @param key representing where the value ought to be stored at. 	 * @return the value stored at the key. 	 * @throws ClassCastException if the value didn't match the assumed return type. */
+comment|/**      * A convenience method that assumes there is a Boolean or String value at      * the given key.      *       * @param key representing where the value ought to be stored at.      * @return the value stored at the key.      * @throws ClassCastException if the value didn't match the assumed return      *             type.      */
 DECL|method|getBoolean (final String key)
 specifier|public
 name|Boolean
@@ -387,7 +387,7 @@ operator|)
 name|returnable
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Boolean or String value at the given key. 	 * @param key representing where the value ought to be stored at. 	 * @param defaultValue representing what is returned when the key isn't in the JsonObject. 	 * @return the value stored at the key or the default provided if the key doesn't exist. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. */
+comment|/**      * A convenience method that assumes there is a Boolean or String value at      * the given key.      *       * @param key representing where the value ought to be stored at.      * @param defaultValue representing what is returned when the key isn't in      *            the JsonObject.      * @return the value stored at the key or the default provided if the key      *         doesn't exist.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      */
 DECL|method|getBooleanOrDefault (final String key, final boolean defaultValue)
 specifier|public
 name|Boolean
@@ -458,7 +458,7 @@ operator|)
 name|returnable
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Number or String value at the given key. 	 * @param key representing where the value ought to be stored at. 	 * @return the value stored at the key (which may involve rounding or truncation). 	 * @throws ClassCastException if the value didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @see Number#byteValue() */
+comment|/**      * A convenience method that assumes there is a Number or String value at      * the given key.      *       * @param key representing where the value ought to be stored at.      * @return the value stored at the key (which may involve rounding or      *         truncation).      * @throws ClassCastException if the value didn't match the assumed return      *             type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @see Number#byteValue()      */
 DECL|method|getByte (final String key)
 specifier|public
 name|Byte
@@ -522,7 +522,7 @@ name|byteValue
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Number or String value at the given key. 	 * @param key representing where the value ought to be stored at. 	 * @param defaultValue representing what is returned when the key isn't in the JsonObject. 	 * @return the value stored at the key (which may involve rounding or truncation) or the default provided if the key 	 *         doesn't exist. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @see Number#byteValue() */
+comment|/**      * A convenience method that assumes there is a Number or String value at      * the given key.      *       * @param key representing where the value ought to be stored at.      * @param defaultValue representing what is returned when the key isn't in      *            the JsonObject.      * @return the value stored at the key (which may involve rounding or      *         truncation) or the default provided if the key doesn't exist.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @see Number#byteValue()      */
 DECL|method|getByteOrDefault (final String key, final byte defaultValue)
 specifier|public
 name|Byte
@@ -609,7 +609,7 @@ name|byteValue
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Collection at the given key. 	 * @param<T> the kind of collection to expect at the key. Note unless manually added, collection values will be a 	 *        JsonArray. 	 * @param key representing where the value ought to be stored at. 	 * @return the value stored at the key. 	 * @throws ClassCastException if the value didn't match the assumed return type. */
+comment|/**      * A convenience method that assumes there is a Collection at the given key.      *       * @param<T> the kind of collection to expect at the key. Note unless      *            manually added, collection values will be a JsonArray.      * @param key representing where the value ought to be stored at.      * @return the value stored at the key.      * @throws ClassCastException if the value didn't match the assumed return      *             type.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -633,7 +633,7 @@ name|String
 name|key
 parameter_list|)
 block|{
-comment|/* The unchecked warning is suppressed because there is no way of guaranteeing at compile time the cast will 		 * work. */
+comment|/*          * The unchecked warning is suppressed because there is no way of          * guaranteeing at compile time the cast will work.          */
 return|return
 operator|(
 name|T
@@ -646,7 +646,7 @@ name|key
 argument_list|)
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Collection at the given key. 	 * @param<T> the kind of collection to expect at the key. Note unless manually added, collection values will be a 	 *        JsonArray. 	 * @param key representing where the value ought to be stored at. 	 * @param defaultValue representing what is returned when the key isn't in the JsonObject. 	 * @return the value stored at the key or the default provided if the key doesn't exist. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. */
+comment|/**      * A convenience method that assumes there is a Collection at the given key.      *       * @param<T> the kind of collection to expect at the key. Note unless      *            manually added, collection values will be a JsonArray.      * @param key representing where the value ought to be stored at.      * @param defaultValue representing what is returned when the key isn't in      *            the JsonObject.      * @return the value stored at the key or the default provided if the key      *         doesn't exist.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -674,7 +674,7 @@ name|T
 name|defaultValue
 parameter_list|)
 block|{
-comment|/* The unchecked warning is suppressed because there is no way of guaranteeing at compile time the cast will 		 * work. */
+comment|/*          * The unchecked warning is suppressed because there is no way of          * guaranteeing at compile time the cast will work.          */
 name|Object
 name|returnable
 decl_stmt|;
@@ -711,7 +711,7 @@ operator|)
 name|returnable
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Number or String value at the given key. 	 * @param key representing where the value ought to be stored at. 	 * @return the value stored at the key (which may involve rounding or truncation). 	 * @throws ClassCastException if the value didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @see Number#doubleValue() */
+comment|/**      * A convenience method that assumes there is a Number or String value at      * the given key.      *       * @param key representing where the value ought to be stored at.      * @return the value stored at the key (which may involve rounding or      *         truncation).      * @throws ClassCastException if the value didn't match the assumed return      *             type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @see Number#doubleValue()      */
 DECL|method|getDouble (final String key)
 specifier|public
 name|Double
@@ -775,7 +775,7 @@ name|doubleValue
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Number or String value at the given key. 	 * @param key representing where the value ought to be stored at. 	 * @param defaultValue representing what is returned when the key isn't in the JsonObject. 	 * @return the value stored at the key (which may involve rounding or truncation) or the default provided if the key 	 *         doesn't exist. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @see Number#doubleValue() */
+comment|/**      * A convenience method that assumes there is a Number or String value at      * the given key.      *       * @param key representing where the value ought to be stored at.      * @param defaultValue representing what is returned when the key isn't in      *            the JsonObject.      * @return the value stored at the key (which may involve rounding or      *         truncation) or the default provided if the key doesn't exist.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @see Number#doubleValue()      */
 DECL|method|getDoubleOrDefault (final String key, final double defaultValue)
 specifier|public
 name|Double
@@ -862,7 +862,7 @@ name|doubleValue
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes there is a String value at the given key representing a fully qualified name 	 * in 	 * dot notation of an enum. 	 * @param key representing where the value ought to be stored at. 	 * @param<T> the Enum type the value at the key is expected to belong to. 	 * @return the enum based on the string found at the key, or null if the value paired with the provided key is null. 	 * @throws ClassNotFoundException if the value was a String but the declaring enum type couldn't be determined with 	 *         it. 	 * @throws ClassCastException if the element at the index was not a String or if the fully qualified enum name is of 	 *         the wrong type. 	 * @throws IllegalArgumentException if an enum type was determined but it doesn't define an enum with the determined 	 *         name. 	 * @see Enum#valueOf(Class, String) */
+comment|/**      * A convenience method that assumes there is a String value at the given      * key representing a fully qualified name in dot notation of an enum.      *       * @param key representing where the value ought to be stored at.      * @param<T> the Enum type the value at the key is expected to belong to.      * @return the enum based on the string found at the key, or null if the      *         value paired with the provided key is null.      * @throws ClassNotFoundException if the value was a String but the      *             declaring enum type couldn't be determined with it.      * @throws ClassCastException if the element at the index was not a String      *             or if the fully qualified enum name is of the wrong type.      * @throws IllegalArgumentException if an enum type was determined but it      *             doesn't define an enum with the determined name.      * @see Enum#valueOf(Class, String)      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -888,7 +888,7 @@ parameter_list|)
 throws|throws
 name|ClassNotFoundException
 block|{
-comment|/* Supressing the unchecked warning because the returnType is dynamically identified and could lead to a 		 * ClassCastException when returnType is cast to Class<T>, which is expected by the method's contract. */
+comment|/*          * Supressing the unchecked warning because the returnType is          * dynamically identified and could lead to a ClassCastException when          * returnType is cast to Class<T>, which is expected by the method's          * contract.          */
 name|T
 name|returnable
 decl_stmt|;
@@ -997,7 +997,7 @@ literal|1
 operator|)
 condition|)
 block|{
-comment|/* If it is the last split value then it should be the name of the Enum since dots are not allowed 				 * in enum names. */
+comment|/*                  * If it is the last split value then it should be the name of                  * the Enum since dots are not allowed in enum names.                  */
 name|enumName
 operator|.
 name|append
@@ -1021,7 +1021,7 @@ literal|2
 operator|)
 condition|)
 block|{
-comment|/* If it is the penultimate split value then it should be the end of the package/enum type and not 				 * need a dot appended to it. */
+comment|/*                  * If it is the penultimate split value then it should be the                  * end of the package/enum type and not need a dot appended to                  * it.                  */
 name|returnTypeName
 operator|.
 name|append
@@ -1035,7 +1035,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/* Must be part of the package/enum type and will need a dot appended to it since they got removed 				 * in the split. */
+comment|/*                  * Must be part of the package/enum type and will need a dot                  * appended to it since they got removed in the split.                  */
 name|returnTypeName
 operator|.
 name|append
@@ -1092,7 +1092,7 @@ return|return
 name|returnable
 return|;
 block|}
-comment|/** A convenience method that assumes there is a String value at the given key representing a fully qualified name 	 * in 	 * dot notation of an enum. 	 * @param key representing where the value ought to be stored at. 	 * @param defaultValue representing what is returned when the key isn't in the JsonObject. 	 * @param<T> the Enum type the value at the key is expected to belong to. 	 * @return the enum based on the string found at the key, or the defaultValue provided if the key doesn't exist, or 	 *         null if the value paired with provided key is null. 	 * @throws ClassNotFoundException if the value was a String but the declaring enum type couldn't be determined with 	 *         it. 	 * @throws ClassCastException if the element at the index was not a String or if the fully qualified enum name is of 	 *         the wrong type. 	 * @throws IllegalArgumentException if an enum type was determined but it doesn't define an enum with the determined 	 *         name. 	 * @see Enum#valueOf(Class, String) */
+comment|/**      * A convenience method that assumes there is a String value at the given      * key representing a fully qualified name in dot notation of an enum.      *       * @param key representing where the value ought to be stored at.      * @param defaultValue representing what is returned when the key isn't in      *            the JsonObject.      * @param<T> the Enum type the value at the key is expected to belong to.      * @return the enum based on the string found at the key, or the      *         defaultValue provided if the key doesn't exist, or null if the      *         value paired with provided key is null.      * @throws ClassNotFoundException if the value was a String but the      *             declaring enum type couldn't be determined with it.      * @throws ClassCastException if the element at the index was not a String      *             or if the fully qualified enum name is of the wrong type.      * @throws IllegalArgumentException if an enum type was determined but it      *             doesn't define an enum with the determined name.      * @see Enum#valueOf(Class, String)      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1122,7 +1122,7 @@ parameter_list|)
 throws|throws
 name|ClassNotFoundException
 block|{
-comment|/* Supressing the unchecked warning because the returnType is dynamically identified and could lead to a 		 * ClassCastException when returnType is cast to Class<T>, which is expected by the method's contract. */
+comment|/*          * Supressing the unchecked warning because the returnType is          * dynamically identified and could lead to a ClassCastException when          * returnType is cast to Class<T>, which is expected by the method's          * contract.          */
 name|T
 name|returnable
 decl_stmt|;
@@ -1154,7 +1154,7 @@ name|T
 argument_list|>
 name|returnType
 decl_stmt|;
-comment|/* Check to make sure the key wasn't actually there and wasn't coincidentally the defaulted String as its 		 * value. */
+comment|/*          * Check to make sure the key wasn't actually there and wasn't          * coincidentally the defaulted String as its value.          */
 if|if
 condition|(
 name|this
@@ -1242,7 +1242,7 @@ literal|1
 operator|)
 condition|)
 block|{
-comment|/* If it is the last split value then it should be the name of the Enum since dots are not allowed 					 * in enum names. */
+comment|/*                      * If it is the last split value then it should be the name                      * of the Enum since dots are not allowed in enum names.                      */
 name|enumName
 operator|.
 name|append
@@ -1266,7 +1266,7 @@ literal|2
 operator|)
 condition|)
 block|{
-comment|/* If it is the penultimate split value then it should be the end of the package/enum type and not 					 * need a dot appended to it. */
+comment|/*                      * If it is the penultimate split value then it should be                      * the end of the package/enum type and not need a dot                      * appended to it.                      */
 name|returnTypeName
 operator|.
 name|append
@@ -1280,7 +1280,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/* Must be part of the package/enum type and will need a dot appended to it since they got removed 					 * in the split. */
+comment|/*                      * Must be part of the package/enum type and will need a dot                      * appended to it since they got removed in the split.                      */
 name|returnTypeName
 operator|.
 name|append
@@ -1336,7 +1336,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/* It wasn't there and according to the method's contract we return the default value. */
+comment|/*              * It wasn't there and according to the method's contract we return              * the default value.              */
 return|return
 name|defaultValue
 return|;
@@ -1345,7 +1345,7 @@ return|return
 name|returnable
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Number or String value at the given key. 	 * @param key representing where the value ought to be stored at. 	 * @return the value stored at the key (which may involve rounding or truncation). 	 * @throws ClassCastException if the value didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @see Number#floatValue() */
+comment|/**      * A convenience method that assumes there is a Number or String value at      * the given key.      *       * @param key representing where the value ought to be stored at.      * @return the value stored at the key (which may involve rounding or      *         truncation).      * @throws ClassCastException if the value didn't match the assumed return      *             type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @see Number#floatValue()      */
 DECL|method|getFloat (final String key)
 specifier|public
 name|Float
@@ -1409,7 +1409,7 @@ name|floatValue
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Number or String value at the given key. 	 * @param key representing where the value ought to be stored at. 	 * @param defaultValue representing what is returned when the key isn't in the JsonObject. 	 * @return the value stored at the key (which may involve rounding or truncation) or the default provided if the key 	 *         doesn't exist. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @see Number#floatValue() */
+comment|/**      * A convenience method that assumes there is a Number or String value at      * the given key.      *       * @param key representing where the value ought to be stored at.      * @param defaultValue representing what is returned when the key isn't in      *            the JsonObject.      * @return the value stored at the key (which may involve rounding or      *         truncation) or the default provided if the key doesn't exist.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @see Number#floatValue()      */
 DECL|method|getFloatOrDefault (final String key, final float defaultValue)
 specifier|public
 name|Float
@@ -1496,7 +1496,7 @@ name|floatValue
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Number or String value at the given key. 	 * @param key representing where the value ought to be stored at. 	 * @return the value stored at the key (which may involve rounding or truncation). 	 * @throws ClassCastException if the value didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @see Number#intValue() */
+comment|/**      * A convenience method that assumes there is a Number or String value at      * the given key.      *       * @param key representing where the value ought to be stored at.      * @return the value stored at the key (which may involve rounding or      *         truncation).      * @throws ClassCastException if the value didn't match the assumed return      *             type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @see Number#intValue()      */
 DECL|method|getInteger (final String key)
 specifier|public
 name|Integer
@@ -1560,7 +1560,7 @@ name|intValue
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Number or String value at the given key. 	 * @param key representing where the value ought to be stored at. 	 * @param defaultValue representing what is returned when the key isn't in the JsonObject. 	 * @return the value stored at the key (which may involve rounding or truncation) or the default provided if the key 	 *         doesn't exist. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @see Number#intValue() */
+comment|/**      * A convenience method that assumes there is a Number or String value at      * the given key.      *       * @param key representing where the value ought to be stored at.      * @param defaultValue representing what is returned when the key isn't in      *            the JsonObject.      * @return the value stored at the key (which may involve rounding or      *         truncation) or the default provided if the key doesn't exist.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @see Number#intValue()      */
 DECL|method|getIntegerOrDefault (final String key, final int defaultValue)
 specifier|public
 name|Integer
@@ -1647,7 +1647,7 @@ name|intValue
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Number or String value at the given key. 	 * @param key representing where the value ought to be stored at. 	 * @return the value stored at the key (which may involve rounding or truncation). 	 * @throws ClassCastException if the value didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @see Number#longValue() */
+comment|/**      * A convenience method that assumes there is a Number or String value at      * the given key.      *       * @param key representing where the value ought to be stored at.      * @return the value stored at the key (which may involve rounding or      *         truncation).      * @throws ClassCastException if the value didn't match the assumed return      *             type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @see Number#longValue()      */
 DECL|method|getLong (final String key)
 specifier|public
 name|Long
@@ -1711,7 +1711,7 @@ name|longValue
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Number or String value at the given key. 	 * @param key representing where the value ought to be stored at. 	 * @param defaultValue representing what is returned when the key isn't in the JsonObject. 	 * @return the value stored at the key (which may involve rounding or truncation) or the default provided if the key 	 *         doesn't exist. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @see Number#longValue() */
+comment|/**      * A convenience method that assumes there is a Number or String value at      * the given key.      *       * @param key representing where the value ought to be stored at.      * @param defaultValue representing what is returned when the key isn't in      *            the JsonObject.      * @return the value stored at the key (which may involve rounding or      *         truncation) or the default provided if the key doesn't exist.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @see Number#longValue()      */
 DECL|method|getLongOrDefault (final String key, final long defaultValue)
 specifier|public
 name|Long
@@ -1798,7 +1798,7 @@ name|longValue
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Map at the given key. 	 * @param<T> the kind of map to expect at the key. Note unless manually added, Map values will be a JsonObject. 	 * @param key representing where the value ought to be stored at. 	 * @return the value stored at the key. 	 * @throws ClassCastException if the value didn't match the assumed return type. */
+comment|/**      * A convenience method that assumes there is a Map at the given key.      *       * @param<T> the kind of map to expect at the key. Note unless manually      *            added, Map values will be a JsonObject.      * @param key representing where the value ought to be stored at.      * @return the value stored at the key.      * @throws ClassCastException if the value didn't match the assumed return      *             type.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1824,7 +1824,7 @@ name|String
 name|key
 parameter_list|)
 block|{
-comment|/* The unchecked warning is suppressed because there is no way of guaranteeing at compile time the cast will 		 * work. */
+comment|/*          * The unchecked warning is suppressed because there is no way of          * guaranteeing at compile time the cast will work.          */
 return|return
 operator|(
 name|T
@@ -1837,7 +1837,7 @@ name|key
 argument_list|)
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Map at the given key. 	 * @param<T> the kind of map to expect at the key. Note unless manually added, Map values will be a JsonObject. 	 * @param key representing where the value ought to be stored at. 	 * @param defaultValue representing what is returned when the key isn't in the JsonObject. 	 * @return the value stored at the key or the default provided if the key doesn't exist. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. */
+comment|/**      * A convenience method that assumes there is a Map at the given key.      *       * @param<T> the kind of map to expect at the key. Note unless manually      *            added, Map values will be a JsonObject.      * @param key representing where the value ought to be stored at.      * @param defaultValue representing what is returned when the key isn't in      *            the JsonObject.      * @return the value stored at the key or the default provided if the key      *         doesn't exist.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1867,7 +1867,7 @@ name|T
 name|defaultValue
 parameter_list|)
 block|{
-comment|/* The unchecked warning is suppressed because there is no way of guaranteeing at compile time the cast will 		 * work. */
+comment|/*          * The unchecked warning is suppressed because there is no way of          * guaranteeing at compile time the cast will work.          */
 name|Object
 name|returnable
 decl_stmt|;
@@ -1905,7 +1905,7 @@ operator|)
 name|returnable
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Number or String value at the given key. 	 * @param key representing where the value ought to be stored at. 	 * @return the value stored at the key (which may involve rounding or truncation). 	 * @throws ClassCastException if the value didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @see Number#shortValue() */
+comment|/**      * A convenience method that assumes there is a Number or String value at      * the given key.      *       * @param key representing where the value ought to be stored at.      * @return the value stored at the key (which may involve rounding or      *         truncation).      * @throws ClassCastException if the value didn't match the assumed return      *             type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @see Number#shortValue()      */
 DECL|method|getShort (final String key)
 specifier|public
 name|Short
@@ -1969,7 +1969,7 @@ name|shortValue
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Number or String value at the given key. 	 * @param key representing where the value ought to be stored at. 	 * @param defaultValue representing what is returned when the key isn't in the JsonObject. 	 * @return the value stored at the key (which may involve rounding or truncation) or the default provided if the key 	 *         doesn't exist. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @see Number#shortValue() */
+comment|/**      * A convenience method that assumes there is a Number or String value at      * the given key.      *       * @param key representing where the value ought to be stored at.      * @param defaultValue representing what is returned when the key isn't in      *            the JsonObject.      * @return the value stored at the key (which may involve rounding or      *         truncation) or the default provided if the key doesn't exist.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @see Number#shortValue()      */
 DECL|method|getShortOrDefault (final String key, final short defaultValue)
 specifier|public
 name|Short
@@ -2056,7 +2056,7 @@ name|shortValue
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Boolean, Number, or String value at the given key. 	 * @param key representing where the value ought to be stored at. 	 * @return the value stored at the key. 	 * @throws ClassCastException if the value didn't match the assumed return type. */
+comment|/**      * A convenience method that assumes there is a Boolean, Number, or String      * value at the given key.      *       * @param key representing where the value ought to be stored at.      * @return the value stored at the key.      * @throws ClassCastException if the value didn't match the assumed return      *             type.      */
 DECL|method|getString (final String key)
 specifier|public
 name|String
@@ -2115,7 +2115,7 @@ operator|)
 name|returnable
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Boolean, Number, or String value at the given key. 	 * @param key representing where the value ought to be stored at. 	 * @param defaultValue representing what is returned when the key isn't in the JsonObject. 	 * @return the value stored at the key or the default provided if the key doesn't exist. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. */
+comment|/**      * A convenience method that assumes there is a Boolean, Number, or String      * value at the given key.      *       * @param key representing where the value ought to be stored at.      * @param defaultValue representing what is returned when the key isn't in      *            the JsonObject.      * @return the value stored at the key or the default provided if the key      *         doesn't exist.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      */
 DECL|method|getStringOrDefault (final String key, final String defaultValue)
 specifier|public
 name|String
@@ -2197,7 +2197,7 @@ operator|)
 name|returnable
 return|;
 block|}
-comment|/* (non-Javadoc) 	 * @see org.apache.camel.util.json.Jsonable#asJsonString() */
+comment|/*      * (non-Javadoc)      * @see org.apache.camel.util.json.Jsonable#asJsonString()      */
 annotation|@
 name|Override
 DECL|method|toJson ()
@@ -2240,7 +2240,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/* (non-Javadoc) 	 * @see org.apache.camel.util.json.Jsonable#toJsonString(java.io.Writer) */
+comment|/*      * (non-Javadoc)      * @see org.apache.camel.util.json.Jsonable#toJsonString(java.io.Writer)      */
 annotation|@
 name|Override
 DECL|method|toJson (final Writer writable)

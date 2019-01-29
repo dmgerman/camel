@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/* Copyright 2016 Clifton Labs  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  * http://www.apache.org/licenses/LICENSE-2.0  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License. */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/** Represents structural entities in JSON.  * @since 2.0.0 */
+comment|/**  * Represents structural entities in JSON.  *   * @since 2.0.0  */
 end_comment
 
 begin_class
@@ -40,7 +40,7 @@ comment|/** Tokens of this type will always have a value of "," */
 DECL|enumConstant|COMMA
 name|COMMA
 block|,
-comment|/** Tokens of this type will always have a value that is a boolean, null, number, or string. */
+comment|/**          * Tokens of this type will always have a value that is a boolean, null,          * number, or string.          */
 DECL|enumConstant|DATUM
 name|DATUM
 block|,
@@ -76,7 +76,7 @@ specifier|final
 name|Object
 name|value
 decl_stmt|;
-comment|/** @param type represents the kind of token the instantiated token will be.      * @param value represents the value the token is associated with, will be ignored unless type is equal to      *        Types.DATUM.      * @see Types */
+comment|/**      * @param type represents the kind of token the instantiated token will be.      * @param value represents the value the token is associated with, will be      *            ignored unless type is equal to Types.DATUM.      * @see Types      */
 DECL|method|Yytoken (final Types type, final Object value)
 name|Yytoken
 parameter_list|(
@@ -89,7 +89,7 @@ name|Object
 name|value
 parameter_list|)
 block|{
-comment|/* Sanity check. Make sure the value is ignored for the proper value unless it is a datum token. */
+comment|/*          * Sanity check. Make sure the value is ignored for the proper value          * unless it is a datum token.          */
 switch|switch
 condition|(
 name|type
@@ -181,7 +181,7 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-comment|/** @return which of the Types the token is.      * @see Types */
+comment|/**      * @return which of the Types the token is.      * @see Types      */
 DECL|method|getType ()
 name|Types
 name|getType
@@ -193,7 +193,7 @@ operator|.
 name|type
 return|;
 block|}
-comment|/** @return what the token is.      * @see Types */
+comment|/**      * @return what the token is.      * @see Types      */
 DECL|method|getValue ()
 name|Object
 name|getValue

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/* Copyright 2016 Clifton Labs  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  * http://www.apache.org/licenses/LICENSE-2.0  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License. */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -129,23 +129,23 @@ import|;
 end_import
 
 begin_comment
-comment|/** Jsoner provides JSON utilities for escaping strings to be JSON compatible, thread safe parsing (RFC 4627) JSON  * strings, and serializing data to strings in JSON format.  * @since 2.0.0 */
+comment|/**  * Jsoner provides JSON utilities for escaping strings to be JSON compatible,  * thread safe parsing (RFC 4627) JSON strings, and serializing data to strings  * in JSON format.  *   * @since 2.0.0  */
 end_comment
 
 begin_class
 DECL|class|Jsoner
 specifier|public
+specifier|final
 class|class
 name|Jsoner
 block|{
 comment|/** Flags to tweak the behavior of the primary deserialization method. */
 DECL|enum|DeserializationOptions
 specifier|private
-specifier|static
 enum|enum
 name|DeserializationOptions
 block|{
-comment|/** Whether a multiple JSON values can be deserialized as a root element. */
+comment|/**          * Whether a multiple JSON values can be deserialized as a root element.          */
 DECL|enumConstant|ALLOW_CONCATENATED_JSON_VALUES
 name|ALLOW_CONCATENATED_JSON_VALUES
 block|,
@@ -153,41 +153,39 @@ comment|/** Whether a JsonArray can be deserialized as a root element. */
 DECL|enumConstant|ALLOW_JSON_ARRAYS
 name|ALLOW_JSON_ARRAYS
 block|,
-comment|/** Whether a boolean, null, Number, or String can be deserialized as a root element. */
+comment|/**          * Whether a boolean, null, Number, or String can be deserialized as a          * root element.          */
 DECL|enumConstant|ALLOW_JSON_DATA
 name|ALLOW_JSON_DATA
 block|,
 comment|/** Whether a JsonObject can be deserialized as a root element. */
 DECL|enumConstant|ALLOW_JSON_OBJECTS
 name|ALLOW_JSON_OBJECTS
-block|; 	}
+block|;     }
 comment|/** Flags to tweak the behavior of the primary serialization method. */
 DECL|enum|SerializationOptions
 specifier|private
-specifier|static
 enum|enum
 name|SerializationOptions
 block|{
-comment|/** Instead of aborting serialization on non-JSON values that are Enums it will continue serialization with the 		 * Enums' "${PACKAGE}.${DECLARING_CLASS}.${NAME}". 		 * @see Enum */
+comment|/**          * Instead of aborting serialization on non-JSON values that are Enums          * it will continue serialization with the Enums'          * "${PACKAGE}.${DECLARING_CLASS}.${NAME}".          *           * @see Enum          */
 DECL|enumConstant|ALLOW_FULLY_QUALIFIED_ENUMERATIONS
 name|ALLOW_FULLY_QUALIFIED_ENUMERATIONS
 block|,
-comment|/** Instead of aborting serialization on non-JSON values it will continue serialization by serializing the 		 * non-JSON value directly into the now invalid JSON. Be mindful that invalid JSON will not successfully 		 * deserialize. */
+comment|/**          * Instead of aborting serialization on non-JSON values it will continue          * serialization by serializing the non-JSON value directly into the now          * invalid JSON. Be mindful that invalid JSON will not successfully          * deserialize.          */
 DECL|enumConstant|ALLOW_INVALIDS
 name|ALLOW_INVALIDS
 block|,
-comment|/** Instead of aborting serialization on non-JSON values that implement Jsonable it will continue serialization 		 * by deferring serialization to the Jsonable. 		 * @see Jsonable */
+comment|/**          * Instead of aborting serialization on non-JSON values that implement          * Jsonable it will continue serialization by deferring serialization to          * the Jsonable.          *           * @see Jsonable          */
 DECL|enumConstant|ALLOW_JSONABLES
 name|ALLOW_JSONABLES
 block|,
-comment|/** Instead of aborting serialization on non-JSON values it will continue serialization by using reflection to 		 * best describe the value as a JsonObject. */
+comment|/**          * Instead of aborting serialization on non-JSON values it will continue          * serialization by using reflection to best describe the value as a          * JsonObject.          */
 DECL|enumConstant|ALLOW_UNDEFINEDS
 name|ALLOW_UNDEFINEDS
-block|; 	}
+block|;     }
 comment|/** The possible States of a JSON deserializer. */
 DECL|enum|States
 specifier|private
-specifier|static
 enum|enum
 name|States
 block|{
@@ -201,18 +199,18 @@ name|INITIAL
 block|,
 comment|/** Parsing error, ParsingException should be thrown. */
 DECL|enumConstant|PARSED_ERROR
+DECL|enumConstant|PARSING_ARRAY
 name|PARSED_ERROR
 block|,
-DECL|enumConstant|PARSING_ARRAY
 name|PARSING_ARRAY
 block|,
 comment|/** Parsing a key-value pair inside of an object. */
 DECL|enumConstant|PARSING_ENTRY
+DECL|enumConstant|PARSING_OBJECT
 name|PARSING_ENTRY
 block|,
-DECL|enumConstant|PARSING_OBJECT
 name|PARSING_OBJECT
-block|; 	}
+block|;     }
 DECL|method|Jsoner ()
 specifier|private
 name|Jsoner
@@ -220,7 +218,7 @@ parameter_list|()
 block|{
 comment|/* Keeping it classy. */
 block|}
-comment|/** Deserializes a readable stream according to the RFC 4627 JSON specification. 	 * @param readableDeserializable representing content to be deserialized as JSON. 	 * @return either a boolean, null, Number, String, JsonObject, or JsonArray that best represents the deserializable. 	 * @throws DeserializationException if an unexpected token is encountered in the deserializable. To recover from a 	 *         DeserializationException: fix the deserializable 	 *         to no longer have an unexpected token and try again. 	 * @throws IOException if the underlying reader encounters an I/O error. Ensure the reader is properly instantiated, 	 *         isn't closed, or that it is ready before trying again. */
+comment|/**      * Deserializes a readable stream according to the RFC 4627 JSON      * specification.      *       * @param readableDeserializable representing content to be deserialized as      *            JSON.      * @return either a boolean, null, Number, String, JsonObject, or JsonArray      *         that best represents the deserializable.      * @throws DeserializationException if an unexpected token is encountered in      *             the deserializable. To recover from a      *             DeserializationException: fix the deserializable to no longer      *             have an unexpected token and try again.      * @throws IOException if the underlying reader encounters an I/O error.      *             Ensure the reader is properly instantiated, isn't closed, or      *             that it is ready before trying again.      */
 DECL|method|deserialize (final Reader readableDeserializable)
 specifier|public
 specifier|static
@@ -267,7 +265,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/** Deserialize a stream with all deserialized JSON values are wrapped in a JsonArray. 	 * @param deserializable representing content to be deserialized as JSON. 	 * @param flags representing the allowances and restrictions on deserialization. 	 * @return the allowable object best represented by the deserializable. 	 * @throws DeserializationException if a disallowed or unexpected token is encountered in the deserializable. To 	 *         recover from a DeserializationException: fix the 	 *         deserializable to no longer have a disallowed or unexpected token and try again. 	 * @throws IOException if the underlying reader encounters an I/O error. Ensure the reader is properly instantiated, 	 *         isn't closed, or that it is ready before trying again. */
+comment|/**      * Deserialize a stream with all deserialized JSON values are wrapped in a      * JsonArray.      *       * @param deserializable representing content to be deserialized as JSON.      * @param flags representing the allowances and restrictions on      *            deserialization.      * @return the allowable object best represented by the deserializable.      * @throws DeserializationException if a disallowed or unexpected token is      *             encountered in the deserializable. To recover from a      *             DeserializationException: fix the deserializable to no longer      *             have a disallowed or unexpected token and try again.      * @throws IOException if the underlying reader encounters an I/O error.      *             Ensure the reader is properly instantiated, isn't closed, or      *             that it is ready before trying again.      */
 DECL|method|deserialize (final Reader deserializable, final Set<DeserializationOptions> flags)
 specifier|private
 specifier|static
@@ -344,7 +342,6 @@ operator|.
 name|INITIAL
 argument_list|)
 expr_stmt|;
-comment|//System.out.println("//////////DESERIALIZING//////////");
 do|do
 block|{
 comment|/* Parse through the parsable string's tokens. */
@@ -402,10 +399,10 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|/* Break if concatenated values are not allowed or if an END token is read. */
+comment|/*                      * Break if concatenated values are not allowed or if an END                      * token is read.                      */
 break|break;
 block|}
-comment|/* Increment the amount of returned JSON values and treat the token as if it were a fresh parse. */
+comment|/*                  * Increment the amount of returned JSON values and treat the                  * token as if it were a fresh parse.                  */
 name|returnCount
 operator|+=
 literal|1
@@ -621,7 +618,7 @@ break|break;
 case|case
 name|PARSED_ERROR
 case|:
-comment|/* The parse could be in this state due to the state stack not having a state to pop off. */
+comment|/*                  * The parse could be in this state due to the state stack not                  * having a state to pop off.                  */
 throw|throw
 operator|new
 name|DeserializationException
@@ -654,7 +651,7 @@ block|{
 case|case
 name|COMMA
 case|:
-comment|/* The parse could detect a comma while parsing an array since it separates each element. */
+comment|/*                      * The parse could detect a comma while parsing an array                      * since it separates each element.                      */
 name|stateStack
 operator|.
 name|addLast
@@ -873,7 +870,7 @@ block|{
 case|case
 name|COMMA
 case|:
-comment|/* The parse could detect a comma while parsing an object since it separates each key value 							 * pair. Continue parsing the object. */
+comment|/*                      * The parse could detect a comma while parsing an object                      * since it separates each key value pair. Continue parsing                      * the object.                      */
 name|stateStack
 operator|.
 name|addLast
@@ -896,7 +893,7 @@ operator|instanceof
 name|String
 condition|)
 block|{
-comment|/* JSON keys are always strings, strings are not always JSON keys but it is going to be 								 * treated as one. Continue parsing the object. */
+comment|/*                          * JSON keys are always strings, strings are not always                          * JSON keys but it is going to be treated as one.                          * Continue parsing the object.                          */
 specifier|final
 name|String
 name|key
@@ -935,7 +932,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/* Abort! JSON keys are always strings and it wasn't a string. */
+comment|/*                          * Abort! JSON keys are always strings and it wasn't a                          * string.                          */
 throw|throw
 operator|new
 name|DeserializationException
@@ -1028,7 +1025,7 @@ comment|/* Parsed pair keys can only happen while parsing objects. */
 case|case
 name|COLON
 case|:
-comment|/* The parse could detect a colon while parsing a key value pair since it separates the key 							 * and value from each other. Continue parsing the entry. */
+comment|/*                      * The parse could detect a colon while parsing a key value                      * pair since it separates the key and value from each                      * other. Continue parsing the entry.                      */
 name|stateStack
 operator|.
 name|addLast
@@ -1193,7 +1190,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 default|default:
-comment|/* The parse didn't find anything for the parsed pair key. */
+comment|/*                      * The parse didn't find anything for the parsed pair key.                      */
 throw|throw
 operator|new
 name|DeserializationException
@@ -1217,11 +1214,6 @@ break|break;
 default|default:
 break|break;
 block|}
-comment|//System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-comment|//System.out.println(currentState);
-comment|//System.out.println(token);
-comment|//System.out.println(valueStack);
-comment|//System.out.println(stateStack);
 comment|/* If we're not at the END and DONE then do the above again. */
 block|}
 do|while
@@ -1253,7 +1245,6 @@ argument_list|)
 operator|)
 condition|)
 do|;
-comment|//System.out.println("!!!!!!!!!!DESERIALIZED!!!!!!!!!!");
 return|return
 operator|new
 name|JsonArray
@@ -1262,7 +1253,7 @@ name|valueStack
 argument_list|)
 return|;
 block|}
-comment|/** A convenience method that assumes a StringReader to deserialize a string. 	 * @param deserializable representing content to be deserialized as JSON. 	 * @return either a boolean, null, Number, String, JsonObject, or JsonArray that best represents the deserializable. 	 * @throws DeserializationException if an unexpected token is encountered in the deserializable. To recover from a 	 *         DeserializationException: fix the deserializable 	 *         to no longer have an unexpected token and try again. 	 * @see Jsoner#deserialize(Reader) 	 * @see StringReader */
+comment|/**      * A convenience method that assumes a StringReader to deserialize a string.      *       * @param deserializable representing content to be deserialized as JSON.      * @return either a boolean, null, Number, String, JsonObject, or JsonArray      *         that best represents the deserializable.      * @throws DeserializationException if an unexpected token is encountered in      *             the deserializable. To recover from a      *             DeserializationException: fix the deserializable to no longer      *             have an unexpected token and try again.      * @see Jsoner#deserialize(Reader)      * @see StringReader      */
 DECL|method|deserialize (final String deserializable)
 specifier|public
 specifier|static
@@ -1312,7 +1303,7 @@ name|NullPointerException
 name|caught
 parameter_list|)
 block|{
-comment|/* They both have the same recovery scenario. 			 * See StringReader. 			 * If deserializable is null, it should be reasonable to expect null back. */
+comment|/*              * They both have the same recovery scenario. See StringReader. If              * deserializable is null, it should be reasonable to expect null              * back.              */
 name|returnable
 operator|=
 literal|null
@@ -1338,7 +1329,7 @@ return|return
 name|returnable
 return|;
 block|}
-comment|/** A convenience method that assumes a JsonArray must be deserialized. 	 * @param deserializable representing content to be deserializable as a JsonArray. 	 * @param defaultValue representing what would be returned if deserializable isn't a JsonArray or an IOException, 	 *        NullPointerException, or DeserializationException occurs during deserialization. 	 * @return a JsonArray that represents the deserializable, or the defaultValue if there isn't a JsonArray that 	 *         represents deserializable. 	 * @see Jsoner#deserialize(Reader) */
+comment|/**      * A convenience method that assumes a JsonArray must be deserialized.      *       * @param deserializable representing content to be deserializable as a      *            JsonArray.      * @param defaultValue representing what would be returned if deserializable      *            isn't a JsonArray or an IOException, NullPointerException, or      *            DeserializationException occurs during deserialization.      * @return a JsonArray that represents the deserializable, or the      *         defaultValue if there isn't a JsonArray that represents      *         deserializable.      * @see Jsoner#deserialize(Reader)      */
 DECL|method|deserialize (final String deserializable, final JsonArray defaultValue)
 specifier|public
 specifier|static
@@ -1435,7 +1426,7 @@ return|return
 name|returnable
 return|;
 block|}
-comment|/** A convenience method that assumes a JsonObject must be deserialized. 	 * @param deserializable representing content to be deserializable as a JsonObject. 	 * @param defaultValue representing what would be returned if deserializable isn't a JsonObject or an IOException, 	 *        NullPointerException, or DeserializationException occurs during deserialization. 	 * @return a JsonObject that represents the deserializable, or the defaultValue if there isn't a JsonObject that 	 *         represents deserializable. 	 * @see Jsoner#deserialize(Reader) */
+comment|/**      * A convenience method that assumes a JsonObject must be deserialized.      *       * @param deserializable representing content to be deserializable as a      *            JsonObject.      * @param defaultValue representing what would be returned if deserializable      *            isn't a JsonObject or an IOException, NullPointerException, or      *            DeserializationException occurs during deserialization.      * @return a JsonObject that represents the deserializable, or the      *         defaultValue if there isn't a JsonObject that represents      *         deserializable.      * @see Jsoner#deserialize(Reader)      */
 DECL|method|deserialize (final String deserializable, final JsonObject defaultValue)
 specifier|public
 specifier|static
@@ -1532,7 +1523,7 @@ return|return
 name|returnable
 return|;
 block|}
-comment|/** A convenience method that assumes multiple RFC 4627 JSON values (except numbers) have been concatenated together 	 * for deserilization which will be collectively returned in a JsonArray wrapper. 	 * There may be numbers included, they just must not be concatenated together as it is prone to 	 * NumberFormatExceptions (thus causing a DeserializationException) or the numbers no longer represent their 	 * respective values. 	 * Examples: 	 * "123null321" returns [123, null, 321] 	 * "nullnullnulltruefalse\"\"{}[]" returns [null, null, null, true, false, "", {}, []] 	 * "123" appended to "321" returns [123321] 	 * "12.3" appended to "3.21" throws DeserializationException(NumberFormatException) 	 * "123" appended to "-321" throws DeserializationException(NumberFormatException) 	 * "123e321" appended to "-1" throws DeserializationException(NumberFormatException) 	 * "null12.33.21null" throws DeserializationException(NumberFormatException) 	 * @param deserializable representing concatenated content to be deserialized as JSON in one reader. Its contents 	 *        may 	 *        not contain two numbers concatenated together. 	 * @return a JsonArray that contains each of the concatenated objects as its elements. Each concatenated element is 	 *         either a boolean, null, Number, String, JsonArray, or JsonObject that best represents the concatenated 	 *         content inside deserializable. 	 * @throws DeserializationException if an unexpected token is encountered in the deserializable. To recover from a 	 *         DeserializationException: fix the deserializable to no longer have an unexpected token and try again. 	 * @throws IOException when the underlying reader encounters an I/O error. Ensure the reader is properly 	 *         instantiated, isn't closed, or that it is ready before trying again. */
+comment|/**      * A convenience method that assumes multiple RFC 4627 JSON values (except      * numbers) have been concatenated together for deserilization which will be      * collectively returned in a JsonArray wrapper. There may be numbers      * included, they just must not be concatenated together as it is prone to      * NumberFormatExceptions (thus causing a DeserializationException) or the      * numbers no longer represent their respective values. Examples:      * "123null321" returns [123, null, 321] "nullnullnulltruefalse\"\"{}[]"      * returns [null, null, null, true, false, "", {}, []] "123" appended to      * "321" returns [123321] "12.3" appended to "3.21" throws      * DeserializationException(NumberFormatException) "123" appended to "-321"      * throws DeserializationException(NumberFormatException) "123e321" appended      * to "-1" throws DeserializationException(NumberFormatException)      * "null12.33.21null" throws DeserializationException(NumberFormatException)      *       * @param deserializable representing concatenated content to be      *            deserialized as JSON in one reader. Its contents may not      *            contain two numbers concatenated together.      * @return a JsonArray that contains each of the concatenated objects as its      *         elements. Each concatenated element is either a boolean, null,      *         Number, String, JsonArray, or JsonObject that best represents the      *         concatenated content inside deserializable.      * @throws DeserializationException if an unexpected token is encountered in      *             the deserializable. To recover from a      *             DeserializationException: fix the deserializable to no longer      *             have an unexpected token and try again.      * @throws IOException when the underlying reader encounters an I/O error.      *             Ensure the reader is properly instantiated, isn't closed, or      *             that it is ready before trying again.      */
 DECL|method|deserializeMany (final Reader deserializable)
 specifier|public
 specifier|static
@@ -1578,7 +1569,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** Escapes potentially confusing or important characters in the String provided. 	 * @param escapable an unescaped string. 	 * @return an escaped string for usage in JSON; An escaped string is one that has escaped all of the quotes ("), 	 *         backslashes (\), return character (\r), new line character (\n), tab character (\t), 	 *         backspace character (\b), form feed character (\f) and other control characters [u0000..u001F] or 	 *         characters [u007F..u009F], [u2000..u20FF] with a 	 *         backslash (\) which itself must be escaped by the backslash in a java string. */
+comment|/**      * Escapes potentially confusing or important characters in the String      * provided.      *       * @param escapable an unescaped string.      * @return an escaped string for usage in JSON; An escaped string is one      *         that has escaped all of the quotes ("), backslashes (\), return      *         character (\r), new line character (\n), tab character (\t),      *         backspace character (\b), form feed character (\f) and other      *         control characters [u0000..u001F] or characters [u007F..u009F],      *         [u2000..u20FF] with a backslash (\) which itself must be escaped      *         by the backslash in a java string.      */
 DECL|method|escape (final String escapable)
 specifier|public
 specifier|static
@@ -1727,7 +1718,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 default|default:
-comment|/* The many characters that get replaced are benign to software but could be mistaken by people 					 * reading it for a JSON relevant character. */
+comment|/*                  * The many characters that get replaced are benign to software                  * but could be mistaken by people reading it for a JSON                  * relevant character.                  */
 if|if
 condition|(
 operator|(
@@ -1852,7 +1843,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/** Processes the lexer's reader for the next token. 	 * @param lexer represents a text processor being used in the deserialization process. 	 * @return a token representing a meaningful element encountered by the lexer. 	 * @throws DeserializationException if an unexpected character is encountered while processing the text. 	 * @throws IOException if the underlying reader inside the lexer encounters an I/O problem, like being prematurely 	 *         closed. */
+comment|/**      * Processes the lexer's reader for the next token.      *       * @param lexer represents a text processor being used in the      *            deserialization process.      * @return a token representing a meaningful element encountered by the      *         lexer.      * @throws DeserializationException if an unexpected character is      *             encountered while processing the text.      * @throws IOException if the underlying reader inside the lexer encounters      *             an I/O problem, like being prematurely closed.      */
 DECL|method|lexNextToken (final Yylex lexer)
 specifier|private
 specifier|static
@@ -1906,7 +1897,7 @@ return|return
 name|returnable
 return|;
 block|}
-comment|/** Used for state transitions while deserializing. 	 * @param stateStack represents the deserialization states saved for future processing. 	 * @return a state for deserialization context so it knows how to consume the next token. */
+comment|/**      * Used for state transitions while deserializing.      *       * @param stateStack represents the deserialization states saved for future      *            processing.      * @return a state for deserialization context so it knows how to consume      *         the next token.      */
 DECL|method|popNextState (final LinkedList<States> stateStack)
 specifier|private
 specifier|static
@@ -1947,7 +1938,7 @@ name|PARSED_ERROR
 return|;
 block|}
 block|}
-comment|/** Formats the JSON string to be more easily human readable using tabs for indentation. 	 * @param printable representing a JSON formatted string with out extraneous characters, like one returned from 	 *        Jsoner#serialize(Object). 	 * @return printable except it will have '\n' then '\t' characters inserted after '[', '{', ',' and before ']' '}' 	 *         tokens in the JSON. It will return null if printable isn't a JSON string. */
+comment|/**      * Formats the JSON string to be more easily human readable using tabs for      * indentation.      *       * @param printable representing a JSON formatted string with out extraneous      *            characters, like one returned from Jsoner#serialize(Object).      * @return printable except it will have '\n' then '\t' characters inserted      *         after '[', '{', ',' and before ']' '}' tokens in the JSON. It      *         will return null if printable isn't a JSON string.      */
 DECL|method|prettyPrint (final String printable)
 specifier|public
 specifier|static
@@ -1970,7 +1961,7 @@ literal|"\t"
 argument_list|)
 return|;
 block|}
-comment|/** Formats the JSON string to be more easily human readable using an arbitrary amount of spaces for indentation. 	 * @param printable representing a JSON formatted string with out extraneous characters, like one returned from 	 *        Jsoner#serialize(Object). 	 * @param spaces representing the amount of spaces to use for indentation. Must be between 2 and 10. 	 * @return printable except it will have '\n' then space characters inserted after '[', '{', ',' and before ']' '}' 	 *         tokens in the JSON. It will return null if printable isn't a JSON string. 	 * @throws IllegalArgumentException if spaces isn't between [2..10]. 	 * @see Jsoner#prettyPrint(String) 	 * @since 2.2.0 to allow pretty printing with spaces instead of tabs. */
+comment|/**      * Formats the JSON string to be more easily human readable using an      * arbitrary amount of spaces for indentation.      *       * @param printable representing a JSON formatted string with out extraneous      *            characters, like one returned from Jsoner#serialize(Object).      * @param spaces representing the amount of spaces to use for indentation.      *            Must be between 2 and 10.      * @return printable except it will have '\n' then space characters inserted      *         after '[', '{', ',' and before ']' '}' tokens in the JSON. It      *         will return null if printable isn't a JSON string.      * @throws IllegalArgumentException if spaces isn't between [2..10].      * @see Jsoner#prettyPrint(String)      * @since 2.2.0 to allow pretty printing with spaces instead of tabs.      */
 DECL|method|prettyPrint (final String printable, final int spaces)
 specifier|public
 specifier|static
@@ -2056,7 +2047,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/** Makes the JSON string more easily human readable using indentation of the caller's choice. 	 * @param printable representing a JSON formatted string with out extraneous characters, like one returned from 	 *        Jsoner#serialize(Object). 	 * @param indentation representing the indentation used to format the JSON string. 	 * @return printable except it will have '\n' then indentation characters inserted after '[', '{', ',' and before 	 *         ']' '}' 	 *         tokens in the JSON. It will return null if printable isn't a JSON string. */
+comment|/**      * Makes the JSON string more easily human readable using indentation of the      * caller's choice.      *       * @param printable representing a JSON formatted string with out extraneous      *            characters, like one returned from Jsoner#serialize(Object).      * @param indentation representing the indentation used to format the JSON      *            string.      * @return printable except it will have '\n' then indentation characters      *         inserted after '[', '{', ',' and before ']' '}' tokens in the      *         JSON. It will return null if printable isn't a JSON string.      */
 DECL|method|prettyPrint (final String printable, final String indentation)
 specifier|private
 specifier|static
@@ -2341,7 +2332,7 @@ expr_stmt|;
 block|}
 break|break;
 block|}
-comment|//System.out.println(lexed);
+comment|// System.out.println(lexed);
 block|}
 do|while
 condition|(
@@ -2386,9 +2377,9 @@ return|return
 literal|null
 return|;
 block|}
-comment|//System.out.println(printable);
-comment|//System.out.println(returnable);
-comment|//System.out.println(Jsoner.escape(returnable.toString()));
+comment|// System.out.println(printable);
+comment|// System.out.println(returnable);
+comment|// System.out.println(Jsoner.escape(returnable.toString()));
 return|return
 name|returnable
 operator|.
@@ -2396,7 +2387,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes a StringWriter. 	 * @param jsonSerializable represents the object that should be serialized as a string in JSON format. 	 * @return a string, in JSON format, that represents the object provided. 	 * @throws IllegalArgumentException if the jsonSerializable isn't serializable in JSON. 	 * @see Jsoner#serialize(Object, Writer) 	 * @see StringWriter */
+comment|/**      * A convenience method that assumes a StringWriter.      *       * @param jsonSerializable represents the object that should be serialized      *            as a string in JSON format.      * @return a string, in JSON format, that represents the object provided.      * @throws IllegalArgumentException if the jsonSerializable isn't      *             serializable in JSON.      * @see Jsoner#serialize(Object, Writer)      * @see StringWriter      */
 DECL|method|serialize (final Object jsonSerializable)
 specifier|public
 specifier|static
@@ -2444,7 +2435,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/** Serializes values according to the RFC 4627 JSON specification. It will also trust the serialization provided by 	 * any Jsonables it serializes and serializes Enums that don't implement Jsonable as a string of their fully 	 * qualified name. 	 * @param jsonSerializable represents the object that should be serialized in JSON format. 	 * @param writableDestination represents where the resulting JSON text is written to. 	 * @throws IOException if the writableDestination encounters an I/O problem, like being closed while in use. 	 * @throws IllegalArgumentException if the jsonSerializable isn't serializable in JSON. */
+comment|/**      * Serializes values according to the RFC 4627 JSON specification. It will      * also trust the serialization provided by any Jsonables it serializes and      * serializes Enums that don't implement Jsonable as a string of their fully      * qualified name.      *       * @param jsonSerializable represents the object that should be serialized      *            in JSON format.      * @param writableDestination represents where the resulting JSON text is      *            written to.      * @throws IOException if the writableDestination encounters an I/O problem,      *             like being closed while in use.      * @throws IllegalArgumentException if the jsonSerializable isn't      *             serializable in JSON.      */
 DECL|method|serialize (final Object jsonSerializable, final Writer writableDestination)
 specifier|public
 specifier|static
@@ -2485,7 +2476,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Serialize values to JSON and write them to the provided writer based on behavior flags. 	 * @param jsonSerializable represents the object that should be serialized to a string in JSON format. 	 * @param writableDestination represents where the resulting JSON text is written to. 	 * @param replacement represents what is serialized instead of a non-JSON value when replacements are allowed. 	 * @param flags represents the allowances and restrictions on serialization. 	 * @throws IOException if the writableDestination encounters an I/O problem. 	 * @throws IllegalArgumentException if the jsonSerializable isn't serializable in JSON. 	 * @see SerializationOptions */
+comment|/**      * Serialize values to JSON and write them to the provided writer based on      * behavior flags.      *       * @param jsonSerializable represents the object that should be serialized      *            to a string in JSON format.      * @param writableDestination represents where the resulting JSON text is      *            written to.      * @param replacement represents what is serialized instead of a non-JSON      *            value when replacements are allowed.      * @param flags represents the allowances and restrictions on serialization.      * @throws IOException if the writableDestination encounters an I/O problem.      * @throws IllegalArgumentException if the jsonSerializable isn't      *             serializable in JSON.      * @see SerializationOptions      */
 DECL|method|serialize (final Object jsonSerializable, final Writer writableDestination, final Set<SerializationOptions> flags)
 specifier|private
 specifier|static
@@ -2583,7 +2574,7 @@ name|ALLOW_FULLY_QUALIFIED_ENUMERATIONS
 argument_list|)
 condition|)
 block|{
-comment|/* Writes the enum as a special case of string. All enums (unless they implement Jsonable) will be the 			 * string literal "${DECLARING_CLASS_NAME}.${ENUM_NAME}" as their value. */
+comment|/*              * Writes the enum as a special case of string. All enums (unless              * they implement Jsonable) will be the string literal              * "${DECLARING_CLASS_NAME}.${ENUM_NAME}" as their value.              */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -2713,7 +2704,7 @@ name|isNaN
 argument_list|()
 condition|)
 block|{
-comment|/* Infinite and not a number are not supported by the JSON specification, so null is used instead. */
+comment|/*                  * Infinite and not a number are not supported by the JSON                  * specification, so null is used instead.                  */
 name|writableDestination
 operator|.
 name|write
@@ -2767,7 +2758,7 @@ name|isNaN
 argument_list|()
 condition|)
 block|{
-comment|/* Infinite and not a number are not supported by the JSON specification, so null is used instead. */
+comment|/*                  * Infinite and not a number are not supported by the JSON                  * specification, so null is used instead.                  */
 name|writableDestination
 operator|.
 name|write
@@ -4011,8 +4002,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/* TODO a potential feature for future release since POJOs are often represented as JsonObjects. It would be 			 * nice to have a flag that tries to reflectively figure out what a non-Jsonable POJO's fields are and use 			 * their names as keys and their respective values for the keys' values in the JsonObject? 			 * Naturally implementing Jsonable is safer and in many ways makes this feature a convenience for not 			 * needing 			 * to implement Jsonable for very simple POJOs. 			 * If it fails to produce a JsonObject to serialize it should defer to replacements if allowed. 			 * If replacement fails it should defer to invalids if allowed. 			 * This feature would require another serialize method exposed to allow this serialization. 			 * This feature (although perhaps useful on its own) would also include a method in the JsonObject where you 			 * pass it a class and it would do its best to instantiate a POJO of the class using the keys in the 			 * JsonObject. */
-comment|/* It cannot by any measure be safely serialized according to specification. */
+comment|/*              * TODO a potential feature for future release since POJOs are often              * represented as JsonObjects. It would be nice to have a flag that              * tries to reflectively figure out what a non-Jsonable POJO's              * fields are and use their names as keys and their respective              * values for the keys' values in the JsonObject? Naturally              * implementing Jsonable is safer and in many ways makes this              * feature a convenience for not needing to implement Jsonable for              * very simple POJOs. If it fails to produce a JsonObject to              * serialize it should defer to replacements if allowed. If              * replacement fails it should defer to invalids if allowed. This              * feature would require another serialize method exposed to allow              * this serialization. This feature (although perhaps useful on its              * own) would also include a method in the JsonObject where you pass              * it a class and it would do its best to instantiate a POJO of the              * class using the keys in the JsonObject.              */
+comment|/*              * It cannot by any measure be safely serialized according to              * specification.              */
 if|if
 condition|(
 name|flags
@@ -4039,7 +4030,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/* Notify the caller the cause of failure for the serialization. */
+comment|/*                  * Notify the caller the cause of failure for the serialization.                  */
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -4066,9 +4057,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|//System.out.println(writableDestination.toString());
+comment|// System.out.println(writableDestination.toString());
 block|}
-comment|/** Serializes like the first version of this library. 	 * It has been adapted to use Jsonable for serializing custom objects, but otherwise works like the old JSON string 	 * serializer. It 	 * will allow non-JSON values in its output like the old one. It can be helpful for last resort log statements and 	 * debugging errors in self generated JSON. Anything serialized using this method isn't guaranteed to be 	 * deserializable. 	 * @param jsonSerializable represents the object that should be serialized in JSON format. 	 * @param writableDestination represents where the resulting JSON text is written to. 	 * @throws IOException if the writableDestination encounters an I/O problem, like being closed while in use. */
+comment|/**      * Serializes like the first version of this library. It has been adapted to      * use Jsonable for serializing custom objects, but otherwise works like the      * old JSON string serializer. It will allow non-JSON values in its output      * like the old one. It can be helpful for last resort log statements and      * debugging errors in self generated JSON. Anything serialized using this      * method isn't guaranteed to be deserializable.      *       * @param jsonSerializable represents the object that should be serialized      *            in JSON format.      * @param writableDestination represents where the resulting JSON text is      *            written to.      * @throws IOException if the writableDestination encounters an I/O problem,      *             like being closed while in use.      */
 DECL|method|serializeCarelessly (final Object jsonSerializable, final Writer writableDestination)
 specifier|public
 specifier|static
@@ -4109,7 +4100,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Serializes JSON values and only JSON values according to the RFC 4627 JSON specification. 	 * @param jsonSerializable represents the object that should be serialized in JSON format. 	 * @param writableDestination represents where the resulting JSON text is written to. 	 * @throws IOException if the writableDestination encounters an I/O problem, like being closed while in use. 	 * @throws IllegalArgumentException if the jsonSerializable isn't serializable in JSON. */
+comment|/**      * Serializes JSON values and only JSON values according to the RFC 4627      * JSON specification.      *       * @param jsonSerializable represents the object that should be serialized      *            in JSON format.      * @param writableDestination represents where the resulting JSON text is      *            written to.      * @throws IOException if the writableDestination encounters an I/O problem,      *             like being closed while in use.      * @throws IllegalArgumentException if the jsonSerializable isn't      *             serializable in JSON.      */
 DECL|method|serializeStrictly (final Object jsonSerializable, final Writer writableDestination)
 specifier|public
 specifier|static

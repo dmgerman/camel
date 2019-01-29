@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/* Copyright 2016 Clifton Labs  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  * http://www.apache.org/licenses/LICENSE-2.0  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License. */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** JsonArray is a common non-thread safe data format for a collection of data. The contents of a JsonArray are only  * validated as JSON values on serialization.  * @see Jsoner  * @since 2.0.0 */
+comment|/**  * JsonArray is a common non-thread safe data format for a collection of data.  * The contents of a JsonArray are only validated as JSON values on  * serialization.  *   * @see Jsoner  * @since 2.0.0  */
 end_comment
 
 begin_class
@@ -115,7 +115,7 @@ argument_list|>
 implements|implements
 name|Jsonable
 block|{
-comment|/** The serialization version this class is compatible 	 * with. This value doesn't need to be incremented if and only if the only changes to occur were updating comments, 	 * updating javadocs, adding new 	 * fields to the class, changing the fields from static to non-static, or changing the fields from transient to non 	 * transient. All other changes require this number be incremented. */
+comment|/**      * The serialization version this class is compatible with. This value      * doesn't need to be incremented if and only if the only changes to occur      * were updating comments, updating javadocs, adding new fields to the      * class, changing the fields from static to non-static, or changing the      * fields from transient to non transient. All other changes require this      * number be incremented.      */
 DECL|field|serialVersionUID
 specifier|private
 specifier|static
@@ -135,7 +135,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** Instantiate a new JsonArray using ArrayList's constructor of the same type. 	 * @param collection represents the elements to produce the JsonArray with. */
+comment|/**      * Instantiate a new JsonArray using ArrayList's constructor of the same      * type.      *       * @param collection represents the elements to produce the JsonArray with.      */
 DECL|method|JsonArray (final Collection<?> collection)
 specifier|public
 name|JsonArray
@@ -154,7 +154,7 @@ name|collection
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** A convenience method that assumes every element of the JsonArray is castable to T before adding it to a 	 * collection of Ts. 	 * @param<T> represents the type that all of the elements of the JsonArray should be cast to and the type the 	 *        collection will contain. 	 * @param destination represents where all of the elements of the JsonArray are added to after being cast to the 	 *        generic type 	 *        provided. 	 * @throws ClassCastException if the unchecked cast of an element to T fails. */
+comment|/**      * A convenience method that assumes every element of the JsonArray is      * castable to T before adding it to a collection of Ts.      *       * @param<T> represents the type that all of the elements of the JsonArray      *            should be cast to and the type the collection will contain.      * @param destination represents where all of the elements of the JsonArray      *            are added to after being cast to the generic type provided.      * @throws ClassCastException if the unchecked cast of an element to T      *             fails.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -197,7 +197,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** A convenience method that assumes there is a BigDecimal, Number, or String at the given index. If a Number or 	 * String is there it is used to construct a new BigDecimal. 	 * @param index representing where the value is expected to be at. 	 * @return the value stored at the key or the default provided if the key doesn't exist. 	 * @throws ClassCastException if there was a value but didn't match the assumed return types. 	 * @throws IndexOutOfBoundsException if the index is outside of the range of element indexes in the JsonArray. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal. 	 * @see BigDecimal 	 * @see Number#doubleValue() */
+comment|/**      * A convenience method that assumes there is a BigDecimal, Number, or      * String at the given index. If a Number or String is there it is used to      * construct a new BigDecimal.      *       * @param index representing where the value is expected to be at.      * @return the value stored at the key or the default provided if the key      *         doesn't exist.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return types.      * @throws IndexOutOfBoundsException if the index is outside of the range of      *             element indexes in the JsonArray.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal.      * @see BigDecimal      * @see Number#doubleValue()      */
 DECL|method|getBigDecimal (final int index)
 specifier|public
 name|BigDecimal
@@ -276,7 +276,7 @@ operator|)
 name|returnable
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Boolean or String value at the given index. 	 * @param index represents where the value is expected to be at. 	 * @return the value at the index provided cast to a boolean. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. 	 * @throws IndexOutOfBoundsException if the index is outside of the range of element indexes in the JsonArray. */
+comment|/**      * A convenience method that assumes there is a Boolean or String value at      * the given index.      *       * @param index represents where the value is expected to be at.      * @return the value at the index provided cast to a boolean.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      * @throws IndexOutOfBoundsException if the index is outside of the range of      *             element indexes in the JsonArray.      */
 DECL|method|getBoolean (final int index)
 specifier|public
 name|Boolean
@@ -324,7 +324,7 @@ operator|)
 name|returnable
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Number or String value at the given index. 	 * @param index represents where the value is expected to be at. 	 * @return the value at the index provided cast to a byte. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @throws IndexOutOfBoundsException if the index is outside of the range of element indexes in the JsonArray. 	 * @see Number */
+comment|/**      * A convenience method that assumes there is a Number or String value at      * the given index.      *       * @param index represents where the value is expected to be at.      * @return the value at the index provided cast to a byte.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @throws IndexOutOfBoundsException if the index is outside of the range of      *             element indexes in the JsonArray.      * @see Number      */
 DECL|method|getByte (final int index)
 specifier|public
 name|Byte
@@ -388,7 +388,7 @@ name|byteValue
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Collection value at the given index. 	 * @param<T> the kind of collection to expect at the index. Note unless manually added, collection values will be a 	 *        JsonArray. 	 * @param index represents where the value is expected to be at. 	 * @return the value at the index provided cast to a Collection. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. 	 * @throws IndexOutOfBoundsException if the index is outside of the range of element indexes in the JsonArray. 	 * @see Collection */
+comment|/**      * A convenience method that assumes there is a Collection value at the      * given index.      *       * @param<T> the kind of collection to expect at the index. Note unless      *            manually added, collection values will be a JsonArray.      * @param index represents where the value is expected to be at.      * @return the value at the index provided cast to a Collection.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      * @throws IndexOutOfBoundsException if the index is outside of the range of      *             element indexes in the JsonArray.      * @see Collection      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -412,7 +412,7 @@ name|int
 name|index
 parameter_list|)
 block|{
-comment|/* The unchecked warning is suppressed because there is no way of guaranteeing at compile time the cast will 		 * work. */
+comment|/*          * The unchecked warning is suppressed because there is no way of          * guaranteeing at compile time the cast will work.          */
 return|return
 operator|(
 name|T
@@ -425,7 +425,7 @@ name|index
 argument_list|)
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Number or String value at the given index. 	 * @param index represents where the value is expected to be at. 	 * @return the value at the index provided cast to a double. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @throws IndexOutOfBoundsException if the index is outside of the range of element indexes in the JsonArray. 	 * @see Number */
+comment|/**      * A convenience method that assumes there is a Number or String value at      * the given index.      *       * @param index represents where the value is expected to be at.      * @return the value at the index provided cast to a double.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @throws IndexOutOfBoundsException if the index is outside of the range of      *             element indexes in the JsonArray.      * @see Number      */
 DECL|method|getDouble (final int index)
 specifier|public
 name|Double
@@ -489,7 +489,7 @@ name|doubleValue
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes there is a String value at the given index representing a fully qualified name 	 * in dot notation of an enum. 	 * @param index representing where the value is expected to be at. 	 * @param<T> the Enum type the value at the index is expected to belong to. 	 * @return the enum based on the string found at the index, or null if the value at the index was null. 	 * @throws ClassNotFoundException if the element was a String but the declaring enum type couldn't be determined 	 *         with it. 	 * @throws ClassCastException if the element at the index was not a String or if the fully qualified enum name is of 	 *         the wrong type. 	 * @throws IllegalArgumentException if an enum type was dynamically determined but it doesn't define an enum with 	 *         the dynamically determined name. 	 * @throws IndexOutOfBoundsException if the index is outside of the range of element indexes in the JsonArray. 	 * @see Enum#valueOf(Class, String) */
+comment|/**      * A convenience method that assumes there is a String value at the given      * index representing a fully qualified name in dot notation of an enum.      *       * @param index representing where the value is expected to be at.      * @param<T> the Enum type the value at the index is expected to belong to.      * @return the enum based on the string found at the index, or null if the      *         value at the index was null.      * @throws ClassNotFoundException if the element was a String but the      *             declaring enum type couldn't be determined with it.      * @throws ClassCastException if the element at the index was not a String      *             or if the fully qualified enum name is of the wrong type.      * @throws IllegalArgumentException if an enum type was dynamically      *             determined but it doesn't define an enum with the dynamically      *             determined name.      * @throws IndexOutOfBoundsException if the index is outside of the range of      *             element indexes in the JsonArray.      * @see Enum#valueOf(Class, String)      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -515,7 +515,7 @@ parameter_list|)
 throws|throws
 name|ClassNotFoundException
 block|{
-comment|/* Supressing the unchecked warning because the returnType is dynamically identified and could lead to a 		 * ClassCastException when returnType is cast to Class<T>, which is expected by the method's contract. */
+comment|/*          * Supressing the unchecked warning because the returnType is          * dynamically identified and could lead to a ClassCastException when          * returnType is cast to Class<T>, which is expected by the method's          * contract.          */
 name|T
 name|returnable
 decl_stmt|;
@@ -622,7 +622,7 @@ literal|1
 operator|)
 condition|)
 block|{
-comment|/* If it is the last split value then it should be the name of the Enum since dots are not allowed in 				 * enum names. */
+comment|/*                  * If it is the last split value then it should be the name of                  * the Enum since dots are not allowed in enum names.                  */
 name|enumName
 operator|.
 name|append
@@ -646,7 +646,7 @@ literal|2
 operator|)
 condition|)
 block|{
-comment|/* If it is the penultimate split value then it should be the end of the package/enum type and not need 				 * a dot appended to it. */
+comment|/*                  * If it is the penultimate split value then it should be the                  * end of the package/enum type and not need a dot appended to                  * it.                  */
 name|returnTypeName
 operator|.
 name|append
@@ -660,7 +660,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/* Must be part of the package/enum type and will need a dot appended to it since they got removed in 				 * the split. */
+comment|/*                  * Must be part of the package/enum type and will need a dot                  * appended to it since they got removed in the split.                  */
 name|returnTypeName
 operator|.
 name|append
@@ -717,7 +717,7 @@ return|return
 name|returnable
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Number or String value at the given index. 	 * @param index represents where the value is expected to be at. 	 * @return the value at the index provided cast to a float. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @throws IndexOutOfBoundsException if the index is outside of the range of element indexes in the JsonArray. 	 * @see Number */
+comment|/**      * A convenience method that assumes there is a Number or String value at      * the given index.      *       * @param index represents where the value is expected to be at.      * @return the value at the index provided cast to a float.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @throws IndexOutOfBoundsException if the index is outside of the range of      *             element indexes in the JsonArray.      * @see Number      */
 DECL|method|getFloat (final int index)
 specifier|public
 name|Float
@@ -781,7 +781,7 @@ name|floatValue
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Number or String value at the given index. 	 * @param index represents where the value is expected to be at. 	 * @return the value at the index provided cast to a int. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @throws IndexOutOfBoundsException if the index is outside of the range of element indexes in the JsonArray. 	 * @see Number */
+comment|/**      * A convenience method that assumes there is a Number or String value at      * the given index.      *       * @param index represents where the value is expected to be at.      * @return the value at the index provided cast to a int.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @throws IndexOutOfBoundsException if the index is outside of the range of      *             element indexes in the JsonArray.      * @see Number      */
 DECL|method|getInteger (final int index)
 specifier|public
 name|Integer
@@ -845,7 +845,7 @@ name|intValue
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Number or String value at the given index. 	 * @param index represents where the value is expected to be at. 	 * @return the value at the index provided cast to a long. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @throws IndexOutOfBoundsException if the index is outside of the range of element indexes in the JsonArray. 	 * @see Number */
+comment|/**      * A convenience method that assumes there is a Number or String value at      * the given index.      *       * @param index represents where the value is expected to be at.      * @return the value at the index provided cast to a long.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @throws IndexOutOfBoundsException if the index is outside of the range of      *             element indexes in the JsonArray.      * @see Number      */
 DECL|method|getLong (final int index)
 specifier|public
 name|Long
@@ -909,7 +909,7 @@ name|longValue
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Map value at the given index. 	 * @param<T> the kind of map to expect at the index. Note unless manually added, Map values will be a JsonObject. 	 * @param index represents where the value is expected to be at. 	 * @return the value at the index provided cast to a Map. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. 	 * @throws IndexOutOfBoundsException if the index is outside of the range of element indexes in the JsonArray. 	 * @see Map */
+comment|/**      * A convenience method that assumes there is a Map value at the given      * index.      *       * @param<T> the kind of map to expect at the index. Note unless manually      *            added, Map values will be a JsonObject.      * @param index represents where the value is expected to be at.      * @return the value at the index provided cast to a Map.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      * @throws IndexOutOfBoundsException if the index is outside of the range of      *             element indexes in the JsonArray.      * @see Map      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -935,7 +935,7 @@ name|int
 name|index
 parameter_list|)
 block|{
-comment|/* The unchecked warning is suppressed because there is no way of guaranteeing at compile time the cast will 		 * work. */
+comment|/*          * The unchecked warning is suppressed because there is no way of          * guaranteeing at compile time the cast will work.          */
 return|return
 operator|(
 name|T
@@ -948,7 +948,7 @@ name|index
 argument_list|)
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Number or String value at the given index. 	 * @param index represents where the value is expected to be at. 	 * @return the value at the index provided cast to a short. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. 	 * @throws NumberFormatException if a String isn't a valid representation of a BigDecimal or if the Number 	 *         represents the double or float Infinity or NaN. 	 * @throws IndexOutOfBoundsException if the index is outside of the range of element indexes in the JsonArray. 	 * @see Number */
+comment|/**      * A convenience method that assumes there is a Number or String value at      * the given index.      *       * @param index represents where the value is expected to be at.      * @return the value at the index provided cast to a short.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      * @throws NumberFormatException if a String isn't a valid representation of      *             a BigDecimal or if the Number represents the double or float      *             Infinity or NaN.      * @throws IndexOutOfBoundsException if the index is outside of the range of      *             element indexes in the JsonArray.      * @see Number      */
 DECL|method|getShort (final int index)
 specifier|public
 name|Short
@@ -1012,7 +1012,7 @@ name|shortValue
 argument_list|()
 return|;
 block|}
-comment|/** A convenience method that assumes there is a Boolean, Number, or String value at the given index. 	 * @param index represents where the value is expected to be at. 	 * @return the value at the index provided cast to a String. 	 * @throws ClassCastException if there was a value but didn't match the assumed return type. 	 * @throws IndexOutOfBoundsException if the index is outside of the range of element indexes in the JsonArray. */
+comment|/**      * A convenience method that assumes there is a Boolean, Number, or String      * value at the given index.      *       * @param index represents where the value is expected to be at.      * @return the value at the index provided cast to a String.      * @throws ClassCastException if there was a value but didn't match the      *             assumed return type.      * @throws IndexOutOfBoundsException if the index is outside of the range of      *             element indexes in the JsonArray.      */
 DECL|method|getString (final int index)
 specifier|public
 name|String
@@ -1071,7 +1071,7 @@ operator|)
 name|returnable
 return|;
 block|}
-comment|/* (non-Javadoc) 	 * @see org.apache.camel.util.json.Jsonable#asJsonString() */
+comment|/*      * (non-Javadoc)      * @see org.apache.camel.util.json.Jsonable#asJsonString()      */
 annotation|@
 name|Override
 DECL|method|toJson ()
@@ -1114,7 +1114,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/* (non-Javadoc) 	 * @see org.apache.camel.util.json.Jsonable#toJsonString(java.io.Writer) */
+comment|/*      * (non-Javadoc)      * @see org.apache.camel.util.json.Jsonable#toJsonString(java.io.Writer)      */
 annotation|@
 name|Override
 DECL|method|toJson (final Writer writable)
