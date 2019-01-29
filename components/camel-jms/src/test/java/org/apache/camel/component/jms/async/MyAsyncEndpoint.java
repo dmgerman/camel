@@ -78,7 +78,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|SynchronousDelegateProducer
+name|DefaultEndpoint
 import|;
 end_import
 
@@ -92,7 +92,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|DefaultEndpoint
+name|SynchronousDelegateProducer
 import|;
 end_import
 
