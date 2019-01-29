@@ -256,22 +256,6 @@ name|artifact
 operator|.
 name|resolver
 operator|.
-name|ArtifactResolutionRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|resolver
-operator|.
 name|ArtifactResolutionResult
 import|;
 end_import
@@ -630,18 +614,6 @@ name|Property
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|aether
-operator|.
-name|RepositorySystem
-import|;
-end_import
-
 begin_comment
 comment|/**  * Runs a CamelContext using any Spring or Blueprint XML configuration files found in  *<code>META-INF/spring/*.xml</code>, and<code>OSGI-INF/blueprint/*.xml</code>,  * and<code>camel-*.xml</code> and starting up the context.  */
 end_comment
@@ -843,13 +815,20 @@ specifier|private
 name|List
 name|remoteRepositories
 decl_stmt|;
-comment|/**      * @component      */
+annotation|@
+name|Component
 DECL|field|projectBuilder
 specifier|private
 name|MavenProjectBuilder
 name|projectBuilder
 decl_stmt|;
-comment|/**      * @parameter property="plugin.artifacts"      * @readonly      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"plugin.artifacts"
+argument_list|)
 DECL|field|pluginDependencies
 specifier|private
 name|List
@@ -858,121 +837,254 @@ name|Artifact
 argument_list|>
 name|pluginDependencies
 decl_stmt|;
-comment|/**      * Whether to enable the tracer or not      *      * @parameter property="camel.trace"      *            default-value="false"      * @required      */
+comment|/**      * Whether to enable the tracer or not      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.trace"
+argument_list|)
 DECL|field|trace
 specifier|private
 name|boolean
 name|trace
 decl_stmt|;
-comment|/**      * The main class to execute.      *      * @parameter property="camel.mainClass"      */
+comment|/**      * The main class to execute.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.mainClass"
+argument_list|)
 DECL|field|mainClass
 specifier|private
 name|String
 name|mainClass
 decl_stmt|;
-comment|/**      * The basedPackages that spring java config want to gets.      *      * @parameter property="camel.basedPackages"      */
+comment|/**      * The basedPackages that spring java config want to gets.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.basedPackages"
+argument_list|)
 DECL|field|basedPackages
 specifier|private
 name|String
 name|basedPackages
 decl_stmt|;
-comment|/**      * The configClasses that spring java config want to gets.      *      * @parameter property="camel.configClasses"      */
+comment|/**      * The configClasses that spring java config want to gets.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.configClasses"
+argument_list|)
 DECL|field|configClasses
 specifier|private
 name|String
 name|configClasses
 decl_stmt|;
-comment|/**      * The classpath based application context uri that spring want to gets.      *      * @parameter property="camel.applicationContextUri"      */
+comment|/**      * The classpath based application context uri that spring want to gets.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.applicationContextUri"
+argument_list|)
 DECL|field|applicationContextUri
 specifier|private
 name|String
 name|applicationContextUri
 decl_stmt|;
-comment|/**      * The filesystem based application context uri that spring want to gets.      *      * @parameter property="camel.fileApplicationContextUri"      */
+comment|/**      * The filesystem based application context uri that spring want to gets.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.fileApplicationContextUri"
+argument_list|)
 DECL|field|fileApplicationContextUri
 specifier|private
 name|String
 name|fileApplicationContextUri
 decl_stmt|;
-comment|/**      * The configureAdmin persistent id, it will be used when loading the       * camel context from blueprint.      *       * @parameter property="camel.configAdminPid"      */
+comment|/**      * The configureAdmin persistent id, it will be used when loading the       * camel context from blueprint.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.configAdminPid"
+argument_list|)
 DECL|field|configAdminPid
 specifier|private
 name|String
 name|configAdminPid
 decl_stmt|;
-comment|/**      * The configureAdmin persistent file name, it will be used when       * loading the camel context from blueprint.      *       * @parameter property="camel.configAdminFileName"      */
+comment|/**      * The configureAdmin persistent file name, it will be used when       * loading the camel context from blueprint.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.configAdminFileName"
+argument_list|)
 DECL|field|configAdminFileName
 specifier|private
 name|String
 name|configAdminFileName
 decl_stmt|;
-comment|/**      * To watch the directory for file changes which triggers      * a live reload of the Camel routes on-the-fly.      *      * @parameter property="camel.fileWatcherDirectory"      */
+comment|/**      * To watch the directory for file changes which triggers      * a live reload of the Camel routes on-the-fly.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.fileWatcherDirectory"
+argument_list|)
 DECL|field|fileWatcherDirectory
 specifier|private
 name|String
 name|fileWatcherDirectory
 decl_stmt|;
-comment|/**      * The class arguments.      *      * @parameter property="camel.arguments"      */
+comment|/**      * The class arguments.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.arguments"
+argument_list|)
 DECL|field|arguments
 specifier|private
 name|String
 index|[]
 name|arguments
 decl_stmt|;
-comment|/**      * A list of system properties to be passed. Note: as the execution is not      * forked, some system properties required by the JVM cannot be passed here.      * Use MAVEN_OPTS or the exec:exec instead. See the user guide for more      * information.      *      * @parameter      */
+comment|/**      * A list of system properties to be passed. Note: as the execution is not      * forked, some system properties required by the JVM cannot be passed here.      * Use MAVEN_OPTS or the exec:exec instead. See the user guide for more      * information.      */
 DECL|field|systemProperties
 specifier|private
 name|Property
 index|[]
 name|systemProperties
 decl_stmt|;
-comment|/**      * Deprecated; this is not needed anymore. Indicates if mojo should be kept      * running after the mainclass terminates. Usefull for serverlike apps with      * deamonthreads.      *      * @parameter property="camel.keepAlive" default-value="false"      */
+comment|/**      * Deprecated; this is not needed anymore. Indicates if mojo should be kept      * running after the mainclass terminates. Usefull for serverlike apps with      * deamonthreads.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.keepAlive"
+argument_list|)
 DECL|field|keepAlive
 specifier|private
 name|boolean
 name|keepAlive
 decl_stmt|;
-comment|/**      * Indicates if the project dependencies should be used when executing the      * main class.      *      * @parameter property="camel.includeProjectDependencies"      *            default-value="true"      */
+comment|/**      * Indicates if the project dependencies should be used when executing the      * main class.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.includeProjectDependencies"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|includeProjectDependencies
 specifier|private
 name|boolean
 name|includeProjectDependencies
 decl_stmt|;
-comment|/**      * Indicates if this plugin's dependencies should be used when executing the      * main class.<p/> This is useful when project dependencies are not      * appropriate. Using only the plugin dependencies can be particularly      * useful when the project is not a java project. For example a mvn project      * using the csharp plugins only expects to see dotnet libraries as      * dependencies.      *      * @parameter property="camel.includePluginDependencies"      *            default-value="false"      */
+comment|/**      * Indicates if this plugin's dependencies should be used when executing the      * main class.<p/> This is useful when project dependencies are not      * appropriate. Using only the plugin dependencies can be particularly      * useful when the project is not a java project. For example a mvn project      * using the csharp plugins only expects to see dotnet libraries as      * dependencies.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.includePluginDependencies"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|includePluginDependencies
 specifier|private
 name|boolean
 name|includePluginDependencies
 decl_stmt|;
-comment|/**      * If provided the ExecutableDependency identifies which of the plugin      * dependencies contains the executable class. This will have the affect of      * only including plugin dependencies required by the identified      * ExecutableDependency.<p/> If includeProjectDependencies is set to      *<code>true</code>, all of the project dependencies will be included on      * the executable's classpath. Whether a particular project dependency is a      * dependency of the identified ExecutableDependency will be irrelevant to      * its inclusion in the classpath.      *      * @parameter      * @optional      */
+comment|/**      * If provided the ExecutableDependency identifies which of the plugin      * dependencies contains the executable class. This will have the affect of      * only including plugin dependencies required by the identified      * ExecutableDependency.<p/> If includeProjectDependencies is set to      *<code>true</code>, all of the project dependencies will be included on      * the executable's classpath. Whether a particular project dependency is a      * dependency of the identified ExecutableDependency will be irrelevant to      * its inclusion in the classpath.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.executableDependency"
+argument_list|)
 DECL|field|executableDependency
 specifier|private
 name|ExecutableDependency
 name|executableDependency
 decl_stmt|;
-comment|/**      * Whether to interrupt/join and possibly stop the daemon threads upon      * quitting.<br/> If this is<code>false</code>, maven does nothing      * about the daemon threads. When maven has no more work to do, the VM will      * normally terminate any remaining daemon threads.      *<p>      * In certain cases (in particular if maven is embedded), you might need to      * keep this enabled to make sure threads are properly cleaned up to ensure      * they don't interfere with subsequent activity. In that case, see      * {@link #daemonThreadJoinTimeout} and      * {@link #stopUnresponsiveDaemonThreads} for further tuning.      *</p>      *      * @parameter property="camel.cleanupDaemonThreads" default-value="true"      */
+comment|/**      * Whether to interrupt/join and possibly stop the daemon threads upon      * quitting.<br/> If this is<code>false</code>, maven does nothing      * about the daemon threads. When maven has no more work to do, the VM will      * normally terminate any remaining daemon threads.      *<p>      * In certain cases (in particular if maven is embedded), you might need to      * keep this enabled to make sure threads are properly cleaned up to ensure      * they don't interfere with subsequent activity. In that case, see      * {@link #daemonThreadJoinTimeout} and      * {@link #stopUnresponsiveDaemonThreads} for further tuning.      *</p>      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.cleanupDaemonThreads"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|cleanupDaemonThreads
 specifier|private
 name|boolean
 name|cleanupDaemonThreads
 decl_stmt|;
-comment|/**      * This defines the number of milliseconds to wait for daemon threads to      * quit following their interruption.<br/> This is only taken into account      * if {@link #cleanupDaemonThreads} is<code>true</code>. A value&lt;=0      * means to not timeout (i.e. wait indefinitely for threads to finish).      * Following a timeout, a warning will be logged.      *<p>      * Note: properly coded threads<i>should</i> terminate upon interruption      * but some threads may prove problematic: as the VM does interrupt daemon      * threads, some code may not have been written to handle interruption      * properly. For example java.util.Timer is known to not handle      * interruptions in JDK&lt;= 1.6. So it is not possible for us to      * infinitely wait by default otherwise maven could hang. A sensible default      * value has been chosen, but this default value<i>may change</i> in the      * future based on user feedback.      *</p>      *      * @parameter property="camel.daemonThreadJoinTimeout"      *            default-value="15000"      */
+comment|/**      * This defines the number of milliseconds to wait for daemon threads to      * quit following their interruption.<br/> This is only taken into account      * if {@link #cleanupDaemonThreads} is<code>true</code>. A value&lt;=0      * means to not timeout (i.e. wait indefinitely for threads to finish).      * Following a timeout, a warning will be logged.      *<p>      * Note: properly coded threads<i>should</i> terminate upon interruption      * but some threads may prove problematic: as the VM does interrupt daemon      * threads, some code may not have been written to handle interruption      * properly. For example java.util.Timer is known to not handle      * interruptions in JDK&lt;= 1.6. So it is not possible for us to      * infinitely wait by default otherwise maven could hang. A sensible default      * value has been chosen, but this default value<i>may change</i> in the      * future based on user feedback.      *</p>      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.daemonThreadJoinTimeout"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"15000"
+argument_list|)
 DECL|field|daemonThreadJoinTimeout
 specifier|private
 name|long
 name|daemonThreadJoinTimeout
 decl_stmt|;
-comment|/**      * Wether to call {@link Thread#stop()} following a timing out of waiting      * for an interrupted thread to finish. This is only taken into account if      * {@link #cleanupDaemonThreads} is<code>true</code> and the      * {@link #daemonThreadJoinTimeout} threshold has been reached for an      * uncooperative thread. If this is<code>false</code>, or if      * {@link Thread#stop()} fails to get the thread to stop, then a warning is      * logged and Maven will continue on while the affected threads (and related      * objects in memory) linger on. Consider setting this to<code>true</code>      * if you are invoking problematic code that you can't fix. An example is      * {@link java.util.Timer} which doesn't respond to interruption. To have      *<code>Timer</code> fixed, vote for<a      * href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6336543">this      * bug</a>.      *      * @parameter property="camel.stopUnresponsiveDaemonThreads"      *            default-value="false"      */
+comment|/**      * Wether to call {@link Thread#stop()} following a timing out of waiting      * for an interrupted thread to finish. This is only taken into account if      * {@link #cleanupDaemonThreads} is<code>true</code> and the      * {@link #daemonThreadJoinTimeout} threshold has been reached for an      * uncooperative thread. If this is<code>false</code>, or if      * {@link Thread#stop()} fails to get the thread to stop, then a warning is      * logged and Maven will continue on while the affected threads (and related      * objects in memory) linger on. Consider setting this to<code>true</code>      * if you are invoking problematic code that you can't fix. An example is      * {@link java.util.Timer} which doesn't respond to interruption. To have      *<code>Timer</code> fixed, vote for<a      * href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6336543">this      * bug</a>.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.stopUnresponsiveDaemonThreads"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"15000"
+argument_list|)
 DECL|field|stopUnresponsiveDaemonThreads
 specifier|private
 name|boolean
 name|stopUnresponsiveDaemonThreads
-decl_stmt|;
-comment|/**      * Deprecated this is not needed anymore.      *      * @parameter property="camel.killAfter" default-value="-1"      */
-DECL|field|killAfter
-specifier|private
-name|long
-name|killAfter
 decl_stmt|;
 DECL|field|originalSystemProperties
 specifier|private
@@ -1085,23 +1197,6 @@ name|usingBlueprintMain
 operator|=
 name|detectBlueprintOnClassPathOrBlueprintXMLFiles
 argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|killAfter
-operator|!=
-operator|-
-literal|1
-condition|)
-block|{
-name|getLog
-argument_list|()
-operator|.
-name|warn
-argument_list|(
-literal|"Warning: killAfter is now deprecated. Do you need it ? Please comment on MEXEC-6."
-argument_list|)
 expr_stmt|;
 block|}
 comment|// lets create the command line arguments to pass in...
@@ -1608,6 +1703,13 @@ name|msg
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
+name|ClassLoader
+name|loader
+init|=
+name|getClassLoader
+argument_list|()
+decl_stmt|;
 name|IsolatedThreadGroup
 name|threadGroup
 init|=
@@ -1766,8 +1868,7 @@ name|bootstrapThread
 operator|.
 name|setContextClassLoader
 argument_list|(
-name|getClassLoader
-argument_list|()
+name|loader
 argument_list|)
 expr_stmt|;
 name|setSystemProperties
