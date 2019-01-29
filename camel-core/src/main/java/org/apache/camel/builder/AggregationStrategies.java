@@ -427,26 +427,6 @@ return|return
 name|adapter
 return|;
 block|}
-comment|/**      * Creates a {@link XsltAggregationStrategy} as the aggregation strategy.      */
-DECL|method|xslt (String xslFileLocation)
-specifier|public
-specifier|static
-name|XsltAggregationStrategy
-name|xslt
-parameter_list|(
-name|String
-name|xslFileLocation
-parameter_list|)
-block|{
-return|return
-name|XsltAggregationStrategy
-operator|.
-name|create
-argument_list|(
-name|xslFileLocation
-argument_list|)
-return|;
-block|}
 block|}
 end_class
 
