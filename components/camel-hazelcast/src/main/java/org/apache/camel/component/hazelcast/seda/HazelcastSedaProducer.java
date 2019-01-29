@@ -104,7 +104,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|DefaultExchangeHolder
+name|DefaultAsyncProducer
 import|;
 end_import
 
@@ -118,7 +118,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|DefaultAsyncProducer
+name|DefaultExchangeHolder
 import|;
 end_import
 
