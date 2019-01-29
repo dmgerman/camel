@@ -100,6 +100,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -113,22 +125,6 @@ operator|.
 name|camel
 operator|.
 name|Message
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|binding
-operator|.
-name|BindingException
 import|;
 end_import
 
@@ -1935,7 +1931,7 @@ operator|.
 name|setException
 argument_list|(
 operator|new
-name|BindingException
+name|CamelExchangeException
 argument_list|(
 literal|"Cannot bind to xml as message body is not xml compatible"
 argument_list|,
@@ -1951,7 +1947,7 @@ operator|.
 name|setException
 argument_list|(
 operator|new
-name|BindingException
+name|CamelExchangeException
 argument_list|(
 literal|"Cannot bind to json as message body is not json compatible"
 argument_list|,
@@ -2594,7 +2590,7 @@ operator|.
 name|setException
 argument_list|(
 operator|new
-name|BindingException
+name|CamelExchangeException
 argument_list|(
 literal|"Cannot bind to xml as message body is not xml compatible"
 argument_list|,
@@ -2610,7 +2606,7 @@ operator|.
 name|setException
 argument_list|(
 operator|new
-name|BindingException
+name|CamelExchangeException
 argument_list|(
 literal|"Cannot bind to json as message body is not json compatible"
 argument_list|,

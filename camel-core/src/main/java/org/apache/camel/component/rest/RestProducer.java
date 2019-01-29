@@ -192,22 +192,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|rest
-operator|.
-name|RestBindingMode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|DataFormat
@@ -430,6 +414,8 @@ literal|true
 decl_stmt|;
 DECL|field|bindingMode
 specifier|private
+name|RestConfiguration
+operator|.
 name|RestBindingMode
 name|bindingMode
 decl_stmt|;
@@ -632,6 +618,8 @@ expr_stmt|;
 block|}
 DECL|method|getBindingMode ()
 specifier|public
+name|RestConfiguration
+operator|.
 name|RestBindingMode
 name|getBindingMode
 parameter_list|()
@@ -640,12 +628,13 @@ return|return
 name|bindingMode
 return|;
 block|}
-DECL|method|setBindingMode (final RestBindingMode bindingMode)
+DECL|method|setBindingMode (RestConfiguration.RestBindingMode bindingMode)
 specifier|public
 name|void
 name|setBindingMode
 parameter_list|(
-specifier|final
+name|RestConfiguration
+operator|.
 name|RestBindingMode
 name|bindingMode
 parameter_list|)

@@ -130,22 +130,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|rest
-operator|.
-name|RestBindingMode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|FactoryFinder
@@ -603,9 +587,15 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|enums
+operator|=
+literal|"auto,off,json,xml,json_xml"
 argument_list|)
 DECL|field|bindingMode
 specifier|private
+name|RestConfiguration
+operator|.
 name|RestBindingMode
 name|bindingMode
 decl_stmt|;
@@ -1053,6 +1043,8 @@ expr_stmt|;
 block|}
 DECL|method|getBindingMode ()
 specifier|public
+name|RestConfiguration
+operator|.
 name|RestBindingMode
 name|getBindingMode
 parameter_list|()
@@ -1062,12 +1054,13 @@ name|bindingMode
 return|;
 block|}
 comment|/**      * Configures the binding mode for the producer. If set to anything      * other than 'off' the producer will try to convert the body of      * the incoming message from inType to the json or xml, and the      * response from json or xml to outType.      */
-DECL|method|setBindingMode (final RestBindingMode bindingMode)
+DECL|method|setBindingMode (RestConfiguration.RestBindingMode bindingMode)
 specifier|public
 name|void
 name|setBindingMode
 parameter_list|(
-specifier|final
+name|RestConfiguration
+operator|.
 name|RestBindingMode
 name|bindingMode
 parameter_list|)
@@ -1077,6 +1070,32 @@ operator|.
 name|bindingMode
 operator|=
 name|bindingMode
+expr_stmt|;
+block|}
+DECL|method|setBindingMode (String bindingMode)
+specifier|public
+name|void
+name|setBindingMode
+parameter_list|(
+name|String
+name|bindingMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bindingMode
+operator|=
+name|RestConfiguration
+operator|.
+name|RestBindingMode
+operator|.
+name|valueOf
+argument_list|(
+name|bindingMode
+operator|.
+name|toLowerCase
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
