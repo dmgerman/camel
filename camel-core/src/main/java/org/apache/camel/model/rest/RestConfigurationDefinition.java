@@ -1695,6 +1695,33 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * To specify the binding mode      */
+DECL|method|bindingMode (String bindingMode)
+specifier|public
+name|RestConfigurationDefinition
+name|bindingMode
+parameter_list|(
+name|String
+name|bindingMode
+parameter_list|)
+block|{
+name|setBindingMode
+argument_list|(
+name|RestBindingMode
+operator|.
+name|valueOf
+argument_list|(
+name|bindingMode
+operator|.
+name|toLowerCase
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * To specify whether to skip binding output if there is a custom HTTP error code      */
 DECL|method|skipBindingOnErrorCode (boolean skipBindingOnErrorCode)
 specifier|public

@@ -1992,6 +1992,30 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|bindingMode (String mode)
+specifier|public
+name|RestDefinition
+name|bindingMode
+parameter_list|(
+name|String
+name|mode
+parameter_list|)
+block|{
+return|return
+name|bindingMode
+argument_list|(
+name|RestBindingMode
+operator|.
+name|valueOf
+argument_list|(
+name|mode
+operator|.
+name|toLowerCase
+argument_list|()
+argument_list|)
+argument_list|)
+return|;
+block|}
 DECL|method|skipBindingOnErrorCode (boolean skipBindingOnErrorCode)
 specifier|public
 name|RestDefinition
