@@ -80,7 +80,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|DefaultExchangeHolder
+name|DefaultExchange
 import|;
 end_import
 
@@ -94,7 +94,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|DefaultExchange
+name|DefaultExchangeHolder
 import|;
 end_import
 
