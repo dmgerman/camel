@@ -516,9 +516,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|ManagementStrategy
+name|JSonSchemaHelper
 import|;
 end_import
 
@@ -530,9 +530,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|spi
 operator|.
-name|JsonSchemaHelper
+name|ManagementStrategy
 import|;
 end_import
 
@@ -4003,7 +4003,7 @@ argument_list|>
 argument_list|>
 name|rows
 init|=
-name|JsonSchemaHelper
+name|JSonSchemaHelper
 operator|.
 name|parseJsonSchema
 argument_list|(

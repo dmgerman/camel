@@ -1924,6 +1924,20 @@ name|camel
 operator|.
 name|support
 operator|.
+name|JSonSchemaHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
 name|OrderedComparator
 import|;
 end_import
@@ -2029,20 +2043,6 @@ operator|.
 name|util
 operator|.
 name|IOHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|JsonSchemaHelper
 import|;
 end_import
 
@@ -9720,7 +9720,7 @@ argument_list|>
 argument_list|>
 name|rows
 init|=
-name|JsonSchemaHelper
+name|JSonSchemaHelper
 operator|.
 name|parseJsonSchema
 argument_list|(
@@ -10479,7 +10479,7 @@ argument_list|>
 argument_list|>
 name|rows
 init|=
-name|JsonSchemaHelper
+name|JSonSchemaHelper
 operator|.
 name|parseJsonSchema
 argument_list|(
@@ -11499,7 +11499,7 @@ argument_list|>
 argument_list|>
 name|rows
 init|=
-name|JsonSchemaHelper
+name|JSonSchemaHelper
 operator|.
 name|parseJsonSchema
 argument_list|(
@@ -12564,7 +12564,7 @@ argument_list|>
 argument_list|>
 name|rows
 init|=
-name|JsonSchemaHelper
+name|JSonSchemaHelper
 operator|.
 name|parseJsonSchema
 argument_list|(

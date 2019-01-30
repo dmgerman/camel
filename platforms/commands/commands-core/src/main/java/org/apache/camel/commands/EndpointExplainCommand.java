@@ -66,7 +66,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|PatternHelper
+name|JSonSchemaHelper
 import|;
 end_import
 
@@ -78,9 +78,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|JsonSchemaHelper
+name|PatternHelper
 import|;
 end_import
 
@@ -403,7 +403,7 @@ argument_list|>
 argument_list|>
 name|options
 init|=
-name|JsonSchemaHelper
+name|JSonSchemaHelper
 operator|.
 name|parseJsonSchema
 argument_list|(

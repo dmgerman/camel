@@ -488,9 +488,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|CastUtils
+name|JSonSchemaHelper
 import|;
 end_import
 
@@ -504,7 +504,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|JsonSchemaHelper
+name|CastUtils
 import|;
 end_import
 
@@ -815,7 +815,7 @@ argument_list|>
 argument_list|>
 name|rows
 init|=
-name|JsonSchemaHelper
+name|JSonSchemaHelper
 operator|.
 name|parseJsonSchema
 argument_list|(

@@ -236,9 +236,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|JsonSchemaHelper
+name|JSonSchemaHelper
 import|;
 end_import
 
@@ -476,7 +476,7 @@ argument_list|>
 argument_list|>
 name|rows
 init|=
-name|JsonSchemaHelper
+name|JSonSchemaHelper
 operator|.
 name|parseJsonSchema
 argument_list|(

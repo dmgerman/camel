@@ -290,9 +290,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|service
-operator|.
-name|ServiceHelper
+name|JSonSchemaHelper
 import|;
 end_import
 
@@ -304,9 +302,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|JsonSchemaHelper
+name|service
+operator|.
+name|ServiceHelper
 import|;
 end_import
 
@@ -783,7 +783,7 @@ argument_list|>
 argument_list|>
 name|rows
 init|=
-name|JsonSchemaHelper
+name|JSonSchemaHelper
 operator|.
 name|parseJsonSchema
 argument_list|(

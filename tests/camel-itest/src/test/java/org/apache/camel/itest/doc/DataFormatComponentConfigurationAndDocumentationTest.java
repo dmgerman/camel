@@ -72,11 +72,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|support
 operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
+name|JSonSchemaHelper
 import|;
 end_import
 
@@ -88,9 +86,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|test
 operator|.
-name|JsonSchemaHelper
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -190,7 +190,7 @@ argument_list|>
 argument_list|>
 name|rows
 init|=
-name|JsonSchemaHelper
+name|JSonSchemaHelper
 operator|.
 name|parseJsonSchema
 argument_list|(
@@ -424,7 +424,7 @@ argument_list|>
 argument_list|>
 name|rows
 init|=
-name|JsonSchemaHelper
+name|JSonSchemaHelper
 operator|.
 name|parseJsonSchema
 argument_list|(
