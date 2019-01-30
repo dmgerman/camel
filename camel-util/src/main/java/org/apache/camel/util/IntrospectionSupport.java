@@ -43,6 +43,8 @@ comment|/**  * Bridge class for ActiveMQ component  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|IntrospectionSupport
 specifier|public
 specifier|final

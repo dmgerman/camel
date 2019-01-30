@@ -102,10 +102,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for<a href="http://json-schema.org/">JSON schema</a>.  */
+comment|/**  * A helper class for<a href="http://json-schema.org/">JSON schema</a>.  *  * @deprecated use org.apache.camel.support.JSonSchemaHelper  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|JsonSchemaHelper
 DECL|class|JsonSchemaHelper
 specifier|public
