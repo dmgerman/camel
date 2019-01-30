@@ -2280,7 +2280,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Read entity set of the People object      * and filter already seen items on subsequent exchanges      * Use a delay since the mock endpoint does not always get      * the correct number of exchanges before being satisfied.      */
+comment|/**      * Read entity set of the People object and filter already seen items on      * subsequent exchanges Use a delay since the mock endpoint does not always      * get the correct number of exchanges before being satisfied.      */
 annotation|@
 name|Test
 DECL|method|testConsumerReadFilterAlreadySeen ()
@@ -2461,7 +2461,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      *      * Read entity set of the People object      * and with no filter already seen, all items      * should be present in each message      *      * @throws Exception      */
+comment|/**      * Read entity set of the People object and with no filter already seen, all      * items should be present in each message      *      * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testProducerReadNoFilterAlreadySeen ()
@@ -2625,7 +2625,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Read entity set of the People object      * and filter already seen items on subsequent exchanges      */
+comment|/**      * Read entity set of the People object and filter already seen items on      * subsequent exchanges      */
 annotation|@
 name|Test
 DECL|method|testProducerReadFilterAlreadySeen ()
