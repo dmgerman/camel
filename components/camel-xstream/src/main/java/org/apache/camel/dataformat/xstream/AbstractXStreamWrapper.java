@@ -350,9 +350,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|service
-operator|.
-name|ServiceSupport
+name|ObjectHelper
 import|;
 end_import
 
@@ -366,7 +364,9 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ObjectHelper
+name|service
+operator|.
+name|ServiceSupport
 import|;
 end_import
 
