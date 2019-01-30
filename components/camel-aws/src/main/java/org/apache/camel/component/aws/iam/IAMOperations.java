@@ -56,11 +56,14 @@ block|,
 DECL|enumConstant|deleteGroup
 DECL|enumConstant|listGroups
 DECL|enumConstant|addUserToGroup
+DECL|enumConstant|removeUserFromGroup
 name|deleteGroup
 block|,
 name|listGroups
 block|,
 name|addUserToGroup
+block|,
+name|removeUserFromGroup
 block|}
 end_enum
 
