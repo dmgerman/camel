@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for working with namespaces or creating namespace based expressions  */
+comment|/**  * A helper class for working with namespaces.  */
 end_comment
 
 begin_class
