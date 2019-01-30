@@ -270,9 +270,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|IOHelper
+name|ObjectHelper
 import|;
 end_import
 
@@ -284,9 +284,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|ObjectHelper
+name|IOHelper
 import|;
 end_import
 
