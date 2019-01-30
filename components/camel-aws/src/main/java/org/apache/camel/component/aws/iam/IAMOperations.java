@@ -52,6 +52,9 @@ block|,
 name|updateAccessKey
 block|,
 name|createGroup
+block|,
+DECL|enumConstant|deleteGroup
+name|deleteGroup
 block|}
 end_enum
 
