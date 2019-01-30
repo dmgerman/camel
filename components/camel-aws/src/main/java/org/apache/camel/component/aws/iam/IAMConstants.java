@@ -54,6 +54,18 @@ name|ACCESS_KEY_STATUS
 init|=
 literal|"CamelAwsIAMAccessKeyStatus"
 decl_stmt|;
+DECL|field|GROUP_NAME
+name|String
+name|GROUP_NAME
+init|=
+literal|"CamelAwsIAMGroupName"
+decl_stmt|;
+DECL|field|GROUP_PATH
+name|String
+name|GROUP_PATH
+init|=
+literal|"CamelAwsIAMGroupPath"
+decl_stmt|;
 block|}
 end_interface
 

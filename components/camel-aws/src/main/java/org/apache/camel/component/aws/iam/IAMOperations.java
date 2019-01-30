@@ -44,11 +44,14 @@ block|,
 DECL|enumConstant|createAccessKey
 DECL|enumConstant|deleteAccessKey
 DECL|enumConstant|updateAccessKey
+DECL|enumConstant|createGroup
 name|createAccessKey
 block|,
 name|deleteAccessKey
 block|,
 name|updateAccessKey
+block|,
+name|createGroup
 block|}
 end_enum
 
