@@ -415,7 +415,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test class for {@link org.apache.camel.component.olingo2.api.Olingo2App} APIs.  *<p>  * The integration test runs against Apache Olingo 2.0 sample server  * which is dynamically installed and started during the test.  *</p>  */
+comment|/**  * Test class for {@link org.apache.camel.component.olingo2.api.Olingo2App}  * APIs.  *<p>  * The integration test runs against Apache Olingo 2.0 sample server which is  * dynamically installed and started during the test.  *</p>  */
 end_comment
 
 begin_class
@@ -1885,7 +1885,7 @@ name|exception
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Read entity set of the People object      * and filter already seen items on subsequent exchanges      * Use a delay since the mock endpoint does not always get      * the correct number of exchanges before being satisfied.      */
+comment|/**      * Read entity set of the People object and filter already seen items on      * subsequent exchanges Use a delay since the mock endpoint does not always      * get the correct number of exchanges before being satisfied.      */
 annotation|@
 name|Test
 DECL|method|testConsumerReadFilterAlreadySeen ()
@@ -2066,7 +2066,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      *      * Read entity set of the People object      * and with no filter already seen, all items      * should be present in each message      *      * @throws Exception      */
+comment|/**      * Read entity set of the People object and with no filter already seen, all      * items should be present in each message      *      * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testProducerReadNoFilterAlreadySeen ()
@@ -2249,7 +2249,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Read entity set of the People object      * and filter already seen items on subsequent exchanges      */
+comment|/**      * Read entity set of the People object and filter already seen items on      * subsequent exchanges      */
 annotation|@
 name|Test
 DECL|method|testProducerReadFilterAlreadySeen ()
@@ -2544,7 +2544,7 @@ argument_list|(
 literal|"olingo2://delete/Manufacturers('123')"
 argument_list|)
 expr_stmt|;
-comment|/*                 // test route for merge                 from("direct:MERGE")                     .to("olingo2://merge");                  // test route for patch                 from("direct:PATCH")                     .to("olingo2://patch"); */
+comment|/*                  * // test route for merge from("direct:MERGE")                  * .to("olingo2://merge"); // test route for patch                  * from("direct:PATCH") .to("olingo2://patch");                  */
 comment|// test route for batch
 name|from
 argument_list|(
