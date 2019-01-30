@@ -82,7 +82,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
 name|InterceptSendToEndpoint
 import|;
@@ -269,7 +269,7 @@ name|SedaEndpoint
 operator|)
 name|original
 operator|.
-name|getDelegate
+name|getOriginalEndpoint
 argument_list|()
 operator|)
 operator|.

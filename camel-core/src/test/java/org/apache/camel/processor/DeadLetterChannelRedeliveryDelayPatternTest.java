@@ -92,22 +92,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ProcessorBuilder
-operator|.
-name|throwException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test to verify delay pattern  */
 end_comment
@@ -270,15 +254,12 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|process
-argument_list|(
 name|throwException
 argument_list|(
 operator|new
 name|Exception
 argument_list|(
 literal|"Forced exception by unit test"
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

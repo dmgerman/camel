@@ -16,35 +16,58 @@ name|spi
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
+
 begin_comment
-comment|/**  * A pluggable strategy for creating and possibly dependency injecting objects  * which could be implemented using straight forward reflection or using Spring  * or CDI to perform dependency injection.  */
+comment|/**  * This is an endpoint when sending to it, is intercepted and is routed in a detour  */
 end_comment
 
 begin_interface
-DECL|interface|Injector
+DECL|interface|InterceptSendToEndpoint
 specifier|public
 interface|interface
-name|Injector
+name|InterceptSendToEndpoint
+extends|extends
+name|Endpoint
 block|{
-comment|/**      * Instantiates a new instance of the given type possibly injecting values      * into the object in the process      *       * @param type the type of object to create      * @return a newly created instance      */
-DECL|method|newInstance (Class<T> type)
-parameter_list|<
-name|T
-parameter_list|>
-name|T
-name|newInstance
-parameter_list|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|)
+comment|/**      * The original endpoint which was intercepted.      */
+DECL|method|getOriginalEndpoint ()
+name|Endpoint
+name|getOriginalEndpoint
+parameter_list|()
 function_decl|;
-comment|/**      * Whether the injector supports creating new instances using auto-wiring.      * If this is possible then bean instances is attempt first to be created this way      * and if not, then the bean can only be created if there is a public no-arg constructor.      */
-DECL|method|supportsAutoWiring ()
+comment|/**      * The processor for routing in a detour      */
+DECL|method|getDetour ()
+name|Processor
+name|getDetour
+parameter_list|()
+function_decl|;
+comment|/**      * Whether to skip sending after the detour to the original endpoint.      */
+DECL|method|isSkip ()
 name|boolean
-name|supportsAutoWiring
+name|isSkip
 parameter_list|()
 function_decl|;
 block|}

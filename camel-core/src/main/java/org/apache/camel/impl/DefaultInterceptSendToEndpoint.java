@@ -154,6 +154,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|InterceptSendToEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|service
@@ -162,56 +176,20 @@ name|ServiceHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * This is an endpoint when sending to it, is intercepted and is routed in a detour  */
 end_comment
 
 begin_class
-DECL|class|InterceptSendToEndpoint
+DECL|class|DefaultInterceptSendToEndpoint
 specifier|public
 class|class
-name|InterceptSendToEndpoint
+name|DefaultInterceptSendToEndpoint
 implements|implements
-name|Endpoint
+name|InterceptSendToEndpoint
 implements|,
 name|ShutdownableService
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|InterceptSendToEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|delegate
 specifier|private
 specifier|final
@@ -229,9 +207,9 @@ name|boolean
 name|skip
 decl_stmt|;
 comment|/**      * Intercepts sending to the given endpoint      *      * @param destination  the original endpoint      * @param skip<tt>true</tt> to skip sending after the detour to the original endpoint      */
-DECL|method|InterceptSendToEndpoint (final Endpoint destination, boolean skip)
+DECL|method|DefaultInterceptSendToEndpoint (final Endpoint destination, boolean skip)
 specifier|public
-name|InterceptSendToEndpoint
+name|DefaultInterceptSendToEndpoint
 parameter_list|(
 specifier|final
 name|Endpoint
@@ -270,6 +248,8 @@ operator|=
 name|detour
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDetour ()
 specifier|public
 name|Processor
@@ -280,14 +260,28 @@ return|return
 name|detour
 return|;
 block|}
-DECL|method|getDelegate ()
+annotation|@
+name|Override
+DECL|method|getOriginalEndpoint ()
 specifier|public
 name|Endpoint
-name|getDelegate
+name|getOriginalEndpoint
 parameter_list|()
 block|{
 return|return
 name|delegate
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isSkip ()
+specifier|public
+name|boolean
+name|isSkip
+parameter_list|()
+block|{
+return|return
+name|skip
 return|;
 block|}
 DECL|method|getEndpointUri ()

@@ -241,7 +241,7 @@ if|if
 condition|(
 name|endpoint
 operator|instanceof
-name|InterceptSendToEndpoint
+name|DefaultInterceptSendToEndpoint
 condition|)
 block|{
 comment|// endpoint already decorated
@@ -278,11 +278,11 @@ block|{
 comment|// if pattern is null then it mean to match all
 comment|// only proxy if the uri is matched decorate endpoint with our proxy
 comment|// should be false by default
-name|InterceptSendToEndpoint
+name|DefaultInterceptSendToEndpoint
 name|proxy
 init|=
 operator|new
-name|InterceptSendToEndpoint
+name|DefaultInterceptSendToEndpoint
 argument_list|(
 name|endpoint
 argument_list|,

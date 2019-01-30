@@ -216,22 +216,6 @@ name|camel
 operator|.
 name|component
 operator|.
-name|direct
-operator|.
-name|DirectEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
 name|mock
 operator|.
 name|MockEndpoint
@@ -432,6 +416,7 @@ specifier|public
 class|class
 name|NotifyBuilder
 block|{
+comment|// TODO: camel-mock
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -838,8 +823,14 @@ name|exchange
 operator|.
 name|getFromEndpoint
 argument_list|()
-operator|instanceof
-name|DirectEndpoint
+operator|.
+name|getEndpointUri
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"direct:"
+argument_list|)
 condition|)
 block|{
 return|return

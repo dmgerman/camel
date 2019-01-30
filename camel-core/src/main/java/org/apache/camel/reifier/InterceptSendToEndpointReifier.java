@@ -72,7 +72,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|InterceptSendToEndpoint
+name|DefaultInterceptSendToEndpoint
 import|;
 end_import
 
@@ -281,7 +281,7 @@ if|if
 condition|(
 name|endpoint
 operator|instanceof
-name|InterceptSendToEndpoint
+name|DefaultInterceptSendToEndpoint
 condition|)
 block|{
 comment|// endpoint already decorated
@@ -326,11 +326,11 @@ operator|.
 name|getSkipSendToOriginalEndpoint
 argument_list|()
 decl_stmt|;
-name|InterceptSendToEndpoint
+name|DefaultInterceptSendToEndpoint
 name|proxy
 init|=
 operator|new
-name|InterceptSendToEndpoint
+name|DefaultInterceptSendToEndpoint
 argument_list|(
 name|endpoint
 argument_list|,

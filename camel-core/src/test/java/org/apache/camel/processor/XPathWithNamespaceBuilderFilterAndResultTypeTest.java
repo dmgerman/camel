@@ -98,8 +98,6 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|ns
-operator|.
 name|xpath
 argument_list|(
 literal|"/c:person[@name='James']"
@@ -107,6 +105,11 @@ argument_list|,
 name|String
 operator|.
 name|class
+argument_list|)
+operator|.
+name|namespaces
+argument_list|(
+name|ns
 argument_list|)
 argument_list|)
 operator|.

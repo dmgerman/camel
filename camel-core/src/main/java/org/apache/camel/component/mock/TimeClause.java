@@ -58,6 +58,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|BinaryPredicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -71,20 +83,6 @@ operator|.
 name|camel
 operator|.
 name|Expression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|BinaryPredicateSupport
 import|;
 end_import
 
@@ -117,8 +115,8 @@ DECL|class|TimeClause
 specifier|public
 class|class
 name|TimeClause
-extends|extends
-name|BinaryPredicateSupport
+implements|implements
+name|BinaryPredicate
 block|{
 DECL|field|LOG
 specifier|private
@@ -135,6 +133,18 @@ name|TimeClause
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|left
+specifier|private
+specifier|final
+name|Expression
+name|left
+decl_stmt|;
+DECL|field|right
+specifier|private
+specifier|final
+name|Expression
+name|right
 decl_stmt|;
 DECL|field|timeFrom
 specifier|private
@@ -167,13 +177,17 @@ name|Expression
 name|right
 parameter_list|)
 block|{
-comment|// previous, next
-name|super
-argument_list|(
+name|this
+operator|.
 name|left
-argument_list|,
+operator|=
+name|left
+expr_stmt|;
+name|this
+operator|.
 name|right
-argument_list|)
+operator|=
+name|right
 expr_stmt|;
 block|}
 comment|// TimeUnit DSL
@@ -427,6 +441,129 @@ expr_stmt|;
 block|}
 comment|// Implementation
 comment|// -------------------------------------------------------------------------
+annotation|@
+name|Override
+DECL|method|getLeft ()
+specifier|public
+name|Expression
+name|getLeft
+parameter_list|()
+block|{
+return|return
+name|left
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getRight ()
+specifier|public
+name|Expression
+name|getRight
+parameter_list|()
+block|{
+return|return
+name|right
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|matches (Exchange exchange)
+specifier|public
+name|boolean
+name|matches
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|matchesReturningFailureMessage
+argument_list|(
+name|exchange
+argument_list|)
+operator|==
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|matchesReturningFailureMessage (Exchange exchange)
+specifier|public
+name|String
+name|matchesReturningFailureMessage
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// we must not store any state, so we can be thread safe
+comment|// and thus we offer this method which returns a failure message if
+comment|// we did not match
+name|String
+name|answer
+init|=
+literal|null
+decl_stmt|;
+comment|// must be thread safe and store result in local objects
+name|Object
+name|leftValue
+init|=
+name|left
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|Object
+name|rightValue
+init|=
+name|right
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|matches
+argument_list|(
+name|exchange
+argument_list|,
+name|leftValue
+argument_list|,
+name|rightValue
+argument_list|)
+condition|)
+block|{
+name|answer
+operator|=
+name|leftValue
+operator|+
+literal|" "
+operator|+
+name|getOperator
+argument_list|()
+operator|+
+literal|" "
+operator|+
+name|rightValue
+expr_stmt|;
+block|}
+return|return
+name|answer
+return|;
+block|}
 DECL|method|matches (Exchange exchange, Object leftValue, Object rightValue)
 specifier|protected
 name|boolean
@@ -694,6 +831,17 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getOperator ()
+specifier|public
+name|String
+name|getOperator
+parameter_list|()
+block|{
+return|return
+name|getOperationText
+argument_list|()
+return|;
+block|}
 DECL|method|getOperationText ()
 specifier|protected
 name|String

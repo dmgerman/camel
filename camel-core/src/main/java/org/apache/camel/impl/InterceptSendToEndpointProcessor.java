@@ -175,7 +175,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link org.apache.camel.Processor} used to interceptor and detour the routing  * when using the {@link InterceptSendToEndpoint} functionality.  */
+comment|/**  * {@link org.apache.camel.Processor} used to interceptor and detour the routing  * when using the {@link DefaultInterceptSendToEndpoint} functionality.  */
 end_comment
 
 begin_class
@@ -189,7 +189,7 @@ block|{
 DECL|field|endpoint
 specifier|private
 specifier|final
-name|InterceptSendToEndpoint
+name|DefaultInterceptSendToEndpoint
 name|endpoint
 decl_stmt|;
 DECL|field|delegate
@@ -210,11 +210,11 @@ specifier|final
 name|boolean
 name|skip
 decl_stmt|;
-DECL|method|InterceptSendToEndpointProcessor (InterceptSendToEndpoint endpoint, Endpoint delegate, AsyncProducer producer, boolean skip)
+DECL|method|InterceptSendToEndpointProcessor (DefaultInterceptSendToEndpoint endpoint, Endpoint delegate, AsyncProducer producer, boolean skip)
 specifier|public
 name|InterceptSendToEndpointProcessor
 parameter_list|(
-name|InterceptSendToEndpoint
+name|DefaultInterceptSendToEndpoint
 name|endpoint
 parameter_list|,
 name|Endpoint
