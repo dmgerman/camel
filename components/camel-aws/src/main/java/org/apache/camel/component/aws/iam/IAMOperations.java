@@ -55,9 +55,12 @@ name|createGroup
 block|,
 DECL|enumConstant|deleteGroup
 DECL|enumConstant|listGroups
+DECL|enumConstant|addUserToGroup
 name|deleteGroup
 block|,
 name|listGroups
+block|,
+name|addUserToGroup
 block|}
 end_enum
 
