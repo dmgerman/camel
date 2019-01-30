@@ -448,6 +448,20 @@ name|camel
 operator|.
 name|support
 operator|.
+name|EndpointHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
 name|EventNotifierSupport
 import|;
 end_import
@@ -492,7 +506,7 @@ name|support
 operator|.
 name|service
 operator|.
-name|ServiceSupport
+name|ServiceHelper
 import|;
 end_import
 
@@ -506,7 +520,9 @@ name|camel
 operator|.
 name|support
 operator|.
-name|EndpointHelper
+name|service
+operator|.
+name|ServiceSupport
 import|;
 end_import
 
@@ -535,22 +551,6 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|service
-operator|.
-name|ServiceHelper
 import|;
 end_import
 
@@ -659,23 +659,39 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use Zipkin with Camel then setup this {@link ZipkinTracer} in your Camel application.  *<p/>  * Events (span) are captured for incoming and outgoing messages being sent to/from Camel.  * This means you need to configure which which Camel endpoints that maps to zipkin service names.  * The mapping can be configured using  *<ul>  *<li>route id - A Camel route id</li>  *<li>endpoint url - A Camel endpoint url</li>  *</ul>  * For both kinds you can use wildcards and regular expressions to match, which is using the rules from  * {@link PatternHelper#matchPattern(String, String)} and {@link EndpointHelper#matchEndpoint(CamelContext, String, String)}  *<p/>  * To match all Camel messages you can use<tt>*</tt> in the pattern and configure that to the same service name.  *<br/>  * If no mapping has been configured then Camel will fallback and use endpoint uri's as service names.  * However its recommended to configure service mappings so you can use human logic names instead of Camel  * endpoint uris in the names.  *<p/>  * Camel will auto-configure a {@link Reporter span reporter} one hasn't been explicitly configured,  * and if the hostname and port to a zipkin collector has been configured as environment variables  *<ul>  *<li>ZIPKIN_COLLECTOR_HTTP_SERVICE_HOST - The http hostname</li>  *<li>ZIPKIN_COLLECTOR_HTTP_SERVICE_PORT - The port number</li>  *</ul>  * or  *<ul>  *<li>ZIPKIN_COLLECTOR_THRIFT_SERVICE_HOST - The Scribe (Thrift RPC) hostname</li>  *<li>ZIPKIN_COLLECTOR_THRIFT_SERVICE_PORT - The port number</li>  *</ul>  *<p/>  * This class is implemented as both an {@link org.apache.camel.spi.EventNotifier} and {@link RoutePolicy} that allows  * to trap when Camel starts/ends an {@link Exchange} being routed using the {@link RoutePolicy} and during the routing  * if the {@link Exchange} sends messages, then we track them using the {@link org.apache.camel.spi.EventNotifier}.  */
+comment|/**  * To use Zipkin with Camel then setup this {@link ZipkinTracer} in your Camel  * application.  *<p/>  * Events (span) are captured for incoming and outgoing messages being sent  * to/from Camel. This means you need to configure which which Camel endpoints  * that maps to zipkin service names. The mapping can be configured using  *<ul>  *<li>route id - A Camel route id</li>  *<li>endpoint url - A Camel endpoint url</li>  *</ul>  * For both kinds you can use wildcards and regular expressions to match, which  * is using the rules from {@link PatternHelper#matchPattern(String, String)}  * and {@link EndpointHelper#matchEndpoint(CamelContext, String, String)}  *<p/>  * To match all Camel messages you can use<tt>*</tt> in the pattern and  * configure that to the same service name.<br/>  * If no mapping has been configured then Camel will fallback and use endpoint  * uri's as service names. However its recommended to configure service mappings  * so you can use human logic names instead of Camel endpoint uris in the names.  *<p/>  * Camel will auto-configure a {@link Reporter span reporter} one hasn't been  * explicitly configured, and if the hostname and port to a zipkin collector has  * been configured as environment variables  *<ul>  *<li>ZIPKIN_COLLECTOR_HTTP_SERVICE_HOST - The http hostname</li>  *<li>ZIPKIN_COLLECTOR_HTTP_SERVICE_PORT - The port number</li>  *</ul>  * or  *<ul>  *<li>ZIPKIN_COLLECTOR_THRIFT_SERVICE_HOST - The Scribe (Thrift RPC)  * hostname</li>  *<li>ZIPKIN_COLLECTOR_THRIFT_SERVICE_PORT - The port number</li>  *</ul>  *<p/>  * This class is implemented as both an  * {@link org.apache.camel.spi.EventNotifier} and {@link RoutePolicy} that  * allows to trap when Camel starts/ends an {@link Exchange} being routed using  * the {@link RoutePolicy} and during the routing if the {@link Exchange} sends  * messages, then we track them using the  * {@link org.apache.camel.spi.EventNotifier}.  */
 end_comment
 
 begin_comment
-comment|// NOTE: this implementation currently only does explicit propagation, meaning that non-camel
+comment|// NOTE: this implementation currently only does explicit propagation, meaning
 end_comment
 
 begin_comment
-comment|// components will not see the current trace context, and therefore will be unassociated. This can
+comment|// that non-camel
 end_comment
 
 begin_comment
-comment|// be fixed by using CurrentTraceContext to scope a span where user code is invoked.
+comment|// components will not see the current trace context, and therefore will be
 end_comment
 
 begin_comment
-comment|// If this is desirable, an instance variable of CurrentTraceContext.Default.create() could do the
+comment|// unassociated. This can
+end_comment
+
+begin_comment
+comment|// be fixed by using CurrentTraceContext to scope a span where user code is
+end_comment
+
+begin_comment
+comment|// invoked.
+end_comment
+
+begin_comment
+comment|// If this is desirable, an instance variable of
+end_comment
+
+begin_comment
+comment|// CurrentTraceContext.Default.create() could do the
 end_comment
 
 begin_comment
@@ -1029,7 +1045,7 @@ name|ZipkinRoutePolicy
 argument_list|()
 return|;
 block|}
-comment|/**      * Registers this {@link ZipkinTracer} on the {@link CamelContext} if not already registered.      */
+comment|/**      * Registers this {@link ZipkinTracer} on the {@link CamelContext} if not      * already registered.      */
 DECL|method|init (CamelContext camelContext)
 specifier|public
 name|void
@@ -1052,7 +1068,8 @@ condition|)
 block|{
 try|try
 block|{
-comment|// start this service eager so we init before Camel is starting up
+comment|// start this service eager so we init before Camel is starting
+comment|// up
 name|camelContext
 operator|.
 name|addService
@@ -1125,7 +1142,7 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * Sets the POST URL for zipkin's<a href="http://zipkin.io/zipkin-api/#/">v2 api</a>, usually      * "http://zipkinhost:9411/api/v2/spans"      */
+comment|/**      * Sets the POST URL for zipkin's      *<a href="http://zipkin.io/zipkin-api/#/">v2 api</a>, usually      * "http://zipkinhost:9411/api/v2/spans"      */
 DECL|method|setEndpoint (String endpoint)
 specifier|public
 name|void
@@ -1227,7 +1244,7 @@ return|return
 name|rate
 return|;
 block|}
-comment|/**      * Configures a rate that decides how many events should be traced by zipkin.      * The rate is expressed as a percentage (1.0f = 100%, 0.5f is 50%, 0.1f is 10%).      *      * @param rate minimum sample rate is 0.0001, or 0.01% of traces      */
+comment|/**      * Configures a rate that decides how many events should be traced by      * zipkin. The rate is expressed as a percentage (1.0f = 100%, 0.5f is 50%,      * 0.1f is 10%).      *      * @param rate minimum sample rate is 0.0001, or 0.01% of traces      */
 DECL|method|setRate (float rate)
 specifier|public
 name|void
@@ -1244,7 +1261,7 @@ operator|=
 name|rate
 expr_stmt|;
 block|}
-comment|/** Sets the reporter used to send timing data (spans) to the zipkin server. */
+comment|/**      * Sets the reporter used to send timing data (spans) to the zipkin server.      */
 DECL|method|setSpanReporter (Reporter<zipkin2.Span> spanReporter)
 specifier|public
 name|void
@@ -1266,7 +1283,7 @@ operator|=
 name|spanReporter
 expr_stmt|;
 block|}
-comment|/** Returns the reporter used to send timing data (spans) to the zipkin server. */
+comment|/**      * Returns the reporter used to send timing data (spans) to the zipkin      * server.      */
 DECL|method|getSpanReporter ()
 specifier|public
 name|Reporter
@@ -1362,7 +1379,7 @@ operator|=
 name|clientServiceMappings
 expr_stmt|;
 block|}
-comment|/**      * Adds a client service mapping that matches Camel events to the given zipkin service name.      * See more details at the class javadoc.      *      * @param pattern  the pattern such as route id, endpoint url      * @param serviceName the zipkin service name      */
+comment|/**      * Adds a client service mapping that matches Camel events to the given      * zipkin service name. See more details at the class javadoc.      *      * @param pattern the pattern such as route id, endpoint url      * @param serviceName the zipkin service name      */
 DECL|method|addClientServiceMapping (String pattern, String serviceName)
 specifier|public
 name|void
@@ -1421,7 +1438,7 @@ operator|=
 name|serverServiceMappings
 expr_stmt|;
 block|}
-comment|/**      * Adds a server service mapping that matches Camel events to the given zipkin service name.      * See more details at the class javadoc.      *      * @param pattern  the pattern such as route id, endpoint url      * @param serviceName the zipkin service name      */
+comment|/**      * Adds a server service mapping that matches Camel events to the given      * zipkin service name. See more details at the class javadoc.      *      * @param pattern the pattern such as route id, endpoint url      * @param serviceName the zipkin service name      */
 DECL|method|addServerServiceMapping (String pattern, String serviceName)
 specifier|public
 name|void
@@ -1476,7 +1493,7 @@ operator|=
 name|excludePatterns
 expr_stmt|;
 block|}
-comment|/**      * Adds an exclude pattern that will disable tracing with zipkin for Camel messages that matches the pattern.      *      * @param pattern  the pattern such as route id, endpoint url      */
+comment|/**      * Adds an exclude pattern that will disable tracing with zipkin for Camel      * messages that matches the pattern.      *      * @param pattern the pattern such as route id, endpoint url      */
 DECL|method|addExcludePattern (String pattern)
 specifier|public
 name|void
@@ -1511,7 +1528,7 @@ return|return
 name|includeMessageBody
 return|;
 block|}
-comment|/**      * Whether to include the Camel message body in the zipkin traces.      *<p/>      * This is not recommended for production usage, or when having big payloads. You can limit the size by      * configuring the<a href="http://camel.apache.org/how-do-i-set-the-max-chars-when-debug-logging-messages-in-camel.html">max debug log size</a>.      *<p/>      * By default message bodies that are stream based are<b>not</b> included. You can use the option {@link #setIncludeMessageBodyStreams(boolean)} to      * turn that on.      */
+comment|/**      * Whether to include the Camel message body in the zipkin traces.      *<p/>      * This is not recommended for production usage, or when having big      * payloads. You can limit the size by configuring the<a href=      * "http://camel.apache.org/how-do-i-set-the-max-chars-when-debug-logging-messages-in-camel.html">max      * debug log size</a>.      *<p/>      * By default message bodies that are stream based are<b>not</b> included.      * You can use the option {@link #setIncludeMessageBodyStreams(boolean)} to      * turn that on.      */
 annotation|@
 name|ManagedAttribute
 argument_list|(
@@ -1552,7 +1569,7 @@ return|return
 name|includeMessageBodyStreams
 return|;
 block|}
-comment|/**      * Whether to include message bodies that are stream based in the zipkin traces.      *<p/>      * This requires enabling<a href="http://camel.apache.org/stream-caching.html">stream caching</a> on the routes or globally on the CamelContext.      *<p/>      * This is not recommended for production usage, or when having big payloads. You can limit the size by      * configuring the<a href="http://camel.apache.org/how-do-i-set-the-max-chars-when-debug-logging-messages-in-camel.html">max debug log size</a>.      */
+comment|/**      * Whether to include message bodies that are stream based in the zipkin      * traces.      *<p/>      * This requires enabling      *<a href="http://camel.apache.org/stream-caching.html">stream caching</a>      * on the routes or globally on the CamelContext.      *<p/>      * This is not recommended for production usage, or when having big      * payloads. You can limit the size by configuring the<a href=      * "http://camel.apache.org/how-do-i-set-the-max-chars-when-debug-logging-messages-in-camel.html">max      * debug log size</a>.      */
 annotation|@
 name|ManagedAttribute
 argument_list|(
@@ -1723,7 +1740,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// is there a zipkin service setup as ENV variable to auto register a span reporter
+comment|// is there a zipkin service setup as ENV variable to auto
+comment|// register a span reporter
 name|String
 name|host
 init|=
@@ -1931,7 +1949,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// Try to lookup the span reporter from the registry if only one instance is present
+comment|// Try to lookup the span reporter from the registry if only one
+comment|// instance is present
 name|Set
 argument_list|<
 name|Reporter
@@ -3012,7 +3031,8 @@ name|state
 argument_list|)
 expr_stmt|;
 block|}
-comment|// if we started from a server span then lets reuse that when we call a downstream service
+comment|// if we started from a server span then lets reuse that when we call a
+comment|// downstream service
 name|Span
 name|last
 init|=
@@ -4077,7 +4097,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// use event notifier to track events when Camel messages to endpoints
+comment|// use event notifier to track events when Camel messages to
+comment|// endpoints
 comment|// these events corresponds to Zipkin client events
 comment|// client events
 if|if
@@ -4282,7 +4303,8 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// use route policy to track events when Camel a Camel route begins/end the lifecycle of an Exchange
+comment|// use route policy to track events when Camel a Camel route
+comment|// begins/end the lifecycle of an Exchange
 comment|// these events corresponds to Zipkin server events
 name|String
 name|serviceName
@@ -4327,7 +4349,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// Report Server send after route has completed processing of the exchange.
+comment|// Report Server send after route has completed processing of the
+comment|// exchange.
 annotation|@
 name|Override
 DECL|method|onExchangeDone (Route route, Exchange exchange)
