@@ -42,7 +42,6 @@ end_comment
 
 begin_class
 DECL|class|CompoundIterator
-specifier|public
 class|class
 name|CompoundIterator
 parameter_list|<
