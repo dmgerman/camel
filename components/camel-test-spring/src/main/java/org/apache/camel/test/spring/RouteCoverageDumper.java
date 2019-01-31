@@ -92,9 +92,7 @@ name|api
 operator|.
 name|management
 operator|.
-name|mbean
-operator|.
-name|ManagedCamelContextMBean
+name|ManagedCamelContext
 import|;
 end_import
 
@@ -110,7 +108,9 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedCamelContext
+name|mbean
+operator|.
+name|ManagedCamelContextMBean
 import|;
 end_import
 
