@@ -383,6 +383,8 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
+comment|// Implementation detail: We must use the specific model.language.xxx classes to make the DSL use these specific types
+comment|// which ensures that the route model dumped as XML uses these types, eg<header> instead of<language name="header"> etc.
 DECL|field|result
 specifier|private
 name|T
