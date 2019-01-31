@@ -2073,7 +2073,7 @@ literal|1
 block|,
 operator|-
 literal|1
-block|,}
+block|}
 decl_stmt|;
 comment|/* error codes */
 DECL|field|ZZ_UNKNOWN_ERROR
@@ -2254,6 +2254,51 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
+comment|/**      * Creates a new scanner There is also a java.io.InputStream version of this      * constructor.      *      * @param in the java.io.Reader to read input from.      */
+DECL|method|Yylex (java.io.Reader in)
+name|Yylex
+parameter_list|(
+name|java
+operator|.
+name|io
+operator|.
+name|Reader
+name|in
+parameter_list|)
+block|{
+name|this
+operator|.
+name|zzReader
+operator|=
+name|in
+expr_stmt|;
+block|}
+comment|/**      * Creates a new scanner. There is also java.io.Reader version of this      * constructor.      *      * @param in the java.io.Inputstream to read input from.      */
+DECL|method|Yylex (java.io.InputStream in)
+name|Yylex
+parameter_list|(
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+name|in
+parameter_list|)
+block|{
+name|this
+argument_list|(
+operator|new
+name|java
+operator|.
+name|io
+operator|.
+name|InputStreamReader
+argument_list|(
+name|in
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|zzUnpackAction ()
 specifier|private
 specifier|static
@@ -2359,6 +2404,7 @@ operator|++
 argument_list|)
 decl_stmt|;
 do|do
+block|{
 name|result
 index|[
 name|j
@@ -2367,6 +2413,7 @@ index|]
 operator|=
 name|value
 expr_stmt|;
+block|}
 do|while
 condition|(
 operator|--
@@ -2601,6 +2648,7 @@ operator|++
 argument_list|)
 decl_stmt|;
 do|do
+block|{
 name|result
 index|[
 name|j
@@ -2609,6 +2657,7 @@ index|]
 operator|=
 name|value
 expr_stmt|;
+block|}
 do|while
 condition|(
 operator|--
@@ -2630,51 +2679,6 @@ block|{
 return|return
 name|yychar
 return|;
-block|}
-comment|/**      * Creates a new scanner There is also a java.io.InputStream version of this      * constructor.      *      * @param in the java.io.Reader to read input from.      */
-DECL|method|Yylex (java.io.Reader in)
-name|Yylex
-parameter_list|(
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
-name|in
-parameter_list|)
-block|{
-name|this
-operator|.
-name|zzReader
-operator|=
-name|in
-expr_stmt|;
-block|}
-comment|/**      * Creates a new scanner. There is also java.io.Reader version of this      * constructor.      *      * @param in the java.io.Inputstream to read input from.      */
-DECL|method|Yylex (java.io.InputStream in)
-name|Yylex
-parameter_list|(
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-name|in
-parameter_list|)
-block|{
-name|this
-argument_list|(
-operator|new
-name|java
-operator|.
-name|io
-operator|.
-name|InputStreamReader
-argument_list|(
-name|in
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Unpacks the compressed character translation table.      *      * @param packed the packed character translation table      * @return the unpacked character translation table      */
 DECL|method|zzUnpackCMap (String packed)
@@ -2740,6 +2744,7 @@ operator|++
 argument_list|)
 decl_stmt|;
 do|do
+block|{
 name|map
 index|[
 name|j
@@ -2748,6 +2753,7 @@ index|]
 operator|=
 name|value
 expr_stmt|;
+block|}
 do|while
 condition|(
 operator|--
@@ -2978,11 +2984,13 @@ name|zzReader
 operator|!=
 literal|null
 condition|)
+block|{
 name|zzReader
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Resets the scanner to read from a new input stream. Does not close the      * old reader. All internal variables are reset, the old input stream      *<b>cannot</b> be reused (internal buffer is discarded and lost). Lexical      * state is set to<tt>ZZ_INITIAL</tt>.      *      * @param reader the new input stream      */
 DECL|method|yyreset (java.io.Reader reader)
@@ -3186,17 +3194,20 @@ operator|>
 name|yylength
 argument_list|()
 condition|)
+block|{
 name|zzScanError
 argument_list|(
 name|ZZ_PUSHBACK_2BIG
 argument_list|)
 expr_stmt|;
+block|}
 name|zzMarkedPos
 operator|-=
 name|number
 expr_stmt|;
 block|}
 comment|/**      * Resumes scanning until the next regular expression is matched, the end of      * input is encountered or an I/O-Error occurs.      *      * @return the next token      * @exception java.io.IOException if any I/O-Error occurs      */
+comment|// CHECKSTYLE:OFF
 DECL|method|yylex ()
 specifier|public
 name|Yytoken
@@ -3308,6 +3319,7 @@ name|zzCurrentPosL
 operator|<
 name|zzEndReadL
 condition|)
+block|{
 name|zzInput
 operator|=
 name|zzBufferL
@@ -3316,6 +3328,7 @@ name|zzCurrentPosL
 operator|++
 index|]
 expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -3412,9 +3425,11 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
 break|break
 name|zzForAction
 break|;
+block|}
 name|zzState
 operator|=
 name|zzNext
@@ -4040,6 +4055,7 @@ block|}
 block|}
 block|}
 block|}
+comment|// CHECKSTYLE:ON
 block|}
 end_class
 

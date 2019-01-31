@@ -266,6 +266,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Deserialize a stream with all deserialized JSON values are wrapped in a      * JsonArray.      *       * @param deserializable representing content to be deserialized as JSON.      * @param flags representing the allowances and restrictions on      *            deserialization.      * @return the allowable object best represented by the deserializable.      * @throws DeserializationException if a disallowed or unexpected token is      *             encountered in the deserializable. To recover from a      *             DeserializationException: fix the deserializable to no longer      *             have a disallowed or unexpected token and try again.      * @throws IOException if the underlying reader encounters an I/O error.      *             Ensure the reader is properly instantiated, isn't closed, or      *             that it is ready before trying again.      */
+comment|// CHECKSTYLE:OFF
 DECL|method|deserialize (final Reader deserializable, final Set<DeserializationOptions> flags)
 specifier|private
 specifier|static
@@ -1253,6 +1254,7 @@ name|valueStack
 argument_list|)
 return|;
 block|}
+comment|// CHECKSTYLE:ON
 comment|/**      * A convenience method that assumes a StringReader to deserialize a string.      *       * @param deserializable representing content to be deserialized as JSON.      * @return either a boolean, null, Number, String, JsonObject, or JsonArray      *         that best represents the deserializable.      * @throws DeserializationException if an unexpected token is encountered in      *             the deserializable. To recover from a      *             DeserializationException: fix the deserializable to no longer      *             have an unexpected token and try again.      * @see Jsoner#deserialize(Reader)      * @see StringReader      */
 DECL|method|deserialize (final String deserializable)
 specifier|public
@@ -2477,6 +2479,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Serialize values to JSON and write them to the provided writer based on      * behavior flags.      *       * @param jsonSerializable represents the object that should be serialized      *            to a string in JSON format.      * @param writableDestination represents where the resulting JSON text is      *            written to.      * @param replacement represents what is serialized instead of a non-JSON      *            value when replacements are allowed.      * @param flags represents the allowances and restrictions on serialization.      * @throws IOException if the writableDestination encounters an I/O problem.      * @throws IllegalArgumentException if the jsonSerializable isn't      *             serializable in JSON.      * @see SerializationOptions      */
+comment|// CHECKSTYLE:OFF
 DECL|method|serialize (final Object jsonSerializable, final Writer writableDestination, final Set<SerializationOptions> flags)
 specifier|private
 specifier|static
@@ -2520,12 +2523,9 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|(
-operator|(
 name|jsonSerializable
 operator|instanceof
 name|Jsonable
-operator|)
 operator|&&
 name|flags
 operator|.
@@ -2535,7 +2535,6 @@ name|SerializationOptions
 operator|.
 name|ALLOW_JSONABLES
 argument_list|)
-operator|)
 condition|)
 block|{
 comment|/* Writes the writable as defined by the writable. */
@@ -2558,11 +2557,9 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|(
 name|jsonSerializable
 operator|instanceof
 name|Enum
-operator|)
 operator|&&
 name|flags
 operator|.
@@ -4052,13 +4049,22 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-literal|"  that isn't JSON serializable.\n  Try:\n    1) Implementing the Jsonable interface for the object to return valid JSON. If it already does it probably has a bug.\n    2) If you cannot edit the source of the object or couple it with this library consider wrapping it in a class that does implement the Jsonable interface.\n    3) Otherwise convert it to a boolean, null, number, JsonArray, JsonObject, or String value before serializing it.\n    4) If you feel it should have serialized you could use a more tolerant serialization for debugging purposes."
+literal|"  that isn't JSON serializable.\n  Try:\n"
+operator|+
+literal|"    1) Implementing the Jsonable interface for the object to return valid JSON. If it already does it probably has a bug.\n"
+operator|+
+literal|"    2) If you cannot edit the source of the object or couple it with this library consider wrapping it in a class that does implement the Jsonable interface.\n"
+operator|+
+literal|"    3) Otherwise convert it to a boolean, null, number, JsonArray, JsonObject, or String value before serializing it.\n"
+operator|+
+literal|"    4) If you feel it should have serialized you could use a more tolerant serialization for debugging purposes."
 argument_list|)
 throw|;
 block|}
 block|}
 comment|// System.out.println(writableDestination.toString());
 block|}
+comment|// CHECKSTYLE:ON
 comment|/**      * Serializes like the first version of this library. It has been adapted to      * use Jsonable for serializing custom objects, but otherwise works like the      * old JSON string serializer. It will allow non-JSON values in its output      * like the old one. It can be helpful for last resort log statements and      * debugging errors in self generated JSON. Anything serialized using this      * method isn't guaranteed to be deserializable.      *       * @param jsonSerializable represents the object that should be serialized      *            in JSON format.      * @param writableDestination represents where the resulting JSON text is      *            written to.      * @throws IOException if the writableDestination encounters an I/O problem,      *             like being closed while in use.      */
 DECL|method|serializeCarelessly (final Object jsonSerializable, final Writer writableDestination)
 specifier|public
