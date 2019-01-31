@@ -1028,6 +1028,16 @@ name|userName
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"User Name must be specified"
+argument_list|)
+throw|;
+block|}
 name|CreateUserResult
 name|result
 decl_stmt|;
@@ -1147,6 +1157,16 @@ name|userName
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"User Name must be specified"
+argument_list|)
+throw|;
+block|}
 name|DeleteUserResult
 name|result
 decl_stmt|;
@@ -1265,6 +1285,16 @@ argument_list|(
 name|userName
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"User Name must be specified"
+argument_list|)
+throw|;
 block|}
 name|GetUserResult
 name|result
@@ -1981,6 +2011,16 @@ name|groupName
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Group Name must be specified"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -2146,6 +2186,16 @@ argument_list|(
 name|groupName
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Group Name must be specified"
+argument_list|)
+throw|;
 block|}
 name|DeleteGroupResult
 name|result
@@ -2329,6 +2379,16 @@ name|groupName
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Group Name must be specified"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -2375,6 +2435,16 @@ argument_list|(
 name|userName
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"User Name must be specified"
+argument_list|)
+throw|;
 block|}
 name|AddUserToGroupResult
 name|result
@@ -2495,6 +2565,16 @@ name|groupName
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Group Name must be specified"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -2541,6 +2621,16 @@ argument_list|(
 name|userName
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"User Name must be specified"
+argument_list|)
+throw|;
 block|}
 name|RemoveUserFromGroupResult
 name|result
