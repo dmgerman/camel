@@ -128,11 +128,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|support
 operator|.
-name|junit4
+name|jndi
 operator|.
-name|CamelTestSupport
+name|JndiContext
 import|;
 end_import
 
@@ -144,11 +144,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|test
 operator|.
-name|jndi
+name|junit4
 operator|.
-name|JndiContext
+name|CamelTestSupport
 import|;
 end_import
 
