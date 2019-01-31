@@ -188,7 +188,8 @@ name|CASE_INSENSITIVE
 argument_list|)
 decl_stmt|;
 comment|// Match the user password in the URI as second capture group
-comment|// (applies to URI with authority component and userinfo token in the form "user:password").
+comment|// (applies to URI with authority component and userinfo token in the form
+comment|// "user:password").
 DECL|field|USERINFO_PASSWORD
 specifier|private
 specifier|static
@@ -204,7 +205,8 @@ literal|"(.*://.*:)(.*)(@)"
 argument_list|)
 decl_stmt|;
 comment|// Match the user password in the URI path as second capture group
-comment|// (applies to URI path with authority component and userinfo token in the form "user:password").
+comment|// (applies to URI path with authority component and userinfo token in the
+comment|// form "user:password").
 DECL|field|PATH_USERINFO_PASSWORD
 specifier|private
 specifier|static
@@ -235,7 +237,7 @@ parameter_list|()
 block|{
 comment|// Helper class
 block|}
-comment|/**      * Removes detected sensitive information (such as passwords) from the URI and returns the result.      *      * @param uri The uri to sanitize.      * @see #SECRETS and #USERINFO_PASSWORD for the matched pattern      *      * @return Returns null if the uri is null, otherwise the URI with the passphrase, password or secretKey sanitized.      */
+comment|/**      * Removes detected sensitive information (such as passwords) from the URI      * and returns the result.      *      * @param uri The uri to sanitize.      * @see #SECRETS and #USERINFO_PASSWORD for the matched pattern      * @return Returns null if the uri is null, otherwise the URI with the      *         passphrase, password or secretKey sanitized.      */
 DECL|method|sanitizeUri (String uri)
 specifier|public
 specifier|static
@@ -334,7 +336,7 @@ return|return
 name|sanitized
 return|;
 block|}
-comment|/**      * Extracts the scheme specific path from the URI that is used as the remainder option when creating endpoints.      *      * @param u      the URI      * @param useRaw whether to force using raw values      * @return the remainder path      */
+comment|/**      * Extracts the scheme specific path from the URI that is used as the      * remainder option when creating endpoints.      *      * @param u the URI      * @param useRaw whether to force using raw values      * @return the remainder path      */
 DECL|method|extractRemainderPath (URI u, boolean useRaw)
 specifier|public
 specifier|static
@@ -418,7 +420,7 @@ return|return
 name|path
 return|;
 block|}
-comment|/**      * Parses the query part of the uri (eg the parameters).      *<p/>      * The URI parameters will by default be URI encoded. However you can define a parameter      * values with the syntax:<tt>key=RAW(value)</tt> which tells Camel to not encode the value,      * and use the value as is (eg key=value) and the value has<b>not</b> been encoded.      *      * @param uri the uri      * @return the parameters, or an empty map if no parameters (eg never null)      * @throws URISyntaxException is thrown if uri has invalid syntax.      * @see #RAW_TOKEN_PREFIX      * @see #RAW_TOKEN_START      * @see #RAW_TOKEN_END      */
+comment|/**      * Parses the query part of the uri (eg the parameters).      *<p/>      * The URI parameters will by default be URI encoded. However you can define      * a parameter values with the syntax:<tt>key=RAW(value)</tt> which tells      * Camel to not encode the value, and use the value as is (eg key=value) and      * the value has<b>not</b> been encoded.      *      * @param uri the uri      * @return the parameters, or an empty map if no parameters (eg never null)      * @throws URISyntaxException is thrown if uri has invalid syntax.      * @see #RAW_TOKEN_PREFIX      * @see #RAW_TOKEN_START      * @see #RAW_TOKEN_END      */
 DECL|method|parseQuery (String uri)
 specifier|public
 specifier|static
@@ -445,7 +447,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses the query part of the uri (eg the parameters).      *<p/>      * The URI parameters will by default be URI encoded. However you can define a parameter      * values with the syntax:<tt>key=RAW(value)</tt> which tells Camel to not encode the value,      * and use the value as is (eg key=value) and the value has<b>not</b> been encoded.      *      * @param uri the uri      * @param useRaw whether to force using raw values      * @return the parameters, or an empty map if no parameters (eg never null)      * @throws URISyntaxException is thrown if uri has invalid syntax.      * @see #RAW_TOKEN_PREFIX      * @see #RAW_TOKEN_START      * @see #RAW_TOKEN_END      */
+comment|/**      * Parses the query part of the uri (eg the parameters).      *<p/>      * The URI parameters will by default be URI encoded. However you can define      * a parameter values with the syntax:<tt>key=RAW(value)</tt> which tells      * Camel to not encode the value, and use the value as is (eg key=value) and      * the value has<b>not</b> been encoded.      *      * @param uri the uri      * @param useRaw whether to force using raw values      * @return the parameters, or an empty map if no parameters (eg never null)      * @throws URISyntaxException is thrown if uri has invalid syntax.      * @see #RAW_TOKEN_PREFIX      * @see #RAW_TOKEN_START      * @see #RAW_TOKEN_END      */
 DECL|method|parseQuery (String uri, boolean useRaw)
 specifier|public
 specifier|static
@@ -477,7 +479,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses the query part of the uri (eg the parameters).      *<p/>      * The URI parameters will by default be URI encoded. However you can define a parameter      * values with the syntax:<tt>key=RAW(value)</tt> which tells Camel to not encode the value,      * and use the value as is (eg key=value) and the value has<b>not</b> been encoded.      *      * @param uri the uri      * @param useRaw whether to force using raw values      * @param lenient whether to parse lenient and ignore trailing& markers which has no key or value which can happen when using HTTP components      * @return the parameters, or an empty map if no parameters (eg never null)      * @throws URISyntaxException is thrown if uri has invalid syntax.      * @see #RAW_TOKEN_PREFIX      * @see #RAW_TOKEN_START      * @see #RAW_TOKEN_END      */
+comment|/**      * Parses the query part of the uri (eg the parameters).      *<p/>      * The URI parameters will by default be URI encoded. However you can define      * a parameter values with the syntax:<tt>key=RAW(value)</tt> which tells      * Camel to not encode the value, and use the value as is (eg key=value) and      * the value has<b>not</b> been encoded.      *      * @param uri the uri      * @param useRaw whether to force using raw values      * @param lenient whether to parse lenient and ignore trailing& markers      *            which has no key or value which can happen when using HTTP      *            components      * @return the parameters, or an empty map if no parameters (eg never null)      * @throws URISyntaxException is thrown if uri has invalid syntax.      * @see #RAW_TOKEN_PREFIX      * @see #RAW_TOKEN_START      * @see #RAW_TOKEN_END      */
 DECL|method|parseQuery (String uri, boolean useRaw, boolean lenient)
 specifier|public
 specifier|static
@@ -571,7 +573,7 @@ name|useRaw
 argument_list|)
 return|;
 block|}
-comment|/**      * Scans RAW tokens in the string and returns the list of pair indexes which tell where      * a RAW token starts and ends in the string.      *<p/>      * This is a companion method with {@link #isRaw(int, List)} and the returned value is      * supposed to be used as the parameter of that method.      *      * @param str the string to scan RAW tokens      * @return the list of pair indexes which represent the start and end positions of a RAW token      * @see #isRaw(int, List)      * @see #RAW_TOKEN_PREFIX      * @see #RAW_TOKEN_START      * @see #RAW_TOKEN_END      */
+comment|/**      * Scans RAW tokens in the string and returns the list of pair indexes which      * tell where a RAW token starts and ends in the string.      *<p/>      * This is a companion method with {@link #isRaw(int, List)} and the      * returned value is supposed to be used as the parameter of that method.      *      * @param str the string to scan RAW tokens      * @return the list of pair indexes which represent the start and end      *         positions of a RAW token      * @see #isRaw(int, List)      * @see #RAW_TOKEN_PREFIX      * @see #RAW_TOKEN_START      * @see #RAW_TOKEN_END      */
 DECL|method|scanRaw (String str)
 specifier|public
 specifier|static
@@ -597,7 +599,7 @@ name|str
 argument_list|)
 return|;
 block|}
-comment|/**      * Tests if the index is within any pair of the start and end indexes which represent      * the start and end positions of a RAW token.      *<p/>      * This is a companion method with {@link #scanRaw(String)} and is supposed to consume      * the returned value of that method as the second parameter<tt>pairs</tt>.      *      * @param index the index to be tested      * @param pairs the list of pair indexes which represent the start and end positions of a RAW token      * @return<tt>true</tt> if the index is within any pair of the indexes,<tt>false</tt> otherwise      * @see #scanRaw(String)      * @see #RAW_TOKEN_PREFIX      * @see #RAW_TOKEN_START      * @see #RAW_TOKEN_END      */
+comment|/**      * Tests if the index is within any pair of the start and end indexes which      * represent the start and end positions of a RAW token.      *<p/>      * This is a companion method with {@link #scanRaw(String)} and is supposed      * to consume the returned value of that method as the second parameter      *<tt>pairs</tt>.      *      * @param index the index to be tested      * @param pairs the list of pair indexes which represent the start and end      *            positions of a RAW token      * @return<tt>true</tt> if the index is within any pair of the indexes,      *<tt>false</tt> otherwise      * @see #scanRaw(String)      * @see #RAW_TOKEN_PREFIX      * @see #RAW_TOKEN_START      * @see #RAW_TOKEN_END      */
 DECL|method|isRaw (int index, List<Pair<Integer>> pairs)
 specifier|public
 specifier|static
@@ -730,7 +732,7 @@ name|query
 argument_list|)
 return|;
 block|}
-comment|/**      * Traverses the given parameters, and resolve any parameter values which uses the RAW token      * syntax:<tt>key=RAW(value)</tt>. This method will then remove the RAW tokens, and replace      * the content of the value, with just the value.      *      * @param parameters the uri parameters      * @see #parseQuery(String)      * @see #RAW_TOKEN_PREFIX      * @see #RAW_TOKEN_START      * @see #RAW_TOKEN_END      */
+comment|/**      * Traverses the given parameters, and resolve any parameter values which      * uses the RAW token syntax:<tt>key=RAW(value)</tt>. This method will then      * remove the RAW tokens, and replace the content of the value, with just      * the value.      *      * @param parameters the uri parameters      * @see #parseQuery(String)      * @see #RAW_TOKEN_PREFIX      * @see #RAW_TOKEN_START      * @see #RAW_TOKEN_END      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -945,7 +947,8 @@ argument_list|,
 literal|"uri"
 argument_list|)
 expr_stmt|;
-comment|// assemble string as new uri and replace parameters with the query instead
+comment|// assemble string as new uri and replace parameters with the query
+comment|// instead
 name|String
 name|s
 init|=
@@ -1055,7 +1058,7 @@ name|s
 argument_list|)
 return|;
 block|}
-comment|/**      * Strips the prefix from the value.      *<p/>      * Returns the value as-is if not starting with the prefix.      *      * @param value  the value      * @param prefix the prefix to remove from value      * @return the value without the prefix      */
+comment|/**      * Strips the prefix from the value.      *<p/>      * Returns the value as-is if not starting with the prefix.      *      * @param value the value      * @param prefix the prefix to remove from value      * @return the value without the prefix      */
 DECL|method|stripPrefix (String value, String prefix)
 specifier|public
 specifier|static
@@ -1174,7 +1177,7 @@ return|return
 name|value
 return|;
 block|}
-comment|/**      * Assembles a query from the given map.      *      * @param options  the map with the options (eg key/value pairs)      * @return a query string with<tt>key1=value&key2=value2&...</tt>, or an empty string if there is no options.      * @throws URISyntaxException is thrown if uri has invalid syntax.      */
+comment|/**      * Assembles a query from the given map.      *      * @param options the map with the options (eg key/value pairs)      * @return a query string with<tt>key1=value&key2=value2&...</tt>, or an      *         empty string if there is no options.      * @throws URISyntaxException is thrown if uri has invalid syntax.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1270,7 +1273,8 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
-comment|// the value may be a list since the same key has multiple values
+comment|// the value may be a list since the same key has multiple
+comment|// values
 if|if
 condition|(
 name|value
@@ -1329,7 +1333,8 @@ argument_list|,
 name|rc
 argument_list|)
 expr_stmt|;
-comment|// append& separator if there is more in the list to append
+comment|// append& separator if there is more in the list
+comment|// to append
 if|if
 condition|(
 name|it
@@ -1588,7 +1593,7 @@ name|s
 argument_list|)
 return|;
 block|}
-comment|/**      * Appends the given parameters to the given URI.      *<p/>      * It keeps the original parameters and if a new parameter is already defined in      * {@code originalURI}, it will be replaced by its value in {@code newParameters}.      *      * @param originalURI   the original URI      * @param newParameters the parameters to add      * @return the URI with all the parameters      * @throws URISyntaxException           is thrown if the uri syntax is invalid      * @throws UnsupportedEncodingException is thrown if encoding error      */
+comment|/**      * Appends the given parameters to the given URI.      *<p/>      * It keeps the original parameters and if a new parameter is already      * defined in {@code originalURI}, it will be replaced by its value in      * {@code newParameters}.      *      * @param originalURI the original URI      * @param newParameters the parameters to add      * @return the URI with all the parameters      * @throws URISyntaxException is thrown if the uri syntax is invalid      * @throws UnsupportedEncodingException is thrown if encoding error      */
 DECL|method|appendParametersToURI (String originalURI, Map<String, Object> newParameters)
 specifier|public
 specifier|static
@@ -1655,7 +1660,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Normalizes the uri by reordering the parameters so they are sorted and thus      * we can use the uris for endpoint matching.      *<p/>      * The URI parameters will by default be URI encoded. However you can define a parameter      * values with the syntax:<tt>key=RAW(value)</tt> which tells Camel to not encode the value,      * and use the value as is (eg key=value) and the value has<b>not</b> been encoded.      *      * @param uri the uri      * @return the normalized uri      * @throws URISyntaxException in thrown if the uri syntax is invalid      * @throws UnsupportedEncodingException is thrown if encoding error      * @see #RAW_TOKEN_PREFIX      * @see #RAW_TOKEN_START      * @see #RAW_TOKEN_END      */
+comment|/**      * Normalizes the uri by reordering the parameters so they are sorted and      * thus we can use the uris for endpoint matching.      *<p/>      * The URI parameters will by default be URI encoded. However you can define      * a parameter values with the syntax:<tt>key=RAW(value)</tt> which tells      * Camel to not encode the value, and use the value as is (eg key=value) and      * the value has<b>not</b> been encoded.      *      * @param uri the uri      * @return the normalized uri      * @throws URISyntaxException in thrown if the uri syntax is invalid      * @throws UnsupportedEncodingException is thrown if encoding error      * @see #RAW_TOKEN_PREFIX      * @see #RAW_TOKEN_START      * @see #RAW_TOKEN_END      */
 DECL|method|normalizeUri (String uri)
 specifier|public
 specifier|static
@@ -1805,10 +1810,14 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-comment|// okay if we have user info in the path and they use @ in username or password,
-comment|// then we need to encode them (but leave the last @ sign before the hostname)
-comment|// this is needed as Camel end users may not encode their user info properly, but expect
-comment|// this to work out of the box with Camel, and hence we need to fix it for them
+comment|// okay if we have user info in the path and they use @ in username or
+comment|// password,
+comment|// then we need to encode them (but leave the last @ sign before the
+comment|// hostname)
+comment|// this is needed as Camel end users may not encode their user info
+comment|// properly, but expect
+comment|// this to work out of the box with Camel, and hence we need to fix it
+comment|// for them
 name|String
 name|userInfoPath
 init|=

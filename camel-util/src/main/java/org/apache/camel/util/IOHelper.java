@@ -349,7 +349,8 @@ argument_list|(
 literal|"UTF-8"
 argument_list|)
 decl_stmt|;
-comment|// allows to turn on backwards compatible to turn off regarding the first read byte with value zero (0b0) as EOL.
+comment|// allows to turn on backwards compatible to turn off regarding the first
+comment|// read byte with value zero (0b0) as EOL.
 comment|// See more at CAMEL-11672
 DECL|field|ZERO_BYTE_EOL_ENABLED
 specifier|private
@@ -379,7 +380,7 @@ parameter_list|()
 block|{
 comment|// Utility Class
 block|}
-comment|/**      * Use this function instead of new String(byte[]) to avoid surprises from non-standard default encodings.      */
+comment|/**      * Use this function instead of new String(byte[]) to avoid surprises from      * non-standard default encodings.      */
 DECL|method|newStringFromBytes (byte[] bytes)
 specifier|public
 specifier|static
@@ -423,7 +424,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Use this function instead of new String(byte[], int, int)       * to avoid surprises from non-standard default encodings.      */
+comment|/**      * Use this function instead of new String(byte[], int, int) to avoid      * surprises from non-standard default encodings.      */
 DECL|method|newStringFromBytes (byte[] bytes, int start, int length)
 specifier|public
 specifier|static
@@ -952,7 +953,8 @@ condition|(
 name|ZERO_BYTE_EOL_ENABLED
 condition|)
 block|{
-comment|// workaround issue on some application servers which can return 0 (instead of -1)
+comment|// workaround issue on some application servers which can return 0
+comment|// (instead of -1)
 comment|// as first byte to indicate end of stream (CAMEL-11672)
 name|hasData
 operator|=
@@ -1188,7 +1190,7 @@ return|return
 name|total
 return|;
 block|}
-comment|/**      * Forces any updates to this channel's file to be written to the storage device that contains it.      *      * @param channel the file channel      * @param name the name of the resource      * @param log the log to use when reporting warnings, will use this class's own {@link Logger} if<tt>log == null</tt>      */
+comment|/**      * Forces any updates to this channel's file to be written to the storage      * device that contains it.      *      * @param channel the file channel      * @param name the name of the resource      * @param log the log to use when reporting warnings, will use this class's      *            own {@link Logger} if<tt>log == null</tt>      */
 DECL|method|force (FileChannel channel, String name, Logger log)
 specifier|public
 specifier|static
@@ -1287,7 +1289,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Forces any updates to a FileOutputStream be written to the storage device that contains it.      *      * @param os the file output stream      * @param name the name of the resource      * @param log the log to use when reporting warnings, will use this class's own {@link Logger} if<tt>log == null</tt>      */
+comment|/**      * Forces any updates to a FileOutputStream be written to the storage device      * that contains it.      *      * @param os the file output stream      * @param name the name of the resource      * @param log the log to use when reporting warnings, will use this class's      *            own {@link Logger} if<tt>log == null</tt>      */
 DECL|method|force (FileOutputStream os, String name, Logger log)
 specifier|public
 specifier|static
@@ -1387,7 +1389,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Closes the given writer, logging any closing exceptions to the given log.      * An associated FileOutputStream can optionally be forced to disk.      *      * @param writer the writer to close      * @param os an underlying FileOutputStream that will to be forced to disk according to the force parameter      * @param name the name of the resource      * @param log the log to use when reporting warnings, will use this class's own {@link Logger} if<tt>log == null</tt>      * @param force forces the FileOutputStream to disk      */
+comment|/**      * Closes the given writer, logging any closing exceptions to the given log.      * An associated FileOutputStream can optionally be forced to disk.      *      * @param writer the writer to close      * @param os an underlying FileOutputStream that will to be forced to disk      *            according to the force parameter      * @param name the name of the resource      * @param log the log to use when reporting warnings, will use this class's      *            own {@link Logger} if<tt>log == null</tt>      * @param force forces the FileOutputStream to disk      */
 DECL|method|close (Writer writer, FileOutputStream os, String name, Logger log, boolean force)
 specifier|public
 specifier|static
@@ -1511,7 +1513,7 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Closes the given resource if it is available, logging any closing exceptions to the given log.      *      * @param closeable the object to close      * @param name the name of the resource      * @param log the log to use when reporting closure warnings, will use this class's own {@link Logger} if<tt>log == null</tt>      */
+comment|/**      * Closes the given resource if it is available, logging any closing      * exceptions to the given log.      *      * @param closeable the object to close      * @param name the name of the resource      * @param log the log to use when reporting closure warnings, will use this      *            class's own {@link Logger} if<tt>log == null</tt>      */
 DECL|method|close (Closeable closeable, String name, Logger log)
 specifier|public
 specifier|static
@@ -1608,7 +1610,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Closes the given resource if it is available and don't catch the exception      *      * @param closeable the object to close      * @throws IOException       */
+comment|/**      * Closes the given resource if it is available and don't catch the      * exception      *      * @param closeable the object to close      * @throws IOException      */
 DECL|method|closeWithException (Closeable closeable)
 specifier|public
 specifier|static
@@ -1635,7 +1637,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Closes the given channel if it is available, logging any closing exceptions to the given log.      * The file's channel can optionally be forced to disk.      *      * @param channel the file channel      * @param name the name of the resource      * @param log the log to use when reporting warnings, will use this class's own {@link Logger} if<tt>log == null</tt>      * @param force forces the file channel to disk      */
+comment|/**      * Closes the given channel if it is available, logging any closing      * exceptions to the given log. The file's channel can optionally be forced      * to disk.      *      * @param channel the file channel      * @param name the name of the resource      * @param log the log to use when reporting warnings, will use this class's      *            own {@link Logger} if<tt>log == null</tt>      * @param force forces the file channel to disk      */
 DECL|method|close (FileChannel channel, String name, Logger log, boolean force)
 specifier|public
 specifier|static
@@ -1967,7 +1969,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the charset name from the content type string      * @param contentType      * @return the charset name, or<tt>UTF-8</tt> if no found      */
+comment|/**      * Get the charset name from the content type string      *       * @param contentType      * @return the charset name, or<tt>UTF-8</tt> if no found      */
 DECL|method|getCharsetNameFromContentType (String contentType)
 specifier|public
 specifier|static
@@ -2360,7 +2362,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Encoding-aware file reader.       */
+comment|/**      * Encoding-aware file reader.      */
 DECL|class|EncodingFileReader
 specifier|public
 specifier|static
@@ -2433,7 +2435,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Encoding-aware file writer.       */
+comment|/**      * Encoding-aware file writer.      */
 DECL|class|EncodingFileWriter
 specifier|public
 specifier|static
