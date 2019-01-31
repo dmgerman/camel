@@ -244,6 +244,32 @@ name|ActiveMQComponent
 extends|extends
 name|JmsComponent
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|ActiveMQComponent
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+DECL|field|source
+name|DestinationSource
+name|source
+decl_stmt|;
+DECL|field|connection
+specifier|private
+name|EnhancedConnection
+name|connection
+decl_stmt|;
 DECL|field|singleConnectionFactoryList
 specifier|private
 specifier|final
@@ -276,23 +302,6 @@ name|Service
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|ActiveMQComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|exposeAllQueues
 specifier|private
 name|boolean
@@ -303,16 +312,43 @@ specifier|private
 name|CamelEndpointLoader
 name|endpointLoader
 decl_stmt|;
-DECL|field|connection
-specifier|private
-name|EnhancedConnection
-name|connection
-decl_stmt|;
-DECL|field|source
-name|DestinationSource
-name|source
-decl_stmt|;
-comment|/**      * Creates an<a href="http://camel.apache.org/activemq.html">ActiveMQ Component</a>      *      * @return the created component      */
+DECL|method|ActiveMQComponent ()
+specifier|public
+name|ActiveMQComponent
+parameter_list|()
+block|{     }
+DECL|method|ActiveMQComponent (CamelContext context)
+specifier|public
+name|ActiveMQComponent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|ActiveMQComponent (ActiveMQConfiguration configuration)
+specifier|public
+name|ActiveMQComponent
+parameter_list|(
+name|ActiveMQConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+name|setConfiguration
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Creates an<a href="http://camel.apache.org/activemq.html">ActiveMQ      * Component</a>      *      * @return the created component      */
 DECL|method|activeMQComponent ()
 specifier|public
 specifier|static
@@ -326,7 +362,7 @@ name|ActiveMQComponent
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates an<a href="http://camel.apache.org/activemq.html">ActiveMQ Component</a>      * connecting to the given<a href="http://activemq.apache.org/configuring-transports.html">broker URL</a>      *      * @param brokerURL the URL to connect to      * @return the created component      */
+comment|/**      * Creates an<a href="http://camel.apache.org/activemq.html">ActiveMQ      * Component</a> connecting to the given      *<a href="http://activemq.apache.org/configuring-transports.html">broker      * URL</a>      *      * @param brokerURL the URL to connect to      * @return the created component      */
 DECL|method|activeMQComponent (String brokerURL)
 specifier|public
 specifier|static
@@ -374,43 +410,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|ActiveMQComponent ()
-specifier|public
-name|ActiveMQComponent
-parameter_list|()
-block|{     }
-DECL|method|ActiveMQComponent (CamelContext context)
-specifier|public
-name|ActiveMQComponent
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|ActiveMQComponent (ActiveMQConfiguration configuration)
-specifier|public
-name|ActiveMQComponent
-parameter_list|(
-name|ActiveMQConfiguration
-name|configuration
-parameter_list|)
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-name|setConfiguration
-argument_list|(
-name|configuration
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Sets the broker URL to use to connect to ActiveMQ using the      *<a href="http://activemq.apache.org/configuring-transports.html">ActiveMQ URI format</a>      */
+comment|/**      * Sets the broker URL to use to connect to ActiveMQ using the      *<a href="http://activemq.apache.org/configuring-transports.html">ActiveMQ      * URI format</a>      */
 DECL|method|setBrokerURL (String brokerURL)
 specifier|public
 name|void
@@ -485,7 +485,7 @@ return|return
 name|exposeAllQueues
 return|;
 block|}
-comment|/**      * If enabled this will cause all Queues in the ActiveMQ broker to be eagerly populated into the CamelContext      * so that they can be easily browsed by any Camel tooling. This option is disabled by default.      */
+comment|/**      * If enabled this will cause all Queues in the ActiveMQ broker to be      * eagerly populated into the CamelContext so that they can be easily      * browsed by any Camel tooling. This option is disabled by default.      */
 DECL|method|setExposeAllQueues (boolean exposeAllQueues)
 specifier|public
 name|void
@@ -502,7 +502,7 @@ operator|=
 name|exposeAllQueues
 expr_stmt|;
 block|}
-comment|/**      * Enables or disables whether a PooledConnectionFactory will be used so that when      * messages are sent to ActiveMQ from outside of a message consuming thread, pooling will be used rather      * than the default with the Spring {@link JmsTemplate} which will create a new connection, session, producer      * for each message then close them all down again.      *<p/>      * The default value is true. Note that this requires an extra dependency on commons-pool2.      */
+comment|/**      * Enables or disables whether a PooledConnectionFactory will be used so      * that when messages are sent to ActiveMQ from outside of a message      * consuming thread, pooling will be used rather than the default with the      * Spring {@link JmsTemplate} which will create a new connection, session,      * producer for each message then close them all down again.      *<p/>      * The default value is true. Note that this requires an extra dependency on      * commons-pool2.      */
 DECL|method|setUsePooledConnection (boolean usePooledConnection)
 specifier|public
 name|void
@@ -535,7 +535,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Enables or disables whether a Spring {@link SingleConnectionFactory} will be used so that when      * messages are sent to ActiveMQ from outside of a message consuming thread, pooling will be used rather      * than the default with the Spring {@link JmsTemplate} which will create a new connection, session, producer      * for each message then close them all down again.      *<p/>      * The default value is false and a pooled connection is used by default.      */
+comment|/**      * Enables or disables whether a Spring {@link SingleConnectionFactory} will      * be used so that when messages are sent to ActiveMQ from outside of a      * message consuming thread, pooling will be used rather than the default      * with the Spring {@link JmsTemplate} which will create a new connection,      * session, producer for each message then close them all down again.      *<p/>      * The default value is false and a pooled connection is used by default.      */
 DECL|method|setUseSingleConnection (boolean useSingleConnection)
 specifier|public
 name|void
@@ -670,7 +670,8 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|// if we have destination options then append them to the destination name
+comment|// if we have destination options then append them to the destination
+comment|// name
 if|if
 condition|(
 name|ObjectHelper
@@ -737,7 +738,9 @@ name|afterPropertiesSet
 argument_list|()
 expr_stmt|;
 block|}
-comment|// use OriginalDestinationPropagateStrategy by default if no custom stategy has been set
+comment|// use OriginalDestinationPropagateStrategy by default if no custom
+comment|// stategy has
+comment|// been set
 if|if
 condition|(
 name|getMessageCreatedStrategy
