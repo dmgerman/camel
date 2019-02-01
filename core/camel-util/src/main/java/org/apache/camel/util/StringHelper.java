@@ -179,6 +179,35 @@ literal|'-'
 argument_list|)
 return|;
 block|}
+comment|/**      * Remove carriage return and line feeds from a String, replacing them with an empty String.      * @param s String to be sanitized of carriage return / line feed characters      * @return sanitized version of<code>s</code>.      * @throws NullPointerException if<code>s</code> is<code>null</code>.      */
+DECL|method|removeCRLF (String s)
+specifier|public
+specifier|static
+name|String
+name|removeCRLF
+parameter_list|(
+name|String
+name|s
+parameter_list|)
+block|{
+return|return
+name|s
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\r"
+argument_list|,
+literal|""
+argument_list|)
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\n"
+argument_list|,
+literal|""
+argument_list|)
+return|;
+block|}
 comment|/**      * Counts the number of times the given char is in the string      *      * @param s  the string      * @param ch the char      * @return number of times char is located in the string      */
 DECL|method|countChar (String s, char ch)
 specifier|public
