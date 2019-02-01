@@ -801,6 +801,8 @@ operator|)
 name|buildDeploymentContext
 argument_list|(
 name|id
+argument_list|,
+name|classloader
 argument_list|)
 decl_stmt|;
 name|context
@@ -1398,13 +1400,16 @@ name|buildCamelContext
 argument_list|()
 return|;
 block|}
-DECL|method|buildDeploymentContext (String identifier)
+DECL|method|buildDeploymentContext (String identifier, ClassLoader classloader)
 specifier|protected
 name|CamelContext
 name|buildDeploymentContext
 parameter_list|(
 name|String
 name|identifier
+parameter_list|,
+name|ClassLoader
+name|classloader
 parameter_list|)
 block|{
 name|InternalRuntimeManager
@@ -1466,14 +1471,26 @@ argument_list|()
 return|;
 block|}
 block|}
-return|return
+name|CamelContext
+name|camelContext
+init|=
 operator|new
 name|CamelContextBuilder
 argument_list|()
-block|{         }
+block|{          }
 operator|.
 name|buildCamelContext
 argument_list|()
+decl_stmt|;
+name|camelContext
+operator|.
+name|setApplicationContextClassLoader
+argument_list|(
+name|classloader
+argument_list|)
+expr_stmt|;
+return|return
+name|camelContext
 return|;
 block|}
 DECL|method|discoverCamelContextBuilder ()
