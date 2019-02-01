@@ -86,9 +86,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spring
 operator|.
-name|DefaultThreadPoolFactory
+name|SpringRunWithTestSupport
 import|;
 end_import
 
@@ -100,9 +100,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|support
 operator|.
-name|SpringRunWithTestSupport
+name|DefaultThreadPoolFactory
 import|;
 end_import
 
