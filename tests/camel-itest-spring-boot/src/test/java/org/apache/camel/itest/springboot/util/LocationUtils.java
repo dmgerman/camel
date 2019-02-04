@@ -118,7 +118,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"camel-core"
+literal|"core"
 argument_list|)
 argument_list|)
 decl_stmt|;
