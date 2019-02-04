@@ -3612,7 +3612,7 @@ name|addComponent
 argument_list|(
 literal|"activemq"
 argument_list|,
-literal|"org.apache.activemq.camel.component.ActiveMQComponent"
+literal|"org.apache.camel.component.activemq.ActiveMQComponent"
 argument_list|)
 expr_stmt|;
 comment|// activemq
