@@ -24,11 +24,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|activemq
-operator|.
 name|camel
 operator|.
 name|component
+operator|.
+name|activemq
 operator|.
 name|ActiveMQComponent
 import|;
