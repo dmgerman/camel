@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A JMS ConnectionFactory which resolves non-JMS destinations or instances of  * {@link CamelDestination} to use the {@link CamelContext} to perform smart routing etc  *  *   */
+comment|/**  * A JMS ConnectionFactory which resolves non-JMS destinations or instances of  * {@link CamelDestination} to use the {@link CamelContext} to perform smart  * routing etc  */
 end_comment
 
 begin_class
@@ -135,7 +135,7 @@ name|camelContext
 expr_stmt|;
 block|}
 comment|// Implementation methods
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 DECL|method|createActiveMQConnection (Transport transport, JMSStatsImpl stats)
 specifier|protected
 name|CamelConnection

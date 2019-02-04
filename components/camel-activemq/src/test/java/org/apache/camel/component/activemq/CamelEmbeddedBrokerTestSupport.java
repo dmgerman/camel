@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for test cases which use an embedded broker and use Camel to  * do the routing  *  */
+comment|/**  * A helper class for test cases which use an embedded broker and use Camel to  * do the routing  */
 end_comment
 
 begin_class
@@ -304,7 +304,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{     }
-comment|/**      * Resolves a mandatory endpoint for the given URI or an exception is thrown      *      * @param uri      *            the Camel<a href="">URI</a> to use to create or resolve an      *            endpoint      * @return the endpoint      */
+comment|/**      * Resolves a mandatory endpoint for the given URI or an exception is thrown      *      * @param uri the Camel<a href="">URI</a> to use to create or resolve an      *            endpoint      * @return the endpoint      */
 DECL|method|resolveMandatoryEndpoint (String uri)
 specifier|protected
 name|Endpoint
@@ -323,7 +323,7 @@ name|uri
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves a mandatory endpoint for the given URI and expected type or an      * exception is thrown      *      * @param uri      *            the Camel<a href="">URI</a> to use to create or resolve an      *            endpoint      * @return the endpoint      */
+comment|/**      * Resolves a mandatory endpoint for the given URI and expected type or an      * exception is thrown      *      * @param uri the Camel<a href="">URI</a> to use to create or resolve an      *            endpoint      * @return the endpoint      */
 DECL|method|resolveMandatoryEndpoint (String uri, Class<T> endpointType)
 specifier|protected
 parameter_list|<
@@ -440,7 +440,7 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * Resolves the mandatory Mock endpoint using a URI of the form      *<code>mock:someName</code>      *      * @param uri      *            the URI which typically starts with "mock:" and has some name      * @return the mandatory mock endpoint or an exception is thrown if it could      *         not be resolved      */
+comment|/**      * Resolves the mandatory Mock endpoint using a URI of the form      *<code>mock:someName</code>      *      * @param uri the URI which typically starts with "mock:" and has some name      * @return the mandatory mock endpoint or an exception is thrown if it could      *         not be resolved      */
 DECL|method|getMockEndpoint (String uri)
 specifier|protected
 name|MockEndpoint

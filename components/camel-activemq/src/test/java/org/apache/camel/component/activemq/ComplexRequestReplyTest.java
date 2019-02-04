@@ -19,18 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertNotNull
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -128,22 +116,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|activemq
-operator|.
-name|ActiveMQComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
@@ -200,6 +172,18 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
+
 begin_class
 DECL|class|ComplexRequestReplyTest
 specifier|public
@@ -226,36 +210,41 @@ DECL|field|brokerA
 specifier|private
 name|BrokerService
 name|brokerA
-init|=
-literal|null
 decl_stmt|;
 DECL|field|brokerB
 specifier|private
 name|BrokerService
 name|brokerB
-init|=
-literal|null
 decl_stmt|;
 DECL|field|senderContext
 specifier|private
 name|CamelContext
 name|senderContext
-init|=
-literal|null
 decl_stmt|;
 DECL|field|brokerAContext
 specifier|private
 name|CamelContext
 name|brokerAContext
-init|=
-literal|null
 decl_stmt|;
 DECL|field|brokerBContext
 specifier|private
 name|CamelContext
 name|brokerBContext
-init|=
-literal|null
+decl_stmt|;
+DECL|field|brokerAUri
+specifier|private
+name|String
+name|brokerAUri
+decl_stmt|;
+DECL|field|brokerBUri
+specifier|private
+name|String
+name|brokerBUri
+decl_stmt|;
+DECL|field|connectionUri
+specifier|private
+name|String
+name|connectionUri
 decl_stmt|;
 DECL|field|fromEndpoint
 specifier|private
@@ -280,21 +269,6 @@ name|String
 name|brokerEndpoint
 init|=
 literal|"activemq:send"
-decl_stmt|;
-DECL|field|brokerAUri
-specifier|private
-name|String
-name|brokerAUri
-decl_stmt|;
-DECL|field|brokerBUri
-specifier|private
-name|String
-name|brokerBUri
-decl_stmt|;
-DECL|field|connectionUri
-specifier|private
-name|String
-name|connectionUri
 decl_stmt|;
 annotation|@
 name|Before
@@ -381,7 +355,7 @@ parameter_list|(
 name|Exception
 name|ex
 parameter_list|)
-block|{}
+block|{         }
 try|try
 block|{
 name|shutdownBrokerB
@@ -393,7 +367,7 @@ parameter_list|(
 name|Exception
 name|e
 parameter_list|)
-block|{}
+block|{         }
 block|}
 annotation|@
 name|Test
@@ -451,7 +425,7 @@ operator|+
 name|response
 argument_list|)
 expr_stmt|;
-comment|/**          * You actually don't need to restart the broker, just wait long enough and the next          * next send will take out a closed connection and reconnect, and if you happen to hit          * the broker you weren't on last time, then you will see the failure.          */
+comment|/**          * You actually don't need to restart the broker, just wait long enough          * and the next next send will take out a closed connection and          * reconnect, and if you happen to hit the broker you weren't on last          * time, then you will see the failure.          */
 name|TimeUnit
 operator|.
 name|SECONDS
@@ -461,7 +435,7 @@ argument_list|(
 literal|20
 argument_list|)
 expr_stmt|;
-comment|/**          * I restart the broker after the wait that exceeds the idle timeout value of the          * PooledConnectionFactory to show that it doesn't matter now as the older connection          * has already been closed.          */
+comment|/**          * I restart the broker after the wait that exceeds the idle timeout          * value of the PooledConnectionFactory to show that it doesn't matter          * now as the older connection has already been closed.          */
 name|LOG
 operator|.
 name|info

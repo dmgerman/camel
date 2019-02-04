@@ -183,8 +183,6 @@ block|{
 DECL|field|broker
 name|BrokerService
 name|broker
-init|=
-literal|null
 decl_stmt|;
 DECL|field|messageCount
 name|int

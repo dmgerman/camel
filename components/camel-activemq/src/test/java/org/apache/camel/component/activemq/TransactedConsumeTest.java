@@ -314,6 +314,24 @@ name|TransactedConsumeTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
+DECL|field|firstConsumed
+specifier|static
+name|AtomicLong
+name|firstConsumed
+init|=
+operator|new
+name|AtomicLong
+argument_list|()
+decl_stmt|;
+DECL|field|consumed
+specifier|static
+name|AtomicLong
+name|consumed
+init|=
+operator|new
+name|AtomicLong
+argument_list|()
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -333,8 +351,6 @@ decl_stmt|;
 DECL|field|broker
 name|BrokerService
 name|broker
-init|=
-literal|null
 decl_stmt|;
 DECL|field|messageCount
 name|int
@@ -623,9 +639,9 @@ argument_list|(
 literal|"target/data"
 argument_list|)
 expr_stmt|;
-comment|//AMQPersistenceAdapter amq = new AMQPersistenceAdapter();
-comment|//amq.setDirectory(new File("target/data"));
-comment|//brokerService.setPersistenceAdapter(amq);
+comment|// AMQPersistenceAdapter amq = new AMQPersistenceAdapter();
+comment|// amq.setDirectory(new File("target/data"));
+comment|// brokerService.setPersistenceAdapter(amq);
 name|KahaDBPersistenceAdapter
 name|kahaDBPersistenceAdapter
 init|=
@@ -730,24 +746,6 @@ literal|"org/apache/camel/component/activemq/transactedconsume.xml"
 argument_list|)
 return|;
 block|}
-DECL|field|firstConsumed
-specifier|static
-name|AtomicLong
-name|firstConsumed
-init|=
-operator|new
-name|AtomicLong
-argument_list|()
-decl_stmt|;
-DECL|field|consumed
-specifier|static
-name|AtomicLong
-name|consumed
-init|=
-operator|new
-name|AtomicLong
-argument_list|()
-decl_stmt|;
 DECL|class|ConnectionLog
 specifier|static
 class|class
@@ -808,7 +806,7 @@ operator|.
 name|getJmsMessage
 argument_list|()
 decl_stmt|;
-comment|//Thread.currentThread().sleep(500);
+comment|// Thread.currentThread().sleep(500);
 if|if
 condition|(
 name|consumed

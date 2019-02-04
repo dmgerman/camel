@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The activemq component allows messages to be sent to (or consumed from) Apache ActiveMQ.  *  * This component extends the Camel JMS component.  */
+comment|/**  * The activemq component allows messages to be sent to (or consumed from)  * Apache ActiveMQ. This component extends the Camel JMS component.  */
 end_comment
 
 begin_class

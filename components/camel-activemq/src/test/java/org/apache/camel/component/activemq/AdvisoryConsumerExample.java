@@ -80,7 +80,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Message
 import|;
 end_import
 
@@ -92,7 +92,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Message
+name|Processor
 import|;
 end_import
 

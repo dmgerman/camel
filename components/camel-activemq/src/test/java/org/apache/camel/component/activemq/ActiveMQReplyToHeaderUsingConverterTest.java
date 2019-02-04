@@ -19,24 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|activemq
-operator|.
-name|ActiveMQComponent
-operator|.
-name|activeMQComponent
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -232,6 +214,24 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|activemq
+operator|.
+name|ActiveMQComponent
+operator|.
+name|activeMQComponent
+import|;
+end_import
+
 begin_comment
 comment|/**  *   */
 end_comment
@@ -310,8 +310,6 @@ DECL|field|useReplyToHeader
 specifier|protected
 name|boolean
 name|useReplyToHeader
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|Test
@@ -334,6 +332,13 @@ name|MockEndpoint
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+name|ActiveMQConverter
+name|conv
+init|=
+operator|new
+name|ActiveMQConverter
+argument_list|()
 decl_stmt|;
 name|resultEndpoint
 operator|.
@@ -390,7 +395,7 @@ argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
-name|ActiveMQConverter
+name|conv
 operator|.
 name|toDestination
 argument_list|(

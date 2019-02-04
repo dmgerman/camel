@@ -307,7 +307,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  shows rollback and redelivery dlq respected with external tm  */
+comment|/**  * shows rollback and redelivery dlq respected with external tm  */
 end_comment
 
 begin_class
@@ -318,6 +318,18 @@ name|JmsJdbcXARollbackTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
+DECL|field|transactionManager
+specifier|static
+name|TransactionManager
+index|[]
+name|transactionManager
+init|=
+operator|new
+name|TransactionManager
+index|[
+literal|1
+index|]
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -337,8 +349,6 @@ decl_stmt|;
 DECL|field|broker
 name|BrokerService
 name|broker
-init|=
-literal|null
 decl_stmt|;
 DECL|field|messageCount
 name|int
@@ -745,18 +755,6 @@ operator|!=
 literal|null
 return|;
 block|}
-DECL|field|transactionManager
-specifier|static
-name|TransactionManager
-index|[]
-name|transactionManager
-init|=
-operator|new
-name|TransactionManager
-index|[
-literal|1
-index|]
-decl_stmt|;
 DECL|method|initTMRef ()
 specifier|private
 name|void

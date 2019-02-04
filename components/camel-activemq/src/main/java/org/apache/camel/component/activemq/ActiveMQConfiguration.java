@@ -166,8 +166,6 @@ DECL|field|useSingleConnection
 specifier|private
 name|boolean
 name|useSingleConnection
-init|=
-literal|false
 decl_stmt|;
 DECL|field|usePooledConnection
 specifier|private
@@ -196,7 +194,7 @@ return|return
 name|brokerURL
 return|;
 block|}
-comment|/**      * Sets the broker URL to use to connect to ActiveMQ using the      *<a href="http://activemq.apache.org/configuring-transports.html">ActiveMQ URI format</a>      *      * @param brokerURL the URL of the broker.      */
+comment|/**      * Sets the broker URL to use to connect to ActiveMQ using the      *<a href="http://activemq.apache.org/configuring-transports.html">ActiveMQ      * URI format</a>      *      * @param brokerURL the URL of the broker.      */
 DECL|method|setBrokerURL (String brokerURL)
 specifier|public
 name|void
@@ -255,7 +253,7 @@ name|userName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Enables or disables whether a Spring {@link SingleConnectionFactory} will be used so that when      * messages are sent to ActiveMQ from outside of a message consuming thread, pooling will be used rather      * than the default with the Spring {@link JmsTemplate} which will create a new connection, session, producer      * for each message then close them all down again.      *<p/>      * The default value is false and a pooled connection is used by default.      */
+comment|/**      * Enables or disables whether a Spring {@link SingleConnectionFactory} will      * be used so that when messages are sent to ActiveMQ from outside of a      * message consuming thread, pooling will be used rather than the default      * with the Spring {@link JmsTemplate} which will create a new connection,      * session, producer for each message then close them all down again.      *<p/>      * The default value is false and a pooled connection is used by default.      */
 DECL|method|setUseSingleConnection (boolean useSingleConnection)
 specifier|public
 name|void
@@ -282,7 +280,7 @@ return|return
 name|usePooledConnection
 return|;
 block|}
-comment|/**      * Enables or disables whether a PooledConnectionFactory will be used so that when      * messages are sent to ActiveMQ from outside of a message consuming thread, pooling will be used rather      * than the default with the Spring {@link JmsTemplate} which will create a new connection, session, producer      * for each message then close them all down again.      *<p/>      * The default value is true. Note that this requires an extra dependency on commons-pool2.      */
+comment|/**      * Enables or disables whether a PooledConnectionFactory will be used so      * that when messages are sent to ActiveMQ from outside of a message      * consuming thread, pooling will be used rather than the default with the      * Spring {@link JmsTemplate} which will create a new connection, session,      * producer for each message then close them all down again.      *<p/>      * The default value is true. Note that this requires an extra dependency on      * commons-pool2.      */
 DECL|method|setUsePooledConnection (boolean usePooledConnection)
 specifier|public
 name|void
@@ -309,7 +307,7 @@ return|return
 name|trustAllPackages
 return|;
 block|}
-comment|/**      * ObjectMessage objects depend on Java serialization of marshal/unmarshal object payload.      * This process is generally considered unsafe as malicious payload can exploit the host system.      * That's why starting with versions 5.12.2 and 5.13.0, ActiveMQ enforces users to explicitly whitelist packages      * that can be exchanged using ObjectMessages.      *<br/>      * This option can be set to<tt>true</tt> to trust all packages (eg whitelist is *).      *<p/>      * See more details at: http://activemq.apache.org/objectmessage.html      */
+comment|/**      * ObjectMessage objects depend on Java serialization of marshal/unmarshal      * object payload. This process is generally considered unsafe as malicious      * payload can exploit the host system. That's why starting with versions      * 5.12.2 and 5.13.0, ActiveMQ enforces users to explicitly whitelist      * packages that can be exchanged using ObjectMessages.<br/>      * This option can be set to<tt>true</tt> to trust all packages (eg      * whitelist is *).      *<p/>      * See more details at: http://activemq.apache.org/objectmessage.html      */
 DECL|method|setTrustAllPackages (boolean trustAllPackages)
 specifier|public
 name|void
@@ -326,7 +324,7 @@ operator|=
 name|trustAllPackages
 expr_stmt|;
 block|}
-comment|/**      * Factory method to create a default transaction manager if one is not specified      */
+comment|/**      * Factory method to create a default transaction manager if one is not      * specified      */
 annotation|@
 name|Override
 DECL|method|createTransactionManager ()
@@ -539,7 +537,8 @@ name|ActiveMQConnectionFactory
 name|connectionFactory
 parameter_list|)
 block|{
-comment|// lets not use classes directly to avoid a runtime dependency on commons-pool2
+comment|// lets not use classes directly to avoid a runtime dependency on
+comment|// commons-pool2
 comment|// for folks not using this option
 try|try
 block|{

@@ -116,11 +116,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|ProducerTemplate
 import|;
 end_import
 
@@ -132,7 +128,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ProducerTemplate
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 

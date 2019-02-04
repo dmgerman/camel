@@ -285,7 +285,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  shows broker 'once only delivery' and recovery with XA  */
+comment|/**  * shows broker 'once only delivery' and recovery with XA  */
 end_comment
 
 begin_class
@@ -315,8 +315,6 @@ decl_stmt|;
 DECL|field|broker
 name|BrokerService
 name|broker
-init|=
-literal|null
 decl_stmt|;
 DECL|field|messageCount
 name|int
@@ -633,7 +631,8 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-comment|// TM stays actively committing first message ack which won't get redelivered - xa once only delivery
+comment|// TM stays actively committing first message ack which won't get
+comment|// redelivered - xa once only delivery
 name|LOG
 operator|.
 name|info

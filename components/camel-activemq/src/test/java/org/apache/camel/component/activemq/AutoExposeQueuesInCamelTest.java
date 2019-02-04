@@ -20,6 +20,36 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -118,22 +148,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|activemq
-operator|.
-name|ActiveMQComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
@@ -174,72 +188,8 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|is
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertThat
-import|;
-end_import
-
 begin_comment
-comment|/**  * Shows that we can see the queues inside ActiveMQ via Camel  * by enabling the {@link ActiveMQComponent#setExposeAllQueues(boolean)} flag  *  *   */
+comment|/**  * Shows that we can see the queues inside ActiveMQ via Camel by enabling the  * {@link ActiveMQComponent#setExposeAllQueues(boolean)} flag  */
 end_comment
 
 begin_class
@@ -341,7 +291,8 @@ argument_list|(
 literal|1000
 argument_list|)
 expr_stmt|;
-comment|// Changed from using CamelContextHelper.getSingletonEndpoints here because JMS Endpoints in Camel
+comment|// Changed from using CamelContextHelper.getSingletonEndpoints here
+comment|// because JMS Endpoints in Camel
 comment|// are always non-singleton
 name|List
 argument_list|<

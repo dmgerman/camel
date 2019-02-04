@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A JMS {@link javax.jms.QueueSender} which sends message exchanges to a Camel  * {@link org.apache.camel.Endpoint}  *   *   */
+comment|/**  * A JMS {@link javax.jms.QueueSender} which sends message exchanges to a Camel  * {@link org.apache.camel.Endpoint}  */
 end_comment
 
 begin_class
@@ -141,7 +141,7 @@ name|getDestination
 argument_list|()
 return|;
 block|}
-comment|/**      * Sends a message to a queue for an unidentified message producer. Uses the      *<CODE>QueueSender</CODE>'s default delivery mode, priority, and time      * to live.<p/><p/> Typically, a message producer is assigned a queue at      * creation time; however, the JMS API also supports unidentified message      * producers, which require that the queue be supplied every time a message      * is sent.      *       * @param queue the queue to send this message to      * @param message the message to send      * @throws JMSException if the JMS provider fails to send the message due to      *                 some internal error.      * @see javax.jms.MessageProducer#getDeliveryMode()      * @see javax.jms.MessageProducer#getTimeToLive()      * @see javax.jms.MessageProducer#getPriority()      */
+comment|/**      * Sends a message to a queue for an unidentified message producer. Uses the      *<CODE>QueueSender</CODE>'s default delivery mode, priority, and time to      * live.      *<p/>      *<p/>      * Typically, a message producer is assigned a queue at creation time;      * however, the JMS API also supports unidentified message producers, which      * require that the queue be supplied every time a message is sent.      *       * @param queue the queue to send this message to      * @param message the message to send      * @throws JMSException if the JMS provider fails to send the message due to      *             some internal error.      * @see javax.jms.MessageProducer#getDeliveryMode()      * @see javax.jms.MessageProducer#getTimeToLive()      * @see javax.jms.MessageProducer#getPriority()      */
 DECL|method|send (Queue queue, Message message)
 specifier|public
 name|void
@@ -166,7 +166,7 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sends a message to a queue for an unidentified message producer,      * specifying delivery mode, priority and time to live.<p/><p/> Typically,      * a message producer is assigned a queue at creation time; however, the JMS      * API also supports unidentified message producers, which require that the      * queue be supplied every time a message is sent.      *       * @param queue the queue to send this message to      * @param message the message to send      * @param deliveryMode the delivery mode to use      * @param priority the priority for this message      * @param timeToLive the message's lifetime (in milliseconds)      * @throws JMSException if the JMS provider fails to send the message due to      *                 some internal error.      */
+comment|/**      * Sends a message to a queue for an unidentified message producer,      * specifying delivery mode, priority and time to live.      *<p/>      *<p/>      * Typically, a message producer is assigned a queue at creation time;      * however, the JMS API also supports unidentified message producers, which      * require that the queue be supplied every time a message is sent.      *       * @param queue the queue to send this message to      * @param message the message to send      * @param deliveryMode the delivery mode to use      * @param priority the priority for this message      * @param timeToLive the message's lifetime (in milliseconds)      * @throws JMSException if the JMS provider fails to send the message due to      *             some internal error.      */
 DECL|method|send (Queue queue, Message message, int deliveryMode, int priority, long timeToLive)
 specifier|public
 name|void

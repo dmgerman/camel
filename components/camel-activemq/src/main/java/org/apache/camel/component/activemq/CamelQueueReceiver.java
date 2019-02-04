@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A JMS {@link javax.jms.QueueReceiver} which consumes message exchanges from a  * Camel {@link org.apache.camel.Endpoint}  *  *   */
+comment|/**  * A JMS {@link javax.jms.QueueReceiver} which consumes message exchanges from a  * Camel {@link org.apache.camel.Endpoint}  */
 end_comment
 
 begin_class
@@ -117,7 +117,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Gets the<CODE>Queue</CODE> associated with this queue receiver.      *      * @return this receiver's<CODE>Queue</CODE>      * @throws JMSException if the JMS provider fails to get the queue for this queue      *                      receiver due to some internal error.      */
+comment|/**      * Gets the<CODE>Queue</CODE> associated with this queue receiver.      *      * @return this receiver's<CODE>Queue</CODE>      * @throws JMSException if the JMS provider fails to get the queue for this      *             queue receiver due to some internal error.      */
 DECL|method|getQueue ()
 specifier|public
 name|Queue

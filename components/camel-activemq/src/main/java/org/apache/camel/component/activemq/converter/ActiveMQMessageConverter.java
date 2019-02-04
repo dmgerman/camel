@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -46,7 +46,7 @@ name|javax
 operator|.
 name|jms
 operator|.
-name|MessageListener
+name|Message
 import|;
 end_import
 
@@ -56,7 +56,7 @@ name|javax
 operator|.
 name|jms
 operator|.
-name|Message
+name|MessageListener
 import|;
 end_import
 
@@ -211,7 +211,7 @@ return|return
 name|message
 return|;
 block|}
-comment|/**      * Allows a JMS {@link MessageListener} to be converted to a Camel {@link Processor}      * so that we can provide better      *<a href="">Bean Integration</a> so that we can use any JMS MessageListener in      * in Camel as a bean      * @param listener the JMS message listener      * @return a newly created Camel Processor which when invoked will invoke      * {@link MessageListener#onMessage(Message)}      */
+comment|/**      * Allows a JMS {@link MessageListener} to be converted to a Camel      * {@link Processor} so that we can provide better<a href="">Bean      * Integration</a> so that we can use any JMS MessageListener in in Camel as      * a bean      *       * @param listener the JMS message listener      * @return a newly created Camel Processor which when invoked will invoke      *         {@link MessageListener#onMessage(Message)}      */
 annotation|@
 name|Converter
 DECL|method|toProcessor (final MessageListener listener)
@@ -361,7 +361,7 @@ return|;
 block|}
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|getBinding ()
 specifier|public
 name|JmsBinding

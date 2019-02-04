@@ -104,7 +104,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// do not map jms message as we want to tamper with the JMS message directly, and not use the Camel API for that
+comment|// do not map jms message as we want to tamper with the JMS
+comment|// message directly, and not use the Camel API for that
 name|from
 argument_list|(
 literal|"activemq:test.a?mapJmsMessage=false"
@@ -173,7 +174,8 @@ name|messageType
 argument_list|)
 expr_stmt|;
 block|}
-comment|// force sending the incoming JMS Message, as we want to tamper with the JMS API directly
+comment|// force sending the incoming JMS Message, as we want to
+comment|// tamper with the JMS API directly
 comment|// instead of using the Camel API for setting JMS headers.
 block|}
 argument_list|)

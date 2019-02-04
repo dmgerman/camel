@@ -270,7 +270,7 @@ argument_list|()
 return|;
 block|}
 comment|// CustomDestination interface
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 DECL|method|createConsumer (ActiveMQSession session, String messageSelector)
 specifier|public
 name|MessageConsumer
@@ -407,7 +407,7 @@ argument_list|)
 throw|;
 block|}
 comment|// Producers
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 DECL|method|createProducer (ActiveMQSession session)
 specifier|public
 name|MessageProducer
@@ -477,7 +477,7 @@ argument_list|)
 throw|;
 block|}
 comment|// Properties
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 DECL|method|getUri ()
 specifier|public
 name|String
@@ -583,7 +583,7 @@ name|binding
 expr_stmt|;
 block|}
 comment|// Implementation methods
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 comment|/**      * Resolves the Camel Endpoint for this destination      *      * @return      */
 DECL|method|resolveEndpoint (ActiveMQSession session)
 specifier|protected

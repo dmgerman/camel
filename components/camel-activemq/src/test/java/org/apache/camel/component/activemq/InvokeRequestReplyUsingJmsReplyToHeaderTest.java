@@ -664,7 +664,7 @@ name|Object
 argument_list|>
 name|headers
 decl_stmt|;
-DECL|method|process (@eaders Map<String,Object> headers, String body)
+DECL|method|process (@eaders Map<String, Object> headers, String body)
 specifier|public
 name|String
 name|process

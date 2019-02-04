@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A JMS {@link javax.jms.TopicSubscriber} which consumes message exchanges from a  * Camel {@link Endpoint}  *  *   */
+comment|/**  * A JMS {@link javax.jms.TopicSubscriber} which consumes message exchanges from  * a Camel {@link Endpoint}  */
 end_comment
 
 begin_class
@@ -123,7 +123,7 @@ name|noLocal
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Gets the<CODE>Topic</CODE> associated with this subscriber.      *      * @return this subscriber's<CODE>Topic</CODE>      * @throws javax.jms.JMSException if the JMS provider fails to get the topic for this topic      *                                subscriber due to some internal error.      */
+comment|/**      * Gets the<CODE>Topic</CODE> associated with this subscriber.      *      * @return this subscriber's<CODE>Topic</CODE>      * @throws javax.jms.JMSException if the JMS provider fails to get the topic      *             for this topic subscriber due to some internal error.      */
 DECL|method|getTopic ()
 specifier|public
 name|Topic
@@ -145,7 +145,7 @@ name|getDestination
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the<CODE>NoLocal</CODE> attribute for this subscriber. The      * default value for this attribute is false.      *      * @return true if locally published messages are being inhibited      * @throws JMSException if the JMS provider fails to get the<CODE>NoLocal      *</CODE> attribute for this topic subscriber due to some      *                      internal error.      */
+comment|/**      * Gets the<CODE>NoLocal</CODE> attribute for this subscriber. The default      * value for this attribute is false.      *      * @return true if locally published messages are being inhibited      * @throws JMSException if the JMS provider fails to get the<CODE>NoLocal      *</CODE> attribute for this topic subscriber due to      *             some internal error.      */
 DECL|method|getNoLocal ()
 specifier|public
 name|boolean
