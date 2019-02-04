@@ -156,6 +156,13 @@ comment|// we expect message 2 to arrive before 1 as message 1 is in trouble
 comment|// and must be redelivered 2 times before succeed
 name|mock
 operator|.
+name|expectedMinimumMessageCount
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"Message 2"

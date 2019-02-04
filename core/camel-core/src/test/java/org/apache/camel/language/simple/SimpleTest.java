@@ -3410,7 +3410,7 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"date:exchangeProperty.birthday"
+literal|"${date:exchangeProperty.birthday}"
 argument_list|,
 name|propertyCalendar
 operator|.
@@ -3420,14 +3420,14 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"date:exchangeProperty.birthday:yyyyMMdd"
+literal|"${date:exchangeProperty.birthday:yyyyMMdd}"
 argument_list|,
 literal|"19760622"
 argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"date:exchangeProperty.birthday+24h:yyyyMMdd"
+literal|"${date:exchangeProperty.birthday+24h:yyyyMMdd}"
 argument_list|,
 literal|"19760623"
 argument_list|)
