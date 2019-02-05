@@ -3191,7 +3191,7 @@ return|return
 name|tempFileName
 return|;
 block|}
-comment|/**      * The same as tempPrefix option but offering a more fine grained control on the naming of the temporary filename as it uses the File Language.      * The location for tempFilename is relative to the final file location in the option 'fileName', not the target directory in the base uri.  i.e. if option fileName includes a directory prefix,       *<dir><finalFilename>, tempFileName is relative to that subdirectory<dir>      */
+comment|/**      * The same as tempPrefix option but offering a more fine grained control on the naming of the temporary filename as it uses the File Language.      * The location for tempFilename is relative to the final file location in the option 'fileName', not the target directory in the base uri.      * For example if option fileName includes a directory prefix: dir/finalFilename then tempFileName is relative to that subdirectory dir.      */
 DECL|method|setTempFileName (Expression tempFileName)
 specifier|public
 name|void
