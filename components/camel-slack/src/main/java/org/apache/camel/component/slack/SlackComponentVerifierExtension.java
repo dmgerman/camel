@@ -279,18 +279,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|json
-operator|.
-name|simple
-operator|.
-name|JSONObject
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -1067,23 +1055,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Generate a JSONObject
-name|JSONObject
-name|jsonObject
-init|=
+return|return
 operator|new
-name|JSONObject
+name|JsonObject
 argument_list|(
 name|jsonMap
 argument_list|)
-decl_stmt|;
-comment|// Return the string based on the JSON Object
-return|return
-name|JSONObject
 operator|.
-name|toJSONString
-argument_list|(
-name|jsonObject
-argument_list|)
+name|toJson
+argument_list|()
 return|;
 block|}
 block|}

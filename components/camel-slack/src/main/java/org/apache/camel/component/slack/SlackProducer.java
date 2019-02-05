@@ -134,6 +134,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|json
+operator|.
+name|JsonObject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|http
 operator|.
 name|HttpResponse
@@ -197,18 +213,6 @@ operator|.
 name|client
 operator|.
 name|HttpClientBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|json
-operator|.
-name|simple
-operator|.
-name|JSONObject
 import|;
 end_import
 
@@ -590,24 +594,16 @@ name|attachments
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Generate a JSONObject
-name|JSONObject
-name|jsonObject
-init|=
+comment|// Return the string based on the JSON Object
+return|return
 operator|new
-name|JSONObject
+name|JsonObject
 argument_list|(
 name|jsonMap
 argument_list|)
-decl_stmt|;
-comment|// Return the string based on the JSON Object
-return|return
-name|JSONObject
 operator|.
-name|toJSONString
-argument_list|(
-name|jsonObject
-argument_list|)
+name|toJson
+argument_list|()
 return|;
 block|}
 DECL|method|buildAttachmentJson (Map<String, Object> jsonMap, List<SlackMessage.Attachment> attachments)
