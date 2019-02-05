@@ -22,6 +22,40 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Matcher
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Pattern
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|regex
 operator|.
 name|PatternSyntaxException
@@ -42,7 +76,7 @@ parameter_list|()
 block|{
 comment|//Utility Class
 block|}
-comment|/**      * Matches the name with the given pattern.      *<p/>      * The match rules are applied in this order:      *<ul>      *<li>exact match, returns true</li>      *<li>wildcard match (pattern ends with a * and the name starts with the pattern), returns true</li>      *<li>regular expression match, returns true</li>      *<li>otherwise returns false</li>      *</ul>      *      * @param name    the name      * @param pattern a pattern to match      * @return<tt>true</tt> if match,<tt>false</tt> otherwise.      */
+comment|/**      * Matches the name with the given pattern (case insensitive).      *<p/>      * The match rules are applied in this order:      *<ul>      *<li>exact match, returns true</li>      *<li>wildcard match (pattern ends with a * and the name starts with the pattern), returns true</li>      *<li>regular expression match, returns true</li>      *<li>otherwise returns false</li>      *</ul>      *      * @param name    the name      * @param pattern a pattern to match      * @return<tt>true</tt> if match,<tt>false</tt> otherwise.      */
 DECL|method|matchPattern (String name, String pattern)
 specifier|public
 specifier|static
@@ -75,7 +109,7 @@ if|if
 condition|(
 name|name
 operator|.
-name|equals
+name|equalsIgnoreCase
 argument_list|(
 name|pattern
 argument_list|)
@@ -119,7 +153,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Matches the name with the given pattern.      *<p/>      * The match rules are applied in this order:      *<ul>      *<li>wildcard match (pattern ends with a * and the name starts with the pattern), returns true</li>      *<li>otherwise returns false</li>      *</ul>      *      * @param name    the name      * @param pattern a pattern to match      * @return<tt>true</tt> if match,<tt>false</tt> otherwise.      */
+comment|/**      * Matches the name with the given pattern (case insensitive).      *<p/>      * The match rules are applied in this order:      *<ul>      *<li>wildcard match (pattern ends with a * and the name starts with the pattern), returns true</li>      *<li>otherwise returns false</li>      *</ul>      *      * @param name    the name      * @param pattern a pattern to match      * @return<tt>true</tt> if match,<tt>false</tt> otherwise.      */
 DECL|method|matchWildcard (String name, String pattern)
 specifier|private
 specifier|static
@@ -142,11 +176,11 @@ name|endsWith
 argument_list|(
 literal|"*"
 argument_list|)
-operator|&&
-name|name
-operator|.
-name|startsWith
-argument_list|(
+condition|)
+block|{
+name|String
+name|text
+init|=
 name|pattern
 operator|.
 name|substring
@@ -160,18 +194,35 @@ argument_list|()
 operator|-
 literal|1
 argument_list|)
-argument_list|)
-condition|)
-block|{
+decl_stmt|;
 return|return
-literal|true
+name|name
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
+operator|.
+name|startsWith
+argument_list|(
+name|text
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
+argument_list|)
 return|;
 block|}
 return|return
 literal|false
 return|;
 block|}
-comment|/**      * Matches the name with the given pattern.      *<p/>      * The match rules are applied in this order:      *<ul>      *<li>regular expression match, returns true</li>      *<li>otherwise returns false</li>      *</ul>      *      * @param name    the name      * @param pattern a pattern to match      * @return<tt>true</tt> if match,<tt>false</tt> otherwise.      */
+comment|/**      * Matches the name with the given pattern (case insensitive).      *<p/>      * The match rules are applied in this order:      *<ul>      *<li>regular expression match, returns true</li>      *<li>otherwise returns false</li>      *</ul>      *      * @param name    the name      * @param pattern a pattern to match      * @return<tt>true</tt> if match,<tt>false</tt> otherwise.      */
 DECL|method|matchRegex (String name, String pattern)
 specifier|private
 specifier|static
@@ -188,20 +239,36 @@ block|{
 comment|// match by regular expression
 try|try
 block|{
-if|if
-condition|(
-name|name
+name|Pattern
+name|compiled
+init|=
+name|Pattern
 operator|.
-name|matches
+name|compile
 argument_list|(
 name|pattern
+argument_list|,
+name|Pattern
+operator|.
+name|CASE_INSENSITIVE
 argument_list|)
-condition|)
-block|{
+decl_stmt|;
+name|Matcher
+name|matcher
+init|=
+name|compiled
+operator|.
+name|matcher
+argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
 return|return
-literal|true
+name|matcher
+operator|.
+name|matches
+argument_list|()
 return|;
-block|}
 block|}
 catch|catch
 parameter_list|(
