@@ -4462,7 +4462,7 @@ argument_list|)
 operator|)
 return|;
 block|}
-comment|/**      * Wraps the caused exception in a {@link RuntimeException} if its not      * already such an exception.      *      * @param e the caused exception      * @return the wrapper exception      * @deprecated Use {@link org.apache.camel.CamelRuntimeException#wrapRuntimeCamelException} instead      */
+comment|/**      * Wraps the caused exception in a {@link RuntimeException} if its not      * already such an exception.      *      * @param e the caused exception      * @return the wrapper exception      * @deprecated Use {@link org.apache.camel.RuntimeCamelException#wrapRuntimeCamelException} instead      */
 annotation|@
 name|Deprecated
 DECL|method|wrapRuntimeCamelException (Throwable e)

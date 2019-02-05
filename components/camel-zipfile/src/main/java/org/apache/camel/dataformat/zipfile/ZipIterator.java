@@ -367,7 +367,6 @@ name|IOException
 name|exception
 parameter_list|)
 block|{
-comment|//Just wrap the IOException as CamelRuntimeException
 throw|throw
 operator|new
 name|RuntimeCamelException
@@ -549,7 +548,6 @@ name|IOException
 name|exception
 parameter_list|)
 block|{
-comment|//Just wrap the IOException as CamelRuntimeException
 throw|throw
 operator|new
 name|RuntimeCamelException
