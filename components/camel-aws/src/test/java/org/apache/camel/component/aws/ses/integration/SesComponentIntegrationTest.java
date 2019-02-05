@@ -24,6 +24,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -201,7 +211,12 @@ name|SesConstants
 operator|.
 name|TO
 argument_list|,
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
 literal|"to@example.com"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|exchange
