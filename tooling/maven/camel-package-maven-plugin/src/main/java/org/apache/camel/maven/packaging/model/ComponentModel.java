@@ -916,7 +916,7 @@ name|coreOnly
 condition|?
 literal|"src/main/docs"
 else|:
-literal|"../camel-core/src/main/docs"
+literal|"../core/camel-core/src/main/docs"
 return|;
 block|}
 else|else
