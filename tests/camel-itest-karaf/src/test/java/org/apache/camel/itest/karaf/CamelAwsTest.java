@@ -127,6 +127,13 @@ name|testComponent
 argument_list|(
 name|COMPONENT
 argument_list|,
+literal|"aws-ecs"
+argument_list|)
+expr_stmt|;
+name|testComponent
+argument_list|(
+name|COMPONENT
+argument_list|,
 literal|"aws-eks"
 argument_list|)
 expr_stmt|;
