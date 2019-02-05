@@ -170,9 +170,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|IOHelper
+name|jsse
+operator|.
+name|SSLContextParameters
 import|;
 end_import
 
@@ -184,11 +186,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|jsse
-operator|.
-name|SSLContextParameters
+name|IOHelper
 import|;
 end_import
 
