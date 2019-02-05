@@ -523,7 +523,7 @@ name|Parameter
 argument_list|(
 name|defaultValue
 operator|=
-literal|"${project.directory}/../../../camel-core"
+literal|"${project.directory}/../../../core/camel-core"
 argument_list|)
 DECL|field|readmeCoreDir
 specifier|protected
