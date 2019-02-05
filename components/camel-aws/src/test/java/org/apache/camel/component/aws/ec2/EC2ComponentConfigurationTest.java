@@ -548,7 +548,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"aws-s3://testDomain?accessKey=xxxxxx&secretKey=yyyyy&region=US_EAST_1"
+literal|"aws-ec2://testDomain?accessKey=xxxxxx&secretKey=yyyyy&region=US_EAST_1"
 argument_list|)
 decl_stmt|;
 name|assertEquals
