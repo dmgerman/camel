@@ -441,7 +441,7 @@ name|Parameter
 argument_list|(
 name|defaultValue
 operator|=
-literal|"${project.build.directory}/../../../camel-core"
+literal|"${project.build.directory}/../../../core/camel-core"
 argument_list|)
 DECL|field|coreDir
 specifier|protected
@@ -3939,6 +3939,23 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Found "
+operator|+
+name|answer
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" Camel Spring Boot starters from: "
+operator|+
+name|componentsStarterDir
+argument_list|)
+expr_stmt|;
 return|return
 name|answer
 return|;

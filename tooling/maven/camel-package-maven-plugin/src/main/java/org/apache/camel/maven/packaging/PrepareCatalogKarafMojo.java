@@ -3761,12 +3761,9 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|InputStream
-name|is
+name|File
+name|file
 init|=
-operator|new
-name|FileInputStream
-argument_list|(
 operator|new
 name|File
 argument_list|(
@@ -3774,6 +3771,14 @@ name|featuresDir
 argument_list|,
 literal|"features.xml"
 argument_list|)
+decl_stmt|;
+name|InputStream
+name|is
+init|=
+operator|new
+name|FileInputStream
+argument_list|(
+name|file
 argument_list|)
 decl_stmt|;
 name|DocumentBuilderFactory
@@ -3984,6 +3989,23 @@ block|}
 block|}
 block|}
 block|}
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Found "
+operator|+
+name|answer
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" Camel features in file: "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
