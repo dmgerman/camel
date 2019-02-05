@@ -230,11 +230,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|ObjectHelper
+name|service
 operator|.
-name|isNotEmpty
+name|ServiceHelper
+operator|.
+name|startService
 import|;
 end_import
 
@@ -246,13 +248,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|service
+name|ObjectHelper
 operator|.
-name|ServiceHelper
-operator|.
-name|startService
+name|isNotEmpty
 import|;
 end_import
 

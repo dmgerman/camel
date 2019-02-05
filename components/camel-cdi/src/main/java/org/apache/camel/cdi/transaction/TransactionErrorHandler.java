@@ -176,20 +176,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
-operator|.
-name|AsyncCallbackToCompletableFutureAdapter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|ErrorHandlerSupport
@@ -236,7 +222,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ExchangeHelper
+name|AsyncCallbackToCompletableFutureAdapter
 import|;
 end_import
 
@@ -248,9 +234,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|ObjectHelper
+name|ExchangeHelper
 import|;
 end_import
 
@@ -267,6 +253,20 @@ operator|.
 name|service
 operator|.
 name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 

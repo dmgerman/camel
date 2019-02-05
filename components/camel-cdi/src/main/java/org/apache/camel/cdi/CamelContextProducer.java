@@ -266,6 +266,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+operator|.
+name|wrapRuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|cdi
 operator|.
 name|AnyLiteral
@@ -335,20 +349,6 @@ operator|.
 name|DefaultLiteral
 operator|.
 name|DEFAULT
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|RuntimeCamelException
-operator|.
-name|wrapRuntimeCamelException
 import|;
 end_import
 
