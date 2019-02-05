@@ -42,12 +42,6 @@ name|MAX_RESULTS
 init|=
 literal|"CamelAwsECSMaxResults"
 decl_stmt|;
-DECL|field|DESCRIPTION
-name|String
-name|DESCRIPTION
-init|=
-literal|"CamelAwsECSDescription"
-decl_stmt|;
 DECL|field|CLUSTER_NAME
 name|String
 name|CLUSTER_NAME
