@@ -252,7 +252,7 @@ operator|+
 literal|"]"
 return|;
 block|}
-comment|/**      * Name or pattern of headers to remove      */
+comment|/**      * Name or pattern of headers to remove.      *      * The pattern is matched in the following order:      * 1 = exact match      * 2 = wildcard (pattern ends with a * and the name starts with the pattern)      * 3 = regular expression      * (all of above is case in-sensitive).      */
 DECL|method|setPattern (String pattern)
 specifier|public
 name|void
@@ -290,7 +290,7 @@ return|return
 name|excludePatterns
 return|;
 block|}
-comment|/**      * Name or pattern of headers to not remove      */
+comment|/**      * Name or pattern of headers to not remove.      *      * The pattern is matched in the following order:      * 1 = exact match      * 2 = wildcard (pattern ends with a * and the name starts with the pattern)      * 3 = regular expression      * (all of above is case in-sensitive).      */
 DECL|method|setExcludePatterns (String[] excludePatterns)
 specifier|public
 name|void
@@ -318,7 +318,7 @@ return|return
 name|excludePattern
 return|;
 block|}
-comment|/**      * Name or patter of headers to not remove      */
+comment|/**      * Name or patter of headers to not remove.      *      * The pattern is matched in the following order:      * 1 = exact match      * 2 = wildcard (pattern ends with a * and the name starts with the pattern)      * 3 = regular expression      * (all of above is case in-sensitive).      */
 DECL|method|setExcludePattern (String excludePattern)
 specifier|public
 name|void
