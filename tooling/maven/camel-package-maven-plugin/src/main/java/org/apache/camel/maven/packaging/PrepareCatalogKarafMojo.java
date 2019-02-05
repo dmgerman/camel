@@ -497,7 +497,7 @@ name|Parameter
 argument_list|(
 name|defaultValue
 operator|=
-literal|"${project.build.directory}/../../../camel-core"
+literal|"${project.build.directory}/../../../core/camel-core"
 argument_list|)
 DECL|field|coreDir
 specifier|protected
