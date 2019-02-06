@@ -76,9 +76,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|DefaultExchange
+name|Language
 import|;
 end_import
 
@@ -90,9 +90,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|Language
+name|DefaultExchange
 import|;
 end_import
 
