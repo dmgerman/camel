@@ -148,13 +148,12 @@ name|title
 operator|=
 literal|"Zip File"
 argument_list|)
-comment|// TODO: use zipfile as name in Camel 3.0
 annotation|@
 name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"zipFile"
+literal|"zipfile"
 argument_list|)
 annotation|@
 name|XmlAccessorType

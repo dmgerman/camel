@@ -2256,22 +2256,6 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"zipfile"
-operator|.
-name|equals
-argument_list|(
-name|name
-argument_list|)
-condition|)
-block|{
-comment|// darn should have been lower case
-return|return
-literal|"zipFile"
-return|;
-block|}
-elseif|else
-if|if
-condition|(
 literal|"yaml-snakeyaml"
 operator|.
 name|equals

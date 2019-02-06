@@ -293,7 +293,7 @@ name|getDataFormatName
 parameter_list|()
 block|{
 return|return
-literal|"zipFile"
+literal|"zipfile"
 return|;
 block|}
 annotation|@

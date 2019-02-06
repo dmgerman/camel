@@ -1552,7 +1552,7 @@ literal|false
 argument_list|,
 name|name
 operator|=
-literal|"zipFile"
+literal|"zipfile"
 argument_list|,
 name|type
 operator|=
