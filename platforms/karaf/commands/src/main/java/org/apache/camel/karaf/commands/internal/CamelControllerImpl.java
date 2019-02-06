@@ -100,9 +100,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|commands
+name|api
 operator|.
-name|AbstractLocalCamelController
+name|management
+operator|.
+name|ManagedCamelContext
 import|;
 end_import
 
@@ -114,11 +116,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|api
+name|commands
 operator|.
-name|management
-operator|.
-name|ManagedCamelContext
+name|AbstractLocalCamelController
 import|;
 end_import
 
