@@ -134,7 +134,6 @@ specifier|public
 class|class
 name|AggregationStrategyBeanInfo
 block|{
-comment|// TODO: We could potential merge this logic into AggregationStrategyMethodInfo and only have 1 class
 DECL|field|LOG
 specifier|private
 specifier|static
