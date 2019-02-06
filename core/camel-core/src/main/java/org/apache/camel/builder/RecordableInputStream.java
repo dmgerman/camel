@@ -93,7 +93,6 @@ name|boolean
 name|recording
 decl_stmt|;
 DECL|method|RecordableInputStream (InputStream in, String charset)
-specifier|protected
 name|RecordableInputStream
 parameter_list|(
 name|InputStream

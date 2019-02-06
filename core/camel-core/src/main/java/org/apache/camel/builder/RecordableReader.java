@@ -78,7 +78,6 @@ name|boolean
 name|recording
 decl_stmt|;
 DECL|method|RecordableReader (Reader in)
-specifier|protected
 name|RecordableReader
 parameter_list|(
 name|Reader
