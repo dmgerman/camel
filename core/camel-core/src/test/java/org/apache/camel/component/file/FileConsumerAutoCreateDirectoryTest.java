@@ -128,7 +128,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/file/foo"
+literal|"target/data/file/foo"
 argument_list|)
 expr_stmt|;
 name|Endpoint
@@ -138,7 +138,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file://target/file/foo"
+literal|"file://target/data/file/foo"
 argument_list|)
 decl_stmt|;
 name|Consumer
@@ -184,7 +184,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/file/foo"
+literal|"target/data/file/foo"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -220,7 +220,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/file/foo"
+literal|"target/data/file/foo"
 argument_list|)
 expr_stmt|;
 comment|// use current dir as base as absolute path
@@ -236,7 +236,7 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 operator|+
-literal|"/target/file/foo"
+literal|"/target/data/file/foo"
 decl_stmt|;
 name|Endpoint
 name|endpoint
@@ -329,7 +329,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/file/foo"
+literal|"target/data/file/foo"
 argument_list|)
 expr_stmt|;
 name|Endpoint
@@ -339,7 +339,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file://target/file/foo?autoCreate=false"
+literal|"file://target/data/file/foo?autoCreate=false"
 argument_list|)
 decl_stmt|;
 name|Consumer
@@ -385,7 +385,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/file/foo"
+literal|"target/data/file/foo"
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -411,7 +411,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/file/foo.bar"
+literal|"target/data/file/foo.bar"
 argument_list|)
 expr_stmt|;
 name|Endpoint
@@ -421,7 +421,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file://target/file/foo.bar?autoCreate=true"
+literal|"file://target/data/file/foo.bar?autoCreate=true"
 argument_list|)
 decl_stmt|;
 name|Consumer
@@ -467,7 +467,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/file/foo.bar"
+literal|"target/data/file/foo.bar"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -503,7 +503,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/file/foo"
+literal|"target/data/file/foo"
 argument_list|)
 expr_stmt|;
 name|Endpoint
@@ -513,7 +513,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file://target/file/foo?autoCreate=false&startingDirectoryMustExist=true"
+literal|"file://target/data/file/foo?autoCreate=false&startingDirectoryMustExist=true"
 argument_list|)
 decl_stmt|;
 try|try
@@ -574,7 +574,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/file/foo"
+literal|"target/data/file/foo"
 argument_list|)
 decl_stmt|;
 name|assertFalse

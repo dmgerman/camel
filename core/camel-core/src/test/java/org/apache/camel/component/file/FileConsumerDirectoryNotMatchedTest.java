@@ -109,7 +109,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/dirnotmatched/?initialDelay=0&delay=10&recursive=true&include=.*txt$"
+literal|"file://target/data/dirnotmatched/?initialDelay=0&delay=10&recursive=true&include=.*txt$"
 decl_stmt|;
 annotation|@
 name|Override
@@ -125,7 +125,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/dirnotmatched"
+literal|"target/data/dirnotmatched"
 argument_list|)
 expr_stmt|;
 name|super
@@ -137,7 +137,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/dirnotmatched/"
+literal|"file:target/data/dirnotmatched/"
 argument_list|,
 literal|"This is a dot file"
 argument_list|,
@@ -152,7 +152,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/dirnotmatched/"
+literal|"file:target/data/dirnotmatched/"
 argument_list|,
 literal|"This is a web file"
 argument_list|,
@@ -167,7 +167,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/dirnotmatched/2007"
+literal|"file:target/data/dirnotmatched/2007"
 argument_list|,
 literal|"2007 report"
 argument_list|,
@@ -182,7 +182,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/dirnotmatched/2008"
+literal|"file:target/data/dirnotmatched/2008"
 argument_list|,
 literal|"2008 report"
 argument_list|,

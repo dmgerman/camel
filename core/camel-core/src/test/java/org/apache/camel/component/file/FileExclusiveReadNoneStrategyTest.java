@@ -177,7 +177,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/exclusiveread/slowfile?noop=true&initialDelay=0&delay=10&readLock=none"
+literal|"file://target/data/exclusiveread/slowfile?noop=true&initialDelay=0&delay=10&readLock=none"
 decl_stmt|;
 annotation|@
 name|Override
@@ -193,12 +193,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/exclusiveread"
+literal|"target/data/exclusiveread"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/exclusiveread/slowfile"
+literal|"target/data/exclusiveread/slowfile"
 argument_list|)
 expr_stmt|;
 name|super
@@ -376,7 +376,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/exclusiveread/slowfile/hello.txt"
+literal|"target/data/exclusiveread/slowfile/hello.txt"
 argument_list|)
 decl_stmt|;
 name|FileOutputStream

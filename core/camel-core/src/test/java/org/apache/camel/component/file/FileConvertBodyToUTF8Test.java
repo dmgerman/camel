@@ -134,7 +134,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/utf8"
+literal|"target/data/utf8"
 argument_list|)
 expr_stmt|;
 name|super
@@ -156,7 +156,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/utf8"
+literal|"file://target/data/utf8"
 argument_list|,
 name|body
 argument_list|,
@@ -209,7 +209,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/utf8?initialDelay=0&delay=10"
+literal|"file://target/data/utf8?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

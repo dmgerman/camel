@@ -114,7 +114,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/depth"
+literal|"target/data/depth"
 argument_list|)
 expr_stmt|;
 name|super
@@ -154,7 +154,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/depth"
+literal|"file:target/data/depth"
 argument_list|,
 literal|"a"
 argument_list|,
@@ -169,7 +169,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/depth"
+literal|"file:target/data/depth"
 argument_list|,
 literal|"b"
 argument_list|,
@@ -184,7 +184,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/depth/foo"
+literal|"file:target/data/depth/foo"
 argument_list|,
 literal|"a2"
 argument_list|,
@@ -199,7 +199,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/depth/foo/bar"
+literal|"file:target/data/depth/foo/bar"
 argument_list|,
 literal|"a3"
 argument_list|,
@@ -214,7 +214,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/depth/bar"
+literal|"file:target/data/depth/bar"
 argument_list|,
 literal|"b2"
 argument_list|,
@@ -229,7 +229,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/depth/bar/foo"
+literal|"file:target/data/depth/bar/foo"
 argument_list|,
 literal|"b3"
 argument_list|,
@@ -280,7 +280,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/depth2"
+literal|"file:target/data/depth2"
 argument_list|,
 literal|"a"
 argument_list|,
@@ -295,7 +295,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/depth2"
+literal|"file:target/data/depth2"
 argument_list|,
 literal|"b"
 argument_list|,
@@ -310,7 +310,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/depth2/bar"
+literal|"file:target/data/depth2/bar"
 argument_list|,
 literal|"b2"
 argument_list|,
@@ -325,7 +325,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/depth2/foo"
+literal|"file:target/data/depth2/foo"
 argument_list|,
 literal|"a2"
 argument_list|,
@@ -340,7 +340,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/depth2/foo/bar"
+literal|"file:target/data/depth2/foo/bar"
 argument_list|,
 literal|"a3"
 argument_list|,
@@ -355,7 +355,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/depth2/bar/foo"
+literal|"file:target/data/depth2/bar/foo"
 argument_list|,
 literal|"b3"
 argument_list|,
@@ -401,7 +401,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/depth3"
+literal|"file:target/data/depth3"
 argument_list|,
 literal|"a"
 argument_list|,
@@ -416,7 +416,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/depth3"
+literal|"file:target/data/depth3"
 argument_list|,
 literal|"b"
 argument_list|,
@@ -431,7 +431,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/depth3/foo"
+literal|"file:target/data/depth3/foo"
 argument_list|,
 literal|"a2"
 argument_list|,
@@ -446,7 +446,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/depth3/foo/bar"
+literal|"file:target/data/depth3/foo/bar"
 argument_list|,
 literal|"a3"
 argument_list|,
@@ -461,7 +461,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/depth3/bar"
+literal|"file:target/data/depth3/bar"
 argument_list|,
 literal|"b2"
 argument_list|,
@@ -476,7 +476,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/depth3/bar/foo"
+literal|"file:target/data/depth3/bar/foo"
 argument_list|,
 literal|"b3"
 argument_list|,
@@ -517,7 +517,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/depth?initialDelay=0&delay=10&recursive=true&minDepth=2&maxDepth=2"
+literal|"file:target/data/depth?initialDelay=0&delay=10&recursive=true&minDepth=2&maxDepth=2"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -534,7 +534,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:target/depth2?initialDelay=0&delay=10&recursive=true&minDepth=2&maxDepth=99"
+literal|"file:target/data/depth2?initialDelay=0&delay=10&recursive=true&minDepth=2&maxDepth=99"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -551,7 +551,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:target/depth3?initialDelay=0&delay=10&recursive=true&minDepth=1&maxDepth=1"
+literal|"file:target/data/depth3?initialDelay=0&delay=10&recursive=true&minDepth=1&maxDepth=1"
 argument_list|)
 operator|.
 name|convertBodyTo

@@ -175,7 +175,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/file/splitprop"
+literal|"target/data/file/splitprop"
 argument_list|)
 expr_stmt|;
 name|super
@@ -214,7 +214,7 @@ name|foo
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/file/splitprop/done/myprop.txt"
+literal|"target/data/file/splitprop/done/myprop.txt"
 argument_list|,
 name|body
 argument_list|)
@@ -238,7 +238,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file/splitprop"
+literal|"file://target/data/file/splitprop"
 argument_list|,
 name|body
 argument_list|,
@@ -279,7 +279,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/file/splitprop?initialDelay=0&delay=10&move=done"
+literal|"file://target/data/file/splitprop?initialDelay=0&delay=10&move=done"
 argument_list|)
 operator|.
 name|convertBodyTo

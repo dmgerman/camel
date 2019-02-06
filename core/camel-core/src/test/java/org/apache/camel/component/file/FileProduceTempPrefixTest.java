@@ -115,7 +115,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/tempandrename/?tempPrefix=inprogress."
+literal|"file://target/data/tempandrename/?tempPrefix=inprogress."
 decl_stmt|;
 annotation|@
 name|Override
@@ -131,7 +131,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/tempandrename"
+literal|"target/data/tempandrename"
 argument_list|)
 expr_stmt|;
 name|super
@@ -208,12 +208,12 @@ name|createTempFileName
 argument_list|(
 name|exchange
 argument_list|,
-literal|"target/tempandrename/claus.txt"
+literal|"target/data/tempandrename/claus.txt"
 argument_list|)
 decl_stmt|;
 name|assertDirectoryEquals
 argument_list|(
-literal|"target/tempandrename/inprogress.claus.txt"
+literal|"target/data/tempandrename/inprogress.claus.txt"
 argument_list|,
 name|tempFileName
 argument_list|)
@@ -287,12 +287,12 @@ name|createTempFileName
 argument_list|(
 name|exchange
 argument_list|,
-literal|"target/tempandrename/foo/claus.txt"
+literal|"target/data/tempandrename/foo/claus.txt"
 argument_list|)
 decl_stmt|;
 name|assertDirectoryEquals
 argument_list|(
-literal|"target/tempandrename/foo/inprogress.claus.txt"
+literal|"target/data/tempandrename/foo/inprogress.claus.txt"
 argument_list|,
 name|tempFileName
 argument_list|)
@@ -408,7 +408,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/tempandrename/hello.txt"
+literal|"target/data/tempandrename/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertEquals

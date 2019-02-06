@@ -194,12 +194,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/changed/"
+literal|"target/data/changed/"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/changed/in"
+literal|"target/data/changed/in"
 argument_list|)
 expr_stmt|;
 name|super
@@ -336,7 +336,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/changed/in"
+literal|"file:target/data/changed/in"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -351,7 +351,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/changed/in"
+literal|"file:target/data/changed/in"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -418,7 +418,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/changed/in?initialDelay=0&delay=10&readLock=idempotent&readLockIdempotentReleaseDelay=1000&readLockIdempotentReleaseAsync=true&idempotentRepository=#myRepo"
+literal|"file:target/data/changed/in?initialDelay=0&delay=10&readLock=idempotent&readLockIdempotentReleaseDelay=1000&readLockIdempotentReleaseAsync=true&idempotentRepository=#myRepo"
 argument_list|)
 operator|.
 name|process

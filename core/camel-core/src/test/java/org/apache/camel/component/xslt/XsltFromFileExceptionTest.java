@@ -112,7 +112,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/xslt"
+literal|"target/data/xslt"
 argument_list|)
 expr_stmt|;
 name|super
@@ -155,7 +155,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/xslt"
+literal|"file:target/data/xslt"
 argument_list|,
 literal|"<hello>world!</hello>"
 argument_list|,
@@ -180,7 +180,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/xslt/hello.xml"
+literal|"target/data/xslt/hello.xml"
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -200,7 +200,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-literal|"target/xslt/ok/hello.xml"
+literal|"target/data/xslt/ok/hello.xml"
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -251,7 +251,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/xslt"
+literal|"file:target/data/xslt"
 argument_list|,
 literal|"<hello>world!</hello"
 argument_list|,
@@ -276,7 +276,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/xslt/hello2.xml"
+literal|"target/data/xslt/hello2.xml"
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -296,7 +296,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-literal|"target/xslt/error/hello2.xml"
+literal|"target/data/xslt/error/hello2.xml"
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -338,7 +338,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/xslt?moveFailed=error&move=ok&initialDelay=0&delay=10"
+literal|"file:target/data/xslt?moveFailed=error&move=ok&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|onException

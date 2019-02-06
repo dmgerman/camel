@@ -167,7 +167,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/nospace"
+literal|"file:target/data/nospace"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -182,7 +182,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/nospace"
+literal|"file:target/data/nospace"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -300,7 +300,7 @@ comment|// this is the file route that pickup files, notice how we bridge the co
 comment|// the exclusiveReadLockStrategy is only configured because this is from an unit test, so we use that to simulate exceptions
 name|from
 argument_list|(
-literal|"file:target/nospace?exclusiveReadLockStrategy=#myReadLockStrategy&consumer.bridgeErrorHandler=true&initialDelay=0&delay=10"
+literal|"file:target/data/nospace?exclusiveReadLockStrategy=#myReadLockStrategy&consumer.bridgeErrorHandler=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

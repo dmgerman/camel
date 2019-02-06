@@ -131,7 +131,7 @@ specifier|final
 name|String
 name|TARGET_DIR_NAME
 init|=
-literal|"target/"
+literal|"target/data/"
 operator|+
 name|MethodHandles
 operator|.

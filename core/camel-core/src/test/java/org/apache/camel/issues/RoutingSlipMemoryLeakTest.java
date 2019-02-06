@@ -98,7 +98,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/output"
+literal|"target/data/output"
 argument_list|)
 expr_stmt|;
 name|super
@@ -243,7 +243,7 @@ parameter_list|)
 block|{
 comment|/*              * It is important to have a processor here, that does not extend              * AsyncProcessor. Only in this case              * AsyncProcessorConverterHelper.convert() creates a new object,              * thus leading to a memory leak. For example, if you replace file              * endpoint with mock endpoint, then everything goes fine, because              * MockEndpoint.createProducer() creates an implementation of              * AsyncProcessor.              */
 return|return
-literal|"file:target/output"
+literal|"file:target/data/output"
 return|;
 block|}
 block|}

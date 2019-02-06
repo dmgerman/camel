@@ -113,7 +113,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/file-state-repository.dat"
+literal|"target/data/file-state-repository.dat"
 argument_list|)
 decl_stmt|;
 annotation|@

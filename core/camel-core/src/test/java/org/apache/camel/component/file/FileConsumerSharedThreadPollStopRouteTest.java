@@ -125,7 +125,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/a"
+literal|"file:target/data/a"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -140,7 +140,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/b"
+literal|"file:target/data/b"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -180,14 +180,14 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/a/hello2.txt"
+literal|"target/data/a/hello2.txt"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/a"
+literal|"file:target/data/a"
 argument_list|,
 literal|"Hello World 2"
 argument_list|,
@@ -202,7 +202,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/b"
+literal|"file:target/data/b"
 argument_list|,
 literal|"Bye World 2"
 argument_list|,

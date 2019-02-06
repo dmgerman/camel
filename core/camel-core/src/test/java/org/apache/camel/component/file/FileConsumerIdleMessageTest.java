@@ -106,7 +106,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/empty?initialDelay=0&delay=10&sendEmptyMessageWhenIdle=true"
+literal|"file://target/data/empty?initialDelay=0&delay=10&sendEmptyMessageWhenIdle=true"
 argument_list|)
 operator|.
 name|convertBodyTo

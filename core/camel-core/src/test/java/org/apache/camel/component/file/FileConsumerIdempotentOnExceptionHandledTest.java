@@ -98,7 +98,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/messages/input"
+literal|"target/data/messages/input"
 argument_list|)
 expr_stmt|;
 name|super
@@ -131,7 +131,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/messages/input/"
+literal|"file:target/data/messages/input/"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -153,12 +153,12 @@ expr_stmt|;
 comment|// the error is handled and the file is regarded as success and therefore moved to .camel
 name|assertFileNotExists
 argument_list|(
-literal|"target/messages/input/hello.txt"
+literal|"target/data/messages/input/hello.txt"
 argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/messages/input/.camel/hello.txt"
+literal|"target/data/messages/input/.camel/hello.txt"
 argument_list|)
 expr_stmt|;
 block|}
@@ -202,7 +202,7 @@ expr_stmt|;
 comment|// our route logic to process files from the input folder
 name|from
 argument_list|(
-literal|"file:target/messages/input/?initialDelay=0&delay=10&idempotent=true"
+literal|"file:target/data/messages/input/?initialDelay=0&delay=10&idempotent=true"
 argument_list|)
 operator|.
 name|to

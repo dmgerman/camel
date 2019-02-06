@@ -124,12 +124,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/enrich"
+literal|"target/data/enrich"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/enrichdata"
+literal|"target/data/enrichdata"
 argument_list|)
 expr_stmt|;
 name|super
@@ -177,21 +177,21 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/enrich/.done/AAA.fin"
+literal|"target/data/enrich/.done/AAA.fin"
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/enrichdata/.done/AAA.dat"
+literal|"target/data/enrichdata/.done/AAA.dat"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/enrich"
+literal|"file://target/data/enrich"
 argument_list|,
 literal|"Start"
 argument_list|,
@@ -220,7 +220,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/enrichdata"
+literal|"file://target/data/enrichdata"
 argument_list|,
 literal|"Big file"
 argument_list|,
@@ -243,7 +243,7 @@ argument_list|()
 expr_stmt|;
 name|assertFileDoesNotExists
 argument_list|(
-literal|"target/enrichdata/AAA.dat.camelLock"
+literal|"target/data/enrichdata/AAA.dat.camelLock"
 argument_list|)
 expr_stmt|;
 block|}
@@ -273,7 +273,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/enrich?initialDelay=0&delay=10&move=.done"
+literal|"file://target/data/enrich?initialDelay=0&delay=10&move=.done"
 argument_list|)
 operator|.
 name|to
@@ -283,7 +283,7 @@ argument_list|)
 operator|.
 name|pollEnrich
 argument_list|(
-literal|"file://target/enrichdata?initialDelay=0&delay=10&readLock=markerFile&move=.done"
+literal|"file://target/data/enrichdata?initialDelay=0&delay=10&readLock=markerFile&move=.done"
 argument_list|,
 literal|10000
 argument_list|)

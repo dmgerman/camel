@@ -183,7 +183,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/done"
+literal|"target/data/done"
 argument_list|)
 expr_stmt|;
 name|super
@@ -280,7 +280,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done?doneFileName=done"
+literal|"file:target/data/done?doneFileName=done"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -297,7 +297,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/done/hello.txt"
+literal|"target/data/done/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -318,7 +318,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/done/done"
+literal|"target/data/done/done"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -348,7 +348,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done?doneFileName=done-${file:name}"
+literal|"file:target/data/done?doneFileName=done-${file:name}"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -365,7 +365,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/done/hello.txt"
+literal|"target/data/done/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -386,7 +386,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/done/done-hello.txt"
+literal|"target/data/done/done-hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -416,7 +416,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done?doneFileName=${file:name}.done"
+literal|"file:target/data/done?doneFileName=${file:name}.done"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -433,7 +433,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/done/hello.txt"
+literal|"target/data/done/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -454,7 +454,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/done/hello.txt.done"
+literal|"target/data/done/hello.txt.done"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -484,7 +484,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done?doneFileName=${file:name.noext}.done"
+literal|"file:target/data/done?doneFileName=${file:name.noext}.done"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -501,7 +501,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/done/hello.txt"
+literal|"target/data/done/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -522,7 +522,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/done/hello.done"
+literal|"target/data/done/hello.done"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -554,7 +554,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done?doneFileName=${file:parent}/foo"
+literal|"file:target/data/done?doneFileName=${file:parent}/foo"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -628,7 +628,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done?doneFileName="
+literal|"file:target/data/done?doneFileName="
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -702,7 +702,7 @@ name|put
 argument_list|(
 literal|"myDir"
 argument_list|,
-literal|"target/done"
+literal|"target/data/done"
 argument_list|)
 expr_stmt|;
 name|template
@@ -726,7 +726,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/done/hello.txt"
+literal|"target/data/done/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -747,7 +747,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/done/done-hello.txt"
+literal|"target/data/done/done-hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertEquals

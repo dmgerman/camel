@@ -120,7 +120,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/zip"
+literal|"target/data/zip"
 argument_list|)
 expr_stmt|;
 name|super
@@ -168,7 +168,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/zip"
+literal|"file:target/data/zip"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -256,7 +256,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/zip?initialDelay=0&delay=10&delete=true"
+literal|"file:target/data/zip?initialDelay=0&delay=10&delete=true"
 argument_list|)
 operator|.
 name|marshal
@@ -267,12 +267,12 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"file:target/zip/out?fileName=${file:name}.zip"
+literal|"file:target/data/zip/out?fileName=${file:name}.zip"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:target/zip/out?initialDelay=0&delay=10&delete=true"
+literal|"file:target/data/zip/out?initialDelay=0&delay=10&delete=true"
 argument_list|)
 operator|.
 name|unmarshal

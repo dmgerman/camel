@@ -172,12 +172,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/changed/"
+literal|"target/data/changed/"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/changed/in"
+literal|"target/data/changed/in"
 argument_list|)
 expr_stmt|;
 name|writeFile
@@ -226,7 +226,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/changed/out/file.dat"
+literal|"target/data/changed/out/file.dat"
 argument_list|)
 expr_stmt|;
 comment|// We should get the file on the first poll
@@ -286,7 +286,7 @@ init|=
 operator|new
 name|FileOutputStream
 argument_list|(
-literal|"target/changed/in/file.dat"
+literal|"target/data/changed/in/file.dat"
 argument_list|)
 decl_stmt|;
 name|fos
@@ -343,12 +343,12 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/changed/in?initialDelay=0&delay=10&readLock=changed&readLockMinAge=10&readLockCheckInterval=30000&readLockTimeout=90000"
+literal|"file:target/data/changed/in?initialDelay=0&delay=10&readLock=changed&readLockMinAge=10&readLockCheckInterval=30000&readLockTimeout=90000"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:target/changed/out"
+literal|"file:target/data/changed/out"
 argument_list|,
 literal|"mock:result"
 argument_list|)

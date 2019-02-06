@@ -114,7 +114,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/nio"
+literal|"target/data/nio"
 argument_list|)
 expr_stmt|;
 name|super
@@ -157,7 +157,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/nio/out/hello.txt"
+literal|"target/data/nio/out/hello.txt"
 argument_list|,
 name|body
 argument_list|)
@@ -166,7 +166,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/nio/in"
+literal|"file://target/data/nio/in"
 argument_list|,
 name|body
 argument_list|,
@@ -207,7 +207,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/nio/in?initialDelay=0&delay=10"
+literal|"file://target/data/nio/in?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -219,7 +219,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/nio/out?bufferSize=4"
+literal|"file://target/data/nio/out?bufferSize=4"
 argument_list|)
 operator|.
 name|to

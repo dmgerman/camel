@@ -148,7 +148,7 @@ specifier|final
 name|String
 name|path
 init|=
-literal|"target/a/b/c/d/e/f/g/h"
+literal|"target/data/a/b/c/d/e/f/g/h"
 decl_stmt|;
 annotation|@
 name|Override
@@ -164,7 +164,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/a"
+literal|"target/data/a"
 argument_list|)
 expr_stmt|;
 name|super

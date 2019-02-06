@@ -132,7 +132,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/producefile"
+literal|"target/data/producefile"
 argument_list|)
 expr_stmt|;
 name|super
@@ -184,9 +184,9 @@ name|comp
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"file://target/producefile"
+literal|"file://target/data/producefile"
 argument_list|,
-literal|"target/producefile"
+literal|"target/data/producefile"
 argument_list|,
 operator|new
 name|HashMap
@@ -252,7 +252,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/producefile/bye.txt"
+literal|"target/data/producefile/bye.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue

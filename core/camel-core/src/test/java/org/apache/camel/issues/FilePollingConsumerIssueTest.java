@@ -106,7 +106,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/fpc"
+literal|"target/data/fpc"
 argument_list|)
 expr_stmt|;
 name|super
@@ -129,7 +129,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/fpc"
+literal|"file://target/data/fpc"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -147,7 +147,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file://target/fpc?initialDelay=0&delay=10&fileName=hello.txt"
+literal|"file://target/data/fpc?initialDelay=0&delay=10&fileName=hello.txt"
 argument_list|)
 decl_stmt|;
 name|PollingConsumer

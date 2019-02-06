@@ -136,7 +136,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/premove"
+literal|"target/data/premove"
 argument_list|)
 expr_stmt|;
 name|super
@@ -174,7 +174,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/premove"
+literal|"file://target/data/premove"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -199,7 +199,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/premove/work/hello.txt"
+literal|"target/data/premove/work/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -242,7 +242,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/premove"
+literal|"file://target/data/premove"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -283,7 +283,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/premove"
+literal|"file://target/data/premove"
 argument_list|,
 literal|"Hello Again World"
 argument_list|,
@@ -308,7 +308,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/premove/work/hello.txt"
+literal|"target/data/premove/work/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -348,7 +348,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/premove?preMove=work&noop=true&idempotent=false&initialDelay=0&delay=10"
+literal|"file://target/data/premove?preMove=work&noop=true&idempotent=false&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|process
@@ -392,7 +392,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/premove/work/hello.txt"
+literal|"target/data/premove/work/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue

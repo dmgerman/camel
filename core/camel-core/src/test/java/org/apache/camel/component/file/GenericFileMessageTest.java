@@ -169,7 +169,7 @@ name|file
 operator|.
 name|setFileName
 argument_list|(
-literal|"target/test.txt"
+literal|"target/data/test.txt"
 argument_list|)
 expr_stmt|;
 name|file
@@ -179,7 +179,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"target/test.txt"
+literal|"target/data/test.txt"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -203,7 +203,7 @@ argument_list|()
 condition|?
 literal|"target\\test.txt"
 else|:
-literal|"target/test.txt"
+literal|"target/data/test.txt"
 argument_list|,
 name|message
 operator|.

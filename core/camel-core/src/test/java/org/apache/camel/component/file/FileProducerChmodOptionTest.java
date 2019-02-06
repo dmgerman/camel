@@ -201,7 +201,7 @@ specifier|final
 name|String
 name|TEST_DIRECTORY
 init|=
-literal|"target/fileProducerChmodOptionTest/"
+literal|"target/data/fileProducerChmodOptionTest/"
 decl_stmt|;
 annotation|@
 name|Override

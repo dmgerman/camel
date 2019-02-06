@@ -164,7 +164,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/write/hello.txt"
+literal|"target/data/write/hello.txt"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -234,7 +234,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/write/overrule.txt"
+literal|"target/data/write/overrule.txt"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -315,7 +315,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/write/ruled.txt"
+literal|"target/data/write/ruled.txt"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -385,7 +385,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/write"
+literal|"target/data/write"
 argument_list|)
 expr_stmt|;
 name|super
@@ -419,7 +419,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/write"
+literal|"file://target/data/write"
 argument_list|,
 literal|"mock:result"
 argument_list|)

@@ -184,7 +184,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/filestress?readLock=markerFile&maxMessagesPerPoll=25&move=backup"
+literal|"file:target/data/filestress?readLock=markerFile&maxMessagesPerPoll=25&move=backup"
 argument_list|)
 operator|.
 name|threads

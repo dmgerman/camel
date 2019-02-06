@@ -98,7 +98,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/cbr"
+literal|"target/data/cbr"
 argument_list|)
 expr_stmt|;
 name|super
@@ -151,7 +151,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/cbr"
+literal|"file://target/data/cbr"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -210,7 +210,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/cbr"
+literal|"file://target/data/cbr"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -269,7 +269,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/cbr"
+literal|"file://target/data/cbr"
 argument_list|,
 literal|"Hi World"
 argument_list|,
@@ -310,7 +310,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/cbr?delete=true&initialDelay=0&delay=10"
+literal|"file://target/data/cbr?delete=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

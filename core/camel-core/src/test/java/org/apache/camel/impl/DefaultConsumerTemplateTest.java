@@ -2003,14 +2003,14 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/foo"
+literal|"target/data/foo"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/foo"
+literal|"file:target/data/foo"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -2028,7 +2028,7 @@ name|consumer
 operator|.
 name|receive
 argument_list|(
-literal|"file:target/foo?initialDelay=0&delay=10&delete=true"
+literal|"file:target/data/foo?initialDelay=0&delay=10&delete=true"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -2060,7 +2060,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/foo/hello.txt"
+literal|"target/data/foo/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue

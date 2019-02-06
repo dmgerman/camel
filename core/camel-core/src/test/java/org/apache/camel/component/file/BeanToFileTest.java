@@ -149,7 +149,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/BeanToFileTest.txt"
+literal|"target/data/BeanToFileTest.txt"
 argument_list|,
 literal|"Bye World"
 argument_list|)
@@ -241,7 +241,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/?fileExist=Override"
+literal|"file://target/data/?fileExist=Override"
 argument_list|,
 literal|"mock:result"
 argument_list|)

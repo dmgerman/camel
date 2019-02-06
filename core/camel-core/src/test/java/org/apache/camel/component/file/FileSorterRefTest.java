@@ -133,7 +133,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/filesorter/?initialDelay=0&delay=10&sorter=#mySorter"
+literal|"file://target/data/filesorter/?initialDelay=0&delay=10&sorter=#mySorter"
 decl_stmt|;
 annotation|@
 name|Override
@@ -195,7 +195,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/filesorter"
+literal|"target/data/filesorter"
 argument_list|)
 expr_stmt|;
 name|super
@@ -207,7 +207,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filesorter/"
+literal|"file:target/data/filesorter/"
 argument_list|,
 literal|"Hello Paris"
 argument_list|,
@@ -222,7 +222,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filesorter/"
+literal|"file:target/data/filesorter/"
 argument_list|,
 literal|"Hello London"
 argument_list|,
@@ -237,7 +237,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filesorter/"
+literal|"file:target/data/filesorter/"
 argument_list|,
 literal|"Hello Copenhagen"
 argument_list|,

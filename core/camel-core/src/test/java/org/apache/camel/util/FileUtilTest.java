@@ -1846,7 +1846,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/foo.txt"
+literal|"target/data/foo.txt"
 argument_list|)
 decl_stmt|;
 if|if
@@ -1908,7 +1908,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/foo.txt"
+literal|"target/data/foo.txt"
 argument_list|)
 decl_stmt|;
 if|if

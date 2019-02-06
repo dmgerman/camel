@@ -133,7 +133,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/test-file-append/hello.txt"
+literal|"target/data/test-file-append/hello.txt"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -165,7 +165,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/test-file-append"
+literal|"target/data/test-file-append"
 argument_list|)
 expr_stmt|;
 name|super
@@ -177,7 +177,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/test-file-append"
+literal|"file://target/data/test-file-append"
 argument_list|,
 literal|"Hello"
 argument_list|,
@@ -192,7 +192,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/test-file-append"
+literal|"file://target/data/test-file-append"
 argument_list|,
 literal|" World"
 argument_list|,
@@ -241,7 +241,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/test-file-append?fileExist=Append"
+literal|"file://target/data/test-file-append?fileExist=Append"
 argument_list|,
 literal|"mock:result"
 argument_list|)

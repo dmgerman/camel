@@ -82,7 +82,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:target/inbox?idempotent=true&noop=true&idempotentRepository=#repo&initialDelay=0&delay=10"
+literal|"file:target/data/inbox?idempotent=true&noop=true&idempotentRepository=#repo&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|to

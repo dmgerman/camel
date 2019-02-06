@@ -110,7 +110,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/pair"
+literal|"target/data/pair"
 argument_list|)
 expr_stmt|;
 name|super
@@ -143,7 +143,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/pair"
+literal|"file:target/data/pair"
 argument_list|,
 literal|"<hello>world!</hello>"
 argument_list|,
@@ -168,7 +168,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/pair/hello.xml"
+literal|"target/data/pair/hello.xml"
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -188,7 +188,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-literal|"target/pair/ok/hello.xml"
+literal|"target/data/pair/ok/hello.xml"
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -230,7 +230,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/pair?initialDelay=0&delay=10&move=ok"
+literal|"file:target/data/pair?initialDelay=0&delay=10&move=ok"
 argument_list|)
 operator|.
 name|choice

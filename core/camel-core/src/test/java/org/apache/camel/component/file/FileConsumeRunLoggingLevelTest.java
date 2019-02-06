@@ -102,7 +102,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/files"
+literal|"target/data/files"
 argument_list|)
 expr_stmt|;
 name|super
@@ -135,7 +135,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/files"
+literal|"file:target/data/files"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -176,7 +176,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/files?runLoggingLevel=INFO&initialDelay=0&delay=10"
+literal|"file:target/data/files?runLoggingLevel=INFO&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|to

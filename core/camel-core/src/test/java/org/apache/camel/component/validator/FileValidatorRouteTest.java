@@ -183,7 +183,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/validator"
+literal|"file:target/data/validator"
 argument_list|,
 literal|"<mail xmlns='http://foo.com/bar'><subject>Hey</subject><body>Hello world!</body></mail>"
 argument_list|,
@@ -222,7 +222,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"target/validator/valid.xml"
+literal|"target/data/validator/valid.xml"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -256,7 +256,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/validator"
+literal|"file:target/data/validator"
 argument_list|,
 literal|"<mail xmlns='http://foo.com/bar'><body>Hello world!</body></mail>"
 argument_list|,
@@ -295,7 +295,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"target/validator/invalid.xml"
+literal|"target/data/validator/invalid.xml"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -315,7 +315,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/validator"
+literal|"target/data/validator"
 argument_list|)
 expr_stmt|;
 name|super
@@ -383,7 +383,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/validator?noop=true"
+literal|"file:target/data/validator?noop=true"
 argument_list|)
 operator|.
 name|doTry

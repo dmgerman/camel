@@ -114,7 +114,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/file-test"
+literal|"target/data/file-test"
 argument_list|)
 expr_stmt|;
 name|super
@@ -156,7 +156,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file-test/a"
+literal|"file://target/data/file-test/a"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -171,7 +171,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file-test/a"
+literal|"file://target/data/file-test/a"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -208,17 +208,17 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"file:target/file-test/a?initialDelay=0&delay=10"
+literal|"file:target/data/file-test/a?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:target/file-test/b"
+literal|"file:target/data/file-test/b"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:target/file-test/b?initialDelay=0&delay=10"
+literal|"file:target/data/file-test/b?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|to

@@ -114,7 +114,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/multicast"
+literal|"target/data/multicast"
 argument_list|)
 expr_stmt|;
 name|super
@@ -152,7 +152,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/multicast?initialDelay=0&delay=10"
+literal|"file://target/data/multicast?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|multicast
@@ -174,7 +174,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/multicast/out/?fileName=header.txt"
+literal|"file://target/data/multicast/out/?fileName=header.txt"
 argument_list|)
 operator|.
 name|to
@@ -201,7 +201,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/multicast/out/?fileName=footer.txt"
+literal|"file://target/data/multicast/out/?fileName=footer.txt"
 argument_list|)
 operator|.
 name|to
@@ -248,7 +248,7 @@ name|header
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/multicast/out/header.txt"
+literal|"target/data/multicast/out/header.txt"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -270,7 +270,7 @@ name|footer
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/multicast/out/footer.txt"
+literal|"target/data/multicast/out/footer.txt"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -292,14 +292,14 @@ name|end
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/multicast/.camel/foo.txt"
+literal|"target/data/multicast/.camel/foo.txt"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/multicast"
+literal|"file://target/data/multicast"
 argument_list|,
 literal|"foo"
 argument_list|,
@@ -343,7 +343,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/multicast?initialDelay=0&delay=10"
+literal|"file://target/data/multicast?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|multicast
@@ -368,7 +368,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/multicast/out/?fileName=header.txt"
+literal|"file://target/data/multicast/out/?fileName=header.txt"
 argument_list|)
 operator|.
 name|to
@@ -395,7 +395,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/multicast/out/?fileName=footer.txt"
+literal|"file://target/data/multicast/out/?fileName=footer.txt"
 argument_list|)
 operator|.
 name|to
@@ -442,7 +442,7 @@ name|header
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/multicast/out/header.txt"
+literal|"target/data/multicast/out/header.txt"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -464,7 +464,7 @@ name|footer
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/multicast/out/footer.txt"
+literal|"target/data/multicast/out/footer.txt"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -486,14 +486,14 @@ name|end
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/multicast/.camel/foo.txt"
+literal|"target/data/multicast/.camel/foo.txt"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/multicast"
+literal|"file://target/data/multicast"
 argument_list|,
 literal|"foo"
 argument_list|,

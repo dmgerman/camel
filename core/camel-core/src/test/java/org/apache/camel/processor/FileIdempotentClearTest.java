@@ -136,7 +136,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/idempotentfilestore.dat"
+literal|"target/data/idempotentfilestore.dat"
 argument_list|)
 decl_stmt|;
 DECL|field|repo

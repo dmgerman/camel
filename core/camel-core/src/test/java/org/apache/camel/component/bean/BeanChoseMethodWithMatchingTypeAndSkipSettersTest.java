@@ -149,7 +149,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/file/order"
+literal|"target/data/file/order"
 argument_list|)
 expr_stmt|;
 name|super
@@ -250,7 +250,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file/order"
+literal|"file://target/data/file/order"
 argument_list|,
 literal|"123,456"
 argument_list|,
@@ -342,7 +342,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/file/order?initialDelay=0&delay=10"
+literal|"file://target/data/file/order?initialDelay=0&delay=10"
 argument_list|,
 literal|"seda:xml"
 argument_list|)

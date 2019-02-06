@@ -171,7 +171,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/suspended"
+literal|"target/data/suspended"
 argument_list|)
 expr_stmt|;
 name|super
@@ -209,7 +209,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/suspended"
+literal|"file://target/data/suspended"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -224,7 +224,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/suspended"
+literal|"file://target/data/suspended"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -251,7 +251,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/suspended/"
+literal|"target/data/suspended/"
 argument_list|)
 operator|.
 name|list
@@ -311,7 +311,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-literal|"target/suspended/"
+literal|"target/data/suspended/"
 argument_list|)
 operator|.
 name|list
@@ -360,7 +360,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/suspended?maxMessagesPerPoll=1&delete=true&initialDelay=0&delay=10"
+literal|"file://target/data/suspended?maxMessagesPerPoll=1&delete=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|routePolicy

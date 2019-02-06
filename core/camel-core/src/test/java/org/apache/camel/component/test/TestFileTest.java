@@ -108,7 +108,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/testme"
+literal|"target/data/testme"
 argument_list|)
 expr_stmt|;
 name|super
@@ -133,7 +133,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"file:target/testme"
+literal|"file:target/data/testme"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -162,7 +162,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"test:file:target/testme?noop=true&timeout=1500"
+literal|"test:file:target/data/testme?noop=true&timeout=1500"
 argument_list|)
 expr_stmt|;
 block|}

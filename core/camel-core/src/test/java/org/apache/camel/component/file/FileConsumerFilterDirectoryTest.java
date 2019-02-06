@@ -109,7 +109,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/filefilter/?initialDelay=0&delay=10&recursive=true&filterDirectory=${header.CamelFileNameOnly.length()}> 4"
+literal|"file://target/data/filefilter/?initialDelay=0&delay=10&recursive=true&filterDirectory=${header.CamelFileNameOnly.length()}> 4"
 decl_stmt|;
 annotation|@
 name|Override
@@ -125,17 +125,17 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/filefilter"
+literal|"target/data/filefilter"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/filefilter/foo"
+literal|"target/data/filefilter/foo"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/filefilter/barbar"
+literal|"target/data/filefilter/barbar"
 argument_list|)
 expr_stmt|;
 name|super
@@ -173,7 +173,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filefilter/foo"
+literal|"file:target/data/filefilter/foo"
 argument_list|,
 literal|"This is a file to be filtered"
 argument_list|,
@@ -233,7 +233,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filefilter/foo"
+literal|"file:target/data/filefilter/foo"
 argument_list|,
 literal|"This is a file to be filtered"
 argument_list|,
@@ -248,7 +248,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filefilter/barbar"
+literal|"file:target/data/filefilter/barbar"
 argument_list|,
 literal|"Hello World"
 argument_list|,

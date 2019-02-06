@@ -120,7 +120,7 @@ specifier|final
 name|String
 name|TARGET_DIR
 init|=
-literal|"target/files"
+literal|"target/data/files"
 decl_stmt|;
 annotation|@
 name|Override

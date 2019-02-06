@@ -150,7 +150,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/filelanguage"
+literal|"target/data/filelanguage"
 argument_list|)
 expr_stmt|;
 name|super
@@ -213,7 +213,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filelanguage"
+literal|"file://target/data/filelanguage"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -226,7 +226,7 @@ argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/filelanguage/$simple{myfile-${id}}.txt"
+literal|"target/data/filelanguage/$simple{myfile-${id}}.txt"
 argument_list|)
 expr_stmt|;
 block|}
@@ -245,14 +245,14 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"file://target/filelanguage?fileName=${bean:myguidgenerator}.bak"
+literal|"file://target/data/filelanguage?fileName=${bean:myguidgenerator}.bak"
 argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/filelanguage/123.bak"
+literal|"target/data/filelanguage/123.bak"
 argument_list|)
 expr_stmt|;
 block|}
@@ -270,7 +270,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filelanguage"
+literal|"file://target/data/filelanguage"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -302,7 +302,7 @@ argument_list|)
 decl_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/filelanguage/myfile-"
+literal|"target/data/filelanguage/myfile-"
 operator|+
 name|date
 operator|+
@@ -324,7 +324,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"file://target/filelanguage?fileName=myfile-${date:now:yyyyMMdd}.txt"
+literal|"file://target/data/filelanguage?fileName=myfile-${date:now:yyyyMMdd}.txt"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -347,7 +347,7 @@ argument_list|)
 decl_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/filelanguage/myfile-"
+literal|"target/data/filelanguage/myfile-"
 operator|+
 name|date
 operator|+
@@ -374,7 +374,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"file://target/filelanguage?jailStartingDirectory=false&fileName="
+literal|"file://target/data/filelanguage?jailStartingDirectory=false&fileName="
 operator|+
 name|expression
 argument_list|,
@@ -399,7 +399,7 @@ argument_list|)
 decl_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/filelanguageinbox/myfile-123-"
+literal|"target/data/filelanguageinbox/myfile-123-"
 operator|+
 name|date
 operator|+
@@ -421,7 +421,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filelanguage?fileName=myfile-${in.header.foo}.txt"
+literal|"file://target/data/filelanguage?fileName=myfile-${in.header.foo}.txt"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -432,7 +432,7 @@ argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/filelanguage/myfile-abc.txt"
+literal|"target/data/filelanguage/myfile-abc.txt"
 argument_list|)
 expr_stmt|;
 block|}
@@ -479,7 +479,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filelanguage?fileName=mybirthday-${date:in.header.birthday:yyyyMMdd}.txt"
+literal|"file://target/data/filelanguage?fileName=mybirthday-${date:in.header.birthday:yyyyMMdd}.txt"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -490,7 +490,7 @@ argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/filelanguage/mybirthday-19740420.txt"
+literal|"target/data/filelanguage/mybirthday-19740420.txt"
 argument_list|)
 expr_stmt|;
 block|}

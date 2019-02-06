@@ -109,7 +109,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/poll/?initialDelay=0&delay=10&maxMessagesPerPoll=2"
+literal|"file://target/data/poll/?initialDelay=0&delay=10&maxMessagesPerPoll=2"
 decl_stmt|;
 annotation|@
 name|Override
@@ -125,7 +125,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/poll"
+literal|"target/data/poll"
 argument_list|)
 expr_stmt|;
 name|super

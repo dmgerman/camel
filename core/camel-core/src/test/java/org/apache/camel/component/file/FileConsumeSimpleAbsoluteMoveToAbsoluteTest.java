@@ -115,7 +115,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/move"
+literal|"file://target/data/move"
 decl_stmt|;
 DECL|field|base
 specifier|private
@@ -136,7 +136,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/move"
+literal|"target/data/move"
 argument_list|)
 expr_stmt|;
 comment|// use current dir as base as absolute path
@@ -151,7 +151,7 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 operator|+
-literal|"/target/move"
+literal|"/target/data/move"
 expr_stmt|;
 name|super
 operator|.

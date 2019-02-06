@@ -223,7 +223,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file://target/foo?consumer.delay=1000"
+literal|"file://target/data/foo?consumer.delay=1000"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -237,7 +237,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file://target/foo?consumer.delay=1000&consumer.initialDelay=5000"
+literal|"file://target/data/foo?consumer.delay=1000&consumer.initialDelay=5000"
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -251,7 +251,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file://target/foo?consumer.delay=1000&consumer.initialDelay=5000&consumer.useFixedDelay=false"
+literal|"file://target/data/foo?consumer.delay=1000&consumer.initialDelay=5000&consumer.useFixedDelay=false"
 argument_list|)
 expr_stmt|;
 name|assertNotNull

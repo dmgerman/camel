@@ -126,7 +126,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/renameissue"
+literal|"target/data/renameissue"
 argument_list|)
 expr_stmt|;
 name|super
@@ -164,14 +164,14 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/renameissue/.camel/hello.txt"
+literal|"target/data/renameissue/.camel/hello.txt"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/renameissue"
+literal|"file://target/data/renameissue"
 argument_list|,
 literal|"World"
 argument_list|,
@@ -212,7 +212,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/renameissue?noop=false&initialDelay=0&delay=10"
+literal|"file://target/data/renameissue?noop=false&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|setProperty

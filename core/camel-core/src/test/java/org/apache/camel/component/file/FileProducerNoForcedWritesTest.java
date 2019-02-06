@@ -124,7 +124,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/file"
+literal|"target/data/file"
 argument_list|)
 expr_stmt|;
 name|super
@@ -162,7 +162,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file"
+literal|"file://target/data/file"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -178,7 +178,7 @@ argument_list|()
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/file/output.txt"
+literal|"target/data/file/output.txt"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -199,14 +199,14 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/file/output.txt"
+literal|"target/data/file/output.txt"
 argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/file/output2.txt"
+literal|"target/data/file/output2.txt"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -227,7 +227,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/file/output2.txt"
+literal|"target/data/file/output2.txt"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -259,7 +259,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/file?initialDelay=0&delay=10&noop=true"
+literal|"file:target/data/file?initialDelay=0&delay=10&noop=true"
 argument_list|)
 operator|.
 name|multicast
@@ -267,9 +267,9 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"file:target/file/?fileName=output.txt&forceWrites=false"
+literal|"file:target/data/file/?fileName=output.txt&forceWrites=false"
 argument_list|,
-literal|"file:target/file/?fileName=output2.txt&charset=iso-8859-1&forceWrites=false"
+literal|"file:target/data/file/?fileName=output2.txt&charset=iso-8859-1&forceWrites=false"
 argument_list|)
 operator|.
 name|to

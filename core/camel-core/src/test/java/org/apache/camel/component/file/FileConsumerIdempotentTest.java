@@ -137,7 +137,7 @@ specifier|private
 name|String
 name|uri
 init|=
-literal|"file://target/idempotent/?idempotent=true&move=done/${file:name}&initialDelay=0&delay=10"
+literal|"file://target/data/idempotent/?idempotent=true&move=done/${file:name}&initialDelay=0&delay=10"
 decl_stmt|;
 annotation|@
 name|Override
@@ -153,7 +153,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/idempotent"
+literal|"target/data/idempotent"
 argument_list|)
 expr_stmt|;
 name|super
@@ -165,7 +165,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/idempotent"
+literal|"file://target/data/idempotent"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -274,7 +274,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/idempotent/done/report.txt"
+literal|"target/data/idempotent/done/report.txt"
 argument_list|)
 decl_stmt|;
 name|File
@@ -283,7 +283,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/idempotent/report.txt"
+literal|"target/data/idempotent/report.txt"
 argument_list|)
 decl_stmt|;
 name|file

@@ -233,7 +233,7 @@ comment|// create the file
 name|String
 name|uri
 init|=
-literal|"file://target/filelanguage?fileExist=Override"
+literal|"file://target/data/filelanguage?fileExist=Override"
 decl_stmt|;
 name|template
 operator|.
@@ -256,7 +256,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-literal|"target/filelanguage/test/bye.def.txt"
+literal|"target/data/filelanguage/test/bye.def.txt"
 argument_list|)
 expr_stmt|;
 name|GenericFile
@@ -269,7 +269,7 @@ name|FileConsumer
 operator|.
 name|asGenericFile
 argument_list|(
-literal|"target/filelanguage"
+literal|"target/data/filelanguage"
 argument_list|,
 name|file
 argument_list|,

@@ -164,7 +164,7 @@ specifier|final
 name|String
 name|fileUrl
 init|=
-literal|"file://target/directoryfilter/?recursive=true&filter=#myFilter&initialDelay=0&delay=10"
+literal|"file://target/data/directoryfilter/?recursive=true&filter=#myFilter&initialDelay=0&delay=10"
 decl_stmt|;
 DECL|field|names
 specifier|private
@@ -228,7 +228,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/directoryfilter"
+literal|"target/data/directoryfilter"
 argument_list|)
 expr_stmt|;
 name|super
@@ -273,7 +273,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/directoryfilter/skipDir/"
+literal|"file:target/data/directoryfilter/skipDir/"
 argument_list|,
 literal|"This is a file to be filtered"
 argument_list|,
@@ -288,7 +288,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/directoryfilter/skipDir2/"
+literal|"file:target/data/directoryfilter/skipDir2/"
 argument_list|,
 literal|"This is a file to be filtered"
 argument_list|,
@@ -303,7 +303,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/directoryfilter/okDir/"
+literal|"file:target/data/directoryfilter/okDir/"
 argument_list|,
 literal|"Hello World"
 argument_list|,

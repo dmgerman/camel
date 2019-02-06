@@ -114,7 +114,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/noop"
+literal|"target/data/noop"
 argument_list|)
 expr_stmt|;
 name|super
@@ -160,7 +160,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/noop"
+literal|"file:target/data/noop"
 argument_list|,
 literal|"a"
 argument_list|,
@@ -175,7 +175,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/noop"
+literal|"file:target/data/noop"
 argument_list|,
 literal|"b"
 argument_list|,
@@ -190,7 +190,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/noop/foo"
+literal|"file:target/data/noop/foo"
 argument_list|,
 literal|"a2"
 argument_list|,
@@ -205,7 +205,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/noop/bar"
+literal|"file:target/data/noop/bar"
 argument_list|,
 literal|"c"
 argument_list|,
@@ -220,7 +220,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/noop/bar"
+literal|"file:target/data/noop/bar"
 argument_list|,
 literal|"b2"
 argument_list|,
@@ -251,7 +251,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/noop"
+literal|"file:target/data/noop"
 argument_list|,
 literal|"c2"
 argument_list|,
@@ -292,7 +292,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/noop?initialDelay=0&delay=10&recursive=true&noop=true"
+literal|"file:target/data/noop?initialDelay=0&delay=10&recursive=true&noop=true"
 argument_list|)
 operator|.
 name|convertBodyTo

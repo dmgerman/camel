@@ -128,7 +128,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/files"
+literal|"target/data/files"
 argument_list|)
 expr_stmt|;
 name|super
@@ -178,7 +178,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/files?initialDelay=0&delay=10&delete=true"
+literal|"file://target/data/files?initialDelay=0&delay=10&delete=true"
 argument_list|)
 comment|// remove all headers
 operator|.
@@ -220,7 +220,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/files"
+literal|"file://target/data/files"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -269,7 +269,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/files/hello.txt"
+literal|"target/data/files/hello.txt"
 argument_list|)
 operator|.
 name|exists
@@ -306,7 +306,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/files?initialDelay=0&delay=10&delete=true"
+literal|"file://target/data/files?initialDelay=0&delay=10&delete=true"
 argument_list|)
 comment|// change file header
 operator|.
@@ -366,7 +366,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/files"
+literal|"file://target/data/files"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -394,7 +394,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/files/hello.txt"
+literal|"target/data/files/hello.txt"
 argument_list|)
 operator|.
 name|exists
@@ -431,7 +431,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/files?initialDelay=0&delay=10"
+literal|"file://target/data/files?initialDelay=0&delay=10"
 argument_list|)
 comment|// remove all headers
 operator|.
@@ -473,7 +473,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/files"
+literal|"file://target/data/files"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -522,7 +522,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/files/.camel/hello.txt"
+literal|"target/data/files/.camel/hello.txt"
 argument_list|)
 operator|.
 name|exists
@@ -559,7 +559,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/files?initialDelay=0&delay=10"
+literal|"file://target/data/files?initialDelay=0&delay=10"
 argument_list|)
 comment|// change file header
 operator|.
@@ -619,7 +619,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/files"
+literal|"file://target/data/files"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -647,7 +647,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/files/.camel/hello.txt"
+literal|"target/data/files/.camel/hello.txt"
 argument_list|)
 operator|.
 name|exists

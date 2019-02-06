@@ -193,7 +193,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/manyfiles?sortBy=file:name&delay=10&synchronous=false"
+literal|"file:target/data/manyfiles?sortBy=file:name&delay=10&synchronous=false"
 argument_list|)
 operator|.
 name|routeId
@@ -412,12 +412,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/manyfiles"
+literal|"target/data/manyfiles"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/manyfiles"
+literal|"target/data/manyfiles"
 argument_list|)
 expr_stmt|;
 for|for
@@ -453,7 +453,7 @@ init|=
 operator|new
 name|PrintWriter
 argument_list|(
-literal|"target/manyfiles/newFile-"
+literal|"target/data/manyfiles/newFile-"
 operator|+
 name|pad
 argument_list|,

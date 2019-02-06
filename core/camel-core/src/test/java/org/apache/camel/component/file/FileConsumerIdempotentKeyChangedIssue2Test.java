@@ -228,7 +228,7 @@ name|endpoint
 operator|=
 name|endpoint
 argument_list|(
-literal|"file:target/changed?noop=true&initialDelay=0&delay=10"
+literal|"file:target/data/changed?noop=true&initialDelay=0&delay=10"
 operator|+
 literal|"&idempotentKey=${file:name}-${file:size}-${file:modified}"
 argument_list|)

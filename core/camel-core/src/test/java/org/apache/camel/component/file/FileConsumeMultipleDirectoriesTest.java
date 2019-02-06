@@ -119,7 +119,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/multidir/?initialDelay=0&delay=10&recursive=true&delete=true&sortBy=file:path"
+literal|"file://target/data/multidir/?initialDelay=0&delay=10&recursive=true&delete=true&sortBy=file:path"
 decl_stmt|;
 annotation|@
 name|Override
@@ -135,7 +135,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/multidir"
+literal|"target/data/multidir"
 argument_list|)
 expr_stmt|;
 name|super
@@ -270,7 +270,7 @@ argument_list|()
 decl_stmt|;
 name|assertDirectoryEquals
 argument_list|(
-literal|"target/multidir/bye.txt"
+literal|"target/data/multidir/bye.txt"
 argument_list|,
 name|file
 operator|.
@@ -326,7 +326,7 @@ argument_list|()
 expr_stmt|;
 name|assertDirectoryEquals
 argument_list|(
-literal|"target/multidir/sub/hello.txt"
+literal|"target/data/multidir/sub/hello.txt"
 argument_list|,
 name|file
 operator|.
@@ -382,7 +382,7 @@ argument_list|()
 expr_stmt|;
 name|assertDirectoryEquals
 argument_list|(
-literal|"target/multidir/sub/sub2/godday.txt"
+literal|"target/data/multidir/sub/sub2/godday.txt"
 argument_list|,
 name|file
 operator|.

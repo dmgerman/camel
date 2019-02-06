@@ -189,7 +189,7 @@ specifier|final
 name|String
 name|TEST_DIRECTORY
 init|=
-literal|"target/chmoddir/foo/"
+literal|"target/data/chmoddir/foo/"
 decl_stmt|;
 annotation|@
 name|Override

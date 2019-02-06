@@ -114,17 +114,17 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/foo"
+literal|"target/data/foo"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/bar"
+literal|"target/data/bar"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/cheese"
+literal|"target/data/cheese"
 argument_list|)
 expr_stmt|;
 name|super
@@ -390,10 +390,10 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// intercept sending to to either target/foo or target/bar directory
+comment|// intercept sending to to either target/data/foo or target/data/bar directory
 name|interceptSendToEndpoint
 argument_list|(
-literal|"file://target/(foo|bar)"
+literal|"file://target/data/(foo|bar)"
 argument_list|)
 operator|.
 name|skipSendToOriginalEndpoint
@@ -411,17 +411,17 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/foo"
+literal|"file://target/data/foo"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/bar"
+literal|"file://target/data/bar"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/cheese"
+literal|"file://target/data/cheese"
 argument_list|)
 operator|.
 name|to
@@ -466,7 +466,7 @@ argument_list|)
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/cheese/cheese.txt"
+literal|"target/data/cheese/cheese.txt"
 argument_list|)
 expr_stmt|;
 name|template
@@ -552,7 +552,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/foo"
+literal|"file://target/data/foo"
 argument_list|,
 literal|"Hello Foo"
 argument_list|,
@@ -608,7 +608,7 @@ argument_list|)
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/foo/foo.txt"
+literal|"target/data/foo/foo.txt"
 argument_list|)
 expr_stmt|;
 name|template

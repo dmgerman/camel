@@ -151,7 +151,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/reports/dosnovol"
+literal|"target/data/reports/dosnovol"
 argument_list|)
 decl_stmt|;
 name|deleteDirectory

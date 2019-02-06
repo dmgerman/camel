@@ -156,7 +156,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/split"
+literal|"target/data/split"
 argument_list|)
 expr_stmt|;
 name|super
@@ -250,7 +250,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/split"
+literal|"file:target/data/split"
 argument_list|,
 name|sb
 operator|.
@@ -312,7 +312,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/split/outbox/result0.txt"
+literal|"target/data/split/outbox/result0.txt"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -369,7 +369,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/split/outbox/result1.txt"
+literal|"target/data/split/outbox/result1.txt"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -435,7 +435,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/split?initialDelay=0&delay=10"
+literal|"file:target/data/split?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|routeId
@@ -509,7 +509,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:target/split/outbox?fileExist=Append&fileName=result${property.split}.txt"
+literal|"file:target/data/split/outbox?fileExist=Append&fileName=result${property.split}.txt"
 argument_list|)
 operator|.
 name|end
@@ -526,7 +526,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:target/split/outbox?fileExist=Append&fileName=result${property.split}.txt"
+literal|"file:target/data/split/outbox?fileExist=Append&fileName=result${property.split}.txt"
 argument_list|)
 operator|.
 name|end

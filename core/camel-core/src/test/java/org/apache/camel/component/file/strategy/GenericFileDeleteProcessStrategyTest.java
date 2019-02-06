@@ -228,7 +228,7 @@ name|FileUtil
 operator|.
 name|normalizePath
 argument_list|(
-literal|"target/foo/boom.txt"
+literal|"target/data/foo/boom.txt"
 argument_list|)
 operator|.
 name|equals
@@ -437,7 +437,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file://target/foo"
+literal|"file://target/data/foo"
 argument_list|,
 name|GenericFileEndpoint
 operator|.
@@ -467,7 +467,7 @@ name|file
 operator|.
 name|setAbsoluteFilePath
 argument_list|(
-literal|"target/foo/me.txt"
+literal|"target/data/foo/me.txt"
 argument_list|)
 expr_stmt|;
 name|GenericFileDeleteProcessStrategy
@@ -548,7 +548,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file://target/foo"
+literal|"file://target/data/foo"
 argument_list|,
 name|GenericFileEndpoint
 operator|.
@@ -578,7 +578,7 @@ name|file
 operator|.
 name|setAbsoluteFilePath
 argument_list|(
-literal|"target/foo/boom.txt"
+literal|"target/data/foo/boom.txt"
 argument_list|)
 expr_stmt|;
 name|GenericFileDeleteProcessStrategy

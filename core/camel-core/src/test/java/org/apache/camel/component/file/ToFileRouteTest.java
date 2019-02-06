@@ -150,7 +150,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/test-reports/report.txt"
+literal|"target/data/test-reports/report.txt"
 argument_list|)
 expr_stmt|;
 name|template
@@ -219,7 +219,7 @@ throws|throws
 name|Exception
 block|{
 comment|// the reports from the seda queue is processed by our processor
-comment|// before they are written to files in the target/reports directory
+comment|// before they are written to files in the target/data/reports directory
 name|from
 argument_list|(
 literal|"direct:reports"
@@ -232,7 +232,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/test-reports"
+literal|"file://target/data/test-reports"
 argument_list|,
 literal|"mock:result"
 argument_list|)

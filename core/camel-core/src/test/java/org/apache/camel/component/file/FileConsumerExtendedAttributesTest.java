@@ -147,7 +147,7 @@ specifier|final
 name|String
 name|ROOT
 init|=
-literal|"target/extended-attributes"
+literal|"target/data/extended-attributes"
 decl_stmt|;
 DECL|field|FILE
 specifier|private

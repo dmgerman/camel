@@ -128,7 +128,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/files"
+literal|"target/data/files"
 argument_list|)
 expr_stmt|;
 name|super
@@ -166,7 +166,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/files"
+literal|"file://target/data/files"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -181,7 +181,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/files"
+literal|"file://target/data/files"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -196,7 +196,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/files/2008"
+literal|"file://target/data/files/2008"
 argument_list|,
 literal|"2008 Report"
 argument_list|,
@@ -223,7 +223,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/files/report.txt"
+literal|"target/data/files/report.txt"
 argument_list|)
 operator|.
 name|exists
@@ -255,7 +255,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/files/?initialDelay=0&delay=10&fileName=report.txt&delete=true"
+literal|"file://target/data/files/?initialDelay=0&delay=10&fileName=report.txt&delete=true"
 argument_list|)
 operator|.
 name|convertBodyTo

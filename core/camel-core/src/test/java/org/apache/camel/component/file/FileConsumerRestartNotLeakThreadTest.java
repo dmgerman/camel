@@ -98,7 +98,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/leak"
+literal|"target/data/leak"
 argument_list|)
 expr_stmt|;
 name|super
@@ -139,7 +139,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/leak"
+literal|"file:target/data/leak"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -206,7 +206,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/leak"
+literal|"file:target/data/leak"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -277,7 +277,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/leak"
+literal|"file:target/data/leak"
 argument_list|)
 operator|.
 name|routeId

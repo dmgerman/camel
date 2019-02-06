@@ -517,7 +517,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/data?initialDelay=0&delay=10&noop=true"
+literal|"file:target/data/data?initialDelay=0&delay=10&noop=true"
 argument_list|)
 operator|.
 name|process
@@ -954,7 +954,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/data"
+literal|"target/data/data"
 argument_list|)
 expr_stmt|;
 name|createDirectory

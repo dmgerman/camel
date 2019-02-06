@@ -112,7 +112,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/done"
+literal|"target/data/done"
 argument_list|)
 expr_stmt|;
 name|super
@@ -146,7 +146,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done"
+literal|"file:target/data/done"
 argument_list|,
 literal|""
 argument_list|,
@@ -183,7 +183,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/done/hello.txt.ready"
+literal|"target/data/done/hello.txt.ready"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -213,7 +213,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done"
+literal|"file:target/data/done"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -272,7 +272,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/done?doneFileName=${file:name}.ready&initialDelay=0&delay=50"
+literal|"file:target/data/done?doneFileName=${file:name}.ready&initialDelay=0&delay=50"
 argument_list|)
 operator|.
 name|convertBodyTo

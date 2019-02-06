@@ -128,7 +128,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/filemove"
+literal|"target/data/filemove"
 argument_list|)
 expr_stmt|;
 name|super
@@ -159,7 +159,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/filemove/testStoreFile"
+literal|"target/data/filemove/testStoreFile"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -234,7 +234,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/filemove/testStoreFile"
+literal|"target/data/filemove/testStoreFile"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -332,7 +332,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/filemove/?fileName=testStoreFile"
+literal|"file://target/data/filemove/?fileName=testStoreFile"
 argument_list|)
 operator|.
 name|to

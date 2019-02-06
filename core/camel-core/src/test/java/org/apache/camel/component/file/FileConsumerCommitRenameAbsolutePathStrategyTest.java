@@ -133,12 +133,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/done"
+literal|"target/data/done"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/reports"
+literal|"target/data/reports"
 argument_list|)
 expr_stmt|;
 comment|// use current dir as base as aboslute path
@@ -153,7 +153,7 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 operator|+
-literal|"/target"
+literal|"/target/data"
 expr_stmt|;
 name|super
 operator|.
@@ -190,7 +190,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/done/paris.txt"
+literal|"target/data/done/paris.txt"
 argument_list|,
 literal|"Hello Paris"
 argument_list|)
@@ -199,7 +199,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/reports"
+literal|"file:target/data/reports"
 argument_list|,
 literal|"Hello Paris"
 argument_list|,
@@ -238,7 +238,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/reports?move="
+literal|"file://target/data/reports?move="
 operator|+
 name|base
 operator|+

@@ -136,7 +136,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/rename"
+literal|"target/data/rename"
 argument_list|)
 expr_stmt|;
 name|super
@@ -200,7 +200,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/rename"
+literal|"file:target/data/rename"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -240,7 +240,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/rename/bye.txt"
+literal|"target/data/rename/bye.txt"
 operator|+
 name|FileComponent
 operator|.
@@ -286,7 +286,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/rename?readLock=rename&initialDelay=0&delay=10"
+literal|"file:target/data/rename?readLock=rename&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|routeId

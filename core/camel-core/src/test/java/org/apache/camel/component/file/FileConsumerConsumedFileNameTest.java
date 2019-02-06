@@ -118,7 +118,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/consumedfilename"
+literal|"target/data/consumedfilename"
 argument_list|)
 expr_stmt|;
 name|super
@@ -190,12 +190,12 @@ argument_list|(
 literal|"hello.txt"
 argument_list|)
 expr_stmt|;
-comment|// the file name is also starting with target/consumedfilename
+comment|// the file name is also starting with target/data/consumedfilename
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/consumedfilename"
+literal|"file:target/data/consumedfilename"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -236,7 +236,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/consumedfilename?initialDelay=0&delay=10"
+literal|"file:target/data/consumedfilename?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|to

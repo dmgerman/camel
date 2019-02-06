@@ -109,7 +109,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/filesorter/"
+literal|"file://target/data/filesorter/"
 decl_stmt|;
 annotation|@
 name|Override
@@ -125,7 +125,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/filesorter"
+literal|"target/data/filesorter"
 argument_list|)
 expr_stmt|;
 name|super
@@ -159,7 +159,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filesorter/"
+literal|"file:target/data/filesorter/"
 operator|+
 name|folder
 argument_list|,
@@ -176,7 +176,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filesorter/"
+literal|"file:target/data/filesorter/"
 operator|+
 name|folder
 argument_list|,
@@ -193,7 +193,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filesorter/"
+literal|"file:target/data/filesorter/"
 operator|+
 name|folder
 argument_list|,
@@ -210,7 +210,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filesorter/"
+literal|"file:target/data/filesorter/"
 operator|+
 name|folder
 argument_list|,

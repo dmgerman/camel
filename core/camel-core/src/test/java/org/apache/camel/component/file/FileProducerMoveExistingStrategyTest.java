@@ -187,7 +187,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/file"
+literal|"target/data/file"
 argument_list|)
 expr_stmt|;
 name|super
@@ -241,7 +241,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}&moveExistingFileStrategy=#myStrategy"
+literal|"file://target/data/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}&moveExistingFileStrategy=#myStrategy"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -256,7 +256,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}&moveExistingFileStrategy=#myStrategy"
+literal|"file://target/data/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}&moveExistingFileStrategy=#myStrategy"
 argument_list|,
 literal|"Bye Existing World 1"
 argument_list|,
@@ -271,7 +271,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}&moveExistingFileStrategy=#myStrategy"
+literal|"file://target/data/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}&moveExistingFileStrategy=#myStrategy"
 argument_list|,
 literal|"Bye Existing World 2"
 argument_list|,
@@ -284,7 +284,7 @@ argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/file/hello.txt"
+literal|"target/data/file/hello.txt"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -305,14 +305,14 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/file/hello.txt"
+literal|"target/data/file/hello.txt"
 argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/file/renamed-hello2.txt"
+literal|"target/data/file/renamed-hello2.txt"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -333,14 +333,14 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/file/renamed-hello2.txt"
+literal|"target/data/file/renamed-hello2.txt"
 argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/file/renamed-hello1.txt"
+literal|"target/data/file/renamed-hello1.txt"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -361,7 +361,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/file/renamed-hello1.txt"
+literal|"target/data/file/renamed-hello1.txt"
 argument_list|)
 argument_list|)
 argument_list|)

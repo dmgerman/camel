@@ -140,7 +140,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/browse"
+literal|"target/data/browse"
 argument_list|)
 expr_stmt|;
 name|super
@@ -178,7 +178,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file:target/browse?initialDelay=0&delay=10"
+literal|"file:target/data/browse?initialDelay=0&delay=10"
 argument_list|,
 name|BrowsableEndpoint
 operator|.
@@ -231,7 +231,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/browse"
+literal|"file:target/data/browse"
 argument_list|,
 literal|"A"
 argument_list|,
@@ -249,7 +249,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file:target/browse?initialDelay=0&delay=10"
+literal|"file:target/data/browse?initialDelay=0&delay=10"
 argument_list|,
 name|FileEndpoint
 operator|.
@@ -348,7 +348,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/browse/a.txt"
+literal|"target/data/browse/a.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -378,7 +378,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/browse"
+literal|"file:target/data/browse"
 argument_list|,
 literal|"A"
 argument_list|,
@@ -393,7 +393,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/browse"
+literal|"file:target/data/browse"
 argument_list|,
 literal|"B"
 argument_list|,
@@ -411,7 +411,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file:target/browse?initialDelay=0&delay=10&sortBy=file:name"
+literal|"file:target/data/browse?initialDelay=0&delay=10&sortBy=file:name"
 argument_list|,
 name|FileEndpoint
 operator|.
@@ -532,7 +532,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/browse/a.txt"
+literal|"target/data/browse/a.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -553,7 +553,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/browse/b.txt"
+literal|"target/data/browse/b.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -583,7 +583,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/browse"
+literal|"file:target/data/browse"
 argument_list|,
 literal|"A"
 argument_list|,
@@ -598,7 +598,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/browse"
+literal|"file:target/data/browse"
 argument_list|,
 literal|"B"
 argument_list|,
@@ -613,7 +613,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/browse"
+literal|"file:target/data/browse"
 argument_list|,
 literal|"C"
 argument_list|,
@@ -631,7 +631,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file:target/browse?initialDelay=0&delay=10&recursive=true&sortBy=file:name"
+literal|"file:target/data/browse?initialDelay=0&delay=10&recursive=true&sortBy=file:name"
 argument_list|,
 name|FileEndpoint
 operator|.
@@ -774,7 +774,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/browse/a.txt"
+literal|"target/data/browse/a.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -795,7 +795,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/browse/foo/b.txt"
+literal|"target/data/browse/foo/b.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -816,7 +816,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/browse/bar/c.txt"
+literal|"target/data/browse/bar/c.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue

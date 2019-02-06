@@ -124,7 +124,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/filenoop"
+literal|"target/data/filenoop"
 argument_list|)
 expr_stmt|;
 name|super
@@ -162,7 +162,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filenoop"
+literal|"file://target/data/filenoop"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -177,7 +177,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filenoop"
+literal|"file://target/data/filenoop"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -196,7 +196,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"target/filenoop/hello.txt"
+literal|"target/data/filenoop/hello.txt"
 argument_list|)
 operator|.
 name|exists
@@ -208,7 +208,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"target/filenoop/bye.txt"
+literal|"target/data/filenoop/bye.txt"
 argument_list|)
 operator|.
 name|exists
@@ -242,7 +242,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/filenoop?noop=true&initialDelay=0&delay=10"
+literal|"file://target/data/filenoop?noop=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

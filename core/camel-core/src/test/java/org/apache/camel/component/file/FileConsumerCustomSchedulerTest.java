@@ -210,7 +210,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/file/custom"
+literal|"target/data/file/custom"
 argument_list|)
 expr_stmt|;
 name|super
@@ -243,7 +243,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/file/custom"
+literal|"file:target/data/file/custom"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -315,7 +315,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/file/custom?scheduler=#myScheduler&scheduler.foo=bar&initialDelay=0&delay=10"
+literal|"file:target/data/file/custom?scheduler=#myScheduler&scheduler.foo=bar&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|routeId

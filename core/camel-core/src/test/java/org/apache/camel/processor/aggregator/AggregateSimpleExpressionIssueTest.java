@@ -292,7 +292,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/files"
+literal|"target/data/files"
 argument_list|)
 expr_stmt|;
 name|super
@@ -421,7 +421,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"target/files"
+literal|"target/data/files"
 argument_list|,
 literal|"data"
 operator|+
@@ -548,7 +548,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/files"
+literal|"file:target/data/files"
 argument_list|)
 operator|.
 name|routeId

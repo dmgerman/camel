@@ -116,7 +116,7 @@ specifier|static
 name|String
 name|url
 init|=
-literal|"file:target/pending?initialDelay=0&delay=10&synchronous=true"
+literal|"file:target/data/pending?initialDelay=0&delay=10&synchronous=true"
 decl_stmt|;
 annotation|@
 name|Override
@@ -137,7 +137,7 @@ argument_list|()
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/pending"
+literal|"target/data/pending"
 argument_list|)
 expr_stmt|;
 name|template

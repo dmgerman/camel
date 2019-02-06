@@ -190,22 +190,22 @@ return|return;
 block|}
 name|deleteDirectory
 argument_list|(
-literal|"target/big"
+literal|"target/data/big"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/big"
+literal|"target/data/big"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/out"
+literal|"target/data/out"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/out"
+literal|"target/data/out"
 argument_list|)
 expr_stmt|;
 comment|// create a big file
@@ -215,7 +215,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/big/data.txt"
+literal|"target/data/big/data.txt"
 argument_list|)
 decl_stmt|;
 name|FileOutputStream
@@ -345,7 +345,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/big"
+literal|"file:target/data/big"
 argument_list|)
 operator|.
 name|process
@@ -373,7 +373,7 @@ init|=
 operator|new
 name|FileOutputStream
 argument_list|(
-literal|"target/out/also-big.txt"
+literal|"target/data/out/also-big.txt"
 argument_list|,
 literal|true
 argument_list|)

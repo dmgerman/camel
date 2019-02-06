@@ -118,7 +118,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/file-batch"
+literal|"target/data/file-batch"
 argument_list|)
 expr_stmt|;
 name|super
@@ -151,7 +151,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/file-batch?initialDelay=0&delay=10"
+literal|"file://target/data/file-batch?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|noAutoStartup
@@ -204,7 +204,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file-batch/"
+literal|"file://target/data/file-batch/"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -219,7 +219,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file-batch/"
+literal|"file://target/data/file-batch/"
 argument_list|,
 literal|"Bye World"
 argument_list|,

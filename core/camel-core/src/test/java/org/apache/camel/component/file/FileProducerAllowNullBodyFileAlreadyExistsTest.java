@@ -118,7 +118,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/allow"
+literal|"target/data/allow"
 argument_list|)
 expr_stmt|;
 name|super
@@ -130,7 +130,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/allow"
+literal|"file://target/data/allow"
 argument_list|,
 literal|"Hello world"
 argument_list|,
@@ -171,7 +171,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/allow/hello.txt"
+literal|"target/data/allow/hello.txt"
 argument_list|,
 literal|"Hello world"
 argument_list|)
@@ -218,7 +218,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/allow/hello.txt"
+literal|"target/data/allow/hello.txt"
 argument_list|,
 literal|""
 argument_list|)
@@ -273,7 +273,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/allow?allowNullBody=true&fileExist=Append"
+literal|"file://target/data/allow?allowNullBody=true&fileExist=Append"
 argument_list|)
 operator|.
 name|to
@@ -300,7 +300,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/allow?allowNullBody=true&fileExist=Override"
+literal|"file://target/data/allow?allowNullBody=true&fileExist=Override"
 argument_list|)
 operator|.
 name|to

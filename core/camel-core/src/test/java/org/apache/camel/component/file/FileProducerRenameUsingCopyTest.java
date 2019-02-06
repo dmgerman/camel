@@ -124,7 +124,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/file"
+literal|"target/data/file"
 argument_list|)
 expr_stmt|;
 name|super
@@ -168,7 +168,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/file/done/hello.txt"
+literal|"target/data/file/done/hello.txt"
 argument_list|,
 name|body
 argument_list|)
@@ -177,7 +177,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file"
+literal|"file://target/data/file"
 argument_list|,
 name|body
 argument_list|,
@@ -198,7 +198,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/file/done/hello.txt"
+literal|"target/data/file/done/hello.txt"
 argument_list|)
 operator|.
 name|exists
@@ -212,7 +212,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/file/hello.txt"
+literal|"target/data/file/hello.txt"
 argument_list|)
 operator|.
 name|exists
@@ -246,7 +246,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/file?renameUsingCopy=true&move=done"
+literal|"file://target/data/file?renameUsingCopy=true&move=done"
 argument_list|)
 operator|.
 name|convertBodyTo

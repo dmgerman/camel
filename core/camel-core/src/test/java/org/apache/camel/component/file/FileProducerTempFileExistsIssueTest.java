@@ -106,7 +106,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/tempprefix"
+literal|"target/data/tempprefix"
 argument_list|)
 expr_stmt|;
 name|super
@@ -143,7 +143,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file://target/tempprefix?fileExist=Append&tempPrefix=foo"
+literal|"file://target/data/tempprefix?fileExist=Append&tempPrefix=foo"
 argument_list|)
 operator|.
 name|createProducer
@@ -178,7 +178,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file://target/tempprefix?fileExist=Append&tempFileName=foo"
+literal|"file://target/data/tempprefix?fileExist=Append&tempFileName=foo"
 argument_list|)
 operator|.
 name|createProducer
@@ -222,7 +222,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/tempprefix"
+literal|"file://target/data/tempprefix"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -237,7 +237,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/tempprefix?tempPrefix=foo"
+literal|"file://target/data/tempprefix?tempPrefix=foo"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -254,7 +254,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/tempprefix/hello.txt"
+literal|"target/data/tempprefix/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -301,7 +301,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/tempprefix"
+literal|"file://target/data/tempprefix"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -316,7 +316,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/tempprefix"
+literal|"file://target/data/tempprefix"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -331,7 +331,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/tempprefix?tempPrefix=foo"
+literal|"file://target/data/tempprefix?tempPrefix=foo"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -348,7 +348,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/tempprefix/hello.txt"
+literal|"target/data/tempprefix/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -395,7 +395,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/tempprefix"
+literal|"file://target/data/tempprefix"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -410,7 +410,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/tempprefix?tempPrefix=foo&fileExist=Override"
+literal|"file://target/data/tempprefix?tempPrefix=foo&fileExist=Override"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -427,7 +427,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/tempprefix/hello.txt"
+literal|"target/data/tempprefix/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -474,7 +474,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/tempprefix"
+literal|"file://target/data/tempprefix"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -489,7 +489,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/tempprefix?tempPrefix=foo&fileExist=Ignore"
+literal|"file://target/data/tempprefix?tempPrefix=foo&fileExist=Ignore"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -506,7 +506,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/tempprefix/hello.txt"
+literal|"target/data/tempprefix/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -554,7 +554,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/tempprefix"
+literal|"file://target/data/tempprefix"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -571,7 +571,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/tempprefix?tempPrefix=foo&fileExist=Fail"
+literal|"file://target/data/tempprefix?tempPrefix=foo&fileExist=Fail"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -629,7 +629,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/tempprefix/hello.txt"
+literal|"target/data/tempprefix/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertEquals

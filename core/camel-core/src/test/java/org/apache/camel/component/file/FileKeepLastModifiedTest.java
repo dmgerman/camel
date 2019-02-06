@@ -124,7 +124,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/keep"
+literal|"target/data/keep"
 argument_list|)
 expr_stmt|;
 name|super
@@ -162,7 +162,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/keep?noop=true?initialDelay=0&delay=10"
+literal|"file://target/data/keep?noop=true?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|delay
@@ -172,7 +172,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/keep/out?keepLastModified=true"
+literal|"file://target/data/keep/out?keepLastModified=true"
 argument_list|,
 literal|"mock:result"
 argument_list|)
@@ -222,7 +222,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/keep"
+literal|"file://target/data/keep"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -267,7 +267,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/keep/out/hello.txt"
+literal|"target/data/keep/out/hello.txt"
 argument_list|)
 operator|.
 name|lastModified
@@ -312,7 +312,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/keep?noop=true?initialDelay=0&delay=10"
+literal|"file://target/data/keep?noop=true?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|delay
@@ -322,7 +322,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/keep/out?keepLastModified=false"
+literal|"file://target/data/keep/out?keepLastModified=false"
 argument_list|,
 literal|"mock:result"
 argument_list|)
@@ -372,7 +372,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/keep"
+literal|"file://target/data/keep"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -417,7 +417,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/keep/out/hello.txt"
+literal|"target/data/keep/out/hello.txt"
 argument_list|)
 operator|.
 name|lastModified
@@ -462,7 +462,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/keep?noop=true&initialDelay=0&delay=10"
+literal|"file://target/data/keep?noop=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|delay
@@ -472,7 +472,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/keep/out"
+literal|"file://target/data/keep/out"
 argument_list|,
 literal|"mock:result"
 argument_list|)
@@ -522,7 +522,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/keep"
+literal|"file://target/data/keep"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -567,7 +567,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/keep/out/hello.txt"
+literal|"target/data/keep/out/hello.txt"
 argument_list|)
 operator|.
 name|lastModified

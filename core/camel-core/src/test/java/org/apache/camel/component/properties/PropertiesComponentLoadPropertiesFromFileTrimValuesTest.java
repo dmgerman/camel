@@ -94,12 +94,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/space"
+literal|"target/data/space"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/space"
+literal|"target/data/space"
 argument_list|)
 expr_stmt|;
 name|super
@@ -133,7 +133,7 @@ init|=
 operator|new
 name|FileOutputStream
 argument_list|(
-literal|"target/space/space.properties"
+literal|"target/data/space/space.properties"
 argument_list|)
 decl_stmt|;
 name|String
@@ -266,7 +266,7 @@ name|pc
 operator|.
 name|setLocation
 argument_list|(
-literal|"file:target/space/space.properties"
+literal|"file:target/data/space/space.properties"
 argument_list|)
 expr_stmt|;
 name|context

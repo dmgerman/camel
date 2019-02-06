@@ -91,7 +91,7 @@ specifier|private
 name|String
 name|path
 init|=
-literal|"target/toformat"
+literal|"target/data/toformat"
 decl_stmt|;
 DECL|field|name
 specifier|private
@@ -128,7 +128,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/toformat"
+literal|"target/data/toformat"
 argument_list|)
 expr_stmt|;
 name|super

@@ -118,7 +118,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/exclude"
+literal|"target/data/exclude"
 argument_list|)
 expr_stmt|;
 name|super
@@ -187,7 +187,7 @@ block|{
 name|String
 name|url
 init|=
-literal|"file://target/exclude"
+literal|"file://target/data/exclude"
 decl_stmt|;
 name|template
 operator|.
@@ -291,7 +291,7 @@ argument_list|()
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file://target/exclude/?initialDelay=10&delay=10"
+literal|"file://target/data/exclude/?initialDelay=10&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

@@ -102,7 +102,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/move"
+literal|"target/data/move"
 argument_list|)
 expr_stmt|;
 name|super
@@ -158,14 +158,14 @@ argument_list|)
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/move/error/hello.txt"
+literal|"target/data/move/error/hello.txt"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/move"
+literal|"file:target/data/move"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -206,7 +206,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/move?moveFailed=error&initialDelay=0&delay=10"
+literal|"file:target/data/move?moveFailed=error&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|onException

@@ -110,7 +110,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/file"
+literal|"target/data/file"
 argument_list|)
 expr_stmt|;
 name|super
@@ -133,7 +133,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}"
+literal|"file://target/data/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -146,12 +146,12 @@ argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/file/hello.txt"
+literal|"target/data/file/hello.txt"
 argument_list|)
 expr_stmt|;
 name|assertFileNotExists
 argument_list|(
-literal|"target/file/renamed-hello.txt"
+literal|"target/data/file/renamed-hello.txt"
 argument_list|)
 expr_stmt|;
 block|}
@@ -169,7 +169,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}"
+literal|"file://target/data/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -184,7 +184,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}"
+literal|"file://target/data/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -197,7 +197,7 @@ argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/file/hello.txt"
+literal|"target/data/file/hello.txt"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -218,14 +218,14 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/file/hello.txt"
+literal|"target/data/file/hello.txt"
 argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/file/renamed-hello.txt"
+literal|"target/data/file/renamed-hello.txt"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -246,7 +246,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/file/renamed-hello.txt"
+literal|"target/data/file/renamed-hello.txt"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -266,7 +266,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file?tempFileName=${file:onlyname}.temp&fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}"
+literal|"file://target/data/file?tempFileName=${file:onlyname}.temp&fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -281,7 +281,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file?tempFileName=${file:onlyname}.temp&fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}"
+literal|"file://target/data/file?tempFileName=${file:onlyname}.temp&fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -294,7 +294,7 @@ argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/file/hello.txt"
+literal|"target/data/file/hello.txt"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -315,14 +315,14 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/file/hello.txt"
+literal|"target/data/file/hello.txt"
 argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/file/renamed-hello.txt"
+literal|"target/data/file/renamed-hello.txt"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -343,7 +343,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/file/renamed-hello.txt"
+literal|"target/data/file/renamed-hello.txt"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -363,7 +363,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file?fileExist=Move&moveExisting=backup"
+literal|"file://target/data/file?fileExist=Move&moveExisting=backup"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -378,7 +378,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file?fileExist=Move&moveExisting=backup"
+literal|"file://target/data/file?fileExist=Move&moveExisting=backup"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -391,7 +391,7 @@ argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/file/hello.txt"
+literal|"target/data/file/hello.txt"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -412,7 +412,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/file/hello.txt"
+literal|"target/data/file/hello.txt"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -420,7 +420,7 @@ expr_stmt|;
 comment|// would move into sub directory and keep existing name as is
 name|assertFileExists
 argument_list|(
-literal|"target/file/backup/hello.txt"
+literal|"target/data/file/backup/hello.txt"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -441,7 +441,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/file/backup/hello.txt"
+literal|"target/data/file/backup/hello.txt"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -461,7 +461,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file"
+literal|"file://target/data/file"
 argument_list|,
 literal|"Old file"
 argument_list|,
@@ -476,7 +476,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}&eagerDeleteTargetFile=true"
+literal|"file://target/data/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}&eagerDeleteTargetFile=true"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -492,7 +492,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}&eagerDeleteTargetFile=true"
+literal|"file://target/data/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}&eagerDeleteTargetFile=true"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -506,7 +506,7 @@ expr_stmt|;
 comment|// we could write the new file so the old context should be there
 name|assertFileExists
 argument_list|(
-literal|"target/file/hello.txt"
+literal|"target/data/file/hello.txt"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -527,7 +527,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/file/hello.txt"
+literal|"target/data/file/hello.txt"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -535,7 +535,7 @@ expr_stmt|;
 comment|// and the renamed file should be overridden
 name|assertFileExists
 argument_list|(
-literal|"target/file/renamed-hello.txt"
+literal|"target/data/file/renamed-hello.txt"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -556,7 +556,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/file/renamed-hello.txt"
+literal|"target/data/file/renamed-hello.txt"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -576,7 +576,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file"
+literal|"file://target/data/file"
 argument_list|,
 literal|"Old file"
 argument_list|,
@@ -591,7 +591,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}&eagerDeleteTargetFile=false"
+literal|"file://target/data/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}&eagerDeleteTargetFile=false"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -608,7 +608,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}&eagerDeleteTargetFile=false"
+literal|"file://target/data/file?fileExist=Move&moveExisting=${file:parent}/renamed-${file:onlyname}&eagerDeleteTargetFile=false"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -663,7 +663,7 @@ block|}
 comment|// we could not write the new file so the previous context should be there
 name|assertFileExists
 argument_list|(
-literal|"target/file/hello.txt"
+literal|"target/data/file/hello.txt"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -684,7 +684,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/file/hello.txt"
+literal|"target/data/file/hello.txt"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -692,7 +692,7 @@ expr_stmt|;
 comment|// and the renamed file should be untouched
 name|assertFileExists
 argument_list|(
-literal|"target/file/renamed-hello.txt"
+literal|"target/data/file/renamed-hello.txt"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -713,7 +713,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/file/renamed-hello.txt"
+literal|"target/data/file/renamed-hello.txt"
 argument_list|)
 argument_list|)
 argument_list|)

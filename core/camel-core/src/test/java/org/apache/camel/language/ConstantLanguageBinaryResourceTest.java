@@ -120,7 +120,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target"
+literal|"file:target/data"
 argument_list|,
 name|data
 argument_list|,

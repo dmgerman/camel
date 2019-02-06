@@ -114,7 +114,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/filename-consumer"
+literal|"target/data/filename-consumer"
 argument_list|)
 expr_stmt|;
 name|super
@@ -164,12 +164,12 @@ operator|.
 name|isNotNull
 argument_list|()
 expr_stmt|;
-comment|// the file name is also starting with target/filename-consumer
+comment|// the file name is also starting with target/data/filename-consumer
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filename-consumer"
+literal|"file:target/data/filename-consumer"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -177,14 +177,14 @@ name|Exchange
 operator|.
 name|FILE_NAME
 argument_list|,
-literal|"target/filename-consumer-hello.txt"
+literal|"target/data/filename-consumer-hello.txt"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filename-consumer"
+literal|"file:target/data/filename-consumer"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -192,7 +192,7 @@ name|Exchange
 operator|.
 name|FILE_NAME
 argument_list|,
-literal|"target/filename-consumer-bye.txt"
+literal|"target/data/filename-consumer-bye.txt"
 argument_list|)
 expr_stmt|;
 name|context
@@ -206,10 +206,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// and expect name to contain target/filename-consumer-XXX.txt
+comment|// and expect name to contain target/data/filename-consumer-XXX.txt
 name|assertDirectoryEquals
 argument_list|(
-literal|"target/filename-consumer-bye.txt"
+literal|"target/data/filename-consumer-bye.txt"
 argument_list|,
 name|mock
 operator|.
@@ -238,7 +238,7 @@ argument_list|)
 expr_stmt|;
 name|assertDirectoryEquals
 argument_list|(
-literal|"target/filename-consumer-hello.txt"
+literal|"target/data/filename-consumer-hello.txt"
 argument_list|,
 name|mock
 operator|.
@@ -292,7 +292,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/filename-consumer?initialDelay=0&delay=10&recursive=true&sortBy=file:name"
+literal|"file:target/data/filename-consumer?initialDelay=0&delay=10&recursive=true&sortBy=file:name"
 argument_list|)
 operator|.
 name|noAutoStartup

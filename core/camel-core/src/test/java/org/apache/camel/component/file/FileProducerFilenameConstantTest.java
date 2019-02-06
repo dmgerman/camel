@@ -82,7 +82,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/constant"
+literal|"target/data/constant"
 argument_list|)
 expr_stmt|;
 name|super
@@ -105,7 +105,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"file://target/constant?fileName=header.txt"
+literal|"file://target/data/constant?fileName=header.txt"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -116,7 +116,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/constant/header.txt"
+literal|"target/data/constant/header.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue

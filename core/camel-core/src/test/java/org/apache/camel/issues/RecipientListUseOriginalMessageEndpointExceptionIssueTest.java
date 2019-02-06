@@ -112,12 +112,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/inbox"
+literal|"target/data/inbox"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/outbox"
+literal|"target/data/outbox"
 argument_list|)
 expr_stmt|;
 name|super
@@ -187,7 +187,7 @@ argument_list|)
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/outbox/hello.txt"
+literal|"target/data/outbox/hello.txt"
 argument_list|,
 literal|"A"
 argument_list|)
@@ -196,7 +196,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/inbox"
+literal|"file:target/data/inbox"
 argument_list|,
 literal|"A"
 argument_list|,
@@ -252,7 +252,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"file://target/outbox"
+literal|"file://target/data/outbox"
 argument_list|)
 operator|.
 name|to
@@ -262,7 +262,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file://target/inbox?initialDelay=0&delay=10"
+literal|"file://target/data/inbox?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|transform

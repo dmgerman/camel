@@ -98,7 +98,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/script"
+literal|"target/data/script"
 argument_list|)
 expr_stmt|;
 name|super
@@ -142,7 +142,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/script"
+literal|"file:target/data/script"
 argument_list|,
 literal|"Bye ${body}"
 argument_list|,
@@ -195,7 +195,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/script"
+literal|"file:target/data/script"
 argument_list|,
 literal|"Hello ${body}"
 argument_list|,
@@ -215,7 +215,7 @@ comment|// the script will be loaded on each message, as we disabled cache
 operator|.
 name|to
 argument_list|(
-literal|"language:simple:file:target/script/myscript.txt?contentCache=false"
+literal|"language:simple:file:target/data/script/myscript.txt?contentCache=false"
 argument_list|)
 operator|.
 name|to

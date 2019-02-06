@@ -96,7 +96,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/splitter"
+literal|"target/data/splitter"
 argument_list|)
 expr_stmt|;
 name|super
@@ -147,7 +147,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/splitter"
+literal|"file:target/data/splitter"
 argument_list|,
 literal|"A,B,C,D,E"
 argument_list|,
@@ -214,7 +214,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/splitter"
+literal|"file:target/data/splitter"
 argument_list|,
 literal|"A,B,C,D,E"
 argument_list|,
@@ -229,7 +229,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/splitter"
+literal|"file:target/data/splitter"
 argument_list|,
 literal|"F,G,H,I"
 argument_list|,
@@ -270,7 +270,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/splitter?initialDelay=0&delay=10&delete=true&sortBy=file:name"
+literal|"file:target/data/splitter?initialDelay=0&delay=10&delete=true&sortBy=file:name"
 argument_list|)
 operator|.
 name|split

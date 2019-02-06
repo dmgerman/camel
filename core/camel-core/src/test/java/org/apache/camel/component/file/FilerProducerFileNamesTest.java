@@ -124,7 +124,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/reports"
+literal|"target/data/reports"
 argument_list|)
 expr_stmt|;
 name|super
@@ -177,7 +177,7 @@ name|fileEndpoint
 init|=
 name|resolveMandatoryEndpoint
 argument_list|(
-literal|"file:target/reports/report.txt"
+literal|"file:target/data/reports/report.txt"
 argument_list|,
 name|FileEndpoint
 operator|.
@@ -212,7 +212,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/reports/"
+literal|"target/data/reports/"
 operator|+
 name|id
 argument_list|)
@@ -298,7 +298,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:target/reports/"
+literal|"file:target/data/reports/"
 argument_list|)
 expr_stmt|;
 name|from

@@ -152,12 +152,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/done"
+literal|"target/data/done"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/reports"
+literal|"target/data/reports"
 argument_list|)
 expr_stmt|;
 name|super
@@ -195,7 +195,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/done/paris.txt"
+literal|"target/data/done/paris.txt"
 argument_list|,
 literal|"Hello Paris"
 argument_list|)
@@ -204,7 +204,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/reports"
+literal|"file:target/data/reports"
 argument_list|,
 literal|"Hello Paris"
 argument_list|,
@@ -238,7 +238,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/done"
+literal|"target/data/done"
 argument_list|)
 decl_stmt|;
 name|file
@@ -252,7 +252,7 @@ init|=
 operator|new
 name|FileWriter
 argument_list|(
-literal|"target/done/london.txt"
+literal|"target/data/done/london.txt"
 argument_list|)
 decl_stmt|;
 try|try
@@ -297,7 +297,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/reports"
+literal|"file:target/data/reports"
 argument_list|,
 literal|"Hello London"
 argument_list|,
@@ -329,7 +329,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"target/done/london.txt"
+literal|"target/data/done/london.txt"
 argument_list|)
 argument_list|,
 literal|null
@@ -367,7 +367,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/reports?move=../done/${file:name}&initialDelay=0&delay=10"
+literal|"file://target/data/reports?move=../done/${file:name}&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

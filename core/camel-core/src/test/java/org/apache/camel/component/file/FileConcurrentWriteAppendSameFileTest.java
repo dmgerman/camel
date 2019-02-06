@@ -162,7 +162,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/concurrent"
+literal|"target/data/concurrent"
 argument_list|)
 expr_stmt|;
 name|super
@@ -220,7 +220,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/concurrent"
+literal|"file:target/data/concurrent"
 argument_list|,
 name|sb
 operator|.
@@ -304,7 +304,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/concurrent/outbox/result.txt"
+literal|"target/data/concurrent/outbox/result.txt"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -408,7 +408,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/concurrent?initialDelay=0&delay=10"
+literal|"file:target/data/concurrent?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|routeId
@@ -454,7 +454,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:target/concurrent/outbox?fileExist=Append&fileName=result.txt"
+literal|"file:target/data/concurrent/outbox?fileExist=Append&fileName=result.txt"
 argument_list|)
 operator|.
 name|to

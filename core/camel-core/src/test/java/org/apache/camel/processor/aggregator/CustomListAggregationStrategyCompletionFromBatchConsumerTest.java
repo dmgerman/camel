@@ -154,7 +154,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/batch"
+literal|"file:target/data/batch"
 argument_list|,
 literal|"100"
 argument_list|,
@@ -169,7 +169,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/batch"
+literal|"file:target/data/batch"
 argument_list|,
 literal|"150"
 argument_list|,
@@ -184,7 +184,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/batch"
+literal|"file:target/data/batch"
 argument_list|,
 literal|"130"
 argument_list|,
@@ -318,7 +318,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/batch?initialDelay=0&delay=10&sortBy=file:name"
+literal|"file:target/data/batch?initialDelay=0&delay=10&sortBy=file:name"
 argument_list|)
 operator|.
 name|routeId

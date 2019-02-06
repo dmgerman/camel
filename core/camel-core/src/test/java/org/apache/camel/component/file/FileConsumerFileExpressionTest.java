@@ -150,7 +150,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/filelanguage"
+literal|"target/data/filelanguage"
 argument_list|)
 expr_stmt|;
 name|super
@@ -218,7 +218,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filelanguage/bean"
+literal|"file://target/data/filelanguage/bean"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -233,7 +233,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filelanguage/bean"
+literal|"file://target/data/filelanguage/bean"
 argument_list|,
 literal|"Goodday World"
 argument_list|,
@@ -248,7 +248,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filelanguage/bean"
+literal|"file://target/data/filelanguage/bean"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -278,7 +278,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/filelanguage/bean/"
+literal|"file://target/data/filelanguage/bean/"
 operator|+
 literal|"?initialDelay=0&delay=10&fileName=${bean:counter.next}.txt&delete=true"
 argument_list|)
@@ -331,7 +331,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filelanguage/date"
+literal|"file://target/data/filelanguage/date"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -346,7 +346,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filelanguage/date"
+literal|"file://target/data/filelanguage/date"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -361,7 +361,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filelanguage/date"
+literal|"file://target/data/filelanguage/date"
 argument_list|,
 literal|"Goodday World"
 argument_list|,
@@ -395,7 +395,7 @@ block|{
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"file://target/filelanguage/date/"
+literal|"file://target/data/filelanguage/date/"
 operator|+
 literal|"?initialDelay=0&delay=10&fileName=myfile-${date:now:yyyyMMdd}.txt"
 argument_list|)

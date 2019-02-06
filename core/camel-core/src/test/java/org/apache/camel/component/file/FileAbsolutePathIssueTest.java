@@ -139,12 +139,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/issue"
+literal|"target/data/issue"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/done"
+literal|"target/data/done"
 argument_list|)
 expr_stmt|;
 name|start
@@ -152,7 +152,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-literal|"target/issue"
+literal|"target/data/issue"
 argument_list|)
 operator|.
 name|getAbsolutePath
@@ -163,7 +163,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-literal|"target/done"
+literal|"target/data/done"
 argument_list|)
 operator|.
 name|getAbsolutePath

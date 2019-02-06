@@ -164,12 +164,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/enrich"
+literal|"target/data/enrich"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/enrichdata"
+literal|"target/data/enrichdata"
 argument_list|)
 expr_stmt|;
 name|super
@@ -217,28 +217,28 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/enrich/.done/AAA.fin"
+literal|"target/data/enrich/.done/AAA.fin"
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/enrichdata/.done/AAA.dat"
+literal|"target/data/enrichdata/.done/AAA.dat"
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/enrichdata/BBB.dat"
+literal|"target/data/enrichdata/BBB.dat"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/enrichdata"
+literal|"file://target/data/enrichdata"
 argument_list|,
 literal|"Big file"
 argument_list|,
@@ -253,7 +253,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/enrichdata"
+literal|"file://target/data/enrichdata"
 argument_list|,
 literal|"Other Big file"
 argument_list|,
@@ -268,7 +268,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/enrich"
+literal|"file://target/data/enrich"
 argument_list|,
 literal|"Start"
 argument_list|,
@@ -309,7 +309,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/enrich?initialDelay=0&delay=10&move=.done"
+literal|"file://target/data/enrich?initialDelay=0&delay=10&move=.done"
 argument_list|)
 operator|.
 name|process
@@ -384,7 +384,7 @@ name|con
 operator|.
 name|receive
 argument_list|(
-literal|"file://target/enrichdata?initialDelay=0&delay=10&move=.done&fileName="
+literal|"file://target/data/enrichdata?initialDelay=0&delay=10&move=.done&fileName="
 operator|+
 name|name
 argument_list|,

@@ -140,7 +140,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/classes/com.mycompany"
+literal|"target/data/classes/com.mycompany"
 argument_list|)
 expr_stmt|;
 name|createDirectory
@@ -203,7 +203,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/classes/com.mycompany"
+literal|"target/data/classes/com.mycompany"
 argument_list|)
 expr_stmt|;
 name|super

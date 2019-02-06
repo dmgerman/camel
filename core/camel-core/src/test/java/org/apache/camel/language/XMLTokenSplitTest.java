@@ -132,12 +132,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/xtokenizer"
+literal|"target/data/xtokenizer"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/xtokenizer2"
+literal|"target/data/xtokenizer2"
 argument_list|)
 expr_stmt|;
 name|super
@@ -226,7 +226,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/xtokenizer"
+literal|"file:target/data/xtokenizer"
 argument_list|,
 name|body
 argument_list|,
@@ -321,7 +321,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/xtokenizer2"
+literal|"file:target/data/xtokenizer2"
 argument_list|,
 name|body
 argument_list|,
@@ -438,7 +438,7 @@ block|{
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"file:target/xtokenizer?initialDelay=0&delay=10"
+literal|"file:target/data/xtokenizer?initialDelay=0&delay=10"
 argument_list|)
 comment|// split the order child tags, and inherit namespaces from the orders root tag
 operator|.
@@ -460,7 +460,7 @@ expr_stmt|;
 comment|// END SNIPPET: e1
 name|from
 argument_list|(
-literal|"file:target/xtokenizer2?initialDelay=0&delay=10"
+literal|"file:target/data/xtokenizer2?initialDelay=0&delay=10"
 argument_list|)
 comment|// split the order child tags, and inherit namespaces from the orders root tag
 operator|.

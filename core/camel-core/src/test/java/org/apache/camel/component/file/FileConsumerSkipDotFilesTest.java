@@ -109,7 +109,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/dotfiles/?initialDelay=0&delay=10"
+literal|"file://target/data/dotfiles/?initialDelay=0&delay=10"
 decl_stmt|;
 annotation|@
 name|Override
@@ -125,7 +125,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/dotfiles"
+literal|"target/data/dotfiles"
 argument_list|)
 expr_stmt|;
 name|super
@@ -170,7 +170,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/dotfiles/"
+literal|"file:target/data/dotfiles/"
 argument_list|,
 literal|"This is a dot file"
 argument_list|,
@@ -216,7 +216,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/dotfiles/"
+literal|"file:target/data/dotfiles/"
 argument_list|,
 literal|"This is a dot file"
 argument_list|,
@@ -231,7 +231,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/dotfiles/"
+literal|"file:target/data/dotfiles/"
 argument_list|,
 literal|"Hello World"
 argument_list|,

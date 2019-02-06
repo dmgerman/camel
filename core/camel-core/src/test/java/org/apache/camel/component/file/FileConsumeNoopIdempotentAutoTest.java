@@ -70,7 +70,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/noop?initialDelay=0&delay=10&noop=true"
+literal|"file://target/data/noop?initialDelay=0&delay=10&noop=true"
 argument_list|)
 operator|.
 name|convertBodyTo

@@ -116,7 +116,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/pair"
+literal|"target/data/pair"
 argument_list|)
 expr_stmt|;
 name|super
@@ -205,7 +205,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/pair"
+literal|"file:target/data/pair"
 argument_list|,
 name|body
 argument_list|,
@@ -318,7 +318,7 @@ block|{
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"file:target/pair?initialDelay=0&delay=10"
+literal|"file:target/data/pair?initialDelay=0&delay=10"
 argument_list|)
 comment|// split the order child tags, and inherit namespaces from the orders root tag
 operator|.

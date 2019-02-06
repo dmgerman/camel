@@ -98,7 +98,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/allow"
+literal|"target/data/allow"
 argument_list|)
 expr_stmt|;
 name|super
@@ -121,14 +121,14 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"file://target/allow?allowNullBody=true&fileName=allowNullBody.txt"
+literal|"file://target/data/allow?allowNullBody=true&fileName=allowNullBody.txt"
 argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/allow/allowNullBody.txt"
+literal|"target/data/allow/allowNullBody.txt"
 argument_list|)
 expr_stmt|;
 block|}
@@ -148,7 +148,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"file://target/allow?fileName=allowNullBody.txt"
+literal|"file://target/data/allow?fileName=allowNullBody.txt"
 argument_list|,
 literal|null
 argument_list|)
@@ -201,7 +201,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/allow/allowNullBody.txt"
+literal|"target/data/allow/allowNullBody.txt"
 argument_list|)
 operator|.
 name|exists

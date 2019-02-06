@@ -491,7 +491,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/test"
+literal|"file://target/data/test"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -508,7 +508,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/test/hello.txt"
+literal|"target/data/test/hello.txt"
 argument_list|)
 decl_stmt|;
 name|OutputStream
@@ -550,7 +550,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/test"
+literal|"file://target/data/test"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -567,7 +567,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/test/hello.txt"
+literal|"target/data/test/hello.txt"
 argument_list|)
 decl_stmt|;
 name|Writer
@@ -971,7 +971,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/test"
+literal|"file://target/data/test"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -988,7 +988,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/test/hello.txt"
+literal|"target/data/test/hello.txt"
 argument_list|)
 decl_stmt|;
 name|byte

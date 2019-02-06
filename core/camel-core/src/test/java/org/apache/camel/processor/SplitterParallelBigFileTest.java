@@ -206,7 +206,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/split"
+literal|"target/data/split"
 argument_list|)
 expr_stmt|;
 name|createDirectory
@@ -412,7 +412,7 @@ comment|// lower max pool to 10 for less number of concurrent threads
 comment|//context.getExecutorServiceStrategy().getDefaultThreadPoolProfile().setMaxPoolSize(10);
 name|from
 argument_list|(
-literal|"file:target/split?initialDelay=0&delay=10"
+literal|"file:target/data/split?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|split

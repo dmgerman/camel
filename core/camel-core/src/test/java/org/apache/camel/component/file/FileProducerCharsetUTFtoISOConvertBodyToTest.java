@@ -199,12 +199,12 @@ argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/charset"
+literal|"target/data/charset"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/charset/input"
+literal|"target/data/charset/input"
 argument_list|)
 expr_stmt|;
 name|log
@@ -295,7 +295,7 @@ name|Paths
 operator|.
 name|get
 argument_list|(
-literal|"target/charset/input/input.txt"
+literal|"target/data/charset/input/input.txt"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -338,7 +338,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/charset/output.txt"
+literal|"target/data/charset/output.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -528,7 +528,7 @@ block|{
 comment|// the input file is in utf-8
 name|from
 argument_list|(
-literal|"file:target/charset/input?initialDelay=0&delay=10&noop=true&charset=utf-8"
+literal|"file:target/data/charset/input?initialDelay=0&delay=10&noop=true&charset=utf-8"
 argument_list|)
 comment|// now convert the input file from utf-8 to iso-8859-1
 operator|.
@@ -557,7 +557,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:target/charset/?fileName=output.txt"
+literal|"file:target/data/charset/?fileName=output.txt"
 argument_list|)
 expr_stmt|;
 block|}

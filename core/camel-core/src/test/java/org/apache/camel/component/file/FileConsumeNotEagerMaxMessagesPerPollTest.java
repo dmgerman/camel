@@ -110,7 +110,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/poll/?initialDelay=0&delay=10&"
+literal|"file://target/data/poll/?initialDelay=0&delay=10&"
 operator|+
 literal|"maxMessagesPerPoll=2&eagerMaxMessagesPerPoll=false&sortBy=file:name"
 decl_stmt|;
@@ -128,7 +128,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/poll"
+literal|"target/data/poll"
 argument_list|)
 expr_stmt|;
 name|super

@@ -450,7 +450,7 @@ name|service
 operator|.
 name|setRoot
 argument_list|(
-literal|"target/cluster"
+literal|"target/data/cluster"
 argument_list|)
 expr_stmt|;
 name|service

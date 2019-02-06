@@ -235,7 +235,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/filelanguage"
+literal|"target/data/filelanguage"
 argument_list|)
 expr_stmt|;
 name|super
@@ -314,7 +314,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filelanguage/bean"
+literal|"file://target/data/filelanguage/bean"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -344,7 +344,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/filelanguage/bean/"
+literal|"file://target/data/filelanguage/bean/"
 operator|+
 literal|"?pollStrategy=#myPoll&initialDelay=0&delay=10&fileName=${bean:counter?method=doNotExistMethod}.txt&delete=true"
 argument_list|)

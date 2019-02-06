@@ -94,7 +94,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/eagerdelete"
+literal|"target/data/eagerdelete"
 argument_list|)
 expr_stmt|;
 name|super
@@ -106,7 +106,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/eagerdelete"
+literal|"file://target/data/eagerdelete"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -132,7 +132,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/eagerdelete?tempFileName=inprogress-${file:name}&eagerDeleteTargetFile=true"
+literal|"file://target/data/eagerdelete?tempFileName=inprogress-${file:name}&eagerDeleteTargetFile=true"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -149,7 +149,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/eagerdelete/world.txt"
+literal|"target/data/eagerdelete/world.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -196,7 +196,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/eagerdelete?tempFileName=inprogress-${file:name}&eagerDeleteTargetFile=false"
+literal|"file://target/data/eagerdelete?tempFileName=inprogress-${file:name}&eagerDeleteTargetFile=false"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -213,7 +213,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/eagerdelete/world.txt"
+literal|"target/data/eagerdelete/world.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -260,7 +260,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/eagerdelete?tempFileName=inprogress-${file:name}"
+literal|"file://target/data/eagerdelete?tempFileName=inprogress-${file:name}"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -277,7 +277,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/eagerdelete/world.txt"
+literal|"target/data/eagerdelete/world.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue

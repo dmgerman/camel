@@ -103,7 +103,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/file/custom?scheduler=spring"
+literal|"file:target/data/file/custom?scheduler=spring"
 argument_list|)
 operator|.
 name|routeId

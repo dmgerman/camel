@@ -126,7 +126,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/failed"
+literal|"target/data/failed"
 argument_list|)
 expr_stmt|;
 name|super
@@ -164,14 +164,14 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/failed/error/bye.txt"
+literal|"target/data/failed/error/bye.txt"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/failed"
+literal|"file://target/data/failed"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -186,7 +186,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/failed"
+literal|"file://target/data/failed"
 argument_list|,
 literal|"Kabom"
 argument_list|,
@@ -242,12 +242,12 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"file://target/failed/error"
+literal|"file://target/data/failed/error"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file://target/failed?delete=true&initialDelay=0&delay=10"
+literal|"file://target/data/failed?delete=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|setBody

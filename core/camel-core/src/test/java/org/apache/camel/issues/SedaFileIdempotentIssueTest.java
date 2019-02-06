@@ -209,12 +209,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/inbox"
+literal|"target/data/inbox"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/inbox"
+literal|"target/data/inbox"
 argument_list|)
 expr_stmt|;
 comment|// create file without using Camel
@@ -224,7 +224,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/inbox/hello.txt"
+literal|"target/data/inbox/hello.txt"
 argument_list|)
 decl_stmt|;
 name|FileOutputStream
@@ -346,7 +346,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:target/inbox?idempotent=true&noop=true&idempotentRepository=#repo&initialDelay=0&delay=10"
+literal|"file:target/data/inbox?idempotent=true&noop=true&idempotentRepository=#repo&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|to

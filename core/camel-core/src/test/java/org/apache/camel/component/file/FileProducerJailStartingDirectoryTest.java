@@ -114,7 +114,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/jail"
+literal|"target/data/jail"
 argument_list|)
 expr_stmt|;
 name|super
@@ -297,7 +297,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:target/jail/outbox"
+literal|"file:target/data/jail/outbox"
 argument_list|)
 operator|.
 name|to

@@ -114,7 +114,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/file"
+literal|"target/data/file"
 argument_list|)
 expr_stmt|;
 name|super
@@ -152,7 +152,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/file/hello.txt"
+literal|"target/data/file/hello.txt"
 argument_list|,
 literal|"Bye World"
 argument_list|)
@@ -161,7 +161,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file"
+literal|"file://target/data/file"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -176,7 +176,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file?fileExist=Override"
+literal|"file://target/data/file?fileExist=Override"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -225,7 +225,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/file?noop=true&initialDelay=0&delay=10"
+literal|"file://target/data/file?noop=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|noAutoStartup

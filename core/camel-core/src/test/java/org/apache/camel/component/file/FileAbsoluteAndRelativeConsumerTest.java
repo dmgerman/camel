@@ -129,12 +129,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/filerelative"
+literal|"target/data/filerelative"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/fileabsolute"
+literal|"target/data/fileabsolute"
 argument_list|)
 expr_stmt|;
 comment|// use current dir as base as aboslute path
@@ -149,7 +149,7 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 operator|+
-literal|"/target/fileabsolute"
+literal|"/target/data/fileabsolute"
 expr_stmt|;
 name|super
 operator|.
@@ -230,7 +230,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filerelative"
+literal|"file://target/data/filerelative"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -318,7 +318,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/fileabsolute"
+literal|"file://target/data/fileabsolute"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -359,7 +359,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/filerelative?initialDelay=0&delay=10&recursive=true"
+literal|"file://target/data/filerelative?initialDelay=0&delay=10&recursive=true"
 argument_list|)
 operator|.
 name|convertBodyTo

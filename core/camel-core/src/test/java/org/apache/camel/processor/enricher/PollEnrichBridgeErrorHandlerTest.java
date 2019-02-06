@@ -349,7 +349,7 @@ comment|// bridge the error handler when doing a polling so we can let Camel's e
 operator|.
 name|pollEnrich
 argument_list|(
-literal|"file:target/foo?initialDelay=0&delay=10&pollStrategy=#myPoll&consumer.bridgeErrorHandler=true"
+literal|"file:target/data/foo?initialDelay=0&delay=10&pollStrategy=#myPoll&consumer.bridgeErrorHandler=true"
 argument_list|,
 literal|10000
 argument_list|,

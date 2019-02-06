@@ -94,7 +94,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/consumer"
+literal|"target/data/consumer"
 argument_list|)
 expr_stmt|;
 name|super
@@ -129,7 +129,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/consumer"
+literal|"file:target/data/consumer"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -147,7 +147,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/consumer/hello.txt"
+literal|"target/data/consumer/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -169,7 +169,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"file:target/consumer?delete=true"
+literal|"file:target/data/consumer?delete=true"
 argument_list|,
 literal|5000
 argument_list|,

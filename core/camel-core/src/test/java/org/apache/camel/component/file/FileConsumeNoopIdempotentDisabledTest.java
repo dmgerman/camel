@@ -114,7 +114,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/noop"
+literal|"target/data/noop"
 argument_list|)
 expr_stmt|;
 name|super
@@ -126,7 +126,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/noop"
+literal|"file://target/data/noop"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -194,7 +194,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/noop?initialDelay=0&delay=10&noop=true&idempotent=false"
+literal|"file://target/data/noop?initialDelay=0&delay=10&noop=true&idempotent=false"
 argument_list|)
 operator|.
 name|convertBodyTo

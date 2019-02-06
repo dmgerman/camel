@@ -150,12 +150,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/inprogress"
+literal|"target/data/inprogress"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/reports"
+literal|"target/data/reports"
 argument_list|)
 expr_stmt|;
 name|super
@@ -200,7 +200,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/reports"
+literal|"file:target/data/reports"
 argument_list|,
 literal|"Hello Paris"
 argument_list|,
@@ -234,7 +234,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/inprogress"
+literal|"target/data/inprogress"
 argument_list|)
 decl_stmt|;
 name|file
@@ -248,7 +248,7 @@ init|=
 operator|new
 name|FileWriter
 argument_list|(
-literal|"target/inprogress/london.txt"
+literal|"target/data/inprogress/london.txt"
 argument_list|)
 decl_stmt|;
 try|try
@@ -293,7 +293,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/reports"
+literal|"file:target/data/reports"
 argument_list|,
 literal|"Hello London"
 argument_list|,
@@ -332,7 +332,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/reports?preMove=../inprogress/${file:name}&initialDelay=0&delay=10"
+literal|"file://target/data/reports?preMove=../inprogress/${file:name}&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|process

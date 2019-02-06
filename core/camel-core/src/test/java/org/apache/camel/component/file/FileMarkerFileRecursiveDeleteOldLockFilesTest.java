@@ -114,7 +114,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/oldlock"
+literal|"target/data/oldlock"
 argument_list|)
 expr_stmt|;
 name|super
@@ -199,7 +199,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/oldlock"
+literal|"file:target/data/oldlock"
 argument_list|,
 literal|"locked"
 argument_list|,
@@ -218,7 +218,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/oldlock"
+literal|"file:target/data/oldlock"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -233,7 +233,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/oldlock/foo"
+literal|"file:target/data/oldlock/foo"
 argument_list|,
 literal|"locked"
 argument_list|,
@@ -252,7 +252,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/oldlock/foo"
+literal|"file:target/data/oldlock/foo"
 argument_list|,
 literal|"Hi World"
 argument_list|,
@@ -304,7 +304,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/oldlock?initialDelay=0&delay=10&recursive=true&sortBy=file:name"
+literal|"file:target/data/oldlock?initialDelay=0&delay=10&recursive=true&sortBy=file:name"
 argument_list|)
 operator|.
 name|routeId

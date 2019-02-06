@@ -150,7 +150,7 @@ literal|"Hello World"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"file://target/test?fileExist=Append&tempPrefix=hello"
+literal|"file://target/data/test?fileExist=Append&tempPrefix=hello"
 argument_list|)
 expr_stmt|;
 name|fail

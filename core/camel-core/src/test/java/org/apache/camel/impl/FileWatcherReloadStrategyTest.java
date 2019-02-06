@@ -221,7 +221,7 @@ name|reloadStrategy
 operator|.
 name|setFolder
 argument_list|(
-literal|"target/dummy"
+literal|"target/data/dummy"
 argument_list|)
 expr_stmt|;
 comment|// to make unit test faster
@@ -255,12 +255,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/dummy"
+literal|"target/data/dummy"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/dummy"
+literal|"target/data/dummy"
 argument_list|)
 expr_stmt|;
 name|context
@@ -287,7 +287,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Copying file to target/dummy"
+literal|"Copying file to target/data/dummy"
 argument_list|)
 expr_stmt|;
 name|Thread
@@ -310,7 +310,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/dummy/barRoute.xml"
+literal|"target/data/dummy/barRoute.xml"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -381,12 +381,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/dummy"
+literal|"target/data/dummy"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/dummy"
+literal|"target/data/dummy"
 argument_list|)
 expr_stmt|;
 comment|// the bar route is added two times, at first, and then when updated
@@ -543,7 +543,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Copying file to target/dummy"
+literal|"Copying file to target/data/dummy"
 argument_list|)
 expr_stmt|;
 name|Thread
@@ -566,7 +566,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/dummy/barRoute.xml"
+literal|"target/data/dummy/barRoute.xml"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -645,12 +645,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/dummy"
+literal|"target/data/dummy"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/dummy"
+literal|"target/data/dummy"
 argument_list|)
 expr_stmt|;
 comment|// the bar route is added two times, at first, and then when updated
@@ -736,7 +736,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Copying file to target/dummy"
+literal|"Copying file to target/data/dummy"
 argument_list|)
 expr_stmt|;
 name|Thread
@@ -759,7 +759,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/dummy/barRoute.xml"
+literal|"target/data/dummy/barRoute.xml"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -825,7 +825,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Updating file in target/dummy"
+literal|"Updating file in target/data/dummy"
 argument_list|)
 expr_stmt|;
 name|Thread
@@ -848,7 +848,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/dummy/barRoute.xml"
+literal|"target/data/dummy/barRoute.xml"
 argument_list|)
 argument_list|)
 expr_stmt|;

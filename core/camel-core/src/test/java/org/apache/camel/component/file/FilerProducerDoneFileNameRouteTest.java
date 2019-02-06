@@ -173,7 +173,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/done"
+literal|"target/data/done"
 argument_list|)
 expr_stmt|;
 name|super
@@ -271,7 +271,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/done/hello.txt"
+literal|"target/data/done/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -292,7 +292,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/done/done-hello.txt"
+literal|"target/data/done/done-hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -338,7 +338,7 @@ name|put
 argument_list|(
 literal|"myDir"
 argument_list|,
-literal|"target/done"
+literal|"target/data/done"
 argument_list|)
 expr_stmt|;
 name|PropertiesComponent

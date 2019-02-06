@@ -164,7 +164,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/reports"
+literal|"target/data/reports"
 argument_list|)
 expr_stmt|;
 name|super
@@ -202,7 +202,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/reports/locked"
+literal|"file:target/data/reports/locked"
 argument_list|,
 literal|"Hello Locked"
 argument_list|,
@@ -277,7 +277,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/reports/notlocked"
+literal|"file:target/data/reports/notlocked"
 argument_list|,
 literal|"Hello Not Locked"
 argument_list|,
@@ -336,7 +336,7 @@ block|{
 name|String
 name|filename
 init|=
-literal|"target/reports/"
+literal|"target/data/reports/"
 decl_stmt|;
 name|filename
 operator|+=
@@ -385,7 +385,7 @@ block|{
 name|String
 name|filename
 init|=
-literal|"target/reports/"
+literal|"target/data/reports/"
 decl_stmt|;
 name|filename
 operator|+=
@@ -456,7 +456,7 @@ block|{
 comment|// for locks
 name|from
 argument_list|(
-literal|"file://target/reports/locked/?initialDelay=0&delay=10&noop=true&readLock=markerFile"
+literal|"file://target/data/reports/locked/?initialDelay=0&delay=10&noop=true&readLock=markerFile"
 argument_list|)
 operator|.
 name|process
@@ -474,7 +474,7 @@ expr_stmt|;
 comment|// for no locks
 name|from
 argument_list|(
-literal|"file://target/reports/notlocked/?initialDelay=0&delay=10&noop=true&readLock=none"
+literal|"file://target/data/reports/notlocked/?initialDelay=0&delay=10&noop=true&readLock=none"
 argument_list|)
 operator|.
 name|process

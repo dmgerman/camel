@@ -147,7 +147,7 @@ argument_list|()
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/filestress"
+literal|"target/data/filestress"
 argument_list|)
 expr_stmt|;
 block|}
@@ -245,7 +245,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:target/filestress"
+literal|"file:target/data/filestress"
 argument_list|)
 operator|.
 name|to

@@ -230,12 +230,12 @@ block|{
 comment|// ensure empty folder
 name|deleteDirectory
 argument_list|(
-literal|"target/mystore"
+literal|"target/data/mystore"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/mystore"
+literal|"target/data/mystore"
 argument_list|)
 expr_stmt|;
 comment|//given
@@ -245,7 +245,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/mystore/data.dat"
+literal|"target/data/mystore/data.dat"
 argument_list|)
 decl_stmt|;
 name|fileIdempotentRepository
@@ -370,12 +370,12 @@ block|{
 comment|// ensure empty folder
 name|deleteDirectory
 argument_list|(
-literal|"target/mystore"
+literal|"target/data/mystore"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/mystore"
+literal|"target/data/mystore"
 argument_list|)
 expr_stmt|;
 comment|//given
@@ -385,7 +385,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/mystore/data.dat"
+literal|"target/data/mystore/data.dat"
 argument_list|)
 decl_stmt|;
 name|fileIdempotentRepository
@@ -510,12 +510,12 @@ block|{
 comment|// ensure empty folder
 name|deleteDirectory
 argument_list|(
-literal|"target/mystore"
+literal|"target/data/mystore"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/mystore"
+literal|"target/data/mystore"
 argument_list|)
 expr_stmt|;
 comment|//given
@@ -525,7 +525,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/mystore/data.dat"
+literal|"target/data/mystore/data.dat"
 argument_list|)
 decl_stmt|;
 name|fileIdempotentRepository

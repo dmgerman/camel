@@ -153,7 +153,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/myfile"
+literal|"target/data/myfile"
 argument_list|)
 expr_stmt|;
 name|super
@@ -186,7 +186,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/myfile"
+literal|"file:target/data/myfile"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -271,7 +271,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"target/myfile"
+literal|"target/data/myfile"
 argument_list|)
 argument_list|)
 expr_stmt|;

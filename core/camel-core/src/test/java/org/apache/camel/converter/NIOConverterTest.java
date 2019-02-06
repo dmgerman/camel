@@ -371,7 +371,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/nio"
+literal|"file://target/data/nio"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -392,7 +392,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"target/nio/hello.txt"
+literal|"target/data/nio/hello.txt"
 argument_list|)
 argument_list|)
 decl_stmt|;

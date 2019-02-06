@@ -126,7 +126,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/failed"
+literal|"target/data/failed"
 argument_list|)
 expr_stmt|;
 name|super
@@ -164,7 +164,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/failed/moved/hello.txt"
+literal|"target/data/failed/moved/hello.txt"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -173,7 +173,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/failed/error/bye-error.txt"
+literal|"target/data/failed/error/bye-error.txt"
 argument_list|,
 literal|"Kabom"
 argument_list|)
@@ -182,7 +182,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/failed"
+literal|"file://target/data/failed"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -197,7 +197,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/failed"
+literal|"file://target/data/failed"
 argument_list|,
 literal|"Kabom"
 argument_list|,
@@ -238,7 +238,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/failed?move=moved&initialDelay=0&delay=10&moveFailed=error/${file:name.noext}-error.txt"
+literal|"file://target/data/failed?move=moved&initialDelay=0&delay=10&moveFailed=error/${file:name.noext}-error.txt"
 argument_list|)
 operator|.
 name|process

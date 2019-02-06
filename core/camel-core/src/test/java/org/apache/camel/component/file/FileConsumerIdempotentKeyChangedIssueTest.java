@@ -220,7 +220,7 @@ name|endpoint
 operator|=
 name|endpoint
 argument_list|(
-literal|"file:target/changed?noop=true&readLock=changed&initialDelay=0&delay=10&readLockCheckInterval=100"
+literal|"file:target/data/changed?noop=true&readLock=changed&initialDelay=0&delay=10&readLockCheckInterval=100"
 operator|+
 literal|"&idempotentKey=${file:onlyname}-${file:size}-${date:file:yyyyMMddHHmmss}"
 argument_list|)

@@ -88,7 +88,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/template"
+literal|"target/data/template"
 argument_list|)
 expr_stmt|;
 name|super
@@ -111,7 +111,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/template"
+literal|"file://target/data/template"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -126,7 +126,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/template"
+literal|"file://target/data/template"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -144,7 +144,7 @@ name|consumer
 operator|.
 name|receive
 argument_list|(
-literal|"file://target/template?sortBy=file:name"
+literal|"file://target/data/template?sortBy=file:name"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -159,7 +159,7 @@ name|consumer
 operator|.
 name|receive
 argument_list|(
-literal|"file://target/template?sortBy=file:name"
+literal|"file://target/data/template?sortBy=file:name"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

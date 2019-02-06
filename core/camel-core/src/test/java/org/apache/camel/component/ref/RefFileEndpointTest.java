@@ -163,7 +163,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/foo"
+literal|"target/data/foo"
 argument_list|)
 expr_stmt|;
 name|super
@@ -196,7 +196,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/foo"
+literal|"file:target/data/foo"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -276,7 +276,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file:target/foo?initialDelay=250&delay=3000&delete=true"
+literal|"file:target/data/foo?initialDelay=250&delay=3000&delete=true"
 argument_list|)
 argument_list|)
 expr_stmt|;

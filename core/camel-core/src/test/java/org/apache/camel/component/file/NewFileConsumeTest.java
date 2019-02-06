@@ -189,7 +189,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/consumefile"
+literal|"target/data/consumefile"
 argument_list|)
 expr_stmt|;
 name|super
@@ -237,7 +237,7 @@ expr_stmt|;
 comment|// create a file to consume
 name|createDirectory
 argument_list|(
-literal|"target/consumefile"
+literal|"target/data/consumefile"
 argument_list|)
 expr_stmt|;
 name|FileOutputStream
@@ -249,7 +249,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"target/consumefile/hello.txt"
+literal|"target/data/consumefile/hello.txt"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -281,9 +281,9 @@ name|comp
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"file://target/consumefile"
+literal|"file://target/data/consumefile"
 argument_list|,
-literal|"target/consumefile"
+literal|"target/data/consumefile"
 argument_list|,
 operator|new
 name|HashMap

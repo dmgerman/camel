@@ -191,7 +191,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/originalexchange"
+literal|"file://target/data/originalexchange"
 argument_list|,
 literal|"Hello"
 argument_list|,
@@ -220,7 +220,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/originalexchange"
+literal|"target/data/originalexchange"
 argument_list|)
 expr_stmt|;
 name|super
@@ -274,7 +274,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file://target/originalexchange?initialDelay=0&delay=10&noop=true"
+literal|"file://target/data/originalexchange?initialDelay=0&delay=10&noop=true"
 argument_list|)
 operator|.
 name|transform

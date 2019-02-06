@@ -318,7 +318,7 @@ argument_list|()
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/my space"
+literal|"target/data/my space"
 argument_list|)
 expr_stmt|;
 name|FileUtil
@@ -334,7 +334,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/my space/log4j2.properties"
+literal|"target/data/my space/log4j2.properties"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -347,7 +347,7 @@ name|resolveMandatoryResourceAsInputStream
 argument_list|(
 name|context
 argument_list|,
-literal|"file:target/my%20space/log4j2.properties"
+literal|"file:target/data/my%20space/log4j2.properties"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

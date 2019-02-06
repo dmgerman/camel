@@ -221,7 +221,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/deferred"
+literal|"target/data/deferred"
 argument_list|)
 expr_stmt|;
 name|super
@@ -355,7 +355,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/deferred"
+literal|"file://target/data/deferred"
 argument_list|)
 expr_stmt|;
 comment|// use file component to transfer files from route 1 -> route 2
@@ -365,7 +365,7 @@ init|=
 operator|new
 name|MyDeferFileEndpoint
 argument_list|(
-literal|"file://target/deferred?initialDelay=0&delay=10"
+literal|"file://target/data/deferred?initialDelay=0&delay=10"
 argument_list|,
 name|getContext
 argument_list|()
@@ -383,7 +383,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"target/deferred"
+literal|"target/data/deferred"
 argument_list|)
 argument_list|)
 expr_stmt|;

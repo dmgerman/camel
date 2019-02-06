@@ -325,7 +325,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/mail/backup"
+literal|"target/data/mail/backup"
 argument_list|)
 expr_stmt|;
 name|super
@@ -363,7 +363,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/mail/backup/"
+literal|"target/data/mail/backup/"
 argument_list|)
 decl_stmt|;
 name|String
@@ -478,7 +478,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/mail/backup/"
+literal|"target/data/mail/backup/"
 argument_list|)
 decl_stmt|;
 name|String
@@ -569,7 +569,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:target/mail/backup"
+literal|"file:target/data/mail/backup"
 argument_list|)
 operator|.
 name|log

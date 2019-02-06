@@ -106,7 +106,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/gzip"
+literal|"target/data/gzip"
 argument_list|)
 expr_stmt|;
 name|super
@@ -139,7 +139,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/gzip"
+literal|"file:target/data/gzip"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -164,7 +164,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/gzip/hello.txt"
+literal|"target/data/gzip/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -185,7 +185,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/gzip/out/hello.txt.gz"
+literal|"target/data/gzip/out/hello.txt.gz"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -227,7 +227,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/gzip?initialDelay=0&delay=10&delete=true"
+literal|"file:target/data/gzip?initialDelay=0&delay=10&delete=true"
 argument_list|)
 operator|.
 name|marshal
@@ -238,7 +238,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"file:target/gzip/out?fileName=${file:name}.gz"
+literal|"file:target/data/gzip/out?fileName=${file:name}.gz"
 argument_list|)
 operator|.
 name|to

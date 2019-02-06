@@ -97,7 +97,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/exclusiveread?readLock=fileLock&initialDelay=0&delay=10"
+literal|"file://target/data/exclusiveread?readLock=fileLock&initialDelay=0&delay=10"
 decl_stmt|;
 annotation|@
 name|Override
@@ -113,7 +113,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/exclusiveread"
+literal|"target/data/exclusiveread"
 argument_list|)
 expr_stmt|;
 name|super

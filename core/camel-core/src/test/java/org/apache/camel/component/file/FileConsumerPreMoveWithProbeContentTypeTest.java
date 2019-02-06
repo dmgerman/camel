@@ -114,7 +114,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/premove"
+literal|"target/data/premove"
 argument_list|)
 expr_stmt|;
 name|super
@@ -163,7 +163,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/premove"
+literal|"file://target/data/premove"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -204,7 +204,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/premove?probeContentType=true&preMove=work/work-${file:name}&initialDelay=0&delay=10"
+literal|"file://target/data/premove?probeContentType=true&preMove=work/work-${file:name}&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|to

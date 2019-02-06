@@ -132,7 +132,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/file/xpathsplit"
+literal|"target/data/file/xpathsplit"
 argument_list|)
 expr_stmt|;
 name|super
@@ -199,7 +199,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/file/xpathsplit"
+literal|"file://target/data/file/xpathsplit"
 argument_list|,
 name|sb
 operator|.
@@ -278,7 +278,7 @@ block|{
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"file://target/file/xpathsplit?initialDelay=0&delay=10"
+literal|"file://target/data/file/xpathsplit?initialDelay=0&delay=10"
 argument_list|)
 comment|// set documentType to org.xml.sax.InputSource then Camel will use SAX to split the file
 operator|.

@@ -148,7 +148,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/pollenrich"
+literal|"target/data/pollenrich"
 argument_list|)
 expr_stmt|;
 name|super
@@ -186,14 +186,14 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/pollenrich/done/hello.txt"
+literal|"target/data/pollenrich/done/hello.txt"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/pollenrich"
+literal|"file:target/data/pollenrich"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -219,7 +219,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/pollenrich/hello.txt"
+literal|"target/data/pollenrich/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -274,7 +274,7 @@ argument_list|)
 operator|.
 name|pollEnrich
 argument_list|(
-literal|"file:target/pollenrich?move=done"
+literal|"file:target/data/pollenrich?move=done"
 argument_list|,
 literal|5000
 argument_list|)

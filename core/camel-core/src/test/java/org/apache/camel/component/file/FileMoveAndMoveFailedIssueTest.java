@@ -98,7 +98,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/input"
+literal|"target/data/input"
 argument_list|)
 expr_stmt|;
 name|super
@@ -134,14 +134,14 @@ argument_list|)
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/input/target/input.bak/somedate/hello.txt"
+literal|"target/data/input/target/data/input.bak/somedate/hello.txt"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/input"
+literal|"file:target/data/input"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -183,14 +183,14 @@ argument_list|)
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/input/target/input.err/somedate/bomb.txt"
+literal|"target/data/input/target/data/input.err/somedate/bomb.txt"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/input"
+literal|"file:target/data/input"
 argument_list|,
 literal|"Kaboom"
 argument_list|,
@@ -231,7 +231,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:./target/input?move=${file:parent}.bak/somedate/${file:onlyname}&moveFailed=${file:parent}.err/somedate/${file:onlyname}&initialDelay=0&delay=10"
+literal|"file:./target/data/input?move=${file:parent}.bak/somedate/${file:onlyname}&moveFailed=${file:parent}.err/somedate/${file:onlyname}&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

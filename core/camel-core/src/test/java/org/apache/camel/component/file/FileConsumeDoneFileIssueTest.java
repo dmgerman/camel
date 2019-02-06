@@ -126,7 +126,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/done"
+literal|"target/data/done"
 argument_list|)
 expr_stmt|;
 name|super
@@ -166,7 +166,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done"
+literal|"file:target/data/done"
 argument_list|,
 literal|"A"
 argument_list|,
@@ -181,7 +181,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done"
+literal|"file:target/data/done"
 argument_list|,
 literal|"B"
 argument_list|,
@@ -196,7 +196,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done"
+literal|"file:target/data/done"
 argument_list|,
 literal|"C"
 argument_list|,
@@ -211,7 +211,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done"
+literal|"file:target/data/done"
 argument_list|,
 literal|"D"
 argument_list|,
@@ -226,7 +226,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done"
+literal|"file:target/data/done"
 argument_list|,
 literal|"E"
 argument_list|,
@@ -241,7 +241,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done"
+literal|"file:target/data/done"
 argument_list|,
 literal|"E"
 argument_list|,
@@ -259,7 +259,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/done/foo.done"
+literal|"target/data/done/foo.done"
 argument_list|)
 operator|.
 name|exists
@@ -320,7 +320,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/done/foo.done"
+literal|"target/data/done/foo.done"
 argument_list|)
 operator|.
 name|exists
@@ -359,7 +359,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done2"
+literal|"file:target/data/done2"
 argument_list|,
 literal|"A"
 argument_list|,
@@ -374,7 +374,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done2"
+literal|"file:target/data/done2"
 argument_list|,
 literal|"B"
 argument_list|,
@@ -389,7 +389,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done2"
+literal|"file:target/data/done2"
 argument_list|,
 literal|"C"
 argument_list|,
@@ -404,7 +404,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done2"
+literal|"file:target/data/done2"
 argument_list|,
 literal|"a"
 argument_list|,
@@ -419,7 +419,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done2"
+literal|"file:target/data/done2"
 argument_list|,
 literal|"b"
 argument_list|,
@@ -434,7 +434,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done2"
+literal|"file:target/data/done2"
 argument_list|,
 literal|"c"
 argument_list|,
@@ -452,7 +452,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/done2/a.txt.done"
+literal|"target/data/done2/a.txt.done"
 argument_list|)
 operator|.
 name|exists
@@ -466,7 +466,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/done2/b.txt.done"
+literal|"target/data/done2/b.txt.done"
 argument_list|)
 operator|.
 name|exists
@@ -480,7 +480,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/done2/c.txt.done"
+literal|"target/data/done2/c.txt.done"
 argument_list|)
 operator|.
 name|exists
@@ -537,7 +537,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/done2/a.txt.done"
+literal|"target/data/done2/a.txt.done"
 argument_list|)
 operator|.
 name|exists
@@ -551,7 +551,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/done2/b.txt.done"
+literal|"target/data/done2/b.txt.done"
 argument_list|)
 operator|.
 name|exists
@@ -565,7 +565,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/done2/c.txt.done"
+literal|"target/data/done2/c.txt.done"
 argument_list|)
 operator|.
 name|exists
@@ -604,7 +604,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done2"
+literal|"file:target/data/done2"
 argument_list|,
 literal|"A"
 argument_list|,
@@ -619,7 +619,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done2"
+literal|"file:target/data/done2"
 argument_list|,
 literal|"B"
 argument_list|,
@@ -634,7 +634,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done2"
+literal|"file:target/data/done2"
 argument_list|,
 literal|"C"
 argument_list|,
@@ -649,7 +649,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done2"
+literal|"file:target/data/done2"
 argument_list|,
 literal|"a"
 argument_list|,
@@ -664,7 +664,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done2"
+literal|"file:target/data/done2"
 argument_list|,
 literal|"b"
 argument_list|,
@@ -679,7 +679,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/done2"
+literal|"file:target/data/done2"
 argument_list|,
 literal|"c"
 argument_list|,
@@ -697,7 +697,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/done2/$a$.txt.done"
+literal|"target/data/done2/$a$.txt.done"
 argument_list|)
 operator|.
 name|exists
@@ -711,7 +711,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/done2/$b.txt.done"
+literal|"target/data/done2/$b.txt.done"
 argument_list|)
 operator|.
 name|exists
@@ -725,7 +725,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/done2/c$.txt.done"
+literal|"target/data/done2/c$.txt.done"
 argument_list|)
 operator|.
 name|exists
@@ -782,7 +782,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/done2/$a$.txt.done"
+literal|"target/data/done2/$a$.txt.done"
 argument_list|)
 operator|.
 name|exists
@@ -796,7 +796,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/done2/$b.txt.done"
+literal|"target/data/done2/$b.txt.done"
 argument_list|)
 operator|.
 name|exists
@@ -810,7 +810,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/done2/c$.txt.done"
+literal|"target/data/done2/c$.txt.done"
 argument_list|)
 operator|.
 name|exists
@@ -844,7 +844,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/done?doneFileName=foo.done&initialDelay=0&delay=10"
+literal|"file:target/data/done?doneFileName=foo.done&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|routeId
@@ -869,7 +869,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:target/done2?doneFileName=${file:name}.done&initialDelay=0&delay=10"
+literal|"file:target/data/done2?doneFileName=${file:name}.done&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|routeId

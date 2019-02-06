@@ -147,7 +147,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/deletefile"
+literal|"target/data/deletefile"
 argument_list|)
 expr_stmt|;
 name|super
@@ -187,7 +187,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/deletefile"
+literal|"file://target/data/deletefile"
 argument_list|,
 name|body
 argument_list|,
@@ -243,7 +243,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/deletefile/hello.txt"
+literal|"target/data/deletefile/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -279,7 +279,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/deletefile?delete=true&initialDelay=0&delay=10"
+literal|"file://target/data/deletefile?delete=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|noAutoStartup
@@ -323,7 +323,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/deletefile/hello.txt"
+literal|"target/data/deletefile/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue

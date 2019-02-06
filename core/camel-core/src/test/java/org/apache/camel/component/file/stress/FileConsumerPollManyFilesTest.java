@@ -151,7 +151,7 @@ return|return;
 block|}
 name|deleteDirectory
 argument_list|(
-literal|"target/manyfiles"
+literal|"target/data/manyfiles"
 argument_list|)
 expr_stmt|;
 name|super
@@ -179,7 +179,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/manyfiles"
+literal|"file:target/data/manyfiles"
 argument_list|,
 literal|"Message "
 operator|+
@@ -250,7 +250,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/manyfiles?delete=true"
+literal|"file:target/data/manyfiles?delete=true"
 argument_list|)
 operator|.
 name|convertBodyTo

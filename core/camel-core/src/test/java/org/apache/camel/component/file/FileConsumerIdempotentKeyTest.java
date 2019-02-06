@@ -68,7 +68,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/idempotent/?idempotent=true&idempotentKey=${file:onlyname}&move=done/${file:name}&initialDelay=0&delay=10"
+literal|"file://target/data/idempotent/?idempotent=true&idempotentKey=${file:onlyname}&move=done/${file:name}&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

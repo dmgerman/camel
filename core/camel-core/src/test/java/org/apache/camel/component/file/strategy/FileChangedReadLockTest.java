@@ -172,12 +172,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/changed/"
+literal|"target/data/changed/"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/changed/in"
+literal|"target/data/changed/in"
 argument_list|)
 expr_stmt|;
 name|super
@@ -215,7 +215,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/changed/out/slowfile.dat"
+literal|"target/data/changed/out/slowfile.dat"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -253,7 +253,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/changed/out/slowfile.dat"
+literal|"target/data/changed/out/slowfile.dat"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -329,7 +329,7 @@ init|=
 operator|new
 name|FileOutputStream
 argument_list|(
-literal|"target/changed/in/slowfile.dat"
+literal|"target/data/changed/in/slowfile.dat"
 argument_list|)
 decl_stmt|;
 for|for
@@ -469,12 +469,12 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/changed/in?initialDelay=0&delay=10&readLock=changed&readLockCheckInterval=100"
+literal|"file:target/data/changed/in?initialDelay=0&delay=10&readLock=changed&readLockCheckInterval=100"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:target/changed/out"
+literal|"file:target/data/changed/out"
 argument_list|,
 literal|"mock:result"
 argument_list|)

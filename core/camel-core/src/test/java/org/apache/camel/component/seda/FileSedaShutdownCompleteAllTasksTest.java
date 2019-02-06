@@ -153,7 +153,7 @@ specifier|private
 name|String
 name|url
 init|=
-literal|"file:target/seda?initialDelay=0&delay=10"
+literal|"file:target/data/seda?initialDelay=0&delay=10"
 decl_stmt|;
 annotation|@
 name|Override
@@ -169,7 +169,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/seda"
+literal|"target/data/seda"
 argument_list|)
 expr_stmt|;
 name|super

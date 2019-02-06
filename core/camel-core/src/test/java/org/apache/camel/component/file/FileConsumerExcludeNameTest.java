@@ -106,7 +106,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/exclude"
+literal|"target/data/exclude"
 argument_list|)
 expr_stmt|;
 name|prepareFiles
@@ -155,7 +155,7 @@ block|{
 name|String
 name|url
 init|=
-literal|"file://target/exclude"
+literal|"file://target/data/exclude"
 decl_stmt|;
 name|template
 operator|.
@@ -270,7 +270,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/exclude/?initialDelay=0&delay=10&exclude=^secret.*|.*xml$"
+literal|"file://target/data/exclude/?initialDelay=0&delay=10&exclude=^secret.*|.*xml$"
 argument_list|)
 operator|.
 name|convertBodyTo

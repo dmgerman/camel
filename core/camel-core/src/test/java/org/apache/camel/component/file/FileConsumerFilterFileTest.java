@@ -109,14 +109,14 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/filefilter/?initialDelay=0&delay=10&filterFile=${bodyAs(String)} contains 'World'"
+literal|"file://target/data/filefilter/?initialDelay=0&delay=10&filterFile=${bodyAs(String)} contains 'World'"
 decl_stmt|;
 DECL|field|fileUrl2
 specifier|private
 name|String
 name|fileUrl2
 init|=
-literal|"file://target/filefilter/?initialDelay=0&delay=10&filterFile=${file:modified}< ${date:now-2s}"
+literal|"file://target/data/filefilter/?initialDelay=0&delay=10&filterFile=${file:modified}< ${date:now-2s}"
 decl_stmt|;
 annotation|@
 name|Override
@@ -132,7 +132,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/filefilter"
+literal|"target/data/filefilter"
 argument_list|)
 expr_stmt|;
 name|super
@@ -170,7 +170,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filefilter/"
+literal|"file:target/data/filefilter/"
 argument_list|,
 literal|"This is a file to be filtered"
 argument_list|,
@@ -230,7 +230,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filefilter/"
+literal|"file:target/data/filefilter/"
 argument_list|,
 literal|"This is a file to be filtered"
 argument_list|,
@@ -245,7 +245,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filefilter/"
+literal|"file:target/data/filefilter/"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -291,7 +291,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filefilter/"
+literal|"file:target/data/filefilter/"
 argument_list|,
 literal|"Something else"
 argument_list|,

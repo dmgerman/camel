@@ -110,7 +110,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/xpath"
+literal|"target/data/xpath"
 argument_list|)
 expr_stmt|;
 name|super
@@ -153,7 +153,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/xpath"
+literal|"file:target/data/xpath"
 argument_list|,
 literal|"<hello>world!</hello>"
 argument_list|,
@@ -178,7 +178,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/xpath/hello.xml"
+literal|"target/data/xpath/hello.xml"
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -198,7 +198,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-literal|"target/xpath/ok/hello.xml"
+literal|"target/data/xpath/ok/hello.xml"
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -249,7 +249,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/xpath"
+literal|"file:target/data/xpath"
 argument_list|,
 literal|"<hello>world!</hello"
 argument_list|,
@@ -274,7 +274,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/xpath/hello2.xml"
+literal|"target/data/xpath/hello2.xml"
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -294,7 +294,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-literal|"target/xpath/error/hello2.xml"
+literal|"target/data/xpath/error/hello2.xml"
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -336,7 +336,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/xpath?initialDelay=0&delay=10&moveFailed=error&move=ok"
+literal|"file:target/data/xpath?initialDelay=0&delay=10&moveFailed=error&move=ok"
 argument_list|)
 operator|.
 name|onException

@@ -302,12 +302,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/xslt"
+literal|"target/data/xslt"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/xslt"
+literal|"target/data/xslt"
 argument_list|)
 expr_stmt|;
 name|super
@@ -1322,7 +1322,7 @@ name|Exchange
 operator|.
 name|XSLT_FILE_NAME
 argument_list|,
-literal|"target/xslt/xsltout.xml"
+literal|"target/data/xslt/xsltout.xml"
 argument_list|)
 expr_stmt|;
 name|builder
@@ -1353,7 +1353,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/xslt/xsltout.xml"
+literal|"target/data/xslt/xsltout.xml"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -1459,7 +1459,7 @@ name|Exchange
 operator|.
 name|XSLT_FILE_NAME
 argument_list|,
-literal|"target/xslt/xsltout.xml"
+literal|"target/data/xslt/xsltout.xml"
 argument_list|)
 expr_stmt|;
 name|builder
@@ -1490,7 +1490,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/xslt/xsltout.xml"
+literal|"target/data/xslt/xsltout.xml"
 argument_list|)
 decl_stmt|;
 name|assertTrue

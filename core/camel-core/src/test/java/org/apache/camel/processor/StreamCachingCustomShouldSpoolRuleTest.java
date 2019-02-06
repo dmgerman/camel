@@ -171,7 +171,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/cachedir"
+literal|"target/data/cachedir"
 argument_list|)
 expr_stmt|;
 name|super

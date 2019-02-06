@@ -127,6 +127,12 @@ name|File
 operator|.
 name|separator
 operator|+
+literal|"data"
+operator|+
+name|File
+operator|.
+name|separator
+operator|+
 literal|"foo"
 operator|+
 name|File
@@ -193,7 +199,7 @@ name|Exception
 block|{
 name|assertFileEndpoint
 argument_list|(
-literal|"file://target/foo/bar"
+literal|"file://target/data/foo/bar"
 argument_list|,
 name|EXPECT_PATH
 argument_list|,
@@ -202,7 +208,7 @@ argument_list|)
 expr_stmt|;
 name|assertFileEndpoint
 argument_list|(
-literal|"file://target/foo/bar?delete=true"
+literal|"file://target/data/foo/bar?delete=true"
 argument_list|,
 name|EXPECT_PATH
 argument_list|,
@@ -211,7 +217,7 @@ argument_list|)
 expr_stmt|;
 name|assertFileEndpoint
 argument_list|(
-literal|"file:target/foo/bar?delete=true"
+literal|"file:target/data/foo/bar?delete=true"
 argument_list|,
 name|EXPECT_PATH
 argument_list|,
@@ -220,7 +226,7 @@ argument_list|)
 expr_stmt|;
 name|assertFileEndpoint
 argument_list|(
-literal|"file:target/foo/bar"
+literal|"file:target/data/foo/bar"
 argument_list|,
 name|EXPECT_PATH
 argument_list|,
@@ -229,7 +235,7 @@ argument_list|)
 expr_stmt|;
 name|assertFileEndpoint
 argument_list|(
-literal|"file://target/foo/bar/"
+literal|"file://target/data/foo/bar/"
 argument_list|,
 name|EXPECT_PATH
 argument_list|,
@@ -238,7 +244,7 @@ argument_list|)
 expr_stmt|;
 name|assertFileEndpoint
 argument_list|(
-literal|"file://target/foo/bar/?delete=true"
+literal|"file://target/data/foo/bar/?delete=true"
 argument_list|,
 name|EXPECT_PATH
 argument_list|,
@@ -247,7 +253,7 @@ argument_list|)
 expr_stmt|;
 name|assertFileEndpoint
 argument_list|(
-literal|"file:target/foo/bar/?delete=true"
+literal|"file:target/data/foo/bar/?delete=true"
 argument_list|,
 name|EXPECT_PATH
 argument_list|,
@@ -256,7 +262,7 @@ argument_list|)
 expr_stmt|;
 name|assertFileEndpoint
 argument_list|(
-literal|"file:target/foo/bar/"
+literal|"file:target/data/foo/bar/"
 argument_list|,
 name|EXPECT_PATH
 argument_list|,
@@ -265,7 +271,7 @@ argument_list|)
 expr_stmt|;
 name|assertFileEndpoint
 argument_list|(
-literal|"file:/target/foo/bar/"
+literal|"file:/target/data/foo/bar/"
 argument_list|,
 name|File
 operator|.
@@ -458,7 +464,7 @@ name|endpoint
 init|=
 name|resolveMandatoryEndpoint
 argument_list|(
-literal|"file://target/foo/bar?charset=UTF-8"
+literal|"file://target/data/foo/bar?charset=UTF-8"
 argument_list|,
 name|FileEndpoint
 operator|.
@@ -467,7 +473,7 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Could not find endpoint: file://target/foo/bar?charset=UTF-8"
+literal|"Could not find endpoint: file://target/data/foo/bar?charset=UTF-8"
 argument_list|,
 name|endpoint
 argument_list|)
@@ -488,7 +494,7 @@ try|try
 block|{
 name|resolveMandatoryEndpoint
 argument_list|(
-literal|"file://target/foo/bar?charset=ASSI"
+literal|"file://target/data/foo/bar?charset=ASSI"
 argument_list|,
 name|FileEndpoint
 operator|.
@@ -534,7 +540,7 @@ name|consumer
 init|=
 name|createFileConsumer
 argument_list|(
-literal|"file://target/foo/bar?recursive=true"
+literal|"file://target/data/foo/bar?recursive=true"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -546,7 +552,7 @@ try|try
 block|{
 name|createFileConsumer
 argument_list|(
-literal|"file://target/foo/bar?recursiv=true"
+literal|"file://target/data/foo/bar?recursiv=true"
 argument_list|)
 expr_stmt|;
 name|fail

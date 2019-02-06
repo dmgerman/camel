@@ -176,7 +176,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/pollstrategy/?consumer.pollStrategy=#myPoll&noop=true&initialDelay=0&delay=10"
+literal|"file://target/data/pollstrategy/?consumer.pollStrategy=#myPoll&noop=true&initialDelay=0&delay=10"
 decl_stmt|;
 annotation|@
 name|Override
@@ -225,7 +225,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/pollstrategy"
+literal|"target/data/pollstrategy"
 argument_list|)
 expr_stmt|;
 name|super
@@ -237,7 +237,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/pollstrategy/"
+literal|"file:target/data/pollstrategy/"
 argument_list|,
 literal|"Hello World"
 argument_list|,

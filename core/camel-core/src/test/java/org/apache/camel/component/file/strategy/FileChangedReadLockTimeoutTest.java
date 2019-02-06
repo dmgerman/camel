@@ -68,12 +68,12 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/changed/in?initialDelay=0&delay=10&readLock=changed&readLockCheckInterval=100&readLockTimeout=2000"
+literal|"file:target/data/changed/in?initialDelay=0&delay=10&readLock=changed&readLockCheckInterval=100&readLockTimeout=2000"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:target/changed/out"
+literal|"file:target/data/changed/out"
 argument_list|,
 literal|"mock:result"
 argument_list|)

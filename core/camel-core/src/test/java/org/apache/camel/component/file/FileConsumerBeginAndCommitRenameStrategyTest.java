@@ -140,17 +140,17 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/inprogress"
+literal|"target/data/inprogress"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/done"
+literal|"target/data/done"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/reports"
+literal|"target/data/reports"
 argument_list|)
 expr_stmt|;
 name|super
@@ -195,7 +195,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/done/paris.txt"
+literal|"target/data/done/paris.txt"
 argument_list|,
 literal|"Hello Paris"
 argument_list|)
@@ -204,7 +204,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/reports"
+literal|"file:target/data/reports"
 argument_list|,
 literal|"Hello Paris"
 argument_list|,
@@ -237,7 +237,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file://target?move=../done/${file:name}&delete=true"
+literal|"file://target/data?move=../done/${file:name}&delete=true"
 argument_list|)
 operator|.
 name|createConsumer
@@ -279,7 +279,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file://target?move=${file:name.noext}.bak&delete=true"
+literal|"file://target/data?move=${file:name.noext}.bak&delete=true"
 argument_list|)
 operator|.
 name|createConsumer
@@ -338,7 +338,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/reports?preMove=../inprogress/${file:name}&move=../done/${file:name}&initialDelay=0&delay=10"
+literal|"file://target/data/reports?preMove=../inprogress/${file:name}&move=../done/${file:name}&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|process

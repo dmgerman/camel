@@ -106,7 +106,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/idempotent/?idempotent=true&idempotentKey=${file:onlyname}-${file:size}&move=done/${file:name}&initialDelay=0&delay=10"
+literal|"file://target/data/idempotent/?idempotent=true&idempotentKey=${file:onlyname}-${file:size}&move=done/${file:name}&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -177,7 +177,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/idempotent"
+literal|"file://target/data/idempotent"
 argument_list|,
 literal|"Bye World"
 argument_list|,

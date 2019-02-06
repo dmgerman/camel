@@ -76,14 +76,14 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/consumertemplate"
+literal|"target/data/consumertemplate"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/consumertemplate"
+literal|"file:target/data/consumertemplate"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -101,7 +101,7 @@ name|consumer
 operator|.
 name|receive
 argument_list|(
-literal|"file:target/consumertemplate?fileName=hello.txt"
+literal|"file:target/data/consumertemplate?fileName=hello.txt"
 argument_list|,
 literal|5000
 argument_list|)

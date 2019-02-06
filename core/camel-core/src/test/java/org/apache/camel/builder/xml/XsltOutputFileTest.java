@@ -164,7 +164,7 @@ name|Exception
 block|{
 name|createDirectory
 argument_list|(
-literal|"target/xslt"
+literal|"target/data/xslt"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -186,7 +186,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/xslt/xsltme.xml"
+literal|"target/data/xslt/xsltme.xml"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -218,7 +218,7 @@ name|Exchange
 operator|.
 name|XSLT_FILE_NAME
 argument_list|,
-literal|"target/xslt/xsltme.xml"
+literal|"target/data/xslt/xsltme.xml"
 argument_list|)
 expr_stmt|;
 name|mock

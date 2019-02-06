@@ -112,7 +112,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/filesplit"
+literal|"target/data/filesplit"
 argument_list|)
 expr_stmt|;
 name|super
@@ -165,7 +165,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/filesplit/.camel/splitme.txt"
+literal|"target/data/filesplit/.camel/splitme.txt"
 argument_list|)
 expr_stmt|;
 name|String
@@ -185,7 +185,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filesplit"
+literal|"file://target/data/filesplit"
 argument_list|,
 name|body
 argument_list|,
@@ -226,7 +226,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/filesplit?initialDelay=0&delay=10"
+literal|"file://target/data/filesplit?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|split

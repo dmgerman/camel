@@ -105,7 +105,7 @@ specifier|private
 name|String
 name|uri
 init|=
-literal|"file://target/inbox?idempotent=false&move=../done&moveFailed=../error"
+literal|"file://target/data/inbox?idempotent=false&move=../done&moveFailed=../error"
 operator|+
 literal|"&preMove=working/${date:now:yyyyMMddHHmmssSSS}-${file:name}&readLock=none&initialDelay=0&delay=10"
 decl_stmt|;
@@ -123,7 +123,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/inbox"
+literal|"target/data/inbox"
 argument_list|)
 expr_stmt|;
 name|super
@@ -164,7 +164,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/inbox"
+literal|"file://target/data/inbox"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -179,7 +179,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/inbox"
+literal|"file://target/data/inbox"
 argument_list|,
 literal|"Foo"
 argument_list|,
@@ -209,7 +209,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/inbox"
+literal|"file://target/data/inbox"
 argument_list|,
 literal|"Bye World"
 argument_list|,

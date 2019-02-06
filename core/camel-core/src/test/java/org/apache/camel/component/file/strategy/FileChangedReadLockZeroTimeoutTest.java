@@ -126,12 +126,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/changed/in"
+literal|"target/data/changed/in"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/changed/out"
+literal|"target/data/changed/out"
 argument_list|)
 expr_stmt|;
 name|super
@@ -169,14 +169,14 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/changed/out/hello1.txt"
+literal|"target/data/changed/out/hello1.txt"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/changed/in"
+literal|"file://target/data/changed/in"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -200,7 +200,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/changed/in/hello1.txt"
+literal|"target/data/changed/in/hello1.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -232,14 +232,14 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/changed/out/hello2.txt"
+literal|"target/data/changed/out/hello2.txt"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/changed/in"
+literal|"file://target/data/changed/in"
 argument_list|,
 literal|"Hello Again World"
 argument_list|,
@@ -285,12 +285,12 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/changed/in?initialDelay=0&delay=10&readLock=changed&readLockCheckInterval=5000&readLockTimeout=0"
+literal|"file:target/data/changed/in?initialDelay=0&delay=10&readLock=changed&readLockCheckInterval=5000&readLockTimeout=0"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:target/changed/out"
+literal|"file:target/data/changed/out"
 argument_list|,
 literal|"mock:result"
 argument_list|)

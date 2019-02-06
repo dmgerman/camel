@@ -124,7 +124,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/xpath"
+literal|"target/data/xpath"
 argument_list|)
 expr_stmt|;
 name|super
@@ -200,7 +200,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/xpath/xpath-0.xml"
+literal|"target/data/xpath/xpath-0.xml"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -238,7 +238,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/xpath/xpath-1.xml"
+literal|"target/data/xpath/xpath-1.xml"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -315,7 +315,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/xpath?fileName=xpath-${property.CamelSplitIndex}.xml"
+literal|"file://target/data/xpath?fileName=xpath-${property.CamelSplitIndex}.xml"
 argument_list|)
 operator|.
 name|to

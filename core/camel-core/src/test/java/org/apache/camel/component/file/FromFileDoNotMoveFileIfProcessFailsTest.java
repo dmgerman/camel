@@ -143,7 +143,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/movefile"
+literal|"target/data/movefile"
 argument_list|)
 expr_stmt|;
 name|super
@@ -166,7 +166,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/movefile"
+literal|"file://target/data/movefile"
 argument_list|,
 name|body
 argument_list|,
@@ -211,7 +211,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/movefile/hello.txt"
+literal|"target/data/movefile/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -259,7 +259,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file://target/movefile?initialDelay=0&delay=10&move=done"
+literal|"file://target/data/movefile?initialDelay=0&delay=10&move=done"
 argument_list|)
 operator|.
 name|process

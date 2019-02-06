@@ -164,7 +164,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/messages/input"
+literal|"target/data/messages/input"
 argument_list|)
 expr_stmt|;
 name|super
@@ -202,7 +202,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/messages/input/"
+literal|"file:target/data/messages/input/"
 argument_list|,
 literal|"Paris"
 argument_list|,
@@ -261,7 +261,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/messages/input/"
+literal|"file:target/data/messages/input/"
 argument_list|,
 literal|"London"
 argument_list|,
@@ -321,7 +321,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/messages/input/"
+literal|"file:target/data/messages/input/"
 argument_list|,
 literal|"Dublin"
 argument_list|,
@@ -381,7 +381,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/messages/input/"
+literal|"file:target/data/messages/input/"
 argument_list|,
 literal|"Madrid"
 argument_list|,
@@ -433,7 +433,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/messages/input/"
+literal|"target/data/messages/input/"
 operator|+
 name|filename
 argument_list|)
@@ -472,7 +472,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-literal|"target/messages/input/"
+literal|"target/data/messages/input/"
 operator|+
 name|lock
 argument_list|)
@@ -587,7 +587,7 @@ expr_stmt|;
 comment|// our route logic to process files from the input folder
 name|from
 argument_list|(
-literal|"file:target/messages/input/?initialDelay=0&delay=10&delete=true"
+literal|"file:target/data/messages/input/?initialDelay=0&delay=10&delete=true"
 argument_list|)
 operator|.
 name|process

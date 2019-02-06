@@ -118,12 +118,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/inbox"
+literal|"target/data/inbox"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/outbox"
+literal|"target/data/outbox"
 argument_list|)
 expr_stmt|;
 name|super
@@ -161,21 +161,21 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/outbox/hello.txt"
+literal|"target/data/outbox/hello.txt"
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/inbox/dones/mydone.txt"
+literal|"target/data/inbox/dones/mydone.txt"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/inbox"
+literal|"file:target/data/inbox"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -216,7 +216,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/inbox?initialDelay=0&delay=10&move=${header.bar}"
+literal|"file:target/data/inbox?initialDelay=0&delay=10&move=${header.bar}"
 argument_list|)
 operator|.
 name|setHeader
@@ -241,7 +241,7 @@ name|to
 argument_list|(
 literal|"mock:result"
 argument_list|,
-literal|"file:target/outbox"
+literal|"file:target/data/outbox"
 argument_list|)
 expr_stmt|;
 block|}

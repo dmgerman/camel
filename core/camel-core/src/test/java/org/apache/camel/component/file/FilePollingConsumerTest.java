@@ -110,7 +110,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/enrich"
+literal|"target/data/enrich"
 argument_list|)
 expr_stmt|;
 name|super
@@ -145,7 +145,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/enrich"
+literal|"file:target/data/enrich"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -163,7 +163,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file:target/enrich"
+literal|"file:target/data/enrich"
 argument_list|)
 operator|.
 name|createPollingConsumer
@@ -219,7 +219,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/enrich"
+literal|"file:target/data/enrich"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -244,7 +244,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/enrich/bye.txt"
+literal|"target/data/enrich/bye.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue

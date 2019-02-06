@@ -118,7 +118,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/files"
+literal|"target/data/files"
 argument_list|)
 expr_stmt|;
 name|super
@@ -130,7 +130,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/files"
+literal|"file://target/data/files"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -200,7 +200,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/files/?initialDelay=0&delay=10&delete=true&backoffMultiplier=4&backoffIdleThreshold=3"
+literal|"file://target/data/files/?initialDelay=0&delay=10&delete=true&backoffMultiplier=4&backoffIdleThreshold=3"
 argument_list|)
 operator|.
 name|convertBodyTo

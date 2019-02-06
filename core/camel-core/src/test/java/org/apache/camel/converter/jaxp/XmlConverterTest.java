@@ -326,7 +326,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/xml"
+literal|"target/data/xml"
 argument_list|)
 expr_stmt|;
 name|super
@@ -1376,7 +1376,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/xml"
+literal|"file:target/data/xml"
 argument_list|,
 literal|"<foo>bar</foo>"
 argument_list|,
@@ -1393,7 +1393,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/xml/myxml.xml"
+literal|"target/data/xml/myxml.xml"
 argument_list|)
 decl_stmt|;
 name|SAXSource
@@ -1454,7 +1454,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/xml"
+literal|"file:target/data/xml"
 argument_list|,
 literal|"<foo>bar</foo>"
 argument_list|,
@@ -1471,7 +1471,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/xml/myxml.xml"
+literal|"target/data/xml/myxml.xml"
 argument_list|)
 decl_stmt|;
 name|StAXSource
@@ -2485,7 +2485,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/xml"
+literal|"file:target/data/xml"
 argument_list|,
 literal|"<foo>bar</foo>"
 argument_list|,
@@ -2502,7 +2502,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/xml/myxml.xml"
+literal|"target/data/xml/myxml.xml"
 argument_list|)
 decl_stmt|;
 name|DOMSource
