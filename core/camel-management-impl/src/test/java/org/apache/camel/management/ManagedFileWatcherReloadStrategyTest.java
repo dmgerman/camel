@@ -146,7 +146,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"target/dummy"
+literal|"target/data/dummy"
 argument_list|,
 name|folder
 argument_list|)
@@ -229,12 +229,12 @@ block|{
 comment|// directory must exists for the watcher to be able to run
 name|deleteDirectory
 argument_list|(
-literal|"target/dummy"
+literal|"target/data/dummy"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"target/dummy"
+literal|"target/data/dummy"
 argument_list|)
 expr_stmt|;
 comment|// add reload strategy
@@ -245,7 +245,7 @@ argument_list|(
 operator|new
 name|FileWatcherReloadStrategy
 argument_list|(
-literal|"target/dummy"
+literal|"target/data/dummy"
 argument_list|)
 argument_list|)
 expr_stmt|;

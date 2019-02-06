@@ -138,7 +138,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/script"
+literal|"target/data/script"
 argument_list|)
 expr_stmt|;
 name|super
@@ -195,7 +195,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/script"
+literal|"file:target/data/script"
 argument_list|,
 literal|"Bye ${body}"
 argument_list|,
@@ -257,7 +257,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/script"
+literal|"file:target/data/script"
 argument_list|,
 literal|"Bye ${body}"
 argument_list|,
@@ -381,7 +381,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/script"
+literal|"file:target/data/script"
 argument_list|,
 literal|"Hello ${body}"
 argument_list|,
@@ -401,7 +401,7 @@ comment|// use content cache to load the script once and cache it (content cache
 operator|.
 name|to
 argument_list|(
-literal|"language:simple:file:target/script/myscript.txt?contentCache=true&cacheScript=true"
+literal|"language:simple:file:target/data/script/myscript.txt?contentCache=true&cacheScript=true"
 argument_list|)
 operator|.
 name|to

@@ -196,7 +196,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"file://target/foo?backoffErrorThreshold=3&backoffIdleThreshold=2&backoffMultiplier=4&delay=4000"
+literal|"file://target/data/foo?backoffErrorThreshold=3&backoffIdleThreshold=2&backoffMultiplier=4&delay=4000"
 argument_list|,
 name|uri
 argument_list|)
@@ -714,7 +714,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/foo?delay=4000&backoffMultiplier=4&backoffIdleThreshold=2&backoffErrorThreshold=3"
+literal|"file://target/data/foo?delay=4000&backoffMultiplier=4&backoffIdleThreshold=2&backoffErrorThreshold=3"
 argument_list|)
 operator|.
 name|to

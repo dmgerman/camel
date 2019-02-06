@@ -226,7 +226,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/idempotentfilestore.dat"
+literal|"target/data/idempotentfilestore.dat"
 argument_list|)
 decl_stmt|;
 DECL|field|repo
@@ -349,7 +349,7 @@ name|FileUtil
 operator|.
 name|normalizePath
 argument_list|(
-literal|"target/idempotentfilestore.dat"
+literal|"target/data/idempotentfilestore.dat"
 argument_list|)
 argument_list|,
 name|FileUtil

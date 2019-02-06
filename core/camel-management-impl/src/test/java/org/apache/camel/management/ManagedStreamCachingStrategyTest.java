@@ -270,7 +270,7 @@ name|assertEquals
 argument_list|(
 name|normalizePath
 argument_list|(
-literal|"target/cachedir/myCamel"
+literal|"target/data/cachedir/myCamel"
 argument_list|)
 argument_list|,
 name|normalizePath
@@ -529,7 +529,7 @@ argument_list|()
 operator|.
 name|setSpoolDirectory
 argument_list|(
-literal|"target/cachedir/#name#/"
+literal|"target/data/cachedir/#name#/"
 argument_list|)
 expr_stmt|;
 name|from

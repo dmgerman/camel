@@ -186,7 +186,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/managed"
+literal|"file://target/data/managed"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -471,7 +471,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/managed"
+literal|"file://target/data/managed"
 argument_list|,
 literal|"Bye World"
 argument_list|,

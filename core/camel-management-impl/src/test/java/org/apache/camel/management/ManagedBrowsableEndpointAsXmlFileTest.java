@@ -104,7 +104,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/files"
+literal|"target/data/files"
 argument_list|)
 expr_stmt|;
 name|super
@@ -162,7 +162,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=camel-1,type=endpoints,name=\"file://target/files\""
+literal|"org.apache.camel:context=camel-1,type=endpoints,name=\"file://target/data/files\""
 argument_list|)
 decl_stmt|;
 name|String
@@ -257,7 +257,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:target/files"
+literal|"file:target/data/files"
 argument_list|)
 expr_stmt|;
 block|}

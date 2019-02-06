@@ -142,7 +142,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/managed"
+literal|"target/data/managed"
 argument_list|)
 expr_stmt|;
 name|super
@@ -205,7 +205,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/managed"
+literal|"file://target/data/managed"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -359,7 +359,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/managed"
+literal|"file://target/data/managed"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -514,7 +514,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/managed?initialDelay=0&delay=10"
+literal|"file://target/data/managed?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|routeId
