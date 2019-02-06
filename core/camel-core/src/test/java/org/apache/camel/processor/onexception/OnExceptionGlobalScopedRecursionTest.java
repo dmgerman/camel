@@ -1376,8 +1376,6 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// TODO: figure out why it does not throw exception (handle = true, new exception -> handle true?)
-comment|// TODO: and why route scoped seems to work
 try|try
 block|{
 name|template
