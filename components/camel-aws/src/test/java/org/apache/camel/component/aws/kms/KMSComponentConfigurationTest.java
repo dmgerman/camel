@@ -194,7 +194,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"aws-mq://label?accessKey=xxxxxx&secretKey=yyyyy&region=US_EAST_1"
+literal|"aws-kms://label?accessKey=xxxxxx&secretKey=yyyyy&region=US_EAST_1"
 argument_list|)
 decl_stmt|;
 name|assertEquals
