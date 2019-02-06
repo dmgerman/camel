@@ -151,16 +151,6 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedMessageCount
-argument_list|(
-name|values
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|expectedBodiesReceived
 argument_list|(
 name|values
