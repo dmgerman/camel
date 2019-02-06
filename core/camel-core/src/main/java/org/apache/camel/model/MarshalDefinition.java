@@ -744,8 +744,6 @@ argument_list|<
 name|MarshalDefinition
 argument_list|>
 block|{
-comment|// TODO: Camel 3.0, ref attribute should be removed as CustomDataFormat is to be used instead
-comment|// cannot use @XmlElementRef as it doesn't allow optional properties
 annotation|@
 name|XmlElements
 argument_list|(

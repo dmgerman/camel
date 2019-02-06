@@ -1438,7 +1438,6 @@ specifier|private
 name|DataFormatDefinition
 name|dataFormatType
 decl_stmt|;
-comment|// cannot use @XmlElementRef as it doesn't allow optional properties
 DECL|method|UnmarshalDefinition ()
 specifier|public
 name|UnmarshalDefinition
