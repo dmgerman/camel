@@ -721,10 +721,10 @@ specifier|private
 name|KeyStoreParameters
 name|keyOrTrustStoreParameters
 decl_stmt|;
-DECL|field|keyOrTrustStoreParametersId
+DECL|field|keyOrTrustStoreParametersRef
 specifier|private
 name|String
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
@@ -1162,7 +1162,7 @@ name|xmlCipherAlgorithm
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|XMLSecurityDataFormat (String secureTag, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm, String keyOrTrustStoreParametersId)
+DECL|method|XMLSecurityDataFormat (String secureTag, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm, String keyOrTrustStoreParametersRef)
 specifier|public
 name|XMLSecurityDataFormat
 parameter_list|(
@@ -1182,7 +1182,7 @@ name|String
 name|keyCipherAlgorithm
 parameter_list|,
 name|String
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 parameter_list|)
 block|{
 name|this
@@ -1225,13 +1225,13 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|setKeyOrTrustStoreParametersId
+name|setKeyOrTrustStoreParametersRef
 argument_list|(
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|XMLSecurityDataFormat (String secureTag, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm, String keyOrTrustStoreParametersId, String keyPassword)
+DECL|method|XMLSecurityDataFormat (String secureTag, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm, String keyOrTrustStoreParametersRef, String keyPassword)
 specifier|public
 name|XMLSecurityDataFormat
 parameter_list|(
@@ -1251,7 +1251,7 @@ name|String
 name|keyCipherAlgorithm
 parameter_list|,
 name|String
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 parameter_list|,
 name|String
 name|keyPassword
@@ -1297,9 +1297,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|setKeyOrTrustStoreParametersId
+name|setKeyOrTrustStoreParametersRef
 argument_list|(
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 argument_list|)
 expr_stmt|;
 name|this
@@ -1310,7 +1310,7 @@ name|keyPassword
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|XMLSecurityDataFormat (String secureTag, Map<String, String> namespaces, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm, String keyOrTrustStoreParametersId)
+DECL|method|XMLSecurityDataFormat (String secureTag, Map<String, String> namespaces, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm, String keyOrTrustStoreParametersRef)
 specifier|public
 name|XMLSecurityDataFormat
 parameter_list|(
@@ -1338,7 +1338,7 @@ name|String
 name|keyCipherAlgorithm
 parameter_list|,
 name|String
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 parameter_list|)
 block|{
 name|this
@@ -1390,10 +1390,10 @@ if|if
 condition|(
 literal|null
 operator|!=
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 operator|&&
 operator|!
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 operator|.
 name|equals
 argument_list|(
@@ -1403,13 +1403,13 @@ condition|)
 block|{
 name|this
 operator|.
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 operator|=
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 expr_stmt|;
 block|}
 block|}
-DECL|method|XMLSecurityDataFormat (String secureTag, Map<String, String> namespaces, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm, String keyOrTrustStoreParametersId, String keyPassword)
+DECL|method|XMLSecurityDataFormat (String secureTag, Map<String, String> namespaces, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm, String keyOrTrustStoreParametersRef, String keyPassword)
 specifier|public
 name|XMLSecurityDataFormat
 parameter_list|(
@@ -1437,7 +1437,7 @@ name|String
 name|keyCipherAlgorithm
 parameter_list|,
 name|String
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 parameter_list|,
 name|String
 name|keyPassword
@@ -1492,10 +1492,10 @@ if|if
 condition|(
 literal|null
 operator|!=
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 operator|&&
 operator|!
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 operator|.
 name|equals
 argument_list|(
@@ -1505,9 +1505,9 @@ condition|)
 block|{
 name|this
 operator|.
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 operator|=
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 expr_stmt|;
 block|}
 name|this
@@ -5257,10 +5257,10 @@ operator|.
 name|keyOrTrustStoreParameters
 return|;
 block|}
-DECL|method|setKeyOrTrustStoreParametersId (String registryId)
+DECL|method|setKeyOrTrustStoreParametersRef (String registryId)
 specifier|public
 name|void
-name|setKeyOrTrustStoreParametersId
+name|setKeyOrTrustStoreParametersRef
 parameter_list|(
 name|String
 name|registryId
@@ -5268,7 +5268,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 operator|=
 name|registryId
 expr_stmt|;
@@ -5291,7 +5291,7 @@ name|lookupByName
 argument_list|(
 name|this
 operator|.
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 argument_list|)
 decl_stmt|;
 if|if
@@ -5321,7 +5321,7 @@ literal|"Could not initialize XMLSecurityDataFormat with camelContext."
 operator|+
 literal|"The id for the keyOrTrustStoreParameters specified [ "
 operator|+
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 operator|+
 literal|" ] does not identify a KeyStoreParameters bean."
 argument_list|)
@@ -5329,16 +5329,16 @@ throw|;
 block|}
 block|}
 block|}
-DECL|method|getKeyOrTrustStoreParametersId ()
+DECL|method|getKeyOrTrustStoreParametersRef ()
 specifier|public
 name|String
-name|getKeyOrTrustStoreParametersId
+name|getKeyOrTrustStoreParametersRef
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 return|;
 block|}
 DECL|method|setNamespaces (Map<String, String> namespaces)

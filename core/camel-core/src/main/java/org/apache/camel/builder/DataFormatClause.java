@@ -4348,7 +4348,7 @@ argument_list|)
 expr_stmt|;
 name|xsdf
 operator|.
-name|setKeyOrTrustStoreParametersId
+name|setKeyOrTrustStoreParametersRef
 argument_list|(
 name|keyOrTrustStoreParametersId
 argument_list|)
@@ -4432,7 +4432,7 @@ argument_list|)
 expr_stmt|;
 name|xsdf
 operator|.
-name|setKeyOrTrustStoreParametersId
+name|setKeyOrTrustStoreParametersRef
 argument_list|(
 name|keyOrTrustStoreParametersId
 argument_list|)
@@ -4700,7 +4700,7 @@ argument_list|)
 expr_stmt|;
 name|xsdf
 operator|.
-name|setKeyOrTrustStoreParametersId
+name|setKeyOrTrustStoreParametersRef
 argument_list|(
 name|keyOrTrustStoreParametersId
 argument_list|)
@@ -4792,7 +4792,7 @@ argument_list|)
 expr_stmt|;
 name|xsdf
 operator|.
-name|setKeyOrTrustStoreParametersId
+name|setKeyOrTrustStoreParametersRef
 argument_list|(
 name|keyOrTrustStoreParametersId
 argument_list|)

@@ -142,10 +142,10 @@ name|String
 name|recipientKeyAlias
 decl_stmt|;
 comment|/**      * Refers to a KeyStore instance to lookup in the registry, which is used      * for configuration options for creating and loading a KeyStore instance      * that represents the sender's trustStore or recipient's keyStore.      */
-DECL|field|keyOrTrustStoreParametersId
+DECL|field|keyOrTrustStoreParametersRef
 specifier|private
 name|String
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 decl_stmt|;
 comment|/**      * The password to be used for retrieving the private key from the KeyStore.      * This key is used for asymmetric decryption.      */
 DECL|field|keyPassword
@@ -369,30 +369,30 @@ operator|=
 name|recipientKeyAlias
 expr_stmt|;
 block|}
-DECL|method|getKeyOrTrustStoreParametersId ()
+DECL|method|getKeyOrTrustStoreParametersRef ()
 specifier|public
 name|String
-name|getKeyOrTrustStoreParametersId
+name|getKeyOrTrustStoreParametersRef
 parameter_list|()
 block|{
 return|return
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 return|;
 block|}
-DECL|method|setKeyOrTrustStoreParametersId ( String keyOrTrustStoreParametersId)
+DECL|method|setKeyOrTrustStoreParametersRef ( String keyOrTrustStoreParametersRef)
 specifier|public
 name|void
-name|setKeyOrTrustStoreParametersId
+name|setKeyOrTrustStoreParametersRef
 parameter_list|(
 name|String
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 parameter_list|)
 block|{
 name|this
 operator|.
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 operator|=
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 expr_stmt|;
 block|}
 DECL|method|getKeyPassword ()

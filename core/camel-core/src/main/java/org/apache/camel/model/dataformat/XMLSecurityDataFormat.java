@@ -310,11 +310,10 @@ name|recipientKeyAlias
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-comment|// TODO: rename to keyOrTrustStoreParametersRef
-DECL|field|keyOrTrustStoreParametersId
+DECL|field|keyOrTrustStoreParametersRef
 specifier|private
 name|String
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -610,7 +609,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|getKeyOrTrustStoreParametersId
+name|getKeyOrTrustStoreParametersRef
 argument_list|()
 operator|!=
 literal|null
@@ -622,9 +621,9 @@ name|camelContext
 argument_list|,
 name|dataFormat
 argument_list|,
-literal|"keyOrTrustStoreParametersId"
+literal|"keyOrTrustStoreParametersRef"
 argument_list|,
-name|getKeyOrTrustStoreParametersId
+name|getKeyOrTrustStoreParametersRef
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -953,10 +952,10 @@ name|recipientKeyAlias
 return|;
 block|}
 comment|/**      * Refers to a KeyStore instance to lookup in the registry, which is used for      * configuration options for creating and loading a KeyStore instance that represents the sender's trustStore or recipient's keyStore.      */
-DECL|method|setKeyOrTrustStoreParametersId (String id)
+DECL|method|setKeyOrTrustStoreParametersRef (String id)
 specifier|public
 name|void
-name|setKeyOrTrustStoreParametersId
+name|setKeyOrTrustStoreParametersRef
 parameter_list|(
 name|String
 name|id
@@ -964,21 +963,21 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 operator|=
 name|id
 expr_stmt|;
 block|}
-DECL|method|getKeyOrTrustStoreParametersId ()
+DECL|method|getKeyOrTrustStoreParametersRef ()
 specifier|public
 name|String
-name|getKeyOrTrustStoreParametersId
+name|getKeyOrTrustStoreParametersRef
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|keyOrTrustStoreParametersId
+name|keyOrTrustStoreParametersRef
 return|;
 block|}
 DECL|method|getKeyOrTrustStoreParameters ()
