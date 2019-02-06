@@ -2122,7 +2122,7 @@ name|expectedCount
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets a grace period after which the mock endpoint will re-assert      * to ensure the preliminary assertion is still valid.      *<p/>      * This is used for example to assert that<b>exactly</b> a number of messages       * arrives. For example if {@link #expectedMessageCount(int)} was set to 5, then      * the assertion is satisfied when 5 or more message arrives. To ensure that      * exactly 5 messages arrives, then you would need to wait a little period      * to ensure no further message arrives. This is what you can use this      * {@link #setAssertPeriod(long)} method for.      *<p/>      * By default this period is disabled.      *      * @param period grace period in millis      */
+comment|/**      * Sets a grace period after which the mock endpoint will re-assert      * to ensure the preliminary assertion is still valid.      *<p/>      * This is used for example to assert that<b>exactly</b> a number of messages       * arrives. For example if {@link #expectedMessageCount(int)} was set to 5, then      * the assertion is satisfied when 5 or more message arrives. To ensure that      * exactly 5 messages arrives, then you would need to wait a little period      * to ensure no further message arrives. This is what you can use this      * method for.      *<p/>      * By default this period is disabled.      *      * @param period grace period in millis      */
 DECL|method|setAssertPeriod (long period)
 specifier|public
 name|void
@@ -2155,7 +2155,7 @@ name|expectedCount
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets an expectation that the given header name& value are received by this endpoint      *<p/>      * You can set multiple expectations for different header names.      * If you set a value of<tt>null</tt> that means we accept either the header is absent, or its value is<tt>null</tt>      *<p/>      *<b>Important:</b> This overrides any previous set value using {@link #expectedMessageCount(int)}      */
+comment|/**      * Sets an expectation that the given header name& value are received by this endpoint      *<p/>      * You can set multiple expectations for different header names.      * If you set a value of<tt>null</tt> that means we accept either the header is absent, or its value is<tt>null</tt>      */
 DECL|method|expectedHeaderReceived (final String name, final Object value)
 specifier|public
 name|void
@@ -2176,6 +2176,10 @@ name|expectedMinimumCount
 operator|==
 operator|-
 literal|1
+operator|&&
+name|expectedCount
+operator|<=
+literal|0
 condition|)
 block|{
 name|expectedMinimumMessageCount
