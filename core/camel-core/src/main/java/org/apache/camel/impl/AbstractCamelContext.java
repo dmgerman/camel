@@ -8666,22 +8666,6 @@ name|String
 name|javaType
 parameter_list|)
 block|{
-comment|// special for some components
-comment|// TODO: ActiveMQ 5.11 will include this out of the box, so not needed when its released
-if|if
-condition|(
-literal|"org.apache.activemq.camel.component.ActiveMQComponent"
-operator|.
-name|equals
-argument_list|(
-name|javaType
-argument_list|)
-condition|)
-block|{
-return|return
-literal|"jms"
-return|;
-block|}
 comment|// try to find the component by its java type from the in-use components
 if|if
 condition|(
