@@ -67,6 +67,24 @@ specifier|private
 name|String
 name|id
 decl_stmt|;
+comment|/**      * JGroups-raft ID      */
+DECL|field|raftId
+specifier|private
+name|String
+name|raftId
+decl_stmt|;
+comment|/**      * JGrups-raft configuration File name      */
+DECL|field|jgroupsRaftConfig
+specifier|private
+name|String
+name|jgroupsRaftConfig
+decl_stmt|;
+comment|/**      * JGroups Cluster name      */
+DECL|field|jgroupsRaftClusterName
+specifier|private
+name|String
+name|jgroupsRaftClusterName
+decl_stmt|;
 DECL|method|getRaftId ()
 specifier|public
 name|String
@@ -93,24 +111,6 @@ operator|=
 name|raftId
 expr_stmt|;
 block|}
-comment|/**      * JGroups-raft ID      */
-DECL|field|raftId
-specifier|private
-name|String
-name|raftId
-decl_stmt|;
-comment|/**      * JGrups-raft configuration File name      */
-DECL|field|jgroupsRaftConfig
-specifier|private
-name|String
-name|jgroupsRaftConfig
-decl_stmt|;
-comment|/**      * JGroups Cluster name      */
-DECL|field|jgroupsRaftClusterName
-specifier|private
-name|String
-name|jgroupsRaftClusterName
-decl_stmt|;
 DECL|method|isEnabled ()
 specifier|public
 name|boolean
