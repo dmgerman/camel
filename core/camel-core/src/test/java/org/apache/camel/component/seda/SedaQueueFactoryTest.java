@@ -122,6 +122,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|SedaConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -221,6 +235,12 @@ operator|.
 name|getQueue
 argument_list|()
 decl_stmt|;
+name|ArrayBlockingQueue
+argument_list|<
+name|Exchange
+argument_list|>
+name|blockingQueue
+init|=
 name|assertIsInstanceOf
 argument_list|(
 name|ArrayBlockingQueue
@@ -228,6 +248,20 @@ operator|.
 name|class
 argument_list|,
 name|queue
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"remainingCapacity - default"
+argument_list|,
+name|SedaConstants
+operator|.
+name|QUEUE_SIZE
+argument_list|,
+name|blockingQueue
+operator|.
+name|remainingCapacity
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -251,7 +285,7 @@ name|endpoint
 init|=
 name|resolveMandatoryEndpoint
 argument_list|(
-literal|"seda:arrayQueue50?queueFactory=#arrayQueueFactory&size=50"
+literal|"seda:arrayQueue100?queueFactory=#arrayQueueFactory&size=100"
 argument_list|,
 name|SedaEndpoint
 operator|.
@@ -286,9 +320,9 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"remainingCapacity"
+literal|"remainingCapacity - custom"
 argument_list|,
-literal|50
+literal|100
 argument_list|,
 name|blockingQueue
 operator|.

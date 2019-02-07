@@ -159,14 +159,14 @@ operator|new
 name|ArrayBlockingQueue
 argument_list|<>
 argument_list|(
-name|defaultCapacity
+name|capacity
 argument_list|)
 else|:
 operator|new
 name|ArrayBlockingQueue
 argument_list|<>
 argument_list|(
-name|defaultCapacity
+name|capacity
 argument_list|,
 name|fair
 argument_list|)
