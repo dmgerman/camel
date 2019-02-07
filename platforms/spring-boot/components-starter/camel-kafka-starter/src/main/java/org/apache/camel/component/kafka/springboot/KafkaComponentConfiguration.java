@@ -803,7 +803,7 @@ specifier|private
 name|String
 name|saslJaasConfig
 decl_stmt|;
-comment|/**          * Protocol used to communicate with brokers. Currently only PLAINTEXT          * and SSL are supported.          */
+comment|/**          * Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT          * and SSL are supported          */
 DECL|field|securityProtocol
 specifier|private
 name|String

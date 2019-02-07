@@ -5087,7 +5087,7 @@ return|return
 name|securityProtocol
 return|;
 block|}
-comment|/**      * Protocol used to communicate with brokers. Currently only PLAINTEXT and SSL are supported.      */
+comment|/**      * Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT and SSL are supported      */
 DECL|method|setSecurityProtocol (String securityProtocol)
 specifier|public
 name|void
