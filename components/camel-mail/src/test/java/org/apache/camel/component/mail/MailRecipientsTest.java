@@ -50,18 +50,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|mail
-operator|.
-name|internet
-operator|.
-name|InternetAddress
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -896,7 +884,6 @@ name|CC
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// TODO assertEquals("me@you.org", msg.getRecipients(Message.RecipientType.CC)[0].toString());
 block|}
 annotation|@
 name|Test
