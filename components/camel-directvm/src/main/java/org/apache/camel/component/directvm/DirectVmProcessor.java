@@ -361,6 +361,40 @@ argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
+comment|// The StreamCache created by the child routes must not be
+comment|// closed by the unit of work of the child route, but by the unit of
+comment|// work of the parent route or grand parent route or grand grand parent route ...(in case of nesting).
+comment|// Set therefore the unit of work of the  parent route as stream cache unit of work,
+comment|// if it is not already set.
+if|if
+condition|(
+name|newExchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|STREAM_CACHE_UNIT_OF_WORK
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
+name|newExchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|STREAM_CACHE_UNIT_OF_WORK
+argument_list|,
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|newExchange
 return|;
