@@ -312,6 +312,10 @@ name|displayName
 operator|=
 literal|"InOnlyCamelConnector"
 argument_list|,
+name|category
+operator|=
+literal|"Camel"
+argument_list|,
 name|defaultHandler
 operator|=
 literal|"mvel: new org.apache.camel.component.jbpm.workitem.InOnlyCamelWorkitemHandler()"
@@ -405,6 +409,10 @@ operator|=
 literal|"Send payload to a Camel endpoint"
 argument_list|)
 argument_list|)
+argument_list|,
+name|icon
+operator|=
+literal|"InOnlyCamelConnector.png"
 argument_list|)
 DECL|class|InOnlyCamelWorkItemHandler
 specifier|public
