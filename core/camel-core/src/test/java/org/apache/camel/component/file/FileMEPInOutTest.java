@@ -130,7 +130,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/data/fileMEPInOutTest.txt"
+literal|"target/data/FileMEPInOutTest.txt"
 argument_list|,
 literal|"Hello World"
 argument_list|)
