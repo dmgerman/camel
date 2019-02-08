@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default header filtering strategy. Users can configure filter by  * setting filter set and/or setting a regular expression. Subclass can  * add extended filter logic in   * {@link #extendedFilter(org.apache.camel.spi.HeaderFilterStrategy.Direction, String, Object, org.apache.camel.Exchange)}  *   * Filters are associated with directions (in or out). "In" direction is  * referred to propagating headers "to" Camel message. The "out" direction  * is opposite which is referred to propagating headers from Camel message  * to a native message like JMS and CXF message. You can see example of  * DefaultHeaderFilterStrategy are being extended and invoked in camel-jms   * and camel-cxf components.  */
+comment|/**  * The default header filtering strategy. Users can configure filter by  * setting filter set and/or setting a regular expression. Subclass can  * add extended filter logic in  * {@link #extendedFilter(org.apache.camel.spi.HeaderFilterStrategy.Direction, String, Object, org.apache.camel.Exchange)}  *  * Filters are associated with directions (in or out). "In" direction is  * referred to propagating headers "to" Camel message. The "out" direction  * is opposite which is referred to propagating headers from Camel message  * to a native message like JMS and CXF message. You can see example of  * DefaultHeaderFilterStrategy are being extended and invoked in camel-jms  * and camel-cxf components.  */
 end_comment
 
 begin_class
@@ -137,6 +137,14 @@ specifier|private
 name|boolean
 name|caseInsensitive
 decl_stmt|;
+DECL|field|filterOnMatch
+specifier|private
+name|boolean
+name|filterOnMatch
+init|=
+literal|true
+decl_stmt|;
+comment|// defaults to the previous behaviour
 DECL|method|applyFilterToCamelHeaders (String headerName, Object headerValue, Exchange exchange)
 specifier|public
 name|boolean
@@ -197,7 +205,7 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|/**      * Gets the "out" direction filter set. The "out" direction is referred to      * copying headers from a Camel message to an external message.      *       * @return a set that contains header names that should be excluded.      */
+comment|/**      * Gets the "out" direction filter set. The "out" direction is referred to      * copying headers from a Camel message to an external message.      *      * @return a set that contains header names that should be excluded.      */
 DECL|method|getOutFilter ()
 specifier|public
 name|Set
@@ -244,7 +252,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the "out" direction filter regular expression {@link Pattern}. The      * "out" direction is referred to copying headers from Camel message to      * an external message. If the pattern matches a header, the header will      * be filtered out.       *       * @return regular expression filter pattern      */
+comment|/**      * Gets the "out" direction filter regular expression {@link Pattern}. The      * "out" direction is referred to copying headers from Camel message to      * an external message. If the pattern matches a header, the header will      * be filtered out.      *      * @return regular expression filter pattern      */
 DECL|method|getOutFilterPattern ()
 specifier|public
 name|String
@@ -264,7 +272,7 @@ name|pattern
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the "out" direction filter regular expression {@link Pattern}. The      * "out" direction is referred to copying headers from Camel message to      * an external message. If the pattern matches a header, the header will      * be filtered out.       *       * @param value regular expression filter pattern      */
+comment|/**      * Sets the "out" direction filter regular expression {@link Pattern}. The      * "out" direction is referred to copying headers from Camel message to      * an external message. If the pattern matches a header, the header will      * be filtered out.      *      * @param value regular expression filter pattern      */
 DECL|method|setOutFilterPattern (String value)
 specifier|public
 name|void
@@ -299,7 +307,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Gets the "in" direction filter set. The "in" direction is referred to      * copying headers from an external message to a Camel message.      *       * @return a set that contains header names that should be excluded.      */
+comment|/**      * Gets the "in" direction filter set. The "in" direction is referred to      * copying headers from an external message to a Camel message.      *      * @return a set that contains header names that should be excluded.      */
 DECL|method|getInFilter ()
 specifier|public
 name|Set
@@ -346,7 +354,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the "in" direction filter regular expression {@link Pattern}. The      * "in" direction is referred to copying headers from an external message      * to a Camel message. If the pattern matches a header, the header will      * be filtered out.       *       * @return regular expression filter pattern      */
+comment|/**      * Gets the "in" direction filter regular expression {@link Pattern}. The      * "in" direction is referred to copying headers from an external message      * to a Camel message. If the pattern matches a header, the header will      * be filtered out.      *      * @return regular expression filter pattern      */
 DECL|method|getInFilterPattern ()
 specifier|public
 name|String
@@ -366,7 +374,7 @@ name|pattern
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the "in" direction filter regular expression {@link Pattern}. The      * "in" direction is referred to copying headers from an external message      * to a Camel message. If the pattern matches a header, the header will      * be filtered out.       *       * @param value regular expression filter pattern      */
+comment|/**      * Sets the "in" direction filter regular expression {@link Pattern}. The      * "in" direction is referred to copying headers from an external message      * to a Camel message. If the pattern matches a header, the header will      * be filtered out.      *      * @param value regular expression filter pattern      */
 DECL|method|setInFilterPattern (String value)
 specifier|public
 name|void
@@ -427,7 +435,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the caseInsensitive property which is a boolean to determine      * whether header names should be case insensitive when checking it       * with the filter set.      * It does not affect filtering using regular expression pattern.      *       * @return<tt>true</tt> if header names is case insensitive.       */
+comment|/**      * Gets the caseInsensitive property which is a boolean to determine      * whether header names should be case insensitive when checking it      * with the filter set.      * It does not affect filtering using regular expression pattern.      *      * @return<tt>true</tt> if header names is case insensitive.      */
 DECL|method|isCaseInsensitive ()
 specifier|public
 name|boolean
@@ -438,7 +446,7 @@ return|return
 name|caseInsensitive
 return|;
 block|}
-comment|/**      * Sets the caseInsensitive property which is a boolean to determine      * whether header names should be case insensitive when checking it       * with the filter set.      * It does not affect filtering using regular expression pattern,      *       * @param caseInsensitive<tt>true</tt> if header names is case insensitive.      */
+comment|/**      * Sets the caseInsensitive property which is a boolean to determine      * whether header names should be case insensitive when checking it      * with the filter set.      * It does not affect filtering using regular expression pattern,      *      * @param caseInsensitive<tt>true</tt> if header names is case insensitive.      */
 DECL|method|setCaseInsensitive (boolean caseInsensitive)
 specifier|public
 name|void
@@ -479,6 +487,33 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+DECL|method|isFilterOnMatch ()
+specifier|public
+name|boolean
+name|isFilterOnMatch
+parameter_list|()
+block|{
+return|return
+name|filterOnMatch
+return|;
+block|}
+comment|/**      * Sets the filterOnMatch property which is a boolean to determine      * what to do when a pattern or filter set is matched.      *      * When set to true, a match will filter out the header. This is the default value for backwards compatibility.      *      * When set to false, the pattern or filter will indicate that the header must be kept; anything not matched will be filtered out.      *      * @param filterOnMatch<tt>true</tt> if a match filters out the header.      */
+DECL|method|setFilterOnMatch (boolean filterOnMatch)
+specifier|public
+name|void
+name|setFilterOnMatch
+parameter_list|(
+name|boolean
+name|filterOnMatch
+parameter_list|)
+block|{
+name|this
+operator|.
+name|filterOnMatch
+operator|=
+name|filterOnMatch
+expr_stmt|;
+block|}
 DECL|method|extendedFilter (Direction direction, String key, Object value, Exchange exchange)
 specifier|protected
 name|boolean
@@ -498,7 +533,8 @@ name|exchange
 parameter_list|)
 block|{
 return|return
-literal|false
+operator|!
+name|filterOnMatch
 return|;
 block|}
 DECL|method|doFiltering (Direction direction, String headerName, Object headerValue, Exchange exchange)
@@ -612,7 +648,7 @@ argument_list|()
 condition|)
 block|{
 return|return
-literal|true
+name|filterOnMatch
 return|;
 block|}
 if|if
@@ -647,7 +683,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|true
+name|filterOnMatch
 return|;
 block|}
 block|}
@@ -677,7 +713,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|true
+name|filterOnMatch
 return|;
 block|}
 block|}
@@ -694,7 +730,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|true
+name|filterOnMatch
 return|;
 block|}
 block|}
