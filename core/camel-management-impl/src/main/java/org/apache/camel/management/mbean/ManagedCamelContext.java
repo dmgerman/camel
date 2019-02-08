@@ -516,9 +516,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|JSonSchemaHelper
+name|ManagementStrategy
 import|;
 end_import
 
@@ -530,9 +530,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|ManagementStrategy
+name|JSonSchemaHelper
 import|;
 end_import
 
