@@ -390,9 +390,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|service
-operator|.
-name|ServiceSupport
+name|TypeConverterSupport
 import|;
 end_import
 
@@ -406,7 +404,9 @@ name|camel
 operator|.
 name|support
 operator|.
-name|TypeConverterSupport
+name|service
+operator|.
+name|ServiceSupport
 import|;
 end_import
 

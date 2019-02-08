@@ -112,7 +112,7 @@ name|ToStringTypeConverter
 extends|extends
 name|TypeConverterSupport
 block|{
-DECL|field|MISS_TYPES
+DECL|field|missTypes
 specifier|static
 name|Set
 argument_list|<
@@ -121,7 +121,7 @@ argument_list|<
 name|?
 argument_list|>
 argument_list|>
-name|MISS_TYPES
+name|missTypes
 init|=
 operator|new
 name|HashSet
@@ -138,7 +138,7 @@ name|Class
 name|clazz
 parameter_list|)
 block|{
-name|MISS_TYPES
+name|missTypes
 operator|.
 name|add
 argument_list|(
@@ -201,7 +201,7 @@ block|{
 comment|// should not try to convert specific types
 if|if
 condition|(
-name|MISS_TYPES
+name|missTypes
 operator|.
 name|stream
 argument_list|()
