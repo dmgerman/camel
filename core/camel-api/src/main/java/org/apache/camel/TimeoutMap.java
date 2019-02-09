@@ -28,8 +28,6 @@ name|K
 parameter_list|,
 name|V
 parameter_list|>
-extends|extends
-name|Runnable
 block|{
 comment|/**      * Looks up the value in the map by the given key.      *      * @param key the key of the value to search for      * @return the value for the given key or<tt>null</tt> if it is not present (or has timed out)      */
 DECL|method|get (K key)

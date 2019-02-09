@@ -62,16 +62,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|ConcurrentHashMap
@@ -239,8 +229,6 @@ name|K
 argument_list|,
 name|V
 argument_list|>
-implements|,
-name|Runnable
 block|{
 DECL|field|log
 specifier|protected
@@ -720,13 +708,13 @@ argument_list|()
 return|;
 block|}
 comment|/**      * The timer task which purges old requests and schedules another poll      */
-DECL|method|run ()
-specifier|public
+DECL|method|purgeTask ()
+specifier|private
 name|void
-name|run
+name|purgeTask
 parameter_list|()
 block|{
-comment|// only run if allowed
+comment|// only purgeTask if allowed
 if|if
 condition|(
 operator|!
@@ -738,7 +726,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Purge task not allowed to run"
+literal|"Purge task not allowed to purgeTask"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -762,7 +750,7 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-comment|// must catch and log exception otherwise the executor will now schedule next run
+comment|// must catch and log exception otherwise the executor will now schedule next purgeTask
 name|log
 operator|.
 name|warn
@@ -1154,6 +1142,8 @@ operator|.
 name|scheduleWithFixedDelay
 argument_list|(
 name|this
+operator|::
+name|purgeTask
 argument_list|,
 literal|0
 argument_list|,
