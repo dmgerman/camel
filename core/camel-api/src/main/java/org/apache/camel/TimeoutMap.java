@@ -40,13 +40,6 @@ name|K
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Returns a copy of the keys in the map      *      * @return the keys      */
-DECL|method|getKeys ()
-name|Object
-index|[]
-name|getKeys
-parameter_list|()
-function_decl|;
 comment|/**      * Returns the size of the map      *      * @return the size      */
 DECL|method|size ()
 name|int
