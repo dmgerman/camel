@@ -95,12 +95,6 @@ name|K
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Purges any old entries from the map      */
-DECL|method|purge ()
-name|void
-name|purge
-parameter_list|()
-function_decl|;
 block|}
 end_interface
 
