@@ -799,44 +799,9 @@ name|createBasePom
 argument_list|()
 decl_stmt|;
 comment|// Apply changes to the starter pom
-name|long
-name|t0
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
 name|fixExcludedDependencies
 argument_list|(
 name|pom
-argument_list|)
-expr_stmt|;
-name|long
-name|t1
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
-name|getLog
-argument_list|()
-operator|.
-name|warn
-argument_list|(
-literal|"Timestamp (excluded dependencies): "
-operator|+
-operator|(
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-operator|-
-name|t0
-operator|)
-operator|+
-literal|" ms"
 argument_list|)
 expr_stmt|;
 name|fixAdditionalDependencies
