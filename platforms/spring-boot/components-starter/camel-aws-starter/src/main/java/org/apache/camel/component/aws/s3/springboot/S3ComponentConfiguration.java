@@ -361,7 +361,7 @@ specifier|private
 name|String
 name|secretKey
 decl_stmt|;
-comment|/**          * Reference to a com.amazonaws.services.sqs.AmazonS3 in the          * link:registry.htmlRegistry.          */
+comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * link:registry.htmlRegistry.          */
 DECL|field|amazonS3Client
 specifier|private
 name|AmazonS3
