@@ -7813,13 +7813,6 @@ name|command
 operator|.
 name|startsWith
 argument_list|(
-literal|"property."
-argument_list|)
-operator|||
-name|command
-operator|.
-name|startsWith
-argument_list|(
 literal|"exchangeProperty."
 argument_list|)
 condition|)
