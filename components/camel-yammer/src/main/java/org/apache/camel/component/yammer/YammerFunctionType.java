@@ -50,9 +50,6 @@ DECL|enumConstant|CURRENT
 name|USERS
 block|,
 name|CURRENT
-block|,
-DECL|enumConstant|RELATIONSHIPS
-name|RELATIONSHIPS
 block|;
 DECL|method|fromUri (String uri)
 specifier|public
