@@ -426,6 +426,8 @@ name|clear
 argument_list|()
 expr_stmt|;
 break|break;
+default|default:
+break|break;
 block|}
 block|}
 annotation|@
