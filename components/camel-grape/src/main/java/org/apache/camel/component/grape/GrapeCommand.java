@@ -25,12 +25,12 @@ enum|enum
 name|GrapeCommand
 block|{
 DECL|enumConstant|grab
+DECL|enumConstant|listPatches
+DECL|enumConstant|clearPatches
 name|grab
 block|,
-DECL|enumConstant|listPatches
 name|listPatches
 block|,
-DECL|enumConstant|clearPatches
 name|clearPatches
 block|}
 end_enum

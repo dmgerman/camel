@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The grape component allows you to fetch, load and manage additional jars when CamelContext is running.  */
+comment|/**  * The grape component allows you to fetch, load and manage additional jars when  * CamelContext is running.  */
 end_comment
 
 begin_class

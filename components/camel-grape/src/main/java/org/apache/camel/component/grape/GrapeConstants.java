@@ -21,6 +21,7 @@ end_package
 begin_class
 DECL|class|GrapeConstants
 specifier|public
+specifier|final
 class|class
 name|GrapeConstants
 block|{
@@ -33,6 +34,11 @@ name|GRAPE_COMMAND
 init|=
 literal|"CamelGrapeCommand"
 decl_stmt|;
+DECL|method|GrapeConstants ()
+specifier|private
+name|GrapeConstants
+parameter_list|()
+block|{       }
 block|}
 end_class
 
