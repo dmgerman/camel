@@ -7153,8 +7153,8 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns an expression which returns the string concatenation value of the various      * expressions      *      * @param expressions the expression to be concatenated dynamically      * @param desription the text description of the expression      * @return an expression which when evaluated will return the concatenated values      */
-DECL|method|concatExpression (final Collection<Expression> expressions, final String desription)
+comment|/**      * Returns an expression which returns the string concatenation value of the various      * expressions      *      * @param expressions the expression to be concatenated dynamically      * @param description the text description of the expression      * @return an expression which when evaluated will return the concatenated values      */
+DECL|method|concatExpression (final Collection<Expression> expressions, final String description)
 specifier|public
 specifier|static
 name|Expression
@@ -7169,7 +7169,7 @@ name|expressions
 parameter_list|,
 specifier|final
 name|String
-name|desription
+name|description
 parameter_list|)
 block|{
 return|return
@@ -7246,13 +7246,13 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|desription
+name|description
 operator|!=
 literal|null
 condition|)
 block|{
 return|return
-name|desription
+name|description
 return|;
 block|}
 else|else

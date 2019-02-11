@@ -470,7 +470,7 @@ argument_list|,
 operator|new
 name|SimpleExpression
 argument_list|(
-literal|"${property.CamelSplitIndex}"
+literal|"${exchangeProperty.CamelSplitIndex}"
 argument_list|)
 argument_list|)
 operator|.
@@ -509,7 +509,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:target/data/split/outbox?fileExist=Append&fileName=result${property.split}.txt"
+literal|"file:target/data/split/outbox?fileExist=Append&fileName=result${exchangeProperty.split}.txt"
 argument_list|)
 operator|.
 name|end
@@ -520,13 +520,13 @@ argument_list|(
 operator|new
 name|SimpleExpression
 argument_list|(
-literal|"${property.split} complete"
+literal|"${exchangeProperty.split} complete"
 argument_list|)
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:target/data/split/outbox?fileExist=Append&fileName=result${property.split}.txt"
+literal|"file:target/data/split/outbox?fileExist=Append&fileName=result${exchangeProperty.split}.txt"
 argument_list|)
 operator|.
 name|end

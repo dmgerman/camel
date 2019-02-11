@@ -234,7 +234,7 @@ argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|"Step #1 - Body: ${body} with error code: ${property.errorCode}"
+literal|"Step #1 - Body: ${body} with error code: ${exchangeProperty.errorCode}"
 argument_list|)
 operator|.
 name|choice
@@ -265,7 +265,7 @@ argument_list|()
 operator|.
 name|log
 argument_list|(
-literal|"Step #2 - Body: ${body} with error code: ${property.errorCode}"
+literal|"Step #2 - Body: ${body} with error code: ${exchangeProperty.errorCode}"
 argument_list|)
 operator|.
 name|choice
@@ -275,7 +275,7 @@ name|when
 argument_list|(
 name|simple
 argument_list|(
-literal|"${property.errorCode} != null"
+literal|"${exchangeProperty.errorCode} != null"
 argument_list|)
 argument_list|)
 operator|.

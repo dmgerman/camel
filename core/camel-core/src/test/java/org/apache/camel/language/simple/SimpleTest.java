@@ -1588,33 +1588,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testSimplePropertyExpressions ()
-specifier|public
-name|void
-name|testSimplePropertyExpressions
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-literal|"medal"
-argument_list|,
-literal|"gold"
-argument_list|)
-expr_stmt|;
-name|assertExpression
-argument_list|(
-literal|"${property.medal}"
-argument_list|,
-literal|"gold"
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
 DECL|method|testSimpleExchangePropertyExpressions ()
 specifier|public
 name|void
@@ -2655,7 +2628,7 @@ block|}
 block|}
 name|assertExpression
 argument_list|(
-literal|"${property.unknown[cool]}"
+literal|"${exchangeProperty.unknown[cool]}"
 argument_list|,
 literal|null
 argument_list|)
@@ -2722,28 +2695,28 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"${property.wicket[cool]}"
+literal|"${exchangeProperty.wicket[cool]}"
 argument_list|,
 literal|"Camel rocks"
 argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"${property.wicket[dude]}"
+literal|"${exchangeProperty.wicket[dude]}"
 argument_list|,
 literal|"Hey dude"
 argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"${property.wicket[unknown]}"
+literal|"${exchangeProperty.wicket[unknown]}"
 argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"${property.wicket[code]}"
+literal|"${exchangeProperty.wicket[code]}"
 argument_list|,
 literal|4321
 argument_list|)
@@ -2751,14 +2724,14 @@ expr_stmt|;
 comment|// no header named unknown
 name|assertExpression
 argument_list|(
-literal|"${property?.unknown[cool]}"
+literal|"${exchangeProperty?.unknown[cool]}"
 argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"${property.unknown[cool]}"
+literal|"${exchangeProperty.unknown[cool]}"
 argument_list|,
 literal|null
 argument_list|)
@@ -2988,7 +2961,7 @@ try|try
 block|{
 name|assertExpression
 argument_list|(
-literal|"${property.foobar[bar}"
+literal|"${exchangeProperty.foobar[bar}"
 argument_list|,
 literal|null
 argument_list|)
@@ -3014,7 +2987,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"Valid syntax: ${exchangeProperty.OGNL} was: property.foobar[bar at location 0"
+literal|"Valid syntax: ${exchangeProperty.OGNL} was: exchangeProperty.foobar[bar at location 0"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -315,7 +315,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/data/xpath?fileName=xpath-${property.CamelSplitIndex}.xml"
+literal|"file://target/data/xpath?fileName=xpath-${exchangeProperty.CamelSplitIndex}.xml"
 argument_list|)
 operator|.
 name|to

@@ -139,7 +139,7 @@ argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|"Failed at route ${property.CamelFailureRouteId}"
+literal|"Failed at route ${exchangeProperty.CamelFailureRouteId}"
 argument_list|)
 operator|.
 name|to
