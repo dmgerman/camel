@@ -3830,7 +3830,7 @@ return|return
 name|directoryMustExist
 return|;
 block|}
-comment|/**      * Similar to startingDirectoryMustExist but this applies during polling recursive sub directories.      */
+comment|/**      * Similar to the startingDirectoryMustExist option but this applies during polling (after starting the consumer).      */
 DECL|method|setDirectoryMustExist (boolean directoryMustExist)
 specifier|public
 name|void
