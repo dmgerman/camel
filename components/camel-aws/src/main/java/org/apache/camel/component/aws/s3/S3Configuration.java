@@ -629,7 +629,7 @@ return|return
 name|amazonS3Client
 return|;
 block|}
-comment|/**      * Reference to a `com.amazonaws.services.sqs.AmazonS3` in the      * link:registry.html[Registry].      */
+comment|/**      * Reference to a `com.amazonaws.services.s3.AmazonS3` in the      * link:registry.html[Registry].      */
 DECL|method|setAmazonS3Client (AmazonS3 amazonS3Client)
 specifier|public
 name|void
