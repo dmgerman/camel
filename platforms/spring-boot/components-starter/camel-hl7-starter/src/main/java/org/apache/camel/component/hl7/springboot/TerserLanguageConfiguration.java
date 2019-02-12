@@ -77,7 +77,7 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.language.terser"
+literal|"camel.language.hl7terser"
 argument_list|)
 DECL|class|TerserLanguageConfiguration
 specifier|public
@@ -86,7 +86,7 @@ name|TerserLanguageConfiguration
 extends|extends
 name|LanguageConfigurationPropertiesCommon
 block|{
-comment|/**      * Whether to enable auto configuration of the terser language. This is      * enabled by default.      */
+comment|/**      * Whether to enable auto configuration of the hl7terser language. This is      * enabled by default.      */
 DECL|field|enabled
 specifier|private
 name|Boolean

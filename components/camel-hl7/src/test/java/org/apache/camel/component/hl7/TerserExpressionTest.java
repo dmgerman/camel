@@ -150,7 +150,7 @@ name|hl7
 operator|.
 name|HL7
 operator|.
-name|terser
+name|hl7terser
 import|;
 end_import
 
@@ -433,7 +433,7 @@ argument_list|)
 operator|.
 name|transform
 argument_list|(
-name|terser
+name|hl7terser
 argument_list|(
 literal|"PID-3-1"
 argument_list|)
@@ -451,7 +451,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|terser
+name|hl7terser
 argument_list|(
 literal|"PID-3-1"
 argument_list|)
@@ -474,7 +474,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|terser
+name|hl7terser
 argument_list|(
 literal|"PID-4-1"
 argument_list|)
@@ -495,7 +495,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|terser
+name|hl7terser
 argument_list|(
 literal|"blorg gablorg"
 argument_list|)
@@ -621,13 +621,13 @@ specifier|public
 class|class
 name|TerserBean
 block|{
-DECL|method|patientId (@erservalue = R) String patientId)
+DECL|method|patientId (@l7Terservalue = R) String patientId)
 specifier|public
 name|String
 name|patientId
 parameter_list|(
 annotation|@
-name|Terser
+name|Hl7Terser
 argument_list|(
 name|value
 operator|=

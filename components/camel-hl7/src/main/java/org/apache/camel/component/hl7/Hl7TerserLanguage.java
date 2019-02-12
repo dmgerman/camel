@@ -176,12 +176,12 @@ name|annotations
 operator|.
 name|Language
 argument_list|(
-literal|"terser"
+literal|"hl7terser"
 argument_list|)
-DECL|class|TerserLanguage
+DECL|class|Hl7TerserLanguage
 specifier|public
 class|class
-name|TerserLanguage
+name|Hl7TerserLanguage
 implements|implements
 name|Language
 block|{
@@ -277,7 +277,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"terser("
+literal|"hl7terser("
 operator|+
 name|expression
 operator|+

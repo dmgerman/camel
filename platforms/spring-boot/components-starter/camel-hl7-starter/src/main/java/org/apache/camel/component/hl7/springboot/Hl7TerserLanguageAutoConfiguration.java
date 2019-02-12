@@ -96,7 +96,7 @@ name|component
 operator|.
 name|hl7
 operator|.
-name|TerserLanguage
+name|Hl7TerserLanguage
 import|;
 end_import
 
@@ -462,7 +462,7 @@ name|ConditionalOnCamelContextAndAutoConfigurationBeans
 operator|.
 name|class
 block|,
-name|TerserLanguageAutoConfiguration
+name|Hl7TerserLanguageAutoConfiguration
 operator|.
 name|GroupConditions
 operator|.
@@ -484,15 +484,15 @@ name|LanguageConfigurationProperties
 operator|.
 name|class
 block|,
-name|TerserLanguageConfiguration
+name|Hl7TerserLanguageConfiguration
 operator|.
 name|class
 block|}
 argument_list|)
-DECL|class|TerserLanguageAutoConfiguration
+DECL|class|Hl7TerserLanguageAutoConfiguration
 specifier|public
 class|class
-name|TerserLanguageAutoConfiguration
+name|Hl7TerserLanguageAutoConfiguration
 block|{
 DECL|field|LOGGER
 specifier|private
@@ -505,7 +505,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|TerserLanguageAutoConfiguration
+name|Hl7TerserLanguageAutoConfiguration
 operator|.
 name|class
 argument_list|)
@@ -528,7 +528,7 @@ annotation|@
 name|Autowired
 DECL|field|configuration
 specifier|private
-name|TerserLanguageConfiguration
+name|Hl7TerserLanguageConfiguration
 name|configuration
 decl_stmt|;
 annotation|@
@@ -544,7 +544,7 @@ name|List
 argument_list|<
 name|LanguageCustomizer
 argument_list|<
-name|TerserLanguage
+name|Hl7TerserLanguage
 argument_list|>
 argument_list|>
 name|customizers
@@ -587,23 +587,23 @@ argument_list|)
 annotation|@
 name|ConditionalOnMissingBean
 argument_list|(
-name|TerserLanguage
+name|Hl7TerserLanguage
 operator|.
 name|class
 argument_list|)
-DECL|method|configureTerserLanguage ()
+DECL|method|configureHl7TerserLanguage ()
 specifier|public
-name|TerserLanguage
-name|configureTerserLanguage
+name|Hl7TerserLanguage
+name|configureHl7TerserLanguage
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|TerserLanguage
+name|Hl7TerserLanguage
 name|language
 init|=
 operator|new
-name|TerserLanguage
+name|Hl7TerserLanguage
 argument_list|()
 decl_stmt|;
 if|if
@@ -614,7 +614,7 @@ name|class
 operator|.
 name|isAssignableFrom
 argument_list|(
-name|TerserLanguage
+name|Hl7TerserLanguage
 operator|.
 name|class
 argument_list|)
@@ -701,7 +701,7 @@ for|for
 control|(
 name|LanguageCustomizer
 argument_list|<
-name|TerserLanguage
+name|Hl7TerserLanguage
 argument_list|>
 name|customizer
 range|:

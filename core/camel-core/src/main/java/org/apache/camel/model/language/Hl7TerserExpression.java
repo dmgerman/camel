@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.hl7
+DECL|package|org.apache.camel.model.language
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|model
 operator|.
-name|hl7
+name|language
 package|;
 end_package
 
@@ -68,21 +68,38 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|spi
 operator|.
-name|language
-operator|.
-name|ExpressionDefinition
+name|Metadata
 import|;
 end_import
 
+begin_comment
+comment|/**  * To use HL7 terser scripts in Camel expressions or predicates.  */
+end_comment
+
 begin_class
+annotation|@
+name|Metadata
+argument_list|(
+name|firstVersion
+operator|=
+literal|"2.11.0"
+argument_list|,
+name|label
+operator|=
+literal|"language,hl7"
+argument_list|,
+name|title
+operator|=
+literal|"HL7 Terser"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"terser"
+literal|"hl7terser"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -91,14 +108,21 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|TerserExpression
+DECL|class|Hl7TerserExpression
+specifier|public
 class|class
-name|TerserExpression
+name|Hl7TerserExpression
 extends|extends
 name|ExpressionDefinition
 block|{
-DECL|method|TerserExpression (String expression)
-name|TerserExpression
+DECL|method|Hl7TerserExpression ()
+specifier|public
+name|Hl7TerserExpression
+parameter_list|()
+block|{     }
+DECL|method|Hl7TerserExpression (String expression)
+specifier|public
+name|Hl7TerserExpression
 parameter_list|(
 name|String
 name|expression
@@ -110,8 +134,6 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|getLanguage ()
 specifier|public
 name|String
@@ -119,7 +141,7 @@ name|getLanguage
 parameter_list|()
 block|{
 return|return
-literal|"terser"
+literal|"hl7terser"
 return|;
 block|}
 block|}

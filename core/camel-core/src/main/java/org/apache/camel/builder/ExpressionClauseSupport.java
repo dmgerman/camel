@@ -158,6 +158,22 @@ name|model
 operator|.
 name|language
 operator|.
+name|Hl7TerserExpression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|language
+operator|.
 name|JavaScriptExpression
 import|;
 end_import
@@ -287,22 +303,6 @@ operator|.
 name|language
 operator|.
 name|SpELExpression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|language
-operator|.
-name|TerserExpression
 import|;
 end_import
 
@@ -1629,10 +1629,10 @@ name|result
 return|;
 block|}
 comment|/**      * Evaluates an<a href="http://camel.apache.org/hl7.html">HL7 Terser      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
-DECL|method|terser (String text)
+DECL|method|hl7terser (String text)
 specifier|public
 name|T
-name|terser
+name|hl7terser
 parameter_list|(
 name|String
 name|text
@@ -1642,7 +1642,7 @@ return|return
 name|expression
 argument_list|(
 operator|new
-name|TerserExpression
+name|Hl7TerserExpression
 argument_list|(
 name|text
 argument_list|)

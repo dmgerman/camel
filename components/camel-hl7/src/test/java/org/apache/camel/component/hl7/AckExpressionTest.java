@@ -180,7 +180,7 @@ name|hl7
 operator|.
 name|HL7
 operator|.
-name|terser
+name|hl7terser
 import|;
 end_import
 
@@ -788,7 +788,7 @@ argument_list|()
 operator|.
 name|transform
 argument_list|(
-name|terser
+name|hl7terser
 argument_list|(
 literal|"/.BLORG"
 argument_list|)
@@ -832,7 +832,7 @@ argument_list|()
 operator|.
 name|transform
 argument_list|(
-name|terser
+name|hl7terser
 argument_list|(
 literal|"/.BLORG"
 argument_list|)

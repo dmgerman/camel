@@ -146,11 +146,11 @@ parameter_list|()
 block|{
 comment|// Helper class
 block|}
-DECL|method|terser (String expression)
+DECL|method|hl7terser (String expression)
 specifier|public
 specifier|static
 name|ValueBuilder
-name|terser
+name|hl7terser
 parameter_list|(
 name|String
 name|expression
@@ -161,7 +161,7 @@ operator|new
 name|ValueBuilder
 argument_list|(
 operator|new
-name|TerserExpression
+name|Hl7TerserExpression
 argument_list|(
 name|expression
 argument_list|)
