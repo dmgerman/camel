@@ -176,7 +176,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"host must be an apsolute URI (e.g. http://api.example.com), given: `"
+literal|"host must be an absolute URI (e.g. http://api.example.com), given: `"
 operator|+
 name|hostUri
 operator|+

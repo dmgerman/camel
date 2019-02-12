@@ -305,11 +305,11 @@ name|Metadata
 argument_list|(
 name|description
 operator|=
-literal|"Name of the Camel component that will perform the requests. The compnent must be present"
+literal|"Name of the Camel component that will perform the requests. The component must be present"
 operator|+
 literal|" in Camel registry and it must implement RestProducerFactory service provider interface. If not set"
 operator|+
-literal|" CLASSPATH is searched for single component that implements RestProducerFactory SPI. Can be overriden in"
+literal|" CLASSPATH is searched for single component that implements RestProducerFactory SPI. Can be overridden in"
 operator|+
 literal|" endpoint configuration."
 argument_list|,
@@ -337,7 +337,7 @@ literal|" or multiple types as `application/json, application/xml; q=0.5` accord
 operator|+
 literal|" to the value of `Accept` HTTP header. If set overrides any value found in the Swagger specification."
 operator|+
-literal|" Can be overriden in endpoint configuration"
+literal|" Can be overridden in endpoint configuration"
 argument_list|,
 name|label
 operator|=
@@ -365,7 +365,7 @@ literal|" REST configuration in the Camel Context. If you give this component a 
 operator|+
 literal|" REST configuration is consulted first, `rest-swagger` next, and global configuration last. If set"
 operator|+
-literal|" overrides any value found in the Swagger specification, RestConfiguration. Can be overriden in endpoint"
+literal|" overrides any value found in the Swagger specification, RestConfiguration. Can be overridden in endpoint"
 operator|+
 literal|" configuration."
 argument_list|,
@@ -391,7 +391,7 @@ literal|"What payload type this component is producing. For example `application
 operator|+
 literal|" according to the RFC7231. This equates to the value of `Content-Type` HTTP header. If set overrides"
 operator|+
-literal|" any value present in the Swagger specification. Can be overriden in endpoint configuration."
+literal|" any value present in the Swagger specification. Can be overridden in endpoint configuration."
 argument_list|,
 name|label
 operator|=
@@ -419,7 +419,7 @@ literal|" given the component tries to load `swagger.json` resource. Note that t
 operator|+
 literal|" component and endpoint of this Component should contain the scheme, hostname and optionally the"
 operator|+
-literal|" port in the URI syntax (i.e. `https://api.example.com:8080`). Can be overriden in endpoint"
+literal|" port in the URI syntax (i.e. `https://api.example.com:8080`). Can be overridden in endpoint"
 operator|+
 literal|" configuration."
 argument_list|,

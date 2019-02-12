@@ -833,13 +833,21 @@ name|description
 operator|=
 literal|"Path to the Swagger specification file. The scheme, host base path are taken from this"
 operator|+
-literal|" specification, but these can be overriden with properties on the component or endpoint level. If not"
+literal|" specification, but these can be overridden with properties on the component or endpoint level. If not"
 operator|+
-literal|" given the component tries to load `swagger.json` resource. Note that the `host` defined on the"
+literal|" given the component tries to load `swagger.json` resource from the classpath. Note that the `host` defined on the"
 operator|+
 literal|" component and endpoint of this Component should contain the scheme, hostname and optionally the"
 operator|+
-literal|" port in the URI syntax (i.e. `https://api.example.com:8080`). Overrides component configuration."
+literal|" port in the URI syntax (i.e. `http://api.example.com:8080`). Overrides component configuration."
+operator|+
+literal|" The Swagger specification can be loaded from different sources by prefixing with file: classpath: http: https:."
+operator|+
+literal|" Support for https is limited to using the JDK installed UrlHandler, and as such it can be cumbersome to setup"
+operator|+
+literal|" TLS/SSL certificates for https (such as setting a number of javax.net.ssl JVM system properties)."
+operator|+
+literal|" How to do that consult the JDK documentation for UrlHandler."
 argument_list|,
 name|defaultValue
 operator|=
@@ -2496,7 +2504,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Unable to determine destionation host for requests. The Swagger specification"
+literal|"Unable to determine destination host for requests. The Swagger specification"
 operator|+
 literal|" does not specify `scheme` and `host` parameters, the specification URI is not absolute with `http` or"
 operator|+
@@ -3199,8 +3207,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-specifier|final
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -3239,7 +3246,7 @@ literal|"`. Tried loading using Camel's resource resolution and using Swagger's 
 operator|+
 literal|" Swagger tends to swallow exceptions while parsing, try specifying Java system property `debugParser`"
 operator|+
-literal|" (e.g. `-DdebugParser=true`), the exception that occured when loading using Camel's resource"
+literal|" (e.g. `-DdebugParser=true`), the exception that occurred when loading using Camel's resource"
 operator|+
 literal|" loader follows"
 argument_list|,
