@@ -421,6 +421,7 @@ end_comment
 begin_class
 DECL|class|BacklogDebugger
 specifier|public
+specifier|final
 class|class
 name|BacklogDebugger
 extends|extends

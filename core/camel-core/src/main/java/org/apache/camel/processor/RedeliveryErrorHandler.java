@@ -450,9 +450,9 @@ name|camel
 operator|.
 name|support
 operator|.
-name|service
+name|processor
 operator|.
-name|ServiceHelper
+name|DefaultExchangeFormatter
 import|;
 end_import
 
@@ -466,9 +466,9 @@ name|camel
 operator|.
 name|support
 operator|.
-name|processor
+name|service
 operator|.
-name|DefaultExchangeFormatter
+name|ServiceHelper
 import|;
 end_import
 
