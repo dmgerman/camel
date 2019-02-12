@@ -164,8 +164,6 @@ argument_list|<
 name|PolicyDefinition
 argument_list|>
 block|{
-comment|// TODO: Align this code with TransactedDefinition
-comment|// TODO: Camel 3 should be NoOutputDefinition
 annotation|@
 name|XmlTransient
 DECL|field|type

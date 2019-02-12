@@ -164,8 +164,6 @@ argument_list|<
 name|TransactedDefinition
 argument_list|>
 block|{
-comment|// TODO: Align this code with PolicyDefinition
-comment|// TODO: Camel 3 should be NoOutputDefinition
 comment|// JAXB does not support changing the ref attribute from required to optional
 comment|// if we extend PolicyDefinition so we must make a copy of the class
 annotation|@
