@@ -58,6 +58,9 @@ name|listTags
 block|,
 DECL|enumConstant|tagResource
 name|tagResource
+block|,
+DECL|enumConstant|untagResource
+name|untagResource
 block|}
 end_enum
 

@@ -186,6 +186,12 @@ name|RESOURCE_TAGS
 init|=
 literal|"CamelAwsLambdaResourceTags"
 decl_stmt|;
+DECL|field|RESOURCE_TAG_KEYS
+name|String
+name|RESOURCE_TAG_KEYS
+init|=
+literal|"CamelAwsLambdaResourceTagKeys"
+decl_stmt|;
 block|}
 end_interface
 
