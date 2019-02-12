@@ -441,15 +441,6 @@ specifier|public
 class|class
 name|CamelSalesforceMojoOutputTest
 block|{
-DECL|field|FIXED_DATE
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|FIXED_DATE
-init|=
-literal|"Thu Mar 09 16:15:49 ART 2017"
-decl_stmt|;
 DECL|field|TEST_CALCULATED_FORMULA_FILE
 specifier|private
 specifier|static
@@ -614,8 +605,6 @@ argument_list|,
 name|description
 argument_list|,
 name|utility
-argument_list|,
-name|FIXED_DATE
 argument_list|)
 expr_stmt|;
 for|for

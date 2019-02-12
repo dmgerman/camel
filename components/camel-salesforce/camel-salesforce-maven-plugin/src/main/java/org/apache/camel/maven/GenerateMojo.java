@@ -2097,7 +2097,7 @@ specifier|private
 name|Boolean
 name|useStringsForPicklists
 decl_stmt|;
-DECL|method|processDescription (final File pkgDir, final SObjectDescription description, final GeneratorUtility utility, final String generatedDate)
+DECL|method|processDescription (final File pkgDir, final SObjectDescription description, final GeneratorUtility utility)
 name|void
 name|processDescription
 parameter_list|(
@@ -2112,10 +2112,6 @@ parameter_list|,
 specifier|final
 name|GeneratorUtility
 name|utility
-parameter_list|,
-specifier|final
-name|String
-name|generatedDate
 parameter_list|)
 throws|throws
 name|IOException
@@ -2165,15 +2161,6 @@ argument_list|(
 literal|"desc"
 argument_list|,
 name|description
-argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|put
-argument_list|(
-literal|"generatedDate"
-argument_list|,
-name|generatedDate
 argument_list|)
 expr_stmt|;
 name|context
@@ -3086,8 +3073,6 @@ argument_list|,
 name|description
 argument_list|,
 name|utility
-argument_list|,
-name|generatedDate
 argument_list|)
 expr_stmt|;
 block|}
