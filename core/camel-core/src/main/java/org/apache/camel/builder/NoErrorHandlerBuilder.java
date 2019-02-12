@@ -60,11 +60,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|processor
-operator|.
-name|DelegateAsyncProcessor
+name|RouteContext
 import|;
 end_import
 
@@ -76,9 +74,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|RouteContext
+name|processor
+operator|.
+name|DelegateAsyncProcessor
 import|;
 end_import
 
