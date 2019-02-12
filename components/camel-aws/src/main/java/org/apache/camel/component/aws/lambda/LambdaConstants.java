@@ -174,6 +174,12 @@ name|EVENT_SOURCE_UUID
 init|=
 literal|"CamelAwsLambdaEventSourceUuid"
 decl_stmt|;
+DECL|field|RESOURCE_ARN
+name|String
+name|RESOURCE_ARN
+init|=
+literal|"CamelAwsLambdaResourceArn"
+decl_stmt|;
 block|}
 end_interface
 
