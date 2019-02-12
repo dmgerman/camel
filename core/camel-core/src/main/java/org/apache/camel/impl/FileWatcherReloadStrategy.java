@@ -541,6 +541,7 @@ block|}
 block|}
 DECL|class|UpdatedFileProcessor
 specifier|private
+specifier|final
 class|class
 name|UpdatedFileProcessor
 extends|extends

@@ -84,9 +84,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|AsyncCallbackToCompletableFutureAdapter
+name|IdAware
 import|;
 end_import
 
@@ -98,9 +98,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|IdAware
+name|AsyncCallbackToCompletableFutureAdapter
 import|;
 end_import
 

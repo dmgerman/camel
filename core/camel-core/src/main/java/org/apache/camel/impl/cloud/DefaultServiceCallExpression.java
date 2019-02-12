@@ -26,11 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
 name|cloud
 operator|.
-name|ServiceCallDefinition
+name|ServiceCallExpressionSupport
 import|;
 end_import
 
@@ -42,9 +40,11 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
 name|cloud
 operator|.
-name|ServiceCallExpressionSupport
+name|ServiceCallDefinition
 import|;
 end_import
 
