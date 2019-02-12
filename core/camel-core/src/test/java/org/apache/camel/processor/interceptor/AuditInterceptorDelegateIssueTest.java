@@ -100,11 +100,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|processor
-operator|.
-name|DelegateProcessor
+name|InterceptStrategy
 import|;
 end_import
 
@@ -116,9 +114,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|InterceptStrategy
+name|processor
+operator|.
+name|DelegateProcessor
 import|;
 end_import
 

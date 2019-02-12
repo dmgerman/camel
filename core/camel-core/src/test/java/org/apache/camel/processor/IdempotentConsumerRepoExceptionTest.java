@@ -50,13 +50,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|processor
-operator|.
-name|idempotent
-operator|.
-name|MemoryIdempotentRepository
+name|IdempotentRepository
 import|;
 end_import
 
@@ -68,9 +64,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|IdempotentRepository
+name|processor
+operator|.
+name|idempotent
+operator|.
+name|MemoryIdempotentRepository
 import|;
 end_import
 

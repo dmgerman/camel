@@ -148,9 +148,9 @@ name|camel
 operator|.
 name|support
 operator|.
-name|service
+name|processor
 operator|.
-name|ServiceSupport
+name|UnmarshalProcessor
 import|;
 end_import
 
@@ -164,9 +164,9 @@ name|camel
 operator|.
 name|support
 operator|.
-name|processor
+name|service
 operator|.
-name|UnmarshalProcessor
+name|ServiceSupport
 import|;
 end_import
 
