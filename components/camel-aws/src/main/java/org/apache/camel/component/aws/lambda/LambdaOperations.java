@@ -55,6 +55,9 @@ name|listEventSourceMapping
 block|,
 DECL|enumConstant|listTags
 name|listTags
+block|,
+DECL|enumConstant|tagResource
+name|tagResource
 block|}
 end_enum
 

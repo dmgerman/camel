@@ -180,6 +180,12 @@ name|RESOURCE_ARN
 init|=
 literal|"CamelAwsLambdaResourceArn"
 decl_stmt|;
+DECL|field|RESOURCE_TAGS
+name|String
+name|RESOURCE_TAGS
+init|=
+literal|"CamelAwsLambdaResourceTags"
+decl_stmt|;
 block|}
 end_interface
 
