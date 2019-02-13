@@ -1751,6 +1751,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|loginConfig
@@ -2318,6 +2323,16 @@ name|instanceUrl
 operator|=
 name|instanceUrl
 expr_stmt|;
+block|}
+DECL|method|getLoginUrl ()
+specifier|public
+name|String
+name|getLoginUrl
+parameter_list|()
+block|{
+return|return
+name|loginUrl
+return|;
 block|}
 DECL|method|setLoginUrl (String loginUrl)
 specifier|public
