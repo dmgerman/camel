@@ -1041,7 +1041,7 @@ literal|" excluded from BOM"
 operator|)
 argument_list|)
 expr_stmt|;
-comment|// skip all camel-catalog as they should not be in the BOM
+comment|// skip all camel-catalog and other tooling JARs as they should not be in the BOM
 name|boolean
 name|catalog
 init|=
@@ -1055,9 +1055,24 @@ argument_list|(
 literal|"camel-catalog"
 argument_list|)
 decl_stmt|;
+name|boolean
+name|parser
+init|=
+name|dep
+operator|.
+name|getArtifactId
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"camel-route-parser"
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|catalog
+operator|||
+name|parser
 condition|)
 block|{
 name|getLog
@@ -1065,7 +1080,7 @@ argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"Skipping camel-catalog dependency: "
+literal|"Skipping dependency: "
 operator|+
 name|dep
 operator|.
