@@ -192,6 +192,18 @@ name|RESOURCE_TAG_KEYS
 init|=
 literal|"CamelAwsLambdaResourceTagKeys"
 decl_stmt|;
+DECL|field|VERSION_DESCRIPTION
+name|String
+name|VERSION_DESCRIPTION
+init|=
+literal|"CamelAwsLambdaVersionDescription"
+decl_stmt|;
+DECL|field|VERSION_REVISION_ID
+name|String
+name|VERSION_REVISION_ID
+init|=
+literal|"CamelAwsLambdaVersionRevisionId"
+decl_stmt|;
 block|}
 end_interface
 

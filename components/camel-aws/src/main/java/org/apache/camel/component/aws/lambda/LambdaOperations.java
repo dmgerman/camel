@@ -61,6 +61,9 @@ name|tagResource
 block|,
 DECL|enumConstant|untagResource
 name|untagResource
+block|,
+DECL|enumConstant|publishVersion
+name|publishVersion
 block|}
 end_enum
 
