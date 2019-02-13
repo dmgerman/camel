@@ -308,7 +308,7 @@ name|parser
 operator|.
 name|parseTemplate
 argument_list|(
-literal|"addnumbers(INTEGER ${header.header1},VARCHAR ${property.property1},"
+literal|"addnumbers(INTEGER ${header.header1},VARCHAR ${exchangeProperty.property1},"
 operator|+
 literal|"BIGINT ${header.header2},INOUT INTEGER ${header.header3} inout1,OUT INTEGER out1)"
 argument_list|)

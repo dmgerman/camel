@@ -557,7 +557,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"sql:select * from projects where license = :#${property.license} order by id"
+literal|"sql:select * from projects where license = :#${exchangeProperty.license} order by id"
 argument_list|)
 operator|.
 name|to
@@ -572,7 +572,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"sql:select * from projects where license = :#$simple{property.license} order by id"
+literal|"sql:select * from projects where license = :#$simple{exchangeProperty.license} order by id"
 argument_list|)
 operator|.
 name|to
