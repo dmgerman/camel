@@ -74,9 +74,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|impl
 operator|.
-name|DefaultExchange
+name|SimpleRegistry
 import|;
 end_import
 
@@ -88,9 +88,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
-name|SimpleRegistry
+name|DefaultExchange
 import|;
 end_import
 

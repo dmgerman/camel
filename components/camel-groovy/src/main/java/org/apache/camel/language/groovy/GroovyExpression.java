@@ -112,7 +112,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ExpressionSupport
+name|ExchangeHelper
 import|;
 end_import
 
@@ -126,7 +126,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ExchangeHelper
+name|ExpressionSupport
 import|;
 end_import
 

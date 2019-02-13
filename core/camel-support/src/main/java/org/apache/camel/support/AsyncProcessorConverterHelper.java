@@ -189,6 +189,11 @@ comment|/**  * A simple converter that can convert any {@link Processor} to an {
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"checkstyle"
+argument_list|)
 DECL|class|AsyncProcessorConverterHelper
 specifier|public
 specifier|final

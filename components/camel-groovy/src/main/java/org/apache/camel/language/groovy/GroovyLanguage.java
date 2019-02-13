@@ -66,7 +66,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|LanguageSupport
+name|LRUSoftCache
 import|;
 end_import
 
@@ -80,7 +80,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|LRUSoftCache
+name|LanguageSupport
 import|;
 end_import
 
