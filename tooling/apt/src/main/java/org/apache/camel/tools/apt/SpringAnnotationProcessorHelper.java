@@ -1356,7 +1356,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// need to sanitize the description first (we only want a summary)
+comment|// need to sanitize the description first (we only want a
+comment|// summary)
 name|doc
 operator|=
 name|sanitizeDescription
@@ -1366,7 +1367,8 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// the javadoc may actually be empty, so only change the doc if we got something
+comment|// the javadoc may actually be empty, so only change the doc
+comment|// if we got something
 if|if
 condition|(
 operator|!
@@ -1997,7 +1999,8 @@ name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// find all the enum constants which has the possible enum value that can be used
+comment|// find all the enum constants which has the possible enum value
+comment|// that can be used
 name|List
 argument_list|<
 name|VariableElement
@@ -2706,7 +2709,8 @@ name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// find all the enum constants which has the possible enum value that can be used
+comment|// find all the enum constants which has the possible enum value
+comment|// that can be used
 name|List
 argument_list|<
 name|VariableElement

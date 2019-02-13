@@ -256,6 +256,13 @@ end_import
 
 begin_class
 annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"executablestatementcount"
+block|}
+argument_list|)
+annotation|@
 name|SupportedAnnotationTypes
 argument_list|(
 block|{

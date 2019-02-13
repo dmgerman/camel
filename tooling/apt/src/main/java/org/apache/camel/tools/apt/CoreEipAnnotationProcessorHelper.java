@@ -555,7 +555,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Process all camel-core's model classes (EIPs and DSL) and generate json schema documentation  */
+comment|/**  * Process all camel-core's model classes (EIPs and DSL) and generate json  * schema documentation  */
 end_comment
 
 begin_class
@@ -591,7 +591,8 @@ block|,
 literal|"org.apache.camel.model.language.NamespaceAwareExpression"
 block|}
 decl_stmt|;
-comment|// special for inputs (these classes have sub classes, so we use this to find all classes)
+comment|// special for inputs (these classes have sub classes, so we use this to
+comment|// find all classes)
 DECL|field|ONE_OF_INPUTS
 specifier|private
 specifier|static
@@ -609,7 +610,8 @@ block|,
 literal|"org.apache.camel.model.VerbDefinition"
 block|}
 decl_stmt|;
-comment|// special for outputs (these classes have sub classes, so we use this to find all classes)
+comment|// special for outputs (these classes have sub classes, so we use this to
+comment|// find all classes)
 DECL|field|ONE_OF_OUTPUTS
 specifier|private
 specifier|static
@@ -641,7 +643,8 @@ block|,
 literal|"org.apache.camel.model.ToDynamicDefinition"
 block|}
 decl_stmt|;
-comment|// special for verbs (these classes have sub classes, so we use this to find all classes)
+comment|// special for verbs (these classes have sub classes, so we use this to find
+comment|// all classes)
 DECL|field|ONE_OF_VERBS
 specifier|private
 specifier|static
@@ -943,7 +946,8 @@ argument_list|,
 name|modelName
 argument_list|)
 decl_stmt|;
-comment|// get endpoint information which is divided into paths and options (though there should really only be one path)
+comment|// get endpoint information which is divided into paths and options
+comment|// (though there should really only be one path)
 name|Set
 argument_list|<
 name|EipOption
@@ -980,7 +984,8 @@ argument_list|,
 name|modelName
 argument_list|)
 expr_stmt|;
-comment|// after we have found all the options then figure out if the model accepts input/output
+comment|// after we have found all the options then figure out if the model
+comment|// accepts input/output
 name|eipModel
 operator|.
 name|setInput
@@ -1373,7 +1378,8 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// filter out outputs if we do not support it (and preserve order so we need to use linked hash-set)
+comment|// filter out outputs if we do not support it (and preserve order so
+comment|// we need to use linked hash-set)
 name|options
 operator|=
 name|options
@@ -1790,7 +1796,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// need to sanitize the description first (we only want a summary)
+comment|// need to sanitize the description first (we only want a
+comment|// summary)
 name|doc
 operator|=
 name|sanitizeDescription
@@ -1800,7 +1807,8 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// the javadoc may actually be empty, so only change the doc if we got something
+comment|// the javadoc may actually be empty, so only change the doc
+comment|// if we got something
 if|if
 condition|(
 operator|!
@@ -2210,7 +2218,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// special when we process these nodes as they do not use JAXB annotations on fields, but on methods
+comment|// special when we process these nodes as they do not use JAXB
+comment|// annotations on fields, but on methods
 if|if
 condition|(
 literal|"OptionalIdentifiedDefinition"
@@ -2419,7 +2428,8 @@ condition|(
 name|skipUnwanted
 condition|)
 block|{
-comment|// we want to skip inheritErrorHandler which is only applicable for the load-balancer
+comment|// we want to skip inheritErrorHandler which is only applicable for
+comment|// the load-balancer
 name|boolean
 name|loadBalancer
 init|=
@@ -2661,7 +2671,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// find all the enum constants which has the possible enum value that can be used
+comment|// find all the enum constants which has the possible enum
+comment|// value that can be used
 name|List
 argument_list|<
 name|VariableElement
@@ -2895,7 +2906,8 @@ name|modelName
 argument_list|)
 condition|)
 block|{
-comment|// skip expression attribute on these three languages as they are solely configured using attributes
+comment|// skip expression attribute on these three languages as they are
+comment|// solely configured using attributes
 if|if
 condition|(
 literal|"expression"
@@ -3266,7 +3278,8 @@ argument_list|,
 name|required
 argument_list|)
 expr_stmt|;
-comment|// is it used as predicate (check field first and then fallback to its class)
+comment|// is it used as predicate (check field first and then fallback to
+comment|// its class)
 name|boolean
 name|asPredicate
 init|=
@@ -3416,7 +3429,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// find all the enum constants which has the possible enum value that can be used
+comment|// find all the enum constants which has the possible
+comment|// enum value that can be used
 name|List
 argument_list|<
 name|VariableElement
@@ -3500,7 +3514,8 @@ condition|(
 name|isOneOf
 condition|)
 block|{
-comment|// okay its actually an language expression, so favor using that in the eip option
+comment|// okay its actually an language expression, so favor using that
+comment|// in the eip option
 name|kind
 operator|=
 literal|"expression"
@@ -6316,7 +6331,9 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-comment|// find javadoc from original class as it will override the setExpression method where we can provide the javadoc for the given EIP
+comment|// find javadoc from original class as it will override the
+comment|// setExpression method where we can provide the javadoc for the
+comment|// given EIP
 name|String
 name|docComment
 init|=
@@ -6335,7 +6352,8 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-comment|// is it used as predicate (check field first and then fallback to its class / original class)
+comment|// is it used as predicate (check field first and then fallback to
+comment|// its class / original class)
 name|boolean
 name|asPredicate
 init|=
@@ -6718,7 +6736,9 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-comment|// find javadoc from original class as it will override the setExpression method where we can provide the javadoc for the given EIP
+comment|// find javadoc from original class as it will override the
+comment|// setExpression method where we can provide the javadoc for the
+comment|// given EIP
 name|String
 name|docComment
 init|=
@@ -6872,7 +6892,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Whether the class supports outputs.      *<p/>      * There are some classes which does not support outputs, even though they have a outputs element.      */
+comment|/**      * Whether the class supports outputs.      *<p/>      * There are some classes which does not support outputs, even though they      * have a outputs element.      */
 DECL|method|supportOutputs (TypeElement classElement)
 specifier|private
 name|boolean
@@ -7042,7 +7062,7 @@ return|return
 name|defaultValue
 return|;
 block|}
-comment|/**      * Capitializes the name as a title      *      * @param name  the name      * @return as a title      */
+comment|/**      * Capitializes the name as a title      *      * @param name the name      * @return as a title      */
 DECL|method|asTitle (String name)
 specifier|private
 specifier|static
