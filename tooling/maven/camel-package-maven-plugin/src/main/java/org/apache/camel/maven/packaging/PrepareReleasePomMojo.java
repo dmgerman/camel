@@ -367,7 +367,7 @@ name|Parameter
 argument_list|(
 name|defaultValue
 operator|=
-literal|"${project.build.directory}/../../spring-boot/components-starter"
+literal|"${project.build.directory}/../../../platforms/spring-boot/components-starter"
 argument_list|)
 DECL|field|startersDir
 specifier|protected
