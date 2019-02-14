@@ -203,6 +203,7 @@ block|{
 comment|// Helper class
 block|}
 comment|/**      * Creates a {@link AsyncProcessor} that delegates to the given processor.      * It is important that this implements {@link DelegateProcessor}      */
+comment|// CHECKSTYLE:OFF
 DECL|class|ProcessorToAsyncProcessorBridge
 specifier|private
 specifier|static
@@ -220,6 +221,7 @@ argument_list|>
 implements|,
 name|Service
 block|{
+comment|// CHECKSTYLE:ON
 DECL|field|processor
 specifier|protected
 specifier|final
