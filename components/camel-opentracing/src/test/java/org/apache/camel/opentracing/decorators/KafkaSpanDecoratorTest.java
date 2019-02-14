@@ -44,18 +44,6 @@ end_import
 
 begin_import
 import|import
-name|jdk
-operator|.
-name|nashorn
-operator|.
-name|internal
-operator|.
-name|IntDeque
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
