@@ -201,7 +201,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"(.*://.*:)(.*)(@)"
+literal|"(.*://.*?:)(.*)(@)"
 argument_list|)
 decl_stmt|;
 comment|// Match the user password in the URI path as second capture group
@@ -218,7 +218,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"(.*:)(.*)(@)"
+literal|"(.*?:)(.*)(@)"
 argument_list|)
 decl_stmt|;
 DECL|field|CHARSET
