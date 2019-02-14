@@ -150,6 +150,7 @@ name|RAW_TOKEN_PREFIX
 init|=
 literal|"RAW"
 decl_stmt|;
+comment|// CHECKSTYLE:OFF
 DECL|field|RAW_TOKEN_START
 specifier|public
 specifier|static
@@ -178,6 +179,7 @@ block|,
 literal|'}'
 block|}
 decl_stmt|;
+comment|// CHECKSTYLE:ON
 DECL|field|CHARSET
 specifier|private
 specifier|static
