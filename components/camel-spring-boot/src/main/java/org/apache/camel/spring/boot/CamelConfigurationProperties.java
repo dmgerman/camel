@@ -348,13 +348,11 @@ specifier|private
 name|boolean
 name|useDataType
 decl_stmt|;
-comment|/**      * Set whether breadcrumb is enabled.      * The default value is true.      */
+comment|/**      * Set whether breadcrumb is enabled.      * The default value is false.      */
 DECL|field|useBreadcrumb
 specifier|private
 name|boolean
 name|useBreadcrumb
-init|=
-literal|true
 decl_stmt|;
 comment|/**      * Sets the JMX statistics level      * The level can be set to Extended to gather additional information      *      * The default value is Default.      */
 DECL|field|jmxManagementStatisticsLevel

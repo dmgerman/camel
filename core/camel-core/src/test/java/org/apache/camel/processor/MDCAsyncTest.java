@@ -258,10 +258,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// enable MDC
+comment|// enable MDC and breadcrumb
 name|context
 operator|.
 name|setUseMDCLogging
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|setUseBreadcrumb
 argument_list|(
 literal|true
 argument_list|)

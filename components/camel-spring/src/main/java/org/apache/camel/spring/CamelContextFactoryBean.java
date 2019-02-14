@@ -1158,13 +1158,6 @@ name|useDataType
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
 DECL|field|useBreadcrumb
 specifier|private
 name|String

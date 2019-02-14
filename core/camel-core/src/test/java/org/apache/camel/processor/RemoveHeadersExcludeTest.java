@@ -193,10 +193,9 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there is also a breadcrumb header
 name|assertEquals
 argument_list|(
-literal|2
+literal|1
 argument_list|,
 name|mock
 operator|.
@@ -352,10 +351,9 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there is also a breadcrumb header
 name|assertEquals
 argument_list|(
-literal|4
+literal|3
 argument_list|,
 name|mock
 operator|.

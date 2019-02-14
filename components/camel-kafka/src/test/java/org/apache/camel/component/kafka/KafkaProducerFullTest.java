@@ -2591,12 +2591,12 @@ argument_list|,
 name|headers
 argument_list|)
 expr_stmt|;
-comment|// we have 6 headers and 1 header with breadcrumbId
+comment|// we have 6 headers
 name|assertEquals
 argument_list|(
-literal|"Seven propagated header is expected."
+literal|"6 propagated header is expected."
 argument_list|,
-literal|7
+literal|6
 argument_list|,
 name|headers
 operator|.

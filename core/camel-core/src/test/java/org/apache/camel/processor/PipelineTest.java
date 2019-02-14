@@ -714,12 +714,11 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-comment|// there is always breadcrumb header
 name|assertEquals
 argument_list|(
 literal|"There should have no message header"
 argument_list|,
-literal|1
+literal|0
 argument_list|,
 name|exchange
 operator|.

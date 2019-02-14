@@ -327,6 +327,14 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// enable breadcrumb
+name|context
+operator|.
+name|setUseBreadcrumb
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|addComponent
@@ -423,6 +431,16 @@ operator|.
 name|BREADCRUMB_ID
 argument_list|)
 argument_list|,
+name|MDC
+operator|.
+name|get
+argument_list|(
+name|MDC_BREADCRUMB_ID
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
 name|MDC
 operator|.
 name|get
