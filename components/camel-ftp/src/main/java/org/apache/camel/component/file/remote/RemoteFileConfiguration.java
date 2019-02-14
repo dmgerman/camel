@@ -912,7 +912,7 @@ return|return
 name|soTimeout
 return|;
 block|}
-comment|/**      * Sets the so timeout      *<p/>      * Used only by FTPClient      */
+comment|/**      * Sets the so timeout      *<p/>      * FTP and FTPS Only for Camel 2.4. SFTP for Camel 2.14.3/2.15.3/2.16 onwards.      * Is the SocketOptions.SO_TIMEOUT value in millis.      * Recommended option is to set this to 300000 so as not have a hanged connection.      * On SFTP this option is set as timeout on the JSCH Session instance.      */
 DECL|method|setSoTimeout (int soTimeout)
 specifier|public
 name|void
