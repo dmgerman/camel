@@ -274,13 +274,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Autowired
-DECL|field|metricRegistry
-specifier|private
-name|MetricRegistry
-name|metricRegistry
-decl_stmt|;
 comment|/**      * @param args no command line args required      */
 DECL|method|main (String[] args)
 specifier|public
@@ -351,6 +344,7 @@ operator|.
 name|forRegistry
 argument_list|(
 name|metricRegistry
+argument_list|()
 argument_list|)
 operator|.
 name|prefixedWith
@@ -501,6 +495,19 @@ return|;
 block|}
 annotation|@
 name|Bean
+DECL|method|metricRegistry ()
+name|MetricRegistry
+name|metricRegistry
+parameter_list|()
+block|{
+return|return
+operator|new
+name|MetricRegistry
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Bean
 DECL|method|contextConfiguration ()
 name|CamelContextConfiguration
 name|contextConfiguration
@@ -540,6 +547,7 @@ operator|.
 name|setMetricsRegistry
 argument_list|(
 name|metricRegistry
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|context
