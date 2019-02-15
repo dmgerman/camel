@@ -48,6 +48,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|CompletableFuture
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|CompletionService
 import|;
 end_import
@@ -180,7 +192,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultComponent
 import|;
@@ -194,7 +206,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultConsumer
 import|;
@@ -208,7 +220,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultEndpoint
 import|;
@@ -222,7 +234,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|DefaultProducer
 import|;
@@ -236,7 +248,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ExchangeHelper
 import|;
@@ -839,6 +851,25 @@ argument_list|)
 expr_stmt|;
 return|return
 literal|true
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|processAsync (Exchange exchange)
+specifier|public
+name|CompletableFuture
+argument_list|<
+name|Exchange
+argument_list|>
+name|processAsync
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// TODO Auto-generated method stub
+return|return
+literal|null
 return|;
 block|}
 block|}
