@@ -695,7 +695,8 @@ argument_list|(
 name|executor
 argument_list|)
 decl_stmt|;
-comment|// StopWatch watch = new StopWatch();  // if we want to clock how long it takes
+comment|// StopWatch watch = new StopWatch(); // if we want to clock how
+comment|// long it takes
 for|for
 control|(
 name|int
