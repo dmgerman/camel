@@ -507,6 +507,18 @@ name|label
 operator|=
 literal|"common"
 argument_list|)
+DECL|field|schemaRegistryURL
+specifier|private
+name|String
+name|schemaRegistryURL
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|)
 DECL|field|clientId
 specifier|private
 name|String
@@ -2481,6 +2493,16 @@ name|getReconnectBackoffMaxMs
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|addPropertyIfNotNull
+argument_list|(
+name|props
+argument_list|,
+literal|"schema.registry.url"
+argument_list|,
+name|getSchemaRegistryURL
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// SSL
 name|applySslConfiguration
 argument_list|(
@@ -3105,6 +3127,16 @@ operator|.
 name|RECONNECT_BACKOFF_MAX_MS_CONFIG
 argument_list|,
 name|getReconnectBackoffMaxMs
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|addPropertyIfNotNull
+argument_list|(
+name|props
+argument_list|,
+literal|"schema.registry.url"
+argument_list|,
+name|getSchemaRegistryURL
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4427,6 +4459,33 @@ operator|.
 name|brokers
 operator|=
 name|brokers
+expr_stmt|;
+block|}
+DECL|method|getSchemaRegistryURL ()
+specifier|public
+name|String
+name|getSchemaRegistryURL
+parameter_list|()
+block|{
+return|return
+name|schemaRegistryURL
+return|;
+block|}
+comment|/**      * URL of the Kafka schema registry to use.      * The format is host1:port1,host2:port2.      *<p/>      * This option is known as<tt>schema.registry.url</tt> in the Kafka documentation.      */
+DECL|method|setSchemaRegistryURL (String schemaRegistryURL)
+specifier|public
+name|void
+name|setSchemaRegistryURL
+parameter_list|(
+name|String
+name|schemaRegistryURL
+parameter_list|)
+block|{
+name|this
+operator|.
+name|schemaRegistryURL
+operator|=
+name|schemaRegistryURL
 expr_stmt|;
 block|}
 DECL|method|getCompressionCodec ()
