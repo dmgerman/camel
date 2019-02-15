@@ -50,6 +50,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -938,6 +950,35 @@ operator|.
 name|asList
 argument_list|(
 name|allowableValues
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Allowed values of the parameter when its an enum type      */
+DECL|method|allowableValues (String allowableValues)
+specifier|public
+name|RestOperationParamDefinition
+name|allowableValues
+parameter_list|(
+name|String
+name|allowableValues
+parameter_list|)
+block|{
+name|setAllowableValues
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|allowableValues
+operator|.
+name|split
+argument_list|(
+literal|","
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
