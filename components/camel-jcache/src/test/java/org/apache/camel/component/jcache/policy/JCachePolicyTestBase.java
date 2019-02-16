@@ -128,21 +128,11 @@ name|void
 name|before
 parameter_list|()
 block|{
-comment|//reset mock
-name|MockEndpoint
-name|mock
-init|=
+comment|//Setup mock
 name|getMockEndpoint
 argument_list|(
 literal|"mock:value"
 argument_list|)
-decl_stmt|;
-name|mock
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|mock
 operator|.
 name|whenAnyExchangeReceived
 argument_list|(
@@ -176,7 +166,8 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|randomString ()
-specifier|protected
+specifier|public
+specifier|static
 name|String
 name|randomString
 parameter_list|()
@@ -192,7 +183,8 @@ argument_list|()
 return|;
 block|}
 DECL|method|lookupCache (String cacheName)
-specifier|protected
+specifier|public
+specifier|static
 name|Cache
 name|lookupCache
 parameter_list|(
