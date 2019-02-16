@@ -52,7 +52,6 @@ name|StaticService
 block|{
 comment|/**      * Statistics gathered about the endpoint.      */
 DECL|interface|Statistic
-specifier|public
 interface|interface
 name|Statistic
 block|{
