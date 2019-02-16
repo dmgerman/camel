@@ -14,16 +14,6 @@ name|camel
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents the history of a Camel {@link Message} how it was routed by the Camel routing engine.  */
 end_comment
