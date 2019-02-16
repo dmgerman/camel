@@ -39,7 +39,7 @@ block|,
 comment|/**      * Client authentication required.      */
 DECL|enumConstant|REQUIRE
 name|REQUIRE
-block|; }
+block|}
 end_enum
 
 end_unit

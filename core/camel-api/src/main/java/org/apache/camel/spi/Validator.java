@@ -132,7 +132,6 @@ return|return
 name|type
 return|;
 block|}
-empty_stmt|;
 comment|/**      * Set data type.      *      * @param type data type      */
 DECL|method|setType (String type)
 specifier|public

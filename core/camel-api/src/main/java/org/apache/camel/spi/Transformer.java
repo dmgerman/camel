@@ -133,7 +133,6 @@ return|return
 name|model
 return|;
 block|}
-empty_stmt|;
 comment|/**      * Get 'from' data type.      */
 DECL|method|getFrom ()
 specifier|public
@@ -145,7 +144,6 @@ return|return
 name|from
 return|;
 block|}
-empty_stmt|;
 comment|/**      * Get 'to' data type.      */
 DECL|method|getTo ()
 specifier|public
@@ -157,7 +155,6 @@ return|return
 name|to
 return|;
 block|}
-empty_stmt|;
 comment|/**      * Set data model.      *      * @param model data model      */
 DECL|method|setModel (String model)
 specifier|public
