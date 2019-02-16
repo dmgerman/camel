@@ -204,7 +204,7 @@ argument_list|(
 literal|"user.dir"
 argument_list|)
 operator|+
-literal|"/src/data"
+literal|"/src/test/resources/data"
 decl_stmt|;
 annotation|@
 name|Override
