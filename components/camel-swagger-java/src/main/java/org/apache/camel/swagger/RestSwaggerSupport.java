@@ -1929,6 +1929,14 @@ argument_list|,
 name|classResolver
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|configuration
+operator|.
+name|isUseXForwardHeaders
+argument_list|()
+condition|)
+block|{
 name|setupXForwardedHeaders
 argument_list|(
 name|swagger
@@ -1936,6 +1944,7 @@ argument_list|,
 name|headers
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -2059,6 +2068,14 @@ argument_list|,
 name|classResolver
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|configuration
+operator|.
+name|isUseXForwardHeaders
+argument_list|()
+condition|)
+block|{
 name|setupXForwardedHeaders
 argument_list|(
 name|swagger
@@ -2066,6 +2083,7 @@ argument_list|,
 name|headers
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
