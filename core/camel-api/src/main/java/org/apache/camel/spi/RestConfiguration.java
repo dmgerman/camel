@@ -136,6 +136,13 @@ specifier|private
 name|String
 name|host
 decl_stmt|;
+DECL|field|useXForwardHeaders
+specifier|private
+name|boolean
+name|useXForwardHeaders
+init|=
+literal|true
+decl_stmt|;
 DECL|field|apiHost
 specifier|private
 name|String
@@ -419,6 +426,34 @@ operator|.
 name|host
 operator|=
 name|host
+expr_stmt|;
+block|}
+comment|/**      * WWhether to use X-Forward headers to set host etc. for Swagger.      *<p/>      * This option is default<tt>true</tt>.      */
+DECL|method|isUseXForwardHeaders ()
+specifier|public
+name|boolean
+name|isUseXForwardHeaders
+parameter_list|()
+block|{
+return|return
+name|useXForwardHeaders
+return|;
+block|}
+comment|/**      * WWhether to use X-Forward headers to set host etc. for Swagger.      *<p/>      * This option is default<tt>true</tt>.      *       * @param useXForwardHeaders whether to use X-Forward headers      */
+DECL|method|setUseXForwardHeaders (boolean useXForwardHeaders)
+specifier|public
+name|void
+name|setUseXForwardHeaders
+parameter_list|(
+name|boolean
+name|useXForwardHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useXForwardHeaders
+operator|=
+name|useXForwardHeaders
 expr_stmt|;
 block|}
 DECL|method|getApiHost ()

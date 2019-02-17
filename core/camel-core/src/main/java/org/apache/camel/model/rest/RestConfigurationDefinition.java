@@ -289,6 +289,24 @@ name|apiHost
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|useXForwardHeaders
+specifier|private
+name|Boolean
+name|useXForwardHeaders
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|port
 specifier|private
 name|String
@@ -1368,6 +1386,33 @@ operator|=
 name|corsHeaders
 expr_stmt|;
 block|}
+DECL|method|getUseXForwardHeaders ()
+specifier|public
+name|Boolean
+name|getUseXForwardHeaders
+parameter_list|()
+block|{
+return|return
+name|useXForwardHeaders
+return|;
+block|}
+comment|/**      * Whether to use X-Forward headers for Host and related setting.      *<p/>      * The default value is true.      */
+DECL|method|setUseXForwardHeaders (Boolean useXForwardHeaders)
+specifier|public
+name|void
+name|setUseXForwardHeaders
+parameter_list|(
+name|Boolean
+name|useXForwardHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useXForwardHeaders
+operator|=
+name|useXForwardHeaders
+expr_stmt|;
+block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
 comment|/**      * To use a specific Camel rest component (consumer)      */
@@ -2117,6 +2162,25 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * To specify whether to use X-Forward headers for Host and related setting      */
+DECL|method|useXForwardHeaders (boolean useXForwardHeaders)
+specifier|public
+name|RestConfigurationDefinition
+name|useXForwardHeaders
+parameter_list|(
+name|boolean
+name|useXForwardHeaders
+parameter_list|)
+block|{
+name|setUseXForwardHeaders
+argument_list|(
+name|useXForwardHeaders
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Implementation
 comment|//-------------------------------------------------------------------------
 comment|/**      * Creates a {@link org.apache.camel.spi.RestConfiguration} instance based on the definition      *      * @param context     the camel context      * @return the configuration      * @throws Exception is thrown if error creating the configuration      */
@@ -2245,6 +2309,21 @@ name|context
 argument_list|,
 name|host
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|useXForwardHeaders
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setUseXForwardHeaders
+argument_list|(
+name|useXForwardHeaders
 argument_list|)
 expr_stmt|;
 block|}
