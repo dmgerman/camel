@@ -168,6 +168,14 @@ operator|.
 name|getTestClass
 argument_list|()
 decl_stmt|;
+comment|// need to prepare this before we load spring application context
+name|CamelAnnotationsHandler
+operator|.
+name|handleExcludeRoutesForSpringBoot
+argument_list|(
+name|testClass
+argument_list|)
+expr_stmt|;
 comment|// we are customizing the Camel context with
 comment|// CamelAnnotationsHandler so we do not want to start it
 comment|// automatically, which would happen when SpringCamelContext

@@ -274,6 +274,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CollectionStringBuffer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -362,6 +376,144 @@ specifier|private
 name|CamelAnnotationsHandler
 parameter_list|()
 block|{     }
+comment|/**      * Handles @ExcludeRoutes to make it easier to exclude other routes when testing with Spring Boot.      *      * @param context the initialized Spring context      * @param testClass the test class being executed      */
+DECL|method|handleExcludeRoutesForSpringBoot (Class<?> testClass)
+specifier|public
+specifier|static
+name|void
+name|handleExcludeRoutesForSpringBoot
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|testClass
+parameter_list|)
+block|{
+if|if
+condition|(
+name|testClass
+operator|.
+name|isAnnotationPresent
+argument_list|(
+name|ExcludeRoutes
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
+name|Class
+index|[]
+name|routes
+init|=
+name|testClass
+operator|.
+name|getAnnotation
+argument_list|(
+name|ExcludeRoutes
+operator|.
+name|class
+argument_list|)
+operator|.
+name|value
+argument_list|()
+decl_stmt|;
+comment|// need to setup this as a JVM system property
+name|CollectionStringBuffer
+name|csb
+init|=
+operator|new
+name|CollectionStringBuffer
+argument_list|(
+literal|","
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|Class
+name|clazz
+range|:
+name|routes
+control|)
+block|{
+name|csb
+operator|.
+name|append
+argument_list|(
+name|clazz
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|String
+name|key
+init|=
+literal|"CamelTestSpringExcludeRoutes"
+decl_stmt|;
+name|String
+name|value
+init|=
+name|csb
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
+name|String
+name|exists
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+name|key
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|exists
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOGGER
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot use @ExcludeRoutes as JVM property "
+operator|+
+name|key
+operator|+
+literal|" has already been set."
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|"@ExcludeRoutes annotation found. Setting up JVM property {}={}"
+argument_list|,
+name|key
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|setProperty
+argument_list|(
+name|key
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 comment|/**      * Handles disabling of JMX on Camel contexts based on {@link DisableJmx}.      *      * @param context the initialized Spring context      * @param testClass the test class being executed      */
 DECL|method|handleDisableJmx (ConfigurableApplicationContext context, Class<?> testClass)
 specifier|public
@@ -732,7 +884,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// turn off dumping one more time by removing the event listener (which would dump as well when Camel is stopping)
-comment|// but this method was explict invoked to dump such as from afterTest callbacks from JUnit.
+comment|// but this method was explicit invoked to dump such as from afterTest callbacks from JUnit.
 name|RouteCoverageEventNotifier
 name|eventNotifier
 init|=
@@ -1425,7 +1577,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// resovle the property place holders of the mockEndpoints
+comment|// resolve the property place holders of the mockEndpoints
 name|String
 name|mockEndpointsValue
 init|=
