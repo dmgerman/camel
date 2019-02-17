@@ -510,6 +510,35 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+DECL|method|hasExternalIds (final String name)
+name|boolean
+name|hasExternalIds
+parameter_list|(
+specifier|final
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|descriptionOf
+argument_list|(
+name|name
+argument_list|)
+operator|.
+name|getFields
+argument_list|()
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|anyMatch
+argument_list|(
+name|SObjectField
+operator|::
+name|isExternalId
+argument_list|)
+return|;
+block|}
 DECL|method|fetched ()
 name|Iterable
 argument_list|<
