@@ -148,6 +148,14 @@ specifier|private
 name|String
 name|apiHost
 decl_stmt|;
+comment|/**      * Whether to use X-Forward headers for Host and related setting. The      * default value is true.      */
+DECL|field|useXForwardHeaders
+specifier|private
+name|Boolean
+name|useXForwardHeaders
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * The port number to use for exposing the REST service. Notice if you use      * servlet component then the port number configured here does not apply, as      * the port number in use is the actual port number the servlet component is      * using. eg if using Apache Tomcat its the tomcat http port, if using      * Apache Karaf its the HTTP service in Karaf that uses port 8181 by default      * etc. Though in those situations setting the port number here, allows      * tooling and JMX to know the port number, so its recommended to set the      * port number to the number that the servlet engine uses.      */
 DECL|field|port
 specifier|private
@@ -468,6 +476,32 @@ operator|.
 name|apiHost
 operator|=
 name|apiHost
+expr_stmt|;
+block|}
+DECL|method|getUseXForwardHeaders ()
+specifier|public
+name|Boolean
+name|getUseXForwardHeaders
+parameter_list|()
+block|{
+return|return
+name|useXForwardHeaders
+return|;
+block|}
+DECL|method|setUseXForwardHeaders (Boolean useXForwardHeaders)
+specifier|public
+name|void
+name|setUseXForwardHeaders
+parameter_list|(
+name|Boolean
+name|useXForwardHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useXForwardHeaders
+operator|=
+name|useXForwardHeaders
 expr_stmt|;
 block|}
 DECL|method|getPort ()
