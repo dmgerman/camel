@@ -2128,7 +2128,6 @@ block|{
 continue|continue;
 block|}
 comment|// skip these special cases
-comment|// (camel-jetty is a placeholder, as camel-jetty9 is the actual component)
 name|boolean
 name|special
 init|=
@@ -2153,16 +2152,6 @@ argument_list|()
 argument_list|)
 operator|||
 literal|"camel-http-common"
-operator|.
-name|equals
-argument_list|(
-name|dir
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-operator|||
-literal|"camel-jetty"
 operator|.
 name|equals
 argument_list|(
