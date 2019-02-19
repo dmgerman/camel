@@ -388,6 +388,62 @@ operator|=
 name|source
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"{"
+operator|+
+literal|" rank='"
+operator|+
+name|getRank
+argument_list|()
+operator|+
+literal|"'"
+operator|+
+literal|", song='"
+operator|+
+name|getSong
+argument_list|()
+operator|+
+literal|"'"
+operator|+
+literal|", artist='"
+operator|+
+name|getArtist
+argument_list|()
+operator|+
+literal|"'"
+operator|+
+literal|", year='"
+operator|+
+name|getYear
+argument_list|()
+operator|+
+literal|"'"
+operator|+
+literal|", lyrics='"
+operator|+
+name|getLyrics
+argument_list|()
+operator|+
+literal|"'"
+operator|+
+literal|", source='"
+operator|+
+name|getSource
+argument_list|()
+operator|+
+literal|"'"
+operator|+
+literal|"}"
+return|;
+block|}
 block|}
 end_class
 

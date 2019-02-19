@@ -417,13 +417,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|//@formatter:off
 name|from
 argument_list|(
 literal|"file:"
 operator|+
 name|BASEPATH
 operator|+
-literal|"?noop=true"
+literal|"?noop=true&idempotent=true"
 argument_list|)
 operator|.
 name|split
@@ -451,7 +452,7 @@ name|when
 argument_list|(
 name|simple
 argument_list|(
-literal|"${property.CamelSplitIndex}> 0"
+literal|"${exchangeProperty.CamelSplitIndex}> 0"
 argument_list|)
 argument_list|)
 operator|.
@@ -489,7 +490,7 @@ name|setBody
 argument_list|(
 name|simple
 argument_list|(
-literal|"${property.CamelSplitIndex}:${body}"
+literal|"${exchangeProperty.CamelSplitIndex}:${body}"
 argument_list|)
 argument_list|)
 operator|.
@@ -560,6 +561,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|//@formatter:on
 block|}
 block|}
 return|;
