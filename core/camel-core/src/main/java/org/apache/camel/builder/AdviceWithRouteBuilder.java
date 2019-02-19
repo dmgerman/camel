@@ -206,7 +206,7 @@ return|return
 name|adviceWithTasks
 return|;
 block|}
-comment|/**      * Mock all endpoints in the route (incl onException etc).      *      * @throws Exception can be thrown if error occurred      */
+comment|/**      * Mock all endpoints.      *      * @throws Exception can be thrown if error occurred      */
 DECL|method|mockEndpoints ()
 specifier|public
 name|void
@@ -228,7 +228,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Mock all endpoints in the route (incl onException etc) matching the given pattern.      *      * @param pattern the pattern(s).      * @throws Exception can be thrown if error occurred      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
+comment|/**      * Mock all endpoints matching the given pattern.      *      * @param pattern the pattern(s).      * @throws Exception can be thrown if error occurred      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
 DECL|method|mockEndpoints (String... pattern)
 specifier|public
 name|void
