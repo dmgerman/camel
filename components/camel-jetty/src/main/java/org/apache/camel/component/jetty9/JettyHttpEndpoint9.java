@@ -166,7 +166,7 @@ literal|"http"
 argument_list|,
 name|title
 operator|=
-literal|"Jetty 9"
+literal|"Jetty"
 argument_list|,
 name|syntax
 operator|=
