@@ -468,7 +468,7 @@ name|Cloneable
 implements|,
 name|HeaderFilterStrategyAware
 block|{
-comment|//Common configuration properties
+comment|// Common configuration properties
 annotation|@
 name|UriPath
 argument_list|(
@@ -624,7 +624,7 @@ operator|new
 name|DefaultKafkaHeaderDeserializer
 argument_list|()
 decl_stmt|;
-comment|//interceptor.classes
+comment|// interceptor.classes
 annotation|@
 name|UriParam
 argument_list|(
@@ -637,7 +637,7 @@ specifier|private
 name|String
 name|interceptorClasses
 decl_stmt|;
-comment|//key.deserializer
+comment|// key.deserializer
 annotation|@
 name|UriParam
 argument_list|(
@@ -660,7 +660,7 @@ name|KafkaConstants
 operator|.
 name|KAFKA_DEFAULT_DESERIALIZER
 decl_stmt|;
-comment|//value.deserializer
+comment|// value.deserializer
 annotation|@
 name|UriParam
 argument_list|(
@@ -683,7 +683,7 @@ name|KafkaConstants
 operator|.
 name|KAFKA_DEFAULT_DESERIALIZER
 decl_stmt|;
-comment|//fetch.min.bytes
+comment|// fetch.min.bytes
 annotation|@
 name|UriParam
 argument_list|(
@@ -702,7 +702,7 @@ name|fetchMinBytes
 init|=
 literal|1
 decl_stmt|;
-comment|//fetch.min.bytes
+comment|// fetch.min.bytes
 annotation|@
 name|UriParam
 argument_list|(
@@ -725,7 +725,7 @@ literal|1024
 operator|*
 literal|1024
 decl_stmt|;
-comment|//heartbeat.interval.ms
+comment|// heartbeat.interval.ms
 annotation|@
 name|UriParam
 argument_list|(
@@ -744,7 +744,7 @@ name|heartbeatIntervalMs
 init|=
 literal|3000
 decl_stmt|;
-comment|//max.partition.fetch.bytes
+comment|// max.partition.fetch.bytes
 annotation|@
 name|UriParam
 argument_list|(
@@ -763,7 +763,7 @@ name|maxPartitionFetchBytes
 init|=
 literal|1048576
 decl_stmt|;
-comment|//session.timeout.ms
+comment|// session.timeout.ms
 annotation|@
 name|UriParam
 argument_list|(
@@ -828,7 +828,7 @@ specifier|private
 name|Long
 name|maxPollIntervalMs
 decl_stmt|;
-comment|//auto.offset.reset1
+comment|// auto.offset.reset1
 annotation|@
 name|UriParam
 argument_list|(
@@ -851,7 +851,7 @@ name|autoOffsetReset
 init|=
 literal|"latest"
 decl_stmt|;
-comment|//partition.assignment.strategy
+comment|// partition.assignment.strategy
 annotation|@
 name|UriParam
 argument_list|(
@@ -874,7 +874,7 @@ name|KafkaConstants
 operator|.
 name|PARTITIONER_RANGE_ASSIGNOR
 decl_stmt|;
-comment|//request.timeout.ms
+comment|// request.timeout.ms
 annotation|@
 name|UriParam
 argument_list|(
@@ -893,7 +893,7 @@ name|consumerRequestTimeoutMs
 init|=
 literal|40000
 decl_stmt|;
-comment|//auto.commit.interval.ms
+comment|// auto.commit.interval.ms
 annotation|@
 name|UriParam
 argument_list|(
@@ -912,7 +912,7 @@ name|autoCommitIntervalMs
 init|=
 literal|5000
 decl_stmt|;
-comment|//check.crcs
+comment|// check.crcs
 annotation|@
 name|UriParam
 argument_list|(
@@ -931,7 +931,7 @@ name|checkCrcs
 init|=
 literal|true
 decl_stmt|;
-comment|//fetch.max.wait.ms
+comment|// fetch.max.wait.ms
 annotation|@
 name|UriParam
 argument_list|(
@@ -966,7 +966,7 @@ specifier|private
 name|String
 name|seekTo
 decl_stmt|;
-comment|//Consumer configuration properties
+comment|// Consumer configuration properties
 annotation|@
 name|UriParam
 argument_list|(
@@ -1048,7 +1048,7 @@ name|String
 argument_list|>
 name|offsetRepository
 decl_stmt|;
-comment|//Producer Camel specific configuration properties
+comment|// Producer Camel specific configuration properties
 annotation|@
 name|UriParam
 argument_list|(
@@ -1079,7 +1079,7 @@ name|circularTopicDetection
 init|=
 literal|true
 decl_stmt|;
-comment|//Producer configuration properties
+comment|// Producer configuration properties
 annotation|@
 name|UriParam
 argument_list|(
@@ -1168,7 +1168,7 @@ name|workerPoolMaxSize
 init|=
 literal|20
 decl_stmt|;
-comment|//Async producer config
+comment|// Async producer config
 annotation|@
 name|UriParam
 argument_list|(
@@ -1277,7 +1277,7 @@ name|requestRequiredAcks
 init|=
 literal|"1"
 decl_stmt|;
-comment|//buffer.memory
+comment|// buffer.memory
 annotation|@
 name|UriParam
 argument_list|(
@@ -1296,7 +1296,7 @@ name|bufferMemorySize
 init|=
 literal|33554432
 decl_stmt|;
-comment|//compression.type
+comment|// compression.type
 annotation|@
 name|UriParam
 argument_list|(
@@ -1319,7 +1319,7 @@ name|compressionCodec
 init|=
 literal|"none"
 decl_stmt|;
-comment|//retries
+comment|// retries
 annotation|@
 name|UriParam
 argument_list|(
@@ -1338,7 +1338,7 @@ name|retries
 init|=
 literal|0
 decl_stmt|;
-comment|//batch.size
+comment|// batch.size
 annotation|@
 name|UriParam
 argument_list|(
@@ -1357,7 +1357,7 @@ name|producerBatchSize
 init|=
 literal|16384
 decl_stmt|;
-comment|//connections.max.idle.ms
+comment|// connections.max.idle.ms
 annotation|@
 name|UriParam
 argument_list|(
@@ -1376,7 +1376,7 @@ name|connectionMaxIdleMs
 init|=
 literal|540000
 decl_stmt|;
-comment|//linger.ms
+comment|// linger.ms
 annotation|@
 name|UriParam
 argument_list|(
@@ -1395,7 +1395,7 @@ name|lingerMs
 init|=
 literal|0
 decl_stmt|;
-comment|//linger.ms
+comment|// linger.ms
 annotation|@
 name|UriParam
 argument_list|(
@@ -1414,7 +1414,7 @@ name|maxBlockMs
 init|=
 literal|60000
 decl_stmt|;
-comment|//max.request.size
+comment|// max.request.size
 annotation|@
 name|UriParam
 argument_list|(
@@ -1433,7 +1433,7 @@ name|maxRequestSize
 init|=
 literal|1048576
 decl_stmt|;
-comment|//receive.buffer.bytes
+comment|// receive.buffer.bytes
 annotation|@
 name|UriParam
 argument_list|(
@@ -1452,7 +1452,7 @@ name|receiveBufferBytes
 init|=
 literal|65536
 decl_stmt|;
-comment|//request.timeout.ms
+comment|// request.timeout.ms
 annotation|@
 name|UriParam
 argument_list|(
@@ -1471,7 +1471,7 @@ name|requestTimeoutMs
 init|=
 literal|305000
 decl_stmt|;
-comment|//send.buffer.bytes
+comment|// send.buffer.bytes
 annotation|@
 name|UriParam
 argument_list|(
@@ -1508,7 +1508,7 @@ name|recordMetadata
 init|=
 literal|true
 decl_stmt|;
-comment|//max.in.flight.requests.per.connection
+comment|// max.in.flight.requests.per.connection
 annotation|@
 name|UriParam
 argument_list|(
@@ -1527,7 +1527,7 @@ name|maxInFlightRequest
 init|=
 literal|5
 decl_stmt|;
-comment|//metadata.max.age.ms
+comment|// metadata.max.age.ms
 annotation|@
 name|UriParam
 argument_list|(
@@ -1546,7 +1546,7 @@ name|metadataMaxAgeMs
 init|=
 literal|300000
 decl_stmt|;
-comment|//metric.reporters
+comment|// metric.reporters
 annotation|@
 name|UriParam
 argument_list|(
@@ -1559,7 +1559,7 @@ specifier|private
 name|String
 name|metricReporters
 decl_stmt|;
-comment|//metrics.num.samples
+comment|// metrics.num.samples
 annotation|@
 name|UriParam
 argument_list|(
@@ -1578,7 +1578,7 @@ name|noOfMetricsSample
 init|=
 literal|2
 decl_stmt|;
-comment|//metrics.sample.window.ms
+comment|// metrics.sample.window.ms
 annotation|@
 name|UriParam
 argument_list|(
@@ -1597,7 +1597,7 @@ name|metricsSampleWindowMs
 init|=
 literal|30000
 decl_stmt|;
-comment|//reconnect.backoff.ms
+comment|// reconnect.backoff.ms
 annotation|@
 name|UriParam
 argument_list|(
@@ -1616,8 +1616,8 @@ name|reconnectBackoffMs
 init|=
 literal|50
 decl_stmt|;
-comment|//enable.idempotence
-comment|//reconnect.backoff.ms
+comment|// enable.idempotence
+comment|// reconnect.backoff.ms
 annotation|@
 name|UriParam
 argument_list|(
@@ -1654,7 +1654,7 @@ operator|new
 name|DefaultKafkaHeaderSerializer
 argument_list|()
 decl_stmt|;
-comment|//reconnect.backoff.max.ms
+comment|// reconnect.backoff.max.ms
 annotation|@
 name|UriParam
 argument_list|(
@@ -1734,7 +1734,7 @@ specifier|private
 name|String
 name|sslKeystorePassword
 decl_stmt|;
-comment|//ssl.truststore.location
+comment|// ssl.truststore.location
 annotation|@
 name|UriParam
 argument_list|(
@@ -1747,7 +1747,7 @@ specifier|private
 name|String
 name|sslTruststoreLocation
 decl_stmt|;
-comment|//ssl.truststore.password
+comment|// ssl.truststore.password
 annotation|@
 name|UriParam
 argument_list|(
@@ -1764,8 +1764,8 @@ specifier|private
 name|String
 name|sslTruststorePassword
 decl_stmt|;
-comment|//SSL
-comment|//ssl.enabled.protocols
+comment|// SSL
+comment|// ssl.enabled.protocols
 annotation|@
 name|UriParam
 argument_list|(
@@ -1788,7 +1788,7 @@ name|SslConfigs
 operator|.
 name|DEFAULT_SSL_ENABLED_PROTOCOLS
 decl_stmt|;
-comment|//ssl.keystore.type
+comment|// ssl.keystore.type
 annotation|@
 name|UriParam
 argument_list|(
@@ -1811,7 +1811,7 @@ name|SslConfigs
 operator|.
 name|DEFAULT_SSL_KEYSTORE_TYPE
 decl_stmt|;
-comment|//ssl.protocol
+comment|// ssl.protocol
 annotation|@
 name|UriParam
 argument_list|(
@@ -1834,7 +1834,7 @@ name|SslConfigs
 operator|.
 name|DEFAULT_SSL_PROTOCOL
 decl_stmt|;
-comment|//ssl.provider
+comment|// ssl.provider
 annotation|@
 name|UriParam
 argument_list|(
@@ -1847,7 +1847,7 @@ specifier|private
 name|String
 name|sslProvider
 decl_stmt|;
-comment|//ssl.truststore.type
+comment|// ssl.truststore.type
 annotation|@
 name|UriParam
 argument_list|(
@@ -1870,8 +1870,8 @@ name|SslConfigs
 operator|.
 name|DEFAULT_SSL_TRUSTSTORE_TYPE
 decl_stmt|;
-comment|//SSL
-comment|//ssl.cipher.suites
+comment|// SSL
+comment|// ssl.cipher.suites
 annotation|@
 name|UriParam
 argument_list|(
@@ -1884,7 +1884,7 @@ specifier|private
 name|String
 name|sslCipherSuites
 decl_stmt|;
-comment|//ssl.endpoint.identification.algorithm
+comment|// ssl.endpoint.identification.algorithm
 annotation|@
 name|UriParam
 argument_list|(
@@ -1897,7 +1897,7 @@ specifier|private
 name|String
 name|sslEndpointAlgorithm
 decl_stmt|;
-comment|//ssl.keymanager.algorithm
+comment|// ssl.keymanager.algorithm
 annotation|@
 name|UriParam
 argument_list|(
@@ -1916,7 +1916,7 @@ name|sslKeymanagerAlgorithm
 init|=
 literal|"SunX509"
 decl_stmt|;
-comment|//ssl.trustmanager.algorithm
+comment|// ssl.trustmanager.algorithm
 annotation|@
 name|UriParam
 argument_list|(
@@ -1936,7 +1936,7 @@ init|=
 literal|"PKIX"
 decl_stmt|;
 comment|// SASL& sucurity Protocol
-comment|//sasl.kerberos.service.name
+comment|// sasl.kerberos.service.name
 annotation|@
 name|UriParam
 argument_list|(
@@ -1949,7 +1949,7 @@ specifier|private
 name|String
 name|saslKerberosServiceName
 decl_stmt|;
-comment|//security.protocol
+comment|// security.protocol
 annotation|@
 name|UriParam
 argument_list|(
@@ -1972,8 +1972,8 @@ name|CommonClientConfigs
 operator|.
 name|DEFAULT_SECURITY_PROTOCOL
 decl_stmt|;
-comment|//SASL
-comment|//sasl.kerberos.kinit.cmd
+comment|// SASL
+comment|// sasl.kerberos.kinit.cmd
 annotation|@
 name|UriParam
 argument_list|(
@@ -1996,7 +1996,7 @@ name|SaslConfigs
 operator|.
 name|DEFAULT_SASL_MECHANISM
 decl_stmt|;
-comment|//sasl.kerberos.kinit.cmd
+comment|// sasl.kerberos.kinit.cmd
 annotation|@
 name|UriParam
 argument_list|(
@@ -2019,7 +2019,7 @@ name|SaslConfigs
 operator|.
 name|DEFAULT_KERBEROS_KINIT_CMD
 decl_stmt|;
-comment|//sasl.kerberos.min.time.before.relogin
+comment|// sasl.kerberos.min.time.before.relogin
 annotation|@
 name|UriParam
 argument_list|(
@@ -2038,7 +2038,7 @@ name|kerberosBeforeReloginMinTime
 init|=
 literal|60000
 decl_stmt|;
-comment|//sasl.kerberos.ticket.renew.jitter
+comment|// sasl.kerberos.ticket.renew.jitter
 annotation|@
 name|UriParam
 argument_list|(
@@ -2059,7 +2059,7 @@ name|SaslConfigs
 operator|.
 name|DEFAULT_KERBEROS_TICKET_RENEW_JITTER
 decl_stmt|;
-comment|//sasl.kerberos.ticket.renew.window.factor
+comment|// sasl.kerberos.ticket.renew.window.factor
 annotation|@
 name|UriParam
 argument_list|(
@@ -2091,7 +2091,7 @@ name|defaultValue
 operator|=
 literal|"DEFAULT"
 argument_list|)
-comment|//sasl.kerberos.principal.to.local.rules
+comment|// sasl.kerberos.principal.to.local.rules
 DECL|field|kerberosPrincipalToLocalRules
 specifier|private
 name|String
@@ -2108,7 +2108,7 @@ name|secret
 operator|=
 literal|true
 argument_list|)
-comment|//sasl.jaas.config
+comment|// sasl.jaas.config
 DECL|field|saslJaasConfig
 specifier|private
 name|String
@@ -2692,7 +2692,7 @@ name|getSslTrustmanagerAlgorithm
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//SASL
+comment|// SASL
 name|addPropertyIfNotNull
 argument_list|(
 name|props
@@ -3342,7 +3342,7 @@ name|getSendBufferBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//SASL
+comment|// SASL
 name|addPropertyIfNotNull
 argument_list|(
 name|props
@@ -3443,7 +3443,7 @@ return|return
 name|props
 return|;
 block|}
-comment|/**      * Uses the standard camel {@link SSLContextParameters} object to fill the Kafka SSL properties      *      * @param props Kafka properties      * @param sslContextParameters SSL configuration      */
+comment|/**      * Uses the standard camel {@link SSLContextParameters} object to fill the      * Kafka SSL properties      *      * @param props Kafka properties      * @param sslContextParameters SSL configuration      */
 DECL|method|applySslConfiguration (Properties props, SSLContextParameters sslContextParameters)
 specifier|private
 name|void
@@ -3915,7 +3915,7 @@ return|return
 name|topicIsPattern
 return|;
 block|}
-comment|/**      * Whether the topic is a pattern (regular expression).      * This can be used to subscribe to dynamic number of topics matching the pattern.      */
+comment|/**      * Whether the topic is a pattern (regular expression). This can be used to      * subscribe to dynamic number of topics matching the pattern.      */
 DECL|method|setTopicIsPattern (boolean topicIsPattern)
 specifier|public
 name|void
@@ -3942,7 +3942,7 @@ return|return
 name|groupId
 return|;
 block|}
-comment|/**      * A string that uniquely identifies the group of consumer processes to which this consumer belongs.      * By setting the same group id multiple processes indicate that they are all part of the same consumer group.      *      * This option is required for consumers.      */
+comment|/**      * A string that uniquely identifies the group of consumer processes to      * which this consumer belongs. By setting the same group id multiple      * processes indicate that they are all part of the same consumer group.      * This option is required for consumers.      */
 DECL|method|setGroupId (String groupId)
 specifier|public
 name|void
@@ -3969,7 +3969,7 @@ return|return
 name|bridgeEndpoint
 return|;
 block|}
-comment|/**      * If the option is true, then KafkaProducer will ignore the KafkaConstants.TOPIC header setting of the inbound message.      */
+comment|/**      * If the option is true, then KafkaProducer will ignore the      * KafkaConstants.TOPIC header setting of the inbound message.      */
 DECL|method|setBridgeEndpoint (boolean bridgeEndpoint)
 specifier|public
 name|void
@@ -3996,7 +3996,7 @@ return|return
 name|circularTopicDetection
 return|;
 block|}
-comment|/**      * If the option is true, then KafkaProducer will detect if the message is attempted to be sent back to the same topic      * it may come from, if the message was original from a kafka consumer. If the KafkaConstants.TOPIC header is the      * same as the original kafka consumer topic, then the header setting is ignored, and the topic of the producer      * endpoint is used. In other words this avoids sending the same message back to where it came from.      * This option is not in use if the option bridgeEndpoint is set to true.      */
+comment|/**      * If the option is true, then KafkaProducer will detect if the message is      * attempted to be sent back to the same topic it may come from, if the      * message was original from a kafka consumer. If the KafkaConstants.TOPIC      * header is the same as the original kafka consumer topic, then the header      * setting is ignored, and the topic of the producer endpoint is used. In      * other words this avoids sending the same message back to where it came      * from. This option is not in use if the option bridgeEndpoint is set to      * true.      */
 DECL|method|setCircularTopicDetection (boolean circularTopicDetection)
 specifier|public
 name|void
@@ -4023,7 +4023,7 @@ return|return
 name|partitioner
 return|;
 block|}
-comment|/**      * The partitioner class for partitioning messages amongst sub-topics. The default partitioner is based on the hash of the key.      */
+comment|/**      * The partitioner class for partitioning messages amongst sub-topics. The      * default partitioner is based on the hash of the key.      */
 DECL|method|setPartitioner (String partitioner)
 specifier|public
 name|void
@@ -4050,7 +4050,7 @@ return|return
 name|topic
 return|;
 block|}
-comment|/**      * Name of the topic to use.      *      * On the consumer you can use comma to separate multiple topics.      * A producer can only send a message to a single topic.      */
+comment|/**      * Name of the topic to use. On the consumer you can use comma to separate      * multiple topics. A producer can only send a message to a single topic.      */
 DECL|method|setTopic (String topic)
 specifier|public
 name|void
@@ -4131,7 +4131,7 @@ return|return
 name|clientId
 return|;
 block|}
-comment|/**      * The client id is a user-specified string sent in each request to help trace calls.      * It should logically identify the application making the request.      */
+comment|/**      * The client id is a user-specified string sent in each request to help      * trace calls. It should logically identify the application making the      * request.      */
 DECL|method|setClientId (String clientId)
 specifier|public
 name|void
@@ -4164,7 +4164,7 @@ else|:
 literal|false
 return|;
 block|}
-comment|/**      * If true, periodically commit to ZooKeeper the offset of messages already fetched by the consumer.      * This committed offset will be used when the process fails as the position from which the new consumer will begin.      */
+comment|/**      * If true, periodically commit to ZooKeeper the offset of messages already      * fetched by the consumer. This committed offset will be used when the      * process fails as the position from which the new consumer will begin.      */
 DECL|method|setAutoCommitEnable (Boolean autoCommitEnable)
 specifier|public
 name|void
@@ -4191,7 +4191,7 @@ return|return
 name|allowManualCommit
 return|;
 block|}
-comment|/**      * Whether to allow doing manual commits via {@link KafkaManualCommit}.      *<p/>      * If this option is enabled then an instance of {@link KafkaManualCommit} is stored on the {@link Exchange} message header,      * which allows end users to access this API and perform manual offset commits via the Kafka consumer.      */
+comment|/**      * Whether to allow doing manual commits via {@link KafkaManualCommit}.      *<p/>      * If this option is enabled then an instance of {@link KafkaManualCommit}      * is stored on the {@link Exchange} message header, which allows end users      * to access this API and perform manual offset commits via the Kafka      * consumer.      */
 DECL|method|setAllowManualCommit (boolean allowManualCommit)
 specifier|public
 name|void
@@ -4223,7 +4223,7 @@ return|return
 name|offsetRepository
 return|;
 block|}
-comment|/**      * The offset repository to use in order to locally store the offset of each partition of the topic.      * Defining one will disable the autocommit.      */
+comment|/**      * The offset repository to use in order to locally store the offset of each      * partition of the topic. Defining one will disable the autocommit.      */
 DECL|method|setOffsetRepository (StateRepository<String, String> offsetRepository)
 specifier|public
 name|void
@@ -4282,7 +4282,7 @@ return|return
 name|fetchMinBytes
 return|;
 block|}
-comment|/**      * The minimum amount of data the server should return for a fetch request.      * If insufficient data is available the request will wait for that much data to accumulate before answering the request.      */
+comment|/**      * The minimum amount of data the server should return for a fetch request.      * If insufficient data is available the request will wait for that much      * data to accumulate before answering the request.      */
 DECL|method|setFetchMinBytes (Integer fetchMinBytes)
 specifier|public
 name|void
@@ -4299,7 +4299,7 @@ operator|=
 name|fetchMinBytes
 expr_stmt|;
 block|}
-comment|/**      * The maximum amount of data the server should return for a fetch request      * This is not an absolute maximum, if the first message in the first non-empty partition of the fetch is larger than      * this value, the message will still be returned to ensure that the consumer can make progress.      * The maximum message size accepted by the broker is defined via message.max.bytes (broker config) or      * max.message.bytes (topic config). Note that the consumer performs multiple fetches in parallel.      */
+comment|/**      * The maximum amount of data the server should return for a fetch request      * This is not an absolute maximum, if the first message in the first      * non-empty partition of the fetch is larger than this value, the message      * will still be returned to ensure that the consumer can make progress. The      * maximum message size accepted by the broker is defined via      * message.max.bytes (broker config) or max.message.bytes (topic config).      * Note that the consumer performs multiple fetches in parallel.      */
 DECL|method|getFetchMaxBytes ()
 specifier|public
 name|Integer
@@ -4336,7 +4336,7 @@ return|return
 name|fetchWaitMaxMs
 return|;
 block|}
-comment|/**      * The maximum amount of time the server will block before answering the fetch request if there isn't sufficient data to immediately satisfy fetch.min.bytes      */
+comment|/**      * The maximum amount of time the server will block before answering the      * fetch request if there isn't sufficient data to immediately satisfy      * fetch.min.bytes      */
 DECL|method|setFetchWaitMaxMs (Integer fetchWaitMaxMs)
 specifier|public
 name|void
@@ -4363,7 +4363,7 @@ return|return
 name|autoOffsetReset
 return|;
 block|}
-comment|/**      * What to do when there is no initial offset in ZooKeeper or if an offset is out of range:      * earliest : automatically reset the offset to the earliest offset      * latest : automatically reset the offset to the latest offset      * fail: throw exception to the consumer      */
+comment|/**      * What to do when there is no initial offset in ZooKeeper or if an offset      * is out of range: earliest : automatically reset the offset to the      * earliest offset latest : automatically reset the offset to the latest      * offset fail: throw exception to the consumer      */
 DECL|method|setAutoOffsetReset (String autoOffsetReset)
 specifier|public
 name|void
@@ -4390,7 +4390,7 @@ return|return
 name|autoCommitOnStop
 return|;
 block|}
-comment|/**      * Whether to perform an explicit auto commit when the consumer stops to ensure the broker      * has a commit from the last consumed message. This requires the option autoCommitEnable is turned on.      * The possible values are: sync, async, or none. And sync is the default value.      */
+comment|/**      * Whether to perform an explicit auto commit when the consumer stops to      * ensure the broker has a commit from the last consumed message. This      * requires the option autoCommitEnable is turned on. The possible values      * are: sync, async, or none. And sync is the default value.      */
 DECL|method|setAutoCommitOnStop (String autoCommitOnStop)
 specifier|public
 name|void
@@ -4417,7 +4417,7 @@ return|return
 name|breakOnFirstError
 return|;
 block|}
-comment|/**      * This options controls what happens when a consumer is processing an exchange and it fails.      * If the option is<tt>false</tt> then the consumer continues to the next message and processes it.      * If the option is<tt>true</tt> then the consumer breaks out, and will seek back to offset of the      * message that caused a failure, and then re-attempt to process this message. However this can lead      * to endless processing of the same message if its bound to fail every time, eg a poison message.      * Therefore its recommended to deal with that for example by using Camel's error handler.      */
+comment|/**      * This options controls what happens when a consumer is processing an      * exchange and it fails. If the option is<tt>false</tt> then the consumer      * continues to the next message and processes it. If the option is      *<tt>true</tt> then the consumer breaks out, and will seek back to offset      * of the message that caused a failure, and then re-attempt to process this      * message. However this can lead to endless processing of the same message      * if its bound to fail every time, eg a poison message. Therefore its      * recommended to deal with that for example by using Camel's error handler.      */
 DECL|method|setBreakOnFirstError (boolean breakOnFirstError)
 specifier|public
 name|void
@@ -4444,7 +4444,7 @@ return|return
 name|brokers
 return|;
 block|}
-comment|/**      * URL of the Kafka brokers to use.      * The format is host1:port1,host2:port2, and the list can be a subset of brokers or a VIP pointing to a subset of brokers.      *<p/>      * This option is known as<tt>bootstrap.servers</tt> in the Kafka documentation.      */
+comment|/**      * URL of the Kafka brokers to use. The format is host1:port1,host2:port2,      * and the list can be a subset of brokers or a VIP pointing to a subset of      * brokers.      *<p/>      * This option is known as<tt>bootstrap.servers</tt> in the Kafka      * documentation.      */
 DECL|method|setBrokers (String brokers)
 specifier|public
 name|void
@@ -4471,7 +4471,7 @@ return|return
 name|schemaRegistryURL
 return|;
 block|}
-comment|/**      * URL of the Kafka schema registry to use.      * The format is host1:port1,host2:port2.      *<p/>      * This option is known as<tt>schema.registry.url</tt> in the Kafka documentation.      */
+comment|/**      * URL of the Kafka schema registry to use. The format is      * host1:port1,host2:port2.      *<p/>      * This option is known as<tt>schema.registry.url</tt> in the Kafka      * documentation.      */
 DECL|method|setSchemaRegistryURL (String schemaRegistryURL)
 specifier|public
 name|void
@@ -4498,7 +4498,7 @@ return|return
 name|compressionCodec
 return|;
 block|}
-comment|/**      * This parameter allows you to specify the compression codec for all data generated by this producer. Valid values are "none", "gzip" and "snappy".      */
+comment|/**      * This parameter allows you to specify the compression codec for all data      * generated by this producer. Valid values are "none", "gzip" and "snappy".      */
 DECL|method|setCompressionCodec (String compressionCodec)
 specifier|public
 name|void
@@ -4525,7 +4525,7 @@ return|return
 name|retryBackoffMs
 return|;
 block|}
-comment|/**      * Before each retry, the producer refreshes the metadata of relevant topics to see if a new leader has been elected.      * Since leader election takes a bit of time, this property specifies the amount of time that the producer waits before refreshing the metadata.      */
+comment|/**      * Before each retry, the producer refreshes the metadata of relevant topics      * to see if a new leader has been elected. Since leader election takes a      * bit of time, this property specifies the amount of time that the producer      * waits before refreshing the metadata.      */
 DECL|method|setRetryBackoffMs (Integer retryBackoffMs)
 specifier|public
 name|void
@@ -4579,7 +4579,7 @@ return|return
 name|requestTimeoutMs
 return|;
 block|}
-comment|/**      * The amount of time the broker will wait trying to meet the request.required.acks requirement before sending back an error to the client.      */
+comment|/**      * The amount of time the broker will wait trying to meet the      * request.required.acks requirement before sending back an error to the      * client.      */
 DECL|method|setRequestTimeoutMs (Integer requestTimeoutMs)
 specifier|public
 name|void
@@ -4606,7 +4606,7 @@ return|return
 name|queueBufferingMaxMessages
 return|;
 block|}
-comment|/**      * The maximum number of unsent messages that can be queued up the producer when using async      * mode before either the producer must be blocked or data must be dropped.      */
+comment|/**      * The maximum number of unsent messages that can be queued up the producer      * when using async mode before either the producer must be blocked or data      * must be dropped.      */
 DECL|method|setQueueBufferingMaxMessages (Integer queueBufferingMaxMessages)
 specifier|public
 name|void
@@ -4660,7 +4660,7 @@ return|return
 name|keySerializerClass
 return|;
 block|}
-comment|/**      * The serializer class for keys (defaults to the same as for messages if nothing is given).      */
+comment|/**      * The serializer class for keys (defaults to the same as for messages if      * nothing is given).      */
 DECL|method|setKeySerializerClass (String keySerializerClass)
 specifier|public
 name|void
@@ -4768,7 +4768,7 @@ return|return
 name|kerberosRenewWindowFactor
 return|;
 block|}
-comment|/**      * Login thread will sleep until the specified window factor of time from last      * refresh to ticket's expiry has been reached, at which time it will try to renew the ticket.      */
+comment|/**      * Login thread will sleep until the specified window factor of time from      * last refresh to ticket's expiry has been reached, at which time it will      * try to renew the ticket.      */
 DECL|method|setKerberosRenewWindowFactor (Double kerberosRenewWindowFactor)
 specifier|public
 name|void
@@ -4795,7 +4795,7 @@ return|return
 name|kerberosPrincipalToLocalRules
 return|;
 block|}
-comment|/**      * A list of rules for mapping from principal names to short names (typically operating system usernames).      * The rules are evaluated in order and the first rule that matches a principal name is used to map it to a short name. Any later rules in the list are ignored.      * By default, principal names of the form {username}/{hostname}@{REALM} are mapped to {username}.      * For more details on the format please see<a href=\"#security_authz\"> security authorization and acls</a>.      *<p/>      * Multiple values can be separated by comma      */
+comment|/**      * A list of rules for mapping from principal names to short names      * (typically operating system usernames). The rules are evaluated in order      * and the first rule that matches a principal name is used to map it to a      * short name. Any later rules in the list are ignored. By default,      * principal names of the form {username}/{hostname}@{REALM} are mapped to      * {username}. For more details on the format please see<a      * href=\"#security_authz\"> security authorization and acls</a>.      *<p/>      * Multiple values can be separated by comma      */
 DECL|method|setKerberosPrincipalToLocalRules (String kerberosPrincipalToLocalRules)
 specifier|public
 name|void
@@ -4822,7 +4822,7 @@ return|return
 name|sslCipherSuites
 return|;
 block|}
-comment|/**      * A list of cipher suites. This is a named combination of authentication, encryption,      * MAC and key exchange algorithm used to negotiate the security settings for a network connection      * using TLS or SSL network protocol.By default all the available cipher suites are supported.      */
+comment|/**      * A list of cipher suites. This is a named combination of authentication,      * encryption, MAC and key exchange algorithm used to negotiate the security      * settings for a network connection using TLS or SSL network protocol.By      * default all the available cipher suites are supported.      */
 DECL|method|setSslCipherSuites (String sslCipherSuites)
 specifier|public
 name|void
@@ -4849,7 +4849,7 @@ return|return
 name|sslEndpointAlgorithm
 return|;
 block|}
-comment|/**      * The endpoint identification algorithm to validate server hostname using server certificate.      */
+comment|/**      * The endpoint identification algorithm to validate server hostname using      * server certificate.      */
 DECL|method|setSslEndpointAlgorithm (String sslEndpointAlgorithm)
 specifier|public
 name|void
@@ -4876,7 +4876,7 @@ return|return
 name|sslKeymanagerAlgorithm
 return|;
 block|}
-comment|/**      * The algorithm used by key manager factory for SSL connections. Default value is the key      * manager factory algorithm configured for the Java Virtual Machine.      */
+comment|/**      * The algorithm used by key manager factory for SSL connections. Default      * value is the key manager factory algorithm configured for the Java      * Virtual Machine.      */
 DECL|method|setSslKeymanagerAlgorithm (String sslKeymanagerAlgorithm)
 specifier|public
 name|void
@@ -4903,7 +4903,7 @@ return|return
 name|sslTrustmanagerAlgorithm
 return|;
 block|}
-comment|/**      * The algorithm used by trust manager factory for SSL connections. Default value is the      * trust manager factory algorithm configured for the Java Virtual Machine.      */
+comment|/**      * The algorithm used by trust manager factory for SSL connections. Default      * value is the trust manager factory algorithm configured for the Java      * Virtual Machine.      */
 DECL|method|setSslTrustmanagerAlgorithm (String sslTrustmanagerAlgorithm)
 specifier|public
 name|void
@@ -4930,7 +4930,7 @@ return|return
 name|sslEnabledProtocols
 return|;
 block|}
-comment|/**      * The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1 and TLSv1 are enabled by default.      */
+comment|/**      * The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1 and      * TLSv1 are enabled by default.      */
 DECL|method|setSslEnabledProtocols (String sslEnabledProtocols)
 specifier|public
 name|void
@@ -4957,7 +4957,7 @@ return|return
 name|sslKeystoreType
 return|;
 block|}
-comment|/**      * The file format of the key store file. This is optional for client. Default value is JKS      */
+comment|/**      * The file format of the key store file. This is optional for client.      * Default value is JKS      */
 DECL|method|setSslKeystoreType (String sslKeystoreType)
 specifier|public
 name|void
@@ -4984,7 +4984,7 @@ return|return
 name|sslProtocol
 return|;
 block|}
-comment|/**      * The SSL protocol used to generate the SSLContext. Default setting is TLS, which is fine for most cases.      * Allowed values in recent JVMs are TLS, TLSv1.1 and TLSv1.2. SSL, SSLv2 and SSLv3 may be supported in older JVMs,      * but their usage is discouraged due to known security vulnerabilities.      */
+comment|/**      * The SSL protocol used to generate the SSLContext. Default setting is TLS,      * which is fine for most cases. Allowed values in recent JVMs are TLS,      * TLSv1.1 and TLSv1.2. SSL, SSLv2 and SSLv3 may be supported in older JVMs,      * but their usage is discouraged due to known security vulnerabilities.      */
 DECL|method|setSslProtocol (String sslProtocol)
 specifier|public
 name|void
@@ -5011,7 +5011,7 @@ return|return
 name|sslProvider
 return|;
 block|}
-comment|/**      * The name of the security provider used for SSL connections. Default value is the default security provider of the JVM.      */
+comment|/**      * The name of the security provider used for SSL connections. Default value      * is the default security provider of the JVM.      */
 DECL|method|setSslProvider (String sslProvider)
 specifier|public
 name|void
@@ -5065,7 +5065,7 @@ return|return
 name|saslKerberosServiceName
 return|;
 block|}
-comment|/**      * The Kerberos principal name that Kafka runs as. This can be defined either in Kafka's JAAS      * config or in Kafka's config.      */
+comment|/**      * The Kerberos principal name that Kafka runs as. This can be defined      * either in Kafka's JAAS config or in Kafka's config.      */
 DECL|method|setSaslKerberosServiceName (String saslKerberosServiceName)
 specifier|public
 name|void
@@ -5092,7 +5092,7 @@ return|return
 name|saslMechanism
 return|;
 block|}
-comment|/**      * The Simple Authentication and Security Layer (SASL) Mechanism used.      * For the valid values see<a href="http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml">http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml</a>      */
+comment|/**      * The Simple Authentication and Security Layer (SASL) Mechanism used. For      * the valid values see<a href=      * "http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml">http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml</a>      */
 DECL|method|setSaslMechanism (String saslMechanism)
 specifier|public
 name|void
@@ -5119,7 +5119,7 @@ return|return
 name|saslJaasConfig
 return|;
 block|}
-comment|/**      * Expose the kafka sasl.jaas.config parameter      *      * Example:      * org.apache.kafka.common.security.plain.PlainLoginModule required username="USERNAME" password="PASSWORD";      */
+comment|/**      * Expose the kafka sasl.jaas.config parameter Example:      * org.apache.kafka.common.security.plain.PlainLoginModule required      * username="USERNAME" password="PASSWORD";      */
 DECL|method|setSaslJaasConfig (String saslMechanism)
 specifier|public
 name|void
@@ -5146,7 +5146,7 @@ return|return
 name|securityProtocol
 return|;
 block|}
-comment|/**      * Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT and SSL are supported      */
+comment|/**      * Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT and      * SSL are supported      */
 DECL|method|setSecurityProtocol (String securityProtocol)
 specifier|public
 name|void
@@ -5173,7 +5173,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-comment|/**      * SSL configuration using a Camel {@link SSLContextParameters} object. If configured it's applied before the other SSL endpoint parameters.      */
+comment|/**      * SSL configuration using a Camel {@link SSLContextParameters} object. If      * configured it's applied before the other SSL endpoint parameters.      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -5200,7 +5200,7 @@ return|return
 name|sslKeyPassword
 return|;
 block|}
-comment|/**      * The password of the private key in the key store file. This is optional for client.      */
+comment|/**      * The password of the private key in the key store file. This is optional      * for client.      */
 DECL|method|setSslKeyPassword (String sslKeyPassword)
 specifier|public
 name|void
@@ -5227,7 +5227,7 @@ return|return
 name|sslKeystoreLocation
 return|;
 block|}
-comment|/**      * The location of the key store file. This is optional for client and can be used for two-way      * authentication for client.      */
+comment|/**      * The location of the key store file. This is optional for client and can      * be used for two-way authentication for client.      */
 DECL|method|setSslKeystoreLocation (String sslKeystoreLocation)
 specifier|public
 name|void
@@ -5254,7 +5254,7 @@ return|return
 name|sslKeystorePassword
 return|;
 block|}
-comment|/**      * The store password for the key store file.This is optional for client and only needed      * if ssl.keystore.location is configured.      */
+comment|/**      * The store password for the key store file.This is optional for client and      * only needed if ssl.keystore.location is configured.      */
 DECL|method|setSslKeystorePassword (String sslKeystorePassword)
 specifier|public
 name|void
@@ -5335,7 +5335,7 @@ return|return
 name|bufferMemorySize
 return|;
 block|}
-comment|/**      * The total bytes of memory the producer can use to buffer records waiting to be sent to the server.      * If records are sent faster than they can be delivered to the server the producer will either block      * or throw an exception based on the preference specified by block.on.buffer.full.This setting should      * correspond roughly to the total memory the producer will use, but is not a hard bound since not all      * memory the producer uses is used for buffering. Some additional memory will be used for compression      * (if compression is enabled) as well as for maintaining in-flight requests.      */
+comment|/**      * The total bytes of memory the producer can use to buffer records waiting      * to be sent to the server. If records are sent faster than they can be      * delivered to the server the producer will either block or throw an      * exception based on the preference specified by block.on.buffer.full.This      * setting should correspond roughly to the total memory the producer will      * use, but is not a hard bound since not all memory the producer uses is      * used for buffering. Some additional memory will be used for compression      * (if compression is enabled) as well as for maintaining in-flight      * requests.      */
 DECL|method|setBufferMemorySize (Integer bufferMemorySize)
 specifier|public
 name|void
@@ -5362,7 +5362,7 @@ return|return
 name|key
 return|;
 block|}
-comment|/**      * The record key (or null if no key is specified).      * If this option has been configured then it take precedence over header {@link KafkaConstants#KEY}      */
+comment|/**      * The record key (or null if no key is specified). If this option has been      * configured then it take precedence over header {@link KafkaConstants#KEY}      */
 DECL|method|setKey (String key)
 specifier|public
 name|void
@@ -5389,7 +5389,7 @@ return|return
 name|partitionKey
 return|;
 block|}
-comment|/**      * The partition to which the record will be sent (or null if no partition was specified).      * If this option has been configured then it take precedence over header {@link KafkaConstants#PARTITION_KEY}      */
+comment|/**      * The partition to which the record will be sent (or null if no partition      * was specified). If this option has been configured then it take      * precedence over header {@link KafkaConstants#PARTITION_KEY}      */
 DECL|method|setPartitionKey (Integer partitionKey)
 specifier|public
 name|void
@@ -5416,7 +5416,7 @@ return|return
 name|requestRequiredAcks
 return|;
 block|}
-comment|/**      * The number of acknowledgments the producer requires the leader to have received before considering a request complete.      * This controls the durability of records that are sent. The following settings are common:      * acks=0 If set to zero then the producer will not wait for any acknowledgment from the server at all.      * The record will be immediately added to the socket buffer and considered sent. No guarantee can be made that the server      * has received the record in this case, and the retries configuration will not take effect (as the client won't generally      * know of any failures). The offset given back for each record will always be set to -1.      * acks=1 This will mean the leader will write the record to its local log but will respond without awaiting full acknowledgement      * from all followers. In this case should the leader fail immediately after acknowledging the record but before the followers have      * replicated it then the record will be lost.      * acks=all This means the leader will wait for the full set of in-sync replicas to acknowledge the record. This guarantees that the      * record will not be lost as long as at least one in-sync replica remains alive. This is the strongest available guarantee.      */
+comment|/**      * The number of acknowledgments the producer requires the leader to have      * received before considering a request complete. This controls the      * durability of records that are sent. The following settings are common:      * acks=0 If set to zero then the producer will not wait for any      * acknowledgment from the server at all. The record will be immediately      * added to the socket buffer and considered sent. No guarantee can be made      * that the server has received the record in this case, and the retries      * configuration will not take effect (as the client won't generally know of      * any failures). The offset given back for each record will always be set      * to -1. acks=1 This will mean the leader will write the record to its      * local log but will respond without awaiting full acknowledgement from all      * followers. In this case should the leader fail immediately after      * acknowledging the record but before the followers have replicated it then      * the record will be lost. acks=all This means the leader will wait for the      * full set of in-sync replicas to acknowledge the record. This guarantees      * that the record will not be lost as long as at least one in-sync replica      * remains alive. This is the strongest available guarantee.      */
 DECL|method|setRequestRequiredAcks (String requestRequiredAcks)
 specifier|public
 name|void
@@ -5443,7 +5443,7 @@ return|return
 name|retries
 return|;
 block|}
-comment|/**      * Setting a value greater than zero will cause the client to resend any record whose send fails with a potentially transient error.      * Note that this retry is no different than if the client resent the record upon receiving the error. Allowing retries will potentially      * change the ordering of records because if two records are sent to a single partition, and the first fails and is retried but the second      * succeeds, then the second record may appear first.      */
+comment|/**      * Setting a value greater than zero will cause the client to resend any      * record whose send fails with a potentially transient error. Note that      * this retry is no different than if the client resent the record upon      * receiving the error. Allowing retries will potentially change the      * ordering of records because if two records are sent to a single      * partition, and the first fails and is retried but the second succeeds,      * then the second record may appear first.      */
 DECL|method|setRetries (Integer retries)
 specifier|public
 name|void
@@ -5470,7 +5470,7 @@ return|return
 name|producerBatchSize
 return|;
 block|}
-comment|/**      * The producer will attempt to batch records together into fewer requests whenever multiple records are being sent to the same partition.      * This helps performance on both the client and the server. This configuration controls the default batch size in bytes.      * No attempt will be made to batch records larger than this size.Requests sent to brokers will contain multiple batches, one for each      * partition with data available to be sent.A small batch size will make batching less common and may reduce throughput (a batch size of zero      * will disable batching entirely). A very large batch size may use memory a bit more wastefully as we will always allocate a buffer of the      * specified batch size in anticipation of additional records.      */
+comment|/**      * The producer will attempt to batch records together into fewer requests      * whenever multiple records are being sent to the same partition. This      * helps performance on both the client and the server. This configuration      * controls the default batch size in bytes. No attempt will be made to      * batch records larger than this size.Requests sent to brokers will contain      * multiple batches, one for each partition with data available to be sent.A      * small batch size will make batching less common and may reduce throughput      * (a batch size of zero will disable batching entirely). A very large batch      * size may use memory a bit more wastefully as we will always allocate a      * buffer of the specified batch size in anticipation of additional records.      */
 DECL|method|setProducerBatchSize (Integer producerBatchSize)
 specifier|public
 name|void
@@ -5497,7 +5497,7 @@ return|return
 name|connectionMaxIdleMs
 return|;
 block|}
-comment|/**      * Close idle connections after the number of milliseconds specified by this config.      */
+comment|/**      * Close idle connections after the number of milliseconds specified by this      * config.      */
 DECL|method|setConnectionMaxIdleMs (Integer connectionMaxIdleMs)
 specifier|public
 name|void
@@ -5524,7 +5524,7 @@ return|return
 name|lingerMs
 return|;
 block|}
-comment|/**      * The producer groups together any records that arrive in between request transmissions into a single batched request. Normally this      * occurs only under load when records arrive faster than they can be sent out. However in some circumstances the client may want to reduce      * the number of requests even under moderate load. This setting accomplishes this by adding a small amount of artificial delayâthat is,      * rather than immediately sending out a record the producer will wait for up to the given delay to allow other records to be sent so that      * the sends can be batched together. This can be thought of as analogous to Nagle's algorithm in TCP. This setting gives the upper bound on      * the delay for batching: once we get batch.size worth of records for a partition it will be sent immediately regardless of this setting,      * however if we have fewer than this many bytes accumulated for this partition we will 'linger' for the specified time waiting for more      * records to show up. This setting defaults to 0 (i.e. no delay). Setting linger.ms=5, for example, would have the effect of reducing the      * number of requests sent but would add up to 5ms of latency to records sent in the absense of load.      */
+comment|/**      * The producer groups together any records that arrive in between request      * transmissions into a single batched request. Normally this occurs only      * under load when records arrive faster than they can be sent out. However      * in some circumstances the client may want to reduce the number of      * requests even under moderate load. This setting accomplishes this by      * adding a small amount of artificial delayâthat is, rather than      * immediately sending out a record the producer will wait for up to the      * given delay to allow other records to be sent so that the sends can be      * batched together. This can be thought of as analogous to Nagle's      * algorithm in TCP. This setting gives the upper bound on the delay for      * batching: once we get batch.size worth of records for a partition it will      * be sent immediately regardless of this setting, however if we have fewer      * than this many bytes accumulated for this partition we will 'linger' for      * the specified time waiting for more records to show up. This setting      * defaults to 0 (i.e. no delay). Setting linger.ms=5, for example, would      * have the effect of reducing the number of requests sent but would add up      * to 5ms of latency to records sent in the absense of load.      */
 DECL|method|setLingerMs (Integer lingerMs)
 specifier|public
 name|void
@@ -5551,7 +5551,7 @@ return|return
 name|maxBlockMs
 return|;
 block|}
-comment|/**      * The configuration controls how long sending to kafka will block. These methods can be      * blocked for multiple reasons. For e.g: buffer full, metadata unavailable.This configuration imposes maximum limit on the total time spent      * in fetching metadata, serialization of key and value, partitioning and allocation of buffer memory when doing a send(). In case of      * partitionsFor(), this configuration imposes a maximum time threshold on waiting for metadata      */
+comment|/**      * The configuration controls how long sending to kafka will block. These      * methods can be blocked for multiple reasons. For e.g: buffer full,      * metadata unavailable.This configuration imposes maximum limit on the      * total time spent in fetching metadata, serialization of key and value,      * partitioning and allocation of buffer memory when doing a send(). In case      * of partitionsFor(), this configuration imposes a maximum time threshold      * on waiting for metadata      */
 DECL|method|setMaxBlockMs (Integer maxBlockMs)
 specifier|public
 name|void
@@ -5578,7 +5578,7 @@ return|return
 name|maxRequestSize
 return|;
 block|}
-comment|/**      * The maximum size of a request. This is also effectively a cap on the maximum record size. Note that the server has its own cap on record size      * which may be different from this. This setting will limit the number of record batches the producer will send in a single request to avoid      * sending huge requests.      */
+comment|/**      * The maximum size of a request. This is also effectively a cap on the      * maximum record size. Note that the server has its own cap on record size      * which may be different from this. This setting will limit the number of      * record batches the producer will send in a single request to avoid      * sending huge requests.      */
 DECL|method|setMaxRequestSize (Integer maxRequestSize)
 specifier|public
 name|void
@@ -5632,7 +5632,7 @@ return|return
 name|maxInFlightRequest
 return|;
 block|}
-comment|/**      * The maximum number of unacknowledged requests the client will send on a single connection before blocking. Note that if this setting      * is set to be greater than 1 and there are failed sends, there is a risk of message re-ordering due to retries (i.e., if retries are enabled).      */
+comment|/**      * The maximum number of unacknowledged requests the client will send on a      * single connection before blocking. Note that if this setting is set to be      * greater than 1 and there are failed sends, there is a risk of message      * re-ordering due to retries (i.e., if retries are enabled).      */
 DECL|method|setMaxInFlightRequest (Integer maxInFlightRequest)
 specifier|public
 name|void
@@ -5659,7 +5659,7 @@ return|return
 name|metadataMaxAgeMs
 return|;
 block|}
-comment|/**      * The period of time in milliseconds after which we force a refresh of metadata even if we haven't seen any partition leadership      * changes to proactively discover any new brokers or partitions.      */
+comment|/**      * The period of time in milliseconds after which we force a refresh of      * metadata even if we haven't seen any partition leadership changes to      * proactively discover any new brokers or partitions.      */
 DECL|method|setMetadataMaxAgeMs (Integer metadataMaxAgeMs)
 specifier|public
 name|void
@@ -5686,7 +5686,7 @@ return|return
 name|metricReporters
 return|;
 block|}
-comment|/**      * A list of classes to use as metrics reporters. Implementing the MetricReporter interface allows plugging in classes that will be      * notified of new metric creation. The JmxReporter is always included to register JMX statistics.      */
+comment|/**      * A list of classes to use as metrics reporters. Implementing the      * MetricReporter interface allows plugging in classes that will be notified      * of new metric creation. The JmxReporter is always included to register      * JMX statistics.      */
 DECL|method|setMetricReporters (String metricReporters)
 specifier|public
 name|void
@@ -5767,7 +5767,7 @@ return|return
 name|reconnectBackoffMs
 return|;
 block|}
-comment|/**      * The amount of time to wait before attempting to reconnect to a given host. This avoids repeatedly connecting to a host      * in a tight loop. This backoff applies to all requests sent by the consumer to the broker.      */
+comment|/**      * The amount of time to wait before attempting to reconnect to a given      * host. This avoids repeatedly connecting to a host in a tight loop. This      * backoff applies to all requests sent by the consumer to the broker.      */
 DECL|method|setReconnectBackoffMs (Integer reconnectBackoffMs)
 specifier|public
 name|void
@@ -5794,7 +5794,7 @@ return|return
 name|heartbeatIntervalMs
 return|;
 block|}
-comment|/**      * The expected time between heartbeats to the consumer coordinator when using Kafka's group management facilities.      * Heartbeats are used to ensure that the consumer's session stays active and to facilitate rebalancing when new      * consumers join or leave the group. The value must be set lower than session.timeout.ms, but typically should be set      * no higher than 1/3 of that value. It can be adjusted even lower to control the expected time for normal rebalances.      */
+comment|/**      * The expected time between heartbeats to the consumer coordinator when      * using Kafka's group management facilities. Heartbeats are used to ensure      * that the consumer's session stays active and to facilitate rebalancing      * when new consumers join or leave the group. The value must be set lower      * than session.timeout.ms, but typically should be set no higher than 1/3      * of that value. It can be adjusted even lower to control the expected time      * for normal rebalances.      */
 DECL|method|setHeartbeatIntervalMs (Integer heartbeatIntervalMs)
 specifier|public
 name|void
@@ -5821,7 +5821,7 @@ return|return
 name|maxPartitionFetchBytes
 return|;
 block|}
-comment|/**      * The maximum amount of data per-partition the server will return. The maximum total memory used for      * a request will be #partitions * max.partition.fetch.bytes. This size must be at least as large as the      * maximum message size the server allows or else it is possible for the producer to send messages larger      * than the consumer can fetch. If that happens, the consumer can get stuck trying to fetch a large message      * on a certain partition.      */
+comment|/**      * The maximum amount of data per-partition the server will return. The      * maximum total memory used for a request will be #partitions *      * max.partition.fetch.bytes. This size must be at least as large as the      * maximum message size the server allows or else it is possible for the      * producer to send messages larger than the consumer can fetch. If that      * happens, the consumer can get stuck trying to fetch a large message on a      * certain partition.      */
 DECL|method|setMaxPartitionFetchBytes (Integer maxPartitionFetchBytes)
 specifier|public
 name|void
@@ -5848,7 +5848,7 @@ return|return
 name|sessionTimeoutMs
 return|;
 block|}
-comment|/**      * The timeout used to detect failures when using Kafka's group management facilities.      */
+comment|/**      * The timeout used to detect failures when using Kafka's group management      * facilities.      */
 DECL|method|setSessionTimeoutMs (Integer sessionTimeoutMs)
 specifier|public
 name|void
@@ -5929,7 +5929,7 @@ return|return
 name|maxPollIntervalMs
 return|;
 block|}
-comment|/**      * The maximum delay between invocations of poll() when using consumer group management.      * This places an upper bound on the amount of time that the consumer can be idle before fetching more records.      * If poll() is not called before expiration of this timeout, then the consumer is considered failed and the group      * will rebalance in order to reassign the partitions to another member.      */
+comment|/**      * The maximum delay between invocations of poll() when using consumer group      * management. This places an upper bound on the amount of time that the      * consumer can be idle before fetching more records. If poll() is not      * called before expiration of this timeout, then the consumer is considered      * failed and the group will rebalance in order to reassign the partitions      * to another member.      */
 DECL|method|setMaxPollIntervalMs (Long maxPollIntervalMs)
 specifier|public
 name|void
@@ -5956,7 +5956,7 @@ return|return
 name|partitionAssignor
 return|;
 block|}
-comment|/**      * The class name of the partition assignment strategy that the client will use to distribute      * partition ownership amongst consumer instances when group management is used      */
+comment|/**      * The class name of the partition assignment strategy that the client will      * use to distribute partition ownership amongst consumer instances when      * group management is used      */
 DECL|method|setPartitionAssignor (String partitionAssignor)
 specifier|public
 name|void
@@ -5983,7 +5983,7 @@ return|return
 name|consumerRequestTimeoutMs
 return|;
 block|}
-comment|/**      * The configuration controls the maximum amount of time the client will wait for the response      * of a request. If the response is not received before the timeout elapses the client will resend      * the request if necessary or fail the request if retries are exhausted.      */
+comment|/**      * The configuration controls the maximum amount of time the client will      * wait for the response of a request. If the response is not received      * before the timeout elapses the client will resend the request if      * necessary or fail the request if retries are exhausted.      */
 DECL|method|setConsumerRequestTimeoutMs (Integer consumerRequestTimeoutMs)
 specifier|public
 name|void
@@ -6010,7 +6010,7 @@ return|return
 name|checkCrcs
 return|;
 block|}
-comment|/**      * Automatically check the CRC32 of the records consumed. This ensures no on-the-wire or on-disk      * corruption to the messages occurred. This check adds some overhead, so it may be disabled in      * cases seeking extreme performance.      */
+comment|/**      * Automatically check the CRC32 of the records consumed. This ensures no      * on-the-wire or on-disk corruption to the messages occurred. This check      * adds some overhead, so it may be disabled in cases seeking extreme      * performance.      */
 DECL|method|setCheckCrcs (Boolean checkCrcs)
 specifier|public
 name|void
@@ -6091,7 +6091,7 @@ return|return
 name|seekTo
 return|;
 block|}
-comment|/**      * Set if KafkaConsumer will read from beginning or end on startup:      * beginning : read from beginning      * end : read from end      *      * This is replacing the earlier property seekToBeginning      */
+comment|/**      * Set if KafkaConsumer will read from beginning or end on startup:      * beginning : read from beginning end : read from end This is replacing the      * earlier property seekToBeginning      */
 DECL|method|setSeekTo (String seekTo)
 specifier|public
 name|void
@@ -6118,7 +6118,7 @@ return|return
 name|workerPool
 return|;
 block|}
-comment|/**      * To use a custom worker pool for continue routing {@link Exchange} after kafka server has acknowledge      * the message that was sent to it from {@link KafkaProducer} using asynchronous non-blocking processing.      */
+comment|/**      * To use a custom worker pool for continue routing {@link Exchange} after      * kafka server has acknowledge the message that was sent to it from      * {@link KafkaProducer} using asynchronous non-blocking processing.      */
 DECL|method|setWorkerPool (ExecutorService workerPool)
 specifier|public
 name|void
@@ -6145,7 +6145,7 @@ return|return
 name|workerPoolCoreSize
 return|;
 block|}
-comment|/**      * Number of core threads for the worker pool for continue routing {@link Exchange} after kafka server has acknowledge      * the message that was sent to it from {@link KafkaProducer} using asynchronous non-blocking processing.      */
+comment|/**      * Number of core threads for the worker pool for continue routing      * {@link Exchange} after kafka server has acknowledge the message that was      * sent to it from {@link KafkaProducer} using asynchronous non-blocking      * processing.      */
 DECL|method|setWorkerPoolCoreSize (Integer workerPoolCoreSize)
 specifier|public
 name|void
@@ -6172,7 +6172,7 @@ return|return
 name|workerPoolMaxSize
 return|;
 block|}
-comment|/**      * Maximum number of threads for the worker pool for continue routing {@link Exchange} after kafka server has acknowledge      * the message that was sent to it from {@link KafkaProducer} using asynchronous non-blocking processing.      */
+comment|/**      * Maximum number of threads for the worker pool for continue routing      * {@link Exchange} after kafka server has acknowledge the message that was      * sent to it from {@link KafkaProducer} using asynchronous non-blocking      * processing.      */
 DECL|method|setWorkerPoolMaxSize (Integer workerPoolMaxSize)
 specifier|public
 name|void
@@ -6199,7 +6199,7 @@ return|return
 name|recordMetadata
 return|;
 block|}
-comment|/**      * Whether the producer should store the {@link RecordMetadata} results from sending to Kafka.      *      * The results are stored in a {@link List} containing the {@link RecordMetadata} metadata's.      * The list is stored on a header with the key {@link KafkaConstants#KAFKA_RECORDMETA}      */
+comment|/**      * Whether the producer should store the {@link RecordMetadata} results from      * sending to Kafka. The results are stored in a {@link List} containing the      * {@link RecordMetadata} metadata's. The list is stored on a header with      * the key {@link KafkaConstants#KAFKA_RECORDMETA}      */
 DECL|method|setRecordMetadata (boolean recordMetadata)
 specifier|public
 name|void
@@ -6226,7 +6226,7 @@ return|return
 name|interceptorClasses
 return|;
 block|}
-comment|/**      * Sets interceptors for producer or consumers.      * Producer interceptors have to be classes implementing {@link org.apache.kafka.clients.producer.ProducerInterceptor}      * Consumer interceptors have to be classes implementing {@link org.apache.kafka.clients.consumer.ConsumerInterceptor}      * Note that if you use Producer interceptor on a consumer it will throw a class cast exception in runtime      */
+comment|/**      * Sets interceptors for producer or consumers. Producer interceptors have      * to be classes implementing      * {@link org.apache.kafka.clients.producer.ProducerInterceptor} Consumer      * interceptors have to be classes implementing      * {@link org.apache.kafka.clients.consumer.ConsumerInterceptor} Note that      * if you use Producer interceptor on a consumer it will throw a class cast      * exception in runtime      */
 DECL|method|setInterceptorClasses (String interceptorClasses)
 specifier|public
 name|void
@@ -6253,7 +6253,7 @@ return|return
 name|enableIdempotence
 return|;
 block|}
-comment|/**      * If set to 'true' the producer will ensure that exactly one copy of each message is written in the stream. If 'false', producer       * retries may write duplicates of the retried message in the stream. If set to true this option will require max.in.flight.requests.per.connection to be set to 1 and       * retries cannot be zero and additionally acks must be set to 'all'.       */
+comment|/**      * If set to 'true' the producer will ensure that exactly one copy of each      * message is written in the stream. If 'false', producer retries may write      * duplicates of the retried message in the stream. If set to true this      * option will require max.in.flight.requests.per.connection to be set to 1      * and retries cannot be zero and additionally acks must be set to 'all'.      */
 DECL|method|setEnableIdempotence (boolean enableIdempotence)
 specifier|public
 name|void
@@ -6307,7 +6307,7 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
-comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel message.      */
+comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel      * message.      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void
@@ -6334,7 +6334,7 @@ return|return
 name|kafkaHeaderDeserializer
 return|;
 block|}
-comment|/**      * Sets custom KafkaHeaderDeserializer for deserialization kafka headers values to camel headers values.      *      * @param kafkaHeaderDeserializer custom kafka header deserializer to be used      */
+comment|/**      * Sets custom KafkaHeaderDeserializer for deserialization kafka headers      * values to camel headers values.      *      * @param kafkaHeaderDeserializer custom kafka header deserializer to be      *            used      */
 DECL|method|setKafkaHeaderDeserializer (final KafkaHeaderDeserializer kafkaHeaderDeserializer)
 specifier|public
 name|void
@@ -6362,7 +6362,7 @@ return|return
 name|kafkaHeaderSerializer
 return|;
 block|}
-comment|/**      * Sets custom KafkaHeaderDeserializer for serialization camel headers values to kafka headers values.      *      * @param kafkaHeaderSerializer custom kafka header serializer to be used      */
+comment|/**      * Sets custom KafkaHeaderDeserializer for serialization camel headers      * values to kafka headers values.      *      * @param kafkaHeaderSerializer custom kafka header serializer to be used      */
 DECL|method|setKafkaHeaderSerializer (final KafkaHeaderSerializer kafkaHeaderSerializer)
 specifier|public
 name|void
