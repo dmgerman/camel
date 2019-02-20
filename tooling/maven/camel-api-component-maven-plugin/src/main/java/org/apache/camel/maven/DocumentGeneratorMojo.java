@@ -489,6 +489,10 @@ operator|=
 name|LifecyclePhase
 operator|.
 name|SITE
+argument_list|,
+name|threadSafe
+operator|=
+literal|true
 argument_list|)
 DECL|class|DocumentGeneratorMojo
 specifier|public
