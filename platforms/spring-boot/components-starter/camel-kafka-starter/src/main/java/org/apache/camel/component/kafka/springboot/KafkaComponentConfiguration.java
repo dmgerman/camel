@@ -625,7 +625,7 @@ specifier|private
 name|String
 name|brokers
 decl_stmt|;
-comment|/**          * URL of the Kafka schema registry to use. The format is          * host1:port1,host2:port2. This option is known as schema.registry.url          * in the Kafka documentation.          */
+comment|/**          * URL of the Confluent schema registry servers to use. The format is          * host1:port1,host2:port2. This is known as schema.registry.url in the          * Confluent documentation.          */
 DECL|field|schemaRegistryURL
 specifier|private
 name|String
