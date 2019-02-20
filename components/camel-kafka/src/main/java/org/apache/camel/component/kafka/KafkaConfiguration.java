@@ -4471,7 +4471,7 @@ return|return
 name|schemaRegistryURL
 return|;
 block|}
-comment|/**      * URL of the Kafka schema registry to use. The format is      * host1:port1,host2:port2.      *<p/>      * This option is known as<tt>schema.registry.url</tt> in the Kafka      * documentation.      */
+comment|/**      * URL of the Confluent schema registry servers to use.       * The format is host1:port1,host2:port2.       * This is known as schema.registry.url in the Confluent documentation.      */
 DECL|method|setSchemaRegistryURL (String schemaRegistryURL)
 specifier|public
 name|void
