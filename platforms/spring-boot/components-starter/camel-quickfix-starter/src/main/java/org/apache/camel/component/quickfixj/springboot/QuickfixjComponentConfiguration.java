@@ -110,7 +110,7 @@ specifier|private
 name|String
 name|messageStoreFactory
 decl_stmt|;
-comment|/**      * To use the given map of pre configured QuickFix configurations mapped to      * the key. The option is a      * java.util.Map<java.lang.String,org.apache.camel.component      * .quickfixj.QuickfixjConfiguration> type.      */
+comment|/**      * To use the given map of pre configured QuickFix configurations mapped to      * the key. The option is a      * java.util.Map<java.lang.String,org.apache.camel.component.quickfixj.QuickfixjConfiguration> type.      */
 DECL|field|configurations
 specifier|private
 name|String
