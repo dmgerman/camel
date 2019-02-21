@@ -269,7 +269,7 @@ specifier|private
 name|Integer
 name|proxyPort
 decl_stmt|;
-comment|/**          * Set logging level for http calls, see java.util.logging.Level          */
+comment|/**          * Set logging level for http calls, @see java.util.logging.Level          */
 DECL|field|httpLogLevel
 specifier|private
 name|Level

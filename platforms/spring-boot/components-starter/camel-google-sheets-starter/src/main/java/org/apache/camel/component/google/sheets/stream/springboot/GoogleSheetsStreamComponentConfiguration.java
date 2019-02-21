@@ -259,7 +259,7 @@ specifier|private
 name|String
 name|refreshToken
 decl_stmt|;
-comment|/**          * Google sheets application name. Example would be          * camel-google-sheets/1.0          */
+comment|/**          * Google sheets application name. Example would be          * "camel-google-sheets/1.0"          */
 DECL|field|applicationName
 specifier|private
 name|String

@@ -48,6 +48,18 @@ name|box
 operator|.
 name|sdk
 operator|.
+name|EncryptionAlgorithm
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|box
+operator|.
+name|sdk
+operator|.
 name|IAccessTokenCache
 import|;
 end_import
@@ -283,7 +295,25 @@ specifier|private
 name|String
 name|privateKeyPassword
 decl_stmt|;
-comment|/**          * The type of authentication for connection. Types of Authentication:          * STANDARD_AUTHENTICATION - OAuth 2.0 (3-legged) SERVER_AUTHENTICATION          * - OAuth 2.0 with JSON Web Tokens          */
+comment|/**          * The maximum number of access tokens in cache.          */
+DECL|field|maxCacheEntries
+specifier|private
+name|Integer
+name|maxCacheEntries
+init|=
+literal|100
+decl_stmt|;
+comment|/**          * The type of encryption algorithm for JWT.<p> Supported Algorithms:          *<ul><li>RSA_SHA_256</li><li>RSA_SHA_384</li><li>RSA_SHA_512</li>          *</ul>          */
+DECL|field|encryptionAlgorithm
+specifier|private
+name|EncryptionAlgorithm
+name|encryptionAlgorithm
+init|=
+name|EncryptionAlgorithm
+operator|.
+name|RSA_SHA_256
+decl_stmt|;
+comment|/**          * The type of authentication for connection.<p> Types of          * Authentication:<ul><li>STANDARD_AUTHENTICATION - OAuth 2.0          * (3-legged)</li><li>SERVER_AUTHENTICATION - OAuth 2.0 with JSON Web          * Tokens</li></ul>          */
 DECL|field|authenticationType
 specifier|private
 name|String
@@ -513,6 +543,58 @@ operator|.
 name|privateKeyPassword
 operator|=
 name|privateKeyPassword
+expr_stmt|;
+block|}
+DECL|method|getMaxCacheEntries ()
+specifier|public
+name|Integer
+name|getMaxCacheEntries
+parameter_list|()
+block|{
+return|return
+name|maxCacheEntries
+return|;
+block|}
+DECL|method|setMaxCacheEntries (Integer maxCacheEntries)
+specifier|public
+name|void
+name|setMaxCacheEntries
+parameter_list|(
+name|Integer
+name|maxCacheEntries
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxCacheEntries
+operator|=
+name|maxCacheEntries
+expr_stmt|;
+block|}
+DECL|method|getEncryptionAlgorithm ()
+specifier|public
+name|EncryptionAlgorithm
+name|getEncryptionAlgorithm
+parameter_list|()
+block|{
+return|return
+name|encryptionAlgorithm
+return|;
+block|}
+DECL|method|setEncryptionAlgorithm ( EncryptionAlgorithm encryptionAlgorithm)
+specifier|public
+name|void
+name|setEncryptionAlgorithm
+parameter_list|(
+name|EncryptionAlgorithm
+name|encryptionAlgorithm
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encryptionAlgorithm
+operator|=
+name|encryptionAlgorithm
 expr_stmt|;
 block|}
 DECL|method|getAuthenticationType ()

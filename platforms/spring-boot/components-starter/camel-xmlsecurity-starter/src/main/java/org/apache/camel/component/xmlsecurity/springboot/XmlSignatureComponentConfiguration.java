@@ -352,6 +352,592 @@ operator|=
 name|resolvePropertyPlaceholders
 expr_stmt|;
 block|}
+DECL|class|XmlVerifierConfigurationNestedConfiguration
+specifier|public
+specifier|static
+class|class
+name|XmlVerifierConfigurationNestedConfiguration
+block|{
+DECL|field|CAMEL_NESTED_CLASS
+specifier|public
+specifier|static
+specifier|final
+name|Class
+name|CAMEL_NESTED_CLASS
+init|=
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|xmlsecurity
+operator|.
+name|processor
+operator|.
+name|XmlVerifierConfiguration
+operator|.
+name|class
+decl_stmt|;
+comment|/**          * Provides the key for validating the XML signature.          */
+DECL|field|keySelector
+specifier|private
+name|KeySelector
+name|keySelector
+decl_stmt|;
+comment|/**          * This interface allows the application to check the XML signature          * before the validation is executed. This step is recommended in          * http://www.w3.org/TR/xmldsig-bestpractices/#check-what-is-signed          */
+DECL|field|xmlSignatureChecker
+specifier|private
+name|XmlSignatureChecker
+name|xmlSignatureChecker
+decl_stmt|;
+comment|/**          * Bean which maps the XML signature to the output-message after the          * validation. How this mapping should be done can be configured by the          * options outputNodeSearchType, outputNodeSearch, and          * removeSignatureElements. The default implementation offers three          * possibilities which are related to the three output node search types          * "Default", "ElementName", and "XPath". The default implementation          * determines a node which is then serialized and set to the body of the          * output message If the search type is "ElementName" then the output          * node (which must be in this case an element) is determined by the          * local name and namespace defined in the search value (see option          * outputNodeSearch). If the search type is "XPath" then the output node          * is determined by the XPath specified in the search value (in this          * case the output node can be of type "Element", "TextNode" or          * "Document"). If the output node search type is "Default" then the          * following rules apply: In the enveloped XML signature case (there is          * a reference with URI="" and transform          * "http://www.w3.org/2000/09/xmldsig#enveloped-signature"), the          * incoming XML document without the Signature element is set to the          * output message body. In the non-enveloped XML signature case, the          * message body is determined from a referenced Object; this is          * explained in more detail in chapter "Output Node Determination in          * Enveloping XML Signature Case".          */
+DECL|field|xmlSignature2Message
+specifier|private
+name|XmlSignature2Message
+name|xmlSignature2Message
+decl_stmt|;
+comment|/**          * Handles the different validation failed situations. The default          * implementation throws specific exceptions for the different          * situations (All exceptions have the package name          * org.apache.camel.component.xmlsecurity.api and are a sub-class of          * XmlSignatureInvalidException. If the signature value validation          * fails, a XmlSignatureInvalidValueException is thrown. If a reference          * validation fails, a XmlSignatureInvalidContentHashException is          * thrown. For more detailed information, see the JavaDoc.          */
+DECL|field|validationFailedHandler
+specifier|private
+name|ValidationFailedHandler
+name|validationFailedHandler
+decl_stmt|;
+comment|/**          * Sets the output node search value for determining the node from the          * XML signature document which shall be set to the output message body.          * The class of the value depends on the type of the output node search.          * The output node search is forwarded to {@link XmlSignature2Message}.          */
+DECL|field|outputNodeSearch
+specifier|private
+name|Object
+name|outputNodeSearch
+decl_stmt|;
+comment|/**          * Determines the search type for determining the output node which is          * serialized into the output message bodyF. See {@link          * #setOutputNodeSearch(Object)}. The supported default search types you          * can find in {@link DefaultXmlSignature2Message}.          */
+DECL|field|outputNodeSearchType
+specifier|private
+name|String
+name|outputNodeSearchType
+init|=
+literal|"Default"
+decl_stmt|;
+comment|/**          * Indicator whether the XML signature elements (elements with local          * name "Signature" and namesapce          * ""http://www.w3.org/2000/09/xmldsig#"") shall be removed from the          * document set to the output message. Normally, this is only necessary,          * if the XML signature is enveloped. The default value is {@link          * Boolean#FALSE}. This parameter is forwarded to {@link          * XmlSignature2Message}.<p> This indicator has no effect if the output          * node search is of type {@link          * DefaultXmlSignature2Message#OUTPUT_NODE_SEARCH_TYPE_DEFAULT}.F          */
+DECL|field|removeSignatureElements
+specifier|private
+name|Boolean
+name|removeSignatureElements
+init|=
+literal|false
+decl_stmt|;
+comment|/**          * Enables secure validation. If true then secure validation is enabled.          */
+DECL|field|secureValidation
+specifier|private
+name|Boolean
+name|secureValidation
+init|=
+literal|true
+decl_stmt|;
+comment|/**          * Name of handler to          */
+DECL|field|validationFailedHandlerName
+specifier|private
+name|String
+name|validationFailedHandlerName
+decl_stmt|;
+comment|/**          * If you want to restrict the remote access via reference URIs, you can          * set an own dereferencer. Optional parameter. If not set the provider          * default dereferencer is used which can resolve URI fragments, HTTP,          * file and XPpointer URIs.<p> Attention: The implementation is          * provider dependent!          */
+DECL|field|uriDereferencer
+specifier|private
+name|URIDereferencer
+name|uriDereferencer
+decl_stmt|;
+comment|/**          * You can set a base URI which is used in the URI dereferencing.          * Relative URIs are then concatenated with the base URI.          */
+DECL|field|baseUri
+specifier|private
+name|String
+name|baseUri
+decl_stmt|;
+comment|/**          * Sets the crypto context properties. See {@link          * XMLCryptoContext#setProperty(String, Object)}. Possible properties          * are defined in {@link XMLSignContext} an {@link XMLValidateContext}          * (see Supported Properties).<p> The following properties are set by          * default to the value {@link Boolean#TRUE} for the XML validation. If          * you want to switch these features off you must set the property value          * to {@link Boolean#FALSE}.<ul>          *<li><code>"org.jcp.xml.dsig.validateManifests"</code></li>          *<li><code>"javax.xml.crypto.dsig.cacheReference"</code></li></ul>          */
+DECL|field|cryptoContextProperties
+specifier|private
+name|Map
+name|cryptoContextProperties
+decl_stmt|;
+comment|/**          * Disallows that the incoming XML document contains DTD DOCTYPE          * declaration. The default value is {@link Boolean#TRUE}.          */
+DECL|field|disallowDoctypeDecl
+specifier|private
+name|Boolean
+name|disallowDoctypeDecl
+init|=
+literal|true
+decl_stmt|;
+comment|/**          * Indicator whether the XML declaration in the outgoing message body          * should be omitted. Default value is<code>false</code>. Can be          * overwritten by the header {@link          * XmlSignatureConstants#HEADER_OMIT_XML_DECLARATION}.          */
+DECL|field|omitXmlDeclaration
+specifier|private
+name|Boolean
+name|omitXmlDeclaration
+init|=
+literal|false
+decl_stmt|;
+comment|/**          * Determines if the XML signature specific headers be cleared after          * signing and verification. Defaults to true.          */
+DECL|field|clearHeaders
+specifier|private
+name|Boolean
+name|clearHeaders
+init|=
+literal|true
+decl_stmt|;
+comment|/**          * Classpath to the XML Schema. Must be specified in the detached XML          * Signature case for determining the ID attributes, might be set in the          * enveloped and enveloping case. If set, then the XML document is          * validated with the specified XML schema. The schema resource URI can          * be overwritten by the header {@link          * XmlSignatureConstants#HEADER_SCHEMA_RESOURCE_URI}.          */
+DECL|field|schemaResourceUri
+specifier|private
+name|String
+name|schemaResourceUri
+decl_stmt|;
+comment|/**          * The character encoding of the resulting signed XML document. If          *<code>null</code> then the encoding of the original XML document is          * used.          */
+DECL|field|outputXmlEncoding
+specifier|private
+name|String
+name|outputXmlEncoding
+decl_stmt|;
+DECL|method|getKeySelector ()
+specifier|public
+name|KeySelector
+name|getKeySelector
+parameter_list|()
+block|{
+return|return
+name|keySelector
+return|;
+block|}
+DECL|method|setKeySelector (KeySelector keySelector)
+specifier|public
+name|void
+name|setKeySelector
+parameter_list|(
+name|KeySelector
+name|keySelector
+parameter_list|)
+block|{
+name|this
+operator|.
+name|keySelector
+operator|=
+name|keySelector
+expr_stmt|;
+block|}
+DECL|method|getXmlSignatureChecker ()
+specifier|public
+name|XmlSignatureChecker
+name|getXmlSignatureChecker
+parameter_list|()
+block|{
+return|return
+name|xmlSignatureChecker
+return|;
+block|}
+DECL|method|setXmlSignatureChecker ( XmlSignatureChecker xmlSignatureChecker)
+specifier|public
+name|void
+name|setXmlSignatureChecker
+parameter_list|(
+name|XmlSignatureChecker
+name|xmlSignatureChecker
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xmlSignatureChecker
+operator|=
+name|xmlSignatureChecker
+expr_stmt|;
+block|}
+DECL|method|getXmlSignature2Message ()
+specifier|public
+name|XmlSignature2Message
+name|getXmlSignature2Message
+parameter_list|()
+block|{
+return|return
+name|xmlSignature2Message
+return|;
+block|}
+DECL|method|setXmlSignature2Message ( XmlSignature2Message xmlSignature2Message)
+specifier|public
+name|void
+name|setXmlSignature2Message
+parameter_list|(
+name|XmlSignature2Message
+name|xmlSignature2Message
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xmlSignature2Message
+operator|=
+name|xmlSignature2Message
+expr_stmt|;
+block|}
+DECL|method|getValidationFailedHandler ()
+specifier|public
+name|ValidationFailedHandler
+name|getValidationFailedHandler
+parameter_list|()
+block|{
+return|return
+name|validationFailedHandler
+return|;
+block|}
+DECL|method|setValidationFailedHandler ( ValidationFailedHandler validationFailedHandler)
+specifier|public
+name|void
+name|setValidationFailedHandler
+parameter_list|(
+name|ValidationFailedHandler
+name|validationFailedHandler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|validationFailedHandler
+operator|=
+name|validationFailedHandler
+expr_stmt|;
+block|}
+DECL|method|getOutputNodeSearch ()
+specifier|public
+name|Object
+name|getOutputNodeSearch
+parameter_list|()
+block|{
+return|return
+name|outputNodeSearch
+return|;
+block|}
+DECL|method|setOutputNodeSearch (Object outputNodeSearch)
+specifier|public
+name|void
+name|setOutputNodeSearch
+parameter_list|(
+name|Object
+name|outputNodeSearch
+parameter_list|)
+block|{
+name|this
+operator|.
+name|outputNodeSearch
+operator|=
+name|outputNodeSearch
+expr_stmt|;
+block|}
+DECL|method|getOutputNodeSearchType ()
+specifier|public
+name|String
+name|getOutputNodeSearchType
+parameter_list|()
+block|{
+return|return
+name|outputNodeSearchType
+return|;
+block|}
+DECL|method|setOutputNodeSearchType (String outputNodeSearchType)
+specifier|public
+name|void
+name|setOutputNodeSearchType
+parameter_list|(
+name|String
+name|outputNodeSearchType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|outputNodeSearchType
+operator|=
+name|outputNodeSearchType
+expr_stmt|;
+block|}
+DECL|method|getRemoveSignatureElements ()
+specifier|public
+name|Boolean
+name|getRemoveSignatureElements
+parameter_list|()
+block|{
+return|return
+name|removeSignatureElements
+return|;
+block|}
+DECL|method|setRemoveSignatureElements (Boolean removeSignatureElements)
+specifier|public
+name|void
+name|setRemoveSignatureElements
+parameter_list|(
+name|Boolean
+name|removeSignatureElements
+parameter_list|)
+block|{
+name|this
+operator|.
+name|removeSignatureElements
+operator|=
+name|removeSignatureElements
+expr_stmt|;
+block|}
+DECL|method|getSecureValidation ()
+specifier|public
+name|Boolean
+name|getSecureValidation
+parameter_list|()
+block|{
+return|return
+name|secureValidation
+return|;
+block|}
+DECL|method|setSecureValidation (Boolean secureValidation)
+specifier|public
+name|void
+name|setSecureValidation
+parameter_list|(
+name|Boolean
+name|secureValidation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|secureValidation
+operator|=
+name|secureValidation
+expr_stmt|;
+block|}
+DECL|method|getValidationFailedHandlerName ()
+specifier|public
+name|String
+name|getValidationFailedHandlerName
+parameter_list|()
+block|{
+return|return
+name|validationFailedHandlerName
+return|;
+block|}
+DECL|method|setValidationFailedHandlerName ( String validationFailedHandlerName)
+specifier|public
+name|void
+name|setValidationFailedHandlerName
+parameter_list|(
+name|String
+name|validationFailedHandlerName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|validationFailedHandlerName
+operator|=
+name|validationFailedHandlerName
+expr_stmt|;
+block|}
+DECL|method|getUriDereferencer ()
+specifier|public
+name|URIDereferencer
+name|getUriDereferencer
+parameter_list|()
+block|{
+return|return
+name|uriDereferencer
+return|;
+block|}
+DECL|method|setUriDereferencer (URIDereferencer uriDereferencer)
+specifier|public
+name|void
+name|setUriDereferencer
+parameter_list|(
+name|URIDereferencer
+name|uriDereferencer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uriDereferencer
+operator|=
+name|uriDereferencer
+expr_stmt|;
+block|}
+DECL|method|getBaseUri ()
+specifier|public
+name|String
+name|getBaseUri
+parameter_list|()
+block|{
+return|return
+name|baseUri
+return|;
+block|}
+DECL|method|setBaseUri (String baseUri)
+specifier|public
+name|void
+name|setBaseUri
+parameter_list|(
+name|String
+name|baseUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|baseUri
+operator|=
+name|baseUri
+expr_stmt|;
+block|}
+DECL|method|getCryptoContextProperties ()
+specifier|public
+name|Map
+name|getCryptoContextProperties
+parameter_list|()
+block|{
+return|return
+name|cryptoContextProperties
+return|;
+block|}
+DECL|method|setCryptoContextProperties (Map cryptoContextProperties)
+specifier|public
+name|void
+name|setCryptoContextProperties
+parameter_list|(
+name|Map
+name|cryptoContextProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cryptoContextProperties
+operator|=
+name|cryptoContextProperties
+expr_stmt|;
+block|}
+DECL|method|getDisallowDoctypeDecl ()
+specifier|public
+name|Boolean
+name|getDisallowDoctypeDecl
+parameter_list|()
+block|{
+return|return
+name|disallowDoctypeDecl
+return|;
+block|}
+DECL|method|setDisallowDoctypeDecl (Boolean disallowDoctypeDecl)
+specifier|public
+name|void
+name|setDisallowDoctypeDecl
+parameter_list|(
+name|Boolean
+name|disallowDoctypeDecl
+parameter_list|)
+block|{
+name|this
+operator|.
+name|disallowDoctypeDecl
+operator|=
+name|disallowDoctypeDecl
+expr_stmt|;
+block|}
+DECL|method|getOmitXmlDeclaration ()
+specifier|public
+name|Boolean
+name|getOmitXmlDeclaration
+parameter_list|()
+block|{
+return|return
+name|omitXmlDeclaration
+return|;
+block|}
+DECL|method|setOmitXmlDeclaration (Boolean omitXmlDeclaration)
+specifier|public
+name|void
+name|setOmitXmlDeclaration
+parameter_list|(
+name|Boolean
+name|omitXmlDeclaration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|omitXmlDeclaration
+operator|=
+name|omitXmlDeclaration
+expr_stmt|;
+block|}
+DECL|method|getClearHeaders ()
+specifier|public
+name|Boolean
+name|getClearHeaders
+parameter_list|()
+block|{
+return|return
+name|clearHeaders
+return|;
+block|}
+DECL|method|setClearHeaders (Boolean clearHeaders)
+specifier|public
+name|void
+name|setClearHeaders
+parameter_list|(
+name|Boolean
+name|clearHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clearHeaders
+operator|=
+name|clearHeaders
+expr_stmt|;
+block|}
+DECL|method|getSchemaResourceUri ()
+specifier|public
+name|String
+name|getSchemaResourceUri
+parameter_list|()
+block|{
+return|return
+name|schemaResourceUri
+return|;
+block|}
+DECL|method|setSchemaResourceUri (String schemaResourceUri)
+specifier|public
+name|void
+name|setSchemaResourceUri
+parameter_list|(
+name|String
+name|schemaResourceUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|schemaResourceUri
+operator|=
+name|schemaResourceUri
+expr_stmt|;
+block|}
+DECL|method|getOutputXmlEncoding ()
+specifier|public
+name|String
+name|getOutputXmlEncoding
+parameter_list|()
+block|{
+return|return
+name|outputXmlEncoding
+return|;
+block|}
+DECL|method|setOutputXmlEncoding (String outputXmlEncoding)
+specifier|public
+name|void
+name|setOutputXmlEncoding
+parameter_list|(
+name|String
+name|outputXmlEncoding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|outputXmlEncoding
+operator|=
+name|outputXmlEncoding
+expr_stmt|;
+block|}
+block|}
 DECL|class|XmlSignerConfigurationNestedConfiguration
 specifier|public
 specifier|static
@@ -387,7 +973,7 @@ specifier|private
 name|KeyAccessor
 name|keyAccessor
 decl_stmt|;
-comment|/**          * Canonicalization method used to canonicalize the SignedInfo element          * before the digest is calculated. You can use the helper methods          * XmlSignatureHelper.getCanonicalizationMethod(String algorithm) or          * getCanonicalizationMethod(String algorithm, List          * inclusiveNamespacePrefixes) to create a canonicalization method.          */
+comment|/**          * Canonicalization method used to canonicalize the SignedInfo element          * before the digest is calculated. You can use the helper methods          * XmlSignatureHelper.getCanonicalizationMethod(String algorithm) or          * getCanonicalizationMethod(String algorithm, List<String>          * inclusiveNamespacePrefixes) to create a canonicalization method.          */
 DECL|field|canonicalizationMethod
 specifier|private
 name|AlgorithmMethod
@@ -399,7 +985,7 @@ specifier|private
 name|List
 name|transformMethods
 decl_stmt|;
-comment|/**          * Signature algorithm. Default value is          * http://www.w3.org/2000/09/xmldsig#rsa-sha1.          */
+comment|/**          * Signature algorithm. Default value is          * "http://www.w3.org/2000/09/xmldsig#rsa-sha1".          */
 DECL|field|signatureAlgorithm
 specifier|private
 name|String
@@ -407,13 +993,13 @@ name|signatureAlgorithm
 init|=
 literal|"http://www.w3.org/2000/09/xmldsig#rsa-sha1"
 decl_stmt|;
-comment|/**          * Digest algorithm URI. Optional parameter. This digest algorithm is          * used for calculating the digest of the input message. If this digest          * algorithm is not specified then the digest algorithm is calculated          * from the signature algorithm. Example:          * http://www.w3.org/2001/04/xmlenc#sha256          */
+comment|/**          * Digest algorithm URI. Optional parameter. This digest algorithm is          * used for calculating the digest of the input message. If this digest          * algorithm is not specified then the digest algorithm is calculated          * from the signature algorithm. Example:          * "http://www.w3.org/2001/04/xmlenc#sha256"          */
 DECL|field|digestAlgorithm
 specifier|private
 name|String
 name|digestAlgorithm
 decl_stmt|;
-comment|/**          * In order to protect the KeyInfo element from tampering you can add a          * reference to the signed info element so that it is protected via the          * signature value. The default value is true. Only relevant when a          * KeyInfo is returned by KeyAccessor. and KeyInfo#getId() is not null.          */
+comment|/**          * In order to protect the KeyInfo element from tampering you can add a          * reference to the signed info element so that it is protected via the          * signature value. The default value is<tt>true</tt>.<p> Only          * relevant when a KeyInfo is returned by {@link KeyAccessor}. and          * {@link KeyInfo#getId()} is not<code>null</code>.          */
 DECL|field|addKeyInfoReference
 specifier|private
 name|Boolean
@@ -421,7 +1007,7 @@ name|addKeyInfoReference
 init|=
 literal|true
 decl_stmt|;
-comment|/**          * Namespace prefix for the XML signature namespace          * http://www.w3.org/2000/09/xmldsig#. Default value is ds. If null or          * an empty value is set then no prefix is used for the XML signature          * namespace. See best practice          * http://www.w3.org/TR/xmldsig-bestpractices/#signing-xml-          * without-namespaces          */
+comment|/**          * Namespace prefix for the XML signature namespace          * "http://www.w3.org/2000/09/xmldsig#". Default value is "ds". If          *<code>null</code> or an empty value is set then no prefix is used for          * the XML signature namespace.<p> See best practice          * http://www.w3.org/TR/xmldsig-bestpractices/#signing-xml-          * without-namespaces          */
 DECL|field|prefixForXmlSignatureNamespace
 specifier|private
 name|String
@@ -429,7 +1015,7 @@ name|prefixForXmlSignatureNamespace
 init|=
 literal|"ds"
 decl_stmt|;
-comment|/**          * Local name of the parent element to which the XML signature element          * will be added. Only relevant for enveloped XML signature.          * Alternatively you can also use          * setParentXpath(XPathFilterParameterSpec). Default value is null. The          * value must be null for enveloping and detached XML signature. This          * parameter or the parameter setParentXpath(XPathFilterParameterSpec)          * for enveloped signature and the parameter          * setXpathsToIdAttributes(List) for detached signature must not be set          * in the same configuration. If the parameters parentXpath and          * parentLocalName are specified in the same configuration then an          * exception is thrown.          */
+comment|/**          * Local name of the parent element to which the XML signature element          * will be added. Only relevant for enveloped XML signature.          * Alternatively you can also use {@link          * #setParentXpath(XPathFilterParameterSpec)}.<p> Default value is          *<code>null</code>. The value must be<code>null</code> for enveloping          * and detached XML signature.<p> This parameter or the parameter          * {@link #setParentXpath(XPathFilterParameterSpec)} for enveloped          * signature and the parameter {@link #setXpathsToIdAttributes(List)}          * for detached signature must not be set in the same configuration.<p>          * If the parameters<tt>parentXpath</tt> and<tt>parentLocalName</tt>          * are specified in the same configuration then an exception is thrown.          */
 DECL|field|parentLocalName
 specifier|private
 name|String
@@ -441,31 +1027,31 @@ specifier|private
 name|String
 name|parentNamespace
 decl_stmt|;
-comment|/**          * Sets the content object Id attribute value. By default a UUID is          * generated. If you set the null value, then a new UUID will be          * generated. Only used in the enveloping case.          */
+comment|/**          * Sets the content object Id attribute value. By default a UUID is          * generated. If you set the<code>null</code> value, then a new UUID          * will be generated. Only used in the enveloping case.          */
 DECL|field|contentObjectId
 specifier|private
 name|String
 name|contentObjectId
 decl_stmt|;
-comment|/**          * Sets the signature Id. If this parameter is not set (null value) then          * a unique ID is generated for the signature ID (default). If this          * parameter is set to (empty string) then no Id attribute is created in          * the signature element.          */
+comment|/**          * Sets the signature Id. If this parameter is not set (null value) then          * a unique ID is generated for the signature ID (default). If this          * parameter is set to "" (empty string) then no Id attribute is created          * in the signature element.          */
 DECL|field|signatureId
 specifier|private
 name|String
 name|signatureId
 decl_stmt|;
-comment|/**          * Reference URI for the content to be signed. Only used in the          * enveloped case. If the reference URI contains an ID attribute value,          * then the resource schema URI ( setSchemaResourceUri(String)) must          * also be set because the schema validator will then find out which          * attributes are ID attributes. Will be ignored in the enveloping or          * detached case.          */
+comment|/**          * Reference URI for the content to be signed. Only used in the          * enveloped case. If the reference URI contains an ID attribute value,          * then the resource schema URI ( {@link #setSchemaResourceUri(String)})          * must also be set because the schema validator will then find out          * which attributes are ID attributes. Will be ignored in the enveloping          * or detached case.          */
 DECL|field|contentReferenceUri
 specifier|private
 name|String
 name|contentReferenceUri
 decl_stmt|;
-comment|/**          * Type of the content reference. The default value is null. This value          * can be overwritten by the header          * XmlSignatureConstants#HEADER_CONTENT_REFERENCE_TYPE.          */
+comment|/**          * Type of the content reference. The default value is          *<code>null</code>. This value can be overwritten by the header {@link          * XmlSignatureConstants#HEADER_CONTENT_REFERENCE_TYPE}.          */
 DECL|field|contentReferenceType
 specifier|private
 name|String
 name|contentReferenceType
 decl_stmt|;
-comment|/**          * Indicator whether the message body contains plain text. The default          * value is false, indicating that the message body contains XML. The          * value can be overwritten by the header          * XmlSignatureConstants#HEADER_MESSAGE_IS_PLAIN_TEXT.          */
+comment|/**          * Indicator whether the message body contains plain text. The default          * value is<code>false</code>, indicating that the message body          * contains XML. The value can be overwritten by the header {@link          * XmlSignatureConstants#HEADER_MESSAGE_IS_PLAIN_TEXT}.          */
 DECL|field|plainText
 specifier|private
 name|Boolean
@@ -473,7 +1059,7 @@ name|plainText
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Encoding of the plain text. Only relevant if the message body is          * plain text (see parameter plainText. Default value is UTF-8.          */
+comment|/**          * Encoding of the plain text. Only relevant if the message body is          * plain text (see parameter {@link #plainText}. Default value is          * "UTF-8".          */
 DECL|field|plainTextEncoding
 specifier|private
 name|String
@@ -487,39 +1073,43 @@ specifier|private
 name|XmlSignatureProperties
 name|properties
 decl_stmt|;
+comment|/**          * Sets the reference name for a XmlSignatureProperties that can be          * found in the registry.          */
 DECL|field|keyAccessorName
 specifier|private
 name|String
 name|keyAccessorName
 decl_stmt|;
+comment|/**          * Sets the reference name for a XmlSignatureProperties that can be          * found in the registry.          */
 DECL|field|canonicalizationMethodName
 specifier|private
 name|String
 name|canonicalizationMethodName
 decl_stmt|;
+comment|/**          * Sets the reference name for a XmlSignatureProperties that can be          * found in the registry.          */
 DECL|field|transformMethodsName
 specifier|private
 name|String
 name|transformMethodsName
 decl_stmt|;
+comment|/**          * Sets the reference name for a XmlSignatureProperties that can be          * found in the registry.          */
 DECL|field|propertiesName
 specifier|private
 name|String
 name|propertiesName
 decl_stmt|;
-comment|/**          * Define the elements which are signed in the detached case via XPATH          * expressions to ID attributes (attributes of type ID). For each          * element found via the XPATH expression a detached signature is          * created whose reference URI contains the corresponding attribute          * value (preceded by '#'). The signature becomes the last sibling of          * the signed element. Elements with deeper hierarchy level are signed          * first. You can also set the XPATH list dynamically via the header          * XmlSignatureConstants#HEADER_XPATHS_TO_ID_ATTRIBUTES. The parameter          * setParentLocalName(String) or          * setParentXpath(XPathFilterParameterSpec) for enveloped signature and          * this parameter for detached signature must not be set in the same          * configuration.          */
+comment|/**          * Define the elements which are signed in the detached case via XPATH          * expressions to ID attributes (attributes of type ID). For each          * element found via the XPATH expression a detached signature is          * created whose reference URI contains the corresponding attribute          * value (preceded by '#'). The signature becomes the last sibling of          * the signed element. Elements with deeper hierarchy level are signed          * first.<p> You can also set the XPATH list dynamically via the header          * {@link XmlSignatureConstants#HEADER_XPATHS_TO_ID_ATTRIBUTES}.<p> The          * parameter {@link #setParentLocalName(String)} or {@link          * #setParentXpath(XPathFilterParameterSpec)} for enveloped signature          * and this parameter for detached signature must not be set in the same          * configuration.          */
 DECL|field|xpathsToIdAttributes
 specifier|private
 name|List
 name|xpathsToIdAttributes
 decl_stmt|;
-comment|/**          * Sets the XPath to find the parent node in the enveloped case. Either          * you specify the parent node via this method or the local name and          * namespace of the parent with the methods setParentLocalName(String)          * and setParentNamespace(String). Default value is null. The value must          * be null for enveloping and detached XML signature. If the parameters          * parentXpath and parentLocalName are specified in the same          * configuration then an exception is thrown.          */
+comment|/**          * Sets the XPath to find the parent node in the enveloped case. Either          * you specify the parent node via this method or the local name and          * namespace of the parent with the methods {@link          * #setParentLocalName(String)} and {@link #setParentNamespace(String)}.          *<p> Default value is<code>null</code>. The value must be          *<code>null</code> for enveloping and detached XML signature.<p> If          * the parameters<tt>parentXpath</tt> and<tt>parentLocalName</tt> are          * specified in the same configuration then an exception is thrown.          */
 DECL|field|parentXpath
 specifier|private
 name|XPathFilterParameterSpec
 name|parentXpath
 decl_stmt|;
-comment|/**          * If you want to restrict the remote access via reference URIs, you can          * set an own dereferencer. Optional parameter. If not set the provider          * default dereferencer is used which can resolve URI fragments, HTTP,          * file and XPpointer URIs. Attention: The implementation is provider          * dependent!          */
+comment|/**          * If you want to restrict the remote access via reference URIs, you can          * set an own dereferencer. Optional parameter. If not set the provider          * default dereferencer is used which can resolve URI fragments, HTTP,          * file and XPpointer URIs.<p> Attention: The implementation is          * provider dependent!          */
 DECL|field|uriDereferencer
 specifier|private
 name|URIDereferencer
@@ -531,13 +1121,13 @@ specifier|private
 name|String
 name|baseUri
 decl_stmt|;
-comment|/**          * Sets the crypto context properties. See {link          * XMLCryptoContext#setProperty(String, Object)}. Possible properties          * are defined in XMLSignContext an XMLValidateContext (see Supported          * Properties). The following properties are set by default to the value          * Boolean#TRUE for the XML validation. If you want to switch these          * features off you must set the property value to Boolean#FALSE.          * org.jcp.xml.dsig.validateManifests          * javax.xml.crypto.dsig.cacheReference          */
+comment|/**          * Sets the crypto context properties. See {@link          * XMLCryptoContext#setProperty(String, Object)}. Possible properties          * are defined in {@link XMLSignContext} an {@link XMLValidateContext}          * (see Supported Properties).<p> The following properties are set by          * default to the value {@link Boolean#TRUE} for the XML validation. If          * you want to switch these features off you must set the property value          * to {@link Boolean#FALSE}.<ul>          *<li><code>"org.jcp.xml.dsig.validateManifests"</code></li>          *<li><code>"javax.xml.crypto.dsig.cacheReference"</code></li></ul>          */
 DECL|field|cryptoContextProperties
 specifier|private
 name|Map
 name|cryptoContextProperties
 decl_stmt|;
-comment|/**          * Disallows that the incoming XML document contains DTD DOCTYPE          * declaration. The default value is Boolean#TRUE.          */
+comment|/**          * Disallows that the incoming XML document contains DTD DOCTYPE          * declaration. The default value is {@link Boolean#TRUE}.          */
 DECL|field|disallowDoctypeDecl
 specifier|private
 name|Boolean
@@ -545,7 +1135,7 @@ name|disallowDoctypeDecl
 init|=
 literal|true
 decl_stmt|;
-comment|/**          * Indicator whether the XML declaration in the outgoing message body          * should be omitted. Default value is false. Can be overwritten by the          * header XmlSignatureConstants#HEADER_OMIT_XML_DECLARATION.          */
+comment|/**          * Indicator whether the XML declaration in the outgoing message body          * should be omitted. Default value is<code>false</code>. Can be          * overwritten by the header {@link          * XmlSignatureConstants#HEADER_OMIT_XML_DECLARATION}.          */
 DECL|field|omitXmlDeclaration
 specifier|private
 name|Boolean
@@ -561,13 +1151,13 @@ name|clearHeaders
 init|=
 literal|true
 decl_stmt|;
-comment|/**          * Classpath to the XML Schema. Must be specified in the detached XML          * Signature case for determining the ID attributes, might be set in the          * enveloped and enveloping case. If set, then the XML document is          * validated with the specified XML schema. The schema resource URI can          * be overwritten by the header          * XmlSignatureConstants#HEADER_SCHEMA_RESOURCE_URI.          */
+comment|/**          * Classpath to the XML Schema. Must be specified in the detached XML          * Signature case for determining the ID attributes, might be set in the          * enveloped and enveloping case. If set, then the XML document is          * validated with the specified XML schema. The schema resource URI can          * be overwritten by the header {@link          * XmlSignatureConstants#HEADER_SCHEMA_RESOURCE_URI}.          */
 DECL|field|schemaResourceUri
 specifier|private
 name|String
 name|schemaResourceUri
 decl_stmt|;
-comment|/**          * The character encoding of the resulting signed XML document. If null          * then the encoding of the original XML document is used.          */
+comment|/**          * The character encoding of the resulting signed XML document. If          *<code>null</code> then the encoding of the original XML document is          * used.          */
 DECL|field|outputXmlEncoding
 specifier|private
 name|String
@@ -1143,592 +1733,6 @@ operator|.
 name|parentXpath
 operator|=
 name|parentXpath
-expr_stmt|;
-block|}
-DECL|method|getUriDereferencer ()
-specifier|public
-name|URIDereferencer
-name|getUriDereferencer
-parameter_list|()
-block|{
-return|return
-name|uriDereferencer
-return|;
-block|}
-DECL|method|setUriDereferencer (URIDereferencer uriDereferencer)
-specifier|public
-name|void
-name|setUriDereferencer
-parameter_list|(
-name|URIDereferencer
-name|uriDereferencer
-parameter_list|)
-block|{
-name|this
-operator|.
-name|uriDereferencer
-operator|=
-name|uriDereferencer
-expr_stmt|;
-block|}
-DECL|method|getBaseUri ()
-specifier|public
-name|String
-name|getBaseUri
-parameter_list|()
-block|{
-return|return
-name|baseUri
-return|;
-block|}
-DECL|method|setBaseUri (String baseUri)
-specifier|public
-name|void
-name|setBaseUri
-parameter_list|(
-name|String
-name|baseUri
-parameter_list|)
-block|{
-name|this
-operator|.
-name|baseUri
-operator|=
-name|baseUri
-expr_stmt|;
-block|}
-DECL|method|getCryptoContextProperties ()
-specifier|public
-name|Map
-name|getCryptoContextProperties
-parameter_list|()
-block|{
-return|return
-name|cryptoContextProperties
-return|;
-block|}
-DECL|method|setCryptoContextProperties (Map cryptoContextProperties)
-specifier|public
-name|void
-name|setCryptoContextProperties
-parameter_list|(
-name|Map
-name|cryptoContextProperties
-parameter_list|)
-block|{
-name|this
-operator|.
-name|cryptoContextProperties
-operator|=
-name|cryptoContextProperties
-expr_stmt|;
-block|}
-DECL|method|getDisallowDoctypeDecl ()
-specifier|public
-name|Boolean
-name|getDisallowDoctypeDecl
-parameter_list|()
-block|{
-return|return
-name|disallowDoctypeDecl
-return|;
-block|}
-DECL|method|setDisallowDoctypeDecl (Boolean disallowDoctypeDecl)
-specifier|public
-name|void
-name|setDisallowDoctypeDecl
-parameter_list|(
-name|Boolean
-name|disallowDoctypeDecl
-parameter_list|)
-block|{
-name|this
-operator|.
-name|disallowDoctypeDecl
-operator|=
-name|disallowDoctypeDecl
-expr_stmt|;
-block|}
-DECL|method|getOmitXmlDeclaration ()
-specifier|public
-name|Boolean
-name|getOmitXmlDeclaration
-parameter_list|()
-block|{
-return|return
-name|omitXmlDeclaration
-return|;
-block|}
-DECL|method|setOmitXmlDeclaration (Boolean omitXmlDeclaration)
-specifier|public
-name|void
-name|setOmitXmlDeclaration
-parameter_list|(
-name|Boolean
-name|omitXmlDeclaration
-parameter_list|)
-block|{
-name|this
-operator|.
-name|omitXmlDeclaration
-operator|=
-name|omitXmlDeclaration
-expr_stmt|;
-block|}
-DECL|method|getClearHeaders ()
-specifier|public
-name|Boolean
-name|getClearHeaders
-parameter_list|()
-block|{
-return|return
-name|clearHeaders
-return|;
-block|}
-DECL|method|setClearHeaders (Boolean clearHeaders)
-specifier|public
-name|void
-name|setClearHeaders
-parameter_list|(
-name|Boolean
-name|clearHeaders
-parameter_list|)
-block|{
-name|this
-operator|.
-name|clearHeaders
-operator|=
-name|clearHeaders
-expr_stmt|;
-block|}
-DECL|method|getSchemaResourceUri ()
-specifier|public
-name|String
-name|getSchemaResourceUri
-parameter_list|()
-block|{
-return|return
-name|schemaResourceUri
-return|;
-block|}
-DECL|method|setSchemaResourceUri (String schemaResourceUri)
-specifier|public
-name|void
-name|setSchemaResourceUri
-parameter_list|(
-name|String
-name|schemaResourceUri
-parameter_list|)
-block|{
-name|this
-operator|.
-name|schemaResourceUri
-operator|=
-name|schemaResourceUri
-expr_stmt|;
-block|}
-DECL|method|getOutputXmlEncoding ()
-specifier|public
-name|String
-name|getOutputXmlEncoding
-parameter_list|()
-block|{
-return|return
-name|outputXmlEncoding
-return|;
-block|}
-DECL|method|setOutputXmlEncoding (String outputXmlEncoding)
-specifier|public
-name|void
-name|setOutputXmlEncoding
-parameter_list|(
-name|String
-name|outputXmlEncoding
-parameter_list|)
-block|{
-name|this
-operator|.
-name|outputXmlEncoding
-operator|=
-name|outputXmlEncoding
-expr_stmt|;
-block|}
-block|}
-DECL|class|XmlVerifierConfigurationNestedConfiguration
-specifier|public
-specifier|static
-class|class
-name|XmlVerifierConfigurationNestedConfiguration
-block|{
-DECL|field|CAMEL_NESTED_CLASS
-specifier|public
-specifier|static
-specifier|final
-name|Class
-name|CAMEL_NESTED_CLASS
-init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|xmlsecurity
-operator|.
-name|processor
-operator|.
-name|XmlVerifierConfiguration
-operator|.
-name|class
-decl_stmt|;
-comment|/**          * Provides the key for validating the XML signature.          */
-DECL|field|keySelector
-specifier|private
-name|KeySelector
-name|keySelector
-decl_stmt|;
-comment|/**          * This interface allows the application to check the XML signature          * before the validation is executed. This step is recommended in          * http://www.w3.org/TR/xmldsig-bestpractices/#check-what-is-signed          */
-DECL|field|xmlSignatureChecker
-specifier|private
-name|XmlSignatureChecker
-name|xmlSignatureChecker
-decl_stmt|;
-comment|/**          * Bean which maps the XML signature to the output-message after the          * validation. How this mapping should be done can be configured by the          * options outputNodeSearchType, outputNodeSearch, and          * removeSignatureElements. The default implementation offers three          * possibilities which are related to the three output node search types          * Default, ElementName, and XPath. The default implementation          * determines a node which is then serialized and set to the body of the          * output message If the search type is ElementName then the output node          * (which must be in this case an element) is determined by the local          * name and namespace defined in the search value (see option          * outputNodeSearch). If the search type is XPath then the output node          * is determined by the XPath specified in the search value (in this          * case the output node can be of type Element, TextNode or Document).          * If the output node search type is Default then the following rules          * apply: In the enveloped XML signature case (there is a reference with          * URI= and transform          * http://www.w3.org/2000/09/xmldsig#enveloped-signature), the incoming          * XML document without the Signature element is set to the output          * message body. In the non-enveloped XML signature case, the message          * body is determined from a referenced Object; this is explained in          * more detail in chapter Output Node Determination in Enveloping XML          * Signature Case.          */
-DECL|field|xmlSignature2Message
-specifier|private
-name|XmlSignature2Message
-name|xmlSignature2Message
-decl_stmt|;
-comment|/**          * Handles the different validation failed situations. The default          * implementation throws specific exceptions for the different          * situations (All exceptions have the package name          * org.apache.camel.component.xmlsecurity.api and are a sub-class of          * XmlSignatureInvalidException. If the signature value validation          * fails, a XmlSignatureInvalidValueException is thrown. If a reference          * validation fails, a XmlSignatureInvalidContentHashException is          * thrown. For more detailed information, see the JavaDoc.          */
-DECL|field|validationFailedHandler
-specifier|private
-name|ValidationFailedHandler
-name|validationFailedHandler
-decl_stmt|;
-comment|/**          * Sets the output node search value for determining the node from the          * XML signature document which shall be set to the output message body.          * The class of the value depends on the type of the output node search.          * The output node search is forwarded to XmlSignature2Message.          */
-DECL|field|outputNodeSearch
-specifier|private
-name|Object
-name|outputNodeSearch
-decl_stmt|;
-comment|/**          * Determines the search type for determining the output node which is          * serialized into the output message bodyF. See          * setOutputNodeSearch(Object). The supported default search types you          * can find in DefaultXmlSignature2Message.          */
-DECL|field|outputNodeSearchType
-specifier|private
-name|String
-name|outputNodeSearchType
-init|=
-literal|"Default"
-decl_stmt|;
-comment|/**          * Indicator whether the XML signature elements (elements with local          * name Signature and namesapce http://www.w3.org/2000/09/xmldsig#)          * shall be removed from the document set to the output message.          * Normally, this is only necessary, if the XML signature is enveloped.          * The default value is Boolean#FALSE. This parameter is forwarded to          * XmlSignature2Message. This indicator has no effect if the output node          * search is of type          * DefaultXmlSignature2Message#OUTPUT_NODE_SEARCH_TYPE_DEFAULT.F          */
-DECL|field|removeSignatureElements
-specifier|private
-name|Boolean
-name|removeSignatureElements
-init|=
-literal|false
-decl_stmt|;
-comment|/**          * Enables secure validation. If true then secure validation is enabled.          */
-DECL|field|secureValidation
-specifier|private
-name|Boolean
-name|secureValidation
-init|=
-literal|true
-decl_stmt|;
-comment|/**          * Name of handler to          *           * @param validationFailedHandlerName          */
-DECL|field|validationFailedHandlerName
-specifier|private
-name|String
-name|validationFailedHandlerName
-decl_stmt|;
-comment|/**          * If you want to restrict the remote access via reference URIs, you can          * set an own dereferencer. Optional parameter. If not set the provider          * default dereferencer is used which can resolve URI fragments, HTTP,          * file and XPpointer URIs. Attention: The implementation is provider          * dependent!          */
-DECL|field|uriDereferencer
-specifier|private
-name|URIDereferencer
-name|uriDereferencer
-decl_stmt|;
-comment|/**          * You can set a base URI which is used in the URI dereferencing.          * Relative URIs are then concatenated with the base URI.          */
-DECL|field|baseUri
-specifier|private
-name|String
-name|baseUri
-decl_stmt|;
-comment|/**          * Sets the crypto context properties. See {link          * XMLCryptoContext#setProperty(String, Object)}. Possible properties          * are defined in XMLSignContext an XMLValidateContext (see Supported          * Properties). The following properties are set by default to the value          * Boolean#TRUE for the XML validation. If you want to switch these          * features off you must set the property value to Boolean#FALSE.          * org.jcp.xml.dsig.validateManifests          * javax.xml.crypto.dsig.cacheReference          */
-DECL|field|cryptoContextProperties
-specifier|private
-name|Map
-name|cryptoContextProperties
-decl_stmt|;
-comment|/**          * Disallows that the incoming XML document contains DTD DOCTYPE          * declaration. The default value is Boolean#TRUE.          */
-DECL|field|disallowDoctypeDecl
-specifier|private
-name|Boolean
-name|disallowDoctypeDecl
-init|=
-literal|true
-decl_stmt|;
-comment|/**          * Indicator whether the XML declaration in the outgoing message body          * should be omitted. Default value is false. Can be overwritten by the          * header XmlSignatureConstants#HEADER_OMIT_XML_DECLARATION.          */
-DECL|field|omitXmlDeclaration
-specifier|private
-name|Boolean
-name|omitXmlDeclaration
-init|=
-literal|false
-decl_stmt|;
-comment|/**          * Determines if the XML signature specific headers be cleared after          * signing and verification. Defaults to true.          */
-DECL|field|clearHeaders
-specifier|private
-name|Boolean
-name|clearHeaders
-init|=
-literal|true
-decl_stmt|;
-comment|/**          * Classpath to the XML Schema. Must be specified in the detached XML          * Signature case for determining the ID attributes, might be set in the          * enveloped and enveloping case. If set, then the XML document is          * validated with the specified XML schema. The schema resource URI can          * be overwritten by the header          * XmlSignatureConstants#HEADER_SCHEMA_RESOURCE_URI.          */
-DECL|field|schemaResourceUri
-specifier|private
-name|String
-name|schemaResourceUri
-decl_stmt|;
-comment|/**          * The character encoding of the resulting signed XML document. If null          * then the encoding of the original XML document is used.          */
-DECL|field|outputXmlEncoding
-specifier|private
-name|String
-name|outputXmlEncoding
-decl_stmt|;
-DECL|method|getKeySelector ()
-specifier|public
-name|KeySelector
-name|getKeySelector
-parameter_list|()
-block|{
-return|return
-name|keySelector
-return|;
-block|}
-DECL|method|setKeySelector (KeySelector keySelector)
-specifier|public
-name|void
-name|setKeySelector
-parameter_list|(
-name|KeySelector
-name|keySelector
-parameter_list|)
-block|{
-name|this
-operator|.
-name|keySelector
-operator|=
-name|keySelector
-expr_stmt|;
-block|}
-DECL|method|getXmlSignatureChecker ()
-specifier|public
-name|XmlSignatureChecker
-name|getXmlSignatureChecker
-parameter_list|()
-block|{
-return|return
-name|xmlSignatureChecker
-return|;
-block|}
-DECL|method|setXmlSignatureChecker ( XmlSignatureChecker xmlSignatureChecker)
-specifier|public
-name|void
-name|setXmlSignatureChecker
-parameter_list|(
-name|XmlSignatureChecker
-name|xmlSignatureChecker
-parameter_list|)
-block|{
-name|this
-operator|.
-name|xmlSignatureChecker
-operator|=
-name|xmlSignatureChecker
-expr_stmt|;
-block|}
-DECL|method|getXmlSignature2Message ()
-specifier|public
-name|XmlSignature2Message
-name|getXmlSignature2Message
-parameter_list|()
-block|{
-return|return
-name|xmlSignature2Message
-return|;
-block|}
-DECL|method|setXmlSignature2Message ( XmlSignature2Message xmlSignature2Message)
-specifier|public
-name|void
-name|setXmlSignature2Message
-parameter_list|(
-name|XmlSignature2Message
-name|xmlSignature2Message
-parameter_list|)
-block|{
-name|this
-operator|.
-name|xmlSignature2Message
-operator|=
-name|xmlSignature2Message
-expr_stmt|;
-block|}
-DECL|method|getValidationFailedHandler ()
-specifier|public
-name|ValidationFailedHandler
-name|getValidationFailedHandler
-parameter_list|()
-block|{
-return|return
-name|validationFailedHandler
-return|;
-block|}
-DECL|method|setValidationFailedHandler ( ValidationFailedHandler validationFailedHandler)
-specifier|public
-name|void
-name|setValidationFailedHandler
-parameter_list|(
-name|ValidationFailedHandler
-name|validationFailedHandler
-parameter_list|)
-block|{
-name|this
-operator|.
-name|validationFailedHandler
-operator|=
-name|validationFailedHandler
-expr_stmt|;
-block|}
-DECL|method|getOutputNodeSearch ()
-specifier|public
-name|Object
-name|getOutputNodeSearch
-parameter_list|()
-block|{
-return|return
-name|outputNodeSearch
-return|;
-block|}
-DECL|method|setOutputNodeSearch (Object outputNodeSearch)
-specifier|public
-name|void
-name|setOutputNodeSearch
-parameter_list|(
-name|Object
-name|outputNodeSearch
-parameter_list|)
-block|{
-name|this
-operator|.
-name|outputNodeSearch
-operator|=
-name|outputNodeSearch
-expr_stmt|;
-block|}
-DECL|method|getOutputNodeSearchType ()
-specifier|public
-name|String
-name|getOutputNodeSearchType
-parameter_list|()
-block|{
-return|return
-name|outputNodeSearchType
-return|;
-block|}
-DECL|method|setOutputNodeSearchType (String outputNodeSearchType)
-specifier|public
-name|void
-name|setOutputNodeSearchType
-parameter_list|(
-name|String
-name|outputNodeSearchType
-parameter_list|)
-block|{
-name|this
-operator|.
-name|outputNodeSearchType
-operator|=
-name|outputNodeSearchType
-expr_stmt|;
-block|}
-DECL|method|getRemoveSignatureElements ()
-specifier|public
-name|Boolean
-name|getRemoveSignatureElements
-parameter_list|()
-block|{
-return|return
-name|removeSignatureElements
-return|;
-block|}
-DECL|method|setRemoveSignatureElements (Boolean removeSignatureElements)
-specifier|public
-name|void
-name|setRemoveSignatureElements
-parameter_list|(
-name|Boolean
-name|removeSignatureElements
-parameter_list|)
-block|{
-name|this
-operator|.
-name|removeSignatureElements
-operator|=
-name|removeSignatureElements
-expr_stmt|;
-block|}
-DECL|method|getSecureValidation ()
-specifier|public
-name|Boolean
-name|getSecureValidation
-parameter_list|()
-block|{
-return|return
-name|secureValidation
-return|;
-block|}
-DECL|method|setSecureValidation (Boolean secureValidation)
-specifier|public
-name|void
-name|setSecureValidation
-parameter_list|(
-name|Boolean
-name|secureValidation
-parameter_list|)
-block|{
-name|this
-operator|.
-name|secureValidation
-operator|=
-name|secureValidation
-expr_stmt|;
-block|}
-DECL|method|getValidationFailedHandlerName ()
-specifier|public
-name|String
-name|getValidationFailedHandlerName
-parameter_list|()
-block|{
-return|return
-name|validationFailedHandlerName
-return|;
-block|}
-DECL|method|setValidationFailedHandlerName ( String validationFailedHandlerName)
-specifier|public
-name|void
-name|setValidationFailedHandlerName
-parameter_list|(
-name|String
-name|validationFailedHandlerName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|validationFailedHandlerName
-operator|=
-name|validationFailedHandlerName
 expr_stmt|;
 block|}
 DECL|method|getUriDereferencer ()

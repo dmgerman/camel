@@ -283,7 +283,7 @@ name|algorithm
 init|=
 literal|"SHA1WithDSA"
 decl_stmt|;
-comment|/**          * Sets the alias used to query the KeyStore for keys and {link          * java.security.cert.Certificate Certificates} to be used in signing          * and verifying exchanges. This value can be provided at runtime via          * the message header          * org.apache.camel.component.crypto.DigitalSignatureConstants#KEYSTORE_ALIAS          */
+comment|/**          * Sets the alias used to query the KeyStore for keys and {@link          * java.security.cert.Certificate Certificates} to be used in signing          * and verifying exchanges. This value can be provided at runtime via          * the message header {@link          * org.apache.camel.component.crypto.DigitalSignatureConstants#KEYSTORE_ALIAS}          */
 DECL|field|alias
 specifier|private
 name|String
@@ -295,7 +295,7 @@ specifier|private
 name|PrivateKey
 name|privateKey
 decl_stmt|;
-comment|/**          * Sets the reference name for a PrivateKey that can be fond in the          * registry.          */
+comment|/**          * Sets the reference name for a PrivateKey that can be found in the          * registry.          */
 DECL|field|privateKeyName
 specifier|private
 name|String
@@ -307,7 +307,7 @@ specifier|private
 name|PublicKey
 name|publicKey
 decl_stmt|;
-comment|/**          * references that should be resolved when the context changes          */
+comment|/**          * Sets the reference name for a publicKey that can be found in the          * registry.          */
 DECL|field|publicKeyName
 specifier|private
 name|String
@@ -319,48 +319,48 @@ specifier|private
 name|Certificate
 name|certificate
 decl_stmt|;
-comment|/**          * Sets the reference name for a PrivateKey that can be fond in the          * registry.          */
+comment|/**          * Sets the reference name for a PrivateKey that can be found in the          * registry.          */
 DECL|field|certificateName
 specifier|private
 name|String
 name|certificateName
 decl_stmt|;
-comment|/**          * Sets the KeyStore that can contain keys and Certficates for use in          * signing and verifying exchanges. A KeyStore is typically used with an          * alias, either one supplied in the Route definition or dynamically via          * the message header CamelSignatureKeyStoreAlias. If no alias is          * supplied and there is only a single entry in the Keystore, then this          * single entry will be used.          */
+comment|/**          * Sets the KeyStore that can contain keys and Certficates for use in          * signing and verifying exchanges. A {@link KeyStore} is typically used          * with an alias, either one supplied in the Route definition or          * dynamically via the message header "CamelSignatureKeyStoreAlias". If          * no alias is supplied and there is only a single entry in the          * Keystore, then this single entry will be used.          */
 DECL|field|keystore
 specifier|private
 name|KeyStore
 name|keystore
 decl_stmt|;
-comment|/**          * Sets the reference name for a Keystore that can be fond in the          * registry.          */
+comment|/**          * Sets the reference name for a Keystore that can be found in the          * registry.          */
 DECL|field|keystoreName
 specifier|private
 name|String
 name|keystoreName
 decl_stmt|;
-comment|/**          * Sets the password used to access an aliased PrivateKey in the          * KeyStore.          */
+comment|/**          * Sets the password used to access an aliased {@link PrivateKey} in the          * KeyStore.          */
 DECL|field|password
 specifier|private
 name|char
 index|[]
 name|password
 decl_stmt|;
-comment|/**          * Sets the KeyStore that can contain keys and Certficates for use in          * signing and verifying exchanges based on the given          * KeyStoreParameters. A KeyStore is typically used with an alias,          * either one supplied in the Route definition or dynamically via the          * message header CamelSignatureKeyStoreAlias. If no alias is supplied          * and there is only a single entry in the Keystore, then this single          * entry will be used.          */
+comment|/**          * Sets the KeyStore that can contain keys and Certficates for use in          * signing and verifying exchanges based on the given          * KeyStoreParameters. A {@link KeyStore} is typically used with an          * alias, either one supplied in the Route definition or dynamically via          * the message header "CamelSignatureKeyStoreAlias". If no alias is          * supplied and there is only a single entry in the Keystore, then this          * single entry will be used.          */
 DECL|field|keyStoreParameters
 specifier|private
 name|KeyStoreParameters
 name|keyStoreParameters
+decl_stmt|;
+comment|/**          * Sets the reference name for a SecureRandom that can be found in the          * registry.          */
+DECL|field|secureRandomName
+specifier|private
+name|String
+name|secureRandomName
 decl_stmt|;
 comment|/**          * Set the SecureRandom used to initialize the Signature service          */
 DECL|field|secureRandom
 specifier|private
 name|SecureRandom
 name|secureRandom
-decl_stmt|;
-comment|/**          * Sets the reference name for a SecureRandom that can be fond in the          * registry.          */
-DECL|field|secureRandomName
-specifier|private
-name|String
-name|secureRandomName
 decl_stmt|;
 comment|/**          * Set the size of the buffer used to read in the Exchange payload data.          */
 DECL|field|bufferSize
@@ -370,7 +370,7 @@ name|bufferSize
 init|=
 literal|2048
 decl_stmt|;
-comment|/**          * Set the id of the security provider that provides the configured          * Signature algorithm.          */
+comment|/**          * Set the id of the security provider that provides the configured          * {@link Signature} algorithm.          */
 DECL|field|provider
 specifier|private
 name|String
@@ -736,32 +736,6 @@ operator|=
 name|keyStoreParameters
 expr_stmt|;
 block|}
-DECL|method|getSecureRandom ()
-specifier|public
-name|SecureRandom
-name|getSecureRandom
-parameter_list|()
-block|{
-return|return
-name|secureRandom
-return|;
-block|}
-DECL|method|setSecureRandom (SecureRandom secureRandom)
-specifier|public
-name|void
-name|setSecureRandom
-parameter_list|(
-name|SecureRandom
-name|secureRandom
-parameter_list|)
-block|{
-name|this
-operator|.
-name|secureRandom
-operator|=
-name|secureRandom
-expr_stmt|;
-block|}
 DECL|method|getSecureRandomName ()
 specifier|public
 name|String
@@ -786,6 +760,32 @@ operator|.
 name|secureRandomName
 operator|=
 name|secureRandomName
+expr_stmt|;
+block|}
+DECL|method|getSecureRandom ()
+specifier|public
+name|SecureRandom
+name|getSecureRandom
+parameter_list|()
+block|{
+return|return
+name|secureRandom
+return|;
+block|}
+DECL|method|setSecureRandom (SecureRandom secureRandom)
+specifier|public
+name|void
+name|setSecureRandom
+parameter_list|(
+name|SecureRandom
+name|secureRandom
+parameter_list|)
+block|{
+name|this
+operator|.
+name|secureRandom
+operator|=
+name|secureRandom
 expr_stmt|;
 block|}
 DECL|method|getBufferSize ()

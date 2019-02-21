@@ -375,7 +375,7 @@ name|clusteredListener
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Specifies the set of event types to register by the consumer.          * Multiple event can be separated by comma. The possible event types          * are: CACHE_ENTRY_ACTIVATED, CACHE_ENTRY_PASSIVATED,          * CACHE_ENTRY_VISITED, CACHE_ENTRY_LOADED, CACHE_ENTRY_EVICTED,          * CACHE_ENTRY_CREATED, CACHE_ENTRY_REMOVED, CACHE_ENTRY_MODIFIED,          * TRANSACTION_COMPLETED, TRANSACTION_REGISTERED,          * CACHE_ENTRY_INVALIDATED, DATA_REHASHED, TOPOLOGY_CHANGED,          * PARTITION_STATUS_CHANGED          */
+comment|/**          * Specifies the set of event types to register by the consumer.          * Multiple event can be separated by comma.<p/> The possible event          * types are: CACHE_ENTRY_ACTIVATED, CACHE_ENTRY_PASSIVATED,          * CACHE_ENTRY_VISITED, CACHE_ENTRY_LOADED, CACHE_ENTRY_EVICTED,          * CACHE_ENTRY_CREATED, CACHE_ENTRY_REMOVED, CACHE_ENTRY_MODIFIED,          * TRANSACTION_COMPLETED, TRANSACTION_REGISTERED,          * CACHE_ENTRY_INVALIDATED, DATA_REHASHED, TOPOLOGY_CHANGED,          * PARTITION_STATUS_CHANGED          */
 DECL|field|eventTypes
 specifier|private
 name|Set

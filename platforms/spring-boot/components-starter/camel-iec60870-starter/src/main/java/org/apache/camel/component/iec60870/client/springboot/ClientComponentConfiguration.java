@@ -52,6 +52,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|eclipse
+operator|.
+name|neoscada
+operator|.
+name|protocol
+operator|.
+name|iec60870
+operator|.
+name|client
+operator|.
+name|data
+operator|.
+name|DataModuleOptions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -189,7 +209,19 @@ name|ClientOptions
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * Whether background scan transmissions should be ignored.          */
+comment|/**          * Whether to include the source address          */
+DECL|field|dataModuleOptions
+specifier|private
+name|DataModuleOptions
+name|dataModuleOptions
+decl_stmt|;
+comment|/**          * Whether to include the source address          */
+DECL|field|causeSourceAddress
+specifier|private
+name|Byte
+name|causeSourceAddress
+decl_stmt|;
+comment|/**          * Whether to include the source address          */
 DECL|field|ignoreBackgroundScan
 specifier|private
 name|Boolean
@@ -197,6 +229,58 @@ name|ignoreBackgroundScan
 init|=
 literal|true
 decl_stmt|;
+DECL|method|getDataModuleOptions ()
+specifier|public
+name|DataModuleOptions
+name|getDataModuleOptions
+parameter_list|()
+block|{
+return|return
+name|dataModuleOptions
+return|;
+block|}
+DECL|method|setDataModuleOptions (DataModuleOptions dataModuleOptions)
+specifier|public
+name|void
+name|setDataModuleOptions
+parameter_list|(
+name|DataModuleOptions
+name|dataModuleOptions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dataModuleOptions
+operator|=
+name|dataModuleOptions
+expr_stmt|;
+block|}
+DECL|method|getCauseSourceAddress ()
+specifier|public
+name|Byte
+name|getCauseSourceAddress
+parameter_list|()
+block|{
+return|return
+name|causeSourceAddress
+return|;
+block|}
+DECL|method|setCauseSourceAddress (Byte causeSourceAddress)
+specifier|public
+name|void
+name|setCauseSourceAddress
+parameter_list|(
+name|Byte
+name|causeSourceAddress
+parameter_list|)
+block|{
+name|this
+operator|.
+name|causeSourceAddress
+operator|=
+name|causeSourceAddress
+expr_stmt|;
+block|}
 DECL|method|getIgnoreBackgroundScan ()
 specifier|public
 name|Boolean

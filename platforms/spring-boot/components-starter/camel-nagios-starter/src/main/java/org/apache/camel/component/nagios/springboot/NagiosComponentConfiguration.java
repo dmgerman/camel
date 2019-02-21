@@ -243,6 +243,7 @@ name|NagiosConfiguration
 operator|.
 name|class
 decl_stmt|;
+comment|/**          * Returns a copy of this configuration          */
 DECL|field|nagiosSettings
 specifier|private
 name|NagiosSettings

@@ -661,12 +661,6 @@ name|ServiceNowConfiguration
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * ServiceNow user account name, MUST be provided          */
-DECL|field|userName
-specifier|private
-name|String
-name|userName
-decl_stmt|;
 comment|/**          * The ServiceNow REST API url          */
 DECL|field|apiUrl
 specifier|private
@@ -678,6 +672,12 @@ DECL|field|apiVersion
 specifier|private
 name|String
 name|apiVersion
+decl_stmt|;
+comment|/**          * ServiceNow user account name, MUST be provided          */
+DECL|field|userName
+specifier|private
+name|String
+name|userName
 decl_stmt|;
 comment|/**          * ServiceNow account password, MUST be provided          */
 DECL|field|password
@@ -831,12 +831,6 @@ specifier|private
 name|Boolean
 name|inputDisplayValue
 decl_stmt|;
-comment|/**          * Defines the request model          */
-DECL|field|requestModels
-specifier|private
-name|Map
-name|requestModels
-decl_stmt|;
 comment|/**          * Sets Jackson's ObjectMapper to use for request/reply          */
 DECL|field|mapper
 specifier|private
@@ -925,11 +919,17 @@ name|dateTimeFormat
 init|=
 literal|"yyyy-MM-dd HH:mm:ss"
 decl_stmt|;
-comment|/**          * Defines both request and response models          */
+comment|/**          * The date-time format used for Json serialization/deserialization          */
 DECL|field|models
 specifier|private
 name|Map
 name|models
+decl_stmt|;
+comment|/**          * Defines the request model          */
+DECL|field|requestModels
+specifier|private
+name|Map
+name|requestModels
 decl_stmt|;
 comment|/**          * Defines the response model          */
 DECL|field|responseModels
@@ -937,32 +937,6 @@ specifier|private
 name|Map
 name|responseModels
 decl_stmt|;
-DECL|method|getUserName ()
-specifier|public
-name|String
-name|getUserName
-parameter_list|()
-block|{
-return|return
-name|userName
-return|;
-block|}
-DECL|method|setUserName (String userName)
-specifier|public
-name|void
-name|setUserName
-parameter_list|(
-name|String
-name|userName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|userName
-operator|=
-name|userName
-expr_stmt|;
-block|}
 DECL|method|getApiUrl ()
 specifier|public
 name|String
@@ -1013,6 +987,32 @@ operator|.
 name|apiVersion
 operator|=
 name|apiVersion
+expr_stmt|;
+block|}
+DECL|method|getUserName ()
+specifier|public
+name|String
+name|getUserName
+parameter_list|()
+block|{
+return|return
+name|userName
+return|;
+block|}
+DECL|method|setUserName (String userName)
+specifier|public
+name|void
+name|setUserName
+parameter_list|(
+name|String
+name|userName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|userName
+operator|=
+name|userName
 expr_stmt|;
 block|}
 DECL|method|getPassword ()
@@ -1639,32 +1639,6 @@ operator|=
 name|inputDisplayValue
 expr_stmt|;
 block|}
-DECL|method|getRequestModels ()
-specifier|public
-name|Map
-name|getRequestModels
-parameter_list|()
-block|{
-return|return
-name|requestModels
-return|;
-block|}
-DECL|method|setRequestModels (Map requestModels)
-specifier|public
-name|void
-name|setRequestModels
-parameter_list|(
-name|Map
-name|requestModels
-parameter_list|)
-block|{
-name|this
-operator|.
-name|requestModels
-operator|=
-name|requestModels
-expr_stmt|;
-block|}
 DECL|method|getMapper ()
 specifier|public
 name|ObjectMapper
@@ -2027,6 +2001,32 @@ operator|.
 name|models
 operator|=
 name|models
+expr_stmt|;
+block|}
+DECL|method|getRequestModels ()
+specifier|public
+name|Map
+name|getRequestModels
+parameter_list|()
+block|{
+return|return
+name|requestModels
+return|;
+block|}
+DECL|method|setRequestModels (Map requestModels)
+specifier|public
+name|void
+name|setRequestModels
+parameter_list|(
+name|Map
+name|requestModels
+parameter_list|)
+block|{
+name|this
+operator|.
+name|requestModels
+operator|=
+name|requestModels
 expr_stmt|;
 block|}
 DECL|method|getResponseModels ()

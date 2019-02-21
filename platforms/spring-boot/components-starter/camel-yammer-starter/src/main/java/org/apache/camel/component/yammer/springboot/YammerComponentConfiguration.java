@@ -359,6 +359,7 @@ name|useJson
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * Set to true if you want to use raw JSON rather than converting to          * POJOs.          */
 DECL|field|requestor
 specifier|private
 name|ApiRequestor
@@ -373,7 +374,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/**          * Returns messages older than the message ID specified as a numeric          * string. This is useful for paginating messages. For example, if          * you're currently viewing 20 messages and the oldest is number 2912,          * you could append olderThan=2912 to your request to get the 20          * messages prior to those you're seeing.          */
+comment|/**          * Returns messages older than the message ID specified as a numeric          * string. This is useful for paginating messages. For example, if          * you're currently viewing 20 messages and the oldest is number 2912,          * you could append "?olderThan=2912â³ to your request to get the 20          * messages prior to those you're seeing.          */
 DECL|field|olderThan
 specifier|private
 name|Integer
@@ -382,7 +383,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/**          * Returns messages newer than the message ID specified as a numeric          * string. This should be used when polling for new messages. If you're          * looking at messages, and the most recent message returned is 3516,          * you can make a request with the parameter newerThan=3516 to ensure          * that you do not get duplicate copies of messages already on your          * page.          */
+comment|/**          * Returns messages newer than the message ID specified as a numeric          * string. This should be used when polling for new messages. If you're          * looking at messages, and the most recent message returned is 3516,          * you can make a request with the parameter "?newerThan=3516â³ to ensure          * that you do not get duplicate copies of messages already on your          * page.          */
 DECL|field|newerThan
 specifier|private
 name|Integer

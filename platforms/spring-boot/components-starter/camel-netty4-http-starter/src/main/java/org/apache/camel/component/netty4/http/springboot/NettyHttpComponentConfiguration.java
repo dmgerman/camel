@@ -499,7 +499,7 @@ name|throwExceptionOnFailure
 init|=
 literal|true
 decl_stmt|;
-comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          */
+comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized.<p/> This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          */
 DECL|field|transferException
 specifier|private
 name|Boolean
@@ -545,7 +545,7 @@ specifier|private
 name|String
 name|path
 decl_stmt|;
-comment|/**          * Determines whether or not the raw input stream from Netty          * HttpRequest#getContent() or HttpResponset#getContent() is cached or          * not (Camel will read the stream into a in light-weight memory based          * Stream caching) cache. By default Camel will cache the Netty input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store. Mind that          * if you enable this option, then you cannot read the Netty stream          * multiple times out of the box, and you would need manually to reset          * the reader index on the Netty raw stream. Also Netty will auto-close          * the Netty stream when the Netty HTTP server/HTTP client is done          * processing, which means that if the asynchronous routing engine is in          * use then any asynchronous thread that may continue routing the          * org.apache.camel.Exchange may not be able to read the Netty stream,          * because Netty has closed it.          */
+comment|/**          * Determines whether or not the raw input stream from Netty          * HttpRequest#getContent() or HttpResponset#getContent() is cached or          * not (Camel will read the stream into a in light-weight memory based          * Stream caching) cache. By default Camel will cache the Netty input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store. Mind that          * if you enable this option, then you cannot read the Netty stream          * multiple times out of the box, and you would need manually to reset          * the reader index on the Netty raw stream. Also Netty will auto-close          * the Netty stream when the Netty HTTP server/HTTP client is done          * processing, which means that if the asynchronous routing engine is in          * use then any asynchronous thread that may continue routing the {@link          * org.apache.camel.Exchange} may not be able to read the Netty stream,          * because Netty has closed it.          */
 DECL|field|disableStreamCache
 specifier|private
 name|Boolean
@@ -569,7 +569,7 @@ name|chunkedMaxContentLength
 init|=
 literal|1048576
 decl_stmt|;
-comment|/**          * The maximum length of all headers. If the sum of the length of each          * header exceeds this value, a          * io.netty.handler.codec.TooLongFrameException will be raised.          */
+comment|/**          * The maximum length of all headers. If the sum of the length of each          * header exceeds this value, a {@link          * io.netty.handler.codec.TooLongFrameException} will be raised.          */
 DECL|field|maxHeaderSize
 specifier|private
 name|Integer
@@ -577,12 +577,15 @@ name|maxHeaderSize
 init|=
 literal|8192
 decl_stmt|;
+comment|/**          * The maximum length of all headers. If the sum of the length of each          * header exceeds this value, a {@link          * io.netty.handler.codec.TooLongFrameException} will be raised.          */
 DECL|field|allowDefaultCodec
 specifier|private
 name|Boolean
 name|allowDefaultCodec
+init|=
+literal|true
 decl_stmt|;
-comment|/**          * The status codes which are considered a success response. The values          * are inclusive. Multiple ranges can be defined, separated by comma,          * e.g. 200-204,209,301-304. Each range must be a single number or          * from-to with the dash included. The default range is 200-299          */
+comment|/**          * The status codes which are considered a success response. The values          * are inclusive. Multiple ranges can be defined, separated by comma,          * e.g.<tt>200-204,209,301-304</tt>. Each range must be a single number          * or from-to with the dash included.<p/> The default range is          *<tt>200-299</tt>          */
 DECL|field|okStatusCodeRange
 specifier|private
 name|String
@@ -1096,13 +1099,13 @@ name|NettyHttpSecurityConfiguration
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * Whether to enable authentication          *<p/>          * This is by default enabled.          */
+comment|/**          * Whether to enable authentication<p/> This is by default enabled.          */
 DECL|field|authenticate
 specifier|private
 name|Boolean
 name|authenticate
 decl_stmt|;
-comment|/**          * The supported restricted.          *<p/>          * Currently only Basic is supported.          */
+comment|/**          * The supported restricted.<p/> Currently only Basic is supported.          */
 DECL|field|constraint
 specifier|private
 name|String
@@ -1114,24 +1117,25 @@ specifier|private
 name|String
 name|realm
 decl_stmt|;
-comment|/**          * Sets a {@link SecurityConstraint} to use for checking if a web          * resource is restricted or not          *<p/>          * By default this is<tt>null</tt>, which means all resources is          * restricted.          */
+comment|/**          * Sets a {@link SecurityConstraint} to use for checking if a web          * resource is restricted or not<p/> By default this is<tt>null</tt>,          * which means all resources is restricted.          */
 DECL|field|securityConstraint
 specifier|private
 name|SecurityConstraint
 name|securityConstraint
 decl_stmt|;
-comment|/**          * Sets the {@link SecurityAuthenticator} to use for authenticating the          * {@link HttpPrincipal} .          */
+comment|/**          * Sets the {@link SecurityAuthenticator} to use for authenticating the          * {@link HttpPrincipal}.          */
 DECL|field|securityAuthenticator
 specifier|private
 name|SecurityAuthenticator
 name|securityAuthenticator
 decl_stmt|;
-comment|/**          * Sets a logging level to use for logging denied login attempts (incl          * stacktraces)          *<p/>          * This level is by default DEBUG.          */
+comment|/**          * Sets a logging level to use for logging denied login attempts (incl          * stacktraces)<p/> This level is by default DEBUG.          */
 DECL|field|loginDeniedLoggingLevel
 specifier|private
 name|LoggingLevel
 name|loginDeniedLoggingLevel
 decl_stmt|;
+comment|/**          * Sets a logging level to use for logging denied login attempts (incl          * stacktraces)<p/> This level is by default DEBUG.          */
 DECL|field|roleClassName
 specifier|private
 name|String

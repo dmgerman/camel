@@ -104,6 +104,9 @@ comment|/**      * The interface with method(s) marked with the Subscribe annota
 DECL|field|listenerInterface
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|listenerInterface
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -143,6 +146,9 @@ block|}
 DECL|method|getListenerInterface ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getListenerInterface
 parameter_list|()
 block|{
@@ -150,12 +156,15 @@ return|return
 name|listenerInterface
 return|;
 block|}
-DECL|method|setListenerInterface (Class listenerInterface)
+DECL|method|setListenerInterface (Class<?> listenerInterface)
 specifier|public
 name|void
 name|setListenerInterface
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|listenerInterface
 parameter_list|)
 block|{

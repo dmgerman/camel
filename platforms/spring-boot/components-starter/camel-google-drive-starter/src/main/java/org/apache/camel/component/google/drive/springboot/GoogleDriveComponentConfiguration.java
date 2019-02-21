@@ -287,7 +287,7 @@ specifier|private
 name|String
 name|refreshToken
 decl_stmt|;
-comment|/**          * Google drive application name. Example would be          * camel-google-drive/1.0          */
+comment|/**          * Google drive application name. Example would be          * "camel-google-drive/1.0"          */
 DECL|field|applicationName
 specifier|private
 name|String

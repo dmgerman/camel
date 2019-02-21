@@ -116,6 +116,9 @@ comment|/**      * When marshalling a POJO to JSON you might want to exclude cer
 DECL|field|jsonView
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|jsonView
 decl_stmt|;
 comment|/**      * If you want to marshal a pojo to JSON, and the pojo has some fields with      * null values. And you want to skip these null values, you can set this      * option to NON_NULL      */
@@ -275,6 +278,9 @@ block|}
 DECL|method|getJsonView ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getJsonView
 parameter_list|()
 block|{
@@ -282,12 +288,15 @@ return|return
 name|jsonView
 return|;
 block|}
-DECL|method|setJsonView (Class jsonView)
+DECL|method|setJsonView (Class<?> jsonView)
 specifier|public
 name|void
 name|setJsonView
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|jsonView
 parameter_list|)
 block|{

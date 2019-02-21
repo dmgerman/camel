@@ -266,6 +266,7 @@ specifier|private
 name|LuceneOperation
 name|operation
 decl_stmt|;
+comment|/**          * Operation to do such as insert or query.          */
 DECL|field|authority
 specifier|private
 name|String
@@ -295,6 +296,7 @@ specifier|private
 name|Integer
 name|maxHits
 decl_stmt|;
+comment|/**          * An integer value that limits the result set of the search operation          */
 DECL|field|luceneVersion
 specifier|private
 name|Version
