@@ -90,6 +90,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriParam
 import|;
 end_import
@@ -507,6 +521,13 @@ block|}
 comment|/**      * URI pointing to the Ehcache XML configuration file's location      *      * @deprecated use {@link #setConfigurationUri(String)} instead      */
 annotation|@
 name|Deprecated
+annotation|@
+name|Metadata
+argument_list|(
+name|deprecationNote
+operator|=
+literal|"use configurationUri instead"
+argument_list|)
 DECL|method|setConfigUri (String configUri)
 specifier|public
 name|void

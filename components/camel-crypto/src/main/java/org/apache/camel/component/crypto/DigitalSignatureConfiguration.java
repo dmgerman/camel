@@ -725,7 +725,7 @@ operator|=
 name|privateKey
 expr_stmt|;
 block|}
-comment|/**      * Sets the reference name for a PrivateKey that can be fond in the registry.      */
+comment|/**      * Sets the reference name for a PrivateKey that can be found in the registry.      */
 DECL|method|setPrivateKeyName (String privateKeyName)
 specifier|public
 name|void
@@ -809,7 +809,7 @@ operator|=
 name|publicKey
 expr_stmt|;
 block|}
-comment|/**      * Sets the reference name for a publicKey that can be fond in the registry.      */
+comment|/**      * Sets the reference name for a publicKey that can be found in the registry.      */
 DECL|method|setPublicKeyName (String publicKeyName)
 specifier|public
 name|void
@@ -971,7 +971,7 @@ operator|=
 name|certificate
 expr_stmt|;
 block|}
-comment|/**      * Sets the reference name for a PrivateKey that can be fond in the registry.      */
+comment|/**      * Sets the reference name for a PrivateKey that can be found in the registry.      */
 DECL|method|setCertificateName (String certificateName)
 specifier|public
 name|void
@@ -1066,7 +1066,7 @@ operator|=
 name|keystore
 expr_stmt|;
 block|}
-comment|/**      * Sets the reference name for a Keystore that can be fond in the registry.      */
+comment|/**      * Sets the reference name for a Keystore that can be found in the registry.      */
 DECL|method|setKeystoreName (String keystoreName)
 specifier|public
 name|void
@@ -1220,7 +1220,7 @@ return|return
 name|secureRandom
 return|;
 block|}
-comment|/**      * Sets the reference name for a SecureRandom that can be fond in the registry.      */
+comment|/**      * Sets the reference name for a SecureRandom that can be found in the registry.      */
 DECL|method|setSecureRandomName (String randomName)
 specifier|public
 name|void

@@ -809,6 +809,13 @@ block|}
 comment|/**      * @deprecated As of version 2.11, replaced by {@link #setCertResource(String)}      */
 annotation|@
 name|Deprecated
+annotation|@
+name|Metadata
+argument_list|(
+name|deprecationNote
+operator|=
+literal|"As of version 2.11, replaced by certResource."
+argument_list|)
 DECL|method|setCertFilename (String certFilename)
 specifier|public
 name|void
@@ -864,7 +871,7 @@ return|return
 name|knownHostsResource
 return|;
 block|}
-comment|/**      * Sets the resource path for a known_hosts file      *      * @param knownHosts      *            String file, classpath, or http url for the certificate      */
+comment|/**      * Sets the resource path for a known_hosts file      *      * @param knownHostsResource      *            String file, classpath, or http url for the certificate      */
 DECL|method|setKnownHostsResource (String knownHostsResource)
 specifier|public
 name|void
@@ -891,7 +898,7 @@ return|return
 name|failOnUnknownHost
 return|;
 block|}
-comment|/**      * Specifies whether a connection to an unknown host should fail or not. This      * value is only checked when the property knownHosts is set.      *      * @param boolean      *            boolean flag, whether a connection to an unknown host should fail      */
+comment|/**      * Specifies whether a connection to an unknown host should fail or not. This      * value is only checked when the property knownHosts is set.      *      * @param failOnUnknownHost      *            boolean flag, whether a connection to an unknown host should fail      */
 DECL|method|setFailOnUnknownHost (boolean failOnUnknownHost)
 specifier|public
 name|void
