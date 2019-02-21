@@ -719,7 +719,7 @@ name|kerberosRenewWindowFactor
 init|=
 literal|0.8
 decl_stmt|;
-comment|/**          * A list of rules for mapping from principal names to short names          * (typically operating system usernames). The rules are evaluated in          * order and the first rule that matches a principal name is used to map          * it to a short name. Any later rules in the list are ignored. By<<<<<<< HEAD          * default, principal names of the form {username}/{hostname}{REALM} are          * mapped to {username}. For more details on the format please see a          * href=\#security_authz\ security authorization and acls. Multiple          * values can be separated by comma =======          * default, principal names of the form {username}/{hostname}@{REALM}          * are mapped to {username}. For more details on the format please see          *<a href=\"#security_authz\"> security authorization and acls</a>.          *<p/> Multiple values can be separated by comma>>>>>>> Regen          */
+comment|/**          * A list of rules for mapping from principal names to short names          * (typically operating system usernames). The rules are evaluated in          * order and the first rule that matches a principal name is used to map          * it to a short name. Any later rules in the list are ignored. By          * default, principal names of the form {username}/{hostname}@{REALM}          * are mapped to {username}. For more details on the format please see          *<a href=\"#security_authz\"> security authorization and acls</a>.          *<p/> Multiple values can be separated by comma          */
 DECL|field|kerberosPrincipalToLocalRules
 specifier|private
 name|String
@@ -799,7 +799,7 @@ specifier|private
 name|String
 name|saslKerberosServiceName
 decl_stmt|;
-comment|/**          * The Simple Authentication and Security Layer (SASL) Mechanism used.<<<<<<< HEAD          * For the valid values see a href=          * http://www.iana.org/assignments/sasl-          * mechanisms/sasl-mechanisms.xhtmlhttp          * ://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml =======          * For the valid values see<a          * href="http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml">http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml</a>>>>>>>> Regen          */
+comment|/**          * The Simple Authentication and Security Layer (SASL) Mechanism used.          * For the valid values see<a href=          * "http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml">http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml</a>          */
 DECL|field|saslMechanism
 specifier|private
 name|String
