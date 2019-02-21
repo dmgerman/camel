@@ -2024,15 +2024,45 @@ name|AssertionError
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
 name|log
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+comment|// log incl stacktrace
+name|log
+operator|.
+name|debug
 argument_list|(
-literal|"Caught expected failure: {}"
+literal|"Caught expected failure: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Caught expected failure: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -2083,15 +2113,45 @@ name|AssertionError
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
 name|log
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+comment|// log incl stacktrace
+name|log
+operator|.
+name|debug
 argument_list|(
-literal|"Caught expected failure: {}"
+literal|"Caught expected failure: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Caught expected failure: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
