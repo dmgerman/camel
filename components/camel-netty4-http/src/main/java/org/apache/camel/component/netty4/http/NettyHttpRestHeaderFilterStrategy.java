@@ -119,7 +119,7 @@ name|answer
 init|=
 name|super
 operator|.
-name|applyFilterToExternalHeaders
+name|applyFilterToCamelHeaders
 argument_list|(
 name|headerName
 argument_list|,
