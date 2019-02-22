@@ -258,20 +258,20 @@ specifier|private
 name|String
 name|credentialsFileLocation
 decl_stmt|;
-DECL|field|serviceAccountKey
+DECL|field|serviceURL
 specifier|private
 name|String
-name|serviceAccountKey
+name|serviceURL
 decl_stmt|;
 DECL|field|serviceAccount
 specifier|private
 name|String
 name|serviceAccount
 decl_stmt|;
-DECL|field|serviceURL
+DECL|field|serviceAccountKey
 specifier|private
 name|String
-name|serviceURL
+name|serviceAccountKey
 decl_stmt|;
 DECL|method|getCredentialsFileLocation ()
 specifier|public
@@ -299,30 +299,30 @@ operator|=
 name|credentialsFileLocation
 expr_stmt|;
 block|}
-DECL|method|getServiceAccountKey ()
+DECL|method|getServiceURL ()
 specifier|public
 name|String
-name|getServiceAccountKey
+name|getServiceURL
 parameter_list|()
 block|{
 return|return
-name|serviceAccountKey
+name|serviceURL
 return|;
 block|}
-DECL|method|setServiceAccountKey (String serviceAccountKey)
+DECL|method|setServiceURL (String serviceURL)
 specifier|public
 name|void
-name|setServiceAccountKey
+name|setServiceURL
 parameter_list|(
 name|String
-name|serviceAccountKey
+name|serviceURL
 parameter_list|)
 block|{
 name|this
 operator|.
-name|serviceAccountKey
+name|serviceURL
 operator|=
-name|serviceAccountKey
+name|serviceURL
 expr_stmt|;
 block|}
 DECL|method|getServiceAccount ()
@@ -351,30 +351,30 @@ operator|=
 name|serviceAccount
 expr_stmt|;
 block|}
-DECL|method|getServiceURL ()
+DECL|method|getServiceAccountKey ()
 specifier|public
 name|String
-name|getServiceURL
+name|getServiceAccountKey
 parameter_list|()
 block|{
 return|return
-name|serviceURL
+name|serviceAccountKey
 return|;
 block|}
-DECL|method|setServiceURL (String serviceURL)
+DECL|method|setServiceAccountKey (String serviceAccountKey)
 specifier|public
 name|void
-name|setServiceURL
+name|setServiceAccountKey
 parameter_list|(
 name|String
-name|serviceURL
+name|serviceAccountKey
 parameter_list|)
 block|{
 name|this
 operator|.
-name|serviceURL
+name|serviceAccountKey
 operator|=
-name|serviceURL
+name|serviceAccountKey
 expr_stmt|;
 block|}
 block|}
