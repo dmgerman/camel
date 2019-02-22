@@ -625,7 +625,7 @@ specifier|private
 name|String
 name|brokers
 decl_stmt|;
-comment|/**          * URL of the Confluent schema registry servers to use. The format is          * host1:port1,host2:port2. This is known as schema.registry.url in the          * Confluent documentation.          */
+comment|/**          * URL of the Confluent schema registry servers to use. The format is          * host1:port1,host2:port2. This is known as schema.registry.url in the          * Confluent documentation. This option is only available in the          * Confluent Kafka product (not standard Apache Kafka)          */
 DECL|field|schemaRegistryURL
 specifier|private
 name|String
@@ -715,7 +715,7 @@ specifier|private
 name|Double
 name|kerberosRenewWindowFactor
 decl_stmt|;
-comment|/**          * A list of rules for mapping from principal names to short names          * (typically operating system usernames). The rules are evaluated in          * order and the first rule that matches a principal name is used to map          * it to a short name. Any later rules in the list are ignored. By          * default, principal names of the form {username}/{hostname}{REALM} are          * mapped to {username}. For more details on the format please see a          * href=\#security_authz\ security authorization and acls. Multiple          * values can be separated by comma          */
+comment|/**          * A list of rules for mapping from principal names to short names          * (typically operating system usernames). The rules are evaluated in          * order and the first rule that matches a principal name is used to map          * it to a short name. Any later rules in the list are ignored. By          * default, principal names of the form {username}/{hostname}{REALM} are          * mapped to {username}. For more details on the format please see the          * security authorization and acls documentation.. Multiple values can          * be separated by comma          */
 DECL|field|kerberosPrincipalToLocalRules
 specifier|private
 name|String

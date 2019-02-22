@@ -507,18 +507,6 @@ name|label
 operator|=
 literal|"common"
 argument_list|)
-DECL|field|schemaRegistryURL
-specifier|private
-name|String
-name|schemaRegistryURL
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"common"
-argument_list|)
 DECL|field|clientId
 specifier|private
 name|String
@@ -2113,6 +2101,19 @@ DECL|field|saslJaasConfig
 specifier|private
 name|String
 name|saslJaasConfig
+decl_stmt|;
+comment|// Confluent only options
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"confluent"
+argument_list|)
+DECL|field|schemaRegistryURL
+specifier|private
+name|String
+name|schemaRegistryURL
 decl_stmt|;
 DECL|method|KafkaConfiguration ()
 specifier|public
@@ -4471,7 +4472,7 @@ return|return
 name|schemaRegistryURL
 return|;
 block|}
-comment|/**      * URL of the Confluent schema registry servers to use.       * The format is host1:port1,host2:port2.       * This is known as schema.registry.url in the Confluent documentation.      */
+comment|/**      * URL of the Confluent schema registry servers to use.       * The format is host1:port1,host2:port2.       * This is known as schema.registry.url in the Confluent documentation.      *<p/>      * This option is only available in the Confluent Kafka product (not standard Apache Kafka)      */
 DECL|method|setSchemaRegistryURL (String schemaRegistryURL)
 specifier|public
 name|void
@@ -4795,7 +4796,7 @@ return|return
 name|kerberosPrincipalToLocalRules
 return|;
 block|}
-comment|/**      * A list of rules for mapping from principal names to short names      * (typically operating system usernames). The rules are evaluated in order      * and the first rule that matches a principal name is used to map it to a      * short name. Any later rules in the list are ignored. By default,      * principal names of the form {username}/{hostname}@{REALM} are mapped to      * {username}. For more details on the format please see<a      * href=\"#security_authz\"> security authorization and acls</a>.      *<p/>      * Multiple values can be separated by comma      */
+comment|/**      * A list of rules for mapping from principal names to short names      * (typically operating system usernames). The rules are evaluated in order      * and the first rule that matches a principal name is used to map it to a      * short name. Any later rules in the list are ignored. By default,      * principal names of the form {username}/{hostname}@{REALM} are mapped to      * {username}. For more details on the format please see the security authorization and acls documentation..      *<p/>      * Multiple values can be separated by comma      */
 DECL|method|setKerberosPrincipalToLocalRules (String kerberosPrincipalToLocalRules)
 specifier|public
 name|void
