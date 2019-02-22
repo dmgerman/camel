@@ -947,13 +947,6 @@ argument_list|(
 name|name
 argument_list|)
 operator|||
-literal|"camel-jetty"
-operator|.
-name|equals
-argument_list|(
-name|name
-argument_list|)
-operator|||
 literal|"camel-jetty-common"
 operator|.
 name|equals
