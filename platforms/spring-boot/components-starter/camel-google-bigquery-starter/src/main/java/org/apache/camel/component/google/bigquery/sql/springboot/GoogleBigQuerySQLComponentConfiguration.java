@@ -223,50 +223,50 @@ name|GoogleBigQueryConnectionFactory
 operator|.
 name|class
 decl_stmt|;
-DECL|field|credentialsFileLocation
+DECL|field|serviceAccount
 specifier|private
 name|String
-name|credentialsFileLocation
+name|serviceAccount
 decl_stmt|;
 DECL|field|serviceAccountKey
 specifier|private
 name|String
 name|serviceAccountKey
 decl_stmt|;
-DECL|field|serviceAccount
+DECL|field|credentialsFileLocation
 specifier|private
 name|String
-name|serviceAccount
+name|credentialsFileLocation
 decl_stmt|;
 DECL|field|serviceURL
 specifier|private
 name|String
 name|serviceURL
 decl_stmt|;
-DECL|method|getCredentialsFileLocation ()
+DECL|method|getServiceAccount ()
 specifier|public
 name|String
-name|getCredentialsFileLocation
+name|getServiceAccount
 parameter_list|()
 block|{
 return|return
-name|credentialsFileLocation
+name|serviceAccount
 return|;
 block|}
-DECL|method|setCredentialsFileLocation (String credentialsFileLocation)
+DECL|method|setServiceAccount (String serviceAccount)
 specifier|public
 name|void
-name|setCredentialsFileLocation
+name|setServiceAccount
 parameter_list|(
 name|String
-name|credentialsFileLocation
+name|serviceAccount
 parameter_list|)
 block|{
 name|this
 operator|.
-name|credentialsFileLocation
+name|serviceAccount
 operator|=
-name|credentialsFileLocation
+name|serviceAccount
 expr_stmt|;
 block|}
 DECL|method|getServiceAccountKey ()
@@ -295,30 +295,30 @@ operator|=
 name|serviceAccountKey
 expr_stmt|;
 block|}
-DECL|method|getServiceAccount ()
+DECL|method|getCredentialsFileLocation ()
 specifier|public
 name|String
-name|getServiceAccount
+name|getCredentialsFileLocation
 parameter_list|()
 block|{
 return|return
-name|serviceAccount
+name|credentialsFileLocation
 return|;
 block|}
-DECL|method|setServiceAccount (String serviceAccount)
+DECL|method|setCredentialsFileLocation (String credentialsFileLocation)
 specifier|public
 name|void
-name|setServiceAccount
+name|setCredentialsFileLocation
 parameter_list|(
 name|String
-name|serviceAccount
+name|credentialsFileLocation
 parameter_list|)
 block|{
 name|this
 operator|.
-name|serviceAccount
+name|credentialsFileLocation
 operator|=
-name|serviceAccount
+name|credentialsFileLocation
 expr_stmt|;
 block|}
 DECL|method|getServiceURL ()
