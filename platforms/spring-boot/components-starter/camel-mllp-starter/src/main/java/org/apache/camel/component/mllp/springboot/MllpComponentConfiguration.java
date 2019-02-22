@@ -50,22 +50,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|mllp
-operator|.
-name|MllpComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -387,14 +371,6 @@ name|bindRetryInterval
 init|=
 literal|5000
 decl_stmt|;
-comment|/**          * Timeout (in milliseconds) while waiting for a TCP connection TCP          * Server Only          */
-DECL|field|acceptTimeout
-specifier|private
-name|Integer
-name|acceptTimeout
-init|=
-literal|60000
-decl_stmt|;
 comment|/**          * TCP Server Only - Allow the endpoint to start before the TCP          * ServerSocket is bound. In some environments, it may be desirable to          * allow the endpoint to start before the TCP ServerSocket is bound.          */
 DECL|field|lenientBind
 specifier|private
@@ -403,7 +379,15 @@ name|lenientBind
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Timeout (in milliseconds) for establishing for a TCP connection TCP          * Client only          */
+comment|/**          * Timeout (in milliseconds) while waiting for a TCP connection<p/> TCP          * Server Only          */
+DECL|field|acceptTimeout
+specifier|private
+name|Integer
+name|acceptTimeout
+init|=
+literal|60000
+decl_stmt|;
+comment|/**          * Timeout (in milliseconds) for establishing for a TCP connection<p/>          * TCP Client only          */
 DECL|field|connectTimeout
 specifier|private
 name|Integer
@@ -505,7 +489,7 @@ name|hl7Headers
 init|=
 literal|true
 decl_stmt|;
-comment|/**          * Enable/Disable strict compliance to the MLLP standard. The MLLP          * standard specifies START_OF_BLOCKhl7 payloadEND_OF_BLOCKEND_OF_DATA,          * however, some systems do not send the final END_OF_DATA byte. This          * setting controls whether or not the final END_OF_DATA byte is          * required or optional.          */
+comment|/**          * Enable/Disable strict compliance to the MLLP standard. The MLLP          * standard specifies [START_OF_BLOCK]hl7          * payload[END_OF_BLOCK][END_OF_DATA], however, some systems do not send          * the final END_OF_DATA byte. This setting controls whether or not the          * final END_OF_DATA byte is required or optional.          */
 DECL|field|requireEndOfData
 specifier|private
 name|Boolean
@@ -721,32 +705,6 @@ operator|=
 name|bindRetryInterval
 expr_stmt|;
 block|}
-DECL|method|getAcceptTimeout ()
-specifier|public
-name|Integer
-name|getAcceptTimeout
-parameter_list|()
-block|{
-return|return
-name|acceptTimeout
-return|;
-block|}
-DECL|method|setAcceptTimeout (Integer acceptTimeout)
-specifier|public
-name|void
-name|setAcceptTimeout
-parameter_list|(
-name|Integer
-name|acceptTimeout
-parameter_list|)
-block|{
-name|this
-operator|.
-name|acceptTimeout
-operator|=
-name|acceptTimeout
-expr_stmt|;
-block|}
 DECL|method|getLenientBind ()
 specifier|public
 name|Boolean
@@ -771,6 +729,32 @@ operator|.
 name|lenientBind
 operator|=
 name|lenientBind
+expr_stmt|;
+block|}
+DECL|method|getAcceptTimeout ()
+specifier|public
+name|Integer
+name|getAcceptTimeout
+parameter_list|()
+block|{
+return|return
+name|acceptTimeout
+return|;
+block|}
+DECL|method|setAcceptTimeout (Integer acceptTimeout)
+specifier|public
+name|void
+name|setAcceptTimeout
+parameter_list|(
+name|Integer
+name|acceptTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|acceptTimeout
+operator|=
+name|acceptTimeout
 expr_stmt|;
 block|}
 DECL|method|getConnectTimeout ()

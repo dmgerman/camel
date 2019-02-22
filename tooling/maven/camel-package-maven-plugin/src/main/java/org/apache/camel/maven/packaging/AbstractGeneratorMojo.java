@@ -548,6 +548,13 @@ name|Path
 name|file
 parameter_list|)
 block|{
+if|if
+condition|(
+name|buildContext
+operator|!=
+literal|null
+condition|)
+block|{
 name|buildContext
 operator|.
 name|refresh
@@ -558,6 +565,7 @@ name|toFile
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|updateResource (BuildContext buildContext, Path out, String data)
 specifier|public

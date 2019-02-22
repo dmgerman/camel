@@ -3056,7 +3056,7 @@ name|ConsumerType
 operator|.
 name|Default
 decl_stmt|;
-comment|/**          * Sets the default connection factory to be used if a connection          * factory is not specified for either          * setTemplateConnectionFactory(ConnectionFactory) or          * setListenerConnectionFactory(ConnectionFactory)          */
+comment|/**          * Sets the default connection factory to be used if a connection          * factory is not specified for either {@link          * #setTemplateConnectionFactory(ConnectionFactory)} or {@link          * #setListenerConnectionFactory(ConnectionFactory)}          */
 DECL|field|connectionFactory
 specifier|private
 name|ConnectionFactory
@@ -3080,7 +3080,7 @@ specifier|private
 name|ConnectionFactory
 name|listenerConnectionFactory
 decl_stmt|;
-comment|/**          * Sets the connection factory to be used for sending messages via the          * {@link JmsTemplate} via          * {@link #createInOnlyTemplate(JmsEndpoint,boolean,String)}          */
+comment|/**          * Sets the connection factory to be used for sending messages via the          * {@link JmsTemplate} via {@link #createInOnlyTemplate(JmsEndpoint,          * boolean, String)}          */
 DECL|field|templateConnectionFactory
 specifier|private
 name|ConnectionFactory
@@ -3102,7 +3102,7 @@ name|acceptMessagesWhileStopping
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Whether the DefaultMessageListenerContainer used in the reply          * managers for request-reply messaging allow the          * DefaultMessageListenerContainer#runningAllowed() flag to quick stop          * in case JmsConfiguration#isAcceptMessagesWhileStopping() is enabled,          * and org.apache.camel.CamelContext is currently being stopped. This          * quick stop ability is enabled by default in the regular JMS consumers          * but to enable for reply managers you must enable this flag.          */
+comment|/**          * Whether the {@link DefaultMessageListenerContainer} used in the reply          * managers for request-reply messaging allow the {@link          * DefaultMessageListenerContainer#runningAllowed()} flag to quick stop          * in case {@link JmsConfiguration#isAcceptMessagesWhileStopping()} is          * enabled, and {@link org.apache.camel.CamelContext} is currently being          * stopped. This quick stop ability is enabled by default in the regular          * JMS consumers but to enable for reply managers you must enable this          * flag.          */
 DECL|field|allowReplyManagerQuickStop
 specifier|private
 name|Boolean
@@ -3110,7 +3110,7 @@ name|allowReplyManagerQuickStop
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Sets the JMS client ID to use. Note that this value, if specified,          * must be unique and can only be used by a single JMS connection          * instance. It is typically only required for durable topic          * subscriptions. If using Apache ActiveMQ you may prefer to use Virtual          * Topics instead.          */
+comment|/**          * Sets the JMS client ID to use. Note that this value, if specified,          * must be unique and can only be used by a single JMS connection          * instance. It is typically only required for durable topic          * subscriptions.<p> If using Apache ActiveMQ you may prefer to use          * Virtual Topics instead.          */
 DECL|field|clientId
 specifier|private
 name|String
@@ -3182,7 +3182,7 @@ name|pubSubNoLocal
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Specifies the default number of concurrent consumers when consuming          * from JMS (not for request/reply over JMS). See also the          * maxMessagesPerTask option to control dynamic scaling up/down of          * threads. When doing request/reply over JMS then the option          * replyToConcurrentConsumers is used to control number of concurrent          * consumers on the reply message listener.          */
+comment|/**          * Specifies the default number of concurrent consumers when consuming          * from JMS (not for request/reply over JMS). See also the          * maxMessagesPerTask option to control dynamic scaling up/down of          * threads.<p> When doing request/reply over JMS then the option          * replyToConcurrentConsumers is used to control number of concurrent          * consumers on the reply message listener.          */
 DECL|field|concurrentConsumers
 specifier|private
 name|Integer
@@ -3198,7 +3198,7 @@ name|replyToConcurrentConsumers
 init|=
 literal|1
 decl_stmt|;
-comment|/**          * The number of messages per task. -1 is unlimited. If you use a range          * for concurrent consumers (eg min max), then this option can be used          * to set a value to eg 100 to control how fast the consumers will          * shrink when less work is required.          */
+comment|/**          * The number of messages per task. -1 is unlimited. If you use a range          * for concurrent consumers (eg min< max), then this option can be used          * to set a value to eg 100 to control how fast the consumers will          * shrink when less work is required.          */
 DECL|field|maxMessagesPerTask
 specifier|private
 name|Integer
@@ -3290,7 +3290,7 @@ name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 init|=
 literal|100L
 decl_stmt|;
-comment|/**          * Specifies the maximum number of concurrent consumers when consuming          * from JMS (not for request/reply over JMS). See also the          * maxMessagesPerTask option to control dynamic scaling up/down of          * threads. When doing request/reply over JMS then the option          * replyToMaxConcurrentConsumers is used to control number of concurrent          * consumers on the reply message listener.          */
+comment|/**          * Specifies the maximum number of concurrent consumers when consuming          * from JMS (not for request/reply over JMS). See also the          * maxMessagesPerTask option to control dynamic scaling up/down of          * threads.<p> When doing request/reply over JMS then the option          * replyToMaxConcurrentConsumers is used to control number of concurrent          * consumers on the reply message listener.          */
 DECL|field|maxConcurrentConsumers
 specifier|private
 name|Integer
@@ -3309,6 +3309,14 @@ name|Integer
 name|replyToOnTimeoutMaxConcurrentConsumers
 init|=
 literal|1
+decl_stmt|;
+comment|/**          * Set if the deliveryMode, priority or timeToLive qualities of service          * should be used when sending messages. This option is based on          * Spring's JmsTemplate. The deliveryMode, priority and timeToLive          * options are applied to the current endpoint. This contrasts with the          * preserveMessageQos option, which operates at message granularity,          * reading QoS properties exclusively from the Camel In message headers.          */
+DECL|field|explicitQosEnabled
+specifier|private
+name|Boolean
+name|explicitQosEnabled
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Specifies whether persistent delivery is used by default.          */
 DECL|field|deliveryPersistent
@@ -3443,7 +3451,7 @@ specifier|private
 name|JmsProviderMetadata
 name|providerMetadata
 decl_stmt|;
-comment|/**          * Sets the {@link JmsOperations} used to deduce the          * {@link JmsProviderMetadata} details which if none is customized one          * is lazily created on demand          */
+comment|/**          * Sets the {@link JmsOperations} used to deduce the {@link          * JmsProviderMetadata} details which if none is customized one is          * lazily created on demand          */
 DECL|field|metadataJmsOperations
 specifier|private
 name|JmsOperations
@@ -3465,7 +3473,7 @@ name|useMessageIDAsCorrelationID
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * The timeout for waiting for a reply when using the InOut Exchange          * Pattern (in milliseconds). The default is 20 seconds. You can include          * the header CamelJmsRequestTimeout to override this endpoint          * configured timeout value, and thus have per message individual          * timeout values. See also the requestTimeoutCheckerInterval option.          */
+comment|/**          * The timeout for waiting for a reply when using the InOut Exchange          * Pattern (in milliseconds). The default is 20 seconds. You can include          * the header "CamelJmsRequestTimeout" to override this endpoint          * configured timeout value, and thus have per message individual          * timeout values. See also the requestTimeoutCheckerInterval option.          */
 DECL|field|requestTimeout
 specifier|private
 name|Long
@@ -3527,7 +3535,7 @@ name|transferExchange
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Controls whether or not to include serialized headers. Applies only          * when isTransferExchange() is true. This requires that the objects are          * serializable. Camel will exclude any non-serializable objects and log          * it at WARN level.          */
+comment|/**          * Controls whether or not to include serialized headers. Applies only          * when {@link #isTransferExchange()} is {@code true}. This requires          * that the objects are serializable. Camel will exclude any          * non-serializable objects and log it at WARN level.          */
 DECL|field|allowSerializedHeaders
 specifier|private
 name|Boolean
@@ -3543,7 +3551,7 @@ name|transferException
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * If enabled and you are using Request Reply messaging (InOut) and an          * Exchange failed with a SOAP fault (not exception) on the consumer          * side, then the fault flag on org.apache.camel.Message#isFault() will          * be send back in the response as a JMS header with the key          * JmsConstants#JMS_TRANSFER_FAULT. If the client is Camel, the returned          * fault flag will be set on the          * org.apache.camel.Message#setFault(boolean). You may want to enable          * this when using Camel components that support faults such as SOAP          * based such as cxf or spring-ws.          */
+comment|/**          * If enabled and you are using Request Reply messaging (InOut) and an          * Exchange failed with a SOAP fault (not exception) on the consumer          * side, then the fault flag on {@link          * org.apache.camel.Message#isFault()} will be send back in the response          * as a JMS header with the key {@link JmsConstants#JMS_TRANSFER_FAULT}.          * If the client is Camel, the returned fault flag will be set on the          * {@link org.apache.camel.Message#setFault(boolean)}.<p> You may want          * to enable this when using Camel components that support faults such          * as SOAP based such as cxf or spring-ws.          */
 DECL|field|transferFault
 specifier|private
 name|Boolean
@@ -3633,7 +3641,7 @@ name|includeSentJMSMessageID
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Specifies what default TaskExecutor type to use in the          * DefaultMessageListenerContainer, for both consumer endpoints and the          * ReplyTo consumer of producer endpoints. Possible values: SimpleAsync          * (uses Spring's SimpleAsyncTaskExecutor) or ThreadPool (uses Spring's          * ThreadPoolTaskExecutor with optimal values - cached threadpool-like).          * If not set, it defaults to the previous behaviour, which uses a          * cached thread pool for consumer endpoints and SimpleAsync for reply          * consumers. The use of ThreadPool is recommended to reduce thread          * trash in elastic configurations with dynamically increasing and          * decreasing concurrent consumers.          */
+comment|/**          * Specifies what default TaskExecutor type to use in the          * DefaultMessageListenerContainer, for both consumer endpoints and the          * ReplyTo consumer of producer endpoints. Possible values: SimpleAsync          * (uses Spring's SimpleAsyncTaskExecutor) or ThreadPool (uses Spring's          * ThreadPoolTaskExecutor with optimal values - cached threadpool-like).          * If not set, it defaults to the previous behaviour, which uses a          * cached thread pool for consumer endpoints and SimpleAsync for reply          * consumers. The use of ThreadPool is recommended to reduce "thread          * trash" in elastic configurations with dynamically increasing and          * decreasing concurrent consumers.          */
 DECL|field|defaultTaskExecutorType
 specifier|private
 name|DefaultTaskExecutorType
@@ -3647,7 +3655,7 @@ name|includeAllJMSXProperties
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * To use the given MessageCreatedStrategy which are invoked when Camel          * creates new instances of javax.jms.Message objects when Camel is          * sending a JMS message.          */
+comment|/**          * To use the given MessageCreatedStrategy which are invoked when Camel          * creates new instances of<tt>javax.jms.Message</tt> objects when          * Camel is sending a JMS message.          */
 DECL|field|messageCreatedStrategy
 specifier|private
 name|MessageCreatedStrategy
@@ -3665,13 +3673,13 @@ specifier|private
 name|String
 name|correlationProperty
 decl_stmt|;
-comment|/**          * This option is used to allow additional headers which may have values          * that are invalid according to JMS specification. For example some          * message systems such as WMQ do this with header names using prefix          * JMS_IBM_MQMD_ containing values with byte array or other invalid          * types. You can specify multiple header names separated by comma, and          * use as suffix for wildcard matching.          */
+comment|/**          * This option is used to allow additional headers which may have values          * that are invalid according to JMS specification. + For example some          * message systems such as WMQ do this with header names using prefix          * JMS_IBM_MQMD_ containing values with byte array or other invalid          * types. + You can specify multiple header names separated by comma,          * and use * as suffix for wildcard matching.          */
 DECL|field|allowAdditionalHeaders
 specifier|private
 name|String
 name|allowAdditionalHeaders
 decl_stmt|;
-comment|/**          * Set whether to make the subscription durable. The durable          * subscription name to be used can be specified through the          * subscriptionName property. Default is false. Set this to true to          * register a durable subscription, typically in combination with a          * subscriptionName value (unless your message listener class name is          * good enough as subscription name). Only makes sense when listening to          * a topic (pub-sub domain), therefore this method switches the          * pubSubDomain flag as well.          */
+comment|/**          * Set whether to make the subscription durable. The durable          * subscription name to be used can be specified through the          * "subscriptionName" property.<p>Default is "false". Set this to          * "true" to register a durable subscription, typically in combination          * with a "subscriptionName" value (unless your message listener class          * name is good enough as subscription name).<p>Only makes sense when          * listening to a topic (pub-sub domain), therefore this method switches          * the "pubSubDomain" flag as well.          */
 DECL|field|subscriptionDurable
 specifier|private
 name|Boolean
@@ -3679,7 +3687,7 @@ name|subscriptionDurable
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Set whether to make the subscription shared. The shared subscription          * name to be used can be specified through the subscriptionName          * property. Default is false. Set this to true to register a shared          * subscription, typically in combination with a subscriptionName value          * (unless your message listener class name is good enough as          * subscription name). Note that shared subscriptions may also be          * durable, so this flag can (and often will) be combined with          * subscriptionDurable as well. Only makes sense when listening to a          * topic (pub-sub domain), therefore this method switches the          * pubSubDomain flag as well. Requires a JMS 2.0 compatible message          * broker.          */
+comment|/**          * Set whether to make the subscription shared. The shared subscription          * name to be used can be specified through the "subscriptionName"          * property.<p>Default is "false". Set this to "true" to register a          * shared subscription, typically in combination with a          * "subscriptionName" value (unless your message listener class name is          * good enough as subscription name). Note that shared subscriptions may          * also be durable, so this flag can (and often will) be combined with          * "subscriptionDurable" as well.<p>Only makes sense when listening to          * a topic (pub-sub domain), therefore this method switches the          * "pubSubDomain" flag as well.<p><b>Requires a JMS 2.0 compatible          * message broker.</b>          */
 DECL|field|subscriptionShared
 specifier|private
 name|Boolean
@@ -3687,7 +3695,7 @@ name|subscriptionShared
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Set the name of a subscription to create. To be applied in case of a          * topic (pub-sub domain) with a shared or durable subscription. The          * subscription name needs to be unique within this client's JMS client          * id. Default is the class name of the specified message listener.          * Note: Only 1 concurrent consumer (which is the default of this          * message listener container) is allowed for each subscription, except          * for a shared subscription (which requires JMS 2.0).          */
+comment|/**          * Set the name of a subscription to create. To be applied in case of a          * topic (pub-sub domain) with a shared or durable subscription.<p>The          * subscription name needs to be unique within this client's JMS client          * id. Default is the class name of the specified message listener.          *<p>Note: Only 1 concurrent consumer (which is the default of this          * message listener container) is allowed for each subscription, except          * for a shared subscription (which requires JMS 2.0).          */
 DECL|field|subscriptionName
 specifier|private
 name|String
@@ -4643,6 +4651,32 @@ operator|.
 name|replyToOnTimeoutMaxConcurrentConsumers
 operator|=
 name|replyToOnTimeoutMaxConcurrentConsumers
+expr_stmt|;
+block|}
+DECL|method|getExplicitQosEnabled ()
+specifier|public
+name|Boolean
+name|getExplicitQosEnabled
+parameter_list|()
+block|{
+return|return
+name|explicitQosEnabled
+return|;
+block|}
+DECL|method|setExplicitQosEnabled (Boolean explicitQosEnabled)
+specifier|public
+name|void
+name|setExplicitQosEnabled
+parameter_list|(
+name|Boolean
+name|explicitQosEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|explicitQosEnabled
+operator|=
+name|explicitQosEnabled
 expr_stmt|;
 block|}
 DECL|method|getDeliveryPersistent ()

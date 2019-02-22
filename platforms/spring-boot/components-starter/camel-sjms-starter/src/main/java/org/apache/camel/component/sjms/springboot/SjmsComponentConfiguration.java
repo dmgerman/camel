@@ -130,10 +130,10 @@ specifier|private
 name|String
 name|destinationCreationStrategy
 decl_stmt|;
-comment|/**      * To use a custom TimedTaskManager      */
+comment|/**      * To use a custom TimedTaskManager. The option is a      * org.apache.camel.component.sjms.taskmanager.TimedTaskManager type.      */
 DECL|field|timedTaskManager
 specifier|private
-name|TimedTaskManagerNestedConfiguration
+name|String
 name|timedTaskManager
 decl_stmt|;
 comment|/**      * To use the given MessageCreatedStrategy which are invoked when Camel      * creates new instances of javax.jms.Message objects when Camel is sending      * a JMS message. The option is a      * org.apache.camel.component.sjms.jms.MessageCreatedStrategy type.      */
@@ -348,7 +348,7 @@ expr_stmt|;
 block|}
 DECL|method|getTimedTaskManager ()
 specifier|public
-name|TimedTaskManagerNestedConfiguration
+name|String
 name|getTimedTaskManager
 parameter_list|()
 block|{
@@ -356,12 +356,12 @@ return|return
 name|timedTaskManager
 return|;
 block|}
-DECL|method|setTimedTaskManager ( TimedTaskManagerNestedConfiguration timedTaskManager)
+DECL|method|setTimedTaskManager (String timedTaskManager)
 specifier|public
 name|void
 name|setTimedTaskManager
 parameter_list|(
-name|TimedTaskManagerNestedConfiguration
+name|String
 name|timedTaskManager
 parameter_list|)
 block|{
@@ -579,36 +579,6 @@ name|resolvePropertyPlaceholders
 operator|=
 name|resolvePropertyPlaceholders
 expr_stmt|;
-block|}
-DECL|class|TimedTaskManagerNestedConfiguration
-specifier|public
-specifier|static
-class|class
-name|TimedTaskManagerNestedConfiguration
-block|{
-DECL|field|CAMEL_NESTED_CLASS
-specifier|public
-specifier|static
-specifier|final
-name|Class
-name|CAMEL_NESTED_CLASS
-init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|sjms
-operator|.
-name|taskmanager
-operator|.
-name|TimedTaskManager
-operator|.
-name|class
-decl_stmt|;
 block|}
 block|}
 end_class

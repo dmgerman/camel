@@ -395,6 +395,12 @@ name|StompConfiguration
 operator|.
 name|class
 decl_stmt|;
+comment|/**          * The virtual host name          */
+DECL|field|host
+specifier|private
+name|String
+name|host
+decl_stmt|;
 comment|/**          * The URI of the Stomp broker to connect to          */
 DECL|field|brokerURL
 specifier|private
@@ -402,12 +408,6 @@ name|String
 name|brokerURL
 init|=
 literal|"tcp://localhost:61613"
-decl_stmt|;
-comment|/**          * The virtual host name          */
-DECL|field|host
-specifier|private
-name|String
-name|host
 decl_stmt|;
 comment|/**          * The username          */
 DECL|field|login
@@ -427,32 +427,6 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
-DECL|method|getBrokerURL ()
-specifier|public
-name|String
-name|getBrokerURL
-parameter_list|()
-block|{
-return|return
-name|brokerURL
-return|;
-block|}
-DECL|method|setBrokerURL (String brokerURL)
-specifier|public
-name|void
-name|setBrokerURL
-parameter_list|(
-name|String
-name|brokerURL
-parameter_list|)
-block|{
-name|this
-operator|.
-name|brokerURL
-operator|=
-name|brokerURL
-expr_stmt|;
-block|}
 DECL|method|getHost ()
 specifier|public
 name|String
@@ -477,6 +451,32 @@ operator|.
 name|host
 operator|=
 name|host
+expr_stmt|;
+block|}
+DECL|method|getBrokerURL ()
+specifier|public
+name|String
+name|getBrokerURL
+parameter_list|()
+block|{
+return|return
+name|brokerURL
+return|;
+block|}
+DECL|method|setBrokerURL (String brokerURL)
+specifier|public
+name|void
+name|setBrokerURL
+parameter_list|(
+name|String
+name|brokerURL
+parameter_list|)
+block|{
+name|this
+operator|.
+name|brokerURL
+operator|=
+name|brokerURL
 expr_stmt|;
 block|}
 DECL|method|getLogin ()

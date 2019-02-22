@@ -253,19 +253,39 @@ name|FhirConfiguration
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * The FHIR server base URL          */
+comment|/**          * Component configuration for FHIR component.          */
 DECL|field|serverUrl
 specifier|private
 name|String
 name|serverUrl
 decl_stmt|;
-comment|/**          * Pretty print all request          */
+comment|/**          * Component configuration for FHIR component.          */
+DECL|field|fhirVersion
+specifier|private
+name|String
+name|fhirVersion
+init|=
+literal|"DSTU3"
+decl_stmt|;
+comment|/**          * Component configuration for FHIR component.          */
+DECL|field|encoding
+specifier|private
+name|String
+name|encoding
+decl_stmt|;
+comment|/**          * Component configuration for FHIR component.          */
 DECL|field|prettyPrint
 specifier|private
 name|Boolean
 name|prettyPrint
 init|=
 literal|false
+decl_stmt|;
+comment|/**          * Component configuration for FHIR component.          */
+DECL|field|summary
+specifier|private
+name|String
+name|summary
 decl_stmt|;
 comment|/**          * What kind of operation to perform          */
 DECL|field|apiName
@@ -279,13 +299,13 @@ specifier|private
 name|String
 name|methodName
 decl_stmt|;
-comment|/**          * FhirContext is an expensive object to create. To avoid creating          * multiple instances, it can be set directly.          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|fhirContext
 specifier|private
 name|FhirContext
 name|fhirContext
 decl_stmt|;
-comment|/**          * Force conformance check          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|forceConformanceCheck
 specifier|private
 name|Boolean
@@ -293,25 +313,25 @@ name|forceConformanceCheck
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Username to use for basic authentication          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|username
 specifier|private
 name|String
 name|username
 decl_stmt|;
-comment|/**          * Username to use for basic authentication          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|password
 specifier|private
 name|String
 name|password
 decl_stmt|;
-comment|/**          * OAuth access token          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|accessToken
 specifier|private
 name|String
 name|accessToken
 decl_stmt|;
-comment|/**          * Will log every requests and responses          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|log
 specifier|private
 name|Boolean
@@ -319,7 +339,7 @@ name|log
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Compresses outgoing (POST/PUT) contents to the GZIP format          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|compress
 specifier|private
 name|Boolean
@@ -327,13 +347,21 @@ name|compress
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * HTTP session cookie to add to every request          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|sessionCookie
 specifier|private
 name|String
 name|sessionCookie
 decl_stmt|;
-comment|/**          * When this option is set, model classes will not be scanned for          * children until the child list for the given type is actually          * accessed.          */
+comment|/**          * What sub operation to use for the selected operation          */
+DECL|field|validationMode
+specifier|private
+name|String
+name|validationMode
+init|=
+literal|"ONCE"
+decl_stmt|;
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|deferModelScanning
 specifier|private
 name|Boolean
@@ -341,7 +369,7 @@ name|deferModelScanning
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * How long to try and establish the initial TCP connection (in ms)          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|connectionTimeout
 specifier|private
 name|Integer
@@ -349,7 +377,7 @@ name|connectionTimeout
 init|=
 literal|10000
 decl_stmt|;
-comment|/**          * How long to block for individual read/write operations (in ms)          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|socketTimeout
 specifier|private
 name|Integer
@@ -357,37 +385,37 @@ name|socketTimeout
 init|=
 literal|10000
 decl_stmt|;
-comment|/**          * The proxy host          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|proxyHost
 specifier|private
 name|String
 name|proxyHost
 decl_stmt|;
-comment|/**          * The proxy password          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|proxyPassword
 specifier|private
 name|String
 name|proxyPassword
 decl_stmt|;
-comment|/**          * The proxy port          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|proxyPort
 specifier|private
 name|Integer
 name|proxyPort
 decl_stmt|;
-comment|/**          * The proxy username          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|proxyUser
 specifier|private
 name|String
 name|proxyUser
 decl_stmt|;
-comment|/**          * To use the custom client          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|client
 specifier|private
 name|IGenericClient
 name|client
 decl_stmt|;
-comment|/**          * To use the custom client factory          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|clientFactory
 specifier|private
 name|IRestfulClientFactory
@@ -419,6 +447,58 @@ operator|=
 name|serverUrl
 expr_stmt|;
 block|}
+DECL|method|getFhirVersion ()
+specifier|public
+name|String
+name|getFhirVersion
+parameter_list|()
+block|{
+return|return
+name|fhirVersion
+return|;
+block|}
+DECL|method|setFhirVersion (String fhirVersion)
+specifier|public
+name|void
+name|setFhirVersion
+parameter_list|(
+name|String
+name|fhirVersion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fhirVersion
+operator|=
+name|fhirVersion
+expr_stmt|;
+block|}
+DECL|method|getEncoding ()
+specifier|public
+name|String
+name|getEncoding
+parameter_list|()
+block|{
+return|return
+name|encoding
+return|;
+block|}
+DECL|method|setEncoding (String encoding)
+specifier|public
+name|void
+name|setEncoding
+parameter_list|(
+name|String
+name|encoding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encoding
+operator|=
+name|encoding
+expr_stmt|;
+block|}
 DECL|method|getPrettyPrint ()
 specifier|public
 name|Boolean
@@ -443,6 +523,32 @@ operator|.
 name|prettyPrint
 operator|=
 name|prettyPrint
+expr_stmt|;
+block|}
+DECL|method|getSummary ()
+specifier|public
+name|String
+name|getSummary
+parameter_list|()
+block|{
+return|return
+name|summary
+return|;
+block|}
+DECL|method|setSummary (String summary)
+specifier|public
+name|void
+name|setSummary
+parameter_list|(
+name|String
+name|summary
+parameter_list|)
+block|{
+name|this
+operator|.
+name|summary
+operator|=
+name|summary
 expr_stmt|;
 block|}
 DECL|method|getApiName ()
@@ -703,6 +809,32 @@ operator|.
 name|sessionCookie
 operator|=
 name|sessionCookie
+expr_stmt|;
+block|}
+DECL|method|getValidationMode ()
+specifier|public
+name|String
+name|getValidationMode
+parameter_list|()
+block|{
+return|return
+name|validationMode
+return|;
+block|}
+DECL|method|setValidationMode (String validationMode)
+specifier|public
+name|void
+name|setValidationMode
+parameter_list|(
+name|String
+name|validationMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|validationMode
+operator|=
+name|validationMode
 expr_stmt|;
 block|}
 DECL|method|getDeferModelScanning ()

@@ -375,6 +375,30 @@ specifier|private
 name|BigInteger
 name|position
 decl_stmt|;
+comment|/**          * The block number, or the string "latest" for the last mined block or          * "pending", "earliest" for not yet mined transactions.          */
+DECL|field|fromBlock
+specifier|private
+name|String
+name|fromBlock
+init|=
+literal|"latest"
+decl_stmt|;
+comment|/**          * The block number, or the string "latest" for the last mined block or          * "pending", "earliest" for not yet mined transactions.          */
+DECL|field|toBlock
+specifier|private
+name|String
+name|toBlock
+init|=
+literal|"latest"
+decl_stmt|;
+comment|/**          * The block number, or the string "latest" for the last mined block or          * "pending", "earliest" for not yet mined transactions.          */
+DECL|field|atBlock
+specifier|private
+name|String
+name|atBlock
+init|=
+literal|"latest"
+decl_stmt|;
 comment|/**          * Contract address or a list of addresses.          */
 DECL|field|addresses
 specifier|private
@@ -1083,6 +1107,84 @@ operator|.
 name|position
 operator|=
 name|position
+expr_stmt|;
+block|}
+DECL|method|getFromBlock ()
+specifier|public
+name|String
+name|getFromBlock
+parameter_list|()
+block|{
+return|return
+name|fromBlock
+return|;
+block|}
+DECL|method|setFromBlock (String fromBlock)
+specifier|public
+name|void
+name|setFromBlock
+parameter_list|(
+name|String
+name|fromBlock
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fromBlock
+operator|=
+name|fromBlock
+expr_stmt|;
+block|}
+DECL|method|getToBlock ()
+specifier|public
+name|String
+name|getToBlock
+parameter_list|()
+block|{
+return|return
+name|toBlock
+return|;
+block|}
+DECL|method|setToBlock (String toBlock)
+specifier|public
+name|void
+name|setToBlock
+parameter_list|(
+name|String
+name|toBlock
+parameter_list|)
+block|{
+name|this
+operator|.
+name|toBlock
+operator|=
+name|toBlock
+expr_stmt|;
+block|}
+DECL|method|getAtBlock ()
+specifier|public
+name|String
+name|getAtBlock
+parameter_list|()
+block|{
+return|return
+name|atBlock
+return|;
+block|}
+DECL|method|setAtBlock (String atBlock)
+specifier|public
+name|void
+name|setAtBlock
+parameter_list|(
+name|String
+name|atBlock
+parameter_list|)
+block|{
+name|this
+operator|.
+name|atBlock
+operator|=
+name|atBlock
 expr_stmt|;
 block|}
 DECL|method|getAddresses ()

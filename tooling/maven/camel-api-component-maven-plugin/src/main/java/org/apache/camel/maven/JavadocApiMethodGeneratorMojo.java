@@ -285,6 +285,10 @@ operator|=
 name|LifecyclePhase
 operator|.
 name|GENERATE_SOURCES
+argument_list|,
+name|threadSafe
+operator|=
+literal|true
 argument_list|)
 DECL|class|JavadocApiMethodGeneratorMojo
 specifier|public

@@ -576,6 +576,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|deprecationNote
+operator|=
+literal|"As of version 2.11, replaced by certResource."
 argument_list|)
 DECL|method|setCertFilename (String certFilename)
 specifier|public

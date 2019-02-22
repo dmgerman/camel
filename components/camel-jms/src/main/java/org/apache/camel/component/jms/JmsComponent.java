@@ -3225,7 +3225,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This option is used to allow additional headers which may have values that are invalid according to JMS specification.      + For example some message systems such as WMQ do this with header names using prefix JMS_IBM_MQMD_ containing values with byte array or other invalid types.      + You can specify multiple header names separated by comma, and use * as suffix for wildcard matching.      */
+comment|/**      * This option is used to allow additional headers which may have values that are invalid according to JMS specification.      * For example some message systems such as WMQ do this with header names using prefix JMS_IBM_MQMD_ containing values with byte array or other invalid types.      * You can specify multiple header names separated by comma, and use * as suffix for wildcard matching.      */
 annotation|@
 name|Metadata
 argument_list|(

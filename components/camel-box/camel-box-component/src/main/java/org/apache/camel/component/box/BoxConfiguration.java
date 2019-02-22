@@ -671,7 +671,23 @@ return|return
 name|maxCacheEntries
 return|;
 block|}
-comment|/**      * The maximum number of access tokens in cache.      *       * @param maxCacheEntries      *            the maxCacheEntries to set      */
+comment|/**      * The maximum number of access tokens in cache.      *      * @param maxCacheEntries      *            the maxCacheEntries to set      */
+DECL|method|setMaxCacheEntries (int maxCacheEntries)
+specifier|public
+name|void
+name|setMaxCacheEntries
+parameter_list|(
+name|int
+name|maxCacheEntries
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxCacheEntries
+operator|=
+name|maxCacheEntries
+expr_stmt|;
+block|}
 DECL|method|setMaxCacheEntries (String maxCacheEntries)
 specifier|public
 name|void
@@ -731,6 +747,22 @@ name|encryptionAlgorithm
 return|;
 block|}
 comment|/**      * The type of encryption algorithm for JWT.      *       *<p>      * Supported Algorithms:      *<ul>      *<li>RSA_SHA_256</li>      *<li>RSA_SHA_384</li>      *<li>RSA_SHA_512</li>      *</ul>      *       * @param encryptionAlgorithm      *            the encryptionAlgorithm to set      */
+DECL|method|setEncryptionAlgorithm (EncryptionAlgorithm encryptionAlgorithm)
+specifier|public
+name|void
+name|setEncryptionAlgorithm
+parameter_list|(
+name|EncryptionAlgorithm
+name|encryptionAlgorithm
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encryptionAlgorithm
+operator|=
+name|encryptionAlgorithm
+expr_stmt|;
+block|}
 DECL|method|setEncryptionAlgorithm (String encryptionAlgorithm)
 specifier|public
 name|void

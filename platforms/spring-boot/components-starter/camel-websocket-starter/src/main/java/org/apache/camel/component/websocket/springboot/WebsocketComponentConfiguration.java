@@ -172,7 +172,7 @@ name|useGlobalSslContextParameters
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * To configure a map which contains custom WebSocketFactory for sub      * protocols. The key in the map is the sub protocol. The default key is      * reserved for the default implementation. The option is a      * java.util.Map<java      * .lang.String,org.apache.camel.component.websocket.WebSocketFactory> type.      */
+comment|/**      * To configure a map which contains custom WebSocketFactory for sub      * protocols. The key in the map is the sub protocol. The default key is      * reserved for the default implementation. The option is a      * java.util.Map<java.lang.String,org.apache.camel.component.websocket.WebSocketFactory> type.      */
 DECL|field|socketFactory
 specifier|private
 name|String

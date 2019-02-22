@@ -487,6 +487,20 @@ name|serverSideEncryptionEnabled
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * Only for FIFO queues. Strategy for setting the messageGroupId on the          * message. Can be one of the following options: *useConstant*,          * *useExchangeId*, *usePropertyValue*. For the *usePropertyValue*          * option, the value of property "CamelAwsMessageGroupId" will be used.          */
+DECL|field|messageGroupIdStrategy
+specifier|private
+name|String
+name|messageGroupIdStrategy
+decl_stmt|;
+comment|/**          * Only for FIFO queues. Strategy for setting the messageDeduplicationId          * on the message. Can be one of the following options: *useExchangeId*,          * *useContentBasedDeduplication*. For the          * *useContentBasedDeduplication* option, no messageDeduplicationId will          * be set on the message.          */
+DECL|field|messageDeduplicationIdStrategy
+specifier|private
+name|String
+name|messageDeduplicationIdStrategy
+init|=
+literal|"useExchangeId"
+decl_stmt|;
 DECL|method|getAmazonAWSHost ()
 specifier|public
 name|String
@@ -1239,6 +1253,58 @@ operator|.
 name|serverSideEncryptionEnabled
 operator|=
 name|serverSideEncryptionEnabled
+expr_stmt|;
+block|}
+DECL|method|getMessageGroupIdStrategy ()
+specifier|public
+name|String
+name|getMessageGroupIdStrategy
+parameter_list|()
+block|{
+return|return
+name|messageGroupIdStrategy
+return|;
+block|}
+DECL|method|setMessageGroupIdStrategy (String messageGroupIdStrategy)
+specifier|public
+name|void
+name|setMessageGroupIdStrategy
+parameter_list|(
+name|String
+name|messageGroupIdStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageGroupIdStrategy
+operator|=
+name|messageGroupIdStrategy
+expr_stmt|;
+block|}
+DECL|method|getMessageDeduplicationIdStrategy ()
+specifier|public
+name|String
+name|getMessageDeduplicationIdStrategy
+parameter_list|()
+block|{
+return|return
+name|messageDeduplicationIdStrategy
+return|;
+block|}
+DECL|method|setMessageDeduplicationIdStrategy ( String messageDeduplicationIdStrategy)
+specifier|public
+name|void
+name|setMessageDeduplicationIdStrategy
+parameter_list|(
+name|String
+name|messageDeduplicationIdStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageDeduplicationIdStrategy
+operator|=
+name|messageDeduplicationIdStrategy
 expr_stmt|;
 block|}
 block|}

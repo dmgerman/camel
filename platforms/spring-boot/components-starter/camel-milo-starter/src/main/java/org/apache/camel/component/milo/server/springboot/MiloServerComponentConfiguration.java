@@ -243,7 +243,7 @@ specifier|private
 name|String
 name|certificateManager
 decl_stmt|;
-comment|/**      * Validator for client certificates. The option is a      * java.util.function.Supplier      *<org.eclipse.milo.opcua.stack.core.application.CertificateValidator>      * type.      */
+comment|/**      * Validator for client certificates. The option is a      * java.util.function.Supplier<org.eclipse.milo.opcua.stack.core.application.CertificateValidator> type.      */
 DECL|field|certificateValidator
 specifier|private
 name|String

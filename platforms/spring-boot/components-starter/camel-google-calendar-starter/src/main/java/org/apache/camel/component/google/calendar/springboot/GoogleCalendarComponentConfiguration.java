@@ -283,7 +283,7 @@ specifier|private
 name|String
 name|refreshToken
 decl_stmt|;
-comment|/**          * Google calendar application name. Example would be          * camel-google-calendar/1.0          */
+comment|/**          * Google calendar application name. Example would be          * "camel-google-calendar/1.0"          */
 DECL|field|applicationName
 specifier|private
 name|String

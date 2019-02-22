@@ -529,7 +529,7 @@ specifier|private
 name|String
 name|url
 decl_stmt|;
-comment|/**          * The data center          *           * @deprecated replaced by {@link #setDatacenter(String)} ()}          */
+comment|/**          * The data center          */
 annotation|@
 name|Deprecated
 DECL|field|dc

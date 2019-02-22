@@ -283,25 +283,25 @@ name|UndertowHostOptions
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * The number of worker threads to use in a Undertow host.          */
+comment|/**          * Set if the Undertow host should use http2 protocol.          */
 DECL|field|workerThreads
 specifier|private
 name|Integer
 name|workerThreads
 decl_stmt|;
-comment|/**          * The number of io threads to use in a Undertow host.          */
+comment|/**          * Set if the Undertow host should use http2 protocol.          */
 DECL|field|ioThreads
 specifier|private
 name|Integer
 name|ioThreads
 decl_stmt|;
-comment|/**          * The buffer size of the Undertow host.          */
+comment|/**          * Set if the Undertow host should use http2 protocol.          */
 DECL|field|bufferSize
 specifier|private
 name|Integer
 name|bufferSize
 decl_stmt|;
-comment|/**          * Set if the Undertow host should use direct buffers.          */
+comment|/**          * Set if the Undertow host should use http2 protocol.          */
 DECL|field|directBuffers
 specifier|private
 name|Boolean

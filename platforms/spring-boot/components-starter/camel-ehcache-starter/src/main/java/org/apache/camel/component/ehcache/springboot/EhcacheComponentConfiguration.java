@@ -58,22 +58,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|ehcache
-operator|.
-name|EhcacheComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -226,7 +210,7 @@ specifier|private
 name|String
 name|cacheConfiguration
 decl_stmt|;
-comment|/**      * A map of caches configurations to be used to create caches. The option is      * a java.util.Map<java.lang.String,org.ehcache.config.CacheConfiguration<?,      * ?>> type.      */
+comment|/**      * A map of caches configurations to be used to create caches. The option is      * a      * java.util.Map<java.lang.String,org.ehcache.config.CacheConfiguration<?,?>> type.      */
 DECL|field|cachesConfigurations
 specifier|private
 name|String
@@ -461,7 +445,7 @@ specifier|private
 name|String
 name|configurationUri
 decl_stmt|;
-comment|/**          * URI pointing to the Ehcache XML configuration file's location          *           * @deprecated use {@link #setConfigurationUri(String)} instead          */
+comment|/**          * URI pointing to the Ehcache XML configuration file's location          */
 annotation|@
 name|Deprecated
 DECL|field|configUri
@@ -539,21 +523,33 @@ specifier|private
 name|Map
 name|configurations
 decl_stmt|;
-comment|/**          * The cache key type, default java.lang.Object          */
+comment|/**          * The cache key type, default "java.lang.Object"          */
 DECL|field|keyType
 specifier|private
-name|String
+name|Class
 name|keyType
 init|=
-literal|"java.lang.Object"
+name|java
+operator|.
+name|lang
+operator|.
+name|Object
+operator|.
+name|class
 decl_stmt|;
-comment|/**          * The cache value type, default java.lang.Object          */
+comment|/**          * The cache value type, default "java.lang.Object"          */
 DECL|field|valueType
 specifier|private
-name|String
+name|Class
 name|valueType
 init|=
-literal|"java.lang.Object"
+name|java
+operator|.
+name|lang
+operator|.
+name|Object
+operator|.
+name|class
 decl_stmt|;
 DECL|method|getConfigurationUri ()
 specifier|public
@@ -875,7 +871,7 @@ expr_stmt|;
 block|}
 DECL|method|getKeyType ()
 specifier|public
-name|String
+name|Class
 name|getKeyType
 parameter_list|()
 block|{
@@ -883,12 +879,12 @@ return|return
 name|keyType
 return|;
 block|}
-DECL|method|setKeyType (String keyType)
+DECL|method|setKeyType (Class keyType)
 specifier|public
 name|void
 name|setKeyType
 parameter_list|(
-name|String
+name|Class
 name|keyType
 parameter_list|)
 block|{
@@ -901,7 +897,7 @@ expr_stmt|;
 block|}
 DECL|method|getValueType ()
 specifier|public
-name|String
+name|Class
 name|getValueType
 parameter_list|()
 block|{
@@ -909,12 +905,12 @@ return|return
 name|valueType
 return|;
 block|}
-DECL|method|setValueType (String valueType)
+DECL|method|setValueType (Class valueType)
 specifier|public
 name|void
 name|setValueType
 parameter_list|(
-name|String
+name|Class
 name|valueType
 parameter_list|)
 block|{

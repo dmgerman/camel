@@ -1285,6 +1285,358 @@ operator|=
 name|resolvePropertyPlaceholders
 expr_stmt|;
 block|}
+DECL|class|SalesforceLoginConfigNestedConfiguration
+specifier|public
+specifier|static
+class|class
+name|SalesforceLoginConfigNestedConfiguration
+block|{
+DECL|field|CAMEL_NESTED_CLASS
+specifier|public
+specifier|static
+specifier|final
+name|Class
+name|CAMEL_NESTED_CLASS
+init|=
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
+name|SalesforceLoginConfig
+operator|.
+name|class
+decl_stmt|;
+comment|/**          * Configuration object for Salesforce login properties          */
+DECL|field|instanceUrl
+specifier|private
+name|String
+name|instanceUrl
+decl_stmt|;
+comment|/**          * Salesforce login URL, defaults to https://login.salesforce.com          */
+DECL|field|loginUrl
+specifier|private
+name|String
+name|loginUrl
+init|=
+literal|"https://login.salesforce.com"
+decl_stmt|;
+comment|/**          * Salesforce connected application Consumer Key          */
+DECL|field|clientId
+specifier|private
+name|String
+name|clientId
+decl_stmt|;
+comment|/**          * Salesforce connected application Consumer Secret          */
+DECL|field|clientSecret
+specifier|private
+name|String
+name|clientSecret
+decl_stmt|;
+comment|/**          * Keystore parameters for keystore containing certificate and private          * key needed for OAuth 2.0 JWT Bearer Token Flow.          */
+DECL|field|keystore
+specifier|private
+name|KeyStoreParameters
+name|keystore
+decl_stmt|;
+comment|/**          * Salesforce connected application Consumer token          */
+DECL|field|refreshToken
+specifier|private
+name|String
+name|refreshToken
+decl_stmt|;
+comment|/**          * Salesforce connected application Consumer token          */
+DECL|field|type
+specifier|private
+name|AuthenticationType
+name|type
+decl_stmt|;
+comment|/**          * Salesforce account user name          */
+DECL|field|userName
+specifier|private
+name|String
+name|userName
+decl_stmt|;
+comment|/**          * Salesforce account password          */
+DECL|field|password
+specifier|private
+name|String
+name|password
+decl_stmt|;
+comment|/**          * Flag to enable/disable lazy OAuth, default is false. When enabled,          * OAuth token retrieval or generation is not done until the first API          * call          */
+DECL|field|lazyLogin
+specifier|private
+name|Boolean
+name|lazyLogin
+init|=
+literal|false
+decl_stmt|;
+DECL|method|getInstanceUrl ()
+specifier|public
+name|String
+name|getInstanceUrl
+parameter_list|()
+block|{
+return|return
+name|instanceUrl
+return|;
+block|}
+DECL|method|setInstanceUrl (String instanceUrl)
+specifier|public
+name|void
+name|setInstanceUrl
+parameter_list|(
+name|String
+name|instanceUrl
+parameter_list|)
+block|{
+name|this
+operator|.
+name|instanceUrl
+operator|=
+name|instanceUrl
+expr_stmt|;
+block|}
+DECL|method|getLoginUrl ()
+specifier|public
+name|String
+name|getLoginUrl
+parameter_list|()
+block|{
+return|return
+name|loginUrl
+return|;
+block|}
+DECL|method|setLoginUrl (String loginUrl)
+specifier|public
+name|void
+name|setLoginUrl
+parameter_list|(
+name|String
+name|loginUrl
+parameter_list|)
+block|{
+name|this
+operator|.
+name|loginUrl
+operator|=
+name|loginUrl
+expr_stmt|;
+block|}
+DECL|method|getClientId ()
+specifier|public
+name|String
+name|getClientId
+parameter_list|()
+block|{
+return|return
+name|clientId
+return|;
+block|}
+DECL|method|setClientId (String clientId)
+specifier|public
+name|void
+name|setClientId
+parameter_list|(
+name|String
+name|clientId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clientId
+operator|=
+name|clientId
+expr_stmt|;
+block|}
+DECL|method|getClientSecret ()
+specifier|public
+name|String
+name|getClientSecret
+parameter_list|()
+block|{
+return|return
+name|clientSecret
+return|;
+block|}
+DECL|method|setClientSecret (String clientSecret)
+specifier|public
+name|void
+name|setClientSecret
+parameter_list|(
+name|String
+name|clientSecret
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clientSecret
+operator|=
+name|clientSecret
+expr_stmt|;
+block|}
+DECL|method|getKeystore ()
+specifier|public
+name|KeyStoreParameters
+name|getKeystore
+parameter_list|()
+block|{
+return|return
+name|keystore
+return|;
+block|}
+DECL|method|setKeystore (KeyStoreParameters keystore)
+specifier|public
+name|void
+name|setKeystore
+parameter_list|(
+name|KeyStoreParameters
+name|keystore
+parameter_list|)
+block|{
+name|this
+operator|.
+name|keystore
+operator|=
+name|keystore
+expr_stmt|;
+block|}
+DECL|method|getRefreshToken ()
+specifier|public
+name|String
+name|getRefreshToken
+parameter_list|()
+block|{
+return|return
+name|refreshToken
+return|;
+block|}
+DECL|method|setRefreshToken (String refreshToken)
+specifier|public
+name|void
+name|setRefreshToken
+parameter_list|(
+name|String
+name|refreshToken
+parameter_list|)
+block|{
+name|this
+operator|.
+name|refreshToken
+operator|=
+name|refreshToken
+expr_stmt|;
+block|}
+DECL|method|getType ()
+specifier|public
+name|AuthenticationType
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
+block|}
+DECL|method|setType (AuthenticationType type)
+specifier|public
+name|void
+name|setType
+parameter_list|(
+name|AuthenticationType
+name|type
+parameter_list|)
+block|{
+name|this
+operator|.
+name|type
+operator|=
+name|type
+expr_stmt|;
+block|}
+DECL|method|getUserName ()
+specifier|public
+name|String
+name|getUserName
+parameter_list|()
+block|{
+return|return
+name|userName
+return|;
+block|}
+DECL|method|setUserName (String userName)
+specifier|public
+name|void
+name|setUserName
+parameter_list|(
+name|String
+name|userName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|userName
+operator|=
+name|userName
+expr_stmt|;
+block|}
+DECL|method|getPassword ()
+specifier|public
+name|String
+name|getPassword
+parameter_list|()
+block|{
+return|return
+name|password
+return|;
+block|}
+DECL|method|setPassword (String password)
+specifier|public
+name|void
+name|setPassword
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|this
+operator|.
+name|password
+operator|=
+name|password
+expr_stmt|;
+block|}
+DECL|method|getLazyLogin ()
+specifier|public
+name|Boolean
+name|getLazyLogin
+parameter_list|()
+block|{
+return|return
+name|lazyLogin
+return|;
+block|}
+DECL|method|setLazyLogin (Boolean lazyLogin)
+specifier|public
+name|void
+name|setLazyLogin
+parameter_list|(
+name|Boolean
+name|lazyLogin
+parameter_list|)
+block|{
+name|this
+operator|.
+name|lazyLogin
+operator|=
+name|lazyLogin
+expr_stmt|;
+block|}
+block|}
 DECL|class|SalesforceEndpointConfigNestedConfiguration
 specifier|public
 specifier|static
@@ -1318,7 +1670,7 @@ specifier|private
 name|PayloadFormat
 name|format
 decl_stmt|;
-comment|/**          * Use raw payload String for request and response (either JSON or XML          * depending on format), instead of DTOs, false by default          */
+comment|/**          * Use raw payload {@link String} for request and response (either JSON          * or XML depending on {@code format}), instead of DTOs, false by          * default          */
 DECL|field|rawPayload
 specifier|private
 name|Boolean
@@ -1412,7 +1764,7 @@ specifier|private
 name|Map
 name|apexQueryParams
 decl_stmt|;
-comment|/**          * The approval request for Approval API.          *           * @param approval          */
+comment|/**          * The approval request for Approval API.          */
 DECL|field|approval
 specifier|private
 name|ApprovalRequest
@@ -1456,31 +1808,31 @@ specifier|private
 name|NotifyForFieldsEnum
 name|notifyForFields
 decl_stmt|;
-comment|/**          * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API          * version 29.0)          */
+comment|/**          * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API          * version< 29.0)          */
 DECL|field|notifyForOperations
 specifier|private
 name|NotifyForOperationsEnum
 name|notifyForOperations
 decl_stmt|;
-comment|/**          * Notify for create operation, defaults to false (API version = 29.0)          */
+comment|/**          * Notify for create operation, defaults to false (API version>= 29.0)          */
 DECL|field|notifyForOperationCreate
 specifier|private
 name|Boolean
 name|notifyForOperationCreate
 decl_stmt|;
-comment|/**          * Notify for update operation, defaults to false (API version = 29.0)          */
+comment|/**          * Notify for update operation, defaults to false (API version>= 29.0)          */
 DECL|field|notifyForOperationUpdate
 specifier|private
 name|Boolean
 name|notifyForOperationUpdate
 decl_stmt|;
-comment|/**          * Notify for delete operation, defaults to false (API version = 29.0)          */
+comment|/**          * Notify for delete operation, defaults to false (API version>= 29.0)          */
 DECL|field|notifyForOperationDelete
 specifier|private
 name|Boolean
 name|notifyForOperationDelete
 decl_stmt|;
-comment|/**          * Notify for un-delete operation, defaults to false (API version =          * 29.0)          */
+comment|/**          * Notify for un-delete operation, defaults to false (API version>=          * 29.0)          */
 DECL|field|notifyForOperationUndelete
 specifier|private
 name|Boolean
@@ -1516,12 +1868,6 @@ specifier|private
 name|SalesforceHttpClient
 name|httpClient
 decl_stmt|;
-comment|/**          * Custom Jackson ObjectMapper to use when serializing/deserializing          * Salesforce objects.          */
-DECL|field|objectMapper
-specifier|private
-name|ObjectMapper
-name|objectMapper
-decl_stmt|;
 comment|/**          * Backoff interval increment for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          */
 DECL|field|backoffIncrement
 specifier|private
@@ -1534,7 +1880,13 @@ specifier|private
 name|Long
 name|maxBackoff
 decl_stmt|;
-comment|/**          * Default replayId setting if no value is found in initialReplayIdMap          */
+comment|/**          * Custom Jackson ObjectMapper to use when serializing/deserializing          * Salesforce objects.          */
+DECL|field|objectMapper
+specifier|private
+name|ObjectMapper
+name|objectMapper
+decl_stmt|;
+comment|/**          * Default replayId setting if no value is found in {@link          * #initialReplayIdMap}          */
 DECL|field|defaultReplayId
 specifier|private
 name|Long
@@ -1552,49 +1904,49 @@ specifier|private
 name|Integer
 name|limit
 decl_stmt|;
-comment|/**          * Represents the kind of action to take: Submit, Approve, or Reject.          *           * @param actionType          */
+comment|/**          * Represents the kind of action to take: Submit, Approve, or Reject.          */
 DECL|field|approvalActionType
 specifier|private
 name|Action
 name|approvalActionType
 decl_stmt|;
-comment|/**          * The comment to add to the history step associated with this request.          *           * @param comments          */
+comment|/**          * The comment to add to the history step associated with this request.          */
 DECL|field|approvalComments
 specifier|private
 name|String
 name|approvalComments
 decl_stmt|;
-comment|/**          * The ID of the submitter whoâs requesting the approval record.          *           * @param contextActorId          */
+comment|/**          * The ID of the submitter whoâs requesting the approval record.          */
 DECL|field|approvalContextActorId
 specifier|private
 name|String
 name|approvalContextActorId
 decl_stmt|;
-comment|/**          * The ID of the item that is being acted upon.          *           * @param contextId          */
+comment|/**          * The ID of the item that is being acted upon.          */
 DECL|field|approvalContextId
 specifier|private
 name|String
 name|approvalContextId
 decl_stmt|;
-comment|/**          * If the process requires specification of the next approval, the ID of          * the user to be assigned the next request.          *           * @param nextApproverIds          */
+comment|/**          * If the process requires specification of the next approval, the ID of          * the user to be assigned the next request.          */
 DECL|field|approvalNextApproverIds
 specifier|private
 name|List
 name|approvalNextApproverIds
 decl_stmt|;
-comment|/**          * The developer name or ID of the process definition.          *           * @param processDefinitionNameOrId          */
+comment|/**          * The developer name or ID of the process definition.          */
 DECL|field|approvalProcessDefinitionNameOrId
 specifier|private
 name|String
 name|approvalProcessDefinitionNameOrId
 decl_stmt|;
-comment|/**          * Determines whether to evaluate the entry criteria for the process          * (true) or not (false) if the process definition name or ID isnât          * null. If the process definition name or ID isnât specified, this          * argument is ignored, and standard evaluation is followed based on          * process order. By default, the entry criteria isnât skipped if itâs          * not set by this request.          *           * @param skipEntryCriteria          */
+comment|/**          * Determines whether to evaluate the entry criteria for the process          * (true) or not (false) if the process definition name or ID isnât          * null. If the process definition name or ID isnât specified, this          * argument is ignored, and standard evaluation is followed based on          * process order. By default, the entry criteria isnât skipped if itâs          * not set by this request.          */
 DECL|field|approvalSkipEntryCriteria
 specifier|private
 name|Boolean
 name|approvalSkipEntryCriteria
 decl_stmt|;
-comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL NotFoundBehaviour#NULL or should          * a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION -          * the default.          */
+comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL {@link NotFoundBehaviour#NULL} or          * should a exception be signaled on the exchange {@link          * NotFoundBehaviour#EXCEPTION} - the default.          */
 DECL|field|notFoundBehaviour
 specifier|private
 name|NotFoundBehaviour
@@ -2458,32 +2810,6 @@ operator|=
 name|httpClient
 expr_stmt|;
 block|}
-DECL|method|getObjectMapper ()
-specifier|public
-name|ObjectMapper
-name|getObjectMapper
-parameter_list|()
-block|{
-return|return
-name|objectMapper
-return|;
-block|}
-DECL|method|setObjectMapper (ObjectMapper objectMapper)
-specifier|public
-name|void
-name|setObjectMapper
-parameter_list|(
-name|ObjectMapper
-name|objectMapper
-parameter_list|)
-block|{
-name|this
-operator|.
-name|objectMapper
-operator|=
-name|objectMapper
-expr_stmt|;
-block|}
 DECL|method|getBackoffIncrement ()
 specifier|public
 name|Long
@@ -2534,6 +2860,32 @@ operator|.
 name|maxBackoff
 operator|=
 name|maxBackoff
+expr_stmt|;
+block|}
+DECL|method|getObjectMapper ()
+specifier|public
+name|ObjectMapper
+name|getObjectMapper
+parameter_list|()
+block|{
+return|return
+name|objectMapper
+return|;
+block|}
+DECL|method|setObjectMapper (ObjectMapper objectMapper)
+specifier|public
+name|void
+name|setObjectMapper
+parameter_list|(
+name|ObjectMapper
+name|objectMapper
+parameter_list|)
+block|{
+name|this
+operator|.
+name|objectMapper
+operator|=
+name|objectMapper
 expr_stmt|;
 block|}
 DECL|method|getDefaultReplayId ()
@@ -2820,352 +3172,6 @@ operator|.
 name|notFoundBehaviour
 operator|=
 name|notFoundBehaviour
-expr_stmt|;
-block|}
-block|}
-DECL|class|SalesforceLoginConfigNestedConfiguration
-specifier|public
-specifier|static
-class|class
-name|SalesforceLoginConfigNestedConfiguration
-block|{
-DECL|field|CAMEL_NESTED_CLASS
-specifier|public
-specifier|static
-specifier|final
-name|Class
-name|CAMEL_NESTED_CLASS
-init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|salesforce
-operator|.
-name|SalesforceLoginConfig
-operator|.
-name|class
-decl_stmt|;
-DECL|field|instanceUrl
-specifier|private
-name|String
-name|instanceUrl
-decl_stmt|;
-comment|/**          * Salesforce login URL, defaults to https://login.salesforce.com          */
-DECL|field|loginUrl
-specifier|private
-name|String
-name|loginUrl
-decl_stmt|;
-comment|/**          * Salesforce connected application Consumer Key          */
-DECL|field|clientId
-specifier|private
-name|String
-name|clientId
-decl_stmt|;
-comment|/**          * Salesforce connected application Consumer Secret          */
-DECL|field|clientSecret
-specifier|private
-name|String
-name|clientSecret
-decl_stmt|;
-comment|/**          * Keystore parameters for keystore containing certificate and private          * key needed for OAuth 2.0 JWT Bearer Token Flow.          */
-DECL|field|keystore
-specifier|private
-name|KeyStoreParameters
-name|keystore
-decl_stmt|;
-comment|/**          * Salesforce connected application Consumer token          */
-DECL|field|refreshToken
-specifier|private
-name|String
-name|refreshToken
-decl_stmt|;
-DECL|field|type
-specifier|private
-name|AuthenticationType
-name|type
-decl_stmt|;
-comment|/**          * Salesforce account user name          */
-DECL|field|userName
-specifier|private
-name|String
-name|userName
-decl_stmt|;
-comment|/**          * Salesforce account password          */
-DECL|field|password
-specifier|private
-name|String
-name|password
-decl_stmt|;
-comment|/**          * Flag to enable/disable lazy OAuth, default is false. When enabled,          * OAuth token retrieval or generation is not done until the first API          * call          */
-DECL|field|lazyLogin
-specifier|private
-name|Boolean
-name|lazyLogin
-decl_stmt|;
-DECL|method|getInstanceUrl ()
-specifier|public
-name|String
-name|getInstanceUrl
-parameter_list|()
-block|{
-return|return
-name|instanceUrl
-return|;
-block|}
-DECL|method|setInstanceUrl (String instanceUrl)
-specifier|public
-name|void
-name|setInstanceUrl
-parameter_list|(
-name|String
-name|instanceUrl
-parameter_list|)
-block|{
-name|this
-operator|.
-name|instanceUrl
-operator|=
-name|instanceUrl
-expr_stmt|;
-block|}
-DECL|method|getLoginUrl ()
-specifier|public
-name|String
-name|getLoginUrl
-parameter_list|()
-block|{
-return|return
-name|loginUrl
-return|;
-block|}
-DECL|method|setLoginUrl (String loginUrl)
-specifier|public
-name|void
-name|setLoginUrl
-parameter_list|(
-name|String
-name|loginUrl
-parameter_list|)
-block|{
-name|this
-operator|.
-name|loginUrl
-operator|=
-name|loginUrl
-expr_stmt|;
-block|}
-DECL|method|getClientId ()
-specifier|public
-name|String
-name|getClientId
-parameter_list|()
-block|{
-return|return
-name|clientId
-return|;
-block|}
-DECL|method|setClientId (String clientId)
-specifier|public
-name|void
-name|setClientId
-parameter_list|(
-name|String
-name|clientId
-parameter_list|)
-block|{
-name|this
-operator|.
-name|clientId
-operator|=
-name|clientId
-expr_stmt|;
-block|}
-DECL|method|getClientSecret ()
-specifier|public
-name|String
-name|getClientSecret
-parameter_list|()
-block|{
-return|return
-name|clientSecret
-return|;
-block|}
-DECL|method|setClientSecret (String clientSecret)
-specifier|public
-name|void
-name|setClientSecret
-parameter_list|(
-name|String
-name|clientSecret
-parameter_list|)
-block|{
-name|this
-operator|.
-name|clientSecret
-operator|=
-name|clientSecret
-expr_stmt|;
-block|}
-DECL|method|getKeystore ()
-specifier|public
-name|KeyStoreParameters
-name|getKeystore
-parameter_list|()
-block|{
-return|return
-name|keystore
-return|;
-block|}
-DECL|method|setKeystore (KeyStoreParameters keystore)
-specifier|public
-name|void
-name|setKeystore
-parameter_list|(
-name|KeyStoreParameters
-name|keystore
-parameter_list|)
-block|{
-name|this
-operator|.
-name|keystore
-operator|=
-name|keystore
-expr_stmt|;
-block|}
-DECL|method|getRefreshToken ()
-specifier|public
-name|String
-name|getRefreshToken
-parameter_list|()
-block|{
-return|return
-name|refreshToken
-return|;
-block|}
-DECL|method|setRefreshToken (String refreshToken)
-specifier|public
-name|void
-name|setRefreshToken
-parameter_list|(
-name|String
-name|refreshToken
-parameter_list|)
-block|{
-name|this
-operator|.
-name|refreshToken
-operator|=
-name|refreshToken
-expr_stmt|;
-block|}
-DECL|method|getType ()
-specifier|public
-name|AuthenticationType
-name|getType
-parameter_list|()
-block|{
-return|return
-name|type
-return|;
-block|}
-DECL|method|setType (AuthenticationType type)
-specifier|public
-name|void
-name|setType
-parameter_list|(
-name|AuthenticationType
-name|type
-parameter_list|)
-block|{
-name|this
-operator|.
-name|type
-operator|=
-name|type
-expr_stmt|;
-block|}
-DECL|method|getUserName ()
-specifier|public
-name|String
-name|getUserName
-parameter_list|()
-block|{
-return|return
-name|userName
-return|;
-block|}
-DECL|method|setUserName (String userName)
-specifier|public
-name|void
-name|setUserName
-parameter_list|(
-name|String
-name|userName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|userName
-operator|=
-name|userName
-expr_stmt|;
-block|}
-DECL|method|getPassword ()
-specifier|public
-name|String
-name|getPassword
-parameter_list|()
-block|{
-return|return
-name|password
-return|;
-block|}
-DECL|method|setPassword (String password)
-specifier|public
-name|void
-name|setPassword
-parameter_list|(
-name|String
-name|password
-parameter_list|)
-block|{
-name|this
-operator|.
-name|password
-operator|=
-name|password
-expr_stmt|;
-block|}
-DECL|method|getLazyLogin ()
-specifier|public
-name|Boolean
-name|getLazyLogin
-parameter_list|()
-block|{
-return|return
-name|lazyLogin
-return|;
-block|}
-DECL|method|setLazyLogin (Boolean lazyLogin)
-specifier|public
-name|void
-name|setLazyLogin
-parameter_list|(
-name|Boolean
-name|lazyLogin
-parameter_list|)
-block|{
-name|this
-operator|.
-name|lazyLogin
-operator|=
-name|lazyLogin
 expr_stmt|;
 block|}
 block|}

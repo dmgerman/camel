@@ -52,6 +52,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|eclipse
+operator|.
+name|neoscada
+operator|.
+name|protocol
+operator|.
+name|iec60870
+operator|.
+name|server
+operator|.
+name|data
+operator|.
+name|DataModuleOptions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -189,36 +209,68 @@ name|ServerOptions
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * A time period in "ms" the protocol layer will buffer change events in          * order to send out aggregated change messages          */
+comment|/**          * The period in "ms" between background transmission cycles.<p> If          * this is set to zero or less, background transmissions will be          * disabled.</p>          */
+DECL|field|dataModuleOptions
+specifier|private
+name|DataModuleOptions
+name|dataModuleOptions
+decl_stmt|;
+comment|/**          * The period in "ms" between background transmission cycles.<p> If          * this is set to zero or less, background transmissions will be          * disabled.</p>          */
 DECL|field|bufferingPeriod
 specifier|private
 name|Integer
 name|bufferingPeriod
 decl_stmt|;
-comment|/**          * Send booleans with timestamps          */
+comment|/**          * The period in "ms" between background transmission cycles.<p> If          * this is set to zero or less, background transmissions will be          * disabled.</p>          */
 DECL|field|booleansWithTimestamp
 specifier|private
 name|Boolean
 name|booleansWithTimestamp
 decl_stmt|;
-comment|/**          * Send floats with timestamps          */
+comment|/**          * The period in "ms" between background transmission cycles.<p> If          * this is set to zero or less, background transmissions will be          * disabled.</p>          */
 DECL|field|floatsWithTimestamp
 specifier|private
 name|Boolean
 name|floatsWithTimestamp
 decl_stmt|;
-comment|/**          * Number of spontaneous events to keep in the buffer.          *<p>          * When there are more than this number of spontaneous in events in the          * buffer, then events will be dropped in order to maintain the buffer          * size.          *</p>          */
+comment|/**          * The period in "ms" between background transmission cycles.<p> If          * this is set to zero or less, background transmissions will be          * disabled.</p>          */
 DECL|field|spontaneousDuplicates
 specifier|private
 name|Integer
 name|spontaneousDuplicates
 decl_stmt|;
-comment|/**          * The period in "ms" between background transmission cycles.          *<p>          * If this is set to zero or less, background transmissions will be          * disabled.          *</p>          */
+comment|/**          * The period in "ms" between background transmission cycles.<p> If          * this is set to zero or less, background transmissions will be          * disabled.</p>          */
 DECL|field|backgroundScanPeriod
 specifier|private
 name|Integer
 name|backgroundScanPeriod
 decl_stmt|;
+DECL|method|getDataModuleOptions ()
+specifier|public
+name|DataModuleOptions
+name|getDataModuleOptions
+parameter_list|()
+block|{
+return|return
+name|dataModuleOptions
+return|;
+block|}
+DECL|method|setDataModuleOptions (DataModuleOptions dataModuleOptions)
+specifier|public
+name|void
+name|setDataModuleOptions
+parameter_list|(
+name|DataModuleOptions
+name|dataModuleOptions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dataModuleOptions
+operator|=
+name|dataModuleOptions
+expr_stmt|;
+block|}
 DECL|method|getBufferingPeriod ()
 specifier|public
 name|Integer

@@ -405,6 +405,12 @@ specifier|private
 name|Long
 name|maxResponseMessageSize
 decl_stmt|;
+comment|/**          * The URL where the key should be loaded from          */
+DECL|field|keyStoreUrl
+specifier|private
+name|String
+name|keyStoreUrl
+decl_stmt|;
 comment|/**          * The key store type          */
 DECL|field|keyStoreType
 specifier|private
@@ -753,6 +759,32 @@ operator|.
 name|maxResponseMessageSize
 operator|=
 name|maxResponseMessageSize
+expr_stmt|;
+block|}
+DECL|method|getKeyStoreUrl ()
+specifier|public
+name|String
+name|getKeyStoreUrl
+parameter_list|()
+block|{
+return|return
+name|keyStoreUrl
+return|;
+block|}
+DECL|method|setKeyStoreUrl (String keyStoreUrl)
+specifier|public
+name|void
+name|setKeyStoreUrl
+parameter_list|(
+name|String
+name|keyStoreUrl
+parameter_list|)
+block|{
+name|this
+operator|.
+name|keyStoreUrl
+operator|=
+name|keyStoreUrl
 expr_stmt|;
 block|}
 DECL|method|getKeyStoreType ()

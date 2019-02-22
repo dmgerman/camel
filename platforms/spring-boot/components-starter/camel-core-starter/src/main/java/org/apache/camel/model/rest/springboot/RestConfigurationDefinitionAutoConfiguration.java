@@ -407,6 +407,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// These options is configured specially further below, so remove them first
 name|properties
 operator|.
 name|remove
@@ -476,6 +477,8 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// Workaround for spring-boot properties name as It would appear
+comment|// as enable-c-o-r-s if left uppercase in Configuration
 name|definition
 operator|.
 name|setEnableCORS

@@ -551,8 +551,6 @@ name|Lazy
 annotation|@
 name|Bean
 argument_list|(
-name|name
-operator|=
 block|{
 literal|"ahc-ws-component"
 block|,

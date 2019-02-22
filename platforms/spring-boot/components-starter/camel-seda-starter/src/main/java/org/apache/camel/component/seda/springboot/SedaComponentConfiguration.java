@@ -108,7 +108,7 @@ name|concurrentConsumers
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * Sets the default queue factory. The option is a      * org.apache.camel.component      * .seda.BlockingQueueFactory<org.apache.camel.Exchange> type.      */
+comment|/**      * Sets the default queue factory. The option is a      * org.apache.camel.component.seda.BlockingQueueFactory<org.apache.camel.Exchange> type.      */
 DECL|field|defaultQueueFactory
 specifier|private
 name|String

@@ -168,22 +168,6 @@ name|component
 operator|.
 name|netty4
 operator|.
-name|NettyComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|netty4
-operator|.
 name|NettyServerBootstrapFactory
 import|;
 end_import
@@ -699,7 +683,6 @@ name|allowDefaultCodec
 init|=
 literal|true
 decl_stmt|;
-comment|/**          * @deprecated use #setClientInitializerFactory          */
 annotation|@
 name|Deprecated
 DECL|field|clientPipelineFactory
@@ -736,7 +719,7 @@ specifier|private
 name|Integer
 name|producerPoolMinIdle
 decl_stmt|;
-comment|/**          * Sets the cap on the number of idle instances in the pool.          */
+comment|/**          * Sets the cap on the number of "idle" instances in the pool.          */
 DECL|field|producerPoolMaxIdle
 specifier|private
 name|Integer
@@ -752,7 +735,7 @@ name|producerPoolMinEvictableIdle
 init|=
 literal|300000L
 decl_stmt|;
-comment|/**          * Whether producer pool is enabled or not. Important: If you turn this          * off then a single shared connection is used for the producer, also if          * you are doing request/reply. That means there is a potential issue          * with interleaved responses if replies comes back out-of-order.          * Therefore you need to have a correlation id in both the request and          * reply messages so you can properly correlate the replies to the Camel          * callback that is responsible for continue processing the message in          * Camel. To do this you need to implement          * NettyCamelStateCorrelationManager as correlation manager and          * configure it via the correlationManager option. See also the          * correlationManager option for more details.          */
+comment|/**          * Whether producer pool is enabled or not. Important: If you turn this          * off then a single shared connection is used for the producer, also if          * you are doing request/reply. That means there is a potential issue          * with interleaved responses if replies comes back out-of-order.          * Therefore you need to have a correlation id in both the request and          * reply messages so you can properly correlate the replies to the Camel          * callback that is responsible for continue processing the message in          * Camel. To do this you need to implement {@link          * NettyCamelStateCorrelationManager} as correlation manager and          * configure it via the<tt>correlationManager</tt> option.<p/> See          * also the<tt>correlationManager</tt> option for more details.          */
 DECL|field|producerPoolEnabled
 specifier|private
 name|Boolean
@@ -776,7 +759,7 @@ name|clientMode
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * If the useByteBuf is true, netty producer will turn the message body          * into ByteBuf before sending it out.          */
+comment|/**          * If the useByteBuf is true, netty producer will turn the message body          * into {@link ByteBuf} before sending it out.          */
 DECL|field|useByteBuf
 specifier|private
 name|Boolean
@@ -792,7 +775,7 @@ name|udpByteArrayCodec
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * This option allows producers and consumers (in client mode) to reuse          * the same Netty Channel for the lifecycle of processing the Exchange.          * This is useful if you need to call a server multiple times in a Camel          * route and want to use the same network connection. When using this,          * the channel is not returned to the connection pool until the Exchange          * is done; or disconnected if the disconnect option is set to true. The          * reused Channel is stored on the Exchange as an exchange property with          * the key NettyConstants#NETTY_CHANNEL which allows you to obtain the          * channel during routing and use it as well.          */
+comment|/**          * This option allows producers and consumers (in client mode) to reuse          * the same Netty {@link Channel} for the lifecycle of processing the          * {@link Exchange}. This is useful if you need to call a server          * multiple times in a Camel route and want to use the same network          * connection. When using this, the channel is not returned to the          * connection pool until the {@link Exchange} is done; or disconnected          * if the disconnect option is set to true.<p/> The reused {@link          * Channel} is stored on the {@link Exchange} as an exchange property          * with the key {@link NettyConstants#NETTY_CHANNEL} which allows you to          * obtain the channel during routing and use it as well.          */
 DECL|field|reuseChannel
 specifier|private
 name|Boolean
@@ -800,7 +783,7 @@ name|reuseChannel
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * To use a custom correlation manager to manage how request and reply          * messages are mapped when using request/reply with the netty producer.          * This should only be used if you have a way to map requests together          * with replies such as if there is correlation ids in both the request          * and reply messages. This can be used if you want to multiplex          * concurrent messages on the same channel (aka connection) in netty.          * When doing this you must have a way to correlate the request and          * reply messages so you can store the right reply on the inflight Camel          * Exchange before its continued routed. We recommend extending the          * TimeoutCorrelationManagerSupport when you build custom correlation          * managers. This provides support for timeout and other complexities          * you otherwise would need to implement as well. See also the          * producerPoolEnabled option for more details.          */
+comment|/**          * To use a custom correlation manager to manage how request and reply          * messages are mapped when using request/reply with the netty producer.          * This should only be used if you have a way to map requests together          * with replies such as if there is correlation ids in both the request          * and reply messages. This can be used if you want to multiplex          * concurrent messages on the same channel (aka connection) in netty.          * When doing this you must have a way to correlate the request and          * reply messages so you can store the right reply on the inflight Camel          * Exchange before its continued routed.<p/> We recommend extending the          * {@link TimeoutCorrelationManagerSupport} when you build custom          * correlation managers. This provides support for timeout and other          * complexities you otherwise would need to implement as well.<p/> See          * also the<tt>producerPoolEnabled</tt> option for more details.          */
 DECL|field|correlationManager
 specifier|private
 name|NettyCamelStateCorrelationManager
@@ -812,7 +795,7 @@ specifier|private
 name|String
 name|protocol
 decl_stmt|;
-comment|/**          * The hostname. For the consumer the hostname is localhost or 0.0.0.0.          * For the producer the hostname is the remote host to connect to          */
+comment|/**          * The hostname.<p/> For the consumer the hostname is localhost or          * 0.0.0.0. For the producer the hostname is the remote host to connect          * to          */
 DECL|field|host
 specifier|private
 name|String
@@ -900,7 +883,7 @@ name|connectTimeout
 init|=
 literal|10000
 decl_stmt|;
-comment|/**          * Allows to configure a backlog for netty consumer (server). Note the          * backlog is just a best effort depending on the OS. Setting this          * option to a value such as 200, 500 or 1000, tells the TCP stack how          * long the accept queue can be If this option is not configured, then          * the backlog depends on OS setting.          */
+comment|/**          * Allows to configure a backlog for netty consumer (server). Note the          * backlog is just a best effort depending on the OS. Setting this          * option to a value such as 200, 500 or 1000, tells the TCP stack how          * long the "accept" queue can be If this option is not configured, then          * the backlog depends on OS setting.          */
 DECL|field|backlog
 specifier|private
 name|Integer
@@ -958,25 +941,25 @@ specifier|private
 name|File
 name|trustStoreFile
 decl_stmt|;
-comment|/**          * Client side certificate keystore to be used for encryption. Is loaded          * by default from classpath, but you can prefix with classpath:, file:,          * or http: to load the resource from different systems.          */
+comment|/**          * Client side certificate keystore to be used for encryption. Is loaded          * by default from classpath, but you can prefix with "classpath:",          * "file:", or "http:" to load the resource from different systems.          */
 DECL|field|keyStoreResource
 specifier|private
 name|String
 name|keyStoreResource
 decl_stmt|;
-comment|/**          * Server side certificate keystore to be used for encryption. Is loaded          * by default from classpath, but you can prefix with classpath:, file:,          * or http: to load the resource from different systems.          */
+comment|/**          * Server side certificate keystore to be used for encryption. Is loaded          * by default from classpath, but you can prefix with "classpath:",          * "file:", or "http:" to load the resource from different systems.          */
 DECL|field|trustStoreResource
 specifier|private
 name|String
 name|trustStoreResource
 decl_stmt|;
-comment|/**          * Keystore format to be used for payload encryption. Defaults to JKS if          * not set          */
+comment|/**          * Keystore format to be used for payload encryption. Defaults to "JKS"          * if not set          */
 DECL|field|keyStoreFormat
 specifier|private
 name|String
 name|keyStoreFormat
 decl_stmt|;
-comment|/**          * Security provider to be used for payload encryption. Defaults to          * SunX509 if not set.          */
+comment|/**          * Security provider to be used for payload encryption. Defaults to          * "SunX509" if not set.          */
 DECL|field|securityProvider
 specifier|private
 name|String
@@ -988,7 +971,6 @@ specifier|private
 name|String
 name|passphrase
 decl_stmt|;
-comment|/**          * @deprecated use #setServerInitializerFactory          */
 annotation|@
 name|Deprecated
 DECL|field|serverPipelineFactory
@@ -1008,7 +990,7 @@ specifier|private
 name|NettyServerBootstrapFactory
 name|nettyServerBootstrapFactory
 decl_stmt|;
-comment|/**          * Allows to configure additional netty options using option. as prefix.          * For example option.child.keepAlive=false to set the netty option          * child.keepAlive=false. See the Netty documentation for possible          * options that can be used.          */
+comment|/**          * Allows to configure additional netty options using "option." as          * prefix. For example "option.child.keepAlive=false" to set the netty          * option "child.keepAlive=false". See the Netty documentation for          * possible options that can be used.          */
 DECL|field|options
 specifier|private
 name|Map
