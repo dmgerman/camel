@@ -247,6 +247,24 @@ name|exchangeConverter
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|processors
+operator|.
+name|putAll
+argument_list|(
+operator|new
+name|GeoRedisProcessorsCreator
+argument_list|()
+operator|.
+name|getProcessors
+argument_list|(
+name|redisClient
+argument_list|,
+name|exchangeConverter
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getRedisProcessors ()
 specifier|public

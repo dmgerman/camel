@@ -392,6 +392,24 @@ block|,
 name|PEXPIRE
 block|,
 name|PEXPIREAT
+block|,
+DECL|enumConstant|GEOADD
+DECL|enumConstant|GEODIST
+DECL|enumConstant|GEOHASH
+DECL|enumConstant|GEOPOS
+DECL|enumConstant|GEORADIUS
+DECL|enumConstant|GEORADIUSBYMEMBER
+name|GEOADD
+block|,
+name|GEODIST
+block|,
+name|GEOHASH
+block|,
+name|GEOPOS
+block|,
+name|GEORADIUS
+block|,
+name|GEORADIUSBYMEMBER
 block|}
 end_enum
 

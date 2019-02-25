@@ -180,6 +180,24 @@ name|WITHSCORE
 init|=
 literal|"CamelRedis.WithScore"
 decl_stmt|;
+DECL|field|LATITUDE
+name|String
+name|LATITUDE
+init|=
+literal|"CamelRedis.Latitude"
+decl_stmt|;
+DECL|field|LONGITUDE
+name|String
+name|LONGITUDE
+init|=
+literal|"CamelRedis.Longitude"
+decl_stmt|;
+DECL|field|RADIUS
+name|String
+name|RADIUS
+init|=
+literal|"CamelRedis.Radius"
+decl_stmt|;
 block|}
 end_interface
 
