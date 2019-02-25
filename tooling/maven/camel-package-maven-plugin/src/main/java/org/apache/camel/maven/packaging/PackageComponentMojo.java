@@ -892,9 +892,14 @@ literal|"    \"deprecated\": true,"
 argument_list|)
 expr_stmt|;
 block|}
-name|writeText
+name|updateResource
 argument_list|(
+literal|null
+argument_list|,
 name|file
+operator|.
+name|toPath
+argument_list|()
 argument_list|,
 name|text
 argument_list|)
