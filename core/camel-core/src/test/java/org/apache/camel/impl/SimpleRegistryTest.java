@@ -394,6 +394,7 @@ name|foo
 init|=
 literal|"foo"
 decl_stmt|;
+comment|// will override
 name|registry
 operator|.
 name|bind
@@ -405,7 +406,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
+literal|2
 argument_list|,
 name|registry
 operator|.

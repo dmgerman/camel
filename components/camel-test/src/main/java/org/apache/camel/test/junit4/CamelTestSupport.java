@@ -3788,6 +3788,9 @@ return|return
 name|context
 return|;
 block|}
+comment|/**      * @deprecated expected to be not in use by default soon.      */
+annotation|@
+name|Deprecated
 DECL|method|createRegistry ()
 specifier|protected
 name|JndiRegistry
@@ -3796,6 +3799,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"The method createRegistry() in camel-test is deprecated. You can bind beans directly from Camel Registry instead"
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|JndiRegistry
@@ -3805,6 +3815,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated expected to be not in use by default soon.      */
+annotation|@
+name|Deprecated
 DECL|method|createJndiContext ()
 specifier|protected
 name|Context
@@ -3813,6 +3826,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"The method createJndiContext() in camel-test is deprecated. You can bind beans directly from Camel Registry instead"
+argument_list|)
+expr_stmt|;
 name|Properties
 name|properties
 init|=
