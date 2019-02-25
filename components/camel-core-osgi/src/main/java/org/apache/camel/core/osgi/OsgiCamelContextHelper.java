@@ -40,20 +40,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
-operator|.
-name|DefaultRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -122,7 +108,7 @@ parameter_list|()
 block|{
 comment|// helper class
 block|}
-DECL|method|osgiUpdate (DefaultCamelContext camelContext, BundleContext bundleContext, OsgiBeanRepository beanRepository)
+DECL|method|osgiUpdate (DefaultCamelContext camelContext, BundleContext bundleContext)
 specifier|public
 specifier|static
 name|void
@@ -133,9 +119,6 @@ name|camelContext
 parameter_list|,
 name|BundleContext
 name|bundleContext
-parameter_list|,
-name|OsgiBeanRepository
-name|beanRepository
 parameter_list|)
 block|{
 name|ObjectHelper
@@ -145,24 +128,6 @@ argument_list|(
 name|bundleContext
 argument_list|,
 literal|"BundleContext"
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Using OsgiBeanRepository"
-argument_list|)
-expr_stmt|;
-name|camelContext
-operator|.
-name|setRegistry
-argument_list|(
-operator|new
-name|DefaultRegistry
-argument_list|(
-name|beanRepository
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -311,14 +276,6 @@ name|OsgiDataFormatResolver
 argument_list|(
 name|bundleContext
 argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// Need to clean up the OSGi service when camel context is closed.
-name|camelContext
-operator|.
-name|addLifecycleStrategy
-argument_list|(
-name|beanRepository
 argument_list|)
 expr_stmt|;
 block|}

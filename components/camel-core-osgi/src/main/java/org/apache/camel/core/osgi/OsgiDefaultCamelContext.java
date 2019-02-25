@@ -168,6 +168,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|DefaultRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|osgi
 operator|.
 name|framework
@@ -198,29 +212,6 @@ name|BundleContext
 name|bundleContext
 parameter_list|)
 block|{
-name|this
-argument_list|(
-name|bundleContext
-argument_list|,
-operator|new
-name|OsgiBeanRepository
-argument_list|(
-name|bundleContext
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|OsgiDefaultCamelContext (BundleContext bundleContext, OsgiBeanRepository osgiBeanRepository)
-specifier|public
-name|OsgiDefaultCamelContext
-parameter_list|(
-name|BundleContext
-name|bundleContext
-parameter_list|,
-name|OsgiBeanRepository
-name|osgiBeanRepository
-parameter_list|)
-block|{
 name|super
 argument_list|()
 expr_stmt|;
@@ -230,6 +221,7 @@ name|bundleContext
 operator|=
 name|bundleContext
 expr_stmt|;
+comment|// inject common osgi
 name|OsgiCamelContextHelper
 operator|.
 name|osgiUpdate
@@ -237,8 +229,31 @@ argument_list|(
 name|this
 argument_list|,
 name|bundleContext
-argument_list|,
-name|osgiBeanRepository
+argument_list|)
+expr_stmt|;
+comment|// and these are blueprint specific
+name|OsgiBeanRepository
+name|repo1
+init|=
+operator|new
+name|OsgiBeanRepository
+argument_list|(
+name|bundleContext
+argument_list|)
+decl_stmt|;
+name|setRegistry
+argument_list|(
+operator|new
+name|DefaultRegistry
+argument_list|(
+name|repo1
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Need to clean up the OSGi service when camel context is closed.
+name|addLifecycleStrategy
+argument_list|(
+name|repo1
 argument_list|)
 expr_stmt|;
 comment|// setup the application context classloader with the bundle classloader

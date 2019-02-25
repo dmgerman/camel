@@ -1809,7 +1809,7 @@ name|S
 argument_list|>
 name|objects
 init|=
-name|BlueprintContainerRegistry
+name|BlueprintContainerBeanRepository
 operator|.
 name|lookupByType
 argument_list|(

@@ -78,6 +78,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|BeanRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Registry
 import|;
 end_import
@@ -175,12 +189,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|BlueprintContainerRegistry
+DECL|class|BlueprintContainerBeanRepository
 specifier|public
 class|class
-name|BlueprintContainerRegistry
+name|BlueprintContainerBeanRepository
 implements|implements
-name|Registry
+name|BeanRepository
 block|{
 DECL|field|blueprintContainer
 specifier|private
@@ -188,9 +202,9 @@ specifier|final
 name|BlueprintContainer
 name|blueprintContainer
 decl_stmt|;
-DECL|method|BlueprintContainerRegistry (BlueprintContainer blueprintContainer)
+DECL|method|BlueprintContainerBeanRepository (BlueprintContainer blueprintContainer)
 specifier|public
-name|BlueprintContainerRegistry
+name|BlueprintContainerBeanRepository
 parameter_list|(
 name|BlueprintContainer
 name|blueprintContainer

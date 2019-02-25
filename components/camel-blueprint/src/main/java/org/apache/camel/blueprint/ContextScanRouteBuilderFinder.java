@@ -211,7 +211,7 @@ name|RoutesBuilder
 argument_list|>
 name|beans
 init|=
-name|BlueprintContainerRegistry
+name|BlueprintContainerBeanRepository
 operator|.
 name|lookupByType
 argument_list|(
