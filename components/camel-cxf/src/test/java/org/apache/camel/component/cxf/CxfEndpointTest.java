@@ -94,9 +94,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spring
 operator|.
-name|SimpleRegistry
+name|SpringCamelContext
 import|;
 end_import
 
@@ -108,9 +108,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|support
 operator|.
-name|SpringCamelContext
+name|SimpleRegistry
 import|;
 end_import
 
