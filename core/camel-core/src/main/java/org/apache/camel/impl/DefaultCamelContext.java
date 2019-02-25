@@ -847,8 +847,7 @@ name|registry
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Deprecated
+comment|/**      * Creates the {@link CamelContext} and allows to control whether the context      * should automatic initialize or not.      *<p/>      * This is used by some Camel components such as camel-cdi and camel-blueprint, however      * this constructor is not intended for regular Camel end users.      *      * @param init whether to automatic initialize.      */
 DECL|method|DefaultCamelContext (boolean init)
 specifier|public
 name|DefaultCamelContext
