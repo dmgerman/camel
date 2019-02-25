@@ -5403,11 +5403,18 @@ argument_list|,
 name|optimisticLocking
 argument_list|)
 expr_stmt|;
+name|addListener
+argument_list|(
+name|this
+operator|::
+name|onEviction
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
 DECL|method|purge ()
-specifier|public
+specifier|protected
 name|void
 name|purge
 parameter_list|()
@@ -5444,13 +5451,16 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|onEviction (String key, String exchangeId)
-specifier|public
-name|boolean
+DECL|method|onEviction (Listener.Type type, String key, String exchangeId)
+specifier|private
+name|void
 name|onEviction
 parameter_list|(
+name|Listener
+operator|.
+name|Type
+name|type
+parameter_list|,
 name|String
 name|key
 parameter_list|,
@@ -5458,6 +5468,19 @@ name|String
 name|exchangeId
 parameter_list|)
 block|{
+if|if
+condition|(
+name|type
+operator|!=
+name|Listener
+operator|.
+name|Type
+operator|.
+name|Evict
+condition|)
+block|{
+return|return;
+block|}
 name|log
 operator|.
 name|debug
@@ -5491,9 +5514,7 @@ argument_list|,
 name|exchangeId
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
+return|return;
 block|}
 comment|// get the aggregated exchange
 name|boolean
@@ -5605,9 +5626,6 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-literal|true
-return|;
 block|}
 block|}
 end_class

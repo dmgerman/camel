@@ -28,6 +28,8 @@ name|K
 parameter_list|,
 name|V
 parameter_list|>
+extends|extends
+name|Service
 block|{
 comment|/**      * Looks up the value in the map by the given key.      *      * @param key the key of the value to search for      * @return the value for the given key or<tt>null</tt> if it is not present (or has timed out)      */
 DECL|method|get (K key)
@@ -59,7 +61,7 @@ name|long
 name|timeoutMillis
 parameter_list|)
 function_decl|;
-comment|/**      * Adds the key value pair into the map if the specified key is not already associated with a value      * such that some time after the given timeout the entry will be evicted      *      * @param key   the key      * @param value the value      * @param timeoutMillis  timeout in millis      * @return the value associated with<tt>key</tt>, or      *<tt>null</tt> if there was no mapping for<tt>key</tt>.      */
+comment|/**      * Adds the key value pair into the map if the specified key is not already associated with a value      * such that some time after the given timeout the entry will be evicted. Expiry time of an existing mapping      * is left unchanged.      *      * @param key   the key      * @param value the value      * @param timeoutMillis  timeout in millis      * @return the value associated with<tt>key</tt>, or      *<tt>null</tt> if there was no mapping for<tt>key</tt>.      */
 DECL|method|putIfAbsent (K key, V value, long timeoutMillis)
 name|V
 name|putIfAbsent
@@ -74,18 +76,6 @@ name|long
 name|timeoutMillis
 parameter_list|)
 function_decl|;
-comment|/**      * Callback when the value has been evicted      *      * @param key the key      * @param value the value      * @return<tt>true</tt> to remove the evicted value,      *         or<tt>false</tt> to veto the eviction and thus keep the value.      */
-DECL|method|onEviction (K key, V value)
-name|boolean
-name|onEviction
-parameter_list|(
-name|K
-name|key
-parameter_list|,
-name|V
-name|value
-parameter_list|)
-function_decl|;
 comment|/**      * Removes the object with the given key      *      * @param key  key for the object to remove      * @return the value for the given key or<tt>null</tt> if it is not present (or has timed out)      */
 DECL|method|remove (K key)
 name|V
@@ -95,6 +85,60 @@ name|K
 name|key
 parameter_list|)
 function_decl|;
+comment|/**      * Assign the (singular) {@link Listener}      *      * @param listener the new listener      */
+DECL|method|addListener (Listener<K, V> listener)
+name|void
+name|addListener
+parameter_list|(
+name|Listener
+argument_list|<
+name|K
+argument_list|,
+name|V
+argument_list|>
+name|listener
+parameter_list|)
+function_decl|;
+annotation|@
+name|FunctionalInterface
+DECL|interface|Listener
+interface|interface
+name|Listener
+parameter_list|<
+name|K
+parameter_list|,
+name|V
+parameter_list|>
+block|{
+DECL|enum|Type
+DECL|enumConstant|Put
+DECL|enumConstant|Remove
+DECL|enumConstant|Evict
+enum|enum
+name|Type
+block|{
+name|Put
+block|,
+name|Remove
+block|,
+name|Evict
+block|}
+comment|/**          * Callback when the map changes content          *          * @param key the item key          * @param value the item value          */
+DECL|method|timeoutMapEvent (Type type, K key, V value)
+name|void
+name|timeoutMapEvent
+parameter_list|(
+name|Type
+name|type
+parameter_list|,
+name|K
+name|key
+parameter_list|,
+name|V
+name|value
+parameter_list|)
+function_decl|;
+block|}
 block|}
 end_interface
 
