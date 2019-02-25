@@ -37,20 +37,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Collectors
-operator|.
-name|toMap
-import|;
-end_import
-
-begin_import
 import|import
 name|javax
 operator|.
@@ -104,7 +90,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Registry
+name|BeanRepository
 import|;
 end_import
 
@@ -125,6 +111,20 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+operator|.
+name|toMap
 import|;
 end_import
 
@@ -225,18 +225,18 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The {@link Registry} used by Camel to perform lookup into the CDI {@link BeanManager}.  */
+comment|/**  * The {@link BeanRepository} used by Camel to perform lookup into the CDI {@link BeanManager}.  */
 end_comment
 
 begin_class
 annotation|@
 name|Vetoed
-DECL|class|CdiCamelRegistry
+DECL|class|CdiCamelBeanRepository
 specifier|final
 class|class
-name|CdiCamelRegistry
+name|CdiCamelBeanRepository
 implements|implements
-name|Registry
+name|BeanRepository
 block|{
 DECL|field|logger
 specifier|private
@@ -248,7 +248,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|CdiCamelRegistry
+name|CdiCamelBeanRepository
 operator|.
 name|class
 argument_list|)
@@ -259,8 +259,8 @@ specifier|final
 name|BeanManager
 name|manager
 decl_stmt|;
-DECL|method|CdiCamelRegistry (BeanManager manager)
-name|CdiCamelRegistry
+DECL|method|CdiCamelBeanRepository (BeanManager manager)
+name|CdiCamelBeanRepository
 parameter_list|(
 name|BeanManager
 name|manager
