@@ -18,26 +18,18 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|camel
 operator|.
-name|util
-operator|.
-name|Set
+name|RuntimeCamelException
 import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a service registry which may be implemented via a Spring ApplicationContext,  * via JNDI, a simple Map or the OSGi Service Registry  */
+comment|/**  * Represents a {@link BeanRepository} which may also be capable  * of binding beans to its repository.  */
 end_comment
 
 begin_interface
@@ -45,71 +37,22 @@ DECL|interface|Registry
 specifier|public
 interface|interface
 name|Registry
+extends|extends
+name|BeanRepository
 block|{
-comment|/**      * Looks up a service in the registry based purely on name,      * returning the service or<tt>null</tt> if it could not be found.      *      * @param name the name of the service      * @return the service from the registry or<tt>null</tt> if it could not be found      */
-DECL|method|lookupByName (String name)
-name|Object
-name|lookupByName
+comment|/**      * Binds the bean to the repository (if possible).      *      * @param id   the id of the bean      * @param bean the bean      * @throws RuntimeCamelException is thrown if binding is not possible      */
+DECL|method|bind (String id, Object bean)
+name|void
+name|bind
 parameter_list|(
 name|String
-name|name
-parameter_list|)
-function_decl|;
-comment|/**      * Looks up a service in the registry, returning the service or<tt>null</tt> if it could not be found.      *      * @param name the name of the service      * @param type the type of the required service      * @return the service from the registry or<tt>null</tt> if it could not be found      */
-DECL|method|lookupByNameAndType (String name, Class<T> type)
-parameter_list|<
-name|T
-parameter_list|>
-name|T
-name|lookupByNameAndType
-parameter_list|(
-name|String
-name|name
+name|id
 parameter_list|,
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
+name|Object
+name|bean
 parameter_list|)
-function_decl|;
-comment|/**      * Finds services in the registry by their type.      *      * @param type  the type of the registered services      * @return the types found, with their ids as the key. Returns an empty Map if none found.      */
-DECL|method|findByTypeWithName (Class<T> type)
-parameter_list|<
-name|T
-parameter_list|>
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|T
-argument_list|>
-name|findByTypeWithName
-parameter_list|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|)
-function_decl|;
-comment|/**      * Finds services in the registry by their type.      *      * @param type  the type of the registered services      * @return the types found. Returns an empty Set if none found.      */
-DECL|method|findByType (Class<T> type)
-parameter_list|<
-name|T
-parameter_list|>
-name|Set
-argument_list|<
-name|T
-argument_list|>
-name|findByType
-parameter_list|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|)
+throws|throws
+name|RuntimeCamelException
 function_decl|;
 block|}
 end_interface

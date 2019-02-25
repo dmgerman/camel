@@ -111,6 +111,8 @@ init|=
 operator|-
 literal|3739035212761568984L
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|lookupByName (String name)
 specifier|public
 name|Object
@@ -127,6 +129,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|lookupByNameAndType (String name, Class<T> type)
 specifier|public
 parameter_list|<
@@ -220,6 +224,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|findByTypeWithName (Class<T> type)
 specifier|public
 parameter_list|<
@@ -308,6 +314,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|findByType (Class<T> type)
 specifier|public
 parameter_list|<
@@ -386,6 +394,28 @@ block|}
 return|return
 name|result
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|bind (String id, Object bean)
+specifier|public
+name|void
+name|bind
+parameter_list|(
+name|String
+name|id
+parameter_list|,
+name|Object
+name|bean
+parameter_list|)
+block|{
+name|put
+argument_list|(
+name|id
+argument_list|,
+name|bean
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

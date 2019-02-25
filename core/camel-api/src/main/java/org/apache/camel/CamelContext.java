@@ -758,7 +758,7 @@ name|SuspendableService
 extends|,
 name|RuntimeConfiguration
 block|{
-comment|/**      * Adapts this {@link org.apache.camel.CamelContext} to the specialized type.      *<p/>      * For example to adapt to {@link org.apache.camel.model.ModelCamelContext},      * or<tt>SpringCamelContext</tt>, or<tt>CdiCamelContext</tt>, etc.      *      * @param type the type to adapt to      * @return this {@link org.apache.camel.CamelContext} adapted to the given type      */
+comment|/**      * Adapts this {@link org.apache.camel.CamelContext} to the specialized type.      *<p/>      * For example to adapt to<tt>ModelCamelContext</tt>,      * or<tt>SpringCamelContext</tt>, or<tt>CdiCamelContext</tt>, etc.      *      * @param type the type to adapt to      * @return this {@link org.apache.camel.CamelContext} adapted to the given type      */
 DECL|method|adapt (Class<T> type)
 parameter_list|<
 name|T
@@ -775,6 +775,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
+comment|// TODO: Document these methods
 DECL|method|getExtension (Class<T> type)
 parameter_list|<
 name|T
@@ -1413,13 +1414,13 @@ name|TypeConverterRegistry
 name|getTypeConverterRegistry
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the registry used to lookup components by name and type such as the Spring ApplicationContext,      * JNDI or the OSGi Service Registry      *      * @return the registry      */
+comment|/**      * Returns the registry used to lookup components by name and type such as SimpleRegistry, Spring ApplicationContext,      * JNDI, or the OSGi Service Registry.      *      * @return the registry      */
 DECL|method|getRegistry ()
 name|Registry
 name|getRegistry
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the registry used to lookup components by name and as the given type      *      * @param type the registry type such as {@link org.apache.camel.impl.JndiRegistry}      * @return the registry, or<tt>null</tt> if the given type was not found as a registry implementation      */
+comment|/**      * Returns the registry used to lookup components by name and as the given type      *      * @param type the registry type such as org.apache.camel.impl.JndiRegistry      * @return the registry, or<tt>null</tt> if the given type was not found as a registry implementation      */
 DECL|method|getRegistry (Class<T> type)
 parameter_list|<
 name|T
