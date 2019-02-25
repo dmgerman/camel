@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.support
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 package|;
 end_package
 
@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Map}-based registry.  */
+comment|/**  * A {@link Map}-based registry.  *<p/>  * Favour using {@link DefaultRegistry} instead of this.  *  * @see DefaultRegistry  */
 end_comment
 
 begin_class

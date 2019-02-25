@@ -1994,6 +1994,20 @@ name|camel
 operator|.
 name|support
 operator|.
+name|SimpleRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
 name|jsse
 operator|.
 name|SSLContextParameters
@@ -3156,24 +3170,6 @@ block|{
 name|this
 argument_list|(
 literal|true
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Creates the {@link CamelContext} using the given JNDI context as the registry      *      * @param jndiContext the JNDI context      */
-DECL|method|AbstractCamelContext (Context jndiContext)
-specifier|public
-name|AbstractCamelContext
-parameter_list|(
-name|Context
-name|jndiContext
-parameter_list|)
-block|{
-name|this
-argument_list|()
-expr_stmt|;
-name|setJndiContext
-argument_list|(
-name|jndiContext
 argument_list|)
 expr_stmt|;
 block|}
@@ -14848,26 +14844,6 @@ block|}
 return|return
 literal|null
 return|;
-block|}
-comment|/**      * Sets the registry to the given JNDI context      *      * @param jndiContext is the JNDI context to use as the registry      * @see #setRegistry(Registry)      */
-DECL|method|setJndiContext (Context jndiContext)
-specifier|public
-name|void
-name|setJndiContext
-parameter_list|(
-name|Context
-name|jndiContext
-parameter_list|)
-block|{
-name|setRegistry
-argument_list|(
-operator|new
-name|JndiRegistry
-argument_list|(
-name|jndiContext
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|setRegistry (Registry registry)
 specifier|public

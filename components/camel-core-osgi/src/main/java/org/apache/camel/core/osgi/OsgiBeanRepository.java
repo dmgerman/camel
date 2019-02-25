@@ -118,7 +118,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Registry
+name|BeanRepository
 import|;
 end_import
 
@@ -229,18 +229,18 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The OsgiServiceRegistry support to get the service object from the bundle context  */
+comment|/**  * The OSGi {@link BeanRepository} support to lookup beans from the OSGi service registry from its bundle context.  */
 end_comment
 
 begin_class
-DECL|class|OsgiServiceRegistry
+DECL|class|OsgiBeanRepository
 specifier|public
 class|class
-name|OsgiServiceRegistry
+name|OsgiBeanRepository
 extends|extends
 name|LifecycleStrategySupport
 implements|implements
-name|Registry
+name|BeanRepository
 implements|,
 name|Service
 implements|,
@@ -257,7 +257,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|OsgiServiceRegistry
+name|OsgiBeanRepository
 operator|.
 name|class
 argument_list|)
@@ -287,9 +287,9 @@ name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|method|OsgiServiceRegistry (BundleContext bc)
+DECL|method|OsgiBeanRepository (BundleContext bc)
 specifier|public
-name|OsgiServiceRegistry
+name|OsgiBeanRepository
 parameter_list|(
 name|BundleContext
 name|bc

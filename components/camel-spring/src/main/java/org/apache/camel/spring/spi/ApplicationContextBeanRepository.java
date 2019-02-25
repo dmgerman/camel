@@ -70,7 +70,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Registry
+name|BeanRepository
 import|;
 end_import
 
@@ -129,25 +129,25 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Registry} implementation which looks up the objects in the Spring  * {@link ApplicationContext}  */
+comment|/**  * A {@link BeanRepository} implementation which looks up the objects in the Spring  * {@link ApplicationContext}  */
 end_comment
 
 begin_class
-DECL|class|ApplicationContextRegistry
+DECL|class|ApplicationContextBeanRepository
 specifier|public
 class|class
-name|ApplicationContextRegistry
+name|ApplicationContextBeanRepository
 implements|implements
-name|Registry
+name|BeanRepository
 block|{
 DECL|field|applicationContext
 specifier|private
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
-DECL|method|ApplicationContextRegistry (ApplicationContext applicationContext)
+DECL|method|ApplicationContextBeanRepository (ApplicationContext applicationContext)
 specifier|public
-name|ApplicationContextRegistry
+name|ApplicationContextBeanRepository
 parameter_list|(
 name|ApplicationContext
 name|applicationContext

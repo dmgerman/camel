@@ -100,7 +100,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Injector
+name|BeanRepository
 import|;
 end_import
 
@@ -114,7 +114,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ManagementMBeanAssembler
+name|Injector
 import|;
 end_import
 
@@ -158,7 +158,7 @@ name|spring
 operator|.
 name|spi
 operator|.
-name|ApplicationContextRegistry
+name|ApplicationContextBeanRepository
 import|;
 end_import
 
@@ -191,6 +191,20 @@ operator|.
 name|spi
 operator|.
 name|SpringManagementMBeanAssembler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|DefaultRegistry
 import|;
 end_import
 
@@ -1147,12 +1161,21 @@ name|Registry
 name|createRegistry
 parameter_list|()
 block|{
-return|return
+name|BeanRepository
+name|repository
+init|=
 operator|new
-name|ApplicationContextRegistry
+name|ApplicationContextBeanRepository
 argument_list|(
 name|getApplicationContext
 argument_list|()
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|DefaultRegistry
+argument_list|(
+name|repository
 argument_list|)
 return|;
 block|}

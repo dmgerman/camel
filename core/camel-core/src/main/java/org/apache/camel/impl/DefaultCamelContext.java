@@ -318,6 +318,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|BeanRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|CamelContextNameStrategy
 import|;
 end_import
@@ -728,6 +742,34 @@ name|ValidatorRegistry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|DefaultRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|SimpleRegistry
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents the context used to configure routes and the policies to use.  */
 end_comment
@@ -740,7 +782,7 @@ name|DefaultCamelContext
 extends|extends
 name|AbstractCamelContext
 block|{
-comment|/**      * Creates the {@link CamelContext} using {@link JndiRegistry} as registry,      * but will silently fallback and use {@link SimpleRegistry} if JNDI cannot be used.      *<p/>      * Use one of the other constructors to force use an explicit registry / JNDI.      */
+comment|/**      * Creates the {@link CamelContext} using {@link DefaultRegistry} as registry.      *<p/>      * Use one of the other constructors to force use an explicit registry.      */
 DECL|method|DefaultCamelContext ()
 specifier|public
 name|DefaultCamelContext
@@ -750,7 +792,28 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Creates the {@link CamelContext} using the given JNDI context as the registry      *      * @param jndiContext the JNDI context      */
+comment|/**      * Creates the {@link CamelContext} using the given {@link BeanRepository}      * as first-choice repository, and the {@link SimpleRegistry} as fallback, via      * the {@link DefaultRegistry} implementation.      *      * @param repository the bean repository.      */
+DECL|method|DefaultCamelContext (BeanRepository repository)
+specifier|public
+name|DefaultCamelContext
+parameter_list|(
+name|BeanRepository
+name|repository
+parameter_list|)
+block|{
+name|super
+argument_list|(
+operator|new
+name|DefaultRegistry
+argument_list|(
+name|repository
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Creates the {@link CamelContext} using the given JNDI context as the registry      *      * @param jndiContext the JNDI context      * @deprecated create a new {@link JndiRegistry} and use the constructor that accepts this registry.      */
+annotation|@
+name|Deprecated
 DECL|method|DefaultCamelContext (Context jndiContext)
 specifier|public
 name|DefaultCamelContext
@@ -759,9 +822,13 @@ name|Context
 name|jndiContext
 parameter_list|)
 block|{
-name|super
+name|this
+argument_list|(
+operator|new
+name|JndiRegistry
 argument_list|(
 name|jndiContext
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -780,6 +847,8 @@ name|registry
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|DefaultCamelContext (boolean init)
 specifier|public
 name|DefaultCamelContext
