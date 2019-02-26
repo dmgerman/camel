@@ -788,6 +788,7 @@ literal|"force"
 decl_stmt|;
 DECL|field|lock
 specifier|private
+specifier|volatile
 name|Lock
 name|lock
 decl_stmt|;
@@ -5411,6 +5412,14 @@ name|void
 name|purge
 parameter_list|()
 block|{
+comment|// wait for lock to be created
+if|if
+condition|(
+name|lock
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// must acquire the shared aggregation lock to be able to purge
 name|lock
 operator|.
@@ -5432,6 +5441,7 @@ operator|.
 name|unlock
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
@@ -6833,13 +6843,11 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|newScheduledThreadPool
+name|newSingleThreadScheduledExecutor
 argument_list|(
 name|this
 argument_list|,
 name|AGGREGATE_TIMEOUT_CHECKER
-argument_list|,
-literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6909,13 +6917,11 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|newScheduledThreadPool
+name|newSingleThreadScheduledExecutor
 argument_list|(
 name|this
 argument_list|,
 name|AGGREGATE_TIMEOUT_CHECKER
-argument_list|,
-literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
