@@ -1100,33 +1100,11 @@ name|UuidGenerator
 name|createUuidGenerator
 parameter_list|()
 block|{
-if|if
-condition|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"com.google.appengine.runtime.environment"
-argument_list|)
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// either "Production" or "Development"
-return|return
-operator|new
-name|JavaUuidGenerator
-argument_list|()
-return|;
-block|}
-else|else
-block|{
 return|return
 operator|new
 name|DefaultUuidGenerator
 argument_list|()
 return|;
-block|}
 block|}
 DECL|method|createModelJAXBContextFactory ()
 specifier|protected
