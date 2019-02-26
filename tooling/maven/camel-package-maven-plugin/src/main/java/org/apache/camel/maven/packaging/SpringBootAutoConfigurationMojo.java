@@ -320,18 +320,6 @@ name|util
 operator|.
 name|regex
 operator|.
-name|Matcher
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
 name|Pattern
 import|;
 end_import
@@ -1239,7 +1227,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generate Spring Boot auto configuration files for Camel components and data formats.  */
+comment|/**  * Generate Spring Boot auto configuration files for Camel components and data  * formats.  */
 end_comment
 
 begin_class
@@ -1273,7 +1261,7 @@ name|SpringBootAutoConfigurationMojo
 extends|extends
 name|AbstractMojo
 block|{
-comment|/**      * Useful to move configuration towards starters.      * Warning: the spring.factories files sometimes are used also on the main artifacts.      * Make sure it is not the case before enabling this property.      */
+comment|/**      * Useful to move configuration towards starters. Warning: the      * spring.factories files sometimes are used also on the main artifacts.      * Make sure it is not the case before enabling this property.      */
 DECL|field|DELETE_FILES_ON_MAIN_ARTIFACTS
 specifier|private
 specifier|static
@@ -1283,7 +1271,7 @@ name|DELETE_FILES_ON_MAIN_ARTIFACTS
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Suffix used for generating inner classes for nested component properties, e.g. endpoint configuration.      */
+comment|/**      * Suffix used for generating inner classes for nested component properties,      * e.g. endpoint configuration.      */
 DECL|field|INNER_TYPE_SUFFIX
 specifier|private
 specifier|static
@@ -1293,7 +1281,7 @@ name|INNER_TYPE_SUFFIX
 init|=
 literal|"NestedConfiguration"
 decl_stmt|;
-comment|/**      * Classes to include when adding {@link NestedConfigurationProperty} annotations.      */
+comment|/**      * Classes to include when adding {@link NestedConfigurationProperty}      * annotations.      */
 DECL|field|INCLUDE_INNER_PATTERN
 specifier|private
 specifier|static
@@ -1308,7 +1296,7 @@ argument_list|(
 literal|"org\\.apache\\.camel\\..*"
 argument_list|)
 decl_stmt|;
-comment|/**      * Whether to enable adding @NestedConfigurationProperty annotations to options.      * This is disabled as the generated options likely is not configurable as plain POJOs      * and there is also no documentation for each of the generated options.      */
+comment|/**      * Whether to enable adding @NestedConfigurationProperty annotations to      * options. This is disabled as the generated options likely is not      * configurable as plain POJOs and there is also no documentation for each      * of the generated options.      */
 DECL|field|ADD_NESTED_CONFIGURATION_PROPERTY
 specifier|private
 specifier|static
@@ -1594,7 +1582,7 @@ comment|/* Non-standard -> */
 literal|"camel-grape"
 block|}
 decl_stmt|;
-comment|/**      * The output directory for generated component schema file      *      */
+comment|/**      * The output directory for generated component schema file      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -1628,7 +1616,7 @@ specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The project build directory      *      */
+comment|/**      * The project build directory      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -1641,7 +1629,7 @@ specifier|protected
 name|File
 name|buildDir
 decl_stmt|;
-comment|/**      * The base directory      *      */
+comment|/**      * The base directory      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -2029,7 +2017,8 @@ argument_list|)
 operator|+
 literal|".springboot"
 decl_stmt|;
-comment|// Generate properties, auto-configuration happens in camel-hystrix-starter
+comment|// Generate properties, auto-configuration happens in
+comment|// camel-hystrix-starter
 name|createOtherModelConfigurationSource
 argument_list|(
 name|pkg
@@ -2097,7 +2086,8 @@ argument_list|)
 operator|+
 literal|".springboot"
 decl_stmt|;
-comment|// Generate properties, auto-configuration happens in camel-consul-starter
+comment|// Generate properties, auto-configuration happens in
+comment|// camel-consul-starter
 name|createOtherModelConfigurationSource
 argument_list|(
 name|pkg
@@ -2165,7 +2155,8 @@ argument_list|)
 operator|+
 literal|".springboot"
 decl_stmt|;
-comment|// Generate properties, auto-configuration happens in camel-dns-starter
+comment|// Generate properties, auto-configuration happens in
+comment|// camel-dns-starter
 name|createOtherModelConfigurationSource
 argument_list|(
 name|pkg
@@ -2233,7 +2224,8 @@ argument_list|)
 operator|+
 literal|".springboot"
 decl_stmt|;
-comment|// Generate properties, auto-configuration happens in camel-etcd-starter
+comment|// Generate properties, auto-configuration happens in
+comment|// camel-etcd-starter
 name|createOtherModelConfigurationSource
 argument_list|(
 name|pkg
@@ -2301,7 +2293,8 @@ argument_list|)
 operator|+
 literal|".springboot"
 decl_stmt|;
-comment|// Generate properties, auto-configuration happens in camel-kubernetes-starter
+comment|// Generate properties, auto-configuration happens in
+comment|// camel-kubernetes-starter
 name|createOtherModelConfigurationSource
 argument_list|(
 name|pkg
@@ -2369,7 +2362,8 @@ argument_list|)
 operator|+
 literal|".springboot"
 decl_stmt|;
-comment|// Generate properties, auto-configuration happens in camel-kubernetes-starter
+comment|// Generate properties, auto-configuration happens in
+comment|// camel-kubernetes-starter
 name|createOtherModelConfigurationSource
 argument_list|(
 name|pkg
@@ -2437,7 +2431,8 @@ argument_list|)
 operator|+
 literal|".springboot"
 decl_stmt|;
-comment|// Generate properties, auto-configuration happens in camel-kubernetes-starter
+comment|// Generate properties, auto-configuration happens in
+comment|// camel-kubernetes-starter
 name|createRestConfigurationSource
 argument_list|(
 name|pkg
@@ -4510,7 +4505,8 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|// They should be equivalent
+comment|// They should be
+comment|// equivalent
 name|List
 argument_list|<
 name|String
@@ -4540,9 +4536,13 @@ name|toList
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// resolvePropertyPlaceholders is an option which only make sense to use if the component has other options
-comment|//boolean hasOptions = model.getComponentOptions().stream().anyMatch(o -> !o.getName().equals("resolvePropertyPlaceholders"));
-comment|// use springboot as sub package name so the code is not in normal
+comment|// resolvePropertyPlaceholders is an option which only make
+comment|// sense to use if the component has other options
+comment|// boolean hasOptions =
+comment|// model.getComponentOptions().stream().anyMatch(o ->
+comment|// !o.getName().equals("resolvePropertyPlaceholders"));
+comment|// use springboot as sub package name so the code is not in
+comment|// normal
 comment|// package so the Spring Boot JARs can be optional at runtime
 name|int
 name|pos
@@ -4809,7 +4809,8 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|// They should be equivalent
+comment|// They should be
+comment|// equivalent
 name|List
 argument_list|<
 name|String
@@ -4839,7 +4840,8 @@ name|toList
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// use springboot as sub package name so the code is not in normal
+comment|// use springboot as sub package name so the code is not in
+comment|// normal
 comment|// package so the Spring Boot JARs can be optional at runtime
 name|int
 name|pos
@@ -5106,7 +5108,8 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|// They should be equivalent
+comment|// They should be
+comment|// equivalent
 name|List
 argument_list|<
 name|String
@@ -5136,7 +5139,8 @@ name|toList
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// use springboot as sub package name so the code is not in normal
+comment|// use springboot as sub package name so the code is not in
+comment|// normal
 comment|// package so the Spring Boot JARs can be optional at runtime
 name|int
 name|pos
@@ -5324,7 +5328,8 @@ argument_list|(
 literal|"org.apache.camel.spring.boot.ComponentConfigurationPropertiesCommon"
 argument_list|)
 expr_stmt|;
-comment|// add bogus field for enabled so spring boot tooling can get the javadoc as description in its metadata
+comment|// add bogus field for enabled so spring boot tooling can get the
+comment|// javadoc as description in its metadata
 name|Property
 name|bogus
 init|=
@@ -5586,10 +5591,14 @@ operator|+
 name|INNER_TYPE_SUFFIX
 expr_stmt|;
 block|}
-comment|// spring-boot auto configuration does not support complex types (unless they are enum, nested)
-comment|// and if so then we should use a String type so spring-boot and its tooling support that
-comment|// as Camel will be able to convert the string value into a lookup of the bean in the registry anyway
-comment|// and therefore there is no problem, eg camel.component.jdbc.data-source = myDataSource
+comment|// spring-boot auto configuration does not support complex types
+comment|// (unless they are enum, nested)
+comment|// and if so then we should use a String type so spring-boot and its
+comment|// tooling support that
+comment|// as Camel will be able to convert the string value into a lookup
+comment|// of the bean in the registry anyway
+comment|// and therefore there is no problem, eg
+comment|// camel.component.jdbc.data-source = myDataSource
 comment|// where the type would have been javax.sql.DataSource
 name|boolean
 name|complex
@@ -5735,7 +5744,8 @@ operator|)
 operator|)
 condition|)
 block|{
-comment|// add nested configuration annotation for complex properties
+comment|// add nested configuration annotation for complex
+comment|// properties
 name|prop
 operator|.
 name|getField
@@ -5799,7 +5809,8 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// DeprecatedConfigurationProperty must be on getter when deprecated
+comment|// DeprecatedConfigurationProperty must be on getter when
+comment|// deprecated
 name|prop
 operator|.
 name|getAccessor
@@ -6785,7 +6796,8 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// DeprecatedConfigurationProperty must be on getter when deprecated
+comment|// DeprecatedConfigurationProperty must be on getter when
+comment|// deprecated
 name|prop
 operator|.
 name|getAccessor
@@ -6799,7 +6811,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|// find description for the nested type on its field/setter javadoc or via Camel annotations
+comment|// find description for the nested type on its field/setter
+comment|// javadoc or via Camel annotations
 name|String
 name|description
 init|=
@@ -6989,9 +7002,12 @@ name|description
 argument_list|)
 expr_stmt|;
 block|}
-comment|// try to see if the source is actually reusing a shared Camel configuration that that has @UriParam options
-comment|// if so we can fetch the default value from the json file as it holds the correct value vs the annotation
-comment|// as the annotation can refer to a constant field which we wont have accessible at this point
+comment|// try to see if the source is actually reusing a shared Camel
+comment|// configuration that that has @UriParam options
+comment|// if so we can fetch the default value from the json file as it
+comment|// holds the correct value vs the annotation
+comment|// as the annotation can refer to a constant field which we wont
+comment|// have accessible at this point
 if|if
 condition|(
 name|sourceProp
@@ -7294,7 +7310,8 @@ name|defaultValue
 argument_list|)
 condition|)
 block|{
-comment|// roaster can create the wrong type for some options so use the correct type we found in the json schema
+comment|// roaster can create the wrong type for some options so
+comment|// use the correct type we found in the json schema
 name|String
 name|wrapperType
 init|=
@@ -7531,7 +7548,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|// get properties for nested type and super types, only properties with setters are supported!!!
+comment|// get properties for nested type and super types, only properties with
+comment|// setters are supported!!!
 DECL|method|getProperties (JavaClass nestedType)
 specifier|private
 name|List
@@ -8222,7 +8240,8 @@ parameter_list|)
 block|{
 comment|// remove<?> as generic type as Roaster (Eclipse JDT) cannot use that
 comment|//        type = type.replaceAll("\\<\\?\\>", "");
-comment|// use wrapper types for primitive types so a null mean that the option has not been configured
+comment|// use wrapper types for primitive types so a null mean that the option
+comment|// has not been configured
 name|String
 name|wrapper
 init|=
@@ -8249,7 +8268,8 @@ return|return
 name|type
 return|;
 block|}
-comment|// it's a nested property if the source exists and it's not an abstract class in this project, e.g. endpoint configuration
+comment|// it's a nested property if the source exists and it's not an abstract
+comment|// class in this project, e.g. endpoint configuration
 DECL|method|isNestedProperty (Set<JavaClass> nestedTypes, JavaClass type)
 specifier|private
 name|boolean
@@ -8272,7 +8292,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// nested type MUST have some properties of it's own, besides those from super class
+comment|// nested type MUST have some properties of it's own, besides those
+comment|// from super class
 if|if
 condition|(
 name|type
@@ -10472,7 +10493,8 @@ argument_list|(
 literal|"org.apache.camel.spring.boot.DataFormatConfigurationPropertiesCommon"
 argument_list|)
 expr_stmt|;
-comment|// add bogus field for enabled so spring boot tooling can get the javadoc as description in its metadata
+comment|// add bogus field for enabled so spring boot tooling can get the
+comment|// javadoc as description in its metadata
 name|Property
 name|bogus
 init|=
@@ -10663,10 +10685,14 @@ argument_list|(
 name|type
 argument_list|)
 expr_stmt|;
-comment|// spring-boot auto configuration does not support complex types (unless they are enum, nested)
-comment|// and if so then we should use a String type so spring-boot and its tooling support that
-comment|// as Camel will be able to convert the string value into a lookup of the bean in the registry anyway
-comment|// and therefore there is no problem, eg camel.component.jdbc.data-source = myDataSource
+comment|// spring-boot auto configuration does not support complex types
+comment|// (unless they are enum, nested)
+comment|// and if so then we should use a String type so spring-boot and its
+comment|// tooling support that
+comment|// as Camel will be able to convert the string value into a lookup
+comment|// of the bean in the registry anyway
+comment|// and therefore there is no problem, eg
+comment|// camel.component.jdbc.data-source = myDataSource
 comment|// where the type would have been javax.sql.DataSource
 name|boolean
 name|complex
@@ -10761,7 +10787,8 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// DeprecatedConfigurationProperty must be on getter when deprecated
+comment|// DeprecatedConfigurationProperty must be on getter when
+comment|// deprecated
 name|prop
 operator|.
 name|getAccessor
@@ -11159,7 +11186,8 @@ argument_list|(
 literal|"org.apache.camel.spring.boot.LanguageConfigurationPropertiesCommon"
 argument_list|)
 expr_stmt|;
-comment|// add bogus field for enabled so spring boot tooling can get the javadoc as description in its metadata
+comment|// add bogus field for enabled so spring boot tooling can get the
+comment|// javadoc as description in its metadata
 name|Property
 name|bogus
 init|=
@@ -11319,7 +11347,8 @@ name|getLanguageOptions
 argument_list|()
 control|)
 block|{
-comment|// skip option with name id, or expression in language as we do not need that and skip resultType as they are not global options
+comment|// skip option with name id, or expression in language as we do not
+comment|// need that and skip resultType as they are not global options
 if|if
 condition|(
 literal|"id"
@@ -11646,10 +11675,14 @@ argument_list|(
 name|type
 argument_list|)
 expr_stmt|;
-comment|// spring-boot auto configuration does not support complex types (unless they are enum, nested)
-comment|// and if so then we should use a String type so spring-boot and its tooling support that
-comment|// as Camel will be able to convert the string value into a lookup of the bean in the registry anyway
-comment|// and therefore there is no problem, eg camel.component.jdbc.data-source = myDataSource
+comment|// spring-boot auto configuration does not support complex types
+comment|// (unless they are enum, nested)
+comment|// and if so then we should use a String type so spring-boot and its
+comment|// tooling support that
+comment|// as Camel will be able to convert the string value into a lookup
+comment|// of the bean in the registry anyway
+comment|// and therefore there is no problem, eg
+comment|// camel.component.jdbc.data-source = myDataSource
 comment|// where the type would have been javax.sql.DataSource
 name|boolean
 name|complex
@@ -11744,7 +11777,8 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// DeprecatedConfigurationProperty must be on getter when deprecated
+comment|// DeprecatedConfigurationProperty must be on getter when
+comment|// deprecated
 name|prop
 operator|.
 name|getAccessor
@@ -12110,7 +12144,7 @@ block|}
 end_class
 
 begin_function
-DECL|method|createComponentAutoConfigurationSource ( String packageName, ComponentModel model, List<String> componentAliases, String overrideComponentName)
+DECL|method|createComponentAutoConfigurationSource (String packageName, ComponentModel model, List<String> componentAliases, String overrideComponentName)
 specifier|private
 name|void
 name|createComponentAutoConfigurationSource
@@ -12928,7 +12962,7 @@ block|}
 end_function
 
 begin_function
-DECL|method|createDataFormatAutoConfigurationSource ( String packageName, DataFormatModel model, List<String> dataFormatAliases, String overrideDataFormatName)
+DECL|method|createDataFormatAutoConfigurationSource (String packageName, DataFormatModel model, List<String> dataFormatAliases, String overrideDataFormatName)
 specifier|private
 name|void
 name|createDataFormatAutoConfigurationSource
@@ -13599,7 +13633,8 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// Determine all the aliases
-comment|// adding the '-dataformat' suffix to prevent collision with component names
+comment|// adding the '-dataformat' suffix to prevent collision with component
+comment|// names
 name|String
 index|[]
 name|springBeanAliases
@@ -13699,7 +13734,7 @@ block|}
 end_function
 
 begin_function
-DECL|method|createLanguageAutoConfigurationSource ( String packageName, LanguageModel model, List<String> languageAliases, String overrideLanguageName)
+DECL|method|createLanguageAutoConfigurationSource (String packageName, LanguageModel model, List<String> languageAliases, String overrideLanguageName)
 specifier|private
 name|void
 name|createLanguageAutoConfigurationSource
@@ -14352,7 +14387,8 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// Determine all the aliases
-comment|// adding the '-language' suffix to prevent collision with component names
+comment|// adding the '-language' suffix to prevent collision with component
+comment|// names
 name|String
 index|[]
 name|springBeanAliases
@@ -17674,7 +17710,8 @@ range|:
 name|files
 control|)
 block|{
-comment|// skip directories as there may be a sub .resolver directory
+comment|// skip directories as there may be a sub .resolver
+comment|// directory
 if|if
 condition|(
 name|file
@@ -17801,7 +17838,8 @@ range|:
 name|files
 control|)
 block|{
-comment|// skip directories as there may be a sub .resolver directory
+comment|// skip directories as there may be a sub .resolver
+comment|// directory
 if|if
 condition|(
 name|file
@@ -17931,7 +17969,8 @@ range|:
 name|files
 control|)
 block|{
-comment|// skip directories as there may be a sub .resolver directory
+comment|// skip directories as there may be a sub .resolver
+comment|// directory
 if|if
 condition|(
 name|file
@@ -18284,7 +18323,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// find last non empty line, so we can add our new line after that
+comment|// find last non empty line, so we can add our new line
+comment|// after that
 name|int
 name|lastLine
 init|=
