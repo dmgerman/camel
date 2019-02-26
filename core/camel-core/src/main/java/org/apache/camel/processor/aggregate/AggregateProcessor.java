@@ -7002,9 +7002,9 @@ condition|)
 block|{
 name|lock
 operator|=
-operator|new
 name|NoLock
-argument_list|()
+operator|.
+name|INSTANCE
 expr_stmt|;
 if|if
 condition|(

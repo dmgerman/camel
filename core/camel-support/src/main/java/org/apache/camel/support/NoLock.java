@@ -68,6 +68,17 @@ name|NoLock
 implements|implements
 name|Lock
 block|{
+DECL|field|INSTANCE
+specifier|public
+specifier|static
+specifier|final
+name|Lock
+name|INSTANCE
+init|=
+operator|new
+name|NoLock
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|lock ()

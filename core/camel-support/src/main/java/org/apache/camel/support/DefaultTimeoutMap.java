@@ -430,9 +430,9 @@ operator|new
 name|ReentrantLock
 argument_list|()
 else|:
-operator|new
 name|NoLock
-argument_list|()
+operator|.
+name|INSTANCE
 argument_list|)
 expr_stmt|;
 block|}
