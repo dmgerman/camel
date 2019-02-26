@@ -945,6 +945,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+comment|// Need to run the mvn clean install to create the jar file when running it from IDE
 DECL|method|testFindByFilterPackageInJarUrl ()
 specifier|public
 name|void
@@ -970,6 +971,7 @@ operator|.
 name|getContextClassLoader
 argument_list|()
 expr_stmt|;
+comment|// build a mock URLClassLoader
 name|URL
 name|url
 init|=
@@ -1111,6 +1113,7 @@ block|}
 block|}
 annotation|@
 name|Test
+comment|// Need to run the mvn clean install to create the test jar file when running it from IDE
 DECL|method|testFindByFilterPackageInJarUrlWithPlusChars ()
 specifier|public
 name|void
