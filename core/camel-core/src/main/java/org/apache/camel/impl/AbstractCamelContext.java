@@ -3161,7 +3161,7 @@ name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|/**      * Creates the {@link CamelContext} using {@link JndiRegistry} as registry,      * but will silently fallback and use {@link SimpleRegistry} if JNDI cannot be used.      *<p/>      * Use one of the other constructors to force use an explicit registry / JNDI.      */
+comment|/**      * Creates the {@link CamelContext} using {@link org.apache.camel.support.DefaultRegistry} as registry.      *<p/>      * Use one of the other constructors to force use an explicit registry.      */
 DECL|method|AbstractCamelContext ()
 specifier|public
 name|AbstractCamelContext

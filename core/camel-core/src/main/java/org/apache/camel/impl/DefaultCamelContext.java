@@ -1001,53 +1001,11 @@ name|Registry
 name|createRegistry
 parameter_list|()
 block|{
-name|JndiRegistry
-name|jndi
-init|=
-operator|new
-name|JndiRegistry
-argument_list|()
-decl_stmt|;
-try|try
-block|{
-comment|// getContext() will force setting up JNDI
-name|jndi
-operator|.
-name|getContext
-argument_list|()
-expr_stmt|;
-return|return
-name|jndi
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Cannot create javax.naming.InitialContext due "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-operator|+
-literal|". Will fallback and use SimpleRegistry instead. This exception is ignored."
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
-name|SimpleRegistry
+name|DefaultRegistry
 argument_list|()
 return|;
-block|}
 block|}
 DECL|method|createManagementStrategy ()
 specifier|protected
