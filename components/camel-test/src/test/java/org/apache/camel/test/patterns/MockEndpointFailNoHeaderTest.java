@@ -216,6 +216,14 @@ argument_list|)
 expr_stmt|;
 name|resultEndpoint
 operator|.
+name|setResultWaitTime
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+comment|// speedup test
+name|resultEndpoint
+operator|.
 name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
