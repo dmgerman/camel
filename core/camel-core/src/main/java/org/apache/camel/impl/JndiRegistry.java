@@ -192,6 +192,7 @@ name|JndiRegistry
 implements|implements
 name|Registry
 block|{
+comment|// TODO: move to camel-support, and make it bean repository
 DECL|field|context
 specifier|private
 name|Context

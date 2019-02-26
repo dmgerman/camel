@@ -75,10 +75,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Registry} which delegates to the real registry.  *<p/>  * This is used to ensure that Camel performs property placeholder resolution on every lookup.  */
+comment|/**  * A {@link Registry} which delegates to the real registry.  *<p/>  * This is used to ensure that Camel performs property placeholder resolution on every lookup.  *  * @deprecated move this logic to DefaultRegistry  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|PropertyPlaceholderDelegateRegistry
 specifier|public
 class|class
