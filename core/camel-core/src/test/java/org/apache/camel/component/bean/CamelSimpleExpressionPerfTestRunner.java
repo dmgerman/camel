@@ -90,34 +90,6 @@ name|DefaultCamelContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|SimpleRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Registry
-import|;
-end_import
-
 begin_class
 DECL|class|CamelSimpleExpressionPerfTestRunner
 specifier|public
@@ -168,10 +140,6 @@ name|bodyOnly
 init|=
 name|executePerformanceTest
 argument_list|(
-operator|new
-name|SimpleRegistry
-argument_list|()
-argument_list|,
 literal|"${body}"
 argument_list|)
 decl_stmt|;
@@ -180,10 +148,6 @@ name|bodyProperty
 init|=
 name|executePerformanceTest
 argument_list|(
-operator|new
-name|SimpleRegistry
-argument_list|()
-argument_list|,
 literal|"${body[p]}"
 argument_list|)
 decl_stmt|;
@@ -192,10 +156,6 @@ name|bodyPropertyWithCache
 init|=
 name|executePerformanceTest
 argument_list|(
-operator|new
-name|SimpleRegistry
-argument_list|()
-argument_list|,
 literal|"${body[p]}"
 argument_list|)
 decl_stmt|;
@@ -233,15 +193,12 @@ name|bodyPropertyWithCache
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|executePerformanceTest (Registry registry, final String simpleExpression)
+DECL|method|executePerformanceTest (final String simpleExpression)
 specifier|private
 specifier|static
 name|long
 name|executePerformanceTest
 parameter_list|(
-name|Registry
-name|registry
-parameter_list|,
 specifier|final
 name|String
 name|simpleExpression
@@ -254,9 +211,7 @@ name|ctx
 init|=
 operator|new
 name|DefaultCamelContext
-argument_list|(
-name|registry
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|ctx
 operator|.

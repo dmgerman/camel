@@ -756,20 +756,6 @@ name|DefaultRegistry
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|SimpleRegistry
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents the context used to configure routes and the policies to use.  */
 end_comment
@@ -792,7 +778,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Creates the {@link CamelContext} using the given {@link BeanRepository}      * as first-choice repository, and the {@link SimpleRegistry} as fallback, via      * the {@link DefaultRegistry} implementation.      *      * @param repository the bean repository.      */
+comment|/**      * Creates the {@link CamelContext} using the given {@link BeanRepository}      * as first-choice repository, and the {@link org.apache.camel.support.SimpleRegistry} as fallback, via      * the {@link DefaultRegistry} implementation.      *      * @param repository the bean repository.      */
 DECL|method|DefaultCamelContext (BeanRepository repository)
 specifier|public
 name|DefaultCamelContext

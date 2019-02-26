@@ -141,6 +141,20 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|JndiRegistry (boolean standalone)
+specifier|public
+name|JndiRegistry
+parameter_list|(
+name|boolean
+name|standalone
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|standalone
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|bind (String name, Object object)
