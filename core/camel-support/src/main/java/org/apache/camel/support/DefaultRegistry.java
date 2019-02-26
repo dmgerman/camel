@@ -42,6 +42,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -130,11 +140,7 @@ specifier|public
 name|DefaultRegistry
 parameter_list|()
 block|{
-name|this
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
 comment|/**      * Creates a registry that uses the given {@link BeanRepository} as first choice bean repository to lookup beans.      * Will fallback and use {@link SimpleRegistry} as internal registry if the beans cannot be found in the first      * choice bean repository.      *      * @param repositories the first choice repositories such as Spring, JNDI, OSGi etc.      */
 DECL|method|DefaultRegistry (BeanRepository... repositories)
@@ -167,6 +173,38 @@ name|asList
 argument_list|(
 name|repositories
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Creates a registry that uses the given {@link BeanRepository} as first choice bean repository to lookup beans.      * Will fallback and use {@link SimpleRegistry} as internal registry if the beans cannot be found in the first      * choice bean repository.      *      * @param repositories the first choice repositories such as Spring, JNDI, OSGi etc.      */
+DECL|method|DefaultRegistry (Collection<BeanRepository> repositories)
+specifier|public
+name|DefaultRegistry
+parameter_list|(
+name|Collection
+argument_list|<
+name|BeanRepository
+argument_list|>
+name|repositories
+parameter_list|)
+block|{
+if|if
+condition|(
+name|repositories
+operator|!=
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|repositories
+operator|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
+name|repositories
 argument_list|)
 expr_stmt|;
 block|}

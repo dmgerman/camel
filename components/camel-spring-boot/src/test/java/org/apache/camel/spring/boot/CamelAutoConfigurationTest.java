@@ -130,6 +130,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|BeanRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Registry
 import|;
 end_import
@@ -908,12 +922,12 @@ block|}
 annotation|@
 name|Bean
 DECL|method|customRegistry1 ()
-name|Registry
+name|BeanRepository
 name|customRegistry1
 parameter_list|()
 block|{
 return|return
-name|mockRegistryWithBeanValueAndOrder
+name|mockBeanRepositoryWithBeanValueAndOrder
 argument_list|(
 name|Ordered
 operator|.
@@ -924,12 +938,12 @@ block|}
 annotation|@
 name|Bean
 DECL|method|customRegistry2 ()
-name|Registry
+name|BeanRepository
 name|customRegistry2
 parameter_list|()
 block|{
 return|return
-name|mockRegistryWithBeanValueAndOrder
+name|mockBeanRepositoryWithBeanValueAndOrder
 argument_list|(
 name|Ordered
 operator|.
@@ -937,22 +951,22 @@ name|HIGHEST_PRECEDENCE
 argument_list|)
 return|;
 block|}
-DECL|method|mockRegistryWithBeanValueAndOrder (int value)
+DECL|method|mockBeanRepositoryWithBeanValueAndOrder (int value)
 specifier|private
-name|Registry
-name|mockRegistryWithBeanValueAndOrder
+name|BeanRepository
+name|mockBeanRepositoryWithBeanValueAndOrder
 parameter_list|(
 name|int
 name|value
 parameter_list|)
 block|{
 specifier|final
-name|Registry
-name|registry
+name|BeanRepository
+name|repo
 init|=
 name|mock
 argument_list|(
-name|Registry
+name|BeanRepository
 operator|.
 name|class
 argument_list|,
@@ -969,7 +983,7 @@ argument_list|)
 decl_stmt|;
 name|when
 argument_list|(
-name|registry
+name|repo
 operator|.
 name|lookupByName
 argument_list|(
@@ -988,7 +1002,7 @@ operator|(
 operator|(
 name|Ordered
 operator|)
-name|registry
+name|repo
 operator|)
 operator|.
 name|getOrder
@@ -1001,7 +1015,7 @@ name|value
 argument_list|)
 expr_stmt|;
 return|return
-name|registry
+name|repo
 return|;
 block|}
 block|}

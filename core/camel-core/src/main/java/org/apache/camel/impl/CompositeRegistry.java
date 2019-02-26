@@ -105,10 +105,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This registry will look up the object with the sequence of the registry list until it finds the Object.  */
+comment|/**  * This registry will look up the object with the sequence of the registry list until it finds the Object.  *  * @deprecated use {@link org.apache.camel.support.DefaultRegistry}  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CompositeRegistry
 specifier|public
 class|class
