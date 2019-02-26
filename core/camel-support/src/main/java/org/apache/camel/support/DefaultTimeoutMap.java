@@ -208,6 +208,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Comparator
+operator|.
+name|comparing
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|apache
@@ -817,7 +829,7 @@ name|void
 name|purgeTask
 parameter_list|()
 block|{
-comment|// only purgeTask if allowed
+comment|// only purge if allowed
 if|if
 condition|(
 operator|!
@@ -829,7 +841,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Purge task not allowed to purgeTask"
+literal|"Purge task not allowed to run"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -838,7 +850,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Running purge task to see if any entries has been timed out"
+literal|"Running purge task to see if any entries have been timed out"
 argument_list|)
 expr_stmt|;
 try|try
@@ -1015,75 +1027,12 @@ name|expired
 operator|.
 name|sort
 argument_list|(
-operator|new
-name|Comparator
-argument_list|<
+name|comparing
+argument_list|(
 name|TimeoutMapEntry
-argument_list|<
-name|K
-argument_list|,
-name|V
-argument_list|>
-argument_list|>
-argument_list|()
-block|{
-specifier|public
-name|int
-name|compare
-parameter_list|(
-name|TimeoutMapEntry
-argument_list|<
-name|K
-argument_list|,
-name|V
-argument_list|>
-name|a
-parameter_list|,
-name|TimeoutMapEntry
-argument_list|<
-name|K
-argument_list|,
-name|V
-argument_list|>
-name|b
-parameter_list|)
-block|{
-name|long
-name|diff
-init|=
-name|a
-operator|.
+operator|::
 name|getExpireTime
-argument_list|()
-operator|-
-name|b
-operator|.
-name|getExpireTime
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|diff
-operator|==
-literal|0
-condition|)
-block|{
-return|return
-literal|0
-return|;
-block|}
-return|return
-name|diff
-operator|>
-literal|0
-condition|?
-literal|1
-else|:
-operator|-
-literal|1
-return|;
-block|}
-block|}
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// and must remove from list after we have fired the notifications
@@ -1175,7 +1124,7 @@ return|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-DECL|method|unwrap ( TimeoutMapEntry<K, V> entry )
+DECL|method|unwrap (TimeoutMapEntry<K, V> entry)
 specifier|private
 specifier|static
 parameter_list|<
