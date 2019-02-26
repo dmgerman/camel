@@ -162,6 +162,20 @@ name|JndiRegistry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Registry
+import|;
+end_import
+
 begin_comment
 comment|/**  * A simple example router from Cafe Demo  */
 end_comment
@@ -200,22 +214,18 @@ name|runCafeRouteDemo
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|createRegistry ()
+DECL|method|bindBeans (Registry registry)
 specifier|protected
-name|JndiRegistry
-name|createRegistry
-parameter_list|()
+name|void
+name|bindBeans
+parameter_list|(
+name|Registry
+name|registry
+parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|JndiRegistry
-name|jndi
-init|=
-operator|new
-name|JndiRegistry
-argument_list|()
-decl_stmt|;
-name|jndi
+name|registry
 operator|.
 name|bind
 argument_list|(
@@ -226,7 +236,7 @@ name|DrinkRouter
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|jndi
+name|registry
 operator|.
 name|bind
 argument_list|(
@@ -237,7 +247,7 @@ name|OrderSplitter
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|jndi
+name|registry
 operator|.
 name|bind
 argument_list|(
@@ -248,7 +258,7 @@ name|Barista
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|jndi
+name|registry
 operator|.
 name|bind
 argument_list|(
@@ -259,7 +269,7 @@ name|Waiter
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|jndi
+name|registry
 operator|.
 name|bind
 argument_list|(
@@ -270,9 +280,6 @@ name|CafeAggregationStrategy
 argument_list|()
 argument_list|)
 expr_stmt|;
-return|return
-name|jndi
-return|;
 block|}
 DECL|method|runCafeRouteDemo ()
 specifier|public
@@ -290,14 +297,16 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+comment|// bind beans to the Camel
+name|bindBeans
+argument_list|(
 name|camelContext
 operator|.
-name|setRegistry
-argument_list|(
-name|createRegistry
+name|getRegistry
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// add the routes
 name|camelContext
 operator|.
 name|addRoutes
@@ -305,11 +314,13 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+comment|// start Camel
 name|camelContext
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// create a producer so we can send messages to Camel
 name|ProducerTemplate
 name|template
 init|=
@@ -388,6 +399,7 @@ argument_list|,
 name|order
 argument_list|)
 expr_stmt|;
+comment|// wait 6 seconds and stop
 name|Thread
 operator|.
 name|sleep
