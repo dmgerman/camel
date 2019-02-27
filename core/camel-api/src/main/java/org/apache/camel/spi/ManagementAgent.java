@@ -400,7 +400,7 @@ name|ManagementStatisticsLevel
 name|level
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the statistics level      *      * @return the level      */
+comment|/**                   Â§      * Gets the statistics level      *      * @return the level      */
 DECL|method|getStatisticsLevel ()
 name|ManagementStatisticsLevel
 name|getStatisticsLevel

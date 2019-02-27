@@ -940,8 +940,8 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|ManagedRouteMBean
-name|managedRouteMBean
+name|ManagedCamelContext
+name|mc
 init|=
 name|camelContext
 operator|.
@@ -951,6 +951,18 @@ name|ManagedCamelContext
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|mc
+operator|!=
+literal|null
+condition|)
+block|{
+name|ManagedRouteMBean
+name|managedRouteMBean
+init|=
+name|mc
 operator|.
 name|getManagedRoute
 argument_list|(
@@ -971,6 +983,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch

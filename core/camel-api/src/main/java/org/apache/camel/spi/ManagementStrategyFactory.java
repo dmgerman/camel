@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -38,12 +48,49 @@ specifier|public
 interface|interface
 name|ManagementStrategyFactory
 block|{
-DECL|method|create (CamelContext context)
+comment|/**      * Creates the {@link ManagementStrategy}.      *      * @param context     the camel context      * @param properties  optional options to set on {@link ManagementAgent}      * @return the created strategy      * @throws Exception is thrown if error creating the strategy      */
+DECL|method|create (CamelContext context, Map<String, Object> properties)
 name|ManagementStrategy
 name|create
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|properties
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Creates the associated {@link LifecycleStrategy} that the management strategy uses.      *      * @param context     the camel context      * @return the created lifecycle strategy      * @throws Exception is thrown if error creating the lifecycle strategy      */
+DECL|method|createLifecycle (CamelContext context)
+name|LifecycleStrategy
+name|createLifecycle
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Setup the management on the {@link CamelContext}.      *<p/>      * This allows implementations to provide the logic for setting up management on Camel.      *      * @param camelContext  the camel context      * @param strategy      the management strategy      * @param lifecycle      the associated lifecycle strategy (optional)      * @throws Exception is thrown if error setting up management      */
+DECL|method|setupManagement (CamelContext camelContext, ManagementStrategy strategy, LifecycleStrategy lifecycle)
+name|void
+name|setupManagement
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|ManagementStrategy
+name|strategy
+parameter_list|,
+name|LifecycleStrategy
+name|lifecycle
 parameter_list|)
 function_decl|;
 block|}

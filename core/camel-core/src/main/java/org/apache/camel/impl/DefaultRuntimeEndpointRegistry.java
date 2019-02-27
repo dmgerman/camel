@@ -1103,6 +1103,14 @@ argument_list|()
 operator|.
 name|getManagementStrategy
 argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|getCamelContext
+argument_list|()
+operator|.
+name|getManagementStrategy
+argument_list|()
 operator|.
 name|getManagementAgent
 argument_list|()

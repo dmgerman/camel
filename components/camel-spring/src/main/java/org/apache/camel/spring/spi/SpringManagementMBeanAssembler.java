@@ -148,6 +148,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
 name|management
 operator|.
 name|DefaultManagementMBeanAssembler
@@ -161,6 +163,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|support
 operator|.
 name|management
 operator|.
@@ -231,7 +235,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An springAssembler to assemble a {@link javax.management.modelmbean.ModelMBean} which can be used  * to register the object in JMX. The springAssembler is capable of using the Spring JMX annotations to  * gather the list of JMX operations and attributes.  */
+comment|/**  * An spring assembler to assemble a {@link javax.management.modelmbean.ModelMBean} which can be used  * to register the object in JMX. The spring assembler is capable of using the Spring JMX annotations to  * gather the list of JMX operations and attributes.  */
 end_comment
 
 begin_class

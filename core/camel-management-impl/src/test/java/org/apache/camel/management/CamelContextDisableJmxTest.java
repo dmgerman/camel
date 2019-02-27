@@ -107,7 +107,7 @@ operator|.
 name|getManagementStrategy
 argument_list|()
 operator|instanceof
-name|ManagedManagementStrategy
+name|JmxManagementStrategy
 argument_list|)
 expr_stmt|;
 name|context

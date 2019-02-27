@@ -28,7 +28,7 @@ name|camel
 operator|.
 name|management
 operator|.
-name|ManagedManagementStrategy
+name|JmxManagementStrategy
 import|;
 end_import
 
@@ -81,7 +81,7 @@ name|Exception
 block|{
 name|assertEquals
 argument_list|(
-name|ManagedManagementStrategy
+name|JmxManagementStrategy
 operator|.
 name|class
 argument_list|,

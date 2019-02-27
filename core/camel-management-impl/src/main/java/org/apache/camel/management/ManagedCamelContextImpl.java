@@ -196,6 +196,10 @@ name|ManagementStrategy
 import|;
 end_import
 
+begin_comment
+comment|/**  * JMX capable {@link CamelContext}.  */
+end_comment
+
 begin_class
 DECL|class|ManagedCamelContextImpl
 specifier|public

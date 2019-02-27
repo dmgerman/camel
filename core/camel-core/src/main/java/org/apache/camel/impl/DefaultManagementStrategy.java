@@ -235,7 +235,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default management strategy that does<b>not</b> manage.  *<p/>  * This is default only used if Camel detects that it cannot use the JMX capable  * {@link org.apache.camel.management.ManagedManagementStrategy} strategy. Then Camel will  * fallback to use this instead that is basically a simple and<tt>noop</tt> strategy.  *<p/>  * This class can also be used to extend your custom management implement. In fact the JMX capable  * provided by Camel extends this class as well.  *  * @see org.apache.camel.management.ManagedManagementStrategy  */
+comment|/**  * A default management strategy that does<b>not</b> manage.  *<p/>  * This is default only used if Camel detects that it cannot use the JMX capable  * {@link org.apache.camel.management.JmxManagementStrategy} strategy. Then Camel will  * fallback to use this instead that is basically a simple and<tt>noop</tt> strategy.  *<p/>  * This class can also be used to extend your custom management implement. In fact the JMX capable  * provided by Camel extends this class as well.  *  * @see org.apache.camel.management.JmxManagementStrategy  */
 end_comment
 
 begin_class
@@ -625,10 +625,6 @@ name|Exception
 block|{
 if|if
 condition|(
-name|eventNotifiers
-operator|!=
-literal|null
-operator|&&
 operator|!
 name|eventNotifiers
 operator|.
@@ -701,13 +697,6 @@ argument_list|,
 literal|"CamelContext"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|eventNotifiers
-operator|!=
-literal|null
-condition|)
-block|{
 for|for
 control|(
 name|EventNotifier
@@ -747,7 +736,6 @@ argument_list|(
 name|notifier
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(

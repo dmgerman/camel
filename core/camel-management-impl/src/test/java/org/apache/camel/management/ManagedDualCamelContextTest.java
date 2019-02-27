@@ -202,7 +202,7 @@ comment|// Ensure JMX is enabled for this test so the ManagedManagementStrategy.
 comment|// If other tests cleaned up the environment properly the following assertions will be true with the default settings
 name|assertIsInstanceOf
 argument_list|(
-name|ManagedManagementStrategy
+name|JmxManagementStrategy
 operator|.
 name|class
 argument_list|,
@@ -214,7 +214,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|ManagedManagementStrategy
+name|JmxManagementStrategy
 operator|.
 name|class
 argument_list|,

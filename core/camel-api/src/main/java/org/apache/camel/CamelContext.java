@@ -1842,6 +1842,20 @@ parameter_list|()
 throws|throws
 name|IllegalStateException
 function_decl|;
+comment|/**      * Setup management according to whether JMX is enabled or disabled.      *      * @param options optional parameters to configure {@link org.apache.camel.spi.ManagementAgent}.      */
+DECL|method|setupManagement (Map<String, Object> options)
+name|void
+name|setupManagement
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|options
+parameter_list|)
+function_decl|;
 comment|/**      * Gets the inflight repository      *      * @return the repository      */
 DECL|method|getInflightRepository ()
 name|InflightRepository
