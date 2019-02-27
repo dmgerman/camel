@@ -8358,7 +8358,7 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds a onComplection {@link org.apache.camel.spi.Synchronization} hook that invoke this route as      * a callback when the {@link org.apache.camel.Exchange} has finished being processed.      * The hook invoke callbacks for either onComplete or onFailure.      *<p/>      * Will by default always trigger when the {@link org.apache.camel.Exchange} is complete      * (either with success or failed).      *<br/>      * You can limit the callback to either onComplete or onFailure but invoking the nested      * builder method.      *<p/>      * For onFailure the caused exception is stored as a property on the {@link org.apache.camel.Exchange}      * with the key {@link org.apache.camel.Exchange#EXCEPTION_CAUGHT}.      *      * @return the builder      */
+comment|/**      * Adds a onCompletion {@link org.apache.camel.spi.Synchronization} hook that invoke this route as      * a callback when the {@link org.apache.camel.Exchange} has finished being processed.      * The hook invoke callbacks for either onComplete or onFailure.      *<p/>      * Will by default always trigger when the {@link org.apache.camel.Exchange} is complete      * (either with success or failed).      *<br/>      * You can limit the callback to either onComplete or onFailure but invoking the nested      * builder method.      *<p/>      * For onFailure the caused exception is stored as a property on the {@link org.apache.camel.Exchange}      * with the key {@link org.apache.camel.Exchange#EXCEPTION_CAUGHT}.      *      * @return the builder      */
 DECL|method|onCompletion ()
 specifier|public
 name|OnCompletionDefinition
