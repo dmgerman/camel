@@ -38,6 +38,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
 name|management
 operator|.
 name|JmxSystemPropertyKeys

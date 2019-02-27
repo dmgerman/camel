@@ -84,9 +84,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|api
 operator|.
-name|EventDrivenConsumerRoute
+name|management
+operator|.
+name|JmxSystemPropertyKeys
 import|;
 end_import
 
@@ -98,9 +100,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|impl
 operator|.
-name|JmxSystemPropertyKeys
+name|EventDrivenConsumerRoute
 import|;
 end_import
 
