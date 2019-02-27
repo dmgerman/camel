@@ -1569,6 +1569,15 @@ argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
+comment|// add custom beans
+name|bindToRegistry
+argument_list|(
+name|context
+operator|.
+name|getRegistry
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// reduce default shutdown timeout to avoid waiting for 300 seconds
 name|context
 operator|.
@@ -1810,6 +1819,7 @@ name|ignore
 argument_list|)
 expr_stmt|;
 block|}
+comment|// prepare for in-between tests
 name|postProcessTest
 argument_list|()
 expr_stmt|;
@@ -3890,6 +3900,20 @@ block|}
 return|return
 name|context
 return|;
+block|}
+comment|/**      * Allows to bind custom beans to the Camel {@link Registry}.      */
+DECL|method|bindToRegistry (Registry registry)
+specifier|protected
+name|void
+name|bindToRegistry
+parameter_list|(
+name|Registry
+name|registry
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 comment|/**      * Override to use a custom {@link Registry}.      *      * However if you need to bind beans to the registry then this is possible already with the bind method on registry,"      * and there is no need to override this method.      */
 DECL|method|createCamelRegistry ()
