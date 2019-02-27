@@ -2173,7 +2173,9 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot dump route coverage to file as JMX is not enabled. Add camel-management-impl JAR as dependency and/or override useJmx() method to enable JMX in the unit test classes."
+literal|"Cannot dump route coverage to file as JMX is not enabled. "
+operator|+
+literal|"Add camel-management-impl JAR as dependency and/or override useJmx() method to enable JMX in the unit test classes."
 argument_list|)
 expr_stmt|;
 block|}
