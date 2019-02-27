@@ -163,7 +163,6 @@ argument_list|(
 name|strategy
 argument_list|)
 expr_stmt|;
-comment|// no need to add a lifecycle strategy as we do not need one as JMX is disabled
 name|camelContext
 operator|.
 name|setManagementStrategy
@@ -172,6 +171,16 @@ operator|new
 name|DefaultManagementStrategy
 argument_list|()
 argument_list|)
+expr_stmt|;
+comment|// need to clear the lifecycle strategy as CamelContext will default enable JMX, and
+comment|// to turn this off we need no JMX lifecycle strategy to exists (at this time there is only this one)
+name|camelContext
+operator|.
+name|getLifecycleStrategies
+argument_list|()
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 block|}
