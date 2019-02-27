@@ -122,9 +122,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|processor
 operator|.
-name|JndiRegistry
+name|lucene
+operator|.
+name|support
+operator|.
+name|Hits
 import|;
 end_import
 
@@ -136,13 +140,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|spi
 operator|.
-name|lucene
-operator|.
-name|support
-operator|.
-name|Hits
+name|Registry
 import|;
 end_import
 
@@ -288,24 +288,17 @@ block|}
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|createRegistry ()
+DECL|method|bindToRegistry (Registry registry)
 specifier|protected
-name|JndiRegistry
-name|createRegistry
-parameter_list|()
+name|void
+name|bindToRegistry
+parameter_list|(
+name|Registry
+name|registry
+parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|JndiRegistry
-name|registry
-init|=
-operator|new
-name|JndiRegistry
-argument_list|(
-name|createJndiContext
-argument_list|()
-argument_list|)
-decl_stmt|;
 name|registry
 operator|.
 name|bind
@@ -391,9 +384,6 @@ name|WhitespaceAnalyzer
 argument_list|()
 argument_list|)
 expr_stmt|;
-return|return
-name|registry
-return|;
 block|}
 annotation|@
 name|Override

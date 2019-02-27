@@ -40,16 +40,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|naming
-operator|.
-name|Context
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -180,11 +170,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|jndi
-operator|.
-name|JndiContext
+name|Registry
 import|;
 end_import
 
@@ -913,21 +901,17 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|createJndiContext ()
+DECL|method|bindToRegistry (Registry registry)
 specifier|protected
-name|Context
-name|createJndiContext
-parameter_list|()
+name|void
+name|bindToRegistry
+parameter_list|(
+name|Registry
+name|registry
+parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|JndiContext
-name|answer
-init|=
-operator|new
-name|JndiContext
-argument_list|()
-decl_stmt|;
 comment|// add ActiveMQ with embedded broker
 name|ConnectionFactory
 name|connectionFactory
@@ -952,7 +936,7 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
-name|answer
+name|registry
 operator|.
 name|bind
 argument_list|(
@@ -961,7 +945,7 @@ argument_list|,
 name|amq
 argument_list|)
 expr_stmt|;
-name|answer
+name|registry
 operator|.
 name|bind
 argument_list|(
@@ -970,7 +954,7 @@ argument_list|,
 name|b1
 argument_list|)
 expr_stmt|;
-name|answer
+name|registry
 operator|.
 name|bind
 argument_list|(
@@ -979,7 +963,7 @@ argument_list|,
 name|b2
 argument_list|)
 expr_stmt|;
-name|answer
+name|registry
 operator|.
 name|bind
 argument_list|(
@@ -988,9 +972,6 @@ argument_list|,
 name|b3
 argument_list|)
 expr_stmt|;
-return|return
-name|answer
-return|;
 block|}
 block|}
 end_class

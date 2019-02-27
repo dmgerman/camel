@@ -80,11 +80,15 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|naming
+name|apache
 operator|.
-name|Context
+name|camel
+operator|.
+name|spi
+operator|.
+name|Registry
 import|;
 end_import
 
@@ -226,11 +230,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createJndiContext ()
+DECL|method|bindToRegistry (Registry registry)
 specifier|protected
-name|Context
-name|createJndiContext
-parameter_list|()
+name|void
+name|bindToRegistry
+parameter_list|(
+name|Registry
+name|registry
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -265,14 +272,6 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-name|Context
-name|context
-init|=
-name|super
-operator|.
-name|createJndiContext
-argument_list|()
-decl_stmt|;
 name|repository
 operator|=
 operator|new
@@ -283,7 +282,7 @@ argument_list|,
 name|REPO_PATH
 argument_list|)
 expr_stmt|;
-name|context
+name|registry
 operator|.
 name|bind
 argument_list|(
@@ -292,9 +291,6 @@ argument_list|,
 name|repository
 argument_list|)
 expr_stmt|;
-return|return
-name|context
-return|;
 block|}
 block|}
 end_class

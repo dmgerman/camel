@@ -110,6 +110,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Registry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|jndi
@@ -185,22 +199,18 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createJndiContext ()
+DECL|method|bindToRegistry (Registry registry)
 specifier|protected
-name|Context
-name|createJndiContext
-parameter_list|()
+name|void
+name|bindToRegistry
+parameter_list|(
+name|Registry
+name|registry
+parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|JndiContext
-name|jndi
-init|=
-operator|new
-name|JndiContext
-argument_list|()
-decl_stmt|;
-name|jndi
+name|registry
 operator|.
 name|bind
 argument_list|(
@@ -211,9 +221,6 @@ name|FilterBean
 argument_list|()
 argument_list|)
 expr_stmt|;
-return|return
-name|jndi
-return|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected

@@ -30,16 +30,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|naming
-operator|.
-name|Context
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -76,11 +66,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|jndi
-operator|.
-name|JndiContext
+name|Registry
 import|;
 end_import
 
@@ -217,21 +205,17 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createJndiContext ()
+DECL|method|bindToRegistry (Registry registry)
 specifier|protected
-name|Context
-name|createJndiContext
-parameter_list|()
+name|void
+name|bindToRegistry
+parameter_list|(
+name|Registry
+name|registry
+parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|JndiContext
-name|jndi
-init|=
-operator|new
-name|JndiContext
-argument_list|()
-decl_stmt|;
 name|SimpleDateFormat
 name|df
 init|=
@@ -241,7 +225,7 @@ argument_list|(
 literal|"yyyy-MM-dd HH:mm:ss Z"
 argument_list|)
 decl_stmt|;
-name|jndi
+name|registry
 operator|.
 name|bind
 argument_list|(
@@ -255,9 +239,6 @@ literal|"2007-11-13 14:35:00 +0100"
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return
-name|jndi
-return|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected

@@ -100,9 +100,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|JndiRegistry
+name|Registry
 import|;
 end_import
 
@@ -467,24 +467,17 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createRegistry ()
+DECL|method|bindToRegistry (Registry registry)
 specifier|protected
-name|JndiRegistry
-name|createRegistry
-parameter_list|()
+name|void
+name|bindToRegistry
+parameter_list|(
+name|Registry
+name|registry
+parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|JndiRegistry
-name|jndi
-init|=
-operator|new
-name|JndiRegistry
-argument_list|(
-name|createJndiContext
-argument_list|()
-argument_list|)
-decl_stmt|;
 name|ConnectionCloseHeaderFilter
 name|connectionCloseFilterStrategy
 init|=
@@ -492,7 +485,7 @@ operator|new
 name|ConnectionCloseHeaderFilter
 argument_list|()
 decl_stmt|;
-name|jndi
+name|registry
 operator|.
 name|bind
 argument_list|(
@@ -501,9 +494,6 @@ argument_list|,
 name|connectionCloseFilterStrategy
 argument_list|)
 expr_stmt|;
-return|return
-name|jndi
-return|;
 block|}
 DECL|class|ConnectionCloseHeaderFilter
 class|class

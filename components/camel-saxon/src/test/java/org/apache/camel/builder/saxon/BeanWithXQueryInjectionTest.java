@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|javax
-operator|.
-name|naming
-operator|.
-name|Context
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -66,11 +56,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|jndi
-operator|.
-name|JndiContext
+name|Registry
 import|;
 end_import
 
@@ -210,22 +198,18 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createJndiContext ()
+DECL|method|bindToRegistry (Registry registry)
 specifier|protected
-name|Context
-name|createJndiContext
-parameter_list|()
+name|void
+name|bindToRegistry
+parameter_list|(
+name|Registry
+name|registry
+parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|JndiContext
-name|answer
-init|=
-operator|new
-name|JndiContext
-argument_list|()
-decl_stmt|;
-name|answer
+name|registry
 operator|.
 name|bind
 argument_list|(
@@ -234,9 +218,6 @@ argument_list|,
 name|myBean
 argument_list|)
 expr_stmt|;
-return|return
-name|answer
-return|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
