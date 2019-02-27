@@ -38,9 +38,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|api
 operator|.
-name|DefaultCamelContext
+name|management
+operator|.
+name|JmxSystemPropertyKeys
 import|;
 end_import
 
@@ -52,11 +54,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|api
+name|impl
 operator|.
-name|management
-operator|.
-name|JmxSystemPropertyKeys
+name|DefaultCamelContext
 import|;
 end_import
 
