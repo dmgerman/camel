@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -58,7 +48,7 @@ name|junit
 operator|.
 name|Assert
 operator|.
-name|assertTrue
+name|assertNotNull
 import|;
 end_import
 
@@ -116,30 +106,17 @@ argument_list|(
 name|main
 argument_list|)
 expr_stmt|;
-name|Map
-argument_list|<
-name|String
-argument_list|,
 name|CamelContext
-argument_list|>
-name|contexts
+name|camelContext
 init|=
 name|main
 operator|.
-name|getCamelContextMap
+name|getCamelContext
 argument_list|()
 decl_stmt|;
-comment|// we should get at least one CamelContext
-name|assertTrue
+name|assertNotNull
 argument_list|(
-literal|"We should get at least one camelcontext"
-argument_list|,
-name|contexts
-operator|.
-name|size
-argument_list|()
-operator|>=
-literal|1
+name|camelContext
 argument_list|)
 expr_stmt|;
 block|}

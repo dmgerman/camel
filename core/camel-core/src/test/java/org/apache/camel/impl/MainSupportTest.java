@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -101,6 +91,8 @@ name|MyMainSupport
 extends|extends
 name|MainSupport
 block|{
+annotation|@
+name|Override
 DECL|method|findOrCreateCamelTemplate ()
 specifier|protected
 name|ProducerTemplate
@@ -114,15 +106,12 @@ name|createProducerTemplate
 argument_list|()
 return|;
 block|}
-DECL|method|getCamelContextMap ()
+annotation|@
+name|Override
+DECL|method|createCamelContext ()
 specifier|protected
-name|Map
-argument_list|<
-name|String
-argument_list|,
 name|CamelContext
-argument_list|>
-name|getCamelContextMap
+name|createCamelContext
 parameter_list|()
 block|{
 return|return
