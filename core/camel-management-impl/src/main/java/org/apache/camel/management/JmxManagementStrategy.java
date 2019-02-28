@@ -157,6 +157,7 @@ argument_list|,
 name|managementAgent
 argument_list|)
 expr_stmt|;
+comment|// add JMX capable CamelContext as extension
 name|context
 operator|.
 name|setExtension
@@ -167,23 +168,6 @@ name|class
 argument_list|,
 operator|new
 name|ManagedCamelContextImpl
-argument_list|(
-name|context
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// must add management lifecycle strategy
-name|context
-operator|.
-name|getLifecycleStrategies
-argument_list|()
-operator|.
-name|add
-argument_list|(
-literal|0
-argument_list|,
-operator|new
-name|JmxManagementLifecycleStrategy
 argument_list|(
 name|context
 argument_list|)

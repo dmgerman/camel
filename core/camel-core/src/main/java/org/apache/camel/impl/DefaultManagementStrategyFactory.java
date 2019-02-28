@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory for creating {@link ManagementStrategy}  */
+comment|/**  * Factory for creating non JMX {@link ManagementStrategy}.  */
 end_comment
 
 begin_class
@@ -162,25 +162,6 @@ name|setManagementStrategy
 argument_list|(
 name|strategy
 argument_list|)
-expr_stmt|;
-name|camelContext
-operator|.
-name|setManagementStrategy
-argument_list|(
-operator|new
-name|DefaultManagementStrategy
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// need to clear the lifecycle strategy as CamelContext will default enable JMX, and
-comment|// to turn this off we need no JMX lifecycle strategy to exists (at this time there is only this one)
-name|camelContext
-operator|.
-name|getLifecycleStrategies
-argument_list|()
-operator|.
-name|clear
-argument_list|()
 expr_stmt|;
 block|}
 block|}

@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory for creating {@link ManagementStrategy}  */
+comment|/**  * Factory for creating JMX {@link ManagementStrategy}.  */
 end_comment
 
 begin_class
@@ -206,19 +206,44 @@ argument_list|(
 name|strategy
 argument_list|)
 expr_stmt|;
-comment|// clear the existing lifecycle strategies define by the DefaultCamelContext constructor
+comment|// must add management lifecycle strategy as first choice
+if|if
+condition|(
+operator|!
 name|camelContext
 operator|.
 name|getLifecycleStrategies
 argument_list|()
 operator|.
-name|clear
+name|isEmpty
 argument_list|()
-expr_stmt|;
+condition|)
+block|{
+comment|// camel-spring/camel-blueprint may re-initialize JMX during startup, so remove any previous
 name|camelContext
 operator|.
-name|addLifecycleStrategy
+name|getLifecycleStrategies
+argument_list|()
+operator|.
+name|removeIf
 argument_list|(
+name|s
+lambda|->
+name|s
+operator|instanceof
+name|JmxManagementLifecycleStrategy
+argument_list|)
+expr_stmt|;
+block|}
+name|camelContext
+operator|.
+name|getLifecycleStrategies
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|0
+argument_list|,
 name|lifecycle
 argument_list|)
 expr_stmt|;
