@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file
+DECL|package|org.apache.camel.component.file.remote
 package|package
 name|org
 operator|.
@@ -15,8 +15,26 @@ operator|.
 name|component
 operator|.
 name|file
+operator|.
+name|remote
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|GenericFileSendDynamicAware
+import|;
+end_import
 
 begin_import
 import|import
@@ -38,12 +56,12 @@ begin_class
 annotation|@
 name|SendDynamic
 argument_list|(
-literal|"file"
+literal|"sftp"
 argument_list|)
-DECL|class|FileSendDynamicAware
+DECL|class|SftpSendDynamicAware
 specifier|public
 class|class
-name|FileSendDynamicAware
+name|SftpSendDynamicAware
 extends|extends
 name|GenericFileSendDynamicAware
 block|{ }

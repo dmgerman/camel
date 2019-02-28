@@ -1,10 +1,10 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p>  * http://www.apache.org/licenses/LICENSE-2.0  *<p>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file
+DECL|package|org.apache.camel.component.file.remote
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|component
 operator|.
 name|file
+operator|.
+name|remote
 package|;
 end_package
 
@@ -35,18 +37,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ContextTestSupport
 import|;
 end_import
 
@@ -86,34 +76,32 @@ name|Test
 import|;
 end_import
 
+begin_comment
+comment|/**  *  */
+end_comment
+
 begin_class
-DECL|class|FileProducerToDMoveExistingTest
+DECL|class|FtpProducerToDMoveExistingTest
 specifier|public
 class|class
-name|FileProducerToDMoveExistingTest
+name|FtpProducerToDMoveExistingTest
 extends|extends
-name|ContextTestSupport
+name|FtpServerTestSupport
 block|{
-annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
+DECL|method|getFtpUrl ()
+specifier|private
+name|String
+name|getFtpUrl
 parameter_list|()
-throws|throws
-name|Exception
 block|{
-name|deleteDirectory
-argument_list|(
-literal|"target/out"
-argument_list|)
-expr_stmt|;
-name|super
-operator|.
-name|setUp
+return|return
+literal|"ftp://admin@localhost:"
+operator|+
+name|getPort
 argument_list|()
-expr_stmt|;
+operator|+
+literal|"/${header.myDir}?password=admin&fileExist=Move&moveExisting=old-${file:onlyname}"
+return|;
 block|}
 annotation|@
 name|Test
@@ -195,12 +183,16 @@ argument_list|()
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/out/old-hello.txt"
+name|FTP_ROOT_DIR
+operator|+
+literal|"/out/old-hello.txt"
 argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/out/hello.txt"
+name|FTP_ROOT_DIR
+operator|+
+literal|"/out/hello.txt"
 argument_list|)
 expr_stmt|;
 block|}
@@ -235,7 +227,8 @@ argument_list|)
 operator|.
 name|toD
 argument_list|(
-literal|"file:target/${header.myDir}?fileExist=Move&moveExisting=target/out/old-${file:onlyname}"
+name|getFtpUrl
+argument_list|()
 argument_list|)
 operator|.
 name|to
