@@ -132,6 +132,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|annotations
+operator|.
+name|JdkService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -189,6 +205,13 @@ comment|/**  * Wraps the processor in a Spring transaction  */
 end_comment
 
 begin_class
+annotation|@
+name|JdkService
+argument_list|(
+name|TransactedPolicy
+operator|.
+name|class
+argument_list|)
 DECL|class|SpringTransactionPolicy
 specifier|public
 class|class
