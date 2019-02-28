@@ -1927,6 +1927,55 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * To be used to check is a directory is found in the file system      */
+DECL|method|assertDirectoryExists (String filename)
+specifier|public
+specifier|static
+name|void
+name|assertDirectoryExists
+parameter_list|(
+name|String
+name|filename
+parameter_list|)
+block|{
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+name|filename
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Directory "
+operator|+
+name|filename
+operator|+
+literal|" should exist"
+argument_list|,
+name|file
+operator|.
+name|exists
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Directory "
+operator|+
+name|filename
+operator|+
+literal|" should be a directory"
+argument_list|,
+name|file
+operator|.
+name|isDirectory
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * To be used to check is a file is found in the file system      */
 DECL|method|assertFileExists (String filename)
 specifier|public

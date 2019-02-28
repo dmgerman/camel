@@ -161,10 +161,10 @@ end_import
 begin_class
 annotation|@
 name|ContextConfiguration
-DECL|class|SimpleLanguageWithSprinPropertyPlaceholderRouteTest
+DECL|class|SimpleLanguageWithSpringPropertyPlaceholderRouteTest
 specifier|public
 class|class
-name|SimpleLanguageWithSprinPropertyPlaceholderRouteTest
+name|SimpleLanguageWithSpringPropertyPlaceholderRouteTest
 extends|extends
 name|SpringRunWithTestSupport
 block|{
@@ -236,7 +236,7 @@ name|untilAsserted
 argument_list|(
 parameter_list|()
 lambda|->
-name|assertFileExists
+name|assertDirectoryExists
 argument_list|(
 literal|"target/outBoxSimple/"
 argument_list|)
