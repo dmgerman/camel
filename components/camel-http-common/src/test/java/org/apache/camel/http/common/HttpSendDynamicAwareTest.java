@@ -124,6 +124,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|String
@@ -174,6 +176,8 @@ operator|new
 name|DynamicAwareEntry
 argument_list|(
 literal|"https://localhost/test"
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -232,6 +236,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|String
@@ -282,6 +288,8 @@ operator|new
 name|DynamicAwareEntry
 argument_list|(
 literal|"https4://localhost/test"
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -340,6 +348,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|String
@@ -390,6 +400,8 @@ operator|new
 name|DynamicAwareEntry
 argument_list|(
 literal|"https://localhost:443/test"
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -448,6 +460,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|String
@@ -498,6 +512,8 @@ operator|new
 name|DynamicAwareEntry
 argument_list|(
 literal|"https://localhost:8443/test"
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,

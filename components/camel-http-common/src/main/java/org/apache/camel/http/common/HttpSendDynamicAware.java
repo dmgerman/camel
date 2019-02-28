@@ -197,7 +197,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|prepare (Exchange exchange, String uri)
+DECL|method|prepare (Exchange exchange, String uri, String originalUri)
 specifier|public
 name|DynamicAwareEntry
 name|prepare
@@ -207,6 +207,9 @@ name|exchange
 parameter_list|,
 name|String
 name|uri
+parameter_list|,
+name|String
+name|originalUri
 parameter_list|)
 throws|throws
 name|Exception
@@ -261,6 +264,8 @@ operator|new
 name|DynamicAwareEntry
 argument_list|(
 name|uri
+argument_list|,
+name|originalUri
 argument_list|,
 name|properties
 argument_list|,
@@ -606,7 +611,7 @@ name|u
 init|=
 name|entry
 operator|.
-name|getOriginalUri
+name|getUri
 argument_list|()
 decl_stmt|;
 comment|// remove scheme prefix (unless its camel-http or camel-http4)
