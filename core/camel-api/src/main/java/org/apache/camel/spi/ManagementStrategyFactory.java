@@ -78,7 +78,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Setup the management on the {@link CamelContext}.      *<p/>      * This allows implementations to provide the logic for setting up management on Camel.      *      * @param camelContext  the camel context      * @param strategy      the management strategy      * @param lifecycle      the associated lifecycle strategy (optional)      * @throws Exception is thrown if error setting up management      */
+comment|/**      * Setup the management on the {@link CamelContext}.      *<p/>      * This allows implementations to provide the logic for setting up management on Camel.      *      * @param camelContext  the camel context      * @param strategy      the management strategy      * @param lifecycle      the associated lifecycle strategy (optional)      */
 DECL|method|setupManagement (CamelContext camelContext, ManagementStrategy strategy, LifecycleStrategy lifecycle)
 name|void
 name|setupManagement
