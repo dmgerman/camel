@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Constants used in Camel AWS MQ module  */
+comment|/**  * Constants used in Camel AWS KMS module  */
 end_comment
 
 begin_interface
