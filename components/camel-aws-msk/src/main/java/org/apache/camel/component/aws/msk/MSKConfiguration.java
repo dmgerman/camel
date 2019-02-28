@@ -22,6 +22,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|kafka
+operator|.
+name|AWSKafka
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -85,20 +99,6 @@ operator|.
 name|spi
 operator|.
 name|UriPath
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|amazonaws
-operator|.
-name|services
-operator|.
-name|kafka
-operator|.
-name|AWSKafka
 import|;
 end_import
 
