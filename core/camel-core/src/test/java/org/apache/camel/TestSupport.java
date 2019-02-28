@@ -2032,6 +2032,20 @@ name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"File "
+operator|+
+name|filename
+operator|+
+literal|" should be a file"
+argument_list|,
+name|file
+operator|.
+name|isFile
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * To be used to check is a file is<b>not</b> found in the file system      */
 DECL|method|assertFileNotExists (String filename)

@@ -92,6 +92,12 @@ DECL|class|DynamicAwareEntry
 class|class
 name|DynamicAwareEntry
 block|{
+DECL|field|uri
+specifier|private
+specifier|final
+name|String
+name|uri
+decl_stmt|;
 DECL|field|originalUri
 specifier|private
 specifier|final
@@ -120,10 +126,13 @@ name|String
 argument_list|>
 name|lenientProperties
 decl_stmt|;
-DECL|method|DynamicAwareEntry (String originalUri, Map<String, String> properties, Map<String, String> lenientProperties)
+DECL|method|DynamicAwareEntry (String uri, String originalUri, Map<String, String> properties, Map<String, String> lenientProperties)
 specifier|public
 name|DynamicAwareEntry
 parameter_list|(
+name|String
+name|uri
+parameter_list|,
 name|String
 name|originalUri
 parameter_list|,
@@ -146,6 +155,12 @@ parameter_list|)
 block|{
 name|this
 operator|.
+name|uri
+operator|=
+name|uri
+expr_stmt|;
+name|this
+operator|.
 name|originalUri
 operator|=
 name|originalUri
@@ -162,6 +177,16 @@ name|lenientProperties
 operator|=
 name|lenientProperties
 expr_stmt|;
+block|}
+DECL|method|getUri ()
+specifier|public
+name|String
+name|getUri
+parameter_list|()
+block|{
+return|return
+name|uri
+return|;
 block|}
 DECL|method|getOriginalUri ()
 specifier|public
@@ -204,8 +229,8 @@ name|lenientProperties
 return|;
 block|}
 block|}
-comment|/**      * Prepares for using optimised dynamic to by parsing the uri and returning an entry of details that are      * used for creating the pre and post processors, and the static uri.      *      * @param exchange    the exchange      * @param uri         the original uri      * @return prepared information about the dynamic endpoint to use      * @throws Exception is thrown if error parsing the uri      */
-DECL|method|prepare (Exchange exchange, String uri)
+comment|/**      * Prepares for using optimised dynamic to by parsing the uri and returning an entry of details that are      * used for creating the pre and post processors, and the static uri.      *      * @param exchange     the exchange      * @param uri          the resolved uri which is intended to be used      * @param originalUri  the original uri of the endpoint before any dynamic evaluation      * @return prepared information about the dynamic endpoint to use      * @throws Exception is thrown if error parsing the uri      */
+DECL|method|prepare (Exchange exchange, String uri, String originalUri)
 name|DynamicAwareEntry
 name|prepare
 parameter_list|(
@@ -214,6 +239,9 @@ name|exchange
 parameter_list|,
 name|String
 name|uri
+parameter_list|,
+name|String
+name|originalUri
 parameter_list|)
 throws|throws
 name|Exception

@@ -545,6 +545,11 @@ condition|)
 block|{
 comment|// if its the same scheme as the pre-resolved dynamic aware then we can optimise to use it
 name|String
+name|originalUri
+init|=
+name|uri
+decl_stmt|;
+name|String
 name|uri
 init|=
 name|resolveUri
@@ -589,6 +594,8 @@ argument_list|(
 name|exchange
 argument_list|,
 name|uri
+argument_list|,
+name|originalUri
 argument_list|)
 decl_stmt|;
 if|if
