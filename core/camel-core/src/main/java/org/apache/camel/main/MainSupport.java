@@ -1026,6 +1026,46 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+name|addOption
+argument_list|(
+operator|new
+name|ParameterOption
+argument_list|(
+literal|"pl"
+argument_list|,
+literal|"propertiesLocation"
+argument_list|,
+literal|"Sets location(s) to load properties, such as from classpath or file system."
+argument_list|,
+literal|"propertiesLocation"
+argument_list|)
+block|{
+specifier|protected
+name|void
+name|doProcess
+parameter_list|(
+name|String
+name|arg
+parameter_list|,
+name|String
+name|parameter
+parameter_list|,
+name|LinkedList
+argument_list|<
+name|String
+argument_list|>
+name|remainingArgs
+parameter_list|)
+block|{
+name|setPropertyPlaceholderLocations
+argument_list|(
+name|parameter
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Runs this process with the given arguments, and will wait until completed, or the JVM terminates.      */
 DECL|method|run ()
@@ -1835,7 +1875,7 @@ return|return
 name|propertyPlaceholderLocations
 return|;
 block|}
-comment|/**      * A list of locations to load properties. You can use comma to separate multiple locations.      * This option will override any default locations and only use the locations from this option.      */
+comment|/**      * A list of locations to add for loading properties.      * You can use comma to separate multiple locations.      */
 DECL|method|setPropertyPlaceholderLocations (String location)
 specifier|public
 name|void
@@ -2396,9 +2436,51 @@ argument_list|()
 decl_stmt|;
 name|pc
 operator|.
-name|setLocation
+name|addLocation
 argument_list|(
 name|propertyPlaceholderLocations
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Using properties from: {}"
+argument_list|,
+name|propertyPlaceholderLocations
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// lets default to application.properties and ignore if its missing
+name|PropertiesComponent
+name|pc
+init|=
+name|camelContext
+operator|.
+name|getPropertiesComponent
+argument_list|()
+decl_stmt|;
+name|pc
+operator|.
+name|addLocation
+argument_list|(
+literal|"classpath:application.properties"
+argument_list|)
+expr_stmt|;
+name|pc
+operator|.
+name|setIgnoreMissingLocation
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Using optional properties from classpath:application.properties"
 argument_list|)
 expr_stmt|;
 block|}

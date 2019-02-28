@@ -100,6 +100,24 @@ name|String
 name|location
 parameter_list|)
 function_decl|;
+comment|/**      * Adds the list of locations to the current locations, where to load properties.      * You can use comma to separate multiple locations.      * This option will override any default locations and only use the locations from this option.      */
+DECL|method|addLocation (String location)
+name|void
+name|addLocation
+parameter_list|(
+name|String
+name|location
+parameter_list|)
+function_decl|;
+comment|/**      * Whether to silently ignore if a location cannot be located, such as a properties file not found.      */
+DECL|method|setIgnoreMissingLocation (boolean ignoreMissingLocation)
+name|void
+name|setIgnoreMissingLocation
+parameter_list|(
+name|boolean
+name|ignoreMissingLocation
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
