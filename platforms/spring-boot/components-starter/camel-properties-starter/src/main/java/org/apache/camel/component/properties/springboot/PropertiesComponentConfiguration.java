@@ -223,13 +223,21 @@ specifier|private
 name|String
 name|overrideProperties
 decl_stmt|;
-comment|/**      * Sets the system property mode.      */
+comment|/**      * Sets the system property (and environment variable) mode. The default      * mode (override) is to check system properties (and environment variables)      * first, before trying the specified properties. This allows system      * properties/environment variables to override any other property source.      */
 DECL|field|systemPropertiesMode
 specifier|private
 name|Integer
 name|systemPropertiesMode
 init|=
 literal|2
+decl_stmt|;
+comment|/**      * Sets the OS environment variables mode. The default mode (fallback) is to      * check OS environment variables, if the property cannot be resolved from      * its sources first. This allows environment variables as fallback values.      */
+DECL|field|environmentVariableMode
+specifier|private
+name|Integer
+name|environmentVariableMode
+init|=
+literal|1
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
@@ -659,6 +667,32 @@ operator|.
 name|systemPropertiesMode
 operator|=
 name|systemPropertiesMode
+expr_stmt|;
+block|}
+DECL|method|getEnvironmentVariableMode ()
+specifier|public
+name|Integer
+name|getEnvironmentVariableMode
+parameter_list|()
+block|{
+return|return
+name|environmentVariableMode
+return|;
+block|}
+DECL|method|setEnvironmentVariableMode (Integer environmentVariableMode)
+specifier|public
+name|void
+name|setEnvironmentVariableMode
+parameter_list|(
+name|Integer
+name|environmentVariableMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|environmentVariableMode
+operator|=
+name|environmentVariableMode
 expr_stmt|;
 block|}
 DECL|method|getResolvePropertyPlaceholders ()

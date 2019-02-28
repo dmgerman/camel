@@ -74,7 +74,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|LinkedHashMap
 import|;
 end_import
 
@@ -265,13 +265,43 @@ name|SYSTEM_PROPERTIES_MODE_FALLBACK
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * Check system properties first, before trying the specified properties.      * This allows system properties to override any other property source.      *<p/>      * This is the default.      */
+comment|/**      * Check system properties variables) first, before trying the specified properties.      * This allows system properties to override any other property source.      *<p/>      * This is the default.      */
 DECL|field|SYSTEM_PROPERTIES_MODE_OVERRIDE
 specifier|public
 specifier|static
 specifier|final
 name|int
 name|SYSTEM_PROPERTIES_MODE_OVERRIDE
+init|=
+literal|2
+decl_stmt|;
+comment|/**      *  Never check OS environment variables.      */
+DECL|field|ENVIRONMENT_VARIABLES_MODE_NEVER
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|ENVIRONMENT_VARIABLES_MODE_NEVER
+init|=
+literal|0
+decl_stmt|;
+comment|/**      * Check OS environment variables if not resolvable in the specified properties.      *<p/>      * This is the default.      */
+DECL|field|ENVIRONMENT_VARIABLES_MODE_FALLBACK
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|ENVIRONMENT_VARIABLES_MODE_FALLBACK
+init|=
+literal|1
+decl_stmt|;
+comment|/**      * Check OS environment variables first, before trying the specified properties.      * This allows system properties to override any other property source.      */
+DECL|field|ENVIRONMENT_VARIABLES_MODE_OVERRIDE
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|ENVIRONMENT_VARIABLES_MODE_OVERRIDE
 init|=
 literal|2
 decl_stmt|;
@@ -327,7 +357,7 @@ argument_list|>
 name|functions
 init|=
 operator|new
-name|HashMap
+name|LinkedHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -537,6 +567,26 @@ name|int
 name|systemPropertiesMode
 init|=
 name|SYSTEM_PROPERTIES_MODE_OVERRIDE
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|""
+operator|+
+name|SYSTEM_PROPERTIES_MODE_FALLBACK
+argument_list|,
+name|enums
+operator|=
+literal|"0,1,2"
+argument_list|)
+DECL|field|environmentVariableMode
+specifier|private
+name|int
+name|environmentVariableMode
+init|=
+name|ENVIRONMENT_VARIABLES_MODE_FALLBACK
 decl_stmt|;
 DECL|method|PropertiesComponent ()
 specifier|public
@@ -1846,7 +1896,7 @@ return|return
 name|systemPropertiesMode
 return|;
 block|}
-comment|/**      * Sets the system property mode.      *      * @see #SYSTEM_PROPERTIES_MODE_NEVER      * @see #SYSTEM_PROPERTIES_MODE_FALLBACK      * @see #SYSTEM_PROPERTIES_MODE_OVERRIDE      */
+comment|/**      * Sets the system property (and environment variable) mode.      *      * The default mode (override) is to check system properties (and environment variables) first,      * before trying the specified properties.      * This allows system properties/environment variables to override any other property source.      *      * @see #SYSTEM_PROPERTIES_MODE_NEVER      * @see #SYSTEM_PROPERTIES_MODE_FALLBACK      * @see #SYSTEM_PROPERTIES_MODE_OVERRIDE      */
 DECL|method|setSystemPropertiesMode (int systemPropertiesMode)
 specifier|public
 name|void
@@ -1861,6 +1911,33 @@ operator|.
 name|systemPropertiesMode
 operator|=
 name|systemPropertiesMode
+expr_stmt|;
+block|}
+DECL|method|getEnvironmentVariableMode ()
+specifier|public
+name|int
+name|getEnvironmentVariableMode
+parameter_list|()
+block|{
+return|return
+name|environmentVariableMode
+return|;
+block|}
+comment|/**      * Sets the OS environment variables mode.      *      * The default mode (fallback) is to check OS environment variables,      * if the property cannot be resolved from its sources first.      * This allows environment variables as fallback values.      *      * @see #ENVIRONMENT_VARIABLES_MODE_NEVER      * @see #ENVIRONMENT_VARIABLES_MODE_FALLBACK      * @see #ENVIRONMENT_VARIABLES_MODE_OVERRIDE      */
+DECL|method|setEnvironmentVariableMode (int environmentVariableMode)
+specifier|public
+name|void
+name|setEnvironmentVariableMode
+parameter_list|(
+name|int
+name|environmentVariableMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|environmentVariableMode
+operator|=
+name|environmentVariableMode
 expr_stmt|;
 block|}
 annotation|@
@@ -1913,6 +1990,31 @@ argument_list|(
 literal|"Option systemPropertiesMode has invalid value: "
 operator|+
 name|systemPropertiesMode
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|environmentVariableMode
+operator|!=
+name|ENVIRONMENT_VARIABLES_MODE_NEVER
+operator|&&
+name|environmentVariableMode
+operator|!=
+name|ENVIRONMENT_VARIABLES_MODE_FALLBACK
+operator|&&
+name|environmentVariableMode
+operator|!=
+name|ENVIRONMENT_VARIABLES_MODE_OVERRIDE
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Option environmentVariableMode has invalid value: "
+operator|+
+name|environmentVariableMode
 argument_list|)
 throw|;
 block|}
