@@ -361,7 +361,7 @@ return|return
 name|configuration
 return|;
 block|}
-comment|/**      * The AWS KMS default configuration      */
+comment|/**      * The AWS ECS default configuration      */
 DECL|method|setConfiguration (ECSConfiguration configuration)
 specifier|public
 name|void

@@ -450,7 +450,7 @@ condition|)
 block|{
 name|ecsProducerToString
 operator|=
-literal|"KMSProducer["
+literal|"ECSProducer["
 operator|+
 name|URISupport
 operator|.
