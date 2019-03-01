@@ -453,7 +453,7 @@ name|getRegion
 argument_list|()
 return|;
 block|}
-comment|/**      * The region in which KMS client needs to work      */
+comment|/**      * The region in which ECS client needs to work      */
 DECL|method|setRegion (String region)
 specifier|public
 name|void
