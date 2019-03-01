@@ -2304,6 +2304,16 @@ argument_list|,
 literal|"-1"
 argument_list|)
 block|,
+comment|// log config
+name|editConfigurationFilePut
+argument_list|(
+literal|"etc/custom.properties"
+argument_list|,
+literal|"karaf.log"
+argument_list|,
+literal|"${karaf.data}/log"
+argument_list|)
+block|,
 comment|// Assign unique ports for Karaf
 comment|//            editConfigurationFilePut("etc/org.ops4j.pax.web.cfg", "org.osgi.service.http.port", Integer.toString(AvailablePortFinder.getNextAvailable())),
 comment|//            editConfigurationFilePut("etc/org.apache.karaf.management.cfg", "rmiRegistryPort", Integer.toString(AvailablePortFinder.getNextAvailable())),
