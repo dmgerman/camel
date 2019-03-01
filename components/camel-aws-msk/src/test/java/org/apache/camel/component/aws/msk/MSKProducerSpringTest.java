@@ -214,10 +214,10 @@ name|mock
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|kmsListKeysTest ()
+DECL|method|mskListKeysTest ()
 specifier|public
 name|void
-name|kmsListKeysTest
+name|mskListKeysTest
 parameter_list|()
 throws|throws
 name|Exception

@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For working with Amazon KMS.  */
+comment|/**  * For working with Amazon MSK.  */
 end_comment
 
 begin_class
@@ -361,7 +361,7 @@ return|return
 name|configuration
 return|;
 block|}
-comment|/**      * The AWS KMS default configuration      */
+comment|/**      * The AWS MSK default configuration      */
 DECL|method|setConfiguration (MSKConfiguration configuration)
 specifier|public
 name|void
@@ -453,7 +453,7 @@ name|getRegion
 argument_list|()
 return|;
 block|}
-comment|/**      * The region in which KMS client needs to work      */
+comment|/**      * The region in which MSK client needs to work      */
 DECL|method|setRegion (String region)
 specifier|public
 name|void

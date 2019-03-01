@@ -228,10 +228,10 @@ name|mock
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|kmsListClustersTest ()
+DECL|method|mskListClustersTest ()
 specifier|public
 name|void
-name|kmsListClustersTest
+name|mskListClustersTest
 parameter_list|()
 throws|throws
 name|Exception
