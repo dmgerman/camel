@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class which ensures that a service is only initialized once and  * provides some helper methods for enquiring of its status.  *<p/>  * Implementations can extend this base class and implement {@link org.apache.camel.SuspendableService}  * in case they support suspend/resume.  *<p/>  *<b>Important:</b> You should override the lifecycle methods that start with<tt>do</tt>, eg {@link #doStart()}},  * {@link #doStop()}, etc. where you implement your logic. The methods {@link #start()}, {@link #stop()} should  *<b>NOT</b> be overriden as they are used internally to keep track of the state of this service and properly  * invoke the operation in a safe manner.  */
+comment|/**  * A useful base class which ensures that a service is only initialized once and  * provides some helper methods for enquiring of its status.  *<p/>  * Implementations can extend this base class and implement {@link org.apache.camel.SuspendableService}  * in case they support suspend/resume.  *<p/>  *<b>Important:</b> You should override the lifecycle methods that start with<tt>do</tt>, eg {@link #doStart()}},  * {@link #doStop()}, etc. where you implement your logic. The methods {@link #start()}, {@link #stop()} should  *<b>NOT</b> be overridden as they are used internally to keep track of the state of this service and properly  * invoke the operation in a safe manner.  */
 end_comment
 
 begin_class
@@ -235,7 +235,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Initializing service"
+literal|"Initializing service: {}"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 name|doInit
@@ -274,7 +276,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service already started"
+literal|"Service: {} already started"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 return|return;
@@ -290,7 +294,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service already starting"
+literal|"Service: {} already starting"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 return|return;
@@ -308,7 +314,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Starting service"
+literal|"Starting service: {}"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 name|doStart
@@ -322,7 +330,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service started"
+literal|"Service started: {}"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -340,7 +350,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Error while starting service"
+literal|"Error while starting service: "
+operator|+
+name|this
 argument_list|,
 name|e
 argument_list|)
@@ -351,7 +363,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      *<b>Important:</b> You should override the lifecycle methods that start with<tt>do</tt>, eg {@link #doStart()},      * {@link #doStop()}, etc. where you implement your logic. The methods {@link #start()}, {@link #stop()} should      *<b>NOT</b> be overriden as they are used internally to keep track of the state of this service and properly      * invoke the operation in a safe manner.      */
+comment|/**      *<b>Important:</b> You should override the lifecycle methods that start with<tt>do</tt>, eg {@link #doStart()},      * {@link #doStop()}, etc. where you implement your logic. The methods {@link #start()}, {@link #stop()} should      *<b>NOT</b> be overridden as they are used internally to keep track of the state of this service and properly      * invoke the operation in a safe manner.      */
 DECL|method|stop ()
 specifier|public
 name|void
@@ -384,7 +396,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service already stopped"
+literal|"Service: {} already stopped"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 return|return;
@@ -400,7 +414,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service already stopping"
+literal|"Service: {} already stopping"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 return|return;
@@ -413,7 +429,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Stopping service"
+literal|"Stopping service: {}"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 try|try
@@ -429,7 +447,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service stopped service"
+literal|"Service: {} stopped service"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -447,7 +467,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Error while stopping service"
+literal|"Error while stopping service: "
+operator|+
+name|this
 argument_list|,
 name|e
 argument_list|)
@@ -458,7 +480,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      *<b>Important:</b> You should override the lifecycle methods that start with<tt>do</tt>, eg {@link #doStart()},      * {@link #doStop()}, etc. where you implement your logic. The methods {@link #start()}, {@link #stop()} should      *<b>NOT</b> be overriden as they are used internally to keep track of the state of this service and properly      * invoke the operation in a safe manner.      */
+comment|/**      *<b>Important:</b> You should override the lifecycle methods that start with<tt>do</tt>, eg {@link #doStart()},      * {@link #doStop()}, etc. where you implement your logic. The methods {@link #start()}, {@link #stop()} should      *<b>NOT</b> be overridden as they are used internally to keep track of the state of this service and properly      * invoke the operation in a safe manner.      */
 annotation|@
 name|Override
 DECL|method|suspend ()
@@ -485,7 +507,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service already suspended"
+literal|"Service: {} already suspended"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 return|return;
@@ -501,7 +525,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service already suspending"
+literal|"Service: {} already suspending"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 return|return;
@@ -514,7 +540,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Suspending service"
+literal|"Suspending service: {}"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 try|try
@@ -530,7 +558,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service suspended"
+literal|"Service suspended: {}"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -548,7 +578,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Error while suspending service"
+literal|"Error while suspending service: "
+operator|+
+name|this
 argument_list|,
 name|e
 argument_list|)
@@ -586,7 +618,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service is not suspended"
+literal|"Service is not suspended: {}"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 return|return;
@@ -599,7 +633,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Resuming service"
+literal|"Resuming service: {}"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 try|try
@@ -615,7 +651,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service resumed"
+literal|"Service resumed: {}"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -633,7 +671,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Error while resuming service"
+literal|"Error while resuming service: "
+operator|+
+name|this
 argument_list|,
 name|e
 argument_list|)
@@ -671,7 +711,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service already shut down"
+literal|"Service: {} already shut down"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 return|return;
@@ -687,7 +729,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service already shutting down"
+literal|"Service: {} already shutting down"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 return|return;
@@ -703,7 +747,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Shutting down service"
+literal|"Shutting down service: {}"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 try|try
@@ -715,7 +761,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service shut down"
+literal|"Service: {} shut down"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 name|status
@@ -737,7 +785,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Error shutting down service"
+literal|"Error shutting down service: "
+operator|+
+name|this
 argument_list|,
 name|e
 argument_list|)

@@ -128,7 +128,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service already started"
+literal|"Service: {} already started"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 return|return;
@@ -144,7 +146,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service already starting"
+literal|"Service: {} already starting"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 return|return;
@@ -157,7 +161,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Starting service"
+literal|"Starting service: {}"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 try|try
@@ -180,7 +186,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service started"
+literal|"Service: {} started"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -198,7 +206,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Error while starting service"
+literal|"Error while starting service: "
+operator|+
+name|this
 argument_list|,
 name|e
 argument_list|)
@@ -248,7 +258,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service already stopped"
+literal|"Service: {} already stopped"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 return|return;
@@ -264,7 +276,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service already stopping"
+literal|"Service: {} already stopping"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 return|return;
@@ -277,7 +291,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Stopping service"
+literal|"Stopping service: {}"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 try|try
@@ -300,7 +316,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service stopped service"
+literal|"Service: {} stopped service"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -318,7 +336,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Error while stopping service"
+literal|"Error while stopping service: "
+operator|+
+name|this
 argument_list|,
 name|e
 argument_list|)
@@ -355,7 +375,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service already shut down"
+literal|"Service: {} already shut down"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 return|return;
@@ -371,7 +393,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service already shutting down"
+literal|"Service: {} already shutting down"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 return|return;
@@ -387,7 +411,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Shutting down service"
+literal|"Shutting down service: {}"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 try|try
@@ -406,7 +432,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Service shut down"
+literal|"Service: {} shut down"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 name|status
@@ -428,7 +456,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Error shutting down service"
+literal|"Error shutting down service: "
+operator|+
+name|this
 argument_list|,
 name|e
 argument_list|)
