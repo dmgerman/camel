@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For working with Amazon KMS.  */
+comment|/**  * For working with Amazon IAM.  */
 end_comment
 
 begin_class

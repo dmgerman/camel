@@ -363,7 +363,7 @@ operator|.
 name|getIamClient
 argument_list|()
 else|:
-name|createKMSClient
+name|createIAMClient
 argument_list|()
 expr_stmt|;
 block|}
@@ -430,9 +430,9 @@ return|return
 name|iamClient
 return|;
 block|}
-DECL|method|createKMSClient ()
+DECL|method|createIAMClient ()
 name|AmazonIdentityManagement
-name|createKMSClient
+name|createIAMClient
 parameter_list|()
 block|{
 name|AmazonIdentityManagement

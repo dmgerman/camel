@@ -343,7 +343,7 @@ return|return
 name|proxyHost
 return|;
 block|}
-comment|/**      * To define a proxy host when instantiating the KMS client      */
+comment|/**      * To define a proxy host when instantiating the IAM client      */
 DECL|method|setProxyHost (String proxyHost)
 specifier|public
 name|void
@@ -370,7 +370,7 @@ return|return
 name|proxyPort
 return|;
 block|}
-comment|/**      * To define a proxy port when instantiating the KMS client      */
+comment|/**      * To define a proxy port when instantiating the IAM client      */
 DECL|method|setProxyPort (Integer proxyPort)
 specifier|public
 name|void
@@ -397,7 +397,7 @@ return|return
 name|region
 return|;
 block|}
-comment|/**      * The region in which KMS client needs to work      */
+comment|/**      * The region in which IAM client needs to work      */
 DECL|method|setRegion (String region)
 specifier|public
 name|void
