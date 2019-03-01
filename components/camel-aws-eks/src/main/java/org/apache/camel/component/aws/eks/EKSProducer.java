@@ -466,7 +466,7 @@ condition|)
 block|{
 name|eksProducerToString
 operator|=
-literal|"KMSProducer["
+literal|"EKSProducer["
 operator|+
 name|URISupport
 operator|.
