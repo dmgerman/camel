@@ -126,7 +126,7 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-comment|/**      * The AWS KMS default configuration      */
+comment|/**      * The AWS ECS default configuration      */
 DECL|field|configuration
 specifier|private
 name|ECSConfigurationNestedConfiguration
