@@ -198,10 +198,10 @@ name|mock
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|mqListBrokersTest ()
+DECL|method|kmsListBrokersTest ()
 specifier|public
 name|void
-name|mqListBrokersTest
+name|kmsListBrokersTest
 parameter_list|()
 throws|throws
 name|Exception
