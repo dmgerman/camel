@@ -840,11 +840,12 @@ name|fn
 argument_list|)
 argument_list|)
 operator|.
-name|findAny
-argument_list|()
-operator|.
-name|isPresent
-argument_list|()
+name|anyMatch
+argument_list|(
+name|Files
+operator|::
+name|isRegularFile
+argument_list|)
 condition|)
 block|{
 continue|continue;
