@@ -126,7 +126,7 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-comment|/**      * The AWS KMS default configuration      */
+comment|/**      * The AWS EKS default configuration      */
 DECL|field|configuration
 specifier|private
 name|EKSConfigurationNestedConfiguration
@@ -144,7 +144,7 @@ specifier|private
 name|String
 name|secretKey
 decl_stmt|;
-comment|/**      * The region in which KMS client needs to work      */
+comment|/**      * The region in which EKS client needs to work      */
 DECL|field|region
 specifier|private
 name|String
