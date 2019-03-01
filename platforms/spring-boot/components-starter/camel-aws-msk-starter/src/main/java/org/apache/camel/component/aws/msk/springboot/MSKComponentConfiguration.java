@@ -126,7 +126,7 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-comment|/**      * The AWS KMS default configuration      */
+comment|/**      * The AWS MSK default configuration      */
 DECL|field|configuration
 specifier|private
 name|MSKConfigurationNestedConfiguration
@@ -144,7 +144,7 @@ specifier|private
 name|String
 name|secretKey
 decl_stmt|;
-comment|/**      * The region in which KMS client needs to work      */
+comment|/**      * The region in which MSK client needs to work      */
 DECL|field|region
 specifier|private
 name|String
@@ -341,19 +341,19 @@ specifier|private
 name|MSKOperations
 name|operation
 decl_stmt|;
-comment|/**          * To define a proxy host when instantiating the KMS client          */
+comment|/**          * To define a proxy host when instantiating the MSK client          */
 DECL|field|proxyHost
 specifier|private
 name|String
 name|proxyHost
 decl_stmt|;
-comment|/**          * To define a proxy port when instantiating the KMS client          */
+comment|/**          * To define a proxy port when instantiating the MSK client          */
 DECL|field|proxyPort
 specifier|private
 name|Integer
 name|proxyPort
 decl_stmt|;
-comment|/**          * The region in which KMS client needs to work          */
+comment|/**          * The region in which MSK client needs to work          */
 DECL|field|region
 specifier|private
 name|String
