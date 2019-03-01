@@ -144,7 +144,7 @@ specifier|private
 name|String
 name|secretKey
 decl_stmt|;
-comment|/**      * The region in which KMS client needs to work      */
+comment|/**      * The region in which ECS client needs to work      */
 DECL|field|region
 specifier|private
 name|String
