@@ -775,7 +775,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|// TODO: Document these methods
+comment|/**      * Gets the extension of the given type.      *      * @param type  the type of the extension      * @return the extension, or<tt>null</tt> if no extension has been installed.      */
 DECL|method|getExtension (Class<T> type)
 parameter_list|<
 name|T
@@ -790,6 +790,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
+comment|/**      * Allows to install custom extensions to the Camel context.      *      * @param type   the type of the extension      * @param module the instance of the extension      */
 DECL|method|setExtension (Class<T> type, T module)
 parameter_list|<
 name|T
