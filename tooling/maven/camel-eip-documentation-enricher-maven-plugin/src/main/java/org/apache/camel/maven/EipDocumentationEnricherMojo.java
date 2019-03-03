@@ -418,7 +418,7 @@ name|Parameter
 argument_list|(
 name|defaultValue
 operator|=
-literal|"${project.build.directory}/../../../components/camel-core-xml"
+literal|"${project.build.directory}/../../../core/camel-core-xml"
 argument_list|)
 DECL|field|camelCoreXmlDir
 specifier|public
