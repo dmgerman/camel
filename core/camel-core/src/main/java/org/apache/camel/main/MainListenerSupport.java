@@ -40,17 +40,6 @@ name|MainListenerSupport
 implements|implements
 name|MainListener
 block|{
-DECL|method|beforeStart (MainSupport main)
-specifier|public
-name|void
-name|beforeStart
-parameter_list|(
-name|MainSupport
-name|main
-parameter_list|)
-block|{
-comment|// noop
-block|}
 DECL|method|configure (CamelContext context)
 specifier|public
 name|void
@@ -58,6 +47,17 @@ name|configure
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|)
+block|{
+comment|// noop
+block|}
+DECL|method|beforeStart (MainSupport main)
+specifier|public
+name|void
+name|beforeStart
+parameter_list|(
+name|MainSupport
+name|main
 parameter_list|)
 block|{
 comment|// noop
