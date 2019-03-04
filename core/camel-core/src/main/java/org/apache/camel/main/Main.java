@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A command line tool for booting up a CamelContext  */
+comment|/**  * A Main class for booting up Camel in standalone mode.  */
 end_comment
 
 begin_class
