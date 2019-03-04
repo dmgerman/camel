@@ -1,4 +1,8 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
 begin_package
 DECL|package|org.apache.maven.plugins.javadoc
 package|package
@@ -14,9 +18,177 @@ name|javadoc
 package|;
 end_package
 
-begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements.  See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership.  The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License.  You may obtain a copy of the License at  *  *  http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
-end_comment
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|ByteArrayInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|ByteArrayOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Field
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Paths
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|StandardCopyOption
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TreeSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+import|;
+end_import
 
 begin_import
 import|import
@@ -43,20 +215,6 @@ operator|.
 name|archiver
 operator|.
 name|MavenArchiver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|Artifact
 import|;
 end_import
 
@@ -101,20 +259,6 @@ operator|.
 name|model
 operator|.
 name|Resource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|plugin
-operator|.
-name|AbstractMojo
 import|;
 end_import
 
@@ -209,52 +353,6 @@ operator|.
 name|annotations
 operator|.
 name|ResolutionScope
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|plugins
-operator|.
-name|javadoc
-operator|.
-name|AbstractJavadocMojo
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|plugins
-operator|.
-name|javadoc
-operator|.
-name|JavadocArchiveConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|project
-operator|.
-name|MavenProject
 import|;
 end_import
 
@@ -362,256 +460,8 @@ name|ManifestException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ByteArrayOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|FileOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOError
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Writer
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Field
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Files
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Path
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Paths
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|StandardCopyOption
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Objects
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|TreeSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Collectors
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Stream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|zip
-operator|.
-name|ZipFile
-import|;
-end_import
-
 begin_comment
-comment|/**  * Bundles the Javadoc documentation for<code>main Java code</code> in an<b>NON aggregator</b> project into  * a jar using the standard<a href="http://docs.oracle.com/javase/7/docs/technotes/guides/javadoc/">Javadoc Tool</a>.  *  * @version $Id: JavadocJar.java 1752018 2016-07-09 16:35:25Z rfscholte $  * @since 2.0  */
+comment|/**  * Bundles the Javadoc documentation for<code>main Java code</code> in an  *<b>NON aggregator</b> project into a jar using the standard<a href=  * "http://docs.oracle.com/javase/7/docs/technotes/guides/javadoc/">Javadoc  * Tool</a>.  *  * @version $Id: JavadocJar.java 1752018 2016-07-09 16:35:25Z rfscholte $  * @since 2.0  */
 end_comment
 
 begin_class
@@ -688,6 +538,23 @@ decl_stmt|;
 comment|// ----------------------------------------------------------------------
 comment|// Mojo components
 comment|// ----------------------------------------------------------------------
+comment|/**      * Specifies the destination directory where javadoc saves the generated      * HTML files.<br>      *       * @see<a href=      *      "http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#d">d</a>      *      option      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/apidocstmp"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|)
+DECL|field|intermediateDirectory
+specifier|protected
+name|File
+name|intermediateDirectory
+decl_stmt|;
 comment|/**      * Used for attaching the artifact in the project.      */
 annotation|@
 name|Component
@@ -718,7 +585,7 @@ decl_stmt|;
 comment|// ----------------------------------------------------------------------
 comment|// Mojo Parameters
 comment|// ----------------------------------------------------------------------
-comment|/**      * Specifies the destination directory where javadoc saves the generated HTML files.      * See<a href="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#d">d</a>.      *      * @deprecated      */
+comment|/**      * Specifies the destination directory where javadoc saves the generated      * HTML files. See<a href=      * "http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#d">d</a>.      *      * @deprecated      */
 annotation|@
 name|Deprecated
 annotation|@
@@ -746,7 +613,7 @@ specifier|private
 name|String
 name|jarOutputDirectory
 decl_stmt|;
-comment|/**      * Specifies the filename that will be used for the generated jar file. Please note that<code>-javadoc</code>      * or<code>-test-javadoc</code> will be appended to the file name.      */
+comment|/**      * Specifies the filename that will be used for the generated jar file.      * Please note that<code>-javadoc</code> or<code>-test-javadoc</code> will      * be appended to the file name.      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -776,7 +643,7 @@ specifier|private
 name|boolean
 name|attach
 decl_stmt|;
-comment|/**      * The archive configuration to use.      * See<a href="http://maven.apache.org/shared/maven-archiver/index.html">Maven Archiver Reference</a>.      *      * @since 2.5      */
+comment|/**      * The archive configuration to use. See      *<a href="http://maven.apache.org/shared/maven-archiver/index.html">Maven      * Archiver Reference</a>.      *      * @since 2.5      */
 annotation|@
 name|Parameter
 DECL|field|archive
@@ -818,7 +685,7 @@ specifier|private
 name|File
 name|defaultManifestFile
 decl_stmt|;
-comment|/**      * Set this to<code>true</code> to enable the use of the<code>defaultManifestFile</code>.      *<br/>      *      * @since 2.5      */
+comment|/**      * Set this to<code>true</code> to enable the use of the      *<code>defaultManifestFile</code>.<br/>      *      * @since 2.5      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -851,23 +718,6 @@ DECL|field|classifier
 specifier|private
 name|String
 name|classifier
-decl_stmt|;
-comment|/**      * Specifies the destination directory where javadoc saves the generated HTML files.      *<br>      * @see<a href="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/javadoc.html#d">d</a> option      */
-annotation|@
-name|Parameter
-argument_list|(
-name|defaultValue
-operator|=
-literal|"${project.build.directory}/apidocstmp"
-argument_list|,
-name|required
-operator|=
-literal|true
-argument_list|)
-DECL|field|intermediateDirectory
-specifier|protected
-name|File
-name|intermediateDirectory
 decl_stmt|;
 comment|/** {@inheritDoc} */
 annotation|@
@@ -1308,8 +1158,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// TODO: these introduced dependencies on the project are going to become problematic - can we export it
-comment|//  through metadata instead?
+comment|// TODO: these introduced dependencies on the project are
+comment|// going to become problematic - can we export it
+comment|// through metadata instead?
 name|projectHelper
 operator|.
 name|attachArtifact
@@ -1370,7 +1221,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/*     private void writeIncrementalInfo(MavenProject project) throws MojoExecutionException {         try {             Path cacheData = getIncrementalDataPath(project);             String curdata = getIncrementalData();             Files.createDirectories(cacheData.getParent());             try (Writer w = Files.newBufferedWriter(cacheData)) {                 w.append(curdata);             }         } catch (IOException e) {             throw new MojoExecutionException("Error checking manifest uptodate status", e);         }     }      private boolean isUpToDate(MavenProject project) throws MojoExecutionException {         long t0 = System.currentTimeMillis();         try {             Path cacheData = getIncrementalDataPath(project);             String prvdata;             if (Files.isRegularFile(cacheData)) {                 prvdata = new String(Files.readAllBytes(cacheData), StandardCharsets.UTF_8);             } else {                 prvdata = null;             }             String curdata = getIncrementalData();             if (curdata.equals(prvdata)) {                 long lastmod = Files.getLastModifiedTime(cacheData).toMillis();                 Set<String> stale = Stream.concat(Stream.of(new File(project.getBuild().getOutputDirectory())),                         project.getArtifacts().stream().map(Artifact::getFile))                         .flatMap(f -> newer(lastmod, f))                         .collect(Collectors.toSet());                 if (!stale.isEmpty()) {                     getLog().info("Stale files: " + stale.stream()                             .collect(Collectors.joining(", ")));                 } else {                     // everything is in order, skip                     getLog().info("Skipping manifest generation, everything is up to date.");                     return true;                 }             } else {                 if (prvdata == null) {                     getLog().info("No previous run data found, generating manifest.");                 } else {                     getLog().info("Configuration changed, re-generating manifest.");                 }             }         } catch (IOException e) {             throw new MojoExecutionException("Error checking manifest uptodate status", e);         } finally {             long t1 = System.currentTimeMillis();             getLog().warn("isUpToDate took " + (t1 - t0) + " ms");         }         return false;     }      private String getIncrementalData() {         return getInstructions().entrySet().stream().map(e -> e.getKey() + "=" + e.getValue())                 .collect(Collectors.joining("\n", "", "\n"));     }      private Path getIncrementalDataPath(MavenProject project) {         return Paths.get(project.getBuild().getDirectory(), "camel-javadoc-plugin",                 "org.apache.camel_camel-javadoc-plugin_javadoc_xx");     }      private long lastmod(Path p) {         try {             return Files.getLastModifiedTime(p).toMillis();         } catch (IOException e) {             return 0;         }     }      private Stream<String> newer(long lastmod, File file) {         try {             if (file.isDirectory()) {                 return Files.walk(file.toPath())                         .filter(Files::isRegularFile)                         .filter(p -> lastmod(p)> lastmod)                         .map(Path::toString);             } else if (file.isFile()) {                 if (lastmod(file.toPath())> lastmod) {                     if (file.getName().endsWith(".jar")) {                         try (ZipFile zf = new ZipFile(file)) {                             return zf.stream()                                     .filter(ze -> !ze.isDirectory())                                     .filter(ze -> ze.getLastModifiedTime().toMillis()> lastmod)                                     .map(ze -> file.toString() + "!" + ze.getName())                                     .collect(Collectors.toList())                                     .stream();                         }                     } else {                         return Stream.of(file.toString());                     }                 } else {                     return Stream.empty();                 }             } else {                 return Stream.empty();             }         } catch (IOException e) {             throw new IOError(e);         }     }     */
+comment|/*      * private void writeIncrementalInfo(MavenProject project) throws      * MojoExecutionException { try { Path cacheData =      * getIncrementalDataPath(project); String curdata = getIncrementalData();      * Files.createDirectories(cacheData.getParent()); try (Writer w =      * Files.newBufferedWriter(cacheData)) { w.append(curdata); } } catch      * (IOException e) { throw new      * MojoExecutionException("Error checking manifest uptodate status", e); } }      * private boolean isUpToDate(MavenProject project) throws      * MojoExecutionException { long t0 = System.currentTimeMillis(); try { Path      * cacheData = getIncrementalDataPath(project); String prvdata; if      * (Files.isRegularFile(cacheData)) { prvdata = new      * String(Files.readAllBytes(cacheData), StandardCharsets.UTF_8); } else {      * prvdata = null; } String curdata = getIncrementalData(); if      * (curdata.equals(prvdata)) { long lastmod =      * Files.getLastModifiedTime(cacheData).toMillis(); Set<String> stale =      * Stream.concat(Stream.of(new      * File(project.getBuild().getOutputDirectory())),      * project.getArtifacts().stream().map(Artifact::getFile)) .flatMap(f ->      * newer(lastmod, f)) .collect(Collectors.toSet()); if (!stale.isEmpty()) {      * getLog().info("Stale files: " + stale.stream()      * .collect(Collectors.joining(", "))); } else { // everything is in order,      * skip      * getLog().info("Skipping manifest generation, everything is up to date.");      * return true; } } else { if (prvdata == null) {      * getLog().info("No previous run data found, generating manifest."); } else      * { getLog().info("Configuration changed, re-generating manifest."); } } }      * catch (IOException e) { throw new      * MojoExecutionException("Error checking manifest uptodate status", e); }      * finally { long t1 = System.currentTimeMillis();      * getLog().warn("isUpToDate took " + (t1 - t0) + " ms"); } return false; }      * private String getIncrementalData() { return      * getInstructions().entrySet().stream().map(e -> e.getKey() + "=" +      * e.getValue()) .collect(Collectors.joining("\n", "", "\n")); } private      * Path getIncrementalDataPath(MavenProject project) { return      * Paths.get(project.getBuild().getDirectory(), "camel-javadoc-plugin",      * "org.apache.camel_camel-javadoc-plugin_javadoc_xx"); } private long      * lastmod(Path p) { try { return Files.getLastModifiedTime(p).toMillis(); }      * catch (IOException e) { return 0; } } private Stream<String> newer(long      * lastmod, File file) { try { if (file.isDirectory()) { return      * Files.walk(file.toPath()) .filter(Files::isRegularFile) .filter(p ->      * lastmod(p)> lastmod) .map(Path::toString); } else if (file.isFile()) {      * if (lastmod(file.toPath())> lastmod) { if      * (file.getName().endsWith(".jar")) { try (ZipFile zf = new ZipFile(file))      * { return zf.stream() .filter(ze -> !ze.isDirectory()) .filter(ze ->      * ze.getLastModifiedTime().toMillis()> lastmod) .map(ze -> file.toString()      * + "!" + ze.getName()) .collect(Collectors.toList()) .stream(); } } else {      * return Stream.of(file.toString()); } } else { return Stream.empty(); } }      * else { return Stream.empty(); } } catch (IOException e) { throw new      * IOError(e); } }      */
 DECL|method|copy (Path in, Path out)
 name|void
 name|copy
@@ -1540,7 +1391,7 @@ block|}
 comment|// ----------------------------------------------------------------------
 comment|// Protected methods
 comment|// ----------------------------------------------------------------------
-comment|/**      * @return the wanted classifier, i.e.<code>javadoc</code> or<code>test-javadoc</code>      */
+comment|/**      * @return the wanted classifier, i.e.<code>javadoc</code> or      *<code>test-javadoc</code>      */
 DECL|method|getClassifier ()
 specifier|protected
 name|String
@@ -1554,8 +1405,8 @@ block|}
 comment|// ----------------------------------------------------------------------
 comment|// private methods
 comment|// ----------------------------------------------------------------------
-comment|/**      * Method that creates the jar file      *      * @param javadocFiles the directory where the generated jar file will be put      * @param jarFileName the filename of the generated jar file      * @return a File object that contains the generated jar file      * @throws ArchiverException {@link ArchiverException}      * @throws IOException {@link IOException}      */
-DECL|method|generateArchive ( File javadocFiles, String jarFileName )
+comment|/**      * Method that creates the jar file      *      * @param javadocFiles the directory where the generated jar file will be      *            put      * @param jarFileName the filename of the generated jar file      * @return a File object that contains the generated jar file      * @throws ArchiverException {@link ArchiverException}      * @throws IOException {@link IOException}      */
+DECL|method|generateArchive (File javadocFiles, String jarFileName)
 specifier|private
 name|File
 name|generateArchive
