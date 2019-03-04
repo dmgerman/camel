@@ -577,14 +577,6 @@ name|maxHeaderSize
 init|=
 literal|8192
 decl_stmt|;
-comment|/**          * The maximum length of all headers. If the sum of the length of each          * header exceeds this value, a {@link          * io.netty.handler.codec.TooLongFrameException} will be raised.          */
-DECL|field|allowDefaultCodec
-specifier|private
-name|Boolean
-name|allowDefaultCodec
-init|=
-literal|true
-decl_stmt|;
 comment|/**          * The status codes which are considered a success response. The values          * are inclusive. Multiple ranges can be defined, separated by comma,          * e.g.<tt>200-204,209,301-304</tt>. Each range must be a single number          * or from-to with the dash included.<p/> The default range is          *<tt>200-299</tt>          */
 DECL|field|okStatusCodeRange
 specifier|private
@@ -989,32 +981,6 @@ operator|.
 name|maxHeaderSize
 operator|=
 name|maxHeaderSize
-expr_stmt|;
-block|}
-DECL|method|getAllowDefaultCodec ()
-specifier|public
-name|Boolean
-name|getAllowDefaultCodec
-parameter_list|()
-block|{
-return|return
-name|allowDefaultCodec
-return|;
-block|}
-DECL|method|setAllowDefaultCodec (Boolean allowDefaultCodec)
-specifier|public
-name|void
-name|setAllowDefaultCodec
-parameter_list|(
-name|Boolean
-name|allowDefaultCodec
-parameter_list|)
-block|{
-name|this
-operator|.
-name|allowDefaultCodec
-operator|=
-name|allowDefaultCodec
 expr_stmt|;
 block|}
 DECL|method|getOkStatusCodeRange ()

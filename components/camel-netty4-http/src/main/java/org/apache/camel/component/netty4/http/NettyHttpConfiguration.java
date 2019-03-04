@@ -933,34 +933,6 @@ operator|=
 name|maxHeaderSize
 expr_stmt|;
 block|}
-comment|// Don't support allowDefaultCodec
-DECL|method|isAllowDefaultCodec ()
-specifier|public
-name|boolean
-name|isAllowDefaultCodec
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-DECL|method|setAllowDefaultCodec (boolean allowDefaultCodec)
-specifier|public
-name|void
-name|setAllowDefaultCodec
-parameter_list|(
-name|boolean
-name|allowDefaultCodec
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"You cannot setAllowDefaultCodec here."
-argument_list|)
-throw|;
-block|}
 DECL|method|getOkStatusCodeRange ()
 specifier|public
 name|String
