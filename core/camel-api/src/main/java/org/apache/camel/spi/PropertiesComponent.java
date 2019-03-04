@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Properties
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -67,6 +77,7 @@ name|String
 name|getSuffixToken
 parameter_list|()
 function_decl|;
+comment|/**      * Parses the input text and resolve all property placeholders.      *      * @param uri  input text      * @return text with resolved property placeholders      * @throws Exception is thrown if error during parsing      */
 DECL|method|parseUri (String uri)
 name|String
 name|parseUri
@@ -77,7 +88,8 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-DECL|method|parseUri (String uri, String... uris)
+comment|/**      * Parses the input text and resolve all property placeholders.      *      * @param uri  input text      * @param locations locations to load as properties (will not use the default locations)      * @return text with resolved property placeholders      * @throws Exception is thrown if error during parsing      */
+DECL|method|parseUri (String uri, String... locations)
 name|String
 name|parseUri
 parameter_list|(
@@ -86,7 +98,27 @@ name|uri
 parameter_list|,
 name|String
 modifier|...
-name|uris
+name|locations
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Loads the properties from the default locations.      *      * @return the properties loaded.      * @throws Exception is thrown if error loading properties      */
+DECL|method|loadProperties ()
+name|Properties
+name|loadProperties
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Loads the properties from the given locations      *      * @param locations locations to load as properties (will not use the default locations)      * @return the properties loaded.      * @throws Exception is thrown if error loading properties      */
+DECL|method|loadProperties (String... locations)
+name|Properties
+name|loadProperties
+parameter_list|(
+name|String
+modifier|...
+name|locations
 parameter_list|)
 throws|throws
 name|Exception
