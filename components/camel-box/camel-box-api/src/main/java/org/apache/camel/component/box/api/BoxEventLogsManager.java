@@ -176,7 +176,7 @@ operator|=
 name|boxConnection
 expr_stmt|;
 block|}
-comment|/**      * Create an event stream with optional starting initial position and add      * listener that will be notified when an event is received.      *       * @param position      *            - the starting position of the event stream. May be      *<code>null</code> in which case all events within bounds      *            returned.      * @param after      *            - the lower bound on the timestamp of the events returned.      * @param after      *            - the upper bound on the timestamp of the events returned.      * @param types      *            - an optional list of event types to filter by.      *       * @return A list of all the events that met the given criteria.      */
+comment|/**      * Create an event stream with optional starting initial position and add      * listener that will be notified when an event is received.      *       * @param position      *            - the starting position of the event stream. May be      *<code>null</code> in which case all events within bounds      *            returned.      * @param after      *            - the lower bound on the timestamp of the events returned.      * @param before      *            - the upper bound on the timestamp of the events returned.      * @param types      *            - an optional list of event types to filter by.      *       * @return A list of all the events that met the given criteria.      */
 DECL|method|getEnterpriseEvents (String position, Date after, Date before, BoxEvent.Type... types)
 specifier|public
 name|List
