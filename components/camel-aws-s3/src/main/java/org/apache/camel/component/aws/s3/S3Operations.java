@@ -43,6 +43,9 @@ name|listBuckets
 block|,
 DECL|enumConstant|downloadLink
 name|downloadLink
+block|,
+DECL|enumConstant|getObject
+name|getObject
 block|}
 end_enum
 
