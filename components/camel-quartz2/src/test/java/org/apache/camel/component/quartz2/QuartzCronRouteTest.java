@@ -285,7 +285,7 @@ argument_list|)
 operator|.
 name|equals
 argument_list|(
-literal|"0/2 * * * * ?"
+literal|"0/1 * * * * ?"
 argument_list|)
 argument_list|,
 name|CoreMatchers
@@ -315,11 +315,10 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// triggers every 2th second at precise 00,02,04,06..58
-comment|// notice we must use + as space when configured using URI parameter
+comment|// triggers every 1th second at precise 00,01,02,03..59
 name|from
 argument_list|(
-literal|"quartz2://myGroup/myTimerName?cron=0/2+*+*+*+*+?"
+literal|"quartz2://myGroup/myTimerName?cron=0/1 * * * * ?"
 argument_list|)
 operator|.
 name|to
