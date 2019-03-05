@@ -222,11 +222,19 @@ specifier|private
 name|Configuration
 name|databaseConfiguration
 decl_stmt|;
-comment|/**          * JOOQ entity class          */
+comment|/**          * JOOQ entity class.          */
 DECL|field|entityType
 specifier|private
 name|Class
 name|entityType
+decl_stmt|;
+comment|/**          * Delete entity after it is consumed.          */
+DECL|field|consumeDelete
+specifier|private
+name|Boolean
+name|consumeDelete
+init|=
+literal|true
 decl_stmt|;
 DECL|method|getOperation ()
 specifier|public
@@ -304,6 +312,32 @@ operator|.
 name|entityType
 operator|=
 name|entityType
+expr_stmt|;
+block|}
+DECL|method|getConsumeDelete ()
+specifier|public
+name|Boolean
+name|getConsumeDelete
+parameter_list|()
+block|{
+return|return
+name|consumeDelete
+return|;
+block|}
+DECL|method|setConsumeDelete (Boolean consumeDelete)
+specifier|public
+name|void
+name|setConsumeDelete
+parameter_list|(
+name|Boolean
+name|consumeDelete
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumeDelete
+operator|=
+name|consumeDelete
 expr_stmt|;
 block|}
 block|}

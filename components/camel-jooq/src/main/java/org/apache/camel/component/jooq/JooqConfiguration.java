@@ -40,6 +40,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriParams
 import|;
 end_import
@@ -65,6 +79,26 @@ operator|.
 name|jooq
 operator|.
 name|Configuration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jooq
+operator|.
+name|Table
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jooq
+operator|.
+name|UpdatableRecord
 import|;
 end_import
 
@@ -115,7 +149,7 @@ literal|"entityType"
 argument_list|,
 name|description
 operator|=
-literal|"JOOQ entity class"
+literal|"JOOQ entity class."
 argument_list|,
 name|label
 operator|=
@@ -132,6 +166,28 @@ argument_list|<
 name|?
 argument_list|>
 name|entityType
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Delete entity after it is consumed."
+argument_list|)
+DECL|field|consumeDelete
+specifier|private
+name|boolean
+name|consumeDelete
+init|=
+literal|true
 decl_stmt|;
 DECL|field|databaseConfiguration
 specifier|private
@@ -225,6 +281,32 @@ operator|.
 name|entityType
 operator|=
 name|entityType
+expr_stmt|;
+block|}
+DECL|method|isConsumeDelete ()
+specifier|public
+name|boolean
+name|isConsumeDelete
+parameter_list|()
+block|{
+return|return
+name|consumeDelete
+return|;
+block|}
+DECL|method|setConsumeDelete (boolean consumeDelete)
+specifier|public
+name|void
+name|setConsumeDelete
+parameter_list|(
+name|boolean
+name|consumeDelete
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumeDelete
+operator|=
+name|consumeDelete
 expr_stmt|;
 block|}
 DECL|method|copy ()

@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/*  * XML configuration test  */
+comment|/**  * Only for testing XML DSL. All basic tests are located here: {@link JooqProducerTest}, {@link JooqConsumerTest}.  */
 end_comment
 
 begin_class
@@ -130,10 +130,10 @@ block|,
 literal|"/camel-context.xml"
 block|}
 argument_list|)
-DECL|class|JooqXMLProducerTest
+DECL|class|JooqXMLTest
 specifier|public
 class|class
-name|JooqXMLProducerTest
+name|JooqXMLTest
 extends|extends
 name|BaseJooqTest
 block|{
