@@ -128,6 +128,22 @@ name|rest
 operator|.
 name|api
 operator|.
+name|RequestFormatParamStyleEnum
+import|;
+end_import
+
+begin_import
+import|import
+name|ca
+operator|.
+name|uhn
+operator|.
+name|fhir
+operator|.
+name|rest
+operator|.
+name|api
+operator|.
 name|RequestTypeEnum
 import|;
 end_import
@@ -1632,6 +1648,17 @@ name|unregisterInterceptor
 parameter_list|(
 name|IClientInterceptor
 name|theInterceptor
+parameter_list|)
+block|{          }
+annotation|@
+name|Override
+DECL|method|setFormatParamStyle (RequestFormatParamStyleEnum requestFormatParamStyleEnum)
+specifier|public
+name|void
+name|setFormatParamStyle
+parameter_list|(
+name|RequestFormatParamStyleEnum
+name|requestFormatParamStyleEnum
 parameter_list|)
 block|{          }
 annotation|@

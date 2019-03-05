@@ -132,12 +132,6 @@ name|omitResourceId
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * If provided, tells the parse which resource types to apply {link      * #setEncodeElements(Set) encode elements} to. Any resource types not      * specified here will be encoded completely, with no elements excluded. The      * option is a java.util.Set<java.lang.String> type.      */
-DECL|field|encodeElementsAppliesToResourceTypes
-specifier|private
-name|String
-name|encodeElementsAppliesToResourceTypes
-decl_stmt|;
 comment|/**      * If set to true (default is false), the values supplied to      * setEncodeElements(Set) will not be applied to the root resource      * (typically a Bundle), but will be applied to any sub-resources contained      * within it (i.e. search result resources in that bundle)      */
 DECL|field|encodeElementsAppliesToChildResourcesOnly
 specifier|private
@@ -309,32 +303,6 @@ operator|.
 name|omitResourceId
 operator|=
 name|omitResourceId
-expr_stmt|;
-block|}
-DECL|method|getEncodeElementsAppliesToResourceTypes ()
-specifier|public
-name|String
-name|getEncodeElementsAppliesToResourceTypes
-parameter_list|()
-block|{
-return|return
-name|encodeElementsAppliesToResourceTypes
-return|;
-block|}
-DECL|method|setEncodeElementsAppliesToResourceTypes ( String encodeElementsAppliesToResourceTypes)
-specifier|public
-name|void
-name|setEncodeElementsAppliesToResourceTypes
-parameter_list|(
-name|String
-name|encodeElementsAppliesToResourceTypes
-parameter_list|)
-block|{
-name|this
-operator|.
-name|encodeElementsAppliesToResourceTypes
-operator|=
-name|encodeElementsAppliesToResourceTypes
 expr_stmt|;
 block|}
 DECL|method|getEncodeElementsAppliesToChildResourcesOnly ()

@@ -319,14 +319,6 @@ name|assertNull
 argument_list|(
 name|fhirJson
 operator|.
-name|getEncodeElementsAppliesToResourceTypes
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertNull
-argument_list|(
-name|fhirJson
-operator|.
 name|getForceResourceId
 argument_list|()
 argument_list|)
