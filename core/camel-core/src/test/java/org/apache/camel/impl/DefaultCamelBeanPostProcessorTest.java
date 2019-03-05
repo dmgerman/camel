@@ -329,14 +329,11 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|BindToRegistry
-DECL|method|doSomething (String s)
+DECL|method|doSomething ()
 specifier|public
 name|FooBar
 name|doSomething
-parameter_list|(
-name|String
-name|s
-parameter_list|)
+parameter_list|()
 block|{
 return|return
 operator|new
