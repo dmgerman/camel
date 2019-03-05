@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|BindRegistry
+name|BindToRegistry
 import|;
 end_import
 
@@ -262,7 +262,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|BindRegistry
+name|BindToRegistry
 DECL|class|FooService
 specifier|public
 class|class
@@ -286,7 +286,7 @@ name|ProducerTemplate
 name|bar
 decl_stmt|;
 annotation|@
-name|BindRegistry
+name|BindToRegistry
 argument_list|(
 name|name
 operator|=

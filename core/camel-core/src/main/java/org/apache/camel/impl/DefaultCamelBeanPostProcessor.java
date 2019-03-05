@@ -60,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|BindRegistry
+name|BindToRegistry
 import|;
 end_import
 
@@ -325,7 +325,7 @@ name|beanName
 argument_list|)
 expr_stmt|;
 comment|// the bean may also need to be registered into the registry
-name|BindRegistry
+name|BindToRegistry
 name|bind
 init|=
 name|bean
@@ -335,7 +335,7 @@ argument_list|()
 operator|.
 name|getAnnotation
 argument_list|(
-name|BindRegistry
+name|BindToRegistry
 operator|.
 name|class
 argument_list|)
@@ -908,14 +908,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|BindRegistry
+name|BindToRegistry
 name|bind
 init|=
 name|field
 operator|.
 name|getAnnotation
 argument_list|(
-name|BindRegistry
+name|BindToRegistry
 operator|.
 name|class
 argument_list|)

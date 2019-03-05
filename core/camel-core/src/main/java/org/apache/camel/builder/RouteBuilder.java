@@ -500,6 +500,33 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Binds the bean to the repository (if possible).      *      * @param id   the id of the bean      * @param bean the bean      */
+DECL|method|bindToRegistry (String id, Object bean)
+specifier|public
+name|void
+name|bindToRegistry
+parameter_list|(
+name|String
+name|id
+parameter_list|,
+name|Object
+name|bean
+parameter_list|)
+block|{
+name|getContext
+argument_list|()
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|bind
+argument_list|(
+name|id
+argument_list|,
+name|bean
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Configures the REST services      *      * @return the builder      */
 DECL|method|restConfiguration ()
 specifier|public

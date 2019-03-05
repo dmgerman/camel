@@ -105,10 +105,10 @@ operator|.
 name|METHOD
 block|}
 argument_list|)
-DECL|annotation|BindRegistry
+DECL|annotation|BindToRegistry
 specifier|public
 annotation_defn|@interface
-name|BindRegistry
+name|BindToRegistry
 block|{
 DECL|method|name ()
 name|String
