@@ -397,12 +397,23 @@ name|camel
 decl_stmt|;
 annotation|@
 name|BindToRegistry
-DECL|method|queueFactory ()
+DECL|method|queueFactory (CamelContext myCamel)
 specifier|public
 name|BlockingQueueFactory
 name|queueFactory
-parameter_list|()
+parameter_list|(
+name|CamelContext
+name|myCamel
+parameter_list|)
 block|{
+comment|// we can optionally include camel context as parameter
+name|Assert
+operator|.
+name|assertNotNull
+argument_list|(
+name|myCamel
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|PriorityBlockingQueueFactory
