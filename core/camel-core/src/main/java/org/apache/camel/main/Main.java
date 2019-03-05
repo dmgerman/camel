@@ -111,11 +111,12 @@ specifier|public
 name|Main
 parameter_list|()
 block|{     }
-DECL|method|Main (Class configurationClass)
+DECL|method|Main (Class... configurationClass)
 specifier|public
 name|Main
 parameter_list|(
 name|Class
+modifier|...
 name|configurationClass
 parameter_list|)
 block|{

@@ -202,12 +202,18 @@ name|main
 init|=
 operator|new
 name|Main
+argument_list|()
+decl_stmt|;
+comment|// add the configuration
+name|main
+operator|.
+name|addConfigurationClass
 argument_list|(
 name|MyConfiguration
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// add as class so we get IoC
 name|main
 operator|.

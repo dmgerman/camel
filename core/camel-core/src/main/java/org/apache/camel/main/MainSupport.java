@@ -692,10 +692,13 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|field|configurationClass
+DECL|field|configurationClasses
 specifier|protected
+name|List
+argument_list|<
 name|Class
-name|configurationClass
+argument_list|>
+name|configurationClasses
 decl_stmt|;
 DECL|field|routeBuilderClasses
 specifier|protected
@@ -830,22 +833,22 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|MainSupport (Class configurationClass)
+DECL|method|MainSupport (Class... configurationClasses)
 specifier|protected
 name|MainSupport
 parameter_list|(
 name|Class
-name|configurationClass
+modifier|...
+name|configurationClasses
 parameter_list|)
 block|{
 name|this
 argument_list|()
 expr_stmt|;
-name|this
-operator|.
-name|configurationClass
-operator|=
-name|configurationClass
+name|addConfigurationClass
+argument_list|(
+name|configurationClasses
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|MainSupport ()
@@ -1988,31 +1991,81 @@ name|get
 argument_list|()
 return|;
 block|}
-DECL|method|getConfigurationClass ()
+DECL|method|getConfigurationClasses ()
 specifier|public
+name|List
+argument_list|<
 name|Class
-name|getConfigurationClass
+argument_list|>
+name|getConfigurationClasses
 parameter_list|()
 block|{
 return|return
-name|configurationClass
+name|configurationClasses
 return|;
 block|}
-comment|/**      * Sets optional configuration class which allows to do any initial configuration.      * The class can/should have a method named<tt>configure</tt> which is called.      */
-DECL|method|setConfigurationClass (Class configurationClass)
+comment|/**      * Sets optional configuration classes which allows to do any initial configuration.      * The class can/should have a method named<tt>configure</tt> which is called.      */
+DECL|method|setConfigurationClasses (List<Class> configurationClasses)
 specifier|public
 name|void
-name|setConfigurationClass
+name|setConfigurationClasses
 parameter_list|(
+name|List
+argument_list|<
 name|Class
-name|configurationClass
+argument_list|>
+name|configurationClasses
 parameter_list|)
 block|{
 name|this
 operator|.
-name|configurationClass
+name|configurationClasses
 operator|=
-name|configurationClass
+name|configurationClasses
+expr_stmt|;
+block|}
+DECL|method|addConfigurationClass (Class... configurationClasses)
+specifier|public
+name|void
+name|addConfigurationClass
+parameter_list|(
+name|Class
+modifier|...
+name|configurationClasses
+parameter_list|)
+block|{
+if|if
+condition|(
+name|this
+operator|.
+name|configurationClasses
+operator|==
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|configurationClasses
+operator|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+expr_stmt|;
+block|}
+name|this
+operator|.
+name|configurationClasses
+operator|.
+name|addAll
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|configurationClasses
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getRouteBuilderClasses ()
@@ -2159,7 +2212,7 @@ return|return
 name|autoConfigurationEnabled
 return|;
 block|}
-comment|/**      * Whether auto configuration of components/dataformats/languages is enabled or not.      * When enabled the configuration parameters are loaded from the properties component      * and configured as defaults (similar to spring-boot auto-configuration). You can prefix      * the parameters in the properties file with:      * - camel.component.name.option1=value1      * - camel.component.name.option2=value2      * - camel.dataformat.name.option1=value1      * - camel.dataformat.name.option2=value2      * - camel.language.name.option1=value1      * - camel.language.name.option2=value2      * Where name is the name of the component, dataformat or language such as seda,direct,jaxb.      *<p/>      * This option is default enabled.      */
+comment|/**      * Whether auto configuration of components/dataformats/languages is enabled or not.      * When enabled the configuration parameters are loaded from the properties component      * and configured as defaults (similar to spring-boot auto-configuration). You can prefix      * the parameters in the properties file with:      * - camel.component.name.option1=value1      * - camel.component.name.option2=value2      * - camel.dataformat.name.option1=value1      * - camel.dataformat.name.option2=value2      * - camel.language.name.option1=value1      * - camel.language.name.option2=value2      * Where name is the name of the component, dataformat or language such as seda,direct,jaxb.      *<p/>      * The auto configuration also works for any options on components      * that is a complex type (not standard Java type) and there has been an explicit single      * bean instance registered to the Camel registry via the {@link org.apache.camel.spi.Registry#bind(String, Object)} method      * or by using the {@link org.apache.camel.BindToRegistry} annotation style.      *<p/>      * This option is default enabled.      */
 DECL|method|setAutoConfigurationEnabled (boolean autoConfigurationEnabled)
 specifier|public
 name|void
@@ -2990,10 +3043,18 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|configurationClass
+name|configurationClasses
 operator|!=
 literal|null
 condition|)
+block|{
+for|for
+control|(
+name|Class
+name|clazz
+range|:
+name|configurationClasses
+control|)
 block|{
 comment|// create instance of configuration class as it may do dependency injection and bind to registry
 name|Object
@@ -3006,7 +3067,7 @@ argument_list|()
 operator|.
 name|newInstance
 argument_list|(
-name|configurationClass
+name|clazz
 argument_list|)
 decl_stmt|;
 comment|// invoke configure method if exists
@@ -3015,7 +3076,7 @@ name|method
 init|=
 name|findMethod
 argument_list|(
-name|configurationClass
+name|clazz
 argument_list|,
 literal|"configure"
 argument_list|)
@@ -3033,7 +3094,10 @@ name|info
 argument_list|(
 literal|"Calling configure method on configuration class: {}"
 argument_list|,
-name|configurationClass
+name|clazz
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|invokeMethod
@@ -3043,6 +3107,7 @@ argument_list|,
 name|config
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// conventional configuration via properties to allow configuring options on
@@ -3923,12 +3988,13 @@ name|routeBuilder
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|addRouteBuilder (Class routeBuilder)
+DECL|method|addRouteBuilder (Class... routeBuilder)
 specifier|public
 name|void
 name|addRouteBuilder
 parameter_list|(
 name|Class
+modifier|...
 name|routeBuilder
 parameter_list|)
 block|{
@@ -3940,8 +4006,37 @@ decl_stmt|;
 if|if
 condition|(
 name|existing
+operator|==
+literal|null
+condition|)
+block|{
+name|existing
+operator|=
+literal|""
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|routeBuilder
 operator|!=
 literal|null
+condition|)
+block|{
+for|for
+control|(
+name|Class
+name|clazz
+range|:
+name|routeBuilder
+control|)
+block|{
+if|if
+condition|(
+operator|!
+name|existing
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|existing
@@ -3949,22 +4044,18 @@ operator|=
 name|existing
 operator|+
 literal|","
+expr_stmt|;
+block|}
+name|existing
+operator|=
+name|existing
 operator|+
-name|routeBuilder
+name|clazz
 operator|.
 name|getName
 argument_list|()
 expr_stmt|;
 block|}
-else|else
-block|{
-name|existing
-operator|=
-name|routeBuilder
-operator|.
-name|getName
-argument_list|()
-expr_stmt|;
 block|}
 name|setRouteBuilderClasses
 argument_list|(

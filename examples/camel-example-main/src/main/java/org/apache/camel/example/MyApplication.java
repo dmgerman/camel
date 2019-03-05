@@ -67,18 +67,18 @@ operator|new
 name|Main
 argument_list|()
 decl_stmt|;
-comment|// lets use a configuration class
-comment|// properties are automatic loaded from application.properties
+comment|// lets use a configuration class (you can specify multiple classes)
+comment|// (properties are automatic loaded from application.properties)
 name|main
 operator|.
-name|setConfigurationClass
+name|addConfigurationClass
 argument_list|(
 name|MyConfiguration
 operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// and add the routes
+comment|// and add the routes (you can specify multiple classes)
 name|main
 operator|.
 name|addRouteBuilder
