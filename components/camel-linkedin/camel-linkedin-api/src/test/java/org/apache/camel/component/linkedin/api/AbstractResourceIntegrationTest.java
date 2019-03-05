@@ -641,19 +641,6 @@ name|ignore
 parameter_list|)
 block|{             }
 block|}
-if|if
-condition|(
-name|requestFilter
-operator|!=
-literal|null
-condition|)
-block|{
-name|requestFilter
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 comment|// TODO save and load token from test-options.properties
 block|}
 DECL|method|getResource (Class<T> resourceClass)

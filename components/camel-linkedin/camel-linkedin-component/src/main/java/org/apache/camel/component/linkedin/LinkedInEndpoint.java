@@ -988,14 +988,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|getComponent
-argument_list|()
-operator|.
-name|closeRequestFilter
-argument_list|(
-name|requestFilter
-argument_list|)
-expr_stmt|;
 name|requestFilter
 operator|=
 literal|null
