@@ -3706,6 +3706,22 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Auto configuring option: {} on component: {} as one instance of type: {} registered in the Camel Registry"
+argument_list|,
+name|k
+argument_list|,
+name|name
+argument_list|,
+name|type
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|IntrospectionSupport
 operator|.
 name|setProperty
@@ -3808,6 +3824,16 @@ parameter_list|)
 block|{
 comment|// lets consider all non java as complex types
 return|return
+name|type
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|type
+operator|.
+name|isPrimitive
+argument_list|()
+operator|&&
 operator|!
 name|type
 operator|.
