@@ -24,76 +24,43 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|main
+name|builder
 operator|.
-name|Main
+name|RouteBuilder
 import|;
 end_import
 
-begin_comment
-comment|/**  * Main class that boot the Camel application  */
-end_comment
-
 begin_class
-DECL|class|MyApplication
+DECL|class|MyRouteBuilder
 specifier|public
-specifier|final
 class|class
-name|MyApplication
+name|MyRouteBuilder
+extends|extends
+name|RouteBuilder
 block|{
-DECL|method|MyApplication ()
-specifier|private
-name|MyApplication
-parameter_list|()
-block|{     }
-DECL|method|main (String[] args)
+annotation|@
+name|Override
+DECL|method|configure ()
 specifier|public
-specifier|static
 name|void
-name|main
-parameter_list|(
-name|String
-index|[]
-name|args
-parameter_list|)
+name|configure
+parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// use Camels Main class
-name|Main
-name|main
-init|=
-operator|new
-name|Main
-argument_list|()
-decl_stmt|;
-comment|// lets use a configuration class
-comment|// properties are automatic loaded from application.properties
-name|main
-operator|.
-name|setConfigurationClass
+name|from
 argument_list|(
-name|MyConfiguration
-operator|.
-name|class
+literal|"quartz2:foo?cron={{myCron}}"
 argument_list|)
-expr_stmt|;
-comment|// and add the routes
-name|main
 operator|.
-name|addRouteBuilder
+name|bean
 argument_list|(
-name|MyRouteBuilder
-operator|.
-name|class
+literal|"myBean"
 argument_list|)
-expr_stmt|;
-comment|// now keep the application running until the JVM is terminated (ctrl + c or sigterm)
-name|main
 operator|.
-name|run
+name|log
 argument_list|(
-name|args
+literal|"${body}"
 argument_list|)
 expr_stmt|;
 block|}

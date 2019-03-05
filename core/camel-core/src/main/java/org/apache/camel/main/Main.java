@@ -125,6 +125,20 @@ specifier|public
 name|Main
 parameter_list|()
 block|{     }
+DECL|method|Main (Class configurationClass)
+specifier|public
+name|Main
+parameter_list|(
+name|Class
+name|configurationClass
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|configurationClass
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|main (String... args)
 specifier|public
 specifier|static

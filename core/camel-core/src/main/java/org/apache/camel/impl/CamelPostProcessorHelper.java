@@ -1822,6 +1822,24 @@ name|name
 argument_list|)
 condition|)
 block|{
+comment|// is it camel context itself?
+if|if
+condition|(
+name|type
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|camelContext
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+condition|)
+block|{
+return|return
+name|camelContext
+return|;
+block|}
 name|Set
 argument_list|<
 name|?

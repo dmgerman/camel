@@ -20,6 +20,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Method
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -448,6 +460,38 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ObjectHelper
+operator|.
+name|invokeMethod
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ReflectionHelper
+operator|.
+name|findMethod
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for main implementations to allow starting up a JVM with Camel embedded.  */
 end_comment
@@ -614,6 +658,11 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+DECL|field|configurationClass
+specifier|protected
+name|Class
+name|configurationClass
+decl_stmt|;
 DECL|field|routeBuilderClasses
 specifier|protected
 name|String
@@ -746,6 +795,24 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+DECL|method|MainSupport (Class configurationClass)
+specifier|protected
+name|MainSupport
+parameter_list|(
+name|Class
+name|configurationClass
+parameter_list|)
+block|{
+name|this
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|configurationClass
+operator|=
+name|configurationClass
+expr_stmt|;
 block|}
 DECL|method|MainSupport ()
 specifier|protected
@@ -1887,6 +1954,43 @@ name|get
 argument_list|()
 return|;
 block|}
+DECL|method|getConfigurationClass ()
+specifier|public
+name|Class
+name|getConfigurationClass
+parameter_list|()
+block|{
+return|return
+name|configurationClass
+return|;
+block|}
+comment|/**      * Sets optional configuration class which allows to do any initial configuration.      * The class can/should have a method named<tt>configure</tt> which is called.      */
+DECL|method|setConfigurationClass (Class configurationClass)
+specifier|public
+name|void
+name|setConfigurationClass
+parameter_list|(
+name|Class
+name|configurationClass
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configurationClass
+operator|=
+name|configurationClass
+expr_stmt|;
+block|}
+DECL|method|getRouteBuilderClasses ()
+specifier|public
+name|String
+name|getRouteBuilderClasses
+parameter_list|()
+block|{
+return|return
+name|routeBuilderClasses
+return|;
+block|}
 DECL|method|setRouteBuilderClasses (String builders)
 specifier|public
 name|void
@@ -1956,16 +2060,6 @@ name|fileWatchDirectoryRecursively
 operator|=
 name|fileWatchDirectoryRecursively
 expr_stmt|;
-block|}
-DECL|method|getRouteBuilderClasses ()
-specifier|public
-name|String
-name|getRouteBuilderClasses
-parameter_list|()
-block|{
-return|return
-name|routeBuilderClasses
-return|;
 block|}
 DECL|method|getReloadStrategy ()
 specifier|public
@@ -2872,6 +2966,63 @@ argument_list|(
 name|camelContext
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|configurationClass
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// create instance of configuration class as it may do dependency injection and bind to registry
+name|Object
+name|config
+init|=
+name|camelContext
+operator|.
+name|getInjector
+argument_list|()
+operator|.
+name|newInstance
+argument_list|(
+name|configurationClass
+argument_list|)
+decl_stmt|;
+comment|// invoke configure method if exists
+name|Method
+name|method
+init|=
+name|findMethod
+argument_list|(
+name|configurationClass
+argument_list|,
+literal|"configure"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|method
+operator|!=
+literal|null
+condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Calling configure method on configuration class: {}"
+argument_list|,
+name|configurationClass
+argument_list|)
+expr_stmt|;
+name|invokeMethod
+argument_list|(
+name|method
+argument_list|,
+name|config
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// try to load the route builders from the routeBuilderClasses
 name|loadRouteBuilders
