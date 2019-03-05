@@ -78,20 +78,6 @@ name|Registry
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|DefaultRegistry
-import|;
-end_import
-
 begin_comment
 comment|/**  * A Main class for booting up Camel in standalone mode.  */
 end_comment
@@ -113,11 +99,11 @@ decl_stmt|;
 DECL|field|registry
 specifier|protected
 specifier|final
-name|Registry
+name|MainRegistry
 name|registry
 init|=
 operator|new
-name|DefaultRegistry
+name|MainRegistry
 argument_list|()
 decl_stmt|;
 DECL|method|Main ()

@@ -165,12 +165,12 @@ implements|,
 name|CamelContextAware
 block|{
 DECL|field|camelContext
-specifier|private
+specifier|protected
 name|CamelContext
 name|camelContext
 decl_stmt|;
 DECL|field|repositories
-specifier|private
+specifier|protected
 name|List
 argument_list|<
 name|BeanRepository
@@ -178,7 +178,7 @@ argument_list|>
 name|repositories
 decl_stmt|;
 DECL|field|simple
-specifier|private
+specifier|protected
 specifier|final
 name|Registry
 name|simple
