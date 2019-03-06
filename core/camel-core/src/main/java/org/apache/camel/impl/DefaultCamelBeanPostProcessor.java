@@ -154,18 +154,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoTypeConversionAvailableException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Produce
 import|;
 end_import
@@ -2031,20 +2019,15 @@ name|getSimpleName
 argument_list|()
 expr_stmt|;
 block|}
-comment|// create an instance
-name|Object
-name|value
-init|=
-name|bean
-decl_stmt|;
 if|if
 condition|(
-name|value
+name|bean
 operator|==
 literal|null
 condition|)
 block|{
-name|value
+comment|// no bean so then create an instance from its type
+name|bean
 operator|=
 name|camelContext
 operator|.
@@ -2066,7 +2049,7 @@ name|bind
 argument_list|(
 name|name
 argument_list|,
-name|value
+name|bean
 argument_list|)
 expr_stmt|;
 block|}
@@ -2424,19 +2407,12 @@ block|{
 comment|// we also support @BeanInject and @PropertyInject annotations
 name|Annotation
 index|[]
-index|[]
-name|pa
+name|anns
 init|=
 name|method
 operator|.
 name|getParameterAnnotations
 argument_list|()
-decl_stmt|;
-name|Annotation
-index|[]
-name|anns
-init|=
-name|pa
 index|[
 name|i
 index|]
@@ -2446,10 +2422,11 @@ condition|(
 name|anns
 operator|.
 name|length
-operator|>
-literal|0
+operator|==
+literal|1
 condition|)
 block|{
+comment|// we dont assume there are multiple annotations on the same parameter so grab first
 name|Annotation
 name|ann
 init|=
@@ -2478,6 +2455,7 @@ name|PropertyInject
 operator|)
 name|ann
 decl_stmt|;
+comment|// build key with default value included as this is supported during resolving
 name|String
 name|key
 init|=
@@ -2510,6 +2488,27 @@ name|defaultValue
 argument_list|()
 expr_stmt|;
 block|}
+comment|// need to force property lookup by having key enclosed in tokens
+name|key
+operator|=
+name|camelContext
+operator|.
+name|getPropertiesComponent
+argument_list|()
+operator|.
+name|getPrefixToken
+argument_list|()
+operator|+
+name|key
+operator|+
+name|camelContext
+operator|.
+name|getPropertiesComponent
+argument_list|()
+operator|.
+name|getSuffixToken
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 name|Object
@@ -2519,11 +2518,7 @@ name|camelContext
 operator|.
 name|resolvePropertyPlaceholders
 argument_list|(
-literal|"{{"
-operator|+
 name|key
-operator|+
-literal|"}}"
 argument_list|)
 decl_stmt|;
 name|parameters
@@ -2730,6 +2725,7 @@ block|}
 block|}
 block|}
 block|}
+comment|// each parameter must be mapped
 if|if
 condition|(
 name|parameters
