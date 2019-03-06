@@ -3742,7 +3742,7 @@ block|{
 name|Set
 name|lookup
 init|=
-name|findBindingByType
+name|findExplicitBindingByType
 argument_list|(
 name|camelContext
 argument_list|,
@@ -3837,7 +3837,7 @@ block|}
 comment|/**              * Finds any explicit bean bindings that has been added to the registry.              * This means that if there are any, then they have been added by the end user              * and we should favour using the bean if there is a single instance bound for the type.              */
 specifier|private
 name|Set
-name|findBindingByType
+name|findExplicitBindingByType
 parameter_list|(
 name|CamelContext
 name|camelContext

@@ -120,6 +120,98 @@ throws|,
 name|IllegalAccessException
 function_decl|;
 block|}
+comment|/**      * Action to take on each class.      */
+DECL|interface|ClassCallback
+specifier|public
+interface|interface
+name|ClassCallback
+block|{
+comment|/**          * Perform an operation using the given class.          *          * @param clazz the class to operate on          */
+DECL|method|doWith (Class clazz)
+name|void
+name|doWith
+parameter_list|(
+name|Class
+name|clazz
+parameter_list|)
+throws|throws
+name|IllegalArgumentException
+throws|,
+name|IllegalAccessException
+function_decl|;
+block|}
+comment|/**      * Perform the given callback operation on the nested (inner) classes.      *      * @param clazz class to start looking at      * @param cc the callback to invoke for each inner class (excluding the class itself)      */
+DECL|method|doWithClasses (Class<?> clazz, ClassCallback cc)
+specifier|public
+specifier|static
+name|void
+name|doWithClasses
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|clazz
+parameter_list|,
+name|ClassCallback
+name|cc
+parameter_list|)
+throws|throws
+name|IllegalArgumentException
+block|{
+comment|// and then nested classes
+name|Class
+index|[]
+name|classes
+init|=
+name|clazz
+operator|.
+name|getDeclaredClasses
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|Class
+name|aClazz
+range|:
+name|classes
+control|)
+block|{
+try|try
+block|{
+name|cc
+operator|.
+name|doWith
+argument_list|(
+name|aClazz
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalAccessException
+name|ex
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Shouldn't be illegal to access class '"
+operator|+
+name|aClazz
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"': "
+operator|+
+name|ex
+argument_list|)
+throw|;
+block|}
+block|}
+block|}
 comment|/**      * Invoke the given callback on all fields in the target class, going up the      * class hierarchy to get all declared fields.      * @param clazz the target class to analyze      * @param fc the callback to invoke for each field      */
 DECL|method|doWithFields (Class<?> clazz, FieldCallback fc)
 specifier|public

@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used for binding a bean to the registry  *  * If no name is specified then the bean will have its name auto computed based on the  * field name, or method name where the annotation is configured.  */
+comment|/**  * Used for binding a bean to the registry  *  * If no name is specified then the bean will have its name auto computed based on the  * class name, field name, or method name where the annotation is configured.  */
 end_comment
 
 begin_annotation_defn
