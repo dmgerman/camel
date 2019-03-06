@@ -224,6 +224,18 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|// manually bind
+name|main
+operator|.
+name|bind
+argument_list|(
+literal|"myBar"
+argument_list|,
+operator|new
+name|MyBar
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|main
 operator|.
 name|start
@@ -442,6 +454,14 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+DECL|class|MyBar
+specifier|public
+specifier|static
+class|class
+name|MyBar
+block|{
+comment|// noop
+block|}
 DECL|class|MyConfiguration
 specifier|public
 specifier|static
@@ -529,21 +549,61 @@ name|name
 operator|=
 literal|"coolStuff"
 argument_list|)
-DECL|method|cool (MyCoolBean cool)
+DECL|method|cool (@eanInject MyCoolBean cool, @PropertyInject(value = R, defaultValue = R) int num, @BeanInject(R) MyBar bar)
 specifier|public
 name|String
 name|cool
 parameter_list|(
+annotation|@
+name|BeanInject
 name|MyCoolBean
 name|cool
+parameter_list|,
+annotation|@
+name|PropertyInject
+argument_list|(
+name|value
+operator|=
+literal|"magic"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"456"
+argument_list|)
+name|int
+name|num
+parameter_list|,
+annotation|@
+name|BeanInject
+argument_list|(
+literal|"myBar"
+argument_list|)
+name|MyBar
+name|bar
 parameter_list|)
 block|{
-comment|// should lookup MyCoolBean type from the registry
+comment|// should lookup MyCoolBean type from the registry and find the property
 name|Assert
 operator|.
 name|assertNotNull
 argument_list|(
 name|cool
+argument_list|)
+expr_stmt|;
+name|Assert
+operator|.
+name|assertEquals
+argument_list|(
+literal|456
+argument_list|,
+name|num
+argument_list|)
+expr_stmt|;
+name|Assert
+operator|.
+name|assertNotNull
+argument_list|(
+name|bar
 argument_list|)
 expr_stmt|;
 return|return

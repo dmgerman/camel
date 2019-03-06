@@ -103,6 +103,10 @@ block|,
 name|ElementType
 operator|.
 name|CONSTRUCTOR
+block|,
+name|ElementType
+operator|.
+name|PARAMETER
 block|}
 argument_list|)
 DECL|annotation|BeanInject
@@ -110,6 +114,7 @@ specifier|public
 annotation_defn|@interface
 name|BeanInject
 block|{
+comment|/**      * Name of the bean      */
 DECL|method|value ()
 name|String
 name|value
@@ -117,6 +122,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Id of {@link CamelContext} to use      */
 DECL|method|context ()
 name|String
 name|context
