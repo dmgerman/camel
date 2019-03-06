@@ -50,6 +50,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|CamelBeanPostProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Injector
 import|;
 end_import
@@ -84,7 +98,7 @@ comment|// use the reflection injector
 DECL|field|postProcessor
 specifier|private
 specifier|final
-name|DefaultCamelBeanPostProcessor
+name|CamelBeanPostProcessor
 name|postProcessor
 decl_stmt|;
 DECL|method|DefaultInjector (CamelContext context)
@@ -97,11 +111,10 @@ parameter_list|)
 block|{
 name|postProcessor
 operator|=
-operator|new
-name|DefaultCamelBeanPostProcessor
-argument_list|(
 name|context
-argument_list|)
+operator|.
+name|getBeanPostProcessor
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@

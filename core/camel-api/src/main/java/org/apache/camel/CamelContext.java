@@ -122,6 +122,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|CamelBeanPostProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|CamelContextNameStrategy
 import|;
 end_import
@@ -1440,6 +1454,12 @@ comment|/**      * Returns the injector used to instantiate objects by type     
 DECL|method|getInjector ()
 name|Injector
 name|getInjector
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the bean post processor used to do any bean customization.      *      * @return the bean post processor.      */
+DECL|method|getBeanPostProcessor ()
+name|CamelBeanPostProcessor
+name|getBeanPostProcessor
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the management mbean assembler      *      * @return the mbean assembler      */

@@ -344,6 +344,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|CamelBeanPostProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|CamelContextNameStrategy
 import|;
 end_import
@@ -992,6 +1006,21 @@ name|this
 argument_list|)
 return|;
 block|}
+block|}
+comment|/**      * Lazily create a default bean post processor      */
+DECL|method|createBeanPostProcessor ()
+specifier|protected
+name|CamelBeanPostProcessor
+name|createBeanPostProcessor
+parameter_list|()
+block|{
+return|return
+operator|new
+name|DefaultCamelBeanPostProcessor
+argument_list|(
+name|this
+argument_list|)
+return|;
 block|}
 comment|/**      * Lazily create a default implementation      */
 DECL|method|createComponentResolver ()

@@ -204,6 +204,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|CamelBeanPostProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Registry
 import|;
 end_import
@@ -297,6 +311,8 @@ DECL|class|DefaultCamelBeanPostProcessor
 specifier|public
 class|class
 name|DefaultCamelBeanPostProcessor
+implements|implements
+name|CamelBeanPostProcessor
 block|{
 DECL|field|LOG
 specifier|protected
@@ -344,7 +360,6 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
-comment|/**      * Apply this post processor to the given new bean instance<i>before</i> any bean      * initialization callbacks (like<code>afterPropertiesSet</code>      * or a custom init-method). The bean will already be populated with property values.      * The returned bean instance may be a wrapper around the original.      *      * @param bean the new bean instance      * @param beanName the name of the bean      * @return the bean instance to use, either the original or a wrapped one; if      *<code>null</code>, no subsequent BeanPostProcessors will be invoked      * @throws Exception is thrown if error post processing bean      */
 DECL|method|postProcessBeforeInitialization (Object bean, String beanName)
 specifier|public
 name|Object
@@ -497,7 +512,6 @@ return|return
 name|bean
 return|;
 block|}
-comment|/**      * Apply this post processor to the given new bean instance<i>after</i> any bean      * initialization callbacks (like<code>afterPropertiesSet</code>      * or a custom init-method). The bean will already be populated with property values.      * The returned bean instance may be a wrapper around the original.      *      * @param bean the new bean instance      * @param beanName the name of the bean      * @return the bean instance to use, either the original or a wrapped one; if      *<code>null</code>, no subsequent BeanPostProcessors will be invoked      * @throws Exception is thrown if error post processing bean      */
 DECL|method|postProcessAfterInitialization (Object bean, String beanName)
 specifier|public
 name|Object

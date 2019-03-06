@@ -327,6 +327,16 @@ specifier|public
 class|class
 name|CamelBeanPostProcessor
 implements|implements
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelBeanPostProcessor
+implements|,
 name|BeanPostProcessor
 implements|,
 name|ApplicationContextAware
