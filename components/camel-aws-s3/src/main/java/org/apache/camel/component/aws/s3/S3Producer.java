@@ -2775,9 +2775,6 @@ operator|.
 name|setBody
 argument_list|(
 name|res
-operator|.
-name|getObjectContent
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
