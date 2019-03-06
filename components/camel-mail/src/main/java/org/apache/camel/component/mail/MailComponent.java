@@ -160,7 +160,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|DefaultComponent
+name|HeaderFilterStrategyComponent
 import|;
 end_import
 
@@ -207,7 +207,7 @@ specifier|public
 class|class
 name|MailComponent
 extends|extends
-name|DefaultComponent
+name|HeaderFilterStrategyComponent
 implements|implements
 name|SSLContextParametersAware
 block|{
@@ -527,6 +527,11 @@ operator|.
 name|setContentTypeResolver
 argument_list|(
 name|contentTypeResolver
+argument_list|)
+expr_stmt|;
+name|setEndpointHeaderFilterStrategy
+argument_list|(
+name|endpoint
 argument_list|)
 expr_stmt|;
 name|setProperties
