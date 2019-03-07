@@ -80,6 +80,9 @@ name|QUERY
 block|,
 DECL|enumConstant|STATS
 name|STATS
+block|,
+DECL|enumConstant|COMPUTE
+name|COMPUTE
 block|}
 end_enum
 

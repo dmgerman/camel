@@ -42,6 +42,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|BiFunction
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -424,6 +436,12 @@ specifier|private
 name|Object
 name|resultHeader
 decl_stmt|;
+comment|/**          * Set a specific remappingFunction to use in a compute operation          */
+DECL|field|remappingFunction
+specifier|private
+name|BiFunction
+name|remappingFunction
+decl_stmt|;
 annotation|@
 name|Deprecated
 annotation|@
@@ -794,6 +812,32 @@ operator|.
 name|resultHeader
 operator|=
 name|resultHeader
+expr_stmt|;
+block|}
+DECL|method|getRemappingFunction ()
+specifier|public
+name|BiFunction
+name|getRemappingFunction
+parameter_list|()
+block|{
+return|return
+name|remappingFunction
+return|;
+block|}
+DECL|method|setRemappingFunction (BiFunction remappingFunction)
+specifier|public
+name|void
+name|setRemappingFunction
+parameter_list|(
+name|BiFunction
+name|remappingFunction
+parameter_list|)
+block|{
+name|this
+operator|.
+name|remappingFunction
+operator|=
+name|remappingFunction
 expr_stmt|;
 block|}
 block|}
