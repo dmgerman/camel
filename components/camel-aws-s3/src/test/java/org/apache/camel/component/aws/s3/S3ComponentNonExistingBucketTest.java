@@ -1243,7 +1243,7 @@ block|{
 name|String
 name|awsEndpoint
 init|=
-literal|"aws-s3://nonExistingBucket?amazonS3Client=#amazonS3Client&region=us-west-1&policy=xxx"
+literal|"aws-s3://nonExistingBucket?amazonS3Client=#amazonS3Client&policy=xxx"
 decl_stmt|;
 name|from
 argument_list|(

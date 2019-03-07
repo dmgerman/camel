@@ -350,7 +350,7 @@ block|{
 name|String
 name|awsEndpoint
 init|=
-literal|"aws-s3://mycamelbucket?amazonS3Client=#amazonS3Client&region=us-west-1&operation=deleteObject"
+literal|"aws-s3://mycamelbucket?amazonS3Client=#amazonS3Client&operation=deleteObject"
 decl_stmt|;
 name|from
 argument_list|(

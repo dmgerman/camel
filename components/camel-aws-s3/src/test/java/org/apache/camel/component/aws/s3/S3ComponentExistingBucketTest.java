@@ -1308,7 +1308,7 @@ block|{
 name|String
 name|awsEndpoint
 init|=
-literal|"aws-s3://mycamelbucket?amazonS3Client=#amazonS3Client&region=us-west-1"
+literal|"aws-s3://mycamelbucket?amazonS3Client=#amazonS3Client"
 decl_stmt|;
 name|from
 argument_list|(

@@ -886,7 +886,7 @@ operator|+
 name|getCamelBucket
 argument_list|()
 operator|+
-literal|"?amazonS3Client=#amazonS3Client&region=us-west-1"
+literal|"?amazonS3Client=#amazonS3Client"
 decl_stmt|;
 name|from
 argument_list|(

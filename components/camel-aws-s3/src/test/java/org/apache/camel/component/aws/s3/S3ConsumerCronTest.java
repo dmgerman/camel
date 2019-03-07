@@ -233,7 +233,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"aws-s3://mycamelbucket?amazonS3Client=#amazonS3Client&region=us-west-1"
+literal|"aws-s3://mycamelbucket?amazonS3Client=#amazonS3Client"
 operator|+
 literal|"&scheduler=spring&scheduler.cron=0/2+*+*+*+*+?"
 operator|+

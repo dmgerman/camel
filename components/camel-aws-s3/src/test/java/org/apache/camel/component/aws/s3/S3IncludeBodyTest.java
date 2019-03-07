@@ -361,7 +361,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"aws-s3://mycamelbucket?amazonS3Client=#amazonS3Client&region=us-west-1&delay=50"
+literal|"aws-s3://mycamelbucket?amazonS3Client=#amazonS3Client&delay=50"
 operator|+
 literal|"&maxMessagesPerPoll=5&prefix=confidential&includeBody=false"
 argument_list|)
