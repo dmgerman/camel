@@ -2493,7 +2493,30 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Routes the message to a sequence of processors which is grouped together as one logical name.      *      * @param id the id of the step      * @return the builder      */
+comment|/**      * Routes the message to a sequence of processors which is grouped together as one logical name.      *      * @return the builder      */
+DECL|method|step ()
+specifier|public
+name|StepDefinition
+name|step
+parameter_list|()
+block|{
+name|StepDefinition
+name|answer
+init|=
+operator|new
+name|StepDefinition
+argument_list|()
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+comment|/**      * Routes the message to a sequence of processors which is grouped together as one logical name.      *      * @param id unique id of the step within the route      * @return the builder      */
 DECL|method|step (String id)
 specifier|public
 name|StepDefinition
