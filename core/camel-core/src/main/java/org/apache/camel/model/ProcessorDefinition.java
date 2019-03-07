@@ -2493,6 +2493,39 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Routes the message to a sequence of processors which is grouped together as one logical name.      *      * @param id the id of the step      * @return the builder      */
+DECL|method|step (String id)
+specifier|public
+name|StepDefinition
+name|step
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|StepDefinition
+name|answer
+init|=
+operator|new
+name|StepDefinition
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|setId
+argument_list|(
+name|id
+argument_list|)
+expr_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      *<a href="http://camel.apache.org/pipes-nd-filters.html">Pipes and Filters EIP:</a>      * Creates a {@link org.apache.camel.processor.Pipeline} so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      *      * @return the builder      */
 DECL|method|pipeline ()
 specifier|public

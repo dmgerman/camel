@@ -313,6 +313,22 @@ parameter_list|)
 throws|throws
 name|MalformedObjectNameException
 function_decl|;
+DECL|method|getObjectNameForStep (CamelContext context, Processor processor, NamedNode definition)
+name|ObjectName
+name|getObjectNameForStep
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|,
+name|NamedNode
+name|definition
+parameter_list|)
+throws|throws
+name|MalformedObjectNameException
+function_decl|;
 DECL|method|getObjectNameForRoute (Route route)
 name|ObjectName
 name|getObjectNameForRoute

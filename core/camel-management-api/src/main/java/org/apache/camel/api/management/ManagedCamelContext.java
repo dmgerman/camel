@@ -72,6 +72,24 @@ name|ManagedRouteMBean
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|mbean
+operator|.
+name|ManagedStepMBean
+import|;
+end_import
+
 begin_interface
 DECL|interface|ManagedCamelContext
 specifier|public
@@ -123,6 +141,15 @@ argument_list|<
 name|T
 argument_list|>
 name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the managed step client api from any of the routes which with the given id      *      * @param id id of the step      * @return the step or<tt>null</tt> if not found      * @throws IllegalArgumentException if the type is not compliant      */
+DECL|method|getManagedStep (String id)
+name|ManagedStepMBean
+name|getManagedStep
+parameter_list|(
+name|String
+name|id
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the managed route client api with the given route id      *      * @param routeId id of the route      * @return the route or<tt>null</tt> if not found      */
