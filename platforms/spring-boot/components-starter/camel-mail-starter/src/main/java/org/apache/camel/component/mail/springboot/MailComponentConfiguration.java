@@ -180,6 +180,12 @@ name|useGlobalSslContextParameters
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message. The option is a      * org.apache.camel.spi.HeaderFilterStrategy type.      */
+DECL|field|headerFilterStrategy
+specifier|private
+name|String
+name|headerFilterStrategy
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -264,6 +270,32 @@ operator|.
 name|useGlobalSslContextParameters
 operator|=
 name|useGlobalSslContextParameters
+expr_stmt|;
+block|}
+DECL|method|getHeaderFilterStrategy ()
+specifier|public
+name|String
+name|getHeaderFilterStrategy
+parameter_list|()
+block|{
+return|return
+name|headerFilterStrategy
+return|;
+block|}
+DECL|method|setHeaderFilterStrategy (String headerFilterStrategy)
+specifier|public
+name|void
+name|setHeaderFilterStrategy
+parameter_list|(
+name|String
+name|headerFilterStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerFilterStrategy
+operator|=
+name|headerFilterStrategy
 expr_stmt|;
 block|}
 DECL|method|getResolvePropertyPlaceholders ()
