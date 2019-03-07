@@ -1181,12 +1181,41 @@ block|{
 comment|// Trim the line coming in to remove any trailing whitespace
 name|String
 name|trimmedLine
-init|=
+decl_stmt|;
+comment|// if separator is a tab, don't trim any leading whitespaces (could be empty values separated by tabs)
+if|if
+condition|(
+name|separator
+operator|.
+name|equals
+argument_list|(
+literal|"\t"
+argument_list|)
+condition|)
+block|{
+comment|// trim only trailing whitespaces
+name|trimmedLine
+operator|=
+name|line
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\s+$"
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|trimmedLine
+operator|=
 name|line
 operator|.
 name|trim
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// Increment counter
 name|count
 operator|.
