@@ -901,6 +901,23 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
+literal|"Dumps the CamelContext and routes and steps stats as XML"
+argument_list|)
+DECL|method|dumpStepStatsAsXml (boolean fullStats)
+name|String
+name|dumpStepStatsAsXml
+parameter_list|(
+name|boolean
+name|fullStats
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
 literal|"Dumps the routes coverage as XML"
 argument_list|)
 DECL|method|dumpRoutesCoverageAsXml ()
