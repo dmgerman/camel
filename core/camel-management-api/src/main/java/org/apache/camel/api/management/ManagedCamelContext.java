@@ -143,7 +143,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the managed step client api from any of the routes which with the given id      *      * @param id id of the step      * @return the step or<tt>null</tt> if not found      * @throws IllegalArgumentException if the type is not compliant      */
+comment|/**      * Gets the managed step client api from any of the routes which with the given id      *      * @param id id of the step      * @return the step or<tt>null</tt> if not found      */
 DECL|method|getManagedStep (String id)
 name|ManagedStepMBean
 name|getManagedStep

@@ -2516,7 +2516,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Routes the message to a sequence of processors which is grouped together as one logical name.      *      * @param id unique id of the step within the route      * @return the builder      */
+comment|/**      * Routes the message to a sequence of processors which is grouped together as one logical name.      *      * @param id unique id of the step within the camel context      * @return the builder      */
 DECL|method|step (String id)
 specifier|public
 name|StepDefinition
