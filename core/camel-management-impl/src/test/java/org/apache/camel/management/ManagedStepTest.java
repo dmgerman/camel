@@ -460,7 +460,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<stepStat id=\"foo\" index=\"1\""
+literal|"<stepStat id=\"foo\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -487,7 +487,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<stepStat id=\"foo\" index=\"1\""
+literal|"<stepStat id=\"foo\""
 argument_list|)
 argument_list|)
 expr_stmt|;

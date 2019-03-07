@@ -1627,7 +1627,7 @@ block|{
 if|if
 condition|(
 name|value
-operator|==
+operator|<=
 literal|0
 condition|)
 block|{
