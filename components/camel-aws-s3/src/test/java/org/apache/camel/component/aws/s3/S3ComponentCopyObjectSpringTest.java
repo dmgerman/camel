@@ -195,21 +195,6 @@ name|MockEndpoint
 name|result
 decl_stmt|;
 annotation|@
-name|BindToRegistry
-argument_list|(
-name|name
-operator|=
-literal|"amazonS3Client"
-argument_list|)
-DECL|field|clientMock
-name|AmazonS3ClientMock
-name|clientMock
-init|=
-operator|new
-name|AmazonS3ClientMock
-argument_list|()
-decl_stmt|;
-annotation|@
 name|Test
 DECL|method|sendIn ()
 specifier|public
