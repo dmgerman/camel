@@ -314,6 +314,42 @@ name|long
 name|timeTaken
 parameter_list|)
 function_decl|;
+comment|/**      * Creates an {@link CamelEvent} when a step has been started      *      * @param exchange the exchange      * @param stepId   the step id      * @return the created event      */
+DECL|method|createStepStartedEvent (Exchange exchange, String stepId)
+name|CamelEvent
+name|createStepStartedEvent
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|String
+name|stepId
+parameter_list|)
+function_decl|;
+comment|/**      * Creates an {@link CamelEvent} when a step has been completed successfully      *      * @param exchange the exchange      * @param stepId   the step id      * @return the created event      */
+DECL|method|createStepCompletedEvent (Exchange exchange, String stepId)
+name|CamelEvent
+name|createStepCompletedEvent
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|String
+name|stepId
+parameter_list|)
+function_decl|;
+comment|/**      * Creates an {@link CamelEvent} when a step has failed      *      * @param exchange the exchange      * @param stepId   the step id      * @return the created event      */
+DECL|method|createStepFailedEvent (Exchange exchange, String stepId)
+name|CamelEvent
+name|createStepFailedEvent
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|String
+name|stepId
+parameter_list|)
+function_decl|;
 comment|/**      * Creates an {@link CamelEvent} for Camel is suspending.      *      * @param context camel context      * @return the created event      */
 DECL|method|createCamelContextSuspendingEvent (CamelContext context)
 name|CamelEvent
