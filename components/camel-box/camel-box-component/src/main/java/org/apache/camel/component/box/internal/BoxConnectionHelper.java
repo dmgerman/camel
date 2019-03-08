@@ -1178,7 +1178,7 @@ name|page
 operator|.
 name|select
 argument_list|(
-literal|"div[class*=error_message"
+literal|"div[class*=error_message]"
 argument_list|)
 decl_stmt|;
 name|String
