@@ -196,20 +196,6 @@ name|camel
 operator|.
 name|support
 operator|.
-name|CamelContextHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
 name|IntrospectionSupport
 import|;
 end_import
@@ -582,7 +568,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Is the given node parent(s) of the given type      *      * @param parentType the parent type      * @param node       the current node      * @param recursive  whether or not to check grand parent(s) as well      * @return<tt>true</tt> if parent(s) is of given type,<tt>false</tt> otherwise      */
-DECL|method|isParentOfType (Class<?> parentType, ProcessorDefinition<?> node, boolean recursive)
+DECL|method|isParentOfType (Class<? extends ProcessorDefinition> parentType, ProcessorDefinition<?> node, boolean recursive)
 specifier|public
 specifier|static
 name|boolean
@@ -591,6 +577,49 @@ parameter_list|(
 name|Class
 argument_list|<
 name|?
+extends|extends
+name|ProcessorDefinition
+argument_list|>
+name|parentType
+parameter_list|,
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|node
+parameter_list|,
+name|boolean
+name|recursive
+parameter_list|)
+block|{
+return|return
+name|findFirstParentOfType
+argument_list|(
+name|parentType
+argument_list|,
+name|node
+argument_list|,
+name|recursive
+argument_list|)
+operator|!=
+literal|null
+return|;
+block|}
+comment|/**      * Is the given node parent(s) of the given type      *      * @param parentType the parent type      * @param node       the current node      * @param recursive  whether or not to check grand parent(s) as well      * @return<tt>true</tt> if parent(s) is of given type,<tt>false</tt> otherwise      */
+DECL|method|findFirstParentOfType (Class<T> parentType, ProcessorDefinition<?> node, boolean recursive)
+specifier|public
+specifier|static
+parameter_list|<
+name|T
+extends|extends
+name|ProcessorDefinition
+parameter_list|>
+name|T
+name|findFirstParentOfType
+parameter_list|(
+name|Class
+argument_list|<
+name|T
 argument_list|>
 name|parentType
 parameter_list|,
@@ -619,7 +648,7 @@ literal|null
 condition|)
 block|{
 return|return
-literal|false
+literal|null
 return|;
 block|}
 if|if
@@ -639,7 +668,15 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|true
+name|parentType
+operator|.
+name|cast
+argument_list|(
+name|node
+operator|.
+name|getParent
+argument_list|()
+argument_list|)
 return|;
 block|}
 elseif|else
@@ -650,7 +687,7 @@ condition|)
 block|{
 comment|// recursive up the tree of parents
 return|return
-name|isParentOfType
+name|findFirstParentOfType
 argument_list|(
 name|parentType
 argument_list|,
@@ -667,7 +704,7 @@ else|else
 block|{
 comment|// no match
 return|return
-literal|false
+literal|null
 return|;
 block|}
 block|}

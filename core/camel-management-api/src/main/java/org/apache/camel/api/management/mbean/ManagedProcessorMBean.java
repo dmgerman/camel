@@ -125,6 +125,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Step ID"
+argument_list|)
+DECL|method|getStepId ()
+name|String
+name|getStepId
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Processor ID"
 argument_list|)
 DECL|method|getProcessorId ()
