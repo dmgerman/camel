@@ -4751,6 +4751,52 @@ block|}
 block|}
 return|;
 block|}
+comment|/**      * Returns the expression for the current step id (if any)      */
+DECL|method|stepIdExpression ()
+specifier|public
+specifier|static
+name|Expression
+name|stepIdExpression
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ExpressionAdapter
+argument_list|()
+block|{
+specifier|public
+name|Object
+name|evaluate
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|STEP_ID
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"stepId"
+return|;
+block|}
+block|}
+return|;
+block|}
 comment|/**      * Returns the expression for the {@code null} value      */
 DECL|method|nullExpression ()
 specifier|public

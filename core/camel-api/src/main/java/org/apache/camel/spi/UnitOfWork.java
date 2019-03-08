@@ -142,6 +142,12 @@ name|MDC_ROUTE_ID
 init|=
 literal|"camel.routeId"
 decl_stmt|;
+DECL|field|MDC_STEP_ID
+name|String
+name|MDC_STEP_ID
+init|=
+literal|"camel.stepId"
+decl_stmt|;
 DECL|field|MDC_CAMEL_CONTEXT_ID
 name|String
 name|MDC_CAMEL_CONTEXT_ID

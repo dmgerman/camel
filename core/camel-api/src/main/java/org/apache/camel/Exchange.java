@@ -832,6 +832,12 @@ name|SPLIT_SIZE
 init|=
 literal|"CamelSplitSize"
 decl_stmt|;
+DECL|field|STEP_ID
+name|String
+name|STEP_ID
+init|=
+literal|"CamelStepId"
+decl_stmt|;
 DECL|field|TIMER_COUNTER
 name|String
 name|TIMER_COUNTER
