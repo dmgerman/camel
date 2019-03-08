@@ -249,7 +249,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test to verify that the body is not retrieved when the includeBody option is false  */
+comment|/**  * Test to verify that the body is not retrieved when the includeBody option is  * false  */
 end_comment
 
 begin_class
@@ -615,7 +615,7 @@ name|AmazonClientException
 throws|,
 name|AmazonServiceException
 block|{
-comment|//noop
+comment|// noop
 block|}
 block|}
 block|}

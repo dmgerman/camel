@@ -1067,7 +1067,11 @@ name|VERSION_ID
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// not enabled on this bucket
+comment|// not
+comment|// enabled
+comment|// on
+comment|// this
+comment|// bucket
 name|assertNull
 argument_list|(
 name|resultExchange

@@ -572,8 +572,10 @@ operator|!
 name|delete
 condition|)
 block|{
-comment|// assert on the file content only in case the "deleteAfterWrite" option is NOT enabled
-comment|// in which case we would still have the file and thereby could assert on it's content
+comment|// assert on the file content only in case the "deleteAfterWrite"
+comment|// option is NOT enabled
+comment|// in which case we would still have the file and thereby could
+comment|// assert on it's content
 name|assertEquals
 argument_list|(
 literal|"This is my bucket content."
@@ -642,7 +644,11 @@ name|VERSION_ID
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// not enabled on this bucket
+comment|// not
+comment|// enabled
+comment|// on
+comment|// this
+comment|// bucket
 name|assertNull
 argument_list|(
 name|resultExchange
