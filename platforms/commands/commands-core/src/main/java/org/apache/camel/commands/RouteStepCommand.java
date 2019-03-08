@@ -303,7 +303,7 @@ literal|"Min (ms)"
 argument_list|,
 literal|"Max (ms)"
 argument_list|,
-literal|"Self (ms)"
+literal|"Total (ms)"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -424,15 +424,6 @@ name|getStepStats
 argument_list|()
 control|)
 block|{
-comment|// the self time is the total time of the step itself
-name|long
-name|selfTime
-init|=
-name|ss
-operator|.
-name|getTotalProcessingTime
-argument_list|()
-decl_stmt|;
 name|count
 operator|=
 name|ss
@@ -490,7 +481,10 @@ operator|.
 name|getMaxProcessingTime
 argument_list|()
 argument_list|,
-name|selfTime
+name|ss
+operator|.
+name|getTotalProcessingTime
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
