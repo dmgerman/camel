@@ -125,6 +125,11 @@ specifier|private
 name|boolean
 name|ignoreExchangeSentEvents
 decl_stmt|;
+DECL|field|ignoreStepEvents
+specifier|private
+name|boolean
+name|ignoreStepEvents
+decl_stmt|;
 DECL|method|isIgnoreCamelContextEvents ()
 specifier|public
 name|boolean
@@ -410,6 +415,32 @@ operator|.
 name|ignoreExchangeSendingEvents
 operator|=
 name|ignoreExchangeSendingEvents
+expr_stmt|;
+block|}
+DECL|method|isIgnoreStepEvents ()
+specifier|public
+name|boolean
+name|isIgnoreStepEvents
+parameter_list|()
+block|{
+return|return
+name|ignoreStepEvents
+return|;
+block|}
+DECL|method|setIgnoreStepEvents (boolean ignoreStepEvents)
+specifier|public
+name|void
+name|setIgnoreStepEvents
+parameter_list|(
+name|boolean
+name|ignoreStepEvents
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreStepEvents
+operator|=
+name|ignoreStepEvents
 expr_stmt|;
 block|}
 DECL|method|doStart ()

@@ -58,7 +58,7 @@ name|AbstractStepEvent
 implements|implements
 name|CamelEvent
 operator|.
-name|StepStartedEvent
+name|StepCompletedEvent
 block|{
 DECL|method|StepCompletedEvent (Exchange source, String stepId)
 specifier|public

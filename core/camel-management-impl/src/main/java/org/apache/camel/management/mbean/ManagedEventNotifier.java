@@ -531,6 +531,38 @@ name|ignoreExchangeSendingEvents
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|isIgnoreStepEvents ()
+specifier|public
+name|boolean
+name|isIgnoreStepEvents
+parameter_list|()
+block|{
+return|return
+name|getEventNotifier
+argument_list|()
+operator|.
+name|isIgnoreStepEvents
+argument_list|()
+return|;
+block|}
+DECL|method|setIgnoreStepEvents (boolean ignoreStepEvents)
+specifier|public
+name|void
+name|setIgnoreStepEvents
+parameter_list|(
+name|boolean
+name|ignoreStepEvents
+parameter_list|)
+block|{
+name|getEventNotifier
+argument_list|()
+operator|.
+name|setIgnoreStepEvents
+argument_list|(
+name|ignoreStepEvents
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getNotificationInfo ()
 specifier|public
 name|MBeanNotificationInfo
@@ -587,6 +619,12 @@ block|,
 literal|"ServiceStartupFailureEvent"
 block|,
 literal|"ServiceStopFailureEvent"
+block|,
+literal|"StepStartedEvent"
+block|,
+literal|"StepCompletedEvent"
+block|,
+literal|"StepFailedEvent"
 block|}
 decl_stmt|;
 name|List

@@ -154,6 +154,19 @@ name|boolean
 name|ignoreExchangeSendingEvents
 parameter_list|)
 function_decl|;
+DECL|method|isIgnoreStepEvents ()
+name|boolean
+name|isIgnoreStepEvents
+parameter_list|()
+function_decl|;
+DECL|method|setIgnoreStepEvents (boolean ignoreStepEvents)
+name|void
+name|setIgnoreStepEvents
+parameter_list|(
+name|boolean
+name|ignoreStepEvents
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
