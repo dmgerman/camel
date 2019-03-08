@@ -328,6 +328,23 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Returns detailed step statistics as XML identified by a ID and a Camel context.      *      * @param routeId           the route ID.      * @param camelContextName  the Camel context.      * @param fullStats         whether to include verbose stats      * @return the step statistics as XML      * @throws java.lang.Exception can be thrown      */
+DECL|method|getStepStatsAsXml (String routeId, String camelContextName, boolean fullStats)
+name|String
+name|getStepStatsAsXml
+parameter_list|(
+name|String
+name|routeId
+parameter_list|,
+name|String
+name|camelContextName
+parameter_list|,
+name|boolean
+name|fullStats
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Return the endpoints      *      * @param camelContextName the Camel context.      * @return a list of key/value pairs with endpoint information      * @throws java.lang.Exception can be thrown      */
 DECL|method|getEndpoints (String camelContextName)
 name|List
