@@ -44,6 +44,15 @@ name|THREAD_PROFILE_NAME
 init|=
 literal|"CamelAS2"
 decl_stmt|;
+comment|// header property containing the AS2 Interchange.
+DECL|field|AS2_INTERCHANGE
+name|String
+name|AS2_INTERCHANGE
+init|=
+name|PROPERTY_PREFIX
+operator|+
+literal|"interchange"
+decl_stmt|;
 block|}
 end_interface
 

@@ -325,6 +325,8 @@ DECL|field|targetPortNumber
 specifier|private
 name|Integer
 name|targetPortNumber
+init|=
+literal|80
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -674,7 +676,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|clientFqdn
+name|serverFqdn
 operator|==
 literal|null
 condition|)
@@ -714,6 +716,21 @@ name|String
 name|targetHostname
 parameter_list|)
 block|{
+if|if
+condition|(
+name|targetHostname
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+literal|"Parameter 'targetHostname' can not be null"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|targetHostname
@@ -845,52 +862,6 @@ block|{
 return|return
 name|serverPortNumber
 return|;
-block|}
-comment|/**      * The port number of server.      */
-DECL|method|setServerPortNumber (String serverPortNumber)
-specifier|public
-name|void
-name|setServerPortNumber
-parameter_list|(
-name|String
-name|serverPortNumber
-parameter_list|)
-block|{
-try|try
-block|{
-name|this
-operator|.
-name|serverPortNumber
-operator|=
-name|Integer
-operator|.
-name|valueOf
-argument_list|(
-name|serverPortNumber
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NumberFormatException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-name|String
-operator|.
-name|format
-argument_list|(
-literal|"Invalid target port number: %s"
-argument_list|,
-name|targetPortNumber
-argument_list|)
-argument_list|)
-throw|;
-block|}
 block|}
 comment|/**      * The port number of server.      */
 DECL|method|setServerPortNumber (Integer serverPortNumber)

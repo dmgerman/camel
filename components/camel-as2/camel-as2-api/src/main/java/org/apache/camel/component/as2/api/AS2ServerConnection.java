@@ -1236,6 +1236,26 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|getSigningPrivateKey ()
+specifier|public
+name|PrivateKey
+name|getSigningPrivateKey
+parameter_list|()
+block|{
+return|return
+name|signingPrivateKey
+return|;
+block|}
+DECL|method|getDecryptingPrivateKey ()
+specifier|public
+name|PrivateKey
+name|getDecryptingPrivateKey
+parameter_list|()
+block|{
+return|return
+name|decryptingPrivateKey
+return|;
+block|}
 DECL|method|close ()
 specifier|public
 name|void

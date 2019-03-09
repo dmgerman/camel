@@ -520,6 +520,18 @@ name|apache
 operator|.
 name|http
 operator|.
+name|HttpRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
 name|HttpResponse
 import|;
 end_import
@@ -875,7 +887,7 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-name|HttpEntityEnclosingRequest
+name|HttpRequest
 name|request
 init|=
 name|coreContext
@@ -886,7 +898,7 @@ name|HttpCoreContext
 operator|.
 name|HTTP_REQUEST
 argument_list|,
-name|HttpEntityEnclosingRequest
+name|HttpRequest
 operator|.
 name|class
 argument_list|)
@@ -896,31 +908,33 @@ condition|(
 name|request
 operator|==
 literal|null
+operator|||
+operator|!
+operator|(
+name|request
+operator|instanceof
+name|HttpEntityEnclosingRequest
+operator|)
 condition|)
 block|{
-comment|// Should never happen; but you never know
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"MDN not returned due to null request"
-argument_list|)
-expr_stmt|;
-throw|throw
-operator|new
-name|HttpException
-argument_list|(
-literal|"request missing from HTTP context"
-argument_list|)
-throw|;
+comment|// Not an enclosing request so nothing to do.
+return|return;
 block|}
+name|HttpEntityEnclosingRequest
+name|httpEntityEnclosingRequest
+init|=
+operator|(
+name|HttpEntityEnclosingRequest
+operator|)
+name|request
+decl_stmt|;
 name|LOG
 operator|.
 name|debug
 argument_list|(
 literal|"Processing MDN for request: {}"
 argument_list|,
-name|request
+name|httpEntityEnclosingRequest
 argument_list|)
 expr_stmt|;
 if|if
@@ -929,7 +943,7 @@ name|HttpMessageUtils
 operator|.
 name|getHeaderValue
 argument_list|(
-name|request
+name|httpEntityEnclosingRequest
 argument_list|,
 name|AS2Header
 operator|.
@@ -963,7 +977,7 @@ name|mdnMessage
 init|=
 name|createMdnDescription
 argument_list|(
-name|request
+name|httpEntityEnclosingRequest
 argument_list|,
 name|response
 argument_list|,
@@ -998,7 +1012,7 @@ init|=
 operator|new
 name|DispositionNotificationMultipartReportEntity
 argument_list|(
-name|request
+name|httpEntityEnclosingRequest
 argument_list|,
 name|response
 argument_list|,
@@ -1044,7 +1058,7 @@ name|HttpMessageUtils
 operator|.
 name|getHeaderValue
 argument_list|(
-name|request
+name|httpEntityEnclosingRequest
 argument_list|,
 name|AS2Header
 operator|.
@@ -1061,7 +1075,7 @@ name|HttpMessageUtils
 operator|.
 name|getHeaderValue
 argument_list|(
-name|request
+name|httpEntityEnclosingRequest
 argument_list|,
 name|AS2Header
 operator|.
@@ -1153,7 +1167,7 @@ name|HttpMessageUtils
 operator|.
 name|getHeaderValue
 argument_list|(
-name|request
+name|httpEntityEnclosingRequest
 argument_list|,
 name|AS2Header
 operator|.
@@ -1247,7 +1261,7 @@ name|HttpMessageUtils
 operator|.
 name|getHeaderValue
 argument_list|(
-name|request
+name|httpEntityEnclosingRequest
 argument_list|,
 name|AS2Header
 operator|.
@@ -1299,7 +1313,7 @@ name|HttpMessageUtils
 operator|.
 name|getHeaderValue
 argument_list|(
-name|request
+name|httpEntityEnclosingRequest
 argument_list|,
 name|AS2Header
 operator|.
