@@ -17,7 +17,7 @@ name|XmlSchema
 argument_list|(
 name|namespace
 operator|=
-literal|""
+literal|"message.jaxb.converter.camel.apache.org"
 argument_list|)
 end_annotation
 

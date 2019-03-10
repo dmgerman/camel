@@ -94,7 +94,7 @@ init|=
 operator|new
 name|QName
 argument_list|(
-literal|""
+literal|"message.jaxb.converter.camel.apache.org"
 argument_list|,
 literal|"message"
 argument_list|)
@@ -123,7 +123,7 @@ name|XmlElementDecl
 argument_list|(
 name|namespace
 operator|=
-literal|""
+literal|"message.jaxb.converter.camel.apache.org"
 argument_list|,
 name|name
 operator|=

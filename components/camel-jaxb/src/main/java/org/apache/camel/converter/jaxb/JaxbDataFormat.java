@@ -222,6 +222,18 @@ name|xml
 operator|.
 name|bind
 operator|.
+name|MarshalException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
 name|Marshaller
 import|;
 end_import
@@ -547,6 +559,26 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
 import|;
 end_import
 
@@ -1583,6 +1615,34 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|// if a schema is set then an MarshallException is thrown when the XML is not valid
+comment|// and the method must throw this exception as it would when the object in the body is a root element
+comment|// or a partial class (the other alternatives above)
+comment|//
+comment|// it would be best to completely remove the exception handler here but it's left for backwards compatibility reasons.
+if|if
+condition|(
+name|MarshalException
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|e
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+operator|&&
+name|schema
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+name|e
+throw|;
+block|}
 name|log
 operator|.
 name|debug
