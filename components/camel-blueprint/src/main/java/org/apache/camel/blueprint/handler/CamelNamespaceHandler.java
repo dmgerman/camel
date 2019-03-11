@@ -724,34 +724,6 @@ name|camel
 operator|.
 name|model
 operator|.
-name|InterceptDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|InterceptSendToEndpointDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
 name|MarshalDefinition
 import|;
 end_import
@@ -4745,7 +4717,7 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * There's single instance of {@link BlueprintCamelStateService} that's used by all Blueprint Camel contexts      * to inform about state of Camel contexts. If Karaf is available, this information will propagate to      *<em>extended bundle info</em>.      * See CAMEL-12980      * @param context      */
+comment|/**      * There's single instance of {@link BlueprintCamelStateService} that's used by all Blueprint Camel contexts      * to inform about state of Camel contexts. If Karaf is available, this information will propagate to      *<em>extended bundle info</em>.      * See CAMEL-12980      */
 DECL|method|registerBundleStateService (ParserContext context)
 specifier|private
 name|void
@@ -6054,11 +6026,6 @@ argument_list|()
 argument_list|,
 name|endpointInject
 operator|.
-name|ref
-argument_list|()
-argument_list|,
-name|endpointInject
-operator|.
 name|property
 argument_list|()
 argument_list|,
@@ -6106,11 +6073,6 @@ argument_list|()
 argument_list|,
 name|produce
 operator|.
-name|ref
-argument_list|()
-argument_list|,
-name|produce
-operator|.
 name|property
 argument_list|()
 argument_list|,
@@ -6143,7 +6105,7 @@ name|class
 condition|)
 do|;
 block|}
-DECL|method|injectField (Field field, String endpointUri, String endpointRef, String endpointProperty, Object bean, String beanName)
+DECL|method|injectField (Field field, String endpointUri, String endpointProperty, Object bean, String beanName)
 specifier|protected
 name|void
 name|injectField
@@ -6153,9 +6115,6 @@ name|field
 parameter_list|,
 name|String
 name|endpointUri
-parameter_list|,
-name|String
-name|endpointRef
 parameter_list|,
 name|String
 name|endpointProperty
@@ -6181,8 +6140,6 @@ name|getType
 argument_list|()
 argument_list|,
 name|endpointUri
-argument_list|,
-name|endpointRef
 argument_list|,
 name|endpointProperty
 argument_list|,
@@ -6637,11 +6594,6 @@ argument_list|()
 argument_list|,
 name|endpointInject
 operator|.
-name|ref
-argument_list|()
-argument_list|,
-name|endpointInject
-operator|.
 name|property
 argument_list|()
 argument_list|)
@@ -6685,11 +6637,6 @@ argument_list|,
 name|produce
 operator|.
 name|uri
-argument_list|()
-argument_list|,
-name|produce
-operator|.
-name|ref
 argument_list|()
 argument_list|,
 name|produce
@@ -6899,7 +6846,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|setterInjection (Method method, Object bean, String beanName, String endpointUri, String endpointRef, String endpointProperty)
+DECL|method|setterInjection (Method method, Object bean, String beanName, String endpointUri, String endpointProperty)
 specifier|protected
 name|void
 name|setterInjection
@@ -6915,9 +6862,6 @@ name|beanName
 parameter_list|,
 name|String
 name|endpointUri
-parameter_list|,
-name|String
-name|endpointRef
 parameter_list|,
 name|String
 name|endpointProperty
@@ -6993,8 +6937,6 @@ index|]
 argument_list|,
 name|endpointUri
 argument_list|,
-name|endpointRef
-argument_list|,
 name|endpointProperty
 argument_list|,
 name|propertyName
@@ -7048,6 +6990,7 @@ name|bean
 argument_list|)
 expr_stmt|;
 comment|// we cannot inject CamelContextAware beans as the CamelContext may not be ready
+comment|// TODO: use bean post processor instead
 name|injectFields
 argument_list|(
 name|bean

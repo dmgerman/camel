@@ -267,6 +267,7 @@ operator|=
 name|manager
 expr_stmt|;
 block|}
+comment|// TODO: Not sure overriding this is needed
 DECL|method|injectFields (final Object bean, final String beanName)
 specifier|protected
 name|void
@@ -469,11 +470,6 @@ argument_list|()
 argument_list|,
 name|endpointInject
 operator|.
-name|ref
-argument_list|()
-argument_list|,
-name|endpointInject
-operator|.
 name|property
 argument_list|()
 argument_list|,
@@ -545,11 +541,6 @@ argument_list|()
 argument_list|,
 name|produce
 operator|.
-name|ref
-argument_list|()
-argument_list|,
-name|produce
-operator|.
 name|property
 argument_list|()
 argument_list|,
@@ -593,7 +584,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|injectField (Field field, String uri, String ref, String property, String context, Object bean, String beanName)
+DECL|method|injectField (Field field, String uri, String property, String context, Object bean, String beanName)
 specifier|private
 name|void
 name|injectField
@@ -603,9 +594,6 @@ name|field
 parameter_list|,
 name|String
 name|uri
-parameter_list|,
-name|String
-name|ref
 parameter_list|,
 name|String
 name|property
@@ -641,8 +629,6 @@ name|getType
 argument_list|()
 argument_list|,
 name|uri
-argument_list|,
-name|ref
 argument_list|,
 name|property
 argument_list|,
