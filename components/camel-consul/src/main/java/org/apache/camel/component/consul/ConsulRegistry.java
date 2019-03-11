@@ -924,13 +924,16 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|bind (String id, Object bean)
+DECL|method|bind (String id, Class type, Object bean)
 specifier|public
 name|void
 name|bind
 parameter_list|(
 name|String
 name|id
+parameter_list|,
+name|Class
+name|type
 parameter_list|,
 name|Object
 name|bean

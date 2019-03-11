@@ -42,11 +42,45 @@ name|BeanRepository
 block|{
 comment|/**      * Binds the bean to the repository (if possible).      *      * @param id   the id of the bean      * @param bean the bean      * @throws RuntimeCamelException is thrown if binding is not possible      */
 DECL|method|bind (String id, Object bean)
+specifier|default
 name|void
 name|bind
 parameter_list|(
 name|String
 name|id
+parameter_list|,
+name|Object
+name|bean
+parameter_list|)
+throws|throws
+name|RuntimeCamelException
+block|{
+name|bind
+argument_list|(
+name|id
+argument_list|,
+name|bean
+operator|.
+name|getClass
+argument_list|()
+argument_list|,
+name|bean
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Binds the bean to the repository (if possible).      *<p/>      * Binding by id and type allows to bind multiple entries with the same      * id but with different type.      *      * @param id   the id of the bean      * @param type the type of the bean to associate the binding      * @param bean the bean      * @throws RuntimeCamelException is thrown if binding is not possible      */
+DECL|method|bind (String id, Class<?> type, Object bean)
+name|void
+name|bind
+parameter_list|(
+name|String
+name|id
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
 parameter_list|,
 name|Object
 name|bean

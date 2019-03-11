@@ -354,7 +354,7 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|bind (String id, Object bean)
+DECL|method|bind (String id, Class<?> type, Object bean)
 specifier|public
 name|void
 name|bind
@@ -362,15 +362,25 @@ parameter_list|(
 name|String
 name|id
 parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|,
 name|Object
 name|bean
 parameter_list|)
+throws|throws
+name|RuntimeCamelException
 block|{
 name|fallbackRegistry
 operator|.
 name|bind
 argument_list|(
 name|id
+argument_list|,
+name|type
 argument_list|,
 name|bean
 argument_list|)

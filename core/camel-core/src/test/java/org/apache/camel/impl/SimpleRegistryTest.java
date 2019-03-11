@@ -365,7 +365,7 @@ name|foo
 init|=
 literal|"foo"
 decl_stmt|;
-comment|// will override
+comment|// bind a 2nd c but its a different type
 name|registry
 operator|.
 name|bind
@@ -385,7 +385,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// should return the original entry
+comment|// should return the original entry if no specific type given
 name|assertSame
 argument_list|(
 literal|1
