@@ -149,18 +149,6 @@ name|MAX_CONNECTIONS
 init|=
 literal|1
 decl_stmt|;
-DECL|field|encryptionMaterials
-specifier|private
-name|EncryptionMaterials
-name|encryptionMaterials
-init|=
-name|mock
-argument_list|(
-name|EncryptionMaterials
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|standardAWSS3ClientImplNoEncryption ()
