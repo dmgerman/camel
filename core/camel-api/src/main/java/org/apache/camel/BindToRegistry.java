@@ -110,13 +110,15 @@ specifier|public
 annotation_defn|@interface
 name|BindToRegistry
 block|{
-DECL|method|name ()
+comment|/**      * The name of the bean      */
+DECL|method|value ()
 name|String
-name|name
+name|value
 parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Id of {@link CamelContext} to use      */
 DECL|method|context ()
 name|String
 name|context

@@ -384,8 +384,6 @@ block|{
 annotation|@
 name|BindToRegistry
 argument_list|(
-name|name
-operator|=
 literal|"bar"
 argument_list|)
 DECL|method|createBar (@ropertyInjectvalue = R) String hello)

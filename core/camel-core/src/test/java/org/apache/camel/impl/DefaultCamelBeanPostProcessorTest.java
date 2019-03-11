@@ -327,8 +327,6 @@ decl_stmt|;
 annotation|@
 name|BindToRegistry
 argument_list|(
-name|name
-operator|=
 literal|"myCoolBean"
 argument_list|)
 DECL|field|myBean

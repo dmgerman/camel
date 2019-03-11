@@ -983,7 +983,7 @@ name|field
 argument_list|,
 name|bind
 operator|.
-name|name
+name|value
 argument_list|()
 argument_list|,
 name|bean
@@ -1328,7 +1328,7 @@ name|clazz
 argument_list|,
 name|ann
 operator|.
-name|name
+name|value
 argument_list|()
 argument_list|,
 name|bean
@@ -1419,7 +1419,7 @@ name|clazz
 argument_list|,
 name|ann
 operator|.
-name|name
+name|value
 argument_list|()
 argument_list|,
 literal|null
@@ -1689,7 +1689,7 @@ name|method
 argument_list|,
 name|bind
 operator|.
-name|name
+name|value
 argument_list|()
 argument_list|,
 name|bean

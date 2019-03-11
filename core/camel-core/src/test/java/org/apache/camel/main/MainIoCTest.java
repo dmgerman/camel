@@ -545,8 +545,6 @@ block|}
 annotation|@
 name|BindToRegistry
 argument_list|(
-name|name
-operator|=
 literal|"coolStuff"
 argument_list|)
 DECL|method|cool (@eanInject MyCoolBean cool, @PropertyInject(value = R, defaultValue = R) int num, @BeanInject(R) MyBar bar)
