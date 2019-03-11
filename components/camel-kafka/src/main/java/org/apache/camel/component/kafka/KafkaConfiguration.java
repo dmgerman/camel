@@ -2115,6 +2115,24 @@ specifier|private
 name|String
 name|schemaRegistryURL
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"confluent,consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|specificAvroReader
+specifier|private
+name|boolean
+name|specificAvroReader
+init|=
+literal|false
+decl_stmt|;
 DECL|method|KafkaConfiguration ()
 specifier|public
 name|KafkaConfiguration
@@ -3138,6 +3156,16 @@ argument_list|,
 literal|"schema.registry.url"
 argument_list|,
 name|getSchemaRegistryURL
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|addPropertyIfNotNull
+argument_list|(
+name|props
+argument_list|,
+literal|"specific.avro.reader"
+argument_list|,
+name|isSpecificAvroReader
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4487,6 +4515,33 @@ operator|.
 name|schemaRegistryURL
 operator|=
 name|schemaRegistryURL
+expr_stmt|;
+block|}
+DECL|method|isSpecificAvroReader ()
+specifier|public
+name|boolean
+name|isSpecificAvroReader
+parameter_list|()
+block|{
+return|return
+name|specificAvroReader
+return|;
+block|}
+comment|/**      * This enables the use of a specific Avro reader for use with the Confluent schema registry and the io.confluent.kafka.serializers.KafkaAvroDeserializer. The default value is false.      */
+DECL|method|setSpecificAvroReader (boolean specificAvroReader)
+specifier|public
+name|void
+name|setSpecificAvroReader
+parameter_list|(
+name|boolean
+name|specificAvroReader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|specificAvroReader
+operator|=
+name|specificAvroReader
 expr_stmt|;
 block|}
 DECL|method|getCompressionCodec ()
