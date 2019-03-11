@@ -79,9 +79,9 @@ decl_stmt|;
 annotation|@
 name|Consume
 argument_list|(
-name|ref
+name|uri
 operator|=
-literal|"foo"
+literal|"ref:foo"
 argument_list|)
 DECL|method|doSomething (String body)
 specifier|public

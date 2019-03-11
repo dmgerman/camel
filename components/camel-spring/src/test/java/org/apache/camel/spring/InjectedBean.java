@@ -187,9 +187,9 @@ block|}
 annotation|@
 name|EndpointInject
 argument_list|(
-name|ref
+name|uri
 operator|=
-literal|"namedEndpoint1"
+literal|"ref:namedEndpoint1"
 argument_list|)
 DECL|method|setPropertyInjectedEndpoint (Endpoint propertyInjectedEndpoint)
 specifier|public

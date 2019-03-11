@@ -873,11 +873,6 @@ argument_list|()
 argument_list|,
 name|endpointInject
 operator|.
-name|ref
-argument_list|()
-argument_list|,
-name|endpointInject
-operator|.
 name|property
 argument_list|()
 argument_list|,
@@ -924,11 +919,6 @@ argument_list|,
 name|produce
 operator|.
 name|uri
-argument_list|()
-argument_list|,
-name|produce
-operator|.
-name|ref
 argument_list|()
 argument_list|,
 name|produce
@@ -997,7 +987,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|injectField (Field field, String endpointUri, String endpointRef, String endpointProperty, Object bean, String beanName)
+DECL|method|injectField (Field field, String endpointUri, String endpointProperty, Object bean, String beanName)
 specifier|public
 name|void
 name|injectField
@@ -1007,9 +997,6 @@ name|field
 parameter_list|,
 name|String
 name|endpointUri
-parameter_list|,
-name|String
-name|endpointRef
 parameter_list|,
 name|String
 name|endpointProperty
@@ -1027,8 +1014,6 @@ name|field
 argument_list|,
 name|endpointUri
 argument_list|,
-name|endpointRef
-argument_list|,
 name|endpointProperty
 argument_list|,
 name|bean
@@ -1039,7 +1024,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|injectField (Field field, String endpointUri, String endpointRef, String endpointProperty, Object bean, String beanName, boolean binding)
+DECL|method|injectField (Field field, String endpointUri, String endpointProperty, Object bean, String beanName, boolean binding)
 specifier|public
 name|void
 name|injectField
@@ -1049,9 +1034,6 @@ name|field
 parameter_list|,
 name|String
 name|endpointUri
-parameter_list|,
-name|String
-name|endpointRef
 parameter_list|,
 name|String
 name|endpointProperty
@@ -1085,8 +1067,6 @@ name|getType
 argument_list|()
 argument_list|,
 name|endpointUri
-argument_list|,
-name|endpointRef
 argument_list|,
 name|endpointProperty
 argument_list|,
@@ -1588,11 +1568,6 @@ argument_list|()
 argument_list|,
 name|endpointInject
 operator|.
-name|ref
-argument_list|()
-argument_list|,
-name|endpointInject
-operator|.
 name|property
 argument_list|()
 argument_list|)
@@ -1639,11 +1614,6 @@ argument_list|,
 name|produce
 operator|.
 name|uri
-argument_list|()
-argument_list|,
-name|produce
-operator|.
-name|ref
 argument_list|()
 argument_list|,
 name|produce
@@ -1699,7 +1669,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|setterInjection (Method method, Object bean, String beanName, String endpointUri, String endpointRef, String endpointProperty)
+DECL|method|setterInjection (Method method, Object bean, String beanName, String endpointUri, String endpointProperty)
 specifier|public
 name|void
 name|setterInjection
@@ -1715,9 +1685,6 @@ name|beanName
 parameter_list|,
 name|String
 name|endpointUri
-parameter_list|,
-name|String
-name|endpointRef
 parameter_list|,
 name|String
 name|endpointProperty
@@ -1788,8 +1755,6 @@ literal|0
 index|]
 argument_list|,
 name|endpointUri
-argument_list|,
-name|endpointRef
 argument_list|,
 name|endpointProperty
 argument_list|,

@@ -118,14 +118,6 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
-comment|/**      * Reference to endpoint to produce to      */
-DECL|method|ref ()
-name|String
-name|ref
-parameter_list|()
-default|default
-literal|""
-function_decl|;
 comment|/**      * Use the field or getter on the bean to provide the uri to produce to      */
 DECL|method|property ()
 name|String

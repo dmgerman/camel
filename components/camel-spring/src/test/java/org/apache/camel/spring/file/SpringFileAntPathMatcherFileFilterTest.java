@@ -173,9 +173,9 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|ref
+name|uri
 operator|=
-literal|"myFileEndpoint"
+literal|"ref:myFileEndpoint"
 argument_list|)
 DECL|field|inputFile
 specifier|protected

@@ -600,11 +600,6 @@ argument_list|()
 argument_list|,
 name|consume
 operator|.
-name|ref
-argument_list|()
-argument_list|,
-name|consume
-operator|.
 name|property
 argument_list|()
 argument_list|,
@@ -616,7 +611,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|subscribeMethod (Method method, Object bean, String beanName, String endpointUri, String endpointName, String endpointProperty, String predicate)
+DECL|method|subscribeMethod (Method method, Object bean, String beanName, String endpointUri, String endpointProperty, String predicate)
 specifier|public
 name|void
 name|subscribeMethod
@@ -632,9 +627,6 @@ name|beanName
 parameter_list|,
 name|String
 name|endpointUri
-parameter_list|,
-name|String
-name|endpointName
 parameter_list|,
 name|String
 name|endpointProperty
@@ -660,8 +652,6 @@ argument_list|(
 name|bean
 argument_list|,
 name|endpointUri
-argument_list|,
-name|endpointName
 argument_list|,
 name|endpointProperty
 argument_list|,
@@ -983,7 +973,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|getEndpointInjection (Object bean, String uri, String name, String propertyName, String injectionPointName, boolean mandatory)
+DECL|method|getEndpointInjection (Object bean, String uri, String propertyName, String injectionPointName, boolean mandatory)
 specifier|public
 name|Endpoint
 name|getEndpointInjection
@@ -993,9 +983,6 @@ name|bean
 parameter_list|,
 name|String
 name|uri
-parameter_list|,
-name|String
-name|name
 parameter_list|,
 name|String
 name|propertyName
@@ -1015,16 +1002,9 @@ name|isEmpty
 argument_list|(
 name|uri
 argument_list|)
-operator|&&
-name|ObjectHelper
-operator|.
-name|isEmpty
-argument_list|(
-name|name
-argument_list|)
 condition|)
 block|{
-comment|// if no uri or ref, then fallback and try the endpoint property
+comment|// if no uri then fallback and try the endpoint property
 return|return
 name|doGetEndpointInjection
 argument_list|(
@@ -1043,8 +1023,6 @@ name|doGetEndpointInjection
 argument_list|(
 name|uri
 argument_list|,
-name|name
-argument_list|,
 name|injectionPointName
 argument_list|,
 name|mandatory
@@ -1052,16 +1030,13 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|doGetEndpointInjection (String uri, String name, String injectionPointName, boolean mandatory)
+DECL|method|doGetEndpointInjection (String uri, String injectionPointName, boolean mandatory)
 specifier|private
 name|Endpoint
 name|doGetEndpointInjection
 parameter_list|(
 name|String
 name|uri
-parameter_list|,
-name|String
-name|name
 parameter_list|,
 name|String
 name|injectionPointName
@@ -1079,8 +1054,6 @@ name|getCamelContext
 argument_list|()
 argument_list|,
 name|uri
-argument_list|,
-name|name
 argument_list|,
 name|injectionPointName
 argument_list|,
@@ -1287,7 +1260,7 @@ throw|;
 block|}
 block|}
 comment|/**      * Creates the object to be injected for an      * {@link org.apache.camel.EndpointInject} or      * {@link org.apache.camel.Produce} injection point      */
-DECL|method|getInjectionValue (Class<?> type, String endpointUri, String endpointRef, String endpointProperty, String injectionPointName, Object bean, String beanName)
+DECL|method|getInjectionValue (Class<?> type, String endpointUri, String endpointProperty, String injectionPointName, Object bean, String beanName)
 specifier|public
 name|Object
 name|getInjectionValue
@@ -1300,9 +1273,6 @@ name|type
 parameter_list|,
 name|String
 name|endpointUri
-parameter_list|,
-name|String
-name|endpointRef
 parameter_list|,
 name|String
 name|endpointProperty
@@ -1324,8 +1294,6 @@ name|type
 argument_list|,
 name|endpointUri
 argument_list|,
-name|endpointRef
-argument_list|,
 name|endpointProperty
 argument_list|,
 name|injectionPointName
@@ -1339,7 +1307,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates the object to be injected for an      * {@link org.apache.camel.EndpointInject} or      * {@link org.apache.camel.Produce} injection point      */
-DECL|method|getInjectionValue (Class<?> type, String endpointUri, String endpointRef, String endpointProperty, String injectionPointName, Object bean, String beanName, boolean binding)
+DECL|method|getInjectionValue (Class<?> type, String endpointUri, String endpointProperty, String injectionPointName, Object bean, String beanName, boolean binding)
 specifier|public
 name|Object
 name|getInjectionValue
@@ -1352,9 +1320,6 @@ name|type
 parameter_list|,
 name|String
 name|endpointUri
-parameter_list|,
-name|String
-name|endpointRef
 parameter_list|,
 name|String
 name|endpointProperty
@@ -1389,8 +1354,6 @@ name|createInjectionProducerTemplate
 argument_list|(
 name|endpointUri
 argument_list|,
-name|endpointRef
-argument_list|,
 name|endpointProperty
 argument_list|,
 name|injectionPointName
@@ -1416,8 +1379,6 @@ return|return
 name|createInjectionFluentProducerTemplate
 argument_list|(
 name|endpointUri
-argument_list|,
-name|endpointRef
 argument_list|,
 name|endpointProperty
 argument_list|,
@@ -1445,8 +1406,6 @@ name|createInjectionConsumerTemplate
 argument_list|(
 name|endpointUri
 argument_list|,
-name|endpointRef
-argument_list|,
 name|endpointProperty
 argument_list|,
 name|injectionPointName
@@ -1463,8 +1422,6 @@ argument_list|(
 name|bean
 argument_list|,
 name|endpointUri
-argument_list|,
-name|endpointRef
 argument_list|,
 name|endpointProperty
 argument_list|,
@@ -1944,16 +1901,13 @@ return|;
 block|}
 block|}
 comment|/**      * Factory method to create a {@link org.apache.camel.ProducerTemplate} to      * be injected into a POJO      */
-DECL|method|createInjectionProducerTemplate (String endpointUri, String endpointRef, String endpointProperty, String injectionPointName, Object bean)
+DECL|method|createInjectionProducerTemplate (String endpointUri, String endpointProperty, String injectionPointName, Object bean)
 specifier|protected
 name|ProducerTemplate
 name|createInjectionProducerTemplate
 parameter_list|(
 name|String
 name|endpointUri
-parameter_list|,
-name|String
-name|endpointRef
 parameter_list|,
 name|String
 name|endpointProperty
@@ -1974,8 +1928,6 @@ argument_list|(
 name|bean
 argument_list|,
 name|endpointUri
-argument_list|,
-name|endpointRef
 argument_list|,
 name|endpointProperty
 argument_list|,
@@ -2046,16 +1998,13 @@ name|answer
 return|;
 block|}
 comment|/**      * Factory method to create a      * {@link org.apache.camel.FluentProducerTemplate} to be injected into a      * POJO      */
-DECL|method|createInjectionFluentProducerTemplate (String endpointUri, String endpointRef, String endpointProperty, String injectionPointName, Object bean)
+DECL|method|createInjectionFluentProducerTemplate (String endpointUri, String endpointProperty, String injectionPointName, Object bean)
 specifier|protected
 name|FluentProducerTemplate
 name|createInjectionFluentProducerTemplate
 parameter_list|(
 name|String
 name|endpointUri
-parameter_list|,
-name|String
-name|endpointRef
 parameter_list|,
 name|String
 name|endpointProperty
@@ -2076,8 +2025,6 @@ argument_list|(
 name|bean
 argument_list|,
 name|endpointUri
-argument_list|,
-name|endpointRef
 argument_list|,
 name|endpointProperty
 argument_list|,
@@ -2153,16 +2100,13 @@ name|answer
 return|;
 block|}
 comment|/**      * Factory method to create a {@link org.apache.camel.ConsumerTemplate} to      * be injected into a POJO      */
-DECL|method|createInjectionConsumerTemplate (String endpointUri, String endpointRef, String endpointProperty, String injectionPointName)
+DECL|method|createInjectionConsumerTemplate (String endpointUri, String endpointProperty, String injectionPointName)
 specifier|protected
 name|ConsumerTemplate
 name|createInjectionConsumerTemplate
 parameter_list|(
 name|String
 name|endpointUri
-parameter_list|,
-name|String
-name|endpointRef
 parameter_list|,
 name|String
 name|endpointProperty

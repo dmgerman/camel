@@ -1030,7 +1030,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Evaluates the @EndpointInject annotation using the given context      */
-DECL|method|getEndpointInjection (CamelContext camelContext, String uri, String ref, String injectionPointName, boolean mandatory)
+DECL|method|getEndpointInjection (CamelContext camelContext, String uri, String injectionPointName, boolean mandatory)
 specifier|public
 specifier|static
 name|Endpoint
@@ -1043,46 +1043,12 @@ name|String
 name|uri
 parameter_list|,
 name|String
-name|ref
-parameter_list|,
-name|String
 name|injectionPointName
 parameter_list|,
 name|boolean
 name|mandatory
 parameter_list|)
 block|{
-if|if
-condition|(
-name|ObjectHelper
-operator|.
-name|isNotEmpty
-argument_list|(
-name|uri
-argument_list|)
-operator|&&
-name|ObjectHelper
-operator|.
-name|isNotEmpty
-argument_list|(
-name|ref
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Both uri and name is provided, only either one is allowed: uri="
-operator|+
-name|uri
-operator|+
-literal|", ref="
-operator|+
-name|ref
-argument_list|)
-throw|;
-block|}
 name|Endpoint
 name|endpoint
 decl_stmt|;
@@ -1106,45 +1072,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// if a ref is given then it should be possible to lookup
-comment|// otherwise we do not catch situations where there is a typo etc
-if|if
-condition|(
-name|isNotEmpty
-argument_list|(
-name|ref
-argument_list|)
-condition|)
-block|{
-name|endpoint
-operator|=
-name|mandatoryLookup
-argument_list|(
-name|camelContext
-argument_list|,
-name|ref
-argument_list|,
-name|Endpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-if|if
-condition|(
-name|isEmpty
-argument_list|(
-name|ref
-argument_list|)
-condition|)
-block|{
-name|ref
-operator|=
-name|injectionPointName
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|mandatory
@@ -1156,7 +1083,7 @@ name|mandatoryLookup
 argument_list|(
 name|camelContext
 argument_list|,
-name|ref
+name|injectionPointName
 argument_list|,
 name|Endpoint
 operator|.
@@ -1172,14 +1099,13 @@ name|lookup
 argument_list|(
 name|camelContext
 argument_list|,
-name|ref
+name|injectionPointName
 argument_list|,
 name|Endpoint
 operator|.
 name|class
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return

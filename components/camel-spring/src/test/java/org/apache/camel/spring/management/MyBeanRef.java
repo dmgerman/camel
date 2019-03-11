@@ -55,9 +55,9 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|ref
+name|uri
 operator|=
-literal|"foo"
+literal|"ref:foo"
 argument_list|)
 DECL|field|template
 specifier|private
