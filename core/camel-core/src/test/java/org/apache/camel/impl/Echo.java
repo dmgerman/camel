@@ -41,8 +41,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:hello"
 argument_list|)
 DECL|method|hello (String name)

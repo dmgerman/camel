@@ -115,8 +115,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"activemq:personnel.records"
 argument_list|)
 DECL|field|producer
@@ -126,8 +124,6 @@ decl_stmt|;
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"file:src/data?noop=true"
 argument_list|)
 DECL|method|onFileSendToQueue (String body, @Header(R) String name)

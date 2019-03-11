@@ -105,8 +105,6 @@ decl_stmt|;
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"activemq:personnel.records"
 argument_list|)
 annotation|@

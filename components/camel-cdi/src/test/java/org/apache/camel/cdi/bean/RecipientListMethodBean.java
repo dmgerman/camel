@@ -87,8 +87,6 @@ name|RecipientList
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"direct:inbound"
 argument_list|)
 DECL|method|route ()

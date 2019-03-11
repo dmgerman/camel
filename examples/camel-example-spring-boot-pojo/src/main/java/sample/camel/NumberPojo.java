@@ -66,8 +66,6 @@ comment|// FluentProducerTemplate or ProducerTemplate APIs
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"stream:out"
 argument_list|)
 DECL|field|magic
@@ -79,7 +77,7 @@ comment|// only consume when the predicate matches, eg when the message body is 
 annotation|@
 name|Consume
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"direct:numbers"
 argument_list|,
@@ -110,7 +108,7 @@ comment|// only consume when the predicate matches, eg when the message body is 
 annotation|@
 name|Consume
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"direct:numbers"
 argument_list|,

@@ -367,7 +367,7 @@ block|{
 annotation|@
 name|Consume
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"seda:foo"
 argument_list|,
@@ -397,7 +397,7 @@ block|}
 annotation|@
 name|Consume
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"seda:foo"
 argument_list|,

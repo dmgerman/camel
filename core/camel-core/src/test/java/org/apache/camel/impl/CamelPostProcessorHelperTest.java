@@ -1063,7 +1063,7 @@ name|type
 argument_list|,
 name|endpointInject
 operator|.
-name|uri
+name|value
 argument_list|()
 argument_list|,
 name|endpointInject
@@ -1231,7 +1231,7 @@ name|type
 argument_list|,
 name|endpointInject
 operator|.
-name|uri
+name|value
 argument_list|()
 argument_list|,
 name|endpointInject
@@ -1418,7 +1418,7 @@ name|type
 argument_list|,
 name|endpointInject
 operator|.
-name|uri
+name|value
 argument_list|()
 argument_list|,
 name|endpointInject
@@ -1576,7 +1576,7 @@ name|type
 argument_list|,
 name|endpointInject
 operator|.
-name|uri
+name|value
 argument_list|()
 argument_list|,
 name|endpointInject
@@ -1723,7 +1723,7 @@ name|type
 argument_list|,
 name|endpointInject
 operator|.
-name|uri
+name|value
 argument_list|()
 argument_list|,
 name|endpointInject
@@ -1870,7 +1870,7 @@ name|type
 argument_list|,
 name|endpointInject
 operator|.
-name|uri
+name|value
 argument_list|()
 argument_list|,
 name|endpointInject
@@ -2016,7 +2016,7 @@ name|type
 argument_list|,
 name|endpointInject
 operator|.
-name|uri
+name|value
 argument_list|()
 argument_list|,
 name|endpointInject
@@ -2157,7 +2157,7 @@ name|type
 argument_list|,
 name|endpointInject
 operator|.
-name|uri
+name|value
 argument_list|()
 argument_list|,
 name|endpointInject
@@ -3128,7 +3128,7 @@ name|classType
 argument_list|,
 name|inject
 operator|.
-name|uri
+name|value
 argument_list|()
 argument_list|,
 name|inject
@@ -3243,8 +3243,6 @@ block|{
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"seda:foo"
 argument_list|)
 DECL|method|consumeSomething (String body)
@@ -3282,8 +3280,6 @@ block|{
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"seda:foo"
 argument_list|)
 DECL|method|consumeSomething (String body, Exchange exchange)
@@ -3331,8 +3327,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|field|producer
@@ -3463,8 +3457,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|method|setProducer (ProducerTemplate producer)
@@ -3524,8 +3516,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|method|setProducer (Producer producer)
@@ -3587,8 +3577,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"seda:foo"
 argument_list|)
 DECL|method|setConsumer (PollingConsumer consumer)
@@ -3643,8 +3631,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|field|producer
@@ -3680,8 +3666,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|field|producer
@@ -3755,8 +3739,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"ref:unknown"
 argument_list|)
 DECL|field|producer
@@ -3792,8 +3774,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"xxx:foo"
 argument_list|)
 DECL|field|producer
@@ -3829,8 +3809,6 @@ block|{
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"seda:foo"
 argument_list|)
 DECL|method|consumeSomethingPrivate (String body)

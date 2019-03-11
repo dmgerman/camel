@@ -111,6 +111,16 @@ annotation_defn|@interface
 name|Produce
 block|{
 comment|/**      * The uri to produce to      */
+DECL|method|value ()
+name|String
+name|value
+parameter_list|()
+default|default
+literal|""
+function_decl|;
+comment|/**      * The uri to produce to      *      * @deprecated use value instead      */
+annotation|@
+name|Deprecated
 DECL|method|uri ()
 name|String
 name|uri

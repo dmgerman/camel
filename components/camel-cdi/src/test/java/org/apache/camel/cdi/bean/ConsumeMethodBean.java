@@ -113,8 +113,6 @@ decl_stmt|;
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"seda:inbound"
 argument_list|)
 DECL|method|consume (@ody String body)

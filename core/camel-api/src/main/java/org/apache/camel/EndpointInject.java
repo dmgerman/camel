@@ -111,6 +111,16 @@ annotation_defn|@interface
 name|EndpointInject
 block|{
 comment|/**      * The uri of the endpoint      */
+DECL|method|value ()
+name|String
+name|value
+parameter_list|()
+default|default
+literal|""
+function_decl|;
+comment|/**      * The uri of the endpoint      *      * @deprecated use value instead      */
+annotation|@
+name|Deprecated
 DECL|method|uri ()
 name|String
 name|uri

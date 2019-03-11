@@ -150,8 +150,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"language:simple:${body}${body}"
 argument_list|)
 DECL|field|template
