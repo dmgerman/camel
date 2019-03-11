@@ -187,8 +187,6 @@ block|{
 annotation|@
 name|BindToRegistry
 argument_list|(
-name|name
-operator|=
 literal|"amazonS3Client"
 argument_list|)
 DECL|field|clientMock

@@ -251,8 +251,6 @@ decl_stmt|;
 annotation|@
 name|BindToRegistry
 argument_list|(
-name|name
-operator|=
 literal|"mappingFunction"
 argument_list|)
 DECL|field|comp
