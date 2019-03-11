@@ -158,9 +158,9 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|ref
+name|uri
 operator|=
-literal|"data"
+literal|"ref:data"
 argument_list|)
 DECL|field|data
 specifier|protected

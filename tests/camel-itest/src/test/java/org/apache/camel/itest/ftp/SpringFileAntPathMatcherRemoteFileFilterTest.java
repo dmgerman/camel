@@ -358,9 +358,9 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|ref
+name|uri
 operator|=
-literal|"myFTPEndpoint"
+literal|"ref:myFTPEndpoint"
 argument_list|)
 DECL|field|inputFTP
 specifier|protected
