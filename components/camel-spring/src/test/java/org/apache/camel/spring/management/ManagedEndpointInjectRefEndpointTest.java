@@ -375,7 +375,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
+literal|4
 argument_list|,
 name|set
 operator|.
@@ -448,6 +448,13 @@ operator|.
 name|equals
 argument_list|(
 literal|"mock://result"
+argument_list|)
+operator|||
+name|uri
+operator|.
+name|equals
+argument_list|(
+literal|"ref://foo"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -120,6 +120,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|DelegateEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -1012,6 +1024,9 @@ name|boolean
 name|mandatory
 parameter_list|)
 block|{
+name|Endpoint
+name|answer
+decl_stmt|;
 if|if
 condition|(
 name|ObjectHelper
@@ -1023,7 +1038,8 @@ argument_list|)
 condition|)
 block|{
 comment|// if no uri then fallback and try the endpoint property
-return|return
+name|answer
+operator|=
 name|doGetEndpointInjection
 argument_list|(
 name|bean
@@ -1032,11 +1048,12 @@ name|propertyName
 argument_list|,
 name|injectionPointName
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 else|else
 block|{
-return|return
+name|answer
+operator|=
 name|doGetEndpointInjection
 argument_list|(
 name|uri
@@ -1045,8 +1062,32 @@ name|injectionPointName
 argument_list|,
 name|mandatory
 argument_list|)
-return|;
+expr_stmt|;
 block|}
+comment|// it may be a delegate endpoint via ref component
+if|if
+condition|(
+name|answer
+operator|instanceof
+name|DelegateEndpoint
+condition|)
+block|{
+name|answer
+operator|=
+operator|(
+operator|(
+name|DelegateEndpoint
+operator|)
+name|answer
+operator|)
+operator|.
+name|getEndpoint
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|doGetEndpointInjection (String uri, String injectionPointName, boolean mandatory)
 specifier|private
