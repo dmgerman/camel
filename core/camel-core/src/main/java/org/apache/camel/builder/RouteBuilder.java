@@ -465,6 +465,31 @@ operator|new
 name|RoutesDefinition
 argument_list|()
 decl_stmt|;
+DECL|method|RouteBuilder ()
+specifier|public
+name|RouteBuilder
+parameter_list|()
+block|{
+name|this
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|RouteBuilder (CamelContext context)
+specifier|public
+name|RouteBuilder
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Add routes to a context using a lambda expression.      * It can be used as following:      *<pre>      * RouteBuilder.addRoutes(context, rb ->      *     rb.from("direct:inbound").bean(ProduceTemplateBean.class)));      *</pre>      *      * @param context the camel context to add routes      * @param rbc a lambda expression receiving the {@code RouteBuilder} to use to create routes      * @throws Exception if an error occurs      */
 DECL|method|addRoutes (CamelContext context, ThrowingConsumer<RouteBuilder, Exception> rbc)
 specifier|public
@@ -514,31 +539,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|RouteBuilder ()
-specifier|public
-name|RouteBuilder
-parameter_list|()
-block|{
-name|this
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|RouteBuilder (CamelContext context)
-specifier|public
-name|RouteBuilder
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|context
 argument_list|)
 expr_stmt|;
 block|}
