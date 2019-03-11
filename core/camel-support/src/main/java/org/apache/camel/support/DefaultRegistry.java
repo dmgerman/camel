@@ -177,17 +177,16 @@ name|BeanRepository
 argument_list|>
 name|repositories
 decl_stmt|;
-DECL|field|simple
+DECL|field|fallbackRegistry
 specifier|protected
-specifier|final
 name|Registry
-name|simple
+name|fallbackRegistry
 init|=
 operator|new
 name|SimpleRegistry
 argument_list|()
 decl_stmt|;
-comment|/**      * Creates a default registry that only uses {@link SimpleRegistry} as the repository.      */
+comment|/**      * Creates a default registry that uses {@link SimpleRegistry} as the fallback registry.      * The fallback registry can customized via {@link #setFallbackRegistry(Registry)}.      */
 DECL|method|DefaultRegistry ()
 specifier|public
 name|DefaultRegistry
@@ -195,7 +194,7 @@ parameter_list|()
 block|{
 comment|// noop
 block|}
-comment|/**      * Creates a registry that uses the given {@link BeanRepository} as first choice bean repository to lookup beans.      * Will fallback and use {@link SimpleRegistry} as internal registry if the beans cannot be found in the first      * choice bean repository.      *      * @param repositories the first choice repositories such as Spring, JNDI, OSGi etc.      */
+comment|/**      * Creates a registry that uses the given {@link BeanRepository} as first choice bean repository to lookup beans.      * Will fallback and use {@link SimpleRegistry} as fallback registry if the beans cannot be found in the first      * choice bean repository. The fallback registry can customized via {@link #setFallbackRegistry(Registry)}.      *      * @param repositories the first choice repositories such as Spring, JNDI, OSGi etc.      */
 DECL|method|DefaultRegistry (BeanRepository... repositories)
 specifier|public
 name|DefaultRegistry
@@ -230,7 +229,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Creates a registry that uses the given {@link BeanRepository} as first choice bean repository to lookup beans.      * Will fallback and use {@link SimpleRegistry} as internal registry if the beans cannot be found in the first      * choice bean repository.      *      * @param repositories the first choice repositories such as Spring, JNDI, OSGi etc.      */
+comment|/**      * Creates a registry that uses the given {@link BeanRepository} as first choice bean repository to lookup beans.      * Will fallback and use {@link SimpleRegistry} as fallback registry if the beans cannot be found in the first      * choice bean repository. The fallback registry can customized via {@link #setFallbackRegistry(Registry)}.      *      * @param repositories the first choice repositories such as Spring, JNDI, OSGi etc.      */
 DECL|method|DefaultRegistry (Collection<BeanRepository> repositories)
 specifier|public
 name|DefaultRegistry
@@ -261,6 +260,34 @@ name|repositories
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Gets the fallback {@link Registry}      */
+DECL|method|getFallbackRegistry ()
+specifier|public
+name|Registry
+name|getFallbackRegistry
+parameter_list|()
+block|{
+return|return
+name|fallbackRegistry
+return|;
+block|}
+comment|/**      * To use a custom {@link Registry} as fallback.      */
+DECL|method|setFallbackRegistry (Registry fallbackRegistry)
+specifier|public
+name|void
+name|setFallbackRegistry
+parameter_list|(
+name|Registry
+name|fallbackRegistry
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fallbackRegistry
+operator|=
+name|fallbackRegistry
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -339,7 +366,7 @@ name|Object
 name|bean
 parameter_list|)
 block|{
-name|simple
+name|fallbackRegistry
 operator|.
 name|bind
 argument_list|(
@@ -438,13 +465,16 @@ literal|null
 condition|)
 block|{
 return|return
+name|unwrap
+argument_list|(
 name|answer
+argument_list|)
 return|;
 block|}
 block|}
 block|}
 return|return
-name|simple
+name|fallbackRegistry
 operator|.
 name|lookupByName
 argument_list|(
@@ -454,6 +484,11 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|lookupByNameAndType (String name, Class<T> type)
 specifier|public
 parameter_list|<
@@ -552,13 +587,19 @@ literal|null
 condition|)
 block|{
 return|return
+operator|(
+name|T
+operator|)
+name|unwrap
+argument_list|(
 name|answer
+argument_list|)
 return|;
 block|}
 block|}
 block|}
 return|return
-name|simple
+name|fallbackRegistry
 operator|.
 name|lookupByNameAndType
 argument_list|(
@@ -634,7 +675,7 @@ block|}
 block|}
 block|}
 return|return
-name|simple
+name|fallbackRegistry
 operator|.
 name|findByTypeWithName
 argument_list|(
@@ -704,7 +745,7 @@ block|}
 block|}
 block|}
 return|return
-name|simple
+name|fallbackRegistry
 operator|.
 name|findByType
 argument_list|(

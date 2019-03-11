@@ -111,6 +111,20 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
+comment|/**      * Strategy to wrap the value to be stored in the registry.      *      * @param value  the value      * @return the value to return      */
+DECL|method|unwrap (Object value)
+specifier|default
+name|Object
+name|unwrap
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+name|value
+return|;
+block|}
 block|}
 end_interface
 

@@ -54,6 +54,20 @@ parameter_list|)
 throws|throws
 name|RuntimeCamelException
 function_decl|;
+comment|/**      * Strategy to wrap the value to be stored in the registry.      *      * @param value  the value      * @return the value to store      */
+DECL|method|wrap (Object value)
+specifier|default
+name|Object
+name|wrap
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+name|value
+return|;
+block|}
 block|}
 end_interface
 

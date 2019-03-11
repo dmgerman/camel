@@ -171,6 +171,13 @@ parameter_list|)
 block|{
 try|try
 block|{
+name|object
+operator|=
+name|wrap
+argument_list|(
+name|object
+argument_list|)
+expr_stmt|;
 name|getContext
 argument_list|()
 operator|.

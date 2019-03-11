@@ -68,7 +68,7 @@ name|type
 parameter_list|)
 block|{
 return|return
-name|simple
+name|fallbackRegistry
 operator|.
 name|findByType
 argument_list|(
