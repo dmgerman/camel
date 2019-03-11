@@ -657,7 +657,7 @@ name|Object
 operator|.
 name|class
 operator|.
-name|getMethods
+name|getDeclaredMethods
 argument_list|()
 argument_list|)
 argument_list|)
@@ -675,7 +675,7 @@ name|Proxy
 operator|.
 name|class
 operator|.
-name|getMethods
+name|getDeclaredMethods
 argument_list|()
 argument_list|)
 argument_list|)
@@ -691,7 +691,7 @@ name|Object
 operator|.
 name|class
 operator|.
-name|getMethod
+name|getDeclaredMethod
 argument_list|(
 literal|"toString"
 argument_list|)
@@ -705,7 +705,7 @@ name|Proxy
 operator|.
 name|class
 operator|.
-name|getMethod
+name|getDeclaredMethod
 argument_list|(
 literal|"toString"
 argument_list|)
@@ -5031,19 +5031,23 @@ literal|false
 return|;
 block|}
 block|}
-comment|// must be a public method
-if|if
-condition|(
-operator|!
+comment|// must not be a private method
+name|boolean
+name|privateMethod
+init|=
 name|Modifier
 operator|.
-name|isPublic
+name|isPrivate
 argument_list|(
 name|method
 operator|.
 name|getModifiers
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|privateMethod
 condition|)
 block|{
 return|return

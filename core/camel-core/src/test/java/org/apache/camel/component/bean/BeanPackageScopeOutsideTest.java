@@ -64,6 +64,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|issues
+operator|.
+name|MyPackageScopedBean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -75,10 +89,10 @@ comment|/**  * Unit test to demonstrate calling a package scoped bean method  */
 end_comment
 
 begin_class
-DECL|class|BeanPackageScopeTest
+DECL|class|BeanPackageScopeOutsideTest
 specifier|public
 class|class
-name|BeanPackageScopeTest
+name|BeanPackageScopeOutsideTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -142,12 +156,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// this bean is now outside this package
 name|bindToRegistry
 argument_list|(
 literal|"myBean"
 argument_list|,
 operator|new
-name|MyBean
+name|MyPackageScopedBean
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -169,40 +184,6 @@ expr_stmt|;
 block|}
 block|}
 return|;
-block|}
-DECL|class|MyBean
-specifier|public
-specifier|static
-class|class
-name|MyBean
-block|{
-DECL|method|doSomething (String body)
-name|String
-name|doSomething
-parameter_list|(
-name|String
-name|body
-parameter_list|)
-block|{
-return|return
-literal|"Hello "
-operator|+
-name|body
-return|;
-block|}
-DECL|method|doSomethingElse (String foo)
-specifier|private
-name|String
-name|doSomethingElse
-parameter_list|(
-name|String
-name|foo
-parameter_list|)
-block|{
-return|return
-literal|"foo"
-return|;
-block|}
 block|}
 block|}
 end_class

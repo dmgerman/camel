@@ -2815,10 +2815,12 @@ block|{
 try|try
 block|{
 return|return
-name|mth
+name|ObjectHelper
 operator|.
-name|invoke
+name|invokeMethodSafe
 argument_list|(
+name|mth
+argument_list|,
 name|pojo
 argument_list|,
 name|arguments
