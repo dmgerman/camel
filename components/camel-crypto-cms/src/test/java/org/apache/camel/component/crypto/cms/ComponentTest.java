@@ -652,7 +652,7 @@ argument_list|)
 expr_stmt|;
 name|simpleReg
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"keyStoreParameters"
 argument_list|,
@@ -661,7 +661,7 @@ argument_list|)
 expr_stmt|;
 name|simpleReg
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"signer1"
 argument_list|,
@@ -670,7 +670,7 @@ argument_list|)
 expr_stmt|;
 name|simpleReg
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"signer2"
 argument_list|,
@@ -679,7 +679,7 @@ argument_list|)
 expr_stmt|;
 name|simpleReg
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"recipient1"
 argument_list|,
@@ -783,7 +783,7 @@ argument_list|)
 expr_stmt|;
 name|simpleReg
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"signerOutdated"
 argument_list|,
@@ -846,7 +846,7 @@ argument_list|()
 decl_stmt|;
 name|simpleReg
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"originatorInformationProvider1"
 argument_list|,
@@ -855,7 +855,7 @@ argument_list|)
 expr_stmt|;
 name|simpleReg
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"attributesGeneratorProvider1"
 argument_list|,
