@@ -580,7 +580,7 @@ argument_list|()
 decl_stmt|;
 name|reg
 operator|.
-name|put
+name|bind
 argument_list|(
 name|LDAP_CONN_NAME
 argument_list|,
