@@ -163,7 +163,7 @@ expr_stmt|;
 name|getRegistry
 argument_list|()
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"myTable"
 argument_list|,

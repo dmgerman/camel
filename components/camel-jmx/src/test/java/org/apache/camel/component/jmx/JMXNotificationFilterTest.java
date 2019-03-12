@@ -314,7 +314,7 @@ comment|// initialize the registry with our filter
 name|getRegistry
 argument_list|()
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"myFilter"
 argument_list|,
