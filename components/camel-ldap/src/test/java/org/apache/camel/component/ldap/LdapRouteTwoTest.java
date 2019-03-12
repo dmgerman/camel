@@ -466,7 +466,7 @@ argument_list|()
 decl_stmt|;
 name|reg
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"localhost:"
 operator|+
