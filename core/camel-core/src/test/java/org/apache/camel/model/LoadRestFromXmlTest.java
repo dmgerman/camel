@@ -300,6 +300,8 @@ operator|.
 name|addRestDefinitions
 argument_list|(
 name|is
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertNotNull
