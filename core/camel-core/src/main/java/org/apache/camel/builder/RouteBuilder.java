@@ -1890,6 +1890,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// cannot add as routes yet as when using Java DSL with rest we need to initialize this specially
 name|camelContext
 operator|.
 name|addRestDefinitions
@@ -1900,7 +1901,7 @@ operator|.
 name|getRests
 argument_list|()
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// convert rests api-doc into routes so they are routes for runtime
@@ -2024,6 +2025,39 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// add rest as routes and have them prepared as well via routeCollection.route method
+name|getRestCollection
+argument_list|()
+operator|.
+name|getRests
+argument_list|()
+operator|.
+name|forEach
+argument_list|(
+name|rest
+lambda|->
+name|rest
+operator|.
+name|asRouteDefinition
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|)
+operator|.
+name|forEach
+argument_list|(
+name|route
+lambda|->
+name|getRouteCollection
+argument_list|()
+operator|.
+name|route
+argument_list|(
+name|route
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|populateTransformers ()
 specifier|protected
