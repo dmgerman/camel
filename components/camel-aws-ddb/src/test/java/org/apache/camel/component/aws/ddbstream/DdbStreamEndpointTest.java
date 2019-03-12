@@ -285,7 +285,7 @@ argument_list|()
 decl_stmt|;
 name|registry
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"someSeqNumProv"
 argument_list|,
@@ -294,7 +294,7 @@ argument_list|)
 expr_stmt|;
 name|registry
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"ddbStreamsClient"
 argument_list|,
