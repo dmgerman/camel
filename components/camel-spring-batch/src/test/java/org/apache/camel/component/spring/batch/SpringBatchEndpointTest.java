@@ -1681,7 +1681,7 @@ argument_list|()
 decl_stmt|;
 name|registry
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"mockJob"
 argument_list|,
@@ -1762,7 +1762,7 @@ argument_list|()
 decl_stmt|;
 name|registry
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"mockJob"
 argument_list|,
@@ -1771,7 +1771,7 @@ argument_list|)
 expr_stmt|;
 name|registry
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"launcher1"
 argument_list|,
@@ -1780,7 +1780,7 @@ argument_list|)
 expr_stmt|;
 name|registry
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"launcher2"
 argument_list|,
@@ -1854,7 +1854,7 @@ argument_list|()
 decl_stmt|;
 name|registry
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"mockJob"
 argument_list|,
@@ -1863,7 +1863,7 @@ argument_list|)
 expr_stmt|;
 name|registry
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"someRandomName"
 argument_list|,
