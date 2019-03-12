@@ -1297,7 +1297,7 @@ argument_list|()
 decl_stmt|;
 name|reg
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"my-config"
 argument_list|,
@@ -1841,7 +1841,7 @@ argument_list|()
 decl_stmt|;
 name|reg
 operator|.
-name|put
+name|bind
 argument_list|(
 name|customConfig
 operator|.
@@ -1853,7 +1853,7 @@ argument_list|)
 expr_stmt|;
 name|reg
 operator|.
-name|put
+name|bind
 argument_list|(
 name|sharedConfig
 operator|.
