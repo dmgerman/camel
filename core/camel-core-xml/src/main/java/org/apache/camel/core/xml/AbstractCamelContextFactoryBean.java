@@ -3239,7 +3239,7 @@ comment|// must init rest refs before we add the rests
 name|initRestRefs
 argument_list|()
 expr_stmt|;
-comment|// and add the rests
+comment|// cannot add rests as routes yet as we need to initialize this specially
 name|getContext
 argument_list|()
 operator|.
@@ -3248,7 +3248,7 @@ argument_list|(
 name|getRests
 argument_list|()
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// convert rests api-doc into routes so they are routes for runtime
@@ -3374,6 +3374,41 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|// add each rest as route
+for|for
+control|(
+name|RestDefinition
+name|rest
+range|:
+name|getContext
+argument_list|()
+operator|.
+name|getRestDefinitions
+argument_list|()
+control|)
+block|{
+name|rest
+operator|.
+name|asRouteDefinition
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|)
+operator|.
+name|forEach
+argument_list|(
+name|r
+lambda|->
+name|getRoutes
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|r
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 comment|// do special preparation for some concepts such as interceptors and policies
 comment|// this is needed as JAXB does not build exactly the same model definition as Spring DSL would do

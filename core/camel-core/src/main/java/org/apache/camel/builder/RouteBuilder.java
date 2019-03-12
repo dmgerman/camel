@@ -1890,7 +1890,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// cannot add as routes yet as when using Java DSL with rest we need to initialize this specially
+comment|// cannot add rests as routes yet as we need to initialize this specially
 name|camelContext
 operator|.
 name|addRestDefinitions
