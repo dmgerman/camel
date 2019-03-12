@@ -207,7 +207,7 @@ argument_list|)
 expr_stmt|;
 name|registry
 operator|.
-name|put
+name|bind
 argument_list|(
 name|HystrixConstants
 operator|.
@@ -218,7 +218,7 @@ argument_list|)
 expr_stmt|;
 name|registry
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"ref-hystrix"
 argument_list|,
@@ -614,7 +614,7 @@ argument_list|)
 expr_stmt|;
 name|registry
 operator|.
-name|put
+name|bind
 argument_list|(
 name|HystrixConstants
 operator|.
@@ -625,7 +625,7 @@ argument_list|)
 expr_stmt|;
 name|registry
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"ref-hystrix"
 argument_list|,
