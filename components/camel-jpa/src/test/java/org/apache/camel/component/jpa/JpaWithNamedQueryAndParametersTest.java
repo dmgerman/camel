@@ -797,7 +797,7 @@ expr_stmt|;
 comment|// bind the params
 name|registry
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"params"
 argument_list|,
