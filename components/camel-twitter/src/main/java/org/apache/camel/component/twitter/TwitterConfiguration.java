@@ -292,11 +292,17 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer,filter"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"5"
 argument_list|)
 DECL|field|count
 specifier|private
 name|Integer
 name|count
+init|=
+literal|5
 decl_stmt|;
 annotation|@
 name|UriParam
