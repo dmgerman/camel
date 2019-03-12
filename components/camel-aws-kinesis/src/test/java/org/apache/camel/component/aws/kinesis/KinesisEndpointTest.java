@@ -212,7 +212,7 @@ argument_list|()
 decl_stmt|;
 name|registry
 operator|.
-name|put
+name|bind
 argument_list|(
 literal|"kinesisClient"
 argument_list|,
