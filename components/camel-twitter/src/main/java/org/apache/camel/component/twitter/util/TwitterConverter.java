@@ -198,7 +198,7 @@ name|append
 argument_list|(
 name|dm
 operator|.
-name|getSenderScreenName
+name|getSenderId
 argument_list|()
 argument_list|)
 operator|.
