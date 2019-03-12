@@ -509,7 +509,7 @@ name|DigitalOceanHeaders
 operator|.
 name|VOLUME_SIZE_GIGABYTES
 argument_list|,
-name|Double
+name|Integer
 operator|.
 name|class
 argument_list|)
