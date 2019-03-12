@@ -125,7 +125,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Determine the processor to use to handle the exchange.      *      * @param exchange the message exchange      * @return the processor to processes the message exchange      * @throws Exception      */
+comment|/**      * Determine the processor to use to handle the exchange.      *      * @param exchange the message exchange      * @return the processor to processes the message exchange      */
 DECL|method|getProcessor (Exchange exchange)
 specifier|protected
 specifier|abstract
@@ -138,7 +138,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Invoked when no processor has been defined to process the message exchnage.      *      * @param exchange the message exchange      * @throws Exception      */
+comment|/**      * Invoked when no processor has been defined to process the message exchange.      *      * @param exchange the message exchange      */
 DECL|method|onMissingProcessor (Exchange exchange)
 specifier|protected
 specifier|abstract

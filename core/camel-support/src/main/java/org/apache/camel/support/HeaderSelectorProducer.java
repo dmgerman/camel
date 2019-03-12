@@ -198,8 +198,24 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ObjectHelper
+operator|.
+name|invokeMethodSafe
+import|;
+end_import
+
 begin_comment
-comment|/**  * A selector-based produced which uses an header value to determine which processor  * should be invoked.  */
+comment|/**  * A selector-based producer which uses a header value to determine which processor  * should be invoked.  */
 end_comment
 
 begin_class
@@ -1195,13 +1211,6 @@ operator|==
 literal|1
 condition|)
 block|{
-name|method
-operator|.
-name|setAccessible
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 specifier|final
 name|Class
 argument_list|<
@@ -1262,10 +1271,10 @@ argument_list|()
 argument_list|,
 name|e
 lambda|->
-name|method
-operator|.
-name|invoke
+name|invokeMethodSafe
 argument_list|(
+name|method
+argument_list|,
 name|target
 argument_list|,
 name|e
@@ -1287,10 +1296,10 @@ argument_list|()
 argument_list|,
 name|e
 lambda|->
-name|method
-operator|.
-name|invoke
+name|invokeMethodSafe
 argument_list|(
+name|method
+argument_list|,
 name|target
 argument_list|,
 name|e
