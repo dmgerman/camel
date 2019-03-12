@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CatalogCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|runtimecatalog
 operator|.
 name|JSonSchemaResolver
@@ -69,7 +81,7 @@ block|{
 DECL|field|camelContext
 specifier|private
 specifier|final
-name|CamelContext
+name|CatalogCamelContext
 name|camelContext
 decl_stmt|;
 DECL|method|CamelContextJSonSchemaResolver (CamelContext camelContext)
@@ -85,6 +97,13 @@ operator|.
 name|camelContext
 operator|=
 name|camelContext
+operator|.
+name|adapt
+argument_list|(
+name|CatalogCamelContext
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

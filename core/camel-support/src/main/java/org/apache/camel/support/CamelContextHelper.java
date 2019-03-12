@@ -156,6 +156,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CatalogCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Component
 import|;
 end_import
@@ -293,22 +305,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|isEmpty
 import|;
 end_import
 
@@ -2963,6 +2959,13 @@ name|String
 name|json
 init|=
 name|camelContext
+operator|.
+name|adapt
+argument_list|(
+name|CatalogCamelContext
+operator|.
+name|class
+argument_list|)
 operator|.
 name|explainEipJson
 argument_list|(

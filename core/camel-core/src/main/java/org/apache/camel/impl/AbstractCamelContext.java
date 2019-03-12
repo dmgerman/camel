@@ -192,16 +192,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ServiceLoader
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Set
 import|;
 end_import
@@ -373,6 +363,18 @@ operator|.
 name|camel
 operator|.
 name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CatalogCamelContext
 import|;
 end_import
 
@@ -2228,6 +2230,8 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|ModelCamelContext
+implements|,
+name|CatalogCamelContext
 implements|,
 name|Suspendable
 block|{
