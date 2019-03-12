@@ -174,6 +174,11 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
+name|setDelay
+argument_list|(
+name|DEFAULT_CONSUMER_DELAY
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|properties
