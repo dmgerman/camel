@@ -2510,25 +2510,6 @@ argument_list|,
 name|xml
 argument_list|)
 decl_stmt|;
-name|RoutesDefinition
-name|def
-init|=
-name|context
-operator|.
-name|loadRoutesDefinition
-argument_list|(
-name|is
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|def
-operator|==
-literal|null
-condition|)
-block|{
-return|return;
-block|}
 try|try
 block|{
 comment|// add will remove existing route first
@@ -2536,10 +2517,7 @@ name|context
 operator|.
 name|addRouteDefinitions
 argument_list|(
-name|def
-operator|.
-name|getRoutes
-argument_list|()
+name|is
 argument_list|)
 expr_stmt|;
 block|}

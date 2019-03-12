@@ -179,6 +179,8 @@ name|id
 parameter_list|)
 function_decl|;
 comment|/**      * Loads a collection of route definitions from the given {@link java.io.InputStream}.      *      * @param is input stream with the route(s) definition to add      * @return the route definitions      * @throws Exception if the route definitions could not be loaded for whatever reason      */
+annotation|@
+name|Deprecated
 DECL|method|loadRoutesDefinition (InputStream is)
 name|RoutesDefinition
 name|loadRoutesDefinition
@@ -190,9 +192,22 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Loads a collection of rest definitions from the given {@link java.io.InputStream}.      *      * @param is input stream with the rest(s) definition to add      * @return the rest definitions      * @throws Exception if the rest definitions could not be loaded for whatever reason      */
+annotation|@
+name|Deprecated
 DECL|method|loadRestsDefinition (InputStream is)
 name|RestsDefinition
 name|loadRestsDefinition
+parameter_list|(
+name|InputStream
+name|is
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Adds a collection of route definitions to the context      *<p/>      *<b>Important:</b> Each route in the same {@link org.apache.camel.CamelContext} must have an<b>unique</b> route id.      * If you use the API from {@link org.apache.camel.CamelContext} or {@link org.apache.camel.model.ModelCamelContext} to add routes, then any      * new routes which has a route id that matches an old route, then the old route is replaced by the new route.      *      * @param is input stream with the route(s) definition to add      * @throws Exception if the route definitions could not be created for whatever reason      */
+DECL|method|addRouteDefinitions (InputStream is)
+name|void
+name|addRouteDefinitions
 parameter_list|(
 name|InputStream
 name|is
@@ -258,6 +273,17 @@ name|RestDefinition
 argument_list|>
 name|getRestDefinitions
 parameter_list|()
+function_decl|;
+comment|/**      * Adds a collection of rest definitions to the context      *      * @param is input stream with the rest(s) definition to add      * @throws Exception if the rest definitions could not be created for whatever reason      */
+DECL|method|addRestDefinitions (InputStream is)
+name|void
+name|addRestDefinitions
+parameter_list|(
+name|InputStream
+name|is
+parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 comment|/**      * Adds a collection of rest definitions to the context      *      * @param restDefinitions the rest(s) definition to add      * @throws Exception if the rest definitions could not be created for whatever reason      */
 DECL|method|addRestDefinitions (Collection<RestDefinition> restDefinitions)
