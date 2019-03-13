@@ -135,8 +135,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|ZipkinMDCScopeDecoratorTest
 specifier|public
 class|class
@@ -305,14 +303,6 @@ operator|.
 name|routeId
 argument_list|(
 literal|"cat"
-argument_list|)
-operator|.
-name|delay
-argument_list|(
-name|simple
-argument_list|(
-literal|"${random(1000,2000)}"
-argument_list|)
 argument_list|)
 operator|.
 name|setBody
