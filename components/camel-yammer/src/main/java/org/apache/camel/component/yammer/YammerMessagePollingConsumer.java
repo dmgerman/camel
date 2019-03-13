@@ -361,7 +361,7 @@ name|limit
 argument_list|)
 expr_stmt|;
 block|}
-name|int
+name|long
 name|olderThan
 init|=
 name|endpoint
@@ -412,7 +412,7 @@ name|olderThan
 argument_list|)
 expr_stmt|;
 block|}
-name|int
+name|long
 name|newerThan
 init|=
 name|endpoint

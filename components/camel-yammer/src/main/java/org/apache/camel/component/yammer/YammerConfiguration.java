@@ -232,7 +232,7 @@ literal|"-1"
 argument_list|)
 DECL|field|olderThan
 specifier|private
-name|int
+name|long
 name|olderThan
 init|=
 operator|-
@@ -251,7 +251,7 @@ literal|"-1"
 argument_list|)
 DECL|field|newerThan
 specifier|private
-name|int
+name|long
 name|newerThan
 init|=
 operator|-
@@ -558,7 +558,7 @@ expr_stmt|;
 block|}
 DECL|method|getOlderThan ()
 specifier|public
-name|int
+name|long
 name|getOlderThan
 parameter_list|()
 block|{
@@ -567,12 +567,12 @@ name|olderThan
 return|;
 block|}
 comment|/**      * Returns messages older than the message ID specified as a numeric string.      * This is useful for paginating messages. For example, if you're currently viewing 20 messages and the oldest is number 2912,      * you could append "?olderThan=2912â³ to your request to get the 20 messages prior to those you're seeing.      */
-DECL|method|setOlderThan (int olderThan)
+DECL|method|setOlderThan (long olderThan)
 specifier|public
 name|void
 name|setOlderThan
 parameter_list|(
-name|int
+name|long
 name|olderThan
 parameter_list|)
 block|{
@@ -585,7 +585,7 @@ expr_stmt|;
 block|}
 DECL|method|getNewerThan ()
 specifier|public
-name|int
+name|long
 name|getNewerThan
 parameter_list|()
 block|{
@@ -594,12 +594,12 @@ name|newerThan
 return|;
 block|}
 comment|/**      * Returns messages newer than the message ID specified as a numeric string. This should be used when polling for new messages.      * If you're looking at messages, and the most recent message returned is 3516, you can make a request with the parameter "?newerThan=3516â³      * to ensure that you do not get duplicate copies of messages already on your page.      */
-DECL|method|setNewerThan (int newerThan)
+DECL|method|setNewerThan (long newerThan)
 specifier|public
 name|void
 name|setNewerThan
 parameter_list|(
-name|int
+name|long
 name|newerThan
 parameter_list|)
 block|{
