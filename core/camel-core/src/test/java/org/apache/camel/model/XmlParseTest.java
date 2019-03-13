@@ -2251,13 +2251,10 @@ block|{
 name|FromDefinition
 name|from
 init|=
-name|assertOneElement
-argument_list|(
 name|route
 operator|.
-name|getInputs
+name|getInput
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(

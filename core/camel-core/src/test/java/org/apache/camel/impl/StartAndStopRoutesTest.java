@@ -273,13 +273,10 @@ comment|// lets mutate the route...
 name|FromDefinition
 name|fromType
 init|=
-name|assertOneElement
-argument_list|(
 name|route
 operator|.
-name|getInputs
+name|getInput
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|fromType
 operator|.

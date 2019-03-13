@@ -3299,13 +3299,8 @@ name|from
 init|=
 name|route
 operator|.
-name|getInputs
+name|getInput
 argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
 decl_stmt|;
 if|if
 condition|(

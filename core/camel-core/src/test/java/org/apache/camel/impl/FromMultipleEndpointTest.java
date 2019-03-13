@@ -263,7 +263,15 @@ expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:foo"
-argument_list|,
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:results"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
 literal|"seda:bar"
 argument_list|)
 operator|.

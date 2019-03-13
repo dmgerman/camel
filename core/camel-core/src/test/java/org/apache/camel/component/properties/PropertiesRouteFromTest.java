@@ -173,13 +173,8 @@ argument_list|(
 literal|"foo"
 argument_list|)
 operator|.
-name|getInputs
+name|getInput
 argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
 operator|.
 name|getUri
 argument_list|()

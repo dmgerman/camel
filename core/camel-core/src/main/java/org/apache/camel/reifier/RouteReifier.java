@@ -587,17 +587,6 @@ name|handler
 argument_list|)
 expr_stmt|;
 block|}
-for|for
-control|(
-name|FromDefinition
-name|fromType
-range|:
-name|definition
-operator|.
-name|getInputs
-argument_list|()
-control|)
-block|{
 name|RouteContext
 name|routeContext
 decl_stmt|;
@@ -611,7 +600,10 @@ name|camelContext
 argument_list|,
 name|routes
 argument_list|,
-name|fromType
+name|definition
+operator|.
+name|getInput
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -657,7 +649,6 @@ argument_list|(
 name|routeContext
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;

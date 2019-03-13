@@ -361,7 +361,7 @@ argument_list|(
 name|propOrder
 operator|=
 block|{
-literal|"inputs"
+literal|"input"
 block|,
 literal|"inputType"
 block|,
@@ -402,18 +402,10 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-DECL|field|inputs
+DECL|field|input
 specifier|private
-name|List
-argument_list|<
 name|FromDefinition
-argument_list|>
-name|inputs
-init|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|()
+name|input
 decl_stmt|;
 DECL|field|outputs
 specifier|private
@@ -695,7 +687,7 @@ argument_list|()
 operator|+
 literal|")["
 operator|+
-name|inputs
+name|input
 operator|+
 literal|" -> "
 operator|+
@@ -709,7 +701,7 @@ block|{
 return|return
 literal|"Route["
 operator|+
-name|inputs
+name|input
 operator|+
 literal|" -> "
 operator|+
@@ -882,10 +874,7 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|getInputs
-argument_list|()
-operator|.
-name|add
+name|setInput
 argument_list|(
 operator|new
 name|FromDefinition
@@ -908,10 +897,7 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-name|getInputs
-argument_list|()
-operator|.
-name|add
+name|setInput
 argument_list|(
 operator|new
 name|FromDefinition
@@ -920,80 +906,6 @@ name|endpoint
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Creates inputs to the route      *      * @param uris the from uris      * @return the builder      */
-DECL|method|from (@sEndpointUri String... uris)
-specifier|public
-name|RouteDefinition
-name|from
-parameter_list|(
-annotation|@
-name|AsEndpointUri
-name|String
-modifier|...
-name|uris
-parameter_list|)
-block|{
-for|for
-control|(
-name|String
-name|uri
-range|:
-name|uris
-control|)
-block|{
-name|getInputs
-argument_list|()
-operator|.
-name|add
-argument_list|(
-operator|new
-name|FromDefinition
-argument_list|(
-name|uri
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Creates inputs to the route      *      * @param endpoints the from endpoints      * @return the builder      */
-DECL|method|from (Endpoint... endpoints)
-specifier|public
-name|RouteDefinition
-name|from
-parameter_list|(
-name|Endpoint
-modifier|...
-name|endpoints
-parameter_list|)
-block|{
-for|for
-control|(
-name|Endpoint
-name|endpoint
-range|:
-name|endpoints
-control|)
-block|{
-name|getInputs
-argument_list|()
-operator|.
-name|add
-argument_list|(
-operator|new
-name|FromDefinition
-argument_list|(
-name|endpoint
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|this
 return|;
@@ -1884,39 +1796,33 @@ return|;
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
-DECL|method|getInputs ()
+DECL|method|getInput ()
 specifier|public
-name|List
-argument_list|<
 name|FromDefinition
-argument_list|>
-name|getInputs
+name|getInput
 parameter_list|()
 block|{
 return|return
-name|inputs
+name|input
 return|;
 block|}
 comment|/**      * Input to the route.      */
 annotation|@
 name|XmlElementRef
-DECL|method|setInputs (List<FromDefinition> inputs)
+DECL|method|setInput (FromDefinition input)
 specifier|public
 name|void
-name|setInputs
+name|setInput
 parameter_list|(
-name|List
-argument_list|<
 name|FromDefinition
-argument_list|>
-name|inputs
+name|input
 parameter_list|)
 block|{
 name|this
 operator|.
-name|inputs
+name|input
 operator|=
-name|inputs
+name|input
 expr_stmt|;
 block|}
 DECL|method|getOutputs ()

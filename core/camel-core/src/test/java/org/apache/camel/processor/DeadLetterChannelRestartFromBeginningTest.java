@@ -241,13 +241,10 @@ name|useOriginalMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// use seda:retry as a way of retrying from the input route
 comment|// the seda:start could be any other kind of fire and forget endpoint
 name|from
 argument_list|(
 literal|"seda:start"
-argument_list|,
-literal|"seda:retry"
 argument_list|)
 operator|.
 name|to
@@ -377,7 +374,7 @@ literal|4
 condition|)
 block|{
 return|return
-literal|"seda:retry"
+literal|"seda:start"
 return|;
 block|}
 else|else

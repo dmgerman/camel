@@ -161,7 +161,15 @@ block|{
 name|from
 argument_list|(
 literal|"direct:start"
-argument_list|,
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
 literal|"seda:in"
 argument_list|)
 operator|.
