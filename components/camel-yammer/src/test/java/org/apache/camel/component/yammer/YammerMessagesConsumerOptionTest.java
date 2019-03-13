@@ -57,9 +57,9 @@ specifier|final
 name|String
 name|YAMMER_MESSAGES_CONSUMER
 init|=
-literal|"yammer:messages?consumerKey=aConsumerKey&consumerSecret=aConsumerSecretKey&accessToken=aAccessToken&limit=1&threaded=true&olderThan=130"
+literal|"yammer:messages?consumerKey=aConsumerKey&consumerSecret=aConsumerSecretKey&accessToken=aAccessToken&limit=1&threaded=true&olderThan=58802444918784"
 operator|+
-literal|"&newerThan=127"
+literal|"&newerThan=58802444918781"
 decl_stmt|;
 annotation|@
 name|Test
@@ -114,7 +114,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|130
+literal|58802444918784L
 argument_list|,
 name|endpoint
 operator|.
@@ -127,7 +127,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|127
+literal|58802444918781L
 argument_list|,
 name|endpoint
 operator|.
