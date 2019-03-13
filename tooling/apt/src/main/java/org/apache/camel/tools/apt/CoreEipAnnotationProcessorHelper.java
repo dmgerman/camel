@@ -4884,7 +4884,7 @@ argument_list|(
 name|ep
 argument_list|)
 expr_stmt|;
-comment|// inputs
+comment|// input
 name|Set
 argument_list|<
 name|String
@@ -4911,7 +4911,7 @@ name|elementUtils
 argument_list|,
 literal|null
 argument_list|,
-literal|"inputs"
+literal|"input"
 argument_list|,
 literal|null
 argument_list|,
@@ -4925,13 +4925,13 @@ operator|=
 operator|new
 name|EipOption
 argument_list|(
-literal|"inputs"
+literal|"input"
 argument_list|,
-literal|"Inputs"
+literal|"Input"
 argument_list|,
 literal|"element"
 argument_list|,
-literal|"java.util.List<org.apache.camel.model.FromDefinition>"
+literal|"org.apache.camel.model.FromDefinition"
 argument_list|,
 literal|true
 argument_list|,
