@@ -172,20 +172,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|isJava16
-argument_list|()
-operator|&&
-name|isJavaVendor
-argument_list|(
-literal|"ibm"
-argument_list|)
-condition|)
-block|{
-comment|// does not test well on java6 with ibm
-return|return;
-block|}
 name|DocumentBuilderFactory
 name|dbf
 init|=

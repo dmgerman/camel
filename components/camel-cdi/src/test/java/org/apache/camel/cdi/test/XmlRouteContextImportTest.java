@@ -500,32 +500,12 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-literal|"Route input is incorrect!"
-argument_list|,
-name|route
-operator|.
-name|getInputs
-argument_list|()
-argument_list|,
-name|hasSize
-argument_list|(
-literal|1
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
 literal|"Route is incorrect!"
 argument_list|,
 name|route
 operator|.
-name|getInputs
+name|getInput
 argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
 operator|.
 name|getEndpointUri
 argument_list|()

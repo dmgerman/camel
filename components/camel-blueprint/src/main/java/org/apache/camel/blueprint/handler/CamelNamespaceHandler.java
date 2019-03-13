@@ -7343,7 +7343,7 @@ name|findInputComponents
 argument_list|(
 name|rd
 operator|.
-name|getInputs
+name|getInput
 argument_list|()
 argument_list|,
 name|components
@@ -7425,7 +7425,7 @@ name|findInputComponents
 argument_list|(
 name|route
 operator|.
-name|getInputs
+name|getInput
 argument_list|()
 argument_list|,
 name|components
@@ -7821,16 +7821,13 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|findInputComponents (List<FromDefinition> defs, Set<String> components, Set<String> languages, Set<String> dataformats)
+DECL|method|findInputComponents (FromDefinition from, Set<String> components, Set<String> languages, Set<String> dataformats)
 specifier|private
 name|void
 name|findInputComponents
 parameter_list|(
-name|List
-argument_list|<
 name|FromDefinition
-argument_list|>
-name|defs
+name|from
 parameter_list|,
 name|Set
 argument_list|<
@@ -7853,22 +7850,14 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|defs
+name|from
 operator|!=
 literal|null
 condition|)
 block|{
-for|for
-control|(
-name|FromDefinition
-name|def
-range|:
-name|defs
-control|)
-block|{
 name|findUriComponent
 argument_list|(
-name|def
+name|from
 operator|.
 name|getUri
 argument_list|()
@@ -7878,7 +7867,7 @@ argument_list|)
 expr_stmt|;
 name|findSchedulerUriComponent
 argument_list|(
-name|def
+name|from
 operator|.
 name|getUri
 argument_list|()
@@ -7886,7 +7875,6 @@ argument_list|,
 name|components
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 annotation|@
