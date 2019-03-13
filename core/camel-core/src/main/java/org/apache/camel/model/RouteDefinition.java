@@ -687,7 +687,15 @@ argument_list|()
 operator|+
 literal|")["
 operator|+
+operator|(
 name|input
+operator|!=
+literal|null
+condition|?
+name|input
+else|:
+literal|""
+operator|)
 operator|+
 literal|" -> "
 operator|+
@@ -1809,6 +1817,11 @@ block|}
 comment|/**      * Input to the route.      */
 annotation|@
 name|XmlElementRef
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
 DECL|method|setInput (FromDefinition input)
 specifier|public
 name|void
@@ -1818,6 +1831,8 @@ name|FromDefinition
 name|input
 parameter_list|)
 block|{
+comment|// required = false: in rest-dsl you can embed an in-lined route which
+comment|// does not have a<from> as its implied to be the rest endpoint
 name|this
 operator|.
 name|input
