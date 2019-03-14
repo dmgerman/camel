@@ -476,7 +476,7 @@ comment|// Type converter
 operator|.
 name|addClass
 argument_list|(
-name|InjectedTypeConverter
+name|InjectedTestTypeConverter
 operator|.
 name|class
 argument_list|)
@@ -739,12 +739,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Converter
-DECL|class|InjectedTypeConverter
+DECL|class|InjectedTestTypeConverter
 specifier|public
 specifier|static
 specifier|final
 class|class
-name|InjectedTypeConverter
+name|InjectedTestTypeConverter
 block|{
 annotation|@
 name|Converter

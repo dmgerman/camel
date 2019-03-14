@@ -124,6 +124,15 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+comment|/**      * Whether to let the Camel compiler plugin to generate java source code      * for fast loading of the type converters.      *      * This option should only be configured on the top-level class.      */
+DECL|method|loader ()
+DECL|field|false
+name|boolean
+name|loader
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 block|}
 end_annotation_defn
 

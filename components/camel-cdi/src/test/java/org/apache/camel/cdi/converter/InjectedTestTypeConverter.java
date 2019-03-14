@@ -87,11 +87,11 @@ end_import
 begin_class
 annotation|@
 name|Converter
-DECL|class|InjectedTypeConverter
+DECL|class|InjectedTestTypeConverter
 specifier|public
 specifier|final
 class|class
-name|InjectedTypeConverter
+name|InjectedTestTypeConverter
 block|{
 DECL|field|context
 specifier|private
@@ -101,8 +101,8 @@ name|context
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|InjectedTypeConverter (CamelContext context)
-name|InjectedTypeConverter
+DECL|method|InjectedTestTypeConverter (CamelContext context)
+name|InjectedTestTypeConverter
 parameter_list|(
 name|CamelContext
 name|context

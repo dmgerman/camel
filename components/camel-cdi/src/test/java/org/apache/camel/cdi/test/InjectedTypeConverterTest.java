@@ -166,7 +166,7 @@ name|cdi
 operator|.
 name|converter
 operator|.
-name|InjectedTypeConverter
+name|InjectedTestTypeConverter
 import|;
 end_import
 
@@ -459,7 +459,7 @@ comment|// Type converter
 operator|.
 name|addClass
 argument_list|(
-name|InjectedTypeConverter
+name|InjectedTestTypeConverter
 operator|.
 name|class
 argument_list|)
