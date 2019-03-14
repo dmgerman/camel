@@ -4082,6 +4082,10 @@ begin_class
 annotation|@
 name|Converter
 argument_list|(
+name|loader
+operator|=
+literal|true
+argument_list|,
 name|ignoreOnLoadError
 operator|=
 literal|true
