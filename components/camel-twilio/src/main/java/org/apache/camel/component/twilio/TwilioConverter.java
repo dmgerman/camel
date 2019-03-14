@@ -57,6 +57,11 @@ end_import
 begin_class
 annotation|@
 name|Converter
+argument_list|(
+name|loader
+operator|=
+literal|true
+argument_list|)
 DECL|class|TwilioConverter
 specifier|public
 specifier|final
