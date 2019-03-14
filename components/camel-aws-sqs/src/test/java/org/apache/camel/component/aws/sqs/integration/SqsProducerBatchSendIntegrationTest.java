@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.aws.sqs
+DECL|package|org.apache.camel.component.aws.sqs.integration
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|aws
 operator|.
 name|sqs
+operator|.
+name|integration
 package|;
 end_package
 
@@ -124,6 +126,24 @@ name|camel
 operator|.
 name|component
 operator|.
+name|aws
+operator|.
+name|sqs
+operator|.
+name|SqsConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
 name|mock
 operator|.
 name|MockEndpoint
@@ -172,10 +192,10 @@ name|Ignore
 argument_list|(
 literal|"Must be manually tested. Provide your own accessKey and secretKey!"
 argument_list|)
-DECL|class|SqsProducerBatchSendTestIT
+DECL|class|SqsProducerBatchSendIntegrationTest
 specifier|public
 class|class
-name|SqsProducerBatchSendTestIT
+name|SqsProducerBatchSendIntegrationTest
 extends|extends
 name|CamelTestSupport
 block|{
