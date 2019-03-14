@@ -204,6 +204,12 @@ name|MyCamelRoute
 operator|.
 name|class
 block|}
+argument_list|,
+name|properties
+operator|=
+block|{
+literal|"management.endpoint.health.verbose = true"
+block|}
 argument_list|)
 DECL|class|CamelHealthTest
 specifier|public
