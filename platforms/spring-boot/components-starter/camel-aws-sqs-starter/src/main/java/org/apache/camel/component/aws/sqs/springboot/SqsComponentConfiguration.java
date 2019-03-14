@@ -54,6 +54,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|aws
+operator|.
+name|sqs
+operator|.
+name|SqsOperations
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spring
 operator|.
 name|boot
@@ -500,6 +518,12 @@ name|String
 name|messageDeduplicationIdStrategy
 init|=
 literal|"useExchangeId"
+decl_stmt|;
+comment|/**          * The operation to do in case the user don't want to send only a          * message          */
+DECL|field|operation
+specifier|private
+name|SqsOperations
+name|operation
 decl_stmt|;
 DECL|method|getAmazonAWSHost ()
 specifier|public
@@ -1305,6 +1329,32 @@ operator|.
 name|messageDeduplicationIdStrategy
 operator|=
 name|messageDeduplicationIdStrategy
+expr_stmt|;
+block|}
+DECL|method|getOperation ()
+specifier|public
+name|SqsOperations
+name|getOperation
+parameter_list|()
+block|{
+return|return
+name|operation
+return|;
+block|}
+DECL|method|setOperation (SqsOperations operation)
+specifier|public
+name|void
+name|setOperation
+parameter_list|(
+name|SqsOperations
+name|operation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|operation
+operator|=
+name|operation
 expr_stmt|;
 block|}
 block|}

@@ -315,7 +315,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Producer which sends messages to the Amazon Web Service Simple Queue Service  *<a href="http://aws.amazon.com/sqs/">AWS SQS</a>  */
+comment|/**  * A Producer which sends messages to the Amazon Web Service Simple Queue  * Service<a href="http://aws.amazon.com/sqs/">AWS SQS</a>  */
 end_comment
 
 begin_class
@@ -1347,7 +1347,8 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-comment|// only put the message header which is not filtered into the message attribute
+comment|// only put the message header which is not filtered into the
+comment|// message attribute
 if|if
 condition|(
 operator|!
@@ -1713,7 +1714,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// cannot translate the message header to message attribute value
+comment|// cannot translate the message header to message attribute
+comment|// value
 name|log
 operator|.
 name|warn
