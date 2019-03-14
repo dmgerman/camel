@@ -427,6 +427,18 @@ operator|new
 name|ExchangeIdMessageDeduplicationIdStrategy
 argument_list|()
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|operation
+specifier|private
+name|SqsOperations
+name|operation
+decl_stmt|;
 comment|// queue properties
 annotation|@
 name|UriParam
@@ -1453,6 +1465,33 @@ name|strategy
 argument_list|)
 throw|;
 block|}
+block|}
+DECL|method|getOperation ()
+specifier|public
+name|SqsOperations
+name|getOperation
+parameter_list|()
+block|{
+return|return
+name|operation
+return|;
+block|}
+comment|/**      * The operation to do in case the user don't want to send only a message      */
+DECL|method|setOperation (SqsOperations operation)
+specifier|public
+name|void
+name|setOperation
+parameter_list|(
+name|SqsOperations
+name|operation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|operation
+operator|=
+name|operation
+expr_stmt|;
 block|}
 comment|// *************************************************
 comment|//
