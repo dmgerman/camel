@@ -65,6 +65,11 @@ end_comment
 begin_enum
 annotation|@
 name|Converter
+argument_list|(
+name|loader
+operator|=
+literal|true
+argument_list|)
 DECL|enum|ContentTypeConverter
 specifier|public
 enum|enum
