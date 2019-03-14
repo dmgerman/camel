@@ -318,7 +318,7 @@ literal|"Camel"
 argument_list|,
 name|defaultHandler
 operator|=
-literal|"mvel: new org.apache.camel.component.jbpm.workitem.InOnlyCamelWorkitemHandler()"
+literal|"mvel: new org.apache.camel.component.jbpm.workitem.InOnlyCamelWorkItemHandler()"
 argument_list|,
 name|documentation
 operator|=
