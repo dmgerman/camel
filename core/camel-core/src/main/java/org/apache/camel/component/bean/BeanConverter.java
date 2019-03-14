@@ -101,6 +101,11 @@ end_comment
 begin_class
 annotation|@
 name|Converter
+argument_list|(
+name|loader
+operator|=
+literal|true
+argument_list|)
 DECL|class|BeanConverter
 specifier|public
 specifier|final
@@ -113,6 +118,35 @@ name|BeanConverter
 parameter_list|()
 block|{
 comment|// Helper Class
+block|}
+annotation|@
+name|Converter
+DECL|method|toDummy (String s)
+specifier|public
+specifier|static
+name|int
+name|toDummy
+parameter_list|(
+name|String
+name|s
+parameter_list|)
+block|{
+return|return
+literal|1
+return|;
+block|}
+DECL|method|hello (String w)
+specifier|public
+name|String
+name|hello
+parameter_list|(
+name|String
+name|w
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|FallbackConverter

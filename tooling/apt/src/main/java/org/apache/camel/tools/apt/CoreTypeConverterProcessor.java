@@ -260,12 +260,14 @@ name|SupportedAnnotationTypes
 argument_list|(
 block|{
 literal|"org.apache.camel.Converter"
+block|,
+literal|"org.apache.camel.FallbackConverter"
 block|}
 argument_list|)
-DECL|class|CoreConverterProcessor
+DECL|class|CoreTypeConverterProcessor
 specifier|public
 class|class
-name|CoreConverterProcessor
+name|CoreTypeConverterProcessor
 extends|extends
 name|AbstractCamelAnnotationProcessor
 block|{
@@ -290,6 +292,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// TODO: fallback does not work
+comment|// TODO: generate so you dont need to pass in CamelContext but register into a java set/thingy
+comment|// so you can init this via static initializer block { ... } and then register on CamelContext later
 if|if
 condition|(
 name|this
@@ -819,7 +824,7 @@ name|writer
 operator|.
 name|append
 argument_list|(
-literal|"    static abstract class SimpleTypeConverter extends TypeConverterSupport {\n"
+literal|"    static abstract class BaseTypeConverter extends TypeConverterSupport {\n"
 argument_list|)
 expr_stmt|;
 name|writer
@@ -840,7 +845,7 @@ name|writer
 operator|.
 name|append
 argument_list|(
-literal|"        public SimpleTypeConverter(boolean allowNull) {\n"
+literal|"        public BaseTypeConverter(boolean allowNull) {\n"
 argument_list|)
 expr_stmt|;
 name|writer
@@ -994,7 +999,7 @@ name|writer
 operator|.
 name|append
 argument_list|(
-literal|"    private DoubleMap<Class<?>, Class<?>, SimpleTypeConverter> converters = new DoubleMap<>(256);\n"
+literal|"    private final DoubleMap<Class<?>, Class<?>, BaseTypeConverter> converters = new DoubleMap<>(256);\n"
 argument_list|)
 expr_stmt|;
 name|writer
@@ -1201,7 +1206,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|".class, new SimpleTypeConverter("
+literal|".class, new BaseTypeConverter("
 argument_list|)
 operator|.
 name|append
