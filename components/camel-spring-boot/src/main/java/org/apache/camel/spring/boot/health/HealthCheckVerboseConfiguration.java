@@ -40,7 +40,7 @@ begin_class
 annotation|@
 name|ConfigurationProperties
 argument_list|(
-literal|"management.endpoint.health"
+literal|"management.info.camel"
 argument_list|)
 DECL|class|HealthCheckVerboseConfiguration
 specifier|public

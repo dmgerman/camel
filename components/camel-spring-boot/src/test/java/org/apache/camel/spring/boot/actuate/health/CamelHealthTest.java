@@ -208,7 +208,7 @@ argument_list|,
 name|properties
 operator|=
 block|{
-literal|"management.endpoint.health.verbose = true"
+literal|"management.info.camel.verbose = true"
 block|}
 argument_list|)
 DECL|class|CamelHealthTest
@@ -295,6 +295,32 @@ name|getVersion
 argument_list|()
 argument_list|,
 name|version
+argument_list|)
+expr_stmt|;
+name|String
+name|name
+init|=
+operator|(
+name|String
+operator|)
+name|health
+operator|.
+name|getDetails
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"name"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|camelContext
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|name
 argument_list|)
 expr_stmt|;
 block|}
