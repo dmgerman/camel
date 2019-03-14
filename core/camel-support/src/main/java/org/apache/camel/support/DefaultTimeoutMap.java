@@ -145,6 +145,18 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Comparator
+operator|.
+name|comparing
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -203,18 +215,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Comparator
-operator|.
-name|comparing
 import|;
 end_import
 
