@@ -628,10 +628,10 @@ operator|.
 name|getBody
 argument_list|()
 operator|instanceof
-name|Collection
+name|Iterable
 condition|)
 block|{
-name|Collection
+name|Iterable
 name|c
 init|=
 name|exchange
@@ -641,7 +641,7 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|(
-name|Collection
+name|Iterable
 operator|.
 name|class
 argument_list|)
