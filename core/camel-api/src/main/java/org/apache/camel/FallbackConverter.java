@@ -101,6 +101,8 @@ operator|.
 name|METHOD
 block|}
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|annotation|FallbackConverter
 specifier|public
 annotation_defn|@interface
@@ -120,15 +122,6 @@ DECL|method|canPromote ()
 DECL|field|false
 name|boolean
 name|canPromote
-parameter_list|()
-default|default
-literal|false
-function_decl|;
-comment|/**      * Whether to let the Camel compiler plugin to generate java source code      * for fast loading of the type converters.      *       * This option should only be configured on the top-level class.      */
-DECL|method|loader ()
-DECL|field|false
-name|boolean
-name|loader
 parameter_list|()
 default|default
 literal|false

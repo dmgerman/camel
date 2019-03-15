@@ -120,6 +120,13 @@ block|{
 comment|// Helper Class
 block|}
 annotation|@
+name|Converter
+argument_list|(
+name|fallback
+operator|=
+literal|true
+argument_list|)
+annotation|@
 name|FallbackConverter
 DECL|method|convertTo (Class<?> type, Exchange exchange, Object value, TypeConverterRegistry registry)
 specifier|public
