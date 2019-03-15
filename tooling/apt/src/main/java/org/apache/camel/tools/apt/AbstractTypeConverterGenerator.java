@@ -94,29 +94,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|StringJoiner
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|TreeMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Collectors
 import|;
 end_import
 
@@ -129,18 +107,6 @@ operator|.
 name|processing
 operator|.
 name|RoundEnvironment
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|annotation
-operator|.
-name|processing
-operator|.
-name|SupportedAnnotationTypes
 import|;
 end_import
 
@@ -272,65 +238,7 @@ name|javax
 operator|.
 name|tools
 operator|.
-name|DocumentationTool
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|tools
-operator|.
-name|FileObject
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|tools
-operator|.
-name|JavaFileManager
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|tools
-operator|.
 name|JavaFileObject
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|tools
-operator|.
-name|StandardLocation
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|tools
-operator|.
-name|apt
-operator|.
-name|AnnotationProcessorHelper
-operator|.
-name|dumpExceptionToErrorFile
 import|;
 end_import
 
@@ -813,6 +721,14 @@ operator|.
 name|METHOD
 condition|)
 block|{
+name|String
+name|key
+init|=
+name|convertersKey
+argument_list|(
+name|currentClass
+argument_list|)
+decl_stmt|;
 comment|// is the method annotated with @Converter
 name|ExecutableElement
 name|ee
@@ -834,7 +750,7 @@ name|converters
 operator|.
 name|computeIfAbsent
 argument_list|(
-name|currentClass
+name|key
 argument_list|,
 name|c
 lambda|->
@@ -856,7 +772,7 @@ name|converters
 operator|.
 name|containsKey
 argument_list|(
-name|currentClass
+name|key
 argument_list|)
 condition|)
 block|{
@@ -864,7 +780,7 @@ name|converters
 operator|.
 name|get
 argument_list|(
-name|currentClass
+name|key
 argument_list|)
 operator|.
 name|setIgnoreOnLoadError
@@ -975,7 +891,7 @@ name|converters
 operator|.
 name|computeIfAbsent
 argument_list|(
-name|currentClass
+name|key
 argument_list|,
 name|c
 lambda|->
@@ -1001,7 +917,7 @@ name|converters
 operator|.
 name|containsKey
 argument_list|(
-name|currentClass
+name|key
 argument_list|)
 condition|)
 block|{
@@ -1009,7 +925,7 @@ name|converters
 operator|.
 name|get
 argument_list|(
-name|currentClass
+name|key
 argument_list|)
 operator|.
 name|setIgnoreOnLoadError
@@ -1024,12 +940,19 @@ block|}
 name|writeConverters
 argument_list|(
 name|converters
-argument_list|,
-name|converterAnnotationType
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|writeConverters (Map<String, ClassConverters> converters, TypeElement converterAnnotationType)
+DECL|method|convertersKey (String currentClass)
+specifier|abstract
+name|String
+name|convertersKey
+parameter_list|(
+name|String
+name|currentClass
+parameter_list|)
+function_decl|;
+DECL|method|writeConverters (Map<String, ClassConverters> converters)
 specifier|abstract
 name|void
 name|writeConverters
@@ -1041,9 +964,6 @@ argument_list|,
 name|ClassConverters
 argument_list|>
 name|converters
-parameter_list|,
-name|TypeElement
-name|converterAnnotationType
 parameter_list|)
 throws|throws
 name|Exception
@@ -1393,7 +1313,7 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|writeConverters (String fqn, String suffix, ClassConverters converters, TypeElement converterAnnotationType)
+DECL|method|writeConverters (String fqn, String suffix, ClassConverters converters)
 name|void
 name|writeConverters
 parameter_list|(
@@ -1405,9 +1325,6 @@ name|suffix
 parameter_list|,
 name|ClassConverters
 name|converters
-parameter_list|,
-name|TypeElement
-name|converterAnnotationType
 parameter_list|)
 throws|throws
 name|Exception

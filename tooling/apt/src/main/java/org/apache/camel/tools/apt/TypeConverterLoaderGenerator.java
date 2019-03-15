@@ -120,20 +120,6 @@ begin_import
 import|import
 name|javax
 operator|.
-name|lang
-operator|.
-name|model
-operator|.
-name|element
-operator|.
-name|TypeElement
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
 name|tools
 operator|.
 name|FileObject
@@ -184,7 +170,21 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|writeConverters (Map<String, ClassConverters> converters, TypeElement converterAnnotationType)
+DECL|method|convertersKey (String currentClass)
+name|String
+name|convertersKey
+parameter_list|(
+name|String
+name|currentClass
+parameter_list|)
+block|{
+return|return
+name|currentClass
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|writeConverters (Map<String, ClassConverters> converters)
 name|void
 name|writeConverters
 parameter_list|(
@@ -195,9 +195,6 @@ argument_list|,
 name|ClassConverters
 argument_list|>
 name|converters
-parameter_list|,
-name|TypeElement
-name|converterAnnotationType
 parameter_list|)
 throws|throws
 name|Exception
@@ -244,8 +241,6 @@ argument_list|,
 literal|"Loader"
 argument_list|,
 name|value
-argument_list|,
-name|converterAnnotationType
 argument_list|)
 expr_stmt|;
 block|}
