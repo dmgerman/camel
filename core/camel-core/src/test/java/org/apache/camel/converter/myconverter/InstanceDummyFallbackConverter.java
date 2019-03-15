@@ -84,18 +84,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FallbackConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|TypeConverterRegistry
@@ -148,7 +136,12 @@ name|camelContext
 expr_stmt|;
 block|}
 annotation|@
-name|FallbackConverter
+name|Converter
+argument_list|(
+name|fallback
+operator|=
+literal|true
+argument_list|)
 DECL|method|convertTo (Class<?> type, Exchange exchange, Object value, TypeConverterRegistry registry)
 specifier|public
 name|Object

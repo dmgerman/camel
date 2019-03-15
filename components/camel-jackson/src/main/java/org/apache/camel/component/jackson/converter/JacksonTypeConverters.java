@@ -134,18 +134,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FallbackConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|jackson
@@ -183,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Jackson {@link org.apache.camel.TypeConverter} that allows converting json to/from POJOs and other types.  *<br/>  * This implementation uses a {@link FallbackConverter}.  *<p/>  * The converter is disabled by default. To enable then set the property  * {@link JacksonConstants#ENABLE_TYPE_CONVERTER} to<tt>true</tt> on {@link CamelContext#getGlobalOptions()}.  *<br/>  * The option {@link JacksonConstants#TYPE_CONVERTER_TO_POJO} can be used to allow converting to POJO types. By  * default the converter only attempts to convert to primitive types such as String and numbers. To convert to any kind, then  * enable this by setting {@link JacksonConstants#TYPE_CONVERTER_TO_POJO} to<tt>true</tt> on {@link CamelContext#getGlobalOptions()}.  */
+comment|/**  * Jackson {@link org.apache.camel.TypeConverter} that allows converting json to/from POJOs and other types.  *<br/>  * This implementation uses a fallback converter.  *<p/>  * The converter is disabled by default. To enable then set the property  * {@link JacksonConstants#ENABLE_TYPE_CONVERTER} to<tt>true</tt> on {@link CamelContext#getGlobalOptions()}.  *<br/>  * The option {@link JacksonConstants#TYPE_CONVERTER_TO_POJO} can be used to allow converting to POJO types. By  * default the converter only attempts to convert to primitive types such as String and numbers. To convert to any kind, then  * enable this by setting {@link JacksonConstants#TYPE_CONVERTER_TO_POJO} to<tt>true</tt> on {@link CamelContext#getGlobalOptions()}.  */
 end_comment
 
 begin_class
@@ -249,7 +237,12 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|FallbackConverter
+name|Converter
+argument_list|(
+name|fallback
+operator|=
+literal|true
+argument_list|)
 DECL|method|convertTo (Class<T> type, Exchange exchange, Object value, TypeConverterRegistry registry)
 specifier|public
 parameter_list|<

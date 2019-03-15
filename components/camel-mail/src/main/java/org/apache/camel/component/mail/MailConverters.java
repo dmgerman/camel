@@ -222,18 +222,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FallbackConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|NoTypeConversionAvailableException
 import|;
 end_import
@@ -627,7 +615,12 @@ return|;
 block|}
 comment|/**      * Converts a JavaMail multipart into a body of any type a String can be      * converted into. The content-type of the part must be text based.      */
 annotation|@
-name|FallbackConverter
+name|Converter
+argument_list|(
+name|fallback
+operator|=
+literal|true
+argument_list|)
 DECL|method|convertTo (Class<T> type, Exchange exchange, Object value, TypeConverterRegistry registry)
 specifier|public
 specifier|static

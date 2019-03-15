@@ -138,18 +138,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FallbackConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|netty4
@@ -193,7 +181,12 @@ parameter_list|()
 block|{     }
 comment|/**      * A fallback converter that allows us to easily call Java beans and use the raw Netty {@link HttpRequest} as parameter types.      */
 annotation|@
-name|FallbackConverter
+name|Converter
+argument_list|(
+name|fallback
+operator|=
+literal|true
+argument_list|)
 DECL|method|convertToHttpRequest (Class<?> type, Exchange exchange, Object value, TypeConverterRegistry registry)
 specifier|public
 specifier|static
@@ -315,7 +308,12 @@ return|;
 block|}
 comment|/**      * A fallback converter that allows us to easily call Java beans and use the raw Netty {@link HttpRequest} as parameter types.      */
 annotation|@
-name|FallbackConverter
+name|Converter
+argument_list|(
+name|fallback
+operator|=
+literal|true
+argument_list|)
 DECL|method|convertToHttpResponse (Class<?> type, Exchange exchange, Object value, TypeConverterRegistry registry)
 specifier|public
 specifier|static

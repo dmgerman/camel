@@ -102,18 +102,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FallbackConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|jacksonxml
@@ -190,7 +178,12 @@ name|JacksonXMLTypeConverters
 parameter_list|()
 block|{     }
 annotation|@
-name|FallbackConverter
+name|Converter
+argument_list|(
+name|fallback
+operator|=
+literal|true
+argument_list|)
 DECL|method|convertTo (Class<T> type, Exchange exchange, Object value, TypeConverterRegistry registry)
 specifier|public
 parameter_list|<

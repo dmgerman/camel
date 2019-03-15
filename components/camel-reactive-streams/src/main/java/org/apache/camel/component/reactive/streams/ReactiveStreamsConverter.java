@@ -76,18 +76,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FallbackConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|reactive
@@ -151,7 +139,12 @@ name|ReactiveStreamsConverter
 parameter_list|()
 block|{     }
 annotation|@
-name|FallbackConverter
+name|Converter
+argument_list|(
+name|fallback
+operator|=
+literal|true
+argument_list|)
 DECL|method|convertToPublisher (Class<?> type, Exchange exchange, Object value, TypeConverterRegistry registry)
 specifier|public
 name|Object

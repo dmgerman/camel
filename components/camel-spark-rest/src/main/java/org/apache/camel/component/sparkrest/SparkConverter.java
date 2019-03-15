@@ -50,18 +50,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FallbackConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|TypeConverterRegistry
@@ -105,7 +93,12 @@ parameter_list|()
 block|{     }
 comment|/**      * A fallback converter that allows us to easily call Java beans and use the raw Spark {@link Request} as parameter types.      */
 annotation|@
-name|FallbackConverter
+name|Converter
+argument_list|(
+name|fallback
+operator|=
+literal|true
+argument_list|)
 DECL|method|convertToRequest (Class<?> type, Exchange exchange, Object value, TypeConverterRegistry registry)
 specifier|public
 specifier|static
@@ -206,7 +199,12 @@ return|;
 block|}
 comment|/**      * A fallback converter that allows us to easily call Java beans and use the raw Spark {@link Response} as parameter types.      */
 annotation|@
-name|FallbackConverter
+name|Converter
+argument_list|(
+name|fallback
+operator|=
+literal|true
+argument_list|)
 DECL|method|convertToResponse (Class<?> type, Exchange exchange, Object value, TypeConverterRegistry registry)
 specifier|public
 specifier|static
