@@ -28,6 +28,9 @@ name|SqsOperations
 block|{
 DECL|enumConstant|sendBatchMessage
 name|sendBatchMessage
+block|,
+DECL|enumConstant|deleteMessage
+name|deleteMessage
 block|}
 end_enum
 
