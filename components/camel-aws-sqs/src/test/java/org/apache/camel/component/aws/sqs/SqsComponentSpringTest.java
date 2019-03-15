@@ -42,6 +42,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|sqs
+operator|.
+name|model
+operator|.
+name|SendMessageBatchResult
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -153,22 +169,6 @@ operator|.
 name|support
 operator|.
 name|ClassPathXmlApplicationContext
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|amazonaws
-operator|.
-name|services
-operator|.
-name|sqs
-operator|.
-name|model
-operator|.
-name|SendMessageBatchResult
 import|;
 end_import
 
