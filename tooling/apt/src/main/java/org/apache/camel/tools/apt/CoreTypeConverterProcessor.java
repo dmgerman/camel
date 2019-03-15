@@ -287,6 +287,7 @@ name|CoreTypeConverterProcessor
 extends|extends
 name|AbstractCamelAnnotationProcessor
 block|{
+comment|// TODO: extend the abstract class for reuse
 DECL|method|isFallbackConverter (Element element)
 specifier|private
 specifier|static
@@ -709,7 +710,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/*        dumpExceptionToErrorFile("camel-apt-error.log", "Looking for @FallbackConverter", null);         TypeElement fallbackAnnotationType = this.processingEnv.getElementUtils().getTypeElement("org.apache.camel.FallbackConverter");         List<ExecutableElement> fallbackConverters = new ArrayList<>();         for (Element element : roundEnv.getElementsAnnotatedWith(fallbackAnnotationType)) {             dumpExceptionToErrorFile("camel-apt-error.log", "Found element: " + element, null);             if (element.getKind() == ElementKind.METHOD) {                 ExecutableElement ee = (ExecutableElement)element;                 dumpExceptionToErrorFile("camel-apt-error.log", "Element is fallback: " + element, null);                 fallbackConverters.add(ee);             }         }*/
 name|String
 name|p
 init|=
