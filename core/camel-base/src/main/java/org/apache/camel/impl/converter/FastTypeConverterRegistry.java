@@ -118,6 +118,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -185,22 +197,18 @@ import|;
 end_import
 
 begin_comment
-comment|// TODO: We can automatic detect this for example like headersmap-factory by having this on the classpath
-end_comment
-
-begin_comment
-comment|/**  * An optimized {@link org.apache.camel.spi.TypeConverterRegistry} which loads  * the type converters up-front on startup in a faster way by leveraging  * source generated type converter loaders (<tt>@Converter(loader = true)</tt>,  * and will not perform slower package scanning.  */
+comment|/**  * An optimized {@link org.apache.camel.spi.TypeConverterRegistry} which loads  * the type converters up-front on startup in a faster way by leveraging  * source generated type converter loaders (<tt>@Converter(loader = true)</tt>,  * as well as invoking the type converters without reflection,  * and will not perform classpath scanning.  */
 end_comment
 
 begin_class
-DECL|class|TypeConverterLoaderRegistry
+DECL|class|FastTypeConverterRegistry
 specifier|public
 class|class
-name|TypeConverterLoaderRegistry
+name|FastTypeConverterRegistry
 extends|extends
 name|BaseTypeConverterRegistry
 block|{
-comment|// TODO: Maybe it should be named FastTypeConverterRegistry
+comment|// TODO: We can automatic detect this for example like headersmap-factory by having this on the classpath
 DECL|field|META_INF_SERVICES
 specifier|public
 specifier|static
@@ -221,7 +229,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|TypeConverterLoaderRegistry
+name|FastTypeConverterRegistry
 operator|.
 name|class
 argument_list|)
@@ -240,9 +248,9 @@ argument_list|(
 literal|"UTF-8"
 argument_list|)
 decl_stmt|;
-DECL|method|TypeConverterLoaderRegistry ()
+DECL|method|FastTypeConverterRegistry ()
 specifier|public
-name|TypeConverterLoaderRegistry
+name|FastTypeConverterRegistry
 parameter_list|()
 block|{
 name|super
@@ -255,6 +263,33 @@ literal|null
 argument_list|)
 expr_stmt|;
 comment|// pass in null to base class as we load all type converters without package scanning
+block|}
+annotation|@
+name|Override
+DECL|method|setCamelContext (CamelContext camelContext)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setCamelContext
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
+name|setInjector
+argument_list|(
+name|camelContext
+operator|.
+name|getInjector
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

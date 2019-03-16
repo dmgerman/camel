@@ -1605,7 +1605,7 @@ name|packageResolver
 argument_list|)
 expr_stmt|;
 block|}
-comment|// set the package scan resolver as soon as possible
+comment|// also set type converter registry as early as possible
 name|TypeConverterRegistry
 name|tcr
 init|=

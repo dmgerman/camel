@@ -42,7 +42,7 @@ name|impl
 operator|.
 name|converter
 operator|.
-name|TypeConverterLoaderRegistry
+name|FastTypeConverterRegistry
 import|;
 end_import
 
@@ -78,7 +78,7 @@ operator|.
 name|setTypeConverterRegistry
 argument_list|(
 operator|new
-name|TypeConverterLoaderRegistry
+name|FastTypeConverterRegistry
 argument_list|()
 argument_list|)
 expr_stmt|;
