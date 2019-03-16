@@ -635,16 +635,6 @@ operator|new
 name|LongAdder
 argument_list|()
 decl_stmt|;
-DECL|field|baseHitCounter
-specifier|protected
-specifier|final
-name|LongAdder
-name|baseHitCounter
-init|=
-operator|new
-name|LongAdder
-argument_list|()
-decl_stmt|;
 DECL|field|hitCounter
 specifier|protected
 specifier|final
@@ -697,6 +687,14 @@ name|factoryFinder
 operator|=
 name|factoryFinder
 expr_stmt|;
+if|if
+condition|(
+name|resolver
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// we only have annotation based package scanning if we have a resolver
 name|this
 operator|.
 name|typeConverterLoaders
@@ -710,6 +708,7 @@ name|resolver
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|List
 argument_list|<
 name|FallbackTypeConverter
@@ -3005,6 +3004,13 @@ name|IOException
 throws|,
 name|ClassNotFoundException
 block|{
+if|if
+condition|(
+name|factoryFinder
+operator|!=
+literal|null
+condition|)
+block|{
 name|List
 argument_list|<
 name|TypeConverter
@@ -3040,6 +3046,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|createTypeConversionException (Exchange exchange, Class<?> type, Object value, Throwable cause)

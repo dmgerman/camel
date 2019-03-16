@@ -1429,6 +1429,15 @@ name|TypeConverterRegistry
 name|getTypeConverterRegistry
 parameter_list|()
 function_decl|;
+comment|/**      * Configures the type converter registry to use, where type converters can be added or looked up.      *      * @param typeConverterRegistry the registry to use      */
+DECL|method|setTypeConverterRegistry (TypeConverterRegistry typeConverterRegistry)
+name|void
+name|setTypeConverterRegistry
+parameter_list|(
+name|TypeConverterRegistry
+name|typeConverterRegistry
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the registry used to lookup components by name and type such as SimpleRegistry, Spring ApplicationContext,      * JNDI, or the OSGi Service Registry.      *      * @return the registry      */
 DECL|method|getRegistry ()
 name|Registry

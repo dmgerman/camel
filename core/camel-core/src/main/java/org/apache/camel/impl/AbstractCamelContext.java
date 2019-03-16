@@ -14343,6 +14343,24 @@ argument_list|(
 name|typeConverterRegistry
 argument_list|)
 expr_stmt|;
+comment|// some registries are also a type converter implementation
+if|if
+condition|(
+name|typeConverterRegistry
+operator|instanceof
+name|TypeConverter
+condition|)
+block|{
+name|this
+operator|.
+name|typeConverter
+operator|=
+operator|(
+name|TypeConverter
+operator|)
+name|typeConverterRegistry
+expr_stmt|;
+block|}
 block|}
 DECL|method|getInjector ()
 specifier|public

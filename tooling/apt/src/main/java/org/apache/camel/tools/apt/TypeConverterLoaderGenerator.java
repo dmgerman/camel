@@ -240,6 +240,8 @@ name|key
 argument_list|,
 literal|"Loader"
 argument_list|,
+literal|false
+argument_list|,
 name|value
 argument_list|)
 expr_stmt|;

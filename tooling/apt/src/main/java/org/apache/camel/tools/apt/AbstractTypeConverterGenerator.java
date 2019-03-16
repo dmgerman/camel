@@ -1313,7 +1313,7 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|writeConverters (String fqn, String suffix, ClassConverters converters)
+DECL|method|writeConverters (String fqn, String suffix, boolean staticInstance, ClassConverters converters)
 name|void
 name|writeConverters
 parameter_list|(
@@ -1322,6 +1322,9 @@ name|fqn
 parameter_list|,
 name|String
 name|suffix
+parameter_list|,
+name|boolean
+name|staticInstance
 parameter_list|,
 name|ClassConverters
 name|converters
@@ -1523,6 +1526,11 @@ argument_list|(
 literal|"\n"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|staticInstance
+condition|)
+block|{
 name|writer
 operator|.
 name|append
@@ -1550,6 +1558,7 @@ argument_list|(
 literal|"();\n"
 argument_list|)
 expr_stmt|;
+block|}
 name|writer
 operator|.
 name|append
@@ -1779,7 +1788,16 @@ name|writer
 operator|.
 name|append
 argument_list|(
-literal|"    private "
+literal|"    "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|staticInstance
+condition|?
+literal|"private "
+else|:
+literal|"public "
 argument_list|)
 operator|.
 name|append
