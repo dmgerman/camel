@@ -339,6 +339,13 @@ name|size
 argument_list|()
 decl_stmt|;
 comment|// load type converters up front
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Initializing fast TypeConverterRegistry - requires converters to be annotated with @Converter(loader = true)"
+argument_list|)
+expr_stmt|;
 name|loadTypeConverters
 argument_list|()
 expr_stmt|;
