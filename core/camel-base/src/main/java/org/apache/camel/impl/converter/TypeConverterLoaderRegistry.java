@@ -86,7 +86,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
+name|LinkedHashSet
 import|;
 end_import
 
@@ -478,7 +478,7 @@ argument_list|>
 name|classes
 init|=
 operator|new
-name|HashSet
+name|LinkedHashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
