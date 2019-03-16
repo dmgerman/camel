@@ -200,6 +200,7 @@ name|TypeConverterLoaderRegistry
 extends|extends
 name|BaseTypeConverterRegistry
 block|{
+comment|// TODO: Maybe it should be named FastTypeConverterRegistry
 DECL|field|META_INF_SERVICES
 specifier|public
 specifier|static
