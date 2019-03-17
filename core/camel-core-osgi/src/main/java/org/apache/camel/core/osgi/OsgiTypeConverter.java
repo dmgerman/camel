@@ -1276,6 +1276,32 @@ return|return
 name|delegate
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isAnnotationScanning ()
+specifier|public
+name|boolean
+name|isAnnotationScanning
+parameter_list|()
+block|{
+comment|// we use osgi service registry to track type-converters
+return|return
+literal|false
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setAnnotationScanning (boolean annotationScanning)
+specifier|public
+name|void
+name|setAnnotationScanning
+parameter_list|(
+name|boolean
+name|annotationScanning
+parameter_list|)
+block|{
+comment|// noop
+block|}
 DECL|method|createRegistry ()
 specifier|protected
 name|DefaultTypeConverter

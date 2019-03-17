@@ -400,6 +400,27 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+DECL|method|isAnnotationScanning ()
+specifier|public
+name|boolean
+name|isAnnotationScanning
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+DECL|method|setAnnotationScanning (boolean annotationScanning)
+specifier|public
+name|void
+name|setAnnotationScanning
+parameter_list|(
+name|boolean
+name|annotationScanning
+parameter_list|)
+block|{
+comment|// noop
+block|}
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void

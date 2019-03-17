@@ -317,6 +317,20 @@ name|TypeConverterExists
 name|typeConverterExists
 parameter_list|)
 function_decl|;
+DECL|method|isAnnotationScanning ()
+name|boolean
+name|isAnnotationScanning
+parameter_list|()
+function_decl|;
+comment|/**      * Sets whether annotations canning of type converters is enabled.      * This can be used for backwards compatibility to discover type converters      * as Camel 2.x does. Its recommended to migrate to use fast type converters only.      */
+DECL|method|setAnnotationScanning (boolean annotationScanning)
+name|void
+name|setAnnotationScanning
+parameter_list|(
+name|boolean
+name|annotationScanning
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

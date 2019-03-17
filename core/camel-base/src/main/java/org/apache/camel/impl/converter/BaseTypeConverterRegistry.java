@@ -558,6 +558,11 @@ specifier|protected
 name|CamelContext
 name|camelContext
 decl_stmt|;
+DECL|field|resolver
+specifier|protected
+name|PackageScanClassResolver
+name|resolver
+decl_stmt|;
 DECL|field|injector
 specifier|protected
 name|Injector
@@ -586,6 +591,13 @@ init|=
 name|LoggingLevel
 operator|.
 name|WARN
+decl_stmt|;
+DECL|field|annotationScanning
+specifier|protected
+name|boolean
+name|annotationScanning
+init|=
+literal|true
 decl_stmt|;
 DECL|field|statistics
 specifier|protected
@@ -673,10 +685,11 @@ name|factoryFinder
 operator|=
 name|factoryFinder
 expr_stmt|;
-name|initAnnotationTypeConverterLoader
-argument_list|(
+name|this
+operator|.
 name|resolver
-argument_list|)
+operator|=
+name|resolver
 expr_stmt|;
 name|List
 argument_list|<
@@ -3226,6 +3239,32 @@ operator|=
 name|typeConverterExists
 expr_stmt|;
 block|}
+DECL|method|isAnnotationScanning ()
+specifier|public
+name|boolean
+name|isAnnotationScanning
+parameter_list|()
+block|{
+return|return
+name|annotationScanning
+return|;
+block|}
+DECL|method|setAnnotationScanning (boolean annotationScanning)
+specifier|public
+name|void
+name|setAnnotationScanning
+parameter_list|(
+name|boolean
+name|annotationScanning
+parameter_list|)
+block|{
+name|this
+operator|.
+name|annotationScanning
+operator|=
+name|annotationScanning
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -3236,7 +3275,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+if|if
+condition|(
+name|annotationScanning
+condition|)
+block|{
+name|initAnnotationTypeConverterLoader
+argument_list|(
+name|resolver
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

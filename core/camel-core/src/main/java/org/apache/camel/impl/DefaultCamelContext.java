@@ -174,6 +174,22 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|converter
+operator|.
+name|FastTypeConverterRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
 name|health
 operator|.
 name|DefaultHealthCheckRegistry
@@ -858,6 +874,7 @@ return|return
 name|answer
 return|;
 block|}
+comment|/*         // lets use the new fast type converter registry         FastTypeConverterRegistry answer = new FastTypeConverterRegistry();         // use backwards compatible mode         answer.setAnnotationScanning(true);         answer.setCamelContext(this);         setTypeConverterRegistry(answer);         return answer;      */
 annotation|@
 name|Override
 DECL|method|createTypeConverterRegistry ()
