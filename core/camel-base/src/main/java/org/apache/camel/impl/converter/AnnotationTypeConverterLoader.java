@@ -743,6 +743,14 @@ control|)
 block|{
 if|if
 condition|(
+name|acceptClass
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
 name|LOG
 operator|.
 name|isTraceEnabled
@@ -771,6 +779,7 @@ argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// now clear the maps so we do not hold references
 name|visitedClasses
@@ -1612,6 +1621,22 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+DECL|method|acceptClass (Class<?> clazz)
+specifier|protected
+name|boolean
+name|acceptClass
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|clazz
+parameter_list|)
+block|{
+return|return
+literal|true
+return|;
 block|}
 DECL|method|handleHasConverterAnnotation (TypeConverterRegistry registry, Class<?> type, CachingInjector<?> injector, Method method, boolean allowNull)
 specifier|private

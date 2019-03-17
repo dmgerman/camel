@@ -39,7 +39,7 @@ name|CamelContext
 name|getCamelContext
 parameter_list|()
 function_decl|;
-comment|/**      * Set the {@link CamelContext} context if the component is an instance of {@link CamelContextAware}.      */
+comment|/**      * Set the {@link CamelContext} context if the object is an instance of {@link CamelContextAware}.      */
 DECL|method|trySetCamelContext (T object, CamelContext camelContext)
 specifier|static
 parameter_list|<

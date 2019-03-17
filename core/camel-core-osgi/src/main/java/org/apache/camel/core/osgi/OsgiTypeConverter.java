@@ -397,7 +397,6 @@ name|bundleContext
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
-specifier|final
 name|CamelContext
 name|camelContext
 decl_stmt|;
@@ -728,6 +727,36 @@ operator|.
 name|delegate
 operator|=
 literal|null
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|camelContext
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setCamelContext (CamelContext camelContext)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
 expr_stmt|;
 block|}
 DECL|method|allowNull ()

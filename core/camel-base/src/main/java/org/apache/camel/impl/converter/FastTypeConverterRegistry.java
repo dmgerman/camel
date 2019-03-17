@@ -144,6 +144,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|PackageScanClassResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|TypeConverterLoader
 import|;
 end_import
@@ -208,7 +222,6 @@ name|FastTypeConverterRegistry
 extends|extends
 name|BaseTypeConverterRegistry
 block|{
-comment|// TODO: We can automatic detect this for example like headersmap-factory by having this on the classpath
 DECL|field|META_INF_SERVICES
 specifier|public
 specifier|static
@@ -248,6 +261,11 @@ argument_list|(
 literal|"UTF-8"
 argument_list|)
 decl_stmt|;
+DECL|field|annotationScanning
+specifier|private
+name|boolean
+name|annotationScanning
+decl_stmt|;
 DECL|method|FastTypeConverterRegistry ()
 specifier|public
 name|FastTypeConverterRegistry
@@ -263,6 +281,47 @@ literal|null
 argument_list|)
 expr_stmt|;
 comment|// pass in null to base class as we load all type converters without package scanning
+block|}
+comment|/**      * Whether annotations canning of type converters is enabled.      * This can be used for backwards compatibility to discover type converters      * as Camel 2.x does. Its recommended to migrate to use fast type converters only.      */
+DECL|method|isAnnotationScanning ()
+specifier|public
+name|boolean
+name|isAnnotationScanning
+parameter_list|()
+block|{
+return|return
+name|annotationScanning
+return|;
+block|}
+comment|/**      * Sets whether annotations canning of type converters is enabled.      * This can be used for backwards compatibility to discover type converters      * as Camel 2.x does. Its recommended to migrate to use fast type converters only.      */
+DECL|method|setAnnotationScanning (boolean annotationScanning)
+specifier|public
+name|void
+name|setAnnotationScanning
+parameter_list|(
+name|boolean
+name|annotationScanning
+parameter_list|)
+block|{
+name|this
+operator|.
+name|annotationScanning
+operator|=
+name|annotationScanning
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|initAnnotationTypeConverterLoader (PackageScanClassResolver resolver)
+specifier|protected
+name|void
+name|initAnnotationTypeConverterLoader
+parameter_list|(
+name|PackageScanClassResolver
+name|resolver
+parameter_list|)
+block|{
+comment|// noop
 block|}
 annotation|@
 name|Override
@@ -386,6 +445,122 @@ argument_list|(
 name|e
 argument_list|)
 throw|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// we are using backwards compatible legacy mode to detect additional converters
+if|if
+condition|(
+name|annotationScanning
+condition|)
+block|{
+try|try
+block|{
+name|setInjector
+argument_list|(
+name|camelContext
+operator|.
+name|getInjector
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|int
+name|fast
+init|=
+name|typeMappings
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
+comment|// load type converters up front
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Initializing fast TypeConverterRegistry - requires converters to be annotated with @Converter(loader = true)"
+argument_list|)
+expr_stmt|;
+name|TypeConverterLoader
+name|loader
+init|=
+operator|new
+name|FastAnnotationTypeConverterLoader
+argument_list|(
+name|camelContext
+operator|.
+name|getPackageScanClassResolver
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|loader
+operator|.
+name|load
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+name|int
+name|additional
+init|=
+name|typeMappings
+operator|.
+name|size
+argument_list|()
+operator|-
+name|fast
+decl_stmt|;
+comment|// report how many type converters we have loaded
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Type converters loaded (fast: {}, scanned: {})"
+argument_list|,
+name|fast
+argument_list|,
+name|additional
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|additional
+operator|>
+literal|0
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Annotation scanning mode loaded {} type converters. Its recommended to migrate to @Converter(loader = true) for fast type converter mode."
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|RuntimeCamelException
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 annotation|@

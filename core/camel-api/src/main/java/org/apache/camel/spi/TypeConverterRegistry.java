@@ -34,6 +34,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|LoggingLevel
 import|;
 end_import
@@ -97,6 +109,8 @@ interface|interface
 name|TypeConverterRegistry
 extends|extends
 name|StaticService
+extends|,
+name|CamelContextAware
 block|{
 comment|/**      * Utilization statistics of the this registry.      */
 DECL|interface|Statistics

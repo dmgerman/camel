@@ -151,8 +151,7 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-comment|// core type converters is always loaded which does not use any classpath scanning
-comment|// and therefore is fast
+comment|// core type converters is always loaded which does not use any classpath scanning and therefore is fast
 name|loadCoreTypeConverters
 argument_list|()
 expr_stmt|;
