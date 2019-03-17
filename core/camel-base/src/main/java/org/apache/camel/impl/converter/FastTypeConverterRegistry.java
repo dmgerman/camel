@@ -333,9 +333,9 @@ decl_stmt|;
 comment|// load type converters up front
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Initializing fast TypeConverterRegistry - requires converters to be annotated with @Converter(loader = true)"
+literal|"Initializing FastTypeConverterRegistry - requires converters to be annotated with @Converter(loader = true)"
 argument_list|)
 expr_stmt|;
 name|loadTypeConverters
@@ -472,6 +472,8 @@ operator|.
 name|warn
 argument_list|(
 literal|"Annotation scanning mode loaded {} type converters. Its recommended to migrate to @Converter(loader = true) for fast type converter mode."
+argument_list|,
+name|additional
 argument_list|)
 expr_stmt|;
 block|}
