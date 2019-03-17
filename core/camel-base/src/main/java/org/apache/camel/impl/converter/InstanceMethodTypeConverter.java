@@ -304,6 +304,7 @@ argument_list|)
 throw|;
 block|}
 comment|// inject parent type converter
+comment|// TODO: Remove this in the near future as this is no longer needed (you can use exchange as parameter)
 if|if
 condition|(
 name|instance

@@ -2327,6 +2327,7 @@ name|canPromote
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// TODO: Remove this in the near future as this is no longer needed (you can use exchange as parameter)
 if|if
 condition|(
 name|typeConverter
@@ -2428,6 +2429,7 @@ name|canPromote
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// TODO: Remove this in the near future as this is no longer needed (you can use exchange as parameter)
 if|if
 condition|(
 name|typeConverter

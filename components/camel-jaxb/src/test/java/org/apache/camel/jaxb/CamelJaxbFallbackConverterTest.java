@@ -142,7 +142,7 @@ name|test
 operator|.
 name|junit4
 operator|.
-name|CamelTestSupport
+name|ExchangeTestSupport
 import|;
 end_import
 
@@ -162,7 +162,7 @@ specifier|public
 class|class
 name|CamelJaxbFallbackConverterTest
 extends|extends
-name|CamelTestSupport
+name|ExchangeTestSupport
 block|{
 annotation|@
 name|Test
@@ -192,6 +192,8 @@ argument_list|(
 name|Foo
 operator|.
 name|class
+argument_list|,
+name|exchange
 argument_list|,
 literal|"<foo><zot name=\"bar1\" value=\"value\" otherValue=\"otherValue\"/></foo>"
 argument_list|)
@@ -412,6 +414,8 @@ argument_list|(
 name|PersonType
 operator|.
 name|class
+argument_list|,
+name|exchange
 argument_list|,
 literal|"<Person><firstName>FOO</firstName><lastName>BAR</lastName></Person>"
 argument_list|)

@@ -29,10 +29,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interface for an object which is interested in being injected with the root {@link TypeConverter}  * such as for implementing a fallback type converter  *  * @see TypeConverterRegistry  */
+comment|/**  * An interface for an object which is interested in being injected with the root {@link TypeConverter}  * such as for implementing a fallback type converter  *  * @see TypeConverterRegistry  * @deprecated to be removed in the near future  */
 end_comment
 
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|TypeConverterAware
 specifier|public
 interface|interface
