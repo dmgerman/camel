@@ -136,7 +136,7 @@ name|typeConversion
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Sets whether to load custom type converters by scanning classpath.      * This can be turned off if you are only using Camel components      * that does not provide type converters which is needed at runtime.      * In such situations setting this option to false, can speedup starting      * Camel.      */
+comment|/**      * Whether to load custom type converters by scanning classpath.      * This is used for backwards compatibility with Camel 2.x.      * Its recommended to migrate to use fast type converter loading      * by setting<tt>@Converter(loader = true)</tt> on your custom      * type converter classes.      */
 DECL|field|loadTypeConverters
 specifier|private
 name|boolean

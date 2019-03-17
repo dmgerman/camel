@@ -480,6 +480,14 @@ name|FastTypeConverterRegistry
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// dont scan for additional type converters
+name|camel
+operator|.
+name|setLoadTypeConverters
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|camel
 operator|.
 name|start

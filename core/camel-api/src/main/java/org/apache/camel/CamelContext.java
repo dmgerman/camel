@@ -2021,13 +2021,13 @@ name|UuidGenerator
 name|uuidGenerator
 parameter_list|)
 function_decl|;
-comment|/**      * Sets whether to load custom type converters by scanning classpath.      * This can be turned off if you are only using Camel components      * that does not provide type converters which is needed at runtime.      * In such situations setting this option to false, can speedup starting      * Camel.      */
+comment|/**      * Whether to load custom type converters by scanning classpath.      * This is used for backwards compatibility with Camel 2.x.      * Its recommended to migrate to use fast type converter loading      * by setting<tt>@Converter(loader = true)</tt> on your custom      * type converter classes.      */
 DECL|method|isLoadTypeConverters ()
 name|Boolean
 name|isLoadTypeConverters
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether to load custom type converters by scanning classpath.      * This can be turned off if you are only using Camel components      * that does not provide type converters which is needed at runtime.      * In such situations setting this option to false, can speedup starting      * Camel.      *      * @param loadTypeConverters whether to load custom type converters.      */
+comment|/**      * Whether to load custom type converters by scanning classpath.      * This is used for backwards compatibility with Camel 2.x.      * Its recommended to migrate to use fast type converter loading      * by setting<tt>@Converter(loader = true)</tt> on your custom      * type converter classes.      *      * @param loadTypeConverters whether to load custom type converters using classpath scanning.      */
 DECL|method|setLoadTypeConverters (Boolean loadTypeConverters)
 name|void
 name|setLoadTypeConverters

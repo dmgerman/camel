@@ -837,27 +837,14 @@ name|TypeConverter
 name|createTypeConverter
 parameter_list|()
 block|{
-name|BaseTypeConverterRegistry
+comment|// lets use the new fast type converter registry
+name|FastTypeConverterRegistry
 name|answer
-decl_stmt|;
-name|answer
-operator|=
+init|=
 operator|new
-name|DefaultTypeConverter
-argument_list|(
-name|getPackageScanClassResolver
+name|FastTypeConverterRegistry
 argument_list|()
-argument_list|,
-name|getInjector
-argument_list|()
-argument_list|,
-name|getDefaultFactoryFinder
-argument_list|()
-argument_list|,
-name|isLoadTypeConverters
-argument_list|()
-argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|answer
 operator|.
 name|setCamelContext
@@ -874,7 +861,6 @@ return|return
 name|answer
 return|;
 block|}
-comment|/*         // lets use the new fast type converter registry         FastTypeConverterRegistry answer = new FastTypeConverterRegistry();         // use backwards compatible mode         answer.setAnnotationScanning(true);         answer.setCamelContext(this);         setTypeConverterRegistry(answer);         return answer;      */
 annotation|@
 name|Override
 DECL|method|createTypeConverterRegistry ()

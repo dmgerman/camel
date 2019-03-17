@@ -393,7 +393,9 @@ block|{
 comment|// we are using backwards compatible legacy mode to detect additional converters
 if|if
 condition|(
-name|isAnnotationScanning
+name|camelContext
+operator|.
+name|isLoadTypeConverters
 argument_list|()
 condition|)
 block|{
@@ -417,13 +419,6 @@ name|size
 argument_list|()
 decl_stmt|;
 comment|// load type converters up front
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Initializing fast TypeConverterRegistry - requires converters to be annotated with @Converter(loader = true)"
-argument_list|)
-expr_stmt|;
 name|TypeConverterLoader
 name|loader
 init|=
@@ -454,6 +449,13 @@ operator|-
 name|fast
 decl_stmt|;
 comment|// report how many type converters we have loaded
+if|if
+condition|(
+name|additional
+operator|>
+literal|0
+condition|)
+block|{
 name|log
 operator|.
 name|info
@@ -465,13 +467,6 @@ argument_list|,
 name|additional
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|additional
-operator|>
-literal|0
-condition|)
-block|{
 name|log
 operator|.
 name|warn
