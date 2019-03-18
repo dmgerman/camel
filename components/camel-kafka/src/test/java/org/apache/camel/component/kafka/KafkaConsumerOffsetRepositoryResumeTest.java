@@ -340,13 +340,6 @@ name|InterruptedException
 block|{
 name|result
 operator|.
-name|expectedMessageCount
-argument_list|(
-literal|3
-argument_list|)
-expr_stmt|;
-name|result
-operator|.
 name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 literal|"message-6"
@@ -360,7 +353,7 @@ name|result
 operator|.
 name|assertIsSatisfied
 argument_list|(
-literal|3000
+literal|5000
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -458,6 +451,8 @@ operator|+
 name|TOPIC
 operator|+
 literal|"?groupId=A"
+operator|+
+literal|"&autoCommitIntervalMs=1000"
 operator|+
 literal|"&autoOffsetReset=earliest"
 comment|// Ask to start from the beginning if we have unknown offset
