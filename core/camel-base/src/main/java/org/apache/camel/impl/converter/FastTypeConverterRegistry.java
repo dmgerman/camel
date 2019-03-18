@@ -132,20 +132,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|PackageScanClassResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|TypeConverterLoader
 import|;
 end_import
@@ -264,24 +250,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 comment|// pass in null to base class as we load all type converters without package scanning
-name|setAnnotationScanning
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|initAnnotationTypeConverterLoader (PackageScanClassResolver resolver)
-specifier|protected
-name|void
-name|initAnnotationTypeConverterLoader
-parameter_list|(
-name|PackageScanClassResolver
-name|resolver
-parameter_list|)
-block|{
-comment|// noop
 block|}
 annotation|@
 name|Override

@@ -251,8 +251,6 @@ name|AbstractTypeConverterGenerator
 extends|extends
 name|AbstractCamelAnnotationProcessor
 block|{
-comment|// TODO: generate so you dont need to pass in CamelContext but register into a java set/thingy
-comment|// so you can init this via static initializer block { ... } and then register on CamelContext later
 DECL|class|ClassConverters
 specifier|public
 specifier|static
@@ -1810,6 +1808,27 @@ argument_list|(
 literal|"() {\n"
 argument_list|)
 expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"    }\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"    private void registerConverters() {\n"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|Map
@@ -2036,6 +2055,13 @@ name|writer
 operator|.
 name|append
 argument_list|(
+literal|"            registerConverters();\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
 literal|"            converters.forEach((k, v, c) -> registry.addTypeConverter(k, v, c));\n"
 argument_list|)
 expr_stmt|;
@@ -2063,6 +2089,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"        registerConverters();\n"
+argument_list|)
+expr_stmt|;
 name|writer
 operator|.
 name|append
