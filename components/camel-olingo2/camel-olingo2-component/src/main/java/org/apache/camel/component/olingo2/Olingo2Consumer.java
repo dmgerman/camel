@@ -716,8 +716,14 @@ if|if
 condition|(
 name|result
 operator|instanceof
-name|ODataEntry
+name|List
 condition|)
+block|{
+return|return
+name|result
+return|;
+block|}
+else|else
 block|{
 name|splitResult
 operator|.
