@@ -62,11 +62,11 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// triggers every 2th second at precise 00,02,04,06..58
+comment|// triggers every 1th second at precise 00,01,02,03..59
 comment|// notice we must use + as space when configured using URI parameter
 name|from
 argument_list|(
-literal|"quartz2://myGroup/myTimerName?durableJob=true&recoverableJob=true&cron=0/2+*+*+*+*+?"
+literal|"quartz2://myGroup/myTimerName?durableJob=true&recoverableJob=true&cron=0/1+*+*+*+*+?"
 argument_list|)
 operator|.
 name|to
