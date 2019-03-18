@@ -82,26 +82,6 @@ name|Configuration
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|jooq
-operator|.
-name|Table
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jooq
-operator|.
-name|UpdatableRecord
-import|;
-end_import
-
 begin_class
 annotation|@
 name|UriParams
@@ -188,6 +168,18 @@ name|boolean
 name|consumeDelete
 init|=
 literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"SQL query."
+argument_list|)
+DECL|field|query
+specifier|private
+name|String
+name|query
 decl_stmt|;
 DECL|field|databaseConfiguration
 specifier|private
@@ -307,6 +299,32 @@ operator|.
 name|consumeDelete
 operator|=
 name|consumeDelete
+expr_stmt|;
+block|}
+DECL|method|getQuery ()
+specifier|public
+name|String
+name|getQuery
+parameter_list|()
+block|{
+return|return
+name|query
+return|;
+block|}
+DECL|method|setQuery (String query)
+specifier|public
+name|void
+name|setQuery
+parameter_list|(
+name|String
+name|query
+parameter_list|)
+block|{
+name|this
+operator|.
+name|query
+operator|=
+name|query
 expr_stmt|;
 block|}
 DECL|method|copy ()
