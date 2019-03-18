@@ -527,17 +527,17 @@ operator|new
 name|StaxConverter
 argument_list|()
 decl_stmt|;
-DECL|field|prettyPrint
+DECL|field|defaultPrettyPrint
 specifier|private
 name|boolean
-name|prettyPrint
+name|defaultPrettyPrint
 init|=
 literal|true
 decl_stmt|;
-DECL|field|objectFactory
+DECL|field|defaultObjectFactory
 specifier|private
 name|boolean
-name|objectFactory
+name|defaultObjectFactory
 decl_stmt|;
 DECL|method|isPrettyPrint ()
 specifier|public
@@ -546,7 +546,7 @@ name|isPrettyPrint
 parameter_list|()
 block|{
 return|return
-name|prettyPrint
+name|defaultPrettyPrint
 return|;
 block|}
 comment|/**      * Whether the JAXB converter should use pretty print or not (default is true)      */
@@ -561,7 +561,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|prettyPrint
+name|defaultPrettyPrint
 operator|=
 name|prettyPrint
 expr_stmt|;
@@ -573,7 +573,7 @@ name|isObjectFactory
 parameter_list|()
 block|{
 return|return
-name|objectFactory
+name|defaultObjectFactory
 return|;
 block|}
 comment|/**      * Whether the JAXB converter supports using ObjectFactory classes to create the POJO classes during conversion.      * This only applies to POJO classes that has not been annotated with JAXB and providing jaxb.index descriptor files.      */
@@ -588,7 +588,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|objectFactory
+name|defaultObjectFactory
 operator|=
 name|objectFactory
 expr_stmt|;
@@ -650,6 +650,11 @@ return|return
 literal|null
 return|;
 block|}
+name|boolean
+name|prettyPrint
+init|=
+name|defaultPrettyPrint
+decl_stmt|;
 name|String
 name|property
 init|=
@@ -686,22 +691,25 @@ literal|"false"
 argument_list|)
 condition|)
 block|{
-name|setPrettyPrint
-argument_list|(
+name|prettyPrint
+operator|=
 literal|false
-argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
-name|setPrettyPrint
-argument_list|(
+name|prettyPrint
+operator|=
 literal|true
-argument_list|)
 expr_stmt|;
 block|}
 block|}
 comment|// configure object factory
+name|boolean
+name|objectFactory
+init|=
+name|defaultObjectFactory
+decl_stmt|;
 name|property
 operator|=
 name|exchange
@@ -737,18 +745,16 @@ literal|"false"
 argument_list|)
 condition|)
 block|{
-name|setObjectFactory
-argument_list|(
+name|objectFactory
+operator|=
 literal|false
-argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
-name|setObjectFactory
-argument_list|(
+name|objectFactory
+operator|=
 literal|true
-argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -761,6 +767,8 @@ argument_list|(
 name|type
 argument_list|,
 name|exchange
+argument_list|,
+name|objectFactory
 argument_list|)
 condition|)
 block|{
@@ -824,13 +832,14 @@ name|getTypeConverter
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+name|prettyPrint
 argument_list|)
 return|;
 block|}
 if|if
 condition|(
-name|isObjectFactory
-argument_list|()
+name|objectFactory
 condition|)
 block|{
 name|Method
@@ -876,6 +885,8 @@ name|getTypeConverter
 argument_list|()
 argument_list|,
 name|objectFactoryMethod
+argument_list|,
+name|prettyPrint
 argument_list|)
 return|;
 block|}
@@ -933,7 +944,7 @@ operator|!=
 literal|null
 return|;
 block|}
-DECL|method|isJaxbType (Class<T> type, Exchange exchange)
+DECL|method|isJaxbType (Class<T> type, Exchange exchange, boolean objectFactory)
 specifier|protected
 parameter_list|<
 name|T
@@ -949,12 +960,14 @@ name|type
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|boolean
+name|objectFactory
 parameter_list|)
 block|{
 if|if
 condition|(
-name|isObjectFactory
-argument_list|()
+name|objectFactory
 condition|)
 block|{
 return|return
@@ -1379,7 +1392,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|marshall (Class<T> type, Exchange exchange, Object value, TypeConverter converter, Method objectFactoryMethod)
+DECL|method|marshall (Class<T> type, Exchange exchange, Object value, TypeConverter converter, Method objectFactoryMethod, boolean prettyPrint)
 specifier|protected
 parameter_list|<
 name|T
@@ -1404,6 +1417,9 @@ name|converter
 parameter_list|,
 name|Method
 name|objectFactoryMethod
+parameter_list|,
+name|boolean
+name|prettyPrint
 parameter_list|)
 throws|throws
 name|JAXBException
@@ -1466,8 +1482,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|isPrettyPrint
-argument_list|()
+name|prettyPrint
 condition|)
 block|{
 name|marshaller
