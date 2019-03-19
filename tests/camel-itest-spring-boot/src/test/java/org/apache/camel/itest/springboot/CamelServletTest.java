@@ -167,6 +167,11 @@ argument_list|)
 comment|//                .dependency(DependencyResolver.withVersion("org.springframework.boot:spring-boot-starter-web"))
 comment|//                .dependency(DependencyResolver.withVersion("org.springframework:spring-webmvc"))
 operator|.
+name|dependency
+argument_list|(
+literal|"javax.servlet:javax.servlet-api"
+argument_list|)
+operator|.
 name|unitTestExclusionPattern
 argument_list|(
 literal|".*(\\.integration\\..*|IntegrationTest$|ExposedServletEndpointURIToJMXTest$.*Arquillian.*)"
