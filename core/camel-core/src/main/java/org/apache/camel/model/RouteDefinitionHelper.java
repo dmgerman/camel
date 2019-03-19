@@ -990,6 +990,7 @@ name|id
 argument_list|)
 expr_stmt|;
 block|}
+comment|// if its the rest/rest-api endpoints then they should include the route id as well
 if|if
 condition|(
 name|ObjectHelper
@@ -1027,6 +1028,22 @@ name|isNotEmpty
 argument_list|(
 name|endpointUri
 argument_list|)
+operator|&&
+operator|(
+name|endpointUri
+operator|.
+name|startsWith
+argument_list|(
+literal|"rest:"
+argument_list|)
+operator|||
+name|endpointUri
+operator|.
+name|startsWith
+argument_list|(
+literal|"rest-api:"
+argument_list|)
+operator|)
 condition|)
 block|{
 name|Map
@@ -1044,7 +1061,9 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-argument_list|()
+argument_list|(
+literal|1
+argument_list|)
 decl_stmt|;
 name|options
 operator|.
