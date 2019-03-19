@@ -165,6 +165,11 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|dependency
+argument_list|(
+literal|"javax.servlet:javax.servlet-api"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;
