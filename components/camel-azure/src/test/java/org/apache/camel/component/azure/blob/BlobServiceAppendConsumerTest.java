@@ -227,8 +227,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:start"
 argument_list|)
 DECL|field|templateStart
