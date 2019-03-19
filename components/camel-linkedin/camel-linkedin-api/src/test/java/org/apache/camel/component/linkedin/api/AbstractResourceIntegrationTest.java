@@ -516,6 +516,17 @@ operator|(
 name|expiryTime
 operator|!=
 literal|null
+operator|&&
+operator|!
+literal|""
+operator|.
+name|equals
+argument_list|(
+name|expiryTime
+operator|.
+name|trim
+argument_list|()
+argument_list|)
 operator|)
 condition|?
 name|Long

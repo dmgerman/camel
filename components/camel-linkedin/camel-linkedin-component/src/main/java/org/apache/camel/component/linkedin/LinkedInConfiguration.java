@@ -503,7 +503,7 @@ return|return
 name|expiryTime
 return|;
 block|}
-comment|/**      * A number of milliseconds since the UNIX Epoch. The default is 60 days.       * A LinkedIn access token expires when this amount of time elapses after the token is in use.       */
+comment|/**      * A number of milliseconds since the UNIX Epoch. The default is 60 days.      * A LinkedIn access token expires when this amount of time elapses after the token is in use.      */
 DECL|method|setExpiryTime (Long expiryTime)
 specifier|public
 name|void
@@ -889,6 +889,27 @@ name|other
 operator|.
 name|lazyAuth
 operator|)
+operator|&&
+operator|(
+name|accessToken
+operator|==
+literal|null
+condition|?
+name|other
+operator|.
+name|accessToken
+operator|==
+literal|null
+else|:
+name|accessToken
+operator|.
+name|equals
+argument_list|(
+name|other
+operator|.
+name|accessToken
+argument_list|)
+operator|)
 return|;
 block|}
 return|return
@@ -953,6 +974,11 @@ argument_list|(
 name|lazyAuth
 argument_list|)
 operator|.
+name|append
+argument_list|(
+name|accessToken
+argument_list|)
+operator|.
 name|toHashCode
 argument_list|()
 return|;
@@ -964,6 +990,17 @@ name|validate
 parameter_list|()
 throws|throws
 name|IllegalArgumentException
+block|{
+comment|//if access token is null, authentication credentials have to be validated
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|accessToken
+argument_list|)
+condition|)
 block|{
 name|StringHelper
 operator|.
@@ -1014,6 +1051,88 @@ argument_list|,
 literal|"clientSecret"
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|//if accessToken is net, other parameters hav to be empty
+if|if
+condition|(
+operator|!
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|userName
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Property accessToken can not be defined if property userName is set"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+operator|!
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|userPassword
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Property accessToken can not be defined if property userPassword is set"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+operator|!
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|clientId
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Property accessToken can not be defined if property clientId is set"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+operator|!
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|clientSecret
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Property accessToken can not be defined if property clientSecret is set"
+argument_list|)
+throw|;
+block|}
+block|}
+comment|//redirectUri has to be valid for both cases
 name|StringHelper
 operator|.
 name|notEmpty
