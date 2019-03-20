@@ -595,6 +595,41 @@ name|bean
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Binds the bean to the repository (if possible).      *      * @param id   the id of the bean      * @param type the type of the bean to associate the binding      * @param bean the bean      */
+DECL|method|bindToRegistry (String id, Class<?> type, Object bean)
+specifier|public
+name|void
+name|bindToRegistry
+parameter_list|(
+name|String
+name|id
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|,
+name|Object
+name|bean
+parameter_list|)
+block|{
+name|getContext
+argument_list|()
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|bind
+argument_list|(
+name|id
+argument_list|,
+name|type
+argument_list|,
+name|bean
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Configures the REST services      *      * @return the builder      */
 DECL|method|restConfiguration ()
 specifier|public
