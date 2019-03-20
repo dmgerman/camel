@@ -893,11 +893,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
 name|Test
 DECL|method|testCreateUpdateDelete ()
 specifier|public
@@ -1221,11 +1216,6 @@ return|return
 name|data
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 annotation|@
 name|Test
 DECL|method|testBatch ()
@@ -2077,11 +2067,6 @@ block|}
 block|}
 block|}
 comment|/**      * Read value of the People object and split the results      * into individual messages      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 annotation|@
 name|Test
 DECL|method|testConsumerReadClientValuesSplitResults ()
