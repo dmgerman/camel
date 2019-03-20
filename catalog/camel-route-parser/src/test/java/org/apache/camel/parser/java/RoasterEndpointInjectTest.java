@@ -348,7 +348,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|1062
+literal|1061
 argument_list|,
 name|details
 operator|.
@@ -433,7 +433,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|1145
+literal|1144
 argument_list|,
 name|details
 operator|.
@@ -518,7 +518,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|1203
+literal|1202
 argument_list|,
 name|details
 operator|.
@@ -604,7 +604,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|1457
+literal|1456
 argument_list|,
 name|details
 operator|.
