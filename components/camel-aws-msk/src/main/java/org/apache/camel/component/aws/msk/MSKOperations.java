@@ -34,6 +34,9 @@ name|createCluster
 block|,
 DECL|enumConstant|deleteCluster
 name|deleteCluster
+block|,
+DECL|enumConstant|describeCluster
+name|describeCluster
 block|}
 end_enum
 
