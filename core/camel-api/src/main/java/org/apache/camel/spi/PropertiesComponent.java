@@ -150,6 +150,24 @@ name|boolean
 name|ignoreMissingLocation
 parameter_list|)
 function_decl|;
+comment|/**      * Sets initial properties which will be added before any property locations are loaded.      */
+DECL|method|setInitialProperties (Properties initialProperties)
+name|void
+name|setInitialProperties
+parameter_list|(
+name|Properties
+name|initialProperties
+parameter_list|)
+function_decl|;
+comment|/**      * Sets a special list of override properties that take precedence      * and will use first, if a property exist.      */
+DECL|method|setOverrideProperties (Properties overrideProperties)
+name|void
+name|setOverrideProperties
+parameter_list|(
+name|Properties
+name|overrideProperties
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
