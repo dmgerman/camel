@@ -439,7 +439,7 @@ operator|=
 name|indexType
 expr_stmt|;
 block|}
-comment|/**      * Comma separated list with ip:port formatted remote transport addresses to use.      * The ip and port options must be left blank for hostAddresses to be considered instead.      */
+comment|/**      * Comma separated list with ip:port formatted remote transport addresses to use.      */
 DECL|method|getHostAddresses ()
 specifier|public
 name|String
