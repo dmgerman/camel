@@ -104,11 +104,6 @@ name|AbstractLRATestSupport
 block|{
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"https://issues.jboss.org/browse/JBTM-2979"
-argument_list|)
 DECL|method|testTimeoutCalledCorrectly ()
 specifier|public
 name|void

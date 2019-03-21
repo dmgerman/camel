@@ -39,6 +39,20 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+operator|.
+name|SECONDS
+import|;
+end_import
+
+begin_import
 import|import
 name|javax
 operator|.
@@ -194,6 +208,30 @@ name|Before
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|awaitility
+operator|.
+name|Awaitility
+operator|.
+name|await
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for LRA based tests.  */
 end_comment
@@ -245,6 +283,29 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|await
+argument_list|()
+operator|.
+name|atMost
+argument_list|(
+literal|2
+argument_list|,
+name|SECONDS
+argument_list|)
+operator|.
+name|until
+argument_list|(
+parameter_list|()
+lambda|->
+name|getNumberOfActiveLRAs
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+name|activeLRAs
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|Assert
 operator|.
 name|assertEquals

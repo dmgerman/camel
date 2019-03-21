@@ -97,11 +97,6 @@ name|maxFailures
 decl_stmt|;
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"https://issues.jboss.org/browse/JBTM-2978"
-argument_list|)
 DECL|method|testCompensationAfterFailures ()
 specifier|public
 name|void
@@ -155,11 +150,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"https://issues.jboss.org/browse/JBTM-2977"
-argument_list|)
 DECL|method|testCompletionAfterFailures ()
 specifier|public
 name|void

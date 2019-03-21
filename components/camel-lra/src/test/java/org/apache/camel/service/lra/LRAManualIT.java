@@ -220,11 +220,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"https://issues.jboss.org/browse/JBTM-2979"
-argument_list|)
 DECL|method|testTimeout ()
 specifier|public
 name|void
