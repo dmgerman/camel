@@ -835,6 +835,14 @@ name|source
 operator|.
 name|charsetName
 expr_stmt|;
+name|target
+operator|.
+name|maxConcurrentConsumers
+operator|=
+name|source
+operator|.
+name|maxConcurrentConsumers
+expr_stmt|;
 block|}
 block|}
 DECL|method|copy ()
