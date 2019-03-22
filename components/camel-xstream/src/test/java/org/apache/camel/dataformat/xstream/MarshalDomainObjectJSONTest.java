@@ -261,7 +261,11 @@ name|marshal
 argument_list|()
 operator|.
 name|json
-argument_list|()
+argument_list|(
+name|JsonLibrary
+operator|.
+name|XStream
+argument_list|)
 operator|.
 name|to
 argument_list|(
@@ -278,7 +282,11 @@ name|marshal
 argument_list|()
 operator|.
 name|json
-argument_list|()
+argument_list|(
+name|JsonLibrary
+operator|.
+name|XStream
+argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
@@ -314,6 +322,10 @@ argument_list|()
 operator|.
 name|json
 argument_list|(
+name|JsonLibrary
+operator|.
+name|XStream
+argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;

@@ -80,6 +80,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// jackson is default for json
 name|from
 argument_list|(
 literal|"direct:in"
@@ -89,11 +90,7 @@ name|marshal
 argument_list|()
 operator|.
 name|json
-argument_list|(
-name|JsonLibrary
-operator|.
-name|Jackson
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|from
 argument_list|(
@@ -104,11 +101,7 @@ name|unmarshal
 argument_list|()
 operator|.
 name|json
-argument_list|(
-name|JsonLibrary
-operator|.
-name|Jackson
-argument_list|)
+argument_list|()
 operator|.
 name|to
 argument_list|(
@@ -125,10 +118,6 @@ argument_list|()
 operator|.
 name|json
 argument_list|(
-name|JsonLibrary
-operator|.
-name|Jackson
-argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
@@ -141,11 +130,7 @@ name|unmarshal
 argument_list|()
 operator|.
 name|json
-argument_list|(
-name|JsonLibrary
-operator|.
-name|Jackson
-argument_list|)
+argument_list|()
 operator|.
 name|to
 argument_list|(

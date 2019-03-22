@@ -254,7 +254,7 @@ name|Metadata
 argument_list|(
 name|defaultValue
 operator|=
-literal|"XStream"
+literal|"Jackson"
 argument_list|)
 DECL|field|library
 specifier|private
@@ -263,7 +263,7 @@ name|library
 init|=
 name|JsonLibrary
 operator|.
-name|XStream
+name|Jackson
 decl_stmt|;
 annotation|@
 name|XmlAttribute
