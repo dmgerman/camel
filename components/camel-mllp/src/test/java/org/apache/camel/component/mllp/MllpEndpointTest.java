@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests for the MllpEndpoint class.  *  * @author vishal423  */
+comment|/**  * Tests for the MllpEndpoint class.  */
 end_comment
 
 begin_class
