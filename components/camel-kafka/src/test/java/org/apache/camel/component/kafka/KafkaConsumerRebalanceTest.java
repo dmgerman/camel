@@ -334,8 +334,6 @@ block|{
 DECL|field|messagesLatch
 name|CountDownLatch
 name|messagesLatch
-init|=
-literal|null
 decl_stmt|;
 DECL|method|OffsetStateRepository (CountDownLatch messagesLatch)
 specifier|public

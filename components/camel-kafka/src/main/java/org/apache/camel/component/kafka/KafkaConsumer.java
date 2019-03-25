@@ -943,7 +943,8 @@ name|getProps
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// pre-initialize task during startup so if there is any error we have it thrown asap
+comment|// pre-initialize task during startup so if there is any error we
+comment|// have it thrown asap
 name|task
 operator|.
 name|preInit
@@ -1250,7 +1251,8 @@ operator|!
 name|first
 condition|)
 block|{
-comment|// re-initialize on re-connect so we have a fresh consumer
+comment|// re-initialize on re-connect so we have a fresh
+comment|// consumer
 name|doInit
 argument_list|()
 expr_stmt|;
@@ -1339,7 +1341,8 @@ name|first
 operator|=
 literal|false
 expr_stmt|;
-comment|// doRun keeps running until we either shutdown or is told to re-connect
+comment|// doRun keeps running until we either shutdown or is told to
+comment|// re-connect
 name|reConnect
 operator|=
 name|doRun
@@ -1376,7 +1379,8 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-comment|// Kafka uses reflection for loading authentication settings, use its classloader
+comment|// Kafka uses reflection for loading authentication settings,
+comment|// use its classloader
 name|Thread
 operator|.
 name|currentThread
@@ -1402,7 +1406,8 @@ name|getClassLoader
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// this may throw an exception if something is wrong with kafka consumer
+comment|// this may throw an exception if something is wrong with kafka
+comment|// consumer
 name|this
 operator|.
 name|consumer
@@ -1449,7 +1454,8 @@ name|boolean
 name|doRun
 parameter_list|()
 block|{
-comment|// allow to re-connect thread in case we use that to retry failed messages
+comment|// allow to re-connect thread in case we use that to retry failed
+comment|// messages
 name|boolean
 name|reConnect
 init|=
@@ -1546,7 +1552,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// This poll to ensures we have an assigned partition otherwise seek won't work
+comment|// This poll to ensures we have an assigned partition
+comment|// otherwise seek won't work
 name|ConsumerRecords
 name|poll
 init|=
@@ -1600,7 +1607,8 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// The state contains the last read offset so you need to seek from the next one
+comment|// The state contains the last read offset so you
+comment|// need to seek from the next one
 name|long
 name|offset
 init|=
@@ -1637,8 +1645,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// If the init poll has returned some data of a currently unknown topic/partition in the state
-comment|// then resume from their offset in order to avoid losing data
+comment|// If the init poll has returned some data of a
+comment|// currently unknown topic/partition in the state
+comment|// then resume from their offset in order to avoid
+comment|// losing data
 name|List
 argument_list|<
 name|ConsumerRecord
@@ -1747,7 +1757,8 @@ argument_list|,
 name|topicName
 argument_list|)
 expr_stmt|;
-comment|// This poll to ensures we have an assigned partition otherwise seek won't work
+comment|// This poll to ensures we have an assigned partition
+comment|// otherwise seek won't work
 name|consumer
 operator|.
 name|poll
@@ -1794,7 +1805,8 @@ argument_list|,
 name|topicName
 argument_list|)
 expr_stmt|;
-comment|// This poll to ensures we have an assigned partition otherwise seek won't work
+comment|// This poll to ensures we have an assigned partition
+comment|// otherwise seek won't work
 name|consumer
 operator|.
 name|poll
@@ -2017,7 +2029,8 @@ name|getConfiguration
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// if not auto commit then we have additional information on the exchange
+comment|// if not auto commit then we have additional
+comment|// information on the exchange
 if|if
 condition|(
 operator|!
@@ -2055,7 +2068,9 @@ name|isAllowManualCommit
 argument_list|()
 condition|)
 block|{
-comment|// allow Camel users to access the Kafka consumer API to be able to do for example manual commits
+comment|// allow Camel users to access the Kafka
+comment|// consumer API to be able to do for example
+comment|// manual commits
 name|KafkaManualCommit
 name|manual
 init|=
@@ -2136,7 +2151,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// processing failed due to an unhandled exception, what should we do
+comment|// processing failed due to an unhandled
+comment|// exception, what should we do
 if|if
 condition|(
 name|endpoint
@@ -2148,7 +2164,8 @@ name|isBreakOnFirstError
 argument_list|()
 condition|)
 block|{
-comment|// we are failing and we should break out
+comment|// we are failing and we should break
+comment|// out
 name|log
 operator|.
 name|warn
@@ -2162,7 +2179,8 @@ argument_list|,
 name|partitionLastOffset
 argument_list|)
 expr_stmt|;
-comment|// force commit so we resume on next poll where we failed
+comment|// force commit so we resume on next
+comment|// poll where we failed
 name|commitOffset
 argument_list|(
 name|offsetRepository
@@ -2182,7 +2200,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// will handle/log the exception and then continue to next
+comment|// will handle/log the exception and
+comment|// then continue to next
 name|getExceptionHandler
 argument_list|()
 operator|.
@@ -2210,7 +2229,9 @@ operator|.
 name|offset
 argument_list|()
 expr_stmt|;
-comment|//lastOffsetProcessed would be used by Consumer re-balance listener to preserve offset state upon partition revoke
+comment|// lastOffsetProcessed would be used by
+comment|// Consumer re-balance listener to preserve
+comment|// offset state upon partition revoke
 name|lastProcessedOffset
 operator|.
 name|put
@@ -2231,7 +2252,8 @@ operator|!
 name|breakOnErrorHit
 condition|)
 block|{
-comment|// all records processed from partition so commit them
+comment|// all records processed from partition so
+comment|// commit them
 name|commitOffset
 argument_list|(
 name|offsetRepository
@@ -2412,7 +2434,8 @@ name|KafkaException
 name|e
 parameter_list|)
 block|{
-comment|// some kind of error in kafka, it may happen during unsubscribing or during normal processing
+comment|// some kind of error in kafka, it may happen during
+comment|// unsubscribing or during normal processing
 if|if
 condition|(
 name|unsubscribing
@@ -2622,7 +2645,8 @@ name|void
 name|shutdown
 parameter_list|()
 block|{
-comment|// As advised in the KAFKA-1894 ticket, calling this wakeup method breaks the infinite loop
+comment|// As advised in the KAFKA-1894 ticket, calling this wakeup method
+comment|// breaks the infinite loop
 name|consumer
 operator|.
 name|wakeup
@@ -2706,7 +2730,7 @@ block|{
 name|offset
 operator|=
 operator|-
-literal|1l
+literal|1L
 expr_stmt|;
 block|}
 name|log
@@ -2824,7 +2848,8 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// The state contains the last read offset so you need to seek from the next one
+comment|// The state contains the last read offset so you need
+comment|// to seek from the next one
 name|long
 name|offset
 init|=
