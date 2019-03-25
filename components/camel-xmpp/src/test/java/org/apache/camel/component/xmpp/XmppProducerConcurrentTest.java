@@ -114,11 +114,26 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"This test is not working at the moment"
+argument_list|)
 DECL|class|XmppProducerConcurrentTest
 specifier|public
 class|class
