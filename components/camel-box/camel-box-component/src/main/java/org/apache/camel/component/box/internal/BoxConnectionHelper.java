@@ -1160,7 +1160,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Validation of page:      * - detects invalid credentials error      * - detects wrong clientId error      */
+comment|/**      * Validation of page:      * - detects CAPTCHA test      * - detects invalid credentials error      * - detects wrong clientId error      */
 DECL|method|validatePage (Document page)
 specifier|private
 specifier|static
@@ -1171,6 +1171,33 @@ name|Document
 name|page
 parameter_list|)
 block|{
+name|Elements
+name|captchaDivs
+init|=
+name|page
+operator|.
+name|select
+argument_list|(
+literal|"div[class*=g-recaptcha]"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|captchaDivs
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Authentication requires CAPTCHA test. First you need to authenticate the account manually via web to unlock CAPTCHA."
+argument_list|)
+throw|;
+block|}
 name|Elements
 name|errorDivs
 init|=
