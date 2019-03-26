@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.util
+DECL|package|org.apache.camel.component.caffeine.lrucache
 package|package
 name|org
 operator|.
@@ -12,7 +12,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|component
+operator|.
+name|caffeine
+operator|.
+name|lrucache
 package|;
 end_package
 
@@ -70,25 +74,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|camel
-operator|.
-name|TestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|LRUSoftCache
+name|Assert
 import|;
 end_import
 
@@ -102,17 +90,27 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|LRUSoftCacheTest
+DECL|class|CaffeineLRUSoftCacheTest
 specifier|public
 class|class
-name|LRUSoftCacheTest
-extends|extends
-name|TestSupport
+name|CaffeineLRUSoftCacheTest
 block|{
 annotation|@
 name|Test
@@ -124,7 +122,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<
 name|Integer
 argument_list|,
@@ -133,7 +131,7 @@ argument_list|>
 name|cache
 init|=
 operator|new
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<>
 argument_list|(
 literal|1000
@@ -214,7 +212,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<
 name|Integer
 argument_list|,
@@ -223,7 +221,7 @@ argument_list|>
 name|cache
 init|=
 operator|new
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<>
 argument_list|(
 literal|1000
@@ -359,7 +357,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<
 name|Integer
 argument_list|,
@@ -368,7 +366,7 @@ argument_list|>
 name|cache
 init|=
 operator|new
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<>
 argument_list|(
 literal|1000
@@ -386,6 +384,8 @@ argument_list|,
 literal|"foo"
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertNull
 argument_list|(
 name|old
@@ -402,6 +402,8 @@ argument_list|,
 literal|"bar"
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertNull
 argument_list|(
 name|old
@@ -482,7 +484,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<
 name|Integer
 argument_list|,
@@ -491,7 +493,7 @@ argument_list|>
 name|cache
 init|=
 operator|new
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<>
 argument_list|(
 literal|1000
@@ -592,7 +594,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<
 name|Integer
 argument_list|,
@@ -601,13 +603,13 @@ argument_list|>
 name|cache
 init|=
 operator|new
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<>
 argument_list|(
 literal|1000
 argument_list|)
 decl_stmt|;
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<
 name|Integer
 argument_list|,
@@ -616,7 +618,7 @@ argument_list|>
 name|cache2
 init|=
 operator|new
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<>
 argument_list|(
 literal|1000
@@ -704,7 +706,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<
 name|Integer
 argument_list|,
@@ -713,7 +715,7 @@ argument_list|>
 name|cache
 init|=
 operator|new
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<>
 argument_list|(
 literal|1000
@@ -779,7 +781,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<
 name|Integer
 argument_list|,
@@ -788,7 +790,7 @@ argument_list|>
 name|cache
 init|=
 operator|new
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<>
 argument_list|(
 literal|1000
@@ -875,7 +877,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<
 name|Integer
 argument_list|,
@@ -884,12 +886,14 @@ argument_list|>
 name|cache
 init|=
 operator|new
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<>
 argument_list|(
 literal|1000
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 name|cache
@@ -907,6 +911,8 @@ argument_list|,
 literal|"foo"
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertFalse
 argument_list|(
 name|cache
@@ -924,6 +930,8 @@ argument_list|,
 literal|"bar"
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertFalse
 argument_list|(
 name|cache
@@ -939,6 +947,8 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertFalse
 argument_list|(
 name|cache
@@ -952,6 +962,8 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 name|cache
@@ -971,7 +983,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<
 name|Integer
 argument_list|,
@@ -980,12 +992,14 @@ argument_list|>
 name|cache
 init|=
 operator|new
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<>
 argument_list|(
 literal|1000
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertFalse
 argument_list|(
 name|cache
@@ -1005,6 +1019,8 @@ argument_list|,
 literal|"foo"
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 name|cache
@@ -1015,6 +1031,8 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertFalse
 argument_list|(
 name|cache
@@ -1034,6 +1052,8 @@ argument_list|,
 literal|"foo"
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 name|cache
@@ -1049,6 +1069,8 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|Assert
+operator|.
 name|assertFalse
 argument_list|(
 name|cache
@@ -1059,6 +1081,8 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertFalse
 argument_list|(
 name|cache
@@ -1080,7 +1104,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<
 name|Integer
 argument_list|,
@@ -1089,7 +1113,7 @@ argument_list|>
 name|cache
 init|=
 operator|new
-name|LRUSoftCache
+name|CaffeineLRUSoftCache
 argument_list|<>
 argument_list|(
 literal|1000

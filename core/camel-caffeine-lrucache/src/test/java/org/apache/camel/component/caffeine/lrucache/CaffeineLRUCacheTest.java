@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.util
+DECL|package|org.apache.camel.component.caffeine.lrucache
 package|package
 name|org
 operator|.
@@ -12,7 +12,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|component
+operator|.
+name|caffeine
+operator|.
+name|lrucache
 package|;
 end_package
 
@@ -72,13 +76,47 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertSame
+import|;
+end_import
+
 begin_class
-DECL|class|LRUCacheTest
+DECL|class|CaffeineLRUCacheTest
 specifier|public
 class|class
-name|LRUCacheTest
-extends|extends
-name|Assert
+name|CaffeineLRUCacheTest
 block|{
 DECL|field|cache
 specifier|private
@@ -104,7 +142,7 @@ comment|// for testing use sync listener
 name|cache
 operator|=
 operator|new
-name|LRUCache
+name|CaffeineLRUCache
 argument_list|<>
 argument_list|(
 literal|10

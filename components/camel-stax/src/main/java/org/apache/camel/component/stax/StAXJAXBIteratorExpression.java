@@ -214,7 +214,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|LRUSoftCache
+name|LRUCacheFactory
 import|;
 end_import
 
@@ -280,9 +280,9 @@ name|JAXBContext
 argument_list|>
 name|JAX_CONTEXTS
 init|=
-operator|new
-name|LRUSoftCache
-argument_list|<>
+name|LRUCacheFactory
+operator|.
+name|newLRUSoftCache
 argument_list|(
 literal|1000
 argument_list|)

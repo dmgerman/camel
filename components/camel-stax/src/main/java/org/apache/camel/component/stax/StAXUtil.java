@@ -66,7 +66,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|LRUSoftCache
+name|LRUCacheFactory
 import|;
 end_import
 
@@ -92,9 +92,9 @@ name|String
 argument_list|>
 name|TAG_NAMES
 init|=
-operator|new
-name|LRUSoftCache
-argument_list|<>
+name|LRUCacheFactory
+operator|.
+name|newLRUSoftCache
 argument_list|(
 literal|1000
 argument_list|)

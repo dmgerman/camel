@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|groovy
 operator|.
 name|lang
@@ -66,7 +76,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|LRUSoftCache
+name|LRUCacheFactory
 import|;
 end_import
 
@@ -115,7 +125,7 @@ comment|// Cache used to stores the compiled scripts (aka their classes)
 DECL|field|scriptCache
 specifier|private
 specifier|final
-name|LRUSoftCache
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -123,9 +133,9 @@ name|GroovyClassService
 argument_list|>
 name|scriptCache
 init|=
-operator|new
-name|LRUSoftCache
-argument_list|<>
+name|LRUCacheFactory
+operator|.
+name|newLRUSoftCache
 argument_list|(
 literal|16
 argument_list|,
