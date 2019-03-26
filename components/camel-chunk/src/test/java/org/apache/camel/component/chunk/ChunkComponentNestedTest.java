@@ -125,8 +125,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:endSimple"
 argument_list|)
 DECL|field|endSimpleMock
@@ -137,8 +135,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:startSimple"
 argument_list|)
 DECL|field|startSimpleProducerTemplate
