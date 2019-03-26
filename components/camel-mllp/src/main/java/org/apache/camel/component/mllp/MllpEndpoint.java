@@ -1377,6 +1377,23 @@ name|charsetName
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setMaxConcurrentConsumers (int maxConcurrentConsumers)
+specifier|public
+name|void
+name|setMaxConcurrentConsumers
+parameter_list|(
+name|int
+name|maxConcurrentConsumers
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setMaxConcurrentConsumers
+argument_list|(
+name|maxConcurrentConsumers
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Utility methods for producers and consumers
 DECL|method|checkBeforeSendProperties (Exchange exchange, Socket socket, Logger log)
 specifier|public
