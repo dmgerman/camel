@@ -628,23 +628,7 @@ name|test
 operator|.
 name|spring
 operator|.
-name|CamelSpringDelegatingTestContextLoader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|spring
-operator|.
-name|CamelSpringJUnit4ClassRunner
+name|CamelSpringRunner
 import|;
 end_import
 
@@ -752,7 +736,7 @@ begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|CamelSpringJUnit4ClassRunner
+name|CamelSpringRunner
 operator|.
 name|class
 argument_list|)
@@ -766,12 +750,6 @@ name|CamelTestConfiguration
 operator|.
 name|class
 block|}
-argument_list|,
-name|loader
-operator|=
-name|CamelSpringDelegatingTestContextLoader
-operator|.
-name|class
 argument_list|)
 DECL|class|CMTest
 specifier|public
