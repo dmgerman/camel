@@ -115,12 +115,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|INSTANCE
+DECL|field|instance
 specifier|private
 specifier|static
 specifier|volatile
 name|LRUCacheFactory
-name|INSTANCE
+name|instance
 decl_stmt|;
 DECL|method|getInstance ()
 specifier|public
@@ -131,7 +131,7 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|INSTANCE
+name|instance
 operator|==
 literal|null
 condition|)
@@ -145,12 +145,12 @@ init|)
 block|{
 if|if
 condition|(
-name|INSTANCE
+name|instance
 operator|==
 literal|null
 condition|)
 block|{
-name|INSTANCE
+name|instance
 operator|=
 name|createLRUCacheFactory
 argument_list|()
@@ -159,7 +159,7 @@ block|}
 block|}
 block|}
 return|return
-name|INSTANCE
+name|instance
 return|;
 block|}
 DECL|method|createLRUCacheFactory ()
