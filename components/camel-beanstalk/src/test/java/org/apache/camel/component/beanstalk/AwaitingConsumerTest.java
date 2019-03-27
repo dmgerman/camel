@@ -177,8 +177,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"beanstalk:tube"
 argument_list|)
 DECL|field|endpoint

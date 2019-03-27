@@ -339,8 +339,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"beanstalk:tube"
 argument_list|)
 DECL|field|endpoint
@@ -351,8 +349,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|field|resultEndpoint
