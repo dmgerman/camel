@@ -318,8 +318,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:out"
 argument_list|)
 DECL|field|out
@@ -329,8 +327,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:image"
 argument_list|)
 DECL|field|image
