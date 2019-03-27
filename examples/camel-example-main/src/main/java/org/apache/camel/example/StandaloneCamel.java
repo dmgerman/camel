@@ -49,9 +49,15 @@ end_comment
 begin_class
 DECL|class|StandaloneCamel
 specifier|public
+specifier|final
 class|class
 name|StandaloneCamel
 block|{
+DECL|method|StandaloneCamel ()
+specifier|private
+name|StandaloneCamel
+parameter_list|()
+block|{     }
 DECL|method|main (String[] args)
 specifier|public
 specifier|static
