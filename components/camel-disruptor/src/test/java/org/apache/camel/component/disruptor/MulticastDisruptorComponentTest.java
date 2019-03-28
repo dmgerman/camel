@@ -172,8 +172,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result1"
 argument_list|)
 DECL|field|resultEndpoint1
@@ -184,8 +182,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result2"
 argument_list|)
 DECL|field|resultEndpoint2
@@ -196,8 +192,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"disruptor:test"
 argument_list|)
 DECL|field|template
