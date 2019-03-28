@@ -333,8 +333,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:input"
 argument_list|)
 DECL|field|producerTemplate

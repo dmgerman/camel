@@ -493,8 +493,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:input"
 argument_list|)
 DECL|field|producerTemplate
@@ -505,8 +503,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:output"
 argument_list|)
 DECL|field|output
