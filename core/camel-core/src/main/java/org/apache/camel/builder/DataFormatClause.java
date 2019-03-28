@@ -374,6 +374,22 @@ name|model
 operator|.
 name|dataformat
 operator|.
+name|JsonApiDataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
 name|JsonDataFormat
 import|;
 end_import
@@ -1983,7 +1999,7 @@ name|jacksonXMLDataFormat
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Jackson XML data format using the Jackson library turning pretty      * printing on or off      *       * @param prettyPrint      *            turn pretty printing on or off      */
+comment|/**      * Uses the Jackson XML data format using the Jackson library turning pretty      * printing on or off      *      * @param prettyPrint      *            turn pretty printing on or off      */
 DECL|method|jacksonxml (boolean prettyPrint)
 specifier|public
 name|T
@@ -2363,7 +2379,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the JSON data format using the XStream json library turning pretty printing on or off      *       * @param prettyPrint turn pretty printing on or off      */
+comment|/**      * Uses the JSON data format using the XStream json library turning pretty printing on or off      *      * @param prettyPrint turn pretty printing on or off      */
 DECL|method|json (boolean prettyPrint)
 specifier|public
 name|T
@@ -2780,6 +2796,22 @@ return|return
 name|dataFormat
 argument_list|(
 name|json
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the JSON API data format      */
+DECL|method|jsonApi ()
+specifier|public
+name|T
+name|jsonApi
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|JsonApiDataFormat
+argument_list|()
 argument_list|)
 return|;
 block|}

@@ -816,6 +816,8 @@ operator|=
 name|dataFormat
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOtherAttributes ()
 specifier|public
 name|Map
@@ -832,6 +834,8 @@ name|otherAttributes
 return|;
 block|}
 comment|/**      * Adds an optional attribute      */
+annotation|@
+name|Override
 DECL|method|setOtherAttributes (Map<QName, Object> otherAttributes)
 specifier|public
 name|void

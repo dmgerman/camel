@@ -432,6 +432,22 @@ name|model
 operator|.
 name|dataformat
 operator|.
+name|JsonApiDataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
 name|JsonDataFormat
 import|;
 end_import
@@ -787,7 +803,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a {@link org.apache.camel.impl.transformer.DataFormatTransformer} which leverages  * {@link org.apache.camel.spi.DataFormat} to perform  * transformation. One of the DataFormat 'ref' or DataFormat 'type' needs to be specified.  *   * {@see TransformerDefinition}  * {@see DataFormatTransformer}  */
+comment|/**  * Represents a {@link org.apache.camel.impl.transformer.DataFormatTransformer} which leverages  * {@link org.apache.camel.spi.DataFormat} to perform  * transformation. One of the DataFormat 'ref' or DataFormat 'type' needs to be specified.  *  * {@see TransformerDefinition}  * {@see DataFormatTransformer}  */
 end_comment
 
 begin_class
@@ -1179,6 +1195,24 @@ argument_list|,
 name|type
 operator|=
 name|JsonDataFormat
+operator|.
+name|class
+argument_list|)
+block|,
+annotation|@
+name|XmlElement
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|,
+name|name
+operator|=
+literal|"jsonApi"
+argument_list|,
+name|type
+operator|=
+name|JsonApiDataFormat
 operator|.
 name|class
 argument_list|)
