@@ -249,14 +249,27 @@ argument_list|,
 name|state
 argument_list|)
 expr_stmt|;
-comment|// calling the shutdown
+comment|// calling the stop and remove
 name|mbeanServer
 operator|.
 name|invoke
 argument_list|(
 name|on
 argument_list|,
-literal|"shutdown"
+literal|"stop"
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+name|mbeanServer
+operator|.
+name|invoke
+argument_list|(
+name|on
+argument_list|,
+literal|"remove"
 argument_list|,
 literal|null
 argument_list|,
