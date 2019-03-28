@@ -68,34 +68,6 @@ name|DeferServiceFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|EventNotifierProducer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|UnitOfWorkProducer
-import|;
-end_import
-
 begin_comment
 comment|/**  * A helper class for creating proxies which delegate to Camel  */
 end_comment

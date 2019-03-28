@@ -112,20 +112,6 @@ name|Metadata
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|PatternHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * The Claim Check EIP allows you to replace message content with a claim check (a unique key),  * which can be used to retrieve the message content at a later time.  */
 end_comment
