@@ -203,6 +203,8 @@ name|description
 operator|=
 literal|"Processor information as JSon"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|informationJson ()
 name|String
 name|informationJson
@@ -215,6 +217,8 @@ name|description
 operator|=
 literal|"Explain how this processor is configured"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|explain (boolean allOptions)
 name|TabularData
 name|explain

@@ -135,6 +135,8 @@ name|description
 operator|=
 literal|"Component information as JSon"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|informationJson ()
 name|String
 name|informationJson
@@ -147,6 +149,8 @@ name|description
 operator|=
 literal|"Explain how this component is configured"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|explain (boolean allOptions)
 name|TabularData
 name|explain

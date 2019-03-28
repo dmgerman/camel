@@ -85,6 +85,8 @@ extends|extends
 name|CamelContext
 block|{
 comment|/**      * Resolves a component's default name from its java type.      *<p/>      * A component may be used with a non default name such as<tt>activemq</tt>,<tt>wmq</tt> for the JMS component.      * This method can resolve the default component name by its java type.      *      * @param javaType the FQN name of the java type      * @return the default component name.      */
+annotation|@
+name|Deprecated
 DECL|method|resolveComponentDefaultName (String javaType)
 name|String
 name|resolveComponentDefaultName
@@ -94,6 +96,8 @@ name|javaType
 parameter_list|)
 function_decl|;
 comment|/**      * Find information about all the Camel components available in the classpath and {@link org.apache.camel.spi.Registry}.      *      * @return a map with the component name, and value with component details.      * @throws LoadPropertiesException is thrown if error during classpath discovery of the components      * @throws IOException is thrown if error during classpath discovery of the components      */
+annotation|@
+name|Deprecated
 DECL|method|findComponents ()
 name|Map
 argument_list|<
@@ -109,6 +113,8 @@ throws|,
 name|IOException
 function_decl|;
 comment|/**      * Find information about all the EIPs from camel-core.      *      * @return a map with node id, and value with EIP details.      * @throws LoadPropertiesException is thrown if error during classpath discovery of the EIPs      * @throws IOException is thrown if error during classpath discovery of the EIPs      */
+annotation|@
+name|Deprecated
 DECL|method|findEips ()
 name|Map
 argument_list|<
@@ -168,6 +174,8 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Returns a JSON schema representation of the EIP parameters for the given EIP by its id.      *      * @param nameOrId the name of the EIP ({@link NamedNode#getShortName()} or a node id to refer to a specific node from the routes.      * @param includeAllOptions whether to include non configured options also (eg default options)      * @return the json or<tt>null</tt> if the eipName or the id was not found      */
+annotation|@
+name|Deprecated
 DECL|method|explainEipJson (String nameOrId, boolean includeAllOptions)
 name|String
 name|explainEipJson
@@ -180,6 +188,8 @@ name|includeAllOptions
 parameter_list|)
 function_decl|;
 comment|/**      * Returns a JSON schema representation of the component parameters (not endpoint parameters) for the given component by its id.      *      * @param componentName the name of the component.      * @param includeAllOptions whether to include non configured options also (eg default options)      * @return the json or<tt>null</tt> if the component was not found      */
+annotation|@
+name|Deprecated
 DECL|method|explainComponentJson (String componentName, boolean includeAllOptions)
 name|String
 name|explainComponentJson
@@ -192,6 +202,8 @@ name|includeAllOptions
 parameter_list|)
 function_decl|;
 comment|/**      * Returns a JSON schema representation of the component parameters (not endpoint parameters) for the given component by its id.      *      * @param dataFormat the data format instance.      * @param includeAllOptions whether to include non configured options also (eg default options)      * @return the json      */
+annotation|@
+name|Deprecated
 DECL|method|explainDataFormatJson (String dataFormatName, DataFormat dataFormat, boolean includeAllOptions)
 name|String
 name|explainDataFormatJson
@@ -207,6 +219,8 @@ name|includeAllOptions
 parameter_list|)
 function_decl|;
 comment|/**      * Returns a JSON schema representation of the endpoint parameters for the given endpoint uri.      *      * @param uri the endpoint uri      * @param includeAllOptions whether to include non configured options also (eg default options)      * @return the json or<tt>null</tt> if uri parameters is invalid, or the component is<b>not</b> built with JSon schema support      */
+annotation|@
+name|Deprecated
 DECL|method|explainEndpointJson (String uri, boolean includeAllOptions)
 name|String
 name|explainEndpointJson
@@ -219,6 +233,8 @@ name|includeAllOptions
 parameter_list|)
 function_decl|;
 comment|/**      * Creates a JSON representation of all the<b>static</b> and<b>dynamic</b> configured endpoints defined in the given route(s).      *      * @param routeId for a particular route, or<tt>null</tt> for all routes      * @return a JSON string      */
+annotation|@
+name|Deprecated
 DECL|method|createRouteStaticEndpointJson (String routeId)
 name|String
 name|createRouteStaticEndpointJson
@@ -228,6 +244,8 @@ name|routeId
 parameter_list|)
 function_decl|;
 comment|/**      * Creates a JSON representation of all the<b>static</b> (and possible<b>dynamic</b>) configured endpoints defined in the given route(s).      *      * @param routeId for a particular route, or<tt>null</tt> for all routes      * @param includeDynamic whether to include dynamic endpoints      * @return a JSON string      */
+annotation|@
+name|Deprecated
 DECL|method|createRouteStaticEndpointJson (String routeId, boolean includeDynamic)
 name|String
 name|createRouteStaticEndpointJson

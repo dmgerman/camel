@@ -141,6 +141,8 @@ name|description
 operator|=
 literal|"Endpoint information as JSon"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|informationJson ()
 name|String
 name|informationJson
@@ -153,6 +155,8 @@ name|description
 operator|=
 literal|"Explain how this endpoint is configured"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|explain (boolean allOptions)
 name|TabularData
 name|explain

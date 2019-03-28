@@ -991,6 +991,8 @@ name|description
 operator|=
 literal|"Find all Camel components available in the classpath"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|findComponents ()
 name|Map
 argument_list|<
@@ -1011,6 +1013,8 @@ name|description
 operator|=
 literal|"Find all Camel EIPs from camel-core"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|findEips ()
 name|Map
 argument_list|<
@@ -1031,6 +1035,8 @@ name|description
 operator|=
 literal|"Find all Camel EIP names from camel-core"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|findEipNames ()
 name|List
 argument_list|<
@@ -1049,6 +1055,8 @@ name|description
 operator|=
 literal|"Find all Camel components names available in the classpath"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|findComponentNames ()
 name|List
 argument_list|<
@@ -1067,6 +1075,8 @@ name|description
 operator|=
 literal|"List all Camel components available in the classpath"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|listComponents ()
 name|TabularData
 name|listComponents
@@ -1082,6 +1092,8 @@ name|description
 operator|=
 literal|"List all Camel EIPs from camel-core"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|listEips ()
 name|TabularData
 name|listEips
@@ -1117,6 +1129,8 @@ name|description
 operator|=
 literal|"Returns the JSON schema representation of the data format parameters for the given data format name"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|dataFormatParameterJsonSchema (String dataFormatName)
 name|String
 name|dataFormatParameterJsonSchema
@@ -1135,6 +1149,8 @@ name|description
 operator|=
 literal|"Returns the JSON schema representation of the language parameters for the given language name"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|languageParameterJsonSchema (String languageName)
 name|String
 name|languageParameterJsonSchema
@@ -1153,6 +1169,8 @@ name|description
 operator|=
 literal|"Returns the JSON schema representation of the EIP parameters for the given EIP name"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|eipParameterJsonSchema (String eipName)
 name|String
 name|eipParameterJsonSchema
@@ -1171,6 +1189,8 @@ name|description
 operator|=
 literal|"Returns a JSON schema representation of the EIP parameters for the given EIP by its id"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|explainEipJson (String nameOrId, boolean includeAllOptions)
 name|String
 name|explainEipJson
@@ -1190,6 +1210,8 @@ name|description
 operator|=
 literal|" Returns a JSON schema representation of the component parameters for the given component by its id"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|explainComponentJson (String componentName, boolean includeAllOptions)
 name|String
 name|explainComponentJson
@@ -1211,6 +1233,8 @@ name|description
 operator|=
 literal|" Returns a JSON schema representation of the endpoint parameters for the given endpoint uri"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|explainEndpointJson (String uri, boolean includeAllOptions)
 name|String
 name|explainEndpointJson
@@ -1249,6 +1273,8 @@ name|description
 operator|=
 literal|"Returns the JSON representation of all the static and dynamic endpoints defined in all the routes"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|createRouteStaticEndpointJson ()
 name|String
 name|createRouteStaticEndpointJson
@@ -1261,6 +1287,8 @@ name|description
 operator|=
 literal|"Returns the JSON representation of all the static endpoints (and possible dynamic) defined in all the routes"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|createRouteStaticEndpointJson (boolean includeDynamic)
 name|String
 name|createRouteStaticEndpointJson
