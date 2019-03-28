@@ -207,8 +207,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"ehcache:globalConfig"
 argument_list|)
 DECL|field|globalConfig
@@ -218,8 +216,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"ehcache:customConfig"
 argument_list|)
 DECL|field|customConfig

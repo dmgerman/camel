@@ -211,8 +211,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"ehcache:myCache"
 argument_list|)
 DECL|field|endpoint

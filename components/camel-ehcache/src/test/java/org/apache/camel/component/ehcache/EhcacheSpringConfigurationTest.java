@@ -169,8 +169,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"ehcache://myProgrammaticCacheConf?configuration=#myProgrammaticConfiguration"
 argument_list|)
 DECL|field|ehcacheConf
@@ -181,8 +179,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"ehcache://myFileCacheConf?keyType=java.lang.String&valueType=java.lang.String&configurationUri=classpath:ehcache/ehcache-file-config.xml"
 argument_list|)
 DECL|field|ehcacheFileConf
