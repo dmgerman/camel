@@ -542,33 +542,6 @@ throws|throws
 name|Exception
 function_decl|;
 annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Returns the JSON representation of all the static and dynamic endpoints defined in this route"
-argument_list|)
-DECL|method|createRouteStaticEndpointJson ()
-name|String
-name|createRouteStaticEndpointJson
-parameter_list|()
-function_decl|;
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Returns the JSON representation of all the static endpoints (and possible dynamic) defined in this route"
-argument_list|)
-DECL|method|createRouteStaticEndpointJson (boolean includeDynamic)
-name|String
-name|createRouteStaticEndpointJson
-parameter_list|(
-name|boolean
-name|includeDynamic
-parameter_list|)
-function_decl|;
-annotation|@
 name|ManagedAttribute
 argument_list|(
 name|description

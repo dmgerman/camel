@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CatalogCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ContextTestSupport
 import|;
 end_import
@@ -355,84 +343,6 @@ argument_list|)
 operator|.
 name|size
 argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// lets check the json
-name|String
-name|json
-init|=
-name|context
-operator|.
-name|adapt
-argument_list|(
-name|CatalogCamelContext
-operator|.
-name|class
-argument_list|)
-operator|.
-name|createRouteStaticEndpointJson
-argument_list|(
-literal|null
-argument_list|)
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|json
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-name|json
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should have outputs"
-argument_list|,
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|" { \"uri\": \"mock://foo\" }"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should have outputs"
-argument_list|,
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|" { \"uri\": \"mock://foo2\" }"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should have outputs"
-argument_list|,
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|" { \"uri\": \"mock://bar\" }"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should have outputs"
-argument_list|,
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|" { \"uri\": \"mock://bar2\" }"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
