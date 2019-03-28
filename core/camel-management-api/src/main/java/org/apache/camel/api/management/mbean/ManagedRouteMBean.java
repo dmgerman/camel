@@ -480,6 +480,26 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
+literal|"Dumps the route as XML"
+argument_list|)
+DECL|method|dumpRouteAsXml (boolean resolvePlaceholders, boolean resolveDelegateEndpoints)
+name|String
+name|dumpRouteAsXml
+parameter_list|(
+name|boolean
+name|resolvePlaceholders
+parameter_list|,
+name|boolean
+name|resolveDelegateEndpoints
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
 literal|"Updates the route from XML"
 argument_list|)
 DECL|method|updateRouteFromXml (String xml)
