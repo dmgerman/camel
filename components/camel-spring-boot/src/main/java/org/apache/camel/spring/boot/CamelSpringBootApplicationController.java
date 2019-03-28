@@ -174,7 +174,7 @@ operator|new
 name|AtomicBoolean
 argument_list|()
 decl_stmt|;
-DECL|method|CamelSpringBootApplicationController (final ApplicationContext applicationContext, final CamelContext camelContext)
+DECL|method|CamelSpringBootApplicationController (final ApplicationContext applicationContext, final CamelContext context)
 specifier|public
 name|CamelSpringBootApplicationController
 parameter_list|(
@@ -184,7 +184,7 @@ name|applicationContext
 parameter_list|,
 specifier|final
 name|CamelContext
-name|camelContext
+name|context
 parameter_list|)
 block|{
 name|this
@@ -195,6 +195,14 @@ operator|new
 name|Main
 argument_list|()
 block|{
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|context
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 specifier|protected
@@ -221,7 +229,7 @@ name|createCamelContext
 parameter_list|()
 block|{
 return|return
-name|camelContext
+name|context
 return|;
 block|}
 annotation|@
