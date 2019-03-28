@@ -303,37 +303,6 @@ DECL|field|verbose
 name|boolean
 name|verbose
 decl_stmt|;
-annotation|@
-name|Option
-argument_list|(
-name|name
-operator|=
-literal|"--explain"
-argument_list|,
-name|aliases
-operator|=
-literal|"-e"
-argument_list|,
-name|description
-operator|=
-literal|"Whether to explain the endpoint options"
-argument_list|,
-name|required
-operator|=
-literal|false
-argument_list|,
-name|multiValued
-operator|=
-literal|false
-argument_list|,
-name|valueToShowInHelp
-operator|=
-literal|"false"
-argument_list|)
-DECL|field|explain
-name|boolean
-name|explain
-decl_stmt|;
 DECL|method|execute ()
 specifier|public
 name|Object
@@ -353,8 +322,6 @@ argument_list|,
 name|decode
 argument_list|,
 name|verbose
-argument_list|,
-name|explain
 argument_list|)
 decl_stmt|;
 return|return
