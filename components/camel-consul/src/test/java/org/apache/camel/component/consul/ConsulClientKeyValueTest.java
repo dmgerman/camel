@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|BindToRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -109,18 +97,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|orbitz
-operator|.
-name|consul
-operator|.
-name|Consul
 import|;
 end_import
 
