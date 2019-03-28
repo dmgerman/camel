@@ -173,8 +173,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"couchdb:http://localhost:5984/camelcouchdb?updates=false"
 argument_list|)
 DECL|field|from
@@ -185,8 +183,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|field|to
