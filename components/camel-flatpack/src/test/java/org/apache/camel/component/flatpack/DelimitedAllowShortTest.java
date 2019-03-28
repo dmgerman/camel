@@ -217,8 +217,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:results"
 argument_list|)
 DECL|field|results
@@ -229,8 +227,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:results-df"
 argument_list|)
 DECL|field|resultsdf
@@ -241,8 +237,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:results-xml"
 argument_list|)
 DECL|field|resultsxml

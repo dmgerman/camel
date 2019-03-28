@@ -135,8 +135,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:results"
 argument_list|)
 DECL|field|results
@@ -147,8 +145,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:dataset"
 argument_list|)
 DECL|field|dataset
