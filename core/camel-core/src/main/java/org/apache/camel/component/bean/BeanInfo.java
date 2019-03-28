@@ -680,6 +680,24 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Remove private methods
+name|EXCLUDED_METHODS
+operator|.
+name|removeIf
+argument_list|(
+name|m
+lambda|->
+name|Modifier
+operator|.
+name|isPrivate
+argument_list|(
+name|m
+operator|.
+name|getModifiers
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 comment|// but keep toString as this method is okay
