@@ -86,24 +86,6 @@ name|Integer
 name|index
 parameter_list|)
 function_decl|;
-comment|/**      * @deprecated use {@link #browseAllMessagesAsXml(Boolean)} instead      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Get message as XML from queue by index"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|browseMessageAsXml (Integer index)
-name|String
-name|browseMessageAsXml
-parameter_list|(
-name|Integer
-name|index
-parameter_list|)
-function_decl|;
 annotation|@
 name|ManagedOperation
 argument_list|(

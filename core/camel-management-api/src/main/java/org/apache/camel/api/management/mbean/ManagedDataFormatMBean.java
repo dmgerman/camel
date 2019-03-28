@@ -22,18 +22,6 @@ end_package
 
 begin_import
 import|import
-name|javax
-operator|.
-name|management
-operator|.
-name|openmbean
-operator|.
-name|TabularData
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -45,22 +33,6 @@ operator|.
 name|management
 operator|.
 name|ManagedAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|ManagedOperation
 import|;
 end_import
 
@@ -117,37 +89,6 @@ DECL|method|getState ()
 name|String
 name|getState
 parameter_list|()
-function_decl|;
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"DataFormat information as JSon"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|informationJson ()
-name|String
-name|informationJson
-parameter_list|()
-function_decl|;
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Explain how this data format is configured"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|explain (boolean allOptions)
-name|TabularData
-name|explain
-parameter_list|(
-name|boolean
-name|allOptions
-parameter_list|)
 function_decl|;
 block|}
 end_interface

@@ -983,124 +983,6 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Find information about all the Camel components available in the classpath and {@link org.apache.camel.spi.Registry}.      *      * @return a map with the component name, and value with component details.      * @throws Exception is thrown if error occurred      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Find all Camel components available in the classpath"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|findComponents ()
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Properties
-argument_list|>
-name|findComponents
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Find information about all the EIPs from camel-core.      *      * @return a map with node id, and value with EIP details.      * @throws Exception is thrown if error occurred      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Find all Camel EIPs from camel-core"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|findEips ()
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Properties
-argument_list|>
-name|findEips
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Find the names of all the EIPs from camel-core.      *      * @return a list with the names of the camel EIPs      * @throws Exception is thrown if error occurred      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Find all Camel EIP names from camel-core"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|findEipNames ()
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|findEipNames
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Find the names of all the Camel components available in the classpath and {@link org.apache.camel.spi.Registry}.      *      * @return a list with the names of the camel components      * @throws Exception is thrown if error occurred      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Find all Camel components names available in the classpath"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|findComponentNames ()
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|findComponentNames
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Find information about all the Camel components available in the classpath and {@link org.apache.camel.spi.Registry}.      *      * @return a list with the data      * @throws Exception is thrown if error occurred      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"List all Camel components available in the classpath"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|listComponents ()
-name|TabularData
-name|listComponents
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Find information about all the EIPs from camel-core.      *      * @return a list with the data      * @throws Exception is thrown if error occurred      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"List all Camel EIPs from camel-core"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|listEips ()
-name|TabularData
-name|listEips
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
 comment|/**      * Returns the JSON schema representation with information about the component and the endpoint parameters it supports      *      * @param componentName the name of the component to lookup      * @throws Exception is thrown if error occurred      */
 annotation|@
 name|ManagedOperation
@@ -1109,8 +991,6 @@ name|description
 operator|=
 literal|"Returns the JSON schema representation of the endpoint parameters for the given component name"
 argument_list|)
-annotation|@
-name|Deprecated
 DECL|method|componentParameterJsonSchema (String componentName)
 name|String
 name|componentParameterJsonSchema
@@ -1129,8 +1009,6 @@ name|description
 operator|=
 literal|"Returns the JSON schema representation of the data format parameters for the given data format name"
 argument_list|)
-annotation|@
-name|Deprecated
 DECL|method|dataFormatParameterJsonSchema (String dataFormatName)
 name|String
 name|dataFormatParameterJsonSchema
@@ -1149,8 +1027,6 @@ name|description
 operator|=
 literal|"Returns the JSON schema representation of the language parameters for the given language name"
 argument_list|)
-annotation|@
-name|Deprecated
 DECL|method|languageParameterJsonSchema (String languageName)
 name|String
 name|languageParameterJsonSchema
@@ -1169,81 +1045,12 @@ name|description
 operator|=
 literal|"Returns the JSON schema representation of the EIP parameters for the given EIP name"
 argument_list|)
-annotation|@
-name|Deprecated
 DECL|method|eipParameterJsonSchema (String eipName)
 name|String
 name|eipParameterJsonSchema
 parameter_list|(
 name|String
 name|eipName
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Returns a JSON schema representation of the EIP parameters for the given EIP by its id.      *      * @param nameOrId the name of the EIP ({@link org.apache.camel.NamedNode#getShortName()} or a node id to refer to a specific node from the routes.      * @param includeAllOptions whether to include non configured options also (eg default options)      * @return the json or<tt>null</tt> if the eipName or the id was not found      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Returns a JSON schema representation of the EIP parameters for the given EIP by its id"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|explainEipJson (String nameOrId, boolean includeAllOptions)
-name|String
-name|explainEipJson
-parameter_list|(
-name|String
-name|nameOrId
-parameter_list|,
-name|boolean
-name|includeAllOptions
-parameter_list|)
-function_decl|;
-comment|/**      * Returns a JSON schema representation of the component parameters (not endpoint parameters) for the given component by its id.      *      * @param componentName the id of the component      * @param includeAllOptions whether to include non configured options also (eg default options)      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|" Returns a JSON schema representation of the component parameters for the given component by its id"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|explainComponentJson (String componentName, boolean includeAllOptions)
-name|String
-name|explainComponentJson
-parameter_list|(
-name|String
-name|componentName
-parameter_list|,
-name|boolean
-name|includeAllOptions
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Returns a JSON schema representation of the endpoint parameters for the given endpoint uri      *      * @param uri the endpoint uri      * @param includeAllOptions whether to include non configured options also (eg default options)      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|" Returns a JSON schema representation of the endpoint parameters for the given endpoint uri"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|explainEndpointJson (String uri, boolean includeAllOptions)
-name|String
-name|explainEndpointJson
-parameter_list|(
-name|String
-name|uri
-parameter_list|,
-name|boolean
-name|includeAllOptions
 parameter_list|)
 throws|throws
 name|Exception
@@ -1265,37 +1072,6 @@ name|includeRoutes
 parameter_list|)
 throws|throws
 name|Exception
-function_decl|;
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Returns the JSON representation of all the static and dynamic endpoints defined in all the routes"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|createRouteStaticEndpointJson ()
-name|String
-name|createRouteStaticEndpointJson
-parameter_list|()
-function_decl|;
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Returns the JSON representation of all the static endpoints (and possible dynamic) defined in all the routes"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|createRouteStaticEndpointJson (boolean includeDynamic)
-name|String
-name|createRouteStaticEndpointJson
-parameter_list|(
-name|boolean
-name|includeDynamic
-parameter_list|)
 function_decl|;
 block|}
 end_interface

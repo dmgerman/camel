@@ -254,6 +254,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Whether security mask for Logging is enabled"
+argument_list|)
+DECL|method|getLogMask ()
+name|Boolean
+name|getLogMask
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Route Policy List"
 argument_list|)
 DECL|method|getRoutePolicyList ()
@@ -358,43 +370,6 @@ name|timeout
 parameter_list|,
 name|Boolean
 name|abortAfterTimeout
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * @deprecated will be removed in the near future. Use stop and remove instead      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Shutdown route"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|shutdown ()
-name|void
-name|shutdown
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * @deprecated will be removed in the near future. Use stop and remove instead      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Shutdown route (using timeout in seconds)"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|shutdown (long timeout)
-name|void
-name|shutdown
-parameter_list|(
-name|long
-name|timeout
 parameter_list|)
 throws|throws
 name|Exception

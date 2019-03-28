@@ -369,26 +369,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|browseMessageAsXml (Integer index)
-specifier|public
-name|String
-name|browseMessageAsXml
-parameter_list|(
-name|Integer
-name|index
-parameter_list|)
-block|{
-return|return
-name|browseMessageAsXml
-argument_list|(
-name|index
-argument_list|,
-literal|true
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|browseMessageAsXml (Integer index, Boolean includeBody)
 specifier|public
 name|String

@@ -129,37 +129,6 @@ name|getCamelManagementName
 parameter_list|()
 function_decl|;
 annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Component information as JSon"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|informationJson ()
-name|String
-name|informationJson
-parameter_list|()
-function_decl|;
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Explain how this component is configured"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|explain (boolean allOptions)
-name|TabularData
-name|explain
-parameter_list|(
-name|boolean
-name|allOptions
-parameter_list|)
-function_decl|;
-annotation|@
 name|ManagedAttribute
 argument_list|(
 name|description
