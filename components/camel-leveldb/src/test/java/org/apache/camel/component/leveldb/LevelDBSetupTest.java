@@ -44,10 +44,6 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  * The class LevelDBSetupTest  *  * @author mgr, 2019-03-27  * @version 1.0  */
-end_comment
-
 begin_class
 DECL|class|LevelDBSetupTest
 specifier|public
