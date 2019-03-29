@@ -148,8 +148,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:resultCreated"
 argument_list|)
 DECL|field|mockResultCreatedEvents
@@ -160,8 +158,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:resultExpired"
 argument_list|)
 DECL|field|mockResultExpiredEvents
