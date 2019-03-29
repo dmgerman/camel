@@ -157,8 +157,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"hipchat:https:foobar.com:443?authToken=abc123"
 argument_list|)
 DECL|field|endpoint

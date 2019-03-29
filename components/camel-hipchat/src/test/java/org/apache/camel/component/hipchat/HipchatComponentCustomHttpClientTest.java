@@ -247,8 +247,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"hipchat:http://api.hipchat.com?httpClient=#myHttpClient&authToken=anything&consumeUsers=@AUser"
 argument_list|)
 DECL|field|hipchatEndpoint

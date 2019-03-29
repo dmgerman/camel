@@ -245,8 +245,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"hipchat:http:api.hipchat.com?authToken=anything&consumeUsers=@AUser"
 argument_list|)
 DECL|field|template
@@ -257,8 +255,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|field|result
