@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelContext
 import|;
 end_import
@@ -201,7 +213,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is a Quartz Job that is scheduled by QuartzEndpoint's Consumer and will call it to  * produce a QuartzMessage sending to a route.  *  */
+comment|/**  * This is a Quartz Job that is scheduled by QuartzEndpoint's Consumer and will call it to  * produce a QuartzMessage sending to a route.  */
 end_comment
 
 begin_class
@@ -304,16 +316,46 @@ name|context
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|AsyncProcessor
+name|processor
+init|=
 name|endpoint
 operator|.
-name|getConsumerLoadBalancer
+name|getProcessor
 argument_list|()
+decl_stmt|;
+try|try
+block|{
+if|if
+condition|(
+name|processor
+operator|!=
+literal|null
+condition|)
+block|{
+name|processor
 operator|.
 name|process
 argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|exchange
@@ -732,8 +774,6 @@ argument_list|)
 decl_stmt|;
 name|QuartzEndpoint
 name|result
-init|=
-literal|null
 decl_stmt|;
 comment|// Even though the same camelContext.getEndpoint call, but if/else display different log.
 if|if
