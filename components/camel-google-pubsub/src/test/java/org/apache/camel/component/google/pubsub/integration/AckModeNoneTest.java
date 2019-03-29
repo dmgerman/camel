@@ -222,8 +222,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:in"
 argument_list|)
 DECL|field|directIn
@@ -234,8 +232,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"google-pubsub:{{project.id}}:"
 operator|+
 name|TOPIC_NAME
@@ -248,8 +244,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"google-pubsub:{{project.id}}:"
 operator|+
 name|SUBSCRIPTION_NAME

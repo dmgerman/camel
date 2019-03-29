@@ -138,8 +138,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"google-pubsub:{{project.id}}:"
 operator|+
 name|TEST_TOPIC_NAME
@@ -152,8 +150,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:from"
 argument_list|)
 DECL|field|from

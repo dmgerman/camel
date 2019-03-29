@@ -219,8 +219,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:aggregator"
 argument_list|)
 DECL|field|aggregator
@@ -231,8 +229,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"google-pubsub:{{project.id}}:"
 operator|+
 name|TOPIC_NAME
@@ -245,8 +241,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:sendResult"
 argument_list|)
 DECL|field|sendResult
@@ -257,8 +251,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"google-pubsub:{{project.id}}:"
 operator|+
 name|SUBSCRIPTION_NAME
@@ -271,8 +263,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:receiveResult"
 argument_list|)
 DECL|field|receiveResult

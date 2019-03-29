@@ -213,8 +213,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:in"
 argument_list|)
 DECL|field|directIn
@@ -225,8 +223,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"google-pubsub:{{project.id}}:"
 operator|+
 name|TOPIC_NAME
@@ -239,8 +235,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"google-pubsub:{{project.id}}:"
 operator|+
 name|SUBSCRIPTION_NAME
@@ -253,8 +247,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:receiveResult"
 argument_list|)
 DECL|field|receiveResult
@@ -265,8 +257,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:in"
 argument_list|)
 DECL|field|producer
