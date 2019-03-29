@@ -83,6 +83,9 @@ name|STATS
 block|,
 DECL|enumConstant|COMPUTE
 name|COMPUTE
+block|,
+DECL|enumConstant|COMPUTEASYNC
+name|COMPUTEASYNC
 block|}
 end_enum
 
