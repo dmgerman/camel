@@ -84,6 +84,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|deleteDirectory
+argument_list|(
+literal|"leveldb.dat"
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|tearDown
@@ -99,11 +104,6 @@ name|void
 name|testLevelDBStartWithNoPath
 parameter_list|()
 block|{
-name|deleteDirectory
-argument_list|(
-literal|"leveldb.dat"
-argument_list|)
-expr_stmt|;
 name|levelDBFile
 operator|=
 operator|new
