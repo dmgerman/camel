@@ -113,7 +113,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|getConversation ()
-specifier|protected
+specifier|public
 name|HttpConversation
 name|getConversation
 parameter_list|()
