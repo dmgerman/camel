@@ -206,7 +206,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"FastTypeConverter"
+literal|"DefaultTypeConverter"
 argument_list|)
 condition|)
 block|{

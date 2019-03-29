@@ -143,8 +143,6 @@ comment|/**  * Future type converter.  */
 end_comment
 
 begin_class
-annotation|@
-name|Converter
 DECL|class|FutureTypeConverter
 specifier|public
 specifier|final

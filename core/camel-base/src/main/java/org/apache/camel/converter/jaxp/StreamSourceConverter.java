@@ -71,6 +71,11 @@ end_comment
 begin_class
 annotation|@
 name|Converter
+argument_list|(
+name|loader
+operator|=
+literal|true
+argument_list|)
 DECL|class|StreamSourceConverter
 specifier|public
 specifier|final

@@ -1311,7 +1311,7 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|writeConverters (String fqn, String suffix, boolean staticInstance, ClassConverters converters)
+DECL|method|writeConverters (String fqn, String suffix, ClassConverters converters)
 name|void
 name|writeConverters
 parameter_list|(
@@ -1320,9 +1320,6 @@ name|fqn
 parameter_list|,
 name|String
 name|suffix
-parameter_list|,
-name|boolean
-name|staticInstance
 parameter_list|,
 name|ClassConverters
 name|converters
@@ -1476,6 +1473,13 @@ name|writer
 operator|.
 name|append
 argument_list|(
+literal|"import org.apache.camel.support.SimpleTypeConverter;\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
 literal|"import org.apache.camel.support.TypeConverterSupport;\n"
 argument_list|)
 expr_stmt|;
@@ -1524,264 +1528,6 @@ argument_list|(
 literal|"\n"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|staticInstance
-condition|)
-block|{
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"    public static final "
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|c
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|" INSTANCE = new "
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|c
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"();\n"
-argument_list|)
-expr_stmt|;
-block|}
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|converters
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|0
-condition|)
-block|{
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"    static abstract class BaseTypeConverter extends TypeConverterSupport {\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"        private final boolean allowNull;\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"        public BaseTypeConverter(boolean allowNull) {\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"            this.allowNull = allowNull;\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"        }\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"        @Override\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"        public boolean allowNull() {\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"            return allowNull;\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"        }\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"        @Override\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"        public<T> T convertTo(Class<T> type, Exchange exchange, Object value) throws TypeConversionException {\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"            try {\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"                return (T) doConvert(exchange, value);\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"            } catch (TypeConversionException e) {\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"                throw e;\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"            } catch (Exception e) {\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"                throw new TypeConversionException(value, type, e);\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"            }\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"        }\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"        protected abstract Object doConvert(Exchange exchange, Object value) throws Exception;\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"    };\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"    private final DoubleMap<Class<?>, Class<?>, BaseTypeConverter> converters = new DoubleMap<>("
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|String
-operator|.
-name|valueOf
-argument_list|(
-name|converters
-operator|.
-name|size
-argument_list|()
-argument_list|)
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|");\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
-block|}
 name|writer
 operator|.
 name|append
@@ -1791,10 +1537,6 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|staticInstance
-condition|?
-literal|"private "
-else|:
 literal|"public "
 argument_list|)
 operator|.
@@ -1826,7 +1568,128 @@ name|writer
 operator|.
 name|append
 argument_list|(
-literal|"    private void registerConverters() {\n"
+literal|"    @Override\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"    public void load(TypeConverterRegistry registry) throws TypeConverterLoaderException {\n"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|converters
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+if|if
+condition|(
+name|converters
+operator|.
+name|isIgnoreOnLoadError
+argument_list|()
+condition|)
+block|{
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"        try {\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"            registerConverters(registry);\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"        } catch (Throwable e) {\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"            // ignore on load error\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"        }\n"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"        registerConverters(registry);\n"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|converters
+operator|.
+name|sizeFallback
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"        registerFallbackConverters(registry);\n"
+argument_list|)
+expr_stmt|;
+block|}
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"    }\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|converters
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"    private void registerConverters(TypeConverterRegistry registry) {\n"
 argument_list|)
 expr_stmt|;
 for|for
@@ -1891,7 +1754,7 @@ name|writer
 operator|.
 name|append
 argument_list|(
-literal|"        converters.put("
+literal|"        addTypeConverter(registry, "
 argument_list|)
 operator|.
 name|append
@@ -1925,7 +1788,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|".class, new BaseTypeConverter("
+literal|".class, "
 argument_list|)
 operator|.
 name|append
@@ -1940,28 +1803,14 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|") {\n"
+literal|",\n"
 argument_list|)
 expr_stmt|;
 name|writer
 operator|.
 name|append
 argument_list|(
-literal|"            @Override\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"            public Object doConvert(Exchange exchange, Object value) throws Exception {\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"                return "
+literal|"            (type, exchange, value) -> "
 argument_list|)
 operator|.
 name|append
@@ -1979,21 +1828,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|";\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"            }\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"        });\n"
+literal|");\n"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2016,95 +1851,48 @@ name|writer
 operator|.
 name|append
 argument_list|(
-literal|"    @Override\n"
+literal|"    private void addTypeConverter(TypeConverterRegistry registry, Class<?> toType, Class<?> fromType, boolean allowNull, SimpleTypeConverter.ConversionMethod method) { \n"
 argument_list|)
 expr_stmt|;
 name|writer
 operator|.
 name|append
 argument_list|(
-literal|"    public void load(TypeConverterRegistry registry) throws TypeConverterLoaderException {\n"
+literal|"        registry.addTypeConverter(toType, fromType, new SimpleTypeConverter(allowNull, method));\n"
 argument_list|)
 expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"    }\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|converters
 operator|.
-name|size
+name|sizeFallback
 argument_list|()
 operator|>
 literal|0
 condition|)
 block|{
-if|if
-condition|(
-name|converters
-operator|.
-name|isIgnoreOnLoadError
-argument_list|()
-condition|)
-block|{
 name|writer
 operator|.
 name|append
 argument_list|(
-literal|"        try {\n"
+literal|"    private void registerFallbackConverters(TypeConverterRegistry registry) {\n"
 argument_list|)
 expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"            registerConverters();\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"            converters.forEach((k, v, c) -> registry.addTypeConverter(k, v, c));\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"        } catch (Throwable e) {\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"            // ignore on load error\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"        }\n"
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"        registerConverters();\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"        converters.forEach((k, v, c) -> registry.addTypeConverter(k, v, c));\n"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 for|for
 control|(
 name|ExecutableElement
@@ -2136,33 +1924,7 @@ name|writer
 operator|.
 name|append
 argument_list|(
-literal|"        registry.addFallbackTypeConverter(new TypeConverterSupport() {\n"
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|allowNull
-condition|)
-block|{
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"            @Override\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"            public boolean allowNull() {\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"                return "
+literal|"        addFallbackTypeConverter(registry, "
 argument_list|)
 operator|.
 name|append
@@ -2177,107 +1939,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|";\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"            }\n"
-argument_list|)
-expr_stmt|;
-block|}
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"            @Override\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"            public<T> T convertTo(Class<T> type, Exchange exchange, Object value) throws TypeConversionException {\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"                try {\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"                    return (T) "
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|toJavaFallback
-argument_list|(
-name|ee
-argument_list|,
-name|converterClasses
-argument_list|)
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|";\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"                } catch (TypeConversionException e) {\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"                    throw e;\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"                } catch (Exception e) {\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"                    throw new TypeConversionException(value, type, e);\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"                }\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"            }\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"        }, "
+literal|", "
 argument_list|)
 operator|.
 name|append
@@ -2287,6 +1949,26 @@ operator|.
 name|toString
 argument_list|(
 name|canPromote
+argument_list|)
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|", "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"(type, exchange, value) -> "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|toJavaFallback
+argument_list|(
+name|ee
+argument_list|,
+name|converterClasses
 argument_list|)
 argument_list|)
 operator|.
@@ -2310,6 +1992,35 @@ argument_list|(
 literal|"\n"
 argument_list|)
 expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"    private void addFallbackTypeConverter(TypeConverterRegistry registry, boolean allowNull, boolean canPromote, SimpleTypeConverter.ConversionMethod method) { \n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"        registry.addFallbackTypeConverter(new SimpleTypeConverter(allowNull, method), canPromote);\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"    }\n"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|append
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|String
