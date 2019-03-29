@@ -196,8 +196,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:in"
 argument_list|)
 DECL|field|directIn
@@ -208,8 +206,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"google-bigquery:{{project.id}}:{{bigquery.datasetId}}:"
 operator|+
 name|TABLE_ID
@@ -222,8 +218,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:sendResult"
 argument_list|)
 DECL|field|sendResult
@@ -234,8 +228,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:in"
 argument_list|)
 DECL|field|producer
