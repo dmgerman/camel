@@ -30,7 +30,7 @@ begin_import
 import|import
 name|spark
 operator|.
-name|Spark
+name|Service
 import|;
 end_import
 
@@ -46,65 +46,16 @@ specifier|private
 name|CamelSpark
 parameter_list|()
 block|{     }
-comment|/**      * Stops the Spark Server      */
-DECL|method|stop ()
-specifier|public
-specifier|static
-name|void
-name|stop
-parameter_list|()
-block|{
-name|Spark
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-block|}
-comment|/**      * Configures the port number to use      */
-DECL|method|port (int port)
-specifier|public
-specifier|static
-name|void
-name|port
-parameter_list|(
-name|int
-name|port
-parameter_list|)
-block|{
-name|Spark
-operator|.
-name|port
-argument_list|(
-name|port
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Configures the IP address to use      */
-DECL|method|ipAddress (String ip)
-specifier|public
-specifier|static
-name|void
-name|ipAddress
-parameter_list|(
-name|String
-name|ip
-parameter_list|)
-block|{
-name|Spark
-operator|.
-name|ipAddress
-argument_list|(
-name|ip
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Configures the thread pool      */
-DECL|method|threadPool (int minThreads, int maxThreads, int timeOutMillis)
+DECL|method|threadPool (Service sparkInstance, int minThreads, int maxThreads, int timeOutMillis)
 specifier|public
 specifier|static
 name|void
 name|threadPool
 parameter_list|(
+name|Service
+name|sparkInstance
+parameter_list|,
 name|int
 name|minThreads
 parameter_list|,
@@ -151,7 +102,7 @@ else|:
 operator|-
 literal|1
 decl_stmt|;
-name|Spark
+name|sparkInstance
 operator|.
 name|threadPool
 argument_list|(
@@ -163,47 +114,16 @@ name|idle
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Configures connection to be secure      */
-DECL|method|security (String keystoreFile, String keystorePassword, String truststoreFile, String truststorePassword)
-specifier|public
-specifier|static
-name|void
-name|security
-parameter_list|(
-name|String
-name|keystoreFile
-parameter_list|,
-name|String
-name|keystorePassword
-parameter_list|,
-name|String
-name|truststoreFile
-parameter_list|,
-name|String
-name|truststorePassword
-parameter_list|)
-block|{
-name|Spark
-operator|.
-name|secure
-argument_list|(
-name|keystoreFile
-argument_list|,
-name|keystorePassword
-argument_list|,
-name|truststoreFile
-argument_list|,
-name|truststorePassword
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Adds a Spark REST verb that routes to the given spark route      *      * @param verb   the HTTP verb      * @param path   the context path      * @param accept the accept header      * @param route  the spark route (we call a Camel route from here)      */
-DECL|method|spark (String verb, String path, String accept, Route route)
+comment|/**      * Adds a Spark REST verb that routes to the given spark route      *      * @param sparkInstance the SPARK instance      * @param verb   the HTTP verb      * @param path   the context path      * @param accept the accept header      * @param route  the spark route (we call a Camel route from here)      */
+DECL|method|spark (Service sparkInstance, String verb, String path, String accept, Route route)
 specifier|public
 specifier|static
 name|void
 name|spark
 parameter_list|(
+name|Service
+name|sparkInstance
+parameter_list|,
 name|String
 name|verb
 parameter_list|,
@@ -234,7 +154,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Spark
+name|sparkInstance
 operator|.
 name|get
 argument_list|(
@@ -248,7 +168,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|Spark
+name|sparkInstance
 operator|.
 name|get
 argument_list|(
@@ -277,7 +197,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Spark
+name|sparkInstance
 operator|.
 name|post
 argument_list|(
@@ -291,7 +211,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|Spark
+name|sparkInstance
 operator|.
 name|post
 argument_list|(
@@ -320,7 +240,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Spark
+name|sparkInstance
 operator|.
 name|put
 argument_list|(
@@ -334,7 +254,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|Spark
+name|sparkInstance
 operator|.
 name|put
 argument_list|(
@@ -363,7 +283,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Spark
+name|sparkInstance
 operator|.
 name|patch
 argument_list|(
@@ -377,7 +297,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|Spark
+name|sparkInstance
 operator|.
 name|patch
 argument_list|(
@@ -406,7 +326,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Spark
+name|sparkInstance
 operator|.
 name|delete
 argument_list|(
@@ -420,7 +340,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|Spark
+name|sparkInstance
 operator|.
 name|delete
 argument_list|(
@@ -449,7 +369,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Spark
+name|sparkInstance
 operator|.
 name|head
 argument_list|(
@@ -463,7 +383,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|Spark
+name|sparkInstance
 operator|.
 name|head
 argument_list|(
@@ -492,7 +412,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Spark
+name|sparkInstance
 operator|.
 name|trace
 argument_list|(
@@ -506,7 +426,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|Spark
+name|sparkInstance
 operator|.
 name|trace
 argument_list|(
@@ -535,7 +455,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Spark
+name|sparkInstance
 operator|.
 name|connect
 argument_list|(
@@ -549,7 +469,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|Spark
+name|sparkInstance
 operator|.
 name|connect
 argument_list|(
@@ -578,7 +498,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Spark
+name|sparkInstance
 operator|.
 name|options
 argument_list|(
@@ -592,7 +512,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|Spark
+name|sparkInstance
 operator|.
 name|options
 argument_list|(

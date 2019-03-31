@@ -552,6 +552,24 @@ name|name
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getComponent ()
+specifier|public
+name|SparkComponent
+name|getComponent
+parameter_list|()
+block|{
+return|return
+operator|(
+name|SparkComponent
+operator|)
+name|super
+operator|.
+name|getComponent
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

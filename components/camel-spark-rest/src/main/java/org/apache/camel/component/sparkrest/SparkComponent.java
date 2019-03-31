@@ -266,6 +266,14 @@ name|URISupport
 import|;
 end_import
 
+begin_import
+import|import
+name|spark
+operator|.
+name|Service
+import|;
+end_import
+
 begin_class
 annotation|@
 name|Component
@@ -296,6 +304,12 @@ name|compile
 argument_list|(
 literal|"\\{(.*?)\\}"
 argument_list|)
+decl_stmt|;
+comment|/**      * SPARK instance for the component      */
+DECL|field|sparkInstance
+specifier|private
+name|Service
+name|sparkInstance
 decl_stmt|;
 annotation|@
 name|Metadata
@@ -447,6 +461,16 @@ operator|new
 name|DefaultSparkBinding
 argument_list|()
 decl_stmt|;
+DECL|method|getSparkInstance ()
+specifier|public
+name|Service
+name|getSparkInstance
+parameter_list|()
+block|{
+return|return
+name|sparkInstance
+return|;
+block|}
 DECL|method|getPort ()
 specifier|public
 name|int
@@ -893,6 +917,13 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
+name|sparkInstance
+operator|=
+name|Service
+operator|.
+name|ignite
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|getPort
@@ -901,7 +932,7 @@ operator|!=
 literal|4567
 condition|)
 block|{
-name|CamelSpark
+name|sparkInstance
 operator|.
 name|port
 argument_list|(
@@ -941,7 +972,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|CamelSpark
+name|sparkInstance
 operator|.
 name|port
 argument_list|(
@@ -963,7 +994,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|CamelSpark
+name|sparkInstance
 operator|.
 name|ipAddress
 argument_list|(
@@ -1070,7 +1101,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|CamelSpark
+name|sparkInstance
 operator|.
 name|ipAddress
 argument_list|(
@@ -1089,9 +1120,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|CamelSpark
+name|sparkInstance
 operator|.
-name|security
+name|secure
 argument_list|(
 name|keystoreFile
 argument_list|,
@@ -1103,6 +1134,19 @@ name|truststorePassword
 argument_list|)
 expr_stmt|;
 block|}
+name|CamelSpark
+operator|.
+name|threadPool
+argument_list|(
+name|sparkInstance
+argument_list|,
+name|minThreads
+argument_list|,
+name|maxThreads
+argument_list|,
+name|timeOutMillis
+argument_list|)
+expr_stmt|;
 comment|// configure component options
 name|RestConfiguration
 name|config
@@ -1164,7 +1208,7 @@ operator|.
 name|doShutdown
 argument_list|()
 expr_stmt|;
-name|CamelSpark
+name|sparkInstance
 operator|.
 name|stop
 argument_list|()

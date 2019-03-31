@@ -56,6 +56,14 @@ name|DefaultConsumer
 import|;
 end_import
 
+begin_import
+import|import
+name|spark
+operator|.
+name|Service
+import|;
+end_import
+
 begin_class
 DECL|class|SparkConsumer
 specifier|public
@@ -162,6 +170,18 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
+name|Service
+name|sparkInstance
+init|=
+name|getEndpoint
+argument_list|()
+operator|.
+name|getComponent
+argument_list|()
+operator|.
+name|getSparkInstance
+argument_list|()
+decl_stmt|;
 name|String
 name|verb
 init|=
@@ -240,6 +260,8 @@ name|CamelSpark
 operator|.
 name|spark
 argument_list|(
+name|sparkInstance
+argument_list|,
 name|verb
 argument_list|,
 name|path
@@ -267,6 +289,8 @@ name|CamelSpark
 operator|.
 name|spark
 argument_list|(
+name|sparkInstance
+argument_list|,
 literal|"options"
 argument_list|,
 name|path
@@ -286,6 +310,8 @@ name|CamelSpark
 operator|.
 name|spark
 argument_list|(
+name|sparkInstance
+argument_list|,
 name|verb
 argument_list|,
 name|path
