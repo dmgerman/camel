@@ -1851,7 +1851,9 @@ name|writer
 operator|.
 name|append
 argument_list|(
-literal|"    private void addTypeConverter(TypeConverterRegistry registry, Class<?> toType, Class<?> fromType, boolean allowNull, SimpleTypeConverter.ConversionMethod method) { \n"
+literal|"    private void addTypeConverter(TypeConverterRegistry registry, Class<?> toType, Class<?> fromType, boolean allowNull, SimpleTypeConverter.ConversionMethod method)"
+operator|+
+literal|" { \n"
 argument_list|)
 expr_stmt|;
 name|writer

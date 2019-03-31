@@ -1759,6 +1759,7 @@ operator|.
 name|hasMoreElements
 argument_list|()
 condition|)
+block|{
 name|action
 operator|.
 name|accept
@@ -1769,6 +1770,7 @@ name|nextElement
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|,
