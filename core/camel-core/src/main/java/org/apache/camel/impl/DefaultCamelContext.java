@@ -1320,7 +1320,15 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|DefaultRestRegistry
+name|RestRegistryFactoryResolver
+argument_list|()
+operator|.
+name|resolve
+argument_list|(
+name|this
+argument_list|)
+operator|.
+name|createRegistry
 argument_list|()
 return|;
 block|}
