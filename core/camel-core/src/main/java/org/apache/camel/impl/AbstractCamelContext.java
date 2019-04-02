@@ -16487,6 +16487,9 @@ operator|.
 name|Lazy
 condition|)
 block|{
+name|getVersion
+argument_list|()
+expr_stmt|;
 name|getTypeConverter
 argument_list|()
 expr_stmt|;
