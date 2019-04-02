@@ -509,6 +509,24 @@ name|getOperation
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|operation
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Operation must be specified"
+argument_list|)
+throw|;
+block|}
 return|return
 name|operation
 return|;
