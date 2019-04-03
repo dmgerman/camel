@@ -42,7 +42,7 @@ name|api
 operator|.
 name|command
 operator|.
-name|CopyFileFromContainerCmd
+name|CopyArchiveFromContainerCmd
 import|;
 end_import
 
@@ -144,14 +144,14 @@ name|CopyFileContainerCmdHeaderTest
 extends|extends
 name|BaseDockerHeaderTest
 argument_list|<
-name|CopyFileFromContainerCmd
+name|CopyArchiveFromContainerCmd
 argument_list|>
 block|{
 annotation|@
 name|Mock
 DECL|field|mockObject
 specifier|private
-name|CopyFileFromContainerCmd
+name|CopyArchiveFromContainerCmd
 name|mockObject
 decl_stmt|;
 annotation|@
@@ -246,7 +246,7 @@ literal|1
 argument_list|)
 argument_list|)
 operator|.
-name|copyFileFromContainerCmd
+name|copyArchiveFromContainerCmd
 argument_list|(
 name|containerId
 argument_list|,
@@ -290,7 +290,7 @@ name|when
 argument_list|(
 name|dockerClient
 operator|.
-name|copyFileFromContainerCmd
+name|copyArchiveFromContainerCmd
 argument_list|(
 name|anyString
 argument_list|()

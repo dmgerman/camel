@@ -104,7 +104,7 @@ name|api
 operator|.
 name|command
 operator|.
-name|CopyFileFromContainerCmd
+name|CopyArchiveFromContainerCmd
 import|;
 end_import
 
@@ -771,6 +771,24 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|github
+operator|.
+name|dockerjava
+operator|.
+name|api
+operator|.
+name|model
+operator|.
+name|HostConfig
+operator|.
+name|newHostConfig
 import|;
 end_import
 
@@ -2911,7 +2929,7 @@ block|}
 comment|/**      * Produces a copy file/folder from container request      *      * @param client      * @param message      * @return      */
 DECL|method|executeCopyFileContainerRequest (DockerClient client, Message message)
 specifier|private
-name|CopyFileFromContainerCmd
+name|CopyArchiveFromContainerCmd
 name|executeCopyFileContainerRequest
 parameter_list|(
 name|DockerClient
@@ -2987,12 +3005,12 @@ literal|"Container ID and Resource must be specified"
 argument_list|)
 throw|;
 block|}
-name|CopyFileFromContainerCmd
-name|copyFileContainerCmd
+name|CopyArchiveFromContainerCmd
+name|copyArchiveFromContainerCmd
 init|=
 name|client
 operator|.
-name|copyFileFromContainerCmd
+name|copyArchiveFromContainerCmd
 argument_list|(
 name|containerId
 argument_list|,
@@ -3026,7 +3044,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|copyFileContainerCmd
+name|copyArchiveFromContainerCmd
 operator|.
 name|withHostPath
 argument_list|(
@@ -3035,7 +3053,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|copyFileContainerCmd
+name|copyArchiveFromContainerCmd
 return|;
 block|}
 comment|/**      * Produce a create container request      *      * @param client      * @param message      * @return      */
@@ -3097,6 +3115,14 @@ argument_list|(
 name|image
 argument_list|)
 decl_stmt|;
+name|createContainerCmd
+operator|.
+name|withHostConfig
+argument_list|(
+name|newHostConfig
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Boolean
 name|attachStdErr
 init|=
@@ -3230,6 +3256,9 @@ condition|)
 block|{
 name|createContainerCmd
 operator|.
+name|getHostConfig
+argument_list|()
+operator|.
 name|withCapAdd
 argument_list|(
 name|capAdd
@@ -3263,6 +3292,9 @@ literal|null
 condition|)
 block|{
 name|createContainerCmd
+operator|.
+name|getHostConfig
+argument_list|()
 operator|.
 name|withCapDrop
 argument_list|(
@@ -3329,6 +3361,9 @@ condition|)
 block|{
 name|createContainerCmd
 operator|.
+name|getHostConfig
+argument_list|()
+operator|.
 name|withCpuShares
 argument_list|(
 name|cpuShares
@@ -3393,6 +3428,9 @@ literal|null
 condition|)
 block|{
 name|createContainerCmd
+operator|.
+name|getHostConfig
+argument_list|()
 operator|.
 name|withDns
 argument_list|(
@@ -3632,6 +3670,9 @@ condition|)
 block|{
 name|createContainerCmd
 operator|.
+name|getHostConfig
+argument_list|()
+operator|.
 name|withMemory
 argument_list|(
 name|memoryLimit
@@ -3666,6 +3707,9 @@ literal|null
 condition|)
 block|{
 name|createContainerCmd
+operator|.
+name|getHostConfig
+argument_list|()
 operator|.
 name|withMemorySwap
 argument_list|(
@@ -3939,6 +3983,9 @@ literal|null
 condition|)
 block|{
 name|createContainerCmd
+operator|.
+name|getHostConfig
+argument_list|()
 operator|.
 name|withVolumesFrom
 argument_list|(
