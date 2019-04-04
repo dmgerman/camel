@@ -328,7 +328,7 @@ specifier|final
 name|String
 name|INDEX_OUT_OF_BOUNDS_ERROR_MSG
 init|=
-literal|"Index 2 out-of-bounds for length 2"
+literal|"Index 2 out of bounds for length 2"
 decl_stmt|;
 annotation|@
 name|Override

@@ -704,10 +704,6 @@ name|dataFormat
 operator|.
 name|setHeader
 argument_list|(
-operator|(
-name|String
-index|[]
-operator|)
 name|Arrays
 operator|.
 name|asList
@@ -718,7 +714,13 @@ literal|"last_name"
 argument_list|)
 operator|.
 name|toArray
-argument_list|()
+argument_list|(
+operator|new
+name|String
+index|[
+literal|0
+index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
