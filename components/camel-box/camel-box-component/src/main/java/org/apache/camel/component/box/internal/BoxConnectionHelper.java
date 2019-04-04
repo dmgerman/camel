@@ -772,6 +772,7 @@ name|cookies
 init|=
 operator|new
 name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|cookies
@@ -1116,7 +1117,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Box API connection failed: API returned the error code %d\n\n%s"
+literal|"Box API connection failed: API returned the error code %d%n%n%s"
 argument_list|,
 name|e
 operator|.
@@ -1160,7 +1161,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Validation of page:      * - detects CAPTCHA test      * - detects invalid credentials error      * - detects wrong clientId error      */
+comment|/**      * Validation of page:      * - detects CAPTCHA test      * - detects 2-step verification      * - detects invalid credentials error      * - detects wrong clientId error      */
 DECL|method|validatePage (Document page)
 specifier|private
 specifier|static
@@ -1171,6 +1172,7 @@ name|Document
 name|page
 parameter_list|)
 block|{
+comment|// CAPTCHA
 name|Elements
 name|captchaDivs
 init|=
@@ -1198,6 +1200,35 @@ literal|"Authentication requires CAPTCHA test. First you need to authenticate th
 argument_list|)
 throw|;
 block|}
+comment|// 2-step verification
+name|Elements
+name|twoStepDivs
+init|=
+name|page
+operator|.
+name|select
+argument_list|(
+literal|"div[data-module=two-factor-enroll-form]"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|twoStepDivs
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"2-step verification is enabled on the Box account. Turn it off for camel-box to proceed the standard authentication."
+argument_list|)
+throw|;
+block|}
+comment|// login failures
 name|Elements
 name|errorDivs
 init|=
@@ -1496,7 +1527,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Box API connection failed: API returned the error code %d\n\n%s"
+literal|"Box API connection failed: API returned the error code %d%n%n%s"
 argument_list|,
 name|e
 operator|.
@@ -1674,7 +1705,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Box API connection failed: API returned the error code %d\n\n%s"
+literal|"Box API connection failed: API returned the error code %d%n%n%s"
 argument_list|,
 name|e
 operator|.
