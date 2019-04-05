@@ -404,12 +404,6 @@ name|PREFIX
 operator|+
 literal|"component"
 decl_stmt|;
-DECL|field|engine
-specifier|private
-specifier|static
-name|VelocityEngine
-name|engine
-decl_stmt|;
 DECL|field|projectClassLoader
 specifier|private
 specifier|static
@@ -568,21 +562,21 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-DECL|method|getEngine ()
-specifier|protected
+comment|// Thread-safe deferred-construction singleton via nested static class
+DECL|class|VelocityEngineHolder
+specifier|private
 specifier|static
-name|VelocityEngine
-name|getEngine
-parameter_list|()
-throws|throws
-name|MojoExecutionException
+class|class
+name|VelocityEngineHolder
 block|{
-if|if
-condition|(
-name|engine
-operator|==
-literal|null
-condition|)
+DECL|field|ENGINE
+specifier|private
+specifier|static
+specifier|final
+name|VelocityEngine
+name|ENGINE
+decl_stmt|;
+static|static
 block|{
 comment|// initialize velocity to load resources from class loader and use Log4J
 name|Properties
@@ -617,7 +611,6 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Logger
 name|velocityLogger
 init|=
@@ -642,9 +635,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|engine
+name|ENGINE
 operator|=
 operator|new
 name|VelocityEngine
@@ -652,11 +643,29 @@ argument_list|(
 name|velocityProperties
 argument_list|)
 expr_stmt|;
-name|engine
+name|ENGINE
 operator|.
 name|init
 argument_list|()
 expr_stmt|;
+block|}
+block|}
+DECL|method|getEngine ()
+specifier|protected
+specifier|static
+name|VelocityEngine
+name|getEngine
+parameter_list|()
+throws|throws
+name|MojoExecutionException
+block|{
+try|try
+block|{
+return|return
+name|VelocityEngineHolder
+operator|.
+name|ENGINE
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -677,10 +686,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-block|}
-return|return
-name|engine
-return|;
 block|}
 DECL|method|getProjectClassLoader ()
 specifier|protected
