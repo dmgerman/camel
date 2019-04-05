@@ -471,7 +471,7 @@ argument_list|()
 operator|.
 name|removeAll
 argument_list|(
-name|parameters
+name|params
 operator|.
 name|keySet
 argument_list|()
