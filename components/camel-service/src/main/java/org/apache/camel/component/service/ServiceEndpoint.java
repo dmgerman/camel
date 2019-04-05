@@ -543,6 +543,18 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isLenientProperties ()
+specifier|public
+name|boolean
+name|isLenientProperties
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|computeServiceDefinition (CamelContext context, Endpoint delegateEndpoint)
 specifier|private
 name|ServiceDefinition
