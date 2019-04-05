@@ -275,15 +275,13 @@ name|propertyTypePattern
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|execute ()
+DECL|method|executeInternal ()
 specifier|public
 name|void
-name|execute
+name|executeInternal
 parameter_list|()
 throws|throws
 name|MojoExecutionException
-throws|,
-name|MojoFailureException
 block|{
 name|setCompileSourceRoots
 argument_list|()

@@ -80,20 +80,6 @@ name|apache
 operator|.
 name|maven
 operator|.
-name|plugin
-operator|.
-name|MojoFailureException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
 name|plugins
 operator|.
 name|annotations
@@ -254,15 +240,13 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|execute ()
+DECL|method|executeInternal ()
 specifier|public
 name|void
-name|execute
+name|executeInternal
 parameter_list|()
 throws|throws
 name|MojoExecutionException
-throws|,
-name|MojoFailureException
 block|{
 if|if
 condition|(
@@ -285,17 +269,6 @@ literal|"One or more API proxies are required"
 argument_list|)
 throw|;
 block|}
-comment|// starting with a new project
-name|clearSharedProjectState
-argument_list|()
-expr_stmt|;
-name|setSharedProjectState
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-try|try
-block|{
 comment|// fix apiName for single API use-case since Maven configurator sets empty parameters as null!!!
 if|if
 condition|(
@@ -372,9 +345,19 @@ try|try
 block|{
 name|apiMethodGenerator
 operator|.
-name|execute
+name|setProjectClassLoader
+argument_list|(
+name|getProjectClassLoader
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// supply pre-constructed ClassLoader
+name|apiMethodGenerator
+operator|.
+name|executeInternal
 argument_list|()
 expr_stmt|;
+comment|// Call internal execute method
 block|}
 catch|catch
 parameter_list|(
@@ -547,19 +530,6 @@ argument_list|,
 literal|"/api-name-enum.vm"
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-comment|// clear state for next Mojo
-name|setSharedProjectState
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|clearSharedProjectState
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|configureMethodGenerator (AbstractApiMethodGeneratorMojo mojo, ApiProxy apiProxy)
 specifier|private

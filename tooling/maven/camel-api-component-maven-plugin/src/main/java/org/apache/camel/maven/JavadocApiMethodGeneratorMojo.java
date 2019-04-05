@@ -601,15 +601,11 @@ operator|+
 literal|".html"
 decl_stmt|;
 comment|// read javadoc html text for class
+try|try
+init|(
 name|InputStream
 name|inputStream
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|inputStream
-operator|=
 name|getProjectClassLoader
 argument_list|()
 operator|.
@@ -617,7 +613,8 @@ name|getResourceAsStream
 argument_list|(
 name|javaDocPath
 argument_list|)
-expr_stmt|;
+init|)
+block|{
 if|if
 condition|(
 name|inputStream
@@ -963,16 +960,6 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
-block|}
-finally|finally
-block|{
-name|IOUtil
-operator|.
-name|close
-argument_list|(
-name|inputStream
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 if|if
