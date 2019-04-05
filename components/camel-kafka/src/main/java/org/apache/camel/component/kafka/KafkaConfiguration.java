@@ -4494,7 +4494,7 @@ return|return
 name|schemaRegistryURL
 return|;
 block|}
-comment|/**      * URL of the Confluent schema registry servers to use.       * The format is host1:port1,host2:port2.       * This is known as schema.registry.url in the Confluent documentation.      * This option is only available in the Confluent Kafka product (not standard Apache Kafka)      */
+comment|/**      * URL of the Confluent Platform schema registry servers to use.       * The format is host1:port1,host2:port2.       * This is known as schema.registry.url in the Confluent Platform documentation.      * This option is only available in the Confluent Platform (not standard Apache Kafka)      */
 DECL|method|setSchemaRegistryURL (String schemaRegistryURL)
 specifier|public
 name|void
@@ -4521,7 +4521,7 @@ return|return
 name|specificAvroReader
 return|;
 block|}
-comment|/**      * This enables the use of a specific Avro reader for use with the Confluent schema registry and the io.confluent.kafka.serializers.KafkaAvroDeserializer.      * This option is only available in the Confluent Kafka product (not standard Apache Kafka)      */
+comment|/**      * This enables the use of a specific Avro reader for use with the Confluent Platform schema registry and the io.confluent.kafka.serializers.KafkaAvroDeserializer.      * This option is only available in the Confluent Platform (not standard Apache Kafka)      */
 DECL|method|setSpecificAvroReader (boolean specificAvroReader)
 specifier|public
 name|void
