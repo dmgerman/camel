@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -395,6 +405,8 @@ name|MyFactory
 implements|implements
 name|ProcessorFactory
 block|{
+annotation|@
+name|Override
 DECL|method|createChildProcessor (RouteContext routeContext, NamedNode definition, boolean mandatory)
 specifier|public
 name|Processor
@@ -416,6 +428,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProcessor (RouteContext routeContext, NamedNode definition)
 specifier|public
 name|Processor
@@ -487,6 +501,34 @@ expr_stmt|;
 block|}
 comment|// return null to let the default implementation create the processor, we just wanted to alter the definition
 comment|// before the processor was created
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createProcessor (CamelContext camelContext, String definitionName, Map<String, Object> args)
+specifier|public
+name|Processor
+name|createProcessor
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|String
+name|definitionName
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|args
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 return|return
 literal|null
 return|;

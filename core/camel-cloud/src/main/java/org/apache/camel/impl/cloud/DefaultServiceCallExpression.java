@@ -22,36 +22,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cloud
-operator|.
-name|ServiceCallExpressionSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|cloud
-operator|.
-name|ServiceCallDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -69,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Support class for custom implementations of {@link ServiceCallDefinition ServiceCall EIP} components.  *<p/>  * Below are some examples how to call a service and what Camel endpoint URI is constructed based on the input:  *<pre>  serviceCall("myService") -> http4://hostname:port  serviceCall("myService/foo") -> http4://hostname:port/foo  serviceCall("http4:myService/foo") -> http4:hostname:port/foo  serviceCall("myService", "http4:myService.host:myService.port/foo") -> http4:hostname:port/foo  serviceCall("myService", "netty4:tcp:myService?connectTimeout=1000") -> netty:tcp:hostname:port?connectTimeout=1000  *</pre>  */
+comment|/**  * Support class for custom implementations of ServiceCall EIP components.  *<p/>  * Below are some examples how to call a service and what Camel endpoint URI is constructed based on the input:  *<pre>  serviceCall("myService") -> http4://hostname:port  serviceCall("myService/foo") -> http4://hostname:port/foo  serviceCall("http4:myService/foo") -> http4:hostname:port/foo  serviceCall("myService", "http4:myService.host:myService.port/foo") -> http4:hostname:port/foo  serviceCall("myService", "netty4:tcp:myService?connectTimeout=1000") -> netty:tcp:hostname:port?connectTimeout=1000  *</pre>  */
 end_comment
 
 begin_class

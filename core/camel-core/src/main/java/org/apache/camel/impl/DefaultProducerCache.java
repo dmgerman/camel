@@ -410,6 +410,13 @@ name|camelContext
 operator|.
 name|getManagementStrategy
 argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|camelContext
+operator|.
+name|getManagementStrategy
+argument_list|()
 operator|.
 name|getManagementAgent
 argument_list|()

@@ -4,13 +4,15 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.cloud
+DECL|package|org.apache.camel.impl.cloud
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|impl
 operator|.
 name|cloud
 package|;
@@ -37,6 +39,20 @@ operator|.
 name|camel
 operator|.
 name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cloud
+operator|.
+name|ServiceCallConstants
 import|;
 end_import
 

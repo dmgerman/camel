@@ -18,6 +18,28 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -77,6 +99,28 @@ name|routeContext
 parameter_list|,
 name|NamedNode
 name|definition
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Creates a processor by the name of the definition. This should only be used in some special situations      * where the processor is used internally in some features such as camel-cloud.      *      * @param camelContext     the camel context      * @param definitionName   the name of the definition that represents the processor      * @param args             arguments for creating the processor (name=vale pairs)      * @return the created processor, or<tt>null</tt> if this situation is not yet implemented.      * @throws Exception can be thrown if error creating the processor      */
+DECL|method|createProcessor (CamelContext camelContext, String definitionName, Map<String, Object> args)
+name|Processor
+name|createProcessor
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|String
+name|definitionName
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|args
 parameter_list|)
 throws|throws
 name|Exception

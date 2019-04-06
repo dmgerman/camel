@@ -66,6 +66,12 @@ name|ID_PROPERTY
 init|=
 literal|"id"
 decl_stmt|;
+DECL|field|CUSTOM_ID_PROPERTY
+name|String
+name|CUSTOM_ID_PROPERTY
+init|=
+literal|"customId"
+decl_stmt|;
 DECL|field|PARENT_PROPERTY
 name|String
 name|PARENT_PROPERTY
