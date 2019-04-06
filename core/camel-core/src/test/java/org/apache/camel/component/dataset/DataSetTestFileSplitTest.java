@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.test
+DECL|package|org.apache.camel.component.dataset
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|test
+name|dataset
 package|;
 end_package
 
@@ -75,10 +75,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|TestFileTest
+DECL|class|DataSetTestFileSplitTest
 specifier|public
 class|class
-name|TestFileTest
+name|DataSetTestFileSplitTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -135,7 +135,7 @@ name|sendBody
 argument_list|(
 literal|"file:target/data/testme"
 argument_list|,
-literal|"Hello World"
+literal|"Hello World\nBye World\nHi World"
 argument_list|)
 expr_stmt|;
 name|context
@@ -162,7 +162,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"test:file:target/data/testme?noop=true&timeout=1500"
+literal|"dataset-test:file:target/data/testme?noop=true&split=true&timeout=1000"
 argument_list|)
 expr_stmt|;
 block|}
@@ -181,6 +181,24 @@ argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Hi World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

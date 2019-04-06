@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.test
+DECL|package|org.apache.camel.component.dataset
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|test
+name|dataset
 package|;
 end_package
 
@@ -50,15 +50,35 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
 
 begin_class
-DECL|class|TestAnyOrderTest
+DECL|class|DataSetTestFileTest
 specifier|public
 class|class
-name|TestAnyOrderTest
+name|DataSetTestFileTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -75,11 +95,36 @@ literal|false
 return|;
 block|}
 annotation|@
-name|Test
-DECL|method|testAnyOrder ()
+name|Override
+annotation|@
+name|Before
+DECL|method|setUp ()
 specifier|public
 name|void
-name|testAnyOrder
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|deleteDirectory
+argument_list|(
+literal|"target/data/testme"
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Ignore
+annotation|@
+name|Test
+DECL|method|testFile ()
+specifier|public
+name|void
+name|testFile
 parameter_list|()
 throws|throws
 name|Exception
@@ -88,16 +133,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:testme"
-argument_list|,
-literal|"Bye World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"seda:testme"
+literal|"file:target/data/testme"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -126,7 +162,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"test:seda:testme?anyOrder=true&timeout=0"
+literal|"dataset-test:file:target/data/testme?noop=true&timeout=1500"
 argument_list|)
 expr_stmt|;
 block|}
@@ -145,15 +181,6 @@ argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

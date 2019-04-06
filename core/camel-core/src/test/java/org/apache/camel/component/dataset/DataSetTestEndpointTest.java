@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.test
+DECL|package|org.apache.camel.component.dataset
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|test
+name|dataset
 package|;
 end_package
 
@@ -159,10 +159,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|TestEndpointTest
+DECL|class|DataSetTestEndpointTest
 specifier|public
 class|class
-name|TestEndpointTest
+name|DataSetTestEndpointTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -248,7 +248,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"test:my:foo?timeout=0"
+literal|"dataset-test:my:foo?timeout=0"
 argument_list|)
 expr_stmt|;
 block|}

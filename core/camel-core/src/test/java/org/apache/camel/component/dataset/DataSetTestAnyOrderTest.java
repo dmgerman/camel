@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.test
+DECL|package|org.apache.camel.component.dataset
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|test
+name|dataset
 package|;
 end_package
 
@@ -50,35 +50,15 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
 
 begin_class
-DECL|class|TestFileSplitTest
+DECL|class|DataSetTestAnyOrderTest
 specifier|public
 class|class
-name|TestFileSplitTest
+name|DataSetTestAnyOrderTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -95,36 +75,11 @@ literal|false
 return|;
 block|}
 annotation|@
-name|Override
-annotation|@
-name|Before
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|deleteDirectory
-argument_list|(
-literal|"target/data/testme"
-argument_list|)
-expr_stmt|;
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Ignore
-annotation|@
 name|Test
-DECL|method|testFile ()
+DECL|method|testAnyOrder ()
 specifier|public
 name|void
-name|testFile
+name|testAnyOrder
 parameter_list|()
 throws|throws
 name|Exception
@@ -133,9 +88,18 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"file:target/data/testme"
+literal|"seda:testme"
 argument_list|,
-literal|"Hello World\nBye World\nHi World"
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"seda:testme"
+argument_list|,
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|context
@@ -162,7 +126,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"test:file:target/data/testme?noop=true&split=true&timeout=1000"
+literal|"dataset-test:seda:testme?anyOrder=true&timeout=0"
 argument_list|)
 expr_stmt|;
 block|}
@@ -190,15 +154,6 @@ argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|"Bye World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"Hi World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

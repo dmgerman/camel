@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.test
+DECL|package|org.apache.camel.component.dataset
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|test
+name|dataset
 package|;
 end_package
 
@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/test.html">Test Component</a> is for simplifying unit and integration tests.  *  * Component for testing by polling test messages from another endpoint on startup as the expected message bodies to  * receive during testing.  */
+comment|/**  * The<a href="http://camel.apache.org/test.html">DataSet Test Component</a> is for simplifying unit and integration tests.  *  * Component for testing by polling test messages from another endpoint on startup as the expected message bodies to  * receive during testing.  */
 end_comment
 
 begin_class
@@ -100,18 +100,18 @@ name|annotations
 operator|.
 name|Component
 argument_list|(
-literal|"test"
+literal|"dataset-test"
 argument_list|)
-DECL|class|TestComponent
+DECL|class|DataSetTestComponent
 specifier|public
 class|class
-name|TestComponent
+name|DataSetTestComponent
 extends|extends
 name|DefaultComponent
 block|{
-DECL|method|TestComponent ()
+DECL|method|DataSetTestComponent ()
 specifier|public
-name|TestComponent
+name|DataSetTestComponent
 parameter_list|()
 block|{     }
 annotation|@
@@ -152,11 +152,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|TestEndpoint
+name|DataSetTestEndpoint
 name|answer
 init|=
 operator|new
-name|TestEndpoint
+name|DataSetTestEndpoint
 argument_list|(
 name|uri
 argument_list|,

@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.test
+DECL|package|org.apache.camel.component.dataset
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|test
+name|dataset
 package|;
 end_package
 
@@ -209,7 +209,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The test component extends the mock component by on startup to pull messages from another endpoint to set the expected message bodies.  *  * That is, you use the test endpoint in a route and messages arriving on it will be implicitly compared to some  * expected messages extracted from some other location.  * So you can use, for example, an expected set of message bodies as files.  * This will then set up a properly configured Mock endpoint, which is only valid if the received messages  * match the number of expected messages and their message payloads are equal.  */
+comment|/**  * The dataset-test component extends the mock component by on startup to pull messages from another endpoint to set the expected message bodies.  *  * That is, you use the test endpoint in a route and messages arriving on it will be implicitly compared to some  * expected messages extracted from some other location.  * So you can use, for example, an expected set of message bodies as files.  * This will then set up a properly configured Mock endpoint, which is only valid if the received messages  * match the number of expected messages and their message payloads are equal.  */
 end_comment
 
 begin_class
@@ -222,15 +222,15 @@ literal|"1.3.0"
 argument_list|,
 name|scheme
 operator|=
-literal|"test"
+literal|"dataset-test"
 argument_list|,
 name|title
 operator|=
-literal|"Test"
+literal|"DataSet Test"
 argument_list|,
 name|syntax
 operator|=
-literal|"test:name"
+literal|"dataset-test:name"
 argument_list|,
 name|producerOnly
 operator|=
@@ -244,10 +244,10 @@ name|lenientProperties
 operator|=
 literal|true
 argument_list|)
-DECL|class|TestEndpoint
+DECL|class|DataSetTestEndpoint
 specifier|public
 class|class
-name|TestEndpoint
+name|DataSetTestEndpoint
 extends|extends
 name|MockEndpoint
 block|{
@@ -312,9 +312,9 @@ name|delimiter
 init|=
 literal|"\\n|\\r"
 decl_stmt|;
-DECL|method|TestEndpoint (String endpointUri, Component component)
+DECL|method|DataSetTestEndpoint (String endpointUri, Component component)
 specifier|public
-name|TestEndpoint
+name|DataSetTestEndpoint
 parameter_list|(
 name|String
 name|endpointUri
