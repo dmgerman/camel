@@ -26,7 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|builder
+operator|.
+name|RouteBuilder
 import|;
 end_import
 
@@ -38,9 +40,31 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|test
 operator|.
-name|RouteBuilder
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
 import|;
 end_import
 
@@ -55,12 +79,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|DataSetTestAnyOrderTest
+DECL|class|DataSetTestFileSplitTest
 specifier|public
 class|class
-name|DataSetTestAnyOrderTest
+name|DataSetTestFileSplitTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 annotation|@
 name|Override
@@ -75,11 +99,36 @@ literal|false
 return|;
 block|}
 annotation|@
-name|Test
-DECL|method|testAnyOrder ()
+name|Override
+annotation|@
+name|Before
+DECL|method|setUp ()
 specifier|public
 name|void
-name|testAnyOrder
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|deleteDirectory
+argument_list|(
+literal|"target/data/testme"
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Ignore
+annotation|@
+name|Test
+DECL|method|testFile ()
+specifier|public
+name|void
+name|testFile
 parameter_list|()
 throws|throws
 name|Exception
@@ -88,18 +137,9 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:testme"
+literal|"file:target/data/testme"
 argument_list|,
-literal|"Bye World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"seda:testme"
-argument_list|,
-literal|"Hello World"
+literal|"Hello World\nBye World\nHi World"
 argument_list|)
 expr_stmt|;
 name|context
@@ -126,7 +166,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"dataset-test:seda:testme?anyOrder=true&timeout=0"
+literal|"dataset-test:file:target/data/testme?noop=true&split=true&timeout=1000"
 argument_list|)
 expr_stmt|;
 block|}
@@ -154,6 +194,15 @@ argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|"Bye World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Hi World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

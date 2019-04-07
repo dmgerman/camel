@@ -26,7 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|builder
+operator|.
+name|RouteBuilder
 import|;
 end_import
 
@@ -38,9 +40,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|test
 operator|.
-name|RouteBuilder
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -55,12 +59,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|DataSetTestSedaTest
+DECL|class|DataSetTestAnyOrderTest
 specifier|public
 class|class
-name|DataSetTestSedaTest
+name|DataSetTestAnyOrderTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 annotation|@
 name|Override
@@ -76,14 +80,23 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testSeda ()
+DECL|method|testAnyOrder ()
 specifier|public
 name|void
-name|testSeda
+name|testAnyOrder
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"seda:testme"
+argument_list|,
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -117,7 +130,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"dataset-test:seda:testme?timeout=0"
+literal|"dataset-test:seda:testme?anyOrder=true&timeout=0"
 argument_list|)
 expr_stmt|;
 block|}
@@ -136,6 +149,15 @@ argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

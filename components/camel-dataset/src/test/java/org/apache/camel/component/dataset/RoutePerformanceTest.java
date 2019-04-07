@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel.component.dataset
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|component
+operator|.
+name|dataset
 package|;
 end_package
 
@@ -23,16 +25,6 @@ operator|.
 name|util
 operator|.
 name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
 import|;
 end_import
 
@@ -60,23 +52,13 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|naming
-operator|.
-name|Context
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|BindToRegistry
 import|;
 end_import
 
@@ -104,9 +86,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|dataset
+name|mock
 operator|.
-name|SimpleDataSet
+name|MockEndpoint
 import|;
 end_import
 
@@ -118,11 +100,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|test
 operator|.
-name|mock
+name|junit4
 operator|.
-name|MockEndpoint
+name|CamelTestSupport
 import|;
 end_import
 
@@ -150,6 +132,24 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+operator|.
+name|assertIsSatisfied
+import|;
+end_import
+
 begin_comment
 comment|/**  * A route for simple performance testing that can be used when we suspect  * something is wrong. Inspired by end user on forum doing this as proof of concept.  */
 end_comment
@@ -160,7 +160,7 @@ specifier|public
 class|class
 name|RoutePerformanceTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|size
 specifier|private
@@ -169,6 +169,11 @@ name|size
 init|=
 literal|250
 decl_stmt|;
+annotation|@
+name|BindToRegistry
+argument_list|(
+literal|"foo"
+argument_list|)
 DECL|field|dataSet
 specifier|private
 name|SimpleDataSet
@@ -235,8 +240,6 @@ literal|123
 argument_list|)
 expr_stmt|;
 comment|// wait 30 sec for slow servers
-name|MockEndpoint
-operator|.
 name|assertIsSatisfied
 argument_list|(
 name|context
@@ -265,46 +268,24 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|canRunOnThisPlatform ()
+DECL|method|createRouteBuilder ()
 specifier|protected
-name|boolean
-name|canRunOnThisPlatform
+name|RouteBuilder
+name|createRouteBuilder
 parameter_list|()
+throws|throws
+name|Exception
 block|{
-name|String
-name|os
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"os.name"
-argument_list|)
-decl_stmt|;
-comment|// HP-UX is just to slow to run this test
 return|return
-operator|!
-name|os
-operator|.
-name|toLowerCase
-argument_list|(
-name|Locale
-operator|.
-name|ENGLISH
-argument_list|)
-operator|.
-name|contains
-argument_list|(
-literal|"hp-ux"
-argument_list|)
-return|;
-block|}
+operator|new
+name|RouteBuilder
+argument_list|()
+block|{
 annotation|@
 name|Override
-DECL|method|createJndiContext ()
-specifier|protected
-name|Context
-name|createJndiContext
+specifier|public
+name|void
+name|configure
 parameter_list|()
 throws|throws
 name|Exception
@@ -338,51 +319,6 @@ argument_list|(
 name|headers
 argument_list|)
 expr_stmt|;
-name|Context
-name|context
-init|=
-name|super
-operator|.
-name|createJndiContext
-argument_list|()
-decl_stmt|;
-name|context
-operator|.
-name|bind
-argument_list|(
-literal|"foo"
-argument_list|,
-name|dataSet
-argument_list|)
-expr_stmt|;
-return|return
-name|context
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|createRouteBuilder ()
-specifier|protected
-name|RouteBuilder
-name|createRouteBuilder
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-return|return
-operator|new
-name|RouteBuilder
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|configure
-parameter_list|()
-throws|throws
-name|Exception
-block|{
 name|from
 argument_list|(
 literal|"dataset:foo"
