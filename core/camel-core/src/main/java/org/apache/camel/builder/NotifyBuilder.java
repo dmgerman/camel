@@ -416,7 +416,6 @@ specifier|public
 class|class
 name|NotifyBuilder
 block|{
-comment|// TODO: camel-mock
 DECL|field|LOG
 specifier|private
 specifier|static

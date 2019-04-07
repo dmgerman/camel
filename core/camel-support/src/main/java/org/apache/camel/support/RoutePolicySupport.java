@@ -273,7 +273,7 @@ block|}
 comment|/**      * Starts the consumer.      *      * @return the returned value is always<tt>true</tt> and should not be used.      * @see #resumeOrStartConsumer(Consumer)      */
 DECL|method|startConsumer (Consumer consumer)
 specifier|public
-name|boolean
+name|void
 name|startConsumer
 parameter_list|(
 name|Consumer
@@ -282,7 +282,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO: change to void in Camel 3.0
 name|ServiceHelper
 operator|.
 name|startService
@@ -299,14 +298,11 @@ argument_list|,
 name|consumer
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
 block|}
 comment|/**      * Stops the consumer.      *      * @return the returned value is always<tt>true</tt> and should not be used.      * @see #suspendOrStopConsumer(Consumer)      */
 DECL|method|stopConsumer (Consumer consumer)
 specifier|public
-name|boolean
+name|void
 name|stopConsumer
 parameter_list|(
 name|Consumer
@@ -315,7 +311,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO: change to void in Camel 3.0
 comment|// stop and shutdown
 name|ServiceHelper
 operator|.
@@ -333,9 +328,6 @@ argument_list|,
 name|consumer
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
 block|}
 comment|/**      * Suspends or stops the consumer.      *      * If the consumer is {@link org.apache.camel.Suspendable} then the consumer is suspended,      * otherwise the consumer is stopped.      *      * @see #stopConsumer(Consumer)      * @return<tt>true</tt> if the consumer was suspended or stopped,<tt>false</tt> if the consumer was already suspend or stopped      */
 DECL|method|suspendOrStopConsumer (Consumer consumer)

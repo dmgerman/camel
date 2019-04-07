@@ -838,7 +838,6 @@ name|delegate
 operator|=
 literal|null
 expr_stmt|;
-comment|// TODO: reloading all type converters when one service is removed is suboptimal...
 block|}
 annotation|@
 name|Override

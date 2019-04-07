@@ -76,7 +76,6 @@ name|DefaultCamelContextAutoStartupTest
 extends|extends
 name|TestSupport
 block|{
-comment|// TODO: We should have a JMX test of this as well
 annotation|@
 name|Test
 DECL|method|testAutoStartupFalseContextStart ()
