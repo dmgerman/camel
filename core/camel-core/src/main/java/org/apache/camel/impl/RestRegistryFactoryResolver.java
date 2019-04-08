@@ -62,20 +62,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|HeadersMapFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|RestRegistryFactory
 import|;
 end_import
@@ -209,7 +195,7 @@ operator|.
 name|getResourcePath
 argument_list|()
 argument_list|,
-literal|"headers-map-factory"
+literal|"rest-registry-factory"
 argument_list|)
 expr_stmt|;
 block|}
@@ -245,7 +231,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Detected and using custom RestRegistryFactory: {}"
+literal|"Detected and using RestRegistryFactory: {}"
 argument_list|,
 name|answer
 argument_list|)
