@@ -638,8 +638,8 @@ name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|char
-name|chars
 index|[]
+name|chars
 init|=
 name|s
 operator|.
