@@ -2906,7 +2906,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Parameter #{} has parameter info: "
+literal|"Parameter #{} has parameter info: {}"
 argument_list|,
 name|i
 argument_list|,

@@ -1138,6 +1138,8 @@ operator|.
 name|trace
 argument_list|(
 literal|"No binding to service interface as @Body,@Header,@ExchangeProperty not detected. Using BeanInvocation as message body when calling proxy method: {}"
+argument_list|,
+name|method
 argument_list|)
 expr_stmt|;
 block|}

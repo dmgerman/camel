@@ -4230,7 +4230,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Parameter #{} evaluated as: {} type: "
+literal|"Parameter #{} evaluated as: {} type: {}"
 argument_list|,
 name|index
 argument_list|,
@@ -4418,7 +4418,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Parameter #{} evaluated as: {} type: "
+literal|"Parameter #{} evaluated as: {} type: {}"
 argument_list|,
 name|index
 argument_list|,

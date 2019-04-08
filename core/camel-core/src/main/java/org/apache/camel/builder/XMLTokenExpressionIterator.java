@@ -1424,6 +1424,8 @@ operator|.
 name|error
 argument_list|(
 literal|"XMLStreamReader {} not supporting Location"
+argument_list|,
+name|reader
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -2934,7 +2936,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"XMLStreamReader {} not supporting Location"
+literal|"XMLStreamReader not supporting Location"
 argument_list|)
 expr_stmt|;
 throw|throw
