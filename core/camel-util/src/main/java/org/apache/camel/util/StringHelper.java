@@ -1233,8 +1233,8 @@ name|count
 parameter_list|)
 block|{
 name|String
-name|rc
 index|[]
+name|rc
 init|=
 operator|new
 name|String
