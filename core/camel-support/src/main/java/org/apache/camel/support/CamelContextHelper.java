@@ -2158,7 +2158,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Finding all components using class resolver: {} -> {}"
+literal|"Finding all components using class resolver: {}"
 argument_list|,
 name|resolver
 argument_list|)
