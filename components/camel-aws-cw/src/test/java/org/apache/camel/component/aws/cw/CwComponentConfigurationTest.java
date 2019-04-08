@@ -131,12 +131,15 @@ name|Date
 argument_list|()
 decl_stmt|;
 annotation|@
-name|BindToRegistry
-argument_list|(
-literal|"amazonCwClient"
-argument_list|)
-DECL|field|cloudWatchClient
-specifier|private
+name|Test
+DECL|method|createEndpointWithAllOptions ()
+specifier|public
+name|void
+name|createEndpointWithAllOptions
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|AmazonCloudWatchClient
 name|cloudWatchClient
 init|=
@@ -147,16 +150,18 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Test
-DECL|method|createEndpointWithAllOptions ()
-specifier|public
-name|void
-name|createEndpointWithAllOptions
-parameter_list|()
-throws|throws
-name|Exception
-block|{
+name|context
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|bind
+argument_list|(
+literal|"amazonCwClient"
+argument_list|,
+name|cloudWatchClient
+argument_list|)
+expr_stmt|;
 name|CwComponent
 name|component
 init|=
@@ -320,6 +325,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+argument_list|(
+name|expected
+operator|=
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|)
 DECL|method|createEndpointWithoutSecretKeyAndAccessKeyConfiguration ()
 specifier|public
 name|void
@@ -341,7 +353,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"aws-cw://camel.apache.org/test?amazonCwClient=#amazonCwClient&accessKey=xxx"
+literal|"aws-cw://camel.apache.org/test?accessKey=xxx"
 argument_list|)
 expr_stmt|;
 block|}
