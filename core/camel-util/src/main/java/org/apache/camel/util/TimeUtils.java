@@ -828,7 +828,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"source: {} milliseconds: "
+literal|"source: [{}], milliseconds: {}"
 argument_list|,
 name|source
 argument_list|,
