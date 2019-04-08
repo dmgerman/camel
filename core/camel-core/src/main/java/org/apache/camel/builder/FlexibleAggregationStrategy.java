@@ -143,8 +143,6 @@ class|class
 name|FlexibleAggregationStrategy
 parameter_list|<
 name|E
-extends|extends
-name|Object
 parameter_list|>
 implements|implements
 name|AggregationStrategy
