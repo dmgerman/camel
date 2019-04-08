@@ -228,7 +228,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"aws-s3://bucket-name?amazonS3Client=#amazonS3Client&deleteAfterRead=false&maxMessagesPerPoll=25&delay=5000"
+literal|"aws-s3://bucket-name?deleteAfterRead=false&maxMessagesPerPoll=25&delay=5000"
 argument_list|)
 operator|.
 name|log
