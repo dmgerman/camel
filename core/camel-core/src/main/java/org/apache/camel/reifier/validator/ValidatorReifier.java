@@ -349,7 +349,6 @@ name|context
 argument_list|)
 return|;
 block|}
-empty_stmt|;
 DECL|method|doCreateValidator (CamelContext context)
 specifier|protected
 specifier|abstract
