@@ -997,7 +997,7 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"Schedule health-checks to be executed every %d (%s)"
+literal|"Schedule health-checks to be executed every {} ({})"
 argument_list|,
 name|checkInterval
 argument_list|,
