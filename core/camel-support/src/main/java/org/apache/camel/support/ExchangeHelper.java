@@ -3507,8 +3507,8 @@ condition|)
 block|{
 comment|// Use the URI prefix to find the component.
 name|String
-name|splitURI
 index|[]
+name|splitURI
 init|=
 name|StringHelper
 operator|.

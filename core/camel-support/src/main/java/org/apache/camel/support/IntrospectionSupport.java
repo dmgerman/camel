@@ -4113,8 +4113,8 @@ name|Class
 argument_list|<
 name|?
 argument_list|>
-name|params
 index|[]
+name|params
 init|=
 name|method
 operator|.
