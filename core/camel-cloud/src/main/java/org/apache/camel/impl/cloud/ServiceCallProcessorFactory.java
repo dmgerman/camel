@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p>  * http://www.apache.org/licenses/LICENSE-2.0  *<p>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -590,8 +590,10 @@ name|serviceChooser
 argument_list|)
 expr_stmt|;
 block|}
-comment|// The component is used to configure the default scheme to use (eg camel component name).
-comment|// The component configured on EIP takes precedence vs configured on configuration.
+comment|// The component is used to configure the default scheme to use (eg
+comment|// camel component name).
+comment|// The component configured on EIP takes precedence vs configured on
+comment|// configuration.
 name|String
 name|endpointScheme
 init|=
@@ -663,7 +665,8 @@ expr_stmt|;
 block|}
 block|}
 comment|// The uri is used to tweak the uri.
-comment|// The uri configured on EIP takes precedence vs configured on configuration.
+comment|// The uri configured on EIP takes precedence vs configured on
+comment|// configuration.
 name|String
 name|endpointUri
 init|=
@@ -1182,8 +1185,10 @@ argument_list|)
 operator|.
 name|orElseGet
 argument_list|(
-comment|// Default, that's s little ugly but a load balancer may live without
-comment|// (i.e. the Ribbon one) so let's delegate the null check to the actual
+comment|// Default, that's s little ugly but a load balancer may
+comment|// live without
+comment|// (i.e. the Ribbon one) so let's delegate the null check
+comment|// to the actual
 comment|// impl.
 parameter_list|()
 lambda|->
@@ -1450,7 +1455,8 @@ operator|::
 name|retrieveDefaultConfig
 argument_list|)
 argument_list|,
-comment|// Check if there is a single instance in the registry
+comment|// Check if there is a single instance in
+comment|// the registry
 parameter_list|()
 lambda|->
 name|findByType
@@ -1699,7 +1705,8 @@ operator|::
 name|retrieveDefaultConfig
 argument_list|)
 argument_list|,
-comment|// Check if there is a single instance in the registry
+comment|// Check if there is a single instance in
+comment|// the registry
 parameter_list|()
 lambda|->
 name|findByType
@@ -1917,7 +1924,8 @@ operator|::
 name|retrieveDefaultConfig
 argument_list|)
 argument_list|,
-comment|// Check if there is a single instance in the registry
+comment|// Check if there is a single instance in
+comment|// the registry
 parameter_list|()
 lambda|->
 name|findByType
@@ -2208,7 +2216,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// If a factory is found in the registry do not re-configure it as
+comment|// If a factory is found in the registry do not re-configure it
+comment|// as
 comment|// it should be pre-configured.
 return|return
 name|factory
