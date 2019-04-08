@@ -538,8 +538,8 @@ return|;
 block|}
 comment|// First check whether we actually need to encode
 name|char
-name|chars
 index|[]
+name|chars
 init|=
 name|s
 operator|.
