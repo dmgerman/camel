@@ -146,16 +146,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|StringTokenizer
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|CopyOnWriteArrayList
@@ -551,20 +541,6 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|StringHelper
 import|;
 end_import
 
