@@ -904,18 +904,13 @@ name|trace
 argument_list|(
 literal|"Copying InputStream: {} -> OutputStream: {} with buffer: {} and flush on each write {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|input
-block|,
+argument_list|,
 name|output
-block|,
+argument_list|,
 name|bufferSize
-block|,
+argument_list|,
 name|flushOnEachWrite
-block|}
 argument_list|)
 expr_stmt|;
 block|}
