@@ -3037,14 +3037,8 @@ name|newThread
 argument_list|(
 name|threadName
 argument_list|,
-operator|new
-name|Runnable
-argument_list|()
-block|{
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 try|try
 block|{
@@ -3091,7 +3085,6 @@ argument_list|,
 name|ioe
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 argument_list|)

@@ -309,19 +309,8 @@ argument_list|)
 operator|.
 name|process
 argument_list|(
-operator|new
-name|Processor
-argument_list|()
-block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
 name|exchange
-parameter_list|)
-throws|throws
-name|Exception
+lambda|->
 block|{
 if|if
 condition|(
@@ -338,7 +327,6 @@ argument_list|(
 literal|"Forced by unit test"
 argument_list|)
 throw|;
-block|}
 block|}
 block|}
 argument_list|)

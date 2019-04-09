@@ -626,17 +626,8 @@ name|send
 argument_list|(
 name|startEndpoint
 argument_list|,
-operator|new
-name|Processor
-argument_list|()
-block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
 name|exchange
-parameter_list|)
+lambda|->
 block|{
 comment|// now lets fire in a message
 name|Message
@@ -663,7 +654,6 @@ argument_list|,
 name|messageId
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;

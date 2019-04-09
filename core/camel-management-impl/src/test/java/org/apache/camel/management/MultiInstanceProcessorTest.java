@@ -137,19 +137,8 @@ argument_list|)
 operator|.
 name|process
 argument_list|(
-operator|new
-name|Processor
-argument_list|()
-block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
 name|exchange
-parameter_list|)
-throws|throws
-name|Exception
+lambda|->
 block|{
 comment|// simulate a little processing time
 name|Thread
@@ -159,7 +148,6 @@ argument_list|(
 literal|10
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 operator|.

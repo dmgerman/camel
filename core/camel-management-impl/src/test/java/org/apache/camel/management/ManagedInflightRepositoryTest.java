@@ -189,21 +189,8 @@ argument_list|)
 operator|.
 name|process
 argument_list|(
-operator|new
-name|Processor
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
 name|exchange
-parameter_list|)
-throws|throws
-name|Exception
+lambda|->
 block|{
 name|MBeanServer
 name|mbeanServer
@@ -266,7 +253,7 @@ index|[]
 block|{
 literal|"foo"
 block|}
-argument_list|,
+operator|,
 operator|new
 name|String
 index|[]
@@ -274,7 +261,7 @@ block|{
 literal|"java.lang.String"
 block|}
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -320,8 +307,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-argument_list|)
+block|)
 operator|.
 name|id
 argument_list|(
@@ -335,10 +321,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|;
-block|}
-block|}
 end_class
 
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+
+unit|}  }
 end_unit
 

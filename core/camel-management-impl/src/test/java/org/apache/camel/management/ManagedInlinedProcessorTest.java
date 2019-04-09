@@ -279,22 +279,8 @@ argument_list|)
 operator|.
 name|process
 argument_list|(
-operator|new
-name|Processor
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
 name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
+lambda|->
 name|exchange
 operator|.
 name|getOut
@@ -304,9 +290,6 @@ name|setBody
 argument_list|(
 literal|"Bye World"
 argument_list|)
-expr_stmt|;
-block|}
-block|}
 argument_list|)
 operator|.
 name|id
