@@ -472,6 +472,17 @@ name|getPrefix
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|listObjectsRequest
+operator|.
+name|setDelimiter
+argument_list|(
+name|getConfiguration
+argument_list|()
+operator|.
+name|getDelimiter
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|maxMessagesPerPoll

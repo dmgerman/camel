@@ -184,6 +184,18 @@ name|prefix
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|delimiter
+specifier|private
+name|String
+name|delimiter
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|region
 specifier|private
 name|String
@@ -656,7 +668,34 @@ return|return
 name|prefix
 return|;
 block|}
-comment|/**      * The prefix which is used in the      * com.amazonaws.services.s3.model.ListObjectsRequest to only consume      * objects we are interested in.      */
+comment|/**      * The delimiter which is used in the      * com.amazonaws.services.s3.model.ListObjectsRequest to only consume      * objects we are interested in.      */
+DECL|method|setDelimiter (String delimiter)
+specifier|public
+name|void
+name|setDelimiter
+parameter_list|(
+name|String
+name|delimiter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|delimiter
+operator|=
+name|delimiter
+expr_stmt|;
+block|}
+DECL|method|getDelimiter ()
+specifier|public
+name|String
+name|getDelimiter
+parameter_list|()
+block|{
+return|return
+name|delimiter
+return|;
+block|}
+comment|/**      * The delimiter which is used in the      * com.amazonaws.services.s3.model.ListObjectsRequest to only consume      * objects we are interested in.      */
 DECL|method|setPrefix (String prefix)
 specifier|public
 name|void
