@@ -92,6 +92,18 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
+comment|/**      * The pulsar autoconfiguration. The option is a      * org.apache.camel.component.pulsar.utils.AutoConfiguration type.      */
+DECL|field|autoConfiguration
+specifier|private
+name|String
+name|autoConfiguration
+decl_stmt|;
+comment|/**      * The pulsar client. The option is a      * org.apache.pulsar.client.api.PulsarClient type.      */
+DECL|field|pulsarClient
+specifier|private
+name|String
+name|pulsarClient
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -100,6 +112,58 @@ name|resolvePropertyPlaceholders
 init|=
 literal|true
 decl_stmt|;
+DECL|method|getAutoConfiguration ()
+specifier|public
+name|String
+name|getAutoConfiguration
+parameter_list|()
+block|{
+return|return
+name|autoConfiguration
+return|;
+block|}
+DECL|method|setAutoConfiguration (String autoConfiguration)
+specifier|public
+name|void
+name|setAutoConfiguration
+parameter_list|(
+name|String
+name|autoConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoConfiguration
+operator|=
+name|autoConfiguration
+expr_stmt|;
+block|}
+DECL|method|getPulsarClient ()
+specifier|public
+name|String
+name|getPulsarClient
+parameter_list|()
+block|{
+return|return
+name|pulsarClient
+return|;
+block|}
+DECL|method|setPulsarClient (String pulsarClient)
+specifier|public
+name|void
+name|setPulsarClient
+parameter_list|(
+name|String
+name|pulsarClient
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pulsarClient
+operator|=
+name|pulsarClient
+expr_stmt|;
+block|}
 DECL|method|getResolvePropertyPlaceholders ()
 specifier|public
 name|Boolean
