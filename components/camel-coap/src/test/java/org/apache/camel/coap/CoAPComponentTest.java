@@ -193,12 +193,18 @@ name|response
 init|=
 name|client
 operator|.
-name|get
-argument_list|()
+name|post
+argument_list|(
+literal|"Camel"
+argument_list|,
+name|MediaTypeRegistry
+operator|.
+name|TEXT_PLAIN
+argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Hello "
+literal|"Hello Camel"
 argument_list|,
 name|response
 operator|.

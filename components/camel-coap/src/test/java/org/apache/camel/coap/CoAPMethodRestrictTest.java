@@ -234,10 +234,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|assertEquals
+name|assertNull
 argument_list|(
-literal|""
-argument_list|,
 name|result
 argument_list|)
 expr_stmt|;

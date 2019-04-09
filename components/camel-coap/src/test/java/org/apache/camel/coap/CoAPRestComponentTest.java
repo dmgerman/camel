@@ -305,7 +305,7 @@ name|client
 operator|.
 name|setTimeout
 argument_list|(
-literal|1000000
+literal|1000000L
 argument_list|)
 expr_stmt|;
 name|rsp
@@ -420,7 +420,7 @@ name|client
 operator|.
 name|setTimeout
 argument_list|(
-literal|1000000
+literal|1000000L
 argument_list|)
 expr_stmt|;
 name|CoapResponse
@@ -476,7 +476,7 @@ name|client
 operator|.
 name|setTimeout
 argument_list|(
-literal|1000000
+literal|1000000L
 argument_list|)
 expr_stmt|;
 name|CoapResponse
