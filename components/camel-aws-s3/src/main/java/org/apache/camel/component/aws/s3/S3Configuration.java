@@ -668,6 +668,33 @@ return|return
 name|prefix
 return|;
 block|}
+comment|/**      * The prefix which is used in the      * com.amazonaws.services.s3.model.ListObjectsRequest to only consume      * objects we are interested in.      */
+DECL|method|setPrefix (String prefix)
+specifier|public
+name|void
+name|setPrefix
+parameter_list|(
+name|String
+name|prefix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|prefix
+operator|=
+name|prefix
+expr_stmt|;
+block|}
+DECL|method|getDelimiter ()
+specifier|public
+name|String
+name|getDelimiter
+parameter_list|()
+block|{
+return|return
+name|delimiter
+return|;
+block|}
 comment|/**      * The delimiter which is used in the      * com.amazonaws.services.s3.model.ListObjectsRequest to only consume      * objects we are interested in.      */
 DECL|method|setDelimiter (String delimiter)
 specifier|public
@@ -683,33 +710,6 @@ operator|.
 name|delimiter
 operator|=
 name|delimiter
-expr_stmt|;
-block|}
-DECL|method|getDelimiter ()
-specifier|public
-name|String
-name|getDelimiter
-parameter_list|()
-block|{
-return|return
-name|delimiter
-return|;
-block|}
-comment|/**      * The delimiter which is used in the      * com.amazonaws.services.s3.model.ListObjectsRequest to only consume      * objects we are interested in.      */
-DECL|method|setPrefix (String prefix)
-specifier|public
-name|void
-name|setPrefix
-parameter_list|(
-name|String
-name|prefix
-parameter_list|)
-block|{
-name|this
-operator|.
-name|prefix
-operator|=
-name|prefix
 expr_stmt|;
 block|}
 DECL|method|getBucketName ()
