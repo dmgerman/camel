@@ -30,6 +30,20 @@ name|services
 operator|.
 name|ec2
 operator|.
+name|AmazonEC2
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|ec2
+operator|.
 name|AmazonEC2Client
 import|;
 end_import
@@ -140,7 +154,7 @@ literal|"producer"
 argument_list|)
 DECL|field|amazonEc2Client
 specifier|private
-name|AmazonEC2Client
+name|AmazonEC2
 name|amazonEc2Client
 decl_stmt|;
 annotation|@
@@ -227,7 +241,7 @@ name|region
 decl_stmt|;
 DECL|method|getAmazonEc2Client ()
 specifier|public
-name|AmazonEC2Client
+name|AmazonEC2
 name|getAmazonEc2Client
 parameter_list|()
 block|{
@@ -236,12 +250,12 @@ name|amazonEc2Client
 return|;
 block|}
 comment|/**      * To use a existing configured AmazonEC2Client as client      */
-DECL|method|setAmazonEc2Client (AmazonEC2Client amazonEc2Client)
+DECL|method|setAmazonEc2Client (AmazonEC2 amazonEc2Client)
 specifier|public
 name|void
 name|setAmazonEc2Client
 parameter_list|(
-name|AmazonEC2Client
+name|AmazonEC2
 name|amazonEc2Client
 parameter_list|)
 block|{

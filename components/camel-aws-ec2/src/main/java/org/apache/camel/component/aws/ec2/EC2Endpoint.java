@@ -277,7 +277,7 @@ name|ScheduledPollEndpoint
 block|{
 DECL|field|ec2Client
 specifier|private
-name|AmazonEC2Client
+name|AmazonEC2
 name|ec2Client
 decl_stmt|;
 annotation|@
@@ -451,7 +451,7 @@ return|;
 block|}
 DECL|method|getEc2Client ()
 specifier|public
-name|AmazonEC2Client
+name|AmazonEC2
 name|getEc2Client
 parameter_list|()
 block|{

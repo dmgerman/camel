@@ -60,6 +60,20 @@ name|services
 operator|.
 name|ec2
 operator|.
+name|AmazonEC2
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|ec2
+operator|.
 name|AmazonEC2Client
 import|;
 end_import
@@ -853,12 +867,12 @@ name|getEndpoint
 argument_list|()
 return|;
 block|}
-DECL|method|createAndRunInstance (AmazonEC2Client ec2Client, Exchange exchange)
+DECL|method|createAndRunInstance (AmazonEC2 ec2Client, Exchange exchange)
 specifier|private
 name|void
 name|createAndRunInstance
 parameter_list|(
-name|AmazonEC2Client
+name|AmazonEC2
 name|ec2Client
 parameter_list|,
 name|Exchange
@@ -1547,12 +1561,12 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|startInstances (AmazonEC2Client ec2Client, Exchange exchange)
+DECL|method|startInstances (AmazonEC2 ec2Client, Exchange exchange)
 specifier|private
 name|void
 name|startInstances
 parameter_list|(
-name|AmazonEC2Client
+name|AmazonEC2
 name|ec2Client
 parameter_list|,
 name|Exchange
@@ -1695,12 +1709,12 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|stopInstances (AmazonEC2Client ec2Client, Exchange exchange)
+DECL|method|stopInstances (AmazonEC2 ec2Client, Exchange exchange)
 specifier|private
 name|void
 name|stopInstances
 parameter_list|(
-name|AmazonEC2Client
+name|AmazonEC2
 name|ec2Client
 parameter_list|,
 name|Exchange
@@ -1843,12 +1857,12 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|terminateInstances (AmazonEC2Client ec2Client, Exchange exchange)
+DECL|method|terminateInstances (AmazonEC2 ec2Client, Exchange exchange)
 specifier|private
 name|void
 name|terminateInstances
 parameter_list|(
-name|AmazonEC2Client
+name|AmazonEC2
 name|ec2Client
 parameter_list|,
 name|Exchange
@@ -1991,12 +2005,12 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|describeInstances (AmazonEC2Client ec2Client, Exchange exchange)
+DECL|method|describeInstances (AmazonEC2 ec2Client, Exchange exchange)
 specifier|private
 name|void
 name|describeInstances
 parameter_list|(
-name|AmazonEC2Client
+name|AmazonEC2
 name|ec2Client
 parameter_list|,
 name|Exchange
@@ -2112,12 +2126,12 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|describeInstancesStatus (AmazonEC2Client ec2Client, Exchange exchange)
+DECL|method|describeInstancesStatus (AmazonEC2 ec2Client, Exchange exchange)
 specifier|private
 name|void
 name|describeInstancesStatus
 parameter_list|(
-name|AmazonEC2Client
+name|AmazonEC2
 name|ec2Client
 parameter_list|,
 name|Exchange
@@ -2233,12 +2247,12 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|rebootInstances (AmazonEC2Client ec2Client, Exchange exchange)
+DECL|method|rebootInstances (AmazonEC2 ec2Client, Exchange exchange)
 specifier|private
 name|void
 name|rebootInstances
 parameter_list|(
-name|AmazonEC2Client
+name|AmazonEC2
 name|ec2Client
 parameter_list|,
 name|Exchange
@@ -2361,12 +2375,12 @@ name|ase
 throw|;
 block|}
 block|}
-DECL|method|monitorInstances (AmazonEC2Client ec2Client, Exchange exchange)
+DECL|method|monitorInstances (AmazonEC2 ec2Client, Exchange exchange)
 specifier|private
 name|void
 name|monitorInstances
 parameter_list|(
-name|AmazonEC2Client
+name|AmazonEC2
 name|ec2Client
 parameter_list|,
 name|Exchange
@@ -2509,12 +2523,12 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|unmonitorInstances (AmazonEC2Client ec2Client, Exchange exchange)
+DECL|method|unmonitorInstances (AmazonEC2 ec2Client, Exchange exchange)
 specifier|private
 name|void
 name|unmonitorInstances
 parameter_list|(
-name|AmazonEC2Client
+name|AmazonEC2
 name|ec2Client
 parameter_list|,
 name|Exchange
@@ -2657,12 +2671,12 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createTags (AmazonEC2Client ec2Client, Exchange exchange)
+DECL|method|createTags (AmazonEC2 ec2Client, Exchange exchange)
 specifier|private
 name|void
 name|createTags
 parameter_list|(
-name|AmazonEC2Client
+name|AmazonEC2
 name|ec2Client
 parameter_list|,
 name|Exchange
@@ -2878,12 +2892,12 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|deleteTags (AmazonEC2Client ec2Client, Exchange exchange)
+DECL|method|deleteTags (AmazonEC2 ec2Client, Exchange exchange)
 specifier|private
 name|void
 name|deleteTags
 parameter_list|(
-name|AmazonEC2Client
+name|AmazonEC2
 name|ec2Client
 parameter_list|,
 name|Exchange
