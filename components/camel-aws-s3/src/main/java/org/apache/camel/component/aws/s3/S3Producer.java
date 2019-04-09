@@ -2719,7 +2719,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Bucket Name must be specified for deleteObject Operation"
+literal|"Bucket Name must be specified for getObject Operation"
 argument_list|)
 throw|;
 block|}
@@ -2737,7 +2737,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Source Key must be specified for deleteObject Operation"
+literal|"Source Key must be specified for getObject Operation"
 argument_list|)
 throw|;
 block|}
