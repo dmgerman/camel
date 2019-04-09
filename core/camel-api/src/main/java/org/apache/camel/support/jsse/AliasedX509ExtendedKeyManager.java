@@ -342,14 +342,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|chooseEngineClientAlias (String keyType[], Principal[] issuers, SSLEngine engine)
+DECL|method|chooseEngineClientAlias (String[] keyType, Principal[] issuers, SSLEngine engine)
 specifier|public
 name|String
 name|chooseEngineClientAlias
 parameter_list|(
 name|String
-name|keyType
 index|[]
+name|keyType
 parameter_list|,
 name|Principal
 index|[]

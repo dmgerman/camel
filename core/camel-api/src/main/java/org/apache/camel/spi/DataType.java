@@ -85,8 +85,8 @@ literal|null
 condition|)
 block|{
 name|String
-name|split
 index|[]
+name|split
 init|=
 name|StringHelper
 operator|.
