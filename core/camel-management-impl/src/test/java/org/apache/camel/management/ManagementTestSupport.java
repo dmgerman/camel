@@ -196,7 +196,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|invoke (MBeanServerConnection server, ObjectName name, String operationName, Object params[], String signature[])
+DECL|method|invoke (MBeanServerConnection server, ObjectName name, String operationName, Object[] params, String[] signature)
 specifier|protected
 parameter_list|<
 name|T
@@ -214,12 +214,12 @@ name|String
 name|operationName
 parameter_list|,
 name|Object
-name|params
 index|[]
+name|params
 parameter_list|,
 name|String
-name|signature
 index|[]
+name|signature
 parameter_list|)
 throws|throws
 name|InstanceNotFoundException

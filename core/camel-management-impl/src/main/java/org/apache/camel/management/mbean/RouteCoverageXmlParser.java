@@ -874,8 +874,8 @@ name|characters
 parameter_list|(
 specifier|final
 name|char
-name|ch
 index|[]
+name|ch
 parameter_list|,
 specifier|final
 name|int
