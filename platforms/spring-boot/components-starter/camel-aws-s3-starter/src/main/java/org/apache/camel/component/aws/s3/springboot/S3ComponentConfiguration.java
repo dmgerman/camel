@@ -367,7 +367,13 @@ specifier|private
 name|AmazonS3
 name|amazonS3Client
 decl_stmt|;
-comment|/**          * The prefix which is used in the          * com.amazonaws.services.s3.model.ListObjectsRequest to only consume          * objects we are interested in.          */
+comment|/**          * The delimiter which is used in the          * com.amazonaws.services.s3.model.ListObjectsRequest to only consume          * objects we are interested in.          */
+DECL|field|delimiter
+specifier|private
+name|String
+name|delimiter
+decl_stmt|;
+comment|/**          * The delimiter which is used in the          * com.amazonaws.services.s3.model.ListObjectsRequest to only consume          * objects we are interested in.          */
 DECL|field|prefix
 specifier|private
 name|String
@@ -671,6 +677,32 @@ operator|.
 name|amazonS3Client
 operator|=
 name|amazonS3Client
+expr_stmt|;
+block|}
+DECL|method|getDelimiter ()
+specifier|public
+name|String
+name|getDelimiter
+parameter_list|()
+block|{
+return|return
+name|delimiter
+return|;
+block|}
+DECL|method|setDelimiter (String delimiter)
+specifier|public
+name|void
+name|setDelimiter
+parameter_list|(
+name|String
+name|delimiter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|delimiter
+operator|=
+name|delimiter
 expr_stmt|;
 block|}
 DECL|method|getPrefix ()
