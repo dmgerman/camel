@@ -636,6 +636,8 @@ name|trace
 argument_list|(
 literal|"Trying to open resource [{}] as a class path resource using the classloader [{}]."
 argument_list|,
+name|resource
+argument_list|,
 name|this
 operator|.
 name|getClass
