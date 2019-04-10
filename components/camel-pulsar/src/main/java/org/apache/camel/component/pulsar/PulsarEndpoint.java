@@ -186,7 +186,7 @@ literal|"Apache Pulsar"
 argument_list|,
 name|syntax
 operator|=
-literal|"pulsar:[persistent|non-persistent]://tenant/namespace/topic"
+literal|"pulsar:persistence://tenant/namespace/topic"
 argument_list|,
 name|label
 operator|=
