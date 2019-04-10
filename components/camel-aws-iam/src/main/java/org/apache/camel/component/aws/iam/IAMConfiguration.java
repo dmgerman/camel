@@ -30,7 +30,7 @@ name|services
 operator|.
 name|identitymanagement
 operator|.
-name|AmazonIdentityManagementClient
+name|AmazonIdentityManagement
 import|;
 end_import
 
@@ -140,7 +140,7 @@ literal|"producer"
 argument_list|)
 DECL|field|iamClient
 specifier|private
-name|AmazonIdentityManagementClient
+name|AmazonIdentityManagement
 name|iamClient
 decl_stmt|;
 annotation|@
@@ -227,7 +227,7 @@ name|region
 decl_stmt|;
 DECL|method|getIamClient ()
 specifier|public
-name|AmazonIdentityManagementClient
+name|AmazonIdentityManagement
 name|getIamClient
 parameter_list|()
 block|{
@@ -236,12 +236,12 @@ name|iamClient
 return|;
 block|}
 comment|/**      * To use a existing configured AWS IAM as client      */
-DECL|method|setIamClient (AmazonIdentityManagementClient iamClient)
+DECL|method|setIamClient (AmazonIdentityManagement iamClient)
 specifier|public
 name|void
 name|setIamClient
 parameter_list|(
-name|AmazonIdentityManagementClient
+name|AmazonIdentityManagement
 name|iamClient
 parameter_list|)
 block|{
