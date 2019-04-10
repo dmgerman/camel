@@ -285,7 +285,7 @@ name|configuration
 init|=
 name|pulsarEndpoint
 operator|.
-name|getConfiguration
+name|getPulsarConfiguration
 argument_list|()
 decl_stmt|;
 for|for

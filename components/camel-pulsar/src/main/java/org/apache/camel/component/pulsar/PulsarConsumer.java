@@ -422,7 +422,7 @@ name|getStrategy
 argument_list|(
 name|endpoint
 operator|.
-name|getConfiguration
+name|getPulsarConfiguration
 argument_list|()
 operator|.
 name|getSubscriptionType

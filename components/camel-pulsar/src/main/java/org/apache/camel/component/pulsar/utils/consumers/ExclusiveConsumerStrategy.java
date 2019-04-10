@@ -176,7 +176,7 @@ name|consumerName
 init|=
 name|pulsarEndpoint
 operator|.
-name|getConfiguration
+name|getPulsarConfiguration
 argument_list|()
 operator|.
 name|getConsumerName

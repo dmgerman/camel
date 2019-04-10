@@ -140,7 +140,7 @@ name|endpointConfiguration
 init|=
 name|pulsarEndpoint
 operator|.
-name|getConfiguration
+name|getPulsarConfiguration
 argument_list|()
 decl_stmt|;
 return|return

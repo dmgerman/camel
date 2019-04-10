@@ -264,7 +264,7 @@ literal|"sole-consumer"
 argument_list|,
 name|endpoint
 operator|.
-name|getConfiguration
+name|getPulsarConfiguration
 argument_list|()
 operator|.
 name|getConsumerName
@@ -277,7 +277,7 @@ literal|"cons"
 argument_list|,
 name|endpoint
 operator|.
-name|getConfiguration
+name|getPulsarConfiguration
 argument_list|()
 operator|.
 name|getConsumerNamePrefix
@@ -290,7 +290,7 @@ literal|10
 argument_list|,
 name|endpoint
 operator|.
-name|getConfiguration
+name|getPulsarConfiguration
 argument_list|()
 operator|.
 name|getConsumerQueueSize
@@ -303,7 +303,7 @@ literal|1
 argument_list|,
 name|endpoint
 operator|.
-name|getConfiguration
+name|getPulsarConfiguration
 argument_list|()
 operator|.
 name|getNumberOfConsumers
@@ -316,7 +316,7 @@ literal|"default-producer"
 argument_list|,
 name|endpoint
 operator|.
-name|getConfiguration
+name|getPulsarConfiguration
 argument_list|()
 operator|.
 name|getProducerName
@@ -329,7 +329,7 @@ literal|"subs"
 argument_list|,
 name|endpoint
 operator|.
-name|getConfiguration
+name|getPulsarConfiguration
 argument_list|()
 operator|.
 name|getSubscriptionName
@@ -344,7 +344,7 @@ name|EXCLUSIVE
 argument_list|,
 name|endpoint
 operator|.
-name|getConfiguration
+name|getPulsarConfiguration
 argument_list|()
 operator|.
 name|getSubscriptionType
