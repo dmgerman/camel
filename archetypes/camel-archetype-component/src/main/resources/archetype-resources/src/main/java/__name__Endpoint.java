@@ -396,22 +396,6 @@ name|component
 argument_list|)
 block|;     }
 specifier|public
-name|$
-block|{
-name|name
-block|}
-name|Endpoint
-argument_list|(
-name|String
-name|endpointUri
-argument_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-block|;     }
-specifier|public
 name|Producer
 name|createProducer
 argument_list|()
