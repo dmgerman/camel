@@ -40,6 +40,20 @@ name|services
 operator|.
 name|simpleworkflow
 operator|.
+name|AmazonSimpleWorkflow
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|simpleworkflow
+operator|.
 name|AmazonSimpleWorkflowClient
 import|;
 end_import
@@ -229,7 +243,7 @@ annotation|@
 name|UriParam
 DECL|field|amazonSWClient
 specifier|private
-name|AmazonSimpleWorkflowClient
+name|AmazonSimpleWorkflow
 name|amazonSWClient
 decl_stmt|;
 annotation|@
@@ -907,7 +921,7 @@ expr_stmt|;
 block|}
 DECL|method|getAmazonSWClient ()
 specifier|public
-name|AmazonSimpleWorkflowClient
+name|AmazonSimpleWorkflow
 name|getAmazonSWClient
 parameter_list|()
 block|{
@@ -916,12 +930,12 @@ name|amazonSWClient
 return|;
 block|}
 comment|/**      * To use the given AmazonSimpleWorkflowClient as client      */
-DECL|method|setAmazonSWClient (AmazonSimpleWorkflowClient amazonSWClient)
+DECL|method|setAmazonSWClient (AmazonSimpleWorkflow amazonSWClient)
 specifier|public
 name|void
 name|setAmazonSWClient
 parameter_list|(
-name|AmazonSimpleWorkflowClient
+name|AmazonSimpleWorkflow
 name|amazonSWClient
 parameter_list|)
 block|{

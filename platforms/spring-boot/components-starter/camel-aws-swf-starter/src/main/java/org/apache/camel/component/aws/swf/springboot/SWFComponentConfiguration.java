@@ -52,7 +52,7 @@ name|services
 operator|.
 name|simpleworkflow
 operator|.
-name|AmazonSimpleWorkflowClient
+name|AmazonSimpleWorkflow
 import|;
 end_import
 
@@ -462,7 +462,7 @@ decl_stmt|;
 comment|/**          * To use the given AmazonSimpleWorkflowClient as client          */
 DECL|field|amazonSWClient
 specifier|private
-name|AmazonSimpleWorkflowClient
+name|AmazonSimpleWorkflow
 name|amazonSWClient
 decl_stmt|;
 comment|/**          * To configure the StartWorkflowOptions using the key/values from the          * Map.          */
@@ -851,7 +851,7 @@ expr_stmt|;
 block|}
 DECL|method|getAmazonSWClient ()
 specifier|public
-name|AmazonSimpleWorkflowClient
+name|AmazonSimpleWorkflow
 name|getAmazonSWClient
 parameter_list|()
 block|{
@@ -859,12 +859,12 @@ return|return
 name|amazonSWClient
 return|;
 block|}
-DECL|method|setAmazonSWClient (AmazonSimpleWorkflowClient amazonSWClient)
+DECL|method|setAmazonSWClient (AmazonSimpleWorkflow amazonSWClient)
 specifier|public
 name|void
 name|setAmazonSWClient
 parameter_list|(
-name|AmazonSimpleWorkflowClient
+name|AmazonSimpleWorkflow
 name|amazonSWClient
 parameter_list|)
 block|{

@@ -551,7 +551,7 @@ expr_stmt|;
 block|}
 DECL|method|getSWClient ()
 specifier|public
-name|AmazonSimpleWorkflowClient
+name|AmazonSimpleWorkflow
 name|getSWClient
 parameter_list|()
 block|{
