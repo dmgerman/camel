@@ -234,6 +234,22 @@ name|support
 operator|.
 name|jsse
 operator|.
+name|ClientAuthentication
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|jsse
+operator|.
 name|KeyStoreParameters
 import|;
 end_import
@@ -374,6 +390,11 @@ specifier|private
 name|String
 index|[]
 name|configuredCipherSuites
+decl_stmt|;
+DECL|field|clientAuthentication
+specifier|private
+name|String
+name|clientAuthentication
 decl_stmt|;
 DECL|field|component
 specifier|private
@@ -813,6 +834,80 @@ return|return
 name|configuredCipherSuites
 return|;
 block|}
+comment|/**      * Gets the configuration options for server-side client-authentication requirements. The value is      * either null or one of NONE, WANT, REQUIRE.      */
+DECL|method|getClientAuthentication ()
+specifier|public
+name|String
+name|getClientAuthentication
+parameter_list|()
+block|{
+return|return
+name|clientAuthentication
+return|;
+block|}
+comment|/**      * Sets the configuration options for server-side client-authentication requirements.      * The value must be one of NONE, WANT, REQUIRE.      *       * @param value the desired configuration options or {@code null} to use the defaults      */
+DECL|method|setClientAuthentication (String clientAuthentication)
+specifier|public
+name|void
+name|setClientAuthentication
+parameter_list|(
+name|String
+name|clientAuthentication
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clientAuthentication
+operator|=
+name|clientAuthentication
+expr_stmt|;
+block|}
+DECL|method|isClientAuthenticationRequired ()
+specifier|public
+name|boolean
+name|isClientAuthenticationRequired
+parameter_list|()
+block|{
+return|return
+name|clientAuthentication
+operator|!=
+literal|null
+operator|&&
+name|ClientAuthentication
+operator|.
+name|valueOf
+argument_list|(
+name|clientAuthentication
+argument_list|)
+operator|==
+name|ClientAuthentication
+operator|.
+name|REQUIRE
+return|;
+block|}
+DECL|method|isClientAuthenticationWanted ()
+specifier|public
+name|boolean
+name|isClientAuthenticationWanted
+parameter_list|()
+block|{
+return|return
+name|clientAuthentication
+operator|!=
+literal|null
+operator|&&
+name|ClientAuthentication
+operator|.
+name|valueOf
+argument_list|(
+name|clientAuthentication
+argument_list|)
+operator|==
+name|ClientAuthentication
+operator|.
+name|WANT
+return|;
+block|}
 DECL|method|getTrustedCerts ()
 specifier|public
 name|Certificate
@@ -902,6 +997,7 @@ index|]
 argument_list|)
 return|;
 block|}
+comment|/*     public DTLSConnector createDTLSConnector() {              }     */
 block|}
 end_class
 
