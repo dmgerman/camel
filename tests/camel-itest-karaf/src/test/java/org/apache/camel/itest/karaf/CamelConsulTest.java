@@ -24,16 +24,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -66,10 +56,6 @@ name|PaxExam
 import|;
 end_import
 
-begin_comment
-comment|// TODO: camel-consul does not work in OSGi
-end_comment
-
 begin_class
 annotation|@
 name|RunWith
@@ -77,11 +63,6 @@ argument_list|(
 name|PaxExam
 operator|.
 name|class
-argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"camel-consul does not work in OSGi"
 argument_list|)
 DECL|class|CamelConsulTest
 specifier|public
