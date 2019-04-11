@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,26 @@ operator|.
 name|jsonapi
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|OutputStream
+import|;
+end_import
 
 begin_import
 import|import
@@ -118,26 +138,6 @@ name|ServiceSupport
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|OutputStream
-import|;
-end_import
-
 begin_comment
 comment|/**  * JsonApi {@link org.apache.camel.spi.DataFormat} for marshal/unmarshal  */
 end_comment
@@ -176,18 +176,6 @@ name|?
 argument_list|>
 name|mainFormatType
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|getDataFormatName ()
-specifier|public
-name|String
-name|getDataFormatName
-parameter_list|()
-block|{
-return|return
-literal|"jsonApi"
-return|;
-block|}
 DECL|method|JsonApiDataFormat ()
 specifier|public
 name|JsonApiDataFormat
@@ -243,7 +231,18 @@ operator|=
 name|dataFormatTypes
 expr_stmt|;
 block|}
-comment|/**      * Marshals the object to the given Stream.      *      * @param exchange      *            the current exchange      * @param graph      *            the object to be marshalled      * @param stream      *            the output stream to write the marshalled result to      * @throws Exception      *             can be thrown      */
+annotation|@
+name|Override
+DECL|method|getDataFormatName ()
+specifier|public
+name|String
+name|getDataFormatName
+parameter_list|()
+block|{
+return|return
+literal|"jsonApi"
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|marshal (Exchange exchange, Object graph, OutputStream stream)
@@ -296,7 +295,6 @@ name|objectAsBytes
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Unmarshals the given Json API stream into an object.      *<p/>      *<b>Notice:</b> The result is set as body on the exchange OUT message. It is possible to mutate the OUT message provided in the given exchange      * parameter. For instance adding headers to the OUT message will be preserved.      *<p/>      * It's also legal to return the<b>same</b> passed<tt>exchange</tt> as is but also a {@link Message} object as well which will be used as the      * OUT message of<tt>exchange</tt>.      *      * @param exchange      *            the current exchange      * @param stream      *            the input stream with the object to be unmarshalled      * @return the unmarshalled object      * @throws Exception      *             can be thrown      */
 annotation|@
 name|Override
 DECL|method|unmarshal (Exchange exchange, InputStream stream)

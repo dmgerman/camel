@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,26 @@ operator|.
 name|jsonapi
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|ByteArrayInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|ByteArrayOutputStream
+import|;
+end_import
 
 begin_import
 import|import
@@ -132,26 +152,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ByteArrayOutputStream
-import|;
-end_import
-
 begin_class
 DECL|class|JsonApiDataFormatTest
 specifier|public
@@ -162,10 +162,10 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|test_jsonApi_marshal ()
+DECL|method|testJsonApiMarshal ()
 specifier|public
 name|void
-name|test_jsonApi_marshal
+name|testJsonApiMarshal
 parameter_list|()
 throws|throws
 name|Exception
@@ -264,10 +264,10 @@ name|DocumentSerializationException
 operator|.
 name|class
 argument_list|)
-DECL|method|test_jsonApi_marshal_no_annotation_on_type ()
+DECL|method|testJsonApiMarshalNoAnnotationOnType ()
 specifier|public
 name|void
-name|test_jsonApi_marshal_no_annotation_on_type
+name|testJsonApiMarshalNoAnnotationOnType
 parameter_list|()
 throws|throws
 name|Exception
@@ -337,10 +337,10 @@ name|DocumentSerializationException
 operator|.
 name|class
 argument_list|)
-DECL|method|test_jsonApi_marshal_wrong_type ()
+DECL|method|testJsonApiMarshalWrongType ()
 specifier|public
 name|void
-name|test_jsonApi_marshal_wrong_type
+name|testJsonApiMarshalWrongType
 parameter_list|()
 throws|throws
 name|Exception
@@ -405,10 +405,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|test_jsonApi_unmarshal ()
+DECL|method|testJsonApiUnmarshall ()
 specifier|public
 name|void
-name|test_jsonApi_unmarshal
+name|testJsonApiUnmarshall
 parameter_list|()
 throws|throws
 name|Exception
@@ -525,10 +525,10 @@ name|UnregisteredTypeException
 operator|.
 name|class
 argument_list|)
-DECL|method|test_jsonApi_unmarshal_wrong_type ()
+DECL|method|testJsonApiUnmarshalWrongType ()
 specifier|public
 name|void
-name|test_jsonApi_unmarshal_wrong_type
+name|testJsonApiUnmarshalWrongType
 parameter_list|()
 throws|throws
 name|Exception
@@ -606,10 +606,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|test_camel_jsonApi_marshal ()
+DECL|method|testCamelJsonApiMarshal ()
 specifier|public
 name|void
-name|test_camel_jsonApi_marshal
+name|testCamelJsonApiMarshal
 parameter_list|()
 throws|throws
 name|InterruptedException
@@ -715,10 +715,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|test_camel_jsonApi_unmarshal ()
+DECL|method|testCamelJsonApiUnmarshal ()
 specifier|public
 name|void
-name|test_camel_jsonApi_unmarshal
+name|testCamelJsonApiUnmarshal
 parameter_list|()
 throws|throws
 name|InterruptedException
