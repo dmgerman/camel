@@ -137,16 +137,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -304,19 +294,6 @@ name|doneSync
 lambda|->
 block|{
 comment|// No response data expected
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|)
-operator|.
-name|info
-argument_list|(
-literal|"Resetting body"
-argument_list|)
-expr_stmt|;
 name|exchange
 operator|.
 name|getMessage
