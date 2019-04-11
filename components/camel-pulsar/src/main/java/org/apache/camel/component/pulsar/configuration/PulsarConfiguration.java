@@ -238,7 +238,7 @@ return|return
 name|subscriptionName
 return|;
 block|}
-comment|/**      * Name of the subscription to use      * @param subscriptionName      */
+comment|/**      * Name of the subscription to use      */
 DECL|method|setSubscriptionName (String subscriptionName)
 specifier|public
 name|void
@@ -265,7 +265,7 @@ return|return
 name|subscriptionType
 return|;
 block|}
-comment|/**      * Type of the subscription [EXCLUSIVE|SHARED|FAILOVER], defaults to EXCLUSIVE      * @param subscriptionType      */
+comment|/**      * Type of the subscription [EXCLUSIVE|SHARED|FAILOVER], defaults to EXCLUSIVE      */
 DECL|method|setSubscriptionType (SubscriptionType subscriptionType)
 specifier|public
 name|void
@@ -292,7 +292,7 @@ return|return
 name|numberOfConsumers
 return|;
 block|}
-comment|/**      * Number of consumers - defaults to 1      * @param numberOfConsumers      */
+comment|/**      * Number of consumers - defaults to 1      */
 DECL|method|setNumberOfConsumers (int numberOfConsumers)
 specifier|public
 name|void
@@ -319,7 +319,7 @@ return|return
 name|consumerQueueSize
 return|;
 block|}
-comment|/**      * Size of the consumer queue - defaults to 10      * @param consumerQueueSize      */
+comment|/**      * Size of the consumer queue - defaults to 10      */
 DECL|method|setConsumerQueueSize (int consumerQueueSize)
 specifier|public
 name|void
@@ -346,7 +346,7 @@ return|return
 name|consumerName
 return|;
 block|}
-comment|/**      * Name of the consumer when subscription is EXCLUSIVE      * @param consumerName      */
+comment|/**      * Name of the consumer when subscription is EXCLUSIVE      */
 DECL|method|setConsumerName (String consumerName)
 specifier|public
 name|void
@@ -373,7 +373,7 @@ return|return
 name|producerName
 return|;
 block|}
-comment|/**      * Name of the producer      * @param producerName      */
+comment|/**      * Name of the producer      */
 DECL|method|setProducerName (String producerName)
 specifier|public
 name|void
@@ -400,7 +400,7 @@ return|return
 name|consumerNamePrefix
 return|;
 block|}
-comment|/**      * Prefix to add to consumer names when a SHARED or FAILOVER subscription is used      * @param consumerNamePrefix      */
+comment|/**      * Prefix to add to consumer names when a SHARED or FAILOVER subscription is used      */
 DECL|method|setConsumerNamePrefix (String consumerNamePrefix)
 specifier|public
 name|void
