@@ -94,6 +94,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|beanit
+operator|.
+name|jasn1
+operator|.
+name|ber
+operator|.
+name|ReverseByteArrayOutputStream
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -213,20 +227,6 @@ operator|.
 name|asn1
 operator|.
 name|ASN1Primitive
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|openmuc
-operator|.
-name|jasn1
-operator|.
-name|ber
-operator|.
-name|ReverseByteArrayOutputStream
 import|;
 end_import
 
