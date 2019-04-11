@@ -92,6 +92,25 @@ name|OutgoingMessage
 name|message
 parameter_list|)
 function_decl|;
+DECL|method|setWebhook (String authorizationToken, String url)
+name|boolean
+name|setWebhook
+parameter_list|(
+name|String
+name|authorizationToken
+parameter_list|,
+name|String
+name|url
+parameter_list|)
+function_decl|;
+DECL|method|removeWebhook (String authorizationToken)
+name|boolean
+name|removeWebhook
+parameter_list|(
+name|String
+name|authorizationToken
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
