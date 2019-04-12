@@ -135,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A meta-endpoint that pushes webhook data into a delegate {@code WebhookCapableEndpoint}.  */
+comment|/**  * The webhook component allows other Camel components that can receive push notifications to expose  * webhook endpoints and automatically register them with their own webhook provider.  */
 end_comment
 
 begin_class
@@ -157,6 +157,10 @@ argument_list|,
 name|syntax
 operator|=
 literal|"webhook:endpointUri"
+argument_list|,
+name|consumerOnly
+operator|=
+literal|true
 argument_list|,
 name|label
 operator|=
@@ -405,8 +409,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Registering webhook for endpoint "
-operator|+
+literal|"Registering webhook for endpoint {}"
+argument_list|,
 name|delegateEndpoint
 argument_list|)
 expr_stmt|;
@@ -444,8 +448,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Unregistering webhook for endpoint "
-operator|+
+literal|"Unregistering webhook for endpoint {}"
+argument_list|,
 name|delegateEndpoint
 argument_list|)
 expr_stmt|;
@@ -487,7 +491,7 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 block|}
