@@ -144,11 +144,9 @@ block|{
 name|long
 name|now
 init|=
-operator|new
-name|Date
-argument_list|()
+name|System
 operator|.
-name|getTime
+name|currentTimeMillis
 argument_list|()
 decl_stmt|;
 return|return
