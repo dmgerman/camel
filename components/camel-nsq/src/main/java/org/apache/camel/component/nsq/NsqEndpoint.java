@@ -218,7 +218,7 @@ literal|"NSQ"
 argument_list|,
 name|syntax
 operator|=
-literal|"nsq:lookupServer"
+literal|"nsq:servers"
 argument_list|,
 name|label
 operator|=
