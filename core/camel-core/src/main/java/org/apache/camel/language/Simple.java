@@ -76,6 +76,22 @@ name|Target
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|language
+operator|.
+name|LanguageAnnotation
+import|;
+end_import
+
 begin_comment
 comment|/**  * Used to inject a simple expression into a field, property, method or parameter when using  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>.  */
 end_comment

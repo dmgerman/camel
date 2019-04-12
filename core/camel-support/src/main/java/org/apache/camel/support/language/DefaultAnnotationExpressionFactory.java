@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.bean
+DECL|package|org.apache.camel.support.language
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|support
 operator|.
-name|bean
+name|language
 package|;
 end_package
 
@@ -75,20 +75,6 @@ operator|.
 name|camel
 operator|.
 name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|language
-operator|.
-name|LanguageAnnotation
 import|;
 end_import
 

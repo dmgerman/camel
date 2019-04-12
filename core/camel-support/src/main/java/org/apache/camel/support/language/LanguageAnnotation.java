@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.bean
+DECL|package|org.apache.camel.support.language
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|support
 operator|.
-name|bean
+name|language
 package|;
 end_package
 
@@ -26,80 +26,106 @@ name|lang
 operator|.
 name|annotation
 operator|.
-name|Annotation
+name|Documented
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|lang
 operator|.
-name|camel
+name|annotation
 operator|.
-name|CamelContext
+name|ElementType
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|lang
 operator|.
-name|camel
+name|annotation
 operator|.
-name|Expression
+name|Retention
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|lang
 operator|.
-name|camel
+name|annotation
 operator|.
-name|language
+name|RetentionPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|LanguageAnnotation
+name|lang
+operator|.
+name|annotation
+operator|.
+name|Target
 import|;
 end_import
 
 begin_comment
-comment|/**  * A factory which creates an {@link Expression} object from an annotation on a field, property or method parameter  * of a specified type.  */
+comment|/**  * Base annotation for languages.  */
 end_comment
 
-begin_interface
-DECL|interface|AnnotationExpressionFactory
-specifier|public
-interface|interface
-name|AnnotationExpressionFactory
+begin_annotation_defn
+annotation|@
+name|Retention
+argument_list|(
+name|RetentionPolicy
+operator|.
+name|RUNTIME
+argument_list|)
+annotation|@
+name|Documented
+annotation|@
+name|Target
+argument_list|(
 block|{
-DECL|method|createExpression (CamelContext camelContext, Annotation annotation, LanguageAnnotation languageAnnotation, Class<?> expressionReturnType)
-name|Expression
-name|createExpression
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|,
-name|Annotation
-name|annotation
-parameter_list|,
+name|ElementType
+operator|.
+name|ANNOTATION_TYPE
+block|}
+argument_list|)
+DECL|annotation|LanguageAnnotation
+specifier|public
+annotation_defn|@interface
 name|LanguageAnnotation
-name|languageAnnotation
-parameter_list|,
+block|{
+DECL|method|language ()
+name|String
+name|language
+parameter_list|()
+function_decl|;
+DECL|method|factory ()
+DECL|field|Object.class
 name|Class
 argument_list|<
 name|?
 argument_list|>
-name|expressionReturnType
-parameter_list|)
+name|factory
+parameter_list|()
+default|default
+name|Object
+operator|.
+name|class
 function_decl|;
 block|}
-end_interface
+end_annotation_defn
 
 end_unit
 

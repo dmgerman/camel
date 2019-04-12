@@ -76,6 +76,22 @@ name|Target
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|language
+operator|.
+name|LanguageAnnotation
+import|;
+end_import
+
 begin_comment
 comment|/**  * An annotation for injection of Spring Expression Language (SpEL) expressions  * into method parameters, fields or properties.  *   * In the context of Camel this annotation serves a similar purpose as Spring's<tt>@Value</tt> annotation.  */
 end_comment

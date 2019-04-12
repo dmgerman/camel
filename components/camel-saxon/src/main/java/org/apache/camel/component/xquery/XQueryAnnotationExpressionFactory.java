@@ -88,9 +88,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|support
 operator|.
-name|bean
+name|language
 operator|.
 name|DefaultAnnotationExpressionFactory
 import|;
@@ -103,6 +103,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|support
 operator|.
 name|language
 operator|.
@@ -117,6 +119,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|support
 operator|.
 name|language
 operator|.

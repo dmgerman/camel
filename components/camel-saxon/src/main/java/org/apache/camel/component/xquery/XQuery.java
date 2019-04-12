@@ -86,6 +86,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
 name|language
 operator|.
 name|LanguageAnnotation
@@ -99,6 +101,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|support
 operator|.
 name|language
 operator|.
