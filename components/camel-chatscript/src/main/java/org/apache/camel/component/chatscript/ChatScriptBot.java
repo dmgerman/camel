@@ -474,9 +474,7 @@ specifier|public
 name|void
 name|reset
 parameter_list|()
-block|{
-comment|//TODO
-block|}
+block|{     }
 DECL|method|getHost ()
 specifier|public
 name|String
