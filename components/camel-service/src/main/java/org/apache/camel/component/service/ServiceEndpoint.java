@@ -281,7 +281,7 @@ literal|"service"
 argument_list|,
 name|syntax
 operator|=
-literal|"service:serviceName:delegateUri"
+literal|"service:delegateUri"
 argument_list|,
 name|consumerOnly
 operator|=
