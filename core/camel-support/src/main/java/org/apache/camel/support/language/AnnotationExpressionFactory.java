@@ -54,22 +54,6 @@ name|Expression
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|language
-operator|.
-name|LanguageAnnotation
-import|;
-end_import
-
 begin_comment
 comment|/**  * A factory which creates an {@link Expression} object from an annotation on a field, property or method parameter  * of a specified type.  */
 end_comment
