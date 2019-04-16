@@ -431,8 +431,13 @@ argument_list|()
 decl_stmt|;
 name|client
 operator|.
-name|listQueues
+name|getQueueUrl
+argument_list|(
+name|configuration
+operator|.
+name|getQueueName
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
