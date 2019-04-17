@@ -327,6 +327,21 @@ argument_list|>
 name|routePolicyList
 parameter_list|)
 function_decl|;
+comment|/**      * Sets whether the route should automatically start when Camel starts.      *<p/>      * Default is<tt>true</tt> to always start up.      *      * @param autoStartup whether to start up automatically.      */
+DECL|method|setAutoStartup (Boolean autoStartup)
+name|void
+name|setAutoStartup
+parameter_list|(
+name|Boolean
+name|autoStartup
+parameter_list|)
+function_decl|;
+comment|/**      * Gets whether the route should automatically start when Camel starts.      *<p/>      * Default is<tt>true</tt> to always start up.      *      * @return<tt>true</tt> if route should automatically start      */
+DECL|method|isAutoStartup ()
+name|Boolean
+name|isAutoStartup
+parameter_list|()
+function_decl|;
 comment|/**      * A private counter that increments, is used to as book keeping      * when building a route based on the model      *<p/>      * We need this special book keeping be able to assign the correct      * {@link org.apache.camel.model.ProcessorDefinition} to the {@link org.apache.camel.Channel}      *      * @param node the current node      * @return the current count      */
 DECL|method|getAndIncrement (NamedNode node)
 name|int
