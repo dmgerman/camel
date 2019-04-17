@@ -54,6 +54,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|influxdb
+operator|.
+name|impl
+operator|.
+name|InfluxDBImpl
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -165,7 +177,7 @@ name|mockedDbConnection
 init|=
 name|mock
 argument_list|(
-name|InfluxDB
+name|InfluxDBImpl
 operator|.
 name|class
 argument_list|)

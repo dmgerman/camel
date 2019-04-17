@@ -36,6 +36,12 @@ name|QUERY
 init|=
 literal|"query"
 decl_stmt|;
+DECL|field|PING
+name|String
+name|PING
+init|=
+literal|"ping"
+decl_stmt|;
 block|}
 end_interface
 
