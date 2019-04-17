@@ -182,6 +182,11 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
+name|waitTime
+argument_list|(
+literal|2000
+argument_list|)
+operator|.
 name|create
 argument_list|()
 decl_stmt|;
@@ -195,15 +200,12 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
 name|notify
 operator|.
-name|matches
-argument_list|(
-literal|2
-argument_list|,
-name|TimeUnit
-operator|.
-name|SECONDS
+name|matchesWaitTime
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

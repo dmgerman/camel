@@ -68,6 +68,22 @@ name|language
 operator|.
 name|simple
 operator|.
+name|SimpleExpressionBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|language
+operator|.
+name|simple
+operator|.
 name|types
 operator|.
 name|SimpleParserException
@@ -444,7 +460,7 @@ argument_list|)
 throw|;
 block|}
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|camelContextOgnlExpression
 argument_list|(
@@ -500,7 +516,7 @@ argument_list|)
 throw|;
 block|}
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|exchangeExceptionOgnlExpression
 argument_list|(
@@ -631,7 +647,7 @@ condition|)
 block|{
 comment|// ognl based property
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|propertyOgnlExpression
 argument_list|(
@@ -751,7 +767,7 @@ argument_list|)
 throw|;
 block|}
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|exchangeOgnlExpression
 argument_list|(
@@ -838,7 +854,7 @@ literal|1
 condition|)
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|dateExpression
 argument_list|(
@@ -860,7 +876,7 @@ literal|2
 condition|)
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|dateExpression
 argument_list|(
@@ -932,7 +948,7 @@ argument_list|)
 throw|;
 block|}
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|dateExpression
 argument_list|(
@@ -1237,7 +1253,7 @@ block|{
 name|Expression
 name|exp
 init|=
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|typeExpression
 argument_list|(
@@ -1246,7 +1262,7 @@ argument_list|)
 decl_stmt|;
 comment|// we want to cache this expression so we wont re-evaluate it as the type/constant wont change
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|cacheExpression
 argument_list|(
@@ -1426,7 +1442,7 @@ argument_list|)
 throw|;
 block|}
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|bodyOgnlExpression
 argument_list|(
@@ -1560,7 +1576,7 @@ argument_list|)
 throw|;
 block|}
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|mandatoryBodyOgnlExpression
 argument_list|(
@@ -1573,7 +1589,7 @@ block|}
 else|else
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|mandatoryBodyExpression
 argument_list|(
@@ -1675,7 +1691,7 @@ argument_list|)
 throw|;
 block|}
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|bodyOgnlExpression
 argument_list|(
@@ -2047,7 +2063,7 @@ condition|)
 block|{
 comment|// ognl based header
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|headersOgnlExpression
 argument_list|(
@@ -2379,7 +2395,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|nullExpression
 argument_list|()
@@ -2414,7 +2430,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|fileNameExpression
 argument_list|()
@@ -2434,7 +2450,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|fileNameNoExtensionExpression
 argument_list|()
@@ -2454,7 +2470,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|fileNameNoExtensionSingleExpression
 argument_list|()
@@ -2483,7 +2499,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|fileExtensionExpression
 argument_list|()
@@ -2503,7 +2519,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|fileExtensionSingleExpression
 argument_list|()
@@ -2523,7 +2539,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|fileOnlyNameExpression
 argument_list|()
@@ -2543,7 +2559,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|fileOnlyNameNoExtensionExpression
 argument_list|()
@@ -2563,7 +2579,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|fileOnlyNameNoExtensionSingleExpression
 argument_list|()
@@ -2583,7 +2599,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|fileParentExpression
 argument_list|()
@@ -2603,7 +2619,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|filePathExpression
 argument_list|()
@@ -2623,7 +2639,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|fileAbsoluteExpression
 argument_list|()
@@ -2643,7 +2659,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|fileAbsolutePathExpression
 argument_list|()
@@ -2672,7 +2688,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|fileSizeExpression
 argument_list|()
@@ -2692,7 +2708,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|fileLastModifiedExpression
 argument_list|()
@@ -2841,7 +2857,7 @@ argument_list|)
 throw|;
 block|}
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|randomExpression
 argument_list|(
@@ -2866,7 +2882,7 @@ block|}
 else|else
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|randomExpression
 argument_list|(
@@ -2957,7 +2973,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|skipExpression
 argument_list|(
@@ -3044,7 +3060,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|collateExpression
 argument_list|(
@@ -3120,7 +3136,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|messageHistoryExpression
 argument_list|(
@@ -3142,7 +3158,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ExpressionBuilder
+name|SimpleExpressionBuilder
 operator|.
 name|messageHistoryExpression
 argument_list|(

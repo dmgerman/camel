@@ -190,9 +190,7 @@ name|ExpressionBuilder
 operator|.
 name|beanExpression
 argument_list|(
-literal|"myBean"
-argument_list|,
-literal|"getPubDate"
+literal|"myBean?method=getPubDate"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -242,9 +240,7 @@ name|ExpressionBuilder
 operator|.
 name|beanExpression
 argument_list|(
-literal|"myBean"
-argument_list|,
-literal|"getPubDate"
+literal|"myBean?method=getPubDate"
 argument_list|)
 argument_list|)
 expr_stmt|;

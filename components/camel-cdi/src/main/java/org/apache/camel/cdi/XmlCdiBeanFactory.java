@@ -2106,14 +2106,6 @@ name|isEmpty
 argument_list|(
 name|proxy
 operator|.
-name|getServiceRef
-argument_list|()
-argument_list|)
-operator|&&
-name|isEmpty
-argument_list|(
-name|proxy
-operator|.
 name|getServiceUrl
 argument_list|()
 argument_list|)
@@ -2125,11 +2117,7 @@ name|CreationException
 argument_list|(
 name|format
 argument_list|(
-literal|"Missing [%s] or [%s] attribute for imported bean [%s] from resource [%s]"
-argument_list|,
-literal|"serviceRef"
-argument_list|,
-literal|"serviceUrl"
+literal|"Missing serviceUrl attribute for imported bean [%s] from resource [%s]"
 argument_list|,
 name|proxy
 operator|.

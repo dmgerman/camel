@@ -772,6 +772,48 @@ name|getAndIncrement
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|createAndSetExpression (T result)
+specifier|private
+specifier|static
+parameter_list|<
+name|T
+extends|extends
+name|ExpressionNode
+parameter_list|>
+name|ExpressionClause
+argument_list|<
+name|T
+argument_list|>
+name|createAndSetExpression
+parameter_list|(
+name|T
+name|result
+parameter_list|)
+block|{
+name|ExpressionClause
+argument_list|<
+name|T
+argument_list|>
+name|clause
+init|=
+operator|new
+name|ExpressionClause
+argument_list|<>
+argument_list|(
+name|result
+argument_list|)
+decl_stmt|;
+name|result
+operator|.
+name|setExpression
+argument_list|(
+name|clause
+argument_list|)
+expr_stmt|;
+return|return
+name|clause
+return|;
+block|}
 comment|/**      * Gets the unique index number for when this {@link ProcessorDefinition} was created by its constructor.      *<p/>      * This can be used to know the order in which the definition was created when assembled as a route.      *      * @return the index number      */
 DECL|method|getIndex ()
 specifier|public
@@ -3198,8 +3240,6 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|ExpressionClause
-operator|.
 name|createAndSetExpression
 argument_list|(
 name|answer
@@ -3304,8 +3344,6 @@ name|filter
 argument_list|)
 expr_stmt|;
 return|return
-name|ExpressionClause
-operator|.
 name|createAndSetExpression
 argument_list|(
 name|filter
@@ -3485,8 +3523,6 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|ExpressionClause
-operator|.
 name|createAndSetExpression
 argument_list|(
 name|answer
@@ -4068,8 +4104,6 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|ExpressionClause
-operator|.
 name|createAndSetExpression
 argument_list|(
 name|answer
@@ -4108,8 +4142,6 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|ExpressionClause
-operator|.
 name|createAndSetExpression
 argument_list|(
 name|answer
@@ -4225,8 +4257,6 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|ExpressionClause
-operator|.
 name|createAndSetExpression
 argument_list|(
 name|answer
@@ -4302,8 +4332,6 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|ExpressionClause
-operator|.
 name|createAndSetExpression
 argument_list|(
 name|answer
@@ -4412,8 +4440,6 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|ExpressionClause
-operator|.
 name|createAndSetExpression
 argument_list|(
 name|answer
@@ -4774,8 +4800,6 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|ExpressionClause
-operator|.
 name|createAndSetExpression
 argument_list|(
 name|answer
@@ -4827,8 +4851,6 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|ExpressionClause
-operator|.
 name|createAndSetExpression
 argument_list|(
 name|answer
@@ -4979,8 +5001,6 @@ name|loop
 argument_list|)
 expr_stmt|;
 return|return
-name|ExpressionClause
-operator|.
 name|createAndSetExpression
 argument_list|(
 name|loop
@@ -5075,8 +5095,6 @@ name|loop
 argument_list|)
 expr_stmt|;
 return|return
-name|ExpressionClause
-operator|.
 name|createAndSetExpression
 argument_list|(
 name|loop
@@ -7367,8 +7385,6 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|ExpressionClause
-operator|.
 name|createAndSetExpression
 argument_list|(
 name|answer
@@ -7846,8 +7862,6 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|ExpressionClause
-operator|.
 name|createAndSetExpression
 argument_list|(
 name|answer
@@ -8406,8 +8420,6 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|ExpressionClause
-operator|.
 name|createAndSetExpression
 argument_list|(
 name|answer

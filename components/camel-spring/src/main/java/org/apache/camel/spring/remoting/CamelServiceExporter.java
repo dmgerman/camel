@@ -307,6 +307,11 @@ specifier|private
 name|String
 name|serviceRef
 decl_stmt|;
+DECL|field|method
+specifier|private
+name|String
+name|method
+decl_stmt|;
 DECL|field|applicationContext
 specifier|private
 name|ApplicationContext
@@ -404,6 +409,32 @@ operator|.
 name|serviceRef
 operator|=
 name|serviceRef
+expr_stmt|;
+block|}
+DECL|method|getMethod ()
+specifier|public
+name|String
+name|getMethod
+parameter_list|()
+block|{
+return|return
+name|method
+return|;
+block|}
+DECL|method|setMethod (String method)
+specifier|public
+name|void
+name|setMethod
+parameter_list|(
+name|String
+name|method
+parameter_list|)
+block|{
+name|this
+operator|.
+name|method
+operator|=
+name|method
 expr_stmt|;
 block|}
 DECL|method|getApplicationContext ()
@@ -543,12 +574,9 @@ argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
-name|consumer
-operator|=
-name|endpoint
-operator|.
-name|createConsumer
-argument_list|(
+name|BeanProcessor
+name|processor
+init|=
 operator|new
 name|BeanProcessor
 argument_list|(
@@ -556,6 +584,21 @@ name|proxy
 argument_list|,
 name|camelContext
 argument_list|)
+decl_stmt|;
+name|processor
+operator|.
+name|setMethod
+argument_list|(
+name|method
+argument_list|)
+expr_stmt|;
+name|consumer
+operator|=
+name|endpoint
+operator|.
+name|createConsumer
+argument_list|(
+name|processor
 argument_list|)
 expr_stmt|;
 comment|// add and start consumer

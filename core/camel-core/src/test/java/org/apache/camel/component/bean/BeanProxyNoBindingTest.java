@@ -735,11 +735,6 @@ argument_list|(
 literal|"direct:bean"
 argument_list|)
 operator|.
-name|binding
-argument_list|(
-literal|false
-argument_list|)
-operator|.
 name|build
 argument_list|(
 name|OrderService
@@ -850,11 +845,6 @@ operator|.
 name|endpoint
 argument_list|(
 name|endpoint
-argument_list|)
-operator|.
-name|binding
-argument_list|(
-literal|false
 argument_list|)
 operator|.
 name|build
@@ -972,11 +962,6 @@ operator|.
 name|endpoint
 argument_list|(
 literal|"seda:delay"
-argument_list|)
-operator|.
-name|binding
-argument_list|(
-literal|false
 argument_list|)
 operator|.
 name|build

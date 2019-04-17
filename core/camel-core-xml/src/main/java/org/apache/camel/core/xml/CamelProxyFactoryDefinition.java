@@ -109,15 +109,6 @@ name|serviceUrl
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-annotation|@
-name|Deprecated
-DECL|field|serviceRef
-specifier|private
-name|String
-name|serviceRef
-decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|serviceInterface
 specifier|private
 name|Class
@@ -132,20 +123,6 @@ DECL|field|camelContextId
 specifier|private
 name|String
 name|camelContextId
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|binding
-specifier|private
-name|Boolean
-name|binding
 decl_stmt|;
 DECL|method|getServiceUrl ()
 specifier|public
@@ -172,35 +149,6 @@ operator|.
 name|serviceUrl
 operator|=
 name|serviceUrl
-expr_stmt|;
-block|}
-DECL|method|getServiceRef ()
-specifier|public
-name|String
-name|getServiceRef
-parameter_list|()
-block|{
-return|return
-name|serviceRef
-return|;
-block|}
-comment|/**      * The camel endpoint reference used to send the message to when calling the service from the interface.      *      * @deprecated use serviceUrl instead with the ref endpoint.      */
-annotation|@
-name|Deprecated
-DECL|method|setServiceRef (String serviceRef)
-specifier|public
-name|void
-name|setServiceRef
-parameter_list|(
-name|String
-name|serviceRef
-parameter_list|)
-block|{
-name|this
-operator|.
-name|serviceRef
-operator|=
-name|serviceRef
 expr_stmt|;
 block|}
 DECL|method|getServiceInterface ()
@@ -261,33 +209,6 @@ operator|.
 name|camelContextId
 operator|=
 name|camelContextId
-expr_stmt|;
-block|}
-DECL|method|getBinding ()
-specifier|public
-name|Boolean
-name|getBinding
-parameter_list|()
-block|{
-return|return
-name|binding
-return|;
-block|}
-comment|/**      * Camel parameter binding is enabled by default, which will use binding information from the method signature      * parameters to bind to the Exchange/Message with the following annotations.      * If disabled then a {@link org.apache.camel.component.bean.CamelInvocationHandler} is used.      */
-DECL|method|setBinding (Boolean binding)
-specifier|public
-name|void
-name|setBinding
-parameter_list|(
-name|Boolean
-name|binding
-parameter_list|)
-block|{
-name|this
-operator|.
-name|binding
-operator|=
-name|binding
 expr_stmt|;
 block|}
 block|}

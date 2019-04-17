@@ -70,22 +70,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -115,7 +99,7 @@ name|InterceptSendToMockEndpointStrategy
 block|{
 annotation|@
 name|Override
-DECL|method|onInterceptEndpoint (String uri, Endpoint endpoint, MockEndpoint mockEndpoint, Producer mockProducer)
+DECL|method|onInterceptEndpoint (String uri, Endpoint endpoint, Endpoint mockEndpoint, Producer mockProducer)
 specifier|protected
 name|Producer
 name|onInterceptEndpoint
@@ -126,7 +110,7 @@ parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|,
-name|MockEndpoint
+name|Endpoint
 name|mockEndpoint
 parameter_list|,
 name|Producer

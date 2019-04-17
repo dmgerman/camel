@@ -38,6 +38,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
 name|builder
 operator|.
 name|xml

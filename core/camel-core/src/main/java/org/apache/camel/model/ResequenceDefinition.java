@@ -1128,6 +1128,26 @@ operator|=
 name|expression
 expr_stmt|;
 block|}
+comment|/**      * Expression to use for re-ordering the messages, such as a header with a sequence number      */
+DECL|method|setExpression (Expression expression)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|setExpression
+argument_list|(
+operator|new
+name|ExpressionDefinition
+argument_list|(
+name|expression
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

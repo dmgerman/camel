@@ -48,22 +48,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|EndpointStrategy
@@ -253,8 +237,14 @@ elseif|else
 if|if
 condition|(
 name|endpoint
-operator|instanceof
-name|MockEndpoint
+operator|.
+name|getEndpointUri
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"mock:"
+argument_list|)
 condition|)
 block|{
 comment|// we should not intercept mock endpoints
@@ -342,7 +332,7 @@ argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-name|MockEndpoint
+name|Endpoint
 name|mock
 init|=
 name|endpoint
@@ -354,7 +344,7 @@ name|getEndpoint
 argument_list|(
 name|key
 argument_list|,
-name|MockEndpoint
+name|Endpoint
 operator|.
 name|class
 argument_list|)
@@ -459,7 +449,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Callback when an endpoint was intercepted with the given mock endpoint      *      * @param uri          the uri      * @param endpoint     the endpoint      * @param mockEndpoint the mocked endpoint      * @param mockProducer the mock producer      * @return the mock producer      */
-DECL|method|onInterceptEndpoint (String uri, Endpoint endpoint, MockEndpoint mockEndpoint, Producer mockProducer)
+DECL|method|onInterceptEndpoint (String uri, Endpoint endpoint, Endpoint mockEndpoint, Producer mockProducer)
 specifier|protected
 name|Producer
 name|onInterceptEndpoint
@@ -470,7 +460,7 @@ parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|,
-name|MockEndpoint
+name|Endpoint
 name|mockEndpoint
 parameter_list|,
 name|Producer

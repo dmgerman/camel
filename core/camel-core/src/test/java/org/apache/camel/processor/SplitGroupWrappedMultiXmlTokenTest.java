@@ -62,11 +62,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|component
 operator|.
-name|xml
+name|mock
 operator|.
-name|Namespaces
+name|MockEndpoint
 import|;
 end_import
 
@@ -78,11 +78,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|support
 operator|.
-name|mock
+name|builder
 operator|.
-name|MockEndpoint
+name|xml
+operator|.
+name|Namespaces
 import|;
 end_import
 
@@ -105,10 +107,6 @@ operator|.
 name|Test
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|SplitGroupWrappedMultiXmlTokenTest

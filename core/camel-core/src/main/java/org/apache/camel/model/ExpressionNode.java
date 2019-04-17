@@ -112,6 +112,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExpressionFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Predicate
 import|;
 end_import
@@ -279,6 +291,25 @@ block|{
 return|return
 name|expression
 return|;
+block|}
+DECL|method|setExpression (Expression expression)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|setExpression
+argument_list|(
+operator|new
+name|ExpressionDefinition
+argument_list|(
+name|expression
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|setExpression (ExpressionDefinition expression)
 specifier|public
@@ -470,14 +501,30 @@ comment|// if using the Java DSL then the expression may have been set using the
 comment|// ExpressionClause which is a fancy builder to define expressions and predicates
 comment|// using fluent builders in the DSL. However we need afterwards a callback to
 comment|// reset the expression to the expression type the ExpressionClause did build for us
-name|setExpression
-argument_list|(
+name|ExpressionFactory
+name|model
+init|=
 name|clause
 operator|.
 name|getExpressionType
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|model
+operator|instanceof
+name|ExpressionDefinition
+condition|)
+block|{
+name|setExpression
+argument_list|(
+operator|(
+name|ExpressionDefinition
+operator|)
+name|model
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if

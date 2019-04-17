@@ -158,14 +158,11 @@ operator|.
 name|EXCEPTION_CAUGHT
 argument_list|)
 operator|.
-name|method
+name|isInstanceOf
 argument_list|(
-literal|"getMessage"
-argument_list|)
+name|IllegalArgumentException
 operator|.
-name|isEqualTo
-argument_list|(
-literal|"This is a dummy error James!"
+name|class
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -254,14 +251,11 @@ operator|.
 name|EXCEPTION_CAUGHT
 argument_list|)
 operator|.
-name|method
+name|isInstanceOf
 argument_list|(
-literal|"getMessage"
-argument_list|)
+name|IllegalArgumentException
 operator|.
-name|isEqualTo
-argument_list|(
-literal|"This is a dummy error James!"
+name|class
 argument_list|)
 expr_stmt|;
 name|template

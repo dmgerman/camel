@@ -121,6 +121,13 @@ name|serviceRef
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|method
+specifier|private
+name|String
+name|method
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|serviceInterface
 specifier|private
 name|Class
@@ -188,6 +195,33 @@ operator|.
 name|serviceRef
 operator|=
 name|serviceRef
+expr_stmt|;
+block|}
+DECL|method|getMethod ()
+specifier|public
+name|String
+name|getMethod
+parameter_list|()
+block|{
+return|return
+name|method
+return|;
+block|}
+comment|/**      * Name of method to invoke on service      */
+DECL|method|setMethod (String method)
+specifier|public
+name|void
+name|setMethod
+parameter_list|(
+name|String
+name|method
+parameter_list|)
+block|{
+name|this
+operator|.
+name|method
+operator|=
+name|method
 expr_stmt|;
 block|}
 DECL|method|getServiceInterface ()

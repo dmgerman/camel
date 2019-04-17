@@ -114,6 +114,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
 name|builder
 operator|.
 name|xml
@@ -131,6 +133,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|support
 operator|.
 name|builder
 operator|.
@@ -150,6 +154,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
 name|builder
 operator|.
 name|xml
@@ -168,6 +174,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
 name|builder
 operator|.
 name|xml
@@ -185,6 +193,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|support
 operator|.
 name|builder
 operator|.

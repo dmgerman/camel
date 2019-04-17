@@ -32,6 +32,24 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|builder
+operator|.
+name|xml
+operator|.
+name|Namespaces
+import|;
+end_import
+
 begin_comment
 comment|/**  * XPath with namespace test  */
 end_comment

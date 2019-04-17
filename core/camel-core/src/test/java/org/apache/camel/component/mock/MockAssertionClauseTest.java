@@ -88,10 +88,6 @@ operator|.
 name|xpath
 argument_list|(
 literal|"/person[@name='James']"
-argument_list|,
-name|Boolean
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 name|template
@@ -144,10 +140,6 @@ operator|.
 name|xpath
 argument_list|(
 literal|"/person[@last='Hanson']"
-argument_list|,
-name|Boolean
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 name|mock
@@ -175,10 +167,6 @@ operator|.
 name|xpath
 argument_list|(
 literal|"/person[@last='Jackson']"
-argument_list|,
-name|Boolean
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 name|mock

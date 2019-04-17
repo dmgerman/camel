@@ -159,26 +159,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Whether to use binding or not.      *<p/>      * Binding is enabled by default. Set this to<tt>false</tt> to use old behavior without binding.      *<p/>      * If binding is enabled then Camel will bind the method parameters to the input {@link org.apache.camel.Message}      * on the {@link org.apache.camel.Exchange} when invoking the proxy.      *      * @param binding<tt>true</tt> to use binding,<tt>false</tt> to use the old behavior with using a {@link org.apache.camel.component.bean.BeanInvocation}      *                as a provisional message body      * @return the builder      */
-DECL|method|binding (boolean binding)
-specifier|public
-name|ProxyBuilder
-name|binding
-parameter_list|(
-name|boolean
-name|binding
-parameter_list|)
-block|{
-name|this
-operator|.
-name|binding
-operator|=
-name|binding
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Builds the proxy.      *      * @param interfaceClass  the service interface      * @return the proxied bean      * @throws Exception is thrown if error creating the proxy      */
 annotation|@
 name|SuppressWarnings

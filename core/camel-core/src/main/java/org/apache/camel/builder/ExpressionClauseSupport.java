@@ -58,11 +58,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|xml
-operator|.
-name|Namespaces
+name|ExpressionFactory
 import|;
 end_import
 
@@ -95,22 +91,6 @@ operator|.
 name|language
 operator|.
 name|ExchangePropertyExpression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|language
-operator|.
-name|ExpressionDefinition
 import|;
 end_import
 
@@ -370,6 +350,24 @@ name|XQueryExpression
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|builder
+operator|.
+name|xml
+operator|.
+name|Namespaces
+import|;
+end_import
+
 begin_comment
 comment|/**  * A support class for building expression clauses.  */
 end_comment
@@ -397,7 +395,7 @@ name|expressionValue
 decl_stmt|;
 DECL|field|expressionType
 specifier|private
-name|ExpressionDefinition
+name|ExpressionFactory
 name|expressionType
 decl_stmt|;
 DECL|method|ExpressionClauseSupport (T result)
@@ -432,16 +430,33 @@ argument_list|(
 name|expression
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|expression
+operator|instanceof
+name|ExpressionFactory
+condition|)
+block|{
+name|setExpressionType
+argument_list|(
+operator|(
+name|ExpressionFactory
+operator|)
+name|expression
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|result
 return|;
 block|}
-DECL|method|expression (ExpressionDefinition expression)
+comment|/**      * Specify an {@link ExpressionFactory} instance      */
+DECL|method|language (ExpressionFactory expression)
 specifier|public
 name|T
-name|expression
+name|language
 parameter_list|(
-name|ExpressionDefinition
+name|ExpressionFactory
 name|expression
 parameter_list|)
 block|{
@@ -3071,7 +3086,7 @@ expr_stmt|;
 block|}
 DECL|method|getExpressionType ()
 specifier|public
-name|ExpressionDefinition
+name|ExpressionFactory
 name|getExpressionType
 parameter_list|()
 block|{
@@ -3079,12 +3094,12 @@ return|return
 name|expressionType
 return|;
 block|}
-DECL|method|setExpressionType (ExpressionDefinition expressionType)
+DECL|method|setExpressionType (ExpressionFactory expressionType)
 specifier|public
 name|void
 name|setExpressionType
 parameter_list|(
-name|ExpressionDefinition
+name|ExpressionFactory
 name|expressionType
 parameter_list|)
 block|{
@@ -3159,7 +3174,9 @@ parameter_list|,
 name|Expression
 name|expression
 parameter_list|)
-block|{     }
+block|{
+comment|// noop
+block|}
 block|}
 end_class
 
