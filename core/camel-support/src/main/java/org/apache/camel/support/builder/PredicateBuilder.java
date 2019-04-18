@@ -146,6 +146,10 @@ begin_comment
 comment|/**  * A helper class for working with predicates  */
 end_comment
 
+begin_comment
+comment|//CHECKSTYLE:OFF
+end_comment
+
 begin_class
 DECL|class|PredicateBuilder
 specifier|public

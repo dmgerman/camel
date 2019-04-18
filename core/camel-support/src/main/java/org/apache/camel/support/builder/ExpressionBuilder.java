@@ -418,6 +418,10 @@ begin_comment
 comment|/**  * A helper class for working with<a href="http://camel.apache.org/expression.html">expressions</a>.  */
 end_comment
 
+begin_comment
+comment|//CHECKSTYLE:OFF
+end_comment
+
 begin_class
 DECL|class|ExpressionBuilder
 specifier|public
