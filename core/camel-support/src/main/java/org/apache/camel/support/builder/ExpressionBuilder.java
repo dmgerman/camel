@@ -421,15 +421,9 @@ end_comment
 begin_class
 DECL|class|ExpressionBuilder
 specifier|public
-specifier|final
 class|class
 name|ExpressionBuilder
 block|{
-DECL|method|ExpressionBuilder ()
-specifier|private
-name|ExpressionBuilder
-parameter_list|()
-block|{     }
 comment|/**      * Returns an expression for the inbound message attachments      *      * @return an expression object which will return the inbound message attachments      */
 DECL|method|attachmentObjectsExpression ()
 specifier|public
