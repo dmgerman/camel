@@ -22,69 +22,11 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
 operator|.
 name|Generated
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|snakeyaml
-operator|.
-name|SnakeYAMLDataFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|dataformat
-operator|.
-name|YAMLLibrary
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|dataformat
-operator|.
-name|YAMLTypeFilterDefinition
 import|;
 end_import
 
@@ -150,16 +92,6 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-comment|/**      * Which yaml library to use. By default it is SnakeYAML      */
-DECL|field|library
-specifier|private
-name|YAMLLibrary
-name|library
-init|=
-name|YAMLLibrary
-operator|.
-name|SnakeYAML
-decl_stmt|;
 comment|/**      * Class name of the java type to use when unarmshalling      */
 DECL|field|unmarshalTypeName
 specifier|private
@@ -214,15 +146,6 @@ name|allowAnyType
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Set the types SnakeYAML is allowed to un-marshall      */
-DECL|field|typeFilter
-specifier|private
-name|List
-argument_list|<
-name|YAMLTypeFilterDefinition
-argument_list|>
-name|typeFilter
-decl_stmt|;
 comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML, or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
@@ -231,32 +154,6 @@ name|contentTypeHeader
 init|=
 literal|false
 decl_stmt|;
-DECL|method|getLibrary ()
-specifier|public
-name|YAMLLibrary
-name|getLibrary
-parameter_list|()
-block|{
-return|return
-name|library
-return|;
-block|}
-DECL|method|setLibrary (YAMLLibrary library)
-specifier|public
-name|void
-name|setLibrary
-parameter_list|(
-name|YAMLLibrary
-name|library
-parameter_list|)
-block|{
-name|this
-operator|.
-name|library
-operator|=
-name|library
-expr_stmt|;
-block|}
 DECL|method|getUnmarshalTypeName ()
 specifier|public
 name|String
@@ -463,38 +360,6 @@ operator|.
 name|allowAnyType
 operator|=
 name|allowAnyType
-expr_stmt|;
-block|}
-DECL|method|getTypeFilter ()
-specifier|public
-name|List
-argument_list|<
-name|YAMLTypeFilterDefinition
-argument_list|>
-name|getTypeFilter
-parameter_list|()
-block|{
-return|return
-name|typeFilter
-return|;
-block|}
-DECL|method|setTypeFilter (List<YAMLTypeFilterDefinition> typeFilter)
-specifier|public
-name|void
-name|setTypeFilter
-parameter_list|(
-name|List
-argument_list|<
-name|YAMLTypeFilterDefinition
-argument_list|>
-name|typeFilter
-parameter_list|)
-block|{
-name|this
-operator|.
-name|typeFilter
-operator|=
-name|typeFilter
 expr_stmt|;
 block|}
 DECL|method|getContentTypeHeader ()

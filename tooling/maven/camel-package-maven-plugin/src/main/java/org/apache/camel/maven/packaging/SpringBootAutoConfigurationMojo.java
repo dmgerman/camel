@@ -10681,17 +10681,41 @@ argument_list|(
 name|type
 argument_list|)
 expr_stmt|;
-comment|// skip options for json based-data formats as these are implied
+comment|// special for bindy
 if|if
 condition|(
-literal|"org.apache.camel.model.dataformat.JsonLibrary"
+literal|"org.apache.camel.model.dataformat.BindyType"
 operator|.
 name|equals
 argument_list|(
-name|type
+name|option
+operator|.
+name|getJavaType
+argument_list|()
 argument_list|)
 condition|)
 block|{
+comment|// force to use a string type
+name|type
+operator|=
+literal|"java.lang.String"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|option
+operator|.
+name|getJavaType
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"org.apache.camel.model.dataformat"
+argument_list|)
+condition|)
+block|{
+comment|// skip options that are from the model as they are not possible to configure anyway
 continue|continue;
 block|}
 comment|// spring-boot auto configuration does not support complex types

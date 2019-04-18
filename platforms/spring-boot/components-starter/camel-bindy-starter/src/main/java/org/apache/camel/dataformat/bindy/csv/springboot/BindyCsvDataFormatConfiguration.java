@@ -40,22 +40,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|dataformat
-operator|.
-name|BindyType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -110,10 +94,10 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-comment|/**      * Whether to use csv, fixed or key value pairs mode.      */
+comment|/**      * Whether to use Csv, Fixed, or KeyValue.      */
 DECL|field|type
 specifier|private
-name|BindyType
+name|String
 name|type
 decl_stmt|;
 comment|/**      * Name of model class to use.      */
@@ -146,7 +130,7 @@ literal|false
 decl_stmt|;
 DECL|method|getType ()
 specifier|public
-name|BindyType
+name|String
 name|getType
 parameter_list|()
 block|{
@@ -154,12 +138,12 @@ return|return
 name|type
 return|;
 block|}
-DECL|method|setType (BindyType type)
+DECL|method|setType (String type)
 specifier|public
 name|void
 name|setType
 parameter_list|(
-name|BindyType
+name|String
 name|type
 parameter_list|)
 block|{

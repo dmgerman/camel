@@ -280,7 +280,7 @@ return|return
 name|type
 return|;
 block|}
-comment|/**      * Whether to use csv, fixed or key value pairs mode.      */
+comment|/**      * Whether to use Csv, Fixed, or KeyValue.      */
 DECL|method|setType (BindyType type)
 specifier|public
 name|void
