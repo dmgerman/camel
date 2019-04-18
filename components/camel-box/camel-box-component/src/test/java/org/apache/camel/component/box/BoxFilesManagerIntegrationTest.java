@@ -2173,7 +2173,6 @@ operator|new
 name|Metadata
 argument_list|()
 decl_stmt|;
-comment|// metadata.add("/foo", "bar");
 name|metadata
 operator|=
 name|testFile
@@ -2220,6 +2219,16 @@ argument_list|,
 name|metadata
 argument_list|)
 expr_stmt|;
+comment|//metada has to contain some value, otherwise response result will be error code 400
+name|metadata
+operator|.
+name|add
+argument_list|(
+literal|"/foo"
+argument_list|,
+literal|"bar"
+argument_list|)
+expr_stmt|;
 specifier|final
 name|com
 operator|.
@@ -2244,6 +2253,30 @@ argument_list|(
 literal|"updateFileMetadata result"
 argument_list|,
 name|result
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"updateFileMetadata property foo"
+argument_list|,
+name|result
+operator|.
+name|get
+argument_list|(
+literal|"/foo"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"bar"
+argument_list|,
+name|metadata
+operator|.
+name|get
+argument_list|(
+literal|"/foo"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|LOG

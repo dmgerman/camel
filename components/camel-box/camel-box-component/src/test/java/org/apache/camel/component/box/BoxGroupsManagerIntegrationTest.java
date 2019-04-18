@@ -1038,7 +1038,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-literal|"CamelBox.groupMemebershipId"
+literal|"CamelBox.groupMembershipId"
 argument_list|,
 name|info
 operator|.
@@ -1230,6 +1230,21 @@ operator|+
 name|PATH_PREFIX
 operator|+
 literal|"/getGroupMemberships?inBody=groupId"
+argument_list|)
+expr_stmt|;
+comment|// test route for updateGroupInfo
+name|from
+argument_list|(
+literal|"direct://UPDATEGROUPINFO"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"box://"
+operator|+
+name|PATH_PREFIX
+operator|+
+literal|"/updateGroupInfo"
 argument_list|)
 expr_stmt|;
 comment|// test route for updateGroupMembershipInfo

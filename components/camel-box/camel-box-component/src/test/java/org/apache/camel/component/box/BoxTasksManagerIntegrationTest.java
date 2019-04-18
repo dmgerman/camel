@@ -372,6 +372,9 @@ name|BoxTask
 name|testTask
 decl_stmt|;
 annotation|@
+name|Ignore
+comment|//needs https://community.box.com/t5/custom/page/page-id/BoxViewTicketDetail?ticket_id=1895413 to be solved
+annotation|@
 name|Test
 DECL|method|testAddAssignmentToTask ()
 specifier|public
@@ -897,6 +900,9 @@ block|}
 block|}
 block|}
 annotation|@
+name|Ignore
+comment|//needs https://community.box.com/t5/custom/page/page-id/BoxViewTicketDetail?ticket_id=1895413 to be solved
+annotation|@
 name|Test
 DECL|method|testGetTaskAssignments ()
 specifier|public
@@ -907,6 +913,54 @@ throws|throws
 name|Exception
 block|{
 comment|// using String message body for single parameter "taskId"
+comment|//add assignment to task -> to be able to search for assignments
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+comment|// parameter type is String
+name|headers
+operator|.
+name|put
+argument_list|(
+literal|"CamelBox.taskId"
+argument_list|,
+name|testTask
+operator|.
+name|getID
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// parameter type is com.box.sdk.BoxUser
+name|headers
+operator|.
+name|put
+argument_list|(
+literal|"CamelBox.assignTo"
+argument_list|,
+name|getCurrentUser
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|requestBodyAndHeaders
+argument_list|(
+literal|"direct://ADDASSIGNMENTTOTASK"
+argument_list|,
+literal|null
+argument_list|,
+name|headers
+argument_list|)
+expr_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(

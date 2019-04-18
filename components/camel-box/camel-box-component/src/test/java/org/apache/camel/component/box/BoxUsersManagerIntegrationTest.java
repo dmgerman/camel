@@ -476,6 +476,9 @@ block|}
 block|}
 block|}
 annotation|@
+name|Ignore
+comment|//creation of app users could be used only with JWT authentication, which is not possible in this time
+annotation|@
 name|Test
 DECL|method|testCreateAppUser ()
 specifier|public
@@ -605,6 +608,9 @@ block|{                 }
 block|}
 block|}
 block|}
+annotation|@
+name|Ignore
+comment|//newly created user has to have unique and existing email address to be created. In manual execution, test could be un-ignored, but value for the "CamelBox.login" has to be changed.
 annotation|@
 name|Test
 DECL|method|testCreateEnterpriseUser ()
@@ -745,6 +751,9 @@ block|{                 }
 block|}
 block|}
 block|}
+annotation|@
+name|Ignore
+comment|//creation of app users could be used only with JWT authentication, which is not possible in this time
 annotation|@
 name|Test
 DECL|method|testDeleteUser ()
@@ -1377,6 +1386,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Ignore
+comment|//newly created user has to have unique and existing email address to be created. In manual execution, test could be un-ignored, but values for emails have to be changed.
 annotation|@
 name|Test
 DECL|method|testmMoveFolderToUser ()

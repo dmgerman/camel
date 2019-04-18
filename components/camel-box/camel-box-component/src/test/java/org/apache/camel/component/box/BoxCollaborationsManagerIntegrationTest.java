@@ -214,6 +214,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -424,6 +434,9 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Ignore
+comment|//creation of app users could be used only with JWT authentication, which is not possible in this time
 annotation|@
 name|Test
 DECL|method|testAddFolderCollaboration ()
