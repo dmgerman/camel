@@ -342,7 +342,9 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"aws-sqs://camel-1.fifo?accessKey=RAW(xxx)&secretKey=RAW(xxx)&region=EU_WEST_1&messageGroupIdStrategy=useExchangeId&messageDeduplicationIdStrategy=useContentBasedDeduplication"
+literal|"aws-sqs://camel-1.fifo?accessKey=RAW(xxx)&secretKey=RAW(xxx)&region=EU_WEST_1&messageGroupIdStrategy=useExchangeId"
+operator|+
+literal|"&messageDeduplicationIdStrategy=useContentBasedDeduplication"
 argument_list|)
 decl_stmt|;
 return|return
