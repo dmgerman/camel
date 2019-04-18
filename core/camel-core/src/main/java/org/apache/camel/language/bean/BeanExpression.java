@@ -198,11 +198,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
+name|spi
 operator|.
-name|simple
-operator|.
-name|SimpleLanguage
+name|Language
 import|;
 end_import
 
@@ -217,6 +215,20 @@ operator|.
 name|support
 operator|.
 name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|LanguageSupport
 import|;
 end_import
 
@@ -1635,7 +1647,7 @@ block|{
 comment|// if key is a nested simple expression then re-evaluate that again
 if|if
 condition|(
-name|SimpleLanguage
+name|LanguageSupport
 operator|.
 name|hasSimpleFunction
 argument_list|(
@@ -1643,11 +1655,24 @@ name|key
 argument_list|)
 condition|)
 block|{
+name|Language
+name|lan
+init|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|resolveLanguage
+argument_list|(
+literal|"simple"
+argument_list|)
+decl_stmt|;
 name|key
 operator|=
-name|SimpleLanguage
+name|lan
 operator|.
-name|expression
+name|createExpression
 argument_list|(
 name|key
 argument_list|)
