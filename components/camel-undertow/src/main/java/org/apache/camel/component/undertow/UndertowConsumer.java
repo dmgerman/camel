@@ -792,10 +792,7 @@ argument_list|)
 expr_stmt|;
 name|httpExchange
 operator|.
-name|getResponseSender
-argument_list|()
-operator|.
-name|close
+name|endExchange
 argument_list|()
 expr_stmt|;
 return|return;
@@ -968,14 +965,6 @@ name|bodyAsByteBuffer
 argument_list|)
 expr_stmt|;
 block|}
-name|httpExchange
-operator|.
-name|getResponseSender
-argument_list|()
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 comment|/**      * Create an {@link Exchange} from the associated {@link UndertowEndpoint} and set the {@code in} {@link Message}'s      * body to the given {@code message} and {@link UndertowConstants#CONNECTION_KEY} header to the given      * {@code connectionKey}.      *      * @param connectionKey an identifier of {@link WebSocketChannel} through which the {@code message} was received      * @param message the message received via the {@link WebSocketChannel}      */
 DECL|method|sendMessage (final String connectionKey, final Object message)
