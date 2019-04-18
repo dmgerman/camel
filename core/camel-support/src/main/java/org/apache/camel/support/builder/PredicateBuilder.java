@@ -149,9 +149,15 @@ end_comment
 begin_class
 DECL|class|PredicateBuilder
 specifier|public
+specifier|final
 class|class
 name|PredicateBuilder
 block|{
+DECL|method|PredicateBuilder ()
+specifier|private
+name|PredicateBuilder
+parameter_list|()
+block|{     }
 comment|/**      * Converts the given expression into an {@link Predicate}      */
 DECL|method|toPredicate (final Expression expression)
 specifier|public
