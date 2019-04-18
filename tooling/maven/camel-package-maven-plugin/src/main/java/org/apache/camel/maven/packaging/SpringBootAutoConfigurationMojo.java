@@ -7887,8 +7887,6 @@ return|;
 block|}
 else|else
 block|{
-comment|//                throw new UnsupportedOperationException("Unsupported default value for type: "
-comment|//                        + type.toString() + ": " + defaultValue);
 return|return
 literal|null
 return|;
@@ -8238,8 +8236,6 @@ name|String
 name|type
 parameter_list|)
 block|{
-comment|// remove<?> as generic type as Roaster (Eclipse JDT) cannot use that
-comment|//        type = type.replaceAll("\\<\\?\\>", "");
 comment|// use wrapper types for primitive types so a null mean that the option
 comment|// has not been configured
 name|String
@@ -10685,6 +10681,19 @@ argument_list|(
 name|type
 argument_list|)
 expr_stmt|;
+comment|// skip options for json based-data formats as these are implied
+if|if
+condition|(
+literal|"org.apache.camel.model.dataformat.JsonLibrary"
+operator|.
+name|equals
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 comment|// spring-boot auto configuration does not support complex types
 comment|// (unless they are enum, nested)
 comment|// and if so then we should use a String type so spring-boot and its
