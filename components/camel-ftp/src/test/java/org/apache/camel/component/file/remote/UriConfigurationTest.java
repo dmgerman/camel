@@ -381,7 +381,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"TLS"
+literal|"TLSv1.2"
 argument_list|,
 name|config
 operator|.
@@ -502,7 +502,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"TLS"
+literal|"TLSv1.2"
 argument_list|,
 name|config
 operator|.

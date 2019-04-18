@@ -86,7 +86,7 @@ argument_list|()
 operator|+
 literal|"/tmp2/camel?password=admin&consumer.initialDelay=2000&disableSecureDataChannelDefaults=true"
 operator|+
-literal|"&securityProtocol=SSL&isImplicit=true&delete=true"
+literal|"&securityProtocol=SSLv3&isImplicit=true&delete=true"
 return|;
 block|}
 annotation|@

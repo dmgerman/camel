@@ -114,7 +114,7 @@ specifier|final
 name|String
 name|AUTH_VALUE_SSL
 init|=
-literal|"SSL"
+literal|"SSLv3"
 decl_stmt|;
 DECL|field|AUTH_VALUE_TLS
 specifier|protected
@@ -123,7 +123,7 @@ specifier|final
 name|String
 name|AUTH_VALUE_TLS
 init|=
-literal|"TLS"
+literal|"TLSv1.2"
 decl_stmt|;
 DECL|field|FTPSERVER_KEYSTORE
 specifier|protected

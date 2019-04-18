@@ -164,7 +164,7 @@ name|sslContextParameters
 operator|.
 name|setSecureSocketProtocol
 argument_list|(
-literal|"SSL"
+literal|"SSLv3"
 argument_list|)
 expr_stmt|;
 name|sslContextParameters

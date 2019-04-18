@@ -183,7 +183,7 @@ name|sslContextParameters
 operator|.
 name|setSecureSocketProtocol
 argument_list|(
-literal|"TLS"
+literal|"TLSv1.2"
 argument_list|)
 expr_stmt|;
 name|sslContextParameters

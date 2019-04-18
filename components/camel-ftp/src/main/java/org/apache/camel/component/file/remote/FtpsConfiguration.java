@@ -77,18 +77,19 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"TLS"
+literal|"TLSv1.2"
 argument_list|,
 name|label
 operator|=
 literal|"security"
 argument_list|)
+comment|// TODO : switch to TLSv1.3 when we fully upgrade to JDK11
 DECL|field|securityProtocol
 specifier|private
 name|String
 name|securityProtocol
 init|=
-literal|"TLS"
+literal|"TLSv1.2"
 decl_stmt|;
 annotation|@
 name|UriParam
