@@ -239,16 +239,16 @@ operator|.
 name|cleanUp
 argument_list|()
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Size should be 50"
-argument_list|,
-literal|50
+literal|"Size should be around 50"
 argument_list|,
 name|template
 operator|.
 name|getCurrentCacheSize
 argument_list|()
+operator|>=
+literal|50
 argument_list|)
 expr_stmt|;
 name|template
