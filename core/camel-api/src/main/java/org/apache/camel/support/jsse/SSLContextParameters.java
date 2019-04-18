@@ -196,6 +196,7 @@ name|SSLContextParameters
 extends|extends
 name|BaseSSLContextParameters
 block|{
+comment|// TODO : switch to TLSv1.3 when we fully upgrade to JDK11
 DECL|field|DEFAULT_SECURE_SOCKET_PROTOCOL
 specifier|protected
 specifier|static
@@ -203,7 +204,7 @@ specifier|final
 name|String
 name|DEFAULT_SECURE_SOCKET_PROTOCOL
 init|=
-literal|"TLS"
+literal|"TLSv1.2"
 decl_stmt|;
 DECL|field|LOG
 specifier|private

@@ -50,6 +50,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|security
+operator|.
+name|SecureRandom
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|net
@@ -142,7 +152,7 @@ specifier|final
 name|String
 name|SECURE_SOCKET_PROTOCOL
 init|=
-literal|"TLS"
+literal|"TLSv1.2"
 decl_stmt|;
 DECL|field|PASSWORD
 specifier|protected
