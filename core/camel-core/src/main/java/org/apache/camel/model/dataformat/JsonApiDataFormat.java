@@ -102,6 +102,10 @@ name|Metadata
 import|;
 end_import
 
+begin_comment
+comment|/**  * JsonApi data format is used for marshal and unmarshal Json API object.  */
+end_comment
+
 begin_class
 annotation|@
 name|Metadata
@@ -185,6 +189,7 @@ return|return
 name|dataFormatTypes
 return|;
 block|}
+comment|/**      * The classes to take into account for the marshalling      */
 DECL|method|setDataFormatTypes (Class<?>[] dataFormatTypes)
 specifier|public
 name|void
@@ -218,6 +223,7 @@ return|return
 name|mainFormatType
 return|;
 block|}
+comment|/**      * The classes to take into account while unmarshalling      */
 DECL|method|setMainFormatType (Class<?> mainFormatType)
 specifier|public
 name|void

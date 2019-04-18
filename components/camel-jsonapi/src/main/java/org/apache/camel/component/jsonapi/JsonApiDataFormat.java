@@ -366,6 +366,7 @@ name|Exception
 block|{
 comment|// noop
 block|}
+comment|/**      * The classes to take into account while marshalling      */
 DECL|method|setDataFormatTypes (Class<?>[] dataFormatTypes)
 specifier|public
 name|void
@@ -386,6 +387,7 @@ operator|=
 name|dataFormatTypes
 expr_stmt|;
 block|}
+comment|/**      * The classes to take into account while unmarshalling      */
 DECL|method|setMainFormatType (Class<?> mainFormatType)
 specifier|public
 name|void
