@@ -186,6 +186,12 @@ name|CAMEL_ENDPOINT_ID_WI_PARAM
 init|=
 literal|"CamelEndpointId"
 decl_stmt|;
+DECL|field|HANDLE_EXCEPTION_WI_PARAM
+name|String
+name|HANDLE_EXCEPTION_WI_PARAM
+init|=
+literal|"HandleExceptions"
+decl_stmt|;
 DECL|field|RESPONSE_WI_PARAM
 name|String
 name|RESPONSE_WI_PARAM
