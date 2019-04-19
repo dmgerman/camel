@@ -150,6 +150,13 @@ argument_list|,
 name|pwd
 argument_list|)
 expr_stmt|;
+name|setSystemProp
+argument_list|(
+literal|"jdk.tls.client.protocols"
+argument_list|,
+literal|"TLSv1.2"
+argument_list|)
+expr_stmt|;
 comment|// END SNIPPET: e1
 name|super
 operator|.
