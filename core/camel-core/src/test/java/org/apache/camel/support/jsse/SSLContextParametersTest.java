@@ -1096,7 +1096,7 @@ name|SSLContext
 operator|.
 name|getInstance
 argument_list|(
-literal|"TLS"
+literal|"TLSv1.2"
 argument_list|)
 decl_stmt|;
 name|controlContext
@@ -2194,7 +2194,7 @@ name|SSLContext
 operator|.
 name|getInstance
 argument_list|(
-literal|"TLS"
+literal|"TLSv1.2"
 argument_list|)
 decl_stmt|;
 name|controlContext
@@ -3214,7 +3214,7 @@ name|SSLContext
 operator|.
 name|getInstance
 argument_list|(
-literal|"TLS"
+literal|"TLSv1.2"
 argument_list|)
 decl_stmt|;
 name|controlContext
@@ -3802,7 +3802,7 @@ name|SSLContext
 operator|.
 name|getInstance
 argument_list|(
-literal|"TLS"
+literal|"TLSv1.2"
 argument_list|)
 decl_stmt|;
 name|controlContext
@@ -4920,7 +4920,7 @@ name|SSLContext
 operator|.
 name|getInstance
 argument_list|(
-literal|"TLS"
+literal|"TLSv1.2"
 argument_list|)
 decl_stmt|;
 name|controlContext
@@ -5618,7 +5618,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"TLS"
+literal|"TLSv1.2"
 argument_list|,
 name|context
 operator|.
