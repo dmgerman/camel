@@ -165,6 +165,16 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|dependency
+argument_list|(
+literal|"org.drools:drools-core:7.20.0.Final"
+argument_list|)
+operator|.
+name|dependency
+argument_list|(
+literal|"org.drools:drools-compiler:7.20.0.Final"
+argument_list|)
+operator|.
 name|unitTestExpectedNumber
 argument_list|(
 literal|0
