@@ -320,7 +320,7 @@ name|constructor
 init|=
 name|type
 operator|.
-name|getDeclaredConstructor
+name|getConstructor
 argument_list|(
 name|String
 operator|.
