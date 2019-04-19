@@ -108,6 +108,25 @@ argument_list|(
 literal|8999
 argument_list|)
 expr_stmt|;
+comment|//TODO : add test for TLSv1.3
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"jdk.tls.client.protocols"
+argument_list|,
+literal|"TLSv1.2"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"jdk.tls.server.protocols"
+argument_list|,
+literal|"TLSv1.2"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getPort ()
 specifier|protected
