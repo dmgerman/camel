@@ -779,14 +779,13 @@ name|sslKeystoreType
 init|=
 literal|"JKS"
 decl_stmt|;
-comment|// TODO : switch to TLSv1.3 when we fully upgrade to JDK11
 comment|/**          * The SSL protocol used to generate the SSLContext. Default setting is          * TLS, which is fine for most cases. Allowed values in recent JVMs are          * TLS, TLSv1.1 and TLSv1.2. SSL, SSLv2 and SSLv3 may be supported in          * older JVMs, but their usage is discouraged due to known security          * vulnerabilities.          */
 DECL|field|sslProtocol
 specifier|private
 name|String
 name|sslProtocol
 init|=
-literal|"TLSv1.2"
+literal|"TLS"
 decl_stmt|;
 comment|/**          * The name of the security provider used for SSL connections. Default          * value is the default security provider of the JVM.          */
 DECL|field|sslProvider
