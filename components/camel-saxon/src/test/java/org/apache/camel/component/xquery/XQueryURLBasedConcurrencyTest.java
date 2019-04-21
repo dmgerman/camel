@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -242,6 +254,17 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
+if|if
+condition|(
+name|context
+operator|.
+name|getStatus
+argument_list|()
+operator|.
+name|isStarted
+argument_list|()
+condition|)
+block|{
 name|template
 operator|.
 name|sendBody
@@ -262,9 +285,17 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}
+name|mock
+operator|.
+name|setResultWaitTime
+argument_list|(
+literal|30000
+argument_list|)
+expr_stmt|;
 name|mock
 operator|.
 name|assertIsSatisfied
@@ -335,6 +366,11 @@ operator|.
 name|to
 argument_list|(
 literal|"xquery:org/apache/camel/component/xquery/transform.xquery"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:result?groupSize=100"
 argument_list|)
 operator|.
 name|to
