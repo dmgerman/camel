@@ -398,13 +398,15 @@ operator|=
 name|unwrapSingleInstance
 expr_stmt|;
 block|}
-DECL|method|createDataFormat (RouteContext routeContext)
+annotation|@
+name|Override
+DECL|method|createDataFormat (CamelContext camelContext)
 specifier|protected
 name|DataFormat
 name|createDataFormat
 parameter_list|(
-name|RouteContext
-name|routeContext
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 if|if
@@ -480,10 +482,7 @@ try|try
 block|{
 name|clazz
 operator|=
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 operator|.
 name|getClassResolver
 argument_list|()
@@ -515,7 +514,7 @@ name|super
 operator|.
 name|createDataFormat
 argument_list|(
-name|routeContext
+name|camelContext
 argument_list|)
 return|;
 block|}

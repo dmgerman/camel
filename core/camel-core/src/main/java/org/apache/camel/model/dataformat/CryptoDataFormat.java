@@ -325,13 +325,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createDataFormat (RouteContext routeContext)
+DECL|method|createDataFormat (CamelContext camelContext)
 specifier|protected
 name|DataFormat
 name|createDataFormat
 parameter_list|(
-name|RouteContext
-name|routeContext
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 name|DataFormat
@@ -341,7 +341,7 @@ name|super
 operator|.
 name|createDataFormat
 argument_list|(
-name|routeContext
+name|camelContext
 argument_list|)
 decl_stmt|;
 if|if
@@ -361,10 +361,7 @@ name|CamelContextHelper
 operator|.
 name|mandatoryLookup
 argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|,
 name|keyRef
 argument_list|,
@@ -375,10 +372,7 @@ argument_list|)
 decl_stmt|;
 name|setProperty
 argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|,
 name|cryptoFormat
 argument_list|,
@@ -405,10 +399,7 @@ name|CamelContextHelper
 operator|.
 name|mandatoryLookup
 argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|,
 name|algorithmParameterRef
 argument_list|,
@@ -419,10 +410,7 @@ argument_list|)
 decl_stmt|;
 name|setProperty
 argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|,
 name|cryptoFormat
 argument_list|,
@@ -450,10 +438,7 @@ name|CamelContextHelper
 operator|.
 name|mandatoryLookup
 argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|,
 name|initVectorRef
 argument_list|,
@@ -465,10 +450,7 @@ argument_list|)
 decl_stmt|;
 name|setProperty
 argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|,
 name|cryptoFormat
 argument_list|,

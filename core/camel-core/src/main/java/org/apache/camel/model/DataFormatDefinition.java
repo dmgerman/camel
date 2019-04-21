@@ -170,20 +170,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|RouteContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|support
 operator|.
 name|IntrospectionSupport
@@ -324,15 +310,15 @@ operator|=
 name|dataFormatName
 expr_stmt|;
 block|}
-comment|/**      * Factory method to create the data format      *      * @param routeContext route context      * @param type         the data format type      * @param ref          reference to lookup for a data format      * @return the data format or null if not possible to create      */
-DECL|method|getDataFormat (RouteContext routeContext, DataFormatDefinition type, String ref)
+comment|/**      * Factory method to create the data format      *      * @param camelContext the camel context      * @param type         the data format type      * @param ref          reference to lookup for a data format      * @return the data format or null if not possible to create      */
+DECL|method|getDataFormat (CamelContext camelContext, DataFormatDefinition type, String ref)
 specifier|public
 specifier|static
 name|DataFormat
 name|getDataFormat
 parameter_list|(
-name|RouteContext
-name|routeContext
+name|CamelContext
+name|camelContext
 parameter_list|,
 name|DataFormatDefinition
 name|type
@@ -360,10 +346,7 @@ expr_stmt|;
 comment|// try to let resolver see if it can resolve it, its not always possible
 name|type
 operator|=
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 operator|.
 name|adapt
 argument_list|(
@@ -389,17 +372,14 @@ name|type
 operator|.
 name|getDataFormat
 argument_list|(
-name|routeContext
+name|camelContext
 argument_list|)
 return|;
 block|}
 name|DataFormat
 name|dataFormat
 init|=
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 operator|.
 name|resolveDataFormat
 argument_list|(
@@ -434,18 +414,18 @@ name|type
 operator|.
 name|getDataFormat
 argument_list|(
-name|routeContext
+name|camelContext
 argument_list|)
 return|;
 block|}
 block|}
-DECL|method|getDataFormat (RouteContext routeContext)
+DECL|method|getDataFormat (CamelContext camelContext)
 specifier|public
 name|DataFormat
 name|getDataFormat
 parameter_list|(
-name|RouteContext
-name|routeContext
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 if|if
@@ -470,10 +450,7 @@ name|ProcessorDefinitionHelper
 operator|.
 name|resolvePropertyPlaceholders
 argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|,
 name|this
 argument_list|)
@@ -503,7 +480,7 @@ name|dataFormat
 operator|=
 name|createDataFormat
 argument_list|(
-name|routeContext
+name|camelContext
 argument_list|)
 expr_stmt|;
 if|if
@@ -532,10 +509,7 @@ try|try
 block|{
 name|setProperty
 argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|,
 name|dataFormat
 argument_list|,
@@ -558,10 +532,7 @@ name|configureDataFormat
 argument_list|(
 name|dataFormat
 argument_list|,
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|)
 expr_stmt|;
 block|}
@@ -604,13 +575,13 @@ name|dataFormat
 return|;
 block|}
 comment|/**      * Factory method to create the data format instance      */
-DECL|method|createDataFormat (RouteContext routeContext)
+DECL|method|createDataFormat (CamelContext camelContext)
 specifier|protected
 name|DataFormat
 name|createDataFormat
 parameter_list|(
-name|RouteContext
-name|routeContext
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 comment|// must use getDataFormatName() as we need special logic in json dataformat
@@ -623,10 +594,7 @@ literal|null
 condition|)
 block|{
 return|return
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 operator|.
 name|createDataFormat
 argument_list|(

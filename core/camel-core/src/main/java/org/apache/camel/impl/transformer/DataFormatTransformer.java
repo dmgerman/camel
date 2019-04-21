@@ -616,7 +616,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * A bit dirty hack to create DataFormat instance, as it requires a RouteContext anyway.      */
 DECL|method|getDataFormat (Exchange exchange)
 specifier|private
 name|DataFormat
@@ -628,6 +627,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// TODO: Move this to doStart and remove this method
 if|if
 condition|(
 name|this
@@ -637,31 +637,61 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|this
+operator|.
+name|dataFormatType
+operator|!=
+literal|null
+condition|)
+block|{
 name|this
 operator|.
 name|dataFormat
 operator|=
-name|DataFormatDefinition
+name|this
+operator|.
+name|dataFormatType
 operator|.
 name|getDataFormat
 argument_list|(
 name|exchange
 operator|.
-name|getUnitOfWork
+name|getContext
 argument_list|()
-operator|.
-name|getRouteContext
-argument_list|()
-argument_list|,
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 name|this
 operator|.
-name|dataFormatType
-argument_list|,
+name|dataFormatRef
+operator|!=
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|dataFormat
+operator|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|resolveDataFormat
+argument_list|(
 name|this
 operator|.
 name|dataFormatRef
 argument_list|)
 expr_stmt|;
+block|}
+comment|//            this.dataFormat = DataFormatDefinition.getDataFormat(
+comment|//                exchange.getContext(), this.dataFormatType, this.dataFormatRef);
 if|if
 condition|(
 name|this

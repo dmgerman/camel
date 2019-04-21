@@ -162,6 +162,9 @@ operator|.
 name|getDataFormat
 argument_list|(
 name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
 argument_list|,
 name|definition
 operator|.

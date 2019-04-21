@@ -82,6 +82,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|DataFormatDefinition
@@ -113,20 +125,6 @@ operator|.
 name|spi
 operator|.
 name|Metadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|RouteContext
 import|;
 end_import
 
@@ -201,13 +199,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createDataFormat (RouteContext routeContext)
+DECL|method|createDataFormat (CamelContext camelContext)
 specifier|protected
 name|DataFormat
 name|createDataFormat
 parameter_list|(
-name|RouteContext
-name|routeContext
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 return|return
@@ -215,7 +213,7 @@ name|DataFormatDefinition
 operator|.
 name|getDataFormat
 argument_list|(
-name|routeContext
+name|camelContext
 argument_list|,
 literal|null
 argument_list|,

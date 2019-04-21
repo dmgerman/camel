@@ -94,6 +94,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|DataFormatDefinition
@@ -225,13 +237,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createDataFormat (RouteContext routeContext)
+DECL|method|createDataFormat (CamelContext camelContext)
 specifier|protected
 name|DataFormat
 name|createDataFormat
 parameter_list|(
-name|RouteContext
-name|routeContext
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 if|if

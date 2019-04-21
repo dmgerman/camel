@@ -866,13 +866,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createDataFormat (RouteContext routeContext)
+DECL|method|createDataFormat (CamelContext camelContext)
 specifier|protected
 name|DataFormat
 name|createDataFormat
 parameter_list|(
-name|RouteContext
-name|routeContext
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 if|if
@@ -889,10 +889,7 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|,
 name|this
 argument_list|,
@@ -909,7 +906,7 @@ name|super
 operator|.
 name|createDataFormat
 argument_list|(
-name|routeContext
+name|camelContext
 argument_list|)
 decl_stmt|;
 comment|// need to lookup the reference for the xstreamDriver
@@ -925,10 +922,7 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|,
 name|answer
 argument_list|,
@@ -938,10 +932,7 @@ name|CamelContextHelper
 operator|.
 name|mandatoryLookup
 argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|,
 name|driverRef
 argument_list|)
