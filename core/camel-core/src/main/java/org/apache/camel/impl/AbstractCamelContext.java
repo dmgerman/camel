@@ -13357,7 +13357,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Start runtime catalog
-comment|// TODO: remove me as already started earlier
 name|getExtension
 argument_list|(
 name|RuntimeCamelCatalog
@@ -13399,7 +13398,7 @@ name|validators
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// optimised to not include runtimeEndpointRegistry unlesstartServices its enabled or JMX statistics is in extended mode
+comment|// optimised to not include runtimeEndpointRegistry unless startServices its enabled or JMX statistics is in extended mode
 if|if
 condition|(
 name|runtimeEndpointRegistry
@@ -13484,6 +13483,11 @@ condition|(
 name|runtimeEndpointRegistry
 operator|instanceof
 name|EventNotifier
+operator|&&
+name|getManagementStrategy
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|getManagementStrategy
