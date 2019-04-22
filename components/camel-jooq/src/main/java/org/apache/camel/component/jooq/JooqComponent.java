@@ -196,6 +196,16 @@ return|return
 name|endpoint
 return|;
 block|}
+DECL|method|getConfiguration ()
+specifier|public
+name|JooqConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
+return|;
+block|}
 DECL|method|setConfiguration (JooqConfiguration jooqConfiguration)
 specifier|public
 name|void

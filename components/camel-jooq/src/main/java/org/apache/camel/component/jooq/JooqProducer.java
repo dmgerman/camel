@@ -454,9 +454,6 @@ argument_list|(
 literal|"Wrong operation: "
 operator|+
 name|operation
-operator|.
-name|getValue
-argument_list|()
 argument_list|)
 throw|;
 block|}

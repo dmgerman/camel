@@ -211,30 +211,40 @@ name|JooqConfiguration
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * Type of operation to execute on query: execute, fetch, etc.          */
+comment|/**          * Type of operation to execute on query          */
 DECL|field|operation
 specifier|private
 name|JooqOperation
 name|operation
+init|=
+name|JooqOperation
+operator|.
+name|NONE
 decl_stmt|;
 DECL|field|databaseConfiguration
 specifier|private
 name|Configuration
 name|databaseConfiguration
 decl_stmt|;
-comment|/**          * JOOQ entity class.          */
+comment|/**          * JOOQ entity class          */
 DECL|field|entityType
 specifier|private
 name|Class
 name|entityType
 decl_stmt|;
-comment|/**          * Delete entity after it is consumed.          */
+comment|/**          * Delete entity after it is consumed          */
 DECL|field|consumeDelete
 specifier|private
 name|Boolean
 name|consumeDelete
 init|=
 literal|true
+decl_stmt|;
+comment|/**          * To execute plain SQL query          */
+DECL|field|query
+specifier|private
+name|String
+name|query
 decl_stmt|;
 DECL|method|getOperation ()
 specifier|public
@@ -338,6 +348,32 @@ operator|.
 name|consumeDelete
 operator|=
 name|consumeDelete
+expr_stmt|;
+block|}
+DECL|method|getQuery ()
+specifier|public
+name|String
+name|getQuery
+parameter_list|()
+block|{
+return|return
+name|query
+return|;
+block|}
+DECL|method|setQuery (String query)
+specifier|public
+name|void
+name|setQuery
+parameter_list|(
+name|String
+name|query
+parameter_list|)
+block|{
+name|this
+operator|.
+name|query
+operator|=
+name|query
 expr_stmt|;
 block|}
 block|}

@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|TypeConversionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|jooq
@@ -217,7 +229,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|IllegalArgumentException
+name|TypeConversionException
 operator|.
 name|class
 argument_list|)

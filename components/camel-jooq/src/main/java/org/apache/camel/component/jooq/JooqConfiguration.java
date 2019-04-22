@@ -95,49 +95,13 @@ block|{
 annotation|@
 name|UriPath
 argument_list|(
-name|description
-operator|=
-literal|"Type of operation to execute on query: execute, fetch, etc."
-argument_list|,
 name|label
 operator|=
-literal|"Operation"
-argument_list|,
-name|name
-operator|=
-literal|"operation"
-argument_list|,
-name|displayName
-operator|=
-literal|"Operation"
-argument_list|)
-DECL|field|operation
-specifier|private
-name|JooqOperation
-name|operation
-init|=
-name|JooqOperation
-operator|.
-name|NONE
-decl_stmt|;
-annotation|@
-name|UriPath
-argument_list|(
-name|name
-operator|=
-literal|"entityType"
+literal|"common"
 argument_list|,
 name|description
 operator|=
-literal|"JOOQ entity class."
-argument_list|,
-name|label
-operator|=
-literal|"Entity type"
-argument_list|,
-name|displayName
-operator|=
-literal|"Entity type"
+literal|"JOOQ entity class"
 argument_list|)
 DECL|field|entityType
 specifier|private
@@ -160,7 +124,7 @@ literal|"true"
 argument_list|,
 name|description
 operator|=
-literal|"Delete entity after it is consumed."
+literal|"Delete entity after it is consumed"
 argument_list|)
 DECL|field|consumeDelete
 specifier|private
@@ -170,11 +134,39 @@ init|=
 literal|true
 decl_stmt|;
 annotation|@
-name|UriParam
+name|UriPath
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|description
 operator|=
-literal|"SQL query."
+literal|"Type of operation to execute on query"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"NONE"
+argument_list|)
+DECL|field|operation
+specifier|private
+name|JooqOperation
+name|operation
+init|=
+name|JooqOperation
+operator|.
+name|NONE
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"To execute plain SQL query"
 argument_list|)
 DECL|field|query
 specifier|private
