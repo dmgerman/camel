@@ -1262,7 +1262,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * To invoke a bean using a OGNL notation which denotes the chain of methods to invoke.      *<p/>      * For more advanced OGNL you may have to look for a real framework such as OGNL, Mvel or dynamic      * programming language such as Groovy, JuEL, JavaScript.      */
+comment|/**      * To invoke a bean using a OGNL notation which denotes the chain of methods to invoke.      *<p/>      * For more advanced OGNL you may have to look for a real framework such as OGNL, Mvel or dynamic      * programming language such as Groovy.      */
 DECL|method|invokeOgnlMethod (BeanHolder beanHolder, String beanName, String ognl, Exchange exchange)
 specifier|private
 specifier|static

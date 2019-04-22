@@ -287,7 +287,7 @@ name|configure
 argument_list|(
 literal|"camel-test-karaf"
 argument_list|,
-literal|"camel-script-groovy"
+literal|"camel-groovy"
 argument_list|)
 return|;
 block|}

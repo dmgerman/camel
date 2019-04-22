@@ -1377,27 +1377,6 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a      * href="http://camel.apache.org/java-script.html">JavaScript      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      * @deprecated JavaScript is deprecated in Java 11 onwards      */
-annotation|@
-name|Deprecated
-DECL|method|javaScript (String text)
-specifier|public
-name|T
-name|javaScript
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-return|return
-name|delegate
-operator|.
-name|javaScript
-argument_list|(
-name|text
-argument_list|)
-return|;
-block|}
 comment|/**      * Evaluates a<a      * href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|jsonpath (String text)
 specifier|public
