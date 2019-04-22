@@ -140,6 +140,54 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedOperation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Metadata
@@ -227,6 +275,13 @@ annotation|@
 name|Component
 argument_list|(
 literal|"properties"
+argument_list|)
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Managed PropertiesComponent"
 argument_list|)
 DECL|class|PropertiesComponent
 specifier|public
@@ -1561,6 +1616,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Encoding to use when loading properties file from the file system or classpath"
+argument_list|)
 DECL|method|getEncoding ()
 specifier|public
 name|String
@@ -1642,6 +1704,13 @@ operator|=
 name|propertiesParser
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to cache loaded properties"
+argument_list|)
 DECL|method|isCache ()
 specifier|public
 name|boolean
@@ -1814,6 +1883,13 @@ operator|=
 name|fallbackToUnaugmentedProperty
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to support using fallback values if a property cannot be found"
+argument_list|)
 DECL|method|isDefaultFallbackEnabled ()
 specifier|public
 name|boolean
@@ -1841,6 +1917,13 @@ operator|=
 name|defaultFallbackEnabled
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Ignore missing location"
+argument_list|)
 DECL|method|isIgnoreMissingLocation ()
 specifier|public
 name|boolean
@@ -1868,6 +1951,13 @@ operator|=
 name|ignoreMissingLocation
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Prefix token"
+argument_list|)
 DECL|method|getPrefixToken ()
 specifier|public
 name|String
@@ -1912,6 +2002,13 @@ name|prefixToken
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Suffix token"
+argument_list|)
 DECL|method|getSuffixToken ()
 specifier|public
 name|String
@@ -2070,6 +2167,13 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"System properties mode"
+argument_list|)
 DECL|method|getSystemPropertiesMode ()
 specifier|public
 name|int
@@ -2097,6 +2201,13 @@ operator|=
 name|systemPropertiesMode
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Environment variable mode"
+argument_list|)
 DECL|method|getEnvironmentVariableMode ()
 specifier|public
 name|int
@@ -2136,6 +2247,28 @@ comment|// its chicken and egg, we cannot resolve placeholders on ourselves
 return|return
 literal|false
 return|;
+block|}
+comment|/**      * Clears the cache      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Clears the cache"
+argument_list|)
+DECL|method|clearCache ()
+specifier|public
+name|void
+name|clearCache
+parameter_list|()
+block|{
+name|this
+operator|.
+name|cacheMap
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
