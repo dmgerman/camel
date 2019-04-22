@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.builder
+DECL|package|org.apache.camel.support
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|support
 package|;
 end_package
 
@@ -80,39 +80,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
-operator|.
-name|simple
-operator|.
-name|SimpleLanguage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|Language
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|ResourceHelper
 import|;
 end_import
 
@@ -275,7 +245,7 @@ name|exchange
 operator|!=
 literal|null
 operator|&&
-name|SimpleLanguage
+name|LanguageSupport
 operator|.
 name|hasSimpleFunction
 argument_list|(
