@@ -479,7 +479,7 @@ expr_stmt|;
 comment|// Consumer SQL query
 name|from
 argument_list|(
-literal|"jooq://org.apache.camel.component.jooq.db.tables.records.BookStoreRecord?query=select * from book_store x where x.name = 'test'"
+literal|"jooq://org.apache.camel.component.jooq.db.tables.records.BookStoreRecord?query=select * from book_store x where x.name = 'test'&initialDelay=0&delay=100"
 argument_list|)
 operator|.
 name|to
