@@ -3059,7 +3059,7 @@ return|return
 name|objectMetadata
 return|;
 block|}
-comment|/**      * Reads the bucket name from the header of the given exchange. If not provided, it's read from the endpoint      * configuration.      *      * @param exchange The exchange to read the header from.      * @return The bucket name.      * @throws IllegalArgumentException if the header could not be determined.      */
+comment|/**      * Reads the bucket name from the header of the given exchange. If not      * provided, it's read from the endpoint configuration.      *      * @param exchange The exchange to read the header from.      * @return The bucket name.      * @throws IllegalArgumentException if the header could not be determined.      */
 DECL|method|determineBucketName (final Exchange exchange)
 specifier|private
 name|String
