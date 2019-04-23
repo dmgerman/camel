@@ -925,29 +925,13 @@ name|MyDataFormatDefinition
 extends|extends
 name|DataFormatDefinition
 block|{
-annotation|@
-name|Override
-DECL|method|getDataFormat (CamelContext camelContext)
+DECL|method|MyDataFormatDefinition ()
 specifier|public
-name|DataFormat
-name|getDataFormat
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-block|{
-return|return
-name|createDataFormat
-argument_list|()
-return|;
-block|}
-DECL|method|createDataFormat ()
-specifier|private
-name|DataFormat
-name|createDataFormat
+name|MyDataFormatDefinition
 parameter_list|()
 block|{
-return|return
+name|super
+argument_list|(
 operator|new
 name|DataFormat
 argument_list|()
@@ -1053,7 +1037,8 @@ argument_list|()
 return|;
 block|}
 block|}
-return|;
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|class|A

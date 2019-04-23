@@ -716,7 +716,7 @@ specifier|public
 class|class
 name|DefaultCamelContext
 extends|extends
-name|AbstractCamelContext
+name|AbstractModelCamelContext
 block|{
 comment|/**      * Creates the {@link CamelContext} using {@link DefaultRegistry} as registry.      *<p/>      * Use one of the other constructors to force use an explicit registry.      */
 DECL|method|DefaultCamelContext ()
@@ -1359,20 +1359,14 @@ name|endpoints
 argument_list|)
 return|;
 block|}
-DECL|method|createValidatorRegistry (List<ValidatorDefinition> validators)
+DECL|method|createValidatorRegistry ()
 specifier|protected
 name|ValidatorRegistry
 argument_list|<
 name|ValidatorKey
 argument_list|>
 name|createValidatorRegistry
-parameter_list|(
-name|List
-argument_list|<
-name|ValidatorDefinition
-argument_list|>
-name|validators
-parameter_list|)
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -1382,24 +1376,19 @@ name|DefaultValidatorRegistry
 argument_list|(
 name|this
 argument_list|,
-name|validators
+name|getValidators
+argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|createTransformerRegistry (List<TransformerDefinition> transformers)
+DECL|method|createTransformerRegistry ()
 specifier|protected
 name|TransformerRegistry
 argument_list|<
 name|TransformerKey
 argument_list|>
 name|createTransformerRegistry
-parameter_list|(
-name|List
-argument_list|<
-name|TransformerDefinition
-argument_list|>
-name|transformers
-parameter_list|)
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -1409,7 +1398,8 @@ name|DefaultTransformerRegistry
 argument_list|(
 name|this
 argument_list|,
-name|transformers
+name|getTransformers
+argument_list|()
 argument_list|)
 return|;
 block|}

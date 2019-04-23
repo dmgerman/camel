@@ -82,35 +82,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|DataFormatDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|DataFormat
 import|;
 end_import
 
@@ -196,30 +170,6 @@ name|ref
 operator|=
 name|ref
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|createDataFormat (CamelContext camelContext)
-specifier|protected
-name|DataFormat
-name|createDataFormat
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-block|{
-return|return
-name|DataFormatDefinition
-operator|.
-name|getDataFormat
-argument_list|(
-name|camelContext
-argument_list|,
-literal|null
-argument_list|,
-name|ref
-argument_list|)
-return|;
 block|}
 comment|/**      * Reference to the custom {@link org.apache.camel.spi.DataFormat} to lookup from the Camel registry.      */
 DECL|method|getRef ()
