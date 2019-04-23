@@ -284,8 +284,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:startKeep"
 argument_list|)
 DECL|field|templateKeep
@@ -295,8 +293,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:startDelete"
 argument_list|)
 DECL|field|templateDelete
@@ -306,8 +302,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|field|result
