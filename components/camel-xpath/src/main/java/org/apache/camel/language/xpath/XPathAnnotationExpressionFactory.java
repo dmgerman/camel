@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.bean
+DECL|package|org.apache.camel.language.xpath
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|language
 operator|.
-name|bean
+name|xpath
 package|;
 end_package
 
@@ -51,22 +51,6 @@ operator|.
 name|camel
 operator|.
 name|Expression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|xml
-operator|.
-name|XPathBuilder
 import|;
 end_import
 

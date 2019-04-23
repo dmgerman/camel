@@ -76,11 +76,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|component
 operator|.
-name|xml
+name|mock
 operator|.
-name|XPathBuilder
+name|MockEndpoint
 import|;
 end_import
 
@@ -92,11 +92,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|language
 operator|.
-name|mock
+name|xpath
 operator|.
-name|MockEndpoint
+name|XPathBuilder
 import|;
 end_import
 
@@ -152,8 +152,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|field|resultEndpoint

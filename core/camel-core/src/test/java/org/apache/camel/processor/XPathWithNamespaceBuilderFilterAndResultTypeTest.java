@@ -107,10 +107,7 @@ argument_list|,
 name|String
 operator|.
 name|class
-argument_list|)
-operator|.
-name|namespaces
-argument_list|(
+argument_list|,
 name|ns
 argument_list|)
 argument_list|)

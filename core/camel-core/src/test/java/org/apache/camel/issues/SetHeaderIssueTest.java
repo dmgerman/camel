@@ -278,10 +278,7 @@ argument_list|,
 name|xpath
 argument_list|(
 literal|"/foo:person[@name='James']"
-argument_list|)
-operator|.
-name|namespaces
-argument_list|(
+argument_list|,
 name|ns
 argument_list|)
 argument_list|)
@@ -291,10 +288,7 @@ argument_list|(
 name|xpath
 argument_list|(
 literal|"/foo:person[@name='James']"
-argument_list|)
-operator|.
-name|namespaces
-argument_list|(
+argument_list|,
 name|ns
 argument_list|)
 argument_list|)

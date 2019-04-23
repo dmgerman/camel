@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.builder.xml
+DECL|package|org.apache.camel.language.xpath
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|language
 operator|.
-name|xml
+name|xpath
 package|;
 end_package
 
@@ -423,22 +423,6 @@ operator|.
 name|camel
 operator|.
 name|WrappedFile
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|jaxp
-operator|.
-name|ThreadSafeNodeList
 import|;
 end_import
 
@@ -3017,10 +3001,8 @@ operator|=
 name|factoryClassName
 expr_stmt|;
 block|}
-comment|// Implementation methods
-comment|// -------------------------------------------------------------------------
 DECL|method|evaluate (Exchange exchange)
-specifier|protected
+specifier|public
 name|Object
 name|evaluate
 parameter_list|(
@@ -3062,6 +3044,8 @@ return|return
 name|answer
 return|;
 block|}
+comment|// Implementation methods
+comment|// -------------------------------------------------------------------------
 comment|/**      * Evaluates the expression as the given result type      */
 DECL|method|evaluateAs (Exchange exchange, QName resultQName)
 specifier|protected
@@ -3115,7 +3099,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|InvalidXPathExpression
+name|InvalidXPathException
 argument_list|(
 name|getText
 argument_list|()
@@ -4031,7 +4015,7 @@ expr_stmt|;
 block|}
 throw|throw
 operator|new
-name|InvalidXPathExpression
+name|InvalidXPathException
 argument_list|(
 name|message
 argument_list|,

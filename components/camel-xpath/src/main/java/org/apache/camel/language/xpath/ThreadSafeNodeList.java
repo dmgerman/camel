@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.converter.jaxp
+DECL|package|org.apache.camel.language.xpath
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|language
 operator|.
-name|jaxp
+name|xpath
 package|;
 end_package
 
@@ -86,13 +86,30 @@ name|Text
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|builder
+operator|.
+name|xml
+operator|.
+name|XMLConverterHelper
+import|;
+end_import
+
 begin_comment
-comment|/**  * A simple thread-safe {@link NodeList} that is used by {@link org.apache.camel.builder.xml.XPathBuilder}  * to return thread-safe {@link NodeList} instances as its result.  *<p/>  * This is needed to ensure that end users do not hit any concurrency issues while working  * with xpath expressions using built-in from the JDK or via camel-saxon.  */
+comment|/**  * A simple thread-safe {@link NodeList} that is used by XPathBuilder  * to return thread-safe {@link NodeList} instances as its result.  *<p/>  * This is needed to ensure that end users do not hit any concurrency issues while working  * with xpath expressions using built-in from the JDK or via camel-saxon.  */
 end_comment
 
 begin_class
 DECL|class|ThreadSafeNodeList
-specifier|public
 class|class
 name|ThreadSafeNodeList
 implements|implements
@@ -223,7 +240,7 @@ name|Document
 name|doc
 init|=
 operator|new
-name|XmlConverter
+name|XMLConverterHelper
 argument_list|()
 operator|.
 name|createDocument

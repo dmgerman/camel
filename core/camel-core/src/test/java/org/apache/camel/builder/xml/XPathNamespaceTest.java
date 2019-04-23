@@ -268,10 +268,7 @@ argument_list|,
 name|Integer
 operator|.
 name|class
-argument_list|)
-operator|.
-name|namespaces
-argument_list|(
+argument_list|,
 name|ns
 argument_list|)
 argument_list|)

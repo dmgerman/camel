@@ -190,11 +190,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|impl
 operator|.
-name|xml
-operator|.
-name|XPathBuilder
+name|JndiRegistry
 import|;
 end_import
 
@@ -206,9 +204,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|language
 operator|.
-name|JndiRegistry
+name|xpath
+operator|.
+name|XPathBuilder
 import|;
 end_import
 

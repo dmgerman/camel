@@ -90,9 +90,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|language
 operator|.
-name|bean
+name|xpath
 operator|.
 name|XPathAnnotationExpressionFactory
 import|;

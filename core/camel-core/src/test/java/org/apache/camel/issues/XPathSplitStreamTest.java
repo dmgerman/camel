@@ -86,6 +86,38 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|language
+operator|.
+name|xpath
+operator|.
+name|XPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|language
+operator|.
+name|xpath
+operator|.
+name|XPathBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Before
@@ -275,15 +307,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// START SNIPPET: e1
-name|from
-argument_list|(
-literal|"file://target/data/file/xpathsplit?initialDelay=0&delay=10"
-argument_list|)
-comment|// set documentType to org.xml.sax.InputSource then Camel will use SAX to split the file
+name|XPathBuilder
+name|personXPath
+init|=
+name|XPathBuilder
 operator|.
-name|split
-argument_list|(
 name|xpath
 argument_list|(
 literal|"/persons/person"
@@ -295,6 +323,17 @@ name|InputSource
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+comment|// START SNIPPET: e1
+name|from
+argument_list|(
+literal|"file://target/data/file/xpathsplit?initialDelay=0&delay=10"
+argument_list|)
+comment|// set documentType to org.xml.sax.InputSource then Camel will use SAX to split the file
+operator|.
+name|split
+argument_list|(
+name|personXPath
 argument_list|)
 operator|.
 name|streaming

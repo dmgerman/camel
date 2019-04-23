@@ -68,6 +68,8 @@ name|camel
 operator|.
 name|language
 operator|.
+name|xpath
+operator|.
 name|XPath
 import|;
 end_import

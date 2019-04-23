@@ -261,6 +261,8 @@ argument_list|()
 operator|.
 name|when
 argument_list|(
+name|XPathBuilder
+operator|.
 name|xpath
 argument_list|(
 literal|"$type = 'Camel'"
@@ -277,6 +279,8 @@ argument_list|)
 operator|.
 name|when
 argument_list|(
+name|XPathBuilder
+operator|.
 name|xpath
 argument_list|(
 literal|"//name = 'Kong'"

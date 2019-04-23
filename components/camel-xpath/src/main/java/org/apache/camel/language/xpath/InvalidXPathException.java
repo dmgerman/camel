@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.builder.xml
+DECL|package|org.apache.camel.language.xpath
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|language
 operator|.
-name|xml
+name|xpath
 package|;
 end_package
 
@@ -47,10 +47,10 @@ comment|/**  * An exception thrown if am XPath expression could not be parsed or
 end_comment
 
 begin_class
-DECL|class|InvalidXPathExpression
+DECL|class|InvalidXPathException
 specifier|public
 class|class
-name|InvalidXPathExpression
+name|InvalidXPathException
 extends|extends
 name|RuntimeExpressionException
 block|{
@@ -69,9 +69,9 @@ specifier|final
 name|String
 name|xpath
 decl_stmt|;
-DECL|method|InvalidXPathExpression (String xpath, XPathException e)
+DECL|method|InvalidXPathException (String xpath, XPathException e)
 specifier|public
-name|InvalidXPathExpression
+name|InvalidXPathException
 parameter_list|(
 name|String
 name|xpath
