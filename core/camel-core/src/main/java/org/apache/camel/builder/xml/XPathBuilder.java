@@ -906,6 +906,12 @@ name|XPathConstants
 operator|.
 name|NODESET
 decl_stmt|;
+DECL|field|useSaxon
+specifier|private
+specifier|volatile
+name|boolean
+name|useSaxon
+decl_stmt|;
 DECL|field|objectModelUri
 specifier|private
 specifier|volatile
@@ -1592,6 +1598,12 @@ name|XPathBuilder
 name|saxon
 parameter_list|()
 block|{
+name|this
+operator|.
+name|useSaxon
+operator|=
+literal|true
+expr_stmt|;
 name|this
 operator|.
 name|objectModelUri
@@ -2916,6 +2928,42 @@ argument_list|(
 name|SAXON_FACTORY_CLASS_NAME
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Whether to enable Saxon on this particular XPath expression.      */
+DECL|method|setUseSaxon (boolean useSaxon)
+specifier|public
+name|void
+name|setUseSaxon
+parameter_list|(
+name|boolean
+name|useSaxon
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useSaxon
+operator|=
+name|useSaxon
+expr_stmt|;
+if|if
+condition|(
+name|useSaxon
+condition|)
+block|{
+name|enableSaxon
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+DECL|method|isUseSaxon ()
+specifier|public
+name|boolean
+name|isUseSaxon
+parameter_list|()
+block|{
+return|return
+name|useSaxon
+return|;
 block|}
 DECL|method|getObjectModelUri ()
 specifier|public
