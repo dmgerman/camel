@@ -146,11 +146,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|converter
 operator|.
-name|xml
+name|jaxp
 operator|.
-name|XPathBuilder
+name|XmlConverter
 import|;
 end_import
 
@@ -162,11 +162,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|language
 operator|.
-name|jaxp
+name|xpath
 operator|.
-name|XmlConverter
+name|XPathBuilder
 import|;
 end_import
 

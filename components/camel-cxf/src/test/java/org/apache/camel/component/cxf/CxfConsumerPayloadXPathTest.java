@@ -100,9 +100,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|language
 operator|.
-name|xml
+name|xpath
 operator|.
 name|XPathBuilder
 import|;
