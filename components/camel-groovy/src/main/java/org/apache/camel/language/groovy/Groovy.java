@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.language.mvel
+DECL|package|org.apache.camel.language.groovy
 package|package
 name|org
 operator|.
@@ -14,9 +14,25 @@ name|camel
 operator|.
 name|language
 operator|.
-name|mvel
+name|groovy
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|language
+operator|.
+name|LanguageAnnotation
+import|;
+end_import
 
 begin_import
 import|import
@@ -78,24 +94,8 @@ name|Target
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|language
-operator|.
-name|LanguageAnnotation
-import|;
-end_import
-
 begin_comment
-comment|/**  * An annotation for injection of MVEL  * expressions into method parameters, fields or properties  */
+comment|/**  * Used to inject a groovy expression into a field, property, method or parameter when using  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>.  */
 end_comment
 
 begin_annotation_defn
@@ -130,12 +130,12 @@ name|LanguageAnnotation
 argument_list|(
 name|language
 operator|=
-literal|"mvel"
+literal|"groovy"
 argument_list|)
-DECL|annotation|MVEL
+DECL|annotation|Groovy
 specifier|public
 annotation_defn|@interface
-name|MVEL
+name|Groovy
 block|{
 DECL|method|value ()
 name|String
