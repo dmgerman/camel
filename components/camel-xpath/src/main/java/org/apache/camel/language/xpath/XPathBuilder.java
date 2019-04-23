@@ -436,6 +436,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ExpressionResultTypeAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Language
 import|;
 end_import
@@ -711,6 +725,8 @@ implements|,
 name|Predicate
 implements|,
 name|NamespaceAware
+implements|,
+name|ExpressionResultTypeAware
 block|{
 DECL|field|LOG
 specifier|private
@@ -2749,6 +2765,20 @@ operator|=
 name|simpleFunction
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getExpressionText ()
+specifier|public
+name|String
+name|getExpressionText
+parameter_list|()
+block|{
+return|return
+name|text
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getResultType ()
 specifier|public
 name|Class
