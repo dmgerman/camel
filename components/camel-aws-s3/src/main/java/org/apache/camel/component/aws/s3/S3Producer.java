@@ -1621,6 +1621,23 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|objectMetadata
+operator|.
+name|getContentLength
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"The content length is not defined. It needs to be determined by reading the data into memory"
+argument_list|)
+expr_stmt|;
 name|is
 operator|=
 name|exchange
@@ -1663,6 +1680,7 @@ name|toByteArray
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 specifier|final
 name|String
