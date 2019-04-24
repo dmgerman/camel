@@ -92,7 +92,6 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-comment|/**      * Whether to trim the value to remove leading and trailing whitespaces and      * line breaks      */
 DECL|field|trim
 specifier|private
 name|Boolean

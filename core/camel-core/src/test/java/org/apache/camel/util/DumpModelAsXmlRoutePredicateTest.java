@@ -332,7 +332,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<method>myCoolBean</method>"
+literal|"<method ref=\"myCoolBean\"/>"
 argument_list|)
 argument_list|)
 expr_stmt|;
