@@ -54,20 +54,6 @@ name|Producer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|DeferServiceFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A helper class for creating proxies which delegate to Camel  */
 end_comment
@@ -236,7 +222,13 @@ block|{
 name|Producer
 name|producer
 init|=
-name|DeferServiceFactory
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getDeferServiceFactory
+argument_list|()
 operator|.
 name|createProducer
 argument_list|(

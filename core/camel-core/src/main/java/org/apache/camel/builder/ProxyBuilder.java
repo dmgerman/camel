@@ -81,6 +81,7 @@ specifier|final
 class|class
 name|ProxyBuilder
 block|{
+comment|// TODO: Move this to camel-bean
 DECL|field|camelContext
 specifier|private
 specifier|final

@@ -280,20 +280,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|DeferServiceFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|support
 operator|.
 name|CamelContextHelper
@@ -1514,6 +1500,7 @@ block|{
 comment|// lets create a proxy
 try|try
 block|{
+comment|// TODO: Requires camel-bean so we need some kind of spi, and to lookup via camel-context/service etc
 return|return
 name|ProxyHelper
 operator|.
@@ -2241,7 +2228,13 @@ block|{
 try|try
 block|{
 return|return
-name|DeferServiceFactory
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getDeferServiceFactory
+argument_list|()
 operator|.
 name|createProducer
 argument_list|(

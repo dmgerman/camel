@@ -54,28 +54,38 @@ name|DeferProducer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|DeferServiceFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Factory to create services such as {@link Producer}s  * and defer starting the created service, until {@link org.apache.camel.CamelContext} has been started.  */
 end_comment
 
 begin_class
-DECL|class|DeferServiceFactory
+DECL|class|DefaultDeferServiceFactory
 specifier|public
 specifier|final
 class|class
+name|DefaultDeferServiceFactory
+implements|implements
 name|DeferServiceFactory
 block|{
-DECL|method|DeferServiceFactory ()
-specifier|private
-name|DeferServiceFactory
-parameter_list|()
-block|{
-comment|// It's a helper class
-block|}
 comment|/**      * Creates the {@link Producer} which is deferred started until {@link org.apache.camel.CamelContext} is being started.      *<p/>      * When the producer is started, it re-lookup the endpoint to capture any changes such as the endpoint has been intercepted.      * This allows the producer to react and send messages to the updated endpoint.      *      * @param endpoint  the endpoint      * @return the producer which will be deferred started until {@link org.apache.camel.CamelContext} has been started      * @throws Exception can be thrown if there is an error starting the producer      * @see org.apache.camel.impl.DeferProducer      */
+annotation|@
+name|Override
 DECL|method|createProducer (Endpoint endpoint)
 specifier|public
-specifier|static
 name|Producer
 name|createProducer
 parameter_list|(

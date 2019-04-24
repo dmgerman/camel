@@ -746,6 +746,20 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|DefaultDeferServiceFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|MulticastProcessor
 import|;
 end_import
@@ -919,6 +933,20 @@ operator|.
 name|spi
 operator|.
 name|Debugger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|DeferServiceFactory
 import|;
 end_import
 
@@ -2510,6 +2538,16 @@ specifier|private
 specifier|volatile
 name|ScheduledExecutorService
 name|errorHandlerExecutorService
+decl_stmt|;
+DECL|field|deferServiceFactory
+specifier|private
+specifier|final
+name|DeferServiceFactory
+name|deferServiceFactory
+init|=
+operator|new
+name|DefaultDeferServiceFactory
+argument_list|()
 decl_stmt|;
 DECL|field|transformerRegistry
 specifier|private
@@ -17493,6 +17531,18 @@ argument_list|(
 name|headersMapFactory
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getDeferServiceFactory ()
+specifier|public
+name|DeferServiceFactory
+name|getDeferServiceFactory
+parameter_list|()
+block|{
+return|return
+name|deferServiceFactory
+return|;
 block|}
 DECL|method|getRouteServices ()
 specifier|protected

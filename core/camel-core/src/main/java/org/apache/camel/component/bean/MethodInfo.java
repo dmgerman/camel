@@ -354,6 +354,10 @@ name|StreamCache
 import|;
 end_import
 
+begin_comment
+comment|// TODO: Factory SPI to create these processors which are loaded via FactoryFinder
+end_comment
+
 begin_import
 import|import
 name|org
@@ -1643,13 +1647,7 @@ block|}
 catch|catch
 parameter_list|(
 name|SecurityException
-name|e
-parameter_list|)
-block|{
-comment|// do nothing here
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|NoSuchMethodException
 name|e
 parameter_list|)

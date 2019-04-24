@@ -200,6 +200,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|DeferServiceFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|EndpointRegistry
 import|;
 end_import
@@ -2231,6 +2245,12 @@ parameter_list|(
 name|HeadersMapFactory
 name|factory
 parameter_list|)
+function_decl|;
+comment|/**      * Gets the {@link DeferServiceFactory} to use.      */
+DECL|method|getDeferServiceFactory ()
+name|DeferServiceFactory
+name|getDeferServiceFactory
+parameter_list|()
 function_decl|;
 block|}
 end_interface
