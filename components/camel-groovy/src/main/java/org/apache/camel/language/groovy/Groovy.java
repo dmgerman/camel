@@ -20,22 +20,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|language
-operator|.
-name|LanguageAnnotation
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|lang
@@ -91,6 +75,22 @@ operator|.
 name|annotation
 operator|.
 name|Target
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|language
+operator|.
+name|LanguageAnnotation
 import|;
 end_import
 
