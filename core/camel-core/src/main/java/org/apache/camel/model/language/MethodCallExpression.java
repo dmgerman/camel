@@ -304,6 +304,7 @@ operator|)
 literal|null
 argument_list|)
 expr_stmt|;
+comment|// use ref attribute to refer to the bean, and not @XmlValue
 if|if
 condition|(
 name|beanName
@@ -403,6 +404,7 @@ name|instance
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// need to set some value in @XmlValue when we already have an instance bean
 comment|// must use setter as they have special logic
 name|setInstance
 argument_list|(
@@ -450,17 +452,27 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|type
-operator|.
-name|getName
-argument_list|()
+operator|(
+name|String
+operator|)
+literal|null
 argument_list|)
 expr_stmt|;
+comment|// use beanType attribute to refer to the bean, and not @XmlValue
 name|this
 operator|.
 name|beanType
 operator|=
 name|type
+expr_stmt|;
+name|this
+operator|.
+name|beanTypeName
+operator|=
+name|type
+operator|.
+name|getName
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -479,8 +491,6 @@ return|return
 literal|"bean"
 return|;
 block|}
-annotation|@
-name|Deprecated
 DECL|method|getRef ()
 specifier|public
 name|String
@@ -492,8 +502,6 @@ name|ref
 return|;
 block|}
 comment|/**      * Reference to bean to lookup in the registry      */
-annotation|@
-name|Deprecated
 DECL|method|setRef (String ref)
 specifier|public
 name|void
@@ -823,10 +831,8 @@ name|camelContext
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Deprecated
 DECL|method|beanName ()
-specifier|protected
+specifier|private
 name|String
 name|beanName
 parameter_list|()
