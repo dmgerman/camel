@@ -217,6 +217,7 @@ name|XPathExpression
 extends|extends
 name|NamespaceAwareExpression
 block|{
+comment|// IMPORTANT: If updating this file, then also update the file components/camel-xpath/src/main/schema/xpath.json
 annotation|@
 name|XmlAttribute
 argument_list|(

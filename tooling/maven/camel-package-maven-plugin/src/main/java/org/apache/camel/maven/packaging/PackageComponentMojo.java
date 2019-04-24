@@ -228,24 +228,6 @@ name|loadText
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|maven
-operator|.
-name|packaging
-operator|.
-name|PackageHelper
-operator|.
-name|writeText
-import|;
-end_import
-
 begin_comment
 comment|/**  * Analyses the Camel plugins in a project and generates extra descriptor information for easier auto-discovery in Camel.  */
 end_comment
@@ -282,7 +264,7 @@ specifier|protected
 name|File
 name|componentOutDir
 decl_stmt|;
-comment|/**      * The project build directory      *      */
+comment|/**      * The project build directory      */
 annotation|@
 name|Parameter
 argument_list|(

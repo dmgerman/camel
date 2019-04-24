@@ -435,6 +435,8 @@ name|project
 argument_list|,
 name|projectHelper
 argument_list|,
+name|buildDir
+argument_list|,
 name|languageOutDir
 argument_list|,
 name|schemaOutDir
