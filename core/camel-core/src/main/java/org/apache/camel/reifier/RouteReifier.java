@@ -32,16 +32,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -528,37 +518,17 @@ literal|"Not implemented for RouteDefinition"
 argument_list|)
 throw|;
 block|}
-DECL|method|addRoutes (ModelCamelContext camelContext, Collection<Route> routes)
+DECL|method|addRoutes (ModelCamelContext camelContext)
 specifier|public
-name|List
-argument_list|<
-name|RouteContext
-argument_list|>
+name|Route
 name|addRoutes
 parameter_list|(
 name|ModelCamelContext
 name|camelContext
-parameter_list|,
-name|Collection
-argument_list|<
-name|Route
-argument_list|>
-name|routes
 parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|List
-argument_list|<
-name|RouteContext
-argument_list|>
-name|answer
-init|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|()
-decl_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -587,25 +557,19 @@ name|handler
 argument_list|)
 expr_stmt|;
 block|}
-name|RouteContext
-name|routeContext
-decl_stmt|;
 try|try
 block|{
-name|routeContext
-operator|=
+return|return
 name|addRoutes
 argument_list|(
 name|camelContext
-argument_list|,
-name|routes
 argument_list|,
 name|definition
 operator|.
 name|getInput
 argument_list|()
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -642,16 +606,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-name|answer
-operator|.
-name|add
-argument_list|(
-name|routeContext
-argument_list|)
-expr_stmt|;
-return|return
-name|answer
-return|;
 block|}
 DECL|method|resolveEndpoint (CamelContext camelContext, String uri)
 specifier|public
@@ -1027,19 +981,13 @@ return|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-DECL|method|addRoutes (CamelContext camelContext, Collection<Route> routes, FromDefinition fromType)
+DECL|method|addRoutes (CamelContext camelContext, FromDefinition fromType)
 specifier|protected
-name|RouteContext
+name|Route
 name|addRoutes
 parameter_list|(
 name|CamelContext
 name|camelContext
-parameter_list|,
-name|Collection
-argument_list|<
-name|Route
-argument_list|>
-name|routes
 parameter_list|,
 name|FromDefinition
 name|fromType
@@ -1058,8 +1006,6 @@ argument_list|,
 name|definition
 argument_list|,
 name|fromType
-argument_list|,
-name|routes
 argument_list|)
 decl_stmt|;
 comment|// configure tracing
@@ -1953,8 +1899,6 @@ operator|.
 name|addRoutes
 argument_list|(
 name|routeContext
-argument_list|,
-name|routes
 argument_list|)
 expr_stmt|;
 block|}
@@ -1999,13 +1943,11 @@ argument_list|)
 throw|;
 block|}
 block|}
+return|return
 name|routeContext
 operator|.
 name|commit
 argument_list|()
-expr_stmt|;
-return|return
-name|routeContext
 return|;
 block|}
 block|}

@@ -453,14 +453,10 @@ specifier|private
 name|FromDefinition
 name|from
 decl_stmt|;
-DECL|field|routes
+DECL|field|runtimeRoute
 specifier|private
-specifier|final
-name|Collection
-argument_list|<
 name|Route
-argument_list|>
-name|routes
+name|runtimeRoute
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
@@ -586,7 +582,7 @@ specifier|private
 name|RouteController
 name|routeController
 decl_stmt|;
-DECL|method|DefaultRouteContext (CamelContext camelContext, RouteDefinition route, FromDefinition from, Collection<Route> routes)
+DECL|method|DefaultRouteContext (CamelContext camelContext, RouteDefinition route, FromDefinition from)
 specifier|public
 name|DefaultRouteContext
 parameter_list|(
@@ -598,12 +594,6 @@ name|route
 parameter_list|,
 name|FromDefinition
 name|from
-parameter_list|,
-name|Collection
-argument_list|<
-name|Route
-argument_list|>
-name|routes
 parameter_list|)
 block|{
 name|this
@@ -623,12 +613,6 @@ operator|.
 name|from
 operator|=
 name|from
-expr_stmt|;
-name|this
-operator|.
-name|routes
-operator|=
-name|routes
 expr_stmt|;
 block|}
 comment|/**      * Only used for lazy construction from inside ExpressionType      */
@@ -645,15 +629,6 @@ operator|.
 name|camelContext
 operator|=
 name|camelContext
-expr_stmt|;
-name|this
-operator|.
-name|routes
-operator|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -711,6 +686,16 @@ parameter_list|()
 block|{
 return|return
 name|route
+return|;
+block|}
+DECL|method|getRuntimeRoute ()
+specifier|public
+name|Route
+name|getRuntimeRoute
+parameter_list|()
+block|{
+return|return
+name|runtimeRoute
 return|;
 block|}
 DECL|method|getCamelContext ()
@@ -1012,7 +997,7 @@ return|;
 block|}
 DECL|method|commit ()
 specifier|public
-name|void
+name|Route
 name|commit
 parameter_list|()
 block|{
@@ -1788,14 +1773,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|routes
-operator|.
-name|add
-argument_list|(
+name|runtimeRoute
+operator|=
 name|edcr
-argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|runtimeRoute
+return|;
 block|}
 DECL|method|addEventDrivenProcessor (Processor processor)
 specifier|public

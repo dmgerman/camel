@@ -104,6 +104,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Route
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeConfiguration
 import|;
 end_import
@@ -233,7 +245,7 @@ parameter_list|)
 function_decl|;
 comment|/**      * For completing the route creation, creating a single event driven route      * for the current from endpoint with any processors required      */
 DECL|method|commit ()
-name|void
+name|Route
 name|commit
 parameter_list|()
 function_decl|;

@@ -253,19 +253,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|addRoutes (RouteContext routeContext, Collection<Route> routes)
+DECL|method|addRoutes (RouteContext routeContext)
 specifier|public
 name|void
 name|addRoutes
 parameter_list|(
 name|RouteContext
 name|routeContext
-parameter_list|,
-name|Collection
-argument_list|<
-name|Route
-argument_list|>
-name|routes
 parameter_list|)
 throws|throws
 name|Exception

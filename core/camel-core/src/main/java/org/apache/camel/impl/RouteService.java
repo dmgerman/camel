@@ -42,6 +42,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -456,23 +466,17 @@ specifier|final
 name|RouteDefinition
 name|routeDefinition
 decl_stmt|;
-DECL|field|routeContexts
+DECL|field|routeContext
 specifier|private
 specifier|final
-name|List
-argument_list|<
 name|RouteContext
-argument_list|>
-name|routeContexts
+name|routeContext
 decl_stmt|;
-DECL|field|routes
+DECL|field|route
 specifier|private
 specifier|final
-name|List
-argument_list|<
 name|Route
-argument_list|>
-name|routes
+name|route
 decl_stmt|;
 DECL|field|id
 specifier|private
@@ -525,7 +529,7 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-DECL|method|RouteService (AbstractCamelContext camelContext, RouteDefinition routeDefinition, List<RouteContext> routeContexts, List<Route> routes)
+DECL|method|RouteService (AbstractCamelContext camelContext, RouteDefinition routeDefinition, RouteContext routeContext, Route route)
 specifier|public
 name|RouteService
 parameter_list|(
@@ -535,17 +539,11 @@ parameter_list|,
 name|RouteDefinition
 name|routeDefinition
 parameter_list|,
-name|List
-argument_list|<
 name|RouteContext
-argument_list|>
-name|routeContexts
+name|routeContext
 parameter_list|,
-name|List
-argument_list|<
 name|Route
-argument_list|>
-name|routes
+name|route
 parameter_list|)
 block|{
 name|this
@@ -562,15 +560,15 @@ name|routeDefinition
 expr_stmt|;
 name|this
 operator|.
-name|routeContexts
+name|routeContext
 operator|=
-name|routeContexts
+name|routeContext
 expr_stmt|;
 name|this
 operator|.
-name|routes
+name|route
 operator|=
-name|routes
+name|route
 expr_stmt|;
 name|this
 operator|.
@@ -607,17 +605,14 @@ return|return
 name|camelContext
 return|;
 block|}
-DECL|method|getRouteContexts ()
+DECL|method|getRouteContext ()
 specifier|public
-name|List
-argument_list|<
 name|RouteContext
-argument_list|>
-name|getRouteContexts
+name|getRouteContext
 parameter_list|()
 block|{
 return|return
-name|routeContexts
+name|routeContext
 return|;
 block|}
 DECL|method|getRouteDefinition ()
@@ -630,17 +625,14 @@ return|return
 name|routeDefinition
 return|;
 block|}
-DECL|method|getRoutes ()
+DECL|method|getRoute ()
 specifier|public
-name|Collection
-argument_list|<
 name|Route
-argument_list|>
-name|getRoutes
+name|getRoute
 parameter_list|()
 block|{
 return|return
-name|routes
+name|route
 return|;
 block|}
 comment|/**      * Gather all the endpoints this route service uses      *<p/>      * This implementation finds the endpoints by searching all the child services      * for {@link org.apache.camel.EndpointAware} processors which uses an endpoint.      */
@@ -664,14 +656,6 @@ name|LinkedHashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
-for|for
-control|(
-name|Route
-name|route
-range|:
-name|routes
-control|)
-block|{
 name|Set
 argument_list|<
 name|Service
@@ -727,7 +711,6 @@ argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -844,14 +827,6 @@ condition|)
 block|{
 comment|// endpoints should only be started once as they can be reused on other routes
 comment|// and whatnot, thus their lifecycle is to start once, and only to stop when Camel shutdown
-for|for
-control|(
-name|Route
-name|route
-range|:
-name|routes
-control|)
-block|{
 comment|// ensure endpoint is started first (before the route services, such as the consumer)
 name|ServiceHelper
 operator|.
@@ -864,7 +839,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 if|if
 condition|(
 name|warmUpDone
@@ -876,14 +850,6 @@ argument_list|,
 literal|true
 argument_list|)
 condition|)
-block|{
-for|for
-control|(
-name|Route
-name|route
-range|:
-name|routes
-control|)
 block|{
 try|try
 init|(
@@ -1061,7 +1027,6 @@ name|route
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 comment|// ensure lifecycle strategy is invoked which among others enlist the route in JMX
 for|for
 control|(
@@ -1078,27 +1043,24 @@ name|strategy
 operator|.
 name|onRoutesAdd
 argument_list|(
-name|routes
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+name|route
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 comment|// add routes to camel context
 name|camelContext
 operator|.
-name|addRouteCollection
+name|addRoute
 argument_list|(
-name|routes
+name|route
 argument_list|)
 expr_stmt|;
 comment|// add the routes to the inflight registry so they are pre-installed
-for|for
-control|(
-name|Route
-name|route
-range|:
-name|routes
-control|)
-block|{
 name|camelContext
 operator|.
 name|getInflightRepository
@@ -1114,7 +1076,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -1126,14 +1087,6 @@ block|{
 name|warmUp
 argument_list|()
 expr_stmt|;
-for|for
-control|(
-name|Route
-name|route
-range|:
-name|routes
-control|)
-block|{
 try|try
 init|(
 name|MDCHelper
@@ -1206,7 +1159,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -1248,19 +1200,16 @@ name|strategy
 operator|.
 name|onRoutesRemove
 argument_list|(
-name|routes
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+name|route
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-for|for
-control|(
-name|Route
-name|route
-range|:
-name|routes
-control|)
-block|{
 try|try
 init|(
 name|MDCHelper
@@ -1384,7 +1333,6 @@ name|route
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 if|if
 condition|(
 name|isRemovingRoutes
@@ -1393,9 +1341,9 @@ condition|)
 block|{
 name|camelContext
 operator|.
-name|removeRouteCollection
+name|removeRoute
 argument_list|(
-name|routes
+name|route
 argument_list|)
 expr_stmt|;
 block|}
@@ -1417,14 +1365,6 @@ name|doShutdown
 parameter_list|()
 throws|throws
 name|Exception
-block|{
-for|for
-control|(
-name|Route
-name|route
-range|:
-name|routes
-control|)
 block|{
 try|try
 init|(
@@ -1545,7 +1485,6 @@ name|route
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 comment|// need to call onRoutesRemove when the CamelContext is shutting down or Route is shutdown
 for|for
 control|(
@@ -1562,19 +1501,16 @@ name|strategy
 operator|.
 name|onRoutesRemove
 argument_list|(
-name|routes
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+name|route
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 comment|// remove the routes from the inflight registry
-for|for
-control|(
-name|Route
-name|route
-range|:
-name|routes
-control|)
-block|{
 name|camelContext
 operator|.
 name|getInflightRepository
@@ -1588,13 +1524,12 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// remove the routes from the collections
 name|camelContext
 operator|.
-name|removeRouteCollection
+name|removeRoute
 argument_list|(
-name|routes
+name|route
 argument_list|)
 expr_stmt|;
 comment|// clear inputs on shutdown
@@ -1630,14 +1565,6 @@ name|Exception
 block|{
 comment|// suspend and resume logic is provided by DefaultCamelContext which leverages ShutdownStrategy
 comment|// to safely suspend and resume
-for|for
-control|(
-name|Route
-name|route
-range|:
-name|routes
-control|)
-block|{
 try|try
 init|(
 name|MDCHelper
@@ -1691,7 +1618,6 @@ block|}
 block|}
 block|}
 block|}
-block|}
 annotation|@
 name|Override
 DECL|method|doResume ()
@@ -1704,14 +1630,6 @@ name|Exception
 block|{
 comment|// suspend and resume logic is provided by DefaultCamelContext which leverages ShutdownStrategy
 comment|// to safely suspend and resume
-for|for
-control|(
-name|Route
-name|route
-range|:
-name|routes
-control|)
-block|{
 try|try
 init|(
 name|MDCHelper
@@ -1761,7 +1679,6 @@ argument_list|(
 name|route
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
