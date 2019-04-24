@@ -108,9 +108,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|spi
 operator|.
-name|ExpressionBuilder
+name|Registry
 import|;
 end_import
 
@@ -122,9 +122,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|Registry
+name|builder
+operator|.
+name|ExpressionBuilder
 import|;
 end_import
 
