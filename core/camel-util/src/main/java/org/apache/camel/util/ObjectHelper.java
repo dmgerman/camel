@@ -2107,6 +2107,8 @@ init|=
 name|loadResourceAsURL
 argument_list|(
 name|name
+argument_list|,
+name|loader
 argument_list|)
 decl_stmt|;
 return|return
