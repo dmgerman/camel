@@ -3741,12 +3741,6 @@ name|?
 argument_list|>
 name|me
 init|=
-operator|(
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-operator|)
 name|definition
 decl_stmt|;
 if|if
