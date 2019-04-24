@@ -291,7 +291,7 @@ name|ManagementInterceptStrategy
 name|getManagementInterceptStrategy
 parameter_list|()
 function_decl|;
-comment|/**      * If this flag is true, {@link org.apache.camel.model.ProcessorDefinition#addRoutes(RouteContext, java.util.Collection)}      * will not add processor to addEventDrivenProcessor to the RouteContext and it      * will prevent from adding an EventDrivenRoute.      *      * @param value the flag      */
+comment|/**      * If this flag is true, {@link org.apache.camel.reifier.ProcessorReifier#addRoutes(RouteContext, java.util.Collection)}      * will not add processor to addEventDrivenProcessor to the RouteContext and it      * will prevent from adding an EventDrivenRoute.      *      * @param value the flag      */
 DECL|method|setIsRouteAdded (boolean value)
 name|void
 name|setIsRouteAdded
