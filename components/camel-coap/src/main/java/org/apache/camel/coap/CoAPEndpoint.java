@@ -92,6 +92,16 @@ name|java
 operator|.
 name|security
 operator|.
+name|PublicKey
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
 name|cert
 operator|.
 name|Certificate
@@ -308,6 +318,24 @@ name|DtlsConnectorConfig
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|californium
+operator|.
+name|scandium
+operator|.
+name|dtls
+operator|.
+name|rpkstore
+operator|.
+name|TrustedRpkStore
+import|;
+end_import
+
 begin_comment
 comment|/**  * The coap component is used for sending and receiving messages from COAP capable devices.  */
 end_comment
@@ -389,6 +417,27 @@ DECL|field|truststore
 specifier|private
 name|KeyStore
 name|truststore
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|privateKey
+specifier|private
+name|PrivateKey
+name|privateKey
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|publicKey
+specifier|private
+name|PublicKey
+name|publicKey
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|trustedRpkStore
+specifier|private
+name|TrustedRpkStore
+name|trustedRpkStore
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -788,6 +837,90 @@ operator|=
 name|alias
 expr_stmt|;
 block|}
+comment|/**      * Get the TrustedRpkStore to use to determine trust in raw public keys.      */
+DECL|method|getTrustedRpkStore ()
+specifier|public
+name|TrustedRpkStore
+name|getTrustedRpkStore
+parameter_list|()
+block|{
+return|return
+name|trustedRpkStore
+return|;
+block|}
+comment|/**      * Set the TrustedRpkStore to use to determine trust in raw public keys.      */
+DECL|method|setTrustedRpkStore (TrustedRpkStore trustedRpkStore)
+specifier|public
+name|void
+name|setTrustedRpkStore
+parameter_list|(
+name|TrustedRpkStore
+name|trustedRpkStore
+parameter_list|)
+block|{
+name|this
+operator|.
+name|trustedRpkStore
+operator|=
+name|trustedRpkStore
+expr_stmt|;
+block|}
+comment|/**      * Get the configured private key for use with Raw Public Key.      */
+DECL|method|getPrivateKey ()
+specifier|public
+name|PrivateKey
+name|getPrivateKey
+parameter_list|()
+block|{
+return|return
+name|privateKey
+return|;
+block|}
+comment|/**      * Set the configured private key for use with Raw Public Key.      */
+DECL|method|setPrivateKey (PrivateKey privateKey)
+specifier|public
+name|void
+name|setPrivateKey
+parameter_list|(
+name|PrivateKey
+name|privateKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|privateKey
+operator|=
+name|privateKey
+expr_stmt|;
+block|}
+comment|/**      * Get the configured public key for use with Raw Public Key.      */
+DECL|method|getPublicKey ()
+specifier|public
+name|PublicKey
+name|getPublicKey
+parameter_list|()
+block|{
+return|return
+name|publicKey
+return|;
+block|}
+comment|/**      * Set the configured public key for use with Raw Public Key.      */
+DECL|method|setPublicKey (PublicKey publicKey)
+specifier|public
+name|void
+name|setPublicKey
+parameter_list|(
+name|PublicKey
+name|publicKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|publicKey
+operator|=
+name|publicKey
+expr_stmt|;
+block|}
 comment|/**      * Gets the password used to access an aliased {@link PrivateKey} in the KeyStore.      */
 DECL|method|getPassword ()
 specifier|public
@@ -1104,6 +1237,10 @@ condition|)
 block|{
 if|if
 condition|(
+name|trustedRpkStore
+operator|==
+literal|null
+operator|&&
 name|getTruststore
 argument_list|()
 operator|==
@@ -1128,6 +1265,10 @@ else|else
 block|{
 if|if
 condition|(
+name|privateKey
+operator|==
+literal|null
+operator|&&
 name|getKeystore
 argument_list|()
 operator|==
@@ -1138,12 +1279,35 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"A keystore must be configured to use TLS"
+literal|"A keystore or private key must be configured to use TLS"
 argument_list|)
 throw|;
 block|}
 if|if
 condition|(
+name|privateKey
+operator|!=
+literal|null
+operator|&&
+name|publicKey
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"A public key must be configured to use a Raw Public Key with TLS"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|privateKey
+operator|==
+literal|null
+operator|&&
 name|getAlias
 argument_list|()
 operator|==
@@ -1160,6 +1324,10 @@ throw|;
 block|}
 if|if
 condition|(
+name|privateKey
+operator|==
+literal|null
+operator|&&
 name|getPassword
 argument_list|()
 operator|==
@@ -1224,7 +1392,7 @@ expr_stmt|;
 block|}
 try|try
 block|{
-comment|// Configure the identity if the keystore parameter is specified
+comment|// Configure the identity if the keystore or privateKey parameter is specified
 if|if
 condition|(
 name|getKeystore
@@ -1268,15 +1436,64 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|privateKey
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|setIdentity
+argument_list|(
+name|privateKey
+argument_list|,
+name|publicKey
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Add all certificates from the truststore
+name|Certificate
+index|[]
+name|certs
+init|=
+name|getTrustedCerts
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|certs
+operator|.
+name|length
+operator|>
+literal|0
+condition|)
+block|{
 name|builder
 operator|.
 name|setTrustStore
 argument_list|(
-name|getTrustedCerts
-argument_list|()
+name|certs
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|trustedRpkStore
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|setRpkTrustStore
+argument_list|(
+name|trustedRpkStore
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
