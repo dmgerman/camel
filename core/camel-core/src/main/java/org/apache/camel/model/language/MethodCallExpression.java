@@ -735,6 +735,8 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
+comment|// TODO: need to use setProperty ... to copy over the options
+comment|// and move this logic to BeanLanguage
 name|Expression
 name|answer
 decl_stmt|;

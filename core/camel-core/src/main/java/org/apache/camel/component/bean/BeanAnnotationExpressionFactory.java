@@ -78,7 +78,7 @@ name|language
 operator|.
 name|bean
 operator|.
-name|BeanExpression
+name|BeanLanguage
 import|;
 end_import
 
@@ -230,8 +230,9 @@ literal|null
 expr_stmt|;
 block|}
 return|return
-operator|new
-name|BeanExpression
+name|BeanLanguage
+operator|.
+name|bean
 argument_list|(
 name|beanName
 argument_list|,
