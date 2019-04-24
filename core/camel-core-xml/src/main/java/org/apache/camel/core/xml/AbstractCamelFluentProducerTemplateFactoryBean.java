@@ -118,7 +118,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|impl
 operator|.
 name|DefaultFluentProducerTemplate
 import|;
