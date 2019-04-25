@@ -62,22 +62,6 @@ name|Exchange
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|bean
-operator|.
-name|ParameterInfo
-import|;
-end_import
-
 begin_comment
 comment|/**  * Method information about the POJO method to call when using the {@link AggregationStrategyBeanAdapter}.  */
 end_comment
