@@ -116,6 +116,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|BeanProcessorFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|BeanProxyFactory
 import|;
 end_import
@@ -2290,6 +2304,12 @@ comment|/**      * Gets the {@link BeanProxyFactory} to use.      */
 DECL|method|getBeanProxyFactory ()
 name|BeanProxyFactory
 name|getBeanProxyFactory
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the {@link BeanProcessorFactory} to use.      */
+DECL|method|getBeanProcessorFactory ()
+name|BeanProcessorFactory
+name|getBeanProcessorFactory
 parameter_list|()
 function_decl|;
 block|}
