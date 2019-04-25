@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/class.html">Class Component</a> is for invoking Java Classes (Java beans) from Camel.  */
+comment|/**  * The<a href="http://camel.apache.org/class.html">class component</a> is for invoking Java classes (Java beans) from Camel.  */
 end_comment
 
 begin_class
