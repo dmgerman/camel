@@ -88,6 +88,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|AnnotationBasedProcessorFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|AsyncProcessorAwaitManager
 import|;
 end_import
@@ -2250,6 +2264,12 @@ comment|/**      * Gets the {@link DeferServiceFactory} to use.      */
 DECL|method|getDeferServiceFactory ()
 name|DeferServiceFactory
 name|getDeferServiceFactory
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the {@link AnnotationBasedProcessorFactory} to use.      */
+DECL|method|getAnnotationBasedProcessorFactory ()
+name|AnnotationBasedProcessorFactory
+name|getAnnotationBasedProcessorFactory
 parameter_list|()
 function_decl|;
 block|}
