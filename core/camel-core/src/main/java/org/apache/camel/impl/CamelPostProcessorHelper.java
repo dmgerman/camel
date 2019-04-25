@@ -264,11 +264,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|spi
 operator|.
-name|bean
-operator|.
-name|ProxyHelper
+name|BeanProxyFactory
 import|;
 end_import
 
@@ -1296,6 +1294,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates the object to be injected for an      * {@link org.apache.camel.EndpointInject} or      * {@link org.apache.camel.Produce} injection point      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getInjectionValue (Class<?> type, String endpointUri, String endpointProperty, String injectionPointName, Object bean, String beanName, boolean binding)
 specifier|public
 name|Object
@@ -1500,9 +1503,36 @@ block|{
 comment|// lets create a proxy
 try|try
 block|{
-comment|// TODO: Requires camel-bean so we need some kind of spi, and to lookup via camel-context/service etc
+comment|// use proxy service
+name|BeanProxyFactory
+name|factory
+init|=
+name|camelContext
+operator|.
+name|hasService
+argument_list|(
+name|BeanProxyFactory
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|factory
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot find BeanProxyFactory service. Make sure camel-bean is on the classpath."
+argument_list|)
+throw|;
+block|}
 return|return
-name|ProxyHelper
+name|factory
 operator|.
 name|createProxy
 argument_list|(

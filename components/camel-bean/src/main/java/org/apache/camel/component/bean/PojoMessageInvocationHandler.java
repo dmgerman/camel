@@ -83,6 +83,8 @@ comment|/**  * Special {@link java.lang.reflect.InvocationHandler} for methods t
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|PojoMessageInvocationHandler
 specifier|public
 class|class

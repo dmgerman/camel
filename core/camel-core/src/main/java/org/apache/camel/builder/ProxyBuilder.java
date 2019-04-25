@@ -48,11 +48,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|spi
 operator|.
-name|bean
-operator|.
-name|ProxyHelper
+name|BeanProxyFactory
 import|;
 end_import
 
@@ -81,7 +79,6 @@ specifier|final
 class|class
 name|ProxyBuilder
 block|{
-comment|// TODO: Move this to camel-bean
 DECL|field|camelContext
 specifier|private
 specifier|final
@@ -233,8 +230,36 @@ argument_list|,
 literal|"endpoint"
 argument_list|)
 expr_stmt|;
+comment|// use proxy service
+name|BeanProxyFactory
+name|factory
+init|=
+name|camelContext
+operator|.
+name|hasService
+argument_list|(
+name|BeanProxyFactory
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|factory
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot find BeanProxyFactory service. Make sure camel-bean is on the classpath."
+argument_list|)
+throw|;
+block|}
 return|return
-name|ProxyHelper
+name|factory
 operator|.
 name|createProxy
 argument_list|(
