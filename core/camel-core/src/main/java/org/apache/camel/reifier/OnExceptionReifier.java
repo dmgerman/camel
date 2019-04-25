@@ -415,10 +415,7 @@ name|id
 init|=
 name|routeContext
 operator|.
-name|getRoute
-argument_list|()
-operator|.
-name|getId
+name|getRouteId
 argument_list|()
 decl_stmt|;
 name|definition

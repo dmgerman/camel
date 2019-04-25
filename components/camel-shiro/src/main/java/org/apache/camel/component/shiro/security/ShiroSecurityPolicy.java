@@ -729,10 +729,7 @@ literal|"Securing route {} using Shiro policy {}"
 argument_list|,
 name|routeContext
 operator|.
-name|getRoute
-argument_list|()
-operator|.
-name|getId
+name|getRouteId
 argument_list|()
 argument_list|,
 name|this

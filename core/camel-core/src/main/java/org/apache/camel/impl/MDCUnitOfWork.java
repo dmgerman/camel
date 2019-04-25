@@ -489,10 +489,7 @@ name|MDC_ROUTE_ID
 argument_list|,
 name|routeContext
 operator|.
-name|getRoute
-argument_list|()
-operator|.
-name|getId
+name|getRouteId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -536,10 +533,7 @@ name|MDC_ROUTE_ID
 argument_list|,
 name|previous
 operator|.
-name|getRoute
-argument_list|()
-operator|.
-name|getId
+name|getRouteId
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -278,10 +278,10 @@ control|)
 block|{
 if|if
 condition|(
-name|getRouteId
-argument_list|(
 name|routeContext
-argument_list|)
+operator|.
+name|getRouteId
+argument_list|()
 operator|.
 name|equals
 argument_list|(

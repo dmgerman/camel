@@ -32,16 +32,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -448,6 +438,12 @@ specifier|final
 name|RouteDefinition
 name|route
 decl_stmt|;
+DECL|field|routeId
+specifier|private
+specifier|final
+name|String
+name|routeId
+decl_stmt|;
 DECL|field|from
 specifier|private
 name|FromDefinition
@@ -614,30 +610,18 @@ name|from
 operator|=
 name|from
 expr_stmt|;
-block|}
-comment|/**      * Only used for lazy construction from inside ExpressionType      */
-DECL|method|DefaultRouteContext (CamelContext camelContext)
-specifier|public
-name|DefaultRouteContext
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-block|{
 name|this
 operator|.
-name|camelContext
+name|routeId
 operator|=
-name|camelContext
-expr_stmt|;
-name|this
-operator|.
 name|route
-operator|=
-operator|new
-name|RouteDefinition
+operator|.
+name|idOrCreate
 argument_list|(
-literal|"temporary"
+name|camelContext
+operator|.
+name|getNodeIdFactory
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -686,6 +670,16 @@ parameter_list|()
 block|{
 return|return
 name|route
+return|;
+block|}
+DECL|method|getRouteId ()
+specifier|public
+name|String
+name|getRouteId
+parameter_list|()
+block|{
+return|return
+name|routeId
 return|;
 block|}
 DECL|method|getRuntimeRoute ()

@@ -148,6 +148,12 @@ name|RuntimeConfiguration
 extends|,
 name|EndpointAware
 block|{
+comment|/**      * Gets the route id      */
+DECL|method|getRouteId ()
+name|String
+name|getRouteId
+parameter_list|()
+function_decl|;
 comment|/**      * Gets the from type      *      * @return the from type      */
 DECL|method|getFrom ()
 name|NamedNode

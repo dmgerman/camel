@@ -3158,10 +3158,7 @@ operator|.
 name|getRouteContext
 argument_list|()
 operator|.
-name|getRoute
-argument_list|()
-operator|.
-name|getId
+name|getRouteId
 argument_list|()
 decl_stmt|;
 name|processor
@@ -3833,10 +3830,7 @@ operator|.
 name|getRouteContext
 argument_list|()
 operator|.
-name|getRoute
-argument_list|()
-operator|.
-name|getId
+name|getRouteId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4533,10 +4527,7 @@ operator|.
 name|getRouteContext
 argument_list|()
 operator|.
-name|getRoute
-argument_list|()
-operator|.
-name|getId
+name|getRouteId
 argument_list|()
 argument_list|)
 expr_stmt|;

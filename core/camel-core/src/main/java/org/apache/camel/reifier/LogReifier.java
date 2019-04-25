@@ -514,10 +514,7 @@ name|name
 operator|=
 name|routeContext
 operator|.
-name|getRoute
-argument_list|()
-operator|.
-name|getId
+name|getRouteId
 argument_list|()
 expr_stmt|;
 name|log
