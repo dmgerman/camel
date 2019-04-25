@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelContext
 import|;
 end_import
@@ -88,7 +100,7 @@ name|AnnotationBasedProcessorFactory
 block|{
 comment|/**      * Creates dynamic router processor from the configured annotation.      */
 DECL|method|createDynamicRouter (CamelContext camelContext, DynamicRouter annotation)
-name|Processor
+name|AsyncProcessor
 name|createDynamicRouter
 parameter_list|(
 name|CamelContext
@@ -100,7 +112,7 @@ parameter_list|)
 function_decl|;
 comment|/**      * Creates recipient list processor from the configured annotation.      */
 DECL|method|createRecipientList (CamelContext camelContext, RecipientList annotation)
-name|Processor
+name|AsyncProcessor
 name|createRecipientList
 parameter_list|(
 name|CamelContext
@@ -112,7 +124,7 @@ parameter_list|)
 function_decl|;
 comment|/**      * Creates routing slip processor from the configured annotation.      */
 DECL|method|createRoutingSlip (CamelContext camelContext, RoutingSlip annotation)
-name|Processor
+name|AsyncProcessor
 name|createRoutingSlip
 parameter_list|(
 name|CamelContext

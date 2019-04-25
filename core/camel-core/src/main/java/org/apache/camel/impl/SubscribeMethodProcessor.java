@@ -274,6 +274,7 @@ argument_list|<
 name|Processor
 argument_list|>
 block|{
+comment|// TODO: requires camel-bean
 DECL|field|endpoint
 specifier|private
 specifier|final

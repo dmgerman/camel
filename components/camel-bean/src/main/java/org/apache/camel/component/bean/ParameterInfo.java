@@ -62,6 +62,7 @@ specifier|public
 class|class
 name|ParameterInfo
 block|{
+comment|// TODO: Move to camel-support
 DECL|field|index
 specifier|private
 specifier|final
