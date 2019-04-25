@@ -23,28 +23,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|olingo4
-operator|.
-name|api
-operator|.
-name|impl
-operator|.
-name|Olingo4Helper
-operator|.
-name|getContentTypeHeader
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -1457,6 +1435,28 @@ operator|.
 name|parser
 operator|.
 name|Parser
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|olingo4
+operator|.
+name|api
+operator|.
+name|impl
+operator|.
+name|Olingo4Helper
+operator|.
+name|getContentTypeHeader
 import|;
 end_import
 
