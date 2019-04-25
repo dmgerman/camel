@@ -2729,7 +2729,7 @@ argument_list|)
 decl_stmt|;
 name|mockEndpoint
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 name|expectedMsgCount
 argument_list|)
@@ -2846,35 +2846,19 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-switch|switch
-condition|(
-name|i
-condition|)
-block|{
-case|case
-literal|0
-case|:
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Star Powered Racing"
-argument_list|,
 name|name
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Powered Racing"
+argument_list|)
 argument_list|)
 expr_stmt|;
-break|break;
-case|case
-literal|1
-case|:
-name|assertEquals
-argument_list|(
-literal|"Horse Powered Racing"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-break|break;
-default|default:
-block|}
 block|}
 block|}
 annotation|@
