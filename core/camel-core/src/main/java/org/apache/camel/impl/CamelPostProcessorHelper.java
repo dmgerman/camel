@@ -1507,7 +1507,10 @@ comment|// use proxy service
 name|BeanProxyFactory
 name|factory
 init|=
-name|camelContext
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
 operator|.
 name|getBeanProxyFactory
 argument_list|()
