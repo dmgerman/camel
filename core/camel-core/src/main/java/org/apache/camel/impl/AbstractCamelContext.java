@@ -2666,7 +2666,7 @@ name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|/**      * Creates the {@link CamelContext} using {@link org.apache.camel.support.DefaultRegistry} as registry.      *<p/>      * Use one of the other constructors to force use an explicit registry.      */
+comment|/**      * Creates the {@link CamelContext} using      * {@link org.apache.camel.support.DefaultRegistry} as registry.      *<p/>      * Use one of the other constructors to force use an explicit registry.      */
 DECL|method|AbstractCamelContext ()
 specifier|public
 name|AbstractCamelContext
@@ -2704,8 +2704,10 @@ name|boolean
 name|init
 parameter_list|)
 block|{
-comment|// create a provisional (temporary) endpoint registry at first since end users may access endpoints before CamelContext is started
-comment|// we will later transfer the endpoints to the actual DefaultEndpointRegistry later, but we do this to starup Camel faster.
+comment|// create a provisional (temporary) endpoint registry at first since end
+comment|// users may access endpoints before CamelContext is started
+comment|// we will later transfer the endpoints to the actual
+comment|// DefaultEndpointRegistry later, but we do this to starup Camel faster.
 name|this
 operator|.
 name|endpoints
@@ -2740,8 +2742,10 @@ name|void
 name|doInit
 parameter_list|()
 block|{
-comment|// setup management first since end users may use it to add event notifiers
-comment|// using the management strategy before the CamelContext has been started
+comment|// setup management first since end users may use it to add event
+comment|// notifiers
+comment|// using the management strategy before the CamelContext has been
+comment|// started
 name|setupManagement
 argument_list|(
 literal|null
@@ -2992,7 +2996,8 @@ name|String
 name|name
 parameter_list|)
 block|{
-comment|// use an explicit name strategy since an explicit name was provided to be used
+comment|// use an explicit name strategy since an explicit name was provided to
+comment|// be used
 name|setNameStrategy
 argument_list|(
 operator|new
@@ -3343,7 +3348,8 @@ block|{
 name|init
 argument_list|()
 expr_stmt|;
-comment|// Check if the named component is already being created, that would mean
+comment|// Check if the named component is already being created, that would
+comment|// mean
 comment|// that the initComponent has triggered a new getComponent
 if|if
 condition|(
@@ -3436,8 +3442,10 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-comment|// Start the component after its creation as if it is a component proxy
-comment|// that creates/start a delegated component, we may end up in a deadlock
+comment|// Start the component after its creation as if it is a component
+comment|// proxy
+comment|// that creates/start a delegated component, we may end up in a
+comment|// deadlock
 if|if
 condition|(
 name|component
@@ -3516,7 +3524,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Function to initialize a component and auto start. Returns null if the autoCreateComponents is disabled      */
+comment|/**      * Function to initialize a component and auto start. Returns null if the      * autoCreateComponents is disabled      */
 DECL|method|initComponent (String name, boolean autoCreateComponents)
 specifier|private
 name|Component
@@ -3565,23 +3573,29 @@ block|}
 comment|// Mark the component as being created so we can detect circular
 comment|// requests.
 comment|//
-comment|// In spring apps, the component resolver may trigger a new getComponent
-comment|// because of the underlying bean factory and as the endpoints are
+comment|// In spring apps, the component resolver may trigger a new
+comment|// getComponent
+comment|// because of the underlying bean factory and as the endpoints
+comment|// are
 comment|// registered as singleton, the spring factory creates the bean
-comment|// and then check the type so the getComponent is always triggered.
+comment|// and then check the type so the getComponent is always
+comment|// triggered.
 comment|//
 comment|// Simple circular dependency:
 comment|//
-comment|//<camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+comment|//<camelContext id="camel"
+comment|// xmlns="http://camel.apache.org/schema/spring">
 comment|//<route>
-comment|//<from id="twitter" uri="twitter://timeline/home?type=polling"/>
+comment|//<from id="twitter"
+comment|// uri="twitter://timeline/home?type=polling"/>
 comment|//<log message="Got ${body}"/>
 comment|//</route>
 comment|//</camelContext>
 comment|//
 comment|// Complex circular dependency:
 comment|//
-comment|//<camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+comment|//<camelContext id="camel"
+comment|// xmlns="http://camel.apache.org/schema/spring">
 comment|//<route>
 comment|//<from id="log" uri="seda:test"/>
 comment|//<to id="seda" uri="log:test"/>
@@ -4339,7 +4353,8 @@ argument_list|,
 name|uri
 argument_list|)
 expr_stmt|;
-comment|// in case path has property placeholders then try to let property component resolve those
+comment|// in case path has property placeholders then try to let property
+comment|// component resolve those
 try|try
 block|{
 name|uri
@@ -4372,7 +4387,8 @@ name|rawUri
 init|=
 name|uri
 decl_stmt|;
-comment|// normalize uri so we can do endpoint hits with minor mistakes and parameters is not in the same order
+comment|// normalize uri so we can do endpoint hits with minor mistakes and
+comment|// parameters is not in the same order
 name|uri
 operator|=
 name|normalizeEndpointUri
@@ -4602,7 +4618,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// the uri has no context-path which is rare and it was not referring to an endpoint in the registry
+comment|// the uri has no context-path which is rare and it was not
+comment|// referring to an endpoint in the registry
 comment|// so try to see if it can be created by a component
 name|int
 name|pos
@@ -4916,7 +4933,8 @@ name|strategy
 argument_list|)
 condition|)
 block|{
-comment|// let it be invoked for already registered endpoints so it can catch-up.
+comment|// let it be invoked for already registered endpoints so it can
+comment|// catch-up.
 name|endpointStrategies
 operator|.
 name|add
@@ -4975,7 +4993,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Strategy to add the given endpoint to the internal endpoint registry      *      * @param uri      uri of the endpoint      * @param endpoint the endpoint to add      * @return the added endpoint      */
+comment|/**      * Strategy to add the given endpoint to the internal endpoint registry      *      * @param uri uri of the endpoint      * @param endpoint the endpoint to add      * @return the added endpoint      */
 DECL|method|addEndpointToRegistry (String uri, Endpoint endpoint)
 specifier|protected
 name|Endpoint
@@ -5046,7 +5064,7 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * Normalize uri so we can do endpoint hits with minor mistakes and parameters is not in the same order.      *      * @param uri the uri      * @return normalized uri      * @throws ResolveEndpointFailedException if uri cannot be normalized      */
+comment|/**      * Normalize uri so we can do endpoint hits with minor mistakes and      * parameters is not in the same order.      *      * @param uri the uri      * @return normalized uri      * @throws ResolveEndpointFailedException if uri cannot be normalized      */
 DECL|method|normalizeEndpointUri (String uri)
 specifier|protected
 specifier|static
@@ -5089,7 +5107,7 @@ return|return
 name|uri
 return|;
 block|}
-comment|/**      * Gets the endpoint key to use for lookup or whe adding endpoints to the {@link DefaultEndpointRegistry}      *      * @param uri the endpoint uri      * @return the key      */
+comment|/**      * Gets the endpoint key to use for lookup or whe adding endpoints to the      * {@link DefaultEndpointRegistry}      *      * @param uri the endpoint uri      * @return the key      */
 DECL|method|getEndpointKey (String uri)
 specifier|protected
 name|EndpointKey
@@ -5107,7 +5125,7 @@ name|uri
 argument_list|)
 return|;
 block|}
-comment|/**      * Gets the endpoint key to use for lookup or whe adding endpoints to the {@link DefaultEndpointRegistry}      *      * @param uri the endpoint uri which is pre normalized      * @return the key      */
+comment|/**      * Gets the endpoint key to use for lookup or whe adding endpoints to the      * {@link DefaultEndpointRegistry}      *      * @param uri the endpoint uri which is pre normalized      * @return the key      */
 DECL|method|getEndpointKeyPreNormalized (String uri)
 specifier|protected
 name|EndpointKey
@@ -5127,7 +5145,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Gets the endpoint key to use for lookup or whe adding endpoints to the {@link DefaultEndpointRegistry}      *      * @param uri      the endpoint uri      * @param endpoint the endpoint      * @return the key      */
+comment|/**      * Gets the endpoint key to use for lookup or whe adding endpoints to the      * {@link DefaultEndpointRegistry}      *      * @param uri the endpoint uri      * @param endpoint the endpoint      * @return the key      */
 DECL|method|getEndpointKey (String uri, Endpoint endpoint)
 specifier|protected
 name|EndpointKey
@@ -5271,7 +5289,8 @@ argument_list|>
 name|getRoutes
 parameter_list|()
 block|{
-comment|// lets return a copy of the collection as objects are removed later when services are stopped
+comment|// lets return a copy of the collection as objects are removed later
+comment|// when services are stopped
 if|if
 condition|(
 name|routes
@@ -5962,7 +5981,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// shutdown was aborted, make sure route is re-started properly
+comment|// shutdown was aborted, make sure route is re-started
+comment|// properly
 name|startRouteService
 argument_list|(
 name|routeService
@@ -6164,7 +6184,8 @@ argument_list|,
 name|timeUnit
 argument_list|)
 expr_stmt|;
-comment|// must stop route service as well (and remove the routes from management)
+comment|// must stop route service as well (and remove the routes from
+comment|// management)
 name|stopRouteService
 argument_list|(
 name|routeService
@@ -6227,7 +6248,8 @@ argument_list|,
 name|routeId
 argument_list|)
 expr_stmt|;
-comment|// gather a map of all the endpoints in use by the routes, so we can known if a given endpoints is in use
+comment|// gather a map of all the endpoints in use by the routes, so we can
+comment|// known if a given endpoints is in use
 comment|// by one or more routes, when we remove the route
 name|Map
 argument_list|<
@@ -6331,7 +6353,8 @@ argument_list|(
 name|routeId
 argument_list|)
 expr_stmt|;
-comment|// remove route from startup order as well, as it was removed
+comment|// remove route from startup order as well, as it was
+comment|// removed
 name|routeStartupOrder
 operator|.
 name|removeIf
@@ -6352,7 +6375,8 @@ name|routeId
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// from the route which we have removed, then remove all its private endpoints
+comment|// from the route which we have removed, then remove all its
+comment|// private endpoints
 comment|// (eg the endpoints which are not in use by other routes)
 name|Set
 argument_list|<
@@ -6413,7 +6437,8 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-comment|// notice we will count ourselves so if there is only 1 then its safe to remove
+comment|// notice we will count ourselves so if there is only 1
+comment|// then its safe to remove
 if|if
 condition|(
 name|count
@@ -6971,7 +6996,8 @@ operator|!
 name|forceStart
 condition|)
 block|{
-comment|// now start the service (and defer starting if CamelContext is starting up itself)
+comment|// now start the service (and defer starting if CamelContext is
+comment|// starting up itself)
 name|deferStartService
 argument_list|(
 name|object
@@ -6983,7 +7009,8 @@ block|}
 else|else
 block|{
 comment|// only add to services to close if its a singleton
-comment|// otherwise we could for example end up with a lot of prototype scope endpoints
+comment|// otherwise we could for example end up with a lot of prototype
+comment|// scope endpoints
 name|boolean
 name|singleton
 init|=
@@ -7023,7 +7050,8 @@ name|Endpoint
 operator|)
 condition|)
 block|{
-comment|// only add to list of services to stop if its not already there
+comment|// only add to list of services to stop if its not already
+comment|// there
 if|if
 condition|(
 name|stopOnShutdown
@@ -7313,7 +7341,8 @@ operator|)
 name|object
 decl_stmt|;
 comment|// only add to services to close if its a singleton
-comment|// otherwise we could for example end up with a lot of prototype scope endpoints
+comment|// otherwise we could for example end up with a lot of prototype
+comment|// scope endpoints
 name|boolean
 name|singleton
 init|=
@@ -7412,7 +7441,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// either add to listener so we can invoke then later when CamelContext has been started
+comment|// either add to listener so we can invoke then later when CamelContext
+comment|// has been started
 comment|// or invoke the callback right now
 if|if
 condition|(
@@ -7452,7 +7482,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// use the component factory finder to find the package name of the component class, which is the location
+comment|// use the component factory finder to find the package name of the
+comment|// component class, which is the location
 comment|// where the documentation exists as well
 name|FactoryFinder
 name|finder
@@ -7674,7 +7705,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// use the dataformat factory finder to find the package name of the dataformat class, which is the location
+comment|// use the dataformat factory finder to find the package name of the
+comment|// dataformat class, which is the location
 comment|// where the documentation exists as well
 name|FactoryFinder
 name|finder
@@ -7845,7 +7877,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// use the language factory finder to find the package name of the language class, which is the location
+comment|// use the language factory finder to find the package name of the
+comment|// language class, which is the location
 comment|// where the documentation exists as well
 name|FactoryFinder
 name|finder
@@ -8016,7 +8049,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// the eip json schema may be in some of the sub-packages so look until we find it
+comment|// the eip json schema may be in some of the sub-packages so look until
+comment|// we find it
 name|String
 index|[]
 name|subPackages
@@ -8152,7 +8186,8 @@ argument_list|(
 name|language
 argument_list|)
 expr_stmt|;
-comment|// check if the language is singleton, if so return the shared instance
+comment|// check if the language is singleton, if so return the shared
+comment|// instance
 if|if
 condition|(
 name|answer
@@ -8354,9 +8389,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// While it is more efficient to only do the lookup if we are sure we need the component,
-comment|// with custom tokens, we cannot know if the URI contains a property or not without having
-comment|// the component.  We also lose fail-fast behavior for the missing component with this change.
+comment|// While it is more efficient to only do the lookup if we are sure we
+comment|// need the component,
+comment|// with custom tokens, we cannot know if the URI contains a property or
+comment|// not without having
+comment|// the component. We also lose fail-fast behavior for the missing
+comment|// component with this change.
 name|PropertiesComponent
 name|pc
 init|=
@@ -8365,7 +8403,8 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-comment|// Do not parse uris that are designated for the properties component as it will handle that itself
+comment|// Do not parse uris that are designated for the properties component as
+comment|// it will handle that itself
 if|if
 condition|(
 name|text
@@ -8398,7 +8437,8 @@ name|DEFAULT_PREFIX_TOKEN
 argument_list|)
 condition|)
 block|{
-comment|// lookup existing properties component, or force create a new default component
+comment|// lookup existing properties component, or force create a new
+comment|// default component
 name|pc
 operator|=
 name|getPropertiesComponent
@@ -9276,7 +9316,8 @@ argument_list|(
 name|interceptStrategy
 argument_list|)
 expr_stmt|;
-comment|// for backwards compatible or if user add them here instead of the setXXX methods
+comment|// for backwards compatible or if user add them here instead of the
+comment|// setXXX methods
 if|if
 condition|(
 name|interceptStrategy
@@ -10408,7 +10449,8 @@ argument_list|()
 decl_stmt|;
 comment|// update list of started routes to be suspended
 comment|// because we only want to suspend started routes
-comment|// (so when we resume we only resume the routes which actually was suspended)
+comment|// (so when we resume we only resume the routes which actually was
+comment|// suspended)
 for|for
 control|(
 name|Map
@@ -10459,7 +10501,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// assemble list of startup ordering so routes can be shutdown accordingly
+comment|// assemble list of startup ordering so routes can be shutdown
+comment|// accordingly
 name|List
 argument_list|<
 name|RouteStartupOrder
@@ -10543,7 +10586,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// suspend routes using the shutdown strategy so it can shutdown in correct order
+comment|// suspend routes using the shutdown strategy so it can shutdown in
+comment|// correct order
 comment|// routes which doesn't support suspension will be stopped instead
 name|getShutdownStrategy
 argument_list|()
@@ -10677,7 +10721,8 @@ operator|new
 name|StopWatch
 argument_list|()
 decl_stmt|;
-comment|// start the suspended routes (do not check for route clashes, and indicate)
+comment|// start the suspended routes (do not check for route clashes, and
+comment|// indicate)
 name|doStartOrResumeRoutes
 argument_list|(
 name|suspendedRouteServices
@@ -10691,7 +10736,8 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-comment|// mark the route services as resumed (will be marked as started) as well
+comment|// mark the route services as resumed (will be marked as started) as
+comment|// well
 for|for
 control|(
 name|RouteService
@@ -10880,7 +10926,8 @@ operator|!
 name|isAutoStartup
 argument_list|()
 expr_stmt|;
-comment|// if the context was configured with auto startup = false, and we are already started,
+comment|// if the context was configured with auto startup = false, and we
+comment|// are already started,
 comment|// then we may need to start the routes on the 2nd start call
 if|if
 condition|(
@@ -10894,7 +10941,8 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
-comment|// invoke this logic to warm up the routes and if possible also start the routes
+comment|// invoke this logic to warm up the routes and if possible also
+comment|// start the routes
 name|doStartOrResumeRoutes
 argument_list|(
 name|routeServices
@@ -10909,7 +10957,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|// super will invoke doStart which will prepare internal services and start routes etc.
+comment|// super will invoke doStart which will prepare internal services
+comment|// and start routes etc.
 try|try
 block|{
 name|firstStartDone
@@ -10965,7 +11014,8 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// swallow exception and change state of this camel context to stopped
+comment|// swallow exception and change state of this camel context
+comment|// to stopped
 name|stop
 argument_list|()
 expr_stmt|;
@@ -11116,7 +11166,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// okay the routes has been started so emit event that CamelContext has started (here at the end)
+comment|// okay the routes has been started so emit event that CamelContext
+comment|// has started (here at the end)
 name|EventHelper
 operator|.
 name|notifyCamelContextStarted
@@ -11395,7 +11446,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// custom properties may use property placeholders so resolve those early on
+comment|// custom properties may use property placeholders so resolve those
+comment|// early on
 if|if
 condition|(
 name|globalOptions
@@ -11553,7 +11605,8 @@ name|isTracing
 argument_list|()
 condition|)
 block|{
-comment|// tracing is added in the DefaultChannel so we can enable it on the fly
+comment|// tracing is added in the DefaultChannel so we can enable it on the
+comment|// fly
 name|log
 operator|.
 name|info
@@ -11852,7 +11905,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// must let some bootstrap service be started before we can notify the starting event
+comment|// must let some bootstrap service be started before we can notify the
+comment|// starting event
 name|EventHelper
 operator|.
 name|notifyCamelContextStarting
@@ -11889,8 +11943,10 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|// re-create endpoint registry as the cache size limit may be set after the constructor of this instance was called.
-comment|// and we needed to create endpoints up-front as it may be accessed before this context is started
+comment|// re-create endpoint registry as the cache size limit may be set after
+comment|// the constructor of this instance was called.
+comment|// and we needed to create endpoints up-front as it may be accessed
+comment|// before this context is started
 name|endpoints
 operator|=
 name|doAddService
@@ -11919,7 +11975,8 @@ name|createValidatorRegistry
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// optimised to not include runtimeEndpointRegistry unless startServices its enabled or JMX statistics is in extended mode
+comment|// optimised to not include runtimeEndpointRegistry unless startServices
+comment|// its enabled or JMX statistics is in extended mode
 if|if
 condition|(
 name|runtimeEndpointRegistry
@@ -11967,7 +12024,8 @@ operator|.
 name|isExtended
 argument_list|()
 decl_stmt|;
-comment|// extended mode is either if we use Extended statistics level or the option is explicit enabled
+comment|// extended mode is either if we use Extended statistics level or
+comment|// the option is explicit enabled
 name|boolean
 name|extended
 init|=
@@ -12033,8 +12091,10 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|// eager lookup any configured properties component to avoid subsequent lookup attempts which may impact performance
-comment|// due we use properties component for property placeholder resolution at runtime
+comment|// eager lookup any configured properties component to avoid subsequent
+comment|// lookup attempts which may impact performance
+comment|// due we use properties component for property placeholder resolution
+comment|// at runtime
 name|PropertiesComponent
 name|existing
 init|=
@@ -12090,7 +12150,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// is there any stream caching enabled then log an info about this and its limit of spooling to disk, so people is aware of this
+comment|// is there any stream caching enabled then log an info about this and
+comment|// its limit of spooling to disk, so people is aware of this
 if|if
 condition|(
 name|isStreamCachingInUse
@@ -12109,7 +12170,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// log if stream caching is not in use as this can help people to enable it if they use streams
+comment|// log if stream caching is not in use as this can help people to
+comment|// enable it if they use streams
 name|log
 operator|.
 name|info
@@ -12179,7 +12241,8 @@ literal|"Skip starting routes as CamelContext has been configured with autoStart
 argument_list|)
 expr_stmt|;
 block|}
-comment|// invoke this logic to warmup the routes and if possible also start the routes
+comment|// invoke this logic to warmup the routes and if possible also start the
+comment|// routes
 name|doStartOrResumeRoutes
 argument_list|(
 name|routeServices
@@ -12269,10 +12332,12 @@ operator|.
 name|routeController
 argument_list|)
 expr_stmt|;
-comment|// stop route inputs in the same order as they was started so we stop the very first inputs first
+comment|// stop route inputs in the same order as they was started so we stop
+comment|// the very first inputs first
 try|try
 block|{
-comment|// force shutting down routes as they may otherwise cause shutdown to hang
+comment|// force shutting down routes as they may otherwise cause shutdown
+comment|// to hang
 name|shutdownStrategy
 operator|.
 name|shutdownForced
@@ -12300,7 +12365,8 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|// shutdown await manager to trigger interrupt of blocked threads to attempt to free these threads graceful
+comment|// shutdown await manager to trigger interrupt of blocked threads to
+comment|// attempt to free these threads graceful
 name|shutdownServices
 argument_list|(
 name|asyncProcessorAwaitManager
@@ -12373,7 +12439,8 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-comment|// do not clear route services or startup listeners as we can start Camel again and get the route back as before
+comment|// do not clear route services or startup listeners as we can start
+comment|// Camel again and get the route back as before
 name|routeStartupOrder
 operator|.
 name|clear
@@ -12385,8 +12452,10 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-comment|// stop consumers from the services to close first, such as POJO consumer (eg @Consumer)
-comment|// which we need to stop after the routes, as a POJO consumer is essentially a route also
+comment|// stop consumers from the services to close first, such as POJO
+comment|// consumer (eg @Consumer)
+comment|// which we need to stop after the routes, as a POJO consumer is
+comment|// essentially a route also
 for|for
 control|(
 name|Service
@@ -12526,7 +12595,8 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-comment|// must notify that we are stopped before stopping the management strategy
+comment|// must notify that we are stopped before stopping the management
+comment|// strategy
 name|EventHelper
 operator|.
 name|notifyCamelContextStopped
@@ -12574,7 +12644,8 @@ argument_list|(
 name|lifecycleStrategies
 argument_list|)
 expr_stmt|;
-comment|// do not clear lifecycleStrategies as we can start Camel again and get the route back as before
+comment|// do not clear lifecycleStrategies as we can start Camel again and get
+comment|// the route back as before
 comment|// stop the lazy created so they can be re-created on restart
 name|forceStopLazyInitialization
 argument_list|()
@@ -12643,7 +12714,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * Starts or resumes the routes      *      * @param routeServices  the routes to start (will only start a route if its not already started)      * @param checkClash     whether to check for startup ordering clash      * @param startConsumer  whether the route consumer should be started. Can be used to warmup the route without starting the consumer.      * @param resumeConsumer whether the route consumer should be resumed.      * @param addingRoutes   whether we are adding new routes      * @throws Exception is thrown if error starting routes      */
+comment|/**      * Starts or resumes the routes      *      * @param routeServices the routes to start (will only start a route if its      *            not already started)      * @param checkClash whether to check for startup ordering clash      * @param startConsumer whether the route consumer should be started. Can be      *            used to warmup the route without starting the consumer.      * @param resumeConsumer whether the route consumer should be resumed.      * @param addingRoutes whether we are adding new routes      * @throws Exception is thrown if error starting routes      */
 DECL|method|doStartOrResumeRoutes (Map<String, RouteService> routeServices, boolean checkClash, boolean startConsumer, boolean resumeConsumer, boolean addingRoutes)
 specifier|protected
 name|void
@@ -12737,7 +12808,8 @@ operator|instanceof
 name|SuspendableService
 condition|)
 block|{
-comment|// consumer could be suspended, which is not reflected in the RouteService status
+comment|// consumer could be suspended, which is not reflected in
+comment|// the RouteService status
 name|startable
 operator|=
 operator|(
@@ -12761,7 +12833,8 @@ operator|instanceof
 name|StatefulService
 condition|)
 block|{
-comment|// consumer could be stopped, which is not reflected in the RouteService status
+comment|// consumer could be stopped, which is not reflected in the
+comment|// RouteService status
 name|startable
 operator|=
 operator|(
@@ -12898,7 +12971,8 @@ name|Object
 name|service
 parameter_list|)
 block|{
-comment|// do not rethrow exception as we want to keep shutting down in case of problems
+comment|// do not rethrow exception as we want to keep shutting down in case of
+comment|// problems
 comment|// allow us to do custom work before delegating to service helper
 try|try
 block|{
@@ -13227,7 +13301,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// we may already be starting routes so remember this, so we can unset accordingly in finally block
+comment|// we may already be starting routes so remember this, so we can unset
+comment|// accordingly in finally block
 name|boolean
 name|alreadyStartingRoutes
 init|=
@@ -13248,7 +13323,8 @@ expr_stmt|;
 block|}
 try|try
 block|{
-comment|// the route service could have been suspended, and if so then resume it instead
+comment|// the route service could have been suspended, and if so then
+comment|// resume it instead
 if|if
 condition|(
 name|routeService
@@ -13303,7 +13379,8 @@ argument_list|,
 name|routeService
 argument_list|)
 expr_stmt|;
-comment|// start route services if it was configured to auto startup and we are not adding routes
+comment|// start route services if it was configured to auto startup
+comment|// and we are not adding routes
 name|boolean
 name|autoStartup
 init|=
@@ -13320,7 +13397,8 @@ operator|||
 name|autoStartup
 condition|)
 block|{
-comment|// start the route since auto start is enabled or we are starting a route (not adding new routes)
+comment|// start the route since auto start is enabled or we are
+comment|// starting a route (not adding new routes)
 name|routeService
 operator|.
 name|start
@@ -13359,7 +13437,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// the route service could have been stopped, and if so then start it instead
+comment|// the route service could have been stopped, and if so then start it
+comment|// instead
 if|if
 condition|(
 operator|!
@@ -13605,7 +13684,7 @@ literal|"suspended"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Starts the routes services in a proper manner which ensures the routes will be started in correct order,      * check for clash and that the routes will also be shutdown in correct order as well.      *<p/>      * This method<b>must</b> be used to start routes in a safe manner.      *      * @param checkClash     whether to check for startup order clash      * @param startConsumer  whether the route consumer should be started. Can be used to warmup the route without starting the consumer.      * @param resumeConsumer whether the route consumer should be resumed.      * @param addingRoutes   whether we are adding new routes      * @param routeServices  the routes      * @throws Exception is thrown if error starting the routes      */
+comment|/**      * Starts the routes services in a proper manner which ensures the routes      * will be started in correct order, check for clash and that the routes      * will also be shutdown in correct order as well.      *<p/>      * This method<b>must</b> be used to start routes in a safe manner.      *      * @param checkClash whether to check for startup order clash      * @param startConsumer whether the route consumer should be started. Can be      *            used to warmup the route without starting the consumer.      * @param resumeConsumer whether the route consumer should be resumed.      * @param addingRoutes whether we are adding new routes      * @param routeServices the routes      * @throws Exception is thrown if error starting the routes      */
 DECL|method|safelyStartRouteServices (boolean checkClash, boolean startConsumer, boolean resumeConsumer, boolean addingRoutes, Collection<RouteService> routeServices)
 specifier|protected
 specifier|synchronized
@@ -13633,8 +13712,10 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// list of inputs to start when all the routes have been prepared for starting
-comment|// we use a tree map so the routes will be ordered according to startup order defined on the route
+comment|// list of inputs to start when all the routes have been prepared for
+comment|// starting
+comment|// we use a tree map so the routes will be ordered according to startup
+comment|// order defined on the route
 name|Map
 argument_list|<
 name|Integer
@@ -13732,7 +13813,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// because the consumers may also register startup listeners we need to reset
+comment|// because the consumers may also register startup listeners we need to
+comment|// reset
 comment|// the already started listeners
 name|List
 argument_list|<
@@ -13775,7 +13857,8 @@ block|}
 else|else
 block|{
 comment|// and now start the routes
-comment|// and check for clash with multiple consumers of the same endpoints which is not allowed
+comment|// and check for clash with multiple consumers of the same
+comment|// endpoints which is not allowed
 name|doStartRouteConsumers
 argument_list|(
 name|inputs
@@ -13796,7 +13879,8 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// now the consumers that was just started may also add new StartupListeners (such as timer)
+comment|// now the consumers that was just started may also add new
+comment|// StartupListeners (such as timer)
 comment|// so we need to ensure they get started as well
 for|for
 control|(
@@ -13817,7 +13901,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// and add the previous started startup listeners to the list so we have them all
+comment|// and add the previous started startup listeners to the list so we have
+comment|// them all
 name|startupListeners
 operator|.
 name|addAll
@@ -13891,7 +13976,8 @@ name|RouteService
 name|routeService
 parameter_list|)
 block|{
-comment|// add the inputs from this route service to the list to start afterwards
+comment|// add the inputs from this route service to the list to start
+comment|// afterwards
 comment|// should be ordered according to the startup number
 name|Integer
 name|startupOrder
@@ -13915,7 +14001,8 @@ name|defaultRouteStartupOrder
 operator|++
 expr_stmt|;
 block|}
-comment|// create holder object that contains information about this route to be started
+comment|// create holder object that contains information about this route to be
+comment|// started
 name|Route
 name|route
 init|=
@@ -14054,7 +14141,8 @@ name|otherId
 argument_list|)
 condition|)
 block|{
-comment|// its the same route id so skip clash check as its the same route (can happen when using suspend/resume)
+comment|// its the same route id so skip clash check as its the same
+comment|// route (can happen when using suspend/resume)
 block|}
 elseif|else
 if|if
@@ -14121,7 +14209,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// now prepare the routes by starting its services before we start the input
+comment|// now prepare the routes by starting its services before we start the
+comment|// input
 for|for
 control|(
 name|Map
@@ -14140,11 +14229,14 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-comment|// defer starting inputs till later as we want to prepare the routes by starting
+comment|// defer starting inputs till later as we want to prepare the routes
+comment|// by starting
 comment|// all their processors and child services etc.
 comment|// then later we open the floods to Camel by starting the inputs
-comment|// what this does is to ensure Camel is more robust on starting routes as all routes
-comment|// will then be prepared in time before we start inputs which will consume messages to be routed
+comment|// what this does is to ensure Camel is more robust on starting
+comment|// routes as all routes
+comment|// will then be prepared in time before we start inputs which will
+comment|// consume messages to be routed
 name|RouteService
 name|routeService
 init|=
@@ -14316,7 +14408,8 @@ operator|.
 name|getRouteService
 argument_list|()
 decl_stmt|;
-comment|// if we are starting camel, then skip routes which are configured to not be auto started
+comment|// if we are starting camel, then skip routes which are configured
+comment|// to not be auto started
 name|boolean
 name|autoStartup
 init|=
@@ -14370,7 +14463,8 @@ operator|.
 name|getEndpoint
 argument_list|()
 decl_stmt|;
-comment|// check multiple consumer violation, with the other routes to be started
+comment|// check multiple consumer violation, with the other routes to
+comment|// be started
 if|if
 condition|(
 operator|!
@@ -14397,7 +14491,8 @@ name|endpoint
 argument_list|)
 throw|;
 block|}
-comment|// check for multiple consumer violations with existing routes which
+comment|// check for multiple consumer violations with existing routes
+comment|// which
 comment|// have already been started, or is currently starting
 name|List
 argument_list|<
@@ -14681,8 +14776,10 @@ argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
-comment|// add to the order which they was started, so we know how to stop them in reverse order
-comment|// but only add if we haven't already registered it before (we dont want to double add when restarting)
+comment|// add to the order which they was started, so we know how to
+comment|// stop them in reverse order
+comment|// but only add if we haven't already registered it before (we
+comment|// dont want to double add when restarting)
 name|boolean
 name|found
 init|=
@@ -14753,7 +14850,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// and start the route service (no need to start children as they are already warmed up)
+comment|// and start the route service (no need to start children as
+comment|// they are already warmed up)
 try|try
 block|{
 name|routeService
@@ -15132,7 +15230,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Strategy method for attempting to convert the bean from a {@link Registry} to an endpoint using      * some kind of transformation or wrapper      *      * @param uri  the uri for the endpoint (and name in the registry)      * @param bean the bean to be converted to an endpoint, which will be not null      * @return a new endpoint      */
+comment|/**      * Strategy method for attempting to convert the bean from a      * {@link Registry} to an endpoint using some kind of transformation or      * wrapper      *      * @param uri the uri for the endpoint (and name in the registry)      * @param bean the bean to be converted to an endpoint, which will be not      *            null      * @return a new endpoint      */
 DECL|method|convertBeanToEndpoint (String uri, Object bean)
 specifier|protected
 name|Endpoint
@@ -15845,7 +15943,8 @@ name|disableJMX
 operator|=
 literal|true
 expr_stmt|;
-comment|// we are still in initializing mode, so we can disable JMX, by setting up management again
+comment|// we are still in initializing mode, so we can disable JMX, by
+comment|// setting up management again
 name|setupManagement
 argument_list|(
 literal|null
@@ -16751,7 +16850,8 @@ name|ExecutorServiceManager
 name|executorServiceManager
 parameter_list|)
 block|{
-comment|// special for executorServiceManager as want to stop it manually so false in stopOnShutdown
+comment|// special for executorServiceManager as want to stop it manually so
+comment|// false in stopOnShutdown
 name|this
 operator|.
 name|executorServiceManager
@@ -17409,7 +17509,7 @@ return|return
 name|routeServices
 return|;
 block|}
-comment|/**      * Reset context counter to a preset value. Mostly used for tests to ensure a predictable getName()      *      * @param value new value for the context counter      */
+comment|/**      * Reset context counter to a preset value. Mostly used for tests to ensure      * a predictable getName()      *      * @param value new value for the context counter      */
 DECL|method|setContextCounter (int value)
 specifier|public
 specifier|static
