@@ -53,6 +53,11 @@ name|DefaultBeanProxyFactory
 implements|implements
 name|BeanProxyFactory
 block|{
+DECL|method|DefaultBeanProxyFactory ()
+specifier|public
+name|DefaultBeanProxyFactory
+parameter_list|()
+block|{     }
 annotation|@
 name|SafeVarargs
 annotation|@

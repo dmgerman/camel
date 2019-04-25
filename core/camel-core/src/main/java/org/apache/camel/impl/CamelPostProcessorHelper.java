@@ -1509,12 +1509,8 @@ name|factory
 init|=
 name|camelContext
 operator|.
-name|hasService
-argument_list|(
-name|BeanProxyFactory
-operator|.
-name|class
-argument_list|)
+name|getBeanProxyFactory
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -1527,7 +1523,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Cannot find BeanProxyFactory service. Make sure camel-bean is on the classpath."
+literal|"Cannot find BeanProxyFactory. Make sure camel-bean is on the classpath."
 argument_list|)
 throw|;
 block|}

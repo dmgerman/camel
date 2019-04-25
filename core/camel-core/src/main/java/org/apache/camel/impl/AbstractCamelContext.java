@@ -528,6 +528,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|BeanProxyFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|CamelBeanPostProcessor
 import|;
 end_import
@@ -2412,6 +2426,12 @@ specifier|private
 specifier|volatile
 name|HeadersMapFactory
 name|headersMapFactory
+decl_stmt|;
+DECL|field|beanProxyFactory
+specifier|private
+specifier|volatile
+name|BeanProxyFactory
+name|beanProxyFactory
 decl_stmt|;
 DECL|field|classResolver
 specifier|private
@@ -11991,10 +12011,34 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|// re-create endpoint registry as the cache size limit may be set after
-comment|// the constructor of this instance was called.
-comment|// and we needed to create endpoints up-front as it may be accessed
-comment|// before this context is started
+comment|// if camel-bean is on classpath then we can load its bean proxy facory
+name|BeanProxyFactory
+name|beanProxyFactory
+init|=
+operator|new
+name|BeanProxyFactoryResolver
+argument_list|()
+operator|.
+name|resolve
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|beanProxyFactory
+operator|!=
+literal|null
+condition|)
+block|{
+name|addService
+argument_list|(
+name|beanProxyFactory
+argument_list|)
+expr_stmt|;
+block|}
+comment|// re-create endpoint registry as the cache size limit may be set after the constructor of this instance was called.
+comment|// and we needed to create endpoints up-front as it may be accessed before this context is started
 name|endpoints
 operator|=
 name|doAddService
@@ -17566,6 +17610,45 @@ return|return
 name|annotationBasedProcessorFactory
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getBeanProxyFactory ()
+specifier|public
+name|BeanProxyFactory
+name|getBeanProxyFactory
+parameter_list|()
+block|{
+if|if
+condition|(
+name|beanProxyFactory
+operator|==
+literal|null
+condition|)
+block|{
+synchronized|synchronized
+init|(
+name|lock
+init|)
+block|{
+if|if
+condition|(
+name|beanProxyFactory
+operator|==
+literal|null
+condition|)
+block|{
+name|beanProxyFactory
+operator|=
+name|createBeanProxyFactory
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
+return|return
+name|beanProxyFactory
+return|;
+block|}
 DECL|method|getRouteServices ()
 specifier|protected
 name|Map
@@ -17909,6 +17992,13 @@ specifier|protected
 specifier|abstract
 name|HeadersMapFactory
 name|createHeadersMapFactory
+parameter_list|()
+function_decl|;
+DECL|method|createBeanProxyFactory ()
+specifier|protected
+specifier|abstract
+name|BeanProxyFactory
+name|createBeanProxyFactory
 parameter_list|()
 function_decl|;
 DECL|method|createLanguageResolver ()
