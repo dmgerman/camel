@@ -216,6 +216,9 @@ operator|.
 name|isNotEmpty
 argument_list|(
 name|definition
+operator|.
+name|getDefinition
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -228,6 +231,9 @@ argument_list|,
 literal|"definition"
 argument_list|,
 name|definition
+operator|.
+name|getDefinition
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
