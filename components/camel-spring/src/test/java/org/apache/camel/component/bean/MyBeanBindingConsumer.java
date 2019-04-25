@@ -64,6 +64,8 @@ name|camel
 operator|.
 name|language
 operator|.
+name|bean
+operator|.
 name|Bean
 import|;
 end_import
