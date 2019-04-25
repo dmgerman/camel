@@ -154,14 +154,10 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|setProperty
+name|definition
+operator|.
+name|setDataFormatName
 argument_list|(
-name|camelContext
-argument_list|,
-name|this
-argument_list|,
-literal|"dataFormatName"
-argument_list|,
 literal|"json-xstream"
 argument_list|)
 expr_stmt|;
