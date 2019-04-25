@@ -15238,6 +15238,15 @@ expr_stmt|;
 name|getRouteController
 argument_list|()
 expr_stmt|;
+name|getBeanProxyFactory
+argument_list|()
+expr_stmt|;
+name|getBeanProcessorFactory
+argument_list|()
+expr_stmt|;
+name|getBeanPostProcessor
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Force clear lazy initialization so they can be re-created on restart      */
 DECL|method|forceStopLazyInitialization ()

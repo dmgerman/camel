@@ -271,6 +271,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: Let this use bean expression, which also has all this logic to lookup beans and call them etc.
+comment|// and then facade the bean expression with a expression processor
 annotation|@
 name|Override
 DECL|method|createProcessor (RouteContext routeContext)
