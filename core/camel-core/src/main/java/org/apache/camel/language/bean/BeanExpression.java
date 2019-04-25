@@ -392,19 +392,16 @@ name|AfterPropertiesConfigured
 block|{
 DECL|field|bean
 specifier|private
-specifier|final
 name|Object
 name|bean
 decl_stmt|;
 DECL|field|beanName
 specifier|private
-specifier|final
 name|String
 name|beanName
 decl_stmt|;
 DECL|field|type
 specifier|private
-specifier|final
 name|Class
 argument_list|<
 name|?
@@ -413,7 +410,6 @@ name|type
 decl_stmt|;
 DECL|field|method
 specifier|private
-specifier|final
 name|String
 name|method
 decl_stmt|;
@@ -532,6 +528,116 @@ operator|.
 name|beanName
 operator|=
 literal|null
+expr_stmt|;
+block|}
+DECL|method|getBean ()
+specifier|public
+name|Object
+name|getBean
+parameter_list|()
+block|{
+return|return
+name|bean
+return|;
+block|}
+DECL|method|setBean (Object bean)
+specifier|public
+name|void
+name|setBean
+parameter_list|(
+name|Object
+name|bean
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bean
+operator|=
+name|bean
+expr_stmt|;
+block|}
+DECL|method|getBeanName ()
+specifier|public
+name|String
+name|getBeanName
+parameter_list|()
+block|{
+return|return
+name|beanName
+return|;
+block|}
+DECL|method|setBeanName (String beanName)
+specifier|public
+name|void
+name|setBeanName
+parameter_list|(
+name|String
+name|beanName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|beanName
+operator|=
+name|beanName
+expr_stmt|;
+block|}
+DECL|method|getType ()
+specifier|public
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
+block|}
+DECL|method|setType (Class<?> type)
+specifier|public
+name|void
+name|setType
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|)
+block|{
+name|this
+operator|.
+name|type
+operator|=
+name|type
+expr_stmt|;
+block|}
+DECL|method|getMethod ()
+specifier|public
+name|String
+name|getMethod
+parameter_list|()
+block|{
+return|return
+name|method
+return|;
+block|}
+DECL|method|setMethod (String method)
+specifier|public
+name|void
+name|setMethod
+parameter_list|(
+name|String
+name|method
+parameter_list|)
+block|{
+name|this
+operator|.
+name|method
+operator|=
+name|method
 expr_stmt|;
 block|}
 annotation|@
@@ -669,6 +775,32 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// invoking the bean can either be the easy way or using OGNL
+if|if
+condition|(
+name|bean
+operator|!=
+literal|null
+operator|||
+name|type
+operator|!=
+literal|null
+condition|)
+block|{
+name|validateHasMethod
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
+name|bean
+argument_list|,
+name|type
+argument_list|,
+name|method
+argument_list|)
+expr_stmt|;
+block|}
 comment|// validate OGNL
 if|if
 condition|(
@@ -930,6 +1062,7 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
+comment|// lets see if we can do additional validation that the bean has valid method during creation of the expression
 name|Object
 name|target
 init|=
@@ -973,6 +1106,22 @@ argument_list|,
 name|method
 argument_list|)
 expr_stmt|;
+comment|// if the bean holder doesn't exist then create it
+if|if
+condition|(
+name|beanHolder
+operator|==
+literal|null
+condition|)
+block|{
+name|beanHolder
+operator|=
+name|createBeanHolder
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Validates the given bean has the method.      *<p/>      * This implementation will skip trying to validate OGNL method name expressions.      *      * @param context  camel context      * @param bean     the bean instance      * @param type     the bean type      * @param method   the method, can be<tt>null</tt> if no method name provided      * @throws org.apache.camel.RuntimeCamelException is thrown if bean does not have the method      */
 DECL|method|validateHasMethod (CamelContext context, Object bean, Class<?> type, String method)
@@ -1203,10 +1352,8 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * Optimize to create the bean holder once, so we can reuse it for further      * evaluation, which is faster.      */
 DECL|method|createBeanHolder (CamelContext context)
 specifier|private
-specifier|synchronized
 name|BeanHolder
 name|createBeanHolder
 parameter_list|(
