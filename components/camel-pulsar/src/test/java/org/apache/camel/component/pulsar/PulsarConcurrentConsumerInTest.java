@@ -304,8 +304,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"pulsar:"
 operator|+
 name|TOPIC_URI
@@ -322,8 +320,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|field|to
