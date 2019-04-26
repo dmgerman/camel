@@ -242,7 +242,7 @@ specifier|public
 class|class
 name|PulsarProducerInTest
 extends|extends
-name|CamelTestSupport
+name|PulsarTestSupport
 block|{
 DECL|field|TOPIC_URI
 specifier|private
@@ -261,17 +261,6 @@ name|String
 name|PRODUCER
 init|=
 literal|"camel-producer"
-decl_stmt|;
-annotation|@
-name|Rule
-DECL|field|pulsarContainer
-specifier|public
-name|PulsarContainer
-name|pulsarContainer
-init|=
-operator|new
-name|PulsarContainer
-argument_list|()
 decl_stmt|;
 annotation|@
 name|Produce
@@ -478,8 +467,6 @@ argument_list|()
 operator|.
 name|serviceUrl
 argument_list|(
-name|pulsarContainer
-operator|.
 name|getPulsarBrokerUrl
 argument_list|()
 argument_list|)
