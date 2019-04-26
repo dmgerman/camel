@@ -1775,7 +1775,21 @@ expr_stmt|;
 comment|// how many different artifacts
 name|int
 name|count
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|coreOnly
+condition|)
+block|{
+name|count
+operator|=
+literal|1
+expr_stmt|;
+block|}
+else|else
+block|{
+name|count
+operator|=
 name|models
 operator|.
 name|stream
@@ -1796,7 +1810,8 @@ argument_list|)
 operator|.
 name|size
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// how many deprecated
 name|long
 name|deprecated
