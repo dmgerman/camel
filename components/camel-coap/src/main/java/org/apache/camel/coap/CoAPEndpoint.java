@@ -346,6 +346,24 @@ name|scandium
 operator|.
 name|dtls
 operator|.
+name|pskstore
+operator|.
+name|PskStore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|californium
+operator|.
+name|scandium
+operator|.
+name|dtls
+operator|.
 name|rpkstore
 operator|.
 name|TrustedRpkStore
@@ -454,6 +472,13 @@ DECL|field|trustedRpkStore
 specifier|private
 name|TrustedRpkStore
 name|trustedRpkStore
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|pskStore
+specifier|private
+name|PskStore
+name|pskStore
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -881,6 +906,34 @@ operator|=
 name|trustedRpkStore
 expr_stmt|;
 block|}
+comment|/**      * Get the PskStore to use for pre-shared key.      */
+DECL|method|getPskStore ()
+specifier|public
+name|PskStore
+name|getPskStore
+parameter_list|()
+block|{
+return|return
+name|pskStore
+return|;
+block|}
+comment|/**      * Set the PskStore to use for pre-shared key.      */
+DECL|method|setPskStore (PskStore pskStore)
+specifier|public
+name|void
+name|setPskStore
+parameter_list|(
+name|PskStore
+name|pskStore
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pskStore
+operator|=
+name|pskStore
+expr_stmt|;
+block|}
 comment|/**      * Get the configured private key for use with Raw Public Key.      */
 DECL|method|getPrivateKey ()
 specifier|public
@@ -1261,6 +1314,10 @@ name|getTruststore
 argument_list|()
 operator|==
 literal|null
+operator|&&
+name|pskStore
+operator|==
+literal|null
 condition|)
 block|{
 throw|throw
@@ -1287,6 +1344,10 @@ literal|null
 operator|&&
 name|getKeystore
 argument_list|()
+operator|==
+literal|null
+operator|&&
+name|pskStore
 operator|==
 literal|null
 condition|)
@@ -1324,6 +1385,10 @@ name|privateKey
 operator|==
 literal|null
 operator|&&
+name|pskStore
+operator|==
+literal|null
+operator|&&
 name|getAlias
 argument_list|()
 operator|==
@@ -1341,6 +1406,10 @@ block|}
 if|if
 condition|(
 name|privateKey
+operator|==
+literal|null
+operator|&&
+name|pskStore
 operator|==
 literal|null
 operator|&&
@@ -1473,6 +1542,22 @@ argument_list|(
 name|privateKey
 argument_list|,
 name|publicKey
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|pskStore
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|setPskStore
+argument_list|(
+name|pskStore
 argument_list|)
 expr_stmt|;
 block|}
