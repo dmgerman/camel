@@ -224,18 +224,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|testcontainers
-operator|.
-name|containers
-operator|.
-name|PulsarContainer
-import|;
-end_import
-
 begin_class
 DECL|class|PulsarProducerInTest
 specifier|public
