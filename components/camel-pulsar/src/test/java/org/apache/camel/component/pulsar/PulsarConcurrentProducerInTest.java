@@ -267,7 +267,7 @@ name|TOPIC_URI
 operator|+
 literal|"?numberOfConsumers=3&subscriptionType=Shared"
 operator|+
-literal|"&subscriptionName=camel-subscription&consumerQueueSize=1"
+literal|"&subscriptionName=camel-subscription&consumerQueueSize=5"
 operator|+
 literal|"&consumerNamePrefix=camel-consumer"
 operator|+
