@@ -64,7 +64,9 @@ name|camel
 operator|.
 name|language
 operator|.
-name|Constant
+name|bean
+operator|.
+name|Bean
 import|;
 end_import
 
@@ -78,14 +80,14 @@ name|camel
 operator|.
 name|language
 operator|.
-name|bean
+name|simple
 operator|.
-name|Bean
+name|Simple
 import|;
 end_import
 
 begin_comment
-comment|/**  * Consumer using bean binding with an injected expressions such as: @Bean, @Constant etc.  */
+comment|/**  * Consumer using bean binding with an injected expressions such as: @Bean, @Simple etc.  */
 end_comment
 
 begin_class
@@ -148,7 +150,7 @@ name|uri
 operator|=
 literal|"direct:startConstantExpression"
 argument_list|)
-DECL|method|doSomethingConstantExpression (String payload, @Constant(R) int count)
+DECL|method|doSomethingConstantExpression (String payload, @Simple(R) int count)
 specifier|public
 name|void
 name|doSomethingConstantExpression
@@ -157,7 +159,7 @@ name|String
 name|payload
 parameter_list|,
 annotation|@
-name|Constant
+name|Simple
 argument_list|(
 literal|"5"
 argument_list|)
@@ -228,7 +230,7 @@ name|uri
 operator|=
 literal|"direct:startMany"
 argument_list|)
-DECL|method|doSomethingManyExpression (String payload, @Constant(R) int count, @Header(R) int number)
+DECL|method|doSomethingManyExpression (String payload, @Simple(R) int count, @Header(R) int number)
 specifier|public
 name|void
 name|doSomethingManyExpression
@@ -237,7 +239,7 @@ name|String
 name|payload
 parameter_list|,
 annotation|@
-name|Constant
+name|Simple
 argument_list|(
 literal|"5"
 argument_list|)
