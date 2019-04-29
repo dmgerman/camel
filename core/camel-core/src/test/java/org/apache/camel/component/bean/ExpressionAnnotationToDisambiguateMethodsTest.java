@@ -76,6 +76,8 @@ name|camel
 operator|.
 name|language
 operator|.
+name|simple
+operator|.
 name|Simple
 import|;
 end_import
