@@ -341,10 +341,8 @@ argument_list|)
 expr_stmt|;
 name|Assert
 operator|.
-name|assertEquals
+name|assertNull
 argument_list|(
-literal|null
-argument_list|,
 name|actual
 argument_list|)
 expr_stmt|;
@@ -462,7 +460,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jooq://org.apache.camel.component.jooq.db.tables.records.BookStoreRecord/fetch?query=select * from book_store x where x.name = 'test'"
+literal|"jooq://org.apache.camel.component.jooq.db.tables.records.BookStoreRecord?operation=fetch&query=select * from book_store x where x.name = 'test'"
 argument_list|)
 expr_stmt|;
 comment|// Producer SQL query delete
@@ -473,7 +471,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jooq://org.apache.camel.component.jooq.db.tables.records.BookStoreRecord/execute?query=delete from book_store x where x.name = 'test'"
+literal|"jooq://org.apache.camel.component.jooq.db.tables.records.BookStoreRecord?operation=execute&query=delete from book_store x where x.name = 'test'"
 argument_list|)
 expr_stmt|;
 comment|// Consumer SQL query

@@ -178,7 +178,7 @@ literal|"jooq"
 argument_list|,
 name|syntax
 operator|=
-literal|"jooq:entityType/operation"
+literal|"jooq:entityType"
 argument_list|,
 name|title
 operator|=

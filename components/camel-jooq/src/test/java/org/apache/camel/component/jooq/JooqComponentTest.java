@@ -147,7 +147,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"jooq://org.apache.camel.component.jooq.db.tables.records.BookStoreRecord/execute"
+literal|"jooq://org.apache.camel.component.jooq.db.tables.records.BookStoreRecord?operation=execute"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -190,7 +190,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"jooq://org.apache.camel.component.jooq.db.tables.records.BookStoreRecord/fetch"
+literal|"jooq://org.apache.camel.component.jooq.db.tables.records.BookStoreRecord?operation=fetch"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -259,7 +259,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"jooq://org.apache.camel.component.jooq.db.tables.records.BookStoreRecord/unexpectedOperation"
+literal|"jooq://org.apache.camel.component.jooq.db.tables.records.BookStoreRecord?operation=unexpectedOperation"
 argument_list|)
 expr_stmt|;
 block|}
