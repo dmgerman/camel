@@ -399,6 +399,16 @@ name|names
 operator|.
 name|contains
 argument_list|(
+literal|"bean"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|names
+operator|.
+name|contains
+argument_list|(
 literal|"simple"
 argument_list|)
 argument_list|)
