@@ -3886,7 +3886,7 @@ name|result
 operator|=
 name|catalog
 operator|.
-name|validateLanguagePredicate
+name|validateLanguageExpression
 argument_list|(
 literal|null
 argument_list|,
