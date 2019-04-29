@@ -672,7 +672,7 @@ argument_list|)
 decl_stmt|;
 name|config
 operator|.
-name|setSigner
+name|addSigner
 argument_list|(
 name|signerInfo
 argument_list|)

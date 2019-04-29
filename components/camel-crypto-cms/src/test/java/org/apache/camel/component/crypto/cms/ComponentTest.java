@@ -710,7 +710,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"crypto-cms:sign://testsign?signer=#signer1&signer=#signer2&includeContent=true"
+literal|"crypto-cms:sign://testsign?signer=#signer1,#signer2&includeContent=true"
 argument_list|)
 operator|.
 name|to

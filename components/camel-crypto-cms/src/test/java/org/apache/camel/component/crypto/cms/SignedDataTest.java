@@ -1069,7 +1069,7 @@ control|)
 block|{
 name|config
 operator|.
-name|setSigner
+name|addSigner
 argument_list|(
 name|signer
 argument_list|)
@@ -2381,7 +2381,7 @@ argument_list|)
 decl_stmt|;
 name|config
 operator|.
-name|setSigner
+name|addSigner
 argument_list|(
 name|signerInfo
 argument_list|)
