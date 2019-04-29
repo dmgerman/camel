@@ -1545,7 +1545,6 @@ name|publicKey
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
 if|if
 condition|(
 name|pskStore
