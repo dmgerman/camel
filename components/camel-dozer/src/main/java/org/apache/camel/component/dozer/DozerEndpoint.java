@@ -409,18 +409,6 @@ literal|"Consumer not supported for Dozer endpoints"
 argument_list|)
 throw|;
 block|}
-annotation|@
-name|Override
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|method|getMapper ()
 specifier|public
 name|Mapper

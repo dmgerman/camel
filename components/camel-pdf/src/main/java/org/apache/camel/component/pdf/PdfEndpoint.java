@@ -224,18 +224,6 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-annotation|@
-name|Override
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|method|getPdfConfiguration ()
 specifier|public
 name|PdfConfiguration

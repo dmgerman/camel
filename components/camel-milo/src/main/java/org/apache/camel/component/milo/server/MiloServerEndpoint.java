@@ -385,18 +385,6 @@ name|item
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * ID of the item      *      * @param itemId the new ID of the item      */
 DECL|method|setItemId (final String itemId)
 specifier|public

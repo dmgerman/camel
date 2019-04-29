@@ -719,16 +719,6 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * creates an exchange for the given message      *      * @param pdu the pdu      * @return an exchange      */
 DECL|method|createExchange (PDU pdu)
 specifier|public

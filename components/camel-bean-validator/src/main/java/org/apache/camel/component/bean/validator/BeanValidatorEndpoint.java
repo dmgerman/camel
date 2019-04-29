@@ -431,18 +431,6 @@ literal|"Consumer is not supported"
 argument_list|)
 throw|;
 block|}
-annotation|@
-name|Override
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * Recognizes if component is executed in the OSGi environment.      *      * @return true if component is executed in the OSGi environment. False otherwise.      */
 DECL|method|isOsgiContext ()
 specifier|protected

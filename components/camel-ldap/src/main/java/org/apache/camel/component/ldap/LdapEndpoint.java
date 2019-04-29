@@ -381,16 +381,6 @@ name|returnedAttributes
 argument_list|)
 return|;
 block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|method|getDirContextName ()
 specifier|public
 name|String

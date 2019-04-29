@@ -425,16 +425,6 @@ literal|"Cannot consume from this component"
 argument_list|)
 throw|;
 block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|method|getLanguage ()
 specifier|public
 name|String

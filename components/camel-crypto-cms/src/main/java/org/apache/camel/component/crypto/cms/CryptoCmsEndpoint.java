@@ -449,18 +449,6 @@ literal|"Crypto CMS endpoints are not meant to be consumed from. They are meant 
 argument_list|)
 throw|;
 block|}
-annotation|@
-name|Override
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|method|getManagedObject (CryptoCmsEndpoint endpoint)
 specifier|public
 name|Object

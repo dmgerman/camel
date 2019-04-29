@@ -2100,16 +2100,6 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * Populate server factory bean      */
 DECL|method|setupServerFactoryBean (ServerFactoryBean sfb, Class<?> cls)
 specifier|protected

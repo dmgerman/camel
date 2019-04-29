@@ -64,9 +64,7 @@ name|camel
 operator|.
 name|language
 operator|.
-name|bean
-operator|.
-name|Bean
+name|Constant
 import|;
 end_import
 
@@ -80,7 +78,9 @@ name|camel
 operator|.
 name|language
 operator|.
-name|Constant
+name|bean
+operator|.
+name|Bean
 import|;
 end_import
 

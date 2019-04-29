@@ -279,16 +279,6 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|method|doShutdown ()
 specifier|protected
 name|void

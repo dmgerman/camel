@@ -491,18 +491,6 @@ literal|"Spark component supports producer endpoints only."
 argument_list|)
 throw|;
 block|}
-annotation|@
-name|Override
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|// Setters& getters
 annotation|@
 name|Override

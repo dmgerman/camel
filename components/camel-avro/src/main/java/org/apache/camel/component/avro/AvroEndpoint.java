@@ -314,18 +314,6 @@ return|return
 name|exchange
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * Creates a new<a      * href="http://camel.apache.org/event-driven-consumer.html">Event      * Driven Consumer</a> which consumes messages from the endpoint using the      * given processor      *      * @param processor the given processor      * @return a newly created consumer      * @throws Exception can be thrown      */
 annotation|@
 name|Override

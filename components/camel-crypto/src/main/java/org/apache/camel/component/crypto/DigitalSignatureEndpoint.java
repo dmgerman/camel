@@ -328,16 +328,6 @@ literal|"Digital Signatures endpoints are not meant to be consumed from. They ar
 argument_list|)
 throw|;
 block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * Sets the configuration to use      */
 DECL|method|setConfiguration (DigitalSignatureConfiguration configuration)
 specifier|public

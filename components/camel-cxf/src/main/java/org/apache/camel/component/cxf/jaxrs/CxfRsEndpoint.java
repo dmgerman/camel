@@ -1270,16 +1270,6 @@ name|cxfRsProducer
 return|;
 block|}
 block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * To use a custom CxfBinding to control the binding between Camel Message and CXF Message.      */
 DECL|method|setBinding (CxfRsBinding binding)
 specifier|public

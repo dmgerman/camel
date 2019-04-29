@@ -347,16 +347,6 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|method|getCommand ()
 specifier|public
 name|HazelcastCommand

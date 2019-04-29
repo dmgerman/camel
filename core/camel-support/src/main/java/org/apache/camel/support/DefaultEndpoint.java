@@ -1264,6 +1264,21 @@ operator|=
 name|endpointUri
 expr_stmt|;
 block|}
+comment|/**      * An endpoint should favour to be singleton by default, only in some rare special cases      * can an endpoint be non-singleton. This implementation is singleton and this method returns true.      */
+annotation|@
+name|Override
+DECL|method|isSingleton ()
+specifier|public
+name|boolean
+name|isSingleton
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|isLenientProperties ()
 specifier|public
 name|boolean

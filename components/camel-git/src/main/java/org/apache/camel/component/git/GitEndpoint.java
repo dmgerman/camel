@@ -481,18 +481,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * The remote repository path      */
 DECL|method|getRemotePath ()
 specifier|public

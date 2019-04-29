@@ -400,18 +400,6 @@ literal|"XML Signature endpoints are not meant to be consumed from."
 argument_list|)
 throw|;
 block|}
-annotation|@
-name|Override
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|method|getManagedObject (XmlSignatureEndpoint endpoint)
 specifier|public
 name|Object

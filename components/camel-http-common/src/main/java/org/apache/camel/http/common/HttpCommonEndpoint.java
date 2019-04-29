@@ -1108,16 +1108,6 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|// Service Registration
 comment|//-------------------------------------------------------------------------
 annotation|@

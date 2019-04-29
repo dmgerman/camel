@@ -435,18 +435,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void

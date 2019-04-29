@@ -1491,16 +1491,6 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
 specifier|abstract

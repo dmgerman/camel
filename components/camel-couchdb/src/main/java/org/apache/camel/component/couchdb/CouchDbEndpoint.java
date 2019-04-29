@@ -628,18 +628,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|method|createExchange (String seq, String id, JsonObject obj, boolean deleted)
 specifier|public
 name|Exchange

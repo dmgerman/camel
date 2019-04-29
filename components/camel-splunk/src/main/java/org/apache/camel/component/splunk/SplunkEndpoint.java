@@ -417,16 +417,6 @@ literal|". A consumer type was not provided (or an incorrect pairing was used)."
 argument_list|)
 throw|;
 block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|doStop ()
