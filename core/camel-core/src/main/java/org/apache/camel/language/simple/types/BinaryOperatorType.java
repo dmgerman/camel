@@ -37,8 +37,7 @@ DECL|enumConstant|GTE
 DECL|enumConstant|LT
 DECL|enumConstant|LTE
 DECL|enumConstant|NOT_EQ
-DECL|enumConstant|CONTAINS
-DECL|enumConstant|NOT_CONTAINS
+DECL|enumConstant|NOT_EQ_IGNORE
 name|EQ
 block|,
 name|EQ_IGNORE
@@ -53,19 +52,22 @@ name|LTE
 block|,
 name|NOT_EQ
 block|,
+name|NOT_EQ_IGNORE
+block|,
+DECL|enumConstant|CONTAINS
+DECL|enumConstant|NOT_CONTAINS
+DECL|enumConstant|CONTAINS_IGNORECASE
+DECL|enumConstant|NOT_CONTAINS_IGNORECASE
 name|CONTAINS
 block|,
 name|NOT_CONTAINS
 block|,
-DECL|enumConstant|CONTAINS_IGNORECASE
-DECL|enumConstant|REGEX
-DECL|enumConstant|NOT_REGEX
 name|CONTAINS_IGNORECASE
 block|,
-name|REGEX
+name|NOT_CONTAINS_IGNORECASE
 block|,
-name|NOT_REGEX
-block|,
+DECL|enumConstant|REGEX
+DECL|enumConstant|NOT_REGEX
 DECL|enumConstant|IN
 DECL|enumConstant|NOT_IN
 DECL|enumConstant|IS
@@ -74,6 +76,10 @@ DECL|enumConstant|RANGE
 DECL|enumConstant|NOT_RANGE
 DECL|enumConstant|STARTS_WITH
 DECL|enumConstant|ENDS_WITH
+name|REGEX
+block|,
+name|NOT_REGEX
+block|,
 name|IN
 block|,
 name|NOT_IN
@@ -207,6 +213,21 @@ block|}
 elseif|else
 if|if
 condition|(
+literal|"!=~"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+return|return
+name|NOT_EQ_IGNORE
+return|;
+block|}
+elseif|else
+if|if
+condition|(
 literal|"contains"
 operator|.
 name|equals
@@ -222,6 +243,13 @@ block|}
 elseif|else
 if|if
 condition|(
+literal|"!contains"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+operator|||
 literal|"not contains"
 operator|.
 name|equals
@@ -252,6 +280,21 @@ block|}
 elseif|else
 if|if
 condition|(
+literal|"!~~"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+return|return
+name|NOT_CONTAINS_IGNORECASE
+return|;
+block|}
+elseif|else
+if|if
+condition|(
 literal|"regex"
 operator|.
 name|equals
@@ -267,6 +310,13 @@ block|}
 elseif|else
 if|if
 condition|(
+literal|"!regex"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+operator|||
 literal|"not regex"
 operator|.
 name|equals
@@ -297,6 +347,13 @@ block|}
 elseif|else
 if|if
 condition|(
+literal|"!in"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+operator|||
 literal|"not in"
 operator|.
 name|equals
@@ -327,6 +384,13 @@ block|}
 elseif|else
 if|if
 condition|(
+literal|"!is"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+operator|||
 literal|"not is"
 operator|.
 name|equals
@@ -357,6 +421,13 @@ block|}
 elseif|else
 if|if
 condition|(
+literal|"!range"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+operator|||
 literal|"not range"
 operator|.
 name|equals
@@ -372,6 +443,13 @@ block|}
 elseif|else
 if|if
 condition|(
+literal|"startsWith"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+operator|||
 literal|"starts with"
 operator|.
 name|equals
@@ -387,6 +465,13 @@ block|}
 elseif|else
 if|if
 condition|(
+literal|"endsWith"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+operator|||
 literal|"ends with"
 operator|.
 name|equals
@@ -507,6 +592,18 @@ if|if
 condition|(
 name|operator
 operator|==
+name|NOT_EQ_IGNORE
+condition|)
+block|{
+return|return
+literal|"!=~"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|operator
+operator|==
 name|CONTAINS
 condition|)
 block|{
@@ -523,7 +620,7 @@ name|NOT_CONTAINS
 condition|)
 block|{
 return|return
-literal|"not contains"
+literal|"!contains"
 return|;
 block|}
 elseif|else
@@ -536,6 +633,18 @@ condition|)
 block|{
 return|return
 literal|"~~"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|operator
+operator|==
+name|NOT_CONTAINS_IGNORECASE
+condition|)
+block|{
+return|return
+literal|"!~~"
 return|;
 block|}
 elseif|else
@@ -559,7 +668,7 @@ name|NOT_REGEX
 condition|)
 block|{
 return|return
-literal|"not regex"
+literal|"!regex"
 return|;
 block|}
 elseif|else
@@ -583,7 +692,7 @@ name|NOT_IN
 condition|)
 block|{
 return|return
-literal|"not in"
+literal|"!in"
 return|;
 block|}
 elseif|else
@@ -607,7 +716,7 @@ name|NOT_IS
 condition|)
 block|{
 return|return
-literal|"not is"
+literal|"!is"
 return|;
 block|}
 elseif|else
@@ -631,7 +740,7 @@ name|NOT_RANGE
 condition|)
 block|{
 return|return
-literal|"not range"
+literal|"!range"
 return|;
 block|}
 elseif|else
@@ -643,7 +752,7 @@ name|STARTS_WITH
 condition|)
 block|{
 return|return
-literal|"starts with"
+literal|"startsWith"
 return|;
 block|}
 elseif|else
@@ -655,7 +764,7 @@ name|ENDS_WITH
 condition|)
 block|{
 return|return
-literal|"ends with"
+literal|"endsWith"
 return|;
 block|}
 return|return
@@ -874,6 +983,18 @@ if|if
 condition|(
 name|operator
 operator|==
+name|NOT_EQ_IGNORE
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|operator
+operator|==
 name|CONTAINS
 condition|)
 block|{
@@ -899,6 +1020,18 @@ condition|(
 name|operator
 operator|==
 name|CONTAINS_IGNORECASE
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|operator
+operator|==
+name|NOT_CONTAINS_IGNORECASE
 condition|)
 block|{
 return|return

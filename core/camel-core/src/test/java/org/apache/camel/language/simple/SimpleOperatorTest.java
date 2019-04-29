@@ -950,6 +950,89 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+DECL|method|testNotEqualIgnoreOperator ()
+specifier|public
+name|void
+name|testNotEqualIgnoreOperator
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// string to string comparison
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !=~ 'abc'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !=~ 'ABC'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !=~ 'Abc'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !=~ 'Def'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !=~ '1'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// integer to string comparison
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar} !=~ '123'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar} !=~ 123"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar} !=~ '444'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar} !=~ 444"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar} !=~ '1'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
 DECL|method|testFloatingNumber ()
 specifier|public
 name|void
@@ -1545,7 +1628,7 @@ argument_list|)
 expr_stmt|;
 name|assertPredicate
 argument_list|(
-literal|"${in.header.strNum} not contains '123'"
+literal|"${in.header.strNum} !contains '123'"
 argument_list|,
 literal|false
 argument_list|)
@@ -1559,7 +1642,7 @@ argument_list|)
 expr_stmt|;
 name|assertPredicate
 argument_list|(
-literal|"${in.header.strNum} not contains '-123'"
+literal|"${in.header.strNum} !contains '-123'"
 argument_list|,
 literal|true
 argument_list|)
@@ -1696,7 +1779,7 @@ argument_list|)
 expr_stmt|;
 name|assertPredicate
 argument_list|(
-literal|"${in.header.strNumNegative} not contains '123'"
+literal|"${in.header.strNumNegative} !contains '123'"
 argument_list|,
 literal|false
 argument_list|)
@@ -1710,7 +1793,7 @@ argument_list|)
 expr_stmt|;
 name|assertPredicate
 argument_list|(
-literal|"${in.header.strNumNegative} not contains '-123'"
+literal|"${in.header.strNumNegative} !contains '-123'"
 argument_list|,
 literal|false
 argument_list|)
@@ -1985,6 +2068,34 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !contains 'a'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !contains 'ab'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !contains 'abc'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !contains 'def'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -2022,6 +2133,45 @@ argument_list|(
 literal|"${in.header.foo} ~~ 'defG'"
 argument_list|,
 literal|false
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testNotContainsIgnoreCase ()
+specifier|public
+name|void
+name|testNotContainsIgnoreCase
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !~~ 'A'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !~~ 'Ab'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !~~ 'Abc'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !~~ 'defG'"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -2232,6 +2382,34 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !in 'foo,abc,def'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !in ${bean:generator.generateFilename}"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !in 'foo,abc,def'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !in 'foo,def'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// integer to string
 name|assertPredicate
 argument_list|(
@@ -2250,6 +2428,27 @@ expr_stmt|;
 name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} not in '100,200'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar} !in '100,123,200'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar} !in ${bean:generator.generateId}"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar} !in '100,200'"
 argument_list|,
 literal|true
 argument_list|)
@@ -2352,6 +2551,20 @@ argument_list|)
 expr_stmt|;
 name|assertPredicate
 argument_list|(
+literal|"${in.header.foo} !is 'java.lang.String'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !is 'java.lang.Integer'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
 literal|"${in.header.foo} not is 'String'"
 argument_list|,
 literal|false
@@ -2360,6 +2573,20 @@ expr_stmt|;
 name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not is 'Integer'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !is 'String'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !is 'Integer'"
 argument_list|,
 literal|true
 argument_list|)
@@ -2388,6 +2615,38 @@ block|{
 name|assertEquals
 argument_list|(
 literal|24
+argument_list|,
+name|e
+operator|.
+name|getIndex
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !is com.mycompany.DoesNotExist"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SimpleIllegalSyntaxException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|21
 argument_list|,
 name|e
 operator|.
@@ -2607,6 +2866,20 @@ argument_list|)
 expr_stmt|;
 name|assertPredicate
 argument_list|(
+literal|"${in.header.bar} !range '100..200'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar} !range '200..300'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
 literal|"${in.header.foo} not range '200..300'"
 argument_list|,
 literal|true
@@ -2640,6 +2913,41 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !range '200..300'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${bean:generator.generateId} !range '123..130'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${bean:generator.generateId} !range '120..123'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${bean:generator.generateId} !range '120..122'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${bean:generator.generateId} !range '124..130'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|assertPredicate
@@ -2664,6 +2972,38 @@ block|{
 name|assertEquals
 argument_list|(
 literal|27
+argument_list|,
+name|e
+operator|.
+name|getIndex
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !range abc..200"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SimpleIllegalSyntaxException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|24
 argument_list|,
 name|e
 operator|.
@@ -2708,6 +3048,38 @@ try|try
 block|{
 name|assertPredicate
 argument_list|(
+literal|"${in.header.foo} !range abc.."
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SimpleIllegalSyntaxException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|24
+argument_list|,
+name|e
+operator|.
+name|getIndex
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|assertPredicate
+argument_list|(
 literal|"${in.header.foo} not range 100.200"
 argument_list|,
 literal|false
@@ -2728,6 +3100,38 @@ block|{
 name|assertEquals
 argument_list|(
 literal|34
+argument_list|,
+name|e
+operator|.
+name|getIndex
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} !range 100.200"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SimpleIllegalSyntaxException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|31
 argument_list|,
 name|e
 operator|.
@@ -2947,6 +3351,48 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.body} startsWith 'Hello'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.body} startsWith 'H'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.body} startsWith 'Hello there'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.body} startsWith 'Hello ther'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.body} startsWith 'ello there'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.body} startsWith 'Hi'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -3006,6 +3452,48 @@ expr_stmt|;
 name|assertPredicate
 argument_list|(
 literal|"${in.body} ends with 'Hi'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.body} endsWith 'there'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.body} endsWith 're'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.body} endsWith ' there'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.body} endsWith 'Hello there'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.body} endsWith 'Hello ther'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.body} endsWith 'Hi'"
 argument_list|,
 literal|false
 argument_list|)
