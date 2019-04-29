@@ -104,8 +104,6 @@ decl_stmt|;
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"direct:startBeanExpression"
 argument_list|)
 DECL|method|doSomethingBeanExpression (String payload, @Bean(ref = R) int count)
@@ -146,8 +144,6 @@ block|}
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"direct:startConstantExpression"
 argument_list|)
 DECL|method|doSomethingConstantExpression (String payload, @Simple(R) int count)
@@ -186,8 +182,6 @@ block|}
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"direct:startHeaderExpression"
 argument_list|)
 DECL|method|doSomethingHeaderExpression (String payload, @Header(R) int count)
@@ -226,8 +220,6 @@ block|}
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"direct:startMany"
 argument_list|)
 DECL|method|doSomethingManyExpression (String payload, @Simple(R) int count, @Header(R) int number)
