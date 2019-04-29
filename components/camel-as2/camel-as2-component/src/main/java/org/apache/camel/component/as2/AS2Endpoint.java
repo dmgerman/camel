@@ -464,7 +464,7 @@ literal|"AS2"
 argument_list|,
 name|syntax
 operator|=
-literal|"as2:apiName"
+literal|"as2:apiName/methodName"
 argument_list|,
 name|label
 operator|=

@@ -232,6 +232,10 @@ argument_list|(
 name|required
 operator|=
 literal|true
+argument_list|,
+name|enums
+operator|=
+literal|"client,server"
 argument_list|)
 DECL|field|apiName
 specifier|private
@@ -239,7 +243,7 @@ name|AS2ApiName
 name|apiName
 decl_stmt|;
 annotation|@
-name|UriParam
+name|UriPath
 annotation|@
 name|Metadata
 argument_list|(
