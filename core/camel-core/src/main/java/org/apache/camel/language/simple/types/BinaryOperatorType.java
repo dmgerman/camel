@@ -96,6 +96,7 @@ name|STARTS_WITH
 block|,
 name|ENDS_WITH
 block|;
+comment|//CHECKSTYLE:OFF
 DECL|method|asOperator (String text)
 specifier|public
 specifier|static
@@ -1228,6 +1229,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|//CHECKSTYLE:ON
 annotation|@
 name|Override
 DECL|method|toString ()
