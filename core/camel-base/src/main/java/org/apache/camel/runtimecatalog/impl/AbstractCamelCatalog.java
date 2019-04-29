@@ -4425,6 +4425,13 @@ argument_list|,
 name|key
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|prefix
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// extra all the multi valued options
 name|Map
 argument_list|<
@@ -4516,6 +4523,7 @@ literal|"&"
 operator|+
 name|csb
 expr_stmt|;
+block|}
 block|}
 block|}
 name|answer
