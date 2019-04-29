@@ -698,7 +698,7 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**      * The KeyStoreParameters object to use with TLS to configure the keystore. Alternatively, a "keystore"       * parameter can be directly configured instead. An alias and password should also be configured on the route definition.      */
+comment|/**      * The KeyStoreParameters object to use with TLS to configure the keystore. Alternatively, a "keystore"      * parameter can be directly configured instead. An alias and password should also be configured on the route definition.      */
 DECL|method|getKeyStoreParameters ()
 specifier|public
 name|KeyStoreParameters
@@ -746,7 +746,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * The KeyStoreParameters object to use with TLS to configure the truststore. Alternatively, a "truststore"       * object can be directly configured instead. All certificates in the truststore are used to establish trust.      */
+comment|/**      * The KeyStoreParameters object to use with TLS to configure the truststore. Alternatively, a "truststore"      * object can be directly configured instead. All certificates in the truststore are used to establish trust.      */
 DECL|method|getTrustStoreParameters ()
 specifier|public
 name|KeyStoreParameters
@@ -1087,7 +1087,7 @@ return|return
 name|clientAuthentication
 return|;
 block|}
-comment|/**      * Sets the configuration options for server-side client-authentication requirements.      * The value must be one of NONE, WANT, REQUIRE.      *       * @param value the desired configuration options or {@code null} to use the defaults      */
+comment|/**      * Sets the configuration options for server-side client-authentication requirements.      * The value must be one of NONE, WANT, REQUIRE.      *      * @param value the desired configuration options or {@code null} to use the defaults      */
 DECL|method|setClientAuthentication (String clientAuthentication)
 specifier|public
 name|void
