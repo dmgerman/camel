@@ -889,7 +889,7 @@ operator|.
 name|MEMBER
 argument_list|)
 decl_stmt|;
-comment|// using String message body for single parameter "groupMemebershipId"
+comment|// using String message body for single parameter "groupMembershipId"
 specifier|final
 name|com
 operator|.
@@ -1214,7 +1214,7 @@ literal|"box://"
 operator|+
 name|PATH_PREFIX
 operator|+
-literal|"/getGroupMembershipInfo?inBody=groupMemebershipId"
+literal|"/getGroupMembershipInfo?inBody=groupMembershipId"
 argument_list|)
 expr_stmt|;
 comment|// test route for getGroupMemberships

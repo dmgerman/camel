@@ -919,7 +919,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Parameter 'groupMemebershipId' can not be null"
+literal|"Parameter 'groupMembershipId' can not be null"
 argument_list|)
 throw|;
 block|}
@@ -972,8 +972,8 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Get group membership information.      *       * @param groupMemebershipId      *            - the id of group membership.      * @return The group information.      */
-DECL|method|getGroupMembershipInfo (String groupMemebershipId)
+comment|/**      * Get group membership information.      *       * @param groupMembershipId      *            - the id of group membership.      * @return The group information.      */
+DECL|method|getGroupMembershipInfo (String groupMembershipId)
 specifier|public
 name|BoxGroupMembership
 operator|.
@@ -981,7 +981,7 @@ name|Info
 name|getGroupMembershipInfo
 parameter_list|(
 name|String
-name|groupMemebershipId
+name|groupMembershipId
 parameter_list|)
 block|{
 try|try
@@ -992,12 +992,12 @@ name|debug
 argument_list|(
 literal|"Getting info for groupMemebership(id={})"
 argument_list|,
-name|groupMemebershipId
+name|groupMembershipId
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|groupMemebershipId
+name|groupMembershipId
 operator|==
 literal|null
 condition|)
@@ -1006,7 +1006,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Parameter 'groupMemebershipId' can not be null"
+literal|"Parameter 'groupMembershipId' can not be null"
 argument_list|)
 throw|;
 block|}
@@ -1018,7 +1018,7 @@ name|BoxGroupMembership
 argument_list|(
 name|boxConnection
 argument_list|,
-name|groupMemebershipId
+name|groupMembershipId
 argument_list|)
 decl_stmt|;
 return|return
