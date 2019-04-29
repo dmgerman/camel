@@ -913,6 +913,17 @@ argument_list|(
 name|exceptionType
 argument_list|)
 expr_stmt|;
+name|getExceptions
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|exceptionType
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|this
 return|;
