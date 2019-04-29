@@ -394,7 +394,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"seda:rescue?multipleConsumers=true"
+literal|"stub:rescue"
 argument_list|)
 operator|.
 name|routeId

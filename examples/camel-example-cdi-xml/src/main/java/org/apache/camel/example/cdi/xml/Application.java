@@ -239,7 +239,7 @@ literal|"location"
 argument_list|,
 name|simple
 argument_list|(
-literal|"exchangeProperty.CamelFailureRouteId"
+literal|"${exchangeProperty.CamelFailureRouteId}"
 argument_list|)
 argument_list|)
 decl_stmt|;
