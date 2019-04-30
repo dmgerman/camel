@@ -38,10 +38,6 @@ begin_comment
 comment|/**  * This class defines the routes on the Server. The class extends a base class in Camel {@link RouteBuilder}  * that can be used to easily setup the routes in the configure() method.  */
 end_comment
 
-begin_comment
-comment|// START SNIPPET: e1
-end_comment
-
 begin_class
 DECL|class|ServerRoutes
 specifier|public
@@ -81,10 +77,6 @@ expr_stmt|;
 block|}
 block|}
 end_class
-
-begin_comment
-comment|// END SNIPPET: e1
-end_comment
 
 end_unit
 

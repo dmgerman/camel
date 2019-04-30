@@ -62,26 +62,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|context
@@ -117,20 +97,6 @@ specifier|final
 class|class
 name|CamelClient
 block|{
-DECL|field|log
-specifier|static
-name|Logger
-name|log
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|CamelClient
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|CamelClient ()
 specifier|private
 name|CamelClient
@@ -138,7 +104,6 @@ parameter_list|()
 block|{
 comment|// Helper class
 block|}
-comment|// START SNIPPET: e1
 DECL|method|main (final String[] args)
 specifier|public
 specifier|static
@@ -217,7 +182,6 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-comment|// END SNIPPET: e1
 block|}
 end_class
 

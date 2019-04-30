@@ -96,9 +96,5 @@ block|}
 block|}
 end_class
 
-begin_comment
-comment|// END SNIPPET: e1
-end_comment
-
 end_unit
 
