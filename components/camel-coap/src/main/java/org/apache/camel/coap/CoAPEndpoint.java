@@ -384,7 +384,7 @@ literal|"2.16.0"
 argument_list|,
 name|scheme
 operator|=
-literal|"coap"
+literal|"coap,coaps,coap+tcp,coaps+tcp"
 argument_list|,
 name|title
 operator|=
@@ -1273,6 +1273,28 @@ name|uri
 operator|.
 name|getScheme
 argument_list|()
+argument_list|)
+return|;
+block|}
+DECL|method|enableTCP (URI uri)
+specifier|public
+specifier|static
+name|boolean
+name|enableTCP
+parameter_list|(
+name|URI
+name|uri
+parameter_list|)
+block|{
+return|return
+name|uri
+operator|.
+name|getScheme
+argument_list|()
+operator|.
+name|endsWith
+argument_list|(
+literal|"+tcp"
 argument_list|)
 return|;
 block|}

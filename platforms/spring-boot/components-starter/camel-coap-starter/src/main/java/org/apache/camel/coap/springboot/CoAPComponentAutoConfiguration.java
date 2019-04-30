@@ -543,9 +543,15 @@ name|Lazy
 annotation|@
 name|Bean
 argument_list|(
-name|name
-operator|=
+block|{
 literal|"coap-component"
+block|,
+literal|"coap+tcp-component"
+block|,
+literal|"coaps-component"
+block|,
+literal|"coaps+tcp-component"
+block|}
 argument_list|)
 annotation|@
 name|ConditionalOnMissingBean
