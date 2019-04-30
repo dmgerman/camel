@@ -36,6 +36,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|DefaultConsumerTemplate
 import|;
 end_import
@@ -49,6 +51,8 @@ operator|.
 name|camel
 operator|.
 name|impl
+operator|.
+name|engine
 operator|.
 name|DefaultProducerTemplate
 import|;

@@ -644,7 +644,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|processor
+operator|.
+name|interceptor
 operator|.
 name|BreakpointSupport
 import|;
@@ -686,7 +688,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|processor
+operator|.
+name|interceptor
 operator|.
 name|DefaultDebugger
 import|;
@@ -701,6 +705,8 @@ operator|.
 name|camel
 operator|.
 name|impl
+operator|.
+name|engine
 operator|.
 name|InterceptSendToMockEndpointStrategy
 import|;

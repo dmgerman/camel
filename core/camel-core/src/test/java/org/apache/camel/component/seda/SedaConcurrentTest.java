@@ -150,6 +150,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|DefaultProducerTemplate
 import|;
 end_import

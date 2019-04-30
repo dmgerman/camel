@@ -42,6 +42,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|TypedProcessorFactory
 import|;
 end_import

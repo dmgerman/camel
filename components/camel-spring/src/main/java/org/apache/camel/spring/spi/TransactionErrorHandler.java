@@ -26,18 +26,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|CountDownLatch
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|ScheduledExecutorService
 import|;
 end_import
@@ -136,6 +124,8 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|errorhandler
+operator|.
 name|RedeliveryErrorHandler
 import|;
 end_import
@@ -149,6 +139,8 @@ operator|.
 name|camel
 operator|.
 name|processor
+operator|.
+name|errorhandler
 operator|.
 name|RedeliveryPolicy
 import|;

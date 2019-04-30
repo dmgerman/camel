@@ -206,6 +206,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|DefaultCamelContextNameStrategy
 import|;
 end_import
@@ -219,6 +221,8 @@ operator|.
 name|camel
 operator|.
 name|impl
+operator|.
+name|engine
 operator|.
 name|ExplicitCamelContextNameStrategy
 import|;

@@ -70,6 +70,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|DefaultClassResolver
 import|;
 end_import
@@ -84,6 +86,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|DefaultFactoryFinderResolver
 import|;
 end_import
@@ -97,6 +101,8 @@ operator|.
 name|camel
 operator|.
 name|impl
+operator|.
+name|engine
 operator|.
 name|DefaultPackageScanClassResolver
 import|;

@@ -122,18 +122,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|AggregateDefinition
@@ -1162,7 +1150,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|interceptor
+name|channel
 operator|.
 name|DefaultChannel
 import|;
@@ -3087,17 +3075,9 @@ block|{
 name|ErrorHandlerFactory
 name|builder
 init|=
-operator|(
-operator|(
-name|RouteDefinition
-operator|)
 name|routeContext
 operator|.
-name|getRoute
-argument_list|()
-operator|)
-operator|.
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 argument_list|()
 decl_stmt|;
 comment|// create error handler

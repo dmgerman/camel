@@ -98,6 +98,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|DefaultPackageScanClassResolver
 import|;
 end_import

@@ -120,6 +120,8 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|errorhandler
+operator|.
 name|ErrorHandlerSupport
 import|;
 end_import

@@ -883,21 +883,16 @@ name|trace
 argument_list|(
 literal|"Existing candidate {} takes precedence over{} at level {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|candidates
 operator|.
 name|get
 argument_list|(
 name|candidateDiff
 argument_list|)
-block|,
+argument_list|,
 name|candidate
-block|,
+argument_list|,
 name|candidateDiff
-block|}
 argument_list|)
 expr_stmt|;
 block|}

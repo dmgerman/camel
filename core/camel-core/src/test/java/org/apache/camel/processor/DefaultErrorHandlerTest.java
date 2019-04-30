@@ -128,7 +128,25 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|EventDrivenConsumerRoute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|errorhandler
+operator|.
+name|DefaultErrorHandler
 import|;
 end_import
 

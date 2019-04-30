@@ -178,6 +178,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|EventDrivenConsumerRoute
 import|;
 end_import
@@ -205,6 +207,8 @@ operator|.
 name|camel
 operator|.
 name|processor
+operator|.
+name|errorhandler
 operator|.
 name|DeadLetterChannel
 import|;

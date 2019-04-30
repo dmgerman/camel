@@ -110,6 +110,8 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|errorhandler
+operator|.
 name|DefaultErrorHandler
 import|;
 end_import
@@ -123,6 +125,8 @@ operator|.
 name|camel
 operator|.
 name|processor
+operator|.
+name|errorhandler
 operator|.
 name|RedeliveryPolicy
 import|;
@@ -1052,7 +1056,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Will allow asynchronous delayed redeliveries. The route, in particular the consumer's component,      * must support the Asynchronous Routing Engine (e.g. seda)      *      * @see org.apache.camel.processor.RedeliveryPolicy#setAsyncDelayedRedelivery(boolean)      * @return the builder      */
+comment|/**      * Will allow asynchronous delayed redeliveries. The route, in particular the consumer's component,      * must support the Asynchronous Routing Engine (e.g. seda)      *      * @see RedeliveryPolicy#setAsyncDelayedRedelivery(boolean)      * @return the builder      */
 DECL|method|asyncDelayedRedelivery ()
 specifier|public
 name|DefaultErrorHandlerBuilder

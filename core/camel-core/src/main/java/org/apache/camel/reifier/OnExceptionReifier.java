@@ -373,20 +373,12 @@ comment|// lookup the error handler builder
 name|ErrorHandlerBuilder
 name|builder
 init|=
-call|(
-name|ErrorHandlerBuilder
-call|)
-argument_list|(
 operator|(
-name|RouteDefinition
+name|ErrorHandlerBuilder
 operator|)
 name|routeContext
 operator|.
-name|getRoute
-argument_list|()
-argument_list|)
-operator|.
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 argument_list|()
 decl_stmt|;
 comment|// and add this as error handlers

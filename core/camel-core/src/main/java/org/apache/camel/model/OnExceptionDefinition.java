@@ -246,6 +246,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|errorhandler
+operator|.
+name|RedeliveryPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|AsPredicate
@@ -1310,7 +1326,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Allow synchronous delayed redelivery.      *      * @see org.apache.camel.processor.RedeliveryPolicy#setAsyncDelayedRedelivery(boolean)      * @return the builder      */
+comment|/**      * Allow synchronous delayed redelivery.      *      * @see RedeliveryPolicy#setAsyncDelayedRedelivery(boolean)      * @return the builder      */
 DECL|method|asyncDelayedRedelivery ()
 specifier|public
 name|OnExceptionDefinition
@@ -1889,7 +1905,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a reference to a {@link org.apache.camel.processor.RedeliveryPolicy} to lookup in the {@link org.apache.camel.spi.Registry} to be used.      *      * @param redeliveryPolicyRef reference to use for lookup      * @return the builder      */
+comment|/**      * Sets a reference to a {@link RedeliveryPolicy} to lookup in the {@link org.apache.camel.spi.Registry} to be used.      *      * @param redeliveryPolicyRef reference to use for lookup      * @return the builder      */
 DECL|method|redeliveryPolicyRef (String redeliveryPolicyRef)
 specifier|public
 name|OnExceptionDefinition

@@ -68,6 +68,8 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|errorhandler
+operator|.
 name|RedeliveryPolicy
 import|;
 end_import

@@ -84,6 +84,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|DefaultCamelContextNameStrategy
 import|;
 end_import

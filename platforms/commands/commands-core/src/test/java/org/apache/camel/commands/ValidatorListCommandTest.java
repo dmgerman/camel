@@ -120,6 +120,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|ExplicitCamelContextNameStrategy
 import|;
 end_import

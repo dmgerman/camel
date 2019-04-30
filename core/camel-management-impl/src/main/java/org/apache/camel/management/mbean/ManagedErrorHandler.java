@@ -98,6 +98,8 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|errorhandler
+operator|.
 name|ErrorHandlerSupport
 import|;
 end_import
@@ -111,6 +113,8 @@ operator|.
 name|camel
 operator|.
 name|processor
+operator|.
+name|errorhandler
 operator|.
 name|RedeliveryErrorHandler
 import|;

@@ -128,7 +128,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|interceptor
+name|channel
 operator|.
 name|DefaultChannel
 import|;

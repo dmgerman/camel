@@ -277,17 +277,9 @@ comment|// and wrap this in an error handler
 name|ErrorHandlerFactory
 name|builder
 init|=
-operator|(
-operator|(
-name|RouteDefinition
-operator|)
 name|routeContext
 operator|.
-name|getRoute
-argument_list|()
-operator|)
-operator|.
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 argument_list|()
 decl_stmt|;
 comment|// create error handler (create error handler directly to keep it light weight,

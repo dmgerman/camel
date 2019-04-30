@@ -48,6 +48,12 @@ name|String
 name|getDescriptionText
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the parent      */
+DECL|method|getParent ()
+name|NamedNode
+name|getParent
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

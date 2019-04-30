@@ -62,7 +62,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|processor
+operator|.
+name|interceptor
 operator|.
 name|BreakpointSupport
 import|;

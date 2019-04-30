@@ -104,6 +104,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|DefaultHeadersMapFactory
 import|;
 end_import
@@ -265,18 +267,6 @@ operator|.
 name|CoreMatchers
 operator|.
 name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
-name|isA
 import|;
 end_import
 

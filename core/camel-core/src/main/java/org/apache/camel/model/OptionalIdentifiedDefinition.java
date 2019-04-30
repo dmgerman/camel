@@ -148,12 +148,6 @@ parameter_list|>
 implements|implements
 name|NamedNode
 block|{
-DECL|field|shortName
-specifier|private
-specifier|transient
-name|String
-name|shortName
-decl_stmt|;
 DECL|field|id
 specifier|private
 name|String
@@ -232,6 +226,18 @@ name|description
 operator|=
 name|description
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getParent ()
+specifier|public
+name|NamedNode
+name|getParent
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------

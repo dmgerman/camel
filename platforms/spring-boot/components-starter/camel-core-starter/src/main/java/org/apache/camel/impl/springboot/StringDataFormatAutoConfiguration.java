@@ -104,6 +104,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|StringDataFormat
 import|;
 end_import
@@ -161,22 +163,6 @@ operator|.
 name|spi
 operator|.
 name|HasId
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|boot
-operator|.
-name|CamelAutoConfiguration
 import|;
 end_import
 
@@ -343,22 +329,6 @@ operator|.
 name|autoconfigure
 operator|.
 name|AutoConfigureAfter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|autoconfigure
-operator|.
-name|condition
-operator|.
-name|ConditionalOnBean
 import|;
 end_import
 

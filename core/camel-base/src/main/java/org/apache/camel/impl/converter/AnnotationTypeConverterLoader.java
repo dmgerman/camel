@@ -914,6 +914,13 @@ argument_list|,
 name|loader
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|clazz
+operator|!=
+literal|null
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -932,7 +939,8 @@ argument_list|(
 name|clazz
 argument_list|)
 expr_stmt|;
-comment|// class founder, so no need to load it with another class loader
+comment|// class found, so no need to load it with another class loader
+block|}
 break|break;
 block|}
 catch|catch

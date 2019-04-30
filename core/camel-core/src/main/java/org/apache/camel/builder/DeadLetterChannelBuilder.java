@@ -86,6 +86,8 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|errorhandler
+operator|.
 name|DeadLetterChannel
 import|;
 end_import

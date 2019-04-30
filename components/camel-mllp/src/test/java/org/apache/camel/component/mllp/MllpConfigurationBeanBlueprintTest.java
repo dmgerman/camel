@@ -88,6 +88,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|DefaultComponentResolver
 import|;
 end_import

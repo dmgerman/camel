@@ -116,8 +116,24 @@ name|AbstractCamelRedeliveryPolicyFactoryBean
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|errorhandler
+operator|.
+name|RedeliveryPolicy
+import|;
+end_import
+
 begin_comment
-comment|/**  * A factory which instantiates {@link org.apache.camel.processor.RedeliveryPolicy} objects  */
+comment|/**  * A factory which instantiates {@link RedeliveryPolicy} objects  */
 end_comment
 
 begin_class

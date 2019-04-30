@@ -40,6 +40,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|DefaultCamelContextNameStrategy
 import|;
 end_import
@@ -59,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link CamelContextNameStrategy} for Camel contexts that are managed by Camel CDI.  *  * As opposed to {@link org.apache.camel.impl.DefaultCamelContextNameStrategy},  * this implementation does not increment the suffix for proxies that are created  * each time a contextual reference to a normal-scoped bean is retrieved.  *  * It is used by Camel CDI for custom Camel context beans that do not override  * the context name nor the naming strategy.  *  * @see CamelContextNameStrategy  */
+comment|/**  * A {@link CamelContextNameStrategy} for Camel contexts that are managed by Camel CDI.  *  * As opposed to {@link DefaultCamelContextNameStrategy},  * this implementation does not increment the suffix for proxies that are created  * each time a contextual reference to a normal-scoped bean is retrieved.  *  * It is used by Camel CDI for custom Camel context beans that do not override  * the context name nor the naming strategy.  *  * @see CamelContextNameStrategy  */
 end_comment
 
 begin_class

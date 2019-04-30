@@ -50,6 +50,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|DefaultClassResolver
 import|;
 end_import

@@ -80,6 +80,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ErrorHandlerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|NamedNode
 import|;
 end_import
@@ -309,7 +321,7 @@ name|ManagementInterceptStrategy
 name|getManagementInterceptStrategy
 parameter_list|()
 function_decl|;
-comment|/**      * If this flag is true, {@link org.apache.camel.reifier.ProcessorReifier#addRoutes(RouteContext, java.util.Collection)}      * will not add processor to addEventDrivenProcessor to the RouteContext and it      * will prevent from adding an EventDrivenRoute.      *      * @param value the flag      */
+comment|/**      * If this flag is true, {@link org.apache.camel.reifier.ProcessorReifier#addRoutes(RouteContext)}      * will not add processor to addEventDrivenProcessor to the RouteContext and it      * will prevent from adding an EventDrivenRoute.      *      * @param value the flag      */
 DECL|method|setIsRouteAdded (boolean value)
 name|void
 name|setIsRouteAdded
@@ -360,6 +372,11 @@ name|Boolean
 name|isAutoStartup
 parameter_list|()
 function_decl|;
+DECL|method|getStartupOrder ()
+name|Integer
+name|getStartupOrder
+parameter_list|()
+function_decl|;
 comment|/**      * A private counter that increments, is used to as book keeping      * when building a route based on the model      *<p/>      * We need this special book keeping be able to assign the correct      * {@link org.apache.camel.model.ProcessorDefinition} to the {@link org.apache.camel.Channel}      *      * @param node the current node      * @return the current count      */
 DECL|method|getAndIncrement (NamedNode node)
 name|int
@@ -368,6 +385,11 @@ parameter_list|(
 name|NamedNode
 name|node
 parameter_list|)
+function_decl|;
+DECL|method|getErrorHandlerFactory ()
+name|ErrorHandlerFactory
+name|getErrorHandlerFactory
+parameter_list|()
 function_decl|;
 comment|/**      * Gets the last error.      *      * @return the error      */
 DECL|method|getLastError ()

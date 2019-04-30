@@ -92,6 +92,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|DefaultFluentProducerTemplate
 import|;
 end_import
