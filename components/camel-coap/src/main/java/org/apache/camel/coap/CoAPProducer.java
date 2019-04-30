@@ -550,9 +550,7 @@ name|CoAPEndpoint
 operator|.
 name|enableTLS
 argument_list|(
-operator|(
 name|uri
-operator|)
 argument_list|)
 condition|)
 block|{
