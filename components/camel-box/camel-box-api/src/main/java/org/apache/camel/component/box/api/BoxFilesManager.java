@@ -809,7 +809,7 @@ condition|)
 block|{
 name|file
 operator|.
-name|uploadVersion
+name|uploadNewVersion
 argument_list|(
 name|fileContent
 argument_list|,
@@ -825,7 +825,7 @@ else|else
 block|{
 name|file
 operator|.
-name|uploadVersion
+name|uploadNewVersion
 argument_list|(
 name|fileContent
 argument_list|,
@@ -842,7 +842,7 @@ else|else
 block|{
 name|file
 operator|.
-name|uploadVersion
+name|uploadNewVersion
 argument_list|(
 name|fileContent
 argument_list|)
