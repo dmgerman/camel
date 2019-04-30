@@ -196,7 +196,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"OnException[[class java.lang.Exception] -> []] is not configured."
+literal|"OnException[[java.lang.Exception] -> []] is not configured."
 argument_list|,
 name|iae
 operator|.
@@ -293,7 +293,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"OnException[[class java.lang.Exception] -> []] is not configured."
+literal|"OnException[[java.lang.Exception] -> []] is not configured."
 argument_list|,
 name|iae
 operator|.
@@ -388,7 +388,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"OnException[[class java.lang.Exception] -> []] is not configured."
+literal|"OnException[[java.lang.Exception] -> []] is not configured."
 argument_list|,
 name|iae
 operator|.
@@ -486,7 +486,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"OnException[[class java.lang.Exception] -> []] is not configured."
+literal|"OnException[[java.lang.Exception] -> []] is not configured."
 argument_list|,
 name|iae
 operator|.
