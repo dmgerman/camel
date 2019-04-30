@@ -271,8 +271,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:testAction"
 argument_list|)
 DECL|field|resultEndpointAction
@@ -283,8 +281,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:testTo"
 argument_list|)
 DECL|field|resultEndpointTo
@@ -295,8 +291,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:testActionAndTo"
 argument_list|)
 DECL|field|resultEndpointActionAndTo
@@ -307,8 +301,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:testToAndAction"
 argument_list|)
 DECL|field|resultEndpointToAndAction
@@ -319,8 +311,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:testToMoreSpecific"
 argument_list|)
 DECL|field|resultEndpointToMoreSpecific
@@ -331,8 +321,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:testActionMoreSpecific"
 argument_list|)
 DECL|field|resultEndpointActionMoreSpecific
@@ -343,8 +331,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:testOutputAndFault"
 argument_list|)
 DECL|field|resultOutputAndFault
@@ -355,8 +341,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:testOutputAndFault2"
 argument_list|)
 DECL|field|resultOutputAndFault2
@@ -367,8 +351,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:testSoapAction"
 argument_list|)
 DECL|field|resultSoapAction

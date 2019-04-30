@@ -51,8 +51,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"mock:outbound"
 argument_list|)
 DECL|field|producer

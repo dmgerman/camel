@@ -189,8 +189,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result1"
 argument_list|)
 DECL|field|resultEndpoint1
@@ -201,8 +199,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result2"
 argument_list|)
 DECL|field|resultEndpoint2
@@ -213,8 +209,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result3"
 argument_list|)
 DECL|field|resultEndpoint3
@@ -225,8 +219,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:start1"
 argument_list|)
 DECL|field|template1
@@ -237,8 +229,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:start2"
 argument_list|)
 DECL|field|template2
@@ -249,8 +239,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:start3"
 argument_list|)
 DECL|field|template3

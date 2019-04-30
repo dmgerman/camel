@@ -177,8 +177,6 @@ block|}
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:reply"
 argument_list|)
 DECL|field|replyEndpoint
@@ -189,8 +187,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:reply2"
 argument_list|)
 DECL|field|reply2Endpoint
@@ -201,8 +197,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:output"
 argument_list|)
 DECL|field|outputEndpoint

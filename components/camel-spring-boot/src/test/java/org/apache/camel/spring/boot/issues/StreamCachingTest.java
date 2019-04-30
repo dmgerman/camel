@@ -209,8 +209,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|URI_END_OF_ROUTE
 argument_list|)
 DECL|field|endOfRoute

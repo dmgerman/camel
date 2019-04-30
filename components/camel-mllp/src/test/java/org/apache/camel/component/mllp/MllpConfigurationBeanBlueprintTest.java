@@ -159,8 +159,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://target"
 argument_list|)
 DECL|field|received

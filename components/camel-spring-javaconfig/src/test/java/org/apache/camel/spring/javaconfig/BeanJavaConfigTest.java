@@ -259,8 +259,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:end"
 argument_list|)
 DECL|field|endpoint
@@ -271,8 +269,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:error"
 argument_list|)
 DECL|field|errorEndpoint
@@ -283,8 +279,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:start"
 argument_list|)
 DECL|field|producer

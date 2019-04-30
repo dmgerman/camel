@@ -139,8 +139,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:start"
 argument_list|)
 DECL|field|template
@@ -151,8 +149,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:header"
 argument_list|)
 DECL|field|templateHeader
@@ -163,8 +159,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:double"
 argument_list|)
 DECL|field|templateDouble

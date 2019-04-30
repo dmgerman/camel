@@ -262,8 +262,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 name|DIRECT_SEND_S_1
 argument_list|)
 DECL|field|producerServer1
@@ -274,8 +272,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 name|DIRECT_SEND_C_1
 argument_list|)
 DECL|field|producerClient1
@@ -286,8 +282,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|MOCK_CLIENT_1
 argument_list|)
 DECL|field|testClient1Endpoint
@@ -298,8 +292,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|MOCK_CLIENT_2
 argument_list|)
 DECL|field|testClient2Endpoint
@@ -310,8 +302,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|MOCK_SERVER_1
 argument_list|)
 DECL|field|testServer1Endpoint

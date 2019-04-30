@@ -341,7 +341,7 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"mock:a"
 argument_list|,
@@ -357,7 +357,7 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"mock:b"
 argument_list|,
@@ -373,7 +373,7 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"mock:c"
 argument_list|,
@@ -389,7 +389,7 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"direct:start"
 argument_list|,
@@ -405,7 +405,7 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"direct:start2"
 argument_list|,

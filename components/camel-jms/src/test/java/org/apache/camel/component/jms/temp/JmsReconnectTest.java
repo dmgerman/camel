@@ -196,8 +196,6 @@ block|}
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:test"
 argument_list|)
 DECL|field|proxy

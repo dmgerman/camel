@@ -128,8 +128,6 @@ comment|// use uri to refer to our mock
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:rollback"
 argument_list|)
 DECL|field|mock
@@ -142,8 +140,6 @@ comment|// and we can even use spring ${ } property in the spring XML
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"ref:data"
 argument_list|)
 DECL|field|template

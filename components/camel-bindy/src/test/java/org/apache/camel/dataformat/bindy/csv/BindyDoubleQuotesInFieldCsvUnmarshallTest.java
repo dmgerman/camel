@@ -237,8 +237,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 name|URI_DIRECT_START
 argument_list|)
 DECL|field|template
@@ -249,8 +247,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|URI_MOCK_RESULT
 argument_list|)
 DECL|field|result

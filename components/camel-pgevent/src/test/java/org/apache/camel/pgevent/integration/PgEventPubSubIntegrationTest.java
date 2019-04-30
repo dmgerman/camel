@@ -105,8 +105,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"pgevent://{{host}}:{{port}}/{{database}}/testchannel?user={{userName}}&pass={{password}}"
 argument_list|)
 DECL|field|subscribeEndpoint
@@ -117,8 +115,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"pgevent://{{host}}:{{port}}/{{database}}/testchannel?user={{userName}}&pass={{password}}"
 argument_list|)
 DECL|field|notifyEndpoint
@@ -129,8 +125,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"timer://test?repeatCount=1&period=1"
 argument_list|)
 DECL|field|timerEndpoint
@@ -141,8 +135,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|field|mockEndpoint

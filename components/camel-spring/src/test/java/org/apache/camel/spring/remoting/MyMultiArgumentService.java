@@ -55,8 +55,6 @@ name|Override
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"direct:myargs"
 argument_list|)
 DECL|method|doSomething (String arg1, String arg2, Long arg3)

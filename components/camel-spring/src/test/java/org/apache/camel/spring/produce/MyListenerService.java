@@ -116,8 +116,6 @@ block|}
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"direct:end"
 argument_list|)
 DECL|method|greet (Map<String, Object> headers, String name)

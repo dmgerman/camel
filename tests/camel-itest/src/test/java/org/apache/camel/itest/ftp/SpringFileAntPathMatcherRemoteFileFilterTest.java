@@ -358,8 +358,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"ref:myFTPEndpoint"
 argument_list|)
 DECL|field|inputFTP
@@ -370,8 +368,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|field|result

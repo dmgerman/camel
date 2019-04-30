@@ -102,8 +102,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|field|producer
@@ -114,8 +112,6 @@ decl_stmt|;
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"activemq:Test.BindingQueue"
 argument_list|)
 DECL|method|myMethod (@eaders Map<?, ?> headers, String body)

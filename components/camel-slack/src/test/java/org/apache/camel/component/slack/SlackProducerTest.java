@@ -113,8 +113,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:errors"
 argument_list|)
 DECL|field|errors
@@ -124,8 +122,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:test"
 argument_list|)
 DECL|field|test
@@ -135,8 +131,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:error"
 argument_list|)
 DECL|field|error

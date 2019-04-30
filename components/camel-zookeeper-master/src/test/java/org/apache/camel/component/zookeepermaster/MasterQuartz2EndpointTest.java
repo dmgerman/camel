@@ -192,8 +192,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:results"
 argument_list|)
 DECL|field|resultEndpoint

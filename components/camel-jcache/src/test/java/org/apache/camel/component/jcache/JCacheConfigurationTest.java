@@ -314,7 +314,7 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"jcache://test-cache"
 operator|+
@@ -331,8 +331,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:to"
 argument_list|)
 DECL|field|to

@@ -248,8 +248,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:camelClient"
 argument_list|)
 DECL|field|customerServiceProxy

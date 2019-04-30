@@ -192,7 +192,7 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"mock:A.b"
 argument_list|,

@@ -304,8 +304,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:testRootQName"
 argument_list|)
 DECL|field|resultEndpointRootQName
@@ -316,8 +314,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:testSoapAction"
 argument_list|)
 DECL|field|resultEndpointSoapAction
@@ -328,8 +324,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:testUri"
 argument_list|)
 DECL|field|resultEndpointUri
@@ -340,8 +334,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:testUriPath"
 argument_list|)
 DECL|field|resultEndpointUriPath
@@ -352,8 +344,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:testXPath"
 argument_list|)
 DECL|field|resultEndpointXPath

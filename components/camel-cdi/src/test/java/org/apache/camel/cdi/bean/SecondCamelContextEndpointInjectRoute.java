@@ -86,7 +86,7 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"direct:inbound"
 argument_list|,

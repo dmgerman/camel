@@ -133,8 +133,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:valid"
 argument_list|)
 DECL|field|validEndpoint
@@ -145,8 +143,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:finally"
 argument_list|)
 DECL|field|finallyEndpoint
@@ -157,8 +153,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:invalid"
 argument_list|)
 DECL|field|invalidEndpoint

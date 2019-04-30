@@ -67,7 +67,7 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"mock:seda:result"
 argument_list|,
@@ -83,7 +83,7 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"mock:bar"
 argument_list|,
@@ -99,7 +99,7 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"mock:baz"
 argument_list|,

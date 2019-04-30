@@ -227,8 +227,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|MOCK_EXPIRED_ADVISORY
 argument_list|)
 DECL|field|mockExpiredAdvisory

@@ -138,7 +138,7 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"mock:seda:context2.seda"
 argument_list|,
@@ -154,7 +154,7 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"seda:context2.seda"
 argument_list|,

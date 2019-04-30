@@ -171,8 +171,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:starter"
 argument_list|)
 DECL|field|starter
@@ -183,8 +181,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:decider"
 argument_list|)
 DECL|field|decider
@@ -195,8 +191,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:worker"
 argument_list|)
 DECL|field|worker

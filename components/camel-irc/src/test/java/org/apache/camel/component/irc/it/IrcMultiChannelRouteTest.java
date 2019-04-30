@@ -154,8 +154,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:joined"
 argument_list|)
 DECL|field|joined

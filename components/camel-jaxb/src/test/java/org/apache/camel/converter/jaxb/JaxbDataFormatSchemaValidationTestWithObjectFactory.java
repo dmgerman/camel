@@ -203,8 +203,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:marshall"
 argument_list|)
 DECL|field|mockMarshall
@@ -215,8 +213,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:unmarshall"
 argument_list|)
 DECL|field|mockUnmarshall

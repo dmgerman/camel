@@ -569,8 +569,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:output"
 argument_list|)
 DECL|field|outputEndpoint
@@ -580,8 +578,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:jobExecutionEventsQueue"
 argument_list|)
 DECL|field|jobExecutionEventsQueueEndpoint

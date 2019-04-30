@@ -143,8 +143,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"ref:result"
 argument_list|)
 DECL|field|mock

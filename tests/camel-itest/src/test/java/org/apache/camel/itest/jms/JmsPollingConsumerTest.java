@@ -199,8 +199,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"activemq:startConsumer"
 argument_list|)
 DECL|field|startConsumer
@@ -211,8 +209,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:startConsumer"
 argument_list|)
 DECL|field|startDirectConsumer
@@ -223,8 +219,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"activemq:queue"
 argument_list|)
 DECL|field|queue
@@ -235,8 +229,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|field|result

@@ -357,8 +357,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:start"
 argument_list|)
 DECL|field|template
@@ -369,8 +367,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:rabbitMQ"
 argument_list|)
 DECL|field|directProducer
@@ -381,8 +377,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"rabbitmq:localhost:5672/"
 operator|+
 name|EXCHANGE
@@ -405,8 +399,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"rabbitmq:localhost:5672/"
 operator|+
 name|EXCHANGE_NO_ACK
@@ -431,8 +423,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|field|resultEndpoint

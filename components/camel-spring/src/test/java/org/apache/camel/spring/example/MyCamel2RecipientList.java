@@ -87,7 +87,7 @@ decl_stmt|;
 annotation|@
 name|Consume
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"direct:foo"
 argument_list|,

@@ -237,8 +237,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"splunk://stream"
 argument_list|)
 DECL|field|streamEndpoint
@@ -249,8 +247,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"splunk://submit"
 argument_list|)
 DECL|field|submitEndpoint
@@ -261,8 +257,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"splunk://tcp"
 argument_list|)
 DECL|field|tcpEndpoint

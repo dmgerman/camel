@@ -317,8 +317,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://complete"
 argument_list|)
 DECL|field|complete
@@ -328,8 +326,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://failed"
 argument_list|)
 DECL|field|failed
@@ -339,8 +335,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://invalid-ex"
 argument_list|)
 DECL|field|invalid

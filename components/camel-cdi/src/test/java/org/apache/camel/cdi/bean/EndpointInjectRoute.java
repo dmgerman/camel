@@ -67,8 +67,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:inbound"
 argument_list|)
 DECL|field|inbound
@@ -79,8 +77,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:outbound"
 argument_list|)
 DECL|field|outbound

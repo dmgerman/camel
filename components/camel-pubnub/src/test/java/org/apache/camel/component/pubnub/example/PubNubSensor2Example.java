@@ -502,8 +502,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"pubnub:iot?uuid=master&subscribeKey="
 operator|+
 name|PUBNUB_SUBSCRIBE_KEY

@@ -263,8 +263,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:telegram"
 argument_list|)
 DECL|field|endpoint

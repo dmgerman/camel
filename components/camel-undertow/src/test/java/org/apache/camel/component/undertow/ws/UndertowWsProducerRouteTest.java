@@ -221,8 +221,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:shop"
 argument_list|)
 DECL|field|producer

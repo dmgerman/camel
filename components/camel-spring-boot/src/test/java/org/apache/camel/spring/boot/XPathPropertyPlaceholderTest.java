@@ -263,8 +263,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:output-filter"
 argument_list|)
 DECL|field|mockOutputFilter
@@ -275,8 +273,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:output-choice"
 argument_list|)
 DECL|field|mockOutputChoice
@@ -287,8 +283,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:output-choice2"
 argument_list|)
 DECL|field|mockOutputChoice2

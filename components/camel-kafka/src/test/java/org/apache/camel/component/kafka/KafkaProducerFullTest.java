@@ -504,8 +504,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"kafka:"
 operator|+
 name|TOPIC_STRINGS
@@ -520,8 +518,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"kafka:"
 operator|+
 name|TOPIC_STRINGS
@@ -536,8 +532,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"kafka:"
 operator|+
 name|TOPIC_INTERCEPTED
@@ -554,8 +548,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:kafkaAck"
 argument_list|)
 DECL|field|mockEndpoint
@@ -566,8 +558,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"kafka:"
 operator|+
 name|TOPIC_BYTES
@@ -586,8 +576,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"kafka:"
 operator|+
 name|TOPIC_PROPAGATED_HEADERS
@@ -602,8 +590,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:startStrings"
 argument_list|)
 DECL|field|stringsTemplate
@@ -614,8 +600,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:startStrings2"
 argument_list|)
 DECL|field|stringsTemplate2
@@ -626,8 +610,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:startBytes"
 argument_list|)
 DECL|field|bytesTemplate
@@ -638,8 +620,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:startTraced"
 argument_list|)
 DECL|field|interceptedTemplate
@@ -650,8 +630,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:propagatedHeaders"
 argument_list|)
 DECL|field|propagatedHeadersTemplate

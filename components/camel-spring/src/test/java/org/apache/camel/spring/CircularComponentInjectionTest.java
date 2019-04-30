@@ -101,8 +101,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"ref:seda"
 argument_list|)
 DECL|field|sedaEndpoint
@@ -113,8 +111,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"ref:log"
 argument_list|)
 DECL|field|logEndpoint

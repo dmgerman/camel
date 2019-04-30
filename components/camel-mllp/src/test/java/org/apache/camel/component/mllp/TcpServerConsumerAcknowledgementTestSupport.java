@@ -235,8 +235,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://result"
 argument_list|)
 DECL|field|result
@@ -246,8 +244,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://on-complete-only"
 argument_list|)
 DECL|field|complete
@@ -257,8 +253,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://on-failure-only"
 argument_list|)
 DECL|field|failure
@@ -268,8 +262,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://invalid-ack-ex"
 argument_list|)
 DECL|field|invalidAckEx
@@ -279,8 +271,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://ack-generation-ex"
 argument_list|)
 DECL|field|ackGenerationEx

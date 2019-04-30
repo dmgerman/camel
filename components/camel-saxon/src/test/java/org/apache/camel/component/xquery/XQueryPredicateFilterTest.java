@@ -162,8 +162,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:xpath"
 argument_list|)
 DECL|field|template

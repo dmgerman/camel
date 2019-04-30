@@ -185,8 +185,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:resultMarshal1"
 argument_list|)
 DECL|field|mockEndPointMarshal1
@@ -197,8 +195,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:resultUnMarshal1"
 argument_list|)
 DECL|field|mockEndPointUnMarshal1
@@ -209,8 +205,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:resultMarshal2"
 argument_list|)
 DECL|field|mockEndPointMarshal2
@@ -221,8 +215,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:resultUnMarshal2"
 argument_list|)
 DECL|field|mockEndPointUnMarshal2

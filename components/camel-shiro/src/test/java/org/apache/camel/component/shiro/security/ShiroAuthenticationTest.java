@@ -187,8 +187,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:success"
 argument_list|)
 DECL|field|successEndpoint
@@ -199,8 +197,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:authenticationException"
 argument_list|)
 DECL|field|failureEndpoint

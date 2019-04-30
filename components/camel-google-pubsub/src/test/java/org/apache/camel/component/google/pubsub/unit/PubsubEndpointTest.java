@@ -172,8 +172,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"google-pubsub://{{project.id}}:"
 operator|+
 name|SUBSCRIPTION_URI
@@ -186,8 +184,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:to"
 argument_list|)
 DECL|field|to

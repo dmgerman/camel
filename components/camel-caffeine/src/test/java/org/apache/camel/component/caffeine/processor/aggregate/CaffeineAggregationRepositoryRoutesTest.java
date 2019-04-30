@@ -254,8 +254,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|ENDPOINT_MOCK
 argument_list|)
 DECL|field|mock
@@ -266,8 +264,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 name|ENDPOINT_DIRECT
 argument_list|)
 DECL|field|producer

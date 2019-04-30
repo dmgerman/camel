@@ -113,7 +113,7 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"mock:result"
 argument_list|,
@@ -129,7 +129,7 @@ decl_stmt|;
 annotation|@
 name|Consume
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"direct:start"
 argument_list|,

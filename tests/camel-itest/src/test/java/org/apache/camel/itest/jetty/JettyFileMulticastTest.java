@@ -238,8 +238,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:resultEndpoint"
 argument_list|)
 DECL|field|resultEndpoint
@@ -250,8 +248,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:fileEndpoint"
 argument_list|)
 DECL|field|fileEndpoint

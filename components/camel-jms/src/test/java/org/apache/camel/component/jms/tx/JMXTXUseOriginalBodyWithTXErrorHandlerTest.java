@@ -159,8 +159,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:end"
 argument_list|)
 DECL|field|endpoint
@@ -171,8 +169,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:error"
 argument_list|)
 DECL|field|error
@@ -183,8 +179,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:checkpoint1"
 argument_list|)
 DECL|field|checkpoint1
@@ -195,8 +189,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:checkpoint2"
 argument_list|)
 DECL|field|checkpoint2
@@ -207,8 +199,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"activemq:start"
 argument_list|)
 DECL|field|start
@@ -219,8 +209,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"activemq:broken"
 argument_list|)
 DECL|field|broken

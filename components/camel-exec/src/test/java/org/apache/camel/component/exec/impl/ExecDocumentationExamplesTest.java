@@ -252,8 +252,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:javaVersion"
 argument_list|)
 DECL|field|templateJavaVersion
@@ -264,8 +262,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:javaVersionWorkingDir"
 argument_list|)
 DECL|field|templateJavaVersionWorkingDir
@@ -276,8 +272,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:execAnt"
 argument_list|)
 DECL|field|templateExecAnt
@@ -288,8 +282,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:execAntWithOutFile"
 argument_list|)
 DECL|field|templateExecAntWithOutFile
@@ -300,8 +292,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:wordCount"
 argument_list|)
 DECL|field|templateWordCount

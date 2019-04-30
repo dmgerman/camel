@@ -175,8 +175,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"activemq:start"
 argument_list|)
 DECL|field|activemq
@@ -187,8 +185,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"seda:start"
 argument_list|)
 DECL|field|seda
@@ -199,8 +195,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:end"
 argument_list|)
 DECL|field|end
@@ -211,8 +205,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:exception"
 argument_list|)
 DECL|field|exception

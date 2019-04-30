@@ -174,7 +174,7 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"direct:start"
 argument_list|,

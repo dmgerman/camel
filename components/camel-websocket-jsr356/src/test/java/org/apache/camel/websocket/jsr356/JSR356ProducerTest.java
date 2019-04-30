@@ -293,8 +293,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:ensureServerModeSendsProperly"
 argument_list|)
 DECL|field|serverProducer

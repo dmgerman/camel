@@ -378,8 +378,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct://source"
 argument_list|)
 DECL|field|source
@@ -390,8 +388,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://aa-ack"
 argument_list|)
 DECL|field|aa
@@ -402,8 +398,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://ae-nack"
 argument_list|)
 DECL|field|ae
@@ -414,8 +408,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://ar-nack"
 argument_list|)
 DECL|field|ar
@@ -426,8 +418,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://invalid-ack"
 argument_list|)
 DECL|field|invalid
@@ -438,8 +428,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://ack-receive-error"
 argument_list|)
 DECL|field|ackReceiveError
@@ -450,8 +438,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://ack-timeout-error"
 argument_list|)
 DECL|field|ackTimeoutError
@@ -462,8 +448,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://failed"
 argument_list|)
 DECL|field|failed

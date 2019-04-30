@@ -256,8 +256,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|RECEIVED_URI
 argument_list|)
 DECL|field|received

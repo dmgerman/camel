@@ -89,8 +89,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:matched"
 argument_list|)
 DECL|field|matched
@@ -101,8 +99,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:notMatched"
 argument_list|)
 DECL|field|notMatched

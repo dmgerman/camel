@@ -123,8 +123,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"atmos:foo/get?remotePath=/path&fullTokenId=fakeToken&secretKey=fakeSecret&uri=https://fake/uri"
 argument_list|)
 DECL|field|atmosEndpoint

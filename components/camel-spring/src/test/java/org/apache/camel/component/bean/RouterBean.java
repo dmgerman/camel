@@ -55,8 +55,6 @@ block|{
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"direct:start"
 argument_list|)
 annotation|@

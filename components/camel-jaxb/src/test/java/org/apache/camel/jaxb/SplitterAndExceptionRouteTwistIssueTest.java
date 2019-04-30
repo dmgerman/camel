@@ -259,8 +259,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:error"
 argument_list|)
 DECL|field|templateError
@@ -271,8 +269,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:error2"
 argument_list|)
 DECL|field|templateError2
@@ -283,8 +279,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:mockReject"
 argument_list|)
 DECL|field|mockRejectEndpoint
@@ -295,8 +289,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:mock_output"
 argument_list|)
 DECL|field|mockOutput

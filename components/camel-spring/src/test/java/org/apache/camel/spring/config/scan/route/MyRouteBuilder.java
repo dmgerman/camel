@@ -111,8 +111,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"ref:start"
 argument_list|)
 DECL|field|startEndpoint
@@ -122,8 +120,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"ref:result"
 argument_list|)
 DECL|field|resultEndpoint

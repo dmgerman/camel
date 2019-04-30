@@ -85,8 +85,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:fieldInjectedEndpoint"
 argument_list|)
 DECL|field|fieldInjectedEndpoint
@@ -102,8 +100,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:fieldInjectedProducer"
 argument_list|)
 DECL|field|fieldInjectedProducer
@@ -119,8 +115,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:fieldInjectedCamelTemplate"
 argument_list|)
 DECL|field|fieldInjectedCamelTemplate
@@ -148,8 +142,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:fieldInjectedEndpoint"
 argument_list|)
 DECL|field|fieldInjectedPollingConsumer
@@ -187,8 +179,6 @@ block|}
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"ref:namedEndpoint1"
 argument_list|)
 DECL|method|setPropertyInjectedEndpoint (Endpoint propertyInjectedEndpoint)
@@ -232,8 +222,6 @@ block|}
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:propertyInjectedProducer"
 argument_list|)
 DECL|method|setPropertyInjectedProducer (Producer propertyInjectedProducer)
@@ -277,8 +265,6 @@ block|}
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:propertyInjectedCamelTemplate"
 argument_list|)
 DECL|method|setPropertyInjectedCamelTemplate (ProducerTemplate propertyInjectedCamelTemplate)
@@ -394,8 +380,6 @@ block|}
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:propertyInjectedPollingConsumer"
 argument_list|)
 DECL|method|setPropertyInjectedPollingConsumer (PollingConsumer propertyInjectedPollingConsumer)

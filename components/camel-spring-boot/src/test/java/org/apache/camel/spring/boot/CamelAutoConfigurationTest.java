@@ -447,8 +447,6 @@ comment|// Spring context fixtures
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:xmlAutoLoading"
 argument_list|)
 DECL|field|xmlAutoLoadingMock

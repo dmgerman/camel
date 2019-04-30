@@ -282,8 +282,6 @@ block|}
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"activemq:queue:foo"
 argument_list|)
 DECL|method|doSomething (@eaderR) Destination jmsReplyTo, @Body String body)

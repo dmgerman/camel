@@ -69,8 +69,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"ref:foo"
 argument_list|)
 DECL|field|foo

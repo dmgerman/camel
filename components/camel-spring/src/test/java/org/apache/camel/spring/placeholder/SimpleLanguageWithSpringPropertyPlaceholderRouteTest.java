@@ -171,8 +171,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:startSimple"
 argument_list|)
 DECL|field|template

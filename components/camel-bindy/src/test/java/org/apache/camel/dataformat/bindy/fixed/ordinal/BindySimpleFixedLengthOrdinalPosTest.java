@@ -268,8 +268,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|URI_MOCK_MARSHALL_RESULT
 argument_list|)
 DECL|field|marshallResult
@@ -280,8 +278,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|URI_MOCK_UNMARSHALL_RESULT
 argument_list|)
 DECL|field|unmarshallResult

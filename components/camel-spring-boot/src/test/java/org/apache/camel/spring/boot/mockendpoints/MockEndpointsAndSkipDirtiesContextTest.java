@@ -269,8 +269,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:a"
 argument_list|)
 DECL|field|producer
@@ -281,8 +279,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:end"
 argument_list|)
 DECL|field|end
@@ -293,8 +289,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:direct:b"
 argument_list|)
 DECL|field|directB

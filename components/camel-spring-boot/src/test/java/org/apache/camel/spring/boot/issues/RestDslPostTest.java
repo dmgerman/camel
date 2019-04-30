@@ -321,8 +321,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:user"
 argument_list|)
 DECL|field|resultEndpointUser
@@ -333,8 +331,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:country"
 argument_list|)
 DECL|field|resultEndpointCountry

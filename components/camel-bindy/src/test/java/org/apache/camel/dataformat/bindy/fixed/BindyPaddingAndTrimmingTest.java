@@ -181,8 +181,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|URI_MOCK_UNMARSHAL_RESULT
 argument_list|)
 DECL|field|unmarhsalResult

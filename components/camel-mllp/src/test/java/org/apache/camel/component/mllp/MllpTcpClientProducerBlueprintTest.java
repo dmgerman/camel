@@ -295,8 +295,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|MOCK_ACKNOWLEDGED_URI
 argument_list|)
 DECL|field|acknowledged
@@ -306,8 +304,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|MOCK_TIMEOUT_URI
 argument_list|)
 DECL|field|timeout
@@ -317,8 +313,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|MOCK_AE_EX_URI
 argument_list|)
 DECL|field|ae
@@ -328,8 +322,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|MOCK_AR_EX_URI
 argument_list|)
 DECL|field|ar
@@ -339,8 +331,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|MOCK_FRAME_EX_URI
 argument_list|)
 DECL|field|frame

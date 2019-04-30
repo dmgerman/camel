@@ -143,8 +143,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|MOCK_GOTCHA
 argument_list|)
 DECL|field|mock
@@ -155,8 +153,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 name|DIRECT_ONE
 argument_list|)
 DECL|field|produceOne
@@ -167,8 +163,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 name|DIRECT_TWO
 argument_list|)
 DECL|field|produceTwo

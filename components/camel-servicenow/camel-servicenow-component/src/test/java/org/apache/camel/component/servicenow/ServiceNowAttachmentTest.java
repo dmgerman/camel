@@ -163,8 +163,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:servicenow"
 argument_list|)
 DECL|field|template

@@ -90,8 +90,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:injected"
 argument_list|)
 DECL|field|injected

@@ -169,8 +169,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|field|result
@@ -181,8 +179,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"ironmq:testqueue?client=#ironMock"
 argument_list|)
 DECL|field|queue1
@@ -193,8 +189,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"ironmq:testqueue2?client=#ironMock"
 argument_list|)
 DECL|field|queue2

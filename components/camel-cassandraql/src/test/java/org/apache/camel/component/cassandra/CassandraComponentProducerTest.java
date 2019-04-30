@@ -328,8 +328,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:input"
 argument_list|)
 DECL|field|producerTemplate
@@ -339,8 +337,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:inputNoParameter"
 argument_list|)
 DECL|field|noParameterProducerTemplate
@@ -350,8 +346,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:inputNotConsistent"
 argument_list|)
 DECL|field|notConsistentProducerTemplate
@@ -361,8 +355,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:loadBalancingPolicy"
 argument_list|)
 DECL|field|loadBalancingPolicyTemplate
@@ -372,8 +364,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:inputNoEndpointCql"
 argument_list|)
 DECL|field|producerTemplateNoEndpointCql

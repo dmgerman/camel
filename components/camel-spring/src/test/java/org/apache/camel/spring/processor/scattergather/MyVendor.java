@@ -90,8 +90,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"seda:quoteAggregator"
 argument_list|)
 DECL|field|quoteAggregator

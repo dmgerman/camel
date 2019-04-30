@@ -294,8 +294,6 @@ comment|// *********************************************************************
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 name|URI_DIRECT_MARSHALL
 argument_list|)
 DECL|field|mtemplate
@@ -306,8 +304,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|URI_MOCK_MARSHALL_RESULT
 argument_list|)
 DECL|field|mresult
@@ -318,8 +314,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 name|URI_DIRECT_UNMARSHALL
 argument_list|)
 DECL|field|utemplate
@@ -330,8 +324,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 name|URI_MOCK_UNMARSHALL_RESULT
 argument_list|)
 DECL|field|uresult

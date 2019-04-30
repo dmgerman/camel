@@ -67,8 +67,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:inbound"
 argument_list|)
 DECL|field|inbound
@@ -80,7 +78,7 @@ comment|// Wrong context name should lead to resolution exception
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"mock:outbound"
 argument_list|,

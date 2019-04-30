@@ -243,8 +243,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"rabbitmq:localhost:5672/"
 operator|+
 name|EXCHANGE

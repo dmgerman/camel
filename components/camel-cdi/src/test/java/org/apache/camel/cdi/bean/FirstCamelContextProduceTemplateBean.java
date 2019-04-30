@@ -51,7 +51,7 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
+name|value
 operator|=
 literal|"mock:outbound"
 argument_list|,

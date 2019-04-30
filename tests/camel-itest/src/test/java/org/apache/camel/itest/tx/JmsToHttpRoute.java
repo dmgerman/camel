@@ -158,8 +158,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"ref:data"
 argument_list|)
 DECL|field|data

@@ -80,8 +80,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"mock:foo"
 argument_list|)
 DECL|field|producer

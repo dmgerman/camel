@@ -183,8 +183,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:message"
 argument_list|)
 DECL|field|template

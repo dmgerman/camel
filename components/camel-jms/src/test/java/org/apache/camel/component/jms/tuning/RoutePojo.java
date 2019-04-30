@@ -89,8 +89,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"activemq:topic:audit"
 argument_list|)
 DECL|field|topic
@@ -101,8 +99,6 @@ decl_stmt|;
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"activemq:queue:inbox?concurrentConsumers=10"
 argument_list|)
 annotation|@

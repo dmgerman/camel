@@ -203,8 +203,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|field|resultEndpoint
@@ -215,8 +213,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:withClientID"
 argument_list|)
 DECL|field|templateWithClientID
@@ -227,8 +223,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:withoutClientID"
 argument_list|)
 DECL|field|templateWithoutClientID

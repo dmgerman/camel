@@ -224,8 +224,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:cxf.input"
 argument_list|)
 DECL|field|inputEndpoint
@@ -236,8 +234,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:jms.output"
 argument_list|)
 DECL|field|outputEndpoint

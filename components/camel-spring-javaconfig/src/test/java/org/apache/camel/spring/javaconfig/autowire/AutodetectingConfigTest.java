@@ -191,8 +191,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:autowire"
 argument_list|)
 DECL|field|autowireMockEndpoint
@@ -202,8 +200,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:module"
 argument_list|)
 DECL|field|moduleMockEndpoint

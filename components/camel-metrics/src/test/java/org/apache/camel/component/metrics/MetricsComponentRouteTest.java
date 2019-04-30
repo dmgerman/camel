@@ -193,8 +193,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:start-1"
 argument_list|)
 DECL|field|template1
@@ -205,8 +203,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:start-2"
 argument_list|)
 DECL|field|template2

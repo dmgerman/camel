@@ -55,8 +55,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:myService"
 argument_list|)
 DECL|field|myService

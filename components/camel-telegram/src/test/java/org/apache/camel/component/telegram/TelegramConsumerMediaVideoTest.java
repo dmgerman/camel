@@ -233,8 +233,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:telegram"
 argument_list|)
 DECL|field|endpoint

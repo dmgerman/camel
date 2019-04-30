@@ -428,8 +428,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:start"
 argument_list|)
 DECL|field|template
@@ -440,8 +438,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:start-allow-null-headers"
 argument_list|)
 DECL|field|templateAllowNullHeaders
@@ -452,8 +448,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:start-with-confirms"
 argument_list|)
 DECL|field|templateWithConfirms
@@ -464,8 +458,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:start-with-confirms-bad-route"
 argument_list|)
 DECL|field|templateWithConfirmsAndBadRoute
@@ -476,8 +468,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:start-with-guaranteed-delivery"
 argument_list|)
 DECL|field|templateWithGuranteedDelivery
@@ -488,8 +478,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:start-with-guaranteed-delivery-bad-route"
 argument_list|)
 DECL|field|templateWithGuranteedDeliveryAndBadRoute
@@ -500,8 +488,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:start-with-guaranteed-delivery-bad-route-but-not-mandatory"
 argument_list|)
 DECL|field|templateWithGuranteedDeliveryBadRouteButNotMandatory

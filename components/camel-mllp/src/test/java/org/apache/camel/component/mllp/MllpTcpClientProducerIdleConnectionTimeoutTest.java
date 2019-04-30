@@ -305,8 +305,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct://source"
 argument_list|)
 DECL|field|source
@@ -316,8 +314,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://complete"
 argument_list|)
 DECL|field|complete
@@ -327,8 +323,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://write-ex"
 argument_list|)
 DECL|field|writeEx
@@ -338,8 +332,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://receive-ex"
 argument_list|)
 DECL|field|receiveEx

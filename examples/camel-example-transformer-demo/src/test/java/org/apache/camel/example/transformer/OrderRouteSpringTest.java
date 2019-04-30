@@ -324,8 +324,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:java"
 argument_list|)
 DECL|field|javaProducer
@@ -336,8 +334,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:xml"
 argument_list|)
 DECL|field|xmlProducer
@@ -348,8 +344,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:json"
 argument_list|)
 DECL|field|jsonProducer
@@ -360,8 +354,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:direct:csv"
 argument_list|)
 DECL|field|mockCsv

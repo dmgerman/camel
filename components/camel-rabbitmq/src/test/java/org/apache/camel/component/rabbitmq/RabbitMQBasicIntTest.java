@@ -94,8 +94,6 @@ comment|// Startup RabbitMQ via Docker (see readme.txt in camel-rabbitmq folder)
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"rabbitmq:localhost:5672/foo?username=cameltest&password=cameltest"
 argument_list|)
 DECL|field|foo
@@ -106,8 +104,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"rabbitmq:localhost:5672/bar?username=cameltest&password=cameltest"
 argument_list|)
 DECL|field|bar
@@ -118,8 +114,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:result"
 argument_list|)
 DECL|field|mock

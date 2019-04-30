@@ -60,8 +60,6 @@ block|{
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"direct:myService"
 argument_list|)
 annotation|@

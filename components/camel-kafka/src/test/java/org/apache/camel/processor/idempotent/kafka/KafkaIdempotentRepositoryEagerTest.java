@@ -221,8 +221,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:out"
 argument_list|)
 DECL|field|mockOut
@@ -233,8 +231,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:before"
 argument_list|)
 DECL|field|mockBefore

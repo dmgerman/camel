@@ -211,8 +211,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:test"
 argument_list|)
 DECL|field|mock
@@ -222,8 +220,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:testCustomizedPaho"
 argument_list|)
 DECL|field|testCustomizedPahoMock

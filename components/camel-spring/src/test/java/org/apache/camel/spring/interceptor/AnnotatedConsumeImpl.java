@@ -100,8 +100,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"mock:book"
 argument_list|)
 DECL|field|producer
@@ -111,8 +109,6 @@ decl_stmt|;
 annotation|@
 name|Consume
 argument_list|(
-name|uri
-operator|=
 literal|"seda:book"
 argument_list|)
 DECL|method|handleTitle (String title)

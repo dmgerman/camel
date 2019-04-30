@@ -206,8 +206,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:fhir:transaction/withResources"
 argument_list|)
 DECL|field|mock

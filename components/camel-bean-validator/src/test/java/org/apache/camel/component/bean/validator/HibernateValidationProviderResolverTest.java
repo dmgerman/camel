@@ -114,8 +114,6 @@ comment|// Routing fixtures
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:test"
 argument_list|)
 DECL|field|mockEndpoint

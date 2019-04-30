@@ -55,8 +55,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"seda:bar"
 argument_list|)
 DECL|field|bar

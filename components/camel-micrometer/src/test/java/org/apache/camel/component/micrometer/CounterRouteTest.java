@@ -397,8 +397,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:out"
 argument_list|)
 DECL|field|endpoint
@@ -409,8 +407,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:in-1"
 argument_list|)
 DECL|field|producer1
@@ -421,8 +417,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:in-2"
 argument_list|)
 DECL|field|producer2
@@ -433,8 +427,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:in-3"
 argument_list|)
 DECL|field|producer3
@@ -445,8 +437,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:in-4"
 argument_list|)
 DECL|field|producer4

@@ -130,8 +130,6 @@ decl_stmt|;
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:rabbitMQ"
 argument_list|)
 DECL|field|directProducer
@@ -142,8 +140,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"rabbitmq:localhost:5672/ex4?username=cameltest&password=cameltest"
 operator|+
 literal|"&autoAck=false&queue=q4&routingKey="
@@ -158,8 +154,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:producing"
 argument_list|)
 DECL|field|producingMockEndpoint
@@ -170,8 +164,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:consuming"
 argument_list|)
 DECL|field|consumingMockEndpoint

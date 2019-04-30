@@ -153,8 +153,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"fakeservice1:mock"
 argument_list|)
 DECL|field|fakeServiceOneMock
@@ -165,8 +163,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"fakeservice2:mock"
 argument_list|)
 DECL|field|fakeServiceTwoMock

@@ -262,8 +262,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct://source"
 argument_list|)
 DECL|field|source
@@ -273,8 +271,6 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock://acknowledged"
 argument_list|)
 DECL|field|acknowledged
