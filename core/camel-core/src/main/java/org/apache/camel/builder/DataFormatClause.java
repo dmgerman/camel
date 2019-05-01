@@ -646,7 +646,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|ZipDataFormat
+name|ZipDeflaterDataFormat
 import|;
 end_import
 
@@ -5096,11 +5096,11 @@ name|T
 name|zip
 parameter_list|()
 block|{
-name|ZipDataFormat
+name|ZipDeflaterDataFormat
 name|zdf
 init|=
 operator|new
-name|ZipDataFormat
+name|ZipDeflaterDataFormat
 argument_list|(
 name|Deflater
 operator|.
@@ -5124,11 +5124,11 @@ name|int
 name|compressionLevel
 parameter_list|)
 block|{
-name|ZipDataFormat
+name|ZipDeflaterDataFormat
 name|zdf
 init|=
 operator|new
-name|ZipDataFormat
+name|ZipDeflaterDataFormat
 argument_list|(
 name|compressionLevel
 argument_list|)

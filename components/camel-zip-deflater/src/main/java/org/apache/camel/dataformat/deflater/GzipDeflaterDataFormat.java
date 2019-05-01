@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.dataformat
+DECL|package|org.apache.camel.dataformat.deflater
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|dataformat
+operator|.
+name|deflater
 package|;
 end_package
 
@@ -44,7 +46,7 @@ name|util
 operator|.
 name|zip
 operator|.
-name|Deflater
+name|GZIPInputStream
 import|;
 end_import
 
@@ -56,19 +58,7 @@ name|util
 operator|.
 name|zip
 operator|.
-name|DeflaterOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|zip
-operator|.
-name|InflaterInputStream
+name|GZIPOutputStream
 import|;
 end_import
 
@@ -175,19 +165,19 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Deflate (zip) compression data format (does not support zip files, instead use zipfile dataformat).  */
+comment|/**  * GZip {@link org.apache.camel.spi.DataFormat} for reading/writing data using gzip.  */
 end_comment
 
 begin_class
 annotation|@
 name|Dataformat
 argument_list|(
-literal|"zip"
+literal|"gzipdeflater"
 argument_list|)
-DECL|class|ZipDataFormat
+DECL|class|GzipDeflaterDataFormat
 specifier|public
 class|class
-name|ZipDataFormat
+name|GzipDeflaterDataFormat
 extends|extends
 name|ServiceSupport
 implements|implements
@@ -195,40 +185,6 @@ name|DataFormat
 implements|,
 name|DataFormatName
 block|{
-DECL|field|compressionLevel
-specifier|private
-name|int
-name|compressionLevel
-decl_stmt|;
-DECL|method|ZipDataFormat ()
-specifier|public
-name|ZipDataFormat
-parameter_list|()
-block|{
-name|this
-operator|.
-name|compressionLevel
-operator|=
-name|Deflater
-operator|.
-name|BEST_SPEED
-expr_stmt|;
-block|}
-DECL|method|ZipDataFormat (int compressionLevel)
-specifier|public
-name|ZipDataFormat
-parameter_list|(
-name|int
-name|compressionLevel
-parameter_list|)
-block|{
-name|this
-operator|.
-name|compressionLevel
-operator|=
-name|compressionLevel
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|getDataFormatName ()
@@ -238,34 +194,8 @@ name|getDataFormatName
 parameter_list|()
 block|{
 return|return
-literal|"zip"
+literal|"gzipdeflater"
 return|;
-block|}
-DECL|method|getCompressionLevel ()
-specifier|public
-name|int
-name|getCompressionLevel
-parameter_list|()
-block|{
-return|return
-name|compressionLevel
-return|;
-block|}
-DECL|method|setCompressionLevel (int compressionLevel)
-specifier|public
-name|void
-name|setCompressionLevel
-parameter_list|(
-name|int
-name|compressionLevel
-parameter_list|)
-block|{
-name|this
-operator|.
-name|compressionLevel
-operator|=
-name|compressionLevel
-expr_stmt|;
 block|}
 DECL|method|marshal (final Exchange exchange, final Object graph, final OutputStream stream)
 specifier|public
@@ -287,8 +217,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// ask for a mandatory type conversion to avoid a possible NPE beforehand as we do copy from the InputStream
-specifier|final
 name|InputStream
 name|is
 init|=
@@ -311,26 +239,13 @@ argument_list|,
 name|graph
 argument_list|)
 decl_stmt|;
-specifier|final
-name|Deflater
-name|deflater
-init|=
-operator|new
-name|Deflater
-argument_list|(
-name|compressionLevel
-argument_list|)
-decl_stmt|;
-specifier|final
-name|DeflaterOutputStream
+name|GZIPOutputStream
 name|zipOutput
 init|=
 operator|new
-name|DeflaterOutputStream
+name|GZIPOutputStream
 argument_list|(
 name|stream
-argument_list|,
-name|deflater
 argument_list|)
 decl_stmt|;
 try|try
@@ -347,6 +262,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+comment|// must close all input streams
 name|IOHelper
 operator|.
 name|close
@@ -355,12 +271,6 @@ name|is
 argument_list|,
 name|zipOutput
 argument_list|)
-expr_stmt|;
-comment|/*             * As we create the Deflater our self and do not use the stream default             * (see {@link java.util.zip.DeflaterOutputStream#usesDefaultDeflater})             * we need to close the Deflater to not risk a OutOfMemoryException             * in native code parts (see {@link java.util.zip.Deflater#end})             */
-name|deflater
-operator|.
-name|end
-argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -380,14 +290,10 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|InflaterInputStream
-name|inflaterInputStream
+name|GZIPInputStream
+name|unzipInput
 init|=
-operator|new
-name|InflaterInputStream
-argument_list|(
-name|inputStream
-argument_list|)
+literal|null
 decl_stmt|;
 name|OutputStreamBuilder
 name|osb
@@ -401,11 +307,19 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+name|unzipInput
+operator|=
+operator|new
+name|GZIPInputStream
+argument_list|(
+name|inputStream
+argument_list|)
+expr_stmt|;
 name|IOHelper
 operator|.
 name|copy
 argument_list|(
-name|inflaterInputStream
+name|unzipInput
 argument_list|,
 name|osb
 argument_list|)
@@ -419,14 +333,14 @@ return|;
 block|}
 finally|finally
 block|{
-comment|// must close input streams
+comment|// must close all input streams
 name|IOHelper
 operator|.
 name|close
 argument_list|(
 name|osb
 argument_list|,
-name|inflaterInputStream
+name|unzipInput
 argument_list|,
 name|inputStream
 argument_list|)

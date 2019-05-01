@@ -78,14 +78,14 @@ literal|"dataformat,transformation"
 argument_list|,
 name|title
 operator|=
-literal|"GZip"
+literal|"GZip Deflater"
 argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"gzip"
+literal|"gzipdeflater"
 argument_list|)
 DECL|class|GzipDataFormat
 specifier|public
@@ -101,7 +101,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-literal|"gzip"
+literal|"gzip-deflater"
 argument_list|)
 expr_stmt|;
 block|}

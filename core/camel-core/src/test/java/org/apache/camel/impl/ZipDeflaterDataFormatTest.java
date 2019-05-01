@@ -164,7 +164,9 @@ name|camel
 operator|.
 name|dataformat
 operator|.
-name|ZipDataFormat
+name|deflater
+operator|.
+name|ZipDeflaterDataFormat
 import|;
 end_import
 
@@ -211,10 +213,10 @@ comment|/**  * Unit test of the zip data format.  */
 end_comment
 
 begin_class
-DECL|class|ZipDataFormatTest
+DECL|class|ZipDeflaterDataFormatTest
 specifier|public
 class|class
-name|ZipDataFormatTest
+name|ZipDeflaterDataFormatTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -277,7 +279,7 @@ name|DataFormat
 name|dataFormat
 init|=
 operator|new
-name|ZipDataFormat
+name|ZipDeflaterDataFormat
 argument_list|()
 decl_stmt|;
 try|try

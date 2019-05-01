@@ -85,10 +85,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ZipDataFormatFileDeleteTest
+DECL|class|ZipDeflaterDataFormatFileDeleteTest
 specifier|public
 class|class
-name|ZipDataFormatFileDeleteTest
+name|ZipDeflaterDataFormatFileDeleteTest
 extends|extends
 name|ContextTestSupport
 block|{

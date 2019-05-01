@@ -724,7 +724,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|ZipDataFormat
+name|ZipDeflaterDataFormat
 import|;
 end_import
 
@@ -1365,7 +1365,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-name|ZipDataFormat
+name|ZipDeflaterDataFormat
 operator|.
 name|class
 argument_list|,

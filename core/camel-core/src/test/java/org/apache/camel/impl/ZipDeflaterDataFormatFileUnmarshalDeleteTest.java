@@ -99,10 +99,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ZipDataFormatFileUnmarshalDeleteTest
+DECL|class|ZipDeflaterDataFormatFileUnmarshalDeleteTest
 specifier|public
 class|class
-name|ZipDataFormatFileUnmarshalDeleteTest
+name|ZipDeflaterDataFormatFileUnmarshalDeleteTest
 extends|extends
 name|ContextTestSupport
 block|{

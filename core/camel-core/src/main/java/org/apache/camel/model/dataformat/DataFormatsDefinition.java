@@ -883,7 +883,7 @@ literal|"zip"
 argument_list|,
 name|type
 operator|=
-name|ZipDataFormat
+name|ZipDeflaterDataFormat
 operator|.
 name|class
 argument_list|)

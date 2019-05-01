@@ -127,7 +127,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"zip"
+literal|"zipdeflater"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -136,10 +136,10 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|ZipDataFormat
+DECL|class|ZipDeflaterDataFormat
 specifier|public
 class|class
-name|ZipDataFormat
+name|ZipDeflaterDataFormat
 extends|extends
 name|DataFormatDefinition
 block|{
@@ -157,20 +157,20 @@ specifier|private
 name|Integer
 name|compressionLevel
 decl_stmt|;
-DECL|method|ZipDataFormat ()
+DECL|method|ZipDeflaterDataFormat ()
 specifier|public
-name|ZipDataFormat
+name|ZipDeflaterDataFormat
 parameter_list|()
 block|{
 name|super
 argument_list|(
-literal|"zip"
+literal|"zip-deflater"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ZipDataFormat (int compressionLevel)
+DECL|method|ZipDeflaterDataFormat (int compressionLevel)
 specifier|public
-name|ZipDataFormat
+name|ZipDeflaterDataFormat
 parameter_list|(
 name|int
 name|compressionLevel
