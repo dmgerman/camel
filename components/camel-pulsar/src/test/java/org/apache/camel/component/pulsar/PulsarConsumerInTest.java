@@ -384,12 +384,6 @@ argument_list|(
 name|to
 argument_list|)
 operator|.
-name|unmarshal
-argument_list|()
-operator|.
-name|string
-argument_list|()
-operator|.
 name|process
 argument_list|(
 name|processor
