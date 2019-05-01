@@ -205,11 +205,19 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// double checked locking based singleton Edm reader
-DECL|method|getEdm ()
+DECL|method|getEdm (Map<String, String> endpointHttpHeaders)
 specifier|public
 name|Edm
 name|getEdm
-parameter_list|()
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|endpointHttpHeaders
+parameter_list|)
 throws|throws
 name|RuntimeCamelException
 block|{
@@ -274,7 +282,7 @@ name|METADATA
 argument_list|,
 literal|null
 argument_list|,
-literal|null
+name|endpointHttpHeaders
 argument_list|,
 operator|new
 name|Olingo4ResponseHandler
