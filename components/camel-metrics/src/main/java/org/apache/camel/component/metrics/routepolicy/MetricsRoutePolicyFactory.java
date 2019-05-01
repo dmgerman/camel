@@ -148,6 +148,11 @@ name|TimeUnit
 operator|.
 name|MILLISECONDS
 decl_stmt|;
+DECL|field|namePattern
+specifier|private
+name|String
+name|namePattern
+decl_stmt|;
 comment|/**      * To use a specific {@link com.codahale.metrics.MetricRegistry} instance.      *<p/>      * If no instance has been configured, then Camel will create a shared instance to be used.      */
 DECL|method|setMetricsRegistry (MetricRegistry metricsRegistry)
 specifier|public
@@ -310,6 +315,33 @@ operator|=
 name|durationUnit
 expr_stmt|;
 block|}
+DECL|method|getNamePattern ()
+specifier|public
+name|String
+name|getNamePattern
+parameter_list|()
+block|{
+return|return
+name|namePattern
+return|;
+block|}
+DECL|method|setNamePattern (final String namePattern)
+specifier|public
+name|void
+name|setNamePattern
+parameter_list|(
+specifier|final
+name|String
+name|namePattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|namePattern
+operator|=
+name|namePattern
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createRoutePolicy (CamelContext camelContext, String routeId, NamedNode routeDefinition)
@@ -382,6 +414,21 @@ name|getDurationUnit
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|namePattern
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setNamePattern
+argument_list|(
+name|namePattern
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
