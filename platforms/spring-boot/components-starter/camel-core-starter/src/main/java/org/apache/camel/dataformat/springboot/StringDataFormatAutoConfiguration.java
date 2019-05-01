@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl.engine.springboot
+DECL|package|org.apache.camel.dataformat.springboot
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|engine
+name|dataformat
 operator|.
 name|springboot
 package|;
@@ -104,11 +102,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|dataformat
 operator|.
-name|engine
-operator|.
-name|SerializationDataFormat
+name|StringDataFormat
 import|;
 end_import
 
@@ -472,7 +468,7 @@ name|ConditionalOnCamelContextAndAutoConfigurationBeans
 operator|.
 name|class
 block|,
-name|SerializationDataFormatAutoConfiguration
+name|StringDataFormatAutoConfiguration
 operator|.
 name|GroupConditions
 operator|.
@@ -494,15 +490,15 @@ name|DataFormatConfigurationProperties
 operator|.
 name|class
 block|,
-name|SerializationDataFormatConfiguration
+name|StringDataFormatConfiguration
 operator|.
 name|class
 block|}
 argument_list|)
-DECL|class|SerializationDataFormatAutoConfiguration
+DECL|class|StringDataFormatAutoConfiguration
 specifier|public
 class|class
-name|SerializationDataFormatAutoConfiguration
+name|StringDataFormatAutoConfiguration
 block|{
 DECL|field|LOGGER
 specifier|private
@@ -515,7 +511,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|SerializationDataFormatAutoConfiguration
+name|StringDataFormatAutoConfiguration
 operator|.
 name|class
 argument_list|)
@@ -538,7 +534,7 @@ annotation|@
 name|Autowired
 DECL|field|configuration
 specifier|private
-name|SerializationDataFormatConfiguration
+name|StringDataFormatConfiguration
 name|configuration
 decl_stmt|;
 annotation|@
@@ -554,7 +550,7 @@ name|List
 argument_list|<
 name|DataFormatCustomizer
 argument_list|<
-name|SerializationDataFormat
+name|StringDataFormat
 argument_list|>
 argument_list|>
 name|customizers
@@ -575,7 +571,7 @@ name|super
 argument_list|(
 literal|"camel.dataformat"
 argument_list|,
-literal|"camel.dataformat.serialization"
+literal|"camel.dataformat.string"
 argument_list|)
 expr_stmt|;
 block|}
@@ -585,19 +581,19 @@ name|Bean
 argument_list|(
 name|name
 operator|=
-literal|"serialization-dataformat-factory"
+literal|"string-dataformat-factory"
 argument_list|)
 annotation|@
 name|ConditionalOnMissingBean
 argument_list|(
-name|SerializationDataFormat
+name|StringDataFormat
 operator|.
 name|class
 argument_list|)
-DECL|method|configureSerializationDataFormatFactory ()
+DECL|method|configureStringDataFormatFactory ()
 specifier|public
 name|DataFormatFactory
-name|configureSerializationDataFormatFactory
+name|configureStringDataFormatFactory
 parameter_list|()
 throws|throws
 name|Exception
@@ -614,11 +610,11 @@ name|DataFormat
 name|newInstance
 parameter_list|()
 block|{
-name|SerializationDataFormat
+name|StringDataFormat
 name|dataformat
 init|=
 operator|new
-name|SerializationDataFormat
+name|StringDataFormat
 argument_list|()
 decl_stmt|;
 if|if
@@ -629,7 +625,7 @@ name|class
 operator|.
 name|isAssignableFrom
 argument_list|(
-name|SerializationDataFormat
+name|StringDataFormat
 operator|.
 name|class
 argument_list|)
@@ -733,7 +729,7 @@ for|for
 control|(
 name|DataFormatCustomizer
 argument_list|<
-name|SerializationDataFormat
+name|StringDataFormat
 argument_list|>
 name|customizer
 range|:
@@ -760,7 +756,7 @@ argument_list|()
 argument_list|,
 literal|"camel.dataformat.customizer"
 argument_list|,
-literal|"camel.dataformat.serialization.customizer"
+literal|"camel.dataformat.string.customizer"
 argument_list|,
 operator|(
 operator|(
@@ -784,7 +780,7 @@ argument_list|()
 argument_list|,
 literal|"camel.dataformat.customizer"
 argument_list|,
-literal|"camel.dataformat.serialization.customizer"
+literal|"camel.dataformat.string.customizer"
 argument_list|)
 decl_stmt|;
 if|if

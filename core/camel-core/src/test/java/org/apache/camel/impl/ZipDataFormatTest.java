@@ -162,9 +162,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|engine
+name|dataformat
 operator|.
 name|ZipDataFormat
 import|;

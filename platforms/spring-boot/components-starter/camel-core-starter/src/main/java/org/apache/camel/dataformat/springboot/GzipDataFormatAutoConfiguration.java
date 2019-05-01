@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl.springboot
+DECL|package|org.apache.camel.dataformat.springboot
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|dataformat
 operator|.
 name|springboot
 package|;
@@ -102,11 +102,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|dataformat
 operator|.
-name|engine
-operator|.
-name|StringDataFormat
+name|GzipDataFormat
 import|;
 end_import
 
@@ -163,6 +161,22 @@ operator|.
 name|spi
 operator|.
 name|HasId
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|CamelAutoConfiguration
 import|;
 end_import
 
@@ -344,6 +358,22 @@ name|autoconfigure
 operator|.
 name|condition
 operator|.
+name|ConditionalOnBean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|boot
+operator|.
+name|autoconfigure
+operator|.
+name|condition
+operator|.
 name|ConditionalOnMissingBean
 import|;
 end_import
@@ -438,7 +468,7 @@ name|ConditionalOnCamelContextAndAutoConfigurationBeans
 operator|.
 name|class
 block|,
-name|StringDataFormatAutoConfiguration
+name|GzipDataFormatAutoConfiguration
 operator|.
 name|GroupConditions
 operator|.
@@ -460,15 +490,15 @@ name|DataFormatConfigurationProperties
 operator|.
 name|class
 block|,
-name|StringDataFormatConfiguration
+name|GzipDataFormatConfiguration
 operator|.
 name|class
 block|}
 argument_list|)
-DECL|class|StringDataFormatAutoConfiguration
+DECL|class|GzipDataFormatAutoConfiguration
 specifier|public
 class|class
-name|StringDataFormatAutoConfiguration
+name|GzipDataFormatAutoConfiguration
 block|{
 DECL|field|LOGGER
 specifier|private
@@ -481,7 +511,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|StringDataFormatAutoConfiguration
+name|GzipDataFormatAutoConfiguration
 operator|.
 name|class
 argument_list|)
@@ -504,7 +534,7 @@ annotation|@
 name|Autowired
 DECL|field|configuration
 specifier|private
-name|StringDataFormatConfiguration
+name|GzipDataFormatConfiguration
 name|configuration
 decl_stmt|;
 annotation|@
@@ -520,7 +550,7 @@ name|List
 argument_list|<
 name|DataFormatCustomizer
 argument_list|<
-name|StringDataFormat
+name|GzipDataFormat
 argument_list|>
 argument_list|>
 name|customizers
@@ -541,7 +571,7 @@ name|super
 argument_list|(
 literal|"camel.dataformat"
 argument_list|,
-literal|"camel.dataformat.string"
+literal|"camel.dataformat.gzip"
 argument_list|)
 expr_stmt|;
 block|}
@@ -551,19 +581,19 @@ name|Bean
 argument_list|(
 name|name
 operator|=
-literal|"string-dataformat-factory"
+literal|"gzip-dataformat-factory"
 argument_list|)
 annotation|@
 name|ConditionalOnMissingBean
 argument_list|(
-name|StringDataFormat
+name|GzipDataFormat
 operator|.
 name|class
 argument_list|)
-DECL|method|configureStringDataFormatFactory ()
+DECL|method|configureGzipDataFormatFactory ()
 specifier|public
 name|DataFormatFactory
-name|configureStringDataFormatFactory
+name|configureGzipDataFormatFactory
 parameter_list|()
 throws|throws
 name|Exception
@@ -580,11 +610,11 @@ name|DataFormat
 name|newInstance
 parameter_list|()
 block|{
-name|StringDataFormat
+name|GzipDataFormat
 name|dataformat
 init|=
 operator|new
-name|StringDataFormat
+name|GzipDataFormat
 argument_list|()
 decl_stmt|;
 if|if
@@ -595,7 +625,7 @@ name|class
 operator|.
 name|isAssignableFrom
 argument_list|(
-name|StringDataFormat
+name|GzipDataFormat
 operator|.
 name|class
 argument_list|)
@@ -699,7 +729,7 @@ for|for
 control|(
 name|DataFormatCustomizer
 argument_list|<
-name|StringDataFormat
+name|GzipDataFormat
 argument_list|>
 name|customizer
 range|:
@@ -726,7 +756,7 @@ argument_list|()
 argument_list|,
 literal|"camel.dataformat.customizer"
 argument_list|,
-literal|"camel.dataformat.string.customizer"
+literal|"camel.dataformat.gzip.customizer"
 argument_list|,
 operator|(
 operator|(
@@ -750,7 +780,7 @@ argument_list|()
 argument_list|,
 literal|"camel.dataformat.customizer"
 argument_list|,
-literal|"camel.dataformat.string.customizer"
+literal|"camel.dataformat.gzip.customizer"
 argument_list|)
 decl_stmt|;
 if|if

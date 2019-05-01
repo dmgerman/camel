@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl.springboot
+DECL|package|org.apache.camel.dataformat.springboot
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|dataformat
 operator|.
 name|springboot
 package|;
@@ -102,9 +102,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|engine
+name|dataformat
 operator|.
 name|SerializationDataFormat
 import|;
@@ -163,6 +161,22 @@ operator|.
 name|spi
 operator|.
 name|HasId
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|CamelAutoConfiguration
 import|;
 end_import
 
@@ -329,6 +343,22 @@ operator|.
 name|autoconfigure
 operator|.
 name|AutoConfigureAfter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|boot
+operator|.
+name|autoconfigure
+operator|.
+name|condition
+operator|.
+name|ConditionalOnBean
 import|;
 end_import
 
