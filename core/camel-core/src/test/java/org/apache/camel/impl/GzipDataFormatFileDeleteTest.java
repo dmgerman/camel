@@ -233,7 +233,7 @@ operator|.
 name|marshal
 argument_list|()
 operator|.
-name|gzip
+name|gzipDeflater
 argument_list|()
 operator|.
 name|to

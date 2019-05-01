@@ -207,7 +207,7 @@ operator|.
 name|marshal
 argument_list|()
 operator|.
-name|gzip
+name|gzipDeflater
 argument_list|()
 expr_stmt|;
 block|}
@@ -292,13 +292,13 @@ operator|.
 name|marshal
 argument_list|()
 operator|.
-name|gzip
+name|gzipDeflater
 argument_list|()
 operator|.
 name|unmarshal
 argument_list|()
 operator|.
-name|gzip
+name|gzipDeflater
 argument_list|()
 operator|.
 name|to

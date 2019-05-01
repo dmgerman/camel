@@ -1322,10 +1322,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Uses the GZIP deflater data format      */
-DECL|method|gzip ()
+DECL|method|gzipDeflater ()
 specifier|public
 name|T
-name|gzip
+name|gzipDeflater
 parameter_list|()
 block|{
 name|GzipDataFormat
@@ -5090,10 +5090,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Uses the ZIP deflater data format      */
-DECL|method|zip ()
+DECL|method|zipDefalter ()
 specifier|public
 name|T
-name|zip
+name|zipDefalter
 parameter_list|()
 block|{
 name|ZipDeflaterDataFormat
@@ -5101,11 +5101,7 @@ name|zdf
 init|=
 operator|new
 name|ZipDeflaterDataFormat
-argument_list|(
-name|Deflater
-operator|.
-name|DEFAULT_COMPRESSION
-argument_list|)
+argument_list|()
 decl_stmt|;
 return|return
 name|dataFormat
@@ -5115,10 +5111,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Uses the ZIP deflater data format      */
-DECL|method|zip (int compressionLevel)
+DECL|method|zipDefalter (int compressionLevel)
 specifier|public
 name|T
-name|zip
+name|zipDefalter
 parameter_list|(
 name|int
 name|compressionLevel

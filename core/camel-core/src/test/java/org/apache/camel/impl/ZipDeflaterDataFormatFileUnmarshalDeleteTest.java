@@ -262,7 +262,7 @@ operator|.
 name|marshal
 argument_list|()
 operator|.
-name|zip
+name|zipDefalter
 argument_list|()
 operator|.
 name|to
@@ -278,7 +278,7 @@ operator|.
 name|unmarshal
 argument_list|()
 operator|.
-name|zip
+name|zipDefalter
 argument_list|()
 operator|.
 name|to
