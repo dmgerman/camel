@@ -80,37 +80,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|dataformat
-operator|.
-name|StringDataFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|itest
 operator|.
 name|CamelJmsTestHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|DataFormat
 import|;
 end_import
 
@@ -476,17 +448,6 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// just a unit test but imaging using your own data format that does complex
-comment|// and CPU heavy processing for decrypting the message
-name|DataFormat
-name|mySecureDataFormat
-init|=
-operator|new
-name|StringDataFormat
-argument_list|(
-literal|"iso-8859-1"
-argument_list|)
-decl_stmt|;
 comment|// list on the JMS queue for new orders
 name|from
 argument_list|(
@@ -514,11 +475,6 @@ argument_list|(
 literal|20
 argument_list|)
 comment|// do some CPU heavy processing of the message (we simulate and delay just 500 ms)
-operator|.
-name|unmarshal
-argument_list|(
-name|mySecureDataFormat
-argument_list|)
 operator|.
 name|delay
 argument_list|(

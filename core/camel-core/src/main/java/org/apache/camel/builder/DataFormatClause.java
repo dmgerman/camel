@@ -502,39 +502,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|SerializationDataFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|dataformat
-operator|.
 name|SoapJaxbDataFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|dataformat
-operator|.
-name|StringDataFormat
 import|;
 end_import
 
@@ -2962,22 +2930,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Java Serialization data format      */
-DECL|method|serialization ()
-specifier|public
-name|T
-name|serialization
-parameter_list|()
-block|{
-return|return
-name|dataFormat
-argument_list|(
-operator|new
-name|SerializationDataFormat
-argument_list|()
-argument_list|)
-return|;
-block|}
 comment|/**      * Uses the Soap 1.1 JAXB data format      */
 DECL|method|soapjaxb ()
 specifier|public
@@ -3201,51 +3153,6 @@ return|return
 name|dataFormat
 argument_list|(
 name|soap
-argument_list|)
-return|;
-block|}
-comment|/**      * Uses the String data format      */
-DECL|method|string ()
-specifier|public
-name|T
-name|string
-parameter_list|()
-block|{
-return|return
-name|string
-argument_list|(
-literal|null
-argument_list|)
-return|;
-block|}
-comment|/**      * Uses the String data format supporting encoding using given charset      */
-DECL|method|string (String charset)
-specifier|public
-name|T
-name|string
-parameter_list|(
-name|String
-name|charset
-parameter_list|)
-block|{
-name|StringDataFormat
-name|sdf
-init|=
-operator|new
-name|StringDataFormat
-argument_list|()
-decl_stmt|;
-name|sdf
-operator|.
-name|setCharset
-argument_list|(
-name|charset
-argument_list|)
-expr_stmt|;
-return|return
-name|dataFormat
-argument_list|(
-name|sdf
 argument_list|)
 return|;
 block|}

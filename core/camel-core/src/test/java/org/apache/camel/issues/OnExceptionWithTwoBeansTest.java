@@ -281,12 +281,6 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|unmarshal
-argument_list|()
-operator|.
-name|string
-argument_list|()
-operator|.
 name|to
 argument_list|(
 literal|"bean:checkin"
