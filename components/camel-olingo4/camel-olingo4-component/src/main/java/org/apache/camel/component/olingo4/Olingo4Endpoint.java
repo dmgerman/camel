@@ -878,6 +878,29 @@ argument_list|>
 name|properties
 parameter_list|)
 block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|endpointHttpHeaders
+init|=
+operator|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+operator|)
+name|properties
+operator|.
+name|get
+argument_list|(
+name|ENDPOINT_HTTP_HEADERS_PROPERTY
+argument_list|)
+decl_stmt|;
 comment|// read Edm if not set yet
 name|properties
 operator|.
@@ -888,7 +911,9 @@ argument_list|,
 name|apiProxy
 operator|.
 name|getEdm
-argument_list|()
+argument_list|(
+name|endpointHttpHeaders
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// handle filterAlreadySeen property
