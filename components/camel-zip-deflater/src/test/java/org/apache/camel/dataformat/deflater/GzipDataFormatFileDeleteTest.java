@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.dataformat.deflater
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|dataformat
+operator|.
+name|deflater
 package|;
 end_package
 
@@ -23,18 +25,6 @@ operator|.
 name|io
 operator|.
 name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ContextTestSupport
 import|;
 end_import
 
@@ -82,6 +72,32 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Before
@@ -99,12 +115,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|GzipDataFormatFileUnmarshalDeleteTest
+DECL|class|GzipDataFormatFileDeleteTest
 specifier|public
 class|class
-name|GzipDataFormatFileUnmarshalDeleteTest
+name|GzipDataFormatFileDeleteTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 annotation|@
 name|Override
@@ -131,16 +147,16 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testGzipFileUnmarshalDelete ()
+DECL|method|testGzipFileDelete ()
 specifier|public
 name|void
-name|testGzipFileUnmarshalDelete
+name|testGzipFileDelete
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|NotifyBuilder
-name|notify
+name|oneExchangeDone
 init|=
 operator|new
 name|NotifyBuilder
@@ -150,7 +166,7 @@ argument_list|)
 operator|.
 name|whenDone
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 operator|.
 name|create
@@ -161,9 +177,9 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Hello World"
+literal|1
 argument_list|)
 expr_stmt|;
 name|template
@@ -184,9 +200,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|notify
+comment|// wait till the exchange is done which means the file should then have been deleted
+name|oneExchangeDone
 operator|.
-name|matchesMockWaitTime
+name|matchesWaitTime
 argument_list|()
 expr_stmt|;
 name|File
@@ -195,9 +212,11 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/gzip/hello.txt"
+literal|"target/data/gzip/hello.txt"
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertFalse
 argument_list|(
 literal|"Should have been deleted "
@@ -216,12 +235,14 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/gzip/out/hello.txt.gz"
+literal|"target/data/gzip/out/hello.txt.gz"
 argument_list|)
 decl_stmt|;
-name|assertFalse
+name|Assert
+operator|.
+name|assertTrue
 argument_list|(
-literal|"Should have been deleted "
+literal|"Should have been created "
 operator|+
 name|out
 argument_list|,
@@ -271,17 +292,6 @@ name|to
 argument_list|(
 literal|"file:target/data/gzip/out?fileName=${file:name}.gz"
 argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"file:target/data/gzip/out?initialDelay=0&delay=10&delete=true"
-argument_list|)
-operator|.
-name|unmarshal
-argument_list|()
-operator|.
-name|gzipDeflater
-argument_list|()
 operator|.
 name|to
 argument_list|(
