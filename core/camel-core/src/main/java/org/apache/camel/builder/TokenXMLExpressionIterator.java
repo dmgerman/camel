@@ -435,15 +435,11 @@ name|inheritNamespaceToken
 decl_stmt|;
 if|if
 condition|(
-name|inherit
-operator|!=
-literal|null
-operator|&&
 name|LanguageSupport
 operator|.
 name|hasSimpleFunction
 argument_list|(
-name|tag
+name|inherit
 argument_list|)
 condition|)
 block|{
