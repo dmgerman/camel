@@ -3754,7 +3754,7 @@ name|props
 argument_list|,
 name|SslConfigs
 operator|.
-name|SSL_KEYSTORE_PASSWORD_CONFIG
+name|SSL_TRUSTSTORE_PASSWORD_CONFIG
 argument_list|,
 name|keyStore
 operator|.
