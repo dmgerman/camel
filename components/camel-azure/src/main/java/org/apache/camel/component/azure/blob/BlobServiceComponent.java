@@ -417,6 +417,33 @@ return|return
 name|endpoint
 return|;
 block|}
+DECL|method|getConfiguration ()
+specifier|public
+name|BlobServiceConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
+return|;
+block|}
+comment|/**      * The Blob Service configuration      */
+DECL|method|setConfiguration (BlobServiceConfiguration configuration)
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|BlobServiceConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
+block|}
 DECL|method|checkCredentials (BlobServiceConfiguration cfg)
 specifier|private
 name|void
