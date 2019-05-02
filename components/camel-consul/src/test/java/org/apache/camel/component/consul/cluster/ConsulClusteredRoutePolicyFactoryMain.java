@@ -66,9 +66,9 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|engine
+name|cluster
 operator|.
-name|ExplicitCamelContextNameStrategy
+name|ClusteredRoutePolicyFactory
 import|;
 end_import
 
@@ -82,9 +82,9 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|cluster
+name|engine
 operator|.
-name|ClusteredRoutePolicyFactory
+name|ExplicitCamelContextNameStrategy
 import|;
 end_import
 
