@@ -108,9 +108,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|engine
-operator|.
-name|DefaultClassResolver
+name|JndiRegistry
 import|;
 end_import
 
@@ -124,7 +122,9 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|JndiRegistry
+name|engine
+operator|.
+name|DefaultClassResolver
 import|;
 end_import
 
