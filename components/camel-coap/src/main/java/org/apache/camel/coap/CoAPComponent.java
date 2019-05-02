@@ -20,6 +20,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|InetSocketAddress
@@ -403,6 +413,8 @@ parameter_list|,
 name|CoAPEndpoint
 name|endpoint
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|CoapServer
 name|server
