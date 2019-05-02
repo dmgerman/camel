@@ -266,9 +266,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|errorhandler
-operator|.
-name|RedeliveryErrorHandler
+name|WrapProcessor
 import|;
 end_import
 
@@ -282,7 +280,9 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|WrapProcessor
+name|errorhandler
+operator|.
+name|RedeliveryErrorHandler
 import|;
 end_import
 

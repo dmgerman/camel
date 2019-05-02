@@ -86,7 +86,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|RouteIdFactory
+name|JndiRegistry
 import|;
 end_import
 
@@ -100,7 +100,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|JndiRegistry
+name|RouteIdFactory
 import|;
 end_import
 
