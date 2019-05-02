@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.dataformat.deflater
 package|package
 name|org
 operator|.
@@ -12,31 +12,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|dataformat
+operator|.
+name|deflater
 package|;
 end_package
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ContextTestSupport
-import|;
-end_import
 
 begin_import
 import|import
@@ -82,6 +62,32 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Before
@@ -98,13 +104,23 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
 begin_class
-DECL|class|ZipDeflaterDataFormatFileUnmarshalDeleteTest
+DECL|class|ZipDeflaterDataFormatFileDeleteTest
 specifier|public
 class|class
-name|ZipDeflaterDataFormatFileUnmarshalDeleteTest
+name|ZipDeflaterDataFormatFileDeleteTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 annotation|@
 name|Override
@@ -131,24 +147,26 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testZipFileUnmarshalDelete ()
+DECL|method|testZipFileDelete ()
 specifier|public
 name|void
-name|testZipFileUnmarshalDelete
+name|testZipFileDelete
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// there are 2 exchanges
 name|NotifyBuilder
-name|event
+name|oneExchangeDone
 init|=
-name|event
-argument_list|()
+operator|new
+name|NotifyBuilder
+argument_list|(
+name|context
+argument_list|)
 operator|.
 name|whenDone
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 operator|.
 name|create
@@ -159,9 +177,9 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Hello World"
+literal|1
 argument_list|)
 expr_stmt|;
 name|template
@@ -182,9 +200,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|event
+comment|// wait till the exchange is done which means the file should then have been deleted
+name|oneExchangeDone
 operator|.
-name|matchesMockWaitTime
+name|matchesWaitTime
 argument_list|()
 expr_stmt|;
 name|File
@@ -193,9 +212,11 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/zip/hello.txt"
+literal|"target/data/zip/hello.txt"
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertFalse
 argument_list|(
 literal|"Should have been deleted "
@@ -214,12 +235,14 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/zip/out/hello.txt.zip"
+literal|"target/data/zip/out/hello.txt.zip"
 argument_list|)
 decl_stmt|;
-name|assertFalse
+name|Assert
+operator|.
+name|assertTrue
 argument_list|(
-literal|"Should have been deleted "
+literal|"Should have been created "
 operator|+
 name|out
 argument_list|,
@@ -269,17 +292,6 @@ name|to
 argument_list|(
 literal|"file:target/data/zip/out?fileName=${file:name}.zip"
 argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"file:target/data/zip/out?initialDelay=0&delay=10&delete=true"
-argument_list|)
-operator|.
-name|unmarshal
-argument_list|()
-operator|.
-name|zipDefalter
-argument_list|()
 operator|.
 name|to
 argument_list|(

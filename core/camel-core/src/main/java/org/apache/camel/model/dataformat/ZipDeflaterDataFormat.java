@@ -164,23 +164,8 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-literal|"zip-deflater"
+literal|"zipdeflater"
 argument_list|)
-expr_stmt|;
-block|}
-DECL|method|ZipDeflaterDataFormat (int compressionLevel)
-specifier|public
-name|ZipDeflaterDataFormat
-parameter_list|(
-name|int
-name|compressionLevel
-parameter_list|)
-block|{
-name|this
-operator|.
-name|compressionLevel
-operator|=
-name|compressionLevel
 expr_stmt|;
 block|}
 DECL|method|getCompressionLevel ()

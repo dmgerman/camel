@@ -101,7 +101,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-literal|"gzip-deflater"
+literal|"gzipdeflater"
 argument_list|)
 expr_stmt|;
 block|}

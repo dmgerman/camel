@@ -5125,10 +5125,15 @@ name|zdf
 init|=
 operator|new
 name|ZipDeflaterDataFormat
+argument_list|()
+decl_stmt|;
+name|zdf
+operator|.
+name|setCompressionLevel
 argument_list|(
 name|compressionLevel
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 return|return
 name|dataFormat
 argument_list|(
