@@ -365,7 +365,7 @@ name|names
 operator|.
 name|contains
 argument_list|(
-literal|"zip"
+literal|"zipdeflater"
 argument_list|)
 argument_list|)
 expr_stmt|;
