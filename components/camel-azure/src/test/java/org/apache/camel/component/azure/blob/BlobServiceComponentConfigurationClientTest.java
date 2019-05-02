@@ -1090,7 +1090,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"azure-blob://camelazure/container/blob?azureBlobClient=#azureBlobClient&publicForRead=true"
+literal|"azure-blob://camelazure/container/blob?publicForRead=true"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -1143,7 +1143,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"azure-blob://camelazure/container/blob?azureBlobClient=#azureBlobClient"
+literal|"azure-blob://camelazure/container/blob"
 argument_list|)
 expr_stmt|;
 name|fail
