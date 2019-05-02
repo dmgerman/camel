@@ -2867,7 +2867,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop as we do a manual on-demand poll with GenericFilePolllingConsumer
+comment|// noop as we do a manual on-demand poll with GenericFilePollingConsumer
 block|}
 annotation|@
 name|Override
@@ -2882,7 +2882,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// noop as we do a manual on-demand poll with GenericFilePolllingConsumer
+comment|// noop as we do a manual on-demand poll with GenericFilePollingConsumer
 return|return
 name|timeout
 return|;
@@ -2897,7 +2897,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop as we do a manual on-demand poll with GenericFilePolllingConsumer
+comment|// noop as we do a manual on-demand poll with GenericFilePollingConsumer
 block|}
 block|}
 end_class
