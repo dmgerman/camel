@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -73,26 +63,6 @@ operator|.
 name|camel
 operator|.
 name|TypeConversionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|pulsar
-operator|.
-name|utils
-operator|.
-name|message
-operator|.
-name|PulsarMessageHeaders
 import|;
 end_import
 
