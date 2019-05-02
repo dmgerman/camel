@@ -180,11 +180,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|impl
 operator|.
-name|interceptor
+name|engine
 operator|.
-name|DefaultDebugger
+name|InterceptSendToMockEndpointStrategy
 import|;
 end_import
 
@@ -196,11 +196,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|processor
 operator|.
-name|engine
+name|interceptor
 operator|.
-name|InterceptSendToMockEndpointStrategy
+name|DefaultDebugger
 import|;
 end_import
 
