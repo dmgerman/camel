@@ -4775,7 +4775,7 @@ name|catalog
 operator|.
 name|validateEndpointProperties
 argument_list|(
-literal|"dataformat:string:marshal?charset=utf-8"
+literal|"dataformat:zipdeflater:marshal?compressionLevel=2"
 argument_list|,
 literal|true
 argument_list|)
