@@ -102,7 +102,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RoutesBuilder
+name|Route
 import|;
 end_import
 
@@ -114,11 +114,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|engine
-operator|.
-name|DefaultRoute
+name|RoutesBuilder
 import|;
 end_import
 
@@ -389,7 +385,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/dsl.html">Java DSL</a> which is  * used to build {@link DefaultRoute} instances in a {@link CamelContext} for smart routing.  */
+comment|/**  * A<a href="http://camel.apache.org/dsl.html">Java DSL</a> which is  * used to build {@link Route} instances in a {@link CamelContext} for smart routing.  */
 end_comment
 
 begin_class
