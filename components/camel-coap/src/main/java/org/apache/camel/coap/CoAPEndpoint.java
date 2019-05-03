@@ -654,6 +654,8 @@ name|getCoapServer
 parameter_list|()
 throws|throws
 name|IOException
+throws|,
+name|GeneralSecurityException
 block|{
 return|return
 name|component
@@ -968,7 +970,7 @@ name|clientAuthentication
 expr_stmt|;
 block|}
 DECL|method|isClientAuthenticationRequired ()
-specifier|private
+specifier|public
 name|boolean
 name|isClientAuthenticationRequired
 parameter_list|()
@@ -1025,7 +1027,7 @@ name|REQUIRE
 return|;
 block|}
 DECL|method|isClientAuthenticationWanted ()
-specifier|private
+specifier|public
 name|boolean
 name|isClientAuthenticationWanted
 parameter_list|()
