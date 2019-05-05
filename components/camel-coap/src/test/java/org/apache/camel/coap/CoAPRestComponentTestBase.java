@@ -201,8 +201,6 @@ operator|.
 name|coap
 operator|.
 name|CoAP
-operator|.
-name|ResponseCode
 import|;
 end_import
 
@@ -219,6 +217,8 @@ operator|.
 name|coap
 operator|.
 name|CoAP
+operator|.
+name|ResponseCode
 import|;
 end_import
 
