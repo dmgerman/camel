@@ -957,25 +957,15 @@ name|DOCKER_RESTART_POLICY
 init|=
 literal|"CamelDockerRestartPolicy"
 decl_stmt|;
-comment|/**      * Create Network *      */
-DECL|field|DOCKER_NETWORK_NAME
+comment|/**      * Create Network *      * Attach to Network *      * Remove Network *      */
+DECL|field|DOCKER_NETWORK
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|DOCKER_NETWORK_NAME
+name|DOCKER_NETWORK
 init|=
 literal|"CamelDockerNetwork"
-decl_stmt|;
-comment|/**      * Attach to Network *      * Remove Network *      */
-DECL|field|DOCKER_NETWORK_ID
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|DOCKER_NETWORK_ID
-init|=
-literal|"CamelDockerNetworkId"
 decl_stmt|;
 comment|/**      * Exec *      */
 DECL|field|DOCKER_DETACH

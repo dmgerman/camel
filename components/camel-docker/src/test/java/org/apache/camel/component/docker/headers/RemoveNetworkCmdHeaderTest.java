@@ -194,7 +194,7 @@ name|put
 argument_list|(
 name|DockerConstants
 operator|.
-name|DOCKER_NETWORK_ID
+name|DOCKER_NETWORK
 argument_list|,
 name|networkId
 argument_list|)
