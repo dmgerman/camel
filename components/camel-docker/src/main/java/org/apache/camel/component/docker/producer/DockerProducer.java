@@ -5368,7 +5368,7 @@ name|getProperty
 argument_list|(
 name|DockerConstants
 operator|.
-name|DOCKER_NETWORK_NAME
+name|DOCKER_NETWORK_ID
 argument_list|,
 name|configuration
 argument_list|,

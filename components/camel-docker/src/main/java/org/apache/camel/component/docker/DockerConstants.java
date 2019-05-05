@@ -975,7 +975,7 @@ specifier|final
 name|String
 name|DOCKER_NETWORK_ID
 init|=
-literal|"CamelDockerNetwork"
+literal|"CamelDockerNetworkId"
 decl_stmt|;
 comment|/**      * Exec *      */
 DECL|field|DOCKER_DETACH
