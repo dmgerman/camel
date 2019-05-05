@@ -274,9 +274,9 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|engine
+name|converter
 operator|.
-name|DefaultPackageScanClassResolver
+name|DefaultTypeConverter
 import|;
 end_import
 
@@ -290,9 +290,9 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|converter
+name|engine
 operator|.
-name|DefaultTypeConverter
+name|DefaultPackageScanClassResolver
 import|;
 end_import
 
