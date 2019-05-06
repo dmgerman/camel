@@ -945,7 +945,7 @@ name|bodyAsByteBuffer
 init|=
 name|tc
 operator|.
-name|convertTo
+name|mandatoryConvertTo
 argument_list|(
 name|ByteBuffer
 operator|.
