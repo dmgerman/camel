@@ -320,26 +320,21 @@ name|RuntimeException
 operator|.
 name|class
 argument_list|)
-comment|//        .expectMessage(containsString("Error adding routes of type [" + UriWithWrongContextRoute.class.getName() + "] to Camel context [first]"))
-comment|//        .expectMessage(containsString("Error injecting endpoint annotated with @org.apache.camel.cdi.Uri"))
 operator|.
 name|expectMessage
 argument_list|(
+comment|// WELD-1.0, WELD-1.2, WELD-2.0 have different exception messages
+comment|// Check only error code and injection point
 name|allOf
 argument_list|(
 name|containsString
 argument_list|(
-literal|"WELD-001408 Unsatisfied dependencies for type [Endpoint] with qualifiers ["
+literal|"WELD-001408"
 argument_list|)
 argument_list|,
 name|containsString
 argument_list|(
-literal|"] at injection point [[field] @"
-argument_list|)
-argument_list|,
-name|containsString
-argument_list|(
-literal|" org.apache.camel.cdi.test.UriWithWrongContextRoute.inbound]"
+literal|"org.apache.camel.cdi.test.UriWithWrongContextRoute.inbound"
 argument_list|)
 argument_list|)
 argument_list|)
