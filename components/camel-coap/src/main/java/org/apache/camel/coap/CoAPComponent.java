@@ -535,7 +535,7 @@ if|if
 condition|(
 name|CoAPEndpoint
 operator|.
-name|enableTLS
+name|enableDTLS
 argument_list|(
 name|endpoint
 operator|.

@@ -17,14 +17,14 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * UDP + DTLS tests  */
+comment|/**  * TCP + TLS tests  */
 end_comment
 
 begin_class
-DECL|class|CoAPComponentTLSTest
+DECL|class|CoAPComponentTCPTLSTest
 specifier|public
 class|class
-name|CoAPComponentTLSTest
+name|CoAPComponentTCPTLSTest
 extends|extends
 name|CoAPComponentTLSTestBase
 block|{
@@ -37,7 +37,7 @@ name|getProtocol
 parameter_list|()
 block|{
 return|return
-literal|"coaps"
+literal|"coaps+tcp"
 return|;
 block|}
 annotation|@
@@ -49,7 +49,7 @@ name|isPSKSupported
 parameter_list|()
 block|{
 return|return
-literal|true
+literal|false
 return|;
 block|}
 annotation|@
@@ -61,7 +61,7 @@ name|isRPKSupported
 parameter_list|()
 block|{
 return|return
-literal|true
+literal|false
 return|;
 block|}
 block|}

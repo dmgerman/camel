@@ -1211,11 +1211,11 @@ literal|0
 index|]
 return|;
 block|}
-DECL|method|enableTLS (URI uri)
+DECL|method|enableDTLS (URI uri)
 specifier|public
 specifier|static
 name|boolean
-name|enableTLS
+name|enableDTLS
 parameter_list|(
 name|URI
 name|uri

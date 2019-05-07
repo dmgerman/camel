@@ -634,7 +634,7 @@ if|if
 condition|(
 name|CoAPEndpoint
 operator|.
-name|enableTLS
+name|enableDTLS
 argument_list|(
 name|uri
 argument_list|)
