@@ -364,6 +364,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -373,6 +383,11 @@ comment|/**  * check if soroush BOT Api work as expected  */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Need the token to work"
+argument_list|)
 DECL|class|SoroushServiceTest
 specifier|public
 class|class
