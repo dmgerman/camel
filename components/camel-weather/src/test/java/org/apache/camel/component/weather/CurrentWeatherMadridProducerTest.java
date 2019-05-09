@@ -282,10 +282,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testHeaderOverrideCurrent ()
+DECL|method|testHeaderOverrideLondon ()
 specifier|public
 name|void
-name|testHeaderOverrideCurrent
+name|testHeaderOverrideLondon
 parameter_list|()
 throws|throws
 name|Exception
