@@ -746,6 +746,24 @@ name|api
 operator|.
 name|command
 operator|.
+name|PruneCmd
+operator|.
+name|Exec
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|github
+operator|.
+name|dockerjava
+operator|.
+name|api
+operator|.
+name|command
+operator|.
 name|PullImageCmd
 import|;
 end_import
@@ -2170,6 +2188,18 @@ throws|throws
 name|IOException
 block|{
 comment|// Noop
+block|}
+annotation|@
+name|Override
+DECL|method|pruneCmdExec ()
+specifier|public
+name|Exec
+name|pruneCmdExec
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
 block|}
 block|}
 end_class
