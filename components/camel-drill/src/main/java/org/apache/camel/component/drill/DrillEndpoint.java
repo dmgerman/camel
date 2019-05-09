@@ -60,22 +60,6 @@ end_import
 
 begin_import
 import|import
-name|oadd
-operator|.
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -107,6 +91,24 @@ operator|.
 name|camel
 operator|.
 name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|drill
+operator|.
+name|util
+operator|.
+name|StringUtils
 import|;
 end_import
 
