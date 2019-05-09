@@ -96,11 +96,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|codehaus
+name|fasterxml
 operator|.
 name|jackson
+operator|.
+name|databind
 operator|.
 name|JsonNode
 import|;
@@ -108,13 +110,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|codehaus
+name|fasterxml
 operator|.
 name|jackson
 operator|.
-name|map
+name|databind
 operator|.
 name|ObjectMapper
 import|;
