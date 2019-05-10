@@ -5090,10 +5090,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Uses the ZIP deflater data format      */
-DECL|method|zipDefalter ()
+DECL|method|zipDeflater ()
 specifier|public
 name|T
-name|zipDefalter
+name|zipDeflater
 parameter_list|()
 block|{
 name|ZipDeflaterDataFormat
@@ -5111,10 +5111,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Uses the ZIP deflater data format      */
-DECL|method|zipDefalter (int compressionLevel)
+DECL|method|zipDeflater (int compressionLevel)
 specifier|public
 name|T
-name|zipDefalter
+name|zipDeflater
 parameter_list|(
 name|int
 name|compressionLevel

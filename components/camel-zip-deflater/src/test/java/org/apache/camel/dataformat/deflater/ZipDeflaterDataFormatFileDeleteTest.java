@@ -285,7 +285,7 @@ operator|.
 name|marshal
 argument_list|()
 operator|.
-name|zipDefalter
+name|zipDeflater
 argument_list|()
 operator|.
 name|to
