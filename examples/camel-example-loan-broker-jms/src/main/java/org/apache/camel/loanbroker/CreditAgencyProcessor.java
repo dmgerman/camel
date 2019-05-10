@@ -40,6 +40,16 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+
 begin_comment
 comment|//START SNIPPET: creditAgency
 end_comment
@@ -82,6 +92,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|Random
+name|rand
+init|=
+operator|new
+name|Random
+argument_list|()
+decl_stmt|;
 name|int
 name|score
 init|=
@@ -89,9 +106,9 @@ call|(
 name|int
 call|)
 argument_list|(
-name|Math
+name|rand
 operator|.
-name|random
+name|nextDouble
 argument_list|()
 operator|*
 literal|600
@@ -106,9 +123,9 @@ call|(
 name|int
 call|)
 argument_list|(
-name|Math
+name|rand
 operator|.
-name|random
+name|nextDouble
 argument_list|()
 operator|*
 literal|19

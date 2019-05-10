@@ -70,6 +70,16 @@ name|RuntimeExchangeException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+
 begin_class
 annotation|@
 name|ApplicationScoped
@@ -89,11 +99,18 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+name|Random
+name|rand
+init|=
+operator|new
+name|Random
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
-name|Math
+name|rand
 operator|.
-name|random
+name|nextDouble
 argument_list|()
 operator|<
 literal|0.5

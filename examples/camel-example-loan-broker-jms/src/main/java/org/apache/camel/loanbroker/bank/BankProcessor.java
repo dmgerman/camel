@@ -56,6 +56,16 @@ name|Constants
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+
 begin_comment
 comment|//START SNIPPET: bank
 end_comment
@@ -146,6 +156,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|Random
+name|rand
+init|=
+operator|new
+name|Random
+argument_list|()
+decl_stmt|;
 name|double
 name|rate
 init|=
@@ -163,9 +180,9 @@ operator|/
 literal|10
 operator|+
 operator|(
-name|Math
+name|rand
 operator|.
-name|random
+name|nextDouble
 argument_list|()
 operator|*
 literal|10
