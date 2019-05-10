@@ -252,7 +252,6 @@ operator|)
 operator|.
 name|build
 argument_list|()
-init|)
 decl_stmt|;
 annotation|@
 name|Test
