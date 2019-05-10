@@ -23,6 +23,7 @@ end_package
 begin_class
 DECL|class|StringUtils
 specifier|public
+specifier|final
 class|class
 name|StringUtils
 block|{
