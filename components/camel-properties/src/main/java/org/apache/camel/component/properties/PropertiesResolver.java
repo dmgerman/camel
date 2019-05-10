@@ -60,7 +60,7 @@ specifier|public
 interface|interface
 name|PropertiesResolver
 block|{
-comment|/**      * Resolve properties from the given uri      *      * @param context the camel context      * @param ignoreMissingLocation ignore silently if the property file is missing      * @param locations location(s) defining the source(s)      * @return the properties      * @throws Exception is thrown if resolving the properties failed      */
+comment|/**      * Resolve properties from the given uri      *      * @param context the camel context      * @param ignoreMissingLocation ignore silently if the property file is missing      * @param locations location(s) defining the source(s)      * @return the properties      * @throws java.io.IOError is thrown if resolving the properties failed      */
 DECL|method|resolveProperties (CamelContext context, boolean ignoreMissingLocation, List<PropertiesLocation> locations)
 name|Properties
 name|resolveProperties
@@ -77,8 +77,6 @@ name|PropertiesLocation
 argument_list|>
 name|locations
 parameter_list|)
-throws|throws
-name|Exception
 function_decl|;
 block|}
 end_interface

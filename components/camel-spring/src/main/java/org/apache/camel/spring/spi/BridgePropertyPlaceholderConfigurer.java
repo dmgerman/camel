@@ -648,8 +648,6 @@ name|PropertiesLocation
 argument_list|>
 name|locations
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 comment|// return the spring properties, if it
 name|Properties

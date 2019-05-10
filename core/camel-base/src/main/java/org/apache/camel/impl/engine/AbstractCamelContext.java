@@ -8452,8 +8452,6 @@ parameter_list|(
 name|String
 name|text
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 comment|// While it is more efficient to only do the lookup if we are sure we
 comment|// need the component,

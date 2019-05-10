@@ -908,8 +908,6 @@ parameter_list|(
 name|String
 name|uri
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 return|return
 name|parseUri
@@ -932,8 +930,6 @@ name|String
 modifier|...
 name|locations
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 return|return
 name|parseUri
@@ -978,8 +974,6 @@ specifier|public
 name|Properties
 name|loadProperties
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
 name|doLoadProperties
@@ -997,8 +991,6 @@ name|String
 modifier|...
 name|locations
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -1051,8 +1043,6 @@ name|PropertiesLocation
 argument_list|>
 name|paths
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|Properties
 name|prop
@@ -1220,8 +1210,6 @@ name|PropertiesLocation
 argument_list|>
 name|paths
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|Properties
 name|prop

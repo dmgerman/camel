@@ -263,8 +263,6 @@ name|PropertiesLocation
 argument_list|>
 name|locations
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|Properties
 name|answer

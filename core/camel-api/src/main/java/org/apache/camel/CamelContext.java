@@ -1540,7 +1540,7 @@ name|String
 name|language
 parameter_list|)
 function_decl|;
-comment|/**      * Parses the given text and resolve any property placeholders - using {{key}}.      *      * @param text the text such as an endpoint uri or the likes      * @return the text with resolved property placeholders      * @throws Exception is thrown if property placeholders was used and there was an error resolving them      */
+comment|/**      * Parses the given text and resolve any property placeholders - using {{key}}.      *      * @param text the text such as an endpoint uri or the likes      * @return the text with resolved property placeholders      * @throws IllegalArgumentException is thrown if property placeholders was used and there was an error resolving them      */
 DECL|method|resolvePropertyPlaceholders (String text)
 name|String
 name|resolvePropertyPlaceholders
@@ -1548,8 +1548,6 @@ parameter_list|(
 name|String
 name|text
 parameter_list|)
-throws|throws
-name|Exception
 function_decl|;
 comment|/**      * Returns the configured property placeholder prefix token if and only if the CamelContext has      * property placeholder abilities, otherwise returns {@code null}.      *       * @return the prefix token or {@code null}      */
 DECL|method|getPropertyPrefixToken ()

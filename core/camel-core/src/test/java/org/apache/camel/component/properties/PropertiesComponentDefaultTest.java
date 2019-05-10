@@ -30,6 +30,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOError
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -61,6 +71,18 @@ operator|.
 name|camel
 operator|.
 name|ResolveEndpointFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -240,6 +262,21 @@ name|getCause
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|RuntimeCamelException
+name|rce
+init|=
+name|assertIsInstanceOf
+argument_list|(
+name|RuntimeCamelException
+operator|.
+name|class
+argument_list|,
+name|cause
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|FileNotFoundException
 name|fnfe
 init|=
@@ -249,7 +286,7 @@ name|FileNotFoundException
 operator|.
 name|class
 argument_list|,
-name|cause
+name|rce
 operator|.
 name|getCause
 argument_list|()

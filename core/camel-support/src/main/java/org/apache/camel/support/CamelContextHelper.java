@@ -2010,7 +2010,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Parses the given text and converts it to an Boolean and handling property placeholders as well      *      * @param camelContext the camel context      * @param text  the text      * @return the boolean vale, or<tt>null</tt> if the text was<tt>null</tt>      * @throws Exception is thrown if illegal argument or type conversion not possible      */
+comment|/**      * Parses the given text and converts it to an Boolean and handling property placeholders as well      *      * @param camelContext the camel context      * @param text  the text      * @return the boolean vale, or<tt>null</tt> if the text was<tt>null</tt>      * @throws IllegalArgumentException is thrown if illegal argument or type conversion not possible      */
 DECL|method|parseBoolean (CamelContext camelContext, String text)
 specifier|public
 specifier|static
@@ -2023,8 +2023,6 @@ parameter_list|,
 name|String
 name|text
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 comment|// ensure we support property placeholders
 name|String
