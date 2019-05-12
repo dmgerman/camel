@@ -320,7 +320,7 @@ name|SYSTEM_PROPERTIES_MODE_FALLBACK
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * Check system properties variables) first, before trying the specified properties.      * This allows system properties to override any other property source.      *<p/>      * This is the default.      */
+comment|/**      * Check system properties variables) first, before trying the specified properties.      * This allows system properties to override any other property source      * (environment variable and then system properties takes precedence).      *<p/>      * This is the default.      */
 DECL|field|SYSTEM_PROPERTIES_MODE_OVERRIDE
 specifier|public
 specifier|static
@@ -350,7 +350,7 @@ name|ENVIRONMENT_VARIABLES_MODE_FALLBACK
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * Check OS environment variables first, before trying the specified properties.      * This allows system properties to override any other property source.      */
+comment|/**      * Check OS environment variables first, before trying the specified properties.      * This allows environment variables to override any other property source      * (environment variable and then system properties takes precedence).      */
 DECL|field|ENVIRONMENT_VARIABLES_MODE_OVERRIDE
 specifier|public
 specifier|static
@@ -645,7 +645,7 @@ specifier|private
 name|int
 name|environmentVariableMode
 init|=
-name|ENVIRONMENT_VARIABLES_MODE_FALLBACK
+name|ENVIRONMENT_VARIABLES_MODE_OVERRIDE
 decl_stmt|;
 DECL|method|PropertiesComponent ()
 specifier|public
@@ -2184,7 +2184,7 @@ return|return
 name|systemPropertiesMode
 return|;
 block|}
-comment|/**      * Sets the system property (and environment variable) mode.      *      * The default mode (override) is to check system properties (and environment variables) first,      * before trying the specified properties.      * This allows system properties/environment variables to override any other property source.      *      * @see #SYSTEM_PROPERTIES_MODE_NEVER      * @see #SYSTEM_PROPERTIES_MODE_FALLBACK      * @see #SYSTEM_PROPERTIES_MODE_OVERRIDE      */
+comment|/**      * Sets the system property mode.      *      * The default mode (override) is to use system properties if present,      * and override any existing properties.      *      * @see #SYSTEM_PROPERTIES_MODE_NEVER      * @see #SYSTEM_PROPERTIES_MODE_FALLBACK      * @see #SYSTEM_PROPERTIES_MODE_OVERRIDE      */
 DECL|method|setSystemPropertiesMode (int systemPropertiesMode)
 specifier|public
 name|void
@@ -2218,7 +2218,7 @@ return|return
 name|environmentVariableMode
 return|;
 block|}
-comment|/**      * Sets the OS environment variables mode.      *      * The default mode (fallback) is to check OS environment variables,      * if the property cannot be resolved from its sources first.      * This allows environment variables as fallback values.      *      * @see #ENVIRONMENT_VARIABLES_MODE_NEVER      * @see #ENVIRONMENT_VARIABLES_MODE_FALLBACK      * @see #ENVIRONMENT_VARIABLES_MODE_OVERRIDE      */
+comment|/**      * Sets the OS environment variables mode.      *      * The default mode (override) is to use OS environment variables if present,      * and override any existing properties.      *      * @see #ENVIRONMENT_VARIABLES_MODE_NEVER      * @see #ENVIRONMENT_VARIABLES_MODE_FALLBACK      * @see #ENVIRONMENT_VARIABLES_MODE_OVERRIDE      */
 DECL|method|setEnvironmentVariableMode (int environmentVariableMode)
 specifier|public
 name|void
