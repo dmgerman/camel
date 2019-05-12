@@ -12376,8 +12376,14 @@ comment|// stop route inputs in the same order as they was started so we stop
 comment|// the very first inputs first
 try|try
 block|{
-comment|// force shutting down routes as they may otherwise cause shutdown
-comment|// to hang
+comment|// force shutting down routes as they may otherwise cause shutdown to hang
+if|if
+condition|(
+name|shutdownStrategy
+operator|!=
+literal|null
+condition|)
+block|{
 name|shutdownStrategy
 operator|.
 name|shutdownForced
@@ -12388,6 +12394,7 @@ name|getRouteStartupOrder
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
