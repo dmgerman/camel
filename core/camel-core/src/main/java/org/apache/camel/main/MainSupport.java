@@ -3765,12 +3765,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Auto configuring {} properties component from loaded properties: {}"
-argument_list|,
-name|properties
-operator|.
-name|size
-argument_list|()
+literal|"Auto configuring properties component from loaded properties: {}"
 argument_list|,
 name|total
 argument_list|)
@@ -3906,6 +3901,19 @@ argument_list|,
 name|dot
 argument_list|)
 decl_stmt|;
+comment|// skip properties as its already configured earlier
+if|if
+condition|(
+literal|"properties"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 name|Component
 name|component
 init|=
