@@ -52,7 +52,7 @@ name|MyConfiguration
 block|{
 annotation|@
 name|BindToRegistry
-DECL|method|myBean (@ropertyInjectR) String hi)
+DECL|method|myBean (@ropertyInjectR) String hi, @PropertyInject(R) String bye)
 specifier|public
 name|MyBean
 name|myBean
@@ -64,6 +64,14 @@ literal|"hi"
 argument_list|)
 name|String
 name|hi
+parameter_list|,
+annotation|@
+name|PropertyInject
+argument_list|(
+literal|"bye"
+argument_list|)
+name|String
+name|bye
 parameter_list|)
 block|{
 comment|// this will create an instance of this bean with the name of the method (eg myBean)
@@ -72,6 +80,8 @@ operator|new
 name|MyBean
 argument_list|(
 name|hi
+argument_list|,
+name|bye
 argument_list|)
 return|;
 block|}

@@ -109,6 +109,8 @@ operator|new
 name|MyBean
 argument_list|(
 name|hello
+argument_list|,
+literal|"Bye"
 argument_list|)
 decl_stmt|;
 comment|// register bean to Camel

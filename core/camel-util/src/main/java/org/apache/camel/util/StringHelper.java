@@ -2939,15 +2939,15 @@ name|bytes
 argument_list|)
 return|;
 block|}
-comment|/**      * Check for string pattern matching with a number of strategies in the      * following order:      *      * - equals      * - null pattern always matches      * - * always matches      * - Ant style matching      * - Regexp      *      * @param patter the pattern      * @param target the string to test      * @return true if target matches the pattern      */
-DECL|method|matches (String patter, String target)
+comment|/**      * Check for string pattern matching with a number of strategies in the      * following order:      *      * - equals      * - null pattern always matches      * - * always matches      * - Ant style matching      * - Regexp      *      * @param pattern the pattern      * @param target the string to test      * @return true if target matches the pattern      */
+DECL|method|matches (String pattern, String target)
 specifier|public
 specifier|static
 name|boolean
 name|matches
 parameter_list|(
 name|String
-name|patter
+name|pattern
 parameter_list|,
 name|String
 name|target
@@ -2959,7 +2959,7 @@ name|Objects
 operator|.
 name|equals
 argument_list|(
-name|patter
+name|pattern
 argument_list|,
 name|target
 argument_list|)
@@ -2975,7 +2975,7 @@ name|Objects
 operator|.
 name|isNull
 argument_list|(
-name|patter
+name|pattern
 argument_list|)
 condition|)
 block|{
@@ -2991,7 +2991,7 @@ name|equals
 argument_list|(
 literal|"*"
 argument_list|,
-name|patter
+name|pattern
 argument_list|)
 condition|)
 block|{
@@ -3007,7 +3007,7 @@ name|INSTANCE
 operator|.
 name|match
 argument_list|(
-name|patter
+name|pattern
 argument_list|,
 name|target
 argument_list|)
@@ -3024,7 +3024,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-name|patter
+name|pattern
 argument_list|)
 decl_stmt|;
 name|Matcher

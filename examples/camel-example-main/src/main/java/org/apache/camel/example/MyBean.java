@@ -27,12 +27,20 @@ specifier|private
 name|String
 name|hi
 decl_stmt|;
-DECL|method|MyBean (String hi)
+DECL|field|bye
+specifier|private
+name|String
+name|bye
+decl_stmt|;
+DECL|method|MyBean (String hi, String bye)
 specifier|public
 name|MyBean
 parameter_list|(
 name|String
 name|hi
+parameter_list|,
+name|String
+name|bye
 parameter_list|)
 block|{
 name|this
@@ -40,6 +48,12 @@ operator|.
 name|hi
 operator|=
 name|hi
+expr_stmt|;
+name|this
+operator|.
+name|bye
+operator|=
+name|bye
 expr_stmt|;
 block|}
 DECL|method|hello ()
@@ -52,6 +66,18 @@ return|return
 name|hi
 operator|+
 literal|" how are you?"
+return|;
+block|}
+DECL|method|bye ()
+specifier|public
+name|String
+name|bye
+parameter_list|()
+block|{
+return|return
+name|bye
+operator|+
+literal|" World"
 return|;
 block|}
 block|}
