@@ -1674,6 +1674,9 @@ block|}
 argument_list|,
 operator|new
 name|AbstractLobStreamingResultSetExtractor
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
 annotation|@
