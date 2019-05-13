@@ -540,7 +540,7 @@ return|return
 name|durationMaxSeconds
 return|;
 block|}
-comment|/**      * To specify for how long time in seconds to keep running the JVM before automatic terminating the JVM.      * You can use this to run Spring Boot for a short while.      */
+comment|/**      * To specify for how long time in seconds to keep running the JVM before automatic terminating the JVM.      * You can use this to run Camel for a short while.      */
 DECL|method|setDurationMaxSeconds (int durationMaxSeconds)
 specifier|public
 name|void
@@ -567,7 +567,7 @@ return|return
 name|durationMaxIdleSeconds
 return|;
 block|}
-comment|/**      * To specify for how long time in seconds Camel can be idle before automatic terminating the JVM.      * You can use this to run Spring Boot for a short while.      */
+comment|/**      * To specify for how long time in seconds Camel can be idle before automatic terminating the JVM.      * You can use this to run Camel for a short while.      */
 DECL|method|setDurationMaxIdleSeconds (int durationMaxIdleSeconds)
 specifier|public
 name|void
@@ -594,7 +594,7 @@ return|return
 name|durationMaxMessages
 return|;
 block|}
-comment|/**      * To specify how many messages to process by Camel before automatic terminating the JVM.      * You can use this to run Spring Boot for a short while.      */
+comment|/**      * To specify how many messages to process by Camel before automatic terminating the JVM.      * You can use this to run Camel for a short while.      */
 DECL|method|setDurationMaxMessages (int durationMaxMessages)
 specifier|public
 name|void
