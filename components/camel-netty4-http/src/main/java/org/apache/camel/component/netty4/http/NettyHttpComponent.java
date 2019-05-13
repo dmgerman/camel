@@ -603,7 +603,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|NettyConfiguration
+name|NettyHttpConfiguration
 name|config
 decl_stmt|;
 if|if
@@ -816,6 +816,11 @@ name|boolean
 name|hasProtocol
 init|=
 name|remaining
+operator|!=
+literal|null
+operator|&&
+operator|(
+name|remaining
 operator|.
 name|startsWith
 argument_list|(
@@ -842,6 +847,21 @@ name|startsWith
 argument_list|(
 literal|"https:"
 argument_list|)
+operator|||
+name|remaining
+operator|.
+name|startsWith
+argument_list|(
+literal|"proxy://"
+argument_list|)
+operator|||
+name|remaining
+operator|.
+name|startsWith
+argument_list|(
+literal|"proxy:"
+argument_list|)
+operator|)
 decl_stmt|;
 if|if
 condition|(
@@ -872,6 +892,13 @@ operator|.
 name|startsWith
 argument_list|(
 literal|"https://"
+argument_list|)
+operator|||
+name|remaining
+operator|.
+name|startsWith
+argument_list|(
+literal|"proxy://"
 argument_list|)
 decl_stmt|;
 if|if
@@ -999,6 +1026,26 @@ argument_list|(
 literal|443
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|remaining
+operator|.
+name|startsWith
+argument_list|(
+literal|"proxy:"
+argument_list|)
+condition|)
+block|{
+name|config
+operator|.
+name|setPort
+argument_list|(
+literal|3128
+argument_list|)
+expr_stmt|;
+comment|// homage to Squid proxy
 block|}
 block|}
 if|if
@@ -1348,7 +1395,7 @@ annotation|@
 name|Override
 DECL|method|parseConfiguration (NettyConfiguration configuration, String remaining, Map<String, Object> parameters)
 specifier|protected
-name|NettyConfiguration
+name|NettyHttpConfiguration
 name|parseConfiguration
 parameter_list|(
 name|NettyConfiguration
@@ -1401,6 +1448,8 @@ argument_list|,
 literal|"http"
 argument_list|,
 literal|"https"
+argument_list|,
+literal|"proxy"
 argument_list|)
 expr_stmt|;
 comment|// force using tcp as the underlying transport
@@ -1425,12 +1474,16 @@ operator|instanceof
 name|NettyHttpConfiguration
 condition|)
 block|{
-operator|(
+specifier|final
+name|NettyHttpConfiguration
+name|httpConfiguration
+init|=
 operator|(
 name|NettyHttpConfiguration
 operator|)
 name|configuration
-operator|)
+decl_stmt|;
+name|httpConfiguration
 operator|.
 name|setPath
 argument_list|(
@@ -1440,10 +1493,17 @@ name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 return|return
-name|configuration
+name|httpConfiguration
 return|;
+block|}
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Received NettyConfiguration instead of expected NettyHttpConfiguration, this is not supported."
+argument_list|)
+throw|;
 block|}
 DECL|method|getNettyHttpBinding ()
 specifier|public

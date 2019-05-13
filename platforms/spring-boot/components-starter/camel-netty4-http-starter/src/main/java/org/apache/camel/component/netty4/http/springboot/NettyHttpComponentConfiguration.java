@@ -465,7 +465,7 @@ name|NettyHttpConfiguration
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * The protocol to use which is either http or https          */
+comment|/**          * The protocol to use which is either http, https or proxy - a consumer          * only option.          */
 DECL|field|protocol
 specifier|private
 name|String

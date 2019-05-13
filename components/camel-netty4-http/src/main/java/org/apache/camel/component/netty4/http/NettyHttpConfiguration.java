@@ -524,7 +524,7 @@ return|return
 name|protocol
 return|;
 block|}
-comment|/**      * The protocol to use which is either http or https      */
+comment|/**      * The protocol to use which is either http, https or proxy - a consumer only option.      */
 DECL|method|setProtocol (String protocol)
 specifier|public
 name|void
@@ -993,6 +993,23 @@ return|return
 name|this
 operator|.
 name|useRelativePath
+return|;
+block|}
+DECL|method|isHttpProxy ()
+specifier|public
+name|boolean
+name|isHttpProxy
+parameter_list|()
+block|{
+return|return
+literal|"proxy"
+operator|.
+name|equals
+argument_list|(
+name|super
+operator|.
+name|protocol
+argument_list|)
 return|;
 block|}
 block|}
