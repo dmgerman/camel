@@ -663,6 +663,7 @@ argument_list|(
 name|UNINITIALIZED_EXIT_CODE
 argument_list|)
 decl_stmt|;
+comment|// TODO: Move these to mainConfigurationProperties (delegate)
 DECL|field|duration
 specifier|protected
 name|long
@@ -698,10 +699,31 @@ specifier|protected
 name|boolean
 name|trace
 decl_stmt|;
+DECL|field|fileWatchDirectory
+specifier|protected
+name|String
+name|fileWatchDirectory
+decl_stmt|;
+DECL|field|fileWatchDirectoryRecursively
+specifier|protected
+name|boolean
+name|fileWatchDirectoryRecursively
+decl_stmt|;
 DECL|field|camelContext
 specifier|protected
 name|CamelContext
 name|camelContext
+decl_stmt|;
+comment|// TODO: Make it possible to configure MainConfigurationProperties from application.properties via camel.main.xxx
+DECL|field|mainConfigurationProperties
+specifier|protected
+specifier|final
+name|MainConfigurationProperties
+name|mainConfigurationProperties
+init|=
+operator|new
+name|MainConfigurationProperties
+argument_list|()
 decl_stmt|;
 DECL|field|routeBuilders
 specifier|protected
@@ -738,16 +760,6 @@ DECL|field|configurationClasses
 specifier|protected
 name|String
 name|configurationClasses
-decl_stmt|;
-DECL|field|fileWatchDirectory
-specifier|protected
-name|String
-name|fileWatchDirectory
-decl_stmt|;
-DECL|field|fileWatchDirectoryRecursively
-specifier|protected
-name|boolean
-name|fileWatchDirectoryRecursively
 decl_stmt|;
 DECL|field|camelTemplate
 specifier|protected
