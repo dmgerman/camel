@@ -38,14 +38,11 @@ specifier|public
 class|class
 name|MainConfigurationProperties
 block|{
-comment|// TODO: Move javadoc to setter
-comment|/**      * Sets the name of the CamelContext.      */
 DECL|field|name
 specifier|private
 name|String
 name|name
 decl_stmt|;
-comment|/**      * Timeout in seconds to graceful shutdown Camel.      */
 DECL|field|shutdownTimeout
 specifier|private
 name|int
@@ -53,13 +50,11 @@ name|shutdownTimeout
 init|=
 literal|300
 decl_stmt|;
-comment|/**      * Whether Camel should try to suppress logging during shutdown and timeout was triggered,      * meaning forced shutdown is happening. And during forced shutdown we want to avoid logging      * errors/warnings et all in the logs as a side-effect of the forced timeout.      * Notice the suppress is a best effort as there may still be some logs coming      * from 3rd party libraries and whatnot, which Camel cannot control.      * This option is default false.      */
 DECL|field|shutdownSuppressLoggingOnTimeout
 specifier|private
 name|boolean
 name|shutdownSuppressLoggingOnTimeout
 decl_stmt|;
-comment|/**      * Sets whether to force shutdown of all consumers when a timeout occurred and thus      * not all consumers was shutdown within that period.      *      * You should have good reasons to set this option to false as it means that the routes      * keep running and is halted abruptly when CamelContext has been shutdown.      */
 DECL|field|shutdownNowOnTimeout
 specifier|private
 name|boolean
@@ -67,7 +62,6 @@ name|shutdownNowOnTimeout
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Sets whether routes should be shutdown in reverse or the same order as they where started.      */
 DECL|field|shutdownRoutesInReverseOrder
 specifier|private
 name|boolean
@@ -75,7 +69,6 @@ name|shutdownRoutesInReverseOrder
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Sets whether to log information about the inflight Exchanges which are still running      * during a shutdown which didn't complete without the given timeout.      */
 DECL|field|shutdownLogInflightExchangesOnTimeout
 specifier|private
 name|boolean
@@ -83,7 +76,6 @@ name|shutdownLogInflightExchangesOnTimeout
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Enable JMX in your Camel application.      */
 DECL|field|jmxEnabled
 specifier|private
 name|boolean
@@ -91,7 +83,6 @@ name|jmxEnabled
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Producer template endpoints cache size.      */
 DECL|field|producerTemplateCacheSize
 specifier|private
 name|int
@@ -99,7 +90,6 @@ name|producerTemplateCacheSize
 init|=
 literal|1000
 decl_stmt|;
-comment|/**      * Consumer template endpoints cache size.      */
 DECL|field|consumerTemplateCacheSize
 specifier|private
 name|int
@@ -107,85 +97,71 @@ name|consumerTemplateCacheSize
 init|=
 literal|1000
 decl_stmt|;
-comment|/**      * Directory to load additional configuration files that contains      * configuration values that takes precedence over any other configuration.      * This can be used to refer to files that may have secret configuration that      * has been mounted on the file system for containers.      *      * You must use either file: or classpath: as prefix to load      * from file system or classpath. Then you can specify a pattern to load      * from sub directories and a name pattern such as file:/var/app/secret/*.properties      */
 DECL|field|fileConfigurations
 specifier|private
 name|String
 name|fileConfigurations
 decl_stmt|;
-comment|/**      * To specify for how long time in seconds to keep running the JVM before automatic terminating the JVM.      * You can use this to run Spring Boot for a short while.      */
 DECL|field|durationMaxSeconds
 specifier|private
 name|int
 name|durationMaxSeconds
 decl_stmt|;
-comment|/**      * To specify for how long time in seconds Camel can be idle before automatic terminating the JVM.      * You can use this to run Spring Boot for a short while.      */
 DECL|field|durationMaxIdleSeconds
 specifier|private
 name|int
 name|durationMaxIdleSeconds
 decl_stmt|;
-comment|/**      * To specify how many messages to process by Camel before automatic terminating the JVM.      * You can use this to run Spring Boot for a short while.      */
 DECL|field|durationMaxMessages
 specifier|private
 name|int
 name|durationMaxMessages
 decl_stmt|;
-comment|/**      * Is used to limit the maximum length of the logging Camel message bodies. If the message body      * is longer than the limit, the log message is clipped. Use -1 to have unlimited length.      * Use for example 1000 to log at most 1000 characters.      */
 DECL|field|logDebugMaxChars
 specifier|private
 name|int
 name|logDebugMaxChars
 decl_stmt|;
-comment|/**      * Sets whether stream caching is enabled or not.      *      * Default is false.      */
 DECL|field|streamCachingEnabled
 specifier|private
 name|boolean
 name|streamCachingEnabled
 decl_stmt|;
-comment|/**      * Sets the stream caching spool (temporary) directory to use for overflow and spooling to disk.      *      * If no spool directory has been explicit configured, then a temporary directory      * is created in the java.io.tmpdir directory.      */
 DECL|field|streamCachingSpoolDirectory
 specifier|private
 name|String
 name|streamCachingSpoolDirectory
 decl_stmt|;
-comment|/**      * Sets a stream caching chiper name to use when spooling to disk to write with encryption.      * By default the data is not encrypted.      */
 DECL|field|streamCachingSpoolChiper
 specifier|private
 name|String
 name|streamCachingSpoolChiper
 decl_stmt|;
-comment|/**      * Stream caching threshold in bytes when overflow to disk is activated.      * The default threshold is 128kb.      * Use -1 to disable overflow to disk.      */
 DECL|field|streamCachingSpoolThreshold
 specifier|private
 name|long
 name|streamCachingSpoolThreshold
 decl_stmt|;
-comment|/**      * Sets a percentage (1-99) of used heap memory threshold to activate stream caching spooling to disk.      */
 DECL|field|streamCachingSpoolUsedHeapMemoryThreshold
 specifier|private
 name|int
 name|streamCachingSpoolUsedHeapMemoryThreshold
 decl_stmt|;
-comment|/**      * Sets what the upper bounds should be when streamCachingSpoolUsedHeapMemoryThreshold is in use.      */
 DECL|field|streamCachingSpoolUsedHeapMemoryLimit
 specifier|private
 name|String
 name|streamCachingSpoolUsedHeapMemoryLimit
 decl_stmt|;
-comment|/**      * Sets whether if just any of the org.apache.camel.spi.StreamCachingStrategy.SpoolRule rules      * returns true then shouldSpoolCache(long) returns true, to allow spooling to disk.      * If this option is false, then all the org.apache.camel.spi.StreamCachingStrategy.SpoolRule must      * return true.      *      * The default value is false which means that all the rules must return true.      */
 DECL|field|streamCachingAnySpoolRules
 specifier|private
 name|boolean
 name|streamCachingAnySpoolRules
 decl_stmt|;
-comment|/**      * Sets the stream caching buffer size to use when allocating in-memory buffers used for in-memory stream caches.      *      * The default size is 4096.      */
 DECL|field|streamCachingBufferSize
 specifier|private
 name|int
 name|streamCachingBufferSize
 decl_stmt|;
-comment|/**      * Whether to remove stream caching temporary directory when stopping.      * This option is default true.      */
 DECL|field|streamCachingRemoveSpoolDirectoryWhenStopping
 specifier|private
 name|boolean
@@ -193,19 +169,16 @@ name|streamCachingRemoveSpoolDirectoryWhenStopping
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Sets whether stream caching statistics is enabled.      */
 DECL|field|streamCachingStatisticsEnabled
 specifier|private
 name|boolean
 name|streamCachingStatisticsEnabled
 decl_stmt|;
-comment|/**      * Sets whether tracing is enabled or not.      *      * Default is false.      */
 DECL|field|tracing
 specifier|private
 name|boolean
 name|tracing
 decl_stmt|;
-comment|/**      * Sets whether message history is enabled or not.      *      * Default is true.      */
 DECL|field|messageHistory
 specifier|private
 name|boolean
@@ -213,25 +186,21 @@ name|messageHistory
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Sets whether log mask is enabled or not.      *      * Default is false.      */
 DECL|field|logMask
 specifier|private
 name|boolean
 name|logMask
 decl_stmt|;
-comment|/**      * Sets whether to log exhausted message body with message history.      *      * Default is false.      */
 DECL|field|logExhaustedMessageBody
 specifier|private
 name|boolean
 name|logExhaustedMessageBody
 decl_stmt|;
-comment|/**      * Sets whether fault handling is enabled or not.      *      * Default is false.      */
 DECL|field|handleFault
 specifier|private
 name|boolean
 name|handleFault
 decl_stmt|;
-comment|/**      * Sets whether the object should automatically start when Camel starts.      * Important: Currently only routes can be disabled, as CamelContext's are always started.      * Note: When setting auto startup false on CamelContext then that takes precedence      * and no routes is started. You would need to start CamelContext explicit using      * the org.apache.camel.CamelContext.start() method, to start the context, and then      * you would need to start the routes manually using CamelContext.getRouteController().startRoute(String).      *      * Default is true to always start up.      */
 DECL|field|autoStartup
 specifier|private
 name|boolean
@@ -239,31 +208,26 @@ name|autoStartup
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Sets whether to allow access to the original message from Camel's error handler,      * or from org.apache.camel.spi.UnitOfWork.getOriginalInMessage().      * Turning this off can optimize performance, as defensive copy of the original message is not needed.      *      * Default is false.      */
 DECL|field|allowUseOriginalMessage
 specifier|private
 name|boolean
 name|allowUseOriginalMessage
 decl_stmt|;
-comment|/**      * Sets whether endpoint runtime statistics is enabled (gathers runtime usage of each incoming and outgoing endpoints).      *      * The default value is false.      */
 DECL|field|endpointRuntimeStatisticsEnabled
 specifier|private
 name|boolean
 name|endpointRuntimeStatisticsEnabled
 decl_stmt|;
-comment|/**      * Whether to enable using data type on Camel messages.      *      * Data type are automatic turned on if one ore more routes has been explicit configured with input and output types.      * Otherwise data type is default off.      */
 DECL|field|useDataType
 specifier|private
 name|boolean
 name|useDataType
 decl_stmt|;
-comment|/**      * Set whether breadcrumb is enabled.      * The default value is false.      */
 DECL|field|useBreadcrumb
 specifier|private
 name|boolean
 name|useBreadcrumb
 decl_stmt|;
-comment|/**      * Sets the JMX statistics level      * The level can be set to Extended to gather additional information      *      * The default value is Default.      */
 DECL|field|jmxManagementStatisticsLevel
 specifier|private
 name|ManagementStatisticsLevel
@@ -273,7 +237,6 @@ name|ManagementStatisticsLevel
 operator|.
 name|Default
 decl_stmt|;
-comment|/**      * The naming pattern for creating the CamelContext JMX management name.      *      * The default pattern is #name#      */
 DECL|field|jmxManagementNamePattern
 specifier|private
 name|String
@@ -281,121 +244,16 @@ name|jmxManagementNamePattern
 init|=
 literal|"#name#"
 decl_stmt|;
-comment|/**      * Whether JMX connector is created, allowing clients to connect remotely      *      * The default value is false.      */
 DECL|field|jmxCreateConnector
 specifier|private
 name|boolean
 name|jmxCreateConnector
 decl_stmt|;
-comment|/**      * Tracer should output message body      */
-DECL|field|traceFormatterShowBody
-specifier|private
-name|boolean
-name|traceFormatterShowBody
-init|=
-literal|true
-decl_stmt|;
-comment|/**      * Tracer should output message body type      */
-DECL|field|tracerFormatterShowBodyType
-specifier|private
-name|boolean
-name|tracerFormatterShowBodyType
-init|=
-literal|true
-decl_stmt|;
-comment|/**      * Tracer should output breadcrumb      */
-DECL|field|traceFormatterShowBreadCrumb
-specifier|private
-name|boolean
-name|traceFormatterShowBreadCrumb
-init|=
-literal|true
-decl_stmt|;
-comment|/**      * Tracer should output exchange id      */
-DECL|field|traceFormatterShowExchangeId
-specifier|private
-name|boolean
-name|traceFormatterShowExchangeId
-decl_stmt|;
-comment|/**      * Tracer should output message headers      */
-DECL|field|traceFormatterShowHeaders
-specifier|private
-name|boolean
-name|traceFormatterShowHeaders
-init|=
-literal|true
-decl_stmt|;
-comment|/**      * Tracer should output exchange properties      */
-DECL|field|traceFormatterShowProperties
-specifier|private
-name|boolean
-name|traceFormatterShowProperties
-decl_stmt|;
-comment|/**      * Tracer should output EIP node      */
-DECL|field|traceFormatterShowNode
-specifier|private
-name|boolean
-name|traceFormatterShowNode
-init|=
-literal|true
-decl_stmt|;
-comment|/**      * Tracer should output message exchange pattern (MEP)      */
-DECL|field|traceFormatterShowExchangePattern
-specifier|private
-name|boolean
-name|traceFormatterShowExchangePattern
-init|=
-literal|true
-decl_stmt|;
-comment|/**      * Tracer should output exception      */
-DECL|field|traceFormatterShowException
-specifier|private
-name|boolean
-name|traceFormatterShowException
-init|=
-literal|true
-decl_stmt|;
-comment|/**      * Tracer should output route id      */
-DECL|field|traceFormatterShowRouteId
-specifier|private
-name|boolean
-name|traceFormatterShowRouteId
-init|=
-literal|true
-decl_stmt|;
-comment|/**      * Tracer maximum length of breadcrumb ids      */
-DECL|field|tracerFormatterBreadCrumbLength
-specifier|private
-name|Integer
-name|tracerFormatterBreadCrumbLength
-decl_stmt|;
-comment|/**      * Tracer should output short exchange id      */
-DECL|field|traceFormatterShowShortExchangeId
-specifier|private
-name|boolean
-name|traceFormatterShowShortExchangeId
-decl_stmt|;
-comment|/**      * Tracer maximum length of node      */
-DECL|field|tracerFormatterNodeLength
-specifier|private
-name|Integer
-name|tracerFormatterNodeLength
-decl_stmt|;
-comment|/**      * Tracer maximum characters in total      */
-DECL|field|tracerFormatterMaxChars
-specifier|private
-name|Integer
-name|tracerFormatterMaxChars
-init|=
-literal|10000
-decl_stmt|;
-comment|/**      * To turn on MDC logging      */
 DECL|field|useMdcLogging
 specifier|private
 name|boolean
 name|useMdcLogging
 decl_stmt|;
-comment|/**      * Sets the thread name pattern used for creating the full thread name.      *      * The default pattern is: Camel (#camelId#) thread ##counter# - #name#      *      * Where #camelId# is the name of the CamelContext.      * and #counter# is a unique incrementing counter.      * and #name# is the regular thread name.      *      * You can also use #longName# which is the long thread name which can includes endpoint parameters etc.      */
 DECL|field|threadNamePattern
 specifier|private
 name|String
@@ -412,6 +270,7 @@ return|return
 name|name
 return|;
 block|}
+comment|/**      * Sets the name of the CamelContext.      */
 DECL|method|setName (String name)
 specifier|public
 name|void
@@ -438,6 +297,7 @@ return|return
 name|shutdownTimeout
 return|;
 block|}
+comment|/**      * Timeout in seconds to graceful shutdown Camel.      */
 DECL|method|setShutdownTimeout (int shutdownTimeout)
 specifier|public
 name|void
@@ -464,6 +324,7 @@ return|return
 name|shutdownSuppressLoggingOnTimeout
 return|;
 block|}
+comment|/**      * Whether Camel should try to suppress logging during shutdown and timeout was triggered,      * meaning forced shutdown is happening. And during forced shutdown we want to avoid logging      * errors/warnings et all in the logs as a side-effect of the forced timeout.      * Notice the suppress is a best effort as there may still be some logs coming      * from 3rd party libraries and whatnot, which Camel cannot control.      * This option is default false.      */
 DECL|method|setShutdownSuppressLoggingOnTimeout (boolean shutdownSuppressLoggingOnTimeout)
 specifier|public
 name|void
@@ -490,6 +351,7 @@ return|return
 name|shutdownNowOnTimeout
 return|;
 block|}
+comment|/**      * Sets whether to force shutdown of all consumers when a timeout occurred and thus      * not all consumers was shutdown within that period.      *      * You should have good reasons to set this option to false as it means that the routes      * keep running and is halted abruptly when CamelContext has been shutdown.      */
 DECL|method|setShutdownNowOnTimeout (boolean shutdownNowOnTimeout)
 specifier|public
 name|void
@@ -516,6 +378,7 @@ return|return
 name|shutdownRoutesInReverseOrder
 return|;
 block|}
+comment|/**      * Sets whether routes should be shutdown in reverse or the same order as they where started.      */
 DECL|method|setShutdownRoutesInReverseOrder (boolean shutdownRoutesInReverseOrder)
 specifier|public
 name|void
@@ -542,6 +405,7 @@ return|return
 name|shutdownLogInflightExchangesOnTimeout
 return|;
 block|}
+comment|/**      * Sets whether to log information about the inflight Exchanges which are still running      * during a shutdown which didn't complete without the given timeout.      */
 DECL|method|setShutdownLogInflightExchangesOnTimeout (boolean shutdownLogInflightExchangesOnTimeout)
 specifier|public
 name|void
@@ -568,6 +432,7 @@ return|return
 name|jmxEnabled
 return|;
 block|}
+comment|/**      * Enable JMX in your Camel application.      */
 DECL|method|setJmxEnabled (boolean jmxEnabled)
 specifier|public
 name|void
@@ -594,6 +459,7 @@ return|return
 name|producerTemplateCacheSize
 return|;
 block|}
+comment|/**      * Producer template endpoints cache size.      */
 DECL|method|setProducerTemplateCacheSize (int producerTemplateCacheSize)
 specifier|public
 name|void
@@ -620,6 +486,7 @@ return|return
 name|consumerTemplateCacheSize
 return|;
 block|}
+comment|/**      * Consumer template endpoints cache size.      */
 DECL|method|setConsumerTemplateCacheSize (int consumerTemplateCacheSize)
 specifier|public
 name|void
@@ -646,6 +513,7 @@ return|return
 name|fileConfigurations
 return|;
 block|}
+comment|/**      * Directory to load additional configuration files that contains      * configuration values that takes precedence over any other configuration.      * This can be used to refer to files that may have secret configuration that      * has been mounted on the file system for containers.      *      * You must use either file: or classpath: as prefix to load      * from file system or classpath. Then you can specify a pattern to load      * from sub directories and a name pattern such as file:/var/app/secret/*.properties      */
 DECL|method|setFileConfigurations (String fileConfigurations)
 specifier|public
 name|void
@@ -672,6 +540,7 @@ return|return
 name|durationMaxSeconds
 return|;
 block|}
+comment|/**      * To specify for how long time in seconds to keep running the JVM before automatic terminating the JVM.      * You can use this to run Spring Boot for a short while.      */
 DECL|method|setDurationMaxSeconds (int durationMaxSeconds)
 specifier|public
 name|void
@@ -698,6 +567,7 @@ return|return
 name|durationMaxIdleSeconds
 return|;
 block|}
+comment|/**      * To specify for how long time in seconds Camel can be idle before automatic terminating the JVM.      * You can use this to run Spring Boot for a short while.      */
 DECL|method|setDurationMaxIdleSeconds (int durationMaxIdleSeconds)
 specifier|public
 name|void
@@ -724,6 +594,7 @@ return|return
 name|durationMaxMessages
 return|;
 block|}
+comment|/**      * To specify how many messages to process by Camel before automatic terminating the JVM.      * You can use this to run Spring Boot for a short while.      */
 DECL|method|setDurationMaxMessages (int durationMaxMessages)
 specifier|public
 name|void
@@ -750,6 +621,7 @@ return|return
 name|logDebugMaxChars
 return|;
 block|}
+comment|/**      * Is used to limit the maximum length of the logging Camel message bodies. If the message body      * is longer than the limit, the log message is clipped. Use -1 to have unlimited length.      * Use for example 1000 to log at most 1000 characters.      */
 DECL|method|setLogDebugMaxChars (int logDebugMaxChars)
 specifier|public
 name|void
@@ -776,6 +648,7 @@ return|return
 name|streamCachingEnabled
 return|;
 block|}
+comment|/**      * Sets whether stream caching is enabled or not.      *      * Default is false.      */
 DECL|method|setStreamCachingEnabled (boolean streamCachingEnabled)
 specifier|public
 name|void
@@ -802,6 +675,7 @@ return|return
 name|streamCachingSpoolDirectory
 return|;
 block|}
+comment|/**      * Sets the stream caching spool (temporary) directory to use for overflow and spooling to disk.      *      * If no spool directory has been explicit configured, then a temporary directory      * is created in the java.io.tmpdir directory.      */
 DECL|method|setStreamCachingSpoolDirectory (String streamCachingSpoolDirectory)
 specifier|public
 name|void
@@ -828,6 +702,7 @@ return|return
 name|streamCachingSpoolChiper
 return|;
 block|}
+comment|/**      * Sets a stream caching chiper name to use when spooling to disk to write with encryption.      * By default the data is not encrypted.      */
 DECL|method|setStreamCachingSpoolChiper (String streamCachingSpoolChiper)
 specifier|public
 name|void
@@ -854,6 +729,7 @@ return|return
 name|streamCachingSpoolThreshold
 return|;
 block|}
+comment|/**      * Stream caching threshold in bytes when overflow to disk is activated.      * The default threshold is 128kb.      * Use -1 to disable overflow to disk.      */
 DECL|method|setStreamCachingSpoolThreshold (long streamCachingSpoolThreshold)
 specifier|public
 name|void
@@ -880,6 +756,7 @@ return|return
 name|streamCachingSpoolUsedHeapMemoryThreshold
 return|;
 block|}
+comment|/**      * Sets a percentage (1-99) of used heap memory threshold to activate stream caching spooling to disk.      */
 DECL|method|setStreamCachingSpoolUsedHeapMemoryThreshold (int streamCachingSpoolUsedHeapMemoryThreshold)
 specifier|public
 name|void
@@ -906,6 +783,7 @@ return|return
 name|streamCachingSpoolUsedHeapMemoryLimit
 return|;
 block|}
+comment|/**      * Sets what the upper bounds should be when streamCachingSpoolUsedHeapMemoryThreshold is in use.      */
 DECL|method|setStreamCachingSpoolUsedHeapMemoryLimit (String streamCachingSpoolUsedHeapMemoryLimit)
 specifier|public
 name|void
@@ -932,6 +810,7 @@ return|return
 name|streamCachingAnySpoolRules
 return|;
 block|}
+comment|/**      * Sets whether if just any of the org.apache.camel.spi.StreamCachingStrategy.SpoolRule rules      * returns true then shouldSpoolCache(long) returns true, to allow spooling to disk.      * If this option is false, then all the org.apache.camel.spi.StreamCachingStrategy.SpoolRule must      * return true.      *      * The default value is false which means that all the rules must return true.      */
 DECL|method|setStreamCachingAnySpoolRules (boolean streamCachingAnySpoolRules)
 specifier|public
 name|void
@@ -958,6 +837,7 @@ return|return
 name|streamCachingBufferSize
 return|;
 block|}
+comment|/**      * Sets the stream caching buffer size to use when allocating in-memory buffers used for in-memory stream caches.      *      * The default size is 4096.      */
 DECL|method|setStreamCachingBufferSize (int streamCachingBufferSize)
 specifier|public
 name|void
@@ -984,6 +864,7 @@ return|return
 name|streamCachingRemoveSpoolDirectoryWhenStopping
 return|;
 block|}
+comment|/**      * Whether to remove stream caching temporary directory when stopping.      * This option is default true.      */
 DECL|method|setStreamCachingRemoveSpoolDirectoryWhenStopping (boolean streamCachingRemoveSpoolDirectoryWhenStopping)
 specifier|public
 name|void
@@ -1010,6 +891,7 @@ return|return
 name|streamCachingStatisticsEnabled
 return|;
 block|}
+comment|/**      * Sets whether stream caching statistics is enabled.      */
 DECL|method|setStreamCachingStatisticsEnabled (boolean streamCachingStatisticsEnabled)
 specifier|public
 name|void
@@ -1036,6 +918,7 @@ return|return
 name|tracing
 return|;
 block|}
+comment|/**      * Sets whether tracing is enabled or not.      *      * Default is false.      */
 DECL|method|setTracing (boolean tracing)
 specifier|public
 name|void
@@ -1062,6 +945,7 @@ return|return
 name|messageHistory
 return|;
 block|}
+comment|/**      * Sets whether message history is enabled or not.      *      * Default is true.      */
 DECL|method|setMessageHistory (boolean messageHistory)
 specifier|public
 name|void
@@ -1088,6 +972,7 @@ return|return
 name|logMask
 return|;
 block|}
+comment|/**      * Sets whether log mask is enabled or not.      *      * Default is false.      */
 DECL|method|setLogMask (boolean logMask)
 specifier|public
 name|void
@@ -1114,6 +999,7 @@ return|return
 name|logExhaustedMessageBody
 return|;
 block|}
+comment|/**      * Sets whether to log exhausted message body with message history.      *      * Default is false.      */
 DECL|method|setLogExhaustedMessageBody (boolean logExhaustedMessageBody)
 specifier|public
 name|void
@@ -1140,6 +1026,7 @@ return|return
 name|handleFault
 return|;
 block|}
+comment|/**      * Sets whether fault handling is enabled or not.      *      * Default is false.      */
 DECL|method|setHandleFault (boolean handleFault)
 specifier|public
 name|void
@@ -1166,6 +1053,7 @@ return|return
 name|autoStartup
 return|;
 block|}
+comment|/**      * Sets whether the object should automatically start when Camel starts.      * Important: Currently only routes can be disabled, as CamelContext's are always started.      * Note: When setting auto startup false on CamelContext then that takes precedence      * and no routes is started. You would need to start CamelContext explicit using      * the org.apache.camel.CamelContext.start() method, to start the context, and then      * you would need to start the routes manually using CamelContext.getRouteController().startRoute(String).      *      * Default is true to always start up.      */
 DECL|method|setAutoStartup (boolean autoStartup)
 specifier|public
 name|void
@@ -1192,6 +1080,7 @@ return|return
 name|allowUseOriginalMessage
 return|;
 block|}
+comment|/**      * Sets whether to allow access to the original message from Camel's error handler,      * or from org.apache.camel.spi.UnitOfWork.getOriginalInMessage().      * Turning this off can optimize performance, as defensive copy of the original message is not needed.      *      * Default is false.      */
 DECL|method|setAllowUseOriginalMessage (boolean allowUseOriginalMessage)
 specifier|public
 name|void
@@ -1218,6 +1107,7 @@ return|return
 name|endpointRuntimeStatisticsEnabled
 return|;
 block|}
+comment|/**      * Sets whether endpoint runtime statistics is enabled (gathers runtime usage of each incoming and outgoing endpoints).      *      * The default value is false.      */
 DECL|method|setEndpointRuntimeStatisticsEnabled (boolean endpointRuntimeStatisticsEnabled)
 specifier|public
 name|void
@@ -1244,6 +1134,7 @@ return|return
 name|useDataType
 return|;
 block|}
+comment|/**      * Whether to enable using data type on Camel messages.      *      * Data type are automatic turned on if one ore more routes has been explicit configured with input and output types.      * Otherwise data type is default off.      */
 DECL|method|setUseDataType (boolean useDataType)
 specifier|public
 name|void
@@ -1270,6 +1161,7 @@ return|return
 name|useBreadcrumb
 return|;
 block|}
+comment|/**      * Set whether breadcrumb is enabled.      * The default value is false.      */
 DECL|method|setUseBreadcrumb (boolean useBreadcrumb)
 specifier|public
 name|void
@@ -1296,6 +1188,7 @@ return|return
 name|jmxManagementStatisticsLevel
 return|;
 block|}
+comment|/**      * Sets the JMX statistics level      * The level can be set to Extended to gather additional information      *      * The default value is Default.      */
 DECL|method|setJmxManagementStatisticsLevel (ManagementStatisticsLevel jmxManagementStatisticsLevel)
 specifier|public
 name|void
@@ -1322,6 +1215,7 @@ return|return
 name|jmxManagementNamePattern
 return|;
 block|}
+comment|/**      * The naming pattern for creating the CamelContext JMX management name.      *      * The default pattern is #name#      */
 DECL|method|setJmxManagementNamePattern (String jmxManagementNamePattern)
 specifier|public
 name|void
@@ -1348,6 +1242,7 @@ return|return
 name|jmxCreateConnector
 return|;
 block|}
+comment|/**      * Whether JMX connector is created, allowing clients to connect remotely      *      * The default value is false.      */
 DECL|method|setJmxCreateConnector (boolean jmxCreateConnector)
 specifier|public
 name|void
@@ -1364,370 +1259,6 @@ operator|=
 name|jmxCreateConnector
 expr_stmt|;
 block|}
-DECL|method|isTraceFormatterShowBody ()
-specifier|public
-name|boolean
-name|isTraceFormatterShowBody
-parameter_list|()
-block|{
-return|return
-name|traceFormatterShowBody
-return|;
-block|}
-DECL|method|setTraceFormatterShowBody (boolean traceFormatterShowBody)
-specifier|public
-name|void
-name|setTraceFormatterShowBody
-parameter_list|(
-name|boolean
-name|traceFormatterShowBody
-parameter_list|)
-block|{
-name|this
-operator|.
-name|traceFormatterShowBody
-operator|=
-name|traceFormatterShowBody
-expr_stmt|;
-block|}
-DECL|method|isTracerFormatterShowBodyType ()
-specifier|public
-name|boolean
-name|isTracerFormatterShowBodyType
-parameter_list|()
-block|{
-return|return
-name|tracerFormatterShowBodyType
-return|;
-block|}
-DECL|method|setTracerFormatterShowBodyType (boolean tracerFormatterShowBodyType)
-specifier|public
-name|void
-name|setTracerFormatterShowBodyType
-parameter_list|(
-name|boolean
-name|tracerFormatterShowBodyType
-parameter_list|)
-block|{
-name|this
-operator|.
-name|tracerFormatterShowBodyType
-operator|=
-name|tracerFormatterShowBodyType
-expr_stmt|;
-block|}
-DECL|method|isTraceFormatterShowBreadCrumb ()
-specifier|public
-name|boolean
-name|isTraceFormatterShowBreadCrumb
-parameter_list|()
-block|{
-return|return
-name|traceFormatterShowBreadCrumb
-return|;
-block|}
-DECL|method|setTraceFormatterShowBreadCrumb (boolean traceFormatterShowBreadCrumb)
-specifier|public
-name|void
-name|setTraceFormatterShowBreadCrumb
-parameter_list|(
-name|boolean
-name|traceFormatterShowBreadCrumb
-parameter_list|)
-block|{
-name|this
-operator|.
-name|traceFormatterShowBreadCrumb
-operator|=
-name|traceFormatterShowBreadCrumb
-expr_stmt|;
-block|}
-DECL|method|isTraceFormatterShowExchangeId ()
-specifier|public
-name|boolean
-name|isTraceFormatterShowExchangeId
-parameter_list|()
-block|{
-return|return
-name|traceFormatterShowExchangeId
-return|;
-block|}
-DECL|method|setTraceFormatterShowExchangeId (boolean traceFormatterShowExchangeId)
-specifier|public
-name|void
-name|setTraceFormatterShowExchangeId
-parameter_list|(
-name|boolean
-name|traceFormatterShowExchangeId
-parameter_list|)
-block|{
-name|this
-operator|.
-name|traceFormatterShowExchangeId
-operator|=
-name|traceFormatterShowExchangeId
-expr_stmt|;
-block|}
-DECL|method|isTraceFormatterShowHeaders ()
-specifier|public
-name|boolean
-name|isTraceFormatterShowHeaders
-parameter_list|()
-block|{
-return|return
-name|traceFormatterShowHeaders
-return|;
-block|}
-DECL|method|setTraceFormatterShowHeaders (boolean traceFormatterShowHeaders)
-specifier|public
-name|void
-name|setTraceFormatterShowHeaders
-parameter_list|(
-name|boolean
-name|traceFormatterShowHeaders
-parameter_list|)
-block|{
-name|this
-operator|.
-name|traceFormatterShowHeaders
-operator|=
-name|traceFormatterShowHeaders
-expr_stmt|;
-block|}
-DECL|method|isTraceFormatterShowProperties ()
-specifier|public
-name|boolean
-name|isTraceFormatterShowProperties
-parameter_list|()
-block|{
-return|return
-name|traceFormatterShowProperties
-return|;
-block|}
-DECL|method|setTraceFormatterShowProperties (boolean traceFormatterShowProperties)
-specifier|public
-name|void
-name|setTraceFormatterShowProperties
-parameter_list|(
-name|boolean
-name|traceFormatterShowProperties
-parameter_list|)
-block|{
-name|this
-operator|.
-name|traceFormatterShowProperties
-operator|=
-name|traceFormatterShowProperties
-expr_stmt|;
-block|}
-DECL|method|isTraceFormatterShowNode ()
-specifier|public
-name|boolean
-name|isTraceFormatterShowNode
-parameter_list|()
-block|{
-return|return
-name|traceFormatterShowNode
-return|;
-block|}
-DECL|method|setTraceFormatterShowNode (boolean traceFormatterShowNode)
-specifier|public
-name|void
-name|setTraceFormatterShowNode
-parameter_list|(
-name|boolean
-name|traceFormatterShowNode
-parameter_list|)
-block|{
-name|this
-operator|.
-name|traceFormatterShowNode
-operator|=
-name|traceFormatterShowNode
-expr_stmt|;
-block|}
-DECL|method|isTraceFormatterShowExchangePattern ()
-specifier|public
-name|boolean
-name|isTraceFormatterShowExchangePattern
-parameter_list|()
-block|{
-return|return
-name|traceFormatterShowExchangePattern
-return|;
-block|}
-DECL|method|setTraceFormatterShowExchangePattern (boolean traceFormatterShowExchangePattern)
-specifier|public
-name|void
-name|setTraceFormatterShowExchangePattern
-parameter_list|(
-name|boolean
-name|traceFormatterShowExchangePattern
-parameter_list|)
-block|{
-name|this
-operator|.
-name|traceFormatterShowExchangePattern
-operator|=
-name|traceFormatterShowExchangePattern
-expr_stmt|;
-block|}
-DECL|method|isTraceFormatterShowException ()
-specifier|public
-name|boolean
-name|isTraceFormatterShowException
-parameter_list|()
-block|{
-return|return
-name|traceFormatterShowException
-return|;
-block|}
-DECL|method|setTraceFormatterShowException (boolean traceFormatterShowException)
-specifier|public
-name|void
-name|setTraceFormatterShowException
-parameter_list|(
-name|boolean
-name|traceFormatterShowException
-parameter_list|)
-block|{
-name|this
-operator|.
-name|traceFormatterShowException
-operator|=
-name|traceFormatterShowException
-expr_stmt|;
-block|}
-DECL|method|isTraceFormatterShowRouteId ()
-specifier|public
-name|boolean
-name|isTraceFormatterShowRouteId
-parameter_list|()
-block|{
-return|return
-name|traceFormatterShowRouteId
-return|;
-block|}
-DECL|method|setTraceFormatterShowRouteId (boolean traceFormatterShowRouteId)
-specifier|public
-name|void
-name|setTraceFormatterShowRouteId
-parameter_list|(
-name|boolean
-name|traceFormatterShowRouteId
-parameter_list|)
-block|{
-name|this
-operator|.
-name|traceFormatterShowRouteId
-operator|=
-name|traceFormatterShowRouteId
-expr_stmt|;
-block|}
-DECL|method|getTracerFormatterBreadCrumbLength ()
-specifier|public
-name|Integer
-name|getTracerFormatterBreadCrumbLength
-parameter_list|()
-block|{
-return|return
-name|tracerFormatterBreadCrumbLength
-return|;
-block|}
-DECL|method|setTracerFormatterBreadCrumbLength (Integer tracerFormatterBreadCrumbLength)
-specifier|public
-name|void
-name|setTracerFormatterBreadCrumbLength
-parameter_list|(
-name|Integer
-name|tracerFormatterBreadCrumbLength
-parameter_list|)
-block|{
-name|this
-operator|.
-name|tracerFormatterBreadCrumbLength
-operator|=
-name|tracerFormatterBreadCrumbLength
-expr_stmt|;
-block|}
-DECL|method|isTraceFormatterShowShortExchangeId ()
-specifier|public
-name|boolean
-name|isTraceFormatterShowShortExchangeId
-parameter_list|()
-block|{
-return|return
-name|traceFormatterShowShortExchangeId
-return|;
-block|}
-DECL|method|setTraceFormatterShowShortExchangeId (boolean traceFormatterShowShortExchangeId)
-specifier|public
-name|void
-name|setTraceFormatterShowShortExchangeId
-parameter_list|(
-name|boolean
-name|traceFormatterShowShortExchangeId
-parameter_list|)
-block|{
-name|this
-operator|.
-name|traceFormatterShowShortExchangeId
-operator|=
-name|traceFormatterShowShortExchangeId
-expr_stmt|;
-block|}
-DECL|method|getTracerFormatterNodeLength ()
-specifier|public
-name|Integer
-name|getTracerFormatterNodeLength
-parameter_list|()
-block|{
-return|return
-name|tracerFormatterNodeLength
-return|;
-block|}
-DECL|method|setTracerFormatterNodeLength (Integer tracerFormatterNodeLength)
-specifier|public
-name|void
-name|setTracerFormatterNodeLength
-parameter_list|(
-name|Integer
-name|tracerFormatterNodeLength
-parameter_list|)
-block|{
-name|this
-operator|.
-name|tracerFormatterNodeLength
-operator|=
-name|tracerFormatterNodeLength
-expr_stmt|;
-block|}
-DECL|method|getTracerFormatterMaxChars ()
-specifier|public
-name|Integer
-name|getTracerFormatterMaxChars
-parameter_list|()
-block|{
-return|return
-name|tracerFormatterMaxChars
-return|;
-block|}
-DECL|method|setTracerFormatterMaxChars (Integer tracerFormatterMaxChars)
-specifier|public
-name|void
-name|setTracerFormatterMaxChars
-parameter_list|(
-name|Integer
-name|tracerFormatterMaxChars
-parameter_list|)
-block|{
-name|this
-operator|.
-name|tracerFormatterMaxChars
-operator|=
-name|tracerFormatterMaxChars
-expr_stmt|;
-block|}
 DECL|method|isUseMdcLogging ()
 specifier|public
 name|boolean
@@ -1738,6 +1269,7 @@ return|return
 name|useMdcLogging
 return|;
 block|}
+comment|/**      * To turn on MDC logging      */
 DECL|method|setUseMdcLogging (boolean useMdcLogging)
 specifier|public
 name|void
@@ -1764,6 +1296,7 @@ return|return
 name|threadNamePattern
 return|;
 block|}
+comment|/**      * Sets the thread name pattern used for creating the full thread name.      *      * The default pattern is: Camel (#camelId#) thread ##counter# - #name#      *      * Where #camelId# is the name of the CamelContext.      * and #counter# is a unique incrementing counter.      * and #name# is the regular thread name.      *      * You can also use #longName# which is the long thread name which can includes endpoint parameters etc.      */
 DECL|method|setThreadNamePattern (String threadNamePattern)
 specifier|public
 name|void
