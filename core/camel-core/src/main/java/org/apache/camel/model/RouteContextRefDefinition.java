@@ -90,6 +90,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Metadata
@@ -188,7 +200,7 @@ operator|=
 name|ref
 expr_stmt|;
 block|}
-DECL|method|lookupRoutes (ModelCamelContext camelContext)
+DECL|method|lookupRoutes (CamelContext camelContext)
 specifier|public
 name|List
 argument_list|<
@@ -196,7 +208,7 @@ name|RouteDefinition
 argument_list|>
 name|lookupRoutes
 parameter_list|(
-name|ModelCamelContext
+name|CamelContext
 name|camelContext
 parameter_list|)
 block|{

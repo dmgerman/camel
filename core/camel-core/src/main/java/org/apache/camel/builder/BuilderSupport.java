@@ -48,16 +48,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -113,20 +103,6 @@ operator|.
 name|camel
 operator|.
 name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|ModelCamelContext
 import|;
 end_import
 
@@ -239,7 +215,7 @@ name|BuilderSupport
 block|{
 DECL|field|context
 specifier|private
-name|ModelCamelContext
+name|CamelContext
 name|context
 decl_stmt|;
 DECL|field|errorHandlerBuilder
@@ -265,19 +241,6 @@ operator|.
 name|context
 operator|=
 name|context
-operator|!=
-literal|null
-condition|?
-name|context
-operator|.
-name|adapt
-argument_list|(
-name|ModelCamelContext
-operator|.
-name|class
-argument_list|)
-else|:
-literal|null
 expr_stmt|;
 block|}
 comment|// Builder methods
@@ -1232,7 +1195,7 @@ comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getContext ()
 specifier|public
-name|ModelCamelContext
+name|CamelContext
 name|getContext
 parameter_list|()
 block|{
@@ -1246,40 +1209,6 @@ name|void
 name|setContext
 parameter_list|(
 name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|context
-argument_list|,
-literal|"CamelContext"
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|context
-operator|=
-name|context
-operator|.
-name|adapt
-argument_list|(
-name|ModelCamelContext
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|setContext (ModelCamelContext context)
-specifier|public
-name|void
-name|setContext
-parameter_list|(
-name|ModelCamelContext
 name|context
 parameter_list|)
 block|{

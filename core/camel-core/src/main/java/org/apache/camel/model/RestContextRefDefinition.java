@@ -90,6 +90,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|rest
@@ -204,7 +216,7 @@ operator|=
 name|ref
 expr_stmt|;
 block|}
-DECL|method|lookupRests (ModelCamelContext camelContext)
+DECL|method|lookupRests (CamelContext camelContext)
 specifier|public
 name|List
 argument_list|<
@@ -212,7 +224,7 @@ name|RestDefinition
 argument_list|>
 name|lookupRests
 parameter_list|(
-name|ModelCamelContext
+name|CamelContext
 name|camelContext
 parameter_list|)
 block|{

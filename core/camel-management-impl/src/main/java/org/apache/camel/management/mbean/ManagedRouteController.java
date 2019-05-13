@@ -100,20 +100,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|ModelCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|ManagementStrategy
@@ -145,14 +131,14 @@ block|{
 DECL|field|context
 specifier|private
 specifier|final
-name|ModelCamelContext
+name|CamelContext
 name|context
 decl_stmt|;
-DECL|method|ManagedRouteController (ModelCamelContext context)
+DECL|method|ManagedRouteController (CamelContext context)
 specifier|public
 name|ManagedRouteController
 parameter_list|(
-name|ModelCamelContext
+name|CamelContext
 name|context
 parameter_list|)
 block|{

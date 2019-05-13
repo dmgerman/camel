@@ -54,6 +54,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ErrorHandlerFactory
 import|;
 end_import
@@ -67,20 +79,6 @@ operator|.
 name|camel
 operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|ModelCamelContext
 import|;
 end_import
 
@@ -588,9 +586,6 @@ name|answer
 operator|=
 name|lookupErrorHandlerBuilder
 argument_list|(
-operator|(
-name|ModelCamelContext
-operator|)
 name|routeContext
 operator|.
 name|getCamelContext
@@ -680,13 +675,13 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|lookupErrorHandlerBuilder (ModelCamelContext camelContext)
+DECL|method|lookupErrorHandlerBuilder (CamelContext camelContext)
 specifier|protected
 specifier|static
 name|ErrorHandlerFactory
 name|lookupErrorHandlerBuilder
 parameter_list|(
-name|ModelCamelContext
+name|CamelContext
 name|camelContext
 parameter_list|)
 block|{

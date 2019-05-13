@@ -2257,9 +2257,6 @@ init|=
 operator|new
 name|ManagedCamelContext
 argument_list|(
-operator|(
-name|ModelCamelContext
-operator|)
 name|context
 argument_list|)
 decl_stmt|;

@@ -142,6 +142,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -218,7 +230,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|lookupRoutes (ModelCamelContext camelContext, String ref)
+DECL|method|lookupRoutes (CamelContext camelContext, String ref)
 specifier|public
 specifier|static
 specifier|synchronized
@@ -228,7 +240,7 @@ name|RouteDefinition
 argument_list|>
 name|lookupRoutes
 parameter_list|(
-name|ModelCamelContext
+name|CamelContext
 name|camelContext
 parameter_list|,
 name|String
@@ -372,7 +384,7 @@ return|return
 name|clones
 return|;
 block|}
-DECL|method|getOrCreateJAXBContext (final ModelCamelContext camelContext)
+DECL|method|getOrCreateJAXBContext (final CamelContext camelContext)
 specifier|private
 specifier|static
 specifier|synchronized
@@ -380,7 +392,7 @@ name|JAXBContext
 name|getOrCreateJAXBContext
 parameter_list|(
 specifier|final
-name|ModelCamelContext
+name|CamelContext
 name|camelContext
 parameter_list|)
 throws|throws

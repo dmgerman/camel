@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Route
 import|;
 end_import
@@ -76,20 +88,6 @@ name|ManagedSuspendableRouteMBean
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|ModelCamelContext
-import|;
-end_import
-
 begin_class
 annotation|@
 name|ManagedResource
@@ -107,11 +105,11 @@ name|ManagedRoute
 implements|implements
 name|ManagedSuspendableRouteMBean
 block|{
-DECL|method|ManagedSuspendableRoute (ModelCamelContext context, Route route)
+DECL|method|ManagedSuspendableRoute (CamelContext context, Route route)
 specifier|public
 name|ManagedSuspendableRoute
 parameter_list|(
-name|ModelCamelContext
+name|CamelContext
 name|context
 parameter_list|,
 name|Route

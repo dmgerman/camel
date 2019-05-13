@@ -116,9 +116,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|ModelCamelContext
+name|CamelContext
 import|;
 end_import
 
@@ -207,7 +205,7 @@ annotation|@
 name|XmlTransient
 DECL|field|camelContext
 specifier|private
-name|ModelCamelContext
+name|CamelContext
 name|camelContext
 decl_stmt|;
 DECL|method|RestsDefinition ()
@@ -291,7 +289,7 @@ expr_stmt|;
 block|}
 DECL|method|getCamelContext ()
 specifier|public
-name|ModelCamelContext
+name|CamelContext
 name|getCamelContext
 parameter_list|()
 block|{
@@ -299,12 +297,12 @@ return|return
 name|camelContext
 return|;
 block|}
-DECL|method|setCamelContext (ModelCamelContext camelContext)
+DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
 name|setCamelContext
 parameter_list|(
-name|ModelCamelContext
+name|CamelContext
 name|camelContext
 parameter_list|)
 block|{

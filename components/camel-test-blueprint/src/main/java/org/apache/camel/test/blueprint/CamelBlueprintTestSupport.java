@@ -2250,10 +2250,14 @@ block|}
 comment|// must override context so we use the correct one in testing
 name|context
 operator|=
-operator|(
-name|ModelCamelContext
-operator|)
 name|answer
+operator|.
+name|adapt
+argument_list|(
+name|ModelCamelContext
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 return|return
 name|answer

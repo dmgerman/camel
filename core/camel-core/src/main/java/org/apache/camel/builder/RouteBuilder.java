@@ -184,7 +184,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ModelCamelContext
+name|Model
 import|;
 end_import
 
@@ -1505,17 +1505,11 @@ block|{
 comment|// must configure routes before rests
 name|configureRoutes
 argument_list|(
-operator|(
-name|ModelCamelContext
-operator|)
 name|context
 argument_list|)
 expr_stmt|;
 name|configureRests
 argument_list|(
-operator|(
-name|ModelCamelContext
-operator|)
 name|context
 argument_list|)
 expr_stmt|;
@@ -1534,12 +1528,12 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Configures the routes      *      * @param context the Camel context      * @return the routes configured      * @throws Exception can be thrown during configuration      */
-DECL|method|configureRoutes (ModelCamelContext context)
+DECL|method|configureRoutes (CamelContext context)
 specifier|public
 name|RoutesDefinition
 name|configureRoutes
 parameter_list|(
-name|ModelCamelContext
+name|CamelContext
 name|context
 parameter_list|)
 throws|throws
@@ -1565,12 +1559,12 @@ name|routeCollection
 return|;
 block|}
 comment|/**      * Configures the rests      *      * @param context the Camel context      * @return the rests configured      * @throws Exception can be thrown during configuration      */
-DECL|method|configureRests (ModelCamelContext context)
+DECL|method|configureRests (CamelContext context)
 specifier|public
 name|RestsDefinition
 name|configureRests
 parameter_list|(
-name|ModelCamelContext
+name|CamelContext
 name|context
 parameter_list|)
 throws|throws
@@ -1643,7 +1637,7 @@ argument_list|)
 condition|)
 block|{
 comment|// Set the CamelContext ErrorHandler here
-name|ModelCamelContext
+name|CamelContext
 name|camelContext
 init|=
 name|getContext
@@ -1704,7 +1698,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ModelCamelContext
+name|CamelContext
 name|camelContext
 init|=
 name|getContext
@@ -1735,6 +1729,13 @@ argument_list|)
 expr_stmt|;
 name|camelContext
 operator|.
+name|getExtension
+argument_list|(
+name|Model
+operator|.
+name|class
+argument_list|)
+operator|.
 name|addRouteDefinitions
 argument_list|(
 name|getRouteCollection
@@ -1753,7 +1754,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ModelCamelContext
+name|CamelContext
 name|camelContext
 init|=
 name|getContext
@@ -1860,6 +1861,13 @@ block|}
 comment|// cannot add rests as routes yet as we need to initialize this specially
 name|camelContext
 operator|.
+name|getExtension
+argument_list|(
+name|Model
+operator|.
+name|class
+argument_list|)
+operator|.
 name|addRestDefinitions
 argument_list|(
 name|getRestCollection
@@ -1907,6 +1915,13 @@ name|RouteDefinition
 name|route
 range|:
 name|camelContext
+operator|.
+name|getExtension
+argument_list|(
+name|Model
+operator|.
+name|class
+argument_list|)
 operator|.
 name|getRouteDefinitions
 argument_list|()
@@ -2027,7 +2042,7 @@ name|void
 name|populateTransformers
 parameter_list|()
 block|{
-name|ModelCamelContext
+name|CamelContext
 name|camelContext
 init|=
 name|getContext
@@ -2071,7 +2086,7 @@ name|void
 name|populateValidators
 parameter_list|()
 block|{
-name|ModelCamelContext
+name|CamelContext
 name|camelContext
 init|=
 name|getContext

@@ -408,7 +408,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ModelCamelContext
+name|Model
 import|;
 end_import
 
@@ -575,7 +575,7 @@ decl_stmt|;
 DECL|field|context
 specifier|protected
 specifier|final
-name|ModelCamelContext
+name|CamelContext
 name|context
 decl_stmt|;
 DECL|field|load
@@ -594,11 +594,11 @@ specifier|final
 name|String
 name|jmxDomain
 decl_stmt|;
-DECL|method|ManagedRoute (ModelCamelContext context, Route route)
+DECL|method|ManagedRoute (CamelContext context, Route route)
 specifier|public
 name|ManagedRoute
 parameter_list|(
-name|ModelCamelContext
+name|CamelContext
 name|context
 parameter_list|,
 name|Route
@@ -1878,6 +1878,13 @@ name|def
 init|=
 name|context
 operator|.
+name|getExtension
+argument_list|(
+name|Model
+operator|.
+name|class
+argument_list|)
+operator|.
 name|getRouteDefinition
 argument_list|(
 name|id
@@ -2023,6 +2030,13 @@ try|try
 block|{
 comment|// add will remove existing route first
 name|context
+operator|.
+name|getExtension
+argument_list|(
+name|Model
+operator|.
+name|class
+argument_list|)
 operator|.
 name|addRouteDefinition
 argument_list|(
