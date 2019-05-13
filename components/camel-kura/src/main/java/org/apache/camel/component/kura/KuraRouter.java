@@ -124,7 +124,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ModelCamelContext
+name|Model
 import|;
 end_import
 
@@ -394,9 +394,9 @@ argument_list|)
 decl_stmt|;
 name|camelContext
 operator|.
-name|adapt
+name|getExtension
 argument_list|(
-name|ModelCamelContext
+name|Model
 operator|.
 name|class
 argument_list|)

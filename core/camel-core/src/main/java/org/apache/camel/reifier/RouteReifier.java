@@ -961,13 +961,6 @@ condition|)
 block|{
 name|camelContext
 operator|.
-name|adapt
-argument_list|(
-name|ModelCamelContext
-operator|.
-name|class
-argument_list|)
-operator|.
 name|addRouteDefinition
 argument_list|(
 name|merged

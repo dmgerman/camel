@@ -106,20 +106,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|ModelCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|support
 operator|.
 name|service
@@ -220,13 +206,6 @@ argument_list|)
 expr_stmt|;
 comment|// add routes after CamelContext has been started
 name|context2
-operator|.
-name|adapt
-argument_list|(
-name|ModelCamelContext
-operator|.
-name|class
-argument_list|)
 operator|.
 name|addRoutes
 argument_list|(

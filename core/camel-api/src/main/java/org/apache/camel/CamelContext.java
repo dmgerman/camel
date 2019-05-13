@@ -804,7 +804,7 @@ specifier|public
 interface|interface
 name|CamelContext
 extends|extends
-name|SuspendableService
+name|StatefulService
 extends|,
 name|RuntimeConfiguration
 block|{

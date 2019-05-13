@@ -2868,6 +2868,25 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
+if|if
+condition|(
+name|type
+operator|.
+name|isInstance
+argument_list|(
+name|this
+argument_list|)
+condition|)
+block|{
+return|return
+name|type
+operator|.
+name|cast
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
 name|Object
 name|extension
 init|=
@@ -5692,7 +5711,7 @@ name|answer
 return|;
 block|}
 DECL|method|setStartingRoutes (boolean starting)
-specifier|protected
+specifier|public
 name|void
 name|setStartingRoutes
 parameter_list|(
@@ -13332,7 +13351,7 @@ block|}
 block|}
 comment|/**      * Starts the given route service      */
 DECL|method|startRouteService (BaseRouteService routeService, boolean addingRoutes)
-specifier|protected
+specifier|public
 specifier|synchronized
 name|void
 name|startRouteService
