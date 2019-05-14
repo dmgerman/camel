@@ -257,8 +257,6 @@ specifier|public
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|ObjectHelper
 operator|.
@@ -326,8 +324,6 @@ specifier|public
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// noop
 block|}

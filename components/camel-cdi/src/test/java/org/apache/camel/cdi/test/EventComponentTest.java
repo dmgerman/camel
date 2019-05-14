@@ -431,8 +431,6 @@ specifier|public
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|start
 argument_list|(
@@ -447,8 +445,6 @@ parameter_list|(
 name|boolean
 name|start
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(

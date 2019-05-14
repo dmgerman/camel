@@ -172,10 +172,12 @@ name|getMaxHits
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|start ()
+annotation|@
+name|Override
+DECL|method|doStart ()
 specifier|public
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
@@ -192,10 +194,12 @@ name|doStart
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|stop ()
+annotation|@
+name|Override
+DECL|method|doStop ()
 specifier|public
 name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
 name|Exception

@@ -628,6 +628,8 @@ specifier|public
 name|void
 name|doInit
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|log
 operator|.
@@ -1212,8 +1214,6 @@ specifier|public
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 specifier|final
 name|ClassLoader

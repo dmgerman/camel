@@ -2157,8 +2157,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-try|try
-block|{
 comment|// logout of Salesforce
 name|ServiceHelper
 operator|.
@@ -2167,13 +2165,6 @@ argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SalesforceException
-name|ignored
-parameter_list|)
-block|{                 }
 block|}
 block|}
 finally|finally

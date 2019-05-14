@@ -477,8 +477,6 @@ specifier|public
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// only stop if no more active consumers
 name|int

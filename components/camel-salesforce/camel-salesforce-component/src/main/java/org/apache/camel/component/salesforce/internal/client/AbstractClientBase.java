@@ -822,8 +822,6 @@ specifier|public
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// local cache
 name|accessToken
@@ -841,6 +839,8 @@ literal|null
 condition|)
 block|{
 comment|// lazy login here!
+try|try
+block|{
 name|accessToken
 operator|=
 name|session
@@ -850,6 +850,21 @@ argument_list|(
 name|accessToken
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SalesforceException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 name|instanceUrl
 operator|=
@@ -882,8 +897,6 @@ specifier|public
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(

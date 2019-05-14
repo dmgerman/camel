@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FailedToStartRouteException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -228,7 +216,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|FailedToStartRouteException
+name|Exception
 name|e
 parameter_list|)
 block|{

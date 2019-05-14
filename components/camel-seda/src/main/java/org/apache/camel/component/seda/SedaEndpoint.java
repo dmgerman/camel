@@ -2170,8 +2170,6 @@ specifier|public
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -2206,8 +2204,6 @@ specifier|public
 name|void
 name|shutdown
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(

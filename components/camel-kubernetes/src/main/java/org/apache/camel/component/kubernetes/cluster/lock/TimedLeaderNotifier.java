@@ -508,8 +508,6 @@ specifier|public
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -545,8 +543,6 @@ specifier|public
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -575,6 +571,8 @@ operator|.
 name|shutdownNow
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|executor
 operator|.
 name|awaitTermination
@@ -586,6 +584,15 @@ operator|.
 name|SECONDS
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 block|}
 block|}
 DECL|method|expiration (long version)

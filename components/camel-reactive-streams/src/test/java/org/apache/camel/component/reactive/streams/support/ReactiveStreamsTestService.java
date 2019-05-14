@@ -180,8 +180,6 @@ specifier|public
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 block|{      }
 annotation|@
 name|Override
@@ -190,8 +188,6 @@ specifier|public
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{      }
 annotation|@
 name|Override

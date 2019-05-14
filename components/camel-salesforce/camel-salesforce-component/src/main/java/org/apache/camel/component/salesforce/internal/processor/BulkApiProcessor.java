@@ -2834,8 +2834,6 @@ specifier|public
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|ServiceHelper
 operator|.
@@ -2852,8 +2850,6 @@ specifier|public
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// stop the client
 name|ServiceHelper

@@ -106,24 +106,12 @@ operator|=
 name|indexer
 expr_stmt|;
 block|}
-DECL|method|start ()
+annotation|@
+name|Override
+DECL|method|doStop ()
 specifier|public
 name|void
-name|start
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doStart
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|stop ()
-specifier|public
-name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
 name|Exception
