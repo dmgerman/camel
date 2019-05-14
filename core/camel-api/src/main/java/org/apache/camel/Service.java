@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represents the core lifecycle API for POJOs which can be started and stopped  */
+comment|/**  * Represents the core lifecycle API for services which can be initialized, started and stopped  */
 end_comment
 
 begin_interface
@@ -24,7 +24,7 @@ specifier|public
 interface|interface
 name|Service
 block|{
-comment|/**      * Initialize the service      */
+comment|/**      * Initialize the service      *      * @throws RuntimeException is thrown if initialization failed      */
 DECL|method|init ()
 specifier|default
 name|void
