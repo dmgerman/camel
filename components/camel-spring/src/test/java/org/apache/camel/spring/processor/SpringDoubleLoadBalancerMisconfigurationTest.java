@@ -139,7 +139,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|RuntimeCamelException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -153,9 +153,6 @@ operator|.
 name|class
 argument_list|,
 name|e
-operator|.
-name|getCause
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|IllegalArgumentException

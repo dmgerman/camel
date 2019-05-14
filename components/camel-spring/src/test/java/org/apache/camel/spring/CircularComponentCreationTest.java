@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|IOHelper
@@ -133,7 +121,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|RuntimeCamelException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -142,9 +130,6 @@ operator|.
 name|assertTrue
 argument_list|(
 name|e
-operator|.
-name|getCause
-argument_list|()
 operator|instanceof
 name|FailedToCreateRouteException
 argument_list|)
