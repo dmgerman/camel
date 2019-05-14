@@ -24,28 +24,24 @@ specifier|public
 interface|interface
 name|Service
 block|{
-comment|/**      * Initialize the service      *      * @throws RuntimeException is thrown if initialization failed      */
+comment|/**      * Initialize the service      *      * @throws RuntimeCamelException is thrown if initialization failed      */
 DECL|method|init ()
 specifier|default
 name|void
 name|init
 parameter_list|()
 block|{     }
-comment|/**      * Starts the service      *       * @throws Exception is thrown if starting failed      */
+comment|/**      * Starts the service      *      * @throws RuntimeCamelException is thrown if starting failed      */
 DECL|method|start ()
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 function_decl|;
-comment|/**      * Stops the service      *       * @throws Exception is thrown if stopping failed      */
+comment|/**      * Stops the service      *      * @throws RuntimeCamelException is thrown if stopping failed      */
 DECL|method|stop ()
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 function_decl|;
 block|}
 end_interface

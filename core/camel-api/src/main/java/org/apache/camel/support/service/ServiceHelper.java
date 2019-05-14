@@ -112,6 +112,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Service
 import|;
 end_import
@@ -227,8 +239,6 @@ parameter_list|(
 name|Object
 name|value
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -286,8 +296,6 @@ name|Object
 modifier|...
 name|services
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -323,8 +331,6 @@ name|Object
 modifier|...
 name|services
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -359,8 +365,6 @@ parameter_list|(
 name|Object
 name|value
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -420,8 +424,6 @@ name|?
 argument_list|>
 name|services
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -432,7 +434,7 @@ condition|)
 block|{
 return|return;
 block|}
-name|Exception
+name|RuntimeException
 name|firstException
 init|=
 literal|null
@@ -455,7 +457,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|RuntimeException
 name|e
 parameter_list|)
 block|{
@@ -516,8 +518,6 @@ name|Object
 modifier|...
 name|services
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -557,8 +557,6 @@ parameter_list|(
 name|Object
 name|value
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|stopService
 argument_list|(
@@ -610,8 +608,6 @@ name|?
 argument_list|>
 name|services
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -622,7 +618,7 @@ condition|)
 block|{
 return|return;
 block|}
-name|Exception
+name|RuntimeException
 name|firstException
 init|=
 literal|null
@@ -677,7 +673,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|RuntimeException
 name|e
 parameter_list|)
 block|{
@@ -740,8 +736,6 @@ name|?
 argument_list|>
 name|services
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -752,7 +746,7 @@ condition|)
 block|{
 return|return;
 block|}
-name|Exception
+name|RuntimeException
 name|firstException
 init|=
 literal|null
@@ -790,7 +784,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|RuntimeException
 name|e
 parameter_list|)
 block|{
@@ -851,8 +845,6 @@ parameter_list|(
 name|Object
 name|service
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -931,8 +923,6 @@ name|?
 argument_list|>
 name|services
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -943,7 +933,7 @@ condition|)
 block|{
 return|return;
 block|}
-name|Exception
+name|RuntimeException
 name|firstException
 init|=
 literal|null
@@ -981,7 +971,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|RuntimeException
 name|e
 parameter_list|)
 block|{
@@ -1042,8 +1032,6 @@ parameter_list|(
 name|Object
 name|service
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(

@@ -517,8 +517,6 @@ specifier|public
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|status
 operator|=
@@ -532,8 +530,6 @@ specifier|public
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|status
 operator|=
@@ -567,8 +563,6 @@ specifier|public
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|fail
 argument_list|(
@@ -583,8 +577,6 @@ specifier|public
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|fail
 argument_list|(
@@ -643,8 +635,6 @@ specifier|public
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 block|{         }
 annotation|@
 name|Override
@@ -653,8 +643,6 @@ specifier|public
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{         }
 block|}
 block|}

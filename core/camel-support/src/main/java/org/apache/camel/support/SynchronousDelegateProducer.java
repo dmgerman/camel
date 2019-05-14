@@ -52,6 +52,22 @@ name|Producer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|service
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * To process the delegated producer in synchronous mode.  *<p/>  * This is used to enforce asynchronous producers to run in synchronous mode  * when it has been configured to do so.  *<p/>  * This delegate allows the component developers easily to support their  * existing asynchronous producer to behave synchronously by wrapping their  * producer in this synchronous delegate.  */
 end_comment
@@ -134,13 +150,13 @@ specifier|public
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 block|{
-name|producer
+name|ServiceHelper
 operator|.
-name|start
-argument_list|()
+name|startService
+argument_list|(
+name|producer
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|stop ()
@@ -148,13 +164,13 @@ specifier|public
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{
-name|producer
+name|ServiceHelper
 operator|.
-name|stop
-argument_list|()
+name|stopService
+argument_list|(
+name|producer
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|isSingleton ()

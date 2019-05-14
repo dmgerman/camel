@@ -59,6 +59,34 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|FailedToStartRouteException (String routeId, String message, Throwable cause)
+specifier|public
+name|FailedToStartRouteException
+parameter_list|(
+name|String
+name|routeId
+parameter_list|,
+name|String
+name|message
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"Failed to start route "
+operator|+
+name|routeId
+operator|+
+literal|" because of "
+operator|+
+name|message
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|FailedToStartRouteException (Throwable cause)
 specifier|public
 name|FailedToStartRouteException

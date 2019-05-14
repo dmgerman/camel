@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FailedToStartRouteException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -173,7 +161,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|FailedToStartRouteException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -184,6 +172,9 @@ operator|+
 literal|" which this route have as well. Please correct startupOrder to be unique among all your routes."
 argument_list|,
 name|e
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getMessage
 argument_list|()

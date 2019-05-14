@@ -2812,6 +2812,8 @@ specifier|public
 name|void
 name|doInit
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// setup management first since end users may use it to add event
 comment|// notifiers
@@ -10900,8 +10902,6 @@ specifier|public
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 try|try
 init|(
@@ -10983,6 +10983,8 @@ condition|)
 block|{
 comment|// invoke this logic to warm up the routes and if possible also
 comment|// start the routes
+try|try
+block|{
 name|doStartOrResumeRoutes
 argument_list|(
 name|routeServices
@@ -10996,6 +10998,22 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|RuntimeCamelException
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 comment|// super will invoke doStart which will prepare internal services
 comment|// and start routes etc.
@@ -11013,9 +11031,30 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|VetoCamelContextStartException
+name|Exception
 name|e
 parameter_list|)
+block|{
+name|VetoCamelContextStartException
+name|veto
+init|=
+name|ObjectHelper
+operator|.
+name|getException
+argument_list|(
+name|VetoCamelContextStartException
+operator|.
+name|class
+argument_list|,
+name|e
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|veto
+operator|!=
+literal|null
+condition|)
 block|{
 comment|// mark we veto against starting Camel
 name|vetoStarted
@@ -11027,7 +11066,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|e
+name|veto
 operator|.
 name|isRethrowException
 argument_list|()
@@ -11060,6 +11099,18 @@ name|stop
 argument_list|()
 expr_stmt|;
 return|return;
+block|}
+block|}
+else|else
+block|{
+throw|throw
+name|RuntimeCamelException
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
 block|}
 block|}
 if|if
@@ -11231,6 +11282,8 @@ operator|instanceof
 name|ExtendedStartupListener
 condition|)
 block|{
+try|try
+block|{
 operator|(
 operator|(
 name|ExtendedStartupListener
@@ -11247,6 +11300,22 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|RuntimeCamelException
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 block|}
 block|}
 block|}
@@ -11257,8 +11326,6 @@ specifier|public
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 try|try
 init|(
@@ -11284,8 +11351,6 @@ specifier|public
 name|void
 name|suspend
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 try|try
 init|(
@@ -11311,8 +11376,6 @@ specifier|public
 name|void
 name|resume
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 try|try
 init|(
@@ -11338,8 +11401,6 @@ specifier|public
 name|void
 name|shutdown
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 try|try
 init|(
@@ -14278,7 +14339,7 @@ name|boolean
 name|autoStartup
 parameter_list|)
 throws|throws
-name|Exception
+name|FailedToStartRouteException
 block|{
 comment|// now prepare the routes by starting its services before we start the
 comment|// input

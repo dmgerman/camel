@@ -60,16 +60,12 @@ specifier|public
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 block|{         }
 DECL|method|stop ()
 specifier|public
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{         }
 DECL|method|suspend ()
 specifier|public

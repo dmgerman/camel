@@ -194,6 +194,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FailedToStartRouteException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -219,6 +231,18 @@ operator|.
 name|camel
 operator|.
 name|RouteAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -688,7 +712,7 @@ name|void
 name|warmUp
 parameter_list|()
 throws|throws
-name|Exception
+name|FailedToStartRouteException
 block|{
 try|try
 block|{
@@ -704,7 +728,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|FailedToCreateRouteException
+name|FailedToStartRouteException
 argument_list|(
 name|id
 argument_list|,
@@ -1009,12 +1033,28 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|Exception
+block|{
+try|try
 block|{
 name|warmUp
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|FailedToStartRouteException
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|RuntimeCamelException
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 try|try
 init|(
 name|MDCHelper
@@ -1086,8 +1126,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// if we are stopping CamelContext then we are shutting down
 name|boolean
@@ -1275,8 +1313,6 @@ specifier|protected
 name|void
 name|doShutdown
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 try|try
 init|(
@@ -1462,8 +1498,6 @@ specifier|protected
 name|void
 name|doSuspend
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// suspend and resume logic is provided by DefaultCamelContext which leverages ShutdownStrategy
 comment|// to safely suspend and resume
@@ -1521,8 +1555,6 @@ specifier|protected
 name|void
 name|doResume
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// suspend and resume logic is provided by DefaultCamelContext which leverages ShutdownStrategy
 comment|// to safely suspend and resume
@@ -1587,8 +1619,6 @@ name|Service
 argument_list|>
 name|services
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 for|for
 control|(
@@ -1666,8 +1696,6 @@ parameter_list|,
 name|boolean
 name|shutdown
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 for|for
 control|(

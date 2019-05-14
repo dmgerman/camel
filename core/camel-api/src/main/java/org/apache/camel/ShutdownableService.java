@@ -26,13 +26,11 @@ name|ShutdownableService
 extends|extends
 name|Service
 block|{
-comment|/**      * Shutdown the service, which means it cannot be started again.      *      * @throws Exception thrown if shutting down failed      */
+comment|/**      * Shutdown the service, which means it cannot be started again.      *      * @throws RuntimeCamelException is thrown if shutdown failed      */
 DECL|method|shutdown ()
 name|void
 name|shutdown
 parameter_list|()
-throws|throws
-name|Exception
 function_decl|;
 block|}
 end_interface

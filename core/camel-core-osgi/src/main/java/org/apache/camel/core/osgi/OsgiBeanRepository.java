@@ -834,8 +834,6 @@ specifier|public
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// noop
 block|}
@@ -846,8 +844,6 @@ specifier|public
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// Unget the OSGi service as OSGi uses reference counting
 comment|// and we should do this as one of the last actions when stopping Camel

@@ -110,6 +110,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -347,8 +359,6 @@ specifier|public
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// when starting then send a message to the processor
 name|Exchange
@@ -371,6 +381,8 @@ argument_list|(
 name|expectedBody
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|processor
 operator|.
 name|process
@@ -379,14 +391,28 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|RuntimeCamelException
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 annotation|@
 name|Override
 specifier|public
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// noop
 block|}

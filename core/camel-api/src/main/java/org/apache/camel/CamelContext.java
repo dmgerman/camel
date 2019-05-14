@@ -864,21 +864,17 @@ name|boolean
 name|isVetoStarted
 parameter_list|()
 function_decl|;
-comment|/**      * Starts the {@link CamelContext} (<b>important:</b> the start method is not blocked, see more details      *<a href="http://camel.apache.org/running-camel-standalone-and-have-it-keep-running.html">here</a>)</li>.      *<p/>      * See more details at the class-level javadoc of this class.      *      * @throws Exception is thrown if starting failed      */
+comment|/**      * Starts the {@link CamelContext} (<b>important:</b> the start method is not blocked, see more details      *<a href="http://camel.apache.org/running-camel-standalone-and-have-it-keep-running.html">here</a>)</li>.      *<p/>      * See more details at the class-level javadoc of this class.      *      * @throws RuntimeCamelException is thrown if starting failed      */
 DECL|method|start ()
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 function_decl|;
-comment|/**      * Stop and shutdown the {@link CamelContext} (will stop all routes/components/endpoints etc and clear internal state/cache).      *<p/>      * See more details at the class-level javadoc of this class.      *      * @throws Exception is thrown if stopping failed      */
+comment|/**      * Stop and shutdown the {@link CamelContext} (will stop all routes/components/endpoints etc and clear internal state/cache).      *<p/>      * See more details at the class-level javadoc of this class.      *      * @throws RuntimeCamelException is thrown if stopping failed      */
 DECL|method|stop ()
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 function_decl|;
 comment|/**      * Gets the name (id) of the this CamelContext.      *      * @return the name      */
 DECL|method|getName ()

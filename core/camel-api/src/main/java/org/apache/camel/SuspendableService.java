@@ -26,21 +26,17 @@ name|SuspendableService
 extends|extends
 name|Service
 block|{
-comment|/**      * Suspends the service.      *      * @throws Exception is thrown if suspending failed      */
+comment|/**      * Suspends the service.      *      * @throws RuntimeCamelException is thrown if suspending failed      */
 DECL|method|suspend ()
 name|void
 name|suspend
 parameter_list|()
-throws|throws
-name|Exception
 function_decl|;
-comment|/**      * Resumes the service.      *      * @throws Exception is thrown if resuming failed      */
+comment|/**      * Resumes the service.      *      * @throws RuntimeCamelException is thrown if resuming failed      */
 DECL|method|resume ()
 name|void
 name|resume
 parameter_list|()
-throws|throws
-name|Exception
 function_decl|;
 comment|/**      * Tests whether the service is suspended or not.      *      * @return<tt>true</tt> if suspended      */
 DECL|method|isSuspended ()

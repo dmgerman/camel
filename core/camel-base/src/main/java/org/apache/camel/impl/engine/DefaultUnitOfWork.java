@@ -919,8 +919,6 @@ specifier|public
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|id
 operator|=
@@ -932,8 +930,6 @@ specifier|public
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// need to clean up when we are stopping to not leak memory
 if|if

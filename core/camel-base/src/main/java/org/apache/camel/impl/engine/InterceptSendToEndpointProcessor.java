@@ -625,8 +625,6 @@ specifier|public
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|ServiceHelper
 operator|.
@@ -652,8 +650,6 @@ specifier|public
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// do not stop detour as it should only be stopped when the interceptor stops
 comment|// we should stop the producer here
