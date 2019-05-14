@@ -152,6 +152,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|engine
+operator|.
+name|AbstractCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|DataFormatDefinition
@@ -1574,14 +1590,14 @@ expr_stmt|;
 block|}
 comment|// indicate we are staring the route using this thread so
 comment|// we are able to query this if needed
-name|AbstractModelCamelContext
+name|AbstractCamelContext
 name|mcc
 init|=
 name|camelContext
 operator|.
 name|adapt
 argument_list|(
-name|AbstractModelCamelContext
+name|AbstractCamelContext
 operator|.
 name|class
 argument_list|)
