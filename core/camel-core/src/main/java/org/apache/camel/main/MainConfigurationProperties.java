@@ -28,6 +28,20 @@ name|ManagementStatisticsLevel
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ReloadStrategy
+import|;
+end_import
+
 begin_comment
 comment|/**  * Global configuration for Camel Main to setup context name, stream caching and other global configurations.  */
 end_comment
@@ -38,6 +52,13 @@ specifier|public
 class|class
 name|MainConfigurationProperties
 block|{
+DECL|field|autoConfigurationEnabled
+specifier|private
+name|boolean
+name|autoConfigurationEnabled
+init|=
+literal|true
+decl_stmt|;
 DECL|field|name
 specifier|private
 name|String
@@ -102,6 +123,14 @@ specifier|private
 name|String
 name|fileConfigurations
 decl_stmt|;
+DECL|field|duration
+specifier|private
+name|long
+name|duration
+init|=
+operator|-
+literal|1
+decl_stmt|;
 DECL|field|durationMaxSeconds
 specifier|private
 name|int
@@ -116,6 +145,18 @@ DECL|field|durationMaxMessages
 specifier|private
 name|int
 name|durationMaxMessages
+decl_stmt|;
+DECL|field|hangupInterceptorEnabled
+specifier|private
+name|boolean
+name|hangupInterceptorEnabled
+init|=
+literal|true
+decl_stmt|;
+DECL|field|durationHitExitCode
+specifier|private
+name|int
+name|durationHitExitCode
 decl_stmt|;
 DECL|field|logDebugMaxChars
 specifier|private
@@ -259,8 +300,50 @@ specifier|private
 name|String
 name|threadNamePattern
 decl_stmt|;
+DECL|field|fileWatchDirectory
+specifier|private
+name|String
+name|fileWatchDirectory
+decl_stmt|;
+DECL|field|fileWatchDirectoryRecursively
+specifier|private
+name|boolean
+name|fileWatchDirectoryRecursively
+decl_stmt|;
+DECL|field|reloadStrategy
+specifier|private
+name|ReloadStrategy
+name|reloadStrategy
+decl_stmt|;
 comment|// getter and setters
 comment|// --------------------------------------------------------------
+DECL|method|isAutoConfigurationEnabled ()
+specifier|public
+name|boolean
+name|isAutoConfigurationEnabled
+parameter_list|()
+block|{
+return|return
+name|autoConfigurationEnabled
+return|;
+block|}
+comment|/**      * Whether auto configuration of components/dataformats/languages is enabled or not.      * When enabled the configuration parameters are loaded from the properties component      * and configured as defaults (similar to spring-boot auto-configuration). You can prefix      * the parameters in the properties file with:      * - camel.component.name.option1=value1      * - camel.component.name.option2=value2      * - camel.dataformat.name.option1=value1      * - camel.dataformat.name.option2=value2      * - camel.language.name.option1=value1      * - camel.language.name.option2=value2      * Where name is the name of the component, dataformat or language such as seda,direct,jaxb.      *<p/>      * The auto configuration also works for any options on components      * that is a complex type (not standard Java type) and there has been an explicit single      * bean instance registered to the Camel registry via the {@link org.apache.camel.spi.Registry#bind(String, Object)} method      * or by using the {@link org.apache.camel.BindToRegistry} annotation style.      *<p/>      * This option is default enabled.      */
+DECL|method|setAutoConfigurationEnabled (boolean autoConfigurationEnabled)
+specifier|public
+name|void
+name|setAutoConfigurationEnabled
+parameter_list|(
+name|boolean
+name|autoConfigurationEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoConfigurationEnabled
+operator|=
+name|autoConfigurationEnabled
+expr_stmt|;
+block|}
 DECL|method|getName ()
 specifier|public
 name|String
@@ -1314,8 +1397,189 @@ operator|=
 name|threadNamePattern
 expr_stmt|;
 block|}
+DECL|method|getDuration ()
+specifier|public
+name|long
+name|getDuration
+parameter_list|()
+block|{
+return|return
+name|duration
+return|;
+block|}
+comment|/**      * Sets the duration (in seconds) to run the application until it      * should be terminated. Defaults to -1. Any value<= 0 will run forever.      */
+DECL|method|setDuration (long duration)
+specifier|public
+name|void
+name|setDuration
+parameter_list|(
+name|long
+name|duration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|duration
+operator|=
+name|duration
+expr_stmt|;
+block|}
+DECL|method|isHangupInterceptorEnabled ()
+specifier|public
+name|boolean
+name|isHangupInterceptorEnabled
+parameter_list|()
+block|{
+return|return
+name|hangupInterceptorEnabled
+return|;
+block|}
+comment|/**      * Whether to use graceful hangup when Camel is stopping or when the JVM terminates.      */
+DECL|method|setHangupInterceptorEnabled (boolean hangupInterceptorEnabled)
+specifier|public
+name|void
+name|setHangupInterceptorEnabled
+parameter_list|(
+name|boolean
+name|hangupInterceptorEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|hangupInterceptorEnabled
+operator|=
+name|hangupInterceptorEnabled
+expr_stmt|;
+block|}
+DECL|method|getDurationHitExitCode ()
+specifier|public
+name|int
+name|getDurationHitExitCode
+parameter_list|()
+block|{
+return|return
+name|durationHitExitCode
+return|;
+block|}
+comment|/**      * Sets the exit code for the application if duration was hit      */
+DECL|method|setDurationHitExitCode (int durationHitExitCode)
+specifier|public
+name|void
+name|setDurationHitExitCode
+parameter_list|(
+name|int
+name|durationHitExitCode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|durationHitExitCode
+operator|=
+name|durationHitExitCode
+expr_stmt|;
+block|}
+DECL|method|getFileWatchDirectory ()
+specifier|public
+name|String
+name|getFileWatchDirectory
+parameter_list|()
+block|{
+return|return
+name|fileWatchDirectory
+return|;
+block|}
+comment|/**      * Sets the directory name to watch XML file changes to trigger live reload of Camel routes.      *<p/>      * Notice you cannot set this value and a custom {@link ReloadStrategy} as well.      */
+DECL|method|setFileWatchDirectory (String fileWatchDirectory)
+specifier|public
+name|void
+name|setFileWatchDirectory
+parameter_list|(
+name|String
+name|fileWatchDirectory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fileWatchDirectory
+operator|=
+name|fileWatchDirectory
+expr_stmt|;
+block|}
+DECL|method|isFileWatchDirectoryRecursively ()
+specifier|public
+name|boolean
+name|isFileWatchDirectoryRecursively
+parameter_list|()
+block|{
+return|return
+name|fileWatchDirectoryRecursively
+return|;
+block|}
+comment|/**      * Sets the flag to watch directory of XML file changes recursively to trigger live reload of Camel routes.      *<p/>      * Notice you cannot set this value and a custom {@link ReloadStrategy} as well.      */
+DECL|method|setFileWatchDirectoryRecursively (boolean fileWatchDirectoryRecursively)
+specifier|public
+name|void
+name|setFileWatchDirectoryRecursively
+parameter_list|(
+name|boolean
+name|fileWatchDirectoryRecursively
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fileWatchDirectoryRecursively
+operator|=
+name|fileWatchDirectoryRecursively
+expr_stmt|;
+block|}
+DECL|method|getReloadStrategy ()
+specifier|public
+name|ReloadStrategy
+name|getReloadStrategy
+parameter_list|()
+block|{
+return|return
+name|reloadStrategy
+return|;
+block|}
+comment|/**      * Sets a custom {@link ReloadStrategy} to be used.      *<p/>      * Notice you cannot set this value and the fileWatchDirectory as well.      */
+DECL|method|setReloadStrategy (ReloadStrategy reloadStrategy)
+specifier|public
+name|void
+name|setReloadStrategy
+parameter_list|(
+name|ReloadStrategy
+name|reloadStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|reloadStrategy
+operator|=
+name|reloadStrategy
+expr_stmt|;
+block|}
 comment|// fluent builders
 comment|// --------------------------------------------------------------
+DECL|method|withAutoConfigurationEnabled (boolean autoConfigurationEnabled)
+specifier|public
+name|MainConfigurationProperties
+name|withAutoConfigurationEnabled
+parameter_list|(
+name|boolean
+name|autoConfigurationEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoConfigurationEnabled
+operator|=
+name|autoConfigurationEnabled
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|withName (String name)
 specifier|public
 name|MainConfigurationProperties
@@ -2052,6 +2316,120 @@ operator|.
 name|threadNamePattern
 operator|=
 name|threadNamePattern
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|withDuration (long duration)
+specifier|public
+name|MainConfigurationProperties
+name|withDuration
+parameter_list|(
+name|long
+name|duration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|duration
+operator|=
+name|duration
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|withHangupInterceptorEnabled (boolean hangupInterceptorEnabled)
+specifier|public
+name|MainConfigurationProperties
+name|withHangupInterceptorEnabled
+parameter_list|(
+name|boolean
+name|hangupInterceptorEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|hangupInterceptorEnabled
+operator|=
+name|hangupInterceptorEnabled
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|withDurationHitExitCode (int durationHitExitCode)
+specifier|public
+name|MainConfigurationProperties
+name|withDurationHitExitCode
+parameter_list|(
+name|int
+name|durationHitExitCode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|durationHitExitCode
+operator|=
+name|durationHitExitCode
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|withFileWatchDirectory (String fileWatchDirectory)
+specifier|public
+name|MainConfigurationProperties
+name|withFileWatchDirectory
+parameter_list|(
+name|String
+name|fileWatchDirectory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fileWatchDirectory
+operator|=
+name|fileWatchDirectory
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|withFileWatchDirectoryRecursively (boolean fileWatchDirectoryRecursively)
+specifier|public
+name|MainConfigurationProperties
+name|withFileWatchDirectoryRecursively
+parameter_list|(
+name|boolean
+name|fileWatchDirectoryRecursively
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fileWatchDirectoryRecursively
+operator|=
+name|fileWatchDirectoryRecursively
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|withReloadStrategy (ReloadStrategy reloadStrategy)
+specifier|public
+name|MainConfigurationProperties
+name|withReloadStrategy
+parameter_list|(
+name|ReloadStrategy
+name|reloadStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|reloadStrategy
+operator|=
+name|reloadStrategy
 expr_stmt|;
 return|return
 name|this

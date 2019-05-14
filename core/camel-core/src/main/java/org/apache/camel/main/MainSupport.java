@@ -1157,29 +1157,17 @@ argument_list|(
 name|UNINITIALIZED_EXIT_CODE
 argument_list|)
 decl_stmt|;
-comment|// TODO: Move these to mainConfigurationProperties (delegate)
-DECL|field|duration
-specifier|protected
-name|long
-name|duration
-init|=
-operator|-
-literal|1
-decl_stmt|;
-DECL|field|fileWatchDirectory
-specifier|protected
-name|String
-name|fileWatchDirectory
-decl_stmt|;
-DECL|field|fileWatchDirectoryRecursively
-specifier|protected
-name|boolean
-name|fileWatchDirectoryRecursively
-decl_stmt|;
 DECL|field|camelContext
 specifier|protected
+specifier|volatile
 name|CamelContext
 name|camelContext
+decl_stmt|;
+DECL|field|camelTemplate
+specifier|protected
+specifier|volatile
+name|ProducerTemplate
+name|camelTemplate
 decl_stmt|;
 DECL|field|mainConfigurationProperties
 specifier|protected
@@ -1227,41 +1215,10 @@ specifier|protected
 name|String
 name|configurationClasses
 decl_stmt|;
-DECL|field|camelTemplate
-specifier|protected
-name|ProducerTemplate
-name|camelTemplate
-decl_stmt|;
-DECL|field|hangupInterceptorEnabled
-specifier|protected
-name|boolean
-name|hangupInterceptorEnabled
-init|=
-literal|true
-decl_stmt|;
-DECL|field|durationHitExitCode
-specifier|protected
-name|int
-name|durationHitExitCode
-init|=
-name|DEFAULT_EXIT_CODE
-decl_stmt|;
-DECL|field|reloadStrategy
-specifier|protected
-name|ReloadStrategy
-name|reloadStrategy
-decl_stmt|;
 DECL|field|propertyPlaceholderLocations
 specifier|protected
 name|String
 name|propertyPlaceholderLocations
-decl_stmt|;
-DECL|field|autoConfigurationEnabled
-specifier|protected
-name|boolean
-name|autoConfigurationEnabled
-init|=
-literal|true
 decl_stmt|;
 DECL|field|initialProperties
 specifier|protected
@@ -1899,9 +1856,12 @@ name|void
 name|disableHangupSupport
 parameter_list|()
 block|{
-name|hangupInterceptorEnabled
-operator|=
+name|mainConfigurationProperties
+operator|.
+name|setHangupInterceptorEnabled
+argument_list|(
 literal|false
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Hangup support is enabled by default.      */
@@ -1911,9 +1871,12 @@ name|void
 name|enableHangupSupport
 parameter_list|()
 block|{
-name|hangupInterceptorEnabled
-operator|=
+name|mainConfigurationProperties
+operator|.
+name|setHangupInterceptorEnabled
+argument_list|(
 literal|true
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Adds a {@link org.apache.camel.main.MainListener} to receive callbacks when the main is started or stopping      *      * @param listener the listener      */
@@ -2012,7 +1975,10 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|hangupInterceptorEnabled
+name|mainConfigurationProperties
+operator|.
+name|isHangupInterceptorEnabled
+argument_list|()
 condition|)
 block|{
 name|String
@@ -2376,6 +2342,8 @@ return|return
 name|mainConfigurationProperties
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getDuration ()
 specifier|public
 name|long
@@ -2383,10 +2351,15 @@ name|getDuration
 parameter_list|()
 block|{
 return|return
-name|duration
+name|mainConfigurationProperties
+operator|.
+name|getDuration
+argument_list|()
 return|;
 block|}
-comment|/**      * Sets the duration (in seconds) to run the application until it      * should be terminated. Defaults to -1. Any value<= 0 will run forever.      */
+comment|/**      * Sets the duration (in seconds) to run the application until it      * should be terminated. Defaults to -1. Any value<= 0 will run forever.      * @deprecated use {@link #configure()}      */
+annotation|@
+name|Deprecated
 DECL|method|setDuration (long duration)
 specifier|public
 name|void
@@ -2396,13 +2369,16 @@ name|long
 name|duration
 parameter_list|)
 block|{
-name|this
+name|mainConfigurationProperties
 operator|.
+name|setDuration
+argument_list|(
 name|duration
-operator|=
-name|duration
+argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getDurationIdle ()
 specifier|public
 name|int
@@ -2416,7 +2392,9 @@ name|getDurationMaxIdleSeconds
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the maximum idle duration (in seconds) when running the application, and      * if there has been no message processed after being idle for more than this duration      * then the application should be terminated.      * Defaults to -1. Any value<= 0 will run forever.      */
+comment|/**      * Sets the maximum idle duration (in seconds) when running the application, and      * if there has been no message processed after being idle for more than this duration      * then the application should be terminated.      * Defaults to -1. Any value<= 0 will run forever.      * @deprecated use {@link #configure()}      */
+annotation|@
+name|Deprecated
 DECL|method|setDurationIdle (int durationIdle)
 specifier|public
 name|void
@@ -2434,6 +2412,8 @@ name|durationIdle
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getDurationMaxMessages ()
 specifier|public
 name|int
@@ -2447,7 +2427,9 @@ name|getDurationMaxMessages
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the duration to run the application to process at most max messages until it      * should be terminated. Defaults to -1. Any value<= 0 will run forever.      */
+comment|/**      * Sets the duration to run the application to process at most max messages until it      * should be terminated. Defaults to -1. Any value<= 0 will run forever.      * @deprecated use {@link #configure()}      */
+annotation|@
+name|Deprecated
 DECL|method|setDurationMaxMessages (int durationMaxMessages)
 specifier|public
 name|void
@@ -2465,7 +2447,9 @@ name|durationMaxMessages
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the exit code for the application if duration was hit      */
+comment|/**      * Sets the exit code for the application if duration was hit      * @deprecated use {@link #configure()}      */
+annotation|@
+name|Deprecated
 DECL|method|setDurationHitExitCode (int durationHitExitCode)
 specifier|public
 name|void
@@ -2475,13 +2459,16 @@ name|int
 name|durationHitExitCode
 parameter_list|)
 block|{
-name|this
+name|mainConfigurationProperties
 operator|.
+name|setDurationHitExitCode
+argument_list|(
 name|durationHitExitCode
-operator|=
-name|durationHitExitCode
+argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getDurationHitExitCode ()
 specifier|public
 name|int
@@ -2489,7 +2476,10 @@ name|getDurationHitExitCode
 parameter_list|()
 block|{
 return|return
-name|durationHitExitCode
+name|mainConfigurationProperties
+operator|.
+name|getDurationHitExitCode
+argument_list|()
 return|;
 block|}
 DECL|method|getExitCode ()
@@ -2649,6 +2639,8 @@ operator|=
 name|builders
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getFileWatchDirectory ()
 specifier|public
 name|String
@@ -2656,10 +2648,15 @@ name|getFileWatchDirectory
 parameter_list|()
 block|{
 return|return
-name|fileWatchDirectory
+name|mainConfigurationProperties
+operator|.
+name|getFileWatchDirectory
+argument_list|()
 return|;
 block|}
-comment|/**      * Sets the directory name to watch XML file changes to trigger live reload of Camel routes.      *<p/>      * Notice you cannot set this value and a custom {@link ReloadStrategy} as well.      */
+comment|/**      * Sets the directory name to watch XML file changes to trigger live reload of Camel routes.      *<p/>      * Notice you cannot set this value and a custom {@link ReloadStrategy} as well.      * @deprecated use {@link #configure()}      */
+annotation|@
+name|Deprecated
 DECL|method|setFileWatchDirectory (String fileWatchDirectory)
 specifier|public
 name|void
@@ -2669,13 +2666,16 @@ name|String
 name|fileWatchDirectory
 parameter_list|)
 block|{
-name|this
+name|mainConfigurationProperties
 operator|.
+name|setFileWatchDirectory
+argument_list|(
 name|fileWatchDirectory
-operator|=
-name|fileWatchDirectory
+argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|isFileWatchDirectoryRecursively ()
 specifier|public
 name|boolean
@@ -2683,10 +2683,15 @@ name|isFileWatchDirectoryRecursively
 parameter_list|()
 block|{
 return|return
-name|fileWatchDirectoryRecursively
+name|mainConfigurationProperties
+operator|.
+name|isFileWatchDirectoryRecursively
+argument_list|()
 return|;
 block|}
-comment|/**      * Sets the flag to watch directory of XML file changes recursively to trigger live reload of Camel routes.      *<p/>      * Notice you cannot set this value and a custom {@link ReloadStrategy} as well.      */
+comment|/**      * Sets the flag to watch directory of XML file changes recursively to trigger live reload of Camel routes.      *<p/>      * Notice you cannot set this value and a custom {@link ReloadStrategy} as well.      * @deprecated use {@link #configure()}      */
+annotation|@
+name|Deprecated
 DECL|method|setFileWatchDirectoryRecursively (boolean fileWatchDirectoryRecursively)
 specifier|public
 name|void
@@ -2696,13 +2701,16 @@ name|boolean
 name|fileWatchDirectoryRecursively
 parameter_list|)
 block|{
-name|this
+name|mainConfigurationProperties
 operator|.
+name|setFileWatchDirectoryRecursively
+argument_list|(
 name|fileWatchDirectoryRecursively
-operator|=
-name|fileWatchDirectoryRecursively
+argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getReloadStrategy ()
 specifier|public
 name|ReloadStrategy
@@ -2710,10 +2718,15 @@ name|getReloadStrategy
 parameter_list|()
 block|{
 return|return
-name|reloadStrategy
+name|mainConfigurationProperties
+operator|.
+name|getReloadStrategy
+argument_list|()
 return|;
 block|}
-comment|/**      * Sets a custom {@link ReloadStrategy} to be used.      *<p/>      * Notice you cannot set this value and the fileWatchDirectory as well.      */
+comment|/**      * Sets a custom {@link ReloadStrategy} to be used.      *<p/>      * Notice you cannot set this value and the fileWatchDirectory as well.      * @deprecated use {@link #configure()}      */
+annotation|@
+name|Deprecated
 DECL|method|setReloadStrategy (ReloadStrategy reloadStrategy)
 specifier|public
 name|void
@@ -2723,11 +2736,12 @@ name|ReloadStrategy
 name|reloadStrategy
 parameter_list|)
 block|{
-name|this
+name|mainConfigurationProperties
 operator|.
+name|setReloadStrategy
+argument_list|(
 name|reloadStrategy
-operator|=
-name|reloadStrategy
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getPropertyPlaceholderLocations ()
@@ -2757,6 +2771,8 @@ operator|=
 name|location
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|isAutoConfigurationEnabled ()
 specifier|public
 name|boolean
@@ -2764,10 +2780,15 @@ name|isAutoConfigurationEnabled
 parameter_list|()
 block|{
 return|return
-name|autoConfigurationEnabled
+name|mainConfigurationProperties
+operator|.
+name|isAutoConfigurationEnabled
+argument_list|()
 return|;
 block|}
-comment|/**      * Whether auto configuration of components/dataformats/languages is enabled or not.      * When enabled the configuration parameters are loaded from the properties component      * and configured as defaults (similar to spring-boot auto-configuration). You can prefix      * the parameters in the properties file with:      * - camel.component.name.option1=value1      * - camel.component.name.option2=value2      * - camel.dataformat.name.option1=value1      * - camel.dataformat.name.option2=value2      * - camel.language.name.option1=value1      * - camel.language.name.option2=value2      * Where name is the name of the component, dataformat or language such as seda,direct,jaxb.      *<p/>      * The auto configuration also works for any options on components      * that is a complex type (not standard Java type) and there has been an explicit single      * bean instance registered to the Camel registry via the {@link org.apache.camel.spi.Registry#bind(String, Object)} method      * or by using the {@link org.apache.camel.BindToRegistry} annotation style.      *<p/>      * This option is default enabled.      */
+comment|/**      * Whether auto configuration of components/dataformats/languages is enabled or not.      * When enabled the configuration parameters are loaded from the properties component      * and configured as defaults (similar to spring-boot auto-configuration). You can prefix      * the parameters in the properties file with:      * - camel.component.name.option1=value1      * - camel.component.name.option2=value2      * - camel.dataformat.name.option1=value1      * - camel.dataformat.name.option2=value2      * - camel.language.name.option1=value1      * - camel.language.name.option2=value2      * Where name is the name of the component, dataformat or language such as seda,direct,jaxb.      *<p/>      * The auto configuration also works for any options on components      * that is a complex type (not standard Java type) and there has been an explicit single      * bean instance registered to the Camel registry via the {@link org.apache.camel.spi.Registry#bind(String, Object)} method      * or by using the {@link org.apache.camel.BindToRegistry} annotation style.      *<p/>      * This option is default enabled.      * @deprecated use {@link #configure()}      */
+annotation|@
+name|Deprecated
 DECL|method|setAutoConfigurationEnabled (boolean autoConfigurationEnabled)
 specifier|public
 name|void
@@ -2777,11 +2798,12 @@ name|boolean
 name|autoConfigurationEnabled
 parameter_list|)
 block|{
-name|this
+name|mainConfigurationProperties
 operator|.
+name|setAutoConfigurationEnabled
+argument_list|(
 name|autoConfigurationEnabled
-operator|=
-name|autoConfigurationEnabled
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getInitialProperties ()
@@ -2905,7 +2927,10 @@ try|try
 block|{
 if|if
 condition|(
-name|duration
+name|mainConfigurationProperties
+operator|.
+name|getDuration
+argument_list|()
 operator|>
 literal|0
 condition|)
@@ -2916,14 +2941,20 @@ name|info
 argument_list|(
 literal|"Waiting for: {} seconds"
 argument_list|,
-name|duration
+name|mainConfigurationProperties
+operator|.
+name|getDuration
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|latch
 operator|.
 name|await
 argument_list|(
-name|duration
+name|mainConfigurationProperties
+operator|.
+name|getDuration
+argument_list|()
 argument_list|,
 name|TimeUnit
 operator|.
@@ -2936,7 +2967,10 @@ name|compareAndSet
 argument_list|(
 name|UNINITIALIZED_EXIT_CODE
 argument_list|,
-name|durationHitExitCode
+name|mainConfigurationProperties
+operator|.
+name|getDurationHitExitCode
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|completed
@@ -2976,7 +3010,10 @@ name|compareAndSet
 argument_list|(
 name|UNINITIALIZED_EXIT_CODE
 argument_list|,
-name|durationHitExitCode
+name|mainConfigurationProperties
+operator|.
+name|getDurationHitExitCode
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|latch
@@ -3021,7 +3058,10 @@ name|compareAndSet
 argument_list|(
 name|UNINITIALIZED_EXIT_CODE
 argument_list|,
-name|durationHitExitCode
+name|mainConfigurationProperties
+operator|.
+name|getDurationHitExitCode
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|latch
@@ -3771,7 +3811,10 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|fileWatchDirectory
+name|mainConfigurationProperties
+operator|.
+name|getFileWatchDirectory
+argument_list|()
 operator|!=
 literal|null
 condition|)
@@ -3782,9 +3825,15 @@ init|=
 operator|new
 name|FileWatcherReloadStrategy
 argument_list|(
-name|fileWatchDirectory
+name|mainConfigurationProperties
+operator|.
+name|getFileWatchDirectory
+argument_list|()
 argument_list|,
-name|fileWatchDirectoryRecursively
+name|mainConfigurationProperties
+operator|.
+name|isFileWatchDirectoryRecursively
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|camelContext
@@ -3955,7 +4004,10 @@ block|}
 comment|// need to eager allow to auto configure properties component
 if|if
 condition|(
-name|autoConfigurationEnabled
+name|mainConfigurationProperties
+operator|.
+name|isAutoConfigurationEnabled
+argument_list|()
 condition|)
 block|{
 name|autoConfigurationPropertiesComponent
@@ -3989,7 +4041,10 @@ comment|// conventional configuration via properties to allow configuring option
 comment|// component, dataformat, and languages (like spring-boot auto-configuration)
 if|if
 condition|(
-name|autoConfigurationEnabled
+name|mainConfigurationProperties
+operator|.
+name|isAutoConfigurationEnabled
+argument_list|()
 condition|)
 block|{
 name|autoConfigurationFromRegistry
