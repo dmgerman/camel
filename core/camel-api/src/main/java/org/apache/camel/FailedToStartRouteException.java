@@ -26,6 +26,11 @@ name|FailedToStartRouteException
 extends|extends
 name|RuntimeCamelException
 block|{
+DECL|field|routeId
+specifier|private
+name|String
+name|routeId
+decl_stmt|;
 DECL|method|FailedToStartRouteException (String routeId, String message)
 specifier|public
 name|FailedToStartRouteException
@@ -47,6 +52,12 @@ literal|" because of "
 operator|+
 name|message
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|routeId
+operator|=
+name|routeId
 expr_stmt|;
 block|}
 DECL|method|FailedToStartRouteException (String routeId, String message, Throwable cause)
@@ -76,6 +87,12 @@ argument_list|,
 name|cause
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|routeId
+operator|=
+name|routeId
+expr_stmt|;
 block|}
 DECL|method|FailedToStartRouteException (Throwable cause)
 specifier|public
@@ -90,6 +107,16 @@ argument_list|(
 name|cause
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getRouteId ()
+specifier|public
+name|String
+name|getRouteId
+parameter_list|()
+block|{
+return|return
+name|routeId
+return|;
 block|}
 block|}
 end_class

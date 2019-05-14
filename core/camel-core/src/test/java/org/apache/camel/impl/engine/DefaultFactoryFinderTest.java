@@ -535,7 +535,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Could not find factory class for resource: TestImplX"
+literal|"Cannot find factory class for resource: TestImplX"
 argument_list|,
 name|e
 operator|.

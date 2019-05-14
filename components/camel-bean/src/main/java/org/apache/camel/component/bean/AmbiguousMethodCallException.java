@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExchangeException
+name|Exchange
 import|;
 end_import
 
@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|RuntimeExchangeException
 import|;
 end_import
 
@@ -62,18 +62,8 @@ specifier|public
 class|class
 name|AmbiguousMethodCallException
 extends|extends
-name|CamelExchangeException
+name|RuntimeExchangeException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|8867010485101806951L
-decl_stmt|;
 DECL|field|methods
 specifier|private
 specifier|final

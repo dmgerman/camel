@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FailedToStartRouteException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -65,10 +77,6 @@ operator|.
 name|Test
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|SameSedaQueueMultipleConsumersDifferenceTest
@@ -224,19 +232,16 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|FailedToCreateRouteException
+name|FailedToStartRouteException
 name|failed
 init|=
 name|assertIsInstanceOf
 argument_list|(
-name|FailedToCreateRouteException
+name|FailedToStartRouteException
 operator|.
 name|class
 argument_list|,
 name|e
-operator|.
-name|getCause
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -254,9 +259,6 @@ argument_list|(
 literal|"Cannot use existing queue seda://foo as the existing queue multiple consumers true does not match given multiple consumers false"
 argument_list|,
 name|e
-operator|.
-name|getCause
-argument_list|()
 operator|.
 name|getCause
 argument_list|()

@@ -146,9 +146,6 @@ literal|"A consumer Consumer[direct-vm://foo] already exists from CamelContext: 
 argument_list|,
 name|e
 operator|.
-name|getCause
-argument_list|()
-operator|.
 name|getMessage
 argument_list|()
 argument_list|)
