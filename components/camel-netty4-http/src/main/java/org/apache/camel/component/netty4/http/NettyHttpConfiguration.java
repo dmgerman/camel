@@ -389,11 +389,17 @@ argument_list|(
 name|label
 operator|=
 literal|"producer,advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
 argument_list|)
 DECL|field|useRelativePath
 specifier|private
 name|boolean
 name|useRelativePath
+init|=
+literal|true
 decl_stmt|;
 DECL|method|NettyHttpConfiguration ()
 specifier|public

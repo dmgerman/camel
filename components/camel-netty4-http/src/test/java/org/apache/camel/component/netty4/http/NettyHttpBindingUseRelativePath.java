@@ -125,7 +125,7 @@ name|template
 operator|.
 name|request
 argument_list|(
-literal|"netty4-http:http://localhost:{{port}}/mypath?useRelativePath=true"
+literal|"netty4-http:http://localhost:{{port}}/mypath"
 argument_list|,
 operator|new
 name|Processor
@@ -202,7 +202,7 @@ name|template
 operator|.
 name|request
 argument_list|(
-literal|"netty4-http:http://localhost:{{port}}?useRelativePath=true"
+literal|"netty4-http:http://localhost:{{port}}"
 argument_list|,
 operator|new
 name|Processor
@@ -279,7 +279,7 @@ name|template
 operator|.
 name|request
 argument_list|(
-literal|"netty4-http:http://localhost:{{port}}/?useRelativePath=true"
+literal|"netty4-http:http://localhost:{{port}}/"
 argument_list|,
 operator|new
 name|Processor
