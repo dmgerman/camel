@@ -255,16 +255,16 @@ expr_stmt|;
 block|}
 annotation|@
 name|BeforeClass
-DECL|method|setUpJaas ()
+DECL|method|setUpJSSE ()
 specifier|public
 specifier|static
 name|void
-name|setUpJaas
+name|setUpJSSE
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// ensure jsse clients can validate the self signed dummy localhost cert,
+comment|// ensure JSSE clients can validate the self signed dummy localhost cert,
 comment|// use the server keystore as the trust store for these tests
 name|URL
 name|trustStoreUrl
@@ -296,14 +296,23 @@ name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"javax.net.ssl.trustStorePassword"
+argument_list|,
+literal|"changeit"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|AfterClass
-DECL|method|tearDownJaas ()
+DECL|method|tearDownJSSE ()
 specifier|public
 specifier|static
 name|void
-name|tearDownJaas
+name|tearDownJSSE
 parameter_list|()
 throws|throws
 name|Exception
@@ -312,7 +321,14 @@ name|System
 operator|.
 name|clearProperty
 argument_list|(
-literal|"java.security.auth.login.config"
+literal|"javax.net.ssl.trustStore"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+literal|"javax.net.ssl.trustStorePassword"
 argument_list|)
 expr_stmt|;
 block|}

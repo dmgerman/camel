@@ -226,6 +226,13 @@ name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|setSystemProp
+argument_list|(
+literal|"javax.net.ssl.trustStorePassword"
+argument_list|,
+literal|"changeit"
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|setUp
