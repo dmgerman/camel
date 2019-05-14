@@ -306,18 +306,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|CamelContext
 import|;
 end_import
@@ -2795,9 +2783,28 @@ condition|(
 name|init
 condition|)
 block|{
+try|try
+block|{
 name|init
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Error initializing CamelContext"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 DECL|method|doInit ()

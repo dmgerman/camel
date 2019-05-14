@@ -222,14 +222,21 @@ name|callback
 argument_list|)
 return|;
 block|}
-DECL|method|start ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
 name|ServiceHelper
 operator|.
 name|startService
@@ -238,14 +245,21 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|stop ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
 name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
 name|ServiceHelper
 operator|.
 name|stopService

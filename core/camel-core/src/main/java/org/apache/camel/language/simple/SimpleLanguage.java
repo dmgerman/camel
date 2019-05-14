@@ -280,18 +280,11 @@ parameter_list|()
 block|{     }
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|start ()
+DECL|method|init ()
 specifier|public
 name|void
-name|start
+name|init
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// setup cache which requires CamelContext to be set first
 if|if
@@ -375,6 +368,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 annotation|@
 name|Override

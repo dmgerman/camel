@@ -1697,17 +1697,17 @@ name|Exception
 function_decl|;
 annotation|@
 name|Override
-DECL|method|doStart ()
+DECL|method|doInit ()
 specifier|protected
 name|void
-name|doStart
+name|doInit
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|super
 operator|.
-name|doStart
+name|doInit
 argument_list|()
 expr_stmt|;
 comment|// validate that if backoff multiplier is in use, the threshold values is set correctly
@@ -1784,13 +1784,6 @@ expr_stmt|;
 name|scheduler
 operator|.
 name|onInit
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
-name|scheduler
-operator|.
-name|scheduleTask
 argument_list|(
 name|this
 argument_list|)
@@ -1944,6 +1937,36 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|scheduler
+operator|!=
+literal|null
+condition|)
+block|{
+name|scheduler
+operator|.
+name|scheduleTask
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|ServiceHelper
 operator|.
 name|startService
@@ -1960,6 +1983,7 @@ block|{
 name|startScheduler
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Starts the scheduler.      *<p/>      * If the scheduler is already started, then this is a noop method call.      */

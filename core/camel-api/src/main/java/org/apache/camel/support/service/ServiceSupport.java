@@ -240,9 +240,28 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|doInit
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Error initializing service"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 name|status
 operator|=
 name|INITIALIZED
@@ -301,9 +320,37 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+try|try
+block|{
 name|init
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|status
+operator|=
+name|FAILED
+expr_stmt|;
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Error while initializing service: "
+operator|+
+name|this
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 try|try
 block|{
 name|status
@@ -1058,6 +1105,8 @@ specifier|protected
 name|void
 name|doInit
 parameter_list|()
+throws|throws
+name|Exception
 block|{     }
 comment|/**      * Implementations override this method to support customized start/stop.      *<p/>      *<b>Important:</b> See {@link #doStop()} for more details.      *       * @see #doStop()      */
 DECL|method|doStart ()

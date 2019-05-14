@@ -117,6 +117,18 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|init ()
+specifier|public
+name|void
+name|init
+parameter_list|()
+block|{
+name|producer
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|start ()
 specifier|public
 name|void
