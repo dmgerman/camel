@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A runtime exception thrown if a routing processor such as a  * {@link org.apache.camel.processor.RecipientList RecipientList} is unable to resolve an  * {@link Endpoint} from a URI.  */
+comment|/**  * A runtime exception thrown if a routing processor such as a  * recipient list is unable to resolve an {@link Endpoint} from a URI.  */
 end_comment
 
 begin_class
@@ -26,16 +26,6 @@ name|NoSuchEndpointException
 extends|extends
 name|RuntimeCamelException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|8721487431101572630L
-decl_stmt|;
 DECL|field|uri
 specifier|private
 specifier|final

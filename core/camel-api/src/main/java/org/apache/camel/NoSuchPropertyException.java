@@ -26,16 +26,6 @@ name|NoSuchPropertyException
 extends|extends
 name|CamelExchangeException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|8721487431101572630L
-decl_stmt|;
 DECL|field|propertyName
 specifier|private
 specifier|final

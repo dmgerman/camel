@@ -36,16 +36,6 @@ name|NoFactoryAvailableException
 extends|extends
 name|IOException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|425141860196708627L
-decl_stmt|;
 DECL|field|uri
 specifier|private
 specifier|final
@@ -62,7 +52,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"Could not find factory class for resource: "
+literal|"Cannot find factory class for resource: "
 operator|+
 name|uri
 argument_list|)

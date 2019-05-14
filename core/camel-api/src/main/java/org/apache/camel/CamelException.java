@@ -26,16 +26,6 @@ name|CamelException
 extends|extends
 name|Exception
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|8721487434390572630L
-decl_stmt|;
 DECL|method|CamelException ()
 specifier|public
 name|CamelException

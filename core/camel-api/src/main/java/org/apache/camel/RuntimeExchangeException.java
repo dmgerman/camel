@@ -26,16 +26,6 @@ name|RuntimeExchangeException
 extends|extends
 name|RuntimeCamelException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|8721487431101572630L
-decl_stmt|;
 DECL|field|exchange
 specifier|private
 specifier|final

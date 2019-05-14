@@ -26,16 +26,6 @@ name|TypeConversionException
 extends|extends
 name|RuntimeCamelException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|6118520819865759886L
-decl_stmt|;
 DECL|field|value
 specifier|private
 specifier|final

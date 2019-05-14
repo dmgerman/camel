@@ -26,16 +26,6 @@ name|ExchangeTimedOutException
 extends|extends
 name|CamelExchangeException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|7899162905421788853L
-decl_stmt|;
 DECL|field|timeout
 specifier|private
 specifier|final

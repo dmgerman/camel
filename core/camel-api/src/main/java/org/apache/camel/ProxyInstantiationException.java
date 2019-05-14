@@ -26,16 +26,6 @@ name|ProxyInstantiationException
 extends|extends
 name|RuntimeCamelException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|2050115486047385506L
-decl_stmt|;
 DECL|field|type
 specifier|private
 specifier|final

@@ -24,18 +24,8 @@ specifier|public
 class|class
 name|AlreadyStoppedException
 extends|extends
-name|CamelException
+name|RuntimeCamelException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|8721487434390572639L
-decl_stmt|;
 DECL|method|AlreadyStoppedException ()
 specifier|public
 name|AlreadyStoppedException

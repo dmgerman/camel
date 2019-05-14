@@ -24,18 +24,8 @@ specifier|public
 class|class
 name|FailedToStartRouteException
 extends|extends
-name|CamelException
+name|RuntimeCamelException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|6118520819865759888L
-decl_stmt|;
 DECL|method|FailedToStartRouteException (String routeId, String message)
 specifier|public
 name|FailedToStartRouteException

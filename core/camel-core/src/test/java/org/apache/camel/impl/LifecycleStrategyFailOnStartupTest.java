@@ -156,7 +156,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -165,6 +165,9 @@ argument_list|(
 literal|"Forced"
 argument_list|,
 name|e
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getMessage
 argument_list|()

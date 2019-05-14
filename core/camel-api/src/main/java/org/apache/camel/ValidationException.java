@@ -26,16 +26,6 @@ name|ValidationException
 extends|extends
 name|CamelExchangeException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|7485357452450907415L
-decl_stmt|;
 DECL|method|ValidationException (Exchange exchange, String message)
 specifier|public
 name|ValidationException

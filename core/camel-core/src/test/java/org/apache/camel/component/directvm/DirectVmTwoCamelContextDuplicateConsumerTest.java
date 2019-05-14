@@ -136,7 +136,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalStateException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -145,6 +145,9 @@ argument_list|(
 literal|"A consumer Consumer[direct-vm://foo] already exists from CamelContext: camel-1. Multiple consumers not supported"
 argument_list|,
 name|e
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getMessage
 argument_list|()

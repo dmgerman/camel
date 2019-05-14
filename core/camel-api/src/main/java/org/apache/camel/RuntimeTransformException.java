@@ -26,16 +26,6 @@ name|RuntimeTransformException
 extends|extends
 name|RuntimeCamelException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|8417806626073055262L
-decl_stmt|;
 DECL|method|RuntimeTransformException (String message)
 specifier|public
 name|RuntimeTransformException

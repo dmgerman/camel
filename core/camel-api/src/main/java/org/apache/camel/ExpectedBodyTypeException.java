@@ -26,16 +26,6 @@ name|ExpectedBodyTypeException
 extends|extends
 name|RuntimeCamelException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|7121445152234363768L
-decl_stmt|;
 DECL|field|exchange
 specifier|private
 specifier|final

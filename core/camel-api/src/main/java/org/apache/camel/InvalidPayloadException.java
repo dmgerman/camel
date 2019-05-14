@@ -26,16 +26,6 @@ name|InvalidPayloadException
 extends|extends
 name|CamelExchangeException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|1689157578733908632L
-decl_stmt|;
 DECL|field|type
 specifier|private
 specifier|final

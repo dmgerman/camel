@@ -26,15 +26,6 @@ name|InvalidPropertyException
 extends|extends
 name|RuntimeCamelException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|3450859794325167954L
-decl_stmt|;
 DECL|field|owner
 specifier|private
 specifier|final

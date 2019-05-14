@@ -26,16 +26,6 @@ name|InvalidPayloadRuntimeException
 extends|extends
 name|RuntimeExchangeException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|155083097523464793L
-decl_stmt|;
 DECL|field|type
 specifier|private
 specifier|final

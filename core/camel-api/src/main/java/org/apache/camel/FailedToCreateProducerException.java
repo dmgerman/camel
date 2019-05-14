@@ -26,15 +26,6 @@ name|FailedToCreateProducerException
 extends|extends
 name|RuntimeCamelException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|1341435621084082033L
-decl_stmt|;
 DECL|field|uri
 specifier|private
 specifier|final

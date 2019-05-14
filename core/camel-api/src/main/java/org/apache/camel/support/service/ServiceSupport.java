@@ -267,7 +267,7 @@ block|{
 throw|throw
 name|RuntimeCamelException
 operator|.
-name|wrapRuntimeCamelException
+name|wrapRuntimeException
 argument_list|(
 name|e
 argument_list|)
@@ -416,7 +416,7 @@ expr_stmt|;
 throw|throw
 name|RuntimeCamelException
 operator|.
-name|wrapRuntimeCamelException
+name|wrapRuntimeException
 argument_list|(
 name|e
 argument_list|)
@@ -536,7 +536,7 @@ expr_stmt|;
 throw|throw
 name|RuntimeCamelException
 operator|.
-name|wrapRuntimeCamelException
+name|wrapRuntimeException
 argument_list|(
 name|e
 argument_list|)
@@ -650,7 +650,7 @@ expr_stmt|;
 throw|throw
 name|RuntimeCamelException
 operator|.
-name|wrapRuntimeCamelException
+name|wrapRuntimeException
 argument_list|(
 name|e
 argument_list|)
@@ -746,7 +746,7 @@ expr_stmt|;
 throw|throw
 name|RuntimeCamelException
 operator|.
-name|wrapRuntimeCamelException
+name|wrapRuntimeException
 argument_list|(
 name|e
 argument_list|)
@@ -863,7 +863,7 @@ expr_stmt|;
 throw|throw
 name|RuntimeCamelException
 operator|.
-name|wrapRuntimeCamelException
+name|wrapRuntimeException
 argument_list|(
 name|e
 argument_list|)

@@ -24,18 +24,8 @@ specifier|public
 class|class
 name|TypeConverterLoaderException
 extends|extends
-name|CamelException
+name|RuntimeCamelException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|6118520819865759887L
-decl_stmt|;
 DECL|method|TypeConverterLoaderException (String message)
 specifier|public
 name|TypeConverterLoaderException

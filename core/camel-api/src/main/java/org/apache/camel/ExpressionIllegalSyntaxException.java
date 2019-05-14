@@ -26,15 +26,6 @@ name|ExpressionIllegalSyntaxException
 extends|extends
 name|RuntimeCamelException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|6545652894842621836L
-decl_stmt|;
 DECL|field|expression
 specifier|private
 specifier|final

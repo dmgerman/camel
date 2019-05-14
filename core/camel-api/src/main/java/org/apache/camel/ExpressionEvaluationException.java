@@ -26,15 +26,6 @@ name|ExpressionEvaluationException
 extends|extends
 name|RuntimeCamelException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|2939802714638174540L
-decl_stmt|;
 DECL|field|expression
 specifier|private
 specifier|final

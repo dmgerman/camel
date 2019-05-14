@@ -591,6 +591,9 @@ name|e
 operator|.
 name|getCause
 argument_list|()
+operator|.
+name|getCause
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals

@@ -36,15 +36,6 @@ name|LoadPropertiesException
 extends|extends
 name|CamelException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|3684303677685065529L
-decl_stmt|;
 DECL|field|url
 specifier|private
 specifier|final

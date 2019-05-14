@@ -26,16 +26,6 @@ name|CamelExecutionException
 extends|extends
 name|RuntimeExchangeException
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|5821095325248904305L
-decl_stmt|;
 DECL|method|CamelExecutionException (String message, Exchange exchange)
 specifier|public
 name|CamelExecutionException
