@@ -591,7 +591,7 @@ specifier|private
 name|Boolean
 name|useRelativePath
 init|=
-literal|false
+literal|true
 decl_stmt|;
 DECL|method|getProtocol ()
 specifier|public
