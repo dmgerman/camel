@@ -243,8 +243,6 @@ block|{
 annotation|@
 name|Produce
 argument_list|(
-name|uri
-operator|=
 literal|"direct:startURLOverride"
 argument_list|)
 DECL|field|pT
