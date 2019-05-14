@@ -150,9 +150,6 @@ operator|.
 name|class
 argument_list|,
 name|e
-operator|.
-name|getCause
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -175,9 +172,6 @@ operator|.
 name|class
 argument_list|,
 name|e
-operator|.
-name|getCause
-argument_list|()
 operator|.
 name|getCause
 argument_list|()

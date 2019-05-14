@@ -244,26 +244,11 @@ parameter_list|)
 block|{
 name|assertIsInstanceOf
 argument_list|(
-name|RuntimeCamelException
-operator|.
-name|class
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertIsInstanceOf
-argument_list|(
 name|MethodNotFoundException
 operator|.
 name|class
 argument_list|,
 name|e
-operator|.
-name|getCause
-argument_list|()
 operator|.
 name|getCause
 argument_list|()
@@ -274,9 +259,6 @@ argument_list|(
 literal|"Static method with name: doSomething not found on class: org.apache.camel.component.bean.MyStaticClass"
 argument_list|,
 name|e
-operator|.
-name|getCause
-argument_list|()
 operator|.
 name|getCause
 argument_list|()

@@ -414,9 +414,6 @@ operator|.
 name|class
 argument_list|,
 name|rollbackCause
-operator|.
-name|getCause
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertNotNull
