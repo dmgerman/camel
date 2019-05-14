@@ -1479,6 +1479,9 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+name|configure
+argument_list|()
+operator|.
 name|setDuration
 argument_list|(
 name|Integer
@@ -1524,6 +1527,9 @@ argument_list|>
 name|remainingArgs
 parameter_list|)
 block|{
+name|configure
+argument_list|()
+operator|.
 name|setDurationMaxMessages
 argument_list|(
 name|Integer
@@ -1604,7 +1610,10 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|setDurationIdle
+name|configure
+argument_list|()
+operator|.
+name|setDurationMaxIdleSeconds
 argument_list|(
 name|Integer
 operator|.
@@ -1682,6 +1691,9 @@ argument_list|>
 name|remainingArgs
 parameter_list|)
 block|{
+name|configure
+argument_list|()
+operator|.
 name|setDurationHitExitCode
 argument_list|(
 name|Integer
@@ -1729,6 +1741,9 @@ argument_list|>
 name|remainingArgs
 parameter_list|)
 block|{
+name|configure
+argument_list|()
+operator|.
 name|setFileWatchDirectory
 argument_list|(
 name|parameter

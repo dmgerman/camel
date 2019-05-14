@@ -1561,6 +1561,7 @@ expr_stmt|;
 block|}
 comment|// fluent builders
 comment|// --------------------------------------------------------------
+comment|/**      * Whether auto configuration of components/dataformats/languages is enabled or not.      * When enabled the configuration parameters are loaded from the properties component      * and configured as defaults (similar to spring-boot auto-configuration). You can prefix      * the parameters in the properties file with:      * - camel.component.name.option1=value1      * - camel.component.name.option2=value2      * - camel.dataformat.name.option1=value1      * - camel.dataformat.name.option2=value2      * - camel.language.name.option1=value1      * - camel.language.name.option2=value2      * Where name is the name of the component, dataformat or language such as seda,direct,jaxb.      *<p/>      * The auto configuration also works for any options on components      * that is a complex type (not standard Java type) and there has been an explicit single      * bean instance registered to the Camel registry via the {@link org.apache.camel.spi.Registry#bind(String, Object)} method      * or by using the {@link org.apache.camel.BindToRegistry} annotation style.      *<p/>      * This option is default enabled.      */
 DECL|method|withAutoConfigurationEnabled (boolean autoConfigurationEnabled)
 specifier|public
 name|MainConfigurationProperties
@@ -1580,6 +1581,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the name of the CamelContext.      */
 DECL|method|withName (String name)
 specifier|public
 name|MainConfigurationProperties
@@ -1599,6 +1601,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Timeout in seconds to graceful shutdown Camel.      */
 DECL|method|withShutdownTimeout (int shutdownTimeout)
 specifier|public
 name|MainConfigurationProperties
@@ -1618,6 +1621,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Whether Camel should try to suppress logging during shutdown and timeout was triggered,      * meaning forced shutdown is happening. And during forced shutdown we want to avoid logging      * errors/warnings et all in the logs as a side-effect of the forced timeout.      * Notice the suppress is a best effort as there may still be some logs coming      * from 3rd party libraries and whatnot, which Camel cannot control.      * This option is default false.      */
 DECL|method|withShutdownSuppressLoggingOnTimeout (boolean shutdownSuppressLoggingOnTimeout)
 specifier|public
 name|MainConfigurationProperties
@@ -1637,6 +1641,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether to force shutdown of all consumers when a timeout occurred and thus      * not all consumers was shutdown within that period.      *      * You should have good reasons to set this option to false as it means that the routes      * keep running and is halted abruptly when CamelContext has been shutdown.      */
 DECL|method|withShutdownNowOnTimeout (boolean shutdownNowOnTimeout)
 specifier|public
 name|MainConfigurationProperties
@@ -1656,6 +1661,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether routes should be shutdown in reverse or the same order as they where started.      */
 DECL|method|withShutdownRoutesInReverseOrder (boolean shutdownRoutesInReverseOrder)
 specifier|public
 name|MainConfigurationProperties
@@ -1675,6 +1681,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether to log information about the inflight Exchanges which are still running      * during a shutdown which didn't complete without the given timeout.      */
 DECL|method|withShutdownLogInflightExchangesOnTimeout (boolean shutdownLogInflightExchangesOnTimeout)
 specifier|public
 name|MainConfigurationProperties
@@ -1694,6 +1701,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Enable JMX in your Camel application.      */
 DECL|method|withJmxEnabled (boolean jmxEnabled)
 specifier|public
 name|MainConfigurationProperties
@@ -1713,6 +1721,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Producer template endpoints cache size.      */
 DECL|method|withProducerTemplateCacheSize (int producerTemplateCacheSize)
 specifier|public
 name|MainConfigurationProperties
@@ -1732,6 +1741,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Consumer template endpoints cache size.      */
 DECL|method|withConsumerTemplateCacheSize (int consumerTemplateCacheSize)
 specifier|public
 name|MainConfigurationProperties
@@ -1751,6 +1761,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Directory to load additional configuration files that contains      * configuration values that takes precedence over any other configuration.      * This can be used to refer to files that may have secret configuration that      * has been mounted on the file system for containers.      *      * You can specify a pattern to load from sub directories and a name pattern such as /var/app/secret/*.properties,      * multiple directories can be separated by comma.      */
 DECL|method|withFileConfigurations (String fileConfigurations)
 specifier|public
 name|MainConfigurationProperties
@@ -1770,6 +1781,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * To specify for how long time in seconds to keep running the JVM before automatic terminating the JVM.      * You can use this to run Camel for a short while.      */
 DECL|method|withDurationMaxSeconds (int durationMaxSeconds)
 specifier|public
 name|MainConfigurationProperties
@@ -1789,6 +1801,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * To specify for how long time in seconds Camel can be idle before automatic terminating the JVM.      * You can use this to run Camel for a short while.      */
 DECL|method|withDurationMaxIdleSeconds (int durationMaxIdleSeconds)
 specifier|public
 name|MainConfigurationProperties
@@ -1808,6 +1821,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * To specify how many messages to process by Camel before automatic terminating the JVM.      * You can use this to run Camel for a short while.      */
 DECL|method|withDurationMaxMessages (int durationMaxMessages)
 specifier|public
 name|MainConfigurationProperties
@@ -1827,6 +1841,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Is used to limit the maximum length of the logging Camel message bodies. If the message body      * is longer than the limit, the log message is clipped. Use -1 to have unlimited length.      * Use for example 1000 to log at most 1000 characters.      */
 DECL|method|withLogDebugMaxChars (int logDebugMaxChars)
 specifier|public
 name|MainConfigurationProperties
@@ -1846,6 +1861,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether stream caching is enabled or not.      *      * Default is false.      */
 DECL|method|withStreamCachingEnabled (boolean streamCachingEnabled)
 specifier|public
 name|MainConfigurationProperties
@@ -1865,6 +1881,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the stream caching spool (temporary) directory to use for overflow and spooling to disk.      *      * If no spool directory has been explicit configured, then a temporary directory      * is created in the java.io.tmpdir directory.      */
 DECL|method|withStreamCachingSpoolDirectory (String streamCachingSpoolDirectory)
 specifier|public
 name|MainConfigurationProperties
@@ -1884,6 +1901,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets a stream caching chiper name to use when spooling to disk to write with encryption.      * By default the data is not encrypted.      */
 DECL|method|withStreamCachingSpoolChiper (String streamCachingSpoolChiper)
 specifier|public
 name|MainConfigurationProperties
@@ -1903,6 +1921,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Stream caching threshold in bytes when overflow to disk is activated.      * The default threshold is 128kb.      * Use -1 to disable overflow to disk.      */
 DECL|method|withStreamCachingSpoolThreshold (long streamCachingSpoolThreshold)
 specifier|public
 name|MainConfigurationProperties
@@ -1922,6 +1941,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets a percentage (1-99) of used heap memory threshold to activate stream caching spooling to disk.      */
 DECL|method|withStreamCachingSpoolUsedHeapMemoryThreshold (int streamCachingSpoolUsedHeapMemoryThreshold)
 specifier|public
 name|MainConfigurationProperties
@@ -1941,6 +1961,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets what the upper bounds should be when streamCachingSpoolUsedHeapMemoryThreshold is in use.      */
 DECL|method|withStreamCachingSpoolUsedHeapMemoryLimit (String streamCachingSpoolUsedHeapMemoryLimit)
 specifier|public
 name|MainConfigurationProperties
@@ -1960,6 +1981,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether if just any of the org.apache.camel.spi.StreamCachingStrategy.SpoolRule rules      * returns true then shouldSpoolCache(long) returns true, to allow spooling to disk.      * If this option is false, then all the org.apache.camel.spi.StreamCachingStrategy.SpoolRule must      * return true.      *      * The default value is false which means that all the rules must return true.      */
 DECL|method|withStreamCachingAnySpoolRules (boolean streamCachingAnySpoolRules)
 specifier|public
 name|MainConfigurationProperties
@@ -1979,6 +2001,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the stream caching buffer size to use when allocating in-memory buffers used for in-memory stream caches.      *      * The default size is 4096.      */
 DECL|method|withStreamCachingBufferSize (int streamCachingBufferSize)
 specifier|public
 name|MainConfigurationProperties
@@ -1998,6 +2021,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Whether to remove stream caching temporary directory when stopping.      * This option is default true.      */
 DECL|method|withStreamCachingRemoveSpoolDirectoryWhenStopping (boolean streamCachingRemoveSpoolDirectoryWhenStopping)
 specifier|public
 name|MainConfigurationProperties
@@ -2017,6 +2041,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether stream caching statistics is enabled.      */
 DECL|method|withStreamCachingStatisticsEnabled (boolean streamCachingStatisticsEnabled)
 specifier|public
 name|MainConfigurationProperties
@@ -2036,6 +2061,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether tracing is enabled or not.      *      * Default is false.      */
 DECL|method|withTracing (boolean tracing)
 specifier|public
 name|MainConfigurationProperties
@@ -2055,6 +2081,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether message history is enabled or not.      *      * Default is true.      */
 DECL|method|withMessageHistory (boolean messageHistory)
 specifier|public
 name|MainConfigurationProperties
@@ -2074,6 +2101,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether log mask is enabled or not.      *      * Default is false.      */
 DECL|method|withLogMask (boolean logMask)
 specifier|public
 name|MainConfigurationProperties
@@ -2093,6 +2121,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether to log exhausted message body with message history.      *      * Default is false.      */
 DECL|method|withLogExhaustedMessageBody (boolean logExhaustedMessageBody)
 specifier|public
 name|MainConfigurationProperties
@@ -2112,6 +2141,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether fault handling is enabled or not.      *      * Default is false.      */
 DECL|method|withHandleFault (boolean handleFault)
 specifier|public
 name|MainConfigurationProperties
@@ -2131,6 +2161,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether the object should automatically start when Camel starts.      * Important: Currently only routes can be disabled, as CamelContext's are always started.      * Note: When setting auto startup false on CamelContext then that takes precedence      * and no routes is started. You would need to start CamelContext explicit using      * the org.apache.camel.CamelContext.start() method, to start the context, and then      * you would need to start the routes manually using CamelContext.getRouteController().startRoute(String).      *      * Default is true to always start up.      */
 DECL|method|withAutoStartup (boolean autoStartup)
 specifier|public
 name|MainConfigurationProperties
@@ -2150,6 +2181,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether to allow access to the original message from Camel's error handler,      * or from org.apache.camel.spi.UnitOfWork.getOriginalInMessage().      * Turning this off can optimize performance, as defensive copy of the original message is not needed.      *      * Default is false.      */
 DECL|method|withAllowUseOriginalMessage (boolean allowUseOriginalMessage)
 specifier|public
 name|MainConfigurationProperties
@@ -2169,6 +2201,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether endpoint runtime statistics is enabled (gathers runtime usage of each incoming and outgoing endpoints).      *      * The default value is false.      */
 DECL|method|withEndpointRuntimeStatisticsEnabled (boolean endpointRuntimeStatisticsEnabled)
 specifier|public
 name|MainConfigurationProperties
@@ -2188,6 +2221,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Whether to enable using data type on Camel messages.      *      * Data type are automatic turned on if one ore more routes has been explicit configured with input and output types.      * Otherwise data type is default off.      */
 DECL|method|withUseDataType (boolean useDataType)
 specifier|public
 name|MainConfigurationProperties
@@ -2207,6 +2241,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set whether breadcrumb is enabled.      * The default value is false.      */
 DECL|method|withUseBreadcrumb (boolean useBreadcrumb)
 specifier|public
 name|MainConfigurationProperties
@@ -2226,6 +2261,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the JMX statistics level      * The level can be set to Extended to gather additional information      *      * The default value is Default.      */
 DECL|method|withJmxManagementStatisticsLevel (ManagementStatisticsLevel jmxManagementStatisticsLevel)
 specifier|public
 name|MainConfigurationProperties
@@ -2245,6 +2281,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The naming pattern for creating the CamelContext JMX management name.      *      * The default pattern is #name#      */
 DECL|method|withJmxManagementNamePattern (String jmxManagementNamePattern)
 specifier|public
 name|MainConfigurationProperties
@@ -2264,6 +2301,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Whether JMX connector is created, allowing clients to connect remotely      *      * The default value is false.      */
 DECL|method|withJmxCreateConnector (boolean jmxCreateConnector)
 specifier|public
 name|MainConfigurationProperties
@@ -2283,6 +2321,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * To turn on MDC logging      */
 DECL|method|withUseMdcLogging (boolean useMdcLogging)
 specifier|public
 name|MainConfigurationProperties
@@ -2302,6 +2341,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the thread name pattern used for creating the full thread name.      *      * The default pattern is: Camel (#camelId#) thread ##counter# - #name#      *      * Where #camelId# is the name of the CamelContext.      * and #counter# is a unique incrementing counter.      * and #name# is the regular thread name.      *      * You can also use #longName# which is the long thread name which can includes endpoint parameters etc.      */
 DECL|method|withThreadNamePattern (String threadNamePattern)
 specifier|public
 name|MainConfigurationProperties
@@ -2321,6 +2361,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the duration (in seconds) to run the application until it      * should be terminated. Defaults to -1. Any value<= 0 will run forever.      */
 DECL|method|withDuration (long duration)
 specifier|public
 name|MainConfigurationProperties
@@ -2340,6 +2381,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Whether to use graceful hangup when Camel is stopping or when the JVM terminates.      */
 DECL|method|withHangupInterceptorEnabled (boolean hangupInterceptorEnabled)
 specifier|public
 name|MainConfigurationProperties
@@ -2359,6 +2401,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the exit code for the application if duration was hit      */
 DECL|method|withDurationHitExitCode (int durationHitExitCode)
 specifier|public
 name|MainConfigurationProperties
@@ -2378,6 +2421,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the directory name to watch XML file changes to trigger live reload of Camel routes.      *<p/>      * Notice you cannot set this value and a custom {@link ReloadStrategy} as well.      */
 DECL|method|withFileWatchDirectory (String fileWatchDirectory)
 specifier|public
 name|MainConfigurationProperties
@@ -2397,6 +2441,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the flag to watch directory of XML file changes recursively to trigger live reload of Camel routes.      *<p/>      * Notice you cannot set this value and a custom {@link ReloadStrategy} as well.      */
 DECL|method|withFileWatchDirectoryRecursively (boolean fileWatchDirectoryRecursively)
 specifier|public
 name|MainConfigurationProperties
@@ -2416,6 +2461,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets a custom {@link ReloadStrategy} to be used.      *<p/>      * Notice you cannot set this value and the fileWatchDirectory as well.      */
 DECL|method|withReloadStrategy (ReloadStrategy reloadStrategy)
 specifier|public
 name|MainConfigurationProperties
