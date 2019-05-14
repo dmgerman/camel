@@ -160,6 +160,27 @@ argument_list|(
 literal|"example.properties"
 argument_list|)
 expr_stmt|;
+comment|// to configure some options
+name|main
+operator|.
+name|configure
+argument_list|()
+operator|.
+name|withName
+argument_list|(
+literal|"MyMainCamel"
+argument_list|)
+operator|.
+name|withJmxEnabled
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|withMessageHistory
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 comment|// run until you terminate the JVM
 name|System
 operator|.

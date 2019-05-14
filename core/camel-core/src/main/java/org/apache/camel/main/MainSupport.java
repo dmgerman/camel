@@ -1157,7 +1157,6 @@ argument_list|(
 name|UNINITIALIZED_EXIT_CODE
 argument_list|)
 decl_stmt|;
-comment|// TODO: Fluent builder on Main configuration properties
 comment|// TODO: Move these to mainConfigurationProperties (delegate)
 DECL|field|duration
 specifier|protected
@@ -2365,6 +2364,17 @@ argument_list|(
 name|option
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * To configure options on Camel Main.      */
+DECL|method|configure ()
+specifier|public
+name|MainConfigurationProperties
+name|configure
+parameter_list|()
+block|{
+return|return
+name|mainConfigurationProperties
+return|;
 block|}
 DECL|method|getDuration ()
 specifier|public
