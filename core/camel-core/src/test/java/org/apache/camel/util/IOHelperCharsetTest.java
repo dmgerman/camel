@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.converter
+DECL|package|org.apache.camel.util
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|util
 package|;
 end_package
 
@@ -130,20 +130,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|IOHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -151,10 +137,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|IOConverterCharsetTest
+DECL|class|IOHelperCharsetTest
 specifier|public
 class|class
-name|IOConverterCharsetTest
+name|IOHelperCharsetTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -198,7 +184,7 @@ init|(
 name|InputStream
 name|in
 init|=
-name|IOConverter
+name|IOHelper
 operator|.
 name|toInputStream
 argument_list|(
@@ -318,7 +304,7 @@ init|(
 name|InputStream
 name|in
 init|=
-name|IOConverter
+name|IOHelper
 operator|.
 name|toInputStream
 argument_list|(
@@ -438,7 +424,7 @@ init|(
 name|InputStream
 name|in
 init|=
-name|IOConverter
+name|IOHelper
 operator|.
 name|toInputStream
 argument_list|(
@@ -488,7 +474,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 argument_list|,
-literal|"ISO-8859-1"
+name|StandardCharsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 init|)
@@ -556,7 +544,7 @@ init|(
 name|InputStream
 name|in
 init|=
-name|IOConverter
+name|IOHelper
 operator|.
 name|toInputStream
 argument_list|(
@@ -787,7 +775,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 argument_list|,
-literal|"ISO-8859-1"
+name|StandardCharsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 init|)
