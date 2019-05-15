@@ -399,6 +399,20 @@ name|subscribeSNStoSQS
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * The ID of an AWS-managed customer master key (CMK) for Amazon SNS or          * a custom CMK.          */
+DECL|field|kmsMasterKeyId
+specifier|private
+name|String
+name|kmsMasterKeyId
+decl_stmt|;
+comment|/**          * Define if Server Side Encryption is enabled or not on the topic          */
+DECL|field|serverSideEncryptionEnabled
+specifier|private
+name|Boolean
+name|serverSideEncryptionEnabled
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getSubject ()
 specifier|public
 name|String
@@ -761,6 +775,58 @@ operator|.
 name|subscribeSNStoSQS
 operator|=
 name|subscribeSNStoSQS
+expr_stmt|;
+block|}
+DECL|method|getKmsMasterKeyId ()
+specifier|public
+name|String
+name|getKmsMasterKeyId
+parameter_list|()
+block|{
+return|return
+name|kmsMasterKeyId
+return|;
+block|}
+DECL|method|setKmsMasterKeyId (String kmsMasterKeyId)
+specifier|public
+name|void
+name|setKmsMasterKeyId
+parameter_list|(
+name|String
+name|kmsMasterKeyId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|kmsMasterKeyId
+operator|=
+name|kmsMasterKeyId
+expr_stmt|;
+block|}
+DECL|method|getServerSideEncryptionEnabled ()
+specifier|public
+name|Boolean
+name|getServerSideEncryptionEnabled
+parameter_list|()
+block|{
+return|return
+name|serverSideEncryptionEnabled
+return|;
+block|}
+DECL|method|setServerSideEncryptionEnabled ( Boolean serverSideEncryptionEnabled)
+specifier|public
+name|void
+name|setServerSideEncryptionEnabled
+parameter_list|(
+name|Boolean
+name|serverSideEncryptionEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serverSideEncryptionEnabled
+operator|=
+name|serverSideEncryptionEnabled
 expr_stmt|;
 block|}
 block|}

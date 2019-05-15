@@ -183,6 +183,20 @@ specifier|private
 name|boolean
 name|subscribeSNStoSQS
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|kmsMasterKeyId
+specifier|private
+name|String
+name|kmsMasterKeyId
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|serverSideEncryptionEnabled
+specifier|private
+name|boolean
+name|serverSideEncryptionEnabled
+decl_stmt|;
 comment|// Producer only properties
 annotation|@
 name|UriParam
@@ -588,6 +602,60 @@ operator|.
 name|subscribeSNStoSQS
 operator|=
 name|subscribeSNStoSQS
+expr_stmt|;
+block|}
+DECL|method|getKmsMasterKeyId ()
+specifier|public
+name|String
+name|getKmsMasterKeyId
+parameter_list|()
+block|{
+return|return
+name|kmsMasterKeyId
+return|;
+block|}
+comment|/**      * The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK.      */
+DECL|method|setKmsMasterKeyId (String kmsMasterKeyId)
+specifier|public
+name|void
+name|setKmsMasterKeyId
+parameter_list|(
+name|String
+name|kmsMasterKeyId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|kmsMasterKeyId
+operator|=
+name|kmsMasterKeyId
+expr_stmt|;
+block|}
+DECL|method|isServerSideEncryptionEnabled ()
+specifier|public
+name|boolean
+name|isServerSideEncryptionEnabled
+parameter_list|()
+block|{
+return|return
+name|serverSideEncryptionEnabled
+return|;
+block|}
+comment|/**      * Define if Server Side Encryption is enabled or not on the topic      */
+DECL|method|setServerSideEncryptionEnabled (boolean serverSideEncryptionEnabled)
+specifier|public
+name|void
+name|setServerSideEncryptionEnabled
+parameter_list|(
+name|boolean
+name|serverSideEncryptionEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serverSideEncryptionEnabled
+operator|=
+name|serverSideEncryptionEnabled
 expr_stmt|;
 block|}
 comment|// *************************************************
