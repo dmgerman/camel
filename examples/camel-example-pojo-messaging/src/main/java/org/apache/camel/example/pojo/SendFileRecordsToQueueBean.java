@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.example.pojo_messaging
+DECL|package|org.apache.camel.example.pojo
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|example
 operator|.
-name|pojo_messaging
+name|pojo
 package|;
 end_package
 
