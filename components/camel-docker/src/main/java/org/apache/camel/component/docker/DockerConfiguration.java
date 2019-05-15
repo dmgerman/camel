@@ -169,13 +169,6 @@ name|defaultValue
 operator|=
 literal|"2375"
 argument_list|)
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|true
-argument_list|)
 DECL|field|port
 specifier|private
 name|Integer
