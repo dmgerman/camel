@@ -349,6 +349,37 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getAnnotations (Class<T> annotationType)
+specifier|public
+parameter_list|<
+name|T
+extends|extends
+name|Annotation
+parameter_list|>
+name|Set
+argument_list|<
+name|T
+argument_list|>
+name|getAnnotations
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|annotationType
+parameter_list|)
+block|{
+return|return
+name|decorated
+operator|.
+name|getAnnotations
+argument_list|(
+name|annotationType
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
