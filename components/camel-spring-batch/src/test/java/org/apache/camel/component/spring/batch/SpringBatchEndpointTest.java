@@ -92,7 +92,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FailedToCreateRouteException
+name|FailedToStartRouteException
 import|;
 end_import
 
@@ -1048,7 +1048,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|FailedToCreateRouteException
+name|FailedToStartRouteException
 operator|.
 name|class
 argument_list|)
@@ -1655,7 +1655,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|FailedToCreateRouteException
+name|FailedToStartRouteException
 operator|.
 name|class
 argument_list|)
@@ -1736,7 +1736,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|FailedToCreateRouteException
+name|FailedToStartRouteException
 operator|.
 name|class
 argument_list|)

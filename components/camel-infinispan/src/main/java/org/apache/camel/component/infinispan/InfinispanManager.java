@@ -82,7 +82,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
+name|support
+operator|.
+name|service
+operator|.
+name|ServiceSupport
 import|;
 end_import
 
@@ -209,8 +213,8 @@ DECL|class|InfinispanManager
 specifier|public
 class|class
 name|InfinispanManager
-implements|implements
-name|Service
+extends|extends
+name|ServiceSupport
 block|{
 DECL|field|LOGGER
 specifier|private
@@ -326,10 +330,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|start ()
+DECL|method|doStart ()
 specifier|public
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
@@ -718,10 +722,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|stop ()
+DECL|method|doStop ()
 specifier|public
 name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
 name|Exception

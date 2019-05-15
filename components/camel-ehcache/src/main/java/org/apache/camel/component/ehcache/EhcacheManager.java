@@ -336,8 +336,6 @@ specifier|synchronized
 name|void
 name|start
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|refCount
 operator|.
@@ -353,8 +351,6 @@ specifier|synchronized
 name|void
 name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|refCount
 operator|.

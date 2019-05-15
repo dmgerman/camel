@@ -212,17 +212,17 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|start ()
+DECL|method|doStart ()
 specifier|public
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|super
 operator|.
-name|start
+name|doStart
 argument_list|()
 expr_stmt|;
 comment|// must connect first
@@ -273,10 +273,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|stop ()
+DECL|method|doStop ()
 specifier|public
 name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
 name|Exception

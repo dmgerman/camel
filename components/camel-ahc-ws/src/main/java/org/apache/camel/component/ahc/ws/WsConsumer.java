@@ -119,17 +119,17 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|start ()
+DECL|method|doStart ()
 specifier|public
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|super
 operator|.
-name|start
+name|doStart
 argument_list|()
 expr_stmt|;
 name|getEndpoint
@@ -143,10 +143,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|stop ()
+DECL|method|doStop ()
 specifier|public
 name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
 name|Exception
@@ -161,7 +161,7 @@ argument_list|)
 expr_stmt|;
 name|super
 operator|.
-name|stop
+name|doStop
 argument_list|()
 expr_stmt|;
 block|}

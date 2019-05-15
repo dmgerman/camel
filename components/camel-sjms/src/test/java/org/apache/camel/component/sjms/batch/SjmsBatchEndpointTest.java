@@ -64,6 +64,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FailedToStartRouteException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|AggregationStrategies
@@ -420,7 +432,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|FailedToCreateRouteException
+name|FailedToStartRouteException
 operator|.
 name|class
 argument_list|)
@@ -474,7 +486,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|FailedToCreateRouteException
+name|FailedToStartRouteException
 operator|.
 name|class
 argument_list|)
