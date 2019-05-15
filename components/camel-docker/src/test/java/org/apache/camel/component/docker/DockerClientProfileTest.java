@@ -378,15 +378,10 @@ argument_list|(
 literal|"port must be specified"
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"tcp://localhost:2375"
-argument_list|,
 name|profile
 operator|.
 name|toUrl
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@
