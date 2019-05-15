@@ -248,7 +248,7 @@ argument_list|)
 expr_stmt|;
 name|dataSource
 operator|.
-name|setDatabase
+name|setDatabaseName
 argument_list|(
 name|properties
 operator|.
