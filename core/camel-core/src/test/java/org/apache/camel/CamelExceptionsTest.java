@@ -1891,6 +1891,10 @@ init|=
 operator|new
 name|FailedToStartRouteException
 argument_list|(
+literal|"myRoute"
+argument_list|,
+literal|"Forced error"
+argument_list|,
 operator|new
 name|IllegalArgumentException
 argument_list|(

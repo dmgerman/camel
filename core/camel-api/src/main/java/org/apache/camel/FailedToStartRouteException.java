@@ -18,10 +18,6 @@ begin_comment
 comment|/**  * Exception when failing to start a {@link Route}.  */
 end_comment
 
-begin_comment
-comment|// CHECKSTYLE:OFF
-end_comment
-
 begin_class
 DECL|class|FailedToStartRouteException
 specifier|public
@@ -32,6 +28,7 @@ name|RuntimeCamelException
 block|{
 DECL|field|routeId
 specifier|private
+specifier|final
 name|String
 name|routeId
 decl_stmt|;
@@ -96,20 +93,6 @@ operator|.
 name|routeId
 operator|=
 name|routeId
-expr_stmt|;
-block|}
-DECL|method|FailedToStartRouteException (Throwable cause)
-specifier|public
-name|FailedToStartRouteException
-parameter_list|(
-name|Throwable
-name|cause
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|cause
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getRouteId ()
