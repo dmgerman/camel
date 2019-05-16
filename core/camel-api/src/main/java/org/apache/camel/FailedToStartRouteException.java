@@ -18,6 +18,10 @@ begin_comment
 comment|/**  * Exception when failing to start a {@link Route}.  */
 end_comment
 
+begin_comment
+comment|// CHECKSTYLE:OFF
+end_comment
+
 begin_class
 DECL|class|FailedToStartRouteException
 specifier|public

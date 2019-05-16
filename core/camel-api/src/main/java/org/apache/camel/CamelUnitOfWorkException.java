@@ -38,8 +38,8 @@ name|CamelExchangeException
 block|{
 DECL|field|causes
 specifier|private
-specifier|transient
 specifier|final
+specifier|transient
 name|List
 argument_list|<
 name|Exception
