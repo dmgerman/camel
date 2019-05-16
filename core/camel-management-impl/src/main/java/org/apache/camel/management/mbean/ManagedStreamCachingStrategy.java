@@ -187,16 +187,16 @@ name|getPath
 argument_list|()
 return|;
 block|}
-DECL|method|getSpoolChiper ()
+DECL|method|getSpoolCipher ()
 specifier|public
 name|String
-name|getSpoolChiper
+name|getSpoolCipher
 parameter_list|()
 block|{
 return|return
 name|streamCachingStrategy
 operator|.
-name|getSpoolChiper
+name|getSpoolCipher
 argument_list|()
 return|;
 block|}

@@ -2872,7 +2872,7 @@ name|format
 argument_list|(
 literal|"SSLContext[hash=%h, provider=%s, protocol=%s, needClientAuth=%s, "
 operator|+
-literal|"wantClientAuth=%s\n\tdefaultProtocols=%s\n\tdefaultChiperSuites=%s\n\tsupportedProtocols=%s\n\tsupportedChiperSuites=%s\n]"
+literal|"wantClientAuth=%s\n\tdefaultProtocols=%s\n\tdefaultCipherSuites=%s\n\tsupportedProtocols=%s\n\tsupportedCipherSuites=%s\n]"
 argument_list|,
 name|hashCode
 argument_list|()

@@ -1423,11 +1423,11 @@ operator|.
 name|getStreamCachingStrategy
 argument_list|()
 operator|.
-name|setSpoolChiper
+name|setSpoolCipher
 argument_list|(
 name|config
 operator|.
-name|getStreamCachingSpoolChiper
+name|getStreamCachingSpoolCipher
 argument_list|()
 argument_list|)
 expr_stmt|;

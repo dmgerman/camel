@@ -173,10 +173,10 @@ specifier|private
 name|String
 name|streamCachingSpoolDirectory
 decl_stmt|;
-DECL|field|streamCachingSpoolChiper
+DECL|field|streamCachingSpoolCipher
 specifier|private
 name|String
-name|streamCachingSpoolChiper
+name|streamCachingSpoolCipher
 decl_stmt|;
 DECL|field|streamCachingSpoolThreshold
 specifier|private
@@ -776,31 +776,31 @@ operator|=
 name|streamCachingSpoolDirectory
 expr_stmt|;
 block|}
-DECL|method|getStreamCachingSpoolChiper ()
+DECL|method|getStreamCachingSpoolCipher ()
 specifier|public
 name|String
-name|getStreamCachingSpoolChiper
+name|getStreamCachingSpoolCipher
 parameter_list|()
 block|{
 return|return
-name|streamCachingSpoolChiper
+name|streamCachingSpoolCipher
 return|;
 block|}
-comment|/**      * Sets a stream caching chiper name to use when spooling to disk to write with encryption.      * By default the data is not encrypted.      */
-DECL|method|setStreamCachingSpoolChiper (String streamCachingSpoolChiper)
+comment|/**      * Sets a stream caching cipher name to use when spooling to disk to write with encryption.      * By default the data is not encrypted.      */
+DECL|method|setStreamCachingSpoolCipher (String streamCachingSpoolCipher)
 specifier|public
 name|void
-name|setStreamCachingSpoolChiper
+name|setStreamCachingSpoolCipher
 parameter_list|(
 name|String
-name|streamCachingSpoolChiper
+name|streamCachingSpoolCipher
 parameter_list|)
 block|{
 name|this
 operator|.
-name|streamCachingSpoolChiper
+name|streamCachingSpoolCipher
 operator|=
-name|streamCachingSpoolChiper
+name|streamCachingSpoolCipher
 expr_stmt|;
 block|}
 DECL|method|getStreamCachingSpoolThreshold ()
@@ -1901,21 +1901,21 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a stream caching chiper name to use when spooling to disk to write with encryption.      * By default the data is not encrypted.      */
-DECL|method|withStreamCachingSpoolChiper (String streamCachingSpoolChiper)
+comment|/**      * Sets a stream caching cipher name to use when spooling to disk to write with encryption.      * By default the data is not encrypted.      */
+DECL|method|withStreamCachingSpoolCipher (String streamCachingSpoolCipher)
 specifier|public
 name|MainConfigurationProperties
-name|withStreamCachingSpoolChiper
+name|withStreamCachingSpoolCipher
 parameter_list|(
 name|String
-name|streamCachingSpoolChiper
+name|streamCachingSpoolCipher
 parameter_list|)
 block|{
 name|this
 operator|.
-name|streamCachingSpoolChiper
+name|streamCachingSpoolCipher
 operator|=
-name|streamCachingSpoolChiper
+name|streamCachingSpoolCipher
 expr_stmt|;
 return|return
 name|this

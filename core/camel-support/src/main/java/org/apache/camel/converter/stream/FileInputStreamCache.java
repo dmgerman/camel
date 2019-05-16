@@ -1163,7 +1163,7 @@ name|isNotEmpty
 argument_list|(
 name|strategy
 operator|.
-name|getSpoolChiper
+name|getSpoolCipher
 argument_list|()
 argument_list|)
 condition|)
@@ -1184,7 +1184,7 @@ name|CipherPair
 argument_list|(
 name|strategy
 operator|.
-name|getSpoolChiper
+name|getSpoolCipher
 argument_list|()
 argument_list|)
 expr_stmt|;

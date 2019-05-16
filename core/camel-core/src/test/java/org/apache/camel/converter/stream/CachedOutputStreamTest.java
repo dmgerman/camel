@@ -805,7 +805,7 @@ operator|.
 name|getStreamCachingStrategy
 argument_list|()
 operator|.
-name|setSpoolChiper
+name|setSpoolCipher
 argument_list|(
 literal|"RC4"
 argument_list|)

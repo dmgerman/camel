@@ -100,11 +100,11 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Chiper used if writing with encryption"
+literal|"Cipher used if writing with encryption"
 argument_list|)
-DECL|method|getSpoolChiper ()
+DECL|method|getSpoolCipher ()
 name|String
-name|getSpoolChiper
+name|getSpoolCipher
 parameter_list|()
 function_decl|;
 annotation|@

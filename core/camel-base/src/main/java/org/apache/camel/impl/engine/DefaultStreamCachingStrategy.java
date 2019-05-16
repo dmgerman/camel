@@ -272,10 +272,10 @@ specifier|private
 name|SpoolUsedHeapMemoryLimit
 name|spoolUsedHeapMemoryLimit
 decl_stmt|;
-DECL|field|spoolChiper
+DECL|field|spoolCipher
 specifier|private
 name|String
-name|spoolChiper
+name|spoolCipher
 decl_stmt|;
 DECL|field|bufferSize
 specifier|private
@@ -494,30 +494,30 @@ operator|=
 name|spoolThreshold
 expr_stmt|;
 block|}
-DECL|method|getSpoolChiper ()
+DECL|method|getSpoolCipher ()
 specifier|public
 name|String
-name|getSpoolChiper
+name|getSpoolCipher
 parameter_list|()
 block|{
 return|return
-name|spoolChiper
+name|spoolCipher
 return|;
 block|}
-DECL|method|setSpoolChiper (String spoolChiper)
+DECL|method|setSpoolCipher (String spoolCipher)
 specifier|public
 name|void
-name|setSpoolChiper
+name|setSpoolCipher
 parameter_list|(
 name|String
-name|spoolChiper
+name|spoolCipher
 parameter_list|)
 block|{
 name|this
 operator|.
-name|spoolChiper
+name|spoolCipher
 operator|=
-name|spoolChiper
+name|spoolCipher
 expr_stmt|;
 block|}
 DECL|method|getBufferSize ()
@@ -1382,9 +1382,9 @@ literal|"spoolDirectory="
 operator|+
 name|spoolDirectory
 operator|+
-literal|", spoolChiper="
+literal|", spoolCipher="
 operator|+
-name|spoolChiper
+name|spoolCipher
 operator|+
 literal|", spoolThreshold="
 operator|+

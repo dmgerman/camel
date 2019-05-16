@@ -432,7 +432,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|String
-name|chiper
+name|cipher
 init|=
 operator|(
 name|String
@@ -443,12 +443,12 @@ name|getAttribute
 argument_list|(
 name|name
 argument_list|,
-literal|"SpoolChiper"
+literal|"SpoolCipher"
 argument_list|)
 decl_stmt|;
 name|assertNull
 argument_list|(
-name|chiper
+name|cipher
 argument_list|)
 expr_stmt|;
 name|Boolean

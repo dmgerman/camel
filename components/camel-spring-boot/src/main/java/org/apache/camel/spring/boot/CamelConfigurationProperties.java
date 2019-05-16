@@ -240,11 +240,11 @@ specifier|private
 name|String
 name|streamCachingSpoolDirectory
 decl_stmt|;
-comment|/**      * Sets a stream caching chiper name to use when spooling to disk to write with encryption.      * By default the data is not encrypted.      */
-DECL|field|streamCachingSpoolChiper
+comment|/**      * Sets a stream caching cipher name to use when spooling to disk to write with encryption.      * By default the data is not encrypted.      */
+DECL|field|streamCachingSpoolCipher
 specifier|private
 name|String
-name|streamCachingSpoolChiper
+name|streamCachingSpoolCipher
 decl_stmt|;
 comment|/**      * Stream caching threshold in bytes when overflow to disk is activated.      * The default threshold is 128kb.      * Use -1 to disable overflow to disk.      */
 DECL|field|streamCachingSpoolThreshold
@@ -1129,30 +1129,30 @@ operator|=
 name|streamCachingSpoolDirectory
 expr_stmt|;
 block|}
-DECL|method|getStreamCachingSpoolChiper ()
+DECL|method|getStreamCachingSpoolCipher ()
 specifier|public
 name|String
-name|getStreamCachingSpoolChiper
+name|getStreamCachingSpoolCipher
 parameter_list|()
 block|{
 return|return
-name|streamCachingSpoolChiper
+name|streamCachingSpoolCipher
 return|;
 block|}
-DECL|method|setStreamCachingSpoolChiper (String streamCachingSpoolChiper)
+DECL|method|setStreamCachingSpoolCipher (String streamCachingSpoolCipher)
 specifier|public
 name|void
-name|setStreamCachingSpoolChiper
+name|setStreamCachingSpoolCipher
 parameter_list|(
 name|String
-name|streamCachingSpoolChiper
+name|streamCachingSpoolCipher
 parameter_list|)
 block|{
 name|this
 operator|.
-name|streamCachingSpoolChiper
+name|streamCachingSpoolCipher
 operator|=
-name|streamCachingSpoolChiper
+name|streamCachingSpoolCipher
 expr_stmt|;
 block|}
 DECL|method|getStreamCachingSpoolThreshold ()

@@ -255,18 +255,18 @@ name|int
 name|getBufferSize
 parameter_list|()
 function_decl|;
-comment|/**      * Sets a chiper name to use when spooling to disk to write with encryption.      *<p/>      * By default the data is not encrypted.      */
-DECL|method|setSpoolChiper (String chiper)
+comment|/**      * Sets a cipher name to use when spooling to disk to write with encryption.      *<p/>      * By default the data is not encrypted.      */
+DECL|method|setSpoolCipher (String cipher)
 name|void
-name|setSpoolChiper
+name|setSpoolCipher
 parameter_list|(
 name|String
-name|chiper
+name|cipher
 parameter_list|)
 function_decl|;
-DECL|method|getSpoolChiper ()
+DECL|method|getSpoolCipher ()
 name|String
-name|getSpoolChiper
+name|getSpoolCipher
 parameter_list|()
 function_decl|;
 comment|/**      * Whether to remove the temporary directory when stopping.      *<p/>      * This option is default<tt>true</tt>      */

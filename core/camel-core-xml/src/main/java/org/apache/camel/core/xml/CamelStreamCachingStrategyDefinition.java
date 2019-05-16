@@ -158,10 +158,10 @@ name|spoolDirectory
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|spoolChiper
+DECL|field|spoolCipher
 specifier|private
 name|String
-name|spoolChiper
+name|spoolCipher
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -287,31 +287,31 @@ operator|=
 name|spoolDirectory
 expr_stmt|;
 block|}
-DECL|method|getSpoolChiper ()
+DECL|method|getSpoolCipher ()
 specifier|public
 name|String
-name|getSpoolChiper
+name|getSpoolCipher
 parameter_list|()
 block|{
 return|return
-name|spoolChiper
+name|spoolCipher
 return|;
 block|}
-comment|/**      * Sets a chiper name to use when spooling to disk to write with encryption.      *<p/>      * By default the data is not encrypted.      */
-DECL|method|setSpoolChiper (String spoolChiper)
+comment|/**      * Sets a cipher name to use when spooling to disk to write with encryption.      *<p/>      * By default the data is not encrypted.      */
+DECL|method|setSpoolCipher (String spoolCipher)
 specifier|public
 name|void
-name|setSpoolChiper
+name|setSpoolCipher
 parameter_list|(
 name|String
-name|spoolChiper
+name|spoolCipher
 parameter_list|)
 block|{
 name|this
 operator|.
-name|spoolChiper
+name|spoolCipher
 operator|=
-name|spoolChiper
+name|spoolCipher
 expr_stmt|;
 block|}
 DECL|method|getSpoolThreshold ()

@@ -4399,7 +4399,7 @@ argument_list|)
 expr_stmt|;
 block|}
 name|String
-name|spoolChiper
+name|spoolCipher
 init|=
 name|CamelContextHelper
 operator|.
@@ -4410,13 +4410,13 @@ argument_list|()
 argument_list|,
 name|streamCaching
 operator|.
-name|getSpoolChiper
+name|getSpoolCipher
 argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|spoolChiper
+name|spoolCipher
 operator|!=
 literal|null
 condition|)
@@ -4427,9 +4427,9 @@ operator|.
 name|getStreamCachingStrategy
 argument_list|()
 operator|.
-name|setSpoolChiper
+name|setSpoolCipher
 argument_list|(
-name|spoolChiper
+name|spoolCipher
 argument_list|)
 expr_stmt|;
 block|}
