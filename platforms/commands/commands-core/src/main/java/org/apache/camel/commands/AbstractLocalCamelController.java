@@ -1219,7 +1219,7 @@ name|answer
 operator|.
 name|put
 argument_list|(
-literal|"streamCaching.spoolChiper"
+literal|"streamCaching.spoolCipher"
 argument_list|,
 name|context
 operator|.

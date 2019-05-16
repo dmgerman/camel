@@ -1088,7 +1088,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|Object
-name|spoolChiper
+name|spoolCipher
 init|=
 name|safeNull
 argument_list|(
@@ -1096,7 +1096,7 @@ name|row
 operator|.
 name|get
 argument_list|(
-literal|"streamCaching.spoolChiper"
+literal|"streamCaching.spoolCipher"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1198,13 +1198,13 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"\tStream caching: [spoolDirectory=%s, spoolChiper=%s, spoolThreshold=%s, spoolUsedHeapMemoryThreshold=%s, "
+literal|"\tStream caching: [spoolDirectory=%s, spoolCipher=%s, spoolThreshold=%s, spoolUsedHeapMemoryThreshold=%s, "
 operator|+
 literal|"spoolUsedHeapMemoryLimit=%s, anySpoolRules=%s, bufferSize=%s, removeSpoolDirectoryWhenStopping=%s, statisticsEnabled=%s]"
 argument_list|,
 name|spoolDirectory
 argument_list|,
-name|spoolChiper
+name|spoolCipher
 argument_list|,
 name|spoolThreshold
 argument_list|,
