@@ -702,6 +702,20 @@ argument_list|(
 literal|"([\\w.]+)"
 argument_list|)
 decl_stmt|;
+DECL|field|SYNTAX_DASH_PATTERN
+specifier|private
+specifier|static
+specifier|final
+name|Pattern
+name|SYNTAX_DASH_PATTERN
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+literal|"([\\w.-]+)"
+argument_list|)
+decl_stmt|;
 DECL|field|COMPONENT_SYNTAX_PARSER
 specifier|private
 specifier|static
@@ -5507,11 +5521,11 @@ name|String
 index|[]
 name|tokens
 init|=
-name|syntax
+name|SYNTAX_DASH_PATTERN
 operator|.
 name|split
 argument_list|(
-literal|"[\\w.]+"
+name|syntax
 argument_list|)
 decl_stmt|;
 comment|// parse the syntax into each options
@@ -5590,7 +5604,7 @@ comment|// parse the syntax into each options
 name|Matcher
 name|matcher2
 init|=
-name|SYNTAX_PATTERN
+name|SYNTAX_DASH_PATTERN
 operator|.
 name|matcher
 argument_list|(
