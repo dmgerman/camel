@@ -120,8 +120,22 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|io
+operator|.
+name|grpc
+operator|.
+name|internal
+operator|.
+name|GrpcAttributes
+operator|.
+name|ATTR_LB_ADDR_AUTHORITY
+import|;
+end_import
+
 begin_comment
-comment|/**  * JSON Web Token client credentials generator and injector   */
+comment|/**  * JSON Web Token client credentials generator and injector  */
 end_comment
 
 begin_class
@@ -129,7 +143,7 @@ DECL|class|JwtCallCredentials
 specifier|public
 class|class
 name|JwtCallCredentials
-implements|implements
+extends|extends
 name|CallCredentials
 block|{
 DECL|field|LOG
@@ -171,37 +185,32 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|applyRequestMetadata (MethodDescriptor<?, ?> method, Attributes attrs, Executor executor, MetadataApplier applier)
+DECL|method|applyRequestMetadata (RequestInfo requestInfo, Executor executor, MetadataApplier metadataApplier)
 specifier|public
 name|void
 name|applyRequestMetadata
 parameter_list|(
-name|MethodDescriptor
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
-name|method
-parameter_list|,
-name|Attributes
-name|attrs
+name|RequestInfo
+name|requestInfo
 parameter_list|,
 name|Executor
 name|executor
 parameter_list|,
 name|MetadataApplier
-name|applier
+name|metadataApplier
 parameter_list|)
 block|{
 name|String
 name|authority
 init|=
-name|attrs
+name|requestInfo
+operator|.
+name|getTransportAttrs
+argument_list|()
 operator|.
 name|get
 argument_list|(
-name|ATTR_AUTHORITY
+name|ATTR_LB_ADDR_AUTHORITY
 argument_list|)
 decl_stmt|;
 name|LOG
@@ -265,7 +274,7 @@ argument_list|,
 name|jwtToken
 argument_list|)
 expr_stmt|;
-name|applier
+name|metadataApplier
 operator|.
 name|apply
 argument_list|(
@@ -288,7 +297,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-name|applier
+name|metadataApplier
 operator|.
 name|fail
 argument_list|(
