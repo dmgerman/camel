@@ -1226,7 +1226,7 @@ operator|.
 name|getStreamCachingStrategy
 argument_list|()
 operator|.
-name|getSpoolChiper
+name|getSpoolCipher
 argument_list|()
 argument_list|)
 expr_stmt|;
