@@ -100,6 +100,20 @@ name|Metadata
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Calls a java bean  */
 end_comment
@@ -298,10 +312,12 @@ literal|null
 condition|)
 block|{
 return|return
-name|bean
+name|ObjectHelper
 operator|.
-name|toString
-argument_list|()
+name|className
+argument_list|(
+name|bean
+argument_list|)
 return|;
 block|}
 elseif|else
