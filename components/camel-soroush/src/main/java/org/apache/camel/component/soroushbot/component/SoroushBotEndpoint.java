@@ -501,7 +501,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * this class represents Soroush Endpoint, it is also a bean containing the configuration of the Endpoint  */
+comment|/**  * To integrate with the Soroush chat bot.  */
 end_comment
 
 begin_class
@@ -518,11 +518,11 @@ literal|"soroush"
 argument_list|,
 name|title
 operator|=
-literal|"SoroushBot"
+literal|"Soroush"
 argument_list|,
 name|syntax
 operator|=
-literal|"soroush:<endpoint>[/authorizationToken][?options]"
+literal|"soroush:endpoint/authorizationToken"
 argument_list|,
 name|label
 operator|=
@@ -535,11 +535,12 @@ name|SoroushBotEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
+specifier|final
 name|Logger
-name|log
+name|LOG
 init|=
 name|LoggerFactory
 operator|.
@@ -557,17 +558,9 @@ name|name
 operator|=
 literal|"endpoint"
 argument_list|,
-name|enums
-operator|=
-literal|"Endpoint"
-argument_list|,
-name|javaType
-operator|=
-literal|"Endpoint"
-argument_list|,
 name|description
 operator|=
-literal|"The endpoint type. it support `getMessage` as consumer and `sendMessage`,`uploadFile`,`downloadFile` as producer"
+literal|"The endpoint type. Support `getMessage` as consumer and `sendMessage`,`uploadFile`,`downloadFile` as producer"
 argument_list|)
 annotation|@
 name|Metadata
@@ -1695,7 +1688,7 @@ name|connectionTimeout
 argument_list|)
 return|;
 block|}
-comment|/**      * return the lazily created instance of {@link SoroushBotEndpoint#uploadFileTarget} to used for uploading file to soroush.      *      * @return WebTarget      */
+comment|/**      * return the lazily created instance of {@link SoroushBotEndpoint#uploadFileTarget} to used for uploading file to soroush.      */
 DECL|method|getUploadFileTarget ()
 specifier|private
 name|WebTarget
@@ -1742,7 +1735,7 @@ return|return
 name|uploadFileTarget
 return|;
 block|}
-comment|/**      * return the lazily created instance of {@link SoroushBotEndpoint#sendMessageTarget} to used for sending message to soroush.      *      * @return WebTarget      */
+comment|/**      * return the lazily created instance of {@link SoroushBotEndpoint#sendMessageTarget} to used for sending message to soroush.      */
 DECL|method|getSendMessageTarget ()
 name|WebTarget
 name|getSendMessageTarget
@@ -2230,7 +2223,7 @@ operator|=
 name|autoDownload
 expr_stmt|;
 block|}
-comment|/**      * try to upload an inputStream to server      *      * @param inputStream      * @param message      * @param fileType      */
+comment|/**      * try to upload an inputStream to server      */
 DECL|method|uploadToServer (InputStream inputStream, SoroushMessage message, String fileType)
 specifier|private
 name|UploadFileResponse
@@ -2321,13 +2314,13 @@ try|try
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -2437,13 +2430,13 @@ throw|;
 block|}
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isWarnEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -2463,7 +2456,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -2491,7 +2484,7 @@ name|message
 argument_list|)
 throw|;
 block|}
-comment|/**      * check if {@link SoroushMessage#file} or {@link SoroushMessage#thumbnail} is populated and upload them to the server.      * after that it set {@link SoroushMessage#fileUrl} and {@link SoroushMessage#thumbnailUrl} to appropriate value      *      * @param message      * @throws SoroushException if soroush reject the file      */
+comment|/**      * check if {@link SoroushMessage#file} or {@link SoroushMessage#thumbnail} is populated and upload them to the server.      * after that it set {@link SoroushMessage#fileUrl} and {@link SoroushMessage#thumbnailUrl} to appropriate value      *      * @throws SoroushException if soroush reject the file      */
 DECL|method|handleFileUpload (SoroushMessage message)
 name|void
 name|handleFileUpload
@@ -2506,13 +2499,13 @@ name|InterruptedException
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|trace
 argument_list|(
@@ -2553,13 +2546,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -2593,13 +2586,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -2641,13 +2634,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -2681,13 +2674,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -2706,7 +2699,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * check whether {@link SoroushMessage#fileUrl}({@link SoroushMessage#thumbnailUrl}) is null or not, and download the resource if it is not null      * this function only set {@link SoroushMessage#file} to {@link InputStream} get from {@link Response#readEntity(Class)} )}      * and does not store the resource in file.      *      * @param message      * @throws SoroushException if the file does not exists on soroush or soroush reject the request      */
+comment|/**      * check whether {@link SoroushMessage#fileUrl}({@link SoroushMessage#thumbnailUrl}) is null or not, and download the resource if it is not null      * this function only set {@link SoroushMessage#file} to {@link InputStream} get from {@link Response#readEntity(Class)} )}      * and does not store the resource in file.      *      * @throws SoroushException if the file does not exists on soroush or soroush reject the request      */
 DECL|method|handleDownloadFiles (SoroushMessage message)
 specifier|public
 name|void
@@ -2741,13 +2734,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -2781,13 +2774,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -2823,13 +2816,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -2863,13 +2856,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -2881,7 +2874,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * download the resource stored with the key {@code fileUrl} from Soroush Server.      * other parameters are used only for logging.      *      * @param fileUrl      * @param message      * @param type      * @return      * @throws SoroushException if soroush reject the request      */
+comment|/**      * download the resource stored with the key {@code fileUrl} from Soroush Server.      * other parameters are used only for logging.      *      * @throws SoroushException if soroush reject the request      */
 DECL|method|downloadFromServer (String fileUrl, SoroushMessage message, String type)
 specifier|private
 name|InputStream
@@ -2929,7 +2922,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
@@ -2942,7 +2935,7 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -2967,7 +2960,7 @@ literal|" time"
 argument_list|)
 expr_stmt|;
 block|}
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -3057,13 +3050,13 @@ throw|;
 block|}
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isWarnEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -3084,7 +3077,7 @@ block|}
 block|}
 block|}
 comment|//should never reach this line
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
