@@ -34,16 +34,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|time
-operator|.
-name|Duration
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|concurrent
