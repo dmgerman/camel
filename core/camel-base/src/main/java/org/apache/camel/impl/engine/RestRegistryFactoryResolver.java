@@ -258,13 +258,16 @@ argument_list|)
 throw|;
 block|}
 block|}
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"No RestRegistryFactory implementation found.  You need to add camel-rest to the classpath."
 argument_list|)
-throw|;
+expr_stmt|;
+return|return
+literal|null
+return|;
 block|}
 DECL|method|findFactory (String name, CamelContext context)
 specifier|private

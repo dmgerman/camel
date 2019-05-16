@@ -94,7 +94,7 @@ name|Exception
 block|{
 name|assertEquals
 argument_list|(
-literal|2
+literal|1
 argument_list|,
 name|context
 operator|.

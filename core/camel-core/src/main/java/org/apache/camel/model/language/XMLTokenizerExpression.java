@@ -118,22 +118,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
-operator|.
-name|tokenizer
-operator|.
-name|XMLTokenizeLanguage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|Metadata
@@ -141,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use Camel message body or header with a XML tokenizer in Camel expressions or predicates.  *  * @see XMLTokenizeLanguage  */
+comment|/**  * To use Camel message body or header with a XML tokenizer in Camel expressions or predicates.  *  * @see org.apache.camel.language.xtokenizer.XMLTokenizeLanguage  */
 end_comment
 
 begin_class

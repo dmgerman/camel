@@ -462,6 +462,8 @@ name|camel
 operator|.
 name|util
 operator|.
+name|xml
+operator|.
 name|XmlLineNumberParser
 import|;
 end_import

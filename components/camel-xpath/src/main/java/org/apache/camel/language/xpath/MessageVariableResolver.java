@@ -118,8 +118,6 @@ name|support
 operator|.
 name|builder
 operator|.
-name|xml
-operator|.
 name|Namespaces
 operator|.
 name|ENVIRONMENT_VARIABLES
@@ -137,8 +135,6 @@ operator|.
 name|support
 operator|.
 name|builder
-operator|.
-name|xml
 operator|.
 name|Namespaces
 operator|.
@@ -158,8 +154,6 @@ name|support
 operator|.
 name|builder
 operator|.
-name|xml
-operator|.
 name|Namespaces
 operator|.
 name|IN_NAMESPACE
@@ -178,8 +172,6 @@ name|support
 operator|.
 name|builder
 operator|.
-name|xml
-operator|.
 name|Namespaces
 operator|.
 name|OUT_NAMESPACE
@@ -197,8 +189,6 @@ operator|.
 name|support
 operator|.
 name|builder
-operator|.
-name|xml
 operator|.
 name|Namespaces
 operator|.

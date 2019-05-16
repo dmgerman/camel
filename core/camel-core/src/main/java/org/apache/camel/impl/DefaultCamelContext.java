@@ -976,6 +976,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|RestRegistryFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteController
 import|;
 end_import
@@ -1704,10 +1718,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createRestRegistry ()
+DECL|method|createRestRegistryFactory ()
 specifier|protected
-name|RestRegistry
-name|createRestRegistry
+name|RestRegistryFactory
+name|createRestRegistryFactory
 parameter_list|()
 block|{
 return|return
@@ -1719,9 +1733,6 @@ name|resolve
 argument_list|(
 name|this
 argument_list|)
-operator|.
-name|createRegistry
-argument_list|()
 return|;
 block|}
 DECL|method|createEndpointRegistry (Map<EndpointKey, Endpoint> endpoints)

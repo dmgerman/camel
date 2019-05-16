@@ -333,6 +333,14 @@ name|containsKey
 argument_list|(
 literal|"org.apache.camel.converter.IOConverter"
 argument_list|)
+operator|&&
+operator|!
+name|converterClasses
+operator|.
+name|containsKey
+argument_list|(
+literal|"org.apache.camel.converter.jaxp.DomConverter"
+argument_list|)
 condition|)
 block|{
 name|Filer

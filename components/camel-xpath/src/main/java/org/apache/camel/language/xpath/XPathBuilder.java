@@ -522,8 +522,6 @@ name|support
 operator|.
 name|builder
 operator|.
-name|xml
-operator|.
 name|Namespaces
 import|;
 end_import
@@ -618,8 +616,6 @@ name|support
 operator|.
 name|builder
 operator|.
-name|xml
-operator|.
 name|Namespaces
 operator|.
 name|DEFAULT_NAMESPACE
@@ -637,8 +633,6 @@ operator|.
 name|support
 operator|.
 name|builder
-operator|.
-name|xml
 operator|.
 name|Namespaces
 operator|.
@@ -658,8 +652,6 @@ name|support
 operator|.
 name|builder
 operator|.
-name|xml
-operator|.
 name|Namespaces
 operator|.
 name|IN_NAMESPACE
@@ -678,8 +670,6 @@ name|support
 operator|.
 name|builder
 operator|.
-name|xml
-operator|.
 name|Namespaces
 operator|.
 name|OUT_NAMESPACE
@@ -697,8 +687,6 @@ operator|.
 name|support
 operator|.
 name|builder
-operator|.
-name|xml
 operator|.
 name|Namespaces
 operator|.

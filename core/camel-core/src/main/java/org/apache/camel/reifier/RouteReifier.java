@@ -482,10 +482,10 @@ literal|"Not implemented for RouteDefinition"
 argument_list|)
 throw|;
 block|}
-DECL|method|addRoutes (CamelContext camelContext)
+DECL|method|createRoute (CamelContext camelContext)
 specifier|public
 name|Route
-name|addRoutes
+name|createRoute
 parameter_list|(
 name|CamelContext
 name|camelContext
@@ -524,7 +524,7 @@ block|}
 try|try
 block|{
 return|return
-name|addRoutes
+name|createRoute
 argument_list|(
 name|camelContext
 argument_list|,
@@ -933,10 +933,10 @@ return|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-DECL|method|addRoutes (CamelContext camelContext, FromDefinition fromType)
+DECL|method|createRoute (CamelContext camelContext, FromDefinition fromType)
 specifier|protected
 name|Route
-name|addRoutes
+name|createRoute
 parameter_list|(
 name|CamelContext
 name|camelContext

@@ -308,8 +308,6 @@ name|support
 operator|.
 name|builder
 operator|.
-name|xml
-operator|.
 name|Namespaces
 import|;
 end_import

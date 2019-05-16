@@ -135,7 +135,7 @@ specifier|final
 name|int
 name|SERVICES
 init|=
-literal|11
+literal|10
 decl_stmt|;
 annotation|@
 name|Override

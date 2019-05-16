@@ -761,7 +761,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|Object
+name|T
 name|header
 init|=
 name|exchange

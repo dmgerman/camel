@@ -1620,7 +1620,7 @@ argument_list|(
 name|routeDefinition
 argument_list|)
 operator|.
-name|addRoutes
+name|createRoute
 argument_list|(
 name|mcc
 argument_list|)
@@ -1631,15 +1631,6 @@ init|=
 operator|new
 name|RouteService
 argument_list|(
-name|mcc
-argument_list|,
-name|routeDefinition
-argument_list|,
-name|route
-operator|.
-name|getRouteContext
-argument_list|()
-argument_list|,
 name|route
 argument_list|)
 decl_stmt|;
