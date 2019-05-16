@@ -225,8 +225,6 @@ block|{
 annotation|@
 name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"direct:soroush"
 argument_list|)
 DECL|field|endpoint
