@@ -345,9 +345,6 @@ name|routeStatus
 init|=
 name|route
 operator|.
-name|getRouteContext
-argument_list|()
-operator|.
 name|getCamelContext
 argument_list|()
 operator|.
@@ -669,9 +666,6 @@ name|boolean
 name|isClustered
 init|=
 name|route
-operator|.
-name|getRouteContext
-argument_list|()
 operator|.
 name|getCamelContext
 argument_list|()

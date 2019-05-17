@@ -249,9 +249,6 @@ name|CAMEL_CONTEXT_TAG
 argument_list|,
 name|route
 operator|.
-name|getRouteContext
-argument_list|()
-operator|.
 name|getCamelContext
 argument_list|()
 operator|.

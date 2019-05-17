@@ -607,9 +607,6 @@ name|registryService
 operator|=
 name|route
 operator|.
-name|getRouteContext
-argument_list|()
-operator|.
 name|getCamelContext
 argument_list|()
 operator|.
@@ -682,9 +679,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|route
-operator|.
-name|getRouteContext
-argument_list|()
 operator|.
 name|getCamelContext
 argument_list|()
@@ -780,9 +774,6 @@ name|CamelContext
 name|context
 init|=
 name|route
-operator|.
-name|getRouteContext
-argument_list|()
 operator|.
 name|getCamelContext
 argument_list|()

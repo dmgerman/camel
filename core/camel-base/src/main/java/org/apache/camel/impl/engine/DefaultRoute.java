@@ -76,6 +76,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -407,6 +419,21 @@ parameter_list|()
 block|{
 return|return
 name|routeContext
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
 return|;
 block|}
 DECL|method|getProperties ()

@@ -637,13 +637,7 @@ name|formatter
 init|=
 name|routeContext
 operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getRegistry
-argument_list|()
-operator|.
-name|lookupByNameAndType
+name|lookup
 argument_list|(
 name|MaskingFormatter
 operator|.

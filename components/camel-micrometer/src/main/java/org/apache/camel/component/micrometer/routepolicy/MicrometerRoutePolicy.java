@@ -647,9 +647,6 @@ name|getOrCreateMeterRegistry
 argument_list|(
 name|route
 operator|.
-name|getRouteContext
-argument_list|()
-operator|.
 name|getCamelContext
 argument_list|()
 operator|.
@@ -667,9 +664,6 @@ name|MicrometerRoutePolicyService
 name|registryService
 init|=
 name|route
-operator|.
-name|getRouteContext
-argument_list|()
 operator|.
 name|getCamelContext
 argument_list|()
@@ -738,9 +732,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|route
-operator|.
-name|getRouteContext
-argument_list|()
 operator|.
 name|getCamelContext
 argument_list|()

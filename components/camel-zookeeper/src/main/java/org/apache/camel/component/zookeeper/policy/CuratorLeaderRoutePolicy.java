@@ -408,9 +408,6 @@ name|CuratorLeaderElection
 argument_list|(
 name|route
 operator|.
-name|getRouteContext
-argument_list|()
-operator|.
 name|getCamelContext
 argument_list|()
 argument_list|,

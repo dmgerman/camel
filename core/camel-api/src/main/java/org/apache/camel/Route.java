@@ -114,7 +114,7 @@ name|String
 name|getUptime
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the uptime in milli seconds      *      * @return the uptime in millis seconds      */
+comment|/**      * Gets the uptime in milliseconds      *      * @return the uptime in milliseconds      */
 DECL|method|getUptimeMillis ()
 name|long
 name|getUptimeMillis
@@ -159,6 +159,12 @@ comment|/**      * Gets the route context      *      * @return the route contex
 DECL|method|getRouteContext ()
 name|RouteContext
 name|getRouteContext
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the camel context      *      * @return the camel context      */
+DECL|method|getCamelContext ()
+name|CamelContext
+name|getCamelContext
 parameter_list|()
 function_decl|;
 comment|/**      * A strategy callback allowing special initialization when services are starting.      *      * @param services the service      * @throws Exception is thrown in case of error      */
