@@ -136,10 +136,6 @@ name|URL_COMPLETION_KEY
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|LRASagaRoutes
 specifier|public
@@ -222,9 +218,11 @@ argument_list|)
 operator|.
 name|toD
 argument_list|(
-literal|"header."
+literal|"${header."
 operator|+
 name|URL_COMPENSATION_KEY
+operator|+
+literal|"}"
 argument_list|)
 operator|.
 name|end
@@ -274,9 +272,11 @@ argument_list|)
 operator|.
 name|toD
 argument_list|(
-literal|"header."
+literal|"${header."
 operator|+
 name|URL_COMPLETION_KEY
+operator|+
+literal|"}"
 argument_list|)
 operator|.
 name|end

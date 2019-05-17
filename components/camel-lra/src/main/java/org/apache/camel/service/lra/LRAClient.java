@@ -300,10 +300,6 @@ name|PARTICIPANT_PATH_COMPLETE
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|LRAClient
 specifier|public
