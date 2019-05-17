@@ -917,7 +917,7 @@ name|headerInterceptor
 argument_list|)
 argument_list|)
 operator|.
-name|maxMessageSize
+name|maxInboundMessageSize
 argument_list|(
 name|configuration
 operator|.
