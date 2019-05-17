@@ -504,12 +504,7 @@ argument_list|()
 operator|.
 name|setPingName
 argument_list|(
-name|String
-operator|.
-name|valueOf
-argument_list|(
 literal|"error"
-argument_list|)
 argument_list|)
 operator|.
 name|build
@@ -540,7 +535,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|200
+literal|1000
 argument_list|)
 expr_stmt|;
 for|for
