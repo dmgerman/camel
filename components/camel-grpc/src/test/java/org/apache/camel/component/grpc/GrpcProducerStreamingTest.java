@@ -166,16 +166,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -201,11 +191,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"TODO: investigate for Camel 3.0"
-argument_list|)
 DECL|class|GrpcProducerStreamingTest
 specifier|public
 class|class
