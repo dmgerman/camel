@@ -38,6 +38,8 @@ name|avro
 operator|.
 name|ipc
 operator|.
+name|netty
+operator|.
 name|NettyServer
 import|;
 end_import

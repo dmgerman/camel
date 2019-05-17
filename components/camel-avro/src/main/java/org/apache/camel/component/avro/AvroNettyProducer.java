@@ -38,7 +38,7 @@ name|avro
 operator|.
 name|ipc
 operator|.
-name|NettyTransceiver
+name|Transceiver
 import|;
 end_import
 
@@ -52,7 +52,9 @@ name|avro
 operator|.
 name|ipc
 operator|.
-name|Transceiver
+name|netty
+operator|.
+name|NettyTransceiver
 import|;
 end_import
 

@@ -38,6 +38,8 @@ name|avro
 operator|.
 name|ipc
 operator|.
+name|jetty
+operator|.
 name|HttpServer
 import|;
 end_import
