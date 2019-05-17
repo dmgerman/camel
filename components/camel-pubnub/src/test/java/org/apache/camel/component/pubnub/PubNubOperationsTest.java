@@ -383,7 +383,7 @@ literal|"{\"status\" : 200, \"message\" : \"OK\", \"service\" : \"Presence\", \"
 operator|+
 literal|"\"uuid\" : \"myUUID1\"}, {\"uuid\" : \"b9eb408c-bcec-4d34-b4c4-fabec057ad0d\"}, {\"state\" : {\"abcd\" : {\"age\" : 15}}, \"uuid\" : \"myUUID2\"},"
 operator|+
-literal|" {\"state\" : {\"abcd\" : {\"age\" : 24}}, \"uuid\" : \"myUUID9\"}], \"occupancy\" : 5} Return Occupancy O"
+literal|" {\"state\" : {\"abcd\" : {\"age\" : 24}}, \"uuid\" : \"myUUID9\"}], \"occupancy\" : 5}"
 argument_list|)
 argument_list|)
 argument_list|)
