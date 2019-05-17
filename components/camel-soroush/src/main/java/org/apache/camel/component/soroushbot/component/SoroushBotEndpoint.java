@@ -574,23 +574,6 @@ name|Endpoint
 name|type
 decl_stmt|;
 annotation|@
-name|UriPath
-argument_list|(
-name|label
-operator|=
-literal|"global,security"
-argument_list|,
-name|description
-operator|=
-literal|"The authorization token for using"
-operator|+
-literal|" the bot (ask the @mrbot) e.g. 9yDv09nqKvP9CkBGKNmKQHir1dj2qLpN-YWa8hP7Rm3LK\"\n"
-operator|+
-literal|"            + \"3MqQXYdXZIA5W4e0agPiUb-3eUKX69ozUNdY9yZBMlJiwnlksslkjWjsxcARo5cYtDnKTElig0xa\"\n"
-operator|+
-literal|"            + \"e1Cjt1Bexz2cw-t6cJ7t1f "
-argument_list|)
-annotation|@
 name|UriParam
 argument_list|(
 name|label
