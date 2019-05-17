@@ -151,7 +151,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Should fail due timeout"
+literal|"Should fail due to timeout"
 argument_list|)
 expr_stmt|;
 block|}
@@ -229,7 +229,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Should fail due timeout"
+literal|"Should fail due to timeout"
 argument_list|)
 expr_stmt|;
 block|}

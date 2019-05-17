@@ -583,6 +583,51 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+comment|// if hystrix execution timeout is enabled and fallback is enabled and a timeout occurs
+comment|// then a hystrix timer thread executes the fallback so we can stop run() execution
+if|if
+condition|(
+name|getProperties
+argument_list|()
+operator|.
+name|executionTimeoutEnabled
+argument_list|()
+operator|.
+name|get
+argument_list|()
+operator|&&
+name|getProperties
+argument_list|()
+operator|.
+name|fallbackEnabled
+argument_list|()
+operator|.
+name|get
+argument_list|()
+operator|&&
+name|isCommandTimedOut
+operator|.
+name|get
+argument_list|()
+operator|==
+name|TimedOutStatus
+operator|.
+name|TIMED_OUT
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Exiting run command due to a hystrix execution timeout in processing exchange: {}"
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
 comment|// when a hystrix timeout occurs then a hystrix timer thread executes the fallback
 comment|// and therefore we need this thread to not do anymore if fallback is already in process
 if|if

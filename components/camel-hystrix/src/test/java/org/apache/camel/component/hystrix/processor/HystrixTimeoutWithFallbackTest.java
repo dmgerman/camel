@@ -109,7 +109,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Fast response"
+literal|"LAST CHANGE"
 argument_list|,
 name|out
 argument_list|)
@@ -140,7 +140,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Fallback response"
+literal|"LAST CHANGE"
 argument_list|,
 name|out
 argument_list|)
@@ -233,6 +233,27 @@ operator|.
 name|log
 argument_list|(
 literal|"After Hystrix ${body}"
+argument_list|)
+operator|.
+name|transform
+argument_list|(
+name|simple
+argument_list|(
+literal|"A CHANGE"
+argument_list|)
+argument_list|)
+operator|.
+name|transform
+argument_list|(
+name|simple
+argument_list|(
+literal|"LAST CHANGE"
+argument_list|)
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"End ${body}"
 argument_list|)
 expr_stmt|;
 name|from
