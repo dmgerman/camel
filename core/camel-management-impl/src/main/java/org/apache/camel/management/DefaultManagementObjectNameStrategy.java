@@ -2595,7 +2595,7 @@ name|refBuilder
 init|=
 name|ErrorHandlerBuilderRef
 operator|.
-name|lookupErrorHandlerBuilder
+name|lookupErrorHandlerFactory
 argument_list|(
 name|routeContext
 argument_list|,
@@ -2657,7 +2657,7 @@ name|refBuilder
 operator|=
 name|ErrorHandlerBuilderRef
 operator|.
-name|lookupErrorHandlerBuilder
+name|lookupErrorHandlerFactory
 argument_list|(
 name|routeContext
 argument_list|,

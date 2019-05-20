@@ -338,7 +338,7 @@ name|ErrorHandlerBuilder
 operator|)
 name|route
 operator|.
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 argument_list|()
 decl_stmt|;
 comment|// check if its a ref if so then do a lookup
@@ -373,7 +373,7 @@ if|if
 condition|(
 name|ErrorHandlerBuilderRef
 operator|.
-name|isErrorHandlerBuilderConfigured
+name|isErrorHandlerFactoryConfigured
 argument_list|(
 name|ref
 argument_list|)
@@ -395,7 +395,7 @@ name|ErrorHandlerBuilder
 operator|)
 name|ErrorHandlerBuilderRef
 operator|.
-name|lookupErrorHandlerBuilder
+name|lookupErrorHandlerFactory
 argument_list|(
 name|routeContext
 argument_list|,
@@ -569,7 +569,7 @@ expr_stmt|;
 comment|// set the route to use our transacted error handler builder
 name|route
 operator|.
-name|setErrorHandlerBuilder
+name|setErrorHandlerFactory
 argument_list|(
 name|txBuilder
 argument_list|)

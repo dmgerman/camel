@@ -458,10 +458,10 @@ specifier|private
 name|String
 name|errorHandlerRef
 decl_stmt|;
-DECL|field|errorHandlerBuilder
+DECL|field|errorHandlerFactory
 specifier|private
 name|ErrorHandlerFactory
-name|errorHandlerBuilder
+name|errorHandlerFactory
 decl_stmt|;
 comment|// keep state whether the error handler is context scoped or not
 comment|// (will by default be context scoped of no explicit error handler configured)
@@ -1081,7 +1081,7 @@ name|ErrorHandlerFactory
 name|errorHandlerBuilder
 parameter_list|)
 block|{
-name|setErrorHandlerBuilder
+name|setErrorHandlerFactory
 argument_list|(
 name|errorHandlerBuilder
 argument_list|)
@@ -2026,7 +2026,7 @@ name|errorHandlerRef
 expr_stmt|;
 comment|// we use an specific error handler ref (from Spring DSL) then wrap that
 comment|// with a error handler build ref so Camel knows its not just the default one
-name|setErrorHandlerBuilder
+name|setErrorHandlerFactory
 argument_list|(
 operator|new
 name|ErrorHandlerBuilderRef
@@ -2048,27 +2048,27 @@ name|errorHandlerRef
 return|;
 block|}
 comment|/**      * Sets the error handler if one is not already set      */
-DECL|method|setErrorHandlerBuilderIfNull (ErrorHandlerFactory errorHandlerBuilder)
+DECL|method|setErrorHandlerFactoryIfNull (ErrorHandlerFactory errorHandlerFactory)
 specifier|public
 name|void
-name|setErrorHandlerBuilderIfNull
+name|setErrorHandlerFactoryIfNull
 parameter_list|(
 name|ErrorHandlerFactory
-name|errorHandlerBuilder
+name|errorHandlerFactory
 parameter_list|)
 block|{
 if|if
 condition|(
 name|this
 operator|.
-name|errorHandlerBuilder
+name|errorHandlerFactory
 operator|==
 literal|null
 condition|)
 block|{
-name|setErrorHandlerBuilder
+name|setErrorHandlerFactory
 argument_list|(
-name|errorHandlerBuilder
+name|errorHandlerFactory
 argument_list|)
 expr_stmt|;
 block|}
@@ -2244,44 +2244,44 @@ return|;
 block|}
 annotation|@
 name|XmlTransient
-DECL|method|getErrorHandlerBuilder ()
+DECL|method|getErrorHandlerFactory ()
 specifier|public
 name|ErrorHandlerFactory
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 parameter_list|()
 block|{
 if|if
 condition|(
-name|errorHandlerBuilder
+name|errorHandlerFactory
 operator|==
 literal|null
 condition|)
 block|{
-name|errorHandlerBuilder
+name|errorHandlerFactory
 operator|=
 name|createErrorHandlerBuilder
 argument_list|()
 expr_stmt|;
 block|}
 return|return
-name|errorHandlerBuilder
+name|errorHandlerFactory
 return|;
 block|}
 comment|/**      * Sets the error handler to use with processors created by this builder      */
-DECL|method|setErrorHandlerBuilder (ErrorHandlerFactory errorHandlerBuilder)
+DECL|method|setErrorHandlerFactory (ErrorHandlerFactory errorHandlerFactory)
 specifier|public
 name|void
-name|setErrorHandlerBuilder
+name|setErrorHandlerFactory
 parameter_list|(
 name|ErrorHandlerFactory
-name|errorHandlerBuilder
+name|errorHandlerFactory
 parameter_list|)
 block|{
 name|this
 operator|.
-name|errorHandlerBuilder
+name|errorHandlerFactory
 operator|=
-name|errorHandlerBuilder
+name|errorHandlerFactory
 expr_stmt|;
 block|}
 annotation|@

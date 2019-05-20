@@ -332,40 +332,20 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|handler
 init|=
 name|handlers
 operator|.
-name|get
-argument_list|(
-name|routeContext
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|handler
-operator|==
-literal|null
-condition|)
-block|{
-name|handler
-operator|=
-name|createErrorHandler
-argument_list|(
-name|routeContext
-argument_list|)
-expr_stmt|;
-name|handlers
-operator|.
-name|put
+name|computeIfAbsent
 argument_list|(
 name|routeContext
 argument_list|,
-name|handler
+name|this
+operator|::
+name|createErrorHandler
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 return|return
 name|handler
 operator|.
@@ -438,11 +418,11 @@ name|supportTransacted
 expr_stmt|;
 block|}
 comment|/**      * Lookup the error handler by the given ref      *      * @param routeContext the route context      * @param ref          reference id for the error handler      * @return the error handler      */
-DECL|method|lookupErrorHandlerBuilder (RouteContext routeContext, String ref)
+DECL|method|lookupErrorHandlerFactory (RouteContext routeContext, String ref)
 specifier|public
 specifier|static
 name|ErrorHandlerFactory
-name|lookupErrorHandlerBuilder
+name|lookupErrorHandlerFactory
 parameter_list|(
 name|RouteContext
 name|routeContext
@@ -452,7 +432,7 @@ name|ref
 parameter_list|)
 block|{
 return|return
-name|lookupErrorHandlerBuilder
+name|lookupErrorHandlerFactory
 argument_list|(
 name|routeContext
 argument_list|,
@@ -463,11 +443,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Lookup the error handler by the given ref      *      * @param routeContext the route context      * @param ref          reference id for the error handler      * @param mandatory    whether the error handler must exists, if not a {@link org.apache.camel.NoSuchBeanException} is thrown      * @return the error handler      */
-DECL|method|lookupErrorHandlerBuilder (RouteContext routeContext, String ref, boolean mandatory)
+DECL|method|lookupErrorHandlerFactory (RouteContext routeContext, String ref, boolean mandatory)
 specifier|public
 specifier|static
 name|ErrorHandlerFactory
-name|lookupErrorHandlerBuilder
+name|lookupErrorHandlerFactory
 parameter_list|(
 name|RouteContext
 name|routeContext
@@ -488,7 +468,7 @@ comment|// the transacted error handler could have been configured on the route 
 if|if
 condition|(
 operator|!
-name|isErrorHandlerBuilderConfigured
+name|isErrorHandlerFactoryConfigured
 argument_list|(
 name|ref
 argument_list|)
@@ -510,7 +490,7 @@ name|answer
 operator|=
 name|route
 operator|.
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 argument_list|()
 expr_stmt|;
 if|if
@@ -586,7 +566,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|isErrorHandlerBuilderConfigured
+name|isErrorHandlerFactoryConfigured
 argument_list|(
 name|otherRef
 argument_list|)
@@ -596,7 +576,7 @@ comment|// the other has also no explicit error handler configured then fallback
 comment|// configured on the parent camel context
 name|answer
 operator|=
-name|lookupErrorHandlerBuilder
+name|lookupErrorHandlerFactory
 argument_list|(
 name|routeContext
 operator|.
@@ -687,11 +667,11 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|lookupErrorHandlerBuilder (CamelContext camelContext)
+DECL|method|lookupErrorHandlerFactory (CamelContext camelContext)
 specifier|protected
 specifier|static
 name|ErrorHandlerFactory
-name|lookupErrorHandlerBuilder
+name|lookupErrorHandlerFactory
 parameter_list|(
 name|CamelContext
 name|camelContext
@@ -737,7 +717,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|isErrorHandlerBuilderConfigured
+name|isErrorHandlerFactoryConfigured
 argument_list|(
 name|otherRef
 argument_list|)
@@ -785,11 +765,11 @@ name|answer
 return|;
 block|}
 comment|/**      * Returns whether a specific error handler builder has been configured or not.      *<p/>      * Can be used to test if none has been configured and then install a custom error handler builder      * replacing the default error handler (that would have been used as fallback otherwise).      *<br/>      * This is for instance used by the transacted policy to setup a TransactedErrorHandlerBuilder      * in camel-spring.      */
-DECL|method|isErrorHandlerBuilderConfigured (String ref)
+DECL|method|isErrorHandlerFactoryConfigured (String ref)
 specifier|public
 specifier|static
 name|boolean
-name|isErrorHandlerBuilderConfigured
+name|isErrorHandlerFactoryConfigured
 parameter_list|(
 name|String
 name|ref
@@ -830,7 +810,7 @@ init|=
 operator|(
 name|ErrorHandlerBuilder
 operator|)
-name|lookupErrorHandlerBuilder
+name|lookupErrorHandlerFactory
 argument_list|(
 name|routeContext
 argument_list|,

@@ -961,7 +961,7 @@ condition|)
 block|{
 name|route
 operator|.
-name|setErrorHandlerBuilderIfNull
+name|setErrorHandlerFactoryIfNull
 argument_list|(
 name|handler
 argument_list|)

@@ -2267,7 +2267,7 @@ block|{
 return|return
 name|route
 operator|.
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 argument_list|()
 return|;
 block|}
