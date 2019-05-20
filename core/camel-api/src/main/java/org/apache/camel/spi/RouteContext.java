@@ -379,15 +379,6 @@ name|Integer
 name|getStartupOrder
 parameter_list|()
 function_decl|;
-comment|/**      * A private counter that increments, is used to as book keeping      * when building a route based on the model      *<p/>      * We need this special book keeping be able to assign the correct      * {@link org.apache.camel.model.ProcessorDefinition} to the {@link org.apache.camel.Channel}      *      * @param node the current node      * @return the current count      */
-DECL|method|getAndIncrement (NamedNode node)
-name|int
-name|getAndIncrement
-parameter_list|(
-name|NamedNode
-name|node
-parameter_list|)
-function_decl|;
 DECL|method|getErrorHandlerFactory ()
 name|ErrorHandlerFactory
 name|getErrorHandlerFactory
@@ -439,6 +430,44 @@ name|RouteController
 name|controller
 parameter_list|)
 block|{     }
+DECL|method|getOnCompletion (String onCompletionId)
+name|Processor
+name|getOnCompletion
+parameter_list|(
+name|String
+name|onCompletionId
+parameter_list|)
+function_decl|;
+DECL|method|setOnCompletion (String onCompletionId, Processor processor)
+name|void
+name|setOnCompletion
+parameter_list|(
+name|String
+name|onCompletionId
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|)
+function_decl|;
+DECL|method|getOnException (String onExceptionId)
+name|Processor
+name|getOnException
+parameter_list|(
+name|String
+name|onExceptionId
+parameter_list|)
+function_decl|;
+DECL|method|setOnException (String onExceptionId, Processor processor)
+name|void
+name|setOnException
+parameter_list|(
+name|String
+name|onExceptionId
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

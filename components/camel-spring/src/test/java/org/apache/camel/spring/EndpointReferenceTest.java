@@ -407,8 +407,6 @@ name|RouteDefinition
 argument_list|(
 literal|"temporary"
 argument_list|)
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 try|try
