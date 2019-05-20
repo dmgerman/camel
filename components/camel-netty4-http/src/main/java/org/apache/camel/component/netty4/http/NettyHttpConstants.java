@@ -83,6 +83,15 @@ name|HTTP_AUTHENTICATION
 init|=
 literal|"CamelHttpAuthentication"
 decl_stmt|;
+DECL|field|PROXY_REQUEST
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|PROXY_REQUEST
+init|=
+literal|"NettyHttpProxyRequest"
+decl_stmt|;
 DECL|method|NettyHttpConstants ()
 specifier|private
 name|NettyHttpConstants
