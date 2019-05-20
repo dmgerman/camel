@@ -1224,7 +1224,9 @@ argument_list|>
 name|getEndpoints
 parameter_list|()
 function_decl|;
-comment|/**      * Returns a new {@link Map} containing all of the endpoints from the {@link org.apache.camel.spi.EndpointRegistry}      *      * @return map of endpoints      */
+comment|/**      * Returns a new {@link Map} containing all of the endpoints from the {@link org.apache.camel.spi.EndpointRegistry}      *      * @return map of endpoints      * @deprecated use {@link #getEndpointRegistry()}      */
+annotation|@
+name|Deprecated
 DECL|method|getEndpointMap ()
 name|Map
 argument_list|<
@@ -1294,7 +1296,7 @@ parameter_list|)
 function_decl|;
 comment|// Route Management Methods
 comment|//-----------------------------------------------------------------------
-comment|/**      * NOTE: experimental api      *      * @param routeController the route controller      */
+comment|/**      * Sets a custom {@link RouteController} to use      *      * @param routeController the route controller      */
 DECL|method|setRouteController (RouteController routeController)
 name|void
 name|setRouteController
@@ -1303,20 +1305,11 @@ name|RouteController
 name|routeController
 parameter_list|)
 function_decl|;
-comment|/**      * NOTE: experimental api      *      * @return the route controller or null if not set.      */
+comment|/**      * Gets the {@link RouteController}      *      * @return the route controller.      */
 DECL|method|getRouteController ()
 name|RouteController
 name|getRouteController
 parameter_list|()
-function_decl|;
-comment|/**      * Method to signal to {@link CamelContext} that the process to initialize setup routes is in progress.      *      * @param done<tt>false</tt> to start the process, call again with<tt>true</tt> to signal its done.      * @see #isSetupRoutes()      */
-DECL|method|setupRoutes (boolean done)
-name|void
-name|setupRoutes
-parameter_list|(
-name|boolean
-name|done
-parameter_list|)
 function_decl|;
 comment|/**      * Sets a custom {@link org.apache.camel.spi.RestConfiguration}      *      * @param restConfiguration the REST configuration      */
 DECL|method|setRestConfiguration (RestConfiguration restConfiguration)
@@ -1440,6 +1433,15 @@ name|routeId
 parameter_list|)
 throws|throws
 name|Exception
+function_decl|;
+comment|/**      * Method to signal to {@link CamelContext} that the process to initialize setup routes is in progress.      *      * @param done<tt>false</tt> to start the process, call again with<tt>true</tt> to signal its done.      * @see #isSetupRoutes()      */
+DECL|method|setupRoutes (boolean done)
+name|void
+name|setupRoutes
+parameter_list|(
+name|boolean
+name|done
+parameter_list|)
 function_decl|;
 comment|/**      * Indicates whether current thread is setting up route(s) as part of starting Camel from spring/blueprint.      *<p/>      * This can be useful to know by {@link LifecycleStrategy} or the likes, in case      * they need to react differently.      *<p/>      * As the startup procedure of {@link CamelContext} is slightly different when using plain Java versus      * Spring or Blueprint, then we need to know when Spring/Blueprint is setting up the routes, which      * can happen after the {@link CamelContext} itself is in started state, due the asynchronous event nature      * of especially Blueprint.      *      * @return<tt>true</tt> if current thread is setting up route(s), or<tt>false</tt> if not.      */
 DECL|method|isSetupRoutes ()
@@ -1572,7 +1574,9 @@ name|boolean
 name|autoCreate
 parameter_list|)
 function_decl|;
-comment|/**      * Gets a readonly list with the names of the languages currently registered.      *      * @return a readonly list with the names of the languages      */
+comment|/**      * Gets a readonly list with the names of the languages currently registered.      *      * @return a readonly list with the names of the languages      * @deprecated not in use      */
+annotation|@
+name|Deprecated
 DECL|method|getLanguageNames ()
 name|List
 argument_list|<
@@ -1840,12 +1844,6 @@ name|ClassResolver
 name|getClassResolver
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the package scanning class resolver      *      * @return the resolver      */
-DECL|method|getPackageScanClassResolver ()
-name|PackageScanClassResolver
-name|getPackageScanClassResolver
-parameter_list|()
-function_decl|;
 comment|/**      * Sets the class resolver to be use      *      * @param resolver the resolver      */
 DECL|method|setClassResolver (ClassResolver resolver)
 name|void
@@ -1854,6 +1852,12 @@ parameter_list|(
 name|ClassResolver
 name|resolver
 parameter_list|)
+function_decl|;
+comment|/**      * Returns the package scanning class resolver      *      * @return the resolver      */
+DECL|method|getPackageScanClassResolver ()
+name|PackageScanClassResolver
+name|getPackageScanClassResolver
+parameter_list|()
 function_decl|;
 comment|/**      * Sets the package scanning class resolver to use      *      * @param resolver the resolver      */
 DECL|method|setPackageScanClassResolver (PackageScanClassResolver resolver)
