@@ -269,7 +269,7 @@ expr_stmt|;
 comment|// there should be 3 names
 name|assertEquals
 argument_list|(
-literal|5
+literal|3
 argument_list|,
 name|registry
 operator|.
@@ -335,16 +335,6 @@ operator|.
 name|contains
 argument_list|(
 literal|"\"nodeId\" : \"bar\""
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"\"nodeId\" : \"exception\""
 argument_list|)
 argument_list|)
 expr_stmt|;
