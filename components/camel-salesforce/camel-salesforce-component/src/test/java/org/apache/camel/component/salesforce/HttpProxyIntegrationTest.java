@@ -439,12 +439,12 @@ specifier|static
 name|int
 name|httpProxyPort
 decl_stmt|;
-DECL|field|WENT_TORUGH_PROXY
+DECL|field|WENT_THROUGH_PROXY
 specifier|private
 specifier|static
 specifier|final
 name|AtomicBoolean
-name|WENT_TORUGH_PROXY
+name|WENT_THROUGH_PROXY
 init|=
 operator|new
 name|AtomicBoolean
@@ -517,7 +517,7 @@ name|assertTrue
 argument_list|(
 literal|"Should have gone through the test proxy"
 argument_list|,
-name|WENT_TORUGH_PROXY
+name|WENT_THROUGH_PROXY
 operator|.
 name|get
 argument_list|()
@@ -769,7 +769,7 @@ operator|+
 name|PROXY_AUTHORIZATION
 argument_list|)
 expr_stmt|;
-name|WENT_TORUGH_PROXY
+name|WENT_THROUGH_PROXY
 operator|.
 name|set
 argument_list|(

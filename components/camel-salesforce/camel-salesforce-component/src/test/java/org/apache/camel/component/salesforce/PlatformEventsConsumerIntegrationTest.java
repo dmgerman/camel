@@ -208,7 +208,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"salesforce:event/TestEvent__e"
+literal|"salesforce:event/TestEvent__e?replayId=-1"
 argument_list|,
 name|PlatformEvent
 operator|.
