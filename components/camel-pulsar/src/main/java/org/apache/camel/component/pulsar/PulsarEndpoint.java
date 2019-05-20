@@ -180,6 +180,10 @@ name|scheme
 operator|=
 literal|"pulsar"
 argument_list|,
+name|firstVersion
+operator|=
+literal|"2.24.0"
+argument_list|,
 name|title
 operator|=
 literal|"Apache Pulsar"
