@@ -40,9 +40,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|language
 operator|.
-name|ExpressionBuilder
+name|simple
+operator|.
+name|types
+operator|.
+name|SimpleToken
 import|;
 end_import
 
@@ -54,25 +58,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
+name|support
 operator|.
-name|simple
+name|builder
 operator|.
-name|types
-operator|.
-name|SimpleToken
+name|ExpressionBuilder
 import|;
 end_import
 
 begin_comment
-comment|/**  * Starts a block enclosed by double quotes  */
+comment|/**  * Starts a block enclosed by single quotes  */
 end_comment
 
 begin_class
-DECL|class|DoubleQuoteStart
+DECL|class|SingleQuoteStart
 specifier|public
 class|class
-name|DoubleQuoteStart
+name|SingleQuoteStart
 extends|extends
 name|BaseSimpleNode
 implements|implements
@@ -84,9 +86,9 @@ specifier|final
 name|CompositeNodes
 name|block
 decl_stmt|;
-DECL|method|DoubleQuoteStart (SimpleToken token)
+DECL|method|SingleQuoteStart (SimpleToken token)
 specifier|public
-name|DoubleQuoteStart
+name|SingleQuoteStart
 parameter_list|(
 name|SimpleToken
 name|token
@@ -118,11 +120,11 @@ parameter_list|()
 block|{
 comment|// output a nice toString so it makes debugging easier as we can see the entire block
 return|return
-literal|"\""
+literal|"'"
 operator|+
 name|block
 operator|+
-literal|"\""
+literal|"'"
 return|;
 block|}
 annotation|@

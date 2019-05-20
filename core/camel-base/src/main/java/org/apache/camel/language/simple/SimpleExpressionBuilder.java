@@ -228,22 +228,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|language
-operator|.
-name|MethodCallExpression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|ExchangeFormatter
@@ -2853,33 +2837,28 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|// ognl is able to evaluate method name if it contains nested functions
-comment|// so we should not eager evaluate ognl as a string
-name|MethodCallExpression
-name|call
+name|Expression
+name|exp
 init|=
-operator|new
-name|MethodCallExpression
+name|ExpressionBuilder
+operator|.
+name|beanExpression
 argument_list|(
-name|exchange
+name|body
 argument_list|,
 name|ognl
 argument_list|)
 decl_stmt|;
-comment|// set the instance to use
-name|call
-operator|.
-name|setInstance
-argument_list|(
-name|body
-argument_list|)
-expr_stmt|;
 return|return
-name|call
+name|exp
 operator|.
 name|evaluate
 argument_list|(
 name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 return|;
 block|}
@@ -3151,31 +3130,23 @@ condition|)
 block|{
 comment|// ognl is able to evaluate method name if it contains nested functions
 comment|// so we should not eager evaluate ognl as a string
-name|MethodCallExpression
-name|call
-init|=
-operator|new
-name|MethodCallExpression
+return|return
+name|ExpressionBuilder
+operator|.
+name|beanExpression
 argument_list|(
-name|exchange
+name|body
 argument_list|,
 name|ognl
 argument_list|)
-decl_stmt|;
-comment|// set the instance to use
-name|call
-operator|.
-name|setInstance
-argument_list|(
-name|body
-argument_list|)
-expr_stmt|;
-return|return
-name|call
 operator|.
 name|evaluate
 argument_list|(
 name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 return|;
 block|}
@@ -3236,8 +3207,9 @@ block|{
 comment|// ognl is able to evaluate method name if it contains nested functions
 comment|// so we should not eager evaluate ognl as a string
 return|return
-operator|new
-name|MethodCallExpression
+name|ExpressionBuilder
+operator|.
+name|beanExpression
 argument_list|(
 name|exchange
 argument_list|,
@@ -3247,6 +3219,10 @@ operator|.
 name|evaluate
 argument_list|(
 name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 return|;
 block|}
@@ -3315,8 +3291,9 @@ block|}
 comment|// ognl is able to evaluate method name if it contains nested functions
 comment|// so we should not eager evaluate ognl as a string
 return|return
-operator|new
-name|MethodCallExpression
+name|ExpressionBuilder
+operator|.
+name|beanExpression
 argument_list|(
 name|context
 argument_list|,
@@ -3326,6 +3303,10 @@ operator|.
 name|evaluate
 argument_list|(
 name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 return|;
 block|}
@@ -3397,8 +3378,9 @@ block|}
 comment|// ognl is able to evaluate method name if it contains nested functions
 comment|// so we should not eager evaluate ognl as a string
 return|return
-operator|new
-name|MethodCallExpression
+name|ExpressionBuilder
+operator|.
+name|beanExpression
 argument_list|(
 name|body
 argument_list|,
@@ -3408,6 +3390,10 @@ operator|.
 name|evaluate
 argument_list|(
 name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 return|;
 block|}
@@ -3850,8 +3836,9 @@ block|}
 comment|// ognl is able to evaluate method name if it contains nested functions
 comment|// so we should not eager evaluate ognl as a string
 return|return
-operator|new
-name|MethodCallExpression
+name|ExpressionBuilder
+operator|.
+name|beanExpression
 argument_list|(
 name|exception
 argument_list|,
@@ -3861,6 +3848,10 @@ operator|.
 name|evaluate
 argument_list|(
 name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 return|;
 block|}
@@ -4109,8 +4100,9 @@ name|keySuffix
 argument_list|)
 decl_stmt|;
 return|return
-operator|new
-name|MethodCallExpression
+name|ExpressionBuilder
+operator|.
+name|beanExpression
 argument_list|(
 name|property
 argument_list|,
@@ -4120,6 +4112,10 @@ operator|.
 name|evaluate
 argument_list|(
 name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 return|;
 block|}
