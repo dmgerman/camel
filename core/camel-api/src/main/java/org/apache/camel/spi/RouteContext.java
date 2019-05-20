@@ -166,12 +166,6 @@ name|String
 name|getRouteId
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the from type      *      * @return the from type      */
-DECL|method|getFrom ()
-name|NamedNode
-name|getFrom
-parameter_list|()
-function_decl|;
 comment|/**      * Get the route type      *      * @return the route type      */
 DECL|method|getRoute ()
 name|NamedNode
@@ -328,6 +322,14 @@ name|setIsRouteAdded
 parameter_list|(
 name|boolean
 name|value
+parameter_list|)
+function_decl|;
+DECL|method|setEndpoint (Endpoint endpoint)
+name|void
+name|setEndpoint
+parameter_list|(
+name|Endpoint
+name|endpoint
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the isRouteAdded flag      *       * @return the flag      */

@@ -264,20 +264,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|RouteDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|CamelEvent
@@ -884,28 +870,6 @@ block|}
 comment|// ****************************************************
 comment|// life-cycle
 comment|// ****************************************************
-DECL|method|definition (Route route)
-specifier|private
-name|RouteDefinition
-name|definition
-parameter_list|(
-name|Route
-name|route
-parameter_list|)
-block|{
-return|return
-operator|(
-name|RouteDefinition
-operator|)
-name|route
-operator|.
-name|getRouteContext
-argument_list|()
-operator|.
-name|getRoute
-argument_list|()
-return|;
-block|}
 DECL|method|getStatus (Route route)
 specifier|private
 name|ServiceStatus

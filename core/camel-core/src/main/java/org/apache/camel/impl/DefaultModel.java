@@ -392,6 +392,20 @@ name|RouteReifier
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RouteContext
+import|;
+end_import
+
 begin_class
 DECL|class|DefaultModel
 specifier|public
@@ -1536,6 +1550,28 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|prepare
+argument_list|(
+name|routeDefinition
+argument_list|)
+expr_stmt|;
+name|start
+argument_list|(
+name|routeDefinition
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|prepare (RouteDefinition routeDefinition)
+specifier|protected
+name|void
+name|prepare
+parameter_list|(
+name|RouteDefinition
+name|routeDefinition
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 comment|// assign ids to the routes and validate that the id's is all unique
 name|RouteDefinitionHelper
 operator|.
@@ -1607,6 +1643,18 @@ name|markPrepared
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+DECL|method|start (RouteDefinition routeDefinition)
+specifier|protected
+name|void
+name|start
+parameter_list|(
+name|RouteDefinition
+name|routeDefinition
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 comment|// indicate we are staring the route using this thread so
 comment|// we are able to query this if needed
 name|AbstractCamelContext
@@ -1630,6 +1678,17 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|RouteContext
+name|routeContext
+init|=
+operator|new
+name|DefaultRouteContext
+argument_list|(
+name|camelContext
+argument_list|,
+name|routeDefinition
+argument_list|)
+decl_stmt|;
 name|Route
 name|route
 init|=
@@ -1641,7 +1700,9 @@ argument_list|)
 operator|.
 name|createRoute
 argument_list|(
-name|mcc
+name|camelContext
+argument_list|,
+name|routeContext
 argument_list|)
 decl_stmt|;
 name|RouteService

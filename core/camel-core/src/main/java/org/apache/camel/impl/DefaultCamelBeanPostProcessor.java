@@ -862,6 +862,11 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 name|String
 name|uri
 init|=
@@ -930,6 +935,11 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 name|String
 name|uri
 init|=
