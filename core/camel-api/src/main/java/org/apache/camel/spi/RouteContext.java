@@ -374,15 +374,53 @@ name|Boolean
 name|isAutoStartup
 parameter_list|()
 function_decl|;
+DECL|method|setStartupOrder (Integer startupOrder)
+name|void
+name|setStartupOrder
+parameter_list|(
+name|Integer
+name|startupOrder
+parameter_list|)
+function_decl|;
 DECL|method|getStartupOrder ()
 name|Integer
 name|getStartupOrder
 parameter_list|()
 function_decl|;
+DECL|method|setErrorHandlerFactory (ErrorHandlerFactory errorHandlerFactory)
+name|void
+name|setErrorHandlerFactory
+parameter_list|(
+name|ErrorHandlerFactory
+name|errorHandlerFactory
+parameter_list|)
+function_decl|;
 DECL|method|getErrorHandlerFactory ()
 name|ErrorHandlerFactory
 name|getErrorHandlerFactory
 parameter_list|()
+function_decl|;
+DECL|method|addAdvice (CamelInternalProcessorAdvice<?> advice)
+name|void
+name|addAdvice
+parameter_list|(
+name|CamelInternalProcessorAdvice
+argument_list|<
+name|?
+argument_list|>
+name|advice
+parameter_list|)
+function_decl|;
+DECL|method|addProperty (String key, Object value)
+name|void
+name|addProperty
+parameter_list|(
+name|String
+name|key
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
 function_decl|;
 comment|/**      * Gets the last error.      *      * @return the error      */
 DECL|method|getLastError ()

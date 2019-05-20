@@ -40,7 +40,9 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultExecutorServiceManager
+name|engine
+operator|.
+name|BaseExecutorServiceManager
 import|;
 end_import
 
@@ -50,7 +52,7 @@ specifier|public
 class|class
 name|CustomExecutorServiceManager
 extends|extends
-name|DefaultExecutorServiceManager
+name|BaseExecutorServiceManager
 block|{
 DECL|method|CustomExecutorServiceManager (CamelContext camelContext)
 specifier|public

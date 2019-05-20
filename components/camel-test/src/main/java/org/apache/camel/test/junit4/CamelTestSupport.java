@@ -658,6 +658,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|DefaultCamelBeanPostProcessor
 import|;
 end_import

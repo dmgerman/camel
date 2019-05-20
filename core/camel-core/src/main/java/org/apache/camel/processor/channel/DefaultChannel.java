@@ -250,7 +250,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|spi
 operator|.
 name|CamelInternalProcessorAdvice
 import|;
@@ -1464,7 +1464,7 @@ block|{
 comment|// optimise to use advice as we cannot redeliver
 name|addAdvice
 argument_list|(
-name|CamelInternalProcessorAdvice
+name|CamelInternalProcessor
 operator|.
 name|wrap
 argument_list|(

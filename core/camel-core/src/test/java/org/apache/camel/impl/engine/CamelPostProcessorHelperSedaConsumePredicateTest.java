@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.impl.engine
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|impl
+operator|.
+name|engine
 package|;
 end_package
 
@@ -63,10 +65,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|CamelPostProcessorHelperConsumePredicateTest
+DECL|class|CamelPostProcessorHelperSedaConsumePredicateTest
 specifier|public
 class|class
-name|CamelPostProcessorHelperConsumePredicateTest
+name|CamelPostProcessorHelperSedaConsumePredicateTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -181,7 +183,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 literal|"17"
 argument_list|)
@@ -190,7 +192,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 literal|"219"
 argument_list|)
@@ -199,7 +201,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 literal|"89"
 argument_list|)
@@ -208,7 +210,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 literal|"112"
 argument_list|)
@@ -217,7 +219,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 literal|"39"
 argument_list|)
@@ -331,7 +333,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 literal|"17"
 argument_list|)
@@ -341,7 +343,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 literal|"-1"
 argument_list|)
@@ -350,7 +352,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 literal|"112"
 argument_list|)
@@ -369,7 +371,7 @@ name|Consume
 argument_list|(
 name|value
 operator|=
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 name|predicate
 operator|=
@@ -399,7 +401,7 @@ name|Consume
 argument_list|(
 name|value
 operator|=
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 name|predicate
 operator|=

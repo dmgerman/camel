@@ -596,6 +596,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|CamelPostProcessorHelper
 import|;
 end_import

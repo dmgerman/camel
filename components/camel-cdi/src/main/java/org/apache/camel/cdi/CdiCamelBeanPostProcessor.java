@@ -156,6 +156,8 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|engine
+operator|.
 name|CamelPostProcessorHelper
 import|;
 end_import
@@ -169,6 +171,8 @@ operator|.
 name|camel
 operator|.
 name|impl
+operator|.
+name|engine
 operator|.
 name|DefaultCamelBeanPostProcessor
 import|;
