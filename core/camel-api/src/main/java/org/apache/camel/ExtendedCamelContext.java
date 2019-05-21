@@ -519,6 +519,12 @@ name|FactoryFinderResolver
 name|resolver
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the factory finder resolver to use      *      * @return the factory finder resolver      */
+DECL|method|getFactoryFinderResolver ()
+name|FactoryFinderResolver
+name|getFactoryFinderResolver
+parameter_list|()
+function_decl|;
 comment|/**      * Gets the current {@link org.apache.camel.spi.ProcessorFactory}      *      * @return the factory, can be<tt>null</tt> if no custom factory has been set      */
 DECL|method|getProcessorFactory ()
 name|ProcessorFactory

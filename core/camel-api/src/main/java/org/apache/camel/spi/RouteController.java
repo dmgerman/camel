@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|// TODO: Add javadoc
+comment|/**  * Controller for managing the lifecycle of all the {@link Route}'s.  */
 end_comment
 
 begin_interface

@@ -88,6 +88,22 @@ name|PackageScanFilter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|service
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@link org.apache.camel.spi.ClassResolver} which loads type converters  * from an instance that implements {@link org.apache.camel.TypeConverters}.  *<p/>  * This is used when adding converters manually using the  * {@link org.apache.camel.impl.converter.BaseTypeConverterRegistry#addTypeConverters(org.apache.camel.TypeConverters)} method.  */
 end_comment
@@ -97,6 +113,8 @@ DECL|class|TypeConvertersPackageScanClassResolver
 specifier|public
 class|class
 name|TypeConvertersPackageScanClassResolver
+extends|extends
+name|ServiceSupport
 implements|implements
 name|PackageScanClassResolver
 block|{
@@ -347,6 +365,30 @@ parameter_list|(
 name|PackageScanFilter
 name|filter
 parameter_list|)
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// noop
 block|}

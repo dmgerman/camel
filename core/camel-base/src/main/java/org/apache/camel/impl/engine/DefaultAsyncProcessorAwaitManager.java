@@ -176,6 +176,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|StaticService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|AsyncProcessorAwaitManager
@@ -265,6 +277,8 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|AsyncProcessorAwaitManager
+implements|,
+name|StaticService
 block|{
 DECL|field|statistics
 specifier|private

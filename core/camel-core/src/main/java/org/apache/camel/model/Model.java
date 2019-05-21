@@ -450,7 +450,7 @@ name|ServiceCallConfigurationDefinition
 name|configuration
 parameter_list|)
 function_decl|;
-comment|/**      * Start all routes from this model.      *      * @throws Exception      */
+comment|/**      * Start all routes from this model.      */
 DECL|method|startRouteDefinitions ()
 name|void
 name|startRouteDefinitions

@@ -1012,51 +1012,6 @@ name|RouteController
 name|getRouteController
 parameter_list|()
 function_decl|;
-comment|/**      * Sets a custom {@link org.apache.camel.spi.RestConfiguration}      *      * @param restConfiguration the REST configuration      */
-DECL|method|setRestConfiguration (RestConfiguration restConfiguration)
-name|void
-name|setRestConfiguration
-parameter_list|(
-name|RestConfiguration
-name|restConfiguration
-parameter_list|)
-function_decl|;
-comment|/**      * Gets the default REST configuration      *      * @return the configuration, or<tt>null</tt> if none has been configured.      */
-DECL|method|getRestConfiguration ()
-name|RestConfiguration
-name|getRestConfiguration
-parameter_list|()
-function_decl|;
-comment|/**      * Sets a custom {@link org.apache.camel.spi.RestConfiguration}      *      * @param restConfiguration the REST configuration      */
-DECL|method|addRestConfiguration (RestConfiguration restConfiguration)
-name|void
-name|addRestConfiguration
-parameter_list|(
-name|RestConfiguration
-name|restConfiguration
-parameter_list|)
-function_decl|;
-comment|/**      * Gets the REST configuration for the given component      *      * @param component the component name to get the configuration      * @param defaultIfNotFound determine if the default configuration is returned if there isn't a       *        specific configuration for the given component        * @return the configuration, or<tt>null</tt> if none has been configured.      */
-DECL|method|getRestConfiguration (String component, boolean defaultIfNotFound)
-name|RestConfiguration
-name|getRestConfiguration
-parameter_list|(
-name|String
-name|component
-parameter_list|,
-name|boolean
-name|defaultIfNotFound
-parameter_list|)
-function_decl|;
-comment|/**      * Gets all the RestConfiguration's      */
-DECL|method|getRestConfigurations ()
-name|Collection
-argument_list|<
-name|RestConfiguration
-argument_list|>
-name|getRestConfigurations
-parameter_list|()
-function_decl|;
 comment|/**      * Returns the current routes in this CamelContext      *      * @return the current routes      */
 DECL|method|getRoutes ()
 name|List
@@ -1125,6 +1080,86 @@ name|routeId
 parameter_list|)
 throws|throws
 name|Exception
+function_decl|;
+comment|/**      * Adds the given route policy factory      *      * @param routePolicyFactory the factory      */
+DECL|method|addRoutePolicyFactory (RoutePolicyFactory routePolicyFactory)
+name|void
+name|addRoutePolicyFactory
+parameter_list|(
+name|RoutePolicyFactory
+name|routePolicyFactory
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the route policy factories      *      * @return the list of current route policy factories      */
+DECL|method|getRoutePolicyFactories ()
+name|List
+argument_list|<
+name|RoutePolicyFactory
+argument_list|>
+name|getRoutePolicyFactories
+parameter_list|()
+function_decl|;
+comment|// Rest Methods
+comment|//-----------------------------------------------------------------------
+comment|/**      * Sets a custom {@link org.apache.camel.spi.RestConfiguration}      *      * @param restConfiguration the REST configuration      */
+DECL|method|setRestConfiguration (RestConfiguration restConfiguration)
+name|void
+name|setRestConfiguration
+parameter_list|(
+name|RestConfiguration
+name|restConfiguration
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the default REST configuration      *      * @return the configuration, or<tt>null</tt> if none has been configured.      */
+DECL|method|getRestConfiguration ()
+name|RestConfiguration
+name|getRestConfiguration
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom {@link org.apache.camel.spi.RestConfiguration}      *      * @param restConfiguration the REST configuration      */
+DECL|method|addRestConfiguration (RestConfiguration restConfiguration)
+name|void
+name|addRestConfiguration
+parameter_list|(
+name|RestConfiguration
+name|restConfiguration
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the REST configuration for the given component      *      * @param component the component name to get the configuration      * @param defaultIfNotFound determine if the default configuration is returned if there isn't a      *        specific configuration for the given component      * @return the configuration, or<tt>null</tt> if none has been configured.      */
+DECL|method|getRestConfiguration (String component, boolean defaultIfNotFound)
+name|RestConfiguration
+name|getRestConfiguration
+parameter_list|(
+name|String
+name|component
+parameter_list|,
+name|boolean
+name|defaultIfNotFound
+parameter_list|)
+function_decl|;
+comment|/**      * Gets all the RestConfiguration's      */
+DECL|method|getRestConfigurations ()
+name|Collection
+argument_list|<
+name|RestConfiguration
+argument_list|>
+name|getRestConfigurations
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the {@link org.apache.camel.spi.RestRegistry} to use      */
+DECL|method|getRestRegistry ()
+name|RestRegistry
+name|getRestRegistry
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom {@link org.apache.camel.spi.RestRegistry} to use.      */
+DECL|method|setRestRegistry (RestRegistry restRegistry)
+name|void
+name|setRestRegistry
+parameter_list|(
+name|RestRegistry
+name|restRegistry
+parameter_list|)
 function_decl|;
 comment|// Properties
 comment|//-----------------------------------------------------------------------
@@ -1652,39 +1687,6 @@ parameter_list|(
 name|RuntimeEndpointRegistry
 name|runtimeEndpointRegistry
 parameter_list|)
-function_decl|;
-comment|/**      * Gets the {@link org.apache.camel.spi.RestRegistry} to use      */
-DECL|method|getRestRegistry ()
-name|RestRegistry
-name|getRestRegistry
-parameter_list|()
-function_decl|;
-comment|/**      * Sets a custom {@link org.apache.camel.spi.RestRegistry} to use.      */
-DECL|method|setRestRegistry (RestRegistry restRegistry)
-name|void
-name|setRestRegistry
-parameter_list|(
-name|RestRegistry
-name|restRegistry
-parameter_list|)
-function_decl|;
-comment|/**      * Adds the given route policy factory      *      * @param routePolicyFactory the factory      */
-DECL|method|addRoutePolicyFactory (RoutePolicyFactory routePolicyFactory)
-name|void
-name|addRoutePolicyFactory
-parameter_list|(
-name|RoutePolicyFactory
-name|routePolicyFactory
-parameter_list|)
-function_decl|;
-comment|/**      * Gets the route policy factories      *      * @return the list of current route policy factories      */
-DECL|method|getRoutePolicyFactories ()
-name|List
-argument_list|<
-name|RoutePolicyFactory
-argument_list|>
-name|getRoutePolicyFactories
-parameter_list|()
 function_decl|;
 comment|/**      * Returns the {@link ReloadStrategy} if in use.      *      * @return the strategy, or<tt>null</tt> if none has been configured.      */
 DECL|method|getReloadStrategy ()

@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|StaticService
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|management
@@ -67,6 +79,8 @@ DECL|interface|ManagementMBeanAssembler
 specifier|public
 interface|interface
 name|ManagementMBeanAssembler
+extends|extends
+name|StaticService
 block|{
 comment|/**      * Assemble the {@link javax.management.modelmbean.ModelMBean}.      *      * @param mBeanServer the mbean server      * @param obj         the object      * @param name        the object name to use in JMX      * @return the assembled {@link javax.management.modelmbean.ModelMBean}, or<tt>null</tt> if not possible to assemble an MBean      * @throws JMException is thrown if error assembling the mbean      */
 DECL|method|assemble (MBeanServer mBeanServer, Object obj, ObjectName name)

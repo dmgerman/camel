@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|StaticService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|lang
@@ -47,6 +59,8 @@ DECL|interface|PackageScanClassResolver
 specifier|public
 interface|interface
 name|PackageScanClassResolver
+extends|extends
+name|StaticService
 block|{
 comment|/**      * Gets the ClassLoader instances that should be used when scanning for classes.      *<p/>      * This implementation will return a new unmodifiable set containing the classloaders.      * Use the {@link #addClassLoader(ClassLoader)} method if you want to add new classloaders      * to the class loaders list.      *      * @return the class loaders to use      */
 DECL|method|getClassLoaders ()
