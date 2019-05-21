@@ -139,6 +139,7 @@ name|Language
 implements|,
 name|IsSingleton
 block|{
+comment|// TODO: Move this to camel-base
 DECL|field|token
 specifier|private
 name|String
