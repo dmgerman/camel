@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used by the tokenizer to extract data while reading from the stream.  * TODO it is used package internally but may be moved to some common package.  */
+comment|/**  * This class is used by the tokenizer to extract data while reading from the stream.  */
 end_comment
 
 begin_class

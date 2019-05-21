@@ -69,12 +69,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used by the tokenizer to extract data while reading from the stream.  */
+comment|/**  * This class is used internally by the tokenizer to extract data while reading from the stream.  */
 end_comment
 
 begin_class
 DECL|class|RecordableInputStream
-specifier|public
 class|class
 name|RecordableInputStream
 extends|extends
