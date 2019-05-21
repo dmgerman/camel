@@ -390,6 +390,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExtendedCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ExtendedStartupListener
 import|;
 end_import
@@ -1845,7 +1857,7 @@ name|AbstractCamelContext
 extends|extends
 name|ServiceSupport
 implements|implements
-name|CamelContext
+name|ExtendedCamelContext
 implements|,
 name|Suspendable
 block|{
@@ -5025,10 +5037,10 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|addRegisterEndpointCallback (EndpointStrategy strategy)
+DECL|method|registerEndpointCallback (EndpointStrategy strategy)
 specifier|public
 name|void
-name|addRegisterEndpointCallback
+name|registerEndpointCallback
 parameter_list|(
 name|EndpointStrategy
 name|strategy

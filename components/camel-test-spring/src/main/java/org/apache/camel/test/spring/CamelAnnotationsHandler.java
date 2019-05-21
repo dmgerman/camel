@@ -114,6 +114,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExtendedCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|api
 operator|.
 name|management
@@ -382,7 +394,7 @@ specifier|private
 name|CamelAnnotationsHandler
 parameter_list|()
 block|{     }
-comment|/**      * Handles @ExcludeRoutes to make it easier to exclude other routes when testing with Spring Boot.      *      * @param context the initialized Spring context      * @param testClass the test class being executed      */
+comment|/**      * Handles @ExcludeRoutes to make it easier to exclude other routes when testing with Spring Boot.      *      * @param testClass the test class being executed      */
 DECL|method|handleExcludeRoutesForSpringBoot (Class<?> testClass)
 specifier|public
 specifier|static
@@ -1496,7 +1508,14 @@ argument_list|)
 expr_stmt|;
 name|camelContext
 operator|.
-name|addRegisterEndpointCallback
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
+name|registerEndpointCallback
 argument_list|(
 operator|new
 name|InterceptSendToMockEndpointStrategy
@@ -1607,7 +1626,14 @@ argument_list|)
 expr_stmt|;
 name|camelContext
 operator|.
-name|addRegisterEndpointCallback
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
+name|registerEndpointCallback
 argument_list|(
 operator|new
 name|InterceptSendToMockEndpointStrategy

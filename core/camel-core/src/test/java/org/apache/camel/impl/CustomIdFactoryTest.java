@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExtendedCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|NamedNode
 import|;
 end_import
@@ -281,6 +293,13 @@ block|{
 comment|// use our own id factory so we can generate the keys we like to use
 name|context
 operator|.
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
 name|setNodeIdFactory
 argument_list|(
 operator|new
@@ -314,6 +333,13 @@ argument_list|)
 expr_stmt|;
 comment|// add our debugger so we can debug camel routes when we send in messages
 name|context
+operator|.
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
 operator|.
 name|addInterceptStrategy
 argument_list|(
@@ -532,6 +558,13 @@ operator|.
 name|idOrCreate
 argument_list|(
 name|context
+operator|.
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
 operator|.
 name|getNodeIdFactory
 argument_list|()

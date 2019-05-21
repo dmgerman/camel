@@ -70,6 +70,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExtendedCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|NamedNode
 import|;
 end_import
@@ -387,6 +399,13 @@ name|Exception
 block|{
 comment|// add our custom interceptor
 name|context
+operator|.
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
 operator|.
 name|addInterceptStrategy
 argument_list|(

@@ -62,16 +62,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|LinkedHashMap
 import|;
 end_import
@@ -93,16 +83,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Properties
 import|;
 end_import
 
@@ -180,7 +160,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CatalogCamelContext
+name|Endpoint
 import|;
 end_import
 
@@ -192,7 +172,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|ExtendedCamelContext
 import|;
 end_import
 
@@ -421,20 +401,6 @@ operator|.
 name|spi
 operator|.
 name|Validator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|JSonSchemaHelper
 import|;
 end_import
 
@@ -758,6 +724,13 @@ literal|"packageScanClassResolver"
 argument_list|,
 name|context
 operator|.
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
 name|getPackageScanClassResolver
 argument_list|()
 operator|.
@@ -1038,13 +1011,25 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// add async processor await manager details
+name|ExtendedCamelContext
+name|ecc
+init|=
+name|context
+operator|.
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|answer
 operator|.
 name|put
 argument_list|(
 literal|"asyncProcessorAwaitManager.size"
 argument_list|,
-name|context
+name|ecc
 operator|.
 name|getAsyncProcessorAwaitManager
 argument_list|()
@@ -1059,7 +1044,7 @@ name|put
 argument_list|(
 literal|"asyncProcessorAwaitManager.statisticsEnabled"
 argument_list|,
-name|context
+name|ecc
 operator|.
 name|getAsyncProcessorAwaitManager
 argument_list|()
@@ -1077,7 +1062,7 @@ name|put
 argument_list|(
 literal|"asyncProcessorAwaitManager.threadsBlocked"
 argument_list|,
-name|context
+name|ecc
 operator|.
 name|getAsyncProcessorAwaitManager
 argument_list|()
@@ -1095,7 +1080,7 @@ name|put
 argument_list|(
 literal|"asyncProcessorAwaitManager.threadsInterrupted"
 argument_list|,
-name|context
+name|ecc
 operator|.
 name|getAsyncProcessorAwaitManager
 argument_list|()
@@ -1113,7 +1098,7 @@ name|put
 argument_list|(
 literal|"asyncProcessorAwaitManager.totalDuration"
 argument_list|,
-name|context
+name|ecc
 operator|.
 name|getAsyncProcessorAwaitManager
 argument_list|()
@@ -1131,7 +1116,7 @@ name|put
 argument_list|(
 literal|"asyncProcessorAwaitManager.minDuration"
 argument_list|,
-name|context
+name|ecc
 operator|.
 name|getAsyncProcessorAwaitManager
 argument_list|()
@@ -1149,7 +1134,7 @@ name|put
 argument_list|(
 literal|"asyncProcessorAwaitManager.maxDuration"
 argument_list|,
-name|context
+name|ecc
 operator|.
 name|getAsyncProcessorAwaitManager
 argument_list|()
@@ -1167,7 +1152,7 @@ name|put
 argument_list|(
 literal|"asyncProcessorAwaitManager.meanDuration"
 argument_list|,
-name|context
+name|ecc
 operator|.
 name|getAsyncProcessorAwaitManager
 argument_list|()

@@ -62,6 +62,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExtendedCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|NamedNode
 import|;
 end_import
@@ -196,6 +208,13 @@ block|{
 comment|// interceptors should be invoked in the default order they are added
 name|context
 operator|.
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
 name|addInterceptStrategy
 argument_list|(
 operator|new
@@ -204,6 +223,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|context
+operator|.
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
 operator|.
 name|addInterceptStrategy
 argument_list|(

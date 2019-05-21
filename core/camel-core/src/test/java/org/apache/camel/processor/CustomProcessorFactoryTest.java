@@ -58,6 +58,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExtendedCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|NamedNode
 import|;
 end_import
@@ -213,6 +225,13 @@ argument_list|()
 decl_stmt|;
 comment|// register our custom factory
 name|context
+operator|.
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
 operator|.
 name|setProcessorFactory
 argument_list|(

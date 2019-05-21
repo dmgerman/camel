@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExtendedCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Produce
 import|;
 end_import
@@ -212,6 +224,13 @@ block|{
 comment|// add a dummy strategy
 comment|// removing this line the test works
 name|context
+operator|.
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
 operator|.
 name|addInterceptStrategy
 argument_list|(
