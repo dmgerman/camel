@@ -62,20 +62,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|ExpressionBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|Language
@@ -93,6 +79,22 @@ operator|.
 name|support
 operator|.
 name|ExpressionToPredicateAdapter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|builder
+operator|.
+name|ExpressionBuilder
 import|;
 end_import
 
@@ -139,7 +141,6 @@ name|Language
 implements|,
 name|IsSingleton
 block|{
-comment|// TODO: Move this to camel-base
 DECL|field|token
 specifier|private
 name|String
