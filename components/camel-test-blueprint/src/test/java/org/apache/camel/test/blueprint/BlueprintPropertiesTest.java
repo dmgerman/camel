@@ -123,7 +123,7 @@ name|camelCore
 init|=
 name|getBundleBySymbolicName
 argument_list|(
-literal|"org.apache.camel.camel-core"
+literal|"org.apache.camel.camel-blueprint"
 argument_list|)
 decl_stmt|;
 name|Bundle
