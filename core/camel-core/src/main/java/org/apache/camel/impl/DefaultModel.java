@@ -1703,6 +1703,13 @@ name|idOrCreate
 argument_list|(
 name|camelContext
 operator|.
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
 name|getNodeIdFactory
 argument_list|()
 argument_list|)
