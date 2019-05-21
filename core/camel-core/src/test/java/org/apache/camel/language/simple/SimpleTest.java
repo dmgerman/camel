@@ -1616,7 +1616,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${out.header:quote}"
+argument_list|,
+literal|"Camel rocks"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${out.headers.quote}"
+argument_list|,
+literal|"Camel rocks"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${out.headers:quote}"
 argument_list|,
 literal|"Camel rocks"
 argument_list|)
@@ -1712,7 +1726,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${sysenv:PATH}"
+argument_list|,
+name|path
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${env.PATH}"
+argument_list|,
+name|path
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${env:PATH}"
 argument_list|,
 name|path
 argument_list|)
@@ -1755,7 +1783,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${sysenv:FOO-SERVICE-HOST}"
+argument_list|,
+name|foo
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${env.FOO-SERVICE-HOST}"
+argument_list|,
+name|foo
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${env:FOO-SERVICE-HOST}"
 argument_list|,
 name|foo
 argument_list|)
@@ -1798,7 +1840,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${sysenv:path}"
+argument_list|,
+name|path
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${env.path}"
+argument_list|,
+name|path
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${env:path}"
 argument_list|,
 name|path
 argument_list|)
@@ -3794,7 +3850,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"hey ${in.header:foo}"
+argument_list|,
+literal|"hey abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"hey ${in.header.foo}!"
+argument_list|,
+literal|"hey abc!"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"hey ${in.header:foo}!"
 argument_list|,
 literal|"hey abc!"
 argument_list|)
@@ -3808,7 +3878,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"hey ${in.header:foo}-${in.header.foo}!"
+argument_list|,
+literal|"hey abc-abc!"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"hey ${in.header.foo}${in.header.foo}"
+argument_list|,
+literal|"hey abcabc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"hey ${in.header:foo}${in.header.foo}"
 argument_list|,
 literal|"hey abcabc"
 argument_list|)
@@ -3822,6 +3906,13 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${in.header:foo}${in.header:foo}"
+argument_list|,
+literal|"abcabc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${in.header.foo}"
 argument_list|,
 literal|"abc"
@@ -3829,7 +3920,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${in.header:foo}"
+argument_list|,
+literal|"abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${in.header.foo}!"
+argument_list|,
+literal|"abc!"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header:foo}!"
 argument_list|,
 literal|"abc!"
 argument_list|)
@@ -3854,7 +3959,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"hey $simple{in.header:foo}"
+argument_list|,
+literal|"hey abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"hey $simple{in.header.foo}!"
+argument_list|,
+literal|"hey abc!"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"hey $simple{in.header:foo}!"
 argument_list|,
 literal|"hey abc!"
 argument_list|)
@@ -3868,7 +3987,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"hey $simple{in.header:foo}-$simple{in.header.foo}!"
+argument_list|,
+literal|"hey abc-abc!"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"hey $simple{in.header.foo}$simple{in.header.foo}"
+argument_list|,
+literal|"hey abcabc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"hey $simple{in.header:foo}$simple{in.header.foo}"
 argument_list|,
 literal|"hey abcabc"
 argument_list|)
@@ -3882,6 +4015,13 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"$simple{in.header:foo}$simple{in.header.foo}"
+argument_list|,
+literal|"abcabc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"$simple{in.header.foo}"
 argument_list|,
 literal|"abc"
@@ -3889,7 +4029,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"$simple{in.header:foo}"
+argument_list|,
+literal|"abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"$simple{in.header.foo}!"
+argument_list|,
+literal|"abc!"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"$simple{in.header:foo}!"
 argument_list|,
 literal|"abc!"
 argument_list|)
@@ -4404,7 +4558,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${header:foo}"
+argument_list|,
+literal|"abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${headers.foo}"
+argument_list|,
+literal|"abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${headers:foo}"
 argument_list|,
 literal|"abc"
 argument_list|)
@@ -4418,7 +4586,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${in.header:foo}"
+argument_list|,
+literal|"abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${in.headers.foo}"
+argument_list|,
+literal|"abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.headers:foo}"
 argument_list|,
 literal|"abc"
 argument_list|)
