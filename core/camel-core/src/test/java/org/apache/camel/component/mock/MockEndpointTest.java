@@ -2958,6 +2958,73 @@ block|}
 block|}
 annotation|@
 name|Test
+DECL|method|testHeaderNoMessageSent ()
+specifier|public
+name|void
+name|testHeaderNoMessageSent
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|123
+argument_list|)
+expr_stmt|;
+comment|// just wait a little bit as we dont want to wait 10 seconds (default)
+name|mock
+operator|.
+name|setResultWaitTime
+argument_list|(
+literal|5
+argument_list|)
+expr_stmt|;
+comment|// do not send any message
+try|try
+block|{
+name|mock
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should fail"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|AssertionError
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"mock://result Received message count 0, expected at least 1"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Test
 DECL|method|testHeaderInvalidValue ()
 specifier|public
 name|void

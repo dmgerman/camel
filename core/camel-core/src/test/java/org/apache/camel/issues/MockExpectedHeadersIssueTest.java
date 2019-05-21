@@ -69,10 +69,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|MockExepctedHeadersIssueTest
+DECL|class|MockExpectedHeadersIssueTest
 specifier|public
 class|class
-name|MockExepctedHeadersIssueTest
+name|MockExpectedHeadersIssueTest
 extends|extends
 name|ContextTestSupport
 block|{
