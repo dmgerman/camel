@@ -298,8 +298,6 @@ DECL|field|rootDirMode
 specifier|protected
 name|boolean
 name|rootDirMode
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|Override
