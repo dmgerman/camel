@@ -200,9 +200,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|processor
 operator|.
-name|CamelInternalProcessorAdvice
+name|Pipeline
 import|;
 end_import
 
@@ -214,9 +214,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|spi
 operator|.
-name|Pipeline
+name|CamelInternalProcessorAdvice
 import|;
 end_import
 
