@@ -491,7 +491,7 @@ specifier|protected
 name|File
 name|componentsDir
 decl_stmt|;
-comment|/**      * The camel-core directory where camel-core components are      */
+comment|/**      * The camel-core directory      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -503,6 +503,19 @@ DECL|field|coreDir
 specifier|protected
 name|File
 name|coreDir
+decl_stmt|;
+comment|/**      * The camel-base directory      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/../../../core/camel-base"
+argument_list|)
+DECL|field|baseDir
+specifier|protected
+name|File
+name|baseDir
 decl_stmt|;
 comment|/**      * Maven ProjectHelper.      */
 annotation|@
@@ -1802,11 +1815,11 @@ block|}
 block|}
 if|if
 condition|(
-name|coreDir
+name|baseDir
 operator|!=
 literal|null
 operator|&&
-name|coreDir
+name|baseDir
 operator|.
 name|isDirectory
 argument_list|()
@@ -1818,7 +1831,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|coreDir
+name|baseDir
 argument_list|,
 literal|"target/classes"
 argument_list|)
@@ -1842,7 +1855,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-name|coreDir
+name|baseDir
 argument_list|,
 literal|"../camel-jaxp/target/classes"
 argument_list|)
