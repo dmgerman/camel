@@ -152,6 +152,18 @@ name|ServiceSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|RejectedExecutionException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Cache containing created {@link org.apache.camel.Consumer}.  */
 end_comment
@@ -427,6 +439,22 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
+if|if
+condition|(
+name|camelContext
+operator|.
+name|isStopped
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|RejectedExecutionException
+argument_list|(
+literal|"CamelContext is stopped"
+argument_list|)
+throw|;
+block|}
 name|log
 operator|.
 name|debug
@@ -488,6 +516,22 @@ name|long
 name|timeout
 parameter_list|)
 block|{
+if|if
+condition|(
+name|camelContext
+operator|.
+name|isStopped
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|RejectedExecutionException
+argument_list|(
+literal|"CamelContext is stopped"
+argument_list|)
+throw|;
+block|}
 name|log
 operator|.
 name|debug
@@ -548,6 +592,22 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
+if|if
+condition|(
+name|camelContext
+operator|.
+name|isStopped
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|RejectedExecutionException
+argument_list|(
+literal|"CamelContext is stopped"
+argument_list|)
+throw|;
+block|}
 name|log
 operator|.
 name|debug

@@ -141,18 +141,6 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|isUseRouteBuilder ()
-specifier|public
-name|boolean
-name|isUseRouteBuilder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 block|}
 end_class
 

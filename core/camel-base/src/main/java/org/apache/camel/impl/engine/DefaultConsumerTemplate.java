@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Template (named like Spring's TransactionTemplate& JmsTemplate  * et al) for working with Camel and consuming {@link org.apache.camel.Message} instances in an  * {@link Exchange} from an {@link Endpoint}.  */
+comment|/**  * Default implementation of {@link ConsumerTemplate}.  */
 end_comment
 
 begin_class

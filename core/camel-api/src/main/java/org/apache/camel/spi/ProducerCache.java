@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|RejectedExecutionException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -120,9 +132,25 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Service
 import|;
 end_import
+
+begin_comment
+comment|/**  * Cache containing created {@link Producer}.  */
+end_comment
 
 begin_interface
 DECL|interface|ProducerCache
@@ -132,6 +160,7 @@ name|ProducerCache
 extends|extends
 name|Service
 block|{
+comment|/**      * Acquires a pooled producer which you<b>must</b> release back again after usage using the      * {@link #releaseProducer(org.apache.camel.Endpoint, org.apache.camel.AsyncProducer)} method.      *      * @param endpoint the endpoint      * @return the producer      */
 DECL|method|acquireProducer (Endpoint endpoint)
 name|AsyncProducer
 name|acquireProducer
@@ -140,6 +169,7 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 function_decl|;
+comment|/**      * Releases an acquired producer back after usage.      *      * @param endpoint the endpoint      * @param producer the producer to release      */
 DECL|method|releaseProducer (Endpoint endpoint, AsyncProducer producer)
 name|void
 name|releaseProducer
@@ -151,6 +181,7 @@ name|AsyncProducer
 name|producer
 parameter_list|)
 function_decl|;
+comment|/**      * Sends the exchange to the given endpoint.      *<p>      * This method will<b>not</b> throw an exception. If processing of the given      * Exchange failed then the exception is stored on the provided Exchange      *      * @param endpoint the endpoint to send the exchange to      * @param exchange the exchange to send      * @throws RejectedExecutionException is thrown if CamelContext is stopped      */
 DECL|method|send (Endpoint endpoint, Exchange exchange, Processor resultProcessor)
 name|Exchange
 name|send
@@ -165,7 +196,8 @@ name|Processor
 name|resultProcessor
 parameter_list|)
 function_decl|;
-DECL|method|asyncSendExchange (Endpoint endpoint, ExchangePattern pattern, Processor processor, Processor resultProcessor, Exchange inExchange, CompletableFuture<Exchange> exchangeFuture)
+comment|/**      * Asynchronously sends an exchange to an endpoint using a supplied      * {@link Processor} to populate the exchange      *<p>      * This method will<b>neither</b> throw an exception<b>nor</b> complete future exceptionally.      * If processing of the given Exchange failed then the exception is stored on the return Exchange      *      * @param endpoint        the endpoint to send the exchange to      * @param pattern         the message {@link ExchangePattern} such as      *                        {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param processor       the transformer used to populate the new exchange      * @param resultProcessor a processor to process the exchange when the send is complete.      * @param exchange        an exchange to use in processing. Exchange will be created if parameter is null.      * @param future          the preexisting future to complete when processing is done or null if to create new one      * @return future that completes with exchange when processing is done. Either passed into future parameter      *              or new one if parameter was null      */
+DECL|method|asyncSendExchange (Endpoint endpoint, ExchangePattern pattern, Processor processor, Processor resultProcessor, Exchange exchange, CompletableFuture<Exchange> future)
 name|CompletableFuture
 argument_list|<
 name|Exchange
@@ -185,55 +217,64 @@ name|Processor
 name|resultProcessor
 parameter_list|,
 name|Exchange
-name|inExchange
+name|exchange
 parameter_list|,
 name|CompletableFuture
 argument_list|<
 name|Exchange
 argument_list|>
-name|exchangeFuture
+name|future
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the source which uses this cache      *      * @return the source      */
 DECL|method|getSource ()
 name|Object
 name|getSource
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the current size of the cache      *      * @return the current size      */
 DECL|method|size ()
 name|int
 name|size
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the maximum cache size (capacity).      *      * @return the capacity      */
 DECL|method|getCapacity ()
 name|int
 name|getCapacity
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the cache hits statistic      *<p/>      * Will return<tt>-1</tt> if it cannot determine this if a custom cache was used.      *      * @return the hits      */
 DECL|method|getHits ()
 name|long
 name|getHits
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the cache misses statistic      *<p/>      * Will return<tt>-1</tt> if it cannot determine this if a custom cache was used.      *      * @return the misses      */
 DECL|method|getMisses ()
 name|long
 name|getMisses
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the cache evicted statistic      *<p/>      * Will return<tt>-1</tt> if it cannot determine this if a custom cache was used.      *      * @return the evicted      */
 DECL|method|getEvicted ()
 name|long
 name|getEvicted
 parameter_list|()
 function_decl|;
+comment|/**      * Resets the cache statistics      */
 DECL|method|resetCacheStatistics ()
 name|void
 name|resetCacheStatistics
 parameter_list|()
 function_decl|;
+comment|/**      * Purges this cache      */
 DECL|method|purge ()
 name|void
 name|purge
 parameter_list|()
 function_decl|;
+comment|/**      * Cleanup the cache (purging stale entries)      */
 DECL|method|cleanUp ()
 name|void
 name|cleanUp
@@ -244,6 +285,7 @@ name|boolean
 name|isEventNotifierEnabled
 parameter_list|()
 function_decl|;
+comment|/**      * Whether {@link org.apache.camel.spi.EventNotifier} is enabled      */
 DECL|method|setEventNotifierEnabled (boolean eventNotifierEnabled)
 name|void
 name|setEventNotifierEnabled
@@ -252,12 +294,14 @@ name|boolean
 name|eventNotifierEnabled
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the endpoint statistics      */
 DECL|method|getEndpointUtilizationStatistics ()
 name|EndpointUtilizationStatistics
 name|getEndpointUtilizationStatistics
 parameter_list|()
 function_decl|;
-DECL|method|doInAsyncProducer (Endpoint endpoint, Exchange exchange, AsyncCallback callback, AsyncProducerCallback asyncProducerCallback)
+comment|/**      * Sends an exchange to an endpoint using a supplied callback supporting the asynchronous routing engine.      *<p/>      * If an exception was thrown during processing, it would be set on the given Exchange      *      * @param endpoint         the endpoint to send the exchange to      * @param exchange         the exchange, can be<tt>null</tt> if so then create a new exchange from the producer      * @param callback         the asynchronous callback      * @param producerCallback the producer template callback to be executed      * @return (doneSync)<tt>true</tt> to continue execute synchronously,<tt>false</tt> to continue being executed asynchronously      */
+DECL|method|doInAsyncProducer (Endpoint endpoint, Exchange exchange, AsyncCallback callback, AsyncProducerCallback producerCallback)
 name|boolean
 name|doInAsyncProducer
 parameter_list|(
@@ -271,10 +315,10 @@ name|AsyncCallback
 name|callback
 parameter_list|,
 name|AsyncProducerCallback
-name|asyncProducerCallback
+name|producerCallback
 parameter_list|)
 function_decl|;
-comment|/**      * Callback for sending a exchange message to a endpoint using an {@link AsyncProcessor} capable producer.      *<p/>      * Using this callback as a template pattern ensures that Camel handles the resource handling and will      * start and stop the given producer, to avoid resource leaks.      *      */
+comment|/**      * Callback for sending a exchange message to a endpoint using an {@link AsyncProcessor} capable producer.      *<p/>      * Using this callback as a template pattern ensures that Camel handles the resource handling and will      * start and stop the given producer, to avoid resource leaks.      */
 DECL|interface|AsyncProducerCallback
 interface|interface
 name|AsyncProducerCallback

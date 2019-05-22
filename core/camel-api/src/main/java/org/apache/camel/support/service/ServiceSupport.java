@@ -1009,6 +1009,14 @@ block|{
 return|return
 name|status
 operator|==
+name|NEW
+operator|||
+name|status
+operator|==
+name|INITIALIZED
+operator|||
+name|status
+operator|==
 name|STOPPED
 operator|||
 name|status

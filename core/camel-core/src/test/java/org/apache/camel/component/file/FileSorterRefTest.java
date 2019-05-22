@@ -137,18 +137,6 @@ literal|"file://target/data/filesorter/?initialDelay=0&delay=10&sorter=#mySorter
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|isUseRouteBuilder ()
-specifier|public
-name|boolean
-name|isUseRouteBuilder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createRegistry ()
 specifier|protected
 name|JndiRegistry
@@ -203,6 +191,17 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testSortFiles ()
+specifier|public
+name|void
+name|testSortFiles
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -248,17 +247,6 @@ argument_list|,
 literal|"copenhagen.txt"
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testSortFiles ()
-specifier|public
-name|void
-name|testSortFiles
-parameter_list|()
-throws|throws
-name|Exception
-block|{
 name|context
 operator|.
 name|addRoutes
@@ -296,11 +284,6 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|start
-argument_list|()
 expr_stmt|;
 name|MockEndpoint
 name|mock

@@ -32,6 +32,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|RejectedExecutionException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -135,18 +147,6 @@ operator|.
 name|camel
 operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Producer
 import|;
 end_import
 
@@ -281,7 +281,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Cache containing created {@link Producer}.  */
+comment|/**  * Default implementation of {@link ProducerCache}.  */
 end_comment
 
 begin_class
@@ -480,7 +480,6 @@ return|return
 name|eventNotifierEnabled
 return|;
 block|}
-comment|/**      * Whether {@link org.apache.camel.spi.EventNotifier} is enabled      */
 DECL|method|setEventNotifierEnabled (boolean eventNotifierEnabled)
 specifier|public
 name|void
@@ -534,7 +533,6 @@ return|return
 name|camelContext
 return|;
 block|}
-comment|/**      * Gets the source which uses this cache      *      * @return the source      */
 DECL|method|getSource ()
 specifier|public
 name|Object
@@ -545,7 +543,6 @@ return|return
 name|source
 return|;
 block|}
-comment|/**      * Acquires a pooled producer which you<b>must</b> release back again after usage using the      * {@link #releaseProducer(org.apache.camel.Endpoint, org.apache.camel.AsyncProducer)} method.      *      * @param endpoint the endpoint      * @return the producer      */
 DECL|method|acquireProducer (Endpoint endpoint)
 specifier|public
 name|AsyncProducer
@@ -606,7 +603,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Releases an acquired producer back after usage.      *      * @param endpoint the endpoint      * @param producer the producer to release      */
 DECL|method|releaseProducer (Endpoint endpoint, AsyncProducer producer)
 specifier|public
 name|void
@@ -629,7 +625,6 @@ name|producer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sends the exchange to the given endpoint.      *<p>      * This method will<b>not</b> throw an exception. If processing of the given      * Exchange failed then the exception is stored on the provided Exchange      *      * @param endpoint the endpoint to send the exchange to      * @param exchange the exchange to send      */
 DECL|method|send (Endpoint endpoint, Exchange exchange, Processor resultProcessor)
 specifier|public
 name|Exchange
@@ -645,6 +640,29 @@ name|Processor
 name|resultProcessor
 parameter_list|)
 block|{
+if|if
+condition|(
+name|camelContext
+operator|.
+name|isStopped
+argument_list|()
+condition|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|RejectedExecutionException
+argument_list|(
+literal|"CamelContext is stopped"
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|exchange
+return|;
+block|}
 name|AsyncProducer
 name|producer
 init|=
@@ -807,6 +825,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Asynchronously sends an exchange to an endpoint using a supplied      * {@link Processor} to populate the exchange      *<p>      * This method will<b>neither</b> throw an exception<b>nor</b> complete future exceptionally.      * If processing of the given Exchange failed then the exception is stored on the return Exchange      *      * @param endpoint        the endpoint to send the exchange to      * @param pattern         the message {@link ExchangePattern} such as      *                        {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param processor       the transformer used to populate the new exchange      * @param resultProcessor a processor to process the exchange when the send is complete.      * @param future          the preexisting future to complete when processing is done or null if to create new one      * @return future that completes with exchange when processing is done. Either passed into future parameter      *              or new one if parameter was null      */
+annotation|@
+name|Deprecated
 DECL|method|asyncSend (Endpoint endpoint, ExchangePattern pattern, Processor processor, Processor resultProcessor, CompletableFuture<Exchange> future)
 specifier|public
 name|CompletableFuture
@@ -851,7 +871,6 @@ name|future
 argument_list|)
 return|;
 block|}
-comment|/**      * Asynchronously sends an exchange to an endpoint using a supplied      * {@link Processor} to populate the exchange      *<p>      * This method will<b>neither</b> throw an exception<b>nor</b> complete future exceptionally.      * If processing of the given Exchange failed then the exception is stored on the return Exchange      *      * @param endpoint        the endpoint to send the exchange to      * @param pattern         the message {@link ExchangePattern} such as      *                        {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param processor       the transformer used to populate the new exchange      * @param resultProcessor a processor to process the exchange when the send is complete.      * @param exchange        an exchange to use in processing. Exchange will be created if parameter is null.      * @param future          the preexisting future to complete when processing is done or null if to create new one      * @return future that completes with exchange when processing is done. Either passed into future parameter      *              or new one if parameter was null      */
 DECL|method|asyncSendExchange (Endpoint endpoint, ExchangePattern pattern, Processor processor, Processor resultProcessor, Exchange exchange, CompletableFuture<Exchange> future)
 specifier|public
 name|CompletableFuture
@@ -1096,7 +1115,6 @@ return|return
 name|future
 return|;
 block|}
-comment|/**      * Sends an exchange to an endpoint using a supplied callback supporting the asynchronous routing engine.      *<p/>      * If an exception was thrown during processing, it would be set on the given Exchange      *      * @param endpoint         the endpoint to send the exchange to      * @param exchange         the exchange, can be<tt>null</tt> if so then create a new exchange from the producer      * @param callback         the asynchronous callback      * @param producerCallback the producer template callback to be executed      * @return (doneSync)<tt>true</tt> to continue execute synchronously,<tt>false</tt> to continue being executed asynchronously      */
 DECL|method|doInAsyncProducer (Endpoint endpoint, Exchange exchange, AsyncCallback callback, AsyncProducerCallback producerCallback)
 specifier|public
 name|boolean
@@ -1592,7 +1610,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the current size of the cache      *      * @return the current size      */
 DECL|method|size ()
 specifier|public
 name|int
@@ -1620,7 +1637,6 @@ return|return
 name|size
 return|;
 block|}
-comment|/**      * Gets the maximum cache size (capacity).      *      * @return the capacity      */
 DECL|method|getCapacity ()
 specifier|public
 name|int
@@ -1631,7 +1647,6 @@ return|return
 name|maxCacheSize
 return|;
 block|}
-comment|/**      * Gets the cache hits statistic      *<p/>      * Will return<tt>-1</tt> if it cannot determine this if a custom cache was used.      *      * @return the hits      */
 DECL|method|getHits ()
 specifier|public
 name|long
@@ -1645,7 +1660,6 @@ name|getHits
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the cache misses statistic      *<p/>      * Will return<tt>-1</tt> if it cannot determine this if a custom cache was used.      *      * @return the misses      */
 DECL|method|getMisses ()
 specifier|public
 name|long
@@ -1659,7 +1673,6 @@ name|getMisses
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the cache evicted statistic      *<p/>      * Will return<tt>-1</tt> if it cannot determine this if a custom cache was used.      *      * @return the evicted      */
 DECL|method|getEvicted ()
 specifier|public
 name|long
@@ -1673,7 +1686,6 @@ name|getEvicted
 argument_list|()
 return|;
 block|}
-comment|/**      * Resets the cache statistics      */
 DECL|method|resetCacheStatistics ()
 specifier|public
 name|void
@@ -1699,7 +1711,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Purges this cache      */
 DECL|method|purge ()
 specifier|public
 specifier|synchronized
@@ -1750,7 +1761,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Cleanup the cache (purging stale entries)      */
 DECL|method|cleanUp ()
 specifier|public
 name|void

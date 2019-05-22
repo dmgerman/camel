@@ -61,21 +61,6 @@ extends|extends
 name|ContextTestSupport
 block|{
 annotation|@
-name|Override
-DECL|method|isUseRouteBuilder ()
-specifier|public
-name|boolean
-name|isUseRouteBuilder
-parameter_list|()
-block|{
-return|return
-name|super
-operator|.
-name|isUseRouteBuilder
-argument_list|()
-return|;
-block|}
-annotation|@
 name|Test
 DECL|method|testInvalidSyntax ()
 specifier|public

@@ -161,18 +161,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|isUseRouteBuilder ()
-specifier|public
-name|boolean
-name|isUseRouteBuilder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createRegistry ()
 specifier|protected
 name|JndiRegistry
@@ -308,11 +296,6 @@ argument_list|(
 literal|"Goodday World"
 argument_list|)
 expr_stmt|;
-name|context
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -432,11 +415,6 @@ name|expectedBodiesReceived
 argument_list|(
 literal|"Goodday World"
 argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|start
-argument_list|()
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()

@@ -117,6 +117,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// create script to start with
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file:target/data/script"
+argument_list|,
+literal|"Hello ${body}"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"myscript.txt"
+argument_list|)
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
@@ -190,22 +206,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// create script to start with
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file:target/data/script"
-argument_list|,
-literal|"Hello ${body}"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"myscript.txt"
-argument_list|)
-expr_stmt|;
 comment|// START SNIPPET: e1
 name|from
 argument_list|(

@@ -119,18 +119,6 @@ literal|"file://target/data/flatten-in"
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|isUseRouteBuilder ()
-specifier|public
-name|boolean
-name|isUseRouteBuilder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
 annotation|@
 name|Before
 DECL|method|setUp ()

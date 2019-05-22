@@ -134,18 +134,6 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|isUseRouteBuilder ()
-specifier|public
-name|boolean
-name|isUseRouteBuilder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 DECL|method|prepareFolder (String folder)
 specifier|private
 name|void
@@ -255,11 +243,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|context
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -337,11 +320,6 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|start
-argument_list|()
 expr_stmt|;
 name|MockEndpoint
 name|reverse

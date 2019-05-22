@@ -96,6 +96,11 @@ name|Exception
 block|{
 name|context
 operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|context
+operator|.
 name|getComponent
 argument_list|(
 literal|"direct"
