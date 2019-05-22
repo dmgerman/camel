@@ -36,6 +36,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|Executors
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ScheduledExecutorService
 import|;
 end_import
@@ -563,17 +575,10 @@ expr_stmt|;
 comment|// okay we need to trigger on idle after X period, and therefore we need a background task that checks this
 name|executorService
 operator|=
-name|camelContext
-operator|.
-name|getExecutorServiceManager
-argument_list|()
+name|Executors
 operator|.
 name|newSingleThreadScheduledExecutor
-argument_list|(
-name|this
-argument_list|,
-literal|"MainDurationIdleChecker"
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|Runnable
 name|task
@@ -712,6 +717,12 @@ comment|// trigger stopping the Main
 name|latch
 operator|.
 name|countDown
+argument_list|()
+expr_stmt|;
+comment|// shutdown the pool
+name|executorService
+operator|.
+name|shutdownNow
 argument_list|()
 expr_stmt|;
 block|}
