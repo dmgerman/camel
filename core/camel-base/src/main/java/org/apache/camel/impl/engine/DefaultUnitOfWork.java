@@ -407,11 +407,11 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// TODO: This implementation seems to have transformed itself into a to broad concern
-comment|// where unit of work is doing a bit more work than the transactional aspect that ties
-comment|// to its name. Maybe this implementation should be named ExchangeContext and we can
-comment|// introduce a simpler UnitOfWork concept. This would also allow us to refactor the
-comment|// SubUnitOfWork into a general parent/child unit of work concept. However this
-comment|// requires API changes and thus is best kept for Camel 3.0
+comment|//   where unit of work is doing a bit more work than the transactional aspect that ties
+comment|//   to its name. Maybe this implementation should be named ExchangeContext and we can
+comment|//   introduce a simpler UnitOfWork concept. This would also allow us to refactor the
+comment|//   SubUnitOfWork into a general parent/child unit of work concept. However this
+comment|//   requires API changes and thus is best kept for Camel 3.0
 DECL|field|parent
 specifier|private
 name|UnitOfWork
