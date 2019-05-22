@@ -270,9 +270,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|util
 operator|.
-name|stream
+name|xml
 operator|.
 name|StreamSourceCache
 import|;

@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.converter.stream
+DECL|package|org.apache.camel.util.xml
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|util
 operator|.
-name|stream
+name|xml
 package|;
 end_package
 
@@ -83,6 +83,38 @@ operator|.
 name|camel
 operator|.
 name|StreamCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|converter
+operator|.
+name|stream
+operator|.
+name|CachedOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|converter
+operator|.
+name|stream
+operator|.
+name|ReaderCache
 import|;
 end_import
 

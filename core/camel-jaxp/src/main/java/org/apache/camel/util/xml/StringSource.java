@@ -4,13 +4,17 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel
+DECL|package|org.apache.camel.util.xml
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|util
+operator|.
+name|xml
 package|;
 end_package
 

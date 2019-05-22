@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.converter.stream
+DECL|package|org.apache.camel.util.xml
 package|package
 name|org
 operator|.
@@ -12,31 +12,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|util
 operator|.
-name|stream
+name|xml
 package|;
 end_package
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ByteArrayOutputStream
-import|;
-end_import
 
 begin_import
 import|import
@@ -54,27 +34,47 @@ name|java
 operator|.
 name|io
 operator|.
-name|InputStream
+name|Serializable
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|javax
 operator|.
-name|io
+name|xml
 operator|.
-name|Reader
+name|transform
+operator|.
+name|TransformerException
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|javax
 operator|.
-name|nio
+name|xml
 operator|.
-name|ByteBuffer
+name|transform
+operator|.
+name|sax
+operator|.
+name|SAXSource
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|stream
+operator|.
+name|StreamSource
 import|;
 end_import
 
@@ -115,16 +115,20 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|converter
 operator|.
-name|IOHelper
+name|stream
+operator|.
+name|StreamCacheConverter
+operator|.
+name|convertToByteArray
 import|;
 end_import
 
@@ -140,28 +144,28 @@ name|loader
 operator|=
 literal|true
 argument_list|)
-DECL|class|StreamCacheConverter
+DECL|class|StreamSourceConverter
 specifier|public
 specifier|final
 class|class
-name|StreamCacheConverter
+name|StreamSourceConverter
 block|{
 comment|/**      * Utility classes should not have a public constructor.      */
-DECL|method|StreamCacheConverter ()
+DECL|method|StreamSourceConverter ()
 specifier|private
-name|StreamCacheConverter
+name|StreamSourceConverter
 parameter_list|()
 block|{     }
 annotation|@
 name|Converter
-DECL|method|convertToStreamCache (ByteArrayInputStream stream, Exchange exchange)
+DECL|method|convertToStreamCache (StreamSource source, Exchange exchange)
 specifier|public
 specifier|static
 name|StreamCache
 name|convertToStreamCache
 parameter_list|(
-name|ByteArrayInputStream
-name|stream
+name|StreamSource
+name|source
 parameter_list|,
 name|Exchange
 name|exchange
@@ -171,96 +175,47 @@ name|IOException
 block|{
 return|return
 operator|new
-name|ByteArrayInputStreamCache
+name|StreamSourceCache
 argument_list|(
-name|stream
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Converter
-DECL|method|convertToStreamCache (InputStream stream, Exchange exchange)
-specifier|public
-specifier|static
-name|StreamCache
-name|convertToStreamCache
-parameter_list|(
-name|InputStream
-name|stream
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-comment|// transfer the input stream to a cached output stream, and then creates a new stream cache view
-comment|// of the data, which ensures the input stream is cached and re-readable.
-name|CachedOutputStream
-name|cos
-init|=
-operator|new
-name|CachedOutputStream
-argument_list|(
-name|exchange
-argument_list|)
-decl_stmt|;
-name|IOHelper
-operator|.
-name|copyAndCloseInput
-argument_list|(
-name|stream
+name|source
 argument_list|,
-name|cos
+name|exchange
 argument_list|)
-expr_stmt|;
-return|return
-name|cos
-operator|.
-name|newStreamCache
-argument_list|()
 return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|convertToStreamCache (CachedOutputStream cos, Exchange exchange)
+DECL|method|convertToStreamCache (BytesSource source)
 specifier|public
 specifier|static
 name|StreamCache
 name|convertToStreamCache
 parameter_list|(
-name|CachedOutputStream
-name|cos
-parameter_list|,
-name|Exchange
-name|exchange
+name|BytesSource
+name|source
 parameter_list|)
-throws|throws
-name|IOException
 block|{
+comment|//no need to do stream caching for a BytesSource
 return|return
-name|cos
-operator|.
-name|newStreamCache
-argument_list|()
+literal|null
 return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|convertToStreamCache (Reader reader, Exchange exchange)
+DECL|method|convertToStreamCache (SAXSource source, Exchange exchange)
 specifier|public
 specifier|static
 name|StreamCache
 name|convertToStreamCache
 parameter_list|(
-name|Reader
-name|reader
+name|SAXSource
+name|source
 parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
-name|IOException
+name|TransformerException
 block|{
 name|String
 name|data
@@ -281,12 +236,12 @@ name|class
 argument_list|,
 name|exchange
 argument_list|,
-name|reader
+name|source
 argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|ReaderCache
+name|SourceCache
 argument_list|(
 name|data
 argument_list|)
@@ -294,51 +249,11 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|convertToByteArray (StreamCache cache, Exchange exchange)
+DECL|method|convertToSerializable (StreamCache cache, Exchange exchange)
 specifier|public
 specifier|static
-name|byte
-index|[]
-name|convertToByteArray
-parameter_list|(
-name|StreamCache
-name|cache
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-comment|// lets serialize it as a byte array
-name|ByteArrayOutputStream
-name|os
-init|=
-operator|new
-name|ByteArrayOutputStream
-argument_list|()
-decl_stmt|;
-name|cache
-operator|.
-name|writeTo
-argument_list|(
-name|os
-argument_list|)
-expr_stmt|;
-return|return
-name|os
-operator|.
-name|toByteArray
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Converter
-DECL|method|convertToByteBuffer (StreamCache cache, Exchange exchange)
-specifier|public
-specifier|static
-name|ByteBuffer
-name|convertToByteBuffer
+name|Serializable
+name|convertToSerializable
 parameter_list|(
 name|StreamCache
 name|cache
@@ -351,7 +266,7 @@ name|IOException
 block|{
 name|byte
 index|[]
-name|array
+name|data
 init|=
 name|convertToByteArray
 argument_list|(
@@ -361,11 +276,10 @@ name|exchange
 argument_list|)
 decl_stmt|;
 return|return
-name|ByteBuffer
-operator|.
-name|wrap
+operator|new
+name|BytesSource
 argument_list|(
-name|array
+name|data
 argument_list|)
 return|;
 block|}

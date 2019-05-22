@@ -100,6 +100,10 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|util
+operator|.
+name|xml
+operator|.
 name|StringSource
 import|;
 end_import

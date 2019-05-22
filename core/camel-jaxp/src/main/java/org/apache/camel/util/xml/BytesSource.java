@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.converter.stream
+DECL|package|org.apache.camel.util.xml
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|util
 operator|.
-name|stream
+name|xml
 package|;
 end_package
 
@@ -24,7 +24,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
+name|ByteArrayInputStream
 import|;
 end_import
 
@@ -34,74 +34,67 @@ name|java
 operator|.
 name|io
 operator|.
-name|OutputStream
+name|InputStream
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
-operator|.
-name|Exchange
+name|InputStreamReader
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
-operator|.
-name|StreamCache
+name|Reader
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
-operator|.
-name|StringSource
+name|Serializable
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|xml
 operator|.
-name|camel
+name|transform
 operator|.
-name|util
+name|stream
 operator|.
-name|IOHelper
+name|StreamSource
 import|;
 end_import
 
 begin_comment
-comment|/**  * {@link org.apache.camel.StreamCache} implementation for {@link org.apache.camel.StringSource}s  */
+comment|/**  * A helper class which provides a JAXP {@link javax.xml.transform.Source  * Source} from a byte[] which can be read as many times as required.  */
 end_comment
 
 begin_class
-DECL|class|SourceCache
+DECL|class|BytesSource
 specifier|public
-specifier|final
 class|class
-name|SourceCache
+name|BytesSource
 extends|extends
-name|StringSource
+name|StreamSource
 implements|implements
-name|StreamCache
+name|Serializable
 block|{
 DECL|field|serialVersionUID
 specifier|private
@@ -110,105 +103,125 @@ specifier|final
 name|long
 name|serialVersionUID
 init|=
-literal|1L
+literal|124123201106542082L
 decl_stmt|;
-DECL|field|length
+DECL|field|data
 specifier|private
 specifier|final
-name|int
-name|length
+name|byte
+index|[]
+name|data
 decl_stmt|;
-DECL|method|SourceCache (String data)
+DECL|method|BytesSource (byte[] data)
 specifier|public
-name|SourceCache
+name|BytesSource
 parameter_list|(
-name|String
+name|byte
+index|[]
 name|data
 parameter_list|)
 block|{
-name|super
-argument_list|(
+if|if
+condition|(
 name|data
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"data must be specified"
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 name|this
 operator|.
-name|length
+name|data
 operator|=
 name|data
-operator|.
-name|length
-argument_list|()
 expr_stmt|;
 block|}
-DECL|method|reset ()
+DECL|method|BytesSource (byte[] data, String systemId)
 specifier|public
-name|void
-name|reset
-parameter_list|()
-block|{
-comment|// do nothing here
-block|}
-DECL|method|writeTo (OutputStream os)
-specifier|public
-name|void
-name|writeTo
+name|BytesSource
 parameter_list|(
-name|OutputStream
-name|os
+name|byte
+index|[]
+name|data
+parameter_list|,
+name|String
+name|systemId
 parameter_list|)
-throws|throws
-name|IOException
 block|{
-name|IOHelper
-operator|.
-name|copy
+name|this
 argument_list|(
-name|getInputStream
-argument_list|()
-argument_list|,
-name|os
+name|data
+argument_list|)
+expr_stmt|;
+name|setSystemId
+argument_list|(
+name|systemId
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|copy (Exchange exchange)
+DECL|method|getInputStream ()
 specifier|public
-name|StreamCache
-name|copy
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|IOException
+name|InputStream
+name|getInputStream
+parameter_list|()
 block|{
 return|return
 operator|new
-name|SourceCache
+name|ByteArrayInputStream
 argument_list|(
-name|getText
+name|data
+argument_list|)
+return|;
+block|}
+DECL|method|getReader ()
+specifier|public
+name|Reader
+name|getReader
+parameter_list|()
+block|{
+return|return
+operator|new
+name|InputStreamReader
+argument_list|(
+name|getInputStream
 argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|inMemory ()
+DECL|method|getData ()
 specifier|public
-name|boolean
-name|inMemory
+name|byte
+index|[]
+name|getData
 parameter_list|()
 block|{
 return|return
-literal|true
+name|data
 return|;
 block|}
-DECL|method|length ()
+DECL|method|toString ()
 specifier|public
-name|long
-name|length
+name|String
+name|toString
 parameter_list|()
 block|{
 return|return
-name|length
+literal|"BytesSource["
+operator|+
+operator|new
+name|String
+argument_list|(
+name|data
+argument_list|)
+operator|+
+literal|"]"
 return|;
 block|}
 block|}

@@ -26,6 +26,10 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|util
+operator|.
+name|xml
+operator|.
 name|BytesSource
 import|;
 end_import
