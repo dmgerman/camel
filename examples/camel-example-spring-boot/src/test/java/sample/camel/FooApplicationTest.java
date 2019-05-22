@@ -44,37 +44,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointInject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|NotifyBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
 import|;
 end_import
 
@@ -235,16 +207,6 @@ name|CamelContext
 name|camelContext
 decl_stmt|;
 annotation|@
-name|EndpointInject
-argument_list|(
-literal|"mock:log:foo"
-argument_list|)
-DECL|field|mock
-specifier|private
-name|MockEndpoint
-name|mock
-decl_stmt|;
-annotation|@
 name|Test
 DECL|method|shouldSayFoo ()
 specifier|public
@@ -254,13 +216,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|mock
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello foo"
-argument_list|)
-expr_stmt|;
 comment|// we expect that one or more messages is automatic done by the Camel
 comment|// route as it uses a timer to trigger
 name|NotifyBuilder
@@ -293,11 +248,6 @@ operator|.
 name|SECONDS
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|assertIsSatisfied
-argument_list|()
 expr_stmt|;
 block|}
 block|}
