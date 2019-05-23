@@ -702,20 +702,19 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|IntrospectionSupport
+comment|// TODO: Use more advanced bindingDefaultComponentReferencePropertiesTes
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
 name|context
-operator|.
-name|getTypeConverter
-argument_list|()
 argument_list|,
 name|bean
 argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+comment|//IntrospectionSupport.setProperties(context.getTypeConverter(), bean, parameters);
 block|}
 comment|/**      * Sets the reference properties on the given bean      *<p/>      * This is convention over configuration, setting all reference parameters (using {@link #isReferenceParameter(String)}      * by looking it up in registry and setting it on the bean if possible.      *      * @param context    the camel context      * @param bean       the bean      * @param parameters parameters      * @throws Exception is thrown if setting property fails      */
 DECL|method|setReferenceProperties (CamelContext context, Object bean, Map<String, Object> parameters)

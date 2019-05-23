@@ -1043,13 +1043,13 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Should have throw a IllegalArgumentException"
+literal|"Should have throw a ResolveEndpointFailedException"
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|ResolveEndpointFailedException
 name|e
 parameter_list|)
 block|{
