@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p>  * http://www.apache.org/licenses/LICENSE-2.0  *<p>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -68,7 +68,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
+name|PropertyBindingException
 import|;
 end_import
 
@@ -116,13 +116,13 @@ class|class
 name|PropertyBindingSupport
 block|{
 comment|// TODO: Add support for auto binding to singleton instance by type from registry (boolean on|off)
-comment|// TODO: Better exception message if something goes wrong (output target, name of property etc)
+comment|// TODO: Add support for Map/List
 DECL|method|PropertyBindingSupport ()
 specifier|private
 name|PropertyBindingSupport
 parameter_list|()
 block|{     }
-comment|/**      * Binds the properties to the target object.      *      * @param camelContext  the camel context      * @param target        the target object      * @param properties    the properties      * @return              true if one or more properties was bound, false otherwise      */
+comment|/**      * Binds the properties to the target object.      *      * @param camelContext  the camel context      * @param target        the target object      * @param properties    the properties      * @return              true if all the properties was bound, false otherwise      */
 DECL|method|bindProperties (CamelContext camelContext, Object target, Map<String, Object> properties)
 specifier|public
 specifier|static
@@ -143,13 +143,11 @@ name|Object
 argument_list|>
 name|properties
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|boolean
 name|answer
 init|=
-literal|false
+literal|true
 decl_stmt|;
 for|for
 control|(
@@ -170,7 +168,7 @@ argument_list|()
 control|)
 block|{
 name|answer
-operator||=
+operator|&=
 name|bindProperty
 argument_list|(
 name|camelContext
@@ -212,8 +210,8 @@ parameter_list|,
 name|Object
 name|value
 parameter_list|)
-throws|throws
-name|Exception
+block|{
+try|try
 block|{
 if|if
 condition|(
@@ -239,11 +237,111 @@ name|value
 argument_list|)
 return|;
 block|}
-else|else
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
 block|{
+throw|throw
+operator|new
+name|PropertyBindingException
+argument_list|(
+name|target
+argument_list|,
+name|name
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 return|return
 literal|false
 return|;
+block|}
+comment|/**      * Binds the mandatory property to the target object (will fail if not set/bound).      *      * @param camelContext  the camel context      * @param target        the target object      * @param name          name of property      * @param value         value of property      */
+DECL|method|bindMandatoryProperty (CamelContext camelContext, Object target, String name, Object value)
+specifier|public
+specifier|static
+name|void
+name|bindMandatoryProperty
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|Object
+name|target
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
+try|try
+block|{
+if|if
+condition|(
+name|target
+operator|!=
+literal|null
+operator|&&
+name|name
+operator|!=
+literal|null
+condition|)
+block|{
+name|boolean
+name|bound
+init|=
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|target
+argument_list|,
+name|name
+argument_list|,
+name|value
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|bound
+condition|)
+block|{
+throw|throw
+operator|new
+name|PropertyBindingException
+argument_list|(
+name|target
+argument_list|,
+name|name
+argument_list|)
+throw|;
+block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|PropertyBindingException
+argument_list|(
+name|target
+argument_list|,
+name|name
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 block|}
 DECL|method|setProperty (CamelContext context, Object target, String name, Object value)
@@ -264,6 +362,8 @@ parameter_list|,
 name|Object
 name|value
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|Class
 argument_list|<
@@ -539,8 +639,6 @@ expr_stmt|;
 block|}
 block|}
 comment|// okay we found a nested property, then lets change to use that
-try|try
-block|{
 name|target
 operator|=
 name|newTarget
@@ -556,6 +654,7 @@ operator|-
 literal|1
 index|]
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|value
@@ -745,25 +844,6 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|RuntimeCamelException
-operator|.
-name|wrapRuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-try|try
-block|{
 return|return
 name|IntrospectionSupport
 operator|.
@@ -787,22 +867,6 @@ argument_list|,
 literal|true
 argument_list|)
 return|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|RuntimeCamelException
-operator|.
-name|wrapRuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 block|}
 end_class
