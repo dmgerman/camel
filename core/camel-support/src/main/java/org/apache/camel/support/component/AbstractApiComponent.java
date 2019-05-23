@@ -128,6 +128,20 @@ name|IntrospectionSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|PropertyBindingSupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * Abstract base class for API Component Camel {@link org.apache.camel.Component} classes.  */
 end_comment
@@ -557,10 +571,13 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
-name|IntrospectionSupport
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|endpointConfiguration
 argument_list|,
 name|componentProperties

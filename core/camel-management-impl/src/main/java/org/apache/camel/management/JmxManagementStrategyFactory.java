@@ -94,6 +94,20 @@ name|IntrospectionSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|PropertyBindingSupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * Factory for creating JMX {@link ManagementStrategy}.  */
 end_comment
@@ -141,10 +155,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|IntrospectionSupport
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
+name|context
+argument_list|,
 name|agent
 argument_list|,
 name|options

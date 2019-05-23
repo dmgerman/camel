@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|LinkedHashMap
 import|;
 end_import
 
@@ -334,22 +334,17 @@ argument_list|>
 name|copyOfComponentProperties
 init|=
 operator|new
-name|HashMap
+name|LinkedHashMap
 argument_list|<>
 argument_list|(
 name|componentProperties
 argument_list|)
 decl_stmt|;
-name|IntrospectionSupport
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
 name|camelContext
-argument_list|,
-name|camelContext
-operator|.
-name|getTypeConverter
-argument_list|()
 argument_list|,
 name|newlyCreated
 argument_list|,

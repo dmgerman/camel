@@ -342,6 +342,20 @@ name|IntrospectionSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|PropertyBindingSupport
+import|;
+end_import
+
 begin_class
 annotation|@
 name|Metadata
@@ -1248,10 +1262,12 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
-name|IntrospectionSupport
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
+name|camelContext
+argument_list|,
 name|factory
 argument_list|,
 name|parameters
