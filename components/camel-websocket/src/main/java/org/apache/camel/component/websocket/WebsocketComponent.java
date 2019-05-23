@@ -2989,6 +2989,13 @@ argument_list|()
 decl_stmt|;
 name|sslContextFactory
 operator|.
+name|setEndpointIdentificationAlgorithm
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+name|sslContextFactory
+operator|.
 name|setSslContext
 argument_list|(
 name|sslContextParameters
@@ -3020,6 +3027,13 @@ operator|new
 name|SslContextFactory
 argument_list|()
 decl_stmt|;
+name|sslContextFactory
+operator|.
+name|setEndpointIdentificationAlgorithm
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 name|sslContextFactory
 operator|.
 name|setKeyStorePassword

@@ -3766,6 +3766,8 @@ operator|=
 name|createSslContextFactory
 argument_list|(
 name|endpointSslContextParameters
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -3803,6 +3805,13 @@ operator|=
 operator|new
 name|SslContextFactory
 argument_list|()
+expr_stmt|;
+name|sslcf
+operator|.
+name|setEndpointIdentificationAlgorithm
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 name|String
 name|keystoreProperty
@@ -3955,13 +3964,16 @@ name|SslContextFactory
 name|sslcf
 parameter_list|)
 function_decl|;
-DECL|method|createSslContextFactory (SSLContextParameters ssl)
+DECL|method|createSslContextFactory (SSLContextParameters ssl, boolean client)
 specifier|private
 name|SslContextFactory
 name|createSslContextFactory
 parameter_list|(
 name|SSLContextParameters
 name|ssl
+parameter_list|,
+name|boolean
+name|client
 parameter_list|)
 throws|throws
 name|GeneralSecurityException
@@ -3975,6 +3987,20 @@ operator|new
 name|SslContextFactory
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|client
+condition|)
+block|{
+name|answer
+operator|.
+name|setEndpointIdentificationAlgorithm
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|ssl
@@ -4444,6 +4470,8 @@ init|=
 name|createSslContextFactory
 argument_list|(
 name|ssl
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|HttpClientTransport

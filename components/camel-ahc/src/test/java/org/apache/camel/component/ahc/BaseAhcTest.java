@@ -494,20 +494,11 @@ argument_list|(
 name|scsp
 argument_list|)
 expr_stmt|;
-comment|// use SSLv3 to avoid issue with (eg disable TLS)
-comment|// Caused by: javax.net.ssl.SSLException: bad record MAC
-name|sslContextParameters
-operator|.
-name|setSecureSocketProtocol
-argument_list|(
-literal|"SSLv3"
-argument_list|)
-expr_stmt|;
 return|return
 name|sslContextParameters
 return|;
 block|}
-comment|/**      * Indicates if the URIs returned from {@link #getTestServerEndpointUri()} and      * {@link #getAhcEndpointUri()} should use the HTTPS protocol instead of      * the HTTP protocol.      *       * If true, an {@link SSLContextParameters} is also placed in the registry under the      * key {@code sslContextParameters}.  The parameters are not added to the endpoint URIs      * as that is test specific.      *       * @return false by default      */
+comment|/**      * Indicates if the URIs returned from {@link #getTestServerEndpointUri()} and      * {@link #getAhcEndpointUri()} should use the HTTPS protocol instead of      * the HTTP protocol.      *      * If true, an {@link SSLContextParameters} is also placed in the registry under the      * key {@code sslContextParameters}.  The parameters are not added to the endpoint URIs      * as that is test specific.      *      * @return false by default      */
 DECL|method|isHttps ()
 specifier|protected
 name|boolean

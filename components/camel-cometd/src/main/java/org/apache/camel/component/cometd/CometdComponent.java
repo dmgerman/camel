@@ -82,18 +82,6 @@ begin_import
 import|import
 name|javax
 operator|.
-name|net
-operator|.
-name|ssl
-operator|.
-name|SSLContext
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
 name|servlet
 operator|.
 name|DispatcherType
@@ -1496,6 +1484,20 @@ name|retrieveGlobalSslContextParameters
 argument_list|()
 expr_stmt|;
 block|}
+name|SslContextFactory
+name|sslContextFactory
+init|=
+operator|new
+name|SslContextFactory
+argument_list|()
+decl_stmt|;
+name|sslContextFactory
+operator|.
+name|setEndpointIdentificationAlgorithm
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|sslParams
@@ -1503,13 +1505,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|SslContextFactory
-name|sslContextFactory
-init|=
-operator|new
-name|CometdComponentSslContextFactory
-argument_list|()
-decl_stmt|;
 name|sslContextFactory
 operator|.
 name|setSslContext
@@ -1523,26 +1518,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|sslSocketConnector
-operator|=
-operator|new
-name|ServerConnector
-argument_list|(
-name|server
-argument_list|,
-name|sslContextFactory
-argument_list|)
-expr_stmt|;
 block|}
 else|else
 block|{
-name|SslContextFactory
-name|sslContextFactory
-init|=
-operator|new
-name|SslContextFactory
-argument_list|()
-decl_stmt|;
 name|sslContextFactory
 operator|.
 name|setKeyStorePassword
@@ -1572,6 +1550,7 @@ name|sslKeystore
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 name|sslSocketConnector
 operator|=
 operator|new
@@ -1582,7 +1561,6 @@ argument_list|,
 name|sslContextFactory
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|sslSocketConnector
 return|;
@@ -2024,25 +2002,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-comment|/**      * Override the key/trust store check method as it does not account for a factory that has      * a pre-configured {@link SSLContext}.      */
-DECL|class|CometdComponentSslContextFactory
-specifier|private
-specifier|static
-specifier|final
-class|class
-name|CometdComponentSslContextFactory
-extends|extends
-name|SslContextFactory
-block|{
-comment|// to support jetty 9.2.
-comment|// TODO: remove this class when we have upgraded to jetty 9.3
-DECL|method|checkKeyStore ()
-specifier|public
-name|void
-name|checkKeyStore
-parameter_list|()
-block|{         }
 block|}
 block|}
 end_class
