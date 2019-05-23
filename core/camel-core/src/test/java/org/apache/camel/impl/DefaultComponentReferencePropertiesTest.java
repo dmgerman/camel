@@ -1043,13 +1043,13 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Should have throw a ResolveEndpointFailedException"
+literal|"Should have throw a Exception"
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ResolveEndpointFailedException
+name|Exception
 name|e
 parameter_list|)
 block|{

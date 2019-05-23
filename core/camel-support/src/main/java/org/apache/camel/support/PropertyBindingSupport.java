@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A convenient support class for binding String valued properties to an instance which  * uses a set of conventions:  *<ul>  *<li>property placeholders - Keys and values using Camels property placeholder will be resolved</li>  *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>  *<li>reference by id - Values can refer to other beans in the registry by prefixing with #id: or # syntax, eg #id:myBean or #myBean</li>  *<li>reference by type - Values can refer to singleton beans by their type in the registry by prefixing with #type: syntax, eg #type:com.foo.MyClassType</li>  *<li>autowire by type - Values can refer to singleton beans by auto wiring by setting the value to #autowire</li>  *<li>new class - Values can refer to creating new beans by their class name syntax, eg class:com.foo.MyClassType</li>  *</ul>  * This implementations reuses parts of {@link IntrospectionSupport}.  */
+comment|/**  * A convenient support class for binding String valued properties to an instance which  * uses a set of conventions:  *<ul>  *<li>property placeholders - Keys and values using Camels property placeholder will be resolved</li>  *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>  *<li>reference by bean id - Values can refer to other beans in the registry by prefixing with #nean: eg #bean:myBean</li>  *<li>reference by type - Values can refer to singleton beans by their type in the registry by prefixing with #type: syntax, eg #type:com.foo.MyClassType</li>  *<li>autowire by type - Values can refer to singleton beans by auto wiring by setting the value to #autowire</li>  *<li>new class - Values can refer to creating new beans by their class name syntax, eg class:com.foo.MyClassType</li>  *</ul>  * This implementations reuses parts of {@link IntrospectionSupport}.  */
 end_comment
 
 begin_class
@@ -135,6 +135,10 @@ specifier|final
 class|class
 name|PropertyBindingSupport
 block|{
+comment|// TODO: Add support for Map/List
+comment|// TODO: Add option to turn on|off new class
+comment|// TODO: Add option to turn this binding on|off on component/endpoint level
+comment|/**      * To use a fluent builder style to configure this property binding support.      */
 DECL|class|Builder
 specifier|public
 specifier|static
@@ -383,7 +387,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// TODO: Add support for Map/List
 DECL|method|PropertyBindingSupport ()
 specifier|private
 name|PropertyBindingSupport
@@ -1492,6 +1495,13 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|newTarget
+operator|!=
+name|target
+condition|)
+block|{
 comment|// okay we found a nested property, then lets change to use that
 name|target
 operator|=
@@ -1508,6 +1518,7 @@ operator|-
 literal|1
 index|]
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
@@ -1781,7 +1792,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"#id:"
+literal|"#bean:"
 argument_list|)
 condition|)
 block|{
@@ -1797,35 +1808,8 @@ operator|)
 operator|.
 name|substring
 argument_list|(
-literal|4
+literal|6
 argument_list|)
-expr_stmt|;
-name|value
-operator|=
-literal|null
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|EndpointHelper
-operator|.
-name|isReferenceParameter
-argument_list|(
-name|value
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-condition|)
-block|{
-comment|// okay its a reference so swap to lookup this which is already supported in IntrospectionSupport
-name|refName
-operator|=
-name|value
-operator|.
-name|toString
-argument_list|()
 expr_stmt|;
 name|value
 operator|=

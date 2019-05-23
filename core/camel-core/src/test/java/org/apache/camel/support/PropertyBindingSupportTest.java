@@ -619,7 +619,7 @@ name|foo
 argument_list|,
 literal|"bar.work"
 argument_list|,
-literal|"#myWork"
+literal|"#bean:myWork"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -779,7 +779,7 @@ name|foo
 argument_list|,
 literal|"bar.work"
 argument_list|,
-literal|"#id:myWork"
+literal|"#bean:myWork"
 argument_list|)
 expr_stmt|;
 name|assertEquals
