@@ -2360,6 +2360,9 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * @deprecated use {@link PropertyBindingSupport}      */
+annotation|@
+name|Deprecated
 DECL|method|setProperties (Object target, Map<String, Object> properties, String optionPrefix, boolean allowBuilderPattern)
 specifier|public
 specifier|static
@@ -2527,6 +2530,9 @@ return|return
 name|rc
 return|;
 block|}
+comment|/**      * @deprecated use {@link PropertyBindingSupport}      */
+annotation|@
+name|Deprecated
 DECL|method|setProperties (Object target, Map<String, Object> properties, String optionPrefix)
 specifier|public
 specifier|static
@@ -2770,6 +2776,8 @@ return|return
 name|rc
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|extractStringProperties (Map<String, Object> properties)
 specifier|public
 specifier|static
@@ -2866,6 +2874,9 @@ return|return
 name|rc
 return|;
 block|}
+comment|/**      * @deprecated use {@link PropertyBindingSupport}      */
+annotation|@
+name|Deprecated
 DECL|method|setProperties (CamelContext context, TypeConverter typeConverter, Object target, Map<String, Object> properties)
 specifier|public
 specifier|static
@@ -2997,6 +3008,9 @@ return|return
 name|rc
 return|;
 block|}
+comment|/**      * @deprecated use {@link PropertyBindingSupport}      */
+annotation|@
+name|Deprecated
 DECL|method|setProperties (TypeConverter typeConverter, Object target, Map<String, Object> properties)
 specifier|public
 specifier|static
@@ -3033,6 +3047,9 @@ name|properties
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated use {@link PropertyBindingSupport}      */
+annotation|@
+name|Deprecated
 DECL|method|setProperties (Object target, Map<String, Object> properties)
 specifier|public
 specifier|static
