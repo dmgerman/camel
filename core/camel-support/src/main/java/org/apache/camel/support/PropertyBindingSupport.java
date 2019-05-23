@@ -573,6 +573,7 @@ name|hit
 init|=
 literal|false
 decl_stmt|;
+comment|// TODO: add support for nesting but not for inherited properties from base classes (eg CamelContext etc)
 for|for
 control|(
 name|Map
