@@ -92,18 +92,6 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Override
-DECL|method|isUseRouteBuilder ()
-specifier|public
-name|boolean
-name|isUseRouteBuilder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
