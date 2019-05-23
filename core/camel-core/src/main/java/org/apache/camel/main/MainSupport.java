@@ -7058,6 +7058,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 comment|// TODO: Use PropertyBindingSupport to make it support this kind of use-case too
+comment|// TODO: Allow nested properties too
+comment|// TODO: Allow fluent builders
 comment|// lookup complex types
 name|properties
 operator|.

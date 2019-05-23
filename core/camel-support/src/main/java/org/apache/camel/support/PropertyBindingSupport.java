@@ -61,6 +61,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -93,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A convenient support class for binding String valued properties to an instance which  * uses a set of conventions:  *<ul>  *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>  *<li>reference by id - Values can refer to other beans in the registry by prefixing with # syntax, eg #myBean</li>  *</ul>  * This implementations reuses parts of {@link IntrospectionSupport}.  */
+comment|/**  * A convenient support class for binding String valued properties to an instance which  * uses a set of conventions:  *<ul>  *<li>property placeholders - Keys and values using Camels property placeholder will be resolved</li>  *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>  *<li>reference by id - Values can refer to other beans in the registry by prefixing with # syntax, eg #myBean</li>  *</ul>  * This implementations reuses parts of {@link IntrospectionSupport}.  */
 end_comment
 
 begin_class
@@ -109,6 +121,7 @@ specifier|private
 name|PropertyBindingSupport
 parameter_list|()
 block|{     }
+comment|/**      * Binds the properties to the target object.      *      * @param camelContext  the camel context      * @param target        the target object      * @param properties    the properties      * @return              true if one or more properties was bound, false otherwise      */
 DECL|method|bindProperties (CamelContext camelContext, Object target, Map<String, Object> properties)
 specifier|public
 specifier|static
@@ -135,7 +148,7 @@ block|{
 name|boolean
 name|answer
 init|=
-literal|true
+literal|false
 decl_stmt|;
 for|for
 control|(
@@ -156,7 +169,7 @@ argument_list|()
 control|)
 block|{
 name|answer
-operator|&=
+operator||=
 name|bindProperty
 argument_list|(
 name|camelContext
@@ -179,6 +192,7 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Binds the property to the target object.      *      * @param camelContext  the camel context      * @param target        the target object      * @param name          name of property      * @param value         value of property      * @return              true if property was bound, false otherwise      */
 DECL|method|bindProperty (CamelContext camelContext, Object target, String name, Object value)
 specifier|public
 specifier|static
@@ -200,6 +214,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|target
+operator|!=
+literal|null
+operator|&&
+name|name
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 name|setProperty
 argument_list|(
@@ -210,17 +235,17 @@ argument_list|,
 name|name
 argument_list|,
 name|value
-argument_list|,
-literal|null
-argument_list|,
-literal|true
-argument_list|,
-literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * This method supports two modes to set a property:      *      * 1. Setting a property that has already been resolved, this is the case when {@code context} and {@code refName} are      * NULL and {@code value} is non-NULL.      *      * 2. Setting a property that has not yet been resolved, the property will be resolved based on the suitable methods      * found matching the property name on the {@code target} bean. For this mode to be triggered the parameters      * {@code context} and {@code refName} must NOT be NULL, and {@code value} MUST be NULL.      */
-DECL|method|setProperty (CamelContext context, Object target, String name, Object value, String refName, boolean allowBuilderPattern, boolean allowNestedProperties)
+else|else
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
+DECL|method|setProperty (CamelContext context, Object target, String name, Object value)
 specifier|private
 specifier|static
 name|boolean
@@ -237,18 +262,7 @@ name|name
 parameter_list|,
 name|Object
 name|value
-parameter_list|,
-name|String
-name|refName
-parameter_list|,
-name|boolean
-name|allowBuilderPattern
-parameter_list|,
-name|boolean
-name|allowNestedProperties
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|Class
 argument_list|<
@@ -261,11 +275,45 @@ operator|.
 name|getClass
 argument_list|()
 decl_stmt|;
+name|String
+name|refName
+init|=
+literal|null
+decl_stmt|;
+comment|// resolve property placeholders
+name|name
+operator|=
+name|context
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|value
+operator|instanceof
+name|String
+condition|)
+block|{
+comment|// resolve property placeholders
+name|value
+operator|=
+name|context
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+name|value
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// if name has dot then we need to OGNL walk it
 if|if
 condition|(
-name|allowNestedProperties
-operator|&&
 name|name
 operator|.
 name|indexOf
@@ -360,7 +408,7 @@ name|newClass
 argument_list|,
 name|part
 argument_list|,
-name|allowBuilderPattern
+literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -494,13 +542,6 @@ name|target
 operator|=
 name|newTarget
 expr_stmt|;
-name|clazz
-operator|=
-name|newTarget
-operator|.
-name|getClass
-argument_list|()
-expr_stmt|;
 name|name
 operator|=
 name|parts
@@ -547,6 +588,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+try|try
+block|{
 return|return
 name|IntrospectionSupport
 operator|.
@@ -567,9 +610,25 @@ name|value
 argument_list|,
 name|refName
 argument_list|,
-name|allowBuilderPattern
+literal|true
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|RuntimeCamelException
+operator|.
+name|wrapRuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class
