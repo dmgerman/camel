@@ -1551,22 +1551,6 @@ return|return
 name|age
 return|;
 block|}
-DECL|method|setAge (int age)
-specifier|public
-name|void
-name|setAge
-parameter_list|(
-name|int
-name|age
-parameter_list|)
-block|{
-name|this
-operator|.
-name|age
-operator|=
-name|age
-expr_stmt|;
-block|}
 DECL|method|isRider ()
 specifier|public
 name|boolean
@@ -1576,22 +1560,6 @@ block|{
 return|return
 name|rider
 return|;
-block|}
-DECL|method|setRider (boolean rider)
-specifier|public
-name|void
-name|setRider
-parameter_list|(
-name|boolean
-name|rider
-parameter_list|)
-block|{
-name|this
-operator|.
-name|rider
-operator|=
-name|rider
-expr_stmt|;
 block|}
 DECL|method|getWork ()
 specifier|public
@@ -1603,10 +1571,60 @@ return|return
 name|work
 return|;
 block|}
-DECL|method|setWork (Company work)
+DECL|method|isGoldCustomer ()
 specifier|public
-name|void
-name|setWork
+name|boolean
+name|isGoldCustomer
+parameter_list|()
+block|{
+return|return
+name|goldCustomer
+return|;
+block|}
+comment|// this has no setter but only builders
+comment|// and mix the builders with both styles (with as prefix and no prefix at all)
+DECL|method|withAge (int age)
+specifier|public
+name|Bar
+name|withAge
+parameter_list|(
+name|int
+name|age
+parameter_list|)
+block|{
+name|this
+operator|.
+name|age
+operator|=
+name|age
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|withRider (boolean rider)
+specifier|public
+name|Bar
+name|withRider
+parameter_list|(
+name|boolean
+name|rider
+parameter_list|)
+block|{
+name|this
+operator|.
+name|rider
+operator|=
+name|rider
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|work (Company work)
+specifier|public
+name|Bar
+name|work
 parameter_list|(
 name|Company
 name|work
@@ -1618,21 +1636,14 @@ name|work
 operator|=
 name|work
 expr_stmt|;
-block|}
-DECL|method|isGoldCustomer ()
-specifier|public
-name|boolean
-name|isGoldCustomer
-parameter_list|()
-block|{
 return|return
-name|goldCustomer
+name|this
 return|;
 block|}
-DECL|method|setGoldCustomer (boolean goldCustomer)
+DECL|method|goldCustomer (boolean goldCustomer)
 specifier|public
-name|void
-name|setGoldCustomer
+name|Bar
+name|goldCustomer
 parameter_list|(
 name|boolean
 name|goldCustomer
@@ -1644,6 +1655,9 @@ name|goldCustomer
 operator|=
 name|goldCustomer
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 block|}
 block|}
