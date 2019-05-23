@@ -113,6 +113,39 @@ operator|=
 name|propertyName
 expr_stmt|;
 block|}
+DECL|method|PropertyBindingException (Object target, Exception e)
+specifier|public
+name|PropertyBindingException
+parameter_list|(
+name|Object
+name|target
+parameter_list|,
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"Error binding properties on bean: "
+operator|+
+name|target
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|target
+operator|=
+name|target
+expr_stmt|;
+name|this
+operator|.
+name|propertyName
+operator|=
+literal|null
+expr_stmt|;
+block|}
 DECL|method|getTarget ()
 specifier|public
 name|Object
