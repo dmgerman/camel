@@ -157,6 +157,8 @@ specifier|final
 class|class
 name|PropertyBindingSupport
 block|{
+comment|// TODO: Add support for auto binding to singleton instance by type from registry (boolean on|off)
+comment|// TODO: builder pattern with naming prefix: withXXX
 DECL|field|SECRETS
 specifier|private
 specifier|static
