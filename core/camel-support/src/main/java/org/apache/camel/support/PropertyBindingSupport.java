@@ -173,21 +173,6 @@ name|fluentBuilder
 init|=
 literal|true
 decl_stmt|;
-DECL|field|target
-specifier|private
-name|Object
-name|target
-decl_stmt|;
-DECL|field|properties
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|properties
-decl_stmt|;
 DECL|method|withNesting (boolean nesting)
 specifier|public
 name|Builder
@@ -264,30 +249,17 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|withTarget (Object target)
+DECL|method|bind (CamelContext camelContext, Object target, Map<String, Object> properties)
 specifier|public
-name|Builder
-name|withTarget
+name|boolean
+name|bind
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Object
 name|target
-parameter_list|)
-block|{
-name|this
-operator|.
-name|target
-operator|=
-name|target
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-DECL|method|withProperties (Map<String, Object> properties)
-specifier|public
-name|Builder
-name|withProperties
-parameter_list|(
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -295,25 +267,6 @@ argument_list|,
 name|Object
 argument_list|>
 name|properties
-parameter_list|)
-block|{
-name|this
-operator|.
-name|properties
-operator|=
-name|properties
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-DECL|method|bind (CamelContext camelContext)
-specifier|public
-name|boolean
-name|bind
-parameter_list|(
-name|CamelContext
-name|camelContext
 parameter_list|)
 block|{
 name|org
