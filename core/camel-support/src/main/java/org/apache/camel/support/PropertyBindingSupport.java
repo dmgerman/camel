@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A convenient support class for binding String valued properties to an instance which  * uses a set of conventions:  *<ul>  *<li>property placeholders - Keys and values using Camels property placeholder will be resolved</li>  *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>  *<li>reference by id - Values can refer to other beans in the registry by prefixing with # syntax, eg #myBean</li>  *<li>reference by type - Values can refer to singleton beans by their type in the registry by prefixing with #type: syntax, eg #type:com.foo.MyClassType</li>  *<li>new class - Values can refer to creating new beans by their class name syntax, eg class:com.foo.MyClassType</li>  *</ul>  * This implementations reuses parts of {@link IntrospectionSupport}.  */
+comment|/**  * A convenient support class for binding String valued properties to an instance which  * uses a set of conventions:  *<ul>  *<li>property placeholders - Keys and values using Camels property placeholder will be resolved</li>  *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>  *<li>reference by id - Values can refer to other beans in the registry by prefixing with #id: or # syntax, eg #id:myBean or #myBean</li>  *<li>reference by type - Values can refer to singleton beans by their type in the registry by prefixing with #type: syntax, eg #type:com.foo.MyClassType</li>  *<li>new class - Values can refer to creating new beans by their class name syntax, eg class:com.foo.MyClassType</li>  *</ul>  * This implementations reuses parts of {@link IntrospectionSupport}.  */
 end_comment
 
 begin_class
@@ -671,7 +671,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"class:"
+literal|"#class:"
 argument_list|)
 condition|)
 block|{
@@ -815,6 +815,40 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|value
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"#id:"
+argument_list|)
+condition|)
+block|{
+comment|// okay its a reference so swap to lookup this which is already supported in IntrospectionSupport
+name|refName
+operator|=
+operator|(
+operator|(
+name|String
+operator|)
+name|value
+operator|)
+operator|.
+name|substring
+argument_list|(
+literal|4
+argument_list|)
+expr_stmt|;
+name|value
+operator|=
+literal|null
+expr_stmt|;
 block|}
 elseif|else
 if|if
