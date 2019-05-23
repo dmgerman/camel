@@ -81,18 +81,6 @@ extends|extends
 name|SftpServerTestSupport
 block|{
 annotation|@
-name|Override
-DECL|method|isUseRouteBuilder ()
-specifier|public
-name|boolean
-name|isUseRouteBuilder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
 name|Test
 DECL|method|testSftpSetCipherName ()
 specifier|public

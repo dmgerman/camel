@@ -182,18 +182,6 @@ literal|"&readLock=none&consumer.delay=500"
 return|;
 block|}
 annotation|@
-name|Override
-DECL|method|isUseRouteBuilder ()
-specifier|public
-name|boolean
-name|isUseRouteBuilder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
 name|Test
 DECL|method|testPollFileWhileSlowFileIsBeingWrittenUsingNonExclusiveRead ()
 specifier|public

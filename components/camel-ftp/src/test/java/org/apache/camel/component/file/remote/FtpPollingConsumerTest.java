@@ -76,18 +76,6 @@ name|FtpPollingConsumerTest
 extends|extends
 name|FtpServerTestSupport
 block|{
-annotation|@
-name|Override
-DECL|method|isUseRouteBuilder ()
-specifier|public
-name|boolean
-name|isUseRouteBuilder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 DECL|method|getFtpUrl ()
 specifier|private
 name|String

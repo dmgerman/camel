@@ -117,18 +117,6 @@ literal|"\u00e6\u00f8\u00e5 \u00a9"
 decl_stmt|;
 comment|// danish ae oe aa and (c) sign
 annotation|@
-name|Override
-DECL|method|isUseRouteBuilder ()
-specifier|public
-name|boolean
-name|isUseRouteBuilder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
 name|Test
 DECL|method|testProducerWithCharset ()
 specifier|public
