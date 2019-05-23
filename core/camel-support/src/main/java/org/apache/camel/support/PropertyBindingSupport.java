@@ -34,16 +34,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -60,18 +50,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Pattern
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -79,38 +57,6 @@ operator|.
 name|camel
 operator|.
 name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|TypeConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
 import|;
 end_import
 
@@ -147,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A convenient support class for binding String valued properties to an instance which  * uses a set of conventions:  *<ul>  *<li>nested - Properties can be nested using the dot syntax (OGNL), eg foo.bar=123</li>  *<li>reference by id - Values can refer to other beans in the registry by prefixing with # syntax, eg #myBean</li>  *</ul>  * This implementations reuses parts of {@link IntrospectionSupport}.  */
+comment|/**  * A convenient support class for binding String valued properties to an instance which  * uses a set of conventions:  *<ul>  *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>  *<li>reference by id - Values can refer to other beans in the registry by prefixing with # syntax, eg #myBean</li>  *</ul>  * This implementations reuses parts of {@link IntrospectionSupport}.  */
 end_comment
 
 begin_class
@@ -158,41 +104,6 @@ class|class
 name|PropertyBindingSupport
 block|{
 comment|// TODO: Add support for auto binding to singleton instance by type from registry (boolean on|off)
-comment|// TODO: builder pattern with naming prefix: withXXX
-DECL|field|SECRETS
-specifier|private
-specifier|static
-specifier|final
-name|Pattern
-name|SECRETS
-init|=
-name|Pattern
-operator|.
-name|compile
-argument_list|(
-literal|".*(passphrase|password|secretKey).*"
-argument_list|,
-name|Pattern
-operator|.
-name|CASE_INSENSITIVE
-argument_list|)
-decl_stmt|;
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|PropertyBindingSupport
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|PropertyBindingSupport ()
 specifier|private
 name|PropertyBindingSupport
@@ -294,11 +205,6 @@ name|setProperty
 argument_list|(
 name|camelContext
 argument_list|,
-name|camelContext
-operator|.
-name|getTypeConverter
-argument_list|()
-argument_list|,
 name|target
 argument_list|,
 name|name
@@ -314,7 +220,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * This method supports two modes to set a property:      *      * 1. Setting a property that has already been resolved, this is the case when {@code context} and {@code refName} are      * NULL and {@code value} is non-NULL.      *      * 2. Setting a property that has not yet been resolved, the property will be resolved based on the suitable methods      * found matching the property name on the {@code target} bean. For this mode to be triggered the parameters      * {@code context} and {@code refName} must NOT be NULL, and {@code value} MUST be NULL.      */
-DECL|method|setProperty (CamelContext context, TypeConverter typeConverter, Object target, String name, Object value, String refName, boolean allowBuilderPattern, boolean allowNestedProperties)
+DECL|method|setProperty (CamelContext context, Object target, String name, Object value, String refName, boolean allowBuilderPattern, boolean allowNestedProperties)
 specifier|private
 specifier|static
 name|boolean
@@ -322,9 +228,6 @@ name|setProperty
 parameter_list|(
 name|CamelContext
 name|context
-parameter_list|,
-name|TypeConverter
-name|typeConverter
 parameter_list|,
 name|Object
 name|target
@@ -357,12 +260,6 @@ name|target
 operator|.
 name|getClass
 argument_list|()
-decl_stmt|;
-name|Collection
-argument_list|<
-name|Method
-argument_list|>
-name|setters
 decl_stmt|;
 comment|// if name has dot then we need to OGNL walk it
 if|if
@@ -463,7 +360,7 @@ name|newClass
 argument_list|,
 name|part
 argument_list|,
-literal|true
+name|allowBuilderPattern
 argument_list|)
 decl_stmt|;
 if|if
@@ -650,7 +547,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// TODO: At this point we can likely just call IntrospectionSupport directly
 return|return
 name|IntrospectionSupport
 operator|.
@@ -671,7 +567,7 @@ name|value
 argument_list|,
 name|refName
 argument_list|,
-literal|true
+name|allowBuilderPattern
 argument_list|)
 return|;
 block|}
