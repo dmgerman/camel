@@ -243,9 +243,9 @@ argument_list|)
 decl_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Detected and using custom BeanProcessorFactory: {}"
+literal|"Detected and using BeanProcessorFactory: {}"
 argument_list|,
 name|answer
 argument_list|)

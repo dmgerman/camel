@@ -243,7 +243,7 @@ argument_list|)
 decl_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Detected and using RestRegistryFactory: {}"
 argument_list|,
@@ -274,7 +274,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"No RestRegistryFactory implementation found.  You need to add camel-rest to the classpath."
+literal|"Cannot find RestRegistryFactory. Make sure camel-rest is on the classpath."
 argument_list|)
 expr_stmt|;
 return|return
