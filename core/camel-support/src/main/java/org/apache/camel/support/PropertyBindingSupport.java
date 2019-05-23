@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A convenient support class for binding String valued properties to an instance which  * uses a set of conventions:  *<ul>  *<li>property placeholders - Keys and values using Camels property placeholder will be resolved</li>  *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>  *<li>reference by id - Values can refer to other beans in the registry by prefixing with #id: or # syntax, eg #id:myBean or #myBean</li>  *<li>reference by type - Values can refer to singleton beans by their type in the registry by prefixing with #type: syntax, eg #type:com.foo.MyClassType</li>  *<li>new class - Values can refer to creating new beans by their class name syntax, eg class:com.foo.MyClassType</li>  *</ul>  * This implementations reuses parts of {@link IntrospectionSupport}.  */
+comment|/**  * A convenient support class for binding String valued properties to an instance which  * uses a set of conventions:  *<ul>  *<li>property placeholders - Keys and values using Camels property placeholder will be resolved</li>  *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>  *<li>reference by id - Values can refer to other beans in the registry by prefixing with #id: or # syntax, eg #id:myBean or #myBean</li>  *<li>reference by type - Values can refer to singleton beans by their type in the registry by prefixing with #type: syntax, eg #type:com.foo.MyClassType</li>  *<li>autowire by type - Values can refer to singleton beans by auto wiring by setting the value to #autowire</li>  *<li>new class - Values can refer to creating new beans by their class name syntax, eg class:com.foo.MyClassType</li>  *</ul>  * This implementations reuses parts of {@link IntrospectionSupport}.  */
 end_comment
 
 begin_class
@@ -115,13 +115,31 @@ specifier|final
 class|class
 name|PropertyBindingSupport
 block|{
-comment|// TODO: Add support for auto binding to singleton instance by type from registry (boolean on|off)
 comment|// TODO: Add support for Map/List
 DECL|method|PropertyBindingSupport ()
 specifier|private
 name|PropertyBindingSupport
 parameter_list|()
 block|{     }
+comment|/**      * This will discover all the properties on the target, and automatic bind the properties that are null by      * looking up in the registry to see if there is a single instance of the same type as the property.      * This is used for convention over configuration to automatic configure resources such as DataSource, Amazon Logins and      * so on.      *      * @param camelContext  the camel context      * @param target        the target object      * @return              true if one ore more properties was auto wired      */
+DECL|method|autowireSingletonPropertiesFromRegistry (CamelContext camelContext, Object target)
+specifier|public
+specifier|static
+name|boolean
+name|autowireSingletonPropertiesFromRegistry
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|Object
+name|target
+parameter_list|)
+block|{
+comment|// TODO: implement me
+return|return
+literal|false
+return|;
+block|}
 comment|/**      * Binds the properties to the target object.      *      * @param camelContext  the camel context      * @param target        the target object      * @param properties    the properties      * @return              true if all the properties was bound, false otherwise      */
 DECL|method|bindProperties (CamelContext camelContext, Object target, Map<String, Object> properties)
 specifier|public
@@ -365,17 +383,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|clazz
-init|=
-name|target
-operator|.
-name|getClass
-argument_list|()
-decl_stmt|;
 name|String
 name|refName
 init|=
@@ -447,7 +454,10 @@ name|?
 argument_list|>
 name|newClass
 init|=
-name|clazz
+name|target
+operator|.
+name|getClass
+argument_list|()
 decl_stmt|;
 comment|// we should only iterate until until 2nd last so we use -1 in the for loop
 for|for
@@ -512,6 +522,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+comment|// TODO: you may have setter + fluent builder at the same time, so grab setter first, and fallback to fluent builder afterwards
 if|if
 condition|(
 name|newSetters
@@ -813,6 +824,122 @@ operator|.
 name|next
 argument_list|()
 expr_stmt|;
+block|}
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|value
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"#autowire"
+argument_list|)
+condition|)
+block|{
+comment|// we should get the type from the setter
+comment|// TODO: you may have setter + fluent builder at the same time, so grab setter first, and fallback to fluent builder afterwards
+name|Set
+argument_list|<
+name|Method
+argument_list|>
+name|newSetters
+init|=
+name|findSetterMethods
+argument_list|(
+name|target
+operator|.
+name|getClass
+argument_list|()
+argument_list|,
+name|name
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|newSetters
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|1
+condition|)
+block|{
+name|Method
+name|method
+init|=
+name|newSetters
+operator|.
+name|iterator
+argument_list|()
+operator|.
+name|next
+argument_list|()
+decl_stmt|;
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|parameterType
+init|=
+name|method
+operator|.
+name|getParameterTypes
+argument_list|()
+index|[
+literal|0
+index|]
+decl_stmt|;
+if|if
+condition|(
+name|parameterType
+operator|!=
+literal|null
+condition|)
+block|{
+name|Set
+argument_list|<
+name|?
+argument_list|>
+name|types
+init|=
+name|context
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|findByType
+argument_list|(
+name|parameterType
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|types
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|1
+condition|)
+block|{
+name|value
+operator|=
+name|types
+operator|.
+name|iterator
+argument_list|()
+operator|.
+name|next
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
