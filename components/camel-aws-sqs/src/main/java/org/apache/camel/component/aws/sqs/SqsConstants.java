@@ -72,6 +72,12 @@ name|MESSAGE_GROUP_ID_PROPERTY
 init|=
 literal|"CamelAwsMessageGroupId"
 decl_stmt|;
+DECL|field|SQS_QUEUE_PREFIX
+name|String
+name|SQS_QUEUE_PREFIX
+init|=
+literal|"CamelAwsSqsPrefix"
+decl_stmt|;
 DECL|field|SQS_OPERATION
 name|String
 name|SQS_OPERATION

@@ -31,6 +31,9 @@ name|sendBatchMessage
 block|,
 DECL|enumConstant|deleteMessage
 name|deleteMessage
+block|,
+DECL|enumConstant|listQueues
+name|listQueues
 block|}
 end_enum
 
