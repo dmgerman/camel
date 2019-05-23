@@ -122,20 +122,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|OnExceptionDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -199,16 +185,16 @@ name|MyPolicy
 implements|implements
 name|ExceptionPolicyStrategy
 block|{
-DECL|method|getExceptionPolicy (Map<ExceptionPolicyKey, OnExceptionDefinition> exceptionPolicices, Exchange exchange, Throwable exception)
+DECL|method|getExceptionPolicy (Map<ExceptionPolicyKey, ExceptionPolicy> exceptionPolicices, Exchange exchange, Throwable exception)
 specifier|public
-name|OnExceptionDefinition
+name|ExceptionPolicy
 name|getExceptionPolicy
 parameter_list|(
 name|Map
 argument_list|<
 name|ExceptionPolicyKey
 argument_list|,
-name|OnExceptionDefinition
+name|ExceptionPolicy
 argument_list|>
 name|exceptionPolicices
 parameter_list|,

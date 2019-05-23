@@ -218,6 +218,8 @@ name|camel
 operator|.
 name|reifier
 operator|.
+name|errorhandler
+operator|.
 name|ErrorHandlerReifier
 import|;
 end_import

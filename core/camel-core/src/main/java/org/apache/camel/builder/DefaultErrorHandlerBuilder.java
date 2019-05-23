@@ -1725,6 +1725,32 @@ operator|=
 name|asyncDelayedRedelivery
 expr_stmt|;
 block|}
+DECL|method|getExecutorService ()
+specifier|public
+name|ScheduledExecutorService
+name|getExecutorService
+parameter_list|()
+block|{
+return|return
+name|executorService
+return|;
+block|}
+DECL|method|setExecutorService (ScheduledExecutorService executorService)
+specifier|public
+name|void
+name|setExecutorService
+parameter_list|(
+name|ScheduledExecutorService
+name|executorService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|executorService
+operator|=
+name|executorService
+expr_stmt|;
+block|}
 DECL|method|getExecutorServiceRef ()
 specifier|public
 name|String

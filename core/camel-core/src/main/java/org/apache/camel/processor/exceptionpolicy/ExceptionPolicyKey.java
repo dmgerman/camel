@@ -26,9 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|WhenDefinition
+name|Predicate
 import|;
 end_import
 
@@ -63,11 +61,11 @@ decl_stmt|;
 DECL|field|when
 specifier|private
 specifier|final
-name|WhenDefinition
+name|Predicate
 name|when
 decl_stmt|;
 comment|/**      * Key for exception clause      *      * @param routeId          the route, or use<tt>null</tt> for a global scoped      * @param exceptionClass   the exception class      * @param when             optional predicate when the exception clause should trigger      */
-DECL|method|ExceptionPolicyKey (String routeId, Class<? extends Throwable> exceptionClass, WhenDefinition when)
+DECL|method|ExceptionPolicyKey (String routeId, Class<? extends Throwable> exceptionClass, Predicate when)
 specifier|public
 name|ExceptionPolicyKey
 parameter_list|(
@@ -82,7 +80,7 @@ name|Throwable
 argument_list|>
 name|exceptionClass
 parameter_list|,
-name|WhenDefinition
+name|Predicate
 name|when
 parameter_list|)
 block|{
@@ -120,7 +118,7 @@ return|;
 block|}
 DECL|method|getWhen ()
 specifier|public
-name|WhenDefinition
+name|Predicate
 name|getWhen
 parameter_list|()
 block|{
