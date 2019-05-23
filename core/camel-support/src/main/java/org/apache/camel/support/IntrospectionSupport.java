@@ -1213,13 +1213,14 @@ decl_stmt|;
 if|if
 condition|(
 name|validName
-condition|)
-block|{
-return|return
+operator|&&
 name|parameterCount
 operator|==
 literal|1
-operator|&&
+condition|)
+block|{
+comment|// a setXXX can also be a builder pattern so check for its return type is itself
+return|return
 name|type
 operator|.
 name|equals
@@ -1227,6 +1228,18 @@ argument_list|(
 name|Void
 operator|.
 name|TYPE
+argument_list|)
+operator|||
+name|allowBuilderPattern
+operator|&&
+name|method
+operator|.
+name|getDeclaringClass
+argument_list|()
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|type
 argument_list|)
 return|;
 block|}
