@@ -421,7 +421,7 @@ literal|"advanced"
 argument_list|,
 name|description
 operator|=
-literal|"Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities"
+literal|"Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities"
 argument_list|)
 DECL|field|basicPropertyBinding
 specifier|private

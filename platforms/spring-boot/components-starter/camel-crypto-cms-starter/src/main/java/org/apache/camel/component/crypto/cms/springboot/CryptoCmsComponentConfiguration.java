@@ -114,6 +114,14 @@ name|resolvePropertyPlaceholders
 init|=
 literal|true
 decl_stmt|;
+comment|/**      * Whether the component should use basic property binding (Camel 2.x) or      * the newer property binding with additional capabilities      */
+DECL|field|basicPropertyBinding
+specifier|private
+name|Boolean
+name|basicPropertyBinding
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getSignedDataVerifierConfiguration ()
 specifier|public
 name|String
@@ -190,6 +198,32 @@ operator|.
 name|resolvePropertyPlaceholders
 operator|=
 name|resolvePropertyPlaceholders
+expr_stmt|;
+block|}
+DECL|method|getBasicPropertyBinding ()
+specifier|public
+name|Boolean
+name|getBasicPropertyBinding
+parameter_list|()
+block|{
+return|return
+name|basicPropertyBinding
+return|;
+block|}
+DECL|method|setBasicPropertyBinding (Boolean basicPropertyBinding)
+specifier|public
+name|void
+name|setBasicPropertyBinding
+parameter_list|(
+name|Boolean
+name|basicPropertyBinding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|basicPropertyBinding
+operator|=
+name|basicPropertyBinding
 expr_stmt|;
 block|}
 block|}
