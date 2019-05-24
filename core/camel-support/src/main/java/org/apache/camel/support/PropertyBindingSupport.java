@@ -136,7 +136,6 @@ class|class
 name|PropertyBindingSupport
 block|{
 comment|// TODO: Add support for Map/List
-comment|// TODO: Add option to turn this binding on|off on component/endpoint level
 comment|/**      * To use a fluent builder style to configure this property binding support.      */
 DECL|class|Builder
 specifier|public
