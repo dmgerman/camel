@@ -188,6 +188,11 @@ name|proxyPort
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|autoCreateQueue
 specifier|private
 name|boolean
