@@ -3359,15 +3359,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|camelExchange
-operator|.
-name|setProperty
-argument_list|(
-name|contextKey
-argument_list|,
-name|cxfContext
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * @param cxfMessage      * @param camelMessage      * @param exchange provides context for filtering      */
 DECL|method|propagateHeadersFromCxfToCamel (Message cxfMessage, org.apache.camel.Message camelMessage, Exchange exchange)
