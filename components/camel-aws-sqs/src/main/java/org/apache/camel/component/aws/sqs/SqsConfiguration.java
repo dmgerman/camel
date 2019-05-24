@@ -510,7 +510,7 @@ specifier|private
 name|String
 name|redrivePolicy
 decl_stmt|;
-comment|/**      *  Whether or not the queue is a FIFO queue      */
+comment|/**      * Whether or not the queue is a FIFO queue      */
 DECL|method|isFifoQueue ()
 name|boolean
 name|isFifoQueue
@@ -708,7 +708,7 @@ return|return
 name|visibilityTimeout
 return|;
 block|}
-comment|/**      * The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved      * by a ReceiveMessage request to set in the com.amazonaws.services.sqs.model.SetQueueAttributesRequest.      * This only make sense if its different from defaultVisibilityTimeout.      * It changes the queue visibility timeout attribute permanently.      */
+comment|/**      * The duration (in seconds) that the received messages are hidden from      * subsequent retrieve requests after being retrieved by a ReceiveMessage      * request to set in the      * com.amazonaws.services.sqs.model.SetQueueAttributesRequest. This only      * make sense if its different from defaultVisibilityTimeout. It changes the      * queue visibility timeout attribute permanently.      */
 DECL|method|setVisibilityTimeout (Integer visibilityTimeout)
 specifier|public
 name|void
@@ -735,7 +735,7 @@ return|return
 name|attributeNames
 return|;
 block|}
-comment|/**      * A list of attribute names to receive when consuming.  Multiple names can be separated by comma.      */
+comment|/**      * A list of attribute names to receive when consuming. Multiple names can      * be separated by comma.      */
 DECL|method|setAttributeNames (String attributeNames)
 specifier|public
 name|void
@@ -762,7 +762,7 @@ return|return
 name|messageAttributeNames
 return|;
 block|}
-comment|/**      * A list of message attribute names to receive when consuming. Multiple names can be separated by comma.      */
+comment|/**      * A list of message attribute names to receive when consuming. Multiple      * names can be separated by comma.      */
 DECL|method|setMessageAttributeNames (String messageAttributeNames)
 specifier|public
 name|void
@@ -843,7 +843,7 @@ return|return
 name|delayQueue
 return|;
 block|}
-comment|/**      * Define if you want to apply delaySeconds option to the queue or on single messages      */
+comment|/**      * Define if you want to apply delaySeconds option to the queue or on single      * messages      */
 DECL|method|setDelayQueue (boolean delayQueue)
 specifier|public
 name|void
@@ -870,7 +870,7 @@ return|return
 name|maximumMessageSize
 return|;
 block|}
-comment|/**      * The maximumMessageSize (in bytes) an SQS message can contain for this queue.      */
+comment|/**      * The maximumMessageSize (in bytes) an SQS message can contain for this      * queue.      */
 DECL|method|setMaximumMessageSize (Integer maximumMessageSize)
 specifier|public
 name|void
@@ -897,7 +897,7 @@ return|return
 name|messageRetentionPeriod
 return|;
 block|}
-comment|/**      * The messageRetentionPeriod (in seconds) a message will be retained by SQS for this queue.      */
+comment|/**      * The messageRetentionPeriod (in seconds) a message will be retained by SQS      * for this queue.      */
 DECL|method|setMessageRetentionPeriod (Integer messageRetentionPeriod)
 specifier|public
 name|void
@@ -951,7 +951,7 @@ return|return
 name|redrivePolicy
 return|;
 block|}
-comment|/**      * Specify the policy that send message to DeadLetter queue. See detail at Amazon docs.      */
+comment|/**      * Specify the policy that send message to DeadLetter queue. See detail at      * Amazon docs.      */
 DECL|method|setRedrivePolicy (String redrivePolicy)
 specifier|public
 name|void
@@ -980,7 +980,7 @@ operator|.
 name|extendMessageVisibility
 return|;
 block|}
-comment|/**      * If enabled then a scheduled background task will keep extending the message visibility on SQS.      * This is needed if it takes a long time to process the message. If set to true defaultVisibilityTimeout must be set.      * See details at Amazon docs.      */
+comment|/**      * If enabled then a scheduled background task will keep extending the      * message visibility on SQS. This is needed if it takes a long time to      * process the message. If set to true defaultVisibilityTimeout must be set.      * See details at Amazon docs.      */
 DECL|method|setExtendMessageVisibility (boolean extendMessageVisibility)
 specifier|public
 name|void
@@ -1007,7 +1007,7 @@ return|return
 name|receiveMessageWaitTimeSeconds
 return|;
 block|}
-comment|/**      * If you do not specify WaitTimeSeconds in the request, the queue attribute ReceiveMessageWaitTimeSeconds is used to determine how long to wait.      */
+comment|/**      * If you do not specify WaitTimeSeconds in the request, the queue attribute      * ReceiveMessageWaitTimeSeconds is used to determine how long to wait.      */
 DECL|method|setReceiveMessageWaitTimeSeconds (Integer receiveMessageWaitTimeSeconds)
 specifier|public
 name|void
@@ -1034,7 +1034,7 @@ return|return
 name|waitTimeSeconds
 return|;
 block|}
-comment|/**      * Duration in seconds (0 to 20) that the ReceiveMessage action call will wait until a message is in the queue to include in the response.      */
+comment|/**      * Duration in seconds (0 to 20) that the ReceiveMessage action call will      * wait until a message is in the queue to include in the response.      */
 DECL|method|setWaitTimeSeconds (Integer waitTimeSeconds)
 specifier|public
 name|void
@@ -1061,7 +1061,7 @@ return|return
 name|queueOwnerAWSAccountId
 return|;
 block|}
-comment|/**      * Specify the queue owner aws account id when you need to connect the queue with different account owner.      */
+comment|/**      * Specify the queue owner aws account id when you need to connect the queue      * with different account owner.      */
 DECL|method|setQueueOwnerAWSAccountId (String queueOwnerAWSAccountId)
 specifier|public
 name|void
@@ -1088,7 +1088,7 @@ return|return
 name|deleteIfFiltered
 return|;
 block|}
-comment|/**      * Whether or not to send the DeleteMessage to the SQS queue if an exchange fails to get through a filter.      * If 'false' and exchange does not make it through a Camel filter upstream in the route, then don't send DeleteMessage.      */
+comment|/**      * Whether or not to send the DeleteMessage to the SQS queue if an exchange      * fails to get through a filter. If 'false' and exchange does not make it      * through a Camel filter upstream in the route, then don't send      * DeleteMessage.      */
 DECL|method|setDeleteIfFiltered (boolean deleteIfFiltered)
 specifier|public
 name|void
@@ -1115,7 +1115,7 @@ return|return
 name|region
 return|;
 block|}
-comment|/**      * Specify the queue region which could be used with queueOwnerAWSAccountId to build the service URL.      */
+comment|/**      * Specify the queue region which could be used with queueOwnerAWSAccountId      * to build the service URL.      */
 DECL|method|setRegion (String region)
 specifier|public
 name|void
@@ -1142,7 +1142,7 @@ return|return
 name|concurrentConsumers
 return|;
 block|}
-comment|/**      * Allows you to use multiple threads to poll the sqs queue to increase throughput      */
+comment|/**      * Allows you to use multiple threads to poll the sqs queue to increase      * throughput      */
 DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
 name|void
@@ -1169,7 +1169,7 @@ return|return
 name|queueUrl
 return|;
 block|}
-comment|/**      * To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored.      * This parameter is intended to be used, to connect to a mock implementation of SQS, for testing purposes.      */
+comment|/**      * To define the queueUrl explicitly. All other parameters, which would      * influence the queueUrl, are ignored. This parameter is intended to be      * used, to connect to a mock implementation of SQS, for testing purposes.      */
 DECL|method|setQueueUrl (String queueUrl)
 specifier|public
 name|void
@@ -1250,7 +1250,7 @@ return|return
 name|kmsMasterKeyId
 return|;
 block|}
-comment|/**      * The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK.      */
+comment|/**      * The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a      * custom CMK.      */
 DECL|method|setKmsMasterKeyId (String kmsMasterKeyId)
 specifier|public
 name|void
@@ -1277,7 +1277,7 @@ return|return
 name|kmsDataKeyReusePeriodSeconds
 return|;
 block|}
-comment|/**      * The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt       * messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute)       * and 86,400 seconds (24 hours). Default: 300 (5 minutes).      */
+comment|/**      * The length of time, in seconds, for which Amazon SQS can reuse a data key      * to encrypt or decrypt messages before calling AWS KMS again. An integer      * representing seconds, between 60 seconds (1 minute) and 86,400 seconds      * (24 hours). Default: 300 (5 minutes).      */
 DECL|method|setKmsDataKeyReusePeriodSeconds (Integer kmsDataKeyReusePeriodSeconds)
 specifier|public
 name|void
@@ -1321,7 +1321,7 @@ operator|=
 name|serverSideEncryptionEnabled
 expr_stmt|;
 block|}
-comment|/**      * Only for FIFO queues. Strategy for setting the messageGroupId on the message.      * Can be one of the following options: *useConstant*, *useExchangeId*, *usePropertyValue*.      * For the *usePropertyValue* option, the value of property "CamelAwsMessageGroupId" will be used.      */
+comment|/**      * Only for FIFO queues. Strategy for setting the messageGroupId on the      * message. Can be one of the following options: *useConstant*,      * *useExchangeId*, *usePropertyValue*. For the *usePropertyValue* option,      * the value of property "CamelAwsMessageGroupId" will be used.      */
 DECL|method|setMessageGroupIdStrategy (String strategy)
 specifier|public
 name|void
@@ -1417,7 +1417,7 @@ return|return
 name|messageDeduplicationIdStrategy
 return|;
 block|}
-comment|/**      * Only for FIFO queues. Strategy for setting the messageDeduplicationId on the message.      * Can be one of the following options: *useExchangeId*, *useContentBasedDeduplication*.      * For the *useContentBasedDeduplication* option, no messageDeduplicationId will be set on the message.      */
+comment|/**      * Only for FIFO queues. Strategy for setting the messageDeduplicationId on      * the message. Can be one of the following options: *useExchangeId*,      * *useContentBasedDeduplication*. For the *useContentBasedDeduplication*      * option, no messageDeduplicationId will be set on the message.      */
 DECL|method|setMessageDeduplicationIdStrategy (String strategy)
 specifier|public
 name|void
