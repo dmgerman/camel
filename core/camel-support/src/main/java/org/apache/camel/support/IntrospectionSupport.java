@@ -3413,6 +3413,10 @@ name|Object
 name|convertedValue
 init|=
 name|typeConverter
+operator|!=
+literal|null
+condition|?
+name|typeConverter
 operator|.
 name|convertTo
 argument_list|(
@@ -3420,6 +3424,8 @@ name|parameterType
 argument_list|,
 name|ref
 argument_list|)
+else|:
+name|ref
 decl_stmt|;
 comment|// we may want to set options on classes that has package view visibility, so override the accessible
 name|setter
