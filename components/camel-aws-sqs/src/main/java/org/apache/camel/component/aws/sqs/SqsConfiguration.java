@@ -186,6 +186,15 @@ specifier|private
 name|Integer
 name|proxyPort
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|autoCreateQueue
+specifier|private
+name|boolean
+name|autoCreateQueue
+init|=
+literal|true
+decl_stmt|;
 comment|// consumer properties
 annotation|@
 name|UriParam
@@ -1491,6 +1500,33 @@ operator|.
 name|operation
 operator|=
 name|operation
+expr_stmt|;
+block|}
+DECL|method|isAutoCreateQueue ()
+specifier|public
+name|boolean
+name|isAutoCreateQueue
+parameter_list|()
+block|{
+return|return
+name|autoCreateQueue
+return|;
+block|}
+comment|/**      * Setting the autocreation of the queue      */
+DECL|method|setAutoCreateQueue (boolean autoCreateQueue)
+specifier|public
+name|void
+name|setAutoCreateQueue
+parameter_list|(
+name|boolean
+name|autoCreateQueue
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoCreateQueue
+operator|=
+name|autoCreateQueue
 expr_stmt|;
 block|}
 comment|// *************************************************

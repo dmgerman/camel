@@ -958,6 +958,11 @@ condition|(
 name|queueUrl
 operator|==
 literal|null
+operator|&&
+name|configuration
+operator|.
+name|isAutoCreateQueue
+argument_list|()
 condition|)
 block|{
 name|createQueue

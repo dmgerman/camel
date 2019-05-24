@@ -752,6 +752,18 @@ parameter_list|()
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isAutoCreateQueue
+argument_list|()
+condition|)
+block|{
 name|getEndpoint
 argument_list|()
 operator|.
@@ -761,6 +773,7 @@ name|getClient
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
