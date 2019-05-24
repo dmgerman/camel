@@ -3018,8 +3018,6 @@ name|sslContextFactory
 init|=
 operator|new
 name|SslContextFactory
-operator|.
-name|Server
 argument_list|()
 decl_stmt|;
 name|sslContextFactory
@@ -3075,8 +3073,6 @@ class|class
 name|WebSocketComponentSslContextFactory
 extends|extends
 name|SslContextFactory
-operator|.
-name|Server
 block|{
 comment|// This method is for Jetty 7.0.x ~ 7.4.x
 annotation|@

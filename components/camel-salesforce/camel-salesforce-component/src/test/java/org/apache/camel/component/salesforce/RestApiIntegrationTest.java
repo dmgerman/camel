@@ -2162,8 +2162,6 @@ name|sslContextFactory
 init|=
 operator|new
 name|SslContextFactory
-operator|.
-name|Client
 argument_list|()
 decl_stmt|;
 name|sslContextFactory
@@ -2314,8 +2312,6 @@ name|sslContextFactory
 init|=
 operator|new
 name|SslContextFactory
-operator|.
-name|Client
 argument_list|()
 decl_stmt|;
 name|sslContextFactory
