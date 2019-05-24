@@ -806,6 +806,18 @@ name|label
 operator|=
 literal|"consumer,advanced"
 argument_list|)
+DECL|field|startingDirectoryMustHaveAccess
+specifier|protected
+name|boolean
+name|startingDirectoryMustHaveAccess
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|)
 DECL|field|directoryMustExist
 specifier|protected
 name|boolean
@@ -3827,6 +3839,33 @@ operator|.
 name|startingDirectoryMustExist
 operator|=
 name|startingDirectoryMustExist
+expr_stmt|;
+block|}
+DECL|method|isStartingDirectoryMustHaveAccess ()
+specifier|public
+name|boolean
+name|isStartingDirectoryMustHaveAccess
+parameter_list|()
+block|{
+return|return
+name|startingDirectoryMustHaveAccess
+return|;
+block|}
+comment|/**    * Whether the starting directory has access permissions. Mind that the    * startingDirectoryMustExist parameter must be set to true in order to verify that the    * directory exists. Will thrown an exception if the directory doesn't have    * read and write permissions.    */
+DECL|method|setStartingDirectoryMustHaveAccess (boolean startingDirectoryMustHaveAccess)
+specifier|public
+name|void
+name|setStartingDirectoryMustHaveAccess
+parameter_list|(
+name|boolean
+name|startingDirectoryMustHaveAccess
+parameter_list|)
+block|{
+name|this
+operator|.
+name|startingDirectoryMustHaveAccess
+operator|=
+name|startingDirectoryMustHaveAccess
 expr_stmt|;
 block|}
 DECL|method|isDirectoryMustExist ()
