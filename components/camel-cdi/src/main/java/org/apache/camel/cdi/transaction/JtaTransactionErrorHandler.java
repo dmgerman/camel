@@ -120,7 +120,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|exceptionpolicy
+name|errorhandler
 operator|.
 name|ExceptionPolicyStrategy
 import|;

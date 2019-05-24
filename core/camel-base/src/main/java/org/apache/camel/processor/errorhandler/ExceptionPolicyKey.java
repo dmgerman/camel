@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor.exceptionpolicy
+DECL|package|org.apache.camel.processor.errorhandler
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|exceptionpolicy
+name|errorhandler
 package|;
 end_package
 

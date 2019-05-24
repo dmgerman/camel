@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor.exceptionpolicy
+DECL|package|org.apache.camel.processor.errorhandler
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|exceptionpolicy
+name|errorhandler
 package|;
 end_package
 
@@ -34,7 +34,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|LinkedHashMap
+name|LinkedHashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -115,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default strategy used in Camel to resolve the {@link ExceptionPolicy} that should  * handle the thrown exception.  *<p/>  *<b>Selection strategy:</b>  *<br/>This strategy applies the following rules:  *<ul>  *<li>Will walk the exception hierarchy from bottom upwards till the thrown exception, meaning that the most outer caused  * by is selected first, ending with the thrown exception itself. The method {@link #createExceptionIterator(Throwable)}  * provides the Iterator used for the walking.</li>  *<li>The exception type must be configured with an Exception that is an instance of the thrown exception, this  * is tested using the {@link #filter(ExceptionPolicy, Class, Throwable)} method.  * By default the filter uses<tt>instanceof</tt> test.</li>  *<li>If the exception type has<b>exactly</b> the thrown exception then its selected as its an exact match</li>  *<li>Otherwise the type that has an exception that is the closest super of the thrown exception is selected  * (recurring up the exception hierarchy)</li>  *</ul>  *<p/>  *<b>Fine grained matching:</b>  *<br/> If the {@link ExceptionPolicy} has a when defined with an expression the type is also matches against  * the current exchange using the {@link #matchesWhen(ExceptionPolicy, org.apache.camel.Exchange)}  * method. This can be used to for more fine grained matching, so you can e.g. define multiple sets of  * exception types with the same exception class(es) but have a predicate attached to select which to select at runtime.  */
+comment|/**  * The default strategy used in Camel to resolve the {@link ExceptionPolicyKey} that should  * handle the thrown exception.  *<p/>  *<b>Selection strategy:</b>  *<br/>This strategy applies the following rules:  *<ul>  *<li>Will walk the exception hierarchy from bottom upwards till the thrown exception, meaning that the most outer caused  * by is selected first, ending with the thrown exception itself. The method {@link #createExceptionIterable(Throwable)}  * provides the Iterator used for the walking.</li>  *<li>The exception type must be configured with an Exception that is an instance of the thrown exception, this  * is tested using the {@link #filter(ExceptionPolicyKey, Class, Throwable)} method.  * By default the filter uses<tt>instanceof</tt> test.</li>  *<li>If the exception type has<b>exactly</b> the thrown exception then its selected as its an exact match</li>  *<li>Otherwise the type that has an exception that is the closest super of the thrown exception is selected  * (recurring up the exception hierarchy)</li>  *</ul>  *<p/>  *<b>Fine grained matching:</b>  *<br/> If the {@link ExceptionPolicyKey} has a when defined with an expression the type is also matches against  * the current exchange using the {@link #matchesWhen(ExceptionPolicyKey, org.apache.camel.Exchange)}  * method. This can be used to for more fine grained matching, so you can e.g. define multiple sets of  * exception types with the same exception class(es) but have a predicate attached to select which to select at runtime.  */
 end_comment
 
 begin_class
@@ -142,16 +152,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|getExceptionPolicy (Map<ExceptionPolicyKey, ExceptionPolicy> exceptionPolicies, Exchange exchange, Throwable exception)
+annotation|@
+name|Override
+DECL|method|getExceptionPolicy (Set<ExceptionPolicyKey> exceptionPolicies, Exchange exchange, Throwable exception)
 specifier|public
-name|ExceptionPolicy
+name|ExceptionPolicyKey
 name|getExceptionPolicy
 parameter_list|(
-name|Map
+name|Set
 argument_list|<
 name|ExceptionPolicyKey
-argument_list|,
-name|ExceptionPolicy
 argument_list|>
 name|exceptionPolicies
 parameter_list|,
@@ -166,7 +176,7 @@ name|Map
 argument_list|<
 name|Integer
 argument_list|,
-name|ExceptionPolicy
+name|ExceptionPolicyKey
 argument_list|>
 name|candidates
 init|=
@@ -175,29 +185,25 @@ name|TreeMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|Map
+name|Set
 argument_list|<
 name|ExceptionPolicyKey
-argument_list|,
-name|ExceptionPolicy
 argument_list|>
 name|routeScoped
 init|=
 operator|new
-name|LinkedHashMap
+name|LinkedHashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|Map
+name|Set
 argument_list|<
 name|ExceptionPolicyKey
-argument_list|,
-name|ExceptionPolicy
 argument_list|>
 name|contextScoped
 init|=
 operator|new
-name|LinkedHashMap
+name|LinkedHashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -213,6 +219,17 @@ argument_list|)
 expr_stmt|;
 comment|// at first check route scoped as we prefer them over context scoped
 comment|// recursive up the tree using the iterator
+name|Iterable
+argument_list|<
+name|Throwable
+argument_list|>
+name|throwables
+init|=
+name|createExceptionIterable
+argument_list|(
+name|exception
+argument_list|)
+decl_stmt|;
 name|boolean
 name|exactMatch
 init|=
@@ -224,10 +241,10 @@ name|Throwable
 argument_list|>
 name|it
 init|=
-name|createExceptionIterator
-argument_list|(
-name|exception
-argument_list|)
+name|throwables
+operator|.
+name|iterator
+argument_list|()
 decl_stmt|;
 while|while
 condition|(
@@ -261,10 +278,10 @@ block|}
 comment|// fallback to check context scoped (only do this if there was no exact match)
 name|it
 operator|=
-name|createExceptionIterator
-argument_list|(
-name|exception
-argument_list|)
+name|throwables
+operator|.
+name|iterator
+argument_list|()
 expr_stmt|;
 while|while
 condition|(
@@ -338,76 +355,42 @@ argument_list|()
 return|;
 block|}
 block|}
-DECL|method|initRouteAndContextScopedExceptionPolicies (Map<ExceptionPolicyKey, ExceptionPolicy> exceptionPolicies, Map<ExceptionPolicyKey, ExceptionPolicy> routeScoped, Map<ExceptionPolicyKey, ExceptionPolicy> contextScoped)
+DECL|method|initRouteAndContextScopedExceptionPolicies (Set<ExceptionPolicyKey> exceptionPolicies, Set<ExceptionPolicyKey> routeScoped, Set<ExceptionPolicyKey> contextScoped)
 specifier|private
 name|void
 name|initRouteAndContextScopedExceptionPolicies
 parameter_list|(
-name|Map
+name|Set
 argument_list|<
 name|ExceptionPolicyKey
-argument_list|,
-name|ExceptionPolicy
 argument_list|>
 name|exceptionPolicies
 parameter_list|,
-name|Map
+name|Set
 argument_list|<
 name|ExceptionPolicyKey
-argument_list|,
-name|ExceptionPolicy
 argument_list|>
 name|routeScoped
 parameter_list|,
-name|Map
+name|Set
 argument_list|<
 name|ExceptionPolicyKey
-argument_list|,
-name|ExceptionPolicy
 argument_list|>
 name|contextScoped
 parameter_list|)
 block|{
 comment|// loop through all the entries and split into route and context scoped
-name|Set
-argument_list|<
-name|Map
-operator|.
-name|Entry
-argument_list|<
-name|ExceptionPolicyKey
-argument_list|,
-name|ExceptionPolicy
-argument_list|>
-argument_list|>
-name|entries
-init|=
-name|exceptionPolicies
-operator|.
-name|entrySet
-argument_list|()
-decl_stmt|;
 for|for
 control|(
-name|Map
-operator|.
-name|Entry
-argument_list|<
 name|ExceptionPolicyKey
-argument_list|,
-name|ExceptionPolicy
-argument_list|>
 name|entry
 range|:
-name|entries
+name|exceptionPolicies
 control|)
 block|{
 if|if
 condition|(
 name|entry
-operator|.
-name|getKey
-argument_list|()
 operator|.
 name|getRouteId
 argument_list|()
@@ -417,17 +400,9 @@ condition|)
 block|{
 name|routeScoped
 operator|.
-name|put
+name|add
 argument_list|(
 name|entry
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-name|entry
-operator|.
-name|getValue
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -435,32 +410,22 @@ else|else
 block|{
 name|contextScoped
 operator|.
-name|put
+name|add
 argument_list|(
 name|entry
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-name|entry
-operator|.
-name|getValue
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|findMatchedExceptionPolicy (Map<ExceptionPolicyKey, ExceptionPolicy> exceptionPolicies, Exchange exchange, Throwable exception, Map<Integer, ExceptionPolicy> candidates)
+DECL|method|findMatchedExceptionPolicy (Iterable<ExceptionPolicyKey> exceptionPolicies, Exchange exchange, Throwable exception, Map<Integer, ExceptionPolicyKey> candidates)
 specifier|private
 name|boolean
 name|findMatchedExceptionPolicy
 parameter_list|(
-name|Map
+name|Iterable
 argument_list|<
 name|ExceptionPolicyKey
-argument_list|,
-name|ExceptionPolicy
 argument_list|>
 name|exceptionPolicies
 parameter_list|,
@@ -474,7 +439,7 @@ name|Map
 argument_list|<
 name|Integer
 argument_list|,
-name|ExceptionPolicy
+name|ExceptionPolicyKey
 argument_list|>
 name|candidates
 parameter_list|)
@@ -516,7 +481,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// candidate is the best candidate found so far to return
-name|ExceptionPolicy
+name|ExceptionPolicyKey
 name|candidate
 init|=
 literal|null
@@ -530,37 +495,12 @@ operator|.
 name|MAX_VALUE
 decl_stmt|;
 comment|// loop through all the entries and find the best candidates to use
-name|Set
-argument_list|<
-name|Map
-operator|.
-name|Entry
-argument_list|<
-name|ExceptionPolicyKey
-argument_list|,
-name|ExceptionPolicy
-argument_list|>
-argument_list|>
-name|entries
-init|=
-name|exceptionPolicies
-operator|.
-name|entrySet
-argument_list|()
-decl_stmt|;
 for|for
 control|(
-name|Map
-operator|.
-name|Entry
-argument_list|<
 name|ExceptionPolicyKey
-argument_list|,
-name|ExceptionPolicy
-argument_list|>
-name|entry
+name|type
 range|:
-name|entries
+name|exceptionPolicies
 control|)
 block|{
 name|Class
@@ -569,24 +509,21 @@ name|?
 argument_list|>
 name|clazz
 init|=
-name|entry
-operator|.
-name|getKey
-argument_list|()
+name|type
 operator|.
 name|getExceptionClass
 argument_list|()
 decl_stmt|;
-name|ExceptionPolicy
-name|type
-init|=
-name|entry
-operator|.
-name|getValue
-argument_list|()
-decl_stmt|;
 comment|// if ExceptionPolicy is route scoped then the current route (Exchange) must match
 comment|// so we will not pick an ExceptionPolicy from another route
+name|String
+name|typeRoute
+init|=
+name|type
+operator|.
+name|getRouteId
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|exchange
@@ -600,10 +537,12 @@ argument_list|()
 operator|!=
 literal|null
 operator|&&
-name|type
+name|ObjectHelper
 operator|.
-name|isRouteScoped
-argument_list|()
+name|isNotEmpty
+argument_list|(
+name|typeRoute
+argument_list|)
 condition|)
 block|{
 name|String
@@ -632,21 +571,9 @@ argument_list|()
 else|:
 literal|null
 decl_stmt|;
-name|String
-name|typeRoute
-init|=
-name|type
-operator|.
-name|getRouteId
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|route
-operator|!=
-literal|null
-operator|&&
-name|typeRoute
 operator|!=
 literal|null
 operator|&&
@@ -882,12 +809,12 @@ name|exactMatch
 return|;
 block|}
 comment|/**      * Strategy to filter the given type exception class with the thrown exception      *      * @param type           the exception type      * @param exceptionClass the current exception class for testing      * @param exception      the thrown exception      * @return<tt>true</tt> if the to current exception class is a candidate,<tt>false</tt> to skip it.      */
-DECL|method|filter (ExceptionPolicy type, Class<?> exceptionClass, Throwable exception)
+DECL|method|filter (ExceptionPolicyKey type, Class<?> exceptionClass, Throwable exception)
 specifier|protected
 name|boolean
 name|filter
 parameter_list|(
-name|ExceptionPolicy
+name|ExceptionPolicyKey
 name|type
 parameter_list|,
 name|Class
@@ -911,12 +838,12 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Strategy method for matching the exception type with the current exchange.      *<p/>      * This default implementation will match as:      *<ul>      *<li>Always true if no when predicate on the exception type      *<li>Otherwise the when predicate is matches against the current exchange      *</ul>      *      * @param definition     the exception definition      * @param exchange the current {@link Exchange}      * @return<tt>true</tt> if matched,<tt>false</tt> otherwise.      */
-DECL|method|matchesWhen (ExceptionPolicy definition, Exchange exchange)
+DECL|method|matchesWhen (ExceptionPolicyKey definition, Exchange exchange)
 specifier|protected
 name|boolean
 name|matchesWhen
 parameter_list|(
-name|ExceptionPolicy
+name|ExceptionPolicyKey
 name|definition
 parameter_list|,
 name|Exchange
@@ -927,14 +854,7 @@ if|if
 condition|(
 name|definition
 operator|.
-name|getOnWhen
-argument_list|()
-operator|==
-literal|null
-operator|||
-name|definition
-operator|.
-name|getOnWhen
+name|getWhen
 argument_list|()
 operator|==
 literal|null
@@ -948,7 +868,7 @@ block|}
 return|return
 name|definition
 operator|.
-name|getOnWhen
+name|getWhen
 argument_list|()
 operator|.
 name|matches
@@ -957,14 +877,14 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|/**      * Strategy method creating the iterator to walk the exception in the order Camel should use      * for find the {@link ExceptionPolicy} should be used.      *<p/>      * The default iterator will walk from the bottom upwards      * (the last caused by going upwards to the exception)      *      * @param exception  the exception      * @return the iterator      */
-DECL|method|createExceptionIterator (Throwable exception)
+comment|/**      * Strategy method creating the iterator to walk the exception in the order Camel should use      * for find the {@link ExceptionPolicyKey} should be used.      *<p/>      * The default iterator will walk from the bottom upwards      * (the last caused by going upwards to the exception)      *      * @param exception  the exception      * @return the list to iterate      */
+DECL|method|createExceptionIterable (Throwable exception)
 specifier|protected
-name|Iterator
+name|Iterable
 argument_list|<
 name|Throwable
 argument_list|>
-name|createExceptionIterator
+name|createExceptionIterable
 parameter_list|(
 name|Throwable
 name|exception
@@ -973,7 +893,7 @@ block|{
 return|return
 name|ObjectHelper
 operator|.
-name|createExceptionIterator
+name|createExceptionIterable
 argument_list|(
 name|exception
 argument_list|)

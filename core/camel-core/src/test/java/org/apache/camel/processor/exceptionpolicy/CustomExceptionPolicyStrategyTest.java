@@ -24,7 +24,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|Set
 import|;
 end_import
 
@@ -122,6 +122,38 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|errorhandler
+operator|.
+name|ExceptionPolicyKey
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|errorhandler
+operator|.
+name|ExceptionPolicyStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -185,16 +217,14 @@ name|MyPolicy
 implements|implements
 name|ExceptionPolicyStrategy
 block|{
-DECL|method|getExceptionPolicy (Map<ExceptionPolicyKey, ExceptionPolicy> exceptionPolicices, Exchange exchange, Throwable exception)
+DECL|method|getExceptionPolicy (Set<ExceptionPolicyKey> exceptionPolicices, Exchange exchange, Throwable exception)
 specifier|public
-name|ExceptionPolicy
+name|ExceptionPolicyKey
 name|getExceptionPolicy
 parameter_list|(
-name|Map
+name|Set
 argument_list|<
 name|ExceptionPolicyKey
-argument_list|,
-name|ExceptionPolicy
 argument_list|>
 name|exceptionPolicices
 parameter_list|,
@@ -208,10 +238,6 @@ block|{
 comment|// This is just an example that always forces the exception type configured
 comment|// with MyPolicyException to win.
 return|return
-name|exceptionPolicices
-operator|.
-name|get
-argument_list|(
 operator|new
 name|ExceptionPolicyKey
 argument_list|(
@@ -222,7 +248,6 @@ operator|.
 name|class
 argument_list|,
 literal|null
-argument_list|)
 argument_list|)
 return|;
 block|}

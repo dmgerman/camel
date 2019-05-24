@@ -299,7 +299,7 @@ name|getErrorHandlerFactory
 argument_list|()
 decl_stmt|;
 comment|// create error handler (create error handler directly to keep it light weight,
-comment|// instead of using ProcessorDefinition.wrapInErrorHandler)
+comment|// instead of using ProcessorReifier.wrapInErrorHandler)
 name|AsyncProcessor
 name|errorHandler
 init|=
