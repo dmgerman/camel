@@ -531,7 +531,7 @@ specifier|private
 name|Boolean
 name|autoCreateQueue
 init|=
-literal|false
+literal|true
 decl_stmt|;
 DECL|method|getAmazonAWSHost ()
 specifier|public
