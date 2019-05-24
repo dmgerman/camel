@@ -3418,7 +3418,7 @@ literal|null
 condition|?
 name|typeConverter
 operator|.
-name|convertTo
+name|mandatoryConvertTo
 argument_list|(
 name|parameterType
 argument_list|,
@@ -3873,6 +3873,8 @@ literal|true
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setProperty (Object target, String name, Object value, boolean allowBuilderPattern)
 specifier|public
 specifier|static
@@ -3913,6 +3915,8 @@ name|allowBuilderPattern
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setProperty (Object target, String name, Object value)
 specifier|public
 specifier|static

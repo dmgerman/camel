@@ -2024,6 +2024,8 @@ name|IntrospectionSupport
 operator|.
 name|setProperty
 argument_list|(
+name|context
+argument_list|,
 name|bean
 argument_list|,
 literal|"name"
@@ -2107,6 +2109,8 @@ name|IntrospectionSupport
 operator|.
 name|setProperty
 argument_list|(
+name|context
+argument_list|,
 name|bean
 argument_list|,
 literal|"name"
@@ -2118,6 +2122,8 @@ name|IntrospectionSupport
 operator|.
 name|setProperty
 argument_list|(
+name|context
+argument_list|,
 name|bean
 argument_list|,
 literal|"gold-customer"

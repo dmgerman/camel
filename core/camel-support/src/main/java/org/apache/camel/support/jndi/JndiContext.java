@@ -619,7 +619,9 @@ return|return
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|()
+argument_list|(
+name|env
+argument_list|)
 return|;
 block|}
 DECL|method|freeze ()
