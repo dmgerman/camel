@@ -84,6 +84,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -249,6 +259,38 @@ literal|"netty-http:http://localhost:"
 operator|+
 name|originPort
 argument_list|)
+operator|.
+name|process
+argument_list|(
+name|e
+lambda|->
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+operator|.
+name|toUpperCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+argument_list|)
+argument_list|)
 expr_stmt|;
 comment|// origin service that serves `"origin server"` on
 comment|// http://localhost:originPort/path
@@ -396,7 +438,7 @@ argument_list|)
 operator|.
 name|containsOnly
 argument_list|(
-literal|"origin server"
+literal|"ORIGIN SERVER"
 argument_list|)
 expr_stmt|;
 block|}

@@ -2264,6 +2264,13 @@ condition|(
 name|response
 operator|!=
 literal|null
+operator|&&
+name|nettyHttpMessage
+operator|.
+name|getBody
+argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 return|return
