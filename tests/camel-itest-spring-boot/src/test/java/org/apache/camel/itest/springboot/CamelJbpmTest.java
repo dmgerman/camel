@@ -167,12 +167,12 @@ argument_list|)
 operator|.
 name|dependency
 argument_list|(
-literal|"org.drools:drools-core:7.21.0.Final"
+literal|"org.drools:drools-core:7.22.0.Final"
 argument_list|)
 operator|.
 name|dependency
 argument_list|(
-literal|"org.drools:drools-compiler:7.21.0.Final"
+literal|"org.drools:drools-compiler:7.22.0.Final"
 argument_list|)
 operator|.
 name|unitTestExpectedNumber
