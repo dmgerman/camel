@@ -922,26 +922,9 @@ argument_list|,
 name|throwaway
 argument_list|)
 expr_stmt|;
-comment|// set reference properties first as they use # syntax that fools the regular properties setter
-name|EndpointHelper
-operator|.
-name|setReferenceProperties
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|consumer
-argument_list|,
-name|copy
-argument_list|)
-expr_stmt|;
-name|EndpointHelper
-operator|.
+comment|// configure consumer
 name|setProperties
 argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|,
 name|consumer
 argument_list|,
 name|copy

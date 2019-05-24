@@ -194,6 +194,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriParam
 import|;
 end_import
@@ -397,6 +411,22 @@ DECL|field|synchronous
 specifier|private
 name|boolean
 name|synchronous
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities"
+argument_list|)
+DECL|field|basicPropertyBinding
+specifier|private
+name|boolean
+name|basicPropertyBinding
 decl_stmt|;
 comment|// these options are not really in use any option related to the consumer has a specific option on the endpoint
 comment|// and consumerProperties was added from the very start of Camel.
@@ -977,6 +1007,34 @@ operator|=
 name|synchronous
 expr_stmt|;
 block|}
+comment|/**      * Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities.      */
+DECL|method|isBasicPropertyBinding ()
+specifier|public
+name|boolean
+name|isBasicPropertyBinding
+parameter_list|()
+block|{
+return|return
+name|basicPropertyBinding
+return|;
+block|}
+comment|/**      * Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities.      */
+DECL|method|setBasicPropertyBinding (boolean basicPropertyBinding)
+specifier|public
+name|void
+name|setBasicPropertyBinding
+parameter_list|(
+name|boolean
+name|basicPropertyBinding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|basicPropertyBinding
+operator|=
+name|basicPropertyBinding
+expr_stmt|;
+block|}
 DECL|method|isBridgeErrorHandler ()
 specifier|public
 name|boolean
@@ -1166,7 +1224,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Sets the bean properties on the given bean.      *<p/>      * This is the same logical implementation as {@link DefaultComponent#setProperties(Object, java.util.Map)}      *      * @param bean  the bean      * @param parameters  properties to set      */
+comment|/**      * Sets the bean properties on the given bean.      *<p/>      * This is the same logical implementation as {@link DefaultComponent#setProperties(Object, java.util.Map)}      *      * @param bean        the bean      * @param parameters  properties to set      */
 DECL|method|setProperties (Object bean, Map<String, Object> parameters)
 specifier|protected
 name|void
@@ -1191,26 +1249,69 @@ name|EndpointHelper
 operator|.
 name|setReferenceProperties
 argument_list|(
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|,
 name|bean
 argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
-name|EndpointHelper
+if|if
+condition|(
+name|basicPropertyBinding
+condition|)
+block|{
+comment|// use basic binding
+name|PropertyBindingSupport
 operator|.
-name|setProperties
-argument_list|(
-name|getCamelContext
+name|build
 argument_list|()
+operator|.
+name|withPlaceholder
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|withNesting
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|withNestingDeep
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|withReference
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|bind
+argument_list|(
+name|camelContext
 argument_list|,
 name|bean
 argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// use advanced binding
+name|PropertyBindingSupport
+operator|.
+name|bindProperties
+argument_list|(
+name|camelContext
+argument_list|,
+name|bean
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * A factory method to lazily create the endpointUri if none is specified      */
 DECL|method|createEndpointUri ()
@@ -1441,26 +1542,9 @@ argument_list|(
 name|consumerProperties
 argument_list|)
 decl_stmt|;
-comment|// set reference properties first as they use # syntax that fools the regular properties setter
-name|EndpointHelper
-operator|.
-name|setReferenceProperties
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|consumer
-argument_list|,
-name|copy
-argument_list|)
-expr_stmt|;
-name|EndpointHelper
-operator|.
+comment|// configure consumer
 name|setProperties
 argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|,
 name|consumer
 argument_list|,
 name|copy
@@ -1479,10 +1563,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|bridge
-operator|!=
-literal|null
-operator|&&
 literal|"true"
 operator|.
 name|equals

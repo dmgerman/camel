@@ -678,7 +678,9 @@ name|pattern
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the regular properties on the given bean      *      * @param context    the camel context      * @param bean       the bean      * @param parameters parameters      * @throws Exception is thrown if setting property fails      */
+comment|/**      * Sets the regular properties on the given bean      *      * @param context    the camel context      * @param bean       the bean      * @param parameters parameters      * @throws Exception is thrown if setting property fails      * @deprecated use PropertyBindingSupport      */
+annotation|@
+name|Deprecated
 DECL|method|setProperties (CamelContext context, Object bean, Map<String, Object> parameters)
 specifier|public
 specifier|static
@@ -715,7 +717,9 @@ name|parameters
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the reference properties on the given bean      *<p/>      * This is convention over configuration, setting all reference parameters (using {@link #isReferenceParameter(String)}      * by looking it up in registry and setting it on the bean if possible.      *      * @param context    the camel context      * @param bean       the bean      * @param parameters parameters      * @throws Exception is thrown if setting property fails      */
+comment|/**      * Sets the reference properties on the given bean      *<p/>      * This is convention over configuration, setting all reference parameters (using {@link #isReferenceParameter(String)}      * by looking it up in registry and setting it on the bean if possible.      *      * @param context    the camel context      * @param bean       the bean      * @param parameters parameters      * @throws Exception is thrown if setting property fails      * @deprecated use PropertyBindingSupport      */
+annotation|@
+name|Deprecated
 DECL|method|setReferenceProperties (CamelContext context, Object bean, Map<String, Object> parameters)
 specifier|public
 specifier|static
@@ -815,10 +819,6 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|value
-operator|!=
-literal|null
-operator|&&
 name|isReferenceParameter
 argument_list|(
 name|value

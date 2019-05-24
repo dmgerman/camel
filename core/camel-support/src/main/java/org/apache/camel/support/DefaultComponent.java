@@ -362,6 +362,22 @@ name|resolvePropertyPlaceholders
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities"
+argument_list|)
+DECL|field|basicPropertyBinding
+specifier|private
+name|boolean
+name|basicPropertyBinding
+decl_stmt|;
 DECL|method|DefaultComponent ()
 specifier|public
 name|DefaultComponent
@@ -679,6 +695,43 @@ return|return
 literal|null
 return|;
 block|}
+comment|// setup whether to use basic property binding or not which must be done before we set properties
+name|boolean
+name|basic
+init|=
+name|getAndRemoveParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"basicPropertyBinding"
+argument_list|,
+name|boolean
+operator|.
+name|class
+argument_list|,
+name|basicPropertyBinding
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|instanceof
+name|DefaultEndpoint
+condition|)
+block|{
+operator|(
+operator|(
+name|DefaultEndpoint
+operator|)
+name|endpoint
+operator|)
+operator|.
+name|setBasicPropertyBinding
+argument_list|(
+name|basic
+argument_list|)
+expr_stmt|;
+block|}
 name|endpoint
 operator|.
 name|configureProperties
@@ -776,6 +829,34 @@ block|{
 return|return
 name|resolvePropertyPlaceholders
 return|;
+block|}
+comment|/**      * Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities.      */
+DECL|method|isBasicPropertyBinding ()
+specifier|public
+name|boolean
+name|isBasicPropertyBinding
+parameter_list|()
+block|{
+return|return
+name|basicPropertyBinding
+return|;
+block|}
+comment|/**      * Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities.      */
+DECL|method|setBasicPropertyBinding (boolean basicPropertyBinding)
+specifier|public
+name|void
+name|setBasicPropertyBinding
+parameter_list|(
+name|boolean
+name|basicPropertyBinding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|basicPropertyBinding
+operator|=
+name|basicPropertyBinding
+expr_stmt|;
 block|}
 comment|/**      * Strategy to do post configuration logic.      *<p/>      * Can be used to construct an URI based on the remaining parameters. For example the parameters that configures      * the endpoint have been removed from the parameters which leaves only the additional parameters left.      *      * @param uri the uri      * @param remaining the remaining part of the URI without the query parameters or component prefix      * @param endpoint the created endpoint      * @param parameters the remaining parameters after the endpoint has been created and parsed the parameters      * @throws Exception can be thrown to indicate error creating the endpoint      */
 DECL|method|afterConfiguration (String uri, String remaining, Endpoint endpoint, Map<String, Object> parameters)
@@ -1129,7 +1210,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Sets the bean properties on the given bean      *      * @param bean  the bean      * @param parameters  properties to set      */
+comment|/**      * Sets the bean properties on the given bean      *      * @param bean        the bean      * @param parameters  properties to set      */
 DECL|method|setProperties (Object bean, Map<String, Object> parameters)
 specifier|protected
 name|void
@@ -1160,7 +1241,7 @@ name|parameters
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the bean properties on the given bean using the given {@link CamelContext}      * @param camelContext  the {@link CamelContext} to use      * @param bean  the bean      * @param parameters  properties to set      */
+comment|/**      * Sets the bean properties on the given bean using the given {@link CamelContext}.      *      * @param camelContext  the {@link CamelContext} to use      * @param bean          the bean      * @param parameters    properties to set      */
 DECL|method|setProperties (CamelContext camelContext, Object bean, Map<String, Object> parameters)
 specifier|protected
 name|void
@@ -1184,6 +1265,7 @@ throws|throws
 name|Exception
 block|{
 comment|// set reference properties first as they use # syntax that fools the regular properties setter
+comment|// TODO: We should find out the weird camel-cxf error where we need to do this, as we can put this logic into PropertyBindingSupport
 name|EndpointHelper
 operator|.
 name|setReferenceProperties
@@ -1195,9 +1277,38 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
-name|EndpointHelper
+if|if
+condition|(
+name|basicPropertyBinding
+condition|)
+block|{
+comment|// use basic binding
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|build
+argument_list|()
+operator|.
+name|withPlaceholder
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|withNesting
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|withNestingDeep
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|withReference
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|bind
 argument_list|(
 name|camelContext
 argument_list|,
@@ -1206,6 +1317,22 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// use advanced binding
+name|PropertyBindingSupport
+operator|.
+name|bindProperties
+argument_list|(
+name|camelContext
+argument_list|,
+name|bean
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Derived classes may wish to overload this to prevent the default introspection of URI parameters      * on the created Endpoint instance      */
 DECL|method|useIntrospectionOnEndpoint ()
