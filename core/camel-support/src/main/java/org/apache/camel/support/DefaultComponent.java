@@ -1298,7 +1298,7 @@ argument_list|(
 literal|false
 argument_list|)
 operator|.
-name|withNestingDeep
+name|withDeepNesting
 argument_list|(
 literal|false
 argument_list|)
