@@ -59,6 +59,13 @@ name|autoConfigurationEnabled
 init|=
 literal|true
 decl_stmt|;
+DECL|field|autowireComponentProperties
+specifier|private
+name|boolean
+name|autowireComponentProperties
+init|=
+literal|true
+decl_stmt|;
 DECL|field|name
 specifier|private
 name|String
@@ -342,6 +349,33 @@ operator|.
 name|autoConfigurationEnabled
 operator|=
 name|autoConfigurationEnabled
+expr_stmt|;
+block|}
+DECL|method|isAutowireComponentProperties ()
+specifier|public
+name|boolean
+name|isAutowireComponentProperties
+parameter_list|()
+block|{
+return|return
+name|autowireComponentProperties
+return|;
+block|}
+comment|/**      * Whether autowiring components with properties that are of same type, which has been added to the Camel registry, as a singleton instance.      * This is used for convention over configuration to inject DataSource, AmazonLogin instances to the components.      *<p/>      * This option is default enabled.      */
+DECL|method|setAutowireComponentProperties (boolean autowireComponentProperties)
+specifier|public
+name|void
+name|setAutowireComponentProperties
+parameter_list|(
+name|boolean
+name|autowireComponentProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autowireComponentProperties
+operator|=
+name|autowireComponentProperties
 expr_stmt|;
 block|}
 DECL|method|getName ()
