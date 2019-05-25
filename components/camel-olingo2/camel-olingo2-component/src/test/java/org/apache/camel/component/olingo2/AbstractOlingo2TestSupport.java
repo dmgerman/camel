@@ -92,7 +92,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|IntrospectionSupport
+name|PropertyBindingSupport
 import|;
 end_import
 
@@ -286,10 +286,12 @@ operator|new
 name|Olingo2Configuration
 argument_list|()
 decl_stmt|;
-name|IntrospectionSupport
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
+name|context
+argument_list|,
 name|configuration
 argument_list|,
 name|options

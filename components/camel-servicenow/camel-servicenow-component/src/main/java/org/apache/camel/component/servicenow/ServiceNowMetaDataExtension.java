@@ -386,7 +386,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|IntrospectionSupport
+name|PropertyBindingSupport
 import|;
 end_import
 
@@ -3486,10 +3486,13 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
-name|IntrospectionSupport
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|configuration
 argument_list|,
 operator|new

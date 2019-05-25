@@ -92,7 +92,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|IntrospectionSupport
+name|PropertyBindingSupport
 import|;
 end_import
 
@@ -266,10 +266,12 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-name|IntrospectionSupport
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
+name|context
+argument_list|,
 name|component
 argument_list|,
 name|options

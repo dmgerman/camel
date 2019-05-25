@@ -154,7 +154,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|IntrospectionSupport
+name|PropertyBindingSupport
 import|;
 end_import
 
@@ -729,10 +729,13 @@ name|getSslSocketConnectorProperties
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|IntrospectionSupport
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|sslcf
 argument_list|,
 name|properties

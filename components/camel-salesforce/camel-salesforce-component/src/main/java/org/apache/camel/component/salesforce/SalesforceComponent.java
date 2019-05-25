@@ -368,7 +368,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|IntrospectionSupport
+name|PropertyBindingSupport
 import|;
 end_import
 
@@ -3202,20 +3202,11 @@ init|=
 name|getCamelContext
 argument_list|()
 decl_stmt|;
-specifier|final
-name|TypeConverter
-name|typeConverter
-init|=
-name|camelContext
+name|PropertyBindingSupport
 operator|.
-name|getTypeConverter
-argument_list|()
-decl_stmt|;
-name|IntrospectionSupport
-operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
-name|typeConverter
+name|camelContext
 argument_list|,
 name|modifiedConfig
 argument_list|,
@@ -3251,15 +3242,6 @@ throws|throws
 name|Exception
 block|{
 specifier|final
-name|TypeConverter
-name|typeConverter
-init|=
-name|camelContext
-operator|.
-name|getTypeConverter
-argument_list|()
-decl_stmt|;
-specifier|final
 name|SalesforceEndpointConfig
 name|config
 init|=
@@ -3268,11 +3250,11 @@ name|SalesforceEndpointConfig
 argument_list|()
 decl_stmt|;
 comment|// let's work with a copy for IntrospectionSupport so original properties are intact
-name|IntrospectionSupport
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
-name|typeConverter
+name|camelContext
 argument_list|,
 name|config
 argument_list|,
@@ -3293,11 +3275,11 @@ name|SalesforceLoginConfig
 argument_list|()
 decl_stmt|;
 comment|// let's work with a copy for IntrospectionSupport so original properties are intact
-name|IntrospectionSupport
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
-name|typeConverter
+name|camelContext
 argument_list|,
 name|loginConfig
 argument_list|,
@@ -3333,11 +3315,11 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// let's work with a copy for IntrospectionSupport so original properties are intact
-name|IntrospectionSupport
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
-name|typeConverter
+name|camelContext
 argument_list|,
 name|sslContextParameters
 argument_list|,
@@ -3526,11 +3508,11 @@ operator|.
 name|getTypeConverter
 argument_list|()
 decl_stmt|;
-name|IntrospectionSupport
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
-name|typeConverter
+name|camelContext
 argument_list|,
 name|httpClient
 argument_list|,

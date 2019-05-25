@@ -70,7 +70,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|IntrospectionSupport
+name|PropertyBindingSupport
 import|;
 end_import
 
@@ -301,10 +301,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|IntrospectionSupport
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
+name|context
+argument_list|,
 name|configuration
 argument_list|,
 name|options
