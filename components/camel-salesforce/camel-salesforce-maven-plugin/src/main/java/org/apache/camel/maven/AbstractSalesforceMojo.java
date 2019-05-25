@@ -84,6 +84,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|salesforce
@@ -242,7 +254,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|IntrospectionSupport
+name|PropertyBindingSupport
 import|;
 end_import
 
@@ -980,6 +992,13 @@ specifier|final
 name|SalesforceHttpClient
 name|httpClient
 decl_stmt|;
+name|CamelContext
+name|camelContext
+init|=
+operator|new
+name|DefaultCamelContext
+argument_list|()
+decl_stmt|;
 comment|// set ssl context parameters
 try|try
 block|{
@@ -999,9 +1018,7 @@ name|sslContextParameters
 operator|.
 name|createSSLContext
 argument_list|(
-operator|new
-name|DefaultCamelContext
-argument_list|()
+name|camelContext
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1097,10 +1114,12 @@ condition|)
 block|{
 try|try
 block|{
-name|IntrospectionSupport
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
+name|camelContext
+argument_list|,
 name|httpClient
 argument_list|,
 operator|new
