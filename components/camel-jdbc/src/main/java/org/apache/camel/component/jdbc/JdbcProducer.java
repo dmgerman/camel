@@ -198,7 +198,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|IntrospectionSupport
+name|PropertyBindingSupport
 import|;
 end_import
 
@@ -1092,10 +1092,15 @@ argument_list|(
 name|parameters
 argument_list|)
 decl_stmt|;
-name|IntrospectionSupport
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 name|stmt
 argument_list|,
 name|copy
@@ -2216,10 +2221,16 @@ expr_stmt|;
 block|}
 try|try
 block|{
-name|IntrospectionSupport
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|answer
 argument_list|,
 name|properties

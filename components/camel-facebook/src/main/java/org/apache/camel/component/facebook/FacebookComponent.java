@@ -156,6 +156,20 @@ name|IntrospectionSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|PropertyBindingSupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents the component that manages {@link FacebookEndpoint}.  */
 end_comment
@@ -371,10 +385,13 @@ operator|new
 name|FacebookEndpointConfiguration
 argument_list|()
 decl_stmt|;
-name|IntrospectionSupport
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|config
 argument_list|,
 name|componentProperties

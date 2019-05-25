@@ -184,7 +184,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|IntrospectionSupport
+name|PropertyBindingSupport
 import|;
 end_import
 
@@ -348,7 +348,9 @@ operator|.
 name|setConfiguration
 argument_list|(
 name|buildBraintreeConfiguration
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|context
@@ -427,11 +429,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|buildBraintreeConfiguration ()
+DECL|method|buildBraintreeConfiguration (CamelContext context)
 specifier|protected
 name|BraintreeConfiguration
 name|buildBraintreeConfiguration
-parameter_list|()
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -692,10 +697,12 @@ operator|.
 name|DEFAULT_LOGGER_NAME
 argument_list|)
 expr_stmt|;
-name|IntrospectionSupport
+name|PropertyBindingSupport
 operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
+name|context
+argument_list|,
 name|configuration
 argument_list|,
 name|options
