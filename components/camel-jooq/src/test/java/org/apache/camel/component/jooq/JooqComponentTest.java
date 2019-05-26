@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TypeConversionException
+name|PropertyBindingException
 import|;
 end_import
 
@@ -229,7 +229,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|TypeConversionException
+name|PropertyBindingException
 operator|.
 name|class
 argument_list|)

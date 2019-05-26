@@ -146,6 +146,42 @@ name|assertSame
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|AdditionalAnswers
+operator|.
+name|returnsFirstArg
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|ArgumentMatchers
+operator|.
+name|anyString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|when
+import|;
+end_import
+
 begin_class
 DECL|class|RabbitMQComponentTest
 specifier|public
@@ -700,6 +736,23 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
+name|when
+argument_list|(
+name|context
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+name|anyString
+argument_list|()
+argument_list|)
+argument_list|)
+operator|.
+name|then
+argument_list|(
+name|returnsFirstArg
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|comp
 operator|.
 name|setAutoDetectConnectionFactory
