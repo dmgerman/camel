@@ -438,6 +438,15 @@ throws|throws
 name|Exception
 block|{
 specifier|final
+name|CamelContext
+name|context
+init|=
+name|super
+operator|.
+name|createCamelContext
+argument_list|()
+decl_stmt|;
+specifier|final
 name|InputStream
 name|in
 init|=
@@ -654,15 +663,6 @@ name|options
 argument_list|)
 expr_stmt|;
 comment|// add GoogleDriveComponent  to Camel context
-specifier|final
-name|CamelContext
-name|context
-init|=
-name|super
-operator|.
-name|createCamelContext
-argument_list|()
-decl_stmt|;
 specifier|final
 name|GoogleDriveComponent
 name|component
