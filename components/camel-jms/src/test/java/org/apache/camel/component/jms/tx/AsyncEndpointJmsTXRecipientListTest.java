@@ -218,10 +218,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// we are synchronous due to TX so the we are using same threads during the routing
-name|assertTrue
+comment|// we are asynchronous due to recipientlist so that we are NOT using same threads during the routing
+name|assertFalse
 argument_list|(
-literal|"Should use same threads"
+literal|"Should not use same threads"
 argument_list|,
 name|beforeThreadName
 operator|.
@@ -337,7 +337,6 @@ name|from
 argument_list|(
 literal|"direct:foo"
 argument_list|)
-comment|// tx should be conveyed to this route as well
 operator|.
 name|to
 argument_list|(
@@ -370,9 +369,9 @@ operator|.
 name|getName
 argument_list|()
 expr_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
-literal|"Exchange should be transacted"
+literal|"Exchange should NO longer be transacted"
 argument_list|,
 name|exchange
 operator|.
