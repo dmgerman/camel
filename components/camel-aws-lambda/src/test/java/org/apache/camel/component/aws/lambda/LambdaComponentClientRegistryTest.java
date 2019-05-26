@@ -42,6 +42,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|PropertyBindingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|test
 operator|.
 name|junit4
@@ -151,7 +163,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|IllegalArgumentException
+name|PropertyBindingException
 operator|.
 name|class
 argument_list|)
