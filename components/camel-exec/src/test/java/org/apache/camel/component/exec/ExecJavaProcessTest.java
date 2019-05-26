@@ -2413,12 +2413,14 @@ operator|.
 name|getException
 argument_list|()
 decl_stmt|;
-name|assertNotNull
+name|assertTrue
 argument_list|(
 name|ee
 operator|.
 name|getExitValue
 argument_list|()
+operator|>
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertNotNull
