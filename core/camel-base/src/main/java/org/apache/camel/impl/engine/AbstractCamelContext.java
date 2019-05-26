@@ -7176,8 +7176,7 @@ name|Endpoint
 operator|)
 condition|)
 block|{
-comment|// only add to list of services to stop if its not already
-comment|// there
+comment|// only add to list of services to stop if its not already there
 if|if
 condition|(
 name|stopOnShutdown
@@ -7189,6 +7188,24 @@ name|service
 argument_list|)
 condition|)
 block|{
+comment|// special for type converter / type converter registry which is stopped manual later
+name|boolean
+name|tc
+init|=
+name|service
+operator|instanceof
+name|TypeConverter
+operator|||
+name|service
+operator|instanceof
+name|TypeConverterRegistry
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|tc
+condition|)
+block|{
 name|servicesToStop
 operator|.
 name|add
@@ -7196,6 +7213,7 @@ argument_list|(
 name|service
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 name|ServiceHelper
@@ -12748,7 +12766,7 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|// shutdown services as late as possible
+comment|// shutdown services as late as possible (except type converters as they may be needed during the remainder of the stopping)
 name|shutdownServices
 argument_list|(
 name|servicesToStop
@@ -12759,8 +12777,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-comment|// must notify that we are stopped before stopping the management
-comment|// strategy
+comment|// must notify that we are stopped before stopping the management strategy
 name|EventHelper
 operator|.
 name|notifyCamelContextStopped
@@ -12810,6 +12827,21 @@ argument_list|)
 expr_stmt|;
 comment|// do not clear lifecycleStrategies as we can start Camel again and get
 comment|// the route back as before
+comment|// shutdown type converter as late as possible
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|typeConverter
+argument_list|)
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|typeConverterRegistry
+argument_list|)
+expr_stmt|;
 comment|// stop the lazy created so they can be re-created on restart
 name|forceStopLazyInitialization
 argument_list|()
