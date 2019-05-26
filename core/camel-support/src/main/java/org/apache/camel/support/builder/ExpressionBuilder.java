@@ -5828,6 +5828,11 @@ argument_list|)
 decl_stmt|;
 name|setProperty
 argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 name|language
 argument_list|,
 literal|"bean"
@@ -5837,6 +5842,11 @@ argument_list|)
 expr_stmt|;
 name|setProperty
 argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 name|language
 argument_list|,
 literal|"method"
@@ -6373,6 +6383,11 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 name|language
 argument_list|,
 literal|"headerName"
@@ -6390,6 +6405,11 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 name|language
 argument_list|,
 literal|"mode"
@@ -6407,6 +6427,11 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 name|language
 argument_list|,
 literal|"group"
@@ -6424,6 +6449,11 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 name|language
 argument_list|,
 literal|"namespaces"
@@ -6434,6 +6464,11 @@ expr_stmt|;
 block|}
 name|setProperty
 argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 name|language
 argument_list|,
 literal|"path"
@@ -6477,12 +6512,15 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|setProperty (Object bean, String name, Object value)
+DECL|method|setProperty (CamelContext camelContext, Object bean, String name, Object value)
 specifier|protected
 specifier|static
 name|void
 name|setProperty
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Object
 name|bean
 parameter_list|,
@@ -6499,6 +6537,8 @@ name|IntrospectionSupport
 operator|.
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|bean
 argument_list|,
 name|name

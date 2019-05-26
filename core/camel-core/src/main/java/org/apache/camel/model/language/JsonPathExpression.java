@@ -585,6 +585,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 literal|"resultType"
@@ -602,6 +604,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 literal|"suppressExceptions"
@@ -619,6 +623,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 literal|"allowSimple"
@@ -636,6 +642,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 literal|"allowEasyPredicate"
@@ -653,6 +661,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 literal|"writeAsString"
@@ -670,6 +680,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 literal|"headerName"
@@ -711,6 +723,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|predicate
 argument_list|,
 literal|"resultType"
@@ -728,6 +742,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|predicate
 argument_list|,
 literal|"suppressExceptions"
@@ -745,6 +761,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|predicate
 argument_list|,
 literal|"allowSimple"
@@ -762,6 +780,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|predicate
 argument_list|,
 literal|"allowEasyPredicate"
@@ -779,6 +799,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|predicate
 argument_list|,
 literal|"writeAsString"
@@ -796,6 +818,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|predicate
 argument_list|,
 literal|"headerName"

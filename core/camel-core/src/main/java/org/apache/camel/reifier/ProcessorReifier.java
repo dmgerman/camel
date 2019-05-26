@@ -3406,6 +3406,11 @@ name|ProcessorDefinitionHelper
 operator|.
 name|resolveKnownConstantFields
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|output
 argument_list|)
 expr_stmt|;
@@ -3472,6 +3477,11 @@ name|ProcessorDefinitionHelper
 operator|.
 name|resolveKnownConstantFields
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|expressionDefinition
 argument_list|)
 expr_stmt|;
@@ -3774,6 +3784,11 @@ name|ProcessorDefinitionHelper
 operator|.
 name|resolveKnownConstantFields
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|definition
 argument_list|)
 expr_stmt|;
@@ -3834,6 +3849,11 @@ name|ProcessorDefinitionHelper
 operator|.
 name|resolveKnownConstantFields
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|expressionDefinition
 argument_list|)
 expr_stmt|;

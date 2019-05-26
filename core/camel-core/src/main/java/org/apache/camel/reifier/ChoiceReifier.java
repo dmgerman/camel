@@ -398,6 +398,11 @@ name|ProcessorDefinitionHelper
 operator|.
 name|resolveKnownConstantFields
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|exp
 argument_list|)
 expr_stmt|;

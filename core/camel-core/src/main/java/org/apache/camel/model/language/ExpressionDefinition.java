@@ -1624,11 +1624,14 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Sets a named property on the object instance using introspection      */
-DECL|method|setProperty (Object bean, String name, Object value)
+DECL|method|setProperty (CamelContext camelContext, Object bean, String name, Object value)
 specifier|protected
 name|void
 name|setProperty
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Object
 name|bean
 parameter_list|,
@@ -1645,6 +1648,8 @@ name|IntrospectionSupport
 operator|.
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|bean
 argument_list|,
 name|name

@@ -1919,6 +1919,8 @@ name|IntrospectionSupport
 operator|.
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|bean
 argument_list|,
 name|name

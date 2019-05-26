@@ -802,6 +802,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|language
 argument_list|,
 literal|"bean"
@@ -819,6 +821,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|language
 argument_list|,
 literal|"beanType"
@@ -836,6 +840,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|language
 argument_list|,
 literal|"ref"
@@ -853,6 +859,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|language
 argument_list|,
 literal|"method"

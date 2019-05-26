@@ -321,6 +321,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 literal|"headerName"
@@ -338,6 +340,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 literal|"mode"
@@ -355,6 +359,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 literal|"group"
@@ -396,6 +402,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|predicate
 argument_list|,
 literal|"headerName"
@@ -413,6 +421,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|predicate
 argument_list|,
 literal|"mode"
@@ -430,6 +440,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|predicate
 argument_list|,
 literal|"group"

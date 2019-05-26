@@ -249,63 +249,6 @@ operator|=
 name|loadBalancerTypeName
 expr_stmt|;
 block|}
-comment|/**      * Sets a named property on the data format instance using introspection      */
-DECL|method|setProperty (Object bean, String name, Object value)
-specifier|protected
-name|void
-name|setProperty
-parameter_list|(
-name|Object
-name|bean
-parameter_list|,
-name|String
-name|name
-parameter_list|,
-name|Object
-name|value
-parameter_list|)
-block|{
-try|try
-block|{
-name|IntrospectionSupport
-operator|.
-name|setProperty
-argument_list|(
-name|bean
-argument_list|,
-name|name
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Failed to set property "
-operator|+
-name|name
-operator|+
-literal|" on "
-operator|+
-name|bean
-operator|+
-literal|". Reason: "
-operator|+
-name|e
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
 comment|/**      * Maximum number of outputs, as some load balancers only support 1 processor      */
 DECL|method|getMaximumNumberOfOutputs ()
 specifier|public

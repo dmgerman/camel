@@ -3129,13 +3129,16 @@ name|changedProperties
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Inspects the given definition and resolves known fields      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will check if it refers to a known field (such as on Exchange).      *      * @param definition the definition      */
-DECL|method|resolveKnownConstantFields (Object definition)
+comment|/**      * Inspects the given definition and resolves known fields      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will check if it refers to a known field (such as on Exchange).      *      * @param camelContext the camel context      * @param definition   the definition      */
+DECL|method|resolveKnownConstantFields (CamelContext camelContext, Object definition)
 specifier|public
 specifier|static
 name|void
 name|resolveKnownConstantFields
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Object
 name|definition
 parameter_list|)
@@ -3312,6 +3315,8 @@ name|IntrospectionSupport
 operator|.
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|definition
 argument_list|,
 name|name

@@ -888,6 +888,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 literal|"documentType"
@@ -905,6 +907,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 literal|"resultType"
@@ -920,6 +924,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 literal|"useSaxon"
@@ -937,6 +943,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 literal|"xPathFactory"
@@ -954,6 +962,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 literal|"objectModelUri"
@@ -971,6 +981,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 literal|"threadSafety"
@@ -986,6 +998,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 literal|"logNamespaces"
@@ -1007,6 +1021,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|expression
 argument_list|,
 literal|"headerName"
@@ -1072,6 +1088,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|predicate
 argument_list|,
 literal|"documentType"
@@ -1089,6 +1107,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|predicate
 argument_list|,
 literal|"resultType"
@@ -1104,6 +1124,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|predicate
 argument_list|,
 literal|"useSaxon"
@@ -1121,6 +1143,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|predicate
 argument_list|,
 literal|"xPathFactory"
@@ -1138,6 +1162,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|predicate
 argument_list|,
 literal|"objectModelUri"
@@ -1155,6 +1181,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|predicate
 argument_list|,
 literal|"threadSafety"
@@ -1170,6 +1198,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|predicate
 argument_list|,
 literal|"logNamespaces"
@@ -1191,6 +1221,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|predicate
 argument_list|,
 literal|"headerName"
