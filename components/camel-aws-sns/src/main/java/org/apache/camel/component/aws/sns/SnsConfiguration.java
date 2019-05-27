@@ -250,7 +250,7 @@ return|return
 name|subject
 return|;
 block|}
-comment|/**      * The subject which is used if the message header 'CamelAwsSnsSubject' is not present.      */
+comment|/**      * The subject which is used if the message header 'CamelAwsSnsSubject' is      * not present.      */
 DECL|method|setSubject (String subject)
 specifier|public
 name|void
@@ -628,7 +628,7 @@ return|return
 name|kmsMasterKeyId
 return|;
 block|}
-comment|/**      * The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK.      */
+comment|/**      * The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a      * custom CMK.      */
 DECL|method|setKmsMasterKeyId (String kmsMasterKeyId)
 specifier|public
 name|void
