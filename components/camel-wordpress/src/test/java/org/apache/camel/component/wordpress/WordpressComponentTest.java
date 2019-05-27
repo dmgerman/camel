@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|wordpress
@@ -74,9 +62,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|apache
 operator|.
-name|Test
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -84,9 +78,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|mockito
+name|junit
 operator|.
-name|Mockito
+name|Test
 import|;
 end_import
 
@@ -170,35 +164,13 @@ name|not
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertNotNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertThat
-import|;
-end_import
-
 begin_class
 DECL|class|WordpressComponentTest
 specifier|public
 class|class
 name|WordpressComponentTest
+extends|extends
+name|CamelTestSupport
 block|{
 DECL|field|LOGGER
 specifier|private
@@ -233,14 +205,7 @@ init|=
 operator|new
 name|WordpressComponent
 argument_list|(
-name|Mockito
-operator|.
-name|mock
-argument_list|(
-name|CamelContext
-operator|.
-name|class
-argument_list|)
+name|context
 argument_list|)
 decl_stmt|;
 specifier|final
