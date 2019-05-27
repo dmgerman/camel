@@ -721,6 +721,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|orig
+operator|.
+name|setBodySources
+argument_list|(
+name|getBodySources
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|CachedCxfPayload (CachedCxfPayload<T> orig, Exchange exchange)
 specifier|private

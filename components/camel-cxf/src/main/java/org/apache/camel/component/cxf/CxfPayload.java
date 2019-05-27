@@ -705,6 +705,26 @@ return|return
 name|body
 return|;
 block|}
+comment|/*      * set the body back with cached stream source so      * CxfPayload is re-readable      */
+DECL|method|setBodySources (List<Source> body)
+specifier|public
+name|void
+name|setBodySources
+parameter_list|(
+name|List
+argument_list|<
+name|Source
+argument_list|>
+name|body
+parameter_list|)
+block|{
+name|this
+operator|.
+name|body
+operator|=
+name|body
+expr_stmt|;
+block|}
 DECL|method|getHeaders ()
 specifier|public
 name|List
