@@ -748,6 +748,11 @@ name|getTopicArn
 argument_list|()
 operator|==
 literal|null
+operator|&&
+name|configuration
+operator|.
+name|isAutoCreateTopic
+argument_list|()
 condition|)
 block|{
 comment|// creates a new topic, or returns the URL of an existing one

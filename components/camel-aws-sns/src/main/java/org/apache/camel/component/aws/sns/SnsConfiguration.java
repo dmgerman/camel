@@ -197,6 +197,20 @@ specifier|private
 name|boolean
 name|serverSideEncryptionEnabled
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|autoCreateTopic
+specifier|private
+name|boolean
+name|autoCreateTopic
+init|=
+literal|true
+decl_stmt|;
 comment|// Producer only properties
 annotation|@
 name|UriParam
@@ -656,6 +670,33 @@ operator|.
 name|serverSideEncryptionEnabled
 operator|=
 name|serverSideEncryptionEnabled
+expr_stmt|;
+block|}
+DECL|method|isAutoCreateTopic ()
+specifier|public
+name|boolean
+name|isAutoCreateTopic
+parameter_list|()
+block|{
+return|return
+name|autoCreateTopic
+return|;
+block|}
+comment|/**      * Setting the autocreation of the topic      */
+DECL|method|setAutoCreateTopic (boolean autoCreateTopic)
+specifier|public
+name|void
+name|setAutoCreateTopic
+parameter_list|(
+name|boolean
+name|autoCreateTopic
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoCreateTopic
+operator|=
+name|autoCreateTopic
 expr_stmt|;
 block|}
 comment|// *************************************************
