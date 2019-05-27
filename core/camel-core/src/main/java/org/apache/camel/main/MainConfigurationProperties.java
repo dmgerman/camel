@@ -66,6 +66,11 @@ name|autowireComponentProperties
 init|=
 literal|true
 decl_stmt|;
+DECL|field|autowireComponentPropertiesDeep
+specifier|private
+name|boolean
+name|autowireComponentPropertiesDeep
+decl_stmt|;
 DECL|field|name
 specifier|private
 name|String
@@ -376,6 +381,33 @@ operator|.
 name|autowireComponentProperties
 operator|=
 name|autowireComponentProperties
+expr_stmt|;
+block|}
+DECL|method|isAutowireComponentPropertiesDeep ()
+specifier|public
+name|boolean
+name|isAutowireComponentPropertiesDeep
+parameter_list|()
+block|{
+return|return
+name|autowireComponentPropertiesDeep
+return|;
+block|}
+comment|/**      * Whether autowiring components (with deep nesting by attempting to walk as deep down the object graph by creating new empty objects on the way if needed)      * with properties that are of same type, which has been added to the Camel registry, as a singleton instance.      * This is used for convention over configuration to inject DataSource, AmazonLogin instances to the components.      *<p/>      * This option is default disabled.      */
+DECL|method|setAutowireComponentPropertiesDeep (boolean autowireComponentPropertiesDeep)
+specifier|public
+name|void
+name|setAutowireComponentPropertiesDeep
+parameter_list|(
+name|boolean
+name|autowireComponentPropertiesDeep
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autowireComponentPropertiesDeep
+operator|=
+name|autowireComponentPropertiesDeep
 expr_stmt|;
 block|}
 DECL|method|getName ()

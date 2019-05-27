@@ -4059,11 +4059,21 @@ name|mainConfigurationProperties
 operator|.
 name|isAutowireComponentProperties
 argument_list|()
+operator|||
+name|mainConfigurationProperties
+operator|.
+name|isAutowireComponentPropertiesDeep
+argument_list|()
 condition|)
 block|{
 name|autoConfigurationFromRegistry
 argument_list|(
 name|camelContext
+argument_list|,
+name|mainConfigurationProperties
+operator|.
+name|isAutowireComponentPropertiesDeep
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -7083,13 +7093,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|autoConfigurationFromRegistry (CamelContext camelContext)
+DECL|method|autoConfigurationFromRegistry (CamelContext camelContext, boolean deepNesting)
 specifier|protected
 name|void
 name|autoConfigurationFromRegistry
 parameter_list|(
 name|CamelContext
 name|camelContext
+parameter_list|,
+name|boolean
+name|deepNesting
 parameter_list|)
 throws|throws
 name|Exception
@@ -7124,6 +7137,8 @@ argument_list|,
 name|component
 argument_list|,
 literal|false
+argument_list|,
+name|deepNesting
 argument_list|,
 parameter_list|(
 name|obj
