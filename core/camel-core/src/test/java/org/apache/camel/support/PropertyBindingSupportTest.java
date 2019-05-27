@@ -1183,10 +1183,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testAutowire ()
+DECL|method|testAutowired ()
 specifier|public
 name|void
-name|testAutowire
+name|testAutowired
 parameter_list|()
 throws|throws
 name|Exception
@@ -1260,7 +1260,7 @@ name|foo
 argument_list|,
 literal|"bar.work"
 argument_list|,
-literal|"#autowire"
+literal|"#autowired"
 argument_list|)
 expr_stmt|;
 name|assertEquals
