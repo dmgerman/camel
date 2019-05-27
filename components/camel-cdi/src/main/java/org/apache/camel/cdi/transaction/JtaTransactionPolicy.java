@@ -374,7 +374,7 @@ comment|// otherwise its just the "default" that has not explicit been configure
 comment|// and if so then we can safely replace that with our transacted error handler
 if|if
 condition|(
-name|ErrorHandlerBuilderRef
+name|ErrorHandlerReifier
 operator|.
 name|isErrorHandlerFactoryConfigured
 argument_list|(
@@ -396,7 +396,7 @@ operator|=
 operator|(
 name|ErrorHandlerBuilder
 operator|)
-name|ErrorHandlerBuilderRef
+name|ErrorHandlerReifier
 operator|.
 name|lookupErrorHandlerFactory
 argument_list|(
