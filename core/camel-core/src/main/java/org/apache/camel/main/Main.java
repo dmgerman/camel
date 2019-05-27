@@ -286,6 +286,25 @@ comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 annotation|@
 name|Override
+DECL|method|doInit ()
+specifier|protected
+name|void
+name|doInit
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doInit
+argument_list|()
+expr_stmt|;
+name|initCamelContext
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -297,9 +316,6 @@ block|{
 name|super
 operator|.
 name|doStart
-argument_list|()
-expr_stmt|;
-name|initCamelContext
 argument_list|()
 expr_stmt|;
 if|if
