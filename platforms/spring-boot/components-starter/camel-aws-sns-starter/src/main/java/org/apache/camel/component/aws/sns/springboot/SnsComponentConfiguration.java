@@ -447,6 +447,14 @@ name|serverSideEncryptionEnabled
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * Setting the autocreation of the topic          */
+DECL|field|autoCreateTopic
+specifier|private
+name|Boolean
+name|autoCreateTopic
+init|=
+literal|true
+decl_stmt|;
 DECL|method|getSubject ()
 specifier|public
 name|String
@@ -861,6 +869,32 @@ operator|.
 name|serverSideEncryptionEnabled
 operator|=
 name|serverSideEncryptionEnabled
+expr_stmt|;
+block|}
+DECL|method|getAutoCreateTopic ()
+specifier|public
+name|Boolean
+name|getAutoCreateTopic
+parameter_list|()
+block|{
+return|return
+name|autoCreateTopic
+return|;
+block|}
+DECL|method|setAutoCreateTopic (Boolean autoCreateTopic)
+specifier|public
+name|void
+name|setAutoCreateTopic
+parameter_list|(
+name|Boolean
+name|autoCreateTopic
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoCreateTopic
+operator|=
+name|autoCreateTopic
 expr_stmt|;
 block|}
 block|}
