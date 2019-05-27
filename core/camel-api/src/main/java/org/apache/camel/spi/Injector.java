@@ -26,7 +26,7 @@ specifier|public
 interface|interface
 name|Injector
 block|{
-comment|/**      * Instantiates a new instance of the given type possibly injecting values      * into the object in the process      *       * @param type the type of object to create      * @return a newly created instance      */
+comment|/**      * Instantiates a new instance of the given type; possibly injecting values      * into the object in the process (bean post processing)      *       * @param type the type of object to create      * @return a newly created instance      */
 DECL|method|newInstance (Class<T> type)
 parameter_list|<
 name|T
@@ -39,6 +39,24 @@ argument_list|<
 name|T
 argument_list|>
 name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Instantiates a new instance of the given type; possibly injecting values      * into the object in the process (bean post processing if enabled)      *      * @param type the type of object to create      * @param postProcessBean whether to post process the bean      * @return a newly created instance      */
+DECL|method|newInstance (Class<T> type, boolean postProcessBean)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|newInstance
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|,
+name|boolean
+name|postProcessBean
 parameter_list|)
 function_decl|;
 comment|/**      * Whether the injector supports creating new instances using auto-wiring.      * If this is possible then bean instances is attempt first to be created this way      * and if not, then the bean can only be created if there is a public no-arg constructor.      */

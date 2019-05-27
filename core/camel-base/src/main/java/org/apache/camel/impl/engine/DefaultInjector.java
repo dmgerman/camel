@@ -155,6 +155,35 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
+return|return
+name|newInstance
+argument_list|(
+name|type
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|newInstance (Class<T> type, boolean postProcessBean)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|newInstance
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|,
+name|boolean
+name|postProcessBean
+parameter_list|)
+block|{
 name|T
 name|answer
 init|=
@@ -170,6 +199,8 @@ condition|(
 name|answer
 operator|!=
 literal|null
+operator|&&
+name|postProcessBean
 condition|)
 block|{
 try|try
@@ -215,7 +246,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Error during post processing of bean "
+literal|"Error during post processing of bean: "
 operator|+
 name|answer
 argument_list|,

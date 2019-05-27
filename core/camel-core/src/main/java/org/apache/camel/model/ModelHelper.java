@@ -2327,6 +2327,8 @@ argument_list|(
 name|XmlConverter
 operator|.
 name|class
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

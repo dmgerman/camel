@@ -290,6 +290,8 @@ operator|.
 name|newInstance
 argument_list|(
 name|transformerClass
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

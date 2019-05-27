@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple implementation of {@link Injector} which just uses reflection to  * instantiate new objects using their zero argument constructor. For more  * complex implementations try the Spring or Guice implementations.  */
+comment|/**  * A simple implementation of {@link Injector} which just uses reflection to  * instantiate new objects using their zero argument constructor. For more  * complex implementations try the Spring or CDI implementations.  */
 end_comment
 
 begin_class
@@ -56,6 +56,8 @@ name|ReflectionInjector
 implements|implements
 name|Injector
 block|{
+annotation|@
+name|Override
 DECL|method|newInstance (Class<T> type)
 specifier|public
 parameter_list|<
@@ -72,6 +74,35 @@ name|type
 parameter_list|)
 block|{
 return|return
+name|newInstance
+argument_list|(
+name|type
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|newInstance (Class<T> type, boolean postProcessBean)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|newInstance
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|,
+name|boolean
+name|postProcessBean
+parameter_list|)
+block|{
+return|return
 name|ObjectHelper
 operator|.
 name|newInstance
@@ -79,6 +110,7 @@ argument_list|(
 name|type
 argument_list|)
 return|;
+comment|// does not support post processing
 block|}
 annotation|@
 name|Override

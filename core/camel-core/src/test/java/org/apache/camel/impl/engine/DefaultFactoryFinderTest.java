@@ -440,6 +440,8 @@ argument_list|(
 name|TestImplA
 operator|.
 name|class
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 operator|.
@@ -665,6 +667,8 @@ argument_list|(
 name|TestImplA
 operator|.
 name|class
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 operator|.

@@ -313,6 +313,8 @@ operator|.
 name|newInstance
 argument_list|(
 name|type
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -448,6 +450,8 @@ operator|.
 name|newInstance
 argument_list|(
 name|type
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 return|return
