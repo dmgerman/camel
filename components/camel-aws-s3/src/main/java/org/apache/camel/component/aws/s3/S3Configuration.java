@@ -551,7 +551,7 @@ return|return
 name|partSize
 return|;
 block|}
-comment|/**      * Setup the partSize which is used in multi part upload,      * the default size is 25M.      */
+comment|/**      * Setup the partSize which is used in multi part upload, the default size      * is 25M.      */
 DECL|method|setPartSize (long partSize)
 specifier|public
 name|void
@@ -578,7 +578,7 @@ return|return
 name|multiPartUpload
 return|;
 block|}
-comment|/**      * If it is true, camel will upload the file with multi part      * format, the part size is decided by the option of `partSize`      */
+comment|/**      * If it is true, camel will upload the file with multi part format, the      * part size is decided by the option of `partSize`      */
 DECL|method|setMultiPartUpload (boolean multiPartUpload)
 specifier|public
 name|void
@@ -956,7 +956,7 @@ return|return
 name|serverSideEncryption
 return|;
 block|}
-comment|/**      * Sets the server-side encryption algorithm when encrypting      * the object using AWS-managed keys. For example use<tt>AES256</tt>.      */
+comment|/**      * Sets the server-side encryption algorithm when encrypting the object      * using AWS-managed keys. For example use<tt>AES256</tt>.      */
 DECL|method|setServerSideEncryption (String serverSideEncryption)
 specifier|public
 name|void
@@ -1352,7 +1352,7 @@ operator|=
 name|forceGlobalBucketAccessEnabled
 expr_stmt|;
 block|}
-comment|/**      * Set whether the S3 client should expect to load credentials on an EC2 instance or to      * expect static credentials to be passed in.      */
+comment|/**      * Set whether the S3 client should expect to load credentials on an EC2      * instance or to expect static credentials to be passed in.      */
 DECL|method|setUseIAMCredentials (Boolean useIAMCredentials)
 specifier|public
 name|void
