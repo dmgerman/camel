@@ -488,6 +488,24 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"common"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|autoCreateBucket
+specifier|private
+name|boolean
+name|autoCreateBucket
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"producer,advanced"
 argument_list|,
 name|defaultValue
@@ -1360,6 +1378,33 @@ block|{
 return|return
 name|useIAMCredentials
 return|;
+block|}
+DECL|method|isAutoCreateBucket ()
+specifier|public
+name|boolean
+name|isAutoCreateBucket
+parameter_list|()
+block|{
+return|return
+name|autoCreateBucket
+return|;
+block|}
+comment|/**      * Setting the autocreation of the bucket      */
+DECL|method|setAutoCreateBucket (boolean autoCreateBucket)
+specifier|public
+name|void
+name|setAutoCreateBucket
+parameter_list|(
+name|boolean
+name|autoCreateBucket
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoCreateBucket
+operator|=
+name|autoCreateBucket
+expr_stmt|;
 block|}
 DECL|method|hasProxyConfiguration ()
 specifier|public

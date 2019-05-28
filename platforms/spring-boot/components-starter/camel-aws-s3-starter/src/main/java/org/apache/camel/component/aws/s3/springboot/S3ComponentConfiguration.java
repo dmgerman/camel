@@ -583,6 +583,14 @@ name|useIAMCredentials
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * Setting the autocreation of the bucket          */
+DECL|field|autoCreateBucket
+specifier|private
+name|Boolean
+name|autoCreateBucket
+init|=
+literal|true
+decl_stmt|;
 DECL|method|getPartSize ()
 specifier|public
 name|Long
@@ -1387,6 +1395,32 @@ operator|.
 name|useIAMCredentials
 operator|=
 name|useIAMCredentials
+expr_stmt|;
+block|}
+DECL|method|getAutoCreateBucket ()
+specifier|public
+name|Boolean
+name|getAutoCreateBucket
+parameter_list|()
+block|{
+return|return
+name|autoCreateBucket
+return|;
+block|}
+DECL|method|setAutoCreateBucket (Boolean autoCreateBucket)
+specifier|public
+name|void
+name|setAutoCreateBucket
+parameter_list|(
+name|Boolean
+name|autoCreateBucket
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoCreateBucket
+operator|=
+name|autoCreateBucket
 expr_stmt|;
 block|}
 block|}

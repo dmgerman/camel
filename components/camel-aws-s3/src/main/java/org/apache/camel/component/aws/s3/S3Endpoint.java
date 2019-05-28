@@ -706,6 +706,15 @@ argument_list|,
 name|bucketName
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|getConfiguration
+argument_list|()
+operator|.
+name|isAutoCreateBucket
+argument_list|()
+condition|)
+block|{
 comment|// creates the new bucket because it doesn't exist yet
 name|CreateBucketRequest
 name|createBucketRequest
@@ -753,6 +762,7 @@ argument_list|(
 literal|"Bucket created"
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|configuration
