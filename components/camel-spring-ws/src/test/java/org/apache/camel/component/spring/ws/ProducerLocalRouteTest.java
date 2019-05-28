@@ -100,11 +100,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|component
 operator|.
-name|xml
+name|mock
 operator|.
-name|StringSource
+name|MockEndpoint
 import|;
 end_import
 
@@ -116,11 +116,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|util
 operator|.
-name|mock
+name|xml
 operator|.
-name|MockEndpoint
+name|StringSource
 import|;
 end_import
 
