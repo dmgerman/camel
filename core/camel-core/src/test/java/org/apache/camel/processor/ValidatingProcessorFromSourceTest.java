@@ -34,11 +34,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|xml
+name|processor
 operator|.
-name|StringSource
+name|validation
+operator|.
+name|ValidatingProcessor
 import|;
 end_import
 
@@ -50,13 +52,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|processor
+name|xml
 operator|.
-name|validation
-operator|.
-name|ValidatingProcessor
+name|StringSource
 import|;
 end_import
 

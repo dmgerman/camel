@@ -26,11 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
-operator|.
-name|xml
-operator|.
-name|BytesSource
+name|ContextTestSupport
 import|;
 end_import
 
@@ -42,7 +38,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|util
+operator|.
+name|xml
+operator|.
+name|BytesSource
 import|;
 end_import
 
