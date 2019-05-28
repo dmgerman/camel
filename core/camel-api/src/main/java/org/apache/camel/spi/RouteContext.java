@@ -38,6 +38,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -504,6 +514,42 @@ name|onExceptionId
 parameter_list|,
 name|Processor
 name|processor
+parameter_list|)
+function_decl|;
+comment|/**      * Adds error handler for the given exception type      *      * @param factory       the error handler factory      * @param exception     the exception to handle      */
+DECL|method|addErrorHandler (ErrorHandlerFactory factory, NamedNode exception)
+name|void
+name|addErrorHandler
+parameter_list|(
+name|ErrorHandlerFactory
+name|factory
+parameter_list|,
+name|NamedNode
+name|exception
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the error handlers      *      * @param factory       the error handler factory      */
+DECL|method|getErrorHandlers (ErrorHandlerFactory factory)
+name|Set
+argument_list|<
+name|NamedNode
+argument_list|>
+name|getErrorHandlers
+parameter_list|(
+name|ErrorHandlerFactory
+name|factory
+parameter_list|)
+function_decl|;
+comment|/**      * Link the error handlers from a factory to another      *      * @param source        the source factory      * @param target        the target factory      */
+DECL|method|addErrorHandlerFactoryReference (ErrorHandlerFactory source, ErrorHandlerFactory target)
+name|void
+name|addErrorHandlerFactoryReference
+parameter_list|(
+name|ErrorHandlerFactory
+name|source
+parameter_list|,
+name|ErrorHandlerFactory
+name|target
 parameter_list|)
 function_decl|;
 block|}

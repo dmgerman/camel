@@ -78,45 +78,6 @@ name|ErrorHandlerBuilder
 extends|extends
 name|ErrorHandlerFactory
 block|{
-comment|/**      * Adds error handler for the given exception type      *      * @param routeContext  the route context      * @param exception     the exception to handle      */
-DECL|method|addErrorHandlers (RouteContext routeContext, OnExceptionDefinition exception)
-name|void
-name|addErrorHandlers
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|,
-name|OnExceptionDefinition
-name|exception
-parameter_list|)
-function_decl|;
-comment|/**      * Adds the error handlers for the given list of exception types      *      * @param routeContext  the route context      * @param exceptions    the list of exceptions to handle      */
-DECL|method|setErrorHandlers (RouteContext routeContext, List<OnExceptionDefinition> exceptions)
-name|void
-name|setErrorHandlers
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|,
-name|List
-argument_list|<
-name|OnExceptionDefinition
-argument_list|>
-name|exceptions
-parameter_list|)
-function_decl|;
-comment|/**      * Gets the error handlers      *      * @param routeContext  the route context      */
-DECL|method|getErrorHandlers (RouteContext routeContext)
-name|List
-argument_list|<
-name|OnExceptionDefinition
-argument_list|>
-name|getErrorHandlers
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|)
-function_decl|;
 comment|/**      * Whether this error handler supports transacted exchanges.      */
 DECL|method|supportTransacted ()
 name|boolean

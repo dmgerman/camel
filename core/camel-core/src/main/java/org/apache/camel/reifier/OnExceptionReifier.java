@@ -370,11 +370,11 @@ name|getErrorHandlerFactory
 argument_list|()
 decl_stmt|;
 comment|// and add this as error handlers
-name|builder
-operator|.
-name|addErrorHandlers
-argument_list|(
 name|routeContext
+operator|.
+name|addErrorHandler
+argument_list|(
+name|builder
 argument_list|,
 name|definition
 argument_list|)

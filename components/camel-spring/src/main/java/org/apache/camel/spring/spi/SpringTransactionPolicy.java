@@ -516,18 +516,13 @@ literal|null
 condition|)
 block|{
 comment|// use error handlers from the configured builder
-name|txBuilder
-operator|.
-name|setErrorHandlers
-argument_list|(
 name|routeContext
-argument_list|,
+operator|.
+name|addErrorHandlerFactoryReference
+argument_list|(
 name|builder
-operator|.
-name|getErrorHandlers
-argument_list|(
-name|routeContext
-argument_list|)
+argument_list|,
+name|txBuilder
 argument_list|)
 expr_stmt|;
 block|}
