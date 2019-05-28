@@ -532,26 +532,6 @@ argument_list|,
 name|txBuilder
 argument_list|)
 expr_stmt|;
-name|answer
-operator|.
-name|setExceptionPolicy
-argument_list|(
-name|txBuilder
-operator|.
-name|getExceptionPolicyStrategy
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// configure our answer based on the existing error handler
-name|txBuilder
-operator|.
-name|configure
-argument_list|(
-name|routeContext
-argument_list|,
-name|answer
-argument_list|)
-expr_stmt|;
 comment|// set the route to use our transacted error handler builder
 name|route
 operator|.

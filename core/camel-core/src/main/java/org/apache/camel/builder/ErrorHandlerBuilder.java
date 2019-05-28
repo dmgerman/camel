@@ -60,36 +60,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|ErrorHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|errorhandler
-operator|.
-name|ExceptionPolicyStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|RouteContext
@@ -147,38 +117,11 @@ name|RouteContext
 name|routeContext
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the exception policy strategy      */
-DECL|method|getExceptionPolicyStrategy ()
-name|ExceptionPolicyStrategy
-name|getExceptionPolicyStrategy
-parameter_list|()
-function_decl|;
-comment|/**      * Sets the exception policy strategy to use for resolving the {@link org.apache.camel.model.OnExceptionDefinition}      * to use for a given thrown exception      *      * @param exceptionPolicyStrategy  the exception policy strategy      */
-DECL|method|setExceptionPolicyStrategy (ExceptionPolicyStrategy exceptionPolicyStrategy)
-name|void
-name|setExceptionPolicyStrategy
-parameter_list|(
-name|ExceptionPolicyStrategy
-name|exceptionPolicyStrategy
-parameter_list|)
-function_decl|;
 comment|/**      * Whether this error handler supports transacted exchanges.      */
 DECL|method|supportTransacted ()
 name|boolean
 name|supportTransacted
 parameter_list|()
-function_decl|;
-comment|/**      * Configures the other error handler based on this error handler.      *      * @param routeContext the route context      * @param handler the other error handler      */
-DECL|method|configure (RouteContext routeContext, ErrorHandler handler)
-name|void
-name|configure
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|,
-name|ErrorHandler
-name|handler
-parameter_list|)
 function_decl|;
 comment|/**      * Clones this builder so each {@link RouteBuilder} has its private builder      * to use, to avoid changes from one {@link RouteBuilder} to influence the      * others.      *<p/>      * This is needed by the current Camel 2.x architecture.      *      * @return a clone of this {@link ErrorHandlerBuilder}      */
 DECL|method|cloneBuilder ()

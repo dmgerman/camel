@@ -410,6 +410,7 @@ operator|=
 name|exceptionPolicyStrategy
 expr_stmt|;
 block|}
+comment|/**      * Configures the other error handler based on this error handler.      *      * @param routeContext the route context      * @param handler the other error handler      */
 DECL|method|configure (RouteContext routeContext, ErrorHandler handler)
 specifier|public
 name|void
@@ -907,6 +908,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Gets the exception policy strategy      */
 DECL|method|getExceptionPolicyStrategy ()
 specifier|public
 name|ExceptionPolicyStrategy
@@ -917,6 +919,7 @@ return|return
 name|exceptionPolicyStrategy
 return|;
 block|}
+comment|/**      * Sets the exception policy strategy to use for resolving the {@link org.apache.camel.model.OnExceptionDefinition}      * to use for a given thrown exception      *      * @param exceptionPolicyStrategy  the exception policy strategy      */
 DECL|method|setExceptionPolicyStrategy (ExceptionPolicyStrategy exceptionPolicyStrategy)
 specifier|public
 name|void
