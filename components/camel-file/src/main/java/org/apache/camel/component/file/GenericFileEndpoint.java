@@ -3851,7 +3851,7 @@ return|return
 name|startingDirectoryMustHaveAccess
 return|;
 block|}
-comment|/**    * Whether the starting directory has access permissions. Mind that the    * startingDirectoryMustExist parameter must be set to true in order to verify that the    * directory exists. Will thrown an exception if the directory doesn't have    * read and write permissions.    */
+comment|/**      * Whether the starting directory has access permissions. Mind that the      * startingDirectoryMustExist parameter must be set to true in order to verify that the      * directory exists. Will thrown an exception if the directory doesn't have      * read and write permissions.      */
 DECL|method|setStartingDirectoryMustHaveAccess (boolean startingDirectoryMustHaveAccess)
 specifier|public
 name|void
