@@ -418,7 +418,7 @@ operator|=
 literal|"consumer,advanced"
 argument_list|)
 DECL|field|startingDirectoryMustExist
-specifier|protected
+specifier|private
 name|boolean
 name|startingDirectoryMustExist
 decl_stmt|;
@@ -430,7 +430,7 @@ operator|=
 literal|"consumer,advanced"
 argument_list|)
 DECL|field|startingDirectoryMustHaveAccess
-specifier|protected
+specifier|private
 name|boolean
 name|startingDirectoryMustHaveAccess
 decl_stmt|;
@@ -442,7 +442,7 @@ operator|=
 literal|"consumer,advanced"
 argument_list|)
 DECL|field|directoryMustExist
-specifier|protected
+specifier|private
 name|boolean
 name|directoryMustExist
 decl_stmt|;
