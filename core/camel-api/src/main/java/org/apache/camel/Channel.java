@@ -69,58 +69,10 @@ argument_list|<
 name|Processor
 argument_list|>
 block|{
-comment|/**      * Sets the processor that the channel should route the {@link Exchange} to.      *      * @param next  the next processor      */
-DECL|method|setNextProcessor (Processor next)
-name|void
-name|setNextProcessor
-parameter_list|(
-name|Processor
-name|next
-parameter_list|)
-function_decl|;
-comment|/**      * Sets the {@link org.apache.camel.processor.ErrorHandler} this Channel uses.      *      * @param errorHandler the error handler      */
-DECL|method|setErrorHandler (Processor errorHandler)
-name|void
-name|setErrorHandler
-parameter_list|(
-name|Processor
-name|errorHandler
-parameter_list|)
-function_decl|;
 comment|/**      * Gets the {@link org.apache.camel.processor.ErrorHandler} this Channel uses.      *      * @return the error handler, or<tt>null</tt> if no error handler is used.      */
 DECL|method|getErrorHandler ()
 name|Processor
 name|getErrorHandler
-parameter_list|()
-function_decl|;
-comment|/**      * Adds a {@link org.apache.camel.spi.InterceptStrategy} to apply each {@link Exchange} before      * its routed to the next {@link Processor}.      *      * @param strategy  the intercept strategy      */
-DECL|method|addInterceptStrategy (InterceptStrategy strategy)
-name|void
-name|addInterceptStrategy
-parameter_list|(
-name|InterceptStrategy
-name|strategy
-parameter_list|)
-function_decl|;
-comment|/**      * Adds a list of {@link org.apache.camel.spi.InterceptStrategy} to apply each {@link Exchange} before      * its routed to the next {@link Processor}.      *      * @param strategy  list of strategies      */
-DECL|method|addInterceptStrategies (List<InterceptStrategy> strategy)
-name|void
-name|addInterceptStrategies
-parameter_list|(
-name|List
-argument_list|<
-name|InterceptStrategy
-argument_list|>
-name|strategy
-parameter_list|)
-function_decl|;
-comment|/**      * Gets the list of {@link org.apache.camel.spi.InterceptStrategy} registered to this Channel.      *      * @return list of strategies, returns an empty list if no strategies is registered.      */
-DECL|method|getInterceptStrategies ()
-name|List
-argument_list|<
-name|InterceptStrategy
-argument_list|>
-name|getInterceptStrategies
 parameter_list|()
 function_decl|;
 comment|/**      * Gets the wrapped output that at runtime should be delegated to.      *      * @return the output to route the {@link Exchange} to      */
@@ -148,6 +100,12 @@ comment|/**      * Gets the {@link RouteContext}      *      * @return the route
 DECL|method|getRouteContext ()
 name|RouteContext
 name|getRouteContext
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the definition of the next processor      *      * @return the processor definition      */
+DECL|method|getProcessorDefinition ()
+name|NamedNode
+name|getProcessorDefinition
 parameter_list|()
 function_decl|;
 block|}

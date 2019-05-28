@@ -384,6 +384,12 @@ name|?
 argument_list|>
 name|def
 init|=
+operator|(
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+operator|)
 name|channel
 operator|.
 name|getProcessorDefinition

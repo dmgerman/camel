@@ -458,20 +458,6 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ModelChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
 name|MulticastDefinition
 import|;
 end_import
@@ -739,6 +725,20 @@ operator|.
 name|model
 operator|.
 name|RouteDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|RouteDefinitionHelper
 import|;
 end_import
 
@@ -1253,20 +1253,6 @@ operator|.
 name|spi
 operator|.
 name|LifecycleStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|NodeIdFactory
 import|;
 end_import
 
@@ -2615,7 +2601,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// dont double wrap
+comment|// don't double wrap
 if|if
 condition|(
 name|processor
@@ -2701,27 +2687,30 @@ throws|throws
 name|Exception
 block|{
 comment|// put a channel in between this and each output to control the route flow logic
-name|ModelChannel
+name|DefaultChannel
 name|channel
 init|=
-name|createChannel
-argument_list|(
-name|routeContext
-argument_list|)
+operator|new
+name|DefaultChannel
+argument_list|()
 decl_stmt|;
-name|channel
-operator|.
-name|setNextProcessor
-argument_list|(
-name|processor
-argument_list|)
-expr_stmt|;
 comment|// add interceptor strategies to the channel must be in this order: camel context, route context, local
+name|List
+argument_list|<
+name|InterceptStrategy
+argument_list|>
+name|interceptors
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+decl_stmt|;
 name|addInterceptStrategies
 argument_list|(
 name|routeContext
 argument_list|,
-name|channel
+name|interceptors
 argument_list|,
 name|routeContext
 operator|.
@@ -2743,7 +2732,7 @@ name|addInterceptStrategies
 argument_list|(
 name|routeContext
 argument_list|,
-name|channel
+name|interceptors
 argument_list|,
 name|routeContext
 operator|.
@@ -2755,7 +2744,7 @@ name|addInterceptStrategies
 argument_list|(
 name|routeContext
 argument_list|,
-name|channel
+name|interceptors
 argument_list|,
 name|definition
 operator|.
@@ -2763,23 +2752,167 @@ name|getInterceptStrategies
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// set the child before init the channel
-name|channel
+comment|// force the creation of an id
+name|RouteDefinitionHelper
 operator|.
-name|setChildDefinition
+name|forceAssignIds
 argument_list|(
-name|child
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|definition
 argument_list|)
 expr_stmt|;
+comment|// fix parent/child relationship. This will be the case of the routes has been
+comment|// defined using XML DSL or end user may have manually assembled a route from the model.
+comment|// Background note: parent/child relationship is assembled on-the-fly when using Java DSL (fluent builders)
+comment|// where as when using XML DSL (JAXB) then it fixed after, but if people are using custom interceptors
+comment|// then we need to fix the parent/child relationship beforehand, and thus we can do it here
+comment|// ideally we need the design time route -> runtime route to be a 2-phase pass (scheduled work for Camel 3.0)
+if|if
+condition|(
+name|child
+operator|!=
+literal|null
+operator|&&
+name|definition
+operator|!=
+name|child
+condition|)
+block|{
+name|child
+operator|.
+name|setParent
+argument_list|(
+name|definition
+argument_list|)
+expr_stmt|;
+block|}
+comment|// set the child before init the channel
+name|RouteDefinition
+name|route
+init|=
+name|ProcessorDefinitionHelper
+operator|.
+name|getRoute
+argument_list|(
+name|definition
+argument_list|)
+decl_stmt|;
+name|boolean
+name|first
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+name|route
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|route
+operator|.
+name|getOutputs
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|first
+operator|=
+name|route
+operator|.
+name|getOutputs
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|==
+name|definition
+expr_stmt|;
+block|}
+comment|// set scoping
+name|boolean
+name|routeScoped
+init|=
+literal|true
+decl_stmt|;
+if|if
+condition|(
+name|definition
+operator|instanceof
+name|OnExceptionDefinition
+condition|)
+block|{
+name|routeScoped
+operator|=
+operator|(
+operator|(
+name|OnExceptionDefinition
+operator|)
+name|definition
+operator|)
+operator|.
+name|isRouteScoped
+argument_list|()
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|this
+operator|.
+name|definition
+operator|instanceof
+name|OnCompletionDefinition
+condition|)
+block|{
+name|routeScoped
+operator|=
+operator|(
+operator|(
+name|OnCompletionDefinition
+operator|)
+name|definition
+operator|)
+operator|.
+name|isRouteScoped
+argument_list|()
+expr_stmt|;
+block|}
+comment|// initialize the channel
 name|channel
 operator|.
 name|initChannel
 argument_list|(
+name|routeContext
+argument_list|,
 name|definition
 argument_list|,
-name|routeContext
+name|child
+argument_list|,
+name|interceptors
+argument_list|,
+name|processor
+argument_list|,
+name|route
+argument_list|,
+name|first
+argument_list|,
+name|routeScoped
 argument_list|)
 expr_stmt|;
+name|boolean
+name|wrap
+init|=
+literal|false
+decl_stmt|;
 comment|// set the error handler, must be done after init as we can set the error handler as first in the chain
 if|if
 condition|(
@@ -2931,14 +3064,9 @@ literal|null
 condition|)
 block|{
 comment|// only wrap the parent (not the children of the hystrix)
-name|wrapChannelInErrorHandler
-argument_list|(
-name|channel
-argument_list|,
-name|routeContext
-argument_list|,
-name|inheritErrorHandler
-argument_list|)
+name|wrap
+operator|=
+literal|true
 expr_stmt|;
 block|}
 else|else
@@ -2997,14 +3125,9 @@ literal|null
 condition|)
 block|{
 comment|// only wrap the parent (not the children of the multicast)
-name|wrapChannelInErrorHandler
-argument_list|(
-name|channel
-argument_list|,
-name|routeContext
-argument_list|,
-name|inheritErrorHandler
-argument_list|)
+name|wrap
+operator|=
+literal|true
 expr_stmt|;
 block|}
 else|else
@@ -3023,6 +3146,16 @@ block|}
 else|else
 block|{
 comment|// use error handler by default or if configured to do so
+name|wrap
+operator|=
+literal|true
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|wrap
+condition|)
+block|{
 name|wrapChannelInErrorHandler
 argument_list|(
 name|channel
@@ -3037,11 +3170,7 @@ comment|// do post init at the end
 name|channel
 operator|.
 name|postInitChannel
-argument_list|(
-name|definition
-argument_list|,
-name|routeContext
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|log
 operator|.
@@ -3059,12 +3188,12 @@ name|channel
 return|;
 block|}
 comment|/**      * Wraps the given channel in error handler (if error handler is inherited)      *      * @param channel             the channel      * @param routeContext        the route context      * @param inheritErrorHandler whether to inherit error handler      * @throws Exception can be thrown if failed to create error handler builder      */
-DECL|method|wrapChannelInErrorHandler (Channel channel, RouteContext routeContext, Boolean inheritErrorHandler)
+DECL|method|wrapChannelInErrorHandler (DefaultChannel channel, RouteContext routeContext, Boolean inheritErrorHandler)
 specifier|private
 name|void
 name|wrapChannelInErrorHandler
 parameter_list|(
-name|Channel
+name|DefaultChannel
 name|channel
 parameter_list|,
 name|RouteContext
@@ -3206,8 +3335,8 @@ return|return
 name|errorHandler
 return|;
 block|}
-comment|/**      * Adds the given list of interceptors to the channel.      *      * @param routeContext  the route context      * @param channel       the channel to add strategies      * @param strategies    list of strategies to add.      */
-DECL|method|addInterceptStrategies (RouteContext routeContext, Channel channel, List<InterceptStrategy> strategies)
+comment|/**      * Adds the given list of interceptors to the channel.      *      * @param routeContext  the route context      * @param interceptors  the list to add strategies      * @param strategies    list of strategies to add.      */
+DECL|method|addInterceptStrategies (RouteContext routeContext, List<InterceptStrategy> interceptors, List<InterceptStrategy> strategies)
 specifier|protected
 name|void
 name|addInterceptStrategies
@@ -3215,8 +3344,11 @@ parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|,
-name|Channel
-name|channel
+name|List
+argument_list|<
+name|InterceptStrategy
+argument_list|>
+name|interceptors
 parameter_list|,
 name|List
 argument_list|<
@@ -3250,9 +3382,9 @@ comment|// handle fault is disabled so we should not add it
 continue|continue;
 block|}
 comment|// add strategy
-name|channel
+name|interceptors
 operator|.
-name|addInterceptStrategy
+name|add
 argument_list|(
 name|strategy
 argument_list|)
@@ -3289,24 +3421,6 @@ argument_list|()
 argument_list|,
 name|list
 argument_list|)
-return|;
-block|}
-comment|/**      * Creates a new instance of the {@link Channel}.      */
-DECL|method|createChannel (RouteContext routeContext)
-specifier|protected
-name|ModelChannel
-name|createChannel
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-return|return
-operator|new
-name|DefaultChannel
-argument_list|()
 return|;
 block|}
 DECL|method|createOutputsProcessor (RouteContext routeContext, Collection<ProcessorDefinition<?>> outputs)
