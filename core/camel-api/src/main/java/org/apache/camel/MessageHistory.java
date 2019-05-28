@@ -42,7 +42,7 @@ name|long
 name|getTime
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the elapsed time in millis processing the node took      */
+comment|/**      * Gets the elapsed time in millis processing the node took      * (this is 0 until the node processing is done)      */
 DECL|method|getElapsed ()
 name|long
 name|getElapsed
