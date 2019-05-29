@@ -253,7 +253,7 @@ literal|"consumer"
 argument_list|,
 name|description
 operator|=
-literal|"The name of the topic to use"
+literal|"The name of the topic/channel to use"
 argument_list|)
 DECL|field|topicName
 specifier|private
