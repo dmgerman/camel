@@ -2149,7 +2149,16 @@ name|trace
 init|=
 name|Boolean
 operator|.
-name|FALSE
+name|TRUE
+decl_stmt|;
+DECL|field|debug
+specifier|private
+name|Boolean
+name|debug
+init|=
+name|Boolean
+operator|.
+name|TRUE
 decl_stmt|;
 DECL|field|messageHistory
 specifier|private
@@ -9606,14 +9615,30 @@ return|return
 name|trace
 return|;
 block|}
-DECL|method|isMessageHistory ()
+DECL|method|setDebugging (Boolean debug)
+specifier|public
+name|void
+name|setDebugging
+parameter_list|(
+name|Boolean
+name|debug
+parameter_list|)
+block|{
+name|this
+operator|.
+name|debug
+operator|=
+name|debug
+expr_stmt|;
+block|}
+DECL|method|isDebugging ()
 specifier|public
 name|Boolean
-name|isMessageHistory
+name|isDebugging
 parameter_list|()
 block|{
 return|return
-name|messageHistory
+name|debug
 return|;
 block|}
 DECL|method|setMessageHistory (Boolean messageHistory)
@@ -9631,6 +9656,16 @@ name|messageHistory
 operator|=
 name|messageHistory
 expr_stmt|;
+block|}
+DECL|method|isMessageHistory ()
+specifier|public
+name|Boolean
+name|isMessageHistory
+parameter_list|()
+block|{
+return|return
+name|messageHistory
+return|;
 block|}
 DECL|method|setLogMask (Boolean logMask)
 specifier|public

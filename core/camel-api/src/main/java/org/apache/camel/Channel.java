@@ -81,15 +81,6 @@ name|Processor
 name|getOutput
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the wrapped output that at runtime should be delegated to.      *      * @param output the output to route the {@link Exchange} to      */
-DECL|method|setOutput (Processor output)
-name|void
-name|setOutput
-parameter_list|(
-name|Processor
-name|output
-parameter_list|)
-function_decl|;
 comment|/**      * Gets the next {@link Processor} to route to (not wrapped)      *      * @return  the next processor      */
 DECL|method|getNextProcessor ()
 name|Processor

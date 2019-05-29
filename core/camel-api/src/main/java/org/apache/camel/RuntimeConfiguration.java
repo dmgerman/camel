@@ -39,7 +39,7 @@ name|Boolean
 name|isStreamCaching
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether tracing is enabled or not (default is disabled).      *      * @param tracing whether to enable tracing.      */
+comment|/**      * Sets whether tracing is enabled or not (default is enabled).      *      * @param tracing whether to enable tracing.      */
 DECL|method|setTracing (Boolean tracing)
 name|void
 name|setTracing
@@ -52,6 +52,21 @@ comment|/**      * Returns whether tracing enabled      *      * @return<tt>true
 DECL|method|isTracing ()
 name|Boolean
 name|isTracing
+parameter_list|()
+function_decl|;
+comment|/**      * Sets whether debugging is enabled or not (default is enabled).      *      * @param debugging whether to enable debugging.      */
+DECL|method|setDebugging (Boolean debugging)
+name|void
+name|setDebugging
+parameter_list|(
+name|Boolean
+name|debugging
+parameter_list|)
+function_decl|;
+comment|/**      * Returns whether debugging enabled      *      * @return<tt>true</tt> if tracing is enabled      */
+DECL|method|isDebugging ()
+name|Boolean
+name|isDebugging
 parameter_list|()
 function_decl|;
 comment|/**      * Sets whether message history is enabled or not (default is enabled).      *      * @param messageHistory whether message history is enabled      */

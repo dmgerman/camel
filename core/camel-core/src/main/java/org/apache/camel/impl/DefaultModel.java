@@ -550,6 +550,16 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|camelContext
+return|;
+block|}
 DECL|method|addRouteDefinitions (InputStream is)
 specifier|public
 name|void

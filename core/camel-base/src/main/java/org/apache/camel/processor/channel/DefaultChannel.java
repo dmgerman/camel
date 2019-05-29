@@ -228,6 +228,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|CamelInternalProcessorAdvice
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|InterceptStrategy
 import|;
 end_import
@@ -511,6 +525,22 @@ return|return
 name|definition
 return|;
 block|}
+DECL|method|setDefinition (NamedNode definition)
+specifier|public
+name|void
+name|setDefinition
+parameter_list|(
+name|NamedNode
+name|definition
+parameter_list|)
+block|{
+name|this
+operator|.
+name|definition
+operator|=
+name|definition
+expr_stmt|;
+block|}
 DECL|method|getRouteContext ()
 specifier|public
 name|RouteContext
@@ -747,8 +777,16 @@ name|nextProcessor
 argument_list|)
 expr_stmt|;
 block|}
-comment|// then wrap the output with the backlog and tracer (backlog first,
-comment|// as we do not want regular tracer to trace the backlog)
+comment|// then wrap the output with the tracer and debugger (debugger first,
+comment|// as we do not want regular tracer to trace the debugger)
+if|if
+condition|(
+name|routeContext
+operator|.
+name|isTracing
+argument_list|()
+condition|)
+block|{
 name|BacklogTracer
 name|tracer
 init|=
@@ -781,7 +819,16 @@ name|first
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 comment|// add debugger as well so we have both tracing and debugging out of the box
+if|if
+condition|(
+name|routeContext
+operator|.
+name|isDebugging
+argument_list|()
+condition|)
+block|{
 name|BacklogDebugger
 name|debugger
 init|=
@@ -808,6 +855,7 @@ name|targetOutputDef
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|routeContext
