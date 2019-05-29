@@ -126,7 +126,7 @@ name|useList
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * If enabled then Jackson is allowed to attempt to use the      * CamelJacksonUnmarshalType header during the unmarshalling. This should      * only be enabled when desired to be used.      */
+comment|/**      * If enabled then Jackson CBOR is allowed to attempt to use the      * CamelCBORUnmarshalType header during the unmarshalling. This should only      * be enabled when desired to be used.      */
 DECL|field|allowUnmarshallType
 specifier|private
 name|Boolean
