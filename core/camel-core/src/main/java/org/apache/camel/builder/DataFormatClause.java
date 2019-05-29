@@ -40,18 +40,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|zip
-operator|.
-name|Deflater
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|w3c
