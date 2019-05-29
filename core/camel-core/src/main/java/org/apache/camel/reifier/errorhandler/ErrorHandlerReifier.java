@@ -294,6 +294,22 @@ name|processor
 operator|.
 name|errorhandler
 operator|.
+name|ErrorHandlerSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|errorhandler
+operator|.
 name|ExceptionPolicy
 import|;
 end_import
@@ -313,22 +329,6 @@ operator|.
 name|ExceptionPolicy
 operator|.
 name|RedeliveryOption
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|errorhandler
-operator|.
-name|ErrorHandlerSupport
 import|;
 end_import
 
@@ -537,6 +537,26 @@ operator|=
 name|map
 expr_stmt|;
 block|}
+DECL|field|definition
+specifier|protected
+name|T
+name|definition
+decl_stmt|;
+comment|/**      * Utility classes should not have a public constructor.      */
+DECL|method|ErrorHandlerReifier (T definition)
+name|ErrorHandlerReifier
+parameter_list|(
+name|T
+name|definition
+parameter_list|)
+block|{
+name|this
+operator|.
+name|definition
+operator|=
+name|definition
+expr_stmt|;
+block|}
 DECL|method|registerReifier (Class<?> errorHandlerClass, Function<ErrorHandlerFactory, ErrorHandlerReifier<? extends ErrorHandlerFactory>> creator)
 specifier|public
 specifier|static
@@ -571,26 +591,6 @@ name|errorHandlerClass
 argument_list|,
 name|creator
 argument_list|)
-expr_stmt|;
-block|}
-DECL|field|definition
-specifier|protected
-name|T
-name|definition
-decl_stmt|;
-comment|/**      * Utility classes should not have a public constructor.      */
-DECL|method|ErrorHandlerReifier (T definition)
-name|ErrorHandlerReifier
-parameter_list|(
-name|T
-name|definition
-parameter_list|)
-block|{
-name|this
-operator|.
-name|definition
-operator|=
-name|definition
 expr_stmt|;
 block|}
 DECL|method|reifier (ErrorHandlerFactory definition)
