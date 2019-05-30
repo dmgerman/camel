@@ -299,7 +299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * To use a specific key for claim check id.      */
+comment|/**      * To use a specific key for claim check id (for dynamic keys use simple language syntax as the key).      */
 DECL|method|key (String key)
 specifier|public
 name|ClaimCheckDefinition

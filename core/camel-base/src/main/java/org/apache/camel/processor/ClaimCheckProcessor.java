@@ -84,6 +84,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|engine
@@ -158,6 +170,20 @@ name|camel
 operator|.
 name|support
 operator|.
+name|LanguageSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
 name|service
 operator|.
 name|ServiceHelper
@@ -218,6 +244,11 @@ DECL|field|key
 specifier|private
 name|String
 name|key
+decl_stmt|;
+DECL|field|keyExpression
+specifier|private
+name|Expression
+name|keyExpression
 decl_stmt|;
 DECL|field|filter
 specifier|private
@@ -446,6 +477,20 @@ expr_stmt|;
 block|}
 try|try
 block|{
+name|String
+name|claimKey
+init|=
+name|keyExpression
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 literal|"Set"
@@ -476,7 +521,7 @@ name|repo
 operator|.
 name|add
 argument_list|(
-name|key
+name|claimKey
 argument_list|,
 name|copy
 argument_list|)
@@ -492,7 +537,7 @@ name|debug
 argument_list|(
 literal|"Add: {} -> {}"
 argument_list|,
-name|key
+name|claimKey
 argument_list|,
 name|copy
 argument_list|)
@@ -506,7 +551,7 @@ name|debug
 argument_list|(
 literal|"Override: {} -> {}"
 argument_list|,
-name|key
+name|claimKey
 argument_list|,
 name|copy
 argument_list|)
@@ -531,7 +576,7 @@ name|repo
 operator|.
 name|get
 argument_list|(
-name|key
+name|claimKey
 argument_list|)
 decl_stmt|;
 name|log
@@ -540,7 +585,7 @@ name|debug
 argument_list|(
 literal|"Get: {} -> {}"
 argument_list|,
-name|key
+name|claimKey
 argument_list|,
 name|exchange
 argument_list|)
@@ -601,7 +646,7 @@ name|repo
 operator|.
 name|getAndRemove
 argument_list|(
-name|key
+name|claimKey
 argument_list|)
 decl_stmt|;
 name|log
@@ -610,7 +655,7 @@ name|debug
 argument_list|(
 literal|"GetAndRemove: {} -> {}"
 argument_list|,
-name|key
+name|claimKey
 argument_list|,
 name|exchange
 argument_list|)
@@ -693,7 +738,7 @@ name|debug
 argument_list|(
 literal|"Push: {} -> {}"
 argument_list|,
-name|key
+name|claimKey
 argument_list|,
 name|copy
 argument_list|)
@@ -731,7 +776,7 @@ name|debug
 argument_list|(
 literal|"Pop: {} -> {}"
 argument_list|,
-name|key
+name|claimKey
 argument_list|,
 name|exchange
 argument_list|)
@@ -861,6 +906,48 @@ operator|.
 name|setCamelContext
 argument_list|(
 name|camelContext
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|LanguageSupport
+operator|.
+name|hasSimpleFunction
+argument_list|(
+name|key
+argument_list|)
+condition|)
+block|{
+name|keyExpression
+operator|=
+name|camelContext
+operator|.
+name|resolveLanguage
+argument_list|(
+literal|"simple"
+argument_list|)
+operator|.
+name|createExpression
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|keyExpression
+operator|=
+name|camelContext
+operator|.
+name|resolveLanguage
+argument_list|(
+literal|"constant"
+argument_list|)
+operator|.
+name|createExpression
+argument_list|(
+name|key
 argument_list|)
 expr_stmt|;
 block|}
