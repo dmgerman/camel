@@ -181,6 +181,11 @@ specifier|private
 name|String
 name|group
 decl_stmt|;
+DECL|field|groupDelimiter
+specifier|private
+name|String
+name|groupDelimiter
+decl_stmt|;
 DECL|field|skipFirst
 specifier|private
 name|boolean
@@ -659,6 +664,17 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|String
+name|delim
+init|=
+name|groupDelimiter
+operator|!=
+literal|null
+condition|?
+name|groupDelimiter
+else|:
+name|token
+decl_stmt|;
 name|answer
 operator|=
 name|ExpressionBuilder
@@ -667,7 +683,7 @@ name|groupIteratorExpression
 argument_list|(
 name|answer
 argument_list|,
-name|token
+name|delim
 argument_list|,
 name|group
 argument_list|,
@@ -917,6 +933,32 @@ operator|.
 name|group
 operator|=
 name|group
+expr_stmt|;
+block|}
+DECL|method|getGroupDelimiter ()
+specifier|public
+name|String
+name|getGroupDelimiter
+parameter_list|()
+block|{
+return|return
+name|groupDelimiter
+return|;
+block|}
+DECL|method|setGroupDelimiter (String groupDelimiter)
+specifier|public
+name|void
+name|setGroupDelimiter
+parameter_list|(
+name|String
+name|groupDelimiter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|groupDelimiter
+operator|=
+name|groupDelimiter
 expr_stmt|;
 block|}
 DECL|method|isSkipFirst ()

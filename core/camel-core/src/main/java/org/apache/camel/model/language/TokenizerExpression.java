@@ -258,6 +258,13 @@ name|group
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|groupDelimiter
+specifier|private
+name|String
+name|groupDelimiter
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|skipFirst
 specifier|private
 name|Boolean
@@ -496,6 +503,33 @@ operator|=
 name|group
 expr_stmt|;
 block|}
+DECL|method|getGroupDelimiter ()
+specifier|public
+name|String
+name|getGroupDelimiter
+parameter_list|()
+block|{
+return|return
+name|groupDelimiter
+return|;
+block|}
+comment|/**      * Sets the delimiter to use when grouping. If this has not been set then token will be used as the delimiter.      */
+DECL|method|setGroupDelimiter (String groupDelimiter)
+specifier|public
+name|void
+name|setGroupDelimiter
+parameter_list|(
+name|String
+name|groupDelimiter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|groupDelimiter
+operator|=
+name|groupDelimiter
+expr_stmt|;
+block|}
 DECL|method|getSkipFirst ()
 specifier|public
 name|Boolean
@@ -590,6 +624,13 @@ operator|.
 name|setHeaderName
 argument_list|(
 name|headerName
+argument_list|)
+expr_stmt|;
+name|language
+operator|.
+name|setGroupDelimiter
+argument_list|(
+name|groupDelimiter
 argument_list|)
 expr_stmt|;
 if|if
