@@ -144,7 +144,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|EndpointHelper
+name|IntrospectionSupport
 import|;
 end_import
 
@@ -158,7 +158,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|IntrospectionSupport
+name|PropertyBindingSupport
 import|;
 end_import
 
@@ -1380,21 +1380,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// set reference properties first as they use # syntax that fools the regular properties setter
-name|EndpointHelper
+name|PropertyBindingSupport
 operator|.
-name|setReferenceProperties
-argument_list|(
-name|context
-argument_list|,
-name|dataFormat
-argument_list|,
-name|copy
-argument_list|)
-expr_stmt|;
-name|EndpointHelper
-operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
 name|context
 argument_list|,

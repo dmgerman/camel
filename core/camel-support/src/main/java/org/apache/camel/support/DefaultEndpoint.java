@@ -1230,18 +1230,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// set reference properties first as they use # syntax that fools the regular properties setter
-name|EndpointHelper
-operator|.
-name|setReferenceProperties
-argument_list|(
-name|camelContext
-argument_list|,
-name|bean
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|basicPropertyBinding
