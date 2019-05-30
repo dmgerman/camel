@@ -295,9 +295,9 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Indexing current JIRA issues..."
+literal|"Start indexing current JIRA issues..."
 argument_list|)
 expr_stmt|;
 name|List
@@ -397,6 +397,18 @@ operator|+=
 name|maxPerQuery
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"End indexing current JIRA issues. {} issues indexed."
+argument_list|,
+name|issues
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|issues
 return|;

@@ -143,6 +143,23 @@ argument_list|()
 operator|+
 literal|" ORDER BY key desc"
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+comment|// read the actual issues, the next poll outputs only the new issues added after the route start
 comment|// grab only the top
 name|List
 argument_list|<
