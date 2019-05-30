@@ -32,6 +32,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -97,10 +107,10 @@ comment|/**  * Unit test for PropertyBindingSupport  */
 end_comment
 
 begin_class
-DECL|class|PropertyBindingSupportMapTest
+DECL|class|PropertyBindingSupportListTest
 specifier|public
 class|class
-name|PropertyBindingSupportMapTest
+name|PropertyBindingSupportListTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -229,10 +239,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testPropertiesMap ()
+DECL|method|testPropertiesList ()
 specifier|public
 name|void
-name|testPropertiesMap
+name|testPropertiesList
 parameter_list|()
 throws|throws
 name|Exception
@@ -297,7 +307,7 @@ name|prop
 operator|.
 name|put
 argument_list|(
-literal|"bar.works[acme]"
+literal|"bar.works[0]"
 argument_list|,
 literal|"#bean:company1"
 argument_list|)
@@ -306,7 +316,7 @@ name|prop
 operator|.
 name|put
 argument_list|(
-literal|"bar.works[burger]"
+literal|"bar.works[1]"
 argument_list|,
 literal|"#bean:company2"
 argument_list|)
@@ -397,7 +407,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"acme"
+literal|0
 argument_list|)
 operator|.
 name|getId
@@ -418,7 +428,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"acme"
+literal|0
 argument_list|)
 operator|.
 name|getName
@@ -439,7 +449,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"burger"
+literal|1
 argument_list|)
 operator|.
 name|getId
@@ -460,7 +470,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"burger"
+literal|1
 argument_list|)
 operator|.
 name|getName
@@ -470,10 +480,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testPropertiesMapNested ()
+DECL|method|testPropertiesListNested ()
 specifier|public
 name|void
-name|testPropertiesMapNested
+name|testPropertiesListNested
 parameter_list|()
 throws|throws
 name|Exception
@@ -538,7 +548,7 @@ name|prop
 operator|.
 name|put
 argument_list|(
-literal|"bar.works[acme]"
+literal|"bar.works[0]"
 argument_list|,
 literal|"#bean:company1"
 argument_list|)
@@ -547,7 +557,7 @@ name|prop
 operator|.
 name|put
 argument_list|(
-literal|"bar.works[acme].id"
+literal|"bar.works[0].id"
 argument_list|,
 literal|"666"
 argument_list|)
@@ -556,7 +566,7 @@ name|prop
 operator|.
 name|put
 argument_list|(
-literal|"bar.works[burger]"
+literal|"bar.works[1]"
 argument_list|,
 literal|"#bean:company2"
 argument_list|)
@@ -565,7 +575,7 @@ name|prop
 operator|.
 name|put
 argument_list|(
-literal|"bar.works[burger].name"
+literal|"bar.works[1].name"
 argument_list|,
 literal|"I changed this"
 argument_list|)
@@ -656,7 +666,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"acme"
+literal|0
 argument_list|)
 operator|.
 name|getId
@@ -677,7 +687,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"acme"
+literal|0
 argument_list|)
 operator|.
 name|getName
@@ -698,7 +708,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"burger"
+literal|1
 argument_list|)
 operator|.
 name|getId
@@ -719,7 +729,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"burger"
+literal|1
 argument_list|)
 operator|.
 name|getName
@@ -729,10 +739,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testPropertiesMapFirst ()
+DECL|method|testPropertiesListFirst ()
 specifier|public
 name|void
-name|testPropertiesMapFirst
+name|testPropertiesListFirst
 parameter_list|()
 throws|throws
 name|Exception
@@ -761,7 +771,7 @@ name|prop
 operator|.
 name|put
 argument_list|(
-literal|"works[acme]"
+literal|"works[0]"
 argument_list|,
 literal|"#bean:company1"
 argument_list|)
@@ -770,7 +780,7 @@ name|prop
 operator|.
 name|put
 argument_list|(
-literal|"works[acme].id"
+literal|"works[0].id"
 argument_list|,
 literal|"666"
 argument_list|)
@@ -779,7 +789,7 @@ name|prop
 operator|.
 name|put
 argument_list|(
-literal|"works[burger]"
+literal|"works[1]"
 argument_list|,
 literal|"#bean:company2"
 argument_list|)
@@ -788,7 +798,7 @@ name|prop
 operator|.
 name|put
 argument_list|(
-literal|"works[burger].name"
+literal|"works[1].name"
 argument_list|,
 literal|"I changed this"
 argument_list|)
@@ -828,7 +838,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"acme"
+literal|0
 argument_list|)
 operator|.
 name|getId
@@ -846,7 +856,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"acme"
+literal|0
 argument_list|)
 operator|.
 name|getName
@@ -864,7 +874,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"burger"
+literal|1
 argument_list|)
 operator|.
 name|getId
@@ -882,7 +892,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"burger"
+literal|1
 argument_list|)
 operator|.
 name|getName
@@ -892,10 +902,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testPropertiesNotMap ()
+DECL|method|testPropertiesNotList ()
 specifier|public
 name|void
-name|testPropertiesNotMap
+name|testPropertiesNotList
 parameter_list|()
 throws|throws
 name|Exception
@@ -942,7 +952,7 @@ name|prop
 operator|.
 name|put
 argument_list|(
-literal|"bar.gold-customer[foo]"
+literal|"bar.gold-customer[]"
 argument_list|,
 literal|"true"
 argument_list|)
@@ -974,7 +984,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"bar.gold-customer[foo]"
+literal|"bar.gold-customer[]"
 argument_list|,
 name|e
 operator|.
@@ -1006,7 +1016,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"Cannot set property: gold-customer[foo] as either a Map/List because target bean is not a Map or List type"
+literal|"Cannot set property: gold-customer[] as either a Map/List because target bean is not a Map or List type"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1103,10 +1113,8 @@ name|rider
 decl_stmt|;
 DECL|field|works
 specifier|private
-name|Map
+name|List
 argument_list|<
-name|String
-argument_list|,
 name|Company
 argument_list|>
 name|works
@@ -1171,10 +1179,8 @@ expr_stmt|;
 block|}
 DECL|method|getWorks ()
 specifier|public
-name|Map
+name|List
 argument_list|<
-name|String
-argument_list|,
 name|Company
 argument_list|>
 name|getWorks
@@ -1184,15 +1190,13 @@ return|return
 name|works
 return|;
 block|}
-DECL|method|setWorks (Map<String, Company> works)
+DECL|method|setWorks (List<Company> works)
 specifier|public
 name|void
 name|setWorks
 parameter_list|(
-name|Map
+name|List
 argument_list|<
-name|String
-argument_list|,
 name|Company
 argument_list|>
 name|works
