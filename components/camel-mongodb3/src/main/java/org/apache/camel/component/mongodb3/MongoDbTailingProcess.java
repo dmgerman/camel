@@ -791,6 +791,37 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+catch|catch
+parameter_list|(
+name|IllegalStateException
+name|e
+parameter_list|)
+block|{
+comment|// cursor.hasNext() opens socket and waiting for data
+comment|// it throws exception when cursor is closed in another thread
+comment|// there is no way to stop hasNext() before closing cursor
+if|if
+condition|(
+name|keepRunning
+condition|)
+block|{
+throw|throw
+name|e
+throw|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Cursor closed exception from MongoDB, will regenerate cursor. This is normal behaviour with tailable cursors."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// the loop finished, persist the lastValue just in case we are shutting
 comment|// down
 comment|// TODO: perhaps add a functionality to persist every N records
