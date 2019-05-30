@@ -26,6 +26,9 @@ name|MongoDbConsumerType
 block|{
 DECL|enumConstant|tailable
 name|tailable
+block|,
+DECL|enumConstant|changeStreams
+name|changeStreams
 comment|// more consumer types to be included in future versions
 block|}
 end_enum

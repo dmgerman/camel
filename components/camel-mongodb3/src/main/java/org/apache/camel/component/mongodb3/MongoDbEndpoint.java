@@ -320,6 +320,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|bson
 operator|.
 name|Document
@@ -589,10 +603,16 @@ specifier|private
 name|boolean
 name|writeResultAsHeader
 decl_stmt|;
-comment|// tailable cursor consumer by default
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|consumerType
 specifier|private
-name|MongoDbConsumerType
+name|String
 name|consumerType
 decl_stmt|;
 annotation|@
@@ -624,6 +644,18 @@ DECL|field|tailTrackIncreasingField
 specifier|private
 name|String
 name|tailTrackIncreasingField
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"changeStream"
+argument_list|)
+DECL|field|streamFilter
+specifier|private
+name|String
+name|streamFilter
 decl_stmt|;
 comment|// persistent tail tracking
 annotation|@
@@ -698,6 +730,12 @@ specifier|private
 name|MongoDbOutputType
 name|outputType
 decl_stmt|;
+comment|// tailable cursor consumer by default
+DECL|field|dbConsumerType
+specifier|private
+name|MongoDbConsumerType
+name|dbConsumerType
+decl_stmt|;
 DECL|field|tailTrackingConfig
 specifier|private
 name|MongoDbTailTrackingConfig
@@ -716,7 +754,6 @@ name|Document
 argument_list|>
 name|mongoCollection
 decl_stmt|;
-comment|// ======= Constructors ===============================================
 DECL|method|MongoDbEndpoint ()
 specifier|public
 name|MongoDbEndpoint
@@ -741,14 +778,11 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
-comment|// ======= Implementation methods =====================================
 DECL|method|createProducer ()
 specifier|public
 name|Producer
 name|createProducer
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|validateProducerOptions
 argument_list|()
@@ -787,32 +821,58 @@ name|initializeConnection
 argument_list|()
 expr_stmt|;
 comment|// select right consumer type
-if|if
-condition|(
-name|consumerType
-operator|==
-literal|null
-condition|)
+try|try
 block|{
-name|consumerType
+name|dbConsumerType
 operator|=
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|consumerType
+argument_list|)
+condition|?
 name|MongoDbConsumerType
 operator|.
 name|tailable
+else|:
+name|MongoDbConsumerType
+operator|.
+name|valueOf
+argument_list|(
+name|consumerType
+argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|CamelMongoDbException
+argument_list|(
+literal|"Consumer type not supported: "
+operator|+
+name|consumerType
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 name|Consumer
 name|consumer
 decl_stmt|;
-if|if
+switch|switch
 condition|(
-name|consumerType
-operator|==
-name|MongoDbConsumerType
-operator|.
-name|tailable
+name|dbConsumerType
 condition|)
 block|{
+case|case
+name|tailable
+case|:
 name|consumer
 operator|=
 operator|new
@@ -823,16 +883,29 @@ argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
+break|break;
+case|case
+name|changeStreams
+case|:
+name|consumer
+operator|=
+operator|new
+name|MongoDbChangeStreamsConsumer
+argument_list|(
+name|this
+argument_list|,
+name|processor
+argument_list|)
+expr_stmt|;
+break|break;
+default|default:
 throw|throw
 operator|new
 name|CamelMongoDbException
 argument_list|(
 literal|"Consumer type not supported: "
 operator|+
-name|consumerType
+name|dbConsumerType
 argument_list|)
 throw|;
 block|}
@@ -845,14 +918,13 @@ return|return
 name|consumer
 return|;
 block|}
-comment|/**      * Check if outputType is compatible with operation. DbCursor and      * DocumentList applies to findAll. Document applies to others.      */
+comment|/**      * Check if outputType is compatible with operation.      * DbCursor and DocumentList applies to findAll.      * Document applies to others.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unused"
 argument_list|)
-comment|// TODO: validate Output on createProducer
-comment|// method.
+comment|// TODO: validate Output on createProducer method.
 DECL|method|validateOutputType ()
 specifier|private
 name|void
@@ -973,7 +1045,7 @@ name|ObjectHelper
 operator|.
 name|isEmpty
 argument_list|(
-name|consumerType
+name|dbConsumerType
 argument_list|)
 operator|||
 name|persistentTailTracking
@@ -1011,7 +1083,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"consumerType, tailTracking, cursorRegenerationDelay options cannot appear on a producer endpoint"
+literal|"dbConsumerType, tailTracking, cursorRegenerationDelay options cannot appear on a producer endpoint"
 argument_list|)
 throw|;
 block|}
@@ -1056,7 +1128,7 @@ throw|;
 block|}
 if|if
 condition|(
-name|consumerType
+name|dbConsumerType
 operator|==
 name|MongoDbConsumerType
 operator|.
@@ -1102,7 +1174,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * Initialises the MongoDB connection using the Mongo object provided to the      * endpoint      *       * @throws CamelMongoDbException      */
+comment|/**      * Initialises the MongoDB connection using the Mongo object provided to the endpoint      *       * @throws CamelMongoDbException      */
 DECL|method|initializeConnection ()
 specifier|public
 name|void
@@ -1636,8 +1708,6 @@ name|doStart
 argument_list|()
 expr_stmt|;
 block|}
-comment|// ======= Getters and setters
-comment|// ===============================================
 DECL|method|getConnectionBean ()
 specifier|public
 name|String
@@ -1865,7 +1935,7 @@ name|getWriteConcern
 argument_list|()
 return|;
 block|}
-comment|/**      * Set the {@link WriteConcern} for write operations on MongoDB, passing in      * the bean ref to a custom WriteConcern which exists in the Registry. You      * can also use standard WriteConcerns by passing in their key. See the      * {@link #setWriteConcern(String) setWriteConcern} method.      *       * @param writeConcernRef the name of the bean in the registry that      *            represents the WriteConcern to use      */
+comment|/**      * Set the {@link WriteConcern} for write operations on MongoDB, passing in      * the bean ref to a custom WriteConcern which exists in the Registry. You      * can also use standard WriteConcerns by passing in their key.      *       * @param writeConcernRef the name of the bean in the registry that      *            represents the WriteConcern to use      */
 DECL|method|setWriteConcernRef (String writeConcernRef)
 specifier|public
 name|void
@@ -1979,14 +2049,14 @@ return|return
 name|dynamicity
 return|;
 block|}
-comment|/**      * Reserved for future use, when more consumer types are supported.      *      * @param consumerType key of the consumer type      * @throws CamelMongoDbException      */
-DECL|method|setConsumerType (String consumerType)
+comment|/**      * Reserved for future use, when more consumer types are supported.      *      * @param dbConsumerType key of the consumer type      * @throws CamelMongoDbException if consumer type is not supported      */
+DECL|method|setDbConsumerType (String dbConsumerType)
 specifier|public
 name|void
-name|setConsumerType
+name|setDbConsumerType
 parameter_list|(
 name|String
-name|consumerType
+name|dbConsumerType
 parameter_list|)
 throws|throws
 name|CamelMongoDbException
@@ -1995,13 +2065,13 @@ try|try
 block|{
 name|this
 operator|.
-name|consumerType
+name|dbConsumerType
 operator|=
 name|MongoDbConsumerType
 operator|.
 name|valueOf
 argument_list|(
-name|consumerType
+name|dbConsumerType
 argument_list|)
 expr_stmt|;
 block|}
@@ -2022,15 +2092,42 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|getConsumerType ()
+DECL|method|getDbConsumerType ()
 specifier|public
 name|MongoDbConsumerType
+name|getDbConsumerType
+parameter_list|()
+block|{
+return|return
+name|dbConsumerType
+return|;
+block|}
+DECL|method|getConsumerType ()
+specifier|public
+name|String
 name|getConsumerType
 parameter_list|()
 block|{
 return|return
 name|consumerType
 return|;
+block|}
+comment|/**      * Consumer type.      */
+DECL|method|setConsumerType (String consumerType)
+specifier|public
+name|void
+name|setConsumerType
+parameter_list|(
+name|String
+name|consumerType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumerType
+operator|=
+name|consumerType
+expr_stmt|;
 block|}
 DECL|method|getTailTrackDb ()
 specifier|public
@@ -2340,6 +2437,33 @@ block|{
 return|return
 name|mongoCollection
 return|;
+block|}
+DECL|method|getStreamFilter ()
+specifier|public
+name|String
+name|getStreamFilter
+parameter_list|()
+block|{
+return|return
+name|streamFilter
+return|;
+block|}
+comment|/**      * Filter condition for change streams consumer.      */
+DECL|method|setStreamFilter (String streamFilter)
+specifier|public
+name|void
+name|setStreamFilter
+parameter_list|(
+name|String
+name|streamFilter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamFilter
+operator|=
+name|streamFilter
+expr_stmt|;
 block|}
 block|}
 end_class

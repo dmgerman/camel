@@ -223,8 +223,6 @@ specifier|public
 name|void
 name|initialize
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -310,8 +308,7 @@ name|first
 argument_list|()
 expr_stmt|;
 block|}
-comment|// keep only the _id, the rest is useless and causes more overhead
-comment|// during update
+comment|// keep only the _id, the rest is useless and causes more overhead during update
 name|trackingObj
 operator|=
 operator|new
