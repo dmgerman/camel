@@ -748,6 +748,8 @@ argument_list|>
 name|options
 parameter_list|)
 block|{
+name|this
+operator|.
 name|options
 operator|.
 name|put
