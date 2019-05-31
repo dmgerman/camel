@@ -74,6 +74,26 @@ name|PulsarClientException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_class
 DECL|class|PulsarUtils
 specifier|public
@@ -81,6 +101,22 @@ specifier|final
 class|class
 name|PulsarUtils
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|PulsarUtils
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|method|PulsarUtils ()
 specifier|private
 name|PulsarUtils
@@ -141,6 +177,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|consumer
 operator|.
 name|unsubscribe
@@ -151,6 +189,49 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore during stopping
+if|if
+condition|(
+name|e
+operator|instanceof
+name|PulsarClientException
+operator|.
+name|AlreadyClosedException
+condition|)
+block|{
+comment|// ignore
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Error stopping consumer: "
+operator|+
+name|consumer
+operator|+
+literal|" due to "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|". This exception is ignored"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 return|return

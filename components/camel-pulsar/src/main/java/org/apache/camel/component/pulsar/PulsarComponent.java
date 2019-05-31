@@ -163,6 +163,11 @@ name|DefaultComponent
 block|{
 annotation|@
 name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|autoConfiguration
 specifier|private
 name|AutoConfiguration
@@ -170,36 +175,16 @@ name|autoConfiguration
 decl_stmt|;
 annotation|@
 name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|pulsarClient
 specifier|private
 name|PulsarClient
 name|pulsarClient
 decl_stmt|;
-DECL|method|PulsarComponent ()
-specifier|public
-name|PulsarComponent
-parameter_list|()
-block|{
-name|this
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|PulsarComponent (CamelContext context)
-specifier|public
-name|PulsarComponent
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (final String uri, final String path, final Map<String, Object> parameters)
@@ -300,7 +285,7 @@ return|return
 name|autoConfiguration
 return|;
 block|}
-comment|/**      * The pulsar autoconfiguration      */
+comment|/**      * The pulsar auto configuration      */
 DECL|method|setAutoConfiguration (AutoConfiguration autoConfiguration)
 specifier|public
 name|void

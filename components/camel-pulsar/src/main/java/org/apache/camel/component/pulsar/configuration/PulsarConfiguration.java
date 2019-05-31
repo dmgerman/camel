@@ -107,7 +107,7 @@ literal|"consumer"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"subscription"
+literal|"subs"
 argument_list|)
 DECL|field|subscriptionName
 specifier|private
@@ -122,10 +122,6 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
-argument_list|,
-name|enums
-operator|=
-literal|"EXCLUSIVE, SHARED, FAILOVER"
 argument_list|,
 name|defaultValue
 operator|=
