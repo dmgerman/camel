@@ -218,10 +218,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// we are asynchronous due to recipientlist so that we are NOT using same threads during the routing
-name|assertFalse
+comment|// we are asynchronous due to multicast so we should ideally use same thread during processing
+name|assertTrue
 argument_list|(
-literal|"Should not use same threads"
+literal|"Should use same threads"
 argument_list|,
 name|beforeThreadName
 operator|.
@@ -369,9 +369,9 @@ operator|.
 name|getName
 argument_list|()
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
-literal|"Exchange should NO longer be transacted"
+literal|"Exchange should be transacted"
 argument_list|,
 name|exchange
 operator|.
