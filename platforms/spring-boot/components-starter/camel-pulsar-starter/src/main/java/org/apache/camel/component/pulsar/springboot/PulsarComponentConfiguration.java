@@ -92,7 +92,7 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-comment|/**      * The pulsar autoconfiguration. The option is a      * org.apache.camel.component.pulsar.utils.AutoConfiguration type.      */
+comment|/**      * The pulsar auto configuration. The option is a      * org.apache.camel.component.pulsar.utils.AutoConfiguration type.      */
 DECL|field|autoConfiguration
 specifier|private
 name|String

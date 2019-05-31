@@ -191,9 +191,7 @@ name|component
 init|=
 operator|new
 name|PulsarComponent
-argument_list|(
-name|context
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|component
 operator|.
