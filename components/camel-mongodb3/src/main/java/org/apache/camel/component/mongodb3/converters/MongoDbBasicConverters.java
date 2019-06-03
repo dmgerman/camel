@@ -627,6 +627,9 @@ return|return
 literal|true
 return|;
 block|}
+name|i
+operator|++
+expr_stmt|;
 block|}
 return|return
 literal|true
