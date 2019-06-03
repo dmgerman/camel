@@ -165,11 +165,6 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
-name|dependency
-argument_list|(
-literal|"javax.mail:javax.mail-api"
-argument_list|)
-operator|.
 name|build
 argument_list|()
 return|;
