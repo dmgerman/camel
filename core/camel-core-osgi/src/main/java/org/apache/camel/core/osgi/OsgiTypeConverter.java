@@ -681,6 +681,15 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|this
+operator|.
+name|delegate
+argument_list|)
+expr_stmt|;
 name|loader
 operator|.
 name|load
@@ -1478,6 +1487,12 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+comment|// init before loading core converters
+name|answer
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
 comment|// only load the core type converters, as OSGi activator will keep track on bundles
 comment|// being installed/uninstalled and load type converters as part of that process
 name|answer
