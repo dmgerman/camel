@@ -526,7 +526,7 @@ argument_list|)
 operator|.
 name|ioThreads
 argument_list|(
-literal|2
+literal|5
 argument_list|)
 operator|.
 name|listenerThreads
@@ -550,9 +550,9 @@ name|Exception
 block|{
 name|to
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
-name|NUMBER_OF_CONSUMERS
+literal|1
 argument_list|)
 expr_stmt|;
 name|Producer
