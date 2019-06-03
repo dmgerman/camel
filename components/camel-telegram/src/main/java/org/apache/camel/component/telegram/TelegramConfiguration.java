@@ -146,6 +146,30 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
+literal|"The proxyHost which could be used when sending out the message."
+argument_list|)
+DECL|field|proxyHost
+specifier|private
+name|String
+name|proxyHost
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"The proxyPort which could be used when sending out the message."
+argument_list|)
+DECL|field|proxyPort
+specifier|private
+name|Integer
+name|proxyPort
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
 literal|"The identifier of the chat that will receive the produced messages. Chat ids can be first obtained from incoming messages "
 operator|+
 literal|"(eg. when a telegram user starts a conversation with a bot, its client sends automatically a '/start' message containing the chat id). "
@@ -410,6 +434,58 @@ operator|.
 name|authorizationToken
 operator|=
 name|authorizationToken
+expr_stmt|;
+block|}
+DECL|method|getProxyHost ()
+specifier|public
+name|String
+name|getProxyHost
+parameter_list|()
+block|{
+return|return
+name|proxyHost
+return|;
+block|}
+DECL|method|setProxyHost (String proxyHost)
+specifier|public
+name|void
+name|setProxyHost
+parameter_list|(
+name|String
+name|proxyHost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyHost
+operator|=
+name|proxyHost
+expr_stmt|;
+block|}
+DECL|method|getProxyPort ()
+specifier|public
+name|Integer
+name|getProxyPort
+parameter_list|()
+block|{
+return|return
+name|proxyPort
+return|;
+block|}
+DECL|method|setProxyPort (Integer proxyPort)
+specifier|public
+name|void
+name|setProxyPort
+parameter_list|(
+name|Integer
+name|proxyPort
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyPort
+operator|=
+name|proxyPort
 expr_stmt|;
 block|}
 DECL|method|getChatId ()

@@ -64,6 +64,17 @@ specifier|public
 interface|interface
 name|TelegramService
 block|{
+DECL|method|setHttpProxy (String host, Integer port)
+name|void
+name|setHttpProxy
+parameter_list|(
+name|String
+name|host
+parameter_list|,
+name|Integer
+name|port
+parameter_list|)
+function_decl|;
 DECL|method|getUpdates (String authorizationToken, Long offset, Integer limit, Integer timeoutSeconds)
 name|UpdateResult
 name|getUpdates
