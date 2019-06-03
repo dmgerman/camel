@@ -213,6 +213,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// it may happen the poll() is called while the route is doing the initial load,
+comment|// this way we need to wait for the latestIssueId being associated to the last indexed issue id
+name|int
+name|nMessages
+init|=
+literal|0
+decl_stmt|;
+if|if
+condition|(
+name|latestIssueId
+operator|>
+operator|-
+literal|1
+condition|)
+block|{
 name|List
 argument_list|<
 name|Issue
@@ -282,11 +297,16 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-return|return
+name|nMessages
+operator|=
 name|newIssues
 operator|.
 name|size
 argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|nMessages
 return|;
 block|}
 DECL|method|getNewIssues ()
