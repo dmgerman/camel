@@ -42,6 +42,20 @@ name|ReloadStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|PatternHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Global configuration for Camel Main to setup context name, stream caching and other global configurations.  */
 end_comment
@@ -327,10 +341,15 @@ specifier|private
 name|ReloadStrategy
 name|reloadStrategy
 decl_stmt|;
-DECL|field|routeFilterPattern
+DECL|field|routeFilterIncludePattern
 specifier|private
 name|String
-name|routeFilterPattern
+name|routeFilterIncludePattern
+decl_stmt|;
+DECL|field|routeFilterExcludePattern
+specifier|private
+name|String
+name|routeFilterExcludePattern
 decl_stmt|;
 comment|// getter and setters
 comment|// --------------------------------------------------------------
@@ -1630,31 +1649,58 @@ operator|=
 name|reloadStrategy
 expr_stmt|;
 block|}
-DECL|method|getRouteFilterPattern ()
+DECL|method|getRouteFilterIncludePattern ()
 specifier|public
 name|String
-name|getRouteFilterPattern
+name|getRouteFilterIncludePattern
 parameter_list|()
 block|{
 return|return
-name|routeFilterPattern
+name|routeFilterIncludePattern
 return|;
 block|}
-comment|/**      * Used for filtering routes to only include routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression.      *      * For example to only include routes which starts with foo in their route id's, use: foo&#42;      * And to only include routes which starts from JMS endpoints, use: jms:&#42;      */
-DECL|method|setRouteFilterPattern (String routeFilterPattern)
+comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression as documented by {@link PatternHelper#matchPattern(String, String)}.      *      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *      * Exclude takes precedence over include.      *      * @param include  the include pattern      */
+DECL|method|setRouteFilterIncludePattern (String include)
 specifier|public
 name|void
-name|setRouteFilterPattern
+name|setRouteFilterIncludePattern
 parameter_list|(
 name|String
-name|routeFilterPattern
+name|include
 parameter_list|)
 block|{
 name|this
 operator|.
-name|routeFilterPattern
+name|routeFilterIncludePattern
 operator|=
-name|routeFilterPattern
+name|include
+expr_stmt|;
+block|}
+DECL|method|getRouteFilterExcludePattern ()
+specifier|public
+name|String
+name|getRouteFilterExcludePattern
+parameter_list|()
+block|{
+return|return
+name|routeFilterExcludePattern
+return|;
+block|}
+comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression as documented by {@link PatternHelper#matchPattern(String, String)}.      *      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *      * Exclude takes precedence over include.      *      * @param exclude  the exclude pattern      */
+DECL|method|setRouteFilterExcludePattern (String exclude)
+specifier|public
+name|void
+name|setRouteFilterExcludePattern
+parameter_list|(
+name|String
+name|exclude
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routeFilterExcludePattern
+operator|=
+name|exclude
 expr_stmt|;
 block|}
 comment|// fluent builders
@@ -2619,21 +2665,41 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Used for filtering routes to only include routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression.      *      * For example to only include routes which starts with foo in their route id's, use: foo&#42;      * And to only include routes which starts from JMS endpoints, use: jms:&#42;      */
-DECL|method|withRouteFilterPattern (String routeFilterPattern)
+comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression as documented by {@link PatternHelper#matchPattern(String, String)}.      *      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *      * Exclude takes precedence over include.      */
+DECL|method|withRouteFilterIncludePattern (String routeFilterIncludePattern)
 specifier|public
 name|MainConfigurationProperties
-name|withRouteFilterPattern
+name|withRouteFilterIncludePattern
 parameter_list|(
 name|String
-name|routeFilterPattern
+name|routeFilterIncludePattern
 parameter_list|)
 block|{
 name|this
 operator|.
-name|routeFilterPattern
+name|routeFilterIncludePattern
 operator|=
-name|routeFilterPattern
+name|routeFilterIncludePattern
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression as documented by {@link PatternHelper#matchPattern(String, String)}.      *      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *      * Exclude takes precedence over include.      */
+DECL|method|withRouteFilterExcludePattern (String routeFilterExcludePattern)
+specifier|public
+name|MainConfigurationProperties
+name|withRouteFilterExcludePattern
+parameter_list|(
+name|String
+name|routeFilterExcludePattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routeFilterExcludePattern
+operator|=
+name|routeFilterExcludePattern
 expr_stmt|;
 return|return
 name|this

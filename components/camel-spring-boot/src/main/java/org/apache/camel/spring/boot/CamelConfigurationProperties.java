@@ -184,11 +184,17 @@ specifier|private
 name|String
 name|fileConfigurations
 decl_stmt|;
-comment|/**      * Used for filtering routes to only include routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression.      *      * For example to only include routes which starts with foo in their route id's, use: foo&#42;      * And to only include routes which starts from JMS endpoints, use: jms:&#42;      */
-DECL|field|routeFilterPattern
+comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression.      *      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *      * Exclude takes precedence over include.      */
+DECL|field|routeFilterIncludePattern
 specifier|private
 name|String
-name|routeFilterPattern
+name|routeFilterIncludePattern
+decl_stmt|;
+comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression.      *      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *      * Exclude takes precedence over include.      */
+DECL|field|routeFilterExcludePattern
+specifier|private
+name|String
+name|routeFilterExcludePattern
 decl_stmt|;
 comment|/**      * Whether to use the main run controller to ensure the Spring-Boot application      * keeps running until being stopped or the JVM terminated.      * You typically only need this if you run Spring-Boot standalone.      * If you run Spring-Boot with spring-boot-starter-web then the web container keeps the JVM running.      */
 DECL|field|mainRunController
@@ -1707,30 +1713,56 @@ operator|=
 name|fileConfigurations
 expr_stmt|;
 block|}
-DECL|method|getRouteFilterPattern ()
+DECL|method|getRouteFilterIncludePattern ()
 specifier|public
 name|String
-name|getRouteFilterPattern
+name|getRouteFilterIncludePattern
 parameter_list|()
 block|{
 return|return
-name|routeFilterPattern
+name|routeFilterIncludePattern
 return|;
 block|}
-DECL|method|setRouteFilterPattern (String routeFilterPattern)
+DECL|method|setRouteFilterIncludePattern (String routeFilterIncludePattern)
 specifier|public
 name|void
-name|setRouteFilterPattern
+name|setRouteFilterIncludePattern
 parameter_list|(
 name|String
-name|routeFilterPattern
+name|routeFilterIncludePattern
 parameter_list|)
 block|{
 name|this
 operator|.
-name|routeFilterPattern
+name|routeFilterIncludePattern
 operator|=
-name|routeFilterPattern
+name|routeFilterIncludePattern
+expr_stmt|;
+block|}
+DECL|method|getRouteFilterExcludePattern ()
+specifier|public
+name|String
+name|getRouteFilterExcludePattern
+parameter_list|()
+block|{
+return|return
+name|routeFilterExcludePattern
+return|;
+block|}
+DECL|method|setRouteFilterExcludePattern (String routeFilterExcludePattern)
+specifier|public
+name|void
+name|setRouteFilterExcludePattern
+parameter_list|(
+name|String
+name|routeFilterExcludePattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routeFilterExcludePattern
+operator|=
+name|routeFilterExcludePattern
 expr_stmt|;
 block|}
 DECL|method|isTraceFormatterShowBody ()

@@ -65,10 +65,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ModelRouteFilterPatternTest
+DECL|class|ModelRouteFilterPatternIncludeExcludeTest
 specifier|public
 class|class
-name|ModelRouteFilterPatternTest
+name|ModelRouteFilterPatternIncludeExcludeTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -90,7 +90,6 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
-comment|// filter to only include foo route
 name|context
 operator|.
 name|getExtension
@@ -103,6 +102,8 @@ operator|.
 name|setRouteFilterPattern
 argument_list|(
 literal|"foo*"
+argument_list|,
+literal|"jms:*"
 argument_list|)
 expr_stmt|;
 return|return
@@ -238,6 +239,21 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:bar"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"jms:beer"
+argument_list|)
+operator|.
+name|routeId
+argument_list|(
+literal|"foolish"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:beer"
 argument_list|)
 expr_stmt|;
 block|}

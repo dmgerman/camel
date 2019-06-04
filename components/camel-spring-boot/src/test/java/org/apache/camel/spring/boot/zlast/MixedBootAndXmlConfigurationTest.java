@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.boot
+DECL|package|org.apache.camel.spring.boot.zlast
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|spring
 operator|.
 name|boot
+operator|.
+name|zlast
 package|;
 end_package
 

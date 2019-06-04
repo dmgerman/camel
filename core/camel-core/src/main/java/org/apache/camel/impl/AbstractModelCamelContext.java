@@ -1285,20 +1285,25 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|setRouteFilterPattern (String pattern)
+DECL|method|setRouteFilterPattern (String include, String exclude)
 specifier|public
 name|void
 name|setRouteFilterPattern
 parameter_list|(
 name|String
-name|pattern
+name|include
+parameter_list|,
+name|String
+name|exclude
 parameter_list|)
 block|{
 name|model
 operator|.
 name|setRouteFilterPattern
 argument_list|(
-name|pattern
+name|include
+argument_list|,
+name|exclude
 argument_list|)
 expr_stmt|;
 block|}

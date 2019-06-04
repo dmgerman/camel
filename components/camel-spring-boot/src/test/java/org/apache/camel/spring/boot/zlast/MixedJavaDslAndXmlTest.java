@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.boot
+DECL|package|org.apache.camel.spring.boot.zlast
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|spring
 operator|.
 name|boot
+operator|.
+name|zlast
 package|;
 end_package
 
@@ -226,6 +228,20 @@ name|springframework
 operator|.
 name|test
 operator|.
+name|annotation
+operator|.
+name|DirtiesContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|test
+operator|.
 name|context
 operator|.
 name|junit4
@@ -251,6 +267,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|DirtiesContext
 annotation|@
 name|RunWith
 argument_list|(
