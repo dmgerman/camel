@@ -184,6 +184,12 @@ specifier|private
 name|String
 name|fileConfigurations
 decl_stmt|;
+comment|/**      * Used for filtering routes to only include routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression.      *      * For example to only include routes which starts with foo in their route id's, use: foo&#42;      * And to only include routes which starts from JMS endpoints, use: jms:&#42;      */
+DECL|field|routeFilterPattern
+specifier|private
+name|String
+name|routeFilterPattern
+decl_stmt|;
 comment|/**      * Whether to use the main run controller to ensure the Spring-Boot application      * keeps running until being stopped or the JVM terminated.      * You typically only need this if you run Spring-Boot standalone.      * If you run Spring-Boot with spring-boot-starter-web then the web container keeps the JVM running.      */
 DECL|field|mainRunController
 specifier|private
@@ -1699,6 +1705,32 @@ operator|.
 name|fileConfigurations
 operator|=
 name|fileConfigurations
+expr_stmt|;
+block|}
+DECL|method|getRouteFilterPattern ()
+specifier|public
+name|String
+name|getRouteFilterPattern
+parameter_list|()
+block|{
+return|return
+name|routeFilterPattern
+return|;
+block|}
+DECL|method|setRouteFilterPattern (String routeFilterPattern)
+specifier|public
+name|void
+name|setRouteFilterPattern
+parameter_list|(
+name|String
+name|routeFilterPattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routeFilterPattern
+operator|=
+name|routeFilterPattern
 expr_stmt|;
 block|}
 DECL|method|isTraceFormatterShowBody ()

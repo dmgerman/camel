@@ -327,6 +327,11 @@ specifier|private
 name|ReloadStrategy
 name|reloadStrategy
 decl_stmt|;
+DECL|field|routeFilterPattern
+specifier|private
+name|String
+name|routeFilterPattern
+decl_stmt|;
 comment|// getter and setters
 comment|// --------------------------------------------------------------
 DECL|method|isAutoConfigurationEnabled ()
@@ -1625,6 +1630,33 @@ operator|=
 name|reloadStrategy
 expr_stmt|;
 block|}
+DECL|method|getRouteFilterPattern ()
+specifier|public
+name|String
+name|getRouteFilterPattern
+parameter_list|()
+block|{
+return|return
+name|routeFilterPattern
+return|;
+block|}
+comment|/**      * Used for filtering routes to only include routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression.      *      * For example to only include routes which starts with foo in their route id's, use: foo&#42;      * And to only include routes which starts from JMS endpoints, use: jms:&#42;      */
+DECL|method|setRouteFilterPattern (String routeFilterPattern)
+specifier|public
+name|void
+name|setRouteFilterPattern
+parameter_list|(
+name|String
+name|routeFilterPattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routeFilterPattern
+operator|=
+name|routeFilterPattern
+expr_stmt|;
+block|}
 comment|// fluent builders
 comment|// --------------------------------------------------------------
 comment|/**      * Whether auto configuration of components/dataformats/languages is enabled or not.      * When enabled the configuration parameters are loaded from the properties component      * and configured as defaults (similar to spring-boot auto-configuration). You can prefix      * the parameters in the properties file with:      * - camel.component.name.option1=value1      * - camel.component.name.option2=value2      * - camel.dataformat.name.option1=value1      * - camel.dataformat.name.option2=value2      * - camel.language.name.option1=value1      * - camel.language.name.option2=value2      * Where name is the name of the component, dataformat or language such as seda,direct,jaxb.      *<p/>      * The auto configuration also works for any options on components      * that is a complex type (not standard Java type) and there has been an explicit single      * bean instance registered to the Camel registry via the {@link org.apache.camel.spi.Registry#bind(String, Object)} method      * or by using the {@link org.apache.camel.BindToRegistry} annotation style.      *<p/>      * This option is default enabled.      */
@@ -1642,6 +1674,46 @@ operator|.
 name|autoConfigurationEnabled
 operator|=
 name|autoConfigurationEnabled
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Whether autowiring components with properties that are of same type, which has been added to the Camel registry, as a singleton instance.      * This is used for convention over configuration to inject DataSource, AmazonLogin instances to the components.      *<p/>      * This option is default enabled.      */
+DECL|method|withAutowireComponentProperties (boolean autowireComponentProperties)
+specifier|public
+name|MainConfigurationProperties
+name|withAutowireComponentProperties
+parameter_list|(
+name|boolean
+name|autowireComponentProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autowireComponentProperties
+operator|=
+name|autowireComponentProperties
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Whether autowiring components (with deep nesting by attempting to walk as deep down the object graph by creating new empty objects on the way if needed)      * with properties that are of same type, which has been added to the Camel registry, as a singleton instance.      * This is used for convention over configuration to inject DataSource, AmazonLogin instances to the components.      *<p/>      * This option is default disabled.      */
+DECL|method|withAutowireComponentPropertiesDeep (boolean autowireComponentPropertiesDeep)
+specifier|public
+name|MainConfigurationProperties
+name|withAutowireComponentPropertiesDeep
+parameter_list|(
+name|boolean
+name|autowireComponentPropertiesDeep
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autowireComponentPropertiesDeep
+operator|=
+name|autowireComponentPropertiesDeep
 expr_stmt|;
 return|return
 name|this
@@ -2542,6 +2614,26 @@ operator|.
 name|reloadStrategy
 operator|=
 name|reloadStrategy
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Used for filtering routes to only include routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression.      *      * For example to only include routes which starts with foo in their route id's, use: foo&#42;      * And to only include routes which starts from JMS endpoints, use: jms:&#42;      */
+DECL|method|withRouteFilterPattern (String routeFilterPattern)
+specifier|public
+name|MainConfigurationProperties
+name|withRouteFilterPattern
+parameter_list|(
+name|String
+name|routeFilterPattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routeFilterPattern
+operator|=
+name|routeFilterPattern
 expr_stmt|;
 return|return
 name|this

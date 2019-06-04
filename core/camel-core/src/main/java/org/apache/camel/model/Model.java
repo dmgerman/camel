@@ -144,6 +144,20 @@ name|ValidatorDefinition
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|PatternHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Model interface  */
 end_comment
@@ -469,6 +483,15 @@ name|startRouteDefinitions
 parameter_list|()
 throws|throws
 name|Exception
+function_decl|;
+comment|/**      * Used for filtering routes to only include routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression as documented by {@link PatternHelper#matchPattern(String, String)}.      *      * For example to only include routes which starts with foo in their route id's, use: foo&#42;      * And to only include routes which starts from JMS endpoints, use: jms:&#42;      *      * @param pattern  the pattern      */
+DECL|method|setRouteFilterPattern (String pattern)
+name|void
+name|setRouteFilterPattern
+parameter_list|(
+name|String
+name|pattern
+parameter_list|)
 function_decl|;
 comment|/**      * Sets a custom route filter to use for filtering unwanted routes when routes are added.      *      * @param filter the filter      */
 DECL|method|setRouteFilter (Function<RouteDefinition, Boolean> filter)
