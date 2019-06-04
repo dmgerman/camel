@@ -71,6 +71,11 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
+name|routeId
+argument_list|(
+literal|"bar"
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:bar"
