@@ -116,7 +116,7 @@ name|classResolver
 operator|.
 name|loadResourceAsStream
 argument_list|(
-literal|"META-INF/services/org/apache/camel/TypeConverter"
+literal|"META-INF/services/org/apache/camel/TypeConverterLoader"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
