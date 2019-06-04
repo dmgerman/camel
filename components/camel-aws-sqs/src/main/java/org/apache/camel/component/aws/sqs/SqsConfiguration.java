@@ -523,22 +523,13 @@ parameter_list|()
 block|{
 comment|// AWS docs suggest this is valid derivation.
 comment|// FIFO queue names must end with .fifo, and standard queues cannot
-if|if
-condition|(
+return|return
 name|queueName
 operator|.
 name|endsWith
 argument_list|(
 literal|".fifo"
 argument_list|)
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-return|return
-literal|false
 return|;
 block|}
 DECL|method|getAmazonAWSHost ()
