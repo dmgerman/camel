@@ -58,6 +58,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -160,7 +172,7 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-comment|/**      * Adds a collection of route definitions to the context      *<p/>      *<b>Important:</b> Each route in the same {@link CamelContext} must have an<b>unique</b> route id.      * If you use the API from {@link CamelContext} or {@link Model} to add routes, then any      * new routes which has a route id that matches an old route, then the old route is replaced by the new route.      *      * @param is input stream with the route(s) definition to add      * @throws Exception if the route definitions could not be created for whatever reason      */
+comment|/**      * Adds a collection of route definitions to the context      *<p/>      *<b>Important:</b> Each route in the same {@link CamelContext} must have an<b>unique</b> route id.      * If you use the API from {@link CamelContext} or {@link Model} to add routes, then any      * new routes which has a route id that matches an old route, then the old route is replaced by the new route.      *      * @param is input stream with the route(s) definition to add      * @throws Exception if the route definitions could not be added for whatever reason      */
 DECL|method|addRouteDefinitions (InputStream is)
 name|void
 name|addRouteDefinitions
@@ -171,7 +183,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Adds a collection of route definitions to the context      *<p/>      *<b>Important:</b> Each route in the same {@link CamelContext} must have an<b>unique</b> route id.      * If you use the API from {@link CamelContext} or {@link Model} to add routes, then any      * new routes which has a route id that matches an old route, then the old route is replaced by the new route.      *      * @param routeDefinitions the route(s) definition to add      * @throws Exception if the route definitions could not be created for whatever reason      */
+comment|/**      * Adds a collection of route definitions to the context      *<p/>      *<b>Important:</b> Each route in the same {@link CamelContext} must have an<b>unique</b> route id.      * If you use the API from {@link CamelContext} or {@link Model} to add routes, then any      * new routes which has a route id that matches an old route, then the old route is replaced by the new route.      *      * @param routeDefinitions the route(s) definition to add      * @throws Exception if the route definitions could not be added for whatever reason      */
 DECL|method|addRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
 name|void
 name|addRouteDefinitions
@@ -185,7 +197,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Add a route definition to the context      *<p/>      *<b>Important:</b> Each route in the same {@link CamelContext} must have an<b>unique</b> route id.      * If you use the API from {@link CamelContext} or {@link Model} to add routes, then any      * new routes which has a route id that matches an old route, then the old route is replaced by the new route.      *      * @param routeDefinition the route definition to add      * @throws Exception if the route definition could not be created for whatever reason      */
+comment|/**      * Add a route definition to the context      *<p/>      *<b>Important:</b> Each route in the same {@link CamelContext} must have an<b>unique</b> route id.      * If you use the API from {@link CamelContext} or {@link Model} to add routes, then any      * new routes which has a route id that matches an old route, then the old route is replaced by the new route.      *      * @param routeDefinition the route definition to add      * @throws Exception if the route definition could not be added for whatever reason      */
 DECL|method|addRouteDefinition (RouteDefinition routeDefinition)
 name|void
 name|addRouteDefinition
@@ -457,6 +469,31 @@ name|startRouteDefinitions
 parameter_list|()
 throws|throws
 name|Exception
+function_decl|;
+comment|/**      * Sets a custom route filter to use for filtering unwanted routes when routes are added.      *      * @param filter the filter      */
+DECL|method|setRouteFilter (Function<RouteDefinition, Boolean> filter)
+name|void
+name|setRouteFilter
+parameter_list|(
+name|Function
+argument_list|<
+name|RouteDefinition
+argument_list|,
+name|Boolean
+argument_list|>
+name|filter
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the current route filter      *      * @return the filter, or<tt>null</tt> if no custom filter has been configured.      */
+DECL|method|getRouteFilter ()
+name|Function
+argument_list|<
+name|RouteDefinition
+argument_list|,
+name|Boolean
+argument_list|>
+name|getRouteFilter
+parameter_list|()
 function_decl|;
 block|}
 end_interface

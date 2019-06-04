@@ -70,6 +70,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -101,20 +113,6 @@ operator|.
 name|camel
 operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ErrorHandlerBuilderSupport
 import|;
 end_import
 
@@ -1271,6 +1269,52 @@ name|configuration
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|setRouteFilter (Function<RouteDefinition, Boolean> filter)
+specifier|public
+name|void
+name|setRouteFilter
+parameter_list|(
+name|Function
+argument_list|<
+name|RouteDefinition
+argument_list|,
+name|Boolean
+argument_list|>
+name|filter
+parameter_list|)
+block|{
+name|model
+operator|.
+name|setRouteFilter
+argument_list|(
+name|filter
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getRouteFilter ()
+specifier|public
+name|Function
+argument_list|<
+name|RouteDefinition
+argument_list|,
+name|Boolean
+argument_list|>
+name|getRouteFilter
+parameter_list|()
+block|{
+return|return
+name|model
+operator|.
+name|getRouteFilter
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createValidatorRegistry ()
 specifier|protected
 name|ValidatorRegistry
@@ -1359,6 +1403,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createTransformerRegistry ()
 specifier|protected
 name|TransformerRegistry

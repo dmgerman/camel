@@ -110,6 +110,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -535,6 +547,16 @@ name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+DECL|field|routeFilter
+specifier|private
+name|Function
+argument_list|<
+name|RouteDefinition
+argument_list|,
+name|Boolean
+argument_list|>
+name|routeFilter
+decl_stmt|;
 DECL|method|DefaultModel (CamelContext camelContext)
 specifier|public
 name|DefaultModel
@@ -560,6 +582,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addRouteDefinitions (InputStream is)
 specifier|public
 name|void
@@ -600,6 +624,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|addRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
 specifier|public
 specifier|synchronized
@@ -629,9 +655,52 @@ condition|)
 block|{
 return|return;
 block|}
+name|List
+argument_list|<
+name|RouteDefinition
+argument_list|>
+name|list
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+decl_stmt|;
+name|routeDefinitions
+operator|.
+name|forEach
+argument_list|(
+name|r
+lambda|->
+block|{
+if|if
+condition|(
+name|routeFilter
+operator|==
+literal|null
+operator|||
+name|routeFilter
+operator|.
+name|apply
+argument_list|(
+name|r
+argument_list|)
+condition|)
+block|{
+name|list
+operator|.
+name|add
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
 name|removeRouteDefinitions
 argument_list|(
-name|routeDefinitions
+name|list
 argument_list|)
 expr_stmt|;
 name|this
@@ -640,7 +709,7 @@ name|routeDefinitions
 operator|.
 name|addAll
 argument_list|(
-name|routeDefinitions
+name|list
 argument_list|)
 expr_stmt|;
 if|if
@@ -651,11 +720,13 @@ condition|)
 block|{
 name|startRouteDefinitions
 argument_list|(
-name|routeDefinitions
+name|list
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|addRouteDefinition (RouteDefinition routeDefinition)
 specifier|public
 name|void
@@ -678,6 +749,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
 specifier|public
 specifier|synchronized
@@ -708,6 +781,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|removeRouteDefinition (RouteDefinition routeDefinition)
 specifier|public
 specifier|synchronized
@@ -776,6 +851,8 @@ name|toBeRemoved
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRouteDefinitions ()
 specifier|public
 specifier|synchronized
@@ -790,6 +867,8 @@ return|return
 name|routeDefinitions
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRouteDefinition (String id)
 specifier|public
 specifier|synchronized
@@ -842,6 +921,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRestDefinitions ()
 specifier|public
 specifier|synchronized
@@ -856,6 +937,8 @@ return|return
 name|restDefinitions
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addRestDefinitions (InputStream is, boolean addToRoutes)
 specifier|public
 name|void
@@ -901,6 +984,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|addRestDefinitions (Collection<RestDefinition> restDefinitions, boolean addToRoutes)
 specifier|public
 specifier|synchronized
@@ -1514,6 +1599,8 @@ return|return
 name|validators
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|startRouteDefinitions ()
 specifier|public
 name|void
@@ -1526,6 +1613,46 @@ name|startRouteDefinitions
 argument_list|(
 name|routeDefinitions
 argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getRouteFilter ()
+specifier|public
+name|Function
+argument_list|<
+name|RouteDefinition
+argument_list|,
+name|Boolean
+argument_list|>
+name|getRouteFilter
+parameter_list|()
+block|{
+return|return
+name|routeFilter
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setRouteFilter (Function<RouteDefinition, Boolean> routeFilter)
+specifier|public
+name|void
+name|setRouteFilter
+parameter_list|(
+name|Function
+argument_list|<
+name|RouteDefinition
+argument_list|,
+name|Boolean
+argument_list|>
+name|routeFilter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routeFilter
+operator|=
+name|routeFilter
 expr_stmt|;
 block|}
 DECL|method|startRouteDefinitions (Collection<RouteDefinition> list)
