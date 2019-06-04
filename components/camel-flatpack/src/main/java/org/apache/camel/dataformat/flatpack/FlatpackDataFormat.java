@@ -334,16 +334,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|jdom
-operator|.
-name|JDOMException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -1218,8 +1208,6 @@ name|OutputStream
 name|stream
 parameter_list|)
 throws|throws
-name|JDOMException
-throws|,
 name|IOException
 block|{
 if|if

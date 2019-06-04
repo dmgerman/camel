@@ -208,6 +208,8 @@ operator|.
 name|notNull
 argument_list|(
 name|cause
+argument_list|,
+literal|"Exception should not be null"
 argument_list|)
 expr_stmt|;
 name|Assert
