@@ -30,6 +30,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlTransient
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -67,8 +81,11 @@ comment|/**  * Used for filtering routes to only include routes matching a funct
 end_comment
 
 begin_class
+annotation|@
+name|XmlTransient
 DECL|class|RouteFilters
 specifier|public
+specifier|final
 class|class
 name|RouteFilters
 implements|implements
@@ -125,7 +142,12 @@ comment|/**      * Used for filtering routes routes matching the given pattern, 
 DECL|method|filterByPattern (String include, String exclude)
 specifier|public
 specifier|static
-name|RouteFilters
+name|Function
+argument_list|<
+name|RouteDefinition
+argument_list|,
+name|Boolean
+argument_list|>
 name|filterByPattern
 parameter_list|(
 name|String
