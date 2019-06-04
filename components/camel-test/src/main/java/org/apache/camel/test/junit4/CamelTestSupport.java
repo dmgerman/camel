@@ -1074,16 +1074,6 @@ specifier|protected
 name|boolean
 name|dumpRouteStats
 decl_stmt|;
-DECL|field|routeFilterIncludePattern
-specifier|private
-name|String
-name|routeFilterIncludePattern
-decl_stmt|;
-DECL|field|routeFilterExcludePattern
-specifier|private
-name|String
-name|routeFilterExcludePattern
-decl_stmt|;
 DECL|field|useRouteBuilder
 specifier|private
 name|boolean
@@ -1253,30 +1243,26 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression.      *      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *      * Exclude takes precedence over include.      */
-DECL|method|setRouteFilterPattern (String include, String exclude)
+DECL|method|getRouteFilterIncludePattern ()
 specifier|public
-name|void
-name|setRouteFilterPattern
-parameter_list|(
 name|String
-name|include
-parameter_list|,
-name|String
-name|exclude
-parameter_list|)
+name|getRouteFilterIncludePattern
+parameter_list|()
 block|{
-name|this
-operator|.
-name|routeFilterIncludePattern
-operator|=
-name|include
-expr_stmt|;
-name|this
-operator|.
-name|routeFilterExcludePattern
-operator|=
-name|exclude
-expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
+comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression.      *      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *      * Exclude takes precedence over include.      */
+DECL|method|getRouteFilterExcludePattern ()
+specifier|public
+name|String
+name|getRouteFilterExcludePattern
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
 block|}
 comment|/**      * Override to enable debugger      *<p/>      * Is default<tt>false</tt>      */
 DECL|method|isUseDebugger ()
@@ -1891,13 +1877,25 @@ name|ignore
 argument_list|)
 expr_stmt|;
 block|}
+name|String
+name|include
+init|=
+name|getRouteFilterIncludePattern
+argument_list|()
+decl_stmt|;
+name|String
+name|exclude
+init|=
+name|getRouteFilterExcludePattern
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
-name|routeFilterIncludePattern
+name|include
 operator|!=
 literal|null
 operator|||
-name|routeFilterExcludePattern
+name|exclude
 operator|!=
 literal|null
 condition|)
@@ -1908,9 +1906,9 @@ name|info
 argument_list|(
 literal|"Route filtering pattern: include={}, exclude={}"
 argument_list|,
-name|routeFilterIncludePattern
+name|include
 argument_list|,
-name|routeFilterExcludePattern
+name|exclude
 argument_list|)
 expr_stmt|;
 name|context
@@ -1924,9 +1922,9 @@ argument_list|)
 operator|.
 name|setRouteFilterPattern
 argument_list|(
-name|routeFilterIncludePattern
+name|include
 argument_list|,
-name|routeFilterExcludePattern
+name|exclude
 argument_list|)
 expr_stmt|;
 block|}
