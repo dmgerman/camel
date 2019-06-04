@@ -506,13 +506,14 @@ operator|==
 literal|0
 condition|)
 block|{
-throw|throw
-operator|new
-name|TypeConverterLoaderException
+name|LOG
+operator|.
+name|debug
 argument_list|(
-literal|"Cannot find package names to be used for classpath scanning for annotated type converters."
+literal|"No package names found to be used for classpath scanning for annotated type converters."
 argument_list|)
-throw|;
+expr_stmt|;
+return|return;
 block|}
 block|}
 catch|catch

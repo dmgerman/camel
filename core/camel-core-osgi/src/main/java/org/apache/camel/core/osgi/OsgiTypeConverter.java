@@ -1497,7 +1497,7 @@ comment|// only load the core type converters, as OSGi activator will keep track
 comment|// being installed/uninstalled and load type converters as part of that process
 name|answer
 operator|.
-name|loadCoreTypeConverters
+name|loadCoreAndFastTypeConverters
 argument_list|()
 expr_stmt|;
 block|}

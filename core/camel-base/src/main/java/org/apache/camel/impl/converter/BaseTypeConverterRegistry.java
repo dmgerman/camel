@@ -2972,11 +2972,11 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Loads the core type converters which is mandatory to use Camel      */
-DECL|method|loadCoreTypeConverters ()
+comment|/**      * Loads the core type converters which is mandatory to use Camel,      * and also loads the fast type converters (generated via @Converter(loader = true).      */
+DECL|method|loadCoreAndFastTypeConverters ()
 specifier|public
 name|void
-name|loadCoreTypeConverters
+name|loadCoreAndFastTypeConverters
 parameter_list|()
 throws|throws
 name|Exception

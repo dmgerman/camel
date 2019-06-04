@@ -214,7 +214,7 @@ name|doStart
 argument_list|()
 expr_stmt|;
 comment|// core type converters is always loaded which does not use any classpath scanning and therefore is fast
-name|loadCoreTypeConverters
+name|loadCoreAndFastTypeConverters
 argument_list|()
 expr_stmt|;
 comment|// we are using backwards compatible legacy mode to detect additional converters
