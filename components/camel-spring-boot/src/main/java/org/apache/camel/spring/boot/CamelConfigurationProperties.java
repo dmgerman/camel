@@ -232,14 +232,6 @@ specifier|private
 name|int
 name|logDebugMaxChars
 decl_stmt|;
-comment|/**      * Sets whether stream caching is enabled or not (deprecated use stream-caching-enabled instead).      *      * Default is false.      */
-annotation|@
-name|Deprecated
-DECL|field|streamCaching
-specifier|private
-name|boolean
-name|streamCaching
-decl_stmt|;
 comment|/**      * Sets whether stream caching is enabled or not.      *      * Default is false.      */
 DECL|field|streamCachingEnabled
 specifier|private
@@ -491,14 +483,6 @@ name|Integer
 name|tracerFormatterMaxChars
 init|=
 literal|10000
-decl_stmt|;
-comment|/**      * To turn on MDC logging (deprecated use use-mdc-logging instead)      */
-annotation|@
-name|Deprecated
-DECL|field|useMDCLogging
-specifier|private
-name|boolean
-name|useMDCLogging
 decl_stmt|;
 comment|/**      * To turn on MDC logging      */
 DECL|field|useMdcLogging
@@ -1057,36 +1041,6 @@ operator|.
 name|logDebugMaxChars
 operator|=
 name|logDebugMaxChars
-expr_stmt|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|isStreamCaching ()
-specifier|public
-name|boolean
-name|isStreamCaching
-parameter_list|()
-block|{
-return|return
-name|streamCachingEnabled
-return|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|setStreamCaching (boolean streamCaching)
-specifier|public
-name|void
-name|setStreamCaching
-parameter_list|(
-name|boolean
-name|streamCaching
-parameter_list|)
-block|{
-name|this
-operator|.
-name|streamCachingEnabled
-operator|=
-name|streamCaching
 expr_stmt|;
 block|}
 DECL|method|isStreamCachingEnabled ()
@@ -2153,36 +2107,6 @@ operator|.
 name|includeNonSingletons
 operator|=
 name|includeNonSingletons
-expr_stmt|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|isUseMDCLogging ()
-specifier|public
-name|boolean
-name|isUseMDCLogging
-parameter_list|()
-block|{
-return|return
-name|isUseMdcLogging
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|setUseMDCLogging (boolean useMDCLogging)
-specifier|public
-name|void
-name|setUseMDCLogging
-parameter_list|(
-name|boolean
-name|useMDCLogging
-parameter_list|)
-block|{
-name|setUseMdcLogging
-argument_list|(
-name|useMDCLogging
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|isUseMdcLogging ()
