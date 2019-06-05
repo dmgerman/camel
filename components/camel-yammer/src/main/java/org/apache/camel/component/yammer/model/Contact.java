@@ -108,7 +108,7 @@ DECL|field|phoneNumbers
 specifier|private
 name|List
 argument_list|<
-name|String
+name|PhoneNumber
 argument_list|>
 name|phoneNumbers
 decl_stmt|;
@@ -200,7 +200,7 @@ DECL|method|getPhoneNumbers ()
 specifier|public
 name|List
 argument_list|<
-name|String
+name|PhoneNumber
 argument_list|>
 name|getPhoneNumbers
 parameter_list|()
@@ -209,14 +209,14 @@ return|return
 name|phoneNumbers
 return|;
 block|}
-DECL|method|setPhoneNumbers (List<String> phoneNumbers)
+DECL|method|setPhoneNumbers (List<PhoneNumber> phoneNumbers)
 specifier|public
 name|void
 name|setPhoneNumbers
 parameter_list|(
 name|List
 argument_list|<
-name|String
+name|PhoneNumber
 argument_list|>
 name|phoneNumbers
 parameter_list|)
