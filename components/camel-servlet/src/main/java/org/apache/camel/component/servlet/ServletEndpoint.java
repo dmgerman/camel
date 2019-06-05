@@ -218,6 +218,10 @@ name|syntax
 operator|=
 literal|"servlet:contextPath"
 argument_list|,
+name|excludeProperties
+operator|=
+literal|"httpUri"
+argument_list|,
 name|consumerOnly
 operator|=
 literal|true
