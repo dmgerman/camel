@@ -458,6 +458,11 @@ argument_list|(
 literal|"jetty"
 argument_list|)
 operator|.
+name|producerComponent
+argument_list|(
+literal|"http"
+argument_list|)
+operator|.
 name|host
 argument_list|(
 literal|"localhost"

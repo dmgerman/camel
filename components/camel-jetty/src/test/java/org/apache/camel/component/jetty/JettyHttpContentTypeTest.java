@@ -191,7 +191,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"jetty:http://127.0.0.1:{{port}}/foo"
+literal|"http://127.0.0.1:{{port}}/foo"
 argument_list|,
 name|data
 argument_list|,
@@ -327,7 +327,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"jetty:http://127.0.0.1:{{port}}/foo"
+literal|"http://127.0.0.1:{{port}}/foo"
 argument_list|,
 name|data
 argument_list|,

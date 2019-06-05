@@ -325,7 +325,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/test/filter"
+literal|"http://localhost:{{port}}/test/filter"
 argument_list|)
 operator|.
 name|to

@@ -372,10 +372,10 @@ name|contextIdPattern
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|componentName
+DECL|field|consumerComponentName
 specifier|private
 name|String
-name|componentName
+name|consumerComponentName
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -492,31 +492,31 @@ operator|=
 name|contextIdPattern
 expr_stmt|;
 block|}
-DECL|method|getComponentName ()
+DECL|method|getConsumerComponentName ()
 specifier|public
 name|String
-name|getComponentName
+name|getConsumerComponentName
 parameter_list|()
 block|{
 return|return
-name|componentName
+name|consumerComponentName
 return|;
 block|}
-comment|/**      * The Camel Rest component to use for the REST transport, such as restlet, spark-rest.      * If no component has been explicit configured, then Camel will lookup if there is a Camel component      * that integrates with the Rest DSL, or if a org.apache.camel.spi.RestConsumerFactory is registered in the registry.      * If either one is found, then that is being used.      */
-DECL|method|setComponentName (String componentName)
+comment|/**      * The Camel Rest component to use for (consumer) the REST transport, such as jetty, servlet, undertow.      * If no component has been explicit configured, then Camel will lookup if there is a Camel component      * that integrates with the Rest DSL, or if a org.apache.camel.spi.RestConsumerFactory is registered in the registry.      * If either one is found, then that is being used.      */
+DECL|method|setConsumerComponentName (String consumerComponentName)
 specifier|public
 name|void
-name|setComponentName
+name|setConsumerComponentName
 parameter_list|(
 name|String
-name|componentName
+name|consumerComponentName
 parameter_list|)
 block|{
 name|this
 operator|.
-name|componentName
+name|consumerComponentName
 operator|=
-name|componentName
+name|consumerComponentName
 expr_stmt|;
 block|}
 DECL|method|getApiComponentName ()
@@ -606,7 +606,7 @@ argument_list|()
 operator|.
 name|getRestConfiguration
 argument_list|(
-name|componentName
+name|consumerComponentName
 argument_list|,
 literal|true
 argument_list|)
@@ -1035,7 +1035,7 @@ comment|// we use the rest component as the HTTP consumer to service the API
 comment|// the API then uses the api component (eg usually camel-swagger-java) to build the API
 if|if
 condition|(
-name|getComponentName
+name|getConsumerComponentName
 argument_list|()
 operator|!=
 literal|null
@@ -1052,7 +1052,7 @@ argument_list|()
 operator|.
 name|lookupByName
 argument_list|(
-name|getComponentName
+name|getConsumerComponentName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1080,7 +1080,7 @@ argument_list|()
 operator|.
 name|getComponent
 argument_list|(
-name|getComponentName
+name|getConsumerComponentName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1120,7 +1120,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Component "
 operator|+
-name|getComponentName
+name|getConsumerComponentName
 argument_list|()
 operator|+
 literal|" is not a RestApiConsumerFactory"
@@ -1133,7 +1133,7 @@ throw|throw
 operator|new
 name|NoSuchBeanException
 argument_list|(
-name|getComponentName
+name|getConsumerComponentName
 argument_list|()
 argument_list|,
 name|RestApiConsumerFactory
@@ -1148,7 +1148,7 @@ block|}
 block|}
 name|cname
 operator|=
-name|getComponentName
+name|getConsumerComponentName
 argument_list|()
 expr_stmt|;
 block|}

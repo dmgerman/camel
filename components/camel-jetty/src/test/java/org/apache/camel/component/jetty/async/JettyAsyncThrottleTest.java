@@ -108,7 +108,7 @@ name|template
 operator|.
 name|asyncRequestBody
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/myservice"
+literal|"http://localhost:{{port}}/myservice"
 argument_list|,
 literal|null
 argument_list|)
@@ -117,7 +117,7 @@ name|template
 operator|.
 name|asyncRequestBody
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/myservice"
+literal|"http://localhost:{{port}}/myservice"
 argument_list|,
 literal|null
 argument_list|)
@@ -126,7 +126,7 @@ name|template
 operator|.
 name|asyncRequestBody
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/myservice"
+literal|"http://localhost:{{port}}/myservice"
 argument_list|,
 literal|null
 argument_list|)
@@ -135,7 +135,7 @@ name|template
 operator|.
 name|asyncRequestBody
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/myservice"
+literal|"http://localhost:{{port}}/myservice"
 argument_list|,
 literal|null
 argument_list|)
@@ -144,7 +144,7 @@ name|template
 operator|.
 name|asyncRequestBody
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/myservice"
+literal|"http://localhost:{{port}}/myservice"
 argument_list|,
 literal|null
 argument_list|)
@@ -270,7 +270,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"jetty:http://localhost:"
+literal|"http://localhost:"
 operator|+
 name|port2
 operator|+
@@ -279,7 +279,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jetty:http://localhost:"
+literal|"http://localhost:"
 operator|+
 name|port3
 operator|+

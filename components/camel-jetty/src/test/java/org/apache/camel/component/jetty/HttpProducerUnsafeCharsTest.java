@@ -107,7 +107,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/test?bridgeEndpoint=true"
+literal|"http://localhost:{{port}}/test?bridgeEndpoint=true"
 argument_list|,
 literal|"Hello World"
 argument_list|,

@@ -235,6 +235,17 @@ name|Exception
 block|{
 if|if
 condition|(
+name|componentName
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+if|if
+condition|(
 name|componentProperties
 operator|==
 literal|null

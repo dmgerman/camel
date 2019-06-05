@@ -357,8 +357,6 @@ index|[]
 block|{
 literal|"coap"
 block|,
-literal|"netty-http"
-block|,
 literal|"netty4-http"
 block|,
 literal|"jetty"
@@ -386,11 +384,7 @@ index|[]
 block|{
 literal|"http"
 block|,
-literal|"http4"
-block|,
 literal|"netty4-http"
-block|,
-literal|"jetty"
 block|,
 literal|"restlet"
 block|,
@@ -500,18 +494,6 @@ name|label
 operator|=
 literal|"common"
 argument_list|)
-DECL|field|componentName
-specifier|private
-name|String
-name|componentName
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"common"
-argument_list|)
 DECL|field|inType
 specifier|private
 name|String
@@ -610,6 +592,30 @@ name|RestConfiguration
 operator|.
 name|RestBindingMode
 name|bindingMode
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|producerComponentName
+specifier|private
+name|String
+name|producerComponentName
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|consumerComponentName
+specifier|private
+name|String
+name|consumerComponentName
 decl_stmt|;
 DECL|field|parameters
 specifier|private
@@ -800,31 +806,58 @@ operator|=
 name|produces
 expr_stmt|;
 block|}
-DECL|method|getComponentName ()
+DECL|method|getProducerComponentName ()
 specifier|public
 name|String
-name|getComponentName
+name|getProducerComponentName
 parameter_list|()
 block|{
 return|return
-name|componentName
+name|producerComponentName
 return|;
 block|}
-comment|/**      * The Camel Rest component to use for the REST transport, such as restlet, spark-rest.      * If no component has been explicit configured, then Camel will lookup if there is a Camel component      * that integrates with the Rest DSL, or if a org.apache.camel.spi.RestConsumerFactory is registered in the registry.      * If either one is found, then that is being used.      */
-DECL|method|setComponentName (String componentName)
+comment|/**      * The Camel Rest component to use for (producer) the REST transport, such as http, undertow.      * If no component has been explicit configured, then Camel will lookup if there is a Camel component      * that integrates with the Rest DSL, or if a org.apache.camel.spi.RestProducerFactory is registered in the registry.      * If either one is found, then that is being used.      */
+DECL|method|setProducerComponentName (String producerComponentName)
 specifier|public
 name|void
-name|setComponentName
+name|setProducerComponentName
 parameter_list|(
 name|String
-name|componentName
+name|producerComponentName
 parameter_list|)
 block|{
 name|this
 operator|.
-name|componentName
+name|producerComponentName
 operator|=
-name|componentName
+name|producerComponentName
+expr_stmt|;
+block|}
+DECL|method|getConsumerComponentName ()
+specifier|public
+name|String
+name|getConsumerComponentName
+parameter_list|()
+block|{
+return|return
+name|consumerComponentName
+return|;
+block|}
+comment|/**      * The Camel Rest component to use for (consumer) the REST transport, such as jetty, servlet, undertow.      * If no component has been explicit configured, then Camel will lookup if there is a Camel component      * that integrates with the Rest DSL, or if a org.apache.camel.spi.RestConsumerFactory is registered in the registry.      * If either one is found, then that is being used.      */
+DECL|method|setConsumerComponentName (String consumerComponentName)
+specifier|public
+name|void
+name|setConsumerComponentName
+parameter_list|(
+name|String
+name|consumerComponentName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumerComponentName
+operator|=
+name|consumerComponentName
 expr_stmt|;
 block|}
 DECL|method|getInType ()
@@ -1250,14 +1283,14 @@ throw|;
 block|}
 block|}
 name|String
-name|cname
+name|pname
 init|=
-name|getComponentName
+name|getProducerComponentName
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|cname
+name|pname
 operator|!=
 literal|null
 condition|)
@@ -1273,7 +1306,7 @@ argument_list|()
 operator|.
 name|lookupByName
 argument_list|(
-name|getComponentName
+name|getProducerComponentName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1298,7 +1331,7 @@ name|comp
 operator|=
 name|setupComponent
 argument_list|(
-name|getComponentName
+name|getProducerComponentName
 argument_list|()
 argument_list|,
 name|getCamelContext
@@ -1356,7 +1389,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Component "
 operator|+
-name|getComponentName
+name|getProducerComponentName
 argument_list|()
 operator|+
 literal|" is not a RestProducerFactory"
@@ -1369,7 +1402,7 @@ throw|throw
 operator|new
 name|NoSuchBeanException
 argument_list|(
-name|getComponentName
+name|getProducerComponentName
 argument_list|()
 argument_list|,
 name|RestProducerFactory
@@ -1382,9 +1415,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|cname
+name|pname
 operator|=
-name|getComponentName
+name|getProducerComponentName
 argument_list|()
 expr_stmt|;
 block|}
@@ -1448,7 +1481,7 @@ name|RestProducerFactory
 operator|)
 name|comp
 expr_stmt|;
-name|cname
+name|pname
 operator|=
 name|name
 expr_stmt|;
@@ -1460,9 +1493,9 @@ name|parameters
 operator|.
 name|put
 argument_list|(
-literal|"componentName"
+literal|"producerComponentName"
 argument_list|,
-name|cname
+name|pname
 argument_list|)
 expr_stmt|;
 comment|// lookup in registry
@@ -1518,7 +1551,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|// no explicit factory found then try to see if we can find any of the default rest consumer components
+comment|// no explicit factory found then try to see if we can find any of the default rest producer components
 comment|// and there must only be exactly one so we safely can pick this one
 if|if
 condition|(
@@ -1550,8 +1583,7 @@ name|comp
 init|=
 name|setupComponent
 argument_list|(
-name|getComponentName
-argument_list|()
+name|name
 argument_list|,
 name|getCamelContext
 argument_list|()
@@ -1656,11 +1688,28 @@ argument_list|()
 operator|.
 name|getRestConfiguration
 argument_list|(
-name|cname
+name|pname
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|config
+operator|==
+literal|null
+condition|)
+block|{
+comment|// fallback to default
+name|config
+operator|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|getRestConfiguration
+argument_list|()
+expr_stmt|;
+block|}
 name|Producer
 name|producer
 decl_stmt|;
@@ -1815,7 +1864,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|getComponentName
+name|getConsumerComponentName
 argument_list|()
 operator|!=
 literal|null
@@ -1832,7 +1881,7 @@ argument_list|()
 operator|.
 name|lookupByName
 argument_list|(
-name|getComponentName
+name|getConsumerComponentName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1860,7 +1909,7 @@ argument_list|()
 operator|.
 name|getComponent
 argument_list|(
-name|getComponentName
+name|getConsumerComponentName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1900,7 +1949,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Component "
 operator|+
-name|getComponentName
+name|getConsumerComponentName
 argument_list|()
 operator|+
 literal|" is not a RestConsumerFactory"
@@ -1913,7 +1962,7 @@ throw|throw
 operator|new
 name|NoSuchBeanException
 argument_list|(
-name|getComponentName
+name|getConsumerComponentName
 argument_list|()
 argument_list|,
 name|RestConsumerFactory
@@ -1928,7 +1977,7 @@ block|}
 block|}
 name|cname
 operator|=
-name|getComponentName
+name|getConsumerComponentName
 argument_list|()
 expr_stmt|;
 block|}

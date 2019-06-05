@@ -336,7 +336,7 @@ argument_list|)
 decl_stmt|;
 name|restEndpoint
 operator|.
-name|setComponentName
+name|setConsumerComponentName
 argument_list|(
 literal|"mock-rest"
 argument_list|)

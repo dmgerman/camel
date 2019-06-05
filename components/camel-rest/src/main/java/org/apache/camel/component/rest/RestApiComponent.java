@@ -147,7 +147,7 @@ if|if
 condition|(
 name|answer
 operator|.
-name|getComponentName
+name|getConsumerComponentName
 argument_list|()
 operator|==
 literal|null
@@ -163,7 +163,7 @@ condition|)
 block|{
 name|answer
 operator|.
-name|setComponentName
+name|setConsumerComponentName
 argument_list|(
 name|getCamelContext
 argument_list|()

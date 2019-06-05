@@ -176,7 +176,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jetty:http://localhost:"
+literal|"http://localhost:"
 operator|+
 name|getPort2
 argument_list|()

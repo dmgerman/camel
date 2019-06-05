@@ -578,7 +578,7 @@ name|componentName
 init|=
 name|rest
 operator|.
-name|getComponentName
+name|getProducerComponentName
 argument_list|()
 decl_stmt|;
 if|if

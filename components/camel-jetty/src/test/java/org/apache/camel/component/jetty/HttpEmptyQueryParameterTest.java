@@ -79,7 +79,7 @@ name|fluentTemplate
 operator|.
 name|to
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/foo?id=123"
+literal|"http://localhost:{{port}}/foo?id=123"
 argument_list|)
 operator|.
 name|request
@@ -120,7 +120,7 @@ name|fluentTemplate
 operator|.
 name|to
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/foo?id="
+literal|"http://localhost:{{port}}/foo?id="
 argument_list|)
 operator|.
 name|request
