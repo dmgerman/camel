@@ -165,6 +165,16 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|ignoreLibraryMismatch
+argument_list|(
+literal|"org.scala-lang.modules:scala-parser-combinators_2.11"
+argument_list|)
+operator|.
+name|ignoreLibraryMismatch
+argument_list|(
+literal|"org.scala-lang.modules:scala-xml_2.11"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;
