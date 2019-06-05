@@ -200,6 +200,11 @@ name|port
 argument_list|(
 name|port
 argument_list|)
+operator|.
+name|producerComponent
+argument_list|(
+literal|"http4"
+argument_list|)
 expr_stmt|;
 name|rest
 argument_list|(

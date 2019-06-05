@@ -574,7 +574,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jetty:http://localhost:"
+literal|"http://localhost:"
 operator|+
 name|port4
 operator|+
@@ -583,7 +583,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jetty:http://localhost:"
+literal|"http://localhost:"
 operator|+
 name|port5
 operator|+

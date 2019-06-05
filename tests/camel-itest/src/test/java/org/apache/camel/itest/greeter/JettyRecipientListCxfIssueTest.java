@@ -280,7 +280,7 @@ name|template
 operator|.
 name|request
 argument_list|(
-literal|"jetty:http://0.0.0.0:{{RecipientListCxfTest.port3}}/myapp"
+literal|"http://0.0.0.0:{{RecipientListCxfTest.port3}}/myapp"
 argument_list|,
 operator|new
 name|Processor

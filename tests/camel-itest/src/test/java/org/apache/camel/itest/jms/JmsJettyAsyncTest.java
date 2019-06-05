@@ -289,7 +289,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jetty:http://0.0.0.0:"
+literal|"http://0.0.0.0:"
 operator|+
 name|port
 operator|+

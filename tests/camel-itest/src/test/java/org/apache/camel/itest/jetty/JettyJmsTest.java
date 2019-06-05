@@ -216,7 +216,7 @@ specifier|final
 name|String
 name|URL
 init|=
-literal|"jetty:http://localhost:"
+literal|"http://localhost:"
 operator|+
 name|port
 operator|+
