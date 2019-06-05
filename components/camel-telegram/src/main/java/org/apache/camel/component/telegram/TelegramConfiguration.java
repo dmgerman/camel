@@ -121,13 +121,13 @@ decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
+name|description
+operator|=
+literal|"The authorization token for using the bot (ask the BotFather)"
+argument_list|,
 name|label
 operator|=
 literal|"security"
-argument_list|,
-name|description
-operator|=
-literal|"The authorization token for using the bot (ask the BotFather), eg. 654321531:HGF_dTra456323dHuOedsE343211fqr3t-H."
 argument_list|)
 annotation|@
 name|Metadata
@@ -146,7 +146,11 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
-literal|"The proxyHost which could be used when sending out the message."
+literal|"HTTP proxy host which could be used when sending out the message."
+argument_list|,
+name|label
+operator|=
+literal|"proxy"
 argument_list|)
 DECL|field|proxyHost
 specifier|private
@@ -158,7 +162,11 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
-literal|"The proxyPort which could be used when sending out the message."
+literal|"HTTP proxy port which could be used when sending out the message."
+argument_list|,
+name|label
+operator|=
+literal|"proxy"
 argument_list|)
 DECL|field|proxyPort
 specifier|private

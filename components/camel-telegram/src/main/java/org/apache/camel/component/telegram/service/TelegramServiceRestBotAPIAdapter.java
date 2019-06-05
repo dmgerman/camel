@@ -559,6 +559,21 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|TelegramServiceRestBotAPIAdapter (RestBotAPI api)
+specifier|public
+name|TelegramServiceRestBotAPIAdapter
+parameter_list|(
+name|RestBotAPI
+name|api
+parameter_list|)
+block|{
+name|this
+operator|.
+name|api
+operator|=
+name|api
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|setHttpProxy (String host, Integer port)
@@ -607,21 +622,6 @@ name|setProxyServerPort
 argument_list|(
 name|port
 argument_list|)
-expr_stmt|;
-block|}
-DECL|method|TelegramServiceRestBotAPIAdapter (RestBotAPI api)
-specifier|public
-name|TelegramServiceRestBotAPIAdapter
-parameter_list|(
-name|RestBotAPI
-name|api
-parameter_list|)
-block|{
-name|this
-operator|.
-name|api
-operator|=
-name|api
 expr_stmt|;
 block|}
 annotation|@
