@@ -4466,6 +4466,16 @@ name|RAW
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|entry
+operator|.
+name|getValue
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -4499,6 +4509,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 continue|continue;
 block|}
 comment|// need to filter the User-Agent ignore the case, as CXF just check the header with "User-Agent"
