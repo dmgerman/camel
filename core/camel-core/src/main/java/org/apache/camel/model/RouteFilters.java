@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p>  * http://www.apache.org/licenses/LICENSE-2.0  *<p>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -138,35 +138,6 @@ name|String
 index|[]
 name|excludes
 decl_stmt|;
-comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression as documented by {@link PatternHelper#matchPattern(String, String)}.      *      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *      * Exclude takes precedence over include.      *      * @param include  the include pattern      * @param exclude  the exclude pattern      */
-DECL|method|filterByPattern (String include, String exclude)
-specifier|public
-specifier|static
-name|Function
-argument_list|<
-name|RouteDefinition
-argument_list|,
-name|Boolean
-argument_list|>
-name|filterByPattern
-parameter_list|(
-name|String
-name|include
-parameter_list|,
-name|String
-name|exclude
-parameter_list|)
-block|{
-return|return
-operator|new
-name|RouteFilters
-argument_list|(
-name|include
-argument_list|,
-name|exclude
-argument_list|)
-return|;
-block|}
 DECL|method|RouteFilters (String include, String exclude)
 specifier|private
 name|RouteFilters
@@ -224,6 +195,35 @@ argument_list|)
 else|:
 literal|null
 expr_stmt|;
+block|}
+comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression as documented by {@link PatternHelper#matchPattern(String, String)}.      *      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *      * Exclude takes precedence over include.      *      * @param include  the include pattern      * @param exclude  the exclude pattern      */
+DECL|method|filterByPattern (String include, String exclude)
+specifier|public
+specifier|static
+name|Function
+argument_list|<
+name|RouteDefinition
+argument_list|,
+name|Boolean
+argument_list|>
+name|filterByPattern
+parameter_list|(
+name|String
+name|include
+parameter_list|,
+name|String
+name|exclude
+parameter_list|)
+block|{
+return|return
+operator|new
+name|RouteFilters
+argument_list|(
+name|include
+argument_list|,
+name|exclude
+argument_list|)
+return|;
 block|}
 annotation|@
 name|Override
