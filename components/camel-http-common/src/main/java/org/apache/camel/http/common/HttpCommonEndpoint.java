@@ -215,7 +215,7 @@ name|UriPath
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"common"
 argument_list|,
 name|description
 operator|=

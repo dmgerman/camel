@@ -176,6 +176,10 @@ name|label
 operator|=
 literal|"http"
 argument_list|,
+name|consumerOnly
+operator|=
+literal|true
+argument_list|,
 name|lenientProperties
 operator|=
 literal|true
