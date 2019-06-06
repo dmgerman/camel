@@ -788,6 +788,20 @@ name|String
 name|id
 parameter_list|)
 block|{
+if|if
+condition|(
+name|hasCustomIdAssigned
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"You can only set routeId one time per route."
+argument_list|)
+throw|;
+block|}
 name|setId
 argument_list|(
 name|id

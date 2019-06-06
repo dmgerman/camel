@@ -2297,6 +2297,22 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|route
+operator|.
+name|hasCustomIdAssigned
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"You can only set routeId one time per route."
+argument_list|)
+throw|;
+block|}
 name|route
 operator|.
 name|setId
