@@ -323,7 +323,7 @@ specifier|private
 name|Integer
 name|maxResults
 init|=
-literal|10
+literal|0
 decl_stmt|;
 comment|/**          * Specifies the range of rows and columns in a sheet to get data from.          */
 DECL|field|range
@@ -352,6 +352,14 @@ DECL|field|includeGridData
 specifier|private
 name|Boolean
 name|includeGridData
+init|=
+literal|false
+decl_stmt|;
+comment|/**          * True if value range result should be split into rows or columns to          * process each of them individually. When true each row or column is          * represented with a separate exchange in batch processing. Otherwise          * value range object is used as exchange junk size.          */
+DECL|field|splitResults
+specifier|private
+name|Boolean
+name|splitResults
 init|=
 literal|false
 decl_stmt|;
@@ -691,6 +699,32 @@ operator|.
 name|includeGridData
 operator|=
 name|includeGridData
+expr_stmt|;
+block|}
+DECL|method|getSplitResults ()
+specifier|public
+name|Boolean
+name|getSplitResults
+parameter_list|()
+block|{
+return|return
+name|splitResults
+return|;
+block|}
+DECL|method|setSplitResults (Boolean splitResults)
+specifier|public
+name|void
+name|setSplitResults
+parameter_list|(
+name|Boolean
+name|splitResults
+parameter_list|)
+block|{
+name|this
+operator|.
+name|splitResults
+operator|=
+name|splitResults
 expr_stmt|;
 block|}
 block|}

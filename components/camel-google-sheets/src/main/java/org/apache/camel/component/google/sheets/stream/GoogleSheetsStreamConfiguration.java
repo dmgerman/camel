@@ -213,14 +213,12 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"10"
+literal|"0"
 argument_list|)
 DECL|field|maxResults
 specifier|private
 name|int
 name|maxResults
-init|=
-literal|10
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -235,6 +233,13 @@ DECL|field|includeGridData
 specifier|private
 name|boolean
 name|includeGridData
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|splitResults
+specifier|private
+name|boolean
+name|splitResults
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -628,6 +633,33 @@ operator|.
 name|includeGridData
 operator|=
 name|includeGridData
+expr_stmt|;
+block|}
+DECL|method|isSplitResults ()
+specifier|public
+name|boolean
+name|isSplitResults
+parameter_list|()
+block|{
+return|return
+name|splitResults
+return|;
+block|}
+comment|/**      * True if value range result should be split into rows or columns to process each of them individually. When true      * each row or column is represented with a separate exchange in batch processing. Otherwise value range object is used      * as exchange junk size.      *      * @param splitResults      */
+DECL|method|setSplitResults (boolean splitResults)
+specifier|public
+name|void
+name|setSplitResults
+parameter_list|(
+name|boolean
+name|splitResults
+parameter_list|)
+block|{
+name|this
+operator|.
+name|splitResults
+operator|=
+name|splitResults
 expr_stmt|;
 block|}
 comment|// *************************************************

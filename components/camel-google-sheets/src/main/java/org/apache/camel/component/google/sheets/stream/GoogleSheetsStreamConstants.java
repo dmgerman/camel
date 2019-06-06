@@ -86,6 +86,28 @@ name|PROPERTY_PREFIX
 operator|+
 literal|"Range"
 decl_stmt|;
+DECL|field|RANGE_INDEX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|RANGE_INDEX
+init|=
+name|PROPERTY_PREFIX
+operator|+
+literal|"RangeIndex"
+decl_stmt|;
+DECL|field|VALUE_INDEX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|VALUE_INDEX
+init|=
+name|PROPERTY_PREFIX
+operator|+
+literal|"ValueIndex"
+decl_stmt|;
 comment|/**      * Prevent instantiation.      */
 DECL|method|GoogleSheetsStreamConstants ()
 specifier|private
