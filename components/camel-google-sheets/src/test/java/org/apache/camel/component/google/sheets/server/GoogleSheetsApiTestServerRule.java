@@ -406,7 +406,7 @@ name|base
 argument_list|)
 return|;
 block|}
-comment|/**      * Read component configuration from TEST_OPTIONS_PROPERTIES.      * @return Map of component options.      */
+comment|/**      * Read component configuration from TEST_OPTIONS_PROPERTIES.      *       * @return Map of component options.      */
 DECL|method|getTestOptions (String optionFile)
 specifier|private
 name|Map
@@ -512,7 +512,7 @@ specifier|final
 name|Statement
 name|base
 decl_stmt|;
-DECL|method|GoogleSheetsApiTestServerStatement ( Statement base )
+DECL|method|GoogleSheetsApiTestServerStatement (Statement base)
 name|GoogleSheetsApiTestServerStatement
 parameter_list|(
 name|Statement

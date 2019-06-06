@@ -349,6 +349,7 @@ end_import
 begin_class
 DECL|class|GoogleSheetsApiTestServerAssert
 specifier|public
+specifier|final
 class|class
 name|GoogleSheetsApiTestServerAssert
 extends|extends
@@ -438,7 +439,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A fluent entry point to the assertion class.      * @param server the target server to perform assertions to.      * @return      */
+comment|/**      * A fluent entry point to the assertion class.      *       * @param server the target server to perform assertions to.      * @return      */
 DECL|method|assertThatGoogleApi (GoogleSheetsApiTestServer server)
 specifier|public
 specifier|static
