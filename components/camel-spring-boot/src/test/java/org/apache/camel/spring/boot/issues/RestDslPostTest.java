@@ -493,7 +493,7 @@ name|template
 operator|.
 name|send
 argument_list|(
-literal|"jetty:http://localhost:"
+literal|"http://localhost:"
 operator|+
 name|PORT
 operator|+
@@ -506,7 +506,7 @@ name|template
 operator|.
 name|send
 argument_list|(
-literal|"jetty:http://localhost:"
+literal|"http://localhost:"
 operator|+
 name|PORT
 operator|+

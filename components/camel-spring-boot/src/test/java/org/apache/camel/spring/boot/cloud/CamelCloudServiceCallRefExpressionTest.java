@@ -426,7 +426,7 @@ return|return
 operator|new
 name|SimpleExpression
 argument_list|(
-literal|"jetty:http://${header.CamelServiceCallServiceHost}:${header.CamelServiceCallServicePort}/hello"
+literal|"http://${header.CamelServiceCallServiceHost}:${header.CamelServiceCallServicePort}/hello"
 argument_list|)
 return|;
 block|}
@@ -631,7 +631,7 @@ name|put
 argument_list|(
 literal|"camel.cloud.service-call.component"
 argument_list|,
-literal|"jetty"
+literal|"http"
 argument_list|)
 expr_stmt|;
 name|prop

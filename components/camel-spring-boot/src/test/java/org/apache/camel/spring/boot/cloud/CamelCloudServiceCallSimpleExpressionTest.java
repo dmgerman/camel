@@ -519,7 +519,7 @@ name|put
 argument_list|(
 literal|"camel.cloud.service-call.component"
 argument_list|,
-literal|"jetty"
+literal|"http"
 argument_list|)
 expr_stmt|;
 name|prop
@@ -528,7 +528,7 @@ name|put
 argument_list|(
 literal|"camel.cloud.service-call.expression"
 argument_list|,
-literal|"$simple{header.CamelServiceCallScheme}:http://$simple{header.CamelServiceCallServiceHost}:$simple{header.CamelServiceCallServicePort}/hello"
+literal|"$simple{header.CamelServiceCallScheme}:$simple{header.CamelServiceCallServiceHost}:$simple{header.CamelServiceCallServicePort}/hello"
 argument_list|)
 expr_stmt|;
 name|prop
