@@ -20,22 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|sun
-operator|.
-name|syndication
-operator|.
-name|feed
-operator|.
-name|synd
-operator|.
-name|SyndFeed
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -45,6 +29,22 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|rometools
+operator|.
+name|rome
+operator|.
+name|feed
+operator|.
+name|synd
+operator|.
+name|SyndFeed
 import|;
 end_import
 
