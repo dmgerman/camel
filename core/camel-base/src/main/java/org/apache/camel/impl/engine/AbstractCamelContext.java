@@ -3119,7 +3119,6 @@ name|getName
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the name of the this context.      *      * @param name the name      */
 DECL|method|setName (String name)
 specifier|public
 name|void
@@ -3129,8 +3128,7 @@ name|String
 name|name
 parameter_list|)
 block|{
-comment|// use an explicit name strategy since an explicit name was provided to
-comment|// be used
+comment|// use an explicit name strategy since an explicit name was provided to be used
 name|setNameStrategy
 argument_list|(
 operator|new

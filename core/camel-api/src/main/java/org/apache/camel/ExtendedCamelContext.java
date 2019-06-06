@@ -340,6 +340,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Registry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteStartupOrder
 import|;
 end_import
@@ -370,6 +384,24 @@ name|ExtendedCamelContext
 extends|extends
 name|CamelContext
 block|{
+comment|/**      * Sets the name (id) of the this context.      *<p/>      * This operation is mostly only used by different Camel runtimes such as camel-spring, camel-cdi, camel-spring-boot etc.      * Important: Setting the name should only be set before CamelContext is started.      *      * @param name the name      */
+DECL|method|setName (String name)
+name|void
+name|setName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the registry Camel should use for looking up beans by name or type.      *<p/>      * This operation is mostly only used by different Camel runtimes such as camel-spring, camel-cdi, camel-spring-boot etc.      * Important: Setting the registry should only be set before CamelContext is started.      *      * @param registry the registry such as DefaultRegistry or      */
+DECL|method|setRegistry (Registry registry)
+name|void
+name|setRegistry
+parameter_list|(
+name|Registry
+name|registry
+parameter_list|)
+function_decl|;
 comment|/**      * Method to signal to {@link CamelContext} that the process to initialize setup routes is in progress.      *      * @param done<tt>false</tt> to start the process, call again with<tt>true</tt> to signal its done.      * @see #isSetupRoutes()      */
 DECL|method|setupRoutes (boolean done)
 name|void
