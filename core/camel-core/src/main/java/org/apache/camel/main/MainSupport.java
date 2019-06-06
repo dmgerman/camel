@@ -402,7 +402,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|reload
 operator|.
 name|FileWatcherReloadStrategy
 import|;
