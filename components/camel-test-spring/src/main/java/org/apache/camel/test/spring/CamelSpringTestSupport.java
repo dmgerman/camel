@@ -68,9 +68,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
-operator|.
-name|CamelBeanPostProcessor
+name|ExtendedCamelContext
 import|;
 end_import
 
@@ -261,7 +259,6 @@ name|AbstractApplicationContext
 name|createApplicationContext
 parameter_list|()
 function_decl|;
-comment|/**      * Lets post process this test instance to process any Camel annotations.      * Note that using Spring Test or Guice is a more powerful approach.      */
 annotation|@
 name|Override
 DECL|method|postProcessTest ()
@@ -272,11 +269,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|postProcessTest
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|isCreateCamelContextPerClass
@@ -291,53 +283,10 @@ name|get
 argument_list|()
 expr_stmt|;
 block|}
-comment|// use the bean post processor from camel-spring
-name|CamelBeanPostProcessor
-name|processor
-init|=
-operator|new
-name|CamelBeanPostProcessor
+name|super
+operator|.
+name|postProcessTest
 argument_list|()
-decl_stmt|;
-name|processor
-operator|.
-name|setApplicationContext
-argument_list|(
-name|applicationContext
-argument_list|)
-expr_stmt|;
-name|processor
-operator|.
-name|setCamelContext
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
-name|processor
-operator|.
-name|postProcessBeforeInitialization
-argument_list|(
-name|this
-argument_list|,
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|processor
-operator|.
-name|postProcessAfterInitialization
-argument_list|(
-name|this
-argument_list|,
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@

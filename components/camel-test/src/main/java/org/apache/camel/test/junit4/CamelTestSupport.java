@@ -688,22 +688,6 @@ name|impl
 operator|.
 name|engine
 operator|.
-name|DefaultCamelBeanPostProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|engine
-operator|.
 name|InterceptSendToMockEndpointStrategy
 import|;
 end_import
@@ -793,6 +777,20 @@ operator|.
 name|reifier
 operator|.
 name|RouteReifier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|CamelBeanPostProcessor
 import|;
 end_import
 
@@ -963,6 +961,7 @@ name|ROUTE_COVERAGE_ENABLED
 init|=
 literal|"CamelTestRouteCoverage"
 decl_stmt|;
+comment|// CHECKSTYLE:OFF
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -1079,11 +1078,6 @@ specifier|volatile
 name|Service
 name|camelContextService
 decl_stmt|;
-DECL|field|dumpRouteStats
-specifier|protected
-name|boolean
-name|dumpRouteStats
-decl_stmt|;
 DECL|field|useRouteBuilder
 specifier|private
 name|boolean
@@ -1181,6 +1175,7 @@ argument_list|(
 name|INSTANCE
 argument_list|)
 decl_stmt|;
+comment|// CHECKSTYLE:ON
 comment|/**      * Use the RouteBuilder or not      * @return<tt>true</tt> then {@link CamelContext} will be auto started,      *<tt>false</tt> then {@link CamelContext} will<b>not</b> be auto started (you will have to start it manually)      */
 DECL|method|isUseRouteBuilder ()
 specifier|public
@@ -3550,7 +3545,7 @@ name|applyCamelPostProcessor
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Applies the {@link DefaultCamelBeanPostProcessor} to this instance.      *      * Derived classes using IoC / DI frameworks may wish to turn this into a NoOp such as for CDI      * we would just use CDI to inject this      */
+comment|/**      * Applies the {@link CamelBeanPostProcessor} to this instance.      *      * Derived classes using IoC / DI frameworks may wish to turn this into a NoOp such as for CDI      * we would just use CDI to inject this      */
 DECL|method|applyCamelPostProcessor ()
 specifier|protected
 name|void
@@ -3559,7 +3554,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// use the default bean post processor from camel-core if the test class is not dependency injected already by Spring
+comment|// use the bean post processor if the test class is not dependency injected already by Spring Framework
 name|boolean
 name|spring
 init|=
@@ -3576,16 +3571,17 @@ operator|!
 name|spring
 condition|)
 block|{
-name|DefaultCamelBeanPostProcessor
-name|processor
-init|=
-operator|new
-name|DefaultCamelBeanPostProcessor
-argument_list|(
 name|context
+operator|.
+name|getExtension
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
 argument_list|)
-decl_stmt|;
-name|processor
+operator|.
+name|getBeanPostProcessor
+argument_list|()
 operator|.
 name|postProcessBeforeInitialization
 argument_list|(
@@ -3598,7 +3594,17 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|processor
+name|context
+operator|.
+name|getExtension
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
+name|getBeanPostProcessor
+argument_list|()
 operator|.
 name|postProcessAfterInitialization
 argument_list|(
