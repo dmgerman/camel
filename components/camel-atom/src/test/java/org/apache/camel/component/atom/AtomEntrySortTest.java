@@ -22,16 +22,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|text
-operator|.
-name|SimpleDateFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Date
@@ -271,15 +261,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|SimpleDateFormat
-name|df
-init|=
-operator|new
-name|SimpleDateFormat
-argument_list|(
-literal|"yyyy-MM-dd HH:mm:ss Z"
-argument_list|)
-decl_stmt|;
 name|registry
 operator|.
 name|bind
