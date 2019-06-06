@@ -209,7 +209,7 @@ argument_list|)
 operator|.
 name|component
 argument_list|(
-literal|"jetty"
+literal|"http"
 argument_list|)
 operator|.
 name|ribbonLoadBalancer

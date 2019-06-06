@@ -354,7 +354,7 @@ argument_list|()
 operator|.
 name|simple
 argument_list|(
-literal|"jetty:http://${header.CamelServiceCallServiceHost}:${header.CamelServiceCallServicePort}/${header.CamelServiceCallServiceMeta[contextPath]}"
+literal|"http://${header.CamelServiceCallServiceHost}:${header.CamelServiceCallServicePort}/${header.CamelServiceCallServiceMeta[contextPath]}"
 argument_list|)
 operator|.
 name|loadBalancer
