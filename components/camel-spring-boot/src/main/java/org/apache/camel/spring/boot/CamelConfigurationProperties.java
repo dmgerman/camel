@@ -74,6 +74,14 @@ name|shutdownTimeout
 init|=
 literal|300
 decl_stmt|;
+comment|/**      * Whether to log a WARN if Camel on Spring Boot was immediately shutdown after starting which      * very likely is because there is no JVM thread to keep the application running.      */
+DECL|field|warnOnEarlyShutdown
+specifier|private
+name|boolean
+name|warnOnEarlyShutdown
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * Whether Camel should try to suppress logging during shutdown and timeout was triggered,      * meaning forced shutdown is happening. And during forced shutdown we want to avoid logging      * errors/warnings et all in the logs as a side-effect of the forced timeout.      * Notice the suppress is a best effort as there may still be some logs coming      * from 3rd party libraries and whatnot, which Camel cannot control.      * This option is default false.      */
 DECL|field|shutdownSuppressLoggingOnTimeout
 specifier|private
@@ -547,6 +555,32 @@ operator|.
 name|shutdownTimeout
 operator|=
 name|shutdownTimeout
+expr_stmt|;
+block|}
+DECL|method|isWarnOnEarlyShutdown ()
+specifier|public
+name|boolean
+name|isWarnOnEarlyShutdown
+parameter_list|()
+block|{
+return|return
+name|warnOnEarlyShutdown
+return|;
+block|}
+DECL|method|setWarnOnEarlyShutdown (boolean warnOnEarlyShutdown)
+specifier|public
+name|void
+name|setWarnOnEarlyShutdown
+parameter_list|(
+name|boolean
+name|warnOnEarlyShutdown
+parameter_list|)
+block|{
+name|this
+operator|.
+name|warnOnEarlyShutdown
+operator|=
+name|warnOnEarlyShutdown
 expr_stmt|;
 block|}
 DECL|method|isShutdownSuppressLoggingOnTimeout ()

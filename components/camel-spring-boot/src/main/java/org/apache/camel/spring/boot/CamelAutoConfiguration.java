@@ -1005,6 +1005,11 @@ operator|new
 name|SpringBootCamelContext
 argument_list|(
 name|applicationContext
+argument_list|,
+name|config
+operator|.
+name|isWarnOnEarlyShutdown
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
