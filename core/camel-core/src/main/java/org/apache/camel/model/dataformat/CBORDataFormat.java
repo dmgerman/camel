@@ -226,6 +226,34 @@ specifier|private
 name|Boolean
 name|allowUnmarshallType
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|prettyPrint
+specifier|private
+name|Boolean
+name|prettyPrint
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|allowJmsType
+specifier|private
+name|Boolean
+name|allowJmsType
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|enableFeatures
+specifier|private
+name|String
+name|enableFeatures
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|disableFeatures
+specifier|private
+name|String
+name|disableFeatures
+decl_stmt|;
 DECL|method|CBORDataFormat ()
 specifier|public
 name|CBORDataFormat
@@ -330,6 +358,60 @@ block|{
 return|return
 name|unmarshalType
 return|;
+block|}
+DECL|method|getPrettyPrint ()
+specifier|public
+name|Boolean
+name|getPrettyPrint
+parameter_list|()
+block|{
+return|return
+name|prettyPrint
+return|;
+block|}
+comment|/**      * To enable pretty printing output nicely formatted.      *<p/>      * Is by default false.      */
+DECL|method|setPrettyPrint (Boolean prettyPrint)
+specifier|public
+name|void
+name|setPrettyPrint
+parameter_list|(
+name|Boolean
+name|prettyPrint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|prettyPrint
+operator|=
+name|prettyPrint
+expr_stmt|;
+block|}
+DECL|method|getAllowJmsType ()
+specifier|public
+name|Boolean
+name|getAllowJmsType
+parameter_list|()
+block|{
+return|return
+name|allowJmsType
+return|;
+block|}
+comment|/**      * Used for JMS users to allow the JMSType header from the JMS spec to      * specify a FQN classname to use to unmarshal to.      */
+DECL|method|setAllowJmsType (Boolean allowJmsType)
+specifier|public
+name|void
+name|setAllowJmsType
+parameter_list|(
+name|Boolean
+name|allowJmsType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowJmsType
+operator|=
+name|allowJmsType
+expr_stmt|;
 block|}
 comment|/**      * Class of the java type to use when unarmshalling      */
 DECL|method|setUnmarshalType (Class<?> unmarshalType)
@@ -462,6 +544,60 @@ operator|.
 name|allowUnmarshallType
 operator|=
 name|allowUnmarshallType
+expr_stmt|;
+block|}
+DECL|method|getEnableFeatures ()
+specifier|public
+name|String
+name|getEnableFeatures
+parameter_list|()
+block|{
+return|return
+name|enableFeatures
+return|;
+block|}
+comment|/**      * Set of features to enable on the Jackson      *<tt>com.fasterxml.jackson.databind.ObjectMapper</tt>.      *<p/>      * The features should be a name that matches a enum from      *<tt>com.fasterxml.jackson.databind.SerializationFeature</tt>,      *<tt>com.fasterxml.jackson.databind.DeserializationFeature</tt>, or      *<tt>com.fasterxml.jackson.databind.MapperFeature</tt>      *<p/>      * Multiple features can be separated by comma      */
+DECL|method|setEnableFeatures (String enableFeatures)
+specifier|public
+name|void
+name|setEnableFeatures
+parameter_list|(
+name|String
+name|enableFeatures
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enableFeatures
+operator|=
+name|enableFeatures
+expr_stmt|;
+block|}
+DECL|method|getDisableFeatures ()
+specifier|public
+name|String
+name|getDisableFeatures
+parameter_list|()
+block|{
+return|return
+name|disableFeatures
+return|;
+block|}
+comment|/**      * Set of features to disable on the Jackson      *<tt>com.fasterxml.jackson.databind.ObjectMapper</tt>.      *<p/>      * The features should be a name that matches a enum from      *<tt>com.fasterxml.jackson.databind.SerializationFeature</tt>,      *<tt>com.fasterxml.jackson.databind.DeserializationFeature</tt>, or      *<tt>com.fasterxml.jackson.databind.MapperFeature</tt>      *<p/>      * Multiple features can be separated by comma      */
+DECL|method|setDisableFeatures (String disableFeatures)
+specifier|public
+name|void
+name|setDisableFeatures
+parameter_list|(
+name|String
+name|disableFeatures
+parameter_list|)
+block|{
+name|this
+operator|.
+name|disableFeatures
+operator|=
+name|disableFeatures
 expr_stmt|;
 block|}
 annotation|@

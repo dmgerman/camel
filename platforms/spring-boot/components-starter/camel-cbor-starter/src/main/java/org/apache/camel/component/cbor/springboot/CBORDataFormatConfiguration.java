@@ -134,6 +134,34 @@ name|allowUnmarshallType
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * To enable pretty printing output nicely formatted. Is by default false.      */
+DECL|field|prettyPrint
+specifier|private
+name|Boolean
+name|prettyPrint
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * Used for JMS users to allow the JMSType header from the JMS spec to      * specify a FQN classname to use to unmarshal to.      */
+DECL|field|allowJmsType
+specifier|private
+name|Boolean
+name|allowJmsType
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * Set of features to enable on the Jackson      * com.fasterxml.jackson.databind.ObjectMapper. The features should be a      * name that matches a enum from      * com.fasterxml.jackson.databind.SerializationFeature,      * com.fasterxml.jackson.databind.DeserializationFeature, or      * com.fasterxml.jackson.databind.MapperFeature Multiple features can be      * separated by comma      */
+DECL|field|enableFeatures
+specifier|private
+name|String
+name|enableFeatures
+decl_stmt|;
+comment|/**      * Set of features to disable on the Jackson      * com.fasterxml.jackson.databind.ObjectMapper. The features should be a      * name that matches a enum from      * com.fasterxml.jackson.databind.SerializationFeature,      * com.fasterxml.jackson.databind.DeserializationFeature, or      * com.fasterxml.jackson.databind.MapperFeature Multiple features can be      * separated by comma      */
+DECL|field|disableFeatures
+specifier|private
+name|String
+name|disableFeatures
+decl_stmt|;
 comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML, or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
@@ -296,6 +324,110 @@ operator|.
 name|allowUnmarshallType
 operator|=
 name|allowUnmarshallType
+expr_stmt|;
+block|}
+DECL|method|getPrettyPrint ()
+specifier|public
+name|Boolean
+name|getPrettyPrint
+parameter_list|()
+block|{
+return|return
+name|prettyPrint
+return|;
+block|}
+DECL|method|setPrettyPrint (Boolean prettyPrint)
+specifier|public
+name|void
+name|setPrettyPrint
+parameter_list|(
+name|Boolean
+name|prettyPrint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|prettyPrint
+operator|=
+name|prettyPrint
+expr_stmt|;
+block|}
+DECL|method|getAllowJmsType ()
+specifier|public
+name|Boolean
+name|getAllowJmsType
+parameter_list|()
+block|{
+return|return
+name|allowJmsType
+return|;
+block|}
+DECL|method|setAllowJmsType (Boolean allowJmsType)
+specifier|public
+name|void
+name|setAllowJmsType
+parameter_list|(
+name|Boolean
+name|allowJmsType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowJmsType
+operator|=
+name|allowJmsType
+expr_stmt|;
+block|}
+DECL|method|getEnableFeatures ()
+specifier|public
+name|String
+name|getEnableFeatures
+parameter_list|()
+block|{
+return|return
+name|enableFeatures
+return|;
+block|}
+DECL|method|setEnableFeatures (String enableFeatures)
+specifier|public
+name|void
+name|setEnableFeatures
+parameter_list|(
+name|String
+name|enableFeatures
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enableFeatures
+operator|=
+name|enableFeatures
+expr_stmt|;
+block|}
+DECL|method|getDisableFeatures ()
+specifier|public
+name|String
+name|getDisableFeatures
+parameter_list|()
+block|{
+return|return
+name|disableFeatures
+return|;
+block|}
+DECL|method|setDisableFeatures (String disableFeatures)
+specifier|public
+name|void
+name|setDisableFeatures
+parameter_list|(
+name|String
+name|disableFeatures
+parameter_list|)
+block|{
+name|this
+operator|.
+name|disableFeatures
+operator|=
+name|disableFeatures
 expr_stmt|;
 block|}
 DECL|method|getContentTypeHeader ()
