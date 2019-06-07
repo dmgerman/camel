@@ -40,6 +40,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|rometools
+operator|.
+name|rome
+operator|.
+name|feed
+operator|.
+name|synd
+operator|.
+name|SyndEntry
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -101,22 +117,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|rometools
-operator|.
-name|rome
-operator|.
-name|feed
-operator|.
-name|synd
-operator|.
-name|SyndEntry
 import|;
 end_import
 

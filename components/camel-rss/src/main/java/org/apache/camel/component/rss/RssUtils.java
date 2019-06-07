@@ -50,22 +50,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|codec
-operator|.
-name|binary
-operator|.
-name|Base64
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|rometools
@@ -105,6 +89,22 @@ operator|.
 name|io
 operator|.
 name|XmlReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|codec
+operator|.
+name|binary
+operator|.
+name|Base64
 import|;
 end_import
 
