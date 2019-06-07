@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.bean
+DECL|package|org.apache.camel.component.validator
 package|package
 name|org
 operator|.
@@ -14,9 +14,19 @@ name|camel
 operator|.
 name|component
 operator|.
-name|bean
+name|validator
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|FileNotFoundException
+import|;
+end_import
 
 begin_import
 import|import
@@ -55,10 +65,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|BeanLazyStartProducerTest
+DECL|class|ValidatorLazyStartProducerTest
 specifier|public
 class|class
-name|BeanLazyStartProducerTest
+name|ValidatorLazyStartProducerTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -72,6 +82,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+block|{
 name|template
 operator|.
 name|sendBody
@@ -81,6 +93,31 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should throw exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|assertIsInstanceOf
+argument_list|(
+name|FileNotFoundException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

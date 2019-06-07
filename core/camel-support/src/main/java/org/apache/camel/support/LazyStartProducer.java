@@ -96,18 +96,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|support
 operator|.
 name|service
@@ -117,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.Producer} which is started lazy, on the first message being processed.  */
+comment|/**  * A {@link org.apache.camel.Producer} which is created and started lazy, on the first message processed.  */
 end_comment
 
 begin_class
@@ -166,6 +154,7 @@ parameter_list|)
 block|{
 try|try
 block|{
+comment|// create and start producer lazy
 if|if
 condition|(
 name|delegate
@@ -232,6 +221,13 @@ operator|.
 name|setException
 argument_list|(
 name|e
+argument_list|)
+expr_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 return|return
