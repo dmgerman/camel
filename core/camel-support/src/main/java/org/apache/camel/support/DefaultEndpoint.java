@@ -312,6 +312,22 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"Whether the producer should be started lazy (on the first message)."
+argument_list|)
+DECL|field|lazyStartProducer
+specifier|private
+name|boolean
+name|lazyStartProducer
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"consumer"
 argument_list|,
 name|optionalPrefix
@@ -1019,6 +1035,33 @@ operator|.
 name|basicPropertyBinding
 operator|=
 name|basicPropertyBinding
+expr_stmt|;
+block|}
+DECL|method|isLazyStartProducer ()
+specifier|public
+name|boolean
+name|isLazyStartProducer
+parameter_list|()
+block|{
+return|return
+name|lazyStartProducer
+return|;
+block|}
+comment|/**      * Whether the producer should be started lazy (on the first message).      */
+DECL|method|setLazyStartProducer (boolean lazyStartProducer)
+specifier|public
+name|void
+name|setLazyStartProducer
+parameter_list|(
+name|boolean
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|lazyStartProducer
+operator|=
+name|lazyStartProducer
 expr_stmt|;
 block|}
 DECL|method|isBridgeErrorHandler ()
