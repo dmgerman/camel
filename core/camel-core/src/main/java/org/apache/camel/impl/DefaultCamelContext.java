@@ -1172,14 +1172,12 @@ name|init
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Lazily create a default implementation      */
 DECL|method|createTypeConverter ()
 specifier|protected
 name|TypeConverter
 name|createTypeConverter
 parameter_list|()
 block|{
-comment|// lets use the new fast type converter registry
 return|return
 operator|new
 name|DefaultTypeConverter
@@ -1200,8 +1198,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|createTypeConverterRegistry ()
 specifier|protected
 name|TypeConverterRegistry
@@ -1232,7 +1228,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Lazily create a default implementation      */
 DECL|method|createInjector ()
 specifier|protected
 name|Injector
@@ -1275,7 +1270,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Lazily create a default bean post processor      */
 DECL|method|createBeanPostProcessor ()
 specifier|protected
 name|CamelBeanPostProcessor
@@ -1290,7 +1284,6 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**      * Lazily create a default implementation      */
 DECL|method|createComponentResolver ()
 specifier|protected
 name|ComponentResolver
@@ -1303,7 +1296,6 @@ name|DefaultComponentResolver
 argument_list|()
 return|;
 block|}
-comment|/**      * Lazily create a default implementation      */
 DECL|method|createRegistry ()
 specifier|protected
 name|Registry
@@ -1718,8 +1710,6 @@ name|DefaultLanguageResolver
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|createRestRegistryFactory ()
 specifier|protected
 name|RestRegistryFactory
@@ -1764,8 +1754,6 @@ name|endpoints
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|createStreamCachingStrategy ()
 specifier|protected
 name|StreamCachingStrategy
