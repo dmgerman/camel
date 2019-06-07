@@ -619,8 +619,6 @@ argument_list|)
 expr_stmt|;
 name|ReceiveMessageResult
 name|messageResult
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -1077,21 +1075,16 @@ name|debug
 argument_list|(
 literal|"Scheduled TimeoutExtender task to start after {} delay, and run with {}/{} period/repeat (seconds), to extend exchangeId: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|delay
-block|,
+argument_list|,
 name|period
-block|,
+argument_list|,
 name|repeatSeconds
-block|,
+argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}

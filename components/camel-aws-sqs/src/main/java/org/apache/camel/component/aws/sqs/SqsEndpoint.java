@@ -2252,13 +2252,9 @@ parameter_list|()
 block|{
 name|AmazonSQS
 name|client
-init|=
-literal|null
 decl_stmt|;
 name|AmazonSQSClientBuilder
 name|clientBuilder
-init|=
-literal|null
 decl_stmt|;
 name|ClientConfiguration
 name|clientConfiguration
