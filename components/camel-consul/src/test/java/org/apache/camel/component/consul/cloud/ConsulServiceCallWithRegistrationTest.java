@@ -317,7 +317,7 @@ argument_list|)
 operator|.
 name|component
 argument_list|(
-literal|"jetty"
+literal|"undertow"
 argument_list|)
 operator|.
 name|defaultLoadBalancer
@@ -495,7 +495,7 @@ argument_list|)
 operator|.
 name|component
 argument_list|(
-literal|"jetty"
+literal|"http"
 argument_list|)
 operator|.
 name|defaultLoadBalancer
