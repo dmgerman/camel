@@ -212,6 +212,10 @@ decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|,
 name|description
 operator|=
 literal|"Sets the name of the bean to invoke"
@@ -231,6 +235,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|,
 name|description
 operator|=
 literal|"Sets the name of the method to invoke on the bean"
@@ -245,7 +253,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"advanced"
+literal|"common"
 argument_list|,
 name|description
 operator|=
@@ -267,7 +275,7 @@ literal|"bean."
 argument_list|,
 name|label
 operator|=
-literal|"advanced"
+literal|"common"
 argument_list|,
 name|description
 operator|=

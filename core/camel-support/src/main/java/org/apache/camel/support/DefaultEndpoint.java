@@ -328,7 +328,11 @@ literal|"producer"
 argument_list|,
 name|description
 operator|=
-literal|"Whether the producer should be started lazy (on the first message)."
+literal|"Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup"
+operator|+
+literal|" in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then"
+operator|+
+literal|" the startup failure can be handled during routing messages via Camel's routing error handlers."
 argument_list|)
 DECL|field|lazyStartProducer
 specifier|private
@@ -1051,7 +1055,7 @@ return|return
 name|synchronous
 return|;
 block|}
-comment|/**      * Sets whether synchronous processing should be strictly used, or Camel is      * allowed to use asynchronous processing (if supported).      *       * @param synchronous<tt>true</tt> to enforce synchronous processing      */
+comment|/**      * Sets whether synchronous processing should be strictly used, or Camel is      * allowed to use asynchronous processing (if supported).      */
 DECL|method|setSynchronous (boolean synchronous)
 specifier|public
 name|void
@@ -1106,7 +1110,7 @@ return|return
 name|lazyStartProducer
 return|;
 block|}
-comment|/**      * Whether the producer should be started lazy (on the first message).      */
+comment|/**      * Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup      * in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then      * the startup failure can be handled during routing messages via Camel's routing error handlers.      */
 DECL|method|setLazyStartProducer (boolean lazyStartProducer)
 specifier|public
 name|void
