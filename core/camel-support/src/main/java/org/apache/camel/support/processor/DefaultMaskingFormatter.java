@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The {@link MaskingFormatter} that searches the specified keywards in the source  * and replace its value with mask string. By default passphrase, password and secretKey  * are used as keywards to replace its value.  */
+comment|/**  * The {@link MaskingFormatter} that searches the specified keywords in the source  * and replace its value with mask string. By default passphrase, password and secretKey  * are used as keywords to replace its value.  */
 end_comment
 
 begin_class
