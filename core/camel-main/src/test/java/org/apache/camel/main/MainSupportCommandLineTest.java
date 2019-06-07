@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.main
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|main
 package|;
 end_package
 
@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ProducerTemplate
 import|;
 end_import
@@ -60,9 +48,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|main
+name|impl
 operator|.
-name|MainSupport
+name|DefaultCamelContext
 import|;
 end_import
 
@@ -77,12 +65,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|MainSupportTest
+DECL|class|MainSupportCommandLineTest
 specifier|public
 class|class
-name|MainSupportTest
-extends|extends
-name|ContextTestSupport
+name|MainSupportCommandLineTest
 block|{
 DECL|class|MyMainSupport
 specifier|private
@@ -91,6 +77,15 @@ name|MyMainSupport
 extends|extends
 name|MainSupport
 block|{
+DECL|field|context
+specifier|private
+name|CamelContext
+name|context
+init|=
+operator|new
+name|DefaultCamelContext
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|findOrCreateCamelTemplate ()
