@@ -728,20 +728,16 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Could not find version for maven artifact {}:{}"
+literal|"Could not find version for Jira Rest Java Client maven artifact {}:{}. Error: {}"
 argument_list|,
 name|groupId
 argument_list|,
 name|artifactId
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Got the following exception"
 argument_list|,
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
