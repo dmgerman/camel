@@ -229,6 +229,62 @@ specifier|private
 name|ServiceHelper
 parameter_list|()
 block|{     }
+comment|/**      * Initializes the given {@code value} if it's a {@link Service} or a collection of it.      *<p/>      * Calling this method has no effect if {@code value} is {@code null}.      */
+DECL|method|initService (Object value)
+specifier|public
+specifier|static
+name|void
+name|initService
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+if|if
+condition|(
+name|value
+operator|instanceof
+name|Service
+condition|)
+block|{
+operator|(
+operator|(
+name|Service
+operator|)
+name|value
+operator|)
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|value
+operator|instanceof
+name|Iterable
+condition|)
+block|{
+for|for
+control|(
+name|Object
+name|o
+range|:
+operator|(
+name|Iterable
+operator|)
+name|value
+control|)
+block|{
+name|initService
+argument_list|(
+name|o
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 comment|/**      * Starts the given {@code value} if it's a {@link Service} or a collection of it.      *<p/>      * Calling this method has no effect if {@code value} is {@code null}.      */
 DECL|method|startService (Object value)
 specifier|public
