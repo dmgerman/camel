@@ -527,6 +527,33 @@ operator|=
 name|exceptionHandler
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|doInit ()
+specifier|protected
+name|void
+name|doInit
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Init consumer: {}"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|initService
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|doStop ()
 specifier|protected
 name|void

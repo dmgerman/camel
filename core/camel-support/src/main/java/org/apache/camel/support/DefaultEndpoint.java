@@ -332,7 +332,9 @@ literal|"Whether the producer should be started lazy (on the first message). By 
 operator|+
 literal|" in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then"
 operator|+
-literal|" the startup failure can be handled during routing messages via Camel's routing error handlers."
+literal|" the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed"
+operator|+
+literal|" then creating and starting the producer may take a little time and prolong the total processing time of the processing."
 argument_list|)
 DECL|field|lazyStartProducer
 specifier|private
@@ -855,7 +857,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Returns the component that created this endpoint.      *       * @return the component that created this endpoint, or<tt>null</tt> if      *         none set      */
+comment|/**      * Returns the component that created this endpoint, or<tt>null</tt> if none set.      */
 DECL|method|getComponent ()
 specifier|public
 name|Component
@@ -1080,7 +1082,7 @@ return|return
 name|lazyStartProducer
 return|;
 block|}
-comment|/**      * Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup      * in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then      * the startup failure can be handled during routing messages via Camel's routing error handlers.      */
+comment|/**      * Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup      * in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then      * the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed      * then creating and starting the producer may take a little time and prolong the total processing time of the processing.      */
 DECL|method|setLazyStartProducer (boolean lazyStartProducer)
 specifier|public
 name|void
@@ -1736,10 +1738,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doStart ()
+DECL|method|doInit ()
 specifier|protected
 name|void
-name|doStart
+name|doInit
 parameter_list|()
 throws|throws
 name|Exception
@@ -1780,6 +1782,18 @@ name|exceptionHandler
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 annotation|@
 name|Override

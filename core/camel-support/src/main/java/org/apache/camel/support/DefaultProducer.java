@@ -184,6 +184,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * This implementation will delegate to the endpoint {@link org.apache.camel.Endpoint#isSingleton()}      */
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -199,47 +201,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|start ()
-specifier|public
-name|void
-name|start
-parameter_list|()
-block|{
-if|if
-condition|(
-name|getEndpoint
-argument_list|()
-operator|instanceof
-name|DefaultEndpoint
-condition|)
-block|{
-name|DefaultEndpoint
-name|de
-init|=
-operator|(
-name|DefaultEndpoint
-operator|)
-name|getEndpoint
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|de
-operator|.
-name|isLazyStartProducer
-argument_list|()
-condition|)
-block|{
-comment|// need to check if we can start now
-return|return;
-block|}
-block|}
-name|super
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -278,6 +239,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
