@@ -403,6 +403,14 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//wait some time for synchronization
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -415,6 +423,20 @@ operator|.
 name|info
 argument_list|(
 literal|"folder is already created"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Waiting for synchronization interrupted."
 argument_list|)
 expr_stmt|;
 block|}
