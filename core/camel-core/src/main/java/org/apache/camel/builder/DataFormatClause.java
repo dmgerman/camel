@@ -90,6 +90,22 @@ name|model
 operator|.
 name|dataformat
 operator|.
+name|Any23DataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
 name|ASN1DataFormat
 import|;
 end_import
@@ -749,6 +765,22 @@ name|operation
 operator|=
 name|operation
 expr_stmt|;
+block|}
+comment|/**      * Uses the Any23 data format      */
+DECL|method|any23 ()
+specifier|public
+name|T
+name|any23
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|Any23DataFormat
+argument_list|()
+argument_list|)
+return|;
 block|}
 comment|/**      * Uses the Avro data format      */
 DECL|method|avro ()

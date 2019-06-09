@@ -318,10 +318,10 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|unmarshal
+name|marshal
 argument_list|()
 operator|.
-name|tidyMarkup
+name|any23
 argument_list|()
 operator|.
 name|to
@@ -329,6 +329,8 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|//  from("direct:start").marshal().tidyMarkup();
+comment|//  from("direct:start").unmarshal().tidyMarkup().to("mock:result");
 block|}
 block|}
 return|;

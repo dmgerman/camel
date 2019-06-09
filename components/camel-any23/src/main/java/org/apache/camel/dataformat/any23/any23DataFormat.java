@@ -229,9 +229,7 @@ throw|throw
 operator|new
 name|CamelException
 argument_list|(
-literal|"Marshalling from Well Formed HTML to ugly HTML is not supported."
-operator|+
-literal|" Only unmarshal is supported"
+literal|"Sin implementaci[on aun"
 argument_list|)
 throw|;
 block|}
