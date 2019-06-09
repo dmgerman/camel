@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.dataformat.tagsoup
+DECL|package|org.apache.camel.dataformat.any23
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|dataformat
 operator|.
-name|tagsoup
+name|any23
 package|;
 end_package
 
@@ -58,7 +58,7 @@ specifier|public
 class|class
 name|TidyMarkupDataFormatWithUnmarshalTypeTest
 extends|extends
-name|TidyMarkupDataFormatAsStringTest
+name|any23DataFormatBasicTest
 block|{
 annotation|@
 name|Override

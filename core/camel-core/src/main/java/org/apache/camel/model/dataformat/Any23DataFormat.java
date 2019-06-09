@@ -156,7 +156,19 @@ class|class
 name|Any23DataFormat
 extends|extends
 name|DataFormatDefinition
-block|{      }
+block|{
+DECL|method|Any23DataFormat ()
+specifier|public
+name|Any23DataFormat
+parameter_list|()
+block|{
+name|super
+argument_list|(
+literal|"any23"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 end_class
 
 end_unit

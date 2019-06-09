@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.dataformat.tagsoup
+DECL|package|org.apache.camel.dataformat.any23
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|dataformat
 operator|.
-name|tagsoup
+name|any23
 package|;
 end_package
 
@@ -35,18 +35,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Node
 import|;
 end_import
 
@@ -131,10 +119,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|TidyMarkupDataFormatAsStringTest
+DECL|class|TidyMarkupDataFormatAsDomNodeTest
 specifier|public
 class|class
-name|TidyMarkupDataFormatAsStringTest
+name|TidyMarkupDataFormatAsDomNodeTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -167,6 +155,7 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
+comment|/*          * each of these files has a<p>TidyMarkupNode section. (no closing tag)          *           * See the route below, we send the tidyMarkup to xpath and boolean that out.          */
 name|String
 name|badHtml
 init|=
@@ -237,8 +226,6 @@ range|:
 name|list
 control|)
 block|{
-try|try
-block|{
 name|Message
 name|in
 init|=
@@ -247,14 +234,14 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-name|Node
-name|tidyMarkup
+name|String
+name|response
 init|=
 name|in
 operator|.
 name|getBody
 argument_list|(
-name|Node
+name|String
 operator|.
 name|class
 argument_list|)
@@ -265,14 +252,27 @@ name|debug
 argument_list|(
 literal|"Received "
 operator|+
-name|tidyMarkup
+name|response
 argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
 literal|"Should be able to convert received body to a string"
 argument_list|,
-name|tidyMarkup
+name|response
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+comment|/*                  * our route xpaths the existence of our signature "<p>TidyMarkupNode"                  * but of course, by the xpath time, it is well formed                  */
+name|assertTrue
+argument_list|(
+name|response
+operator|.
+name|equals
+argument_list|(
+literal|"true"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -318,19 +318,29 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|marshal
+name|unmarshal
 argument_list|()
 operator|.
-name|any23
+name|tidyMarkup
 argument_list|()
+operator|.
+name|setBody
+argument_list|()
+operator|.
+name|xpath
+argument_list|(
+literal|"boolean(//p[contains(text(),'TidyMarkupNode')])"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
 operator|.
 name|to
 argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|//  from("direct:start").marshal().tidyMarkup();
-comment|//  from("direct:start").unmarshal().tidyMarkup().to("mock:result");
 block|}
 block|}
 return|;
