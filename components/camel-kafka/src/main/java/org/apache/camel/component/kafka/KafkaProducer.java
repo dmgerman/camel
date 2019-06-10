@@ -422,6 +422,12 @@ specifier|private
 name|boolean
 name|shutdownWorkerPool
 decl_stmt|;
+DECL|field|closeKafkaProducer
+specifier|private
+specifier|volatile
+name|boolean
+name|closeKafkaProducer
+decl_stmt|;
 DECL|method|KafkaProducer (KafkaEndpoint endpoint)
 specifier|public
 name|KafkaProducer
@@ -675,6 +681,13 @@ name|getClassLoader
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Creating KafkaProducer"
+argument_list|)
+expr_stmt|;
 name|kafkaProducer
 operator|=
 operator|new
@@ -693,6 +706,10 @@ argument_list|(
 name|props
 argument_list|)
 expr_stmt|;
+name|closeKafkaProducer
+operator|=
+literal|true
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -707,6 +724,15 @@ name|threadClassLoader
 argument_list|)
 expr_stmt|;
 block|}
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Created KafkaProducer: {}"
+argument_list|,
+name|kafkaProducer
+argument_list|)
+expr_stmt|;
 block|}
 comment|// if we are in asynchronous mode we need a worker pool
 if|if
@@ -751,12 +777,27 @@ condition|(
 name|kafkaProducer
 operator|!=
 literal|null
+operator|&&
+name|closeKafkaProducer
 condition|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Closing KafkaProducer: {}"
+argument_list|,
+name|kafkaProducer
+argument_list|)
+expr_stmt|;
 name|kafkaProducer
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+name|kafkaProducer
+operator|=
+literal|null
 expr_stmt|;
 block|}
 if|if
