@@ -108,7 +108,7 @@ name|dataformat
 operator|.
 name|any23
 operator|.
-name|any23DataFormat
+name|Any23DataFormat
 import|;
 end_import
 
@@ -472,7 +472,7 @@ name|ConditionalOnCamelContextAndAutoConfigurationBeans
 operator|.
 name|class
 block|,
-name|any23DataFormatAutoConfiguration
+name|Any23DataFormatAutoConfiguration
 operator|.
 name|GroupConditions
 operator|.
@@ -494,15 +494,15 @@ name|DataFormatConfigurationProperties
 operator|.
 name|class
 block|,
-name|any23DataFormatConfiguration
+name|Any23DataFormatConfiguration
 operator|.
 name|class
 block|}
 argument_list|)
-DECL|class|any23DataFormatAutoConfiguration
+DECL|class|Any23DataFormatAutoConfiguration
 specifier|public
 class|class
-name|any23DataFormatAutoConfiguration
+name|Any23DataFormatAutoConfiguration
 block|{
 DECL|field|LOGGER
 specifier|private
@@ -515,7 +515,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|any23DataFormatAutoConfiguration
+name|Any23DataFormatAutoConfiguration
 operator|.
 name|class
 argument_list|)
@@ -538,7 +538,7 @@ annotation|@
 name|Autowired
 DECL|field|configuration
 specifier|private
-name|any23DataFormatConfiguration
+name|Any23DataFormatConfiguration
 name|configuration
 decl_stmt|;
 annotation|@
@@ -554,7 +554,7 @@ name|List
 argument_list|<
 name|DataFormatCustomizer
 argument_list|<
-name|any23DataFormat
+name|Any23DataFormat
 argument_list|>
 argument_list|>
 name|customizers
@@ -590,14 +590,14 @@ argument_list|)
 annotation|@
 name|ConditionalOnMissingBean
 argument_list|(
-name|any23DataFormat
+name|Any23DataFormat
 operator|.
 name|class
 argument_list|)
-DECL|method|configureany23DataFormatFactory ()
+DECL|method|configureAny23DataFormatFactory ()
 specifier|public
 name|DataFormatFactory
-name|configureany23DataFormatFactory
+name|configureAny23DataFormatFactory
 parameter_list|()
 throws|throws
 name|Exception
@@ -614,11 +614,11 @@ name|DataFormat
 name|newInstance
 parameter_list|()
 block|{
-name|any23DataFormat
+name|Any23DataFormat
 name|dataformat
 init|=
 operator|new
-name|any23DataFormat
+name|Any23DataFormat
 argument_list|()
 decl_stmt|;
 if|if
@@ -629,7 +629,7 @@ name|class
 operator|.
 name|isAssignableFrom
 argument_list|(
-name|any23DataFormat
+name|Any23DataFormat
 operator|.
 name|class
 argument_list|)
@@ -733,7 +733,7 @@ for|for
 control|(
 name|DataFormatCustomizer
 argument_list|<
-name|any23DataFormat
+name|Any23DataFormat
 argument_list|>
 name|customizer
 range|:

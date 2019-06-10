@@ -79,10 +79,10 @@ name|prefix
 operator|=
 literal|"camel.dataformat.any23"
 argument_list|)
-DECL|class|any23DataFormatConfiguration
+DECL|class|Any23DataFormatConfiguration
 specifier|public
 class|class
-name|any23DataFormatConfiguration
+name|Any23DataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{

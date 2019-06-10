@@ -152,10 +152,10 @@ name|Dataformat
 argument_list|(
 literal|"any23"
 argument_list|)
-DECL|class|any23DataFormat
+DECL|class|Any23DataFormat
 specifier|public
 class|class
-name|any23DataFormat
+name|Any23DataFormat
 extends|extends
 name|ServiceSupport
 implements|implements
@@ -175,7 +175,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|any23DataFormat
+name|Any23DataFormat
 operator|.
 name|class
 argument_list|)
@@ -229,7 +229,7 @@ throw|throw
 operator|new
 name|CamelException
 argument_list|(
-literal|"Sin implementaci[on aun"
+literal|"Under construction"
 argument_list|)
 throw|;
 block|}
@@ -252,7 +252,7 @@ throw|throw
 operator|new
 name|CamelException
 argument_list|(
-literal|"Sin implementaci[on aun"
+literal|"Under construction"
 argument_list|)
 throw|;
 block|}

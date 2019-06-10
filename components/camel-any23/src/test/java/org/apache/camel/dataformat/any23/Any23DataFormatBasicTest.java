@@ -42,6 +42,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Node
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -119,10 +131,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|TidyMarkupDataFormatAsDomNodeTest
+DECL|class|Any23DataFormatBasicTest
 specifier|public
 class|class
-name|TidyMarkupDataFormatAsDomNodeTest
+name|Any23DataFormatBasicTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -155,53 +167,20 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|/*          * each of these files has a<p>TidyMarkupNode section. (no closing tag)          *           * See the route below, we send the tidyMarkup to xpath and boolean that out.          */
-name|String
-name|badHtml
-init|=
-name|TidyMarkupTestSupport
-operator|.
-name|loadFileAsString
-argument_list|(
-operator|new
-name|File
-argument_list|(
-literal|"src/test/resources/org/apache/camel/dataformat/tagsoup/testfile1.html"
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|String
-name|evilHtml
-init|=
-name|TidyMarkupTestSupport
-operator|.
-name|loadFileAsString
-argument_list|(
-operator|new
-name|File
-argument_list|(
-literal|"src/test/resources/org/apache/camel/dataformat/tagsoup/testfile2-evilHtml.html"
-argument_list|)
-argument_list|)
-decl_stmt|;
+comment|//  String badHtml = TidyMarkupTestSupport.loadFileAsString(new File(
+comment|//          "src/test/resources/org/apache/camel/dataformat/any23/testfile1.html"));
+comment|//   String evilHtml = TidyMarkupTestSupport.loadFileAsString(new File(
+comment|//          "src/test/resources/org/apache/camel/dataformat/any23/testfile2-evilHtml.html"));
 name|template
 operator|.
 name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-name|badHtml
+literal|""
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:start"
-argument_list|,
-name|evilHtml
-argument_list|)
-expr_stmt|;
+comment|//  template.sendBody("direct:start", evilHtml);
 name|resultEndpoint
 operator|.
 name|assertIsSatisfied
@@ -226,6 +205,8 @@ range|:
 name|list
 control|)
 block|{
+try|try
+block|{
 name|Message
 name|in
 init|=
@@ -234,47 +215,9 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-name|String
-name|response
-init|=
-name|in
-operator|.
-name|getBody
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Received "
-operator|+
-name|response
-argument_list|)
-expr_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"Should be able to convert received body to a string"
-argument_list|,
-name|response
-argument_list|)
-expr_stmt|;
-try|try
-block|{
-comment|/*                  * our route xpaths the existence of our signature "<p>TidyMarkupNode"                  * but of course, by the xpath time, it is well formed                  */
-name|assertTrue
-argument_list|(
-name|response
-operator|.
-name|equals
-argument_list|(
-literal|"true"
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|//  Node tidyMarkup = in.getBody(Node.class);
+comment|//  log.debug("Received " + tidyMarkup);
+comment|// assertNotNull("Should be able to convert received body to a string", tidyMarkup);
 block|}
 catch|catch
 parameter_list|(
@@ -318,29 +261,19 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|unmarshal
+name|marshal
 argument_list|()
 operator|.
-name|tidyMarkup
+name|any23
 argument_list|()
-operator|.
-name|setBody
-argument_list|()
-operator|.
-name|xpath
-argument_list|(
-literal|"boolean(//p[contains(text(),'TidyMarkupNode')])"
-argument_list|,
-name|String
-operator|.
-name|class
-argument_list|)
 operator|.
 name|to
 argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|//  from("direct:start").marshal().tidyMarkup();
+comment|//  from("direct:start").unmarshal().tidyMarkup().to("mock:result");
 block|}
 block|}
 return|;
