@@ -2885,8 +2885,17 @@ name|System
 operator|.
 name|currentTimeMillis
 argument_list|()
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|history
+operator|!=
+literal|null
+condition|)
+block|{
 name|list
 operator|.
 name|add
@@ -2894,6 +2903,7 @@ argument_list|(
 name|history
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|history
 return|;

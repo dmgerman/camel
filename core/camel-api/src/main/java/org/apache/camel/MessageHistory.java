@@ -54,6 +54,12 @@ name|void
 name|nodeProcessingDone
 parameter_list|()
 function_decl|;
+comment|/**      * A read-only copy of the message at the point of this history (if this has been enabled).      */
+DECL|method|getMessage ()
+name|Message
+name|getMessage
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

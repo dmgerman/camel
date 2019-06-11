@@ -98,9 +98,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|engine
+name|support
 operator|.
 name|DefaultMessageHistoryFactory
 import|;
@@ -507,6 +505,8 @@ literal|null
 argument_list|)
 argument_list|,
 literal|0
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -613,6 +613,8 @@ literal|"nodeId"
 argument_list|)
 argument_list|,
 literal|0
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;

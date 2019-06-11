@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|MessageHistory
 import|;
 end_import
@@ -50,8 +62,8 @@ specifier|public
 interface|interface
 name|MessageHistoryFactory
 block|{
-comment|/**      * Creates a new {@link MessageHistory}      *      * @param routeId   the route id      * @param node      the node in the route      * @param timestamp the time the message processed at this node.      * @return a new {@link MessageHistory}      */
-DECL|method|newMessageHistory (String routeId, NamedNode node, long timestamp)
+comment|/**      * Creates a new {@link MessageHistory}      *      * @param routeId   the route id      * @param node      the node in the route      * @param timestamp the time the message processed at this node.      * @param exchange  the current exchange      * @return a new {@link MessageHistory}      */
+DECL|method|newMessageHistory (String routeId, NamedNode node, long timestamp, Exchange exchange)
 name|MessageHistory
 name|newMessageHistory
 parameter_list|(
@@ -63,6 +75,37 @@ name|node
 parameter_list|,
 name|long
 name|timestamp
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+function_decl|;
+DECL|method|isCopyMessage ()
+name|boolean
+name|isCopyMessage
+parameter_list|()
+function_decl|;
+comment|/**      * Sets whether to make a copy of the message in the {@link MessageHistory}.      * By default this is turned off. Beware that you should not mutate or change the content      * on the copied message, as its purpose is as a read-only view of the message.      */
+DECL|method|setCopyMessage (boolean copyMessage)
+name|void
+name|setCopyMessage
+parameter_list|(
+name|boolean
+name|copyMessage
+parameter_list|)
+function_decl|;
+DECL|method|getNodePattern ()
+name|String
+name|getNodePattern
+parameter_list|()
+function_decl|;
+comment|/**      * An optional pattern to filter which nodes to trace in this message history. By default all nodes are included.      * To only include nodes that are Step EIPs then use the EIP shortname, eg step.      * You can also include multiple nodes separated by comma, eg step,wiretap,to      */
+DECL|method|setNodePattern (String nodePattern)
+name|void
+name|setNodePattern
+parameter_list|(
+name|String
+name|nodePattern
 parameter_list|)
 function_decl|;
 block|}

@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|MessageHistory
 import|;
 end_import
@@ -76,6 +88,12 @@ specifier|final
 name|long
 name|timestamp
 decl_stmt|;
+DECL|field|message
+specifier|private
+specifier|final
+name|Message
+name|message
+decl_stmt|;
 DECL|field|elapsed
 specifier|private
 name|long
@@ -93,6 +111,35 @@ name|node
 parameter_list|,
 name|long
 name|timestamp
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|routeId
+argument_list|,
+name|node
+argument_list|,
+name|timestamp
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|DefaultMessageHistory (String routeId, NamedNode node, long timestamp, Message message)
+specifier|public
+name|DefaultMessageHistory
+parameter_list|(
+name|String
+name|routeId
+parameter_list|,
+name|NamedNode
+name|node
+parameter_list|,
+name|long
+name|timestamp
+parameter_list|,
+name|Message
+name|message
 parameter_list|)
 block|{
 name|this
@@ -122,7 +169,15 @@ name|timestamp
 operator|=
 name|timestamp
 expr_stmt|;
+name|this
+operator|.
+name|message
+operator|=
+name|message
+expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRouteId ()
 specifier|public
 name|String
@@ -133,6 +188,8 @@ return|return
 name|routeId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNode ()
 specifier|public
 name|NamedNode
@@ -155,6 +212,8 @@ return|return
 name|timestamp
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getElapsed ()
 specifier|public
 name|long
@@ -165,6 +224,8 @@ return|return
 name|elapsed
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|nodeProcessingDone ()
 specifier|public
 name|void
@@ -188,6 +249,18 @@ operator|-
 name|timestamp
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getMessage ()
+specifier|public
+name|Message
+name|getMessage
+parameter_list|()
+block|{
+return|return
+name|message
+return|;
 block|}
 annotation|@
 name|Override
