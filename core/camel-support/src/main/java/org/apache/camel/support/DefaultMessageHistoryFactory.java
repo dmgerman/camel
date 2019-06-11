@@ -72,17 +72,74 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|MessageHistoryFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|service
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
 begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Managed MessageHistoryFactory"
+argument_list|)
 DECL|class|DefaultMessageHistoryFactory
 specifier|public
 class|class
 name|DefaultMessageHistoryFactory
+extends|extends
+name|ServiceSupport
 implements|implements
 name|MessageHistoryFactory
 block|{
@@ -116,6 +173,17 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|isRunAllowed
+argument_list|()
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 if|if
 condition|(
 name|nodePattern
@@ -210,7 +278,12 @@ argument_list|)
 return|;
 block|}
 annotation|@
-name|Override
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether a copy of the message is included in the message history"
+argument_list|)
 DECL|method|isCopyMessage ()
 specifier|public
 name|boolean
@@ -222,7 +295,12 @@ name|copyMessage
 return|;
 block|}
 annotation|@
-name|Override
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether a copy of the message is included in the message history"
+argument_list|)
 DECL|method|setCopyMessage (boolean copyMessage)
 specifier|public
 name|void
@@ -240,7 +318,12 @@ name|copyMessage
 expr_stmt|;
 block|}
 annotation|@
-name|Override
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Pattern to filter EIPs"
+argument_list|)
 DECL|method|getNodePattern ()
 specifier|public
 name|String
@@ -252,7 +335,12 @@ name|nodePattern
 return|;
 block|}
 annotation|@
-name|Override
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Pattern to filter EIPs"
+argument_list|)
 DECL|method|setNodePattern (String nodePattern)
 specifier|public
 name|void
@@ -268,6 +356,30 @@ name|nodePattern
 operator|=
 name|nodePattern
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 block|}
 end_class
