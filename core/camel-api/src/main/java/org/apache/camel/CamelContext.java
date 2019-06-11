@@ -302,20 +302,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ReloadStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|RestConfiguration
 import|;
 end_import
@@ -1686,21 +1672,6 @@ name|setRuntimeEndpointRegistry
 parameter_list|(
 name|RuntimeEndpointRegistry
 name|runtimeEndpointRegistry
-parameter_list|)
-function_decl|;
-comment|/**      * Returns the {@link ReloadStrategy} if in use.      *      * @return the strategy, or<tt>null</tt> if none has been configured.      */
-DECL|method|getReloadStrategy ()
-name|ReloadStrategy
-name|getReloadStrategy
-parameter_list|()
-function_decl|;
-comment|/**      * Sets a custom {@link ReloadStrategy} to be used      */
-DECL|method|setReloadStrategy (ReloadStrategy reloadStrategy)
-name|void
-name|setReloadStrategy
-parameter_list|(
-name|ReloadStrategy
-name|reloadStrategy
 parameter_list|)
 function_decl|;
 comment|/**      * Sets the global SSL context parameters.      */

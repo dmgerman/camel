@@ -16,20 +16,6 @@ name|main
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ReloadStrategy
-import|;
-end_import
-
 begin_comment
 comment|/**  * Global configuration for Camel Main to setup context name, stream caching and other global configurations.  */
 end_comment
@@ -83,11 +69,6 @@ name|boolean
 name|hangupInterceptorEnabled
 init|=
 literal|true
-decl_stmt|;
-DECL|field|reloadStrategy
-specifier|private
-name|ReloadStrategy
-name|reloadStrategy
 decl_stmt|;
 comment|// getter and setters
 comment|// --------------------------------------------------------------
@@ -253,33 +234,6 @@ operator|=
 name|durationHitExitCode
 expr_stmt|;
 block|}
-DECL|method|getReloadStrategy ()
-specifier|public
-name|ReloadStrategy
-name|getReloadStrategy
-parameter_list|()
-block|{
-return|return
-name|reloadStrategy
-return|;
-block|}
-comment|/**      * Sets a custom {@link ReloadStrategy} to be used.      *<p/>      * Notice you cannot set this value and the xmlRoutesReloadDirectory as well.      */
-DECL|method|setReloadStrategy (ReloadStrategy reloadStrategy)
-specifier|public
-name|void
-name|setReloadStrategy
-parameter_list|(
-name|ReloadStrategy
-name|reloadStrategy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|reloadStrategy
-operator|=
-name|reloadStrategy
-expr_stmt|;
-block|}
 comment|// fluent builders
 comment|// --------------------------------------------------------------
 comment|/**      * Whether auto configuration of components/dataformats/languages is enabled or not.      * When enabled the configuration parameters are loaded from the properties component      * and configured as defaults (similar to spring-boot auto-configuration). You can prefix      * the parameters in the properties file with:      * - camel.component.name.option1=value1      * - camel.component.name.option2=value2      * - camel.dataformat.name.option1=value1      * - camel.dataformat.name.option2=value2      * - camel.language.name.option1=value1      * - camel.language.name.option2=value2      * Where name is the name of the component, dataformat or language such as seda,direct,jaxb.      *<p/>      * The auto configuration also works for any options on components      * that is a complex type (not standard Java type) and there has been an explicit single      * bean instance registered to the Camel registry via the {@link org.apache.camel.spi.Registry#bind(String, Object)} method      * or by using the {@link org.apache.camel.BindToRegistry} annotation style.      *<p/>      * This option is default enabled.      */
@@ -397,26 +351,6 @@ operator|.
 name|durationHitExitCode
 operator|=
 name|durationHitExitCode
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets a custom {@link ReloadStrategy} to be used.      *<p/>      * Notice you cannot set this value and the fileWatchDirectory as well.      */
-DECL|method|withReloadStrategy (ReloadStrategy reloadStrategy)
-specifier|public
-name|MainConfigurationProperties
-name|withReloadStrategy
-parameter_list|(
-name|ReloadStrategy
-name|reloadStrategy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|reloadStrategy
-operator|=
-name|reloadStrategy
 expr_stmt|;
 return|return
 name|this

@@ -193,18 +193,6 @@ name|xmlRests
 init|=
 literal|"classpath:camel-rest/*.xml"
 decl_stmt|;
-comment|/**      * Sets the directory name to watch XML file changes to trigger live reload of Camel XML routes.      *      * For example configure this to point to the source code where the Camel XML files are located      * such as: src/main/resources/camel/      *      * Notice you cannot set this value and a custom ReloadStrategy as well.      */
-DECL|field|xmlRoutesReloadDirectory
-specifier|private
-name|String
-name|xmlRoutesReloadDirectory
-decl_stmt|;
-comment|/**      * Sets the flag to watch directory of XML file changes recursively to trigger live reload of Camel routes.      *       * Notice you cannot set this value and a custom ReloadStrategy as well.      */
-DECL|field|xmlRoutesReloadDirectoryRecursive
-specifier|private
-name|String
-name|xmlRoutesReloadDirectoryRecursive
-decl_stmt|;
 comment|/**      * Directory to load additional configuration files that contains      * configuration values that takes precedence over any other configuration.      * This can be used to refer to files that may have secret configuration that      * has been mounted on the file system for containers.      *      * You must use either file: or classpath: as prefix to load      * from file system or classpath. Then you can specify a pattern to load      * from sub directories and a name pattern such as file:/var/app/secret/*.properties      */
 DECL|field|fileConfigurations
 specifier|private

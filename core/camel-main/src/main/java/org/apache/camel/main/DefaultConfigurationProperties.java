@@ -36,20 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|ReloadStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|support
 operator|.
 name|PatternHelper
@@ -127,16 +113,6 @@ DECL|field|fileConfigurations
 specifier|private
 name|String
 name|fileConfigurations
-decl_stmt|;
-DECL|field|xmlRoutesReloadDirectory
-specifier|private
-name|String
-name|xmlRoutesReloadDirectory
-decl_stmt|;
-DECL|field|xmlRoutesReloadDirectoryRecursively
-specifier|private
-name|boolean
-name|xmlRoutesReloadDirectoryRecursively
 decl_stmt|;
 DECL|field|jmxEnabled
 specifier|private
@@ -581,60 +557,6 @@ operator|.
 name|fileConfigurations
 operator|=
 name|fileConfigurations
-expr_stmt|;
-block|}
-DECL|method|getXmlRoutesReloadDirectory ()
-specifier|public
-name|String
-name|getXmlRoutesReloadDirectory
-parameter_list|()
-block|{
-return|return
-name|xmlRoutesReloadDirectory
-return|;
-block|}
-comment|/**      * Sets the directory name to watch XML file changes to trigger live reload of Camel XML routes.      *      * For example configure this to point to the source code where the Camel XML files are located      * such as: src/main/resources/camel/      *      * Notice you cannot set this value and a custom {@link ReloadStrategy} as well.      */
-DECL|method|setXmlRoutesReloadDirectory (String xmlRoutesReloadDirectory)
-specifier|public
-name|void
-name|setXmlRoutesReloadDirectory
-parameter_list|(
-name|String
-name|xmlRoutesReloadDirectory
-parameter_list|)
-block|{
-name|this
-operator|.
-name|xmlRoutesReloadDirectory
-operator|=
-name|xmlRoutesReloadDirectory
-expr_stmt|;
-block|}
-DECL|method|isXmlRoutesReloadDirectoryRecursively ()
-specifier|public
-name|boolean
-name|isXmlRoutesReloadDirectoryRecursively
-parameter_list|()
-block|{
-return|return
-name|xmlRoutesReloadDirectoryRecursively
-return|;
-block|}
-comment|/**      * Sets the flag to watch directory of XML file changes recursively to trigger live reload of Camel routes.      *      * Notice you cannot set this value and a custom ReloadStrategy as well.      */
-DECL|method|setXmlRoutesReloadDirectoryRecursively (boolean xmlRoutesReloadDirectoryRecursively)
-specifier|public
-name|void
-name|setXmlRoutesReloadDirectoryRecursively
-parameter_list|(
-name|boolean
-name|xmlRoutesReloadDirectoryRecursively
-parameter_list|)
-block|{
-name|this
-operator|.
-name|xmlRoutesReloadDirectoryRecursively
-operator|=
-name|xmlRoutesReloadDirectoryRecursively
 expr_stmt|;
 block|}
 DECL|method|isJmxEnabled ()
@@ -1698,52 +1620,6 @@ operator|.
 name|fileConfigurations
 operator|=
 name|fileConfigurations
-expr_stmt|;
-return|return
-operator|(
-name|T
-operator|)
-name|this
-return|;
-block|}
-comment|/**      * Sets the directory name to watch XML file changes to trigger live reload of Camel XML routes.      *      * For example configure this to point to the source code where the Camel XML files are located      * such as: src/main/resources/camel/      *      * Notice you cannot set this value and a custom ReloadStrategy as well.      */
-DECL|method|withXmlRoutesReloadDirectory (String xmlRoutesReloadDirectory)
-specifier|public
-name|T
-name|withXmlRoutesReloadDirectory
-parameter_list|(
-name|String
-name|xmlRoutesReloadDirectory
-parameter_list|)
-block|{
-name|this
-operator|.
-name|xmlRoutesReloadDirectory
-operator|=
-name|xmlRoutesReloadDirectory
-expr_stmt|;
-return|return
-operator|(
-name|T
-operator|)
-name|this
-return|;
-block|}
-comment|/**      * Sets the flag to watch directory of XML file changes recursively to trigger live reload of Camel routes.      *      * Notice you cannot set this value and a custom ReloadStrategy as well.      */
-DECL|method|withXmlRoutesReloadDirectoryRecursively (boolean xmlRoutesReloadDirectoryRecursively)
-specifier|public
-name|T
-name|withXmlRoutesReloadDirectoryRecursively
-parameter_list|(
-name|boolean
-name|xmlRoutesReloadDirectoryRecursively
-parameter_list|)
-block|{
-name|this
-operator|.
-name|xmlRoutesReloadDirectoryRecursively
-operator|=
-name|xmlRoutesReloadDirectoryRecursively
 expr_stmt|;
 return|return
 operator|(
