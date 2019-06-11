@@ -1812,6 +1812,11 @@ name|config
 operator|.
 name|getXmlRoutesReloadDirectory
 argument_list|()
+argument_list|,
+name|config
+operator|.
+name|isXmlRoutesReloadDirectoryRecursively
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|camelContext
@@ -1984,7 +1989,6 @@ name|applicationContext
 argument_list|,
 operator|new
 name|ArrayList
-argument_list|<>
 argument_list|(
 name|configurations
 argument_list|)

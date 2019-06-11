@@ -1692,7 +1692,7 @@ block|{
 name|configure
 argument_list|()
 operator|.
-name|setFileWatchDirectory
+name|setXmlRoutesReloadDirectory
 argument_list|(
 name|parameter
 argument_list|)
@@ -2613,7 +2613,7 @@ block|{
 return|return
 name|mainConfigurationProperties
 operator|.
-name|getFileWatchDirectory
+name|getXmlRoutesReloadDirectory
 argument_list|()
 return|;
 block|}
@@ -2631,7 +2631,7 @@ parameter_list|)
 block|{
 name|mainConfigurationProperties
 operator|.
-name|setFileWatchDirectory
+name|setXmlRoutesReloadDirectory
 argument_list|(
 name|fileWatchDirectory
 argument_list|)
@@ -2648,7 +2648,7 @@ block|{
 return|return
 name|mainConfigurationProperties
 operator|.
-name|isFileWatchDirectoryRecursively
+name|isXmlRoutesReloadDirectoryRecursively
 argument_list|()
 return|;
 block|}
@@ -2666,7 +2666,7 @@ parameter_list|)
 block|{
 name|mainConfigurationProperties
 operator|.
-name|setFileWatchDirectoryRecursively
+name|setXmlRoutesReloadDirectoryRecursively
 argument_list|(
 name|fileWatchDirectoryRecursively
 argument_list|)
@@ -3813,7 +3813,7 @@ if|if
 condition|(
 name|mainConfigurationProperties
 operator|.
-name|getFileWatchDirectory
+name|getXmlRoutesReloadDirectory
 argument_list|()
 operator|!=
 literal|null
@@ -3827,12 +3827,12 @@ name|FileWatcherReloadStrategy
 argument_list|(
 name|mainConfigurationProperties
 operator|.
-name|getFileWatchDirectory
+name|getXmlRoutesReloadDirectory
 argument_list|()
 argument_list|,
 name|mainConfigurationProperties
 operator|.
-name|isFileWatchDirectoryRecursively
+name|isXmlRoutesReloadDirectoryRecursively
 argument_list|()
 argument_list|)
 decl_stmt|;
