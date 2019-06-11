@@ -56,6 +56,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|MessageHistory
 import|;
 end_import
@@ -99,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A micrometer metrics based {@link MessageHistory}. This could also use {@link #elapsed}  * provided by the super class, but Micrometer can potentially use other {@link io.micrometer.core.instrument.Clock clocks}  * and measures in nano-second precision.  */
+comment|/**  * A micrometer metrics based {@link MessageHistory}. This could also use {@link #getElapsed()}  * provided by the super class, but Micrometer can potentially use other {@link io.micrometer.core.instrument.Clock clocks}  * and measures in nano-second precision.  */
 end_comment
 
 begin_class
@@ -136,7 +148,7 @@ specifier|final
 name|MicrometerMessageHistoryNamingStrategy
 name|namingStrategy
 decl_stmt|;
-DECL|method|MicrometerMessageHistory (MeterRegistry meterRegistry, Route route, NamedNode namedNode, MicrometerMessageHistoryNamingStrategy namingStrategy, long timestamp)
+DECL|method|MicrometerMessageHistory (MeterRegistry meterRegistry, Route route, NamedNode namedNode, MicrometerMessageHistoryNamingStrategy namingStrategy, long timestamp, Message message)
 specifier|public
 name|MicrometerMessageHistory
 parameter_list|(
@@ -154,6 +166,9 @@ name|namingStrategy
 parameter_list|,
 name|long
 name|timestamp
+parameter_list|,
+name|Message
+name|message
 parameter_list|)
 block|{
 name|super
@@ -166,6 +181,8 @@ argument_list|,
 name|namedNode
 argument_list|,
 name|timestamp
+argument_list|,
+name|message
 argument_list|)
 expr_stmt|;
 name|this

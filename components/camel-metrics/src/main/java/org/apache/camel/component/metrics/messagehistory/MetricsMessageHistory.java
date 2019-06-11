@@ -40,6 +40,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|MessageHistory
 import|;
 end_import
@@ -90,7 +102,7 @@ operator|.
 name|Context
 name|context
 decl_stmt|;
-DECL|method|MetricsMessageHistory (String routeId, NamedNode namedNode, Timer timer, long timestamp)
+DECL|method|MetricsMessageHistory (String routeId, NamedNode namedNode, Timer timer, long timestamp, Message message)
 specifier|public
 name|MetricsMessageHistory
 parameter_list|(
@@ -105,6 +117,9 @@ name|timer
 parameter_list|,
 name|long
 name|timestamp
+parameter_list|,
+name|Message
+name|message
 parameter_list|)
 block|{
 name|super
@@ -114,6 +129,8 @@ argument_list|,
 name|namedNode
 argument_list|,
 name|timestamp
+argument_list|,
+name|message
 argument_list|)
 expr_stmt|;
 name|this

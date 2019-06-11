@@ -175,7 +175,7 @@ block|}
 block|}
 block|}
 name|Message
-name|target
+name|msg
 init|=
 literal|null
 decl_stmt|;
@@ -184,7 +184,7 @@ condition|(
 name|copyMessage
 condition|)
 block|{
-name|target
+name|msg
 operator|=
 name|exchange
 operator|.
@@ -205,7 +205,7 @@ name|node
 argument_list|,
 name|timestamp
 argument_list|,
-name|target
+name|msg
 argument_list|)
 return|;
 block|}
