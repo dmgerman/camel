@@ -78,9 +78,60 @@ argument_list|<
 name|CamelConfigurationProperties
 argument_list|>
 block|{
+comment|// Spring Boot only Properties
+comment|// ---------------------------
+comment|/**      * Whether to use the main run controller to ensure the Spring-Boot application      * keeps running until being stopped or the JVM terminated.      * You typically only need this if you run Spring-Boot standalone.      * If you run Spring-Boot with spring-boot-starter-web then the web container keeps the JVM running.      */
+DECL|field|mainRunController
+specifier|private
+name|boolean
+name|mainRunController
+decl_stmt|;
+comment|/**      * Whether to include non-singleton beans (prototypes) when scanning for RouteBuilder instances.      * By default only singleton beans is included in the context scan.      */
+DECL|field|includeNonSingletons
+specifier|private
+name|boolean
+name|includeNonSingletons
+decl_stmt|;
+comment|/**      * Whether to log a WARN if Camel on Spring Boot was immediately shutdown after starting which      * very likely is because there is no JVM thread to keep the application running.      */
+DECL|field|warnOnEarlyShutdown
+specifier|private
+name|boolean
+name|warnOnEarlyShutdown
+init|=
+literal|true
+decl_stmt|;
+comment|/**      * Used for inclusive filtering component scanning of RouteBuilder classes with @Component annotation.      * The exclusive filtering takes precedence over inclusive filtering.      * The pattern is using Ant-path style pattern.      *      * Multiple patterns can be specified separated by comma.      * For example to include all classes starting with Foo use:&#42;&#42;/Foo*      * To include all routes form a specific package use: com/mycompany/foo/&#42;      * To include all routes form a specific package and its sub-packages use double wildcards: com/mycompany/foo/&#42;&#42;      * And to include all routes from two specific packages use: com/mycompany/foo/&#42;,com/mycompany/stuff/&#42;      */
+DECL|field|javaRoutesIncludePattern
+specifier|private
+name|String
+name|javaRoutesIncludePattern
+decl_stmt|;
+comment|/**      * Used for exclusive filtering component scanning of RouteBuilder classes with @Component annotation.      * The exclusive filtering takes precedence over inclusive filtering.      * The pattern is using Ant-path style pattern.      * Multiple patterns can be specified separated by comma.      *      * For example to exclude all classes starting with Bar use:&#42;&#42;/Bar&#42;      * To exclude all routes form a specific package use: com/mycompany/bar/&#42;      * To exclude all routes form a specific package and its sub-packages use double wildcards: com/mycompany/bar/&#42;&#42;      * And to exclude all routes from two specific packages use: com/mycompany/bar/&#42;,com/mycompany/stuff/&#42;      */
+DECL|field|javaRoutesExcludePattern
+specifier|private
+name|String
+name|javaRoutesExcludePattern
+decl_stmt|;
+comment|/**      * Directory to scan for adding additional XML routes.      * You can turn this off by setting the value to false.      *      * Files can be loaded from either classpath or file by prefixing with classpath: or file:      * Wildcards is supported using a ANT pattern style paths, such as classpath:&#42;&#42;/&#42;camel&#42;.xml      *      * Multiple directories can be specified and separated by comma, such as:      * file:/myapp/mycamel/&#42;.xml,file:/myapp/myothercamel/&#42;.xml      */
+DECL|field|xmlRoutes
+specifier|private
+name|String
+name|xmlRoutes
+init|=
+literal|"classpath:camel/*.xml"
+decl_stmt|;
+comment|/**      * Directory to scan for adding additional XML rests.      * You can turn this off by setting the value to false.      *      * Files can be loaded from either classpath or file by prefixing with classpath: or file:      * Wildcards is supported using a ANT pattern style paths, such as classpath:&#42;&#42;/&#42;camel&#42;.xml      *      * Multiple directories can be specified and separated by comma, such as:      * file:/myapp/mycamel/&#42;.xml,file:/myapp/myothercamel/&#42;.xml      */
+DECL|field|xmlRests
+specifier|private
+name|String
+name|xmlRests
+init|=
+literal|"classpath:camel-rest/*.xml"
+decl_stmt|;
+comment|// Default Properties via camel-main
+comment|// ---------------------------------
 comment|// IMPORTANT: Must include the options from DefaultConfigurationProperties as spring boot apt compiler
 comment|//            needs to grab the documentation from the javadoc on the field.
-comment|// Properties
 comment|/**      * Sets the name of the CamelContext.      */
 DECL|field|name
 specifier|private
@@ -94,14 +145,6 @@ name|int
 name|shutdownTimeout
 init|=
 literal|300
-decl_stmt|;
-comment|/**      * Whether to log a WARN if Camel on Spring Boot was immediately shutdown after starting which      * very likely is because there is no JVM thread to keep the application running.      */
-DECL|field|warnOnEarlyShutdown
-specifier|private
-name|boolean
-name|warnOnEarlyShutdown
-init|=
-literal|true
 decl_stmt|;
 comment|/**      * Whether Camel should try to suppress logging during shutdown and timeout was triggered,      * meaning forced shutdown is happening. And during forced shutdown we want to avoid logging      * errors/warnings et all in the logs as a side-effect of the forced timeout.      * Notice the suppress is a best effort as there may still be some logs coming      * from 3rd party libraries and whatnot, which Camel cannot control.      * This option is default false.      */
 DECL|field|shutdownSuppressLoggingOnTimeout
@@ -165,34 +208,6 @@ name|loadTypeConverters
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Used for inclusive filtering component scanning of RouteBuilder classes with @Component annotation.      * The exclusive filtering takes precedence over inclusive filtering.      * The pattern is using Ant-path style pattern.      *      * Multiple patterns can be specified separated by comma.      * For example to include all classes starting with Foo use:&#42;&#42;/Foo*      * To include all routes form a specific package use: com/mycompany/foo/&#42;      * To include all routes form a specific package and its sub-packages use double wildcards: com/mycompany/foo/&#42;&#42;      * And to include all routes from two specific packages use: com/mycompany/foo/&#42;,com/mycompany/stuff/&#42;      */
-DECL|field|javaRoutesIncludePattern
-specifier|private
-name|String
-name|javaRoutesIncludePattern
-decl_stmt|;
-comment|/**      * Used for exclusive filtering component scanning of RouteBuilder classes with @Component annotation.      * The exclusive filtering takes precedence over inclusive filtering.      * The pattern is using Ant-path style pattern.      * Multiple patterns can be specified separated by comma.      *      * For example to exclude all classes starting with Bar use:&#42;&#42;/Bar&#42;      * To exclude all routes form a specific package use: com/mycompany/bar/&#42;      * To exclude all routes form a specific package and its sub-packages use double wildcards: com/mycompany/bar/&#42;&#42;      * And to exclude all routes from two specific packages use: com/mycompany/bar/&#42;,com/mycompany/stuff/&#42;      */
-DECL|field|javaRoutesExcludePattern
-specifier|private
-name|String
-name|javaRoutesExcludePattern
-decl_stmt|;
-comment|/**      * Directory to scan for adding additional XML routes.      * You can turn this off by setting the value to false.      *      * Files can be loaded from either classpath or file by prefixing with classpath: or file:      * Wildcards is supported using a ANT pattern style paths, such as classpath:&#42;&#42;/&#42;camel&#42;.xml      *      * Multiple directories can be specified and separated by comma, such as:      * file:/myapp/mycamel/&#42;.xml,file:/myapp/myothercamel/&#42;.xml      */
-DECL|field|xmlRoutes
-specifier|private
-name|String
-name|xmlRoutes
-init|=
-literal|"classpath:camel/*.xml"
-decl_stmt|;
-comment|/**      * Directory to scan for adding additional XML rests.      * You can turn this off by setting the value to false.      *      * Files can be loaded from either classpath or file by prefixing with classpath: or file:      * Wildcards is supported using a ANT pattern style paths, such as classpath:&#42;&#42;/&#42;camel&#42;.xml      *      * Multiple directories can be specified and separated by comma, such as:      * file:/myapp/mycamel/&#42;.xml,file:/myapp/myothercamel/&#42;.xml      */
-DECL|field|xmlRests
-specifier|private
-name|String
-name|xmlRests
-init|=
-literal|"classpath:camel-rest/*.xml"
-decl_stmt|;
 comment|/**      * Directory to load additional configuration files that contains      * configuration values that takes precedence over any other configuration.      * This can be used to refer to files that may have secret configuration that      * has been mounted on the file system for containers.      *      * You must use either file: or classpath: as prefix to load      * from file system or classpath. Then you can specify a pattern to load      * from sub directories and a name pattern such as file:/var/app/secret/*.properties      */
 DECL|field|fileConfigurations
 specifier|private
@@ -211,12 +226,6 @@ specifier|private
 name|String
 name|routeFilterExcludePattern
 decl_stmt|;
-comment|/**      * Whether to use the main run controller to ensure the Spring-Boot application      * keeps running until being stopped or the JVM terminated.      * You typically only need this if you run Spring-Boot standalone.      * If you run Spring-Boot with spring-boot-starter-web then the web container keeps the JVM running.      */
-DECL|field|mainRunController
-specifier|private
-name|boolean
-name|mainRunController
-decl_stmt|;
 comment|/**      * To specify for how long time in seconds to keep running the JVM before automatic terminating the JVM.      * You can use this to run Spring Boot for a short while.      */
 DECL|field|durationMaxSeconds
 specifier|private
@@ -234,12 +243,6 @@ DECL|field|durationMaxMessages
 specifier|private
 name|int
 name|durationMaxMessages
-decl_stmt|;
-comment|/**      * Whether to include non-singleton beans (prototypes) when scanning for RouteBuilder instances.      * By default only singleton beans is included in the context scan.      */
-DECL|field|includeNonSingletons
-specifier|private
-name|boolean
-name|includeNonSingletons
 decl_stmt|;
 comment|/**      * Is used to limit the maximum length of the logging Camel message bodies. If the message body      * is longer than the limit, the log message is clipped. Use -1 to have unlimited length.      * Use for example 1000 to log at most 1000 characters.      */
 DECL|field|logDebugMaxChars
@@ -410,6 +413,59 @@ name|String
 name|threadNamePattern
 decl_stmt|;
 comment|// Getters& setters
+comment|// -----------------
+DECL|method|isMainRunController ()
+specifier|public
+name|boolean
+name|isMainRunController
+parameter_list|()
+block|{
+return|return
+name|mainRunController
+return|;
+block|}
+DECL|method|setMainRunController (boolean mainRunController)
+specifier|public
+name|void
+name|setMainRunController
+parameter_list|(
+name|boolean
+name|mainRunController
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mainRunController
+operator|=
+name|mainRunController
+expr_stmt|;
+block|}
+DECL|method|isIncludeNonSingletons ()
+specifier|public
+name|boolean
+name|isIncludeNonSingletons
+parameter_list|()
+block|{
+return|return
+name|includeNonSingletons
+return|;
+block|}
+DECL|method|setIncludeNonSingletons (boolean includeNonSingletons)
+specifier|public
+name|void
+name|setIncludeNonSingletons
+parameter_list|(
+name|boolean
+name|includeNonSingletons
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeNonSingletons
+operator|=
+name|includeNonSingletons
+expr_stmt|;
+block|}
 DECL|method|isWarnOnEarlyShutdown ()
 specifier|public
 name|boolean
@@ -538,58 +594,6 @@ operator|.
 name|xmlRests
 operator|=
 name|xmlRests
-expr_stmt|;
-block|}
-DECL|method|isMainRunController ()
-specifier|public
-name|boolean
-name|isMainRunController
-parameter_list|()
-block|{
-return|return
-name|mainRunController
-return|;
-block|}
-DECL|method|setMainRunController (boolean mainRunController)
-specifier|public
-name|void
-name|setMainRunController
-parameter_list|(
-name|boolean
-name|mainRunController
-parameter_list|)
-block|{
-name|this
-operator|.
-name|mainRunController
-operator|=
-name|mainRunController
-expr_stmt|;
-block|}
-DECL|method|isIncludeNonSingletons ()
-specifier|public
-name|boolean
-name|isIncludeNonSingletons
-parameter_list|()
-block|{
-return|return
-name|includeNonSingletons
-return|;
-block|}
-DECL|method|setIncludeNonSingletons (boolean includeNonSingletons)
-specifier|public
-name|void
-name|setIncludeNonSingletons
-parameter_list|(
-name|boolean
-name|includeNonSingletons
-parameter_list|)
-block|{
-name|this
-operator|.
-name|includeNonSingletons
-operator|=
-name|includeNonSingletons
 expr_stmt|;
 block|}
 block|}
