@@ -4509,6 +4509,16 @@ name|isUseMdcLogging
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|camelContext
+operator|.
+name|setLoadTypeConverters
+argument_list|(
+name|config
+operator|.
+name|isLoadTypeConverters
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|camelContext

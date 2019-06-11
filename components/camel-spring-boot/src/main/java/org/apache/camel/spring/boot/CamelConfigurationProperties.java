@@ -436,32 +436,6 @@ operator|=
 name|warnOnEarlyShutdown
 expr_stmt|;
 block|}
-DECL|method|isLoadTypeConverters ()
-specifier|public
-name|boolean
-name|isLoadTypeConverters
-parameter_list|()
-block|{
-return|return
-name|loadTypeConverters
-return|;
-block|}
-DECL|method|setLoadTypeConverters (boolean loadTypeConverters)
-specifier|public
-name|void
-name|setLoadTypeConverters
-parameter_list|(
-name|boolean
-name|loadTypeConverters
-parameter_list|)
-block|{
-name|this
-operator|.
-name|loadTypeConverters
-operator|=
-name|loadTypeConverters
-expr_stmt|;
-block|}
 DECL|method|getJavaRoutesIncludePattern ()
 specifier|public
 name|String

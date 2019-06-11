@@ -135,6 +135,13 @@ name|consumerTemplateCacheSize
 init|=
 literal|1000
 decl_stmt|;
+DECL|field|loadTypeConverters
+specifier|private
+name|boolean
+name|loadTypeConverters
+init|=
+literal|true
+decl_stmt|;
 DECL|field|logDebugMaxChars
 specifier|private
 name|int
@@ -638,6 +645,33 @@ operator|.
 name|consumerTemplateCacheSize
 operator|=
 name|consumerTemplateCacheSize
+expr_stmt|;
+block|}
+DECL|method|isLoadTypeConverters ()
+specifier|public
+name|boolean
+name|isLoadTypeConverters
+parameter_list|()
+block|{
+return|return
+name|loadTypeConverters
+return|;
+block|}
+comment|/**      * Whether to load custom type converters by scanning classpath.      * This is used for backwards compatibility with Camel 2.x.      * Its recommended to migrate to use fast type converter loading      * by setting<tt>@Converter(loader = true)</tt> on your custom      * type converter classes.      */
+DECL|method|setLoadTypeConverters (boolean loadTypeConverters)
+specifier|public
+name|void
+name|setLoadTypeConverters
+parameter_list|(
+name|boolean
+name|loadTypeConverters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|loadTypeConverters
+operator|=
+name|loadTypeConverters
 expr_stmt|;
 block|}
 DECL|method|getLogDebugMaxChars ()
@@ -1689,6 +1723,29 @@ operator|.
 name|consumerTemplateCacheSize
 operator|=
 name|consumerTemplateCacheSize
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Whether to load custom type converters by scanning classpath.      * This is used for backwards compatibility with Camel 2.x.      * Its recommended to migrate to use fast type converter loading      * by setting<tt>@Converter(loader = true)</tt> on your custom      * type converter classes.      */
+DECL|method|withLoadTypeConverters (boolean loadTypeConverters)
+specifier|public
+name|T
+name|withLoadTypeConverters
+parameter_list|(
+name|boolean
+name|loadTypeConverters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|loadTypeConverters
+operator|=
+name|loadTypeConverters
 expr_stmt|;
 return|return
 operator|(
