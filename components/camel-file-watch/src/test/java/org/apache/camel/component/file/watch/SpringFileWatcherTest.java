@@ -314,7 +314,7 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|// one MODIFY event
+comment|// two MODIFY events
 name|mock
 operator|.
 name|setResultWaitTime

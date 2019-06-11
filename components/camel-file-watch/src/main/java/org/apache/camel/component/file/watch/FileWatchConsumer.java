@@ -1071,6 +1071,7 @@ name|getEventPath
 argument_list|()
 argument_list|)
 argument_list|)
+comment|// match against relativized path
 argument_list|)
 return|;
 block|}
@@ -1167,9 +1168,6 @@ name|isWatching
 parameter_list|()
 block|{
 return|return
-name|isRunAllowed
-argument_list|()
-operator|&&
 operator|!
 name|isStoppingOrStopped
 argument_list|()
@@ -1190,9 +1188,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|getExceptionHandler
-argument_list|()
-operator|.
 name|handleException
 argument_list|(
 name|e
@@ -1216,9 +1211,6 @@ parameter_list|()
 block|{
 while|while
 condition|(
-name|isRunAllowed
-argument_list|()
-operator|&&
 operator|!
 name|isStoppingOrStopped
 argument_list|()
@@ -1287,9 +1279,6 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|getExceptionHandler
-argument_list|()
-operator|.
 name|handleException
 argument_list|(
 name|t
