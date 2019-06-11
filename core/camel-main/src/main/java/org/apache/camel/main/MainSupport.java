@@ -3605,16 +3605,12 @@ argument_list|,
 name|config
 argument_list|)
 expr_stmt|;
+comment|// lookup and configure SPI beans
 name|DefaultConfigurationConfigurer
 operator|.
 name|afterPropertiesSet
 argument_list|(
 name|camelContext
-argument_list|,
-name|camelContext
-operator|.
-name|getRegistry
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// now configure context with additional properties

@@ -1238,7 +1238,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Performs additional configuration to lookup beans of Camel types to configure      * additional configurations on the Camel context.      *<p/>      * Similar code in camel-core-xml module in class org.apache.camel.core.xml.AbstractCamelContextFactoryBean      * or in camel-spring-boot module in class org.apache.camel.spring.boot.CamelAutoConfiguration.      */
-DECL|method|afterPropertiesSet (CamelContext camelContext, Registry registry)
+DECL|method|afterPropertiesSet (CamelContext camelContext)
 specifier|public
 specifier|static
 name|void
@@ -1246,13 +1246,19 @@ name|afterPropertiesSet
 parameter_list|(
 name|CamelContext
 name|camelContext
-parameter_list|,
-name|Registry
-name|registry
 parameter_list|)
 throws|throws
 name|Exception
 block|{
+specifier|final
+name|Registry
+name|registry
+init|=
+name|camelContext
+operator|.
+name|getRegistry
+argument_list|()
+decl_stmt|;
 specifier|final
 name|ManagementStrategy
 name|managementStrategy
