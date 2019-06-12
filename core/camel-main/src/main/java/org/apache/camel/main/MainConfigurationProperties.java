@@ -83,6 +83,42 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
+DECL|field|restConfigurationProperties
+specifier|private
+specifier|final
+name|RestConfigurationProperties
+name|restConfigurationProperties
+init|=
+operator|new
+name|RestConfigurationProperties
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
+comment|// extended
+comment|// --------------------------------------------------------------
+comment|/**      * To configure Hystrix EIP      */
+DECL|method|hystrix ()
+specifier|public
+name|HystrixConfigurationProperties
+name|hystrix
+parameter_list|()
+block|{
+return|return
+name|hystrixConfigurationProperties
+return|;
+block|}
+comment|/**      * To configure Rest DSL      */
+DECL|method|rest ()
+specifier|public
+name|RestConfigurationProperties
+name|rest
+parameter_list|()
+block|{
+return|return
+name|restConfigurationProperties
+return|;
+block|}
 comment|// getter and setters
 comment|// --------------------------------------------------------------
 DECL|method|isAutoConfigurationEnabled ()
@@ -367,16 +403,6 @@ name|durationHitExitCode
 expr_stmt|;
 return|return
 name|this
-return|;
-block|}
-DECL|method|hystrix ()
-specifier|public
-name|HystrixConfigurationProperties
-name|hystrix
-parameter_list|()
-block|{
-return|return
-name|hystrixConfigurationProperties
 return|;
 block|}
 block|}
