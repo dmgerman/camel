@@ -127,7 +127,7 @@ specifier|final
 name|int
 name|SERVICES
 init|=
-literal|11
+literal|12
 decl_stmt|;
 annotation|@
 name|Test
@@ -150,6 +150,15 @@ condition|)
 block|{
 return|return;
 block|}
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
 comment|// must enable always as CamelContext has been started
 comment|// and we add the service manually below
 name|context

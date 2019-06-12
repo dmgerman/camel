@@ -280,6 +280,8 @@ literal|"onServiceAdd"
 argument_list|,
 literal|"onServiceAdd"
 argument_list|,
+literal|"onServiceAdd"
+argument_list|,
 literal|"onComponentAdd"
 argument_list|,
 literal|"onEndpointAdd"

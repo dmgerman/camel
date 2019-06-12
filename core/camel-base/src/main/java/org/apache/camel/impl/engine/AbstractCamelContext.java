@@ -15758,6 +15758,9 @@ expr_stmt|;
 name|getRestRegistryFactory
 argument_list|()
 expr_stmt|;
+name|getReactiveExecutor
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|isTypeConverterStatisticsEnabled
@@ -15844,9 +15847,6 @@ name|getBeanProcessorFactory
 argument_list|()
 expr_stmt|;
 name|getBeanPostProcessor
-argument_list|()
-expr_stmt|;
-name|getReactiveExecutor
 argument_list|()
 expr_stmt|;
 block|}
