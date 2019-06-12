@@ -1860,6 +1860,11 @@ index|[
 literal|0
 index|]
 decl_stmt|;
+name|Object
+name|instance
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|parameterType
@@ -1882,9 +1887,8 @@ name|parameterType
 argument_list|)
 condition|)
 block|{
-name|Object
 name|instance
-init|=
+operator|=
 name|context
 operator|.
 name|getInjector
@@ -1894,7 +1898,8 @@ name|newInstance
 argument_list|(
 name|parameterType
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|instance
@@ -1932,7 +1937,6 @@ operator|.
 name|getClass
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
