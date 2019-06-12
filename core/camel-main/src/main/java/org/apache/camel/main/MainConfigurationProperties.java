@@ -70,6 +70,19 @@ name|hangupInterceptorEnabled
 init|=
 literal|true
 decl_stmt|;
+comment|// extended configuration
+DECL|field|hystrixConfigurationProperties
+specifier|private
+specifier|final
+name|HystrixConfigurationProperties
+name|hystrixConfigurationProperties
+init|=
+operator|new
+name|HystrixConfigurationProperties
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
 comment|// getter and setters
 comment|// --------------------------------------------------------------
 DECL|method|isAutoConfigurationEnabled ()
@@ -354,6 +367,16 @@ name|durationHitExitCode
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+DECL|method|hystrix ()
+specifier|public
+name|HystrixConfigurationProperties
+name|hystrix
+parameter_list|()
+block|{
+return|return
+name|hystrixConfigurationProperties
 return|;
 block|}
 block|}
