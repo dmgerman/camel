@@ -288,6 +288,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ReactiveExecutor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Registry
 import|;
 end_import
@@ -1719,6 +1733,20 @@ name|setHeadersMapFactory
 parameter_list|(
 name|HeadersMapFactory
 name|factory
+parameter_list|)
+function_decl|;
+DECL|method|getReactiveExecutor ()
+name|ReactiveExecutor
+name|getReactiveExecutor
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom {@link ReactiveExecutor} to be used.      */
+DECL|method|setReactiveExecutor (ReactiveExecutor reactiveExecutor)
+name|void
+name|setReactiveExecutor
+parameter_list|(
+name|ReactiveExecutor
+name|reactiveExecutor
 parameter_list|)
 function_decl|;
 block|}
