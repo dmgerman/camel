@@ -106,14 +106,14 @@ name|BROKER_HTTP_PORT
 init|=
 literal|8080
 decl_stmt|;
-DECL|field|METRICS_ENDPOINT
+DECL|field|WAIT_FOR_ENDPOINT
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|METRICS_ENDPOINT
+name|WAIT_FOR_ENDPOINT
 init|=
-literal|"/metrics"
+literal|"/admin/v2/namespaces/public"
 decl_stmt|;
 annotation|@
 name|Override
@@ -174,7 +174,7 @@ name|Wait
 operator|.
 name|forHttp
 argument_list|(
-name|METRICS_ENDPOINT
+name|WAIT_FOR_ENDPOINT
 argument_list|)
 operator|.
 name|forStatusCode
