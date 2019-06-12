@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -75,6 +87,8 @@ interface|interface
 name|MessageHistoryFactory
 extends|extends
 name|StaticService
+extends|,
+name|CamelContextAware
 block|{
 comment|/**      * Creates a new {@link MessageHistory}      *      * @param routeId   the route id      * @param node      the node in the route      * @param timestamp the time the message processed at this node.      * @param exchange  the current exchange      * @return a new {@link MessageHistory}      */
 DECL|method|newMessageHistory (String routeId, NamedNode node, long timestamp, Exchange exchange)
