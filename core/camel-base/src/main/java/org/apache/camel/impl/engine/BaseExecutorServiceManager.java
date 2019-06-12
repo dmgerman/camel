@@ -443,12 +443,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default {@link org.apache.camel.spi.ExecutorServiceManager}.  *  */
+comment|/**  * Base {@link org.apache.camel.spi.ExecutorServiceManager} which can be used for implementations  */
 end_comment
 
 begin_class
 DECL|class|BaseExecutorServiceManager
 specifier|public
+specifier|abstract
 class|class
 name|BaseExecutorServiceManager
 extends|extends

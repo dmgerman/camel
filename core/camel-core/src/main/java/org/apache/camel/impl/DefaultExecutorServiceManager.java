@@ -122,6 +122,10 @@ name|ThreadPoolProfile
 import|;
 end_import
 
+begin_comment
+comment|/**  * Default {@link org.apache.camel.spi.ExecutorServiceManager}.  */
+end_comment
+
 begin_class
 DECL|class|DefaultExecutorServiceManager
 specifier|public
