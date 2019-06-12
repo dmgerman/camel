@@ -63,6 +63,8 @@ comment|/**  * A basic reactive engine that uses a worker pool to process tasks.
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|ReactiveHelper
 specifier|public
 specifier|final
