@@ -13314,10 +13314,15 @@ name|notifier
 argument_list|)
 expr_stmt|;
 block|}
-comment|// shutdown executor service and management as the last one
+comment|// shutdown executor service, reactive executor and management as the last one
 name|shutdownServices
 argument_list|(
 name|executorServiceManager
+argument_list|)
+expr_stmt|;
+name|shutdownServices
+argument_list|(
+name|reactiveExecutor
 argument_list|)
 expr_stmt|;
 name|shutdownServices
@@ -18358,11 +18363,18 @@ name|ReactiveExecutor
 name|reactiveExecutor
 parameter_list|)
 block|{
+comment|// special for executorServiceManager as want to stop it manually so
+comment|// false in stopOnShutdown
 name|this
 operator|.
 name|reactiveExecutor
 operator|=
+name|doAddService
+argument_list|(
 name|reactiveExecutor
+argument_list|,
+literal|false
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

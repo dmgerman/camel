@@ -620,7 +620,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|process (Exchange exchange, AsyncCallback ocallback)
+DECL|method|process (Exchange exchange, AsyncCallback originalCallback)
 specifier|public
 name|boolean
 name|process
@@ -629,7 +629,7 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|AsyncCallback
-name|ocallback
+name|originalCallback
 parameter_list|)
 block|{
 comment|// ----------------------------------------------------------
@@ -659,7 +659,7 @@ argument_list|)
 condition|)
 block|{
 comment|// no processor or we should not continue then we are done
-name|ocallback
+name|originalCallback
 operator|.
 name|done
 argument_list|(
@@ -747,7 +747,7 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-name|ocallback
+name|originalCallback
 operator|.
 name|done
 argument_list|(
@@ -851,7 +851,7 @@ argument_list|()
 operator|.
 name|callback
 argument_list|(
-name|ocallback
+name|originalCallback
 argument_list|)
 expr_stmt|;
 comment|// ----------------------------------------------------------
