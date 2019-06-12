@@ -127,7 +127,7 @@ specifier|final
 name|int
 name|SERVICES
 init|=
-literal|10
+literal|11
 decl_stmt|;
 annotation|@
 name|Test
