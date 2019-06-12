@@ -58,6 +58,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * A basic reactive engine that uses a worker pool to process tasks.  */
+end_comment
+
 begin_class
 DECL|class|ReactiveHelper
 specifier|public
@@ -256,6 +260,9 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @deprecated not in use      */
+annotation|@
+name|Deprecated
 DECL|method|scheduleLast (Runnable runnable, String description)
 specifier|public
 specifier|static
@@ -445,6 +452,8 @@ class|class
 name|Worker
 block|{
 DECL|field|queue
+specifier|private
+specifier|volatile
 name|LinkedList
 argument_list|<
 name|Runnable
@@ -457,6 +466,8 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|back
+specifier|private
+specifier|volatile
 name|LinkedList
 argument_list|<
 name|LinkedList
@@ -467,6 +478,8 @@ argument_list|>
 name|back
 decl_stmt|;
 DECL|field|running
+specifier|private
+specifier|volatile
 name|boolean
 name|running
 decl_stmt|;
@@ -636,10 +649,21 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error executing reactive work due to "
+operator|+
 name|t
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+operator|+
+literal|". This exception is ignored."
+argument_list|,
+name|t
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -742,10 +766,22 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+comment|// should not happen
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error executing reactive work due to "
+operator|+
 name|t
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+operator|+
+literal|". This exception is ignored."
+argument_list|,
+name|t
+argument_list|)
 expr_stmt|;
 block|}
 finally|finally
