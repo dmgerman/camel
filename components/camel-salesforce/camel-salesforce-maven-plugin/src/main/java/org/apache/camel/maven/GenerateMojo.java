@@ -2955,6 +2955,15 @@ argument_list|,
 name|lookupClassName
 argument_list|)
 expr_stmt|;
+name|context
+operator|.
+name|put
+argument_list|(
+literal|"type"
+argument_list|,
+name|reference
+argument_list|)
+expr_stmt|;
 try|try
 init|(
 specifier|final
