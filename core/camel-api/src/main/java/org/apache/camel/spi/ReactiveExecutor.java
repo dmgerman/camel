@@ -16,6 +16,18 @@ name|spi
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|AsyncCallback
+import|;
+end_import
+
 begin_comment
 comment|/**  * SPI to plugin different reactive engines in the Camel routing engine.  */
 end_comment
@@ -89,6 +101,14 @@ DECL|method|executeFromQueue ()
 name|boolean
 name|executeFromQueue
 parameter_list|()
+function_decl|;
+DECL|method|callback (AsyncCallback callback)
+name|void
+name|callback
+parameter_list|(
+name|AsyncCallback
+name|callback
+parameter_list|)
 function_decl|;
 block|}
 end_interface

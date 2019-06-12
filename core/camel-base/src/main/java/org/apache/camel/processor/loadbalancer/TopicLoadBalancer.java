@@ -66,20 +66,6 @@ name|Processor
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|ReactiveHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * A {@link LoadBalancer} implementations which sends to all destinations  * (rather like JMS Topics).  *<p/>  * The {@link org.apache.camel.processor.MulticastProcessor} is more powerful as it offers  * option to run in parallel and decide whether or not to stop on failure etc.  */
 end_comment
@@ -113,7 +99,13 @@ init|=
 name|doGetProcessors
 argument_list|()
 decl_stmt|;
-name|ReactiveHelper
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getReactiveExecutor
+argument_list|()
 operator|.
 name|schedule
 argument_list|(
@@ -292,7 +284,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ReactiveHelper
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getReactiveExecutor
+argument_list|()
 operator|.
 name|schedule
 argument_list|(

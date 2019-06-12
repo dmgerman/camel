@@ -422,20 +422,6 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ReactiveHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
 name|processor
 operator|.
 name|DefaultExchangeFormatter
@@ -1055,7 +1041,10 @@ name|isTransacted
 argument_list|()
 condition|)
 block|{
-name|ReactiveHelper
+name|camelContext
+operator|.
+name|getReactiveExecutor
+argument_list|()
 operator|.
 name|scheduleSync
 argument_list|(
@@ -1065,7 +1054,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ReactiveHelper
+name|camelContext
+operator|.
+name|getReactiveExecutor
+argument_list|()
 operator|.
 name|scheduleMain
 argument_list|(
@@ -2063,7 +2055,10 @@ name|schedule
 argument_list|(
 parameter_list|()
 lambda|->
-name|ReactiveHelper
+name|camelContext
+operator|.
+name|getReactiveExecutor
+argument_list|()
 operator|.
 name|schedule
 argument_list|(
@@ -2136,7 +2131,10 @@ name|TRUE
 argument_list|)
 expr_stmt|;
 comment|// jump to start of loop which then detects that we are failed and exhausted
-name|ReactiveHelper
+name|camelContext
+operator|.
+name|getReactiveExecutor
+argument_list|()
 operator|.
 name|schedule
 argument_list|(
@@ -2146,7 +2144,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ReactiveHelper
+name|camelContext
+operator|.
+name|getReactiveExecutor
+argument_list|()
 operator|.
 name|schedule
 argument_list|(
@@ -2191,7 +2192,10 @@ operator|.
 name|TRUE
 argument_list|)
 expr_stmt|;
-name|ReactiveHelper
+name|camelContext
+operator|.
+name|getReactiveExecutor
+argument_list|()
 operator|.
 name|callback
 argument_list|(
@@ -2204,7 +2208,10 @@ block|}
 else|else
 block|{
 comment|// execute the task immediately
-name|ReactiveHelper
+name|camelContext
+operator|.
+name|getReactiveExecutor
+argument_list|()
 operator|.
 name|schedule
 argument_list|(
@@ -2237,7 +2244,10 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-name|ReactiveHelper
+name|camelContext
+operator|.
+name|getReactiveExecutor
+argument_list|()
 operator|.
 name|callback
 argument_list|(
@@ -2248,7 +2258,10 @@ block|}
 else|else
 block|{
 comment|// error occurred so loop back around which we do by invoking the processAsyncErrorHandler
-name|ReactiveHelper
+name|camelContext
+operator|.
+name|getReactiveExecutor
+argument_list|()
 operator|.
 name|schedule
 argument_list|(
@@ -2541,7 +2554,10 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-name|ReactiveHelper
+name|camelContext
+operator|.
+name|getReactiveExecutor
+argument_list|()
 operator|.
 name|callback
 argument_list|(
@@ -2553,7 +2569,10 @@ block|}
 else|else
 block|{
 comment|// error occurred so loop back around which we do by invoking the processAsyncErrorHandler
-name|ReactiveHelper
+name|camelContext
+operator|.
+name|getReactiveExecutor
+argument_list|()
 operator|.
 name|schedule
 argument_list|(
@@ -3884,7 +3903,10 @@ block|}
 finally|finally
 block|{
 comment|// if the fault was handled asynchronously, this should be reflected in the callback as well
-name|ReactiveHelper
+name|camelContext
+operator|.
+name|getReactiveExecutor
+argument_list|()
 operator|.
 name|callback
 argument_list|(
@@ -3961,7 +3983,10 @@ block|}
 finally|finally
 block|{
 comment|// callback we are done
-name|ReactiveHelper
+name|camelContext
+operator|.
+name|getReactiveExecutor
+argument_list|()
 operator|.
 name|callback
 argument_list|(

@@ -428,20 +428,6 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ReactiveHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
 name|UnitOfWorkHelper
 import|;
 end_import
@@ -855,7 +841,13 @@ comment|// ----------------------------------------------------------
 comment|// CAMEL END USER - DEBUG ME HERE +++ START +++
 comment|// ----------------------------------------------------------
 comment|// callback must be called
-name|ReactiveHelper
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getReactiveExecutor
+argument_list|()
 operator|.
 name|callback
 argument_list|(
@@ -1044,7 +1036,13 @@ expr_stmt|;
 comment|// ----------------------------------------------------------
 comment|// CAMEL END USER - DEBUG ME HERE +++ END +++
 comment|// ----------------------------------------------------------
-name|ReactiveHelper
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getReactiveExecutor
+argument_list|()
 operator|.
 name|schedule
 argument_list|(
