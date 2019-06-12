@@ -70,6 +70,8 @@ name|DefaultReactiveExecutor
 implements|implements
 name|ReactiveExecutor
 block|{
+comment|// TODO: ReactiveHelper code should be moved here and not static
+comment|// ppl should use the SPI interface
 annotation|@
 name|Override
 DECL|method|scheduleMain (Runnable runnable)

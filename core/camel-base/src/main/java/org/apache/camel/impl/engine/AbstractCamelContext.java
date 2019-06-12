@@ -15787,6 +15787,12 @@ name|void
 name|doStartEagerServices
 parameter_list|()
 block|{
+name|getFactoryFinderResolver
+argument_list|()
+expr_stmt|;
+name|getDefaultFactoryFinder
+argument_list|()
+expr_stmt|;
 name|getComponentResolver
 argument_list|()
 expr_stmt|;
@@ -15811,12 +15817,6 @@ expr_stmt|;
 name|getMessageHistoryFactory
 argument_list|()
 expr_stmt|;
-name|getFactoryFinderResolver
-argument_list|()
-expr_stmt|;
-name|getDefaultFactoryFinder
-argument_list|()
-expr_stmt|;
 name|getStreamCachingStrategy
 argument_list|()
 expr_stmt|;
@@ -15839,6 +15839,9 @@ name|getBeanProcessorFactory
 argument_list|()
 expr_stmt|;
 name|getBeanPostProcessor
+argument_list|()
+expr_stmt|;
+name|getReactiveExecutor
 argument_list|()
 expr_stmt|;
 block|}
