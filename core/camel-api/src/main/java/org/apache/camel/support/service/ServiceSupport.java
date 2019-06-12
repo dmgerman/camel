@@ -281,7 +281,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      *<b>Important:</b> You should override the lifecycle methods that start with<tt>do</tt>, eg {@link #doStart()},      * {@link #doStop()}, etc. where you implement your logic. The methods {@link #start()}, {@link #stop()} should      *<b>NOT</b> be overriden as they are used internally to keep track of the state of this service and properly      * invoke the operation in a safe manner.      */
+comment|/**      *<b>Important:</b> You should override the lifecycle methods that start with<tt>do</tt>, eg {@link #doStart()},      * {@link #doStop()}, etc. where you implement your logic. The methods {@link #start()}, {@link #stop()} should      *<b>NOT</b> be overridden as they are used internally to keep track of the state of this service and properly      * invoke the operation in a safe manner.      */
 DECL|method|start ()
 specifier|public
 name|void
@@ -658,7 +658,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      *<b>Important:</b> You should override the lifecycle methods that start with<tt>do</tt>, eg {@link #doStart()},      * {@link #doStop()}, etc. where you implement your logic. The methods {@link #start()}, {@link #stop()} should      *<b>NOT</b> be overriden as they are used internally to keep track of the state of this service and properly      * invoke the operation in a safe manner.      */
+comment|/**      *<b>Important:</b> You should override the lifecycle methods that start with<tt>do</tt>, eg {@link #doStart()},      * {@link #doStop()}, etc. where you implement your logic. The methods {@link #start()}, {@link #stop()} should      *<b>NOT</b> be overridden as they are used internally to keep track of the state of this service and properly      * invoke the operation in a safe manner.      */
 annotation|@
 name|Override
 DECL|method|resume ()
@@ -754,7 +754,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      *<b>Important:</b> You should override the lifecycle methods that start with<tt>do</tt>, eg {@link #doStart()},      * {@link #doStop()}, etc. where you implement your logic. The methods {@link #start()}, {@link #stop()} should      *<b>NOT</b> be overriden as they are used internally to keep track of the state of this service and properly      * invoke the operation in a safe manner.      */
+comment|/**      *<b>Important:</b> You should override the lifecycle methods that start with<tt>do</tt>, eg {@link #doStart()},      * {@link #doStop()}, etc. where you implement your logic. The methods {@link #start()}, {@link #stop()} should      *<b>NOT</b> be overridden as they are used internally to keep track of the state of this service and properly      * invoke the operation in a safe manner.      */
 annotation|@
 name|Override
 DECL|method|shutdown ()
