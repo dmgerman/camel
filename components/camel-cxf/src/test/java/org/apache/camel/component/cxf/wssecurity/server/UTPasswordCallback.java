@@ -144,22 +144,22 @@ name|passwords
 operator|.
 name|put
 argument_list|(
-literal|"clientx509v1"
+literal|"alice"
 argument_list|,
-literal|"storepassword"
+literal|"password"
 argument_list|)
 expr_stmt|;
 name|passwords
 operator|.
 name|put
 argument_list|(
-literal|"serverx509v1"
+literal|"bob"
 argument_list|,
-literal|"storepassword"
+literal|"password"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Here, we attempt to get the password from the private       * alias/passwords map.      */
+comment|/**      * Here, we attempt to get the password from the private      * alias/passwords map.      */
 DECL|method|handle (Callback[] callbacks)
 specifier|public
 name|void
