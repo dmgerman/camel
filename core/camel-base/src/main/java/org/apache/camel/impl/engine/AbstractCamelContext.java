@@ -12604,7 +12604,7 @@ expr_stmt|;
 name|forceLazyInitialization
 argument_list|()
 expr_stmt|;
-comment|// if camel-bean is on classpath then we can load its bean proxy facory
+comment|// if camel-bean is on classpath then we can load its bean proxy factory
 name|BeanProxyFactory
 name|beanProxyFactory
 init|=
@@ -12912,6 +12912,16 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Using ReactiveExecutor: {}"
+argument_list|,
+name|getReactiveExecutor
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// start routes
 if|if
 condition|(
