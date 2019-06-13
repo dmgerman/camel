@@ -50,6 +50,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|meta
+operator|.
+name|Experimental
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|ReactiveExecutor
@@ -93,10 +107,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A VertX based {@link ReactiveExecutor} that uses Vert X event loop.  */
+comment|/**  * A VertX based {@link ReactiveExecutor} that uses Vert X event loop.  *<p/>  * NOTE: This is an experimental implementation (use with care)  */
 end_comment
 
 begin_class
+annotation|@
+name|Experimental
 DECL|class|VertXReactiveExecutor
 specifier|public
 class|class

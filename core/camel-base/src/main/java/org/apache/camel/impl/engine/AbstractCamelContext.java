@@ -12912,6 +12912,25 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// lets log at INFO level if we are not using the default reactive executor
+if|if
+condition|(
+operator|!
+name|getReactiveExecutor
+argument_list|()
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"DefaultReactiveExecutor"
+argument_list|)
+condition|)
+block|{
 name|log
 operator|.
 name|info
@@ -12922,6 +12941,20 @@ name|getReactiveExecutor
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Using ReactiveExecutor: {}"
+argument_list|,
+name|getReactiveExecutor
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// start routes
 if|if
 condition|(

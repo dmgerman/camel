@@ -118,7 +118,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: should detect from classpath
 name|CamelContext
 name|context
 init|=
