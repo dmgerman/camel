@@ -66,7 +66,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|reacitve
+name|reactive
+operator|.
+name|vertx
 operator|.
 name|VertXReactiveExecutor
 import|;

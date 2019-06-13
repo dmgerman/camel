@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.reacitve
+DECL|package|org.apache.camel.reactive.vertx
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|reacitve
+name|reactive
+operator|.
+name|vertx
 package|;
 end_package
 
