@@ -495,7 +495,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Asynchronous API      */
-DECL|method|process (Exchange exchange, AsyncCallback ocallback, AsyncProcessor processor, Processor resultProcessor)
+DECL|method|process (Exchange exchange, AsyncCallback originalCallback, AsyncProcessor processor, Processor resultProcessor)
 specifier|public
 name|boolean
 name|process
@@ -504,7 +504,7 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|AsyncCallback
-name|ocallback
+name|originalCallback
 parameter_list|,
 name|AsyncProcessor
 name|processor
@@ -542,7 +542,7 @@ argument_list|)
 condition|)
 block|{
 comment|// no processor or we should not continue then we are done
-name|ocallback
+name|originalCallback
 operator|.
 name|done
 argument_list|(
@@ -630,7 +630,7 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-name|ocallback
+name|originalCallback
 operator|.
 name|done
 argument_list|(
@@ -653,7 +653,7 @@ name|states
 argument_list|,
 name|exchange
 argument_list|,
-name|ocallback
+name|originalCallback
 argument_list|,
 name|resultProcessor
 argument_list|)

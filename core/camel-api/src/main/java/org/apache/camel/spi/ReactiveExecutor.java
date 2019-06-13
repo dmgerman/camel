@@ -128,7 +128,7 @@ name|String
 name|description
 parameter_list|)
 function_decl|;
-comment|/**      * Executes the next task      *      * @return true if a task was executed or false if no more pending tasks      */
+comment|/**      * Executes the next task (if supported by the reactive executor implementation)      *      * @return true if a task was executed or false if no more pending tasks      */
 DECL|method|executeFromQueue ()
 name|boolean
 name|executeFromQueue
