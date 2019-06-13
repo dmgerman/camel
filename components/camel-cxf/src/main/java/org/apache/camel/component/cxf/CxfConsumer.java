@@ -471,11 +471,6 @@ name|cxfEndpoint
 operator|=
 name|endpoint
 expr_stmt|;
-name|server
-operator|=
-name|createServer
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|createServer ()
 specifier|protected
