@@ -145,6 +145,38 @@ specifier|private
 name|Vertx
 name|vertx
 decl_stmt|;
+DECL|field|shouldClose
+specifier|private
+name|boolean
+name|shouldClose
+decl_stmt|;
+DECL|method|getVertx ()
+specifier|public
+name|Vertx
+name|getVertx
+parameter_list|()
+block|{
+return|return
+name|vertx
+return|;
+block|}
+comment|/**      * To use an existing instance of {@link Vertx} instead of creating a default instance.      */
+DECL|method|setVertx (Vertx vertx)
+specifier|public
+name|void
+name|setVertx
+parameter_list|(
+name|Vertx
+name|vertx
+parameter_list|)
+block|{
+name|this
+operator|.
+name|vertx
+operator|=
+name|vertx
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|schedule (Runnable runnable, String description)
@@ -386,12 +418,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|vertx
+operator|==
+literal|null
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
 literal|"Starting VertX"
 argument_list|)
+expr_stmt|;
+name|shouldClose
+operator|=
+literal|true
 expr_stmt|;
 name|vertx
 operator|=
@@ -400,6 +443,7 @@ operator|.
 name|vertx
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -410,6 +454,15 @@ name|doStop
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+if|if
+condition|(
+name|vertx
+operator|!=
+literal|null
+operator|&&
+name|shouldClose
+condition|)
 block|{
 name|LOG
 operator|.
@@ -423,6 +476,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
