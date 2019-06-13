@@ -164,7 +164,7 @@ name|type
 operator|=
 name|findFactory
 argument_list|(
-literal|"reactive-executor-factory"
+literal|"reactive-executor"
 argument_list|,
 name|context
 argument_list|)
@@ -209,7 +209,7 @@ operator|.
 name|getResourcePath
 argument_list|()
 argument_list|,
-literal|"reactive-executor-factory"
+literal|"reactive-executor"
 argument_list|)
 expr_stmt|;
 block|}

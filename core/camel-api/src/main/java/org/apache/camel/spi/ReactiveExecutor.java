@@ -38,8 +38,7 @@ specifier|public
 interface|interface
 name|ReactiveExecutor
 block|{
-comment|// TODO: Add javadoc
-comment|// TODO: Better name
+comment|/**      * Schedules the task to be run      *      * @param runnable    the task      */
 DECL|method|schedule (Runnable runnable)
 specifier|default
 name|void
@@ -57,6 +56,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Schedules the task to be run      *      * @param runnable    the task      * @param description a human readable description for logging purpose      */
 DECL|method|schedule (Runnable runnable, String description)
 name|void
 name|schedule
@@ -68,6 +68,7 @@ name|String
 name|description
 parameter_list|)
 function_decl|;
+comment|/**      * Schedules the task to be prioritized and run asap      *      * @param runnable    the task      */
 DECL|method|scheduleMain (Runnable runnable)
 specifier|default
 name|void
@@ -85,6 +86,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Schedules the task to be prioritized and run asap      *      * @param runnable    the task      * @param description a human readable description for logging purpose      */
 DECL|method|scheduleMain (Runnable runnable, String description)
 name|void
 name|scheduleMain
@@ -96,6 +98,7 @@ name|String
 name|description
 parameter_list|)
 function_decl|;
+comment|/**      * Schedules the task to run synchronously      *      * @param runnable    the task      */
 DECL|method|scheduleSync (Runnable runnable)
 specifier|default
 name|void
@@ -113,6 +116,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Schedules the task to run synchronously      *      * @param runnable    the task      * @param description a human readable description for logging purpose      */
 DECL|method|scheduleSync (Runnable runnable, String description)
 name|void
 name|scheduleSync
@@ -124,12 +128,13 @@ name|String
 name|description
 parameter_list|)
 function_decl|;
-comment|// TODO: Can we make this so we dont need an method on this interface as its only used once
+comment|/**      * Executes the next task      *      * @return true if a task was executed or false if no more pending tasks      */
 DECL|method|executeFromQueue ()
 name|boolean
 name|executeFromQueue
 parameter_list|()
 function_decl|;
+comment|/**      * Schedules the callback to be run      *      * @param callback    the callable      */
 DECL|method|callback (AsyncCallback callback)
 specifier|default
 name|void
