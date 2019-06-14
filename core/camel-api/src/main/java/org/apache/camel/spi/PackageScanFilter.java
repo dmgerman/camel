@@ -21,6 +21,8 @@ comment|/**  * Filter that can be used with the {@link org.apache.camel.spi.Pack
 end_comment
 
 begin_interface
+annotation|@
+name|FunctionalInterface
 DECL|interface|PackageScanFilter
 specifier|public
 interface|interface
