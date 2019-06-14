@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -40,31 +52,17 @@ name|NoSuchEndpointException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|RouteContext
-import|;
-end_import
-
 begin_interface
 DECL|interface|EndpointConsumerBuilder
 specifier|public
 interface|interface
 name|EndpointConsumerBuilder
 block|{
-DECL|method|resolve (RouteContext context)
+DECL|method|resolve (CamelContext context)
 name|Endpoint
 name|resolve
 parameter_list|(
-name|RouteContext
+name|CamelContext
 name|context
 parameter_list|)
 throws|throws

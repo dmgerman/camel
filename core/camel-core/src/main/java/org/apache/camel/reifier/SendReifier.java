@@ -219,6 +219,9 @@ operator|.
 name|resolve
 argument_list|(
 name|context
+operator|.
+name|getCamelContext
+argument_list|()
 argument_list|)
 return|;
 block|}
