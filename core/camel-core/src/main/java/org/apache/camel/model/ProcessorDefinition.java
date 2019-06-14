@@ -1091,11 +1091,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Adds an optional attribute      *      * @param name    the name of the attribute      * @param value   the value      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|attribute (QName name, Object value)
 specifier|public
 name|Type
@@ -1133,18 +1128,11 @@ name|value
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sends the exchange to the given endpoint      *      * @param uri  the endpoint to send to      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|to (@sEndpointUri String uri)
 specifier|public
 name|Type
@@ -1166,18 +1154,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sends the exchange to the given dynamic endpoint      *      * @param uri  the dynamic endpoint to send to (resolved using simple language by default)      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|toD (@sEndpointUri String uri)
 specifier|public
 name|Type
@@ -1209,18 +1190,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sends the exchange to the given dynamic endpoint      *      * @param uri  the dynamic endpoint to send to (resolved using simple language by default)      * @param cacheSize sets the maximum size used by the {@link org.apache.camel.spi.ConsumerCache} which is used to cache and reuse producers.      *      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|toD (@sEndpointUri String uri, int cacheSize)
 specifier|public
 name|Type
@@ -1262,18 +1236,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sends the exchange to the given dynamic endpoint      *      * @param uri  the dynamic endpoint to send to (resolved using simple language by default)      * @param ignoreInvalidEndpoint ignore the invalidate endpoint exception when try to create a producer with that endpoint      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|toD (@sEndpointUri String uri, boolean ignoreInvalidEndpoint)
 specifier|public
 name|Type
@@ -1315,18 +1282,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sends the exchange to the given endpoint      *      * @param uri  the String formatted endpoint uri to send to      * @param args arguments for the string formatting of the uri      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|toF (@sEndpointUri String uri, Object... args)
 specifier|public
 name|Type
@@ -1359,10 +1319,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Calls the service      *      * @return the builder      */
@@ -1389,11 +1347,6 @@ name|answer
 return|;
 block|}
 comment|/**      * Calls the service      *      * @param name the service name      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|serviceCall (String name)
 specifier|public
 name|Type
@@ -1423,18 +1376,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Calls the service      *      * @param name the service name      * @param uri  the endpoint uri to use for calling the service      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|serviceCall (String name, @AsEndpointUri String uri)
 specifier|public
 name|Type
@@ -1476,18 +1422,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sends the exchange to the given endpoint      *      * @param endpoint  the endpoint to send to      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|to (Endpoint endpoint)
 specifier|public
 name|Type
@@ -1507,17 +1446,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|to (EndpointProducerBuilder endpoint)
 specifier|public
 name|Type
@@ -1537,18 +1469,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sends the exchange with certain exchange pattern to the given endpoint      *<p/>      * Notice the existing MEP is preserved      *      * @param pattern the pattern to use for the message exchange      * @param uri  the endpoint to send to      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|to (ExchangePattern pattern, @AsEndpointUri String uri)
 specifier|public
 name|Type
@@ -1575,18 +1500,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sends the exchange with certain exchange pattern to the given endpoint      *<p/>      * Notice the existing MEP is preserved      *      * @param pattern the pattern to use for the message exchange      * @param endpoint  the endpoint to send to      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|to (ExchangePattern pattern, Endpoint endpoint)
 specifier|public
 name|Type
@@ -1611,18 +1529,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoints      *      * @param uris  list of endpoints to send to      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|to (@sEndpointUri String... uris)
 specifier|public
 name|Type
@@ -1654,18 +1565,11 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoints      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|to (Endpoint... endpoints)
 specifier|public
 name|Type
@@ -1695,18 +1599,11 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoints      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|to (Iterable<Endpoint> endpoints)
 specifier|public
 name|Type
@@ -1738,18 +1635,11 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoints      *<p/>      * Notice the existing MEP is preserved      *      * @param pattern the pattern to use for the message exchanges      * @param uris  list of endpoints to send to      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|to (ExchangePattern pattern, @AsEndpointUri String... uris)
 specifier|public
 name|Type
@@ -1786,18 +1676,11 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoints      *<p/>      * Notice the existing MEP is preserved      *      * @param pattern the pattern to use for the message exchanges      * @param endpoints  list of endpoints to send to      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|to (ExchangePattern pattern, Endpoint... endpoints)
 specifier|public
 name|Type
@@ -1832,18 +1715,11 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoints      *      * @param pattern the pattern to use for the message exchanges      * @param endpoints  list of endpoints to send to      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|to (ExchangePattern pattern, Iterable<Endpoint> endpoints)
 specifier|public
 name|Type
@@ -1880,18 +1756,11 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/exchange-pattern.html">ExchangePattern:</a>      * set the {@link ExchangePattern} into the {@link Exchange}.      *<p/>      * The pattern set on the {@link Exchange} will be changed from this point going foward.      *      * @param exchangePattern  instance of {@link ExchangePattern}      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|setExchangePattern (ExchangePattern exchangePattern)
 specifier|public
 name|Type
@@ -1911,10 +1780,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sends the message to the given endpoint using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *<p/>      * Notice the existing MEP is restored after the message has been sent to the given endpoint.      *      * @param uri The endpoint uri which is used for sending the exchange      * @return the builder      */
@@ -2148,11 +2015,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sets the id of this node.      *<p/>      *<b>Important:</b> If you want to set the id of the route,      * then you<b>must</b> use {@link #routeId(String)} instead.      *      * @param id  the id      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|id (String id)
 specifier|public
 name|Type
@@ -2295,18 +2157,11 @@ expr_stmt|;
 block|}
 block|}
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Set the route id for this route.      *<p/>      *<b>Important:</b> Each route in the same {@link org.apache.camel.CamelContext} must have an<b>unique</b> route id.      * If you use the API from {@link org.apache.camel.CamelContext} or {@link ModelCamelContext} to add routes, then any      * new routes which has a route id that matches an old route, then the old route is replaced by the new route.      *      * @param id  the route id, should be unique      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|routeId (String id)
 specifier|public
 name|Type
@@ -2366,18 +2221,11 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Set the route group for this route.      *      * @param group  the route group      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|routeGroup (String group)
 specifier|public
 name|Type
@@ -2421,18 +2269,11 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Set the route description for this route      *      * @param description the route description      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|routeDescription (String description)
 specifier|public
 name|Type
@@ -2490,10 +2331,8 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/multicast.html">Multicast EIP:</a>      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      *      * @return the builder      */
@@ -2707,10 +2546,8 @@ name|uris
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/pipes-nd-filters.html">Pipes and Filters EIP:</a>      * Creates a {@link org.apache.camel.processor.Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      *      * @param endpoints  list of endpoints      * @return the builder      */
@@ -2744,10 +2581,8 @@ name|endpoints
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/pipes-nd-filters.html">Pipes and Filters EIP:</a>      * Creates a {@link org.apache.camel.processor.Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      *      * @param endpoints  list of endpoints      * @return the builder      */
@@ -2783,10 +2618,8 @@ name|endpoints
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Continues processing the {@link org.apache.camel.Exchange} using asynchronous routing engine.      *      * @return the builder      */
@@ -3667,11 +3500,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a log message to be logged at INFO level.      *      * @param message the log message, (you can use {@link org.apache.camel.language.simple.SimpleLanguage} syntax)      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|log (String message)
 specifier|public
 name|Type
@@ -3696,18 +3524,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Creates a log message to be logged at the given level.      *      * @param loggingLevel the logging level to use      * @param message the log message, (you can use {@link org.apache.camel.language.simple.SimpleLanguage} syntax)      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|log (LoggingLevel loggingLevel, String message)
 specifier|public
 name|Type
@@ -3742,18 +3563,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Creates a log message to be logged at the given level and name.      *      * @param loggingLevel the logging level to use      * @param logName the log name to use      * @param message the log message, (you can use {@link org.apache.camel.language.simple.SimpleLanguage} syntax)      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|log (LoggingLevel loggingLevel, String logName, String message)
 specifier|public
 name|Type
@@ -3798,18 +3612,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Creates a log message to be logged at the given level using provided logger.      *      * @param loggingLevel the logging level to use      * @param logger the logger to use      * @param message the log message, (you can use {@link org.apache.camel.language.simple.SimpleLanguage} syntax)      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|log (LoggingLevel loggingLevel, Logger logger, String message)
 specifier|public
 name|Type
@@ -3854,18 +3661,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Creates a log message to be logged at the given level and name.      *      *      * @param loggingLevel the logging level to use      * @param logName the log name to use      * @param marker  log marker name      * @param message the log message, (you can use {@link org.apache.camel.language.simple.SimpleLanguage} syntax)      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|log (LoggingLevel loggingLevel, String logName, String marker, String message)
 specifier|public
 name|Type
@@ -3920,18 +3720,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Creates a log message to be logged at the given level using provided logger.      *      *      * @param loggingLevel the logging level to use      * @param logger the logger to use      * @param marker  log marker name      * @param message the log message, (you can use {@link org.apache.camel.language.simple.SimpleLanguage} syntax)      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|log (LoggingLevel loggingLevel, Logger logger, String marker, String message)
 specifier|public
 name|Type
@@ -3986,10 +3779,8 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/content-based-router.html">Content Based Router EIP:</a>      * Creates a choice of one or more predicates with an otherwise clause      *      * @return the builder for a choice expression      */
@@ -5228,10 +5019,8 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sets the exception on the {@link org.apache.camel.Exchange}      *      * @param type the exception class to use      * @param message the given message as caused message (supports simple language)      * @return the builder      */
@@ -5279,10 +5068,8 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Marks the exchange for rollback only.      *<p/>      * Does<b>not</b> set any exception as opposed to {@link #rollback()} methods.      *      * @return the builder      * @see #rollback()      * @see #rollback(String)      * @see #markRollbackOnlyLast()      */
@@ -5312,10 +5099,8 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Marks the exchange for rollback only, but only for the last (current) transaction.      *<p/>      * A last rollback is used when you have nested transactions and only want the last local transaction to rollback,      * where as the outer transaction can still be completed      *<p/>      * Does<b>not</b> set any exception as opposed to {@link #rollback()} methods.      *      * @return the builder      * @see #rollback()      * @see #rollback(String)      * @see #markRollbackOnly()      */
@@ -5345,10 +5130,8 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Marks the exchange for rollback only and sets an exception with a default message.      *<p/>      * This is done by setting a {@link org.apache.camel.RollbackExchangeException} on the Exchange      * and mark it for rollback.      *      * @return the builder      * @see #markRollbackOnly()      */
@@ -5390,10 +5173,8 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other using {@link ExchangePattern#InOnly}.      *      * @param endpoint  the endpoint to wiretap to      * @return the builder      */
@@ -5510,11 +5291,6 @@ name|removeLast
 argument_list|()
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|startupOrder (int startupOrder)
 specifier|public
 name|Type
@@ -5558,18 +5334,11 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Stops continue routing the current {@link org.apache.camel.Exchange} and marks it as completed.      *      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|stop ()
 specifier|public
 name|Type
@@ -5589,10 +5358,8 @@ name|stop
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exceptionType  the exception to catch      * @return the exception builder to configure      */
@@ -5824,11 +5591,6 @@ block|}
 comment|// Transformers
 comment|// -------------------------------------------------------------------------
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds the custom processor to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param processor  the custom {@link Processor}      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|process (Processor processor)
 specifier|public
 name|Type
@@ -5853,18 +5615,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds the custom processor reference to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param ref   reference to a {@link Processor} to lookup in the registry      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|process (String ref)
 specifier|public
 name|Type
@@ -5894,10 +5649,8 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds the custom processor using a fluent builder to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @return the builder      */
@@ -5948,11 +5701,6 @@ name|clause
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke, or a reference to a bean if the type is a String      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|bean (Object bean)
 specifier|public
 name|Type
@@ -6003,18 +5751,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke, or a reference to a bean if the type is a String      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|bean (Object bean, String method)
 specifier|public
 name|Type
@@ -6075,18 +5816,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke, or a reference to a bean if the type is a String      * @param cache  if enabled, Camel will cache the result of the first Registry look-up.      *               Cache can be enabled if the bean in the Registry is defined as a singleton scope.      *  the multi parameter      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|bean (Object bean, boolean cache)
 specifier|public
 name|Type
@@ -6147,18 +5881,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke, or a reference to a bean if the type is a String      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @param cache  if enabled, Camel will cache the result of the first Registry look-up.      *               Cache can be enabled if the bean in the Registry is defined as a singleton scope.      *  the multi parameter      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|bean (Object bean, String method, boolean cache)
 specifier|public
 name|Type
@@ -6229,18 +5956,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param  beanType  the bean class, Camel will instantiate an object at runtime      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|bean (Class<?> beanType)
 specifier|public
 name|Type
@@ -6273,18 +5993,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param  beanType  the bean class, Camel will instantiate an object at runtime      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|bean (Class<?> beanType, String method)
 specifier|public
 name|Type
@@ -6327,18 +6040,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param  beanType  the bean class, Camel will instantiate an object at runtime      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @param cache  if enabled, Camel will cache the result of the first Registry look-up.      *               Cache can be enabled if the bean in the Registry is defined as a singleton scope.      *  the multi parameter      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|bean (Class<?> beanType, String method, boolean cache)
 specifier|public
 name|Type
@@ -6391,10 +6097,8 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the IN message      *      * @return a expression builder clause to set the body      */
@@ -6445,11 +6149,6 @@ name|clause
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the IN message      *      * @param expression   the expression used to set the body      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|setBody (Expression expression)
 specifier|public
 name|Type
@@ -6474,10 +6173,8 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the IN message      *      * @param supplier   the supplier that provides a value to the IN message body      * @return the builder      */
@@ -6532,10 +6229,8 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the IN message      *      * @param function   the function that provides a value to the IN message body      * @return the builder      */
@@ -6594,18 +6289,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the OUT message      *      * @param expression   the expression used to set the body      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|transform (Expression expression)
 specifier|public
 name|Type
@@ -6630,10 +6318,8 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the OUT message      *      * @return a expression builder clause to set the body      */
@@ -6684,11 +6370,6 @@ name|clause
 return|;
 block|}
 comment|/**      * Executes a script (do not change the message body).      *      * @param expression   the expression used as the script.      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|script (Expression expression)
 specifier|public
 name|Type
@@ -6713,10 +6394,8 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Executes a script (do not change the message body).      *      * @return a expression builder clause to use as script.      */
@@ -6791,10 +6470,8 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Adds a processor which sets the header on the IN message      *      * @param name  the header name      * @return a expression builder clause to set the header      */
@@ -6850,11 +6527,6 @@ name|clause
 return|;
 block|}
 comment|/**      * Adds a processor which sets the header on the IN message      *      * @param name  the header name      * @param expression  the expression used to set the header      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|setHeader (String name, Expression expression)
 specifier|public
 name|Type
@@ -6884,18 +6556,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Adds a processor which sets the header on the IN message      *      * @param name  the header name      * @param supplier the supplier used to set the header      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|setHeader (String name, final Supplier<Object> supplier)
 specifier|public
 name|Type
@@ -6950,18 +6615,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Adds a processor which sets the exchange property      *      * @param name  the property name      * @param expression  the expression used to set the property      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|setProperty (String name, Expression expression)
 specifier|public
 name|Type
@@ -6991,10 +6649,8 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Adds a processor which sets the exchange property      *      * @param name  the property name      * @return a expression builder clause to set the property      */
@@ -7050,11 +6706,6 @@ name|clause
 return|;
 block|}
 comment|/**      * Adds a processor which removes the header on the IN message      *      * @param name  the header name      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|removeHeader (String name)
 specifier|public
 name|Type
@@ -7079,18 +6730,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Adds a processor which removes the headers on the IN message      *      * @param pattern  a pattern to match header names to be removed      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|removeHeaders (String pattern)
 specifier|public
 name|Type
@@ -7115,18 +6759,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Adds a processor which removes the headers on the IN message      *      * @param pattern  a pattern to match header names to be removed      * @param excludePatterns one or more pattern of header names that should be excluded (= preserved)      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|removeHeaders (String pattern, String... excludePatterns)
 specifier|public
 name|Type
@@ -7157,18 +6794,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Adds a processor which removes the exchange property      *      * @param name  the property name      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|removeProperty (String name)
 specifier|public
 name|Type
@@ -7193,18 +6823,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Adds a processor which removes the properties in the exchange      *      * @param pattern a pattern to match properties names to be removed      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|removeProperties (String pattern)
 specifier|public
 name|Type
@@ -7229,18 +6852,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Adds a processor which removes the properties in the exchange      *      * @param pattern a pattern to match properties names to be removed      * @param excludePatterns one or more pattern of properties names that should be excluded (= preserved)      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|removeProperties (String pattern, String... excludePatterns)
 specifier|public
 name|Type
@@ -7271,18 +6887,11 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Converts the IN message body to the specified type      *      * @param type the type to convert to      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|convertBodyTo (Class<?> type)
 specifier|public
 name|Type
@@ -7305,18 +6914,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Converts the IN message body to the specified type      *      * @param type the type to convert to      * @param charset the charset to use by type converters (not all converters support specifc charset)      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|convertBodyTo (Class<?> type, String charset)
 specifier|public
 name|Type
@@ -7344,10 +6946,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sorts the expression using a default sorting based on toString representation.      *      * @param expression  the expression, must be convertable to {@link List}      * @return the builder      */
@@ -7370,11 +6970,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sorts the expression using the given comparator      *      * @param expression  the expression, must be convertable to {@link List}      * @param comparator  the comparator to use for sorting      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|sort (Expression expression, Comparator<T> comparator)
 specifier|public
 parameter_list|<
@@ -7406,10 +7001,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sorts the expression      *      * @return the builder      */
@@ -7504,10 +7097,8 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/claim-check.html">Claim Check EIP</a>      * allows you to replace message content with a claim check (a unique key),      * which can be used to retrieve the message content at a later time.      *      * @param operation the claim check operation to use.      * @param key       the unique key to use for the get and set operations, can be<tt>null</tt> for push/pop operations      */
@@ -7584,10 +7175,8 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>.      *<p/>      * The difference between this and {@link #pollEnrich(String)} is that this uses a producer      * to obatin the additional data, where as pollEnrich uses a polling consumer.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @return the builder      * @see org.apache.camel.processor.Enricher      */
@@ -7821,11 +7410,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @param aggregationStrategy   aggregation strategy to aggregate input data and additional data.      * @param aggregateOnException  whether to call {@link AggregationStrategy#aggregate(org.apache.camel.Exchange, org.apache.camel.Exchange)} if      *                              an exception was thrown.      * @param shareUnitOfWork       whether to share unit of work      * @return the builder      * @see org.apache.camel.processor.Enricher      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|enrich (@sEndpointUri String resourceUri, AggregationStrategy aggregationStrategy, boolean aggregateOnException, boolean shareUnitOfWork)
 specifier|public
 name|Type
@@ -7891,10 +7475,8 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>.      *<p/>      * The difference between this and {@link #pollEnrich(String)} is that this uses a producer      * to obtain the additional data, where as pollEnrich uses a polling consumer.      *      * @return a expression builder clause to set the expression to use for computing the endpoint to use      * @see org.apache.camel.processor.PollEnricher      */
@@ -8196,11 +7778,6 @@ name|clause
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * The timeout controls which operation to use on {@link org.apache.camel.PollingConsumer}.      * If timeout is negative, we use<tt>receive</tt>. If timeout is 0 then we use<tt>receiveNoWait</tt>      * otherwise we use<tt>receive(timeout)</tt>.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @param timeout               timeout in millis to wait at most for data to be available.      * @param aggregationStrategy   aggregation strategy to aggregate input data and additional data.      * @param aggregateOnException  whether to call {@link AggregationStrategy#aggregate(org.apache.camel.Exchange, org.apache.camel.Exchange)} if      *                              an exception was thrown.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|pollEnrich (@sEndpointUri String resourceUri, long timeout, AggregationStrategy aggregationStrategy, boolean aggregateOnException)
 specifier|public
 name|Type
@@ -8266,18 +7843,11 @@ name|pollEnrich
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * The timeout controls which operation to use on {@link org.apache.camel.PollingConsumer}.      * If timeout is negative, we use<tt>receive</tt>. If timeout is 0 then we use<tt>receiveNoWait</tt>      * otherwise we use<tt>receive(timeout)</tt>.      *      * @param resourceUri            URI of resource endpoint for obtaining additional data.      * @param timeout                timeout in millis to wait at most for data to be available.      * @param aggregationStrategyRef Reference of aggregation strategy to aggregate input data and additional data.      * @param aggregateOnException   whether to call {@link AggregationStrategy#aggregate(org.apache.camel.Exchange, org.apache.camel.Exchange)} if      *                               an exception was thrown.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|pollEnrich (@sEndpointUri String resourceUri, long timeout, String aggregationStrategyRef, boolean aggregateOnException)
 specifier|public
 name|Type
@@ -8343,10 +7913,8 @@ name|pollEnrich
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * The timeout controls which operation to use on {@link org.apache.camel.PollingConsumer}.      * If timeout is negative, we use<tt>receive</tt>. If timeout is 0 then we use<tt>receiveNoWait</tt>      * otherwise we use<tt>receive(timeout)</tt>.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @param timeout               timeout in millis to wait at most for data to be available.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
@@ -8379,11 +7947,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * The timeout controls which operation to use on {@link org.apache.camel.PollingConsumer}.      * If timeout is negative, we use<tt>receive</tt>. If timeout is 0 then we use<tt>receiveNoWait</tt>      * otherwise we use<tt>receive(timeout)</tt>.      *      * @param expression             to use an expression to dynamically compute the endpoint to poll from      * @param timeout                timeout in millis to wait at most for data to be available.      * @param aggregationStrategyRef Reference of aggregation strategy to aggregate input data and additional data.      * @param aggregateOnException   whether to call {@link AggregationStrategy#aggregate(org.apache.camel.Exchange, org.apache.camel.Exchange)} if      *                               an exception was thrown.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|pollEnrich (@sEndpointUri Expression expression, long timeout, String aggregationStrategyRef, boolean aggregateOnException)
 specifier|public
 name|Type
@@ -8449,10 +8012,8 @@ name|pollEnrich
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * The timeout controls which operation to use on {@link org.apache.camel.PollingConsumer}.      * If timeout is negative, we use<tt>receive</tt>. If timeout is 0 then we use<tt>receiveNoWait</tt>      * otherwise we use<tt>receive(timeout)</tt>.      *      * @return a expression builder clause to set the expression to use for computing the endpoint to poll from      * @see org.apache.camel.processor.PollEnricher      */
@@ -8557,11 +8118,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/data-format.html">DataFormat:</a>      * Unmarshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormatType  the dataformat      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|unmarshal (DataFormatDefinition dataFormatType)
 specifier|public
 name|Type
@@ -8581,10 +8137,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/data-format.html">DataFormat:</a>      * Unmarshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormat  the dataformat      * @return the builder      */
@@ -8658,11 +8212,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/data-format.html">DataFormat:</a>      * Marshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormatType  the dataformat      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|marshal (DataFormatDefinition dataFormatType)
 specifier|public
 name|Type
@@ -8682,10 +8231,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/data-format.html">DataFormat:</a>      * Marshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormat  the dataformat      * @return the builder      */
@@ -8710,11 +8257,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/data-format.html">DataFormat:</a>      * Marshals the in body the specified {@link DataFormat}      * reference in the {@link org.apache.camel.spi.Registry} and sets      * the output on the out message body.      *      * @param dataTypeRef  reference to a {@link DataFormat} to lookup in the registry      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|marshal (String dataTypeRef)
 specifier|public
 name|Type
@@ -8738,18 +8280,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|asType
+argument_list|()
 return|;
 block|}
 comment|/**      * Sets whether or not to inherit the configured error handler.      *<br/>      * The default value is<tt>true</tt>.      *<p/>      * You can use this to disable using the inherited error handler for a given      * DSL such as a load balancer where you want to use a custom error handler strategy.      *      * @param inheritErrorHandler whether to not to inherit the error handler for this node      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|inheritErrorHandler (boolean inheritErrorHandler)
 specifier|public
 name|Type
@@ -8818,6 +8353,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return
+name|asType
+argument_list|()
+return|;
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|asType ()
+name|Type
+name|asType
+parameter_list|()
+block|{
 return|return
 operator|(
 name|Type
