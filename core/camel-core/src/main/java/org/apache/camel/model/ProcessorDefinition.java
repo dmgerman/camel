@@ -3331,7 +3331,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a validation expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination.      * Otherwise a {@link org.apache.camel.processor.validation.PredicateValidationException} is thrown.      *      * @param expression  the expression      * @return the builder      */
+comment|/**      * Creates a validation expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination.      * Otherwise a {@link org.apache.camel.support.processor.validation.PredicateValidationException} is thrown.      *      * @param expression  the expression      * @return the builder      */
 DECL|method|validate (@sPredicate Expression expression)
 specifier|public
 name|ValidateDefinition
@@ -3361,7 +3361,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a validation expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination.      * Otherwise a {@link org.apache.camel.processor.validation.PredicateValidationException} is thrown.      *      * @param predicate  the predicate      * @return the builder      */
+comment|/**      * Creates a validation expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination.      * Otherwise a {@link org.apache.camel.support.processor.validation.PredicateValidationException} is thrown.      *      * @param predicate  the predicate      * @return the builder      */
 DECL|method|validate (@sPredicate Predicate predicate)
 specifier|public
 name|ValidateDefinition
@@ -3391,7 +3391,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a validation expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination.      * Otherwise a {@link org.apache.camel.processor.validation.PredicateValidationException} is thrown.      *      * @return the builder      */
+comment|/**      * Creates a validation expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination.      * Otherwise a {@link org.apache.camel.support.processor.validation.PredicateValidationException} is thrown.      *      * @return the builder      */
 annotation|@
 name|AsPredicate
 DECL|method|validate ()
