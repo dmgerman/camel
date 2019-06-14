@@ -360,7 +360,7 @@ name|uri
 init|=
 name|from
 operator|.
-name|getUri
+name|getEndpointUri
 argument_list|()
 decl_stmt|;
 comment|// we want to use the context-path of the route
@@ -643,7 +643,7 @@ name|uri
 init|=
 name|from
 operator|.
-name|getUri
+name|getEndpointUri
 argument_list|()
 decl_stmt|;
 name|String

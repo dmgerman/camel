@@ -209,6 +209,23 @@ name|String
 name|ref
 parameter_list|)
 function_decl|;
+comment|/**      * Resolves an endpoint from the scheme, path and properties      *      * @param uri        the URI scheme      * @param properties the endpoint properties      * @return the resolved endpoint      */
+DECL|method|resolveEndpoint (String uri, Map<String, Object> properties)
+name|Endpoint
+name|resolveEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|properties
+parameter_list|)
+function_decl|;
 comment|/**      * lookup an object by name and type      *      * @param name  the name to lookup      * @param type  the expected type      * @return the found object      */
 DECL|method|lookup (String name, Class<T> type)
 parameter_list|<

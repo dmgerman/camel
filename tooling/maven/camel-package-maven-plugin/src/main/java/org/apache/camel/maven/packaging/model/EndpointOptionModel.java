@@ -80,6 +80,11 @@ specifier|private
 name|String
 name|group
 decl_stmt|;
+DECL|field|label
+specifier|private
+name|String
+name|label
+decl_stmt|;
 DECL|field|required
 specifier|private
 name|String
@@ -248,6 +253,32 @@ operator|.
 name|group
 operator|=
 name|group
+expr_stmt|;
+block|}
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+name|label
+return|;
+block|}
+DECL|method|setLabel (String label)
+specifier|public
+name|void
+name|setLabel
+parameter_list|(
+name|String
+name|label
+parameter_list|)
+block|{
+name|this
+operator|.
+name|label
+operator|=
+name|label
 expr_stmt|;
 block|}
 DECL|method|getRequired ()

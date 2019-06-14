@@ -1035,6 +1035,28 @@ name|File
 name|dir
 parameter_list|)
 block|{
+return|return
+name|findCamelDirectory
+argument_list|(
+name|dir
+argument_list|,
+literal|"core/camel-core"
+argument_list|)
+return|;
+block|}
+DECL|method|findCamelDirectory (File dir, String path)
+specifier|public
+specifier|static
+name|File
+name|findCamelDirectory
+parameter_list|(
+name|File
+name|dir
+parameter_list|,
+name|String
+name|path
+parameter_list|)
+block|{
 if|if
 condition|(
 name|dir
@@ -1056,7 +1078,7 @@ argument_list|()
 operator|.
 name|resolve
 argument_list|(
-literal|"core/camel-core"
+name|path
 argument_list|)
 decl_stmt|;
 if|if
@@ -1080,12 +1102,14 @@ else|else
 block|{
 comment|// okay walk up the parent dir
 return|return
-name|findCamelCoreDirectory
+name|findCamelDirectory
 argument_list|(
 name|dir
 operator|.
 name|getParentFile
 argument_list|()
+argument_list|,
+name|path
 argument_list|)
 return|;
 block|}

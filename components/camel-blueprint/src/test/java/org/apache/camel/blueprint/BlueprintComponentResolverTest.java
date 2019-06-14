@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -381,6 +391,35 @@ name|createEndpoint
 parameter_list|(
 name|String
 name|uri
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Should not be called"
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|Override
+DECL|method|createEndpoint (String uri, Map<String, Object> parameters)
+specifier|public
+name|Endpoint
+name|createEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
 parameter_list|)
 throws|throws
 name|Exception

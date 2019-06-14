@@ -76,6 +76,10 @@ DECL|field|returnType
 name|GenericType
 name|returnType
 decl_stmt|;
+DECL|field|isDefault
+name|boolean
+name|isDefault
+decl_stmt|;
 DECL|field|isPublic
 name|boolean
 name|isPublic
@@ -139,6 +143,20 @@ name|setPublic
 parameter_list|()
 block|{
 name|isPublic
+operator|=
+literal|true
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|setDefault ()
+specifier|public
+name|Method
+name|setDefault
+parameter_list|()
+block|{
+name|isDefault
 operator|=
 literal|true
 expr_stmt|;

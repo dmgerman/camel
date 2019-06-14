@@ -106,6 +106,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|EndpointConsumerBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Metadata
@@ -171,6 +185,13 @@ specifier|private
 name|Endpoint
 name|endpoint
 decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|endpointConsumerBuilder
+specifier|private
+name|EndpointConsumerBuilder
+name|endpointConsumerBuilder
+decl_stmt|;
 DECL|method|FromDefinition ()
 specifier|public
 name|FromDefinition
@@ -201,6 +222,20 @@ block|{
 name|setEndpoint
 argument_list|(
 name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|FromDefinition (EndpointConsumerBuilder endpointConsumerBuilder)
+specifier|public
+name|FromDefinition
+parameter_list|(
+name|EndpointConsumerBuilder
+name|endpointConsumerBuilder
+parameter_list|)
+block|{
+name|setEndpointConsumerBuilder
+argument_list|(
+name|endpointConsumerBuilder
 argument_list|)
 expr_stmt|;
 block|}
@@ -241,15 +276,20 @@ name|String
 name|getLabel
 parameter_list|()
 block|{
+name|String
+name|uri
+init|=
+name|getEndpointUri
+argument_list|()
+decl_stmt|;
 return|return
-name|description
-argument_list|(
-name|getUri
-argument_list|()
-argument_list|,
-name|getEndpoint
-argument_list|()
-argument_list|)
+name|uri
+operator|!=
+literal|null
+condition|?
+name|uri
+else|:
+literal|"no uri supplied"
 return|;
 block|}
 annotation|@
@@ -258,19 +298,6 @@ DECL|method|getEndpointUri ()
 specifier|public
 name|String
 name|getEndpointUri
-parameter_list|()
-block|{
-return|return
-name|getUri
-argument_list|()
-return|;
-block|}
-comment|// Properties
-comment|// -----------------------------------------------------------------------
-DECL|method|getUri ()
-specifier|public
-name|String
-name|getUri
 parameter_list|()
 block|{
 if|if
@@ -299,12 +326,39 @@ name|getEndpointUri
 argument_list|()
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|endpointConsumerBuilder
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|endpointConsumerBuilder
+operator|.
+name|getUri
+argument_list|()
+return|;
+block|}
 else|else
 block|{
 return|return
 literal|null
 return|;
 block|}
+block|}
+comment|// Properties
+comment|// -----------------------------------------------------------------------
+DECL|method|getUri ()
+specifier|public
+name|String
+name|getUri
+parameter_list|()
+block|{
+return|return
+name|uri
+return|;
 block|}
 comment|/**      * Sets the URI of the endpoint to use      *      * @param uri the endpoint URI to use      */
 DECL|method|setUri (String uri)
@@ -326,7 +380,7 @@ operator|=
 name|uri
 expr_stmt|;
 block|}
-comment|/**      * Gets tne endpoint if an {@link Endpoint} instance was set.      *<p/>      * This implementation may return<tt>null</tt> which means you need to use      * {@link #getUri()} to get information about the endpoint.      *      * @return the endpoint instance, or<tt>null</tt>      */
+comment|/**      * Gets tne endpoint if an {@link Endpoint} instance was set.      *<p/>      * This implementation may return<tt>null</tt> which means you need to use      * {@link #getEndpointUri()} to get information about the endpoint.      *      * @return the endpoint instance, or<tt>null</tt>      */
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
@@ -346,90 +400,59 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
-expr_stmt|;
-name|this
-operator|.
-name|uri
-operator|=
-literal|null
-expr_stmt|;
-if|if
-condition|(
-name|endpoint
-operator|!=
-literal|null
-condition|)
-block|{
-name|this
-operator|.
-name|uri
-operator|=
-name|endpoint
-operator|.
-name|getEndpointUri
+name|clear
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
+expr_stmt|;
 block|}
+DECL|method|getEndpointConsumerBuilder ()
+specifier|public
+name|EndpointConsumerBuilder
+name|getEndpointConsumerBuilder
+parameter_list|()
+block|{
+return|return
+name|endpointConsumerBuilder
+return|;
+block|}
+DECL|method|setEndpointConsumerBuilder (EndpointConsumerBuilder endpointConsumerBuilder)
+specifier|public
+name|void
+name|setEndpointConsumerBuilder
+parameter_list|(
+name|EndpointConsumerBuilder
+name|endpointConsumerBuilder
+parameter_list|)
+block|{
+name|clear
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|endpointConsumerBuilder
+operator|=
+name|endpointConsumerBuilder
+expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------
-DECL|method|description (String uri, Endpoint endpoint)
-specifier|protected
-specifier|static
-name|String
-name|description
-parameter_list|(
-name|String
-name|uri
-parameter_list|,
-name|Endpoint
-name|endpoint
-parameter_list|)
-block|{
-if|if
-condition|(
-name|endpoint
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|uri
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|uri
-return|;
-block|}
-else|else
-block|{
-return|return
-literal|"no uri or ref supplied!"
-return|;
-block|}
-block|}
 DECL|method|clear ()
 specifier|protected
 name|void
 name|clear
 parameter_list|()
 block|{
+name|this
+operator|.
+name|endpointConsumerBuilder
+operator|=
+literal|null
+expr_stmt|;
 name|this
 operator|.
 name|endpoint

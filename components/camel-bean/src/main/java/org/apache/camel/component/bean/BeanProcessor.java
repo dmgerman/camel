@@ -448,6 +448,19 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|delegate
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
 DECL|class|DelegateBeanProcessor
 specifier|private
 specifier|static

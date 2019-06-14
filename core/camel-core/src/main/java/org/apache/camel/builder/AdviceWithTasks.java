@@ -2673,7 +2673,7 @@ literal|"AdviceWith replace input from [{}] --> [{}]"
 argument_list|,
 name|from
 operator|.
-name|getUri
+name|getEndpointUri
 argument_list|()
 argument_list|,
 name|uri
@@ -2740,7 +2740,7 @@ literal|"AdviceWith replace input from [{}] --> [{}]"
 argument_list|,
 name|from
 operator|.
-name|getUri
+name|getEndpointUri
 argument_list|()
 argument_list|,
 name|endpoint

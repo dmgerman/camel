@@ -180,6 +180,7 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|enum|BoundType
+specifier|public
 enum|enum
 name|BoundType
 block|{

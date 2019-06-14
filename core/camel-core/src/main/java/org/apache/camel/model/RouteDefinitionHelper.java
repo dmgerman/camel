@@ -741,7 +741,7 @@ operator|.
 name|getInput
 argument_list|()
 operator|.
-name|getUri
+name|getEndpointUri
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1004,7 +1004,7 @@ operator|.
 name|getInput
 argument_list|()
 operator|.
-name|getUri
+name|getEndpointUri
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2742,7 +2742,7 @@ operator|.
 name|getInput
 argument_list|()
 operator|.
-name|getUri
+name|getEndpointUri
 argument_list|()
 decl_stmt|;
 comment|// if the pattern is not a ref itself, then resolve the ref uris, so we can match the actual uri's with each other

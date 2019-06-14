@@ -891,6 +891,23 @@ name|String
 name|uri
 parameter_list|)
 function_decl|;
+comment|/**      * Resolves the given name to an {@link Endpoint} of the specified type.      * If the name has a singleton endpoint registered, then the singleton is returned.      * Otherwise, a new {@link Endpoint} is created and registered in the {@link org.apache.camel.spi.EndpointRegistry}.      *      * @param uri the URI of the endpoint      * @param parameters the parameters to customize the endpoint      * @return the endpoint      */
+DECL|method|getEndpoint (String uri, Map<String, Object> parameters)
+name|Endpoint
+name|getEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+parameter_list|)
+function_decl|;
 comment|/**      * Resolves the given name to an {@link Endpoint} of the specified type.      * If the name has a singleton endpoint registered, then the singleton is returned.      * Otherwise, a new {@link Endpoint} is created and registered in the {@link org.apache.camel.spi.EndpointRegistry}.      *      * @param name         the name of the endpoint      * @param endpointType the expected type      * @return the endpoint      */
 DECL|method|getEndpoint (String name, Class<T> endpointType)
 parameter_list|<

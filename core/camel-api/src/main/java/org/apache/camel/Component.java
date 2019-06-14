@@ -40,6 +40,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Optional
 import|;
 end_import
@@ -79,6 +89,25 @@ name|createEndpoint
 parameter_list|(
 name|String
 name|uri
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Attempt to resolve an endpoint for the given URI if the component is      * capable of handling the URI.      *<p/>      * See {@link #useRawUri()} for controlling whether the passed in uri      * should be as-is (raw), or encoded (default).      *      * @param uri the URI to create; either raw or encoded (default)      * @param parameters the parameters for the endpoint      * @return a newly created {@link Endpoint} or null if this component cannot create      *         {@link Endpoint} instances using the given uri      * @throws Exception is thrown if error creating the endpoint      * @see #useRawUri()      */
+DECL|method|createEndpoint (String uri, Map<String, Object> parameters)
+name|Endpoint
+name|createEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
 parameter_list|)
 throws|throws
 name|Exception

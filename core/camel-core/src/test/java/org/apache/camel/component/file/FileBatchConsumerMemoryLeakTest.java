@@ -120,7 +120,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/data/filesorter/"
+literal|"target/data/filesorter/"
 decl_stmt|;
 annotation|@
 name|Override
@@ -238,9 +238,11 @@ name|Exception
 block|{
 name|from
 argument_list|(
+literal|"file:"
+operator|+
 name|fileUrl
 operator|+
-literal|"c/?sortBy=ignoreCase:file:name"
+literal|"/c/?sortBy=ignoreCase:file:name"
 argument_list|)
 operator|.
 name|process

@@ -141,7 +141,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer://foo?delay=-1&period=0&repeatCount=10"
+literal|"timer:foo?delay=-1&period=0&repeatCount=10"
 argument_list|)
 operator|.
 name|noAutoStartup

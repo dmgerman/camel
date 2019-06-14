@@ -225,7 +225,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/data/files/?initialDelay=0&delay=10&fileName=report.txt&delete=true&charset=UTF-8"
+literal|"file:target/data/files/?initialDelay=0&delay=10&fileName=report.txt&delete=true&charset=UTF-8"
 argument_list|)
 operator|.
 name|convertBodyTo

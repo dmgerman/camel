@@ -102,6 +102,24 @@ name|Collectors
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|jboss
+operator|.
+name|forge
+operator|.
+name|roaster
+operator|.
+name|model
+operator|.
+name|util
+operator|.
+name|Strings
+import|;
+end_import
+
 begin_class
 DECL|class|JavaClass
 specifier|public
@@ -129,6 +147,18 @@ name|String
 name|extendsName
 init|=
 literal|"java.lang.Object"
+decl_stmt|;
+DECL|field|implementNames
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|implementNames
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
 decl_stmt|;
 DECL|field|imports
 name|List
@@ -196,6 +226,18 @@ argument_list|<
 name|JavaClass
 argument_list|>
 name|nested
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+decl_stmt|;
+DECL|field|values
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|values
 init|=
 operator|new
 name|ArrayList
@@ -273,6 +315,37 @@ operator|=
 name|parent
 expr_stmt|;
 block|}
+DECL|method|getClassLoader ()
+specifier|protected
+name|ClassLoader
+name|getClassLoader
+parameter_list|()
+block|{
+if|if
+condition|(
+name|classLoader
+operator|==
+literal|null
+operator|&&
+name|parent
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|parent
+operator|.
+name|getClassLoader
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+return|return
+name|classLoader
+return|;
+block|}
+block|}
 DECL|method|setStatic (boolean aStatic)
 specifier|public
 name|JavaClass
@@ -324,6 +397,16 @@ literal|false
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+DECL|method|getPackage ()
+specifier|public
+name|String
+name|getPackage
+parameter_list|()
+block|{
+return|return
+name|packageName
 return|;
 block|}
 DECL|method|setPackage (String packageName)
@@ -457,6 +540,28 @@ return|return
 name|extendsName
 return|;
 block|}
+DECL|method|implementInterface (String implementName)
+specifier|public
+name|JavaClass
+name|implementInterface
+parameter_list|(
+name|String
+name|implementName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|implementNames
+operator|.
+name|add
+argument_list|(
+name|implementName
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|getImports ()
 specifier|public
 name|List
@@ -564,7 +669,8 @@ name|?
 argument_list|>
 name|cl
 init|=
-name|classLoader
+name|getClassLoader
+argument_list|()
 operator|.
 name|loadClass
 argument_list|(
@@ -690,7 +796,8 @@ name|parse
 argument_list|(
 name|type
 argument_list|,
-name|classLoader
+name|getClassLoader
+argument_list|()
 argument_list|)
 argument_list|,
 name|name
@@ -707,7 +814,13 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unable to parse type"
+literal|"Unable to parse type "
+operator|+
+name|type
+operator|+
+literal|" for property "
+operator|+
+name|name
 argument_list|,
 name|e
 argument_list|)
@@ -831,6 +944,23 @@ expr_stmt|;
 return|return
 name|clazz
 return|;
+block|}
+DECL|method|addValue (String value)
+specifier|public
+name|void
+name|addValue
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+name|values
+operator|.
+name|add
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|isClass ()
 specifier|public
@@ -1172,6 +1302,90 @@ argument_list|,
 name|annotations
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isEnum
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+name|indent
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|isPublic
+condition|?
+literal|"public "
+else|:
+literal|""
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|isStatic
+condition|?
+literal|"static "
+else|:
+literal|""
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"enum "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|name
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|" {\n"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|indent
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"    "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|Strings
+operator|.
+name|join
+argument_list|(
+name|values
+argument_list|,
+literal|", "
+argument_list|)
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|";\n"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|indent
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"}"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|StringBuilder
 name|sb2
 init|=
@@ -1216,7 +1430,11 @@ name|sb2
 operator|.
 name|append
 argument_list|(
+name|isClass
+condition|?
 literal|"class "
+else|:
+literal|"interface "
 argument_list|)
 operator|.
 name|append
@@ -1249,6 +1467,39 @@ operator|.
 name|append
 argument_list|(
 name|extendsName
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|implementNames
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|sb2
+operator|.
+name|append
+argument_list|(
+name|isClass
+condition|?
+literal|" implements "
+else|:
+literal|" extends "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|Strings
+operator|.
+name|join
+argument_list|(
+name|implementNames
+argument_list|,
+literal|", "
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1321,7 +1572,11 @@ name|sb
 operator|.
 name|append
 argument_list|(
+name|isClass
+condition|?
 literal|"class "
+else|:
+literal|"interface "
 argument_list|)
 operator|.
 name|append
@@ -1378,6 +1633,63 @@ operator|.
 name|append
 argument_list|(
 name|extendsName
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|implementNames
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|indent
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|isClass
+condition|?
+literal|"        implements\n"
+else|:
+literal|"        extends\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|indent
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"            "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|Strings
+operator|.
+name|join
+argument_list|(
+name|implementNames
+argument_list|,
+literal|", "
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2113,6 +2425,21 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|method
+operator|.
+name|isDefault
+condition|)
+block|{
+name|sb2
+operator|.
+name|append
+argument_list|(
+literal|"default "
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 operator|!
 name|method
 operator|.
@@ -2308,6 +2635,21 @@ operator|.
 name|append
 argument_list|(
 literal|"public "
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|method
+operator|.
+name|isDefault
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"default "
 argument_list|)
 expr_stmt|;
 block|}

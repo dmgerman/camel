@@ -246,7 +246,7 @@ literal|"common"
 argument_list|,
 name|javaType
 operator|=
-literal|"String"
+literal|"java.lang.String"
 argument_list|)
 DECL|field|topics
 specifier|private
