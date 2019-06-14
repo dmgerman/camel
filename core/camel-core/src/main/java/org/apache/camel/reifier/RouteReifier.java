@@ -180,7 +180,7 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|RouteBuilder
+name|EndpointConsumerBuilder
 import|;
 end_import
 
@@ -194,7 +194,7 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|EndpointConsumerBuilder
+name|RouteBuilder
 import|;
 end_import
 
