@@ -589,6 +589,16 @@ name|exchange
 parameter_list|)
 block|{
 comment|// filter non matching exchanges
+if|if
+condition|(
+name|exchange
+operator|.
+name|getFromEndpoint
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 name|EndpointHelper
 operator|.
@@ -607,6 +617,13 @@ argument_list|,
 name|endpointUri
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 specifier|public
 name|boolean
@@ -798,6 +815,13 @@ comment|// emit events when the consumer received the exchange, as its already d
 comment|// ProducerTemplate which creates the UoW before producing messages.
 if|if
 condition|(
+name|exchange
+operator|.
+name|getFromEndpoint
+argument_list|()
+operator|!=
+literal|null
+operator|&&
 name|exchange
 operator|.
 name|getFromEndpoint
