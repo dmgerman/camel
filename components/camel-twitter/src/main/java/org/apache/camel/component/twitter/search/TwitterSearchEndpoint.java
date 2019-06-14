@@ -186,7 +186,7 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"The search keywords. Multiple values can be separated with comma."
+literal|"The search query, use the keywords AND, OR, - and () to narrow the search results."
 argument_list|)
 annotation|@
 name|Metadata
