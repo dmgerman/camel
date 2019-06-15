@@ -1142,6 +1142,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * This will discover all the properties on the target which are interfaces, and automatic attempt to bind the properties that are null by      * doing classpath scanning to find if there is a just only one class that implements the interface, and then attempt to create a new instance      * of this class. This is used for convention over configuration to automatic configure resources such as DataSource, Amazon Logins and      * so on.      *      * @param camelContext  the camel context      * @param target        the target object      * @param bindNullOnly  whether to only autowire if the property has no default value or has not been configured explicit      * @param deepNesting   whether to attempt to walk as deep down the object graph by creating new empty objects on the way if needed (Camel can only create      *                      new empty objects if they have a default no-arg constructor, also mind that this may lead to creating many empty objects, even      *                      if they will not have any objects autowired from the registry, so use this with caution)      * @param callback      optional callback when a property was auto wired      * @return              true if one ore more properties was auto wired      */
+annotation|@
+name|Deprecated
 DECL|method|autowireInterfacePropertiesFromClasspath (CamelContext camelContext, Object target, boolean bindNullOnly, boolean deepNesting, OnAutowiring callback)
 specifier|public
 specifier|static
@@ -1222,6 +1224,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|doAutowireInterfacePropertiesFromClasspath (CamelContext camelContext, Object target, Set<Object> parents, boolean bindNullOnly, boolean deepNesting, OnAutowiring callback)
 specifier|private
 specifier|static
