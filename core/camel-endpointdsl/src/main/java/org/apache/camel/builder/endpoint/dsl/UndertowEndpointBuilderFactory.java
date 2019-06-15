@@ -158,7 +158,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointConsumerBuilder
 name|advanced
@@ -173,7 +172,6 @@ return|;
 block|}
 comment|/**          * The url of the HTTP endpoint to use.          * The option is a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|httpURI (URI httpURI)
-specifier|public
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|httpURI
@@ -195,7 +193,6 @@ return|;
 block|}
 comment|/**          * The url of the HTTP endpoint to use.          * The option will be converted to a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|httpURI (String httpURI)
-specifier|public
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|httpURI
@@ -216,8 +213,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether or not the consumer should write access log.          * The option is a<code>java.lang.Boolean</code> type.          * @group consumer          */
-DECL|method|accessLog ( Boolean accessLog)
-specifier|public
+DECL|method|accessLog (Boolean accessLog)
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|accessLog
@@ -238,8 +234,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether or not the consumer should write access log.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group consumer          */
-DECL|method|accessLog ( String accessLog)
-specifier|public
+DECL|method|accessLog (String accessLog)
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|accessLog
@@ -261,7 +256,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -283,7 +277,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -305,7 +298,6 @@ return|;
 block|}
 comment|/**          * Used to only allow consuming if the HttpMethod matches, such as          * GET/POST/PUT etc. Multiple methods can be specified separated by          * comma.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|httpMethodRestrict ( String httpMethodRestrict)
-specifier|public
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|httpMethodRestrict
@@ -327,7 +319,6 @@ return|;
 block|}
 comment|/**          * Whether or not the consumer should try to find a target consumer by          * matching the URI prefix if no exact match is found.          * The option is a<code>java.lang.Boolean</code> type.          * @group consumer          */
 DECL|method|matchOnUriPrefix ( Boolean matchOnUriPrefix)
-specifier|public
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|matchOnUriPrefix
@@ -349,7 +340,6 @@ return|;
 block|}
 comment|/**          * Whether or not the consumer should try to find a target consumer by          * matching the URI prefix if no exact match is found.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group consumer          */
 DECL|method|matchOnUriPrefix ( String matchOnUriPrefix)
-specifier|public
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|matchOnUriPrefix
@@ -371,7 +361,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to enable HTTP OPTIONS for this Servlet consumer.          * By default OPTIONS is turned off.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|optionsEnabled ( boolean optionsEnabled)
-specifier|public
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|optionsEnabled
@@ -393,7 +382,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to enable HTTP OPTIONS for this Servlet consumer.          * By default OPTIONS is turned off.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|optionsEnabled ( String optionsEnabled)
-specifier|public
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|optionsEnabled
@@ -415,7 +403,6 @@ return|;
 block|}
 comment|/**          * if true, the consumer will post notifications to the route when a new          * WebSocket peer connects, disconnects, etc. See          * UndertowConstants.EVENT_TYPE and EventType.          * The option is a<code>boolean</code> type.          * @group websocket          */
 DECL|method|fireWebSocketChannelEvents ( boolean fireWebSocketChannelEvents)
-specifier|public
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|fireWebSocketChannelEvents
@@ -437,7 +424,6 @@ return|;
 block|}
 comment|/**          * if true, the consumer will post notifications to the route when a new          * WebSocket peer connects, disconnects, etc. See          * UndertowConstants.EVENT_TYPE and EventType.          * The option will be converted to a<code>boolean</code> type.          * @group websocket          */
 DECL|method|fireWebSocketChannelEvents ( String fireWebSocketChannelEvents)
-specifier|public
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|fireWebSocketChannelEvents
@@ -459,7 +445,6 @@ return|;
 block|}
 comment|/**          * if true, text and binary messages coming through a WebSocket will be          * wrapped as java.io.Reader and java.io.InputStream respectively before          * they are passed to an Exchange; otherwise they will be passed as          * String and byte respectively.          * The option is a<code>boolean</code> type.          * @group websocket          */
 DECL|method|useStreaming ( boolean useStreaming)
-specifier|public
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|useStreaming
@@ -480,8 +465,7 @@ name|this
 return|;
 block|}
 comment|/**          * if true, text and binary messages coming through a WebSocket will be          * wrapped as java.io.Reader and java.io.InputStream respectively before          * they are passed to an Exchange; otherwise they will be passed as          * String and byte respectively.          * The option will be converted to a<code>boolean</code> type.          * @group websocket          */
-DECL|method|useStreaming ( String useStreaming)
-specifier|public
+DECL|method|useStreaming (String useStreaming)
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|useStreaming
@@ -503,7 +487,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|sslContextParameters
@@ -525,7 +508,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|sslContextParameters
@@ -555,7 +537,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|basic
@@ -570,7 +551,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointConsumerBuilder
 name|exceptionHandler
@@ -592,7 +572,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointConsumerBuilder
 name|exceptionHandler
@@ -614,7 +593,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointConsumerBuilder
 name|exchangePattern
@@ -636,7 +614,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointConsumerBuilder
 name|exchangePattern
@@ -658,7 +635,6 @@ return|;
 block|}
 comment|/**          * Which Undertow AccessLogReciever should be used Will use          * JBossLoggingAccessLogReceiver if not specifid.          * The option is a          *<code>io.undertow.server.handlers.accesslog.AccessLogReceiver</code>          * type.          * @group advanced          */
 DECL|method|accessLogReceiver ( Object accessLogReceiver)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointConsumerBuilder
 name|accessLogReceiver
@@ -680,7 +656,6 @@ return|;
 block|}
 comment|/**          * Which Undertow AccessLogReciever should be used Will use          * JBossLoggingAccessLogReceiver if not specifid.          * The option will be converted to a          *<code>io.undertow.server.handlers.accesslog.AccessLogReceiver</code>          * type.          * @group advanced          */
 DECL|method|accessLogReceiver ( String accessLogReceiver)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointConsumerBuilder
 name|accessLogReceiver
@@ -702,7 +677,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -724,7 +698,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -746,7 +719,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointConsumerBuilder
 name|headerFilterStrategy
@@ -768,7 +740,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointConsumerBuilder
 name|headerFilterStrategy
@@ -790,7 +761,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointConsumerBuilder
 name|synchronous
@@ -812,7 +782,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointConsumerBuilder
 name|synchronous
@@ -834,7 +803,6 @@ return|;
 block|}
 comment|/**          * To use a custom UndertowHttpBinding to control the mapping between          * Camel message and undertow.          * The option is a          *<code>org.apache.camel.component.undertow.UndertowHttpBinding</code>          * type.          * @group advanced          */
 DECL|method|undertowHttpBinding ( Object undertowHttpBinding)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointConsumerBuilder
 name|undertowHttpBinding
@@ -856,7 +824,6 @@ return|;
 block|}
 comment|/**          * To use a custom UndertowHttpBinding to control the mapping between          * Camel message and undertow.          * The option will be converted to a          *<code>org.apache.camel.component.undertow.UndertowHttpBinding</code>          * type.          * @group advanced          */
 DECL|method|undertowHttpBinding ( String undertowHttpBinding)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointConsumerBuilder
 name|undertowHttpBinding
@@ -887,7 +854,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointProducerBuilder
 name|advanced
@@ -902,7 +868,6 @@ return|;
 block|}
 comment|/**          * The url of the HTTP endpoint to use.          * The option is a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|httpURI (URI httpURI)
-specifier|public
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|httpURI
@@ -924,7 +889,6 @@ return|;
 block|}
 comment|/**          * The url of the HTTP endpoint to use.          * The option will be converted to a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|httpURI (String httpURI)
-specifier|public
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|httpURI
@@ -946,7 +910,6 @@ return|;
 block|}
 comment|/**          * Configure a cookie handler to maintain a HTTP session.          * The option is a          *<code>org.apache.camel.http.common.cookie.CookieHandler</code> type.          * @group producer          */
 DECL|method|cookieHandler ( Object cookieHandler)
-specifier|public
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|cookieHandler
@@ -968,7 +931,6 @@ return|;
 block|}
 comment|/**          * Configure a cookie handler to maintain a HTTP session.          * The option will be converted to a          *<code>org.apache.camel.http.common.cookie.CookieHandler</code> type.          * @group producer          */
 DECL|method|cookieHandler ( String cookieHandler)
-specifier|public
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|cookieHandler
@@ -989,8 +951,7 @@ name|this
 return|;
 block|}
 comment|/**          * Setting to ensure socket is not closed due to inactivity.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
-DECL|method|keepAlive ( Boolean keepAlive)
-specifier|public
+DECL|method|keepAlive (Boolean keepAlive)
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|keepAlive
@@ -1011,8 +972,7 @@ name|this
 return|;
 block|}
 comment|/**          * Setting to ensure socket is not closed due to inactivity.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
-DECL|method|keepAlive ( String keepAlive)
-specifier|public
+DECL|method|keepAlive (String keepAlive)
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|keepAlive
@@ -1034,7 +994,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|lazyStartProducer
@@ -1056,7 +1015,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|lazyStartProducer
@@ -1078,7 +1036,6 @@ return|;
 block|}
 comment|/**          * Sets additional channel options. The options that can be used are          * defined in org.xnio.Options. To configure from endpoint uri, then          * prefix each option with option., such as          * option.close-abort=true&option.send-buffer=8192.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group producer          */
 DECL|method|options ( Map<String, Object> options)
-specifier|public
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|options
@@ -1105,7 +1062,6 @@ return|;
 block|}
 comment|/**          * Sets additional channel options. The options that can be used are          * defined in org.xnio.Options. To configure from endpoint uri, then          * prefix each option with option., such as          * option.close-abort=true&option.send-buffer=8192.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group producer          */
 DECL|method|options (String options)
-specifier|public
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|options
@@ -1127,7 +1083,6 @@ return|;
 block|}
 comment|/**          * Setting to facilitate socket multiplexing.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
 DECL|method|reuseAddresses ( Boolean reuseAddresses)
-specifier|public
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|reuseAddresses
@@ -1149,7 +1104,6 @@ return|;
 block|}
 comment|/**          * Setting to facilitate socket multiplexing.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
 DECL|method|reuseAddresses ( String reuseAddresses)
-specifier|public
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|reuseAddresses
@@ -1170,8 +1124,7 @@ name|this
 return|;
 block|}
 comment|/**          * Setting to improve TCP protocol performance.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
-DECL|method|tcpNoDelay ( Boolean tcpNoDelay)
-specifier|public
+DECL|method|tcpNoDelay (Boolean tcpNoDelay)
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|tcpNoDelay
@@ -1192,8 +1145,7 @@ name|this
 return|;
 block|}
 comment|/**          * Setting to improve TCP protocol performance.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
-DECL|method|tcpNoDelay ( String tcpNoDelay)
-specifier|public
+DECL|method|tcpNoDelay (String tcpNoDelay)
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|tcpNoDelay
@@ -1215,7 +1167,6 @@ return|;
 block|}
 comment|/**          * Option to disable throwing the HttpOperationFailedException in case          * of failed responses from the remote server. This allows you to get          * all responses regardless of the HTTP status code.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
 DECL|method|throwExceptionOnFailure ( Boolean throwExceptionOnFailure)
-specifier|public
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|throwExceptionOnFailure
@@ -1237,7 +1188,6 @@ return|;
 block|}
 comment|/**          * Option to disable throwing the HttpOperationFailedException in case          * of failed responses from the remote server. This allows you to get          * all responses regardless of the HTTP status code.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
 DECL|method|throwExceptionOnFailure ( String throwExceptionOnFailure)
-specifier|public
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|throwExceptionOnFailure
@@ -1259,7 +1209,6 @@ return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side and          * if the caused Exception was send back serialized in the response as a          * application/x-java-serialized-object content type. On the producer          * side the exception will be deserialized and thrown as is instead of          * the HttpOperationFailedException. The caused exception is required to          * be serialized. This is by default turned off. If you enable this then          * be aware that Java will deserialize the incoming data from the          * request to Java and that can be a potential security risk.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
 DECL|method|transferException ( Boolean transferException)
-specifier|public
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|transferException
@@ -1281,7 +1230,6 @@ return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side and          * if the caused Exception was send back serialized in the response as a          * application/x-java-serialized-object content type. On the producer          * side the exception will be deserialized and thrown as is instead of          * the HttpOperationFailedException. The caused exception is required to          * be serialized. This is by default turned off. If you enable this then          * be aware that Java will deserialize the incoming data from the          * request to Java and that can be a potential security risk.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
 DECL|method|transferException ( String transferException)
-specifier|public
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|transferException
@@ -1302,8 +1250,7 @@ name|this
 return|;
 block|}
 comment|/**          * Timeout in milliseconds when sending to a websocket channel. The          * default timeout is 30000 (30 seconds).          * The option is a<code>java.lang.Integer</code> type.          * @group websocket          */
-DECL|method|sendTimeout ( Integer sendTimeout)
-specifier|public
+DECL|method|sendTimeout (Integer sendTimeout)
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|sendTimeout
@@ -1324,8 +1271,7 @@ name|this
 return|;
 block|}
 comment|/**          * Timeout in milliseconds when sending to a websocket channel. The          * default timeout is 30000 (30 seconds).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group websocket          */
-DECL|method|sendTimeout ( String sendTimeout)
-specifier|public
+DECL|method|sendTimeout (String sendTimeout)
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|sendTimeout
@@ -1346,8 +1292,7 @@ name|this
 return|;
 block|}
 comment|/**          * To send to all websocket subscribers. Can be used to configure on          * endpoint level, instead of having to use the          * UndertowConstants.SEND_TO_ALL header on the message.          * The option is a<code>java.lang.Boolean</code> type.          * @group websocket          */
-DECL|method|sendToAll ( Boolean sendToAll)
-specifier|public
+DECL|method|sendToAll (Boolean sendToAll)
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|sendToAll
@@ -1368,8 +1313,7 @@ name|this
 return|;
 block|}
 comment|/**          * To send to all websocket subscribers. Can be used to configure on          * endpoint level, instead of having to use the          * UndertowConstants.SEND_TO_ALL header on the message.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group websocket          */
-DECL|method|sendToAll ( String sendToAll)
-specifier|public
+DECL|method|sendToAll (String sendToAll)
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|sendToAll
@@ -1391,7 +1335,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|sslContextParameters
@@ -1413,7 +1356,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|sslContextParameters
@@ -1443,7 +1385,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|UndertowEndpointProducerBuilder
 name|basic
@@ -1458,7 +1399,6 @@ return|;
 block|}
 comment|/**          * Which Undertow AccessLogReciever should be used Will use          * JBossLoggingAccessLogReceiver if not specifid.          * The option is a          *<code>io.undertow.server.handlers.accesslog.AccessLogReceiver</code>          * type.          * @group advanced          */
 DECL|method|accessLogReceiver ( Object accessLogReceiver)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointProducerBuilder
 name|accessLogReceiver
@@ -1480,7 +1420,6 @@ return|;
 block|}
 comment|/**          * Which Undertow AccessLogReciever should be used Will use          * JBossLoggingAccessLogReceiver if not specifid.          * The option will be converted to a          *<code>io.undertow.server.handlers.accesslog.AccessLogReceiver</code>          * type.          * @group advanced          */
 DECL|method|accessLogReceiver ( String accessLogReceiver)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointProducerBuilder
 name|accessLogReceiver
@@ -1502,7 +1441,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1524,7 +1462,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1546,7 +1483,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointProducerBuilder
 name|headerFilterStrategy
@@ -1568,7 +1504,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointProducerBuilder
 name|headerFilterStrategy
@@ -1590,7 +1525,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointProducerBuilder
 name|synchronous
@@ -1612,7 +1546,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointProducerBuilder
 name|synchronous
@@ -1634,7 +1567,6 @@ return|;
 block|}
 comment|/**          * To use a custom UndertowHttpBinding to control the mapping between          * Camel message and undertow.          * The option is a          *<code>org.apache.camel.component.undertow.UndertowHttpBinding</code>          * type.          * @group advanced          */
 DECL|method|undertowHttpBinding ( Object undertowHttpBinding)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointProducerBuilder
 name|undertowHttpBinding
@@ -1656,7 +1588,6 @@ return|;
 block|}
 comment|/**          * To use a custom UndertowHttpBinding to control the mapping between          * Camel message and undertow.          * The option will be converted to a          *<code>org.apache.camel.component.undertow.UndertowHttpBinding</code>          * type.          * @group advanced          */
 DECL|method|undertowHttpBinding ( String undertowHttpBinding)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointProducerBuilder
 name|undertowHttpBinding
@@ -1689,7 +1620,6 @@ extends|,
 name|UndertowEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointBuilder
 name|advanced
@@ -1704,7 +1634,6 @@ return|;
 block|}
 comment|/**          * The url of the HTTP endpoint to use.          * The option is a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|httpURI (URI httpURI)
-specifier|public
 specifier|default
 name|UndertowEndpointBuilder
 name|httpURI
@@ -1726,7 +1655,6 @@ return|;
 block|}
 comment|/**          * The url of the HTTP endpoint to use.          * The option will be converted to a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|httpURI (String httpURI)
-specifier|public
 specifier|default
 name|UndertowEndpointBuilder
 name|httpURI
@@ -1748,7 +1676,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|UndertowEndpointBuilder
 name|sslContextParameters
@@ -1770,7 +1697,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|UndertowEndpointBuilder
 name|sslContextParameters
@@ -1803,7 +1729,6 @@ extends|,
 name|AdvancedUndertowEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|UndertowEndpointBuilder
 name|basic
@@ -1818,7 +1743,6 @@ return|;
 block|}
 comment|/**          * Which Undertow AccessLogReciever should be used Will use          * JBossLoggingAccessLogReceiver if not specifid.          * The option is a          *<code>io.undertow.server.handlers.accesslog.AccessLogReceiver</code>          * type.          * @group advanced          */
 DECL|method|accessLogReceiver ( Object accessLogReceiver)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointBuilder
 name|accessLogReceiver
@@ -1840,7 +1764,6 @@ return|;
 block|}
 comment|/**          * Which Undertow AccessLogReciever should be used Will use          * JBossLoggingAccessLogReceiver if not specifid.          * The option will be converted to a          *<code>io.undertow.server.handlers.accesslog.AccessLogReceiver</code>          * type.          * @group advanced          */
 DECL|method|accessLogReceiver ( String accessLogReceiver)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointBuilder
 name|accessLogReceiver
@@ -1862,7 +1785,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointBuilder
 name|basicPropertyBinding
@@ -1884,7 +1806,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointBuilder
 name|basicPropertyBinding
@@ -1906,7 +1827,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointBuilder
 name|headerFilterStrategy
@@ -1928,7 +1848,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointBuilder
 name|headerFilterStrategy
@@ -1949,8 +1868,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedUndertowEndpointBuilder
 name|synchronous
@@ -1971,8 +1889,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedUndertowEndpointBuilder
 name|synchronous
@@ -1994,7 +1911,6 @@ return|;
 block|}
 comment|/**          * To use a custom UndertowHttpBinding to control the mapping between          * Camel message and undertow.          * The option is a          *<code>org.apache.camel.component.undertow.UndertowHttpBinding</code>          * type.          * @group advanced          */
 DECL|method|undertowHttpBinding ( Object undertowHttpBinding)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointBuilder
 name|undertowHttpBinding
@@ -2016,7 +1932,6 @@ return|;
 block|}
 comment|/**          * To use a custom UndertowHttpBinding to control the mapping between          * Camel message and undertow.          * The option will be converted to a          *<code>org.apache.camel.component.undertow.UndertowHttpBinding</code>          * type.          * @group advanced          */
 DECL|method|undertowHttpBinding ( String undertowHttpBinding)
-specifier|public
 specifier|default
 name|AdvancedUndertowEndpointBuilder
 name|undertowHttpBinding
@@ -2039,7 +1954,6 @@ block|}
 block|}
 comment|/**      * The undertow component provides HTTP and WebSocket based endpoints for      * consuming and producing HTTP/WebSocket requests. Creates a builder to      * build endpoints for the Undertow component.      */
 DECL|method|undertow (String path)
-specifier|public
 specifier|default
 name|UndertowEndpointBuilder
 name|undertow

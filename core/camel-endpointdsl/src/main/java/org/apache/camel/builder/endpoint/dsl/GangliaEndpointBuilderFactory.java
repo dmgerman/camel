@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedGangliaEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Host name for Ganglia server.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|host
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Port for Ganglia server.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|port
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Port for Ganglia server.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|port
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Minumum time in seconds before Ganglia will purge the metric value if          * it expires. Set to 0 and the value will remain in Ganglia          * indefinitely until a gmond agent restart.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|dmax (int dmax)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|dmax
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Minumum time in seconds before Ganglia will purge the metric value if          * it expires. Set to 0 and the value will remain in Ganglia          * indefinitely until a gmond agent restart.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|dmax (String dmax)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|dmax
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * The group that the metric belongs to.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|groupName (String groupName)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|groupName
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * The name to use for the metric.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|metricName (String metricName)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|metricName
@@ -268,7 +260,6 @@ return|;
 block|}
 comment|/**          * Send the UDP metric packets using MULTICAST or UNICAST.          * The option is a          *<code>info.ganglia.gmetric4j.gmetric.GMetric$UDPAddressingMode</code>          * type.          * @group producer          */
 DECL|method|mode (UDPAddressingMode mode)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|mode
@@ -290,7 +281,6 @@ return|;
 block|}
 comment|/**          * Send the UDP metric packets using MULTICAST or UNICAST.          * The option will be converted to a          *<code>info.ganglia.gmetric4j.gmetric.GMetric$UDPAddressingMode</code>          * type.          * @group producer          */
 DECL|method|mode (String mode)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|mode
@@ -312,7 +302,6 @@ return|;
 block|}
 comment|/**          * Prefix the metric name with this string and an underscore.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|prefix (String prefix)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|prefix
@@ -334,7 +323,6 @@ return|;
 block|}
 comment|/**          * The slope.          * The option is a          *<code>info.ganglia.gmetric4j.gmetric.GMetricSlope</code> type.          * @group producer          */
 DECL|method|slope (GMetricSlope slope)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|slope
@@ -356,7 +344,6 @@ return|;
 block|}
 comment|/**          * The slope.          * The option will be converted to a          *<code>info.ganglia.gmetric4j.gmetric.GMetricSlope</code> type.          * @group producer          */
 DECL|method|slope (String slope)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|slope
@@ -378,7 +365,6 @@ return|;
 block|}
 comment|/**          * Spoofing information IP:hostname.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|spoofHostname (String spoofHostname)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|spoofHostname
@@ -400,7 +386,6 @@ return|;
 block|}
 comment|/**          * Maximum time in seconds that the value can be considered current.          * After this, Ganglia considers the value to have expired.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|tmax (int tmax)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|tmax
@@ -422,7 +407,6 @@ return|;
 block|}
 comment|/**          * Maximum time in seconds that the value can be considered current.          * After this, Ganglia considers the value to have expired.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|tmax (String tmax)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|tmax
@@ -444,7 +428,6 @@ return|;
 block|}
 comment|/**          * If using multicast, set the TTL of the packets.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|ttl (int ttl)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|ttl
@@ -466,7 +449,6 @@ return|;
 block|}
 comment|/**          * If using multicast, set the TTL of the packets.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|ttl (String ttl)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|ttl
@@ -488,7 +470,6 @@ return|;
 block|}
 comment|/**          * The type of value.          * The option is a          *<code>info.ganglia.gmetric4j.gmetric.GMetricType</code> type.          * @group producer          */
 DECL|method|type (GMetricType type)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|type
@@ -510,7 +491,6 @@ return|;
 block|}
 comment|/**          * The type of value.          * The option will be converted to a          *<code>info.ganglia.gmetric4j.gmetric.GMetricType</code> type.          * @group producer          */
 DECL|method|type (String type)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|type
@@ -532,7 +512,6 @@ return|;
 block|}
 comment|/**          * Any unit of measurement that qualifies the metric, e.g. widgets,          * litres, bytes. Do not include a prefix such as k (kilo) or m (milli),          * other tools may scale the units later. The value should be unscaled.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|units (String units)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|units
@@ -553,8 +532,7 @@ name|this
 return|;
 block|}
 comment|/**          * Use the wire format of Ganglia 3.1.0 and later versions. Set this to          * false to use Ganglia 3.0.x or earlier.          * The option is a<code>boolean</code> type.          * @group producer          */
-DECL|method|wireFormat31x ( boolean wireFormat31x)
-specifier|public
+DECL|method|wireFormat31x (boolean wireFormat31x)
 specifier|default
 name|GangliaEndpointBuilder
 name|wireFormat31x
@@ -576,7 +554,6 @@ return|;
 block|}
 comment|/**          * Use the wire format of Ganglia 3.1.0 and later versions. Set this to          * false to use Ganglia 3.0.x or earlier.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|wireFormat31x (String wireFormat31x)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|wireFormat31x
@@ -607,7 +584,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|basic
@@ -622,7 +598,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGangliaEndpointBuilder
 name|basicPropertyBinding
@@ -644,7 +619,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGangliaEndpointBuilder
 name|basicPropertyBinding
@@ -665,8 +639,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedGangliaEndpointBuilder
 name|synchronous
@@ -687,8 +660,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedGangliaEndpointBuilder
 name|synchronous
@@ -777,7 +749,6 @@ name|DOUBLE
 block|;     }
 comment|/**      * The ganglia component is used for sending metrics to the Ganglia      * monitoring system. Creates a builder to build endpoints for the Ganglia      * component.      */
 DECL|method|ganglia (String path)
-specifier|public
 specifier|default
 name|GangliaEndpointBuilder
 name|ganglia

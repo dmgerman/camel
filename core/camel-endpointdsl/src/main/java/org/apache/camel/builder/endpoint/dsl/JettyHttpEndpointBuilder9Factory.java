@@ -123,7 +123,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJettyHttpEndpointBuilder9
 name|advanced
@@ -138,7 +137,6 @@ return|;
 block|}
 comment|/**          * The url of the HTTP endpoint to call.          * The option is a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|httpUri (URI httpUri)
-specifier|public
 specifier|default
 name|JettyHttpEndpointBuilder9
 name|httpUri
@@ -160,7 +158,6 @@ return|;
 block|}
 comment|/**          * The url of the HTTP endpoint to call.          * The option will be converted to a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|httpUri (String httpUri)
-specifier|public
 specifier|default
 name|JettyHttpEndpointBuilder9
 name|httpUri
@@ -182,7 +179,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not the raw input stream from Servlet is cached          * or not (Camel will read the stream into a in memory/overflow to file,          * Stream caching) cache. By default Camel will cache the Servlet input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store.          * DefaultHttpBinding will copy the request input stream into a stream          * cache and put it into message body if this option is false to support          * reading the stream multiple times. If you use Servlet to bridge/proxy          * an endpoint then consider enabling this option to improve          * performance, in case you do not need to read the message payload          * multiple times. The http/http4 producer will by default cache the          * response body stream. If setting this option to true, then the          * producers will not cache the response body stream but use the          * response stream as-is as the message body.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|disableStreamCache ( boolean disableStreamCache)
-specifier|public
 specifier|default
 name|JettyHttpEndpointBuilder9
 name|disableStreamCache
@@ -204,7 +200,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not the raw input stream from Servlet is cached          * or not (Camel will read the stream into a in memory/overflow to file,          * Stream caching) cache. By default Camel will cache the Servlet input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store.          * DefaultHttpBinding will copy the request input stream into a stream          * cache and put it into message body if this option is false to support          * reading the stream multiple times. If you use Servlet to bridge/proxy          * an endpoint then consider enabling this option to improve          * performance, in case you do not need to read the message payload          * multiple times. The http/http4 producer will by default cache the          * response body stream. If setting this option to true, then the          * producers will not cache the response body stream but use the          * response stream as-is as the message body.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|disableStreamCache ( String disableStreamCache)
-specifier|public
 specifier|default
 name|JettyHttpEndpointBuilder9
 name|disableStreamCache
@@ -226,7 +221,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|JettyHttpEndpointBuilder9
 name|headerFilterStrategy
@@ -248,7 +242,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|JettyHttpEndpointBuilder9
 name|headerFilterStrategy
@@ -270,7 +263,6 @@ return|;
 block|}
 comment|/**          * If this option is false the Servlet will disable the HTTP streaming          * and set the content-length header on the response.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|chunked (boolean chunked)
-specifier|public
 specifier|default
 name|JettyHttpEndpointBuilder9
 name|chunked
@@ -292,7 +284,6 @@ return|;
 block|}
 comment|/**          * If this option is false the Servlet will disable the HTTP streaming          * and set the content-length header on the response.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|chunked (String chunked)
-specifier|public
 specifier|default
 name|JettyHttpEndpointBuilder9
 name|chunked
@@ -314,7 +305,6 @@ return|;
 block|}
 comment|/**          * Whether Jetty org.eclipse.jetty.servlets.MultiPartFilter is enabled          * or not. You should set this value to false when bridging endpoints,          * to ensure multipart requests is proxied/bridged as well.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|enableMultipartFilter ( boolean enableMultipartFilter)
-specifier|public
 specifier|default
 name|JettyHttpEndpointBuilder9
 name|enableMultipartFilter
@@ -336,7 +326,6 @@ return|;
 block|}
 comment|/**          * Whether Jetty org.eclipse.jetty.servlets.MultiPartFilter is enabled          * or not. You should set this value to false when bridging endpoints,          * to ensure multipart requests is proxied/bridged as well.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|enableMultipartFilter ( String enableMultipartFilter)
-specifier|public
 specifier|default
 name|JettyHttpEndpointBuilder9
 name|enableMultipartFilter
@@ -358,7 +347,6 @@ return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|transferException ( boolean transferException)
-specifier|public
 specifier|default
 name|JettyHttpEndpointBuilder9
 name|transferException
@@ -380,7 +368,6 @@ return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|transferException ( String transferException)
-specifier|public
 specifier|default
 name|JettyHttpEndpointBuilder9
 name|transferException
@@ -402,7 +389,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|JettyHttpEndpointBuilder9
 name|sslContextParameters
@@ -424,7 +410,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|JettyHttpEndpointBuilder9
 name|sslContextParameters
@@ -455,7 +440,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JettyHttpEndpointBuilder9
 name|basic
@@ -469,8 +453,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a custom HttpBinding to control the mapping between Camel          * message and HttpClient.          * The option is a<code>org.apache.camel.http.common.HttpBinding</code>          * type.          * @group common (advanced)          */
-DECL|method|httpBinding ( Object httpBinding)
-specifier|public
+DECL|method|httpBinding (Object httpBinding)
 specifier|default
 name|AdvancedJettyHttpEndpointBuilder9
 name|httpBinding
@@ -491,8 +474,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a custom HttpBinding to control the mapping between Camel          * message and HttpClient.          * The option will be converted to a          *<code>org.apache.camel.http.common.HttpBinding</code> type.          * @group common (advanced)          */
-DECL|method|httpBinding ( String httpBinding)
-specifier|public
+DECL|method|httpBinding (String httpBinding)
 specifier|default
 name|AdvancedJettyHttpEndpointBuilder9
 name|httpBinding
@@ -514,7 +496,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJettyHttpEndpointBuilder9
 name|basicPropertyBinding
@@ -536,7 +517,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJettyHttpEndpointBuilder9
 name|basicPropertyBinding
@@ -558,7 +538,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Body of the exchange will be          * mapped to HTTP body. Setting this to false will avoid the HTTP          * mapping.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageBody ( boolean mapHttpMessageBody)
-specifier|public
 specifier|default
 name|AdvancedJettyHttpEndpointBuilder9
 name|mapHttpMessageBody
@@ -580,7 +559,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Body of the exchange will be          * mapped to HTTP body. Setting this to false will avoid the HTTP          * mapping.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageBody ( String mapHttpMessageBody)
-specifier|public
 specifier|default
 name|AdvancedJettyHttpEndpointBuilder9
 name|mapHttpMessageBody
@@ -602,7 +580,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Form Encoded body of the          * exchange will be mapped to HTTP. Setting this to false will avoid the          * HTTP Form Encoded body mapping.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageFormUrlEncodedBody ( boolean mapHttpMessageFormUrlEncodedBody)
-specifier|public
 specifier|default
 name|AdvancedJettyHttpEndpointBuilder9
 name|mapHttpMessageFormUrlEncodedBody
@@ -624,7 +601,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Form Encoded body of the          * exchange will be mapped to HTTP. Setting this to false will avoid the          * HTTP Form Encoded body mapping.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageFormUrlEncodedBody ( String mapHttpMessageFormUrlEncodedBody)
-specifier|public
 specifier|default
 name|AdvancedJettyHttpEndpointBuilder9
 name|mapHttpMessageFormUrlEncodedBody
@@ -646,7 +622,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Headers of the exchange will          * be mapped to HTTP headers. Setting this to false will avoid the HTTP          * Headers mapping.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageHeaders ( boolean mapHttpMessageHeaders)
-specifier|public
 specifier|default
 name|AdvancedJettyHttpEndpointBuilder9
 name|mapHttpMessageHeaders
@@ -668,7 +643,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Headers of the exchange will          * be mapped to HTTP headers. Setting this to false will avoid the HTTP          * Headers mapping.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageHeaders ( String mapHttpMessageHeaders)
-specifier|public
 specifier|default
 name|AdvancedJettyHttpEndpointBuilder9
 name|mapHttpMessageHeaders
@@ -690,7 +664,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedJettyHttpEndpointBuilder9
 name|synchronous
@@ -711,8 +684,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedJettyHttpEndpointBuilder9
 name|synchronous
@@ -735,7 +707,6 @@ block|}
 block|}
 comment|/**      * The jetty component provides HTTP-based endpoints for consuming and      * producing HTTP requests. Creates a builder to build endpoints for the      * Jetty component.      */
 DECL|method|jettyHttp9 (String path)
-specifier|public
 specifier|default
 name|JettyHttpEndpointBuilder9
 name|jettyHttp9

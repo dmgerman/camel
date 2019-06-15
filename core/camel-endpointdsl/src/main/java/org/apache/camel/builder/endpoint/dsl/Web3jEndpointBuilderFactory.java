@@ -144,7 +144,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedWeb3jEndpointConsumerBuilder
 name|advanced
@@ -158,8 +157,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the node address used to communicate.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|nodeAddress ( String nodeAddress)
-specifier|public
+DECL|method|nodeAddress (String nodeAddress)
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|nodeAddress
@@ -180,8 +178,7 @@ name|this
 return|;
 block|}
 comment|/**          * Contract address or a list of addresses.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
-DECL|method|addresses ( List<String> addresses)
-specifier|public
+DECL|method|addresses (List<String> addresses)
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|addresses
@@ -206,7 +203,6 @@ return|;
 block|}
 comment|/**          * Contract address or a list of addresses.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|addresses (String addresses)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|addresses
@@ -227,8 +223,7 @@ name|this
 return|;
 block|}
 comment|/**          * The address the transaction is send from.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|fromAddress ( String fromAddress)
-specifier|public
+DECL|method|fromAddress (String fromAddress)
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|fromAddress
@@ -250,7 +245,6 @@ return|;
 block|}
 comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          * The option is a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          * @group common          */
 DECL|method|fromBlock (Object fromBlock)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|fromBlock
@@ -272,7 +266,6 @@ return|;
 block|}
 comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          * The option will be converted to a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          * @group common          */
 DECL|method|fromBlock (String fromBlock)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|fromBlock
@@ -294,7 +287,6 @@ return|;
 block|}
 comment|/**          * If true it returns the full transaction objects, if false only the          * hashes of the transactions.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|fullTransactionObjects ( boolean fullTransactionObjects)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|fullTransactionObjects
@@ -316,7 +308,6 @@ return|;
 block|}
 comment|/**          * If true it returns the full transaction objects, if false only the          * hashes of the transactions.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|fullTransactionObjects ( String fullTransactionObjects)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|fullTransactionObjects
@@ -338,7 +329,6 @@ return|;
 block|}
 comment|/**          * The maximum gas allowed in this block.          * The option is a<code>java.math.BigInteger</code> type.          * @group common          */
 DECL|method|gasLimit (BigInteger gasLimit)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|gasLimit
@@ -360,7 +350,6 @@ return|;
 block|}
 comment|/**          * The maximum gas allowed in this block.          * The option will be converted to a<code>java.math.BigInteger</code>          * type.          * @group common          */
 DECL|method|gasLimit (String gasLimit)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|gasLimit
@@ -381,8 +370,7 @@ name|this
 return|;
 block|}
 comment|/**          * A transaction privateFor nodes with public keys in a Quorum network.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
-DECL|method|privateFor ( List<String> privateFor)
-specifier|public
+DECL|method|privateFor (List<String> privateFor)
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|privateFor
@@ -407,7 +395,6 @@ return|;
 block|}
 comment|/**          * A transaction privateFor nodes with public keys in a Quorum network.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|privateFor (String privateFor)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|privateFor
@@ -429,7 +416,6 @@ return|;
 block|}
 comment|/**          * If true, this will support Quorum API.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|quorumAPI (boolean quorumAPI)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|quorumAPI
@@ -451,7 +437,6 @@ return|;
 block|}
 comment|/**          * If true, this will support Quorum API.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|quorumAPI (String quorumAPI)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|quorumAPI
@@ -473,7 +458,6 @@ return|;
 block|}
 comment|/**          * The address the transaction is directed to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|toAddress (String toAddress)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|toAddress
@@ -495,7 +479,6 @@ return|;
 block|}
 comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          * The option is a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          * @group common          */
 DECL|method|toBlock (Object toBlock)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|toBlock
@@ -517,7 +500,6 @@ return|;
 block|}
 comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          * The option will be converted to a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          * @group common          */
 DECL|method|toBlock (String toBlock)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|toBlock
@@ -539,7 +521,6 @@ return|;
 block|}
 comment|/**          * Topics are order-dependent. Each topic can also be a list of topics.          * Specify multiple topics separated by comma.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|topics (List<String> topics)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|topics
@@ -564,7 +545,6 @@ return|;
 block|}
 comment|/**          * Topics are order-dependent. Each topic can also be a list of topics.          * Specify multiple topics separated by comma.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|topics (String topics)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|topics
@@ -586,7 +566,6 @@ return|;
 block|}
 comment|/**          * The preconfigured Web3j object.          * The option is a<code>org.web3j.protocol.Web3j</code> type.          * @group common          */
 DECL|method|web3j (Object web3j)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|web3j
@@ -608,7 +587,6 @@ return|;
 block|}
 comment|/**          * The preconfigured Web3j object.          * The option will be converted to a          *<code>org.web3j.protocol.Web3j</code> type.          * @group common          */
 DECL|method|web3j (String web3j)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|web3j
@@ -630,7 +608,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -652,7 +629,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -682,7 +658,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|Web3jEndpointConsumerBuilder
 name|basic
@@ -697,7 +672,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedWeb3jEndpointConsumerBuilder
 name|exceptionHandler
@@ -719,7 +693,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedWeb3jEndpointConsumerBuilder
 name|exceptionHandler
@@ -741,7 +714,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedWeb3jEndpointConsumerBuilder
 name|exchangePattern
@@ -763,7 +735,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedWeb3jEndpointConsumerBuilder
 name|exchangePattern
@@ -785,7 +756,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedWeb3jEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -807,7 +777,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedWeb3jEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -829,7 +798,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedWeb3jEndpointConsumerBuilder
 name|synchronous
@@ -851,7 +819,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedWeb3jEndpointConsumerBuilder
 name|synchronous
@@ -882,7 +849,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedWeb3jEndpointProducerBuilder
 name|advanced
@@ -896,8 +862,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the node address used to communicate.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|nodeAddress ( String nodeAddress)
-specifier|public
+DECL|method|nodeAddress (String nodeAddress)
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|nodeAddress
@@ -918,8 +883,7 @@ name|this
 return|;
 block|}
 comment|/**          * Contract address or a list of addresses.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
-DECL|method|addresses ( List<String> addresses)
-specifier|public
+DECL|method|addresses (List<String> addresses)
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|addresses
@@ -944,7 +908,6 @@ return|;
 block|}
 comment|/**          * Contract address or a list of addresses.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|addresses (String addresses)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|addresses
@@ -965,8 +928,7 @@ name|this
 return|;
 block|}
 comment|/**          * The address the transaction is send from.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|fromAddress ( String fromAddress)
-specifier|public
+DECL|method|fromAddress (String fromAddress)
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|fromAddress
@@ -988,7 +950,6 @@ return|;
 block|}
 comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          * The option is a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          * @group common          */
 DECL|method|fromBlock (Object fromBlock)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|fromBlock
@@ -1010,7 +971,6 @@ return|;
 block|}
 comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          * The option will be converted to a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          * @group common          */
 DECL|method|fromBlock (String fromBlock)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|fromBlock
@@ -1032,7 +992,6 @@ return|;
 block|}
 comment|/**          * If true it returns the full transaction objects, if false only the          * hashes of the transactions.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|fullTransactionObjects ( boolean fullTransactionObjects)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|fullTransactionObjects
@@ -1054,7 +1013,6 @@ return|;
 block|}
 comment|/**          * If true it returns the full transaction objects, if false only the          * hashes of the transactions.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|fullTransactionObjects ( String fullTransactionObjects)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|fullTransactionObjects
@@ -1076,7 +1034,6 @@ return|;
 block|}
 comment|/**          * The maximum gas allowed in this block.          * The option is a<code>java.math.BigInteger</code> type.          * @group common          */
 DECL|method|gasLimit (BigInteger gasLimit)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|gasLimit
@@ -1098,7 +1055,6 @@ return|;
 block|}
 comment|/**          * The maximum gas allowed in this block.          * The option will be converted to a<code>java.math.BigInteger</code>          * type.          * @group common          */
 DECL|method|gasLimit (String gasLimit)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|gasLimit
@@ -1119,8 +1075,7 @@ name|this
 return|;
 block|}
 comment|/**          * A transaction privateFor nodes with public keys in a Quorum network.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
-DECL|method|privateFor ( List<String> privateFor)
-specifier|public
+DECL|method|privateFor (List<String> privateFor)
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|privateFor
@@ -1145,7 +1100,6 @@ return|;
 block|}
 comment|/**          * A transaction privateFor nodes with public keys in a Quorum network.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|privateFor (String privateFor)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|privateFor
@@ -1167,7 +1121,6 @@ return|;
 block|}
 comment|/**          * If true, this will support Quorum API.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|quorumAPI (boolean quorumAPI)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|quorumAPI
@@ -1189,7 +1142,6 @@ return|;
 block|}
 comment|/**          * If true, this will support Quorum API.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|quorumAPI (String quorumAPI)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|quorumAPI
@@ -1211,7 +1163,6 @@ return|;
 block|}
 comment|/**          * The address the transaction is directed to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|toAddress (String toAddress)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|toAddress
@@ -1233,7 +1184,6 @@ return|;
 block|}
 comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          * The option is a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          * @group common          */
 DECL|method|toBlock (Object toBlock)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|toBlock
@@ -1255,7 +1205,6 @@ return|;
 block|}
 comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          * The option will be converted to a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          * @group common          */
 DECL|method|toBlock (String toBlock)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|toBlock
@@ -1277,7 +1226,6 @@ return|;
 block|}
 comment|/**          * Topics are order-dependent. Each topic can also be a list of topics.          * Specify multiple topics separated by comma.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|topics (List<String> topics)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|topics
@@ -1302,7 +1250,6 @@ return|;
 block|}
 comment|/**          * Topics are order-dependent. Each topic can also be a list of topics.          * Specify multiple topics separated by comma.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|topics (String topics)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|topics
@@ -1324,7 +1271,6 @@ return|;
 block|}
 comment|/**          * The preconfigured Web3j object.          * The option is a<code>org.web3j.protocol.Web3j</code> type.          * @group common          */
 DECL|method|web3j (Object web3j)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|web3j
@@ -1346,7 +1292,6 @@ return|;
 block|}
 comment|/**          * The preconfigured Web3j object.          * The option will be converted to a          *<code>org.web3j.protocol.Web3j</code> type.          * @group common          */
 DECL|method|web3j (String web3j)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|web3j
@@ -1368,7 +1313,6 @@ return|;
 block|}
 comment|/**          * Contract address.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|address (String address)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|address
@@ -1390,7 +1334,6 @@ return|;
 block|}
 comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          * The option is a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          * @group producer          */
 DECL|method|atBlock (Object atBlock)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|atBlock
@@ -1412,7 +1355,6 @@ return|;
 block|}
 comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          * The option will be converted to a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          * @group producer          */
 DECL|method|atBlock (String atBlock)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|atBlock
@@ -1434,7 +1376,6 @@ return|;
 block|}
 comment|/**          * Hash of the block where this transaction was in.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|blockHash (String blockHash)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|blockHash
@@ -1456,7 +1397,6 @@ return|;
 block|}
 comment|/**          * A random hexadecimal(32 bytes) ID identifying the client.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|clientId (String clientId)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|clientId
@@ -1478,7 +1418,6 @@ return|;
 block|}
 comment|/**          * The compiled code of a contract OR the hash of the invoked method          * signature and encoded parameters.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|data (String data)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|data
@@ -1499,8 +1438,7 @@ name|this
 return|;
 block|}
 comment|/**          * The local database name.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|databaseName ( String databaseName)
-specifier|public
+DECL|method|databaseName (String databaseName)
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|databaseName
@@ -1522,7 +1460,6 @@ return|;
 block|}
 comment|/**          * The filter id to use.          * The option is a<code>java.math.BigInteger</code> type.          * @group producer          */
 DECL|method|filterId (BigInteger filterId)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|filterId
@@ -1544,7 +1481,6 @@ return|;
 block|}
 comment|/**          * The filter id to use.          * The option will be converted to a<code>java.math.BigInteger</code>          * type.          * @group producer          */
 DECL|method|filterId (String filterId)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|filterId
@@ -1566,7 +1502,6 @@ return|;
 block|}
 comment|/**          * Gas price used for each paid gas.          * The option is a<code>java.math.BigInteger</code> type.          * @group producer          */
 DECL|method|gasPrice (BigInteger gasPrice)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|gasPrice
@@ -1588,7 +1523,6 @@ return|;
 block|}
 comment|/**          * Gas price used for each paid gas.          * The option will be converted to a<code>java.math.BigInteger</code>          * type.          * @group producer          */
 DECL|method|gasPrice (String gasPrice)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|gasPrice
@@ -1610,7 +1544,6 @@ return|;
 block|}
 comment|/**          * A hexadecimal string representation (32 bytes) of the hash rate.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|hashrate (String hashrate)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|hashrate
@@ -1631,8 +1564,7 @@ name|this
 return|;
 block|}
 comment|/**          * The header's pow-hash (256 bits) used for submitting a proof-of-work          * solution.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|headerPowHash ( String headerPowHash)
-specifier|public
+DECL|method|headerPowHash (String headerPowHash)
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|headerPowHash
@@ -1654,7 +1586,6 @@ return|;
 block|}
 comment|/**          * The transactions/uncle index position in the block.          * The option is a<code>java.math.BigInteger</code> type.          * @group producer          */
 DECL|method|index (BigInteger index)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|index
@@ -1676,7 +1607,6 @@ return|;
 block|}
 comment|/**          * The transactions/uncle index position in the block.          * The option will be converted to a<code>java.math.BigInteger</code>          * type.          * @group producer          */
 DECL|method|index (String index)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|index
@@ -1698,7 +1628,6 @@ return|;
 block|}
 comment|/**          * The key name in the database.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|keyName (String keyName)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|keyName
@@ -1720,7 +1649,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|lazyStartProducer
@@ -1742,7 +1670,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|lazyStartProducer
@@ -1764,7 +1691,6 @@ return|;
 block|}
 comment|/**          * The mix digest (256 bits) used for submitting a proof-of-work          * solution.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|mixDigest (String mixDigest)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|mixDigest
@@ -1786,7 +1712,6 @@ return|;
 block|}
 comment|/**          * The nonce found (64 bits) used for submitting a proof-of-work          * solution.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|nonce (String nonce)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|nonce
@@ -1808,7 +1733,6 @@ return|;
 block|}
 comment|/**          * Operation to use.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|operation
@@ -1830,7 +1754,6 @@ return|;
 block|}
 comment|/**          * The transaction index position withing a block.          * The option is a<code>java.math.BigInteger</code> type.          * @group producer          */
 DECL|method|position (BigInteger position)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|position
@@ -1852,7 +1775,6 @@ return|;
 block|}
 comment|/**          * The transaction index position withing a block.          * The option will be converted to a<code>java.math.BigInteger</code>          * type.          * @group producer          */
 DECL|method|position (String position)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|position
@@ -1874,7 +1796,6 @@ return|;
 block|}
 comment|/**          * The priority of a whisper message.          * The option is a<code>java.math.BigInteger</code> type.          * @group producer          */
 DECL|method|priority (BigInteger priority)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|priority
@@ -1896,7 +1817,6 @@ return|;
 block|}
 comment|/**          * The priority of a whisper message.          * The option will be converted to a<code>java.math.BigInteger</code>          * type.          * @group producer          */
 DECL|method|priority (String priority)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|priority
@@ -1918,7 +1838,6 @@ return|;
 block|}
 comment|/**          * Message to sign by calculating an Ethereum specific signature.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|sha3HashOfDataToSign ( String sha3HashOfDataToSign)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|sha3HashOfDataToSign
@@ -1940,7 +1859,6 @@ return|;
 block|}
 comment|/**          * The signed transaction data for a new message call transaction or a          * contract creation for signed transactions.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|signedTransactionData ( String signedTransactionData)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|signedTransactionData
@@ -1962,7 +1880,6 @@ return|;
 block|}
 comment|/**          * The source code to compile.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|sourceCode (String sourceCode)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|sourceCode
@@ -1984,7 +1901,6 @@ return|;
 block|}
 comment|/**          * The information about a transaction requested by transaction hash.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|transactionHash ( String transactionHash)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|transactionHash
@@ -2006,7 +1922,6 @@ return|;
 block|}
 comment|/**          * The time to live in seconds of a whisper message.          * The option is a<code>java.math.BigInteger</code> type.          * @group producer          */
 DECL|method|ttl (BigInteger ttl)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|ttl
@@ -2028,7 +1943,6 @@ return|;
 block|}
 comment|/**          * The time to live in seconds of a whisper message.          * The option will be converted to a<code>java.math.BigInteger</code>          * type.          * @group producer          */
 DECL|method|ttl (String ttl)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|ttl
@@ -2050,7 +1964,6 @@ return|;
 block|}
 comment|/**          * The value sent within a transaction.          * The option is a<code>java.math.BigInteger</code> type.          * @group producer          */
 DECL|method|value (BigInteger value)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|value
@@ -2072,7 +1985,6 @@ return|;
 block|}
 comment|/**          * The value sent within a transaction.          * The option will be converted to a<code>java.math.BigInteger</code>          * type.          * @group producer          */
 DECL|method|value (String value)
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|value
@@ -2102,7 +2014,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|Web3jEndpointProducerBuilder
 name|basic
@@ -2117,7 +2028,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedWeb3jEndpointProducerBuilder
 name|basicPropertyBinding
@@ -2139,7 +2049,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedWeb3jEndpointProducerBuilder
 name|basicPropertyBinding
@@ -2161,7 +2070,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedWeb3jEndpointProducerBuilder
 name|synchronous
@@ -2183,7 +2091,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedWeb3jEndpointProducerBuilder
 name|synchronous
@@ -2216,7 +2123,6 @@ extends|,
 name|Web3jEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedWeb3jEndpointBuilder
 name|advanced
@@ -2231,7 +2137,6 @@ return|;
 block|}
 comment|/**          * Sets the node address used to communicate.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|nodeAddress (String nodeAddress)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|nodeAddress
@@ -2253,7 +2158,6 @@ return|;
 block|}
 comment|/**          * Contract address or a list of addresses.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|addresses (List<String> addresses)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|addresses
@@ -2278,7 +2182,6 @@ return|;
 block|}
 comment|/**          * Contract address or a list of addresses.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|addresses (String addresses)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|addresses
@@ -2300,7 +2203,6 @@ return|;
 block|}
 comment|/**          * The address the transaction is send from.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|fromAddress (String fromAddress)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|fromAddress
@@ -2322,7 +2224,6 @@ return|;
 block|}
 comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          * The option is a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          * @group common          */
 DECL|method|fromBlock (Object fromBlock)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|fromBlock
@@ -2344,7 +2245,6 @@ return|;
 block|}
 comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          * The option will be converted to a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          * @group common          */
 DECL|method|fromBlock (String fromBlock)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|fromBlock
@@ -2366,7 +2266,6 @@ return|;
 block|}
 comment|/**          * If true it returns the full transaction objects, if false only the          * hashes of the transactions.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|fullTransactionObjects ( boolean fullTransactionObjects)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|fullTransactionObjects
@@ -2388,7 +2287,6 @@ return|;
 block|}
 comment|/**          * If true it returns the full transaction objects, if false only the          * hashes of the transactions.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|fullTransactionObjects ( String fullTransactionObjects)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|fullTransactionObjects
@@ -2410,7 +2308,6 @@ return|;
 block|}
 comment|/**          * The maximum gas allowed in this block.          * The option is a<code>java.math.BigInteger</code> type.          * @group common          */
 DECL|method|gasLimit (BigInteger gasLimit)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|gasLimit
@@ -2432,7 +2329,6 @@ return|;
 block|}
 comment|/**          * The maximum gas allowed in this block.          * The option will be converted to a<code>java.math.BigInteger</code>          * type.          * @group common          */
 DECL|method|gasLimit (String gasLimit)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|gasLimit
@@ -2454,7 +2350,6 @@ return|;
 block|}
 comment|/**          * A transaction privateFor nodes with public keys in a Quorum network.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|privateFor (List<String> privateFor)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|privateFor
@@ -2479,7 +2374,6 @@ return|;
 block|}
 comment|/**          * A transaction privateFor nodes with public keys in a Quorum network.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|privateFor (String privateFor)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|privateFor
@@ -2501,7 +2395,6 @@ return|;
 block|}
 comment|/**          * If true, this will support Quorum API.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|quorumAPI (boolean quorumAPI)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|quorumAPI
@@ -2523,7 +2416,6 @@ return|;
 block|}
 comment|/**          * If true, this will support Quorum API.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|quorumAPI (String quorumAPI)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|quorumAPI
@@ -2545,7 +2437,6 @@ return|;
 block|}
 comment|/**          * The address the transaction is directed to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|toAddress (String toAddress)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|toAddress
@@ -2567,7 +2458,6 @@ return|;
 block|}
 comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          * The option is a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          * @group common          */
 DECL|method|toBlock (Object toBlock)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|toBlock
@@ -2589,7 +2479,6 @@ return|;
 block|}
 comment|/**          * The block number, or the string latest for the last mined block or          * pending, earliest for not yet mined transactions.          * The option will be converted to a          *<code>org.web3j.protocol.core.DefaultBlockParameter</code> type.          * @group common          */
 DECL|method|toBlock (String toBlock)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|toBlock
@@ -2611,7 +2500,6 @@ return|;
 block|}
 comment|/**          * Topics are order-dependent. Each topic can also be a list of topics.          * Specify multiple topics separated by comma.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|topics (List<String> topics)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|topics
@@ -2636,7 +2524,6 @@ return|;
 block|}
 comment|/**          * Topics are order-dependent. Each topic can also be a list of topics.          * Specify multiple topics separated by comma.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|topics (String topics)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|topics
@@ -2658,7 +2545,6 @@ return|;
 block|}
 comment|/**          * The preconfigured Web3j object.          * The option is a<code>org.web3j.protocol.Web3j</code> type.          * @group common          */
 DECL|method|web3j (Object web3j)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|web3j
@@ -2680,7 +2566,6 @@ return|;
 block|}
 comment|/**          * The preconfigured Web3j object.          * The option will be converted to a          *<code>org.web3j.protocol.Web3j</code> type.          * @group common          */
 DECL|method|web3j (String web3j)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|web3j
@@ -2713,7 +2598,6 @@ extends|,
 name|AdvancedWeb3jEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|basic
@@ -2728,7 +2612,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedWeb3jEndpointBuilder
 name|basicPropertyBinding
@@ -2750,7 +2633,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedWeb3jEndpointBuilder
 name|basicPropertyBinding
@@ -2771,8 +2653,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedWeb3jEndpointBuilder
 name|synchronous
@@ -2793,8 +2674,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedWeb3jEndpointBuilder
 name|synchronous
@@ -2817,7 +2697,6 @@ block|}
 block|}
 comment|/**      * The web3j component uses the Web3j client API and allows you to add/read      * nodes to/from a web3j compliant content repositories. Creates a builder      * to build endpoints for the Web3j Ethereum Blockchain component.      */
 DECL|method|web3j (String path)
-specifier|public
 specifier|default
 name|Web3jEndpointBuilder
 name|web3j

@@ -150,7 +150,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|advanced
@@ -165,7 +164,6 @@ return|;
 block|}
 comment|/**          * Sets topic consumer to durable.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|durable (boolean durable)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|durable
@@ -187,7 +185,6 @@ return|;
 block|}
 comment|/**          * Sets topic consumer to durable.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|durable (String durable)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|durable
@@ -209,7 +206,6 @@ return|;
 block|}
 comment|/**          * Sets the consumer to shared.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|shared (boolean shared)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|shared
@@ -231,7 +227,6 @@ return|;
 block|}
 comment|/**          * Sets the consumer to shared.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|shared (String shared)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|shared
@@ -253,7 +248,6 @@ return|;
 block|}
 comment|/**          * Sets the subscription Id, required for durable or shared topics.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|subscriptionId ( String subscriptionId)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|subscriptionId
@@ -275,7 +269,6 @@ return|;
 block|}
 comment|/**          * The kind of destination to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|destinationType ( String destinationType)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|destinationType
@@ -297,7 +290,6 @@ return|;
 block|}
 comment|/**          * DestinationName is a JMS queue or topic name. By default, the          * destinationName is interpreted as a queue name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|destinationName ( String destinationName)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|destinationName
@@ -319,7 +311,6 @@ return|;
 block|}
 comment|/**          * The JMS acknowledgement name, which is one of: SESSION_TRANSACTED,          * CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE.          * The option is a          *<code>org.apache.camel.component.sjms.jms.SessionAcknowledgementType</code> type.          * @group common          */
 DECL|method|acknowledgementMode ( SessionAcknowledgementType acknowledgementMode)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|acknowledgementMode
@@ -341,7 +332,6 @@ return|;
 block|}
 comment|/**          * The JMS acknowledgement name, which is one of: SESSION_TRANSACTED,          * CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.jms.SessionAcknowledgementType</code> type.          * @group common          */
 DECL|method|acknowledgementMode ( String acknowledgementMode)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|acknowledgementMode
@@ -363,7 +353,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -385,7 +374,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -406,8 +394,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the number of consumer listeners used for this endpoint.          * The option is a<code>int</code> type.          * @group consumer          */
-DECL|method|consumerCount ( int consumerCount)
-specifier|public
+DECL|method|consumerCount (int consumerCount)
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|consumerCount
@@ -428,8 +415,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the number of consumer listeners used for this endpoint.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
-DECL|method|consumerCount ( String consumerCount)
-specifier|public
+DECL|method|consumerCount (String consumerCount)
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|consumerCount
@@ -451,7 +437,6 @@ return|;
 block|}
 comment|/**          * Sets the durable subscription Id required for durable topics.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|durableSubscriptionId ( String durableSubscriptionId)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|durableSubscriptionId
@@ -472,8 +457,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group consumer          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|synchronous
@@ -494,8 +478,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|synchronous
@@ -517,7 +500,6 @@ return|;
 block|}
 comment|/**          * Allows to configure the default errorHandler logging level for          * logging uncaught exceptions.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group logging          */
 DECL|method|errorHandlerLoggingLevel ( LoggingLevel errorHandlerLoggingLevel)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|errorHandlerLoggingLevel
@@ -539,7 +521,6 @@ return|;
 block|}
 comment|/**          * Allows to configure the default errorHandler logging level for          * logging uncaught exceptions.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group logging          */
 DECL|method|errorHandlerLoggingLevel ( String errorHandlerLoggingLevel)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|errorHandlerLoggingLevel
@@ -561,7 +542,6 @@ return|;
 block|}
 comment|/**          * Allows to control whether stacktraces should be logged or not, by the          * default errorHandler.          * The option is a<code>boolean</code> type.          * @group logging          */
 DECL|method|errorHandlerLogStackTrace ( boolean errorHandlerLogStackTrace)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|errorHandlerLogStackTrace
@@ -583,7 +563,6 @@ return|;
 block|}
 comment|/**          * Allows to control whether stacktraces should be logged or not, by the          * default errorHandler.          * The option will be converted to a<code>boolean</code> type.          * @group logging          */
 DECL|method|errorHandlerLogStackTrace ( String errorHandlerLogStackTrace)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|errorHandlerLogStackTrace
@@ -604,8 +583,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specifies whether to use transacted mode.          * The option is a<code>boolean</code> type.          * @group transaction          */
-DECL|method|transacted ( boolean transacted)
-specifier|public
+DECL|method|transacted (boolean transacted)
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|transacted
@@ -627,7 +605,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to use transacted mode.          * The option will be converted to a<code>boolean</code> type.          * @group transaction          */
 DECL|method|transacted (String transacted)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|transacted
@@ -649,7 +626,6 @@ return|;
 block|}
 comment|/**          * If transacted sets the number of messages to process before          * committing a transaction.          * The option is a<code>int</code> type.          * @group transaction          */
 DECL|method|transactionBatchCount ( int transactionBatchCount)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|transactionBatchCount
@@ -671,7 +647,6 @@ return|;
 block|}
 comment|/**          * If transacted sets the number of messages to process before          * committing a transaction.          * The option will be converted to a<code>int</code> type.          * @group transaction          */
 DECL|method|transactionBatchCount ( String transactionBatchCount)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|transactionBatchCount
@@ -693,7 +668,6 @@ return|;
 block|}
 comment|/**          * Sets timeout (in millis) for batch transactions, the value should be          * 1000 or higher.          * The option is a<code>long</code> type.          * @group transaction          */
 DECL|method|transactionBatchTimeout ( long transactionBatchTimeout)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|transactionBatchTimeout
@@ -715,7 +689,6 @@ return|;
 block|}
 comment|/**          * Sets timeout (in millis) for batch transactions, the value should be          * 1000 or higher.          * The option will be converted to a<code>long</code> type.          * @group transaction          */
 DECL|method|transactionBatchTimeout ( String transactionBatchTimeout)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|transactionBatchTimeout
@@ -737,7 +710,6 @@ return|;
 block|}
 comment|/**          * Sets the commit strategy.          * The option is a          *<code>org.apache.camel.component.sjms.TransactionCommitStrategy</code> type.          * @group transaction          */
 DECL|method|transactionCommitStrategy ( Object transactionCommitStrategy)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|transactionCommitStrategy
@@ -759,7 +731,6 @@ return|;
 block|}
 comment|/**          * Sets the commit strategy.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.TransactionCommitStrategy</code> type.          * @group transaction          */
 DECL|method|transactionCommitStrategy ( String transactionCommitStrategy)
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|transactionCommitStrategy
@@ -789,7 +760,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|Sjms2EndpointConsumerBuilder
 name|basic
@@ -804,7 +774,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|exceptionHandler
@@ -826,7 +795,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|exceptionHandler
@@ -848,7 +816,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|exchangePattern
@@ -870,7 +837,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|exchangePattern
@@ -892,7 +858,6 @@ return|;
 block|}
 comment|/**          * Sets the JMS Message selector syntax.          * The option is a<code>java.lang.String</code> type.          * @group consumer (advanced)          */
 DECL|method|messageSelector ( String messageSelector)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|messageSelector
@@ -914,7 +879,6 @@ return|;
 block|}
 comment|/**          * Whether to startup the consumer message listener asynchronously, when          * starting a route. For example if a JmsConsumer cannot get a          * connection to a remote JMS broker, then it may block while retrying          * and/or failover. This will cause Camel to block while starting          * routes. By setting this option to true, you will let routes startup,          * while the JmsConsumer connects to the JMS broker using a dedicated          * thread in asynchronous mode. If this option is used, then beware that          * if the connection could not be established, then an exception is          * logged at WARN level, and the consumer will not be able to receive          * messages; You can then restart the route to retry.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|asyncStartListener ( boolean asyncStartListener)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|asyncStartListener
@@ -936,7 +900,6 @@ return|;
 block|}
 comment|/**          * Whether to startup the consumer message listener asynchronously, when          * starting a route. For example if a JmsConsumer cannot get a          * connection to a remote JMS broker, then it may block while retrying          * and/or failover. This will cause Camel to block while starting          * routes. By setting this option to true, you will let routes startup,          * while the JmsConsumer connects to the JMS broker using a dedicated          * thread in asynchronous mode. If this option is used, then beware that          * if the connection could not be established, then an exception is          * logged at WARN level, and the consumer will not be able to receive          * messages; You can then restart the route to retry.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|asyncStartListener ( String asyncStartListener)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|asyncStartListener
@@ -958,7 +921,6 @@ return|;
 block|}
 comment|/**          * Whether to stop the consumer message listener asynchronously, when          * stopping a route.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|asyncStopListener ( boolean asyncStopListener)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|asyncStopListener
@@ -980,7 +942,6 @@ return|;
 block|}
 comment|/**          * Whether to stop the consumer message listener asynchronously, when          * stopping a route.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|asyncStopListener ( String asyncStopListener)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|asyncStopListener
@@ -1002,7 +963,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1024,7 +984,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1046,7 +1005,6 @@ return|;
 block|}
 comment|/**          * The maximum number of connections available to this endpoint.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
 DECL|method|connectionCount ( Integer connectionCount)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|connectionCount
@@ -1068,7 +1026,6 @@ return|;
 block|}
 comment|/**          * The maximum number of connections available to this endpoint.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
 DECL|method|connectionCount ( String connectionCount)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|connectionCount
@@ -1090,7 +1047,6 @@ return|;
 block|}
 comment|/**          * Initializes the connectionFactory for the endpoint, which takes          * precedence over the component's connectionFactory, if any.          * The option is a<code>javax.jms.ConnectionFactory</code> type.          * @group advanced          */
 DECL|method|connectionFactory ( Object connectionFactory)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|connectionFactory
@@ -1112,7 +1068,6 @@ return|;
 block|}
 comment|/**          * Initializes the connectionFactory for the endpoint, which takes          * precedence over the component's connectionFactory, if any.          * The option will be converted to a          *<code>javax.jms.ConnectionFactory</code> type.          * @group advanced          */
 DECL|method|connectionFactory ( String connectionFactory)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|connectionFactory
@@ -1134,7 +1089,6 @@ return|;
 block|}
 comment|/**          * Initializes the connectionResource for the endpoint, which takes          * precedence over the component's connectionResource, if any.          * The option is a          *<code>org.apache.camel.component.sjms.jms.ConnectionResource</code>          * type.          * @group advanced          */
 DECL|method|connectionResource ( Object connectionResource)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|connectionResource
@@ -1156,7 +1110,6 @@ return|;
 block|}
 comment|/**          * Initializes the connectionResource for the endpoint, which takes          * precedence over the component's connectionResource, if any.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.jms.ConnectionResource</code>          * type.          * @group advanced          */
 DECL|method|connectionResource ( String connectionResource)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|connectionResource
@@ -1178,7 +1131,6 @@ return|;
 block|}
 comment|/**          * To use a custom DestinationCreationStrategy.          * The option is a          *<code>org.apache.camel.component.sjms.jms.DestinationCreationStrategy</code> type.          * @group advanced          */
 DECL|method|destinationCreationStrategy ( Object destinationCreationStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|destinationCreationStrategy
@@ -1200,7 +1152,6 @@ return|;
 block|}
 comment|/**          * To use a custom DestinationCreationStrategy.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.jms.DestinationCreationStrategy</code> type.          * @group advanced          */
 DECL|method|destinationCreationStrategy ( String destinationCreationStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|destinationCreationStrategy
@@ -1222,7 +1173,6 @@ return|;
 block|}
 comment|/**          * Specifies the JMS Exception Listener that is to be notified of any          * underlying JMS exceptions.          * The option is a<code>javax.jms.ExceptionListener</code> type.          * @group advanced          */
 DECL|method|exceptionListener ( Object exceptionListener)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|exceptionListener
@@ -1244,7 +1194,6 @@ return|;
 block|}
 comment|/**          * Specifies the JMS Exception Listener that is to be notified of any          * underlying JMS exceptions.          * The option will be converted to a          *<code>javax.jms.ExceptionListener</code> type.          * @group advanced          */
 DECL|method|exceptionListener ( String exceptionListener)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|exceptionListener
@@ -1266,7 +1215,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|headerFilterStrategy
@@ -1288,7 +1236,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|headerFilterStrategy
@@ -1310,7 +1257,6 @@ return|;
 block|}
 comment|/**          * Whether to include all JMSXxxx properties when mapping from JMS to          * Camel Message. Setting this to true will include properties such as          * JMSXAppID, and JMSXUserID etc. Note: If you are using a custom          * headerFilterStrategy then this option does not apply.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|includeAllJMSXProperties ( boolean includeAllJMSXProperties)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|includeAllJMSXProperties
@@ -1332,7 +1278,6 @@ return|;
 block|}
 comment|/**          * Whether to include all JMSXxxx properties when mapping from JMS to          * Camel Message. Setting this to true will include properties such as          * JMSXAppID, and JMSXUserID etc. Note: If you are using a custom          * headerFilterStrategy then this option does not apply.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|includeAllJMSXProperties ( String includeAllJMSXProperties)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|includeAllJMSXProperties
@@ -1354,7 +1299,6 @@ return|;
 block|}
 comment|/**          * Pluggable strategy for encoding and decoding JMS keys so they can be          * compliant with the JMS specification. Camel provides two          * implementations out of the box: default and passthrough. The default          * strategy will safely marshal dots and hyphens (. and -). The          * passthrough strategy leaves the key as is. Can be used for JMS          * brokers which do not care whether JMS header keys contain illegal          * characters. You can provide your own implementation of the          * org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it          * using the # notation.          * The option is a          *<code>org.apache.camel.component.sjms.jms.JmsKeyFormatStrategy</code>          * type.          * @group advanced          */
 DECL|method|jmsKeyFormatStrategy ( Object jmsKeyFormatStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|jmsKeyFormatStrategy
@@ -1376,7 +1320,6 @@ return|;
 block|}
 comment|/**          * Pluggable strategy for encoding and decoding JMS keys so they can be          * compliant with the JMS specification. Camel provides two          * implementations out of the box: default and passthrough. The default          * strategy will safely marshal dots and hyphens (. and -). The          * passthrough strategy leaves the key as is. Can be used for JMS          * brokers which do not care whether JMS header keys contain illegal          * characters. You can provide your own implementation of the          * org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it          * using the # notation.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.jms.JmsKeyFormatStrategy</code>          * type.          * @group advanced          */
 DECL|method|jmsKeyFormatStrategy ( String jmsKeyFormatStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|jmsKeyFormatStrategy
@@ -1398,7 +1341,6 @@ return|;
 block|}
 comment|/**          * Specifies whether Camel should auto map the received JMS message to a          * suited payload type, such as javax.jms.TextMessage to a String etc.          * See section about how mapping works below for more details.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapJmsMessage ( boolean mapJmsMessage)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|mapJmsMessage
@@ -1420,7 +1362,6 @@ return|;
 block|}
 comment|/**          * Specifies whether Camel should auto map the received JMS message to a          * suited payload type, such as javax.jms.TextMessage to a String etc.          * See section about how mapping works below for more details.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapJmsMessage ( String mapJmsMessage)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|mapJmsMessage
@@ -1442,7 +1383,6 @@ return|;
 block|}
 comment|/**          * To use the given MessageCreatedStrategy which are invoked when Camel          * creates new instances of javax.jms.Message objects when Camel is          * sending a JMS message.          * The option is a          *<code>org.apache.camel.component.sjms.jms.MessageCreatedStrategy</code> type.          * @group advanced          */
 DECL|method|messageCreatedStrategy ( Object messageCreatedStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|messageCreatedStrategy
@@ -1464,7 +1404,6 @@ return|;
 block|}
 comment|/**          * To use the given MessageCreatedStrategy which are invoked when Camel          * creates new instances of javax.jms.Message objects when Camel is          * sending a JMS message.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.jms.MessageCreatedStrategy</code> type.          * @group advanced          */
 DECL|method|messageCreatedStrategy ( String messageCreatedStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|messageCreatedStrategy
@@ -1486,7 +1425,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to share JMS session with other SJMS endpoints.          * Turn this off if your route is accessing to multiple JMS providers.          * If you need transaction against multiple JMS providers, use jms          * component to leverage XA transaction.          * The option is a<code>boolean</code> type.          * @group transaction (advanced)          */
 DECL|method|sharedJMSSession ( boolean sharedJMSSession)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|sharedJMSSession
@@ -1508,7 +1446,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to share JMS session with other SJMS endpoints.          * Turn this off if your route is accessing to multiple JMS providers.          * If you need transaction against multiple JMS providers, use jms          * component to leverage XA transaction.          * The option will be converted to a<code>boolean</code> type.          * @group transaction (advanced)          */
 DECL|method|sharedJMSSession ( String sharedJMSSession)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointConsumerBuilder
 name|sharedJMSSession
@@ -1539,7 +1476,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|advanced
@@ -1554,7 +1490,6 @@ return|;
 block|}
 comment|/**          * The kind of destination to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|destinationType ( String destinationType)
-specifier|public
 specifier|default
 name|Sjms2EndpointProducerBuilder
 name|destinationType
@@ -1576,7 +1511,6 @@ return|;
 block|}
 comment|/**          * DestinationName is a JMS queue or topic name. By default, the          * destinationName is interpreted as a queue name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|destinationName ( String destinationName)
-specifier|public
 specifier|default
 name|Sjms2EndpointProducerBuilder
 name|destinationName
@@ -1598,7 +1532,6 @@ return|;
 block|}
 comment|/**          * The JMS acknowledgement name, which is one of: SESSION_TRANSACTED,          * CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE.          * The option is a          *<code>org.apache.camel.component.sjms.jms.SessionAcknowledgementType</code> type.          * @group common          */
 DECL|method|acknowledgementMode ( SessionAcknowledgementType acknowledgementMode)
-specifier|public
 specifier|default
 name|Sjms2EndpointProducerBuilder
 name|acknowledgementMode
@@ -1620,7 +1553,6 @@ return|;
 block|}
 comment|/**          * The JMS acknowledgement name, which is one of: SESSION_TRANSACTED,          * CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.jms.SessionAcknowledgementType</code> type.          * @group common          */
 DECL|method|acknowledgementMode ( String acknowledgementMode)
-specifier|public
 specifier|default
 name|Sjms2EndpointProducerBuilder
 name|acknowledgementMode
@@ -1642,7 +1574,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|Sjms2EndpointProducerBuilder
 name|lazyStartProducer
@@ -1664,7 +1595,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|Sjms2EndpointProducerBuilder
 name|lazyStartProducer
@@ -1685,8 +1615,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the reply to destination name used for InOut producer endpoints.          * The type of the reply to destination can be determined by the          * starting prefix (topic: or queue:) in its name.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|namedReplyTo ( String namedReplyTo)
-specifier|public
+DECL|method|namedReplyTo (String namedReplyTo)
 specifier|default
 name|Sjms2EndpointProducerBuilder
 name|namedReplyTo
@@ -1707,8 +1636,7 @@ name|this
 return|;
 block|}
 comment|/**          * Flag used to enable/disable message persistence.          * The option is a<code>boolean</code> type.          * @group producer          */
-DECL|method|persistent ( boolean persistent)
-specifier|public
+DECL|method|persistent (boolean persistent)
 specifier|default
 name|Sjms2EndpointProducerBuilder
 name|persistent
@@ -1730,7 +1658,6 @@ return|;
 block|}
 comment|/**          * Flag used to enable/disable message persistence.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|persistent (String persistent)
-specifier|public
 specifier|default
 name|Sjms2EndpointProducerBuilder
 name|persistent
@@ -1751,8 +1678,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the number of producers used for this endpoint.          * The option is a<code>int</code> type.          * @group producer          */
-DECL|method|producerCount ( int producerCount)
-specifier|public
+DECL|method|producerCount (int producerCount)
 specifier|default
 name|Sjms2EndpointProducerBuilder
 name|producerCount
@@ -1773,8 +1699,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the number of producers used for this endpoint.          * The option will be converted to a<code>int</code> type.          * @group producer          */
-DECL|method|producerCount ( String producerCount)
-specifier|public
+DECL|method|producerCount (String producerCount)
 specifier|default
 name|Sjms2EndpointProducerBuilder
 name|producerCount
@@ -1796,7 +1721,6 @@ return|;
 block|}
 comment|/**          * Flag used to adjust the Time To Live value of produced messages.          * The option is a<code>long</code> type.          * @group producer          */
 DECL|method|ttl (long ttl)
-specifier|public
 specifier|default
 name|Sjms2EndpointProducerBuilder
 name|ttl
@@ -1818,7 +1742,6 @@ return|;
 block|}
 comment|/**          * Flag used to adjust the Time To Live value of produced messages.          * The option will be converted to a<code>long</code> type.          * @group producer          */
 DECL|method|ttl (String ttl)
-specifier|public
 specifier|default
 name|Sjms2EndpointProducerBuilder
 name|ttl
@@ -1840,7 +1763,6 @@ return|;
 block|}
 comment|/**          * Sets the commit strategy.          * The option is a          *<code>org.apache.camel.component.sjms.TransactionCommitStrategy</code> type.          * @group transaction          */
 DECL|method|transactionCommitStrategy ( Object transactionCommitStrategy)
-specifier|public
 specifier|default
 name|Sjms2EndpointProducerBuilder
 name|transactionCommitStrategy
@@ -1862,7 +1784,6 @@ return|;
 block|}
 comment|/**          * Sets the commit strategy.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.TransactionCommitStrategy</code> type.          * @group transaction          */
 DECL|method|transactionCommitStrategy ( String transactionCommitStrategy)
-specifier|public
 specifier|default
 name|Sjms2EndpointProducerBuilder
 name|transactionCommitStrategy
@@ -1892,7 +1813,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|Sjms2EndpointProducerBuilder
 name|basic
@@ -1907,7 +1827,6 @@ return|;
 block|}
 comment|/**          * Whether to allow sending messages with no body. If this option is          * false and the message body is null, then an JMSException is thrown.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|allowNullBody ( boolean allowNullBody)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|allowNullBody
@@ -1929,7 +1848,6 @@ return|;
 block|}
 comment|/**          * Whether to allow sending messages with no body. If this option is          * false and the message body is null, then an JMSException is thrown.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|allowNullBody ( String allowNullBody)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|allowNullBody
@@ -1951,7 +1869,6 @@ return|;
 block|}
 comment|/**          * Whether to prefill the producer connection pool on startup, or create          * connections lazy when needed.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|prefillPool ( boolean prefillPool)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|prefillPool
@@ -1973,7 +1890,6 @@ return|;
 block|}
 comment|/**          * Whether to prefill the producer connection pool on startup, or create          * connections lazy when needed.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|prefillPool ( String prefillPool)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|prefillPool
@@ -1995,7 +1911,6 @@ return|;
 block|}
 comment|/**          * Sets the amount of time we should wait before timing out a InOut          * response.          * The option is a<code>long</code> type.          * @group producer (advanced)          */
 DECL|method|responseTimeOut ( long responseTimeOut)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|responseTimeOut
@@ -2017,7 +1932,6 @@ return|;
 block|}
 comment|/**          * Sets the amount of time we should wait before timing out a InOut          * response.          * The option will be converted to a<code>long</code> type.          * @group producer (advanced)          */
 DECL|method|responseTimeOut ( String responseTimeOut)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|responseTimeOut
@@ -2039,7 +1953,6 @@ return|;
 block|}
 comment|/**          * Whether to startup the consumer message listener asynchronously, when          * starting a route. For example if a JmsConsumer cannot get a          * connection to a remote JMS broker, then it may block while retrying          * and/or failover. This will cause Camel to block while starting          * routes. By setting this option to true, you will let routes startup,          * while the JmsConsumer connects to the JMS broker using a dedicated          * thread in asynchronous mode. If this option is used, then beware that          * if the connection could not be established, then an exception is          * logged at WARN level, and the consumer will not be able to receive          * messages; You can then restart the route to retry.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|asyncStartListener ( boolean asyncStartListener)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|asyncStartListener
@@ -2061,7 +1974,6 @@ return|;
 block|}
 comment|/**          * Whether to startup the consumer message listener asynchronously, when          * starting a route. For example if a JmsConsumer cannot get a          * connection to a remote JMS broker, then it may block while retrying          * and/or failover. This will cause Camel to block while starting          * routes. By setting this option to true, you will let routes startup,          * while the JmsConsumer connects to the JMS broker using a dedicated          * thread in asynchronous mode. If this option is used, then beware that          * if the connection could not be established, then an exception is          * logged at WARN level, and the consumer will not be able to receive          * messages; You can then restart the route to retry.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|asyncStartListener ( String asyncStartListener)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|asyncStartListener
@@ -2083,7 +1995,6 @@ return|;
 block|}
 comment|/**          * Whether to stop the consumer message listener asynchronously, when          * stopping a route.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|asyncStopListener ( boolean asyncStopListener)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|asyncStopListener
@@ -2105,7 +2016,6 @@ return|;
 block|}
 comment|/**          * Whether to stop the consumer message listener asynchronously, when          * stopping a route.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|asyncStopListener ( String asyncStopListener)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|asyncStopListener
@@ -2127,7 +2037,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|basicPropertyBinding
@@ -2149,7 +2058,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|basicPropertyBinding
@@ -2171,7 +2079,6 @@ return|;
 block|}
 comment|/**          * The maximum number of connections available to this endpoint.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
 DECL|method|connectionCount ( Integer connectionCount)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|connectionCount
@@ -2193,7 +2100,6 @@ return|;
 block|}
 comment|/**          * The maximum number of connections available to this endpoint.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
 DECL|method|connectionCount ( String connectionCount)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|connectionCount
@@ -2215,7 +2121,6 @@ return|;
 block|}
 comment|/**          * Initializes the connectionFactory for the endpoint, which takes          * precedence over the component's connectionFactory, if any.          * The option is a<code>javax.jms.ConnectionFactory</code> type.          * @group advanced          */
 DECL|method|connectionFactory ( Object connectionFactory)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|connectionFactory
@@ -2237,7 +2142,6 @@ return|;
 block|}
 comment|/**          * Initializes the connectionFactory for the endpoint, which takes          * precedence over the component's connectionFactory, if any.          * The option will be converted to a          *<code>javax.jms.ConnectionFactory</code> type.          * @group advanced          */
 DECL|method|connectionFactory ( String connectionFactory)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|connectionFactory
@@ -2259,7 +2163,6 @@ return|;
 block|}
 comment|/**          * Initializes the connectionResource for the endpoint, which takes          * precedence over the component's connectionResource, if any.          * The option is a          *<code>org.apache.camel.component.sjms.jms.ConnectionResource</code>          * type.          * @group advanced          */
 DECL|method|connectionResource ( Object connectionResource)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|connectionResource
@@ -2281,7 +2184,6 @@ return|;
 block|}
 comment|/**          * Initializes the connectionResource for the endpoint, which takes          * precedence over the component's connectionResource, if any.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.jms.ConnectionResource</code>          * type.          * @group advanced          */
 DECL|method|connectionResource ( String connectionResource)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|connectionResource
@@ -2303,7 +2205,6 @@ return|;
 block|}
 comment|/**          * To use a custom DestinationCreationStrategy.          * The option is a          *<code>org.apache.camel.component.sjms.jms.DestinationCreationStrategy</code> type.          * @group advanced          */
 DECL|method|destinationCreationStrategy ( Object destinationCreationStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|destinationCreationStrategy
@@ -2325,7 +2226,6 @@ return|;
 block|}
 comment|/**          * To use a custom DestinationCreationStrategy.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.jms.DestinationCreationStrategy</code> type.          * @group advanced          */
 DECL|method|destinationCreationStrategy ( String destinationCreationStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|destinationCreationStrategy
@@ -2347,7 +2247,6 @@ return|;
 block|}
 comment|/**          * Specifies the JMS Exception Listener that is to be notified of any          * underlying JMS exceptions.          * The option is a<code>javax.jms.ExceptionListener</code> type.          * @group advanced          */
 DECL|method|exceptionListener ( Object exceptionListener)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|exceptionListener
@@ -2369,7 +2268,6 @@ return|;
 block|}
 comment|/**          * Specifies the JMS Exception Listener that is to be notified of any          * underlying JMS exceptions.          * The option will be converted to a          *<code>javax.jms.ExceptionListener</code> type.          * @group advanced          */
 DECL|method|exceptionListener ( String exceptionListener)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|exceptionListener
@@ -2391,7 +2289,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|headerFilterStrategy
@@ -2413,7 +2310,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|headerFilterStrategy
@@ -2435,7 +2331,6 @@ return|;
 block|}
 comment|/**          * Whether to include all JMSXxxx properties when mapping from JMS to          * Camel Message. Setting this to true will include properties such as          * JMSXAppID, and JMSXUserID etc. Note: If you are using a custom          * headerFilterStrategy then this option does not apply.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|includeAllJMSXProperties ( boolean includeAllJMSXProperties)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|includeAllJMSXProperties
@@ -2457,7 +2352,6 @@ return|;
 block|}
 comment|/**          * Whether to include all JMSXxxx properties when mapping from JMS to          * Camel Message. Setting this to true will include properties such as          * JMSXAppID, and JMSXUserID etc. Note: If you are using a custom          * headerFilterStrategy then this option does not apply.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|includeAllJMSXProperties ( String includeAllJMSXProperties)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|includeAllJMSXProperties
@@ -2479,7 +2373,6 @@ return|;
 block|}
 comment|/**          * Pluggable strategy for encoding and decoding JMS keys so they can be          * compliant with the JMS specification. Camel provides two          * implementations out of the box: default and passthrough. The default          * strategy will safely marshal dots and hyphens (. and -). The          * passthrough strategy leaves the key as is. Can be used for JMS          * brokers which do not care whether JMS header keys contain illegal          * characters. You can provide your own implementation of the          * org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it          * using the # notation.          * The option is a          *<code>org.apache.camel.component.sjms.jms.JmsKeyFormatStrategy</code>          * type.          * @group advanced          */
 DECL|method|jmsKeyFormatStrategy ( Object jmsKeyFormatStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|jmsKeyFormatStrategy
@@ -2501,7 +2394,6 @@ return|;
 block|}
 comment|/**          * Pluggable strategy for encoding and decoding JMS keys so they can be          * compliant with the JMS specification. Camel provides two          * implementations out of the box: default and passthrough. The default          * strategy will safely marshal dots and hyphens (. and -). The          * passthrough strategy leaves the key as is. Can be used for JMS          * brokers which do not care whether JMS header keys contain illegal          * characters. You can provide your own implementation of the          * org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it          * using the # notation.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.jms.JmsKeyFormatStrategy</code>          * type.          * @group advanced          */
 DECL|method|jmsKeyFormatStrategy ( String jmsKeyFormatStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|jmsKeyFormatStrategy
@@ -2523,7 +2415,6 @@ return|;
 block|}
 comment|/**          * Specifies whether Camel should auto map the received JMS message to a          * suited payload type, such as javax.jms.TextMessage to a String etc.          * See section about how mapping works below for more details.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapJmsMessage ( boolean mapJmsMessage)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|mapJmsMessage
@@ -2545,7 +2436,6 @@ return|;
 block|}
 comment|/**          * Specifies whether Camel should auto map the received JMS message to a          * suited payload type, such as javax.jms.TextMessage to a String etc.          * See section about how mapping works below for more details.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapJmsMessage ( String mapJmsMessage)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|mapJmsMessage
@@ -2567,7 +2457,6 @@ return|;
 block|}
 comment|/**          * To use the given MessageCreatedStrategy which are invoked when Camel          * creates new instances of javax.jms.Message objects when Camel is          * sending a JMS message.          * The option is a          *<code>org.apache.camel.component.sjms.jms.MessageCreatedStrategy</code> type.          * @group advanced          */
 DECL|method|messageCreatedStrategy ( Object messageCreatedStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|messageCreatedStrategy
@@ -2589,7 +2478,6 @@ return|;
 block|}
 comment|/**          * To use the given MessageCreatedStrategy which are invoked when Camel          * creates new instances of javax.jms.Message objects when Camel is          * sending a JMS message.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.jms.MessageCreatedStrategy</code> type.          * @group advanced          */
 DECL|method|messageCreatedStrategy ( String messageCreatedStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|messageCreatedStrategy
@@ -2611,7 +2499,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to share JMS session with other SJMS endpoints.          * Turn this off if your route is accessing to multiple JMS providers.          * If you need transaction against multiple JMS providers, use jms          * component to leverage XA transaction.          * The option is a<code>boolean</code> type.          * @group transaction (advanced)          */
 DECL|method|sharedJMSSession ( boolean sharedJMSSession)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|sharedJMSSession
@@ -2633,7 +2520,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to share JMS session with other SJMS endpoints.          * Turn this off if your route is accessing to multiple JMS providers.          * If you need transaction against multiple JMS providers, use jms          * component to leverage XA transaction.          * The option will be converted to a<code>boolean</code> type.          * @group transaction (advanced)          */
 DECL|method|sharedJMSSession ( String sharedJMSSession)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointProducerBuilder
 name|sharedJMSSession
@@ -2666,7 +2552,6 @@ extends|,
 name|Sjms2EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|advanced
@@ -2680,8 +2565,7 @@ name|this
 return|;
 block|}
 comment|/**          * The kind of destination to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|destinationType ( String destinationType)
-specifier|public
+DECL|method|destinationType (String destinationType)
 specifier|default
 name|Sjms2EndpointBuilder
 name|destinationType
@@ -2702,8 +2586,7 @@ name|this
 return|;
 block|}
 comment|/**          * DestinationName is a JMS queue or topic name. By default, the          * destinationName is interpreted as a queue name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|destinationName ( String destinationName)
-specifier|public
+DECL|method|destinationName (String destinationName)
 specifier|default
 name|Sjms2EndpointBuilder
 name|destinationName
@@ -2725,7 +2608,6 @@ return|;
 block|}
 comment|/**          * The JMS acknowledgement name, which is one of: SESSION_TRANSACTED,          * CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE.          * The option is a          *<code>org.apache.camel.component.sjms.jms.SessionAcknowledgementType</code> type.          * @group common          */
 DECL|method|acknowledgementMode ( SessionAcknowledgementType acknowledgementMode)
-specifier|public
 specifier|default
 name|Sjms2EndpointBuilder
 name|acknowledgementMode
@@ -2747,7 +2629,6 @@ return|;
 block|}
 comment|/**          * The JMS acknowledgement name, which is one of: SESSION_TRANSACTED,          * CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.jms.SessionAcknowledgementType</code> type.          * @group common          */
 DECL|method|acknowledgementMode ( String acknowledgementMode)
-specifier|public
 specifier|default
 name|Sjms2EndpointBuilder
 name|acknowledgementMode
@@ -2769,7 +2650,6 @@ return|;
 block|}
 comment|/**          * Sets the commit strategy.          * The option is a          *<code>org.apache.camel.component.sjms.TransactionCommitStrategy</code> type.          * @group transaction          */
 DECL|method|transactionCommitStrategy ( Object transactionCommitStrategy)
-specifier|public
 specifier|default
 name|Sjms2EndpointBuilder
 name|transactionCommitStrategy
@@ -2791,7 +2671,6 @@ return|;
 block|}
 comment|/**          * Sets the commit strategy.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.TransactionCommitStrategy</code> type.          * @group transaction          */
 DECL|method|transactionCommitStrategy ( String transactionCommitStrategy)
-specifier|public
 specifier|default
 name|Sjms2EndpointBuilder
 name|transactionCommitStrategy
@@ -2824,7 +2703,6 @@ extends|,
 name|AdvancedSjms2EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|Sjms2EndpointBuilder
 name|basic
@@ -2839,7 +2717,6 @@ return|;
 block|}
 comment|/**          * Whether to startup the consumer message listener asynchronously, when          * starting a route. For example if a JmsConsumer cannot get a          * connection to a remote JMS broker, then it may block while retrying          * and/or failover. This will cause Camel to block while starting          * routes. By setting this option to true, you will let routes startup,          * while the JmsConsumer connects to the JMS broker using a dedicated          * thread in asynchronous mode. If this option is used, then beware that          * if the connection could not be established, then an exception is          * logged at WARN level, and the consumer will not be able to receive          * messages; You can then restart the route to retry.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|asyncStartListener ( boolean asyncStartListener)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|asyncStartListener
@@ -2861,7 +2738,6 @@ return|;
 block|}
 comment|/**          * Whether to startup the consumer message listener asynchronously, when          * starting a route. For example if a JmsConsumer cannot get a          * connection to a remote JMS broker, then it may block while retrying          * and/or failover. This will cause Camel to block while starting          * routes. By setting this option to true, you will let routes startup,          * while the JmsConsumer connects to the JMS broker using a dedicated          * thread in asynchronous mode. If this option is used, then beware that          * if the connection could not be established, then an exception is          * logged at WARN level, and the consumer will not be able to receive          * messages; You can then restart the route to retry.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|asyncStartListener ( String asyncStartListener)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|asyncStartListener
@@ -2883,7 +2759,6 @@ return|;
 block|}
 comment|/**          * Whether to stop the consumer message listener asynchronously, when          * stopping a route.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|asyncStopListener ( boolean asyncStopListener)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|asyncStopListener
@@ -2905,7 +2780,6 @@ return|;
 block|}
 comment|/**          * Whether to stop the consumer message listener asynchronously, when          * stopping a route.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|asyncStopListener ( String asyncStopListener)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|asyncStopListener
@@ -2927,7 +2801,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|basicPropertyBinding
@@ -2949,7 +2822,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|basicPropertyBinding
@@ -2971,7 +2843,6 @@ return|;
 block|}
 comment|/**          * The maximum number of connections available to this endpoint.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
 DECL|method|connectionCount ( Integer connectionCount)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|connectionCount
@@ -2993,7 +2864,6 @@ return|;
 block|}
 comment|/**          * The maximum number of connections available to this endpoint.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
 DECL|method|connectionCount ( String connectionCount)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|connectionCount
@@ -3015,7 +2885,6 @@ return|;
 block|}
 comment|/**          * Initializes the connectionFactory for the endpoint, which takes          * precedence over the component's connectionFactory, if any.          * The option is a<code>javax.jms.ConnectionFactory</code> type.          * @group advanced          */
 DECL|method|connectionFactory ( Object connectionFactory)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|connectionFactory
@@ -3037,7 +2906,6 @@ return|;
 block|}
 comment|/**          * Initializes the connectionFactory for the endpoint, which takes          * precedence over the component's connectionFactory, if any.          * The option will be converted to a          *<code>javax.jms.ConnectionFactory</code> type.          * @group advanced          */
 DECL|method|connectionFactory ( String connectionFactory)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|connectionFactory
@@ -3059,7 +2927,6 @@ return|;
 block|}
 comment|/**          * Initializes the connectionResource for the endpoint, which takes          * precedence over the component's connectionResource, if any.          * The option is a          *<code>org.apache.camel.component.sjms.jms.ConnectionResource</code>          * type.          * @group advanced          */
 DECL|method|connectionResource ( Object connectionResource)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|connectionResource
@@ -3081,7 +2948,6 @@ return|;
 block|}
 comment|/**          * Initializes the connectionResource for the endpoint, which takes          * precedence over the component's connectionResource, if any.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.jms.ConnectionResource</code>          * type.          * @group advanced          */
 DECL|method|connectionResource ( String connectionResource)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|connectionResource
@@ -3103,7 +2969,6 @@ return|;
 block|}
 comment|/**          * To use a custom DestinationCreationStrategy.          * The option is a          *<code>org.apache.camel.component.sjms.jms.DestinationCreationStrategy</code> type.          * @group advanced          */
 DECL|method|destinationCreationStrategy ( Object destinationCreationStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|destinationCreationStrategy
@@ -3125,7 +2990,6 @@ return|;
 block|}
 comment|/**          * To use a custom DestinationCreationStrategy.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.jms.DestinationCreationStrategy</code> type.          * @group advanced          */
 DECL|method|destinationCreationStrategy ( String destinationCreationStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|destinationCreationStrategy
@@ -3147,7 +3011,6 @@ return|;
 block|}
 comment|/**          * Specifies the JMS Exception Listener that is to be notified of any          * underlying JMS exceptions.          * The option is a<code>javax.jms.ExceptionListener</code> type.          * @group advanced          */
 DECL|method|exceptionListener ( Object exceptionListener)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|exceptionListener
@@ -3169,7 +3032,6 @@ return|;
 block|}
 comment|/**          * Specifies the JMS Exception Listener that is to be notified of any          * underlying JMS exceptions.          * The option will be converted to a          *<code>javax.jms.ExceptionListener</code> type.          * @group advanced          */
 DECL|method|exceptionListener ( String exceptionListener)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|exceptionListener
@@ -3191,7 +3053,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|headerFilterStrategy
@@ -3213,7 +3074,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|headerFilterStrategy
@@ -3235,7 +3095,6 @@ return|;
 block|}
 comment|/**          * Whether to include all JMSXxxx properties when mapping from JMS to          * Camel Message. Setting this to true will include properties such as          * JMSXAppID, and JMSXUserID etc. Note: If you are using a custom          * headerFilterStrategy then this option does not apply.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|includeAllJMSXProperties ( boolean includeAllJMSXProperties)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|includeAllJMSXProperties
@@ -3257,7 +3116,6 @@ return|;
 block|}
 comment|/**          * Whether to include all JMSXxxx properties when mapping from JMS to          * Camel Message. Setting this to true will include properties such as          * JMSXAppID, and JMSXUserID etc. Note: If you are using a custom          * headerFilterStrategy then this option does not apply.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|includeAllJMSXProperties ( String includeAllJMSXProperties)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|includeAllJMSXProperties
@@ -3279,7 +3137,6 @@ return|;
 block|}
 comment|/**          * Pluggable strategy for encoding and decoding JMS keys so they can be          * compliant with the JMS specification. Camel provides two          * implementations out of the box: default and passthrough. The default          * strategy will safely marshal dots and hyphens (. and -). The          * passthrough strategy leaves the key as is. Can be used for JMS          * brokers which do not care whether JMS header keys contain illegal          * characters. You can provide your own implementation of the          * org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it          * using the # notation.          * The option is a          *<code>org.apache.camel.component.sjms.jms.JmsKeyFormatStrategy</code>          * type.          * @group advanced          */
 DECL|method|jmsKeyFormatStrategy ( Object jmsKeyFormatStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|jmsKeyFormatStrategy
@@ -3301,7 +3158,6 @@ return|;
 block|}
 comment|/**          * Pluggable strategy for encoding and decoding JMS keys so they can be          * compliant with the JMS specification. Camel provides two          * implementations out of the box: default and passthrough. The default          * strategy will safely marshal dots and hyphens (. and -). The          * passthrough strategy leaves the key as is. Can be used for JMS          * brokers which do not care whether JMS header keys contain illegal          * characters. You can provide your own implementation of the          * org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it          * using the # notation.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.jms.JmsKeyFormatStrategy</code>          * type.          * @group advanced          */
 DECL|method|jmsKeyFormatStrategy ( String jmsKeyFormatStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|jmsKeyFormatStrategy
@@ -3322,8 +3178,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specifies whether Camel should auto map the received JMS message to a          * suited payload type, such as javax.jms.TextMessage to a String etc.          * See section about how mapping works below for more details.          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|mapJmsMessage ( boolean mapJmsMessage)
-specifier|public
+DECL|method|mapJmsMessage (boolean mapJmsMessage)
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|mapJmsMessage
@@ -3344,8 +3199,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specifies whether Camel should auto map the received JMS message to a          * suited payload type, such as javax.jms.TextMessage to a String etc.          * See section about how mapping works below for more details.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|mapJmsMessage ( String mapJmsMessage)
-specifier|public
+DECL|method|mapJmsMessage (String mapJmsMessage)
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|mapJmsMessage
@@ -3367,7 +3221,6 @@ return|;
 block|}
 comment|/**          * To use the given MessageCreatedStrategy which are invoked when Camel          * creates new instances of javax.jms.Message objects when Camel is          * sending a JMS message.          * The option is a          *<code>org.apache.camel.component.sjms.jms.MessageCreatedStrategy</code> type.          * @group advanced          */
 DECL|method|messageCreatedStrategy ( Object messageCreatedStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|messageCreatedStrategy
@@ -3389,7 +3242,6 @@ return|;
 block|}
 comment|/**          * To use the given MessageCreatedStrategy which are invoked when Camel          * creates new instances of javax.jms.Message objects when Camel is          * sending a JMS message.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.jms.MessageCreatedStrategy</code> type.          * @group advanced          */
 DECL|method|messageCreatedStrategy ( String messageCreatedStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|messageCreatedStrategy
@@ -3411,7 +3263,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to share JMS session with other SJMS endpoints.          * Turn this off if your route is accessing to multiple JMS providers.          * If you need transaction against multiple JMS providers, use jms          * component to leverage XA transaction.          * The option is a<code>boolean</code> type.          * @group transaction (advanced)          */
 DECL|method|sharedJMSSession ( boolean sharedJMSSession)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|sharedJMSSession
@@ -3433,7 +3284,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to share JMS session with other SJMS endpoints.          * Turn this off if your route is accessing to multiple JMS providers.          * If you need transaction against multiple JMS providers, use jms          * component to leverage XA transaction.          * The option will be converted to a<code>boolean</code> type.          * @group transaction (advanced)          */
 DECL|method|sharedJMSSession ( String sharedJMSSession)
-specifier|public
 specifier|default
 name|AdvancedSjms2EndpointBuilder
 name|sharedJMSSession
@@ -3475,7 +3325,6 @@ name|SESSION_TRANSACTED
 block|;     }
 comment|/**      * The sjms2 component (simple jms) allows messages to be sent to (or      * consumed from) a JMS Queue or Topic (uses JMS 2.x API). Creates a builder      * to build endpoints for the Simple JMS2 component.      */
 DECL|method|sjms2 (String path)
-specifier|public
 specifier|default
 name|Sjms2EndpointBuilder
 name|sjms2

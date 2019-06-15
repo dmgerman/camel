@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointConsumerBuilder
 name|advanced
@@ -138,8 +137,7 @@ name|this
 return|;
 block|}
 comment|/**          * Project Id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|projectId ( String projectId)
-specifier|public
+DECL|method|projectId (String projectId)
 specifier|default
 name|GooglePubsubEndpointConsumerBuilder
 name|projectId
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * Destination Name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|destinationName ( String destinationName)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointConsumerBuilder
 name|destinationName
@@ -182,8 +179,7 @@ name|this
 return|;
 block|}
 comment|/**          * AUTO = exchange gets ack'ed/nack'ed on completion. NONE = downstream          * process has to ack/nack explicitly.          * The option is a          *<code>org.apache.camel.component.google.pubsub.GooglePubsubConstants$AckMode</code> type.          * @group common          */
-DECL|method|ackMode ( AckMode ackMode)
-specifier|public
+DECL|method|ackMode (AckMode ackMode)
 specifier|default
 name|GooglePubsubEndpointConsumerBuilder
 name|ackMode
@@ -204,8 +200,7 @@ name|this
 return|;
 block|}
 comment|/**          * AUTO = exchange gets ack'ed/nack'ed on completion. NONE = downstream          * process has to ack/nack explicitly.          * The option will be converted to a          *<code>org.apache.camel.component.google.pubsub.GooglePubsubConstants$AckMode</code> type.          * @group common          */
-DECL|method|ackMode ( String ackMode)
-specifier|public
+DECL|method|ackMode (String ackMode)
 specifier|default
 name|GooglePubsubEndpointConsumerBuilder
 name|ackMode
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * The number of parallel streams consuming from the subscription.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|concurrentConsumers ( Integer concurrentConsumers)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointConsumerBuilder
 name|concurrentConsumers
@@ -249,7 +243,6 @@ return|;
 block|}
 comment|/**          * The number of parallel streams consuming from the subscription.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|concurrentConsumers ( String concurrentConsumers)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointConsumerBuilder
 name|concurrentConsumers
@@ -271,7 +264,6 @@ return|;
 block|}
 comment|/**          * ConnectionFactory to obtain connection to PubSub Service. If non          * provided the default will be used.          * The option is a          *<code>org.apache.camel.component.google.pubsub.GooglePubsubConnectionFactory</code> type.          * @group common          */
 DECL|method|connectionFactory ( Object connectionFactory)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointConsumerBuilder
 name|connectionFactory
@@ -293,7 +285,6 @@ return|;
 block|}
 comment|/**          * ConnectionFactory to obtain connection to PubSub Service. If non          * provided the default will be used.          * The option will be converted to a          *<code>org.apache.camel.component.google.pubsub.GooglePubsubConnectionFactory</code> type.          * @group common          */
 DECL|method|connectionFactory ( String connectionFactory)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointConsumerBuilder
 name|connectionFactory
@@ -314,8 +305,7 @@ name|this
 return|;
 block|}
 comment|/**          * Logger ID to use when a match to the parent route required.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|loggerId ( String loggerId)
-specifier|public
+DECL|method|loggerId (String loggerId)
 specifier|default
 name|GooglePubsubEndpointConsumerBuilder
 name|loggerId
@@ -337,7 +327,6 @@ return|;
 block|}
 comment|/**          * The max number of messages to receive from the server in a single API          * call.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|maxMessagesPerPoll ( Integer maxMessagesPerPoll)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointConsumerBuilder
 name|maxMessagesPerPoll
@@ -359,7 +348,6 @@ return|;
 block|}
 comment|/**          * The max number of messages to receive from the server in a single API          * call.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|maxMessagesPerPoll ( String maxMessagesPerPoll)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointConsumerBuilder
 name|maxMessagesPerPoll
@@ -381,7 +369,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -403,7 +390,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -433,7 +419,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|GooglePubsubEndpointConsumerBuilder
 name|basic
@@ -448,7 +433,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointConsumerBuilder
 name|exceptionHandler
@@ -470,7 +454,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointConsumerBuilder
 name|exceptionHandler
@@ -492,7 +475,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointConsumerBuilder
 name|exchangePattern
@@ -514,7 +496,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointConsumerBuilder
 name|exchangePattern
@@ -536,7 +517,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -558,7 +538,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -580,7 +559,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointConsumerBuilder
 name|synchronous
@@ -602,7 +580,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointConsumerBuilder
 name|synchronous
@@ -633,7 +610,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointProducerBuilder
 name|advanced
@@ -647,8 +623,7 @@ name|this
 return|;
 block|}
 comment|/**          * Project Id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|projectId ( String projectId)
-specifier|public
+DECL|method|projectId (String projectId)
 specifier|default
 name|GooglePubsubEndpointProducerBuilder
 name|projectId
@@ -670,7 +645,6 @@ return|;
 block|}
 comment|/**          * Destination Name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|destinationName ( String destinationName)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointProducerBuilder
 name|destinationName
@@ -691,8 +665,7 @@ name|this
 return|;
 block|}
 comment|/**          * AUTO = exchange gets ack'ed/nack'ed on completion. NONE = downstream          * process has to ack/nack explicitly.          * The option is a          *<code>org.apache.camel.component.google.pubsub.GooglePubsubConstants$AckMode</code> type.          * @group common          */
-DECL|method|ackMode ( AckMode ackMode)
-specifier|public
+DECL|method|ackMode (AckMode ackMode)
 specifier|default
 name|GooglePubsubEndpointProducerBuilder
 name|ackMode
@@ -713,8 +686,7 @@ name|this
 return|;
 block|}
 comment|/**          * AUTO = exchange gets ack'ed/nack'ed on completion. NONE = downstream          * process has to ack/nack explicitly.          * The option will be converted to a          *<code>org.apache.camel.component.google.pubsub.GooglePubsubConstants$AckMode</code> type.          * @group common          */
-DECL|method|ackMode ( String ackMode)
-specifier|public
+DECL|method|ackMode (String ackMode)
 specifier|default
 name|GooglePubsubEndpointProducerBuilder
 name|ackMode
@@ -736,7 +708,6 @@ return|;
 block|}
 comment|/**          * The number of parallel streams consuming from the subscription.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|concurrentConsumers ( Integer concurrentConsumers)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointProducerBuilder
 name|concurrentConsumers
@@ -758,7 +729,6 @@ return|;
 block|}
 comment|/**          * The number of parallel streams consuming from the subscription.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|concurrentConsumers ( String concurrentConsumers)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointProducerBuilder
 name|concurrentConsumers
@@ -780,7 +750,6 @@ return|;
 block|}
 comment|/**          * ConnectionFactory to obtain connection to PubSub Service. If non          * provided the default will be used.          * The option is a          *<code>org.apache.camel.component.google.pubsub.GooglePubsubConnectionFactory</code> type.          * @group common          */
 DECL|method|connectionFactory ( Object connectionFactory)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointProducerBuilder
 name|connectionFactory
@@ -802,7 +771,6 @@ return|;
 block|}
 comment|/**          * ConnectionFactory to obtain connection to PubSub Service. If non          * provided the default will be used.          * The option will be converted to a          *<code>org.apache.camel.component.google.pubsub.GooglePubsubConnectionFactory</code> type.          * @group common          */
 DECL|method|connectionFactory ( String connectionFactory)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointProducerBuilder
 name|connectionFactory
@@ -823,8 +791,7 @@ name|this
 return|;
 block|}
 comment|/**          * Logger ID to use when a match to the parent route required.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|loggerId ( String loggerId)
-specifier|public
+DECL|method|loggerId (String loggerId)
 specifier|default
 name|GooglePubsubEndpointProducerBuilder
 name|loggerId
@@ -846,7 +813,6 @@ return|;
 block|}
 comment|/**          * The max number of messages to receive from the server in a single API          * call.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|maxMessagesPerPoll ( Integer maxMessagesPerPoll)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointProducerBuilder
 name|maxMessagesPerPoll
@@ -868,7 +834,6 @@ return|;
 block|}
 comment|/**          * The max number of messages to receive from the server in a single API          * call.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|maxMessagesPerPoll ( String maxMessagesPerPoll)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointProducerBuilder
 name|maxMessagesPerPoll
@@ -890,7 +855,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointProducerBuilder
 name|lazyStartProducer
@@ -912,7 +876,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointProducerBuilder
 name|lazyStartProducer
@@ -942,7 +905,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|GooglePubsubEndpointProducerBuilder
 name|basic
@@ -957,7 +919,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointProducerBuilder
 name|basicPropertyBinding
@@ -979,7 +940,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1001,7 +961,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointProducerBuilder
 name|synchronous
@@ -1023,7 +982,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointProducerBuilder
 name|synchronous
@@ -1056,7 +1014,6 @@ extends|,
 name|GooglePubsubEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointBuilder
 name|advanced
@@ -1071,7 +1028,6 @@ return|;
 block|}
 comment|/**          * Project Id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|projectId (String projectId)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointBuilder
 name|projectId
@@ -1093,7 +1049,6 @@ return|;
 block|}
 comment|/**          * Destination Name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|destinationName ( String destinationName)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointBuilder
 name|destinationName
@@ -1115,7 +1070,6 @@ return|;
 block|}
 comment|/**          * AUTO = exchange gets ack'ed/nack'ed on completion. NONE = downstream          * process has to ack/nack explicitly.          * The option is a          *<code>org.apache.camel.component.google.pubsub.GooglePubsubConstants$AckMode</code> type.          * @group common          */
 DECL|method|ackMode (AckMode ackMode)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointBuilder
 name|ackMode
@@ -1137,7 +1091,6 @@ return|;
 block|}
 comment|/**          * AUTO = exchange gets ack'ed/nack'ed on completion. NONE = downstream          * process has to ack/nack explicitly.          * The option will be converted to a          *<code>org.apache.camel.component.google.pubsub.GooglePubsubConstants$AckMode</code> type.          * @group common          */
 DECL|method|ackMode (String ackMode)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointBuilder
 name|ackMode
@@ -1159,7 +1112,6 @@ return|;
 block|}
 comment|/**          * The number of parallel streams consuming from the subscription.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|concurrentConsumers ( Integer concurrentConsumers)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointBuilder
 name|concurrentConsumers
@@ -1181,7 +1133,6 @@ return|;
 block|}
 comment|/**          * The number of parallel streams consuming from the subscription.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|concurrentConsumers ( String concurrentConsumers)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointBuilder
 name|concurrentConsumers
@@ -1203,7 +1154,6 @@ return|;
 block|}
 comment|/**          * ConnectionFactory to obtain connection to PubSub Service. If non          * provided the default will be used.          * The option is a          *<code>org.apache.camel.component.google.pubsub.GooglePubsubConnectionFactory</code> type.          * @group common          */
 DECL|method|connectionFactory ( Object connectionFactory)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointBuilder
 name|connectionFactory
@@ -1225,7 +1175,6 @@ return|;
 block|}
 comment|/**          * ConnectionFactory to obtain connection to PubSub Service. If non          * provided the default will be used.          * The option will be converted to a          *<code>org.apache.camel.component.google.pubsub.GooglePubsubConnectionFactory</code> type.          * @group common          */
 DECL|method|connectionFactory ( String connectionFactory)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointBuilder
 name|connectionFactory
@@ -1247,7 +1196,6 @@ return|;
 block|}
 comment|/**          * Logger ID to use when a match to the parent route required.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|loggerId (String loggerId)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointBuilder
 name|loggerId
@@ -1269,7 +1217,6 @@ return|;
 block|}
 comment|/**          * The max number of messages to receive from the server in a single API          * call.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|maxMessagesPerPoll ( Integer maxMessagesPerPoll)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointBuilder
 name|maxMessagesPerPoll
@@ -1291,7 +1238,6 @@ return|;
 block|}
 comment|/**          * The max number of messages to receive from the server in a single API          * call.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|maxMessagesPerPoll ( String maxMessagesPerPoll)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointBuilder
 name|maxMessagesPerPoll
@@ -1324,7 +1270,6 @@ extends|,
 name|AdvancedGooglePubsubEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|GooglePubsubEndpointBuilder
 name|basic
@@ -1339,7 +1284,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointBuilder
 name|basicPropertyBinding
@@ -1361,7 +1305,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointBuilder
 name|basicPropertyBinding
@@ -1383,7 +1326,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointBuilder
 name|synchronous
@@ -1405,7 +1347,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedGooglePubsubEndpointBuilder
 name|synchronous
@@ -1441,7 +1382,6 @@ name|NONE
 block|;     }
 comment|/**      * Messaging client for Google Cloud Platform PubSub Service Creates a      * builder to build endpoints for the Google Pubsub component.      */
 DECL|method|googlePubsub (String path)
-specifier|public
 specifier|default
 name|GooglePubsubEndpointBuilder
 name|googlePubsub

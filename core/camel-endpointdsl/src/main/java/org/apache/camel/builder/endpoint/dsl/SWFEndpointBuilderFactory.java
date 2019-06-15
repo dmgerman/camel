@@ -134,7 +134,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointConsumerBuilder
 name|advanced
@@ -149,7 +148,6 @@ return|;
 block|}
 comment|/**          * Activity or workflow.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|type (String type)
-specifier|public
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|type
@@ -170,8 +168,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use the given AmazonSimpleWorkflowClient as client.          * The option is a          *<code>com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClient</code> type.          * @group common          */
-DECL|method|amazonSWClient ( Object amazonSWClient)
-specifier|public
+DECL|method|amazonSWClient (Object amazonSWClient)
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|amazonSWClient
@@ -192,8 +189,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use the given AmazonSimpleWorkflowClient as client.          * The option will be converted to a          *<code>com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClient</code> type.          * @group common          */
-DECL|method|amazonSWClient ( String amazonSWClient)
-specifier|public
+DECL|method|amazonSWClient (String amazonSWClient)
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|amazonSWClient
@@ -214,8 +210,7 @@ name|this
 return|;
 block|}
 comment|/**          * An instance of          * com.amazonaws.services.simpleworkflow.flow.DataConverter to use for          * serializing/deserializing the data.          * The option is a          *<code>com.amazonaws.services.simpleworkflow.flow.DataConverter</code>          * type.          * @group common          */
-DECL|method|dataConverter ( Object dataConverter)
-specifier|public
+DECL|method|dataConverter (Object dataConverter)
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|dataConverter
@@ -236,8 +231,7 @@ name|this
 return|;
 block|}
 comment|/**          * An instance of          * com.amazonaws.services.simpleworkflow.flow.DataConverter to use for          * serializing/deserializing the data.          * The option will be converted to a          *<code>com.amazonaws.services.simpleworkflow.flow.DataConverter</code>          * type.          * @group common          */
-DECL|method|dataConverter ( String dataConverter)
-specifier|public
+DECL|method|dataConverter (String dataConverter)
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|dataConverter
@@ -259,7 +253,6 @@ return|;
 block|}
 comment|/**          * The workflow domain to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|domainName (String domainName)
-specifier|public
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|domainName
@@ -281,7 +274,6 @@ return|;
 block|}
 comment|/**          * The workflow or activity event name to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|eventName (String eventName)
-specifier|public
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|eventName
@@ -303,7 +295,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Region.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|region (String region)
-specifier|public
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|region
@@ -325,7 +316,6 @@ return|;
 block|}
 comment|/**          * The workflow or activity event version to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|version (String version)
-specifier|public
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|version
@@ -347,7 +337,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -369,7 +358,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -390,8 +378,7 @@ name|this
 return|;
 block|}
 comment|/**          * The list name to consume activities from.          * The option is a<code>java.lang.String</code> type.          * @group activity          */
-DECL|method|activityList ( String activityList)
-specifier|public
+DECL|method|activityList (String activityList)
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|activityList
@@ -413,7 +400,6 @@ return|;
 block|}
 comment|/**          * Maximum number of threads in work pool for activity.          * The option is a<code>int</code> type.          * @group activity          */
 DECL|method|activityThreadPoolSize ( int activityThreadPoolSize)
-specifier|public
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|activityThreadPoolSize
@@ -435,7 +421,6 @@ return|;
 block|}
 comment|/**          * Maximum number of threads in work pool for activity.          * The option will be converted to a<code>int</code> type.          * @group activity          */
 DECL|method|activityThreadPoolSize ( String activityThreadPoolSize)
-specifier|public
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|activityThreadPoolSize
@@ -457,7 +442,6 @@ return|;
 block|}
 comment|/**          * Activity execution options.          * The option is a          *<code>com.amazonaws.services.simpleworkflow.flow.worker.ActivityTypeExecutionOptions</code> type.          * @group activity          */
 DECL|method|activityTypeExecutionOptions ( Object activityTypeExecutionOptions)
-specifier|public
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|activityTypeExecutionOptions
@@ -479,7 +463,6 @@ return|;
 block|}
 comment|/**          * Activity execution options.          * The option will be converted to a          *<code>com.amazonaws.services.simpleworkflow.flow.worker.ActivityTypeExecutionOptions</code> type.          * @group activity          */
 DECL|method|activityTypeExecutionOptions ( String activityTypeExecutionOptions)
-specifier|public
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|activityTypeExecutionOptions
@@ -501,7 +484,6 @@ return|;
 block|}
 comment|/**          * Activity registration options.          * The option is a          *<code>com.amazonaws.services.simpleworkflow.flow.worker.ActivityTypeRegistrationOptions</code> type.          * @group activity          */
 DECL|method|activityTypeRegistrationOptions ( Object activityTypeRegistrationOptions)
-specifier|public
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|activityTypeRegistrationOptions
@@ -523,7 +505,6 @@ return|;
 block|}
 comment|/**          * Activity registration options.          * The option will be converted to a          *<code>com.amazonaws.services.simpleworkflow.flow.worker.ActivityTypeRegistrationOptions</code> type.          * @group activity          */
 DECL|method|activityTypeRegistrationOptions ( String activityTypeRegistrationOptions)
-specifier|public
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|activityTypeRegistrationOptions
@@ -544,8 +525,7 @@ name|this
 return|;
 block|}
 comment|/**          * The list name to consume workflows from.          * The option is a<code>java.lang.String</code> type.          * @group workflow          */
-DECL|method|workflowList ( String workflowList)
-specifier|public
+DECL|method|workflowList (String workflowList)
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|workflowList
@@ -567,7 +547,6 @@ return|;
 block|}
 comment|/**          * Workflow registration options.          * The option is a          *<code>com.amazonaws.services.simpleworkflow.flow.WorkflowTypeRegistrationOptions</code> type.          * @group workflow          */
 DECL|method|workflowTypeRegistrationOptions ( Object workflowTypeRegistrationOptions)
-specifier|public
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|workflowTypeRegistrationOptions
@@ -589,7 +568,6 @@ return|;
 block|}
 comment|/**          * Workflow registration options.          * The option will be converted to a          *<code>com.amazonaws.services.simpleworkflow.flow.WorkflowTypeRegistrationOptions</code> type.          * @group workflow          */
 DECL|method|workflowTypeRegistrationOptions ( String workflowTypeRegistrationOptions)
-specifier|public
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|workflowTypeRegistrationOptions
@@ -611,7 +589,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessKey (String accessKey)
-specifier|public
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|accessKey
@@ -633,7 +610,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|secretKey
@@ -663,7 +639,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SWFEndpointConsumerBuilder
 name|basic
@@ -678,7 +653,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointConsumerBuilder
 name|exceptionHandler
@@ -700,7 +674,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointConsumerBuilder
 name|exceptionHandler
@@ -722,7 +695,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointConsumerBuilder
 name|exchangePattern
@@ -744,7 +716,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointConsumerBuilder
 name|exchangePattern
@@ -766,7 +737,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -788,7 +758,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -810,7 +779,6 @@ return|;
 block|}
 comment|/**          * To configure the ClientConfiguration using the key/values from the          * Map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|clientConfigurationParameters ( Map<String, Object> clientConfigurationParameters)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointConsumerBuilder
 name|clientConfigurationParameters
@@ -837,7 +805,6 @@ return|;
 block|}
 comment|/**          * To configure the ClientConfiguration using the key/values from the          * Map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|clientConfigurationParameters ( String clientConfigurationParameters)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointConsumerBuilder
 name|clientConfigurationParameters
@@ -859,7 +826,6 @@ return|;
 block|}
 comment|/**          * To configure the StartWorkflowOptions using the key/values from the          * Map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|startWorkflowOptionsParameters ( Map<String, Object> startWorkflowOptionsParameters)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointConsumerBuilder
 name|startWorkflowOptionsParameters
@@ -886,7 +852,6 @@ return|;
 block|}
 comment|/**          * To configure the StartWorkflowOptions using the key/values from the          * Map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|startWorkflowOptionsParameters ( String startWorkflowOptionsParameters)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointConsumerBuilder
 name|startWorkflowOptionsParameters
@@ -908,7 +873,6 @@ return|;
 block|}
 comment|/**          * To configure the AmazonSimpleWorkflowClient using the key/values from          * the Map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|sWClientParameters ( Map<String, Object> sWClientParameters)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointConsumerBuilder
 name|sWClientParameters
@@ -935,7 +899,6 @@ return|;
 block|}
 comment|/**          * To configure the AmazonSimpleWorkflowClient using the key/values from          * the Map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|sWClientParameters ( String sWClientParameters)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointConsumerBuilder
 name|sWClientParameters
@@ -957,7 +920,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointConsumerBuilder
 name|synchronous
@@ -979,7 +941,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointConsumerBuilder
 name|synchronous
@@ -1010,7 +971,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointProducerBuilder
 name|advanced
@@ -1025,7 +985,6 @@ return|;
 block|}
 comment|/**          * Activity or workflow.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|type (String type)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|type
@@ -1046,8 +1005,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use the given AmazonSimpleWorkflowClient as client.          * The option is a          *<code>com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClient</code> type.          * @group common          */
-DECL|method|amazonSWClient ( Object amazonSWClient)
-specifier|public
+DECL|method|amazonSWClient (Object amazonSWClient)
 specifier|default
 name|SWFEndpointProducerBuilder
 name|amazonSWClient
@@ -1068,8 +1026,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use the given AmazonSimpleWorkflowClient as client.          * The option will be converted to a          *<code>com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClient</code> type.          * @group common          */
-DECL|method|amazonSWClient ( String amazonSWClient)
-specifier|public
+DECL|method|amazonSWClient (String amazonSWClient)
 specifier|default
 name|SWFEndpointProducerBuilder
 name|amazonSWClient
@@ -1090,8 +1047,7 @@ name|this
 return|;
 block|}
 comment|/**          * An instance of          * com.amazonaws.services.simpleworkflow.flow.DataConverter to use for          * serializing/deserializing the data.          * The option is a          *<code>com.amazonaws.services.simpleworkflow.flow.DataConverter</code>          * type.          * @group common          */
-DECL|method|dataConverter ( Object dataConverter)
-specifier|public
+DECL|method|dataConverter (Object dataConverter)
 specifier|default
 name|SWFEndpointProducerBuilder
 name|dataConverter
@@ -1112,8 +1068,7 @@ name|this
 return|;
 block|}
 comment|/**          * An instance of          * com.amazonaws.services.simpleworkflow.flow.DataConverter to use for          * serializing/deserializing the data.          * The option will be converted to a          *<code>com.amazonaws.services.simpleworkflow.flow.DataConverter</code>          * type.          * @group common          */
-DECL|method|dataConverter ( String dataConverter)
-specifier|public
+DECL|method|dataConverter (String dataConverter)
 specifier|default
 name|SWFEndpointProducerBuilder
 name|dataConverter
@@ -1135,7 +1090,6 @@ return|;
 block|}
 comment|/**          * The workflow domain to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|domainName (String domainName)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|domainName
@@ -1157,7 +1111,6 @@ return|;
 block|}
 comment|/**          * The workflow or activity event name to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|eventName (String eventName)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|eventName
@@ -1179,7 +1132,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Region.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|region (String region)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|region
@@ -1201,7 +1153,6 @@ return|;
 block|}
 comment|/**          * The workflow or activity event version to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|version (String version)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|version
@@ -1223,7 +1174,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|lazyStartProducer
@@ -1245,7 +1195,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|lazyStartProducer
@@ -1267,7 +1216,6 @@ return|;
 block|}
 comment|/**          * Activity scheduling options.          * The option is a          *<code>com.amazonaws.services.simpleworkflow.flow.ActivitySchedulingOptions</code> type.          * @group activity          */
 DECL|method|activitySchedulingOptions ( Object activitySchedulingOptions)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|activitySchedulingOptions
@@ -1289,7 +1237,6 @@ return|;
 block|}
 comment|/**          * Activity scheduling options.          * The option will be converted to a          *<code>com.amazonaws.services.simpleworkflow.flow.ActivitySchedulingOptions</code> type.          * @group activity          */
 DECL|method|activitySchedulingOptions ( String activitySchedulingOptions)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|activitySchedulingOptions
@@ -1311,7 +1258,6 @@ return|;
 block|}
 comment|/**          * The policy to use on child workflows when terminating a workflow.          * The option is a<code>java.lang.String</code> type.          * @group workflow          */
 DECL|method|childPolicy (String childPolicy)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|childPolicy
@@ -1333,7 +1279,6 @@ return|;
 block|}
 comment|/**          * Set the execution start to close timeout.          * The option is a<code>java.lang.String</code> type.          * @group workflow          */
 DECL|method|executionStartToCloseTimeout ( String executionStartToCloseTimeout)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|executionStartToCloseTimeout
@@ -1355,7 +1300,6 @@ return|;
 block|}
 comment|/**          * Workflow operation.          * The option is a<code>java.lang.String</code> type.          * @group workflow          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|operation
@@ -1377,7 +1321,6 @@ return|;
 block|}
 comment|/**          * The name of the signal to send to the workflow.          * The option is a<code>java.lang.String</code> type.          * @group workflow          */
 DECL|method|signalName (String signalName)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|signalName
@@ -1399,7 +1342,6 @@ return|;
 block|}
 comment|/**          * The type of the result when a workflow state is queried.          * The option is a<code>java.lang.String</code> type.          * @group workflow          */
 DECL|method|stateResultType ( String stateResultType)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|stateResultType
@@ -1421,7 +1363,6 @@ return|;
 block|}
 comment|/**          * Set the task start to close timeout.          * The option is a<code>java.lang.String</code> type.          * @group workflow          */
 DECL|method|taskStartToCloseTimeout ( String taskStartToCloseTimeout)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|taskStartToCloseTimeout
@@ -1443,7 +1384,6 @@ return|;
 block|}
 comment|/**          * Details for terminating a workflow.          * The option is a<code>java.lang.String</code> type.          * @group workflow          */
 DECL|method|terminationDetails ( String terminationDetails)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|terminationDetails
@@ -1465,7 +1405,6 @@ return|;
 block|}
 comment|/**          * The reason for terminating a workflow.          * The option is a<code>java.lang.String</code> type.          * @group workflow          */
 DECL|method|terminationReason ( String terminationReason)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|terminationReason
@@ -1487,7 +1426,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessKey (String accessKey)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|accessKey
@@ -1509,7 +1447,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|secretKey
@@ -1539,7 +1476,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SWFEndpointProducerBuilder
 name|basic
@@ -1554,7 +1490,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1576,7 +1511,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1598,7 +1532,6 @@ return|;
 block|}
 comment|/**          * To configure the ClientConfiguration using the key/values from the          * Map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|clientConfigurationParameters ( Map<String, Object> clientConfigurationParameters)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointProducerBuilder
 name|clientConfigurationParameters
@@ -1625,7 +1558,6 @@ return|;
 block|}
 comment|/**          * To configure the ClientConfiguration using the key/values from the          * Map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|clientConfigurationParameters ( String clientConfigurationParameters)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointProducerBuilder
 name|clientConfigurationParameters
@@ -1647,7 +1579,6 @@ return|;
 block|}
 comment|/**          * To configure the StartWorkflowOptions using the key/values from the          * Map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|startWorkflowOptionsParameters ( Map<String, Object> startWorkflowOptionsParameters)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointProducerBuilder
 name|startWorkflowOptionsParameters
@@ -1674,7 +1605,6 @@ return|;
 block|}
 comment|/**          * To configure the StartWorkflowOptions using the key/values from the          * Map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|startWorkflowOptionsParameters ( String startWorkflowOptionsParameters)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointProducerBuilder
 name|startWorkflowOptionsParameters
@@ -1696,7 +1626,6 @@ return|;
 block|}
 comment|/**          * To configure the AmazonSimpleWorkflowClient using the key/values from          * the Map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|sWClientParameters ( Map<String, Object> sWClientParameters)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointProducerBuilder
 name|sWClientParameters
@@ -1723,7 +1652,6 @@ return|;
 block|}
 comment|/**          * To configure the AmazonSimpleWorkflowClient using the key/values from          * the Map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|sWClientParameters ( String sWClientParameters)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointProducerBuilder
 name|sWClientParameters
@@ -1745,7 +1673,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointProducerBuilder
 name|synchronous
@@ -1767,7 +1694,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointProducerBuilder
 name|synchronous
@@ -1800,7 +1726,6 @@ extends|,
 name|SWFEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointBuilder
 name|advanced
@@ -1815,7 +1740,6 @@ return|;
 block|}
 comment|/**          * Activity or workflow.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|type (String type)
-specifier|public
 specifier|default
 name|SWFEndpointBuilder
 name|type
@@ -1837,7 +1761,6 @@ return|;
 block|}
 comment|/**          * To use the given AmazonSimpleWorkflowClient as client.          * The option is a          *<code>com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClient</code> type.          * @group common          */
 DECL|method|amazonSWClient (Object amazonSWClient)
-specifier|public
 specifier|default
 name|SWFEndpointBuilder
 name|amazonSWClient
@@ -1859,7 +1782,6 @@ return|;
 block|}
 comment|/**          * To use the given AmazonSimpleWorkflowClient as client.          * The option will be converted to a          *<code>com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClient</code> type.          * @group common          */
 DECL|method|amazonSWClient (String amazonSWClient)
-specifier|public
 specifier|default
 name|SWFEndpointBuilder
 name|amazonSWClient
@@ -1881,7 +1803,6 @@ return|;
 block|}
 comment|/**          * An instance of          * com.amazonaws.services.simpleworkflow.flow.DataConverter to use for          * serializing/deserializing the data.          * The option is a          *<code>com.amazonaws.services.simpleworkflow.flow.DataConverter</code>          * type.          * @group common          */
 DECL|method|dataConverter (Object dataConverter)
-specifier|public
 specifier|default
 name|SWFEndpointBuilder
 name|dataConverter
@@ -1903,7 +1824,6 @@ return|;
 block|}
 comment|/**          * An instance of          * com.amazonaws.services.simpleworkflow.flow.DataConverter to use for          * serializing/deserializing the data.          * The option will be converted to a          *<code>com.amazonaws.services.simpleworkflow.flow.DataConverter</code>          * type.          * @group common          */
 DECL|method|dataConverter (String dataConverter)
-specifier|public
 specifier|default
 name|SWFEndpointBuilder
 name|dataConverter
@@ -1925,7 +1845,6 @@ return|;
 block|}
 comment|/**          * The workflow domain to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|domainName (String domainName)
-specifier|public
 specifier|default
 name|SWFEndpointBuilder
 name|domainName
@@ -1947,7 +1866,6 @@ return|;
 block|}
 comment|/**          * The workflow or activity event name to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|eventName (String eventName)
-specifier|public
 specifier|default
 name|SWFEndpointBuilder
 name|eventName
@@ -1969,7 +1887,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Region.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|region (String region)
-specifier|public
 specifier|default
 name|SWFEndpointBuilder
 name|region
@@ -1991,7 +1908,6 @@ return|;
 block|}
 comment|/**          * The workflow or activity event version to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|version (String version)
-specifier|public
 specifier|default
 name|SWFEndpointBuilder
 name|version
@@ -2013,7 +1929,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessKey (String accessKey)
-specifier|public
 specifier|default
 name|SWFEndpointBuilder
 name|accessKey
@@ -2035,7 +1950,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|SWFEndpointBuilder
 name|secretKey
@@ -2068,7 +1982,6 @@ extends|,
 name|AdvancedSWFEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SWFEndpointBuilder
 name|basic
@@ -2083,7 +1996,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointBuilder
 name|basicPropertyBinding
@@ -2105,7 +2017,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointBuilder
 name|basicPropertyBinding
@@ -2127,7 +2038,6 @@ return|;
 block|}
 comment|/**          * To configure the ClientConfiguration using the key/values from the          * Map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|clientConfigurationParameters ( Map<String, Object> clientConfigurationParameters)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointBuilder
 name|clientConfigurationParameters
@@ -2154,7 +2064,6 @@ return|;
 block|}
 comment|/**          * To configure the ClientConfiguration using the key/values from the          * Map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|clientConfigurationParameters ( String clientConfigurationParameters)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointBuilder
 name|clientConfigurationParameters
@@ -2176,7 +2085,6 @@ return|;
 block|}
 comment|/**          * To configure the StartWorkflowOptions using the key/values from the          * Map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|startWorkflowOptionsParameters ( Map<String, Object> startWorkflowOptionsParameters)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointBuilder
 name|startWorkflowOptionsParameters
@@ -2203,7 +2111,6 @@ return|;
 block|}
 comment|/**          * To configure the StartWorkflowOptions using the key/values from the          * Map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|startWorkflowOptionsParameters ( String startWorkflowOptionsParameters)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointBuilder
 name|startWorkflowOptionsParameters
@@ -2225,7 +2132,6 @@ return|;
 block|}
 comment|/**          * To configure the AmazonSimpleWorkflowClient using the key/values from          * the Map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|sWClientParameters ( Map<String, Object> sWClientParameters)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointBuilder
 name|sWClientParameters
@@ -2252,7 +2158,6 @@ return|;
 block|}
 comment|/**          * To configure the AmazonSimpleWorkflowClient using the key/values from          * the Map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|sWClientParameters ( String sWClientParameters)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointBuilder
 name|sWClientParameters
@@ -2273,8 +2178,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSWFEndpointBuilder
 name|synchronous
@@ -2296,7 +2200,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous (String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSWFEndpointBuilder
 name|synchronous
@@ -2319,7 +2222,6 @@ block|}
 block|}
 comment|/**      * The aws-swf component is used for managing workflows from Amazon Simple      * Workflow. Creates a builder to build endpoints for the AWS Simple      * Workflow component.      */
 DECL|method|sWF (String path)
-specifier|public
 specifier|default
 name|SWFEndpointBuilder
 name|sWF

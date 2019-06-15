@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSoroushBotEndpointConsumerBuilder
 name|advanced
@@ -138,8 +137,7 @@ name|this
 return|;
 block|}
 comment|/**          * The endpoint type. Support getMessage as consumer and          * sendMessage,uploadFile,downloadFile as producer.          * The option is a          *<code>org.apache.camel.component.soroushbot.models.Endpoint</code>          * type.          * @group common          */
-DECL|method|endpoint ( Endpoint endpoint)
-specifier|public
+DECL|method|endpoint (Endpoint endpoint)
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|endpoint
@@ -160,8 +158,7 @@ name|this
 return|;
 block|}
 comment|/**          * The endpoint type. Support getMessage as consumer and          * sendMessage,uploadFile,downloadFile as producer.          * The option will be converted to a          *<code>org.apache.camel.component.soroushbot.models.Endpoint</code>          * type.          * @group common          */
-DECL|method|endpoint ( String endpoint)
-specifier|public
+DECL|method|endpoint (String endpoint)
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|endpoint
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * Number of Thread created by consumer in the route. if you use this          * method for parallelism, it is guaranteed that messages from same user          * always execute in the same thread and therefore messages from the          * same user are processed sequentially. Default value notice: using          * SoroushBotSingleThreadConsumer.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
 DECL|method|concurrentConsumers ( Integer concurrentConsumers)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|concurrentConsumers
@@ -249,7 +243,6 @@ return|;
 block|}
 comment|/**          * Number of Thread created by consumer in the route. if you use this          * method for parallelism, it is guaranteed that messages from same user          * always execute in the same thread and therefore messages from the          * same user are processed sequentially. Default value notice: using          * SoroushBotSingleThreadConsumer.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
 DECL|method|concurrentConsumers ( String concurrentConsumers)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|concurrentConsumers
@@ -271,7 +264,6 @@ return|;
 block|}
 comment|/**          * Maximum capacity of each queue when concurrentConsumers is greater          * than 1. if a queue become full, every message that should go to that          * queue will be dropped. If bridgeErrorHandler is set to true, an          * exchange with CongestionException is directed to ErrorHandler. You          * can then processed the error using          * onException(CongestionException.class) route. Default value notice:          * infinite capacity.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
 DECL|method|queueCapacityPerThread ( Integer queueCapacityPerThread)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|queueCapacityPerThread
@@ -293,7 +285,6 @@ return|;
 block|}
 comment|/**          * Maximum capacity of each queue when concurrentConsumers is greater          * than 1. if a queue become full, every message that should go to that          * queue will be dropped. If bridgeErrorHandler is set to true, an          * exchange with CongestionException is directed to ErrorHandler. You          * can then processed the error using          * onException(CongestionException.class) route. Default value notice:          * infinite capacity.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
 DECL|method|queueCapacityPerThread ( String queueCapacityPerThread)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|queueCapacityPerThread
@@ -315,7 +306,6 @@ return|;
 block|}
 comment|/**          * Automatically download SoroushMessage.fileUrl and          * SoroushMessage.thumbnailUrl if exists for the message and store them          * in SoroushMessage.file and SoroushMessage.thumbnail field.          * The option is a<code>java.lang.Boolean</code> type.          * @group getMessage          */
 DECL|method|autoDownload ( Boolean autoDownload)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|autoDownload
@@ -337,7 +327,6 @@ return|;
 block|}
 comment|/**          * Automatically download SoroushMessage.fileUrl and          * SoroushMessage.thumbnailUrl if exists for the message and store them          * in SoroushMessage.file and SoroushMessage.thumbnail field.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group getMessage          */
 DECL|method|autoDownload ( String autoDownload)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|autoDownload
@@ -359,7 +348,6 @@ return|;
 block|}
 comment|/**          * The timeout in millisecond to reconnect the existing getMessage          * connection to ensure that the connection is always live and does not          * dead without notifying the bot. this value should not be changed.          * The option is a<code>long</code> type.          * @group getMessage          */
 DECL|method|reconnectIdleConnectionTimeout ( long reconnectIdleConnectionTimeout)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|reconnectIdleConnectionTimeout
@@ -381,7 +369,6 @@ return|;
 block|}
 comment|/**          * The timeout in millisecond to reconnect the existing getMessage          * connection to ensure that the connection is always live and does not          * dead without notifying the bot. this value should not be changed.          * The option will be converted to a<code>long</code> type.          * @group getMessage          */
 DECL|method|reconnectIdleConnectionTimeout ( String reconnectIdleConnectionTimeout)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|reconnectIdleConnectionTimeout
@@ -403,7 +390,6 @@ return|;
 block|}
 comment|/**          * If true, when downloading an attached file, thumbnail will be          * downloaded if provided in the message. Otherwise, only the file will          * be downloaded.          * The option is a<code>java.lang.Boolean</code> type.          * @group downloadFile          */
 DECL|method|downloadThumbnail ( Boolean downloadThumbnail)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|downloadThumbnail
@@ -425,7 +411,6 @@ return|;
 block|}
 comment|/**          * If true, when downloading an attached file, thumbnail will be          * downloaded if provided in the message. Otherwise, only the file will          * be downloaded.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group downloadFile          */
 DECL|method|downloadThumbnail ( String downloadThumbnail)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|downloadThumbnail
@@ -447,7 +432,6 @@ return|;
 block|}
 comment|/**          * Force to download SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl)          * if exists, even if the SoroushMessage.file(SoroushMessage.thumbnail)          * was not null in that message.          * The option is a<code>java.lang.Boolean</code> type.          * @group downloadFile          */
 DECL|method|forceDownload ( Boolean forceDownload)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|forceDownload
@@ -469,7 +453,6 @@ return|;
 block|}
 comment|/**          * Force to download SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl)          * if exists, even if the SoroushMessage.file(SoroushMessage.thumbnail)          * was not null in that message.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group downloadFile          */
 DECL|method|forceDownload ( String forceDownload)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|forceDownload
@@ -491,7 +474,6 @@ return|;
 block|}
 comment|/**          * The strategy to backoff in case of connection failure. Currently 3          * strategies are supported: 1. Exponential (default): It multiply          * retryWaitingTime by retryExponentialCoefficient after each connection          * failure. 2. Linear: It increase retryWaitingTime by          * retryLinearIncrement after each connection failure. 3. Fixed: Always          * use retryWaitingTime as the time between retries.          * The option is a<code>java.lang.String</code> type.          * @group global          */
 DECL|method|backOffStrategy ( String backOffStrategy)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|backOffStrategy
@@ -513,7 +495,6 @@ return|;
 block|}
 comment|/**          * Connection timeout in ms when connecting to soroush API.          * The option is a<code>java.lang.Integer</code> type.          * @group global          */
 DECL|method|connectionTimeout ( Integer connectionTimeout)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|connectionTimeout
@@ -535,7 +516,6 @@ return|;
 block|}
 comment|/**          * Connection timeout in ms when connecting to soroush API.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group global          */
 DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|connectionTimeout
@@ -557,7 +537,6 @@ return|;
 block|}
 comment|/**          * Maximum connection retry when fail to connect to soroush API, if the          * quota is reached, MaximumConnectionRetryReachedException is thrown          * for that message.          * The option is a<code>java.lang.Integer</code> type.          * @group global          */
 DECL|method|maxConnectionRetry ( Integer maxConnectionRetry)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|maxConnectionRetry
@@ -579,7 +558,6 @@ return|;
 block|}
 comment|/**          * Maximum connection retry when fail to connect to soroush API, if the          * quota is reached, MaximumConnectionRetryReachedException is thrown          * for that message.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group global          */
 DECL|method|maxConnectionRetry ( String maxConnectionRetry)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|maxConnectionRetry
@@ -601,7 +579,6 @@ return|;
 block|}
 comment|/**          * Maximum amount of time (in millisecond) a thread wait before retrying          * failed request.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|maxRetryWaitingTime ( Long maxRetryWaitingTime)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|maxRetryWaitingTime
@@ -623,7 +600,6 @@ return|;
 block|}
 comment|/**          * Maximum amount of time (in millisecond) a thread wait before retrying          * failed request.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|maxRetryWaitingTime ( String maxRetryWaitingTime)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|maxRetryWaitingTime
@@ -645,7 +621,6 @@ return|;
 block|}
 comment|/**          * Coefficient to compute back off time when using Exponential Back Off          * strategy.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|retryExponentialCoefficient ( Long retryExponentialCoefficient)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|retryExponentialCoefficient
@@ -667,7 +642,6 @@ return|;
 block|}
 comment|/**          * Coefficient to compute back off time when using Exponential Back Off          * strategy.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|retryExponentialCoefficient ( String retryExponentialCoefficient)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|retryExponentialCoefficient
@@ -689,7 +663,6 @@ return|;
 block|}
 comment|/**          * The amount of time (in millisecond) which adds to waiting time when          * using Linear back off strategy.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|retryLinearIncrement ( Long retryLinearIncrement)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|retryLinearIncrement
@@ -711,7 +684,6 @@ return|;
 block|}
 comment|/**          * The amount of time (in millisecond) which adds to waiting time when          * using Linear back off strategy.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|retryLinearIncrement ( String retryLinearIncrement)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|retryLinearIncrement
@@ -733,7 +705,6 @@ return|;
 block|}
 comment|/**          * Waiting time before retry failed request (Millisecond). If          * backOffStrategy is not Fixed this is the based value for computing          * back off waiting time. the first retry is always happen immediately          * after failure and retryWaitingTime do not apply to the first retry.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|retryWaitingTime ( Long retryWaitingTime)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|retryWaitingTime
@@ -755,7 +726,6 @@ return|;
 block|}
 comment|/**          * Waiting time before retry failed request (Millisecond). If          * backOffStrategy is not Fixed this is the based value for computing          * back off waiting time. the first retry is always happen immediately          * after failure and retryWaitingTime do not apply to the first retry.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|retryWaitingTime ( String retryWaitingTime)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|retryWaitingTime
@@ -777,7 +747,6 @@ return|;
 block|}
 comment|/**          * The authorization token for using the bot. if uri path does not          * contain authorization token, this token will be used.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|authorizationToken ( String authorizationToken)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|authorizationToken
@@ -799,7 +768,6 @@ return|;
 block|}
 comment|/**          * Automatically upload attachments when a message goes to the          * sendMessage endpoint and the SoroushMessage.file          * (SoroushMessage.thumbnail) has been set and          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is null.          * The option is a<code>java.lang.Boolean</code> type.          * @group sendMessage          */
 DECL|method|autoUploadFile ( Boolean autoUploadFile)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|autoUploadFile
@@ -821,7 +789,6 @@ return|;
 block|}
 comment|/**          * Automatically upload attachments when a message goes to the          * sendMessage endpoint and the SoroushMessage.file          * (SoroushMessage.thumbnail) has been set and          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is null.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group sendMessage          */
 DECL|method|autoUploadFile ( String autoUploadFile)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|autoUploadFile
@@ -843,7 +810,6 @@ return|;
 block|}
 comment|/**          * Force to upload SoroushMessage.file(SoroushMessage.thumbnail) if          * exists, even if the          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is not null in          * the message.          * The option is a<code>java.lang.Boolean</code> type.          * @group uploadFile          */
 DECL|method|forceUpload ( Boolean forceUpload)
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|forceUpload
@@ -864,8 +830,7 @@ name|this
 return|;
 block|}
 comment|/**          * Force to upload SoroushMessage.file(SoroushMessage.thumbnail) if          * exists, even if the          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is not null in          * the message.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group uploadFile          */
-DECL|method|forceUpload ( String forceUpload)
-specifier|public
+DECL|method|forceUpload (String forceUpload)
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|forceUpload
@@ -895,7 +860,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|basic
@@ -910,7 +874,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedSoroushBotEndpointConsumerBuilder
 name|exceptionHandler
@@ -932,7 +895,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedSoroushBotEndpointConsumerBuilder
 name|exceptionHandler
@@ -954,7 +916,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedSoroushBotEndpointConsumerBuilder
 name|exchangePattern
@@ -976,7 +937,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedSoroushBotEndpointConsumerBuilder
 name|exchangePattern
@@ -998,7 +958,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSoroushBotEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1020,7 +979,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSoroushBotEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1042,7 +1000,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedSoroushBotEndpointConsumerBuilder
 name|synchronous
@@ -1064,7 +1021,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSoroushBotEndpointConsumerBuilder
 name|synchronous
@@ -1095,7 +1051,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSoroushBotEndpointProducerBuilder
 name|advanced
@@ -1109,8 +1064,7 @@ name|this
 return|;
 block|}
 comment|/**          * The endpoint type. Support getMessage as consumer and          * sendMessage,uploadFile,downloadFile as producer.          * The option is a          *<code>org.apache.camel.component.soroushbot.models.Endpoint</code>          * type.          * @group common          */
-DECL|method|endpoint ( Endpoint endpoint)
-specifier|public
+DECL|method|endpoint (Endpoint endpoint)
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|endpoint
@@ -1131,8 +1085,7 @@ name|this
 return|;
 block|}
 comment|/**          * The endpoint type. Support getMessage as consumer and          * sendMessage,uploadFile,downloadFile as producer.          * The option will be converted to a          *<code>org.apache.camel.component.soroushbot.models.Endpoint</code>          * type.          * @group common          */
-DECL|method|endpoint ( String endpoint)
-specifier|public
+DECL|method|endpoint (String endpoint)
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|endpoint
@@ -1154,7 +1107,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|lazyStartProducer
@@ -1176,7 +1128,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|lazyStartProducer
@@ -1198,7 +1149,6 @@ return|;
 block|}
 comment|/**          * Automatically download SoroushMessage.fileUrl and          * SoroushMessage.thumbnailUrl if exists for the message and store them          * in SoroushMessage.file and SoroushMessage.thumbnail field.          * The option is a<code>java.lang.Boolean</code> type.          * @group getMessage          */
 DECL|method|autoDownload ( Boolean autoDownload)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|autoDownload
@@ -1220,7 +1170,6 @@ return|;
 block|}
 comment|/**          * Automatically download SoroushMessage.fileUrl and          * SoroushMessage.thumbnailUrl if exists for the message and store them          * in SoroushMessage.file and SoroushMessage.thumbnail field.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group getMessage          */
 DECL|method|autoDownload ( String autoDownload)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|autoDownload
@@ -1242,7 +1191,6 @@ return|;
 block|}
 comment|/**          * The timeout in millisecond to reconnect the existing getMessage          * connection to ensure that the connection is always live and does not          * dead without notifying the bot. this value should not be changed.          * The option is a<code>long</code> type.          * @group getMessage          */
 DECL|method|reconnectIdleConnectionTimeout ( long reconnectIdleConnectionTimeout)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|reconnectIdleConnectionTimeout
@@ -1264,7 +1212,6 @@ return|;
 block|}
 comment|/**          * The timeout in millisecond to reconnect the existing getMessage          * connection to ensure that the connection is always live and does not          * dead without notifying the bot. this value should not be changed.          * The option will be converted to a<code>long</code> type.          * @group getMessage          */
 DECL|method|reconnectIdleConnectionTimeout ( String reconnectIdleConnectionTimeout)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|reconnectIdleConnectionTimeout
@@ -1286,7 +1233,6 @@ return|;
 block|}
 comment|/**          * If true, when downloading an attached file, thumbnail will be          * downloaded if provided in the message. Otherwise, only the file will          * be downloaded.          * The option is a<code>java.lang.Boolean</code> type.          * @group downloadFile          */
 DECL|method|downloadThumbnail ( Boolean downloadThumbnail)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|downloadThumbnail
@@ -1308,7 +1254,6 @@ return|;
 block|}
 comment|/**          * If true, when downloading an attached file, thumbnail will be          * downloaded if provided in the message. Otherwise, only the file will          * be downloaded.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group downloadFile          */
 DECL|method|downloadThumbnail ( String downloadThumbnail)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|downloadThumbnail
@@ -1330,7 +1275,6 @@ return|;
 block|}
 comment|/**          * Force to download SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl)          * if exists, even if the SoroushMessage.file(SoroushMessage.thumbnail)          * was not null in that message.          * The option is a<code>java.lang.Boolean</code> type.          * @group downloadFile          */
 DECL|method|forceDownload ( Boolean forceDownload)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|forceDownload
@@ -1352,7 +1296,6 @@ return|;
 block|}
 comment|/**          * Force to download SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl)          * if exists, even if the SoroushMessage.file(SoroushMessage.thumbnail)          * was not null in that message.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group downloadFile          */
 DECL|method|forceDownload ( String forceDownload)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|forceDownload
@@ -1374,7 +1317,6 @@ return|;
 block|}
 comment|/**          * The strategy to backoff in case of connection failure. Currently 3          * strategies are supported: 1. Exponential (default): It multiply          * retryWaitingTime by retryExponentialCoefficient after each connection          * failure. 2. Linear: It increase retryWaitingTime by          * retryLinearIncrement after each connection failure. 3. Fixed: Always          * use retryWaitingTime as the time between retries.          * The option is a<code>java.lang.String</code> type.          * @group global          */
 DECL|method|backOffStrategy ( String backOffStrategy)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|backOffStrategy
@@ -1396,7 +1338,6 @@ return|;
 block|}
 comment|/**          * Connection timeout in ms when connecting to soroush API.          * The option is a<code>java.lang.Integer</code> type.          * @group global          */
 DECL|method|connectionTimeout ( Integer connectionTimeout)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|connectionTimeout
@@ -1418,7 +1359,6 @@ return|;
 block|}
 comment|/**          * Connection timeout in ms when connecting to soroush API.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group global          */
 DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|connectionTimeout
@@ -1440,7 +1380,6 @@ return|;
 block|}
 comment|/**          * Maximum connection retry when fail to connect to soroush API, if the          * quota is reached, MaximumConnectionRetryReachedException is thrown          * for that message.          * The option is a<code>java.lang.Integer</code> type.          * @group global          */
 DECL|method|maxConnectionRetry ( Integer maxConnectionRetry)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|maxConnectionRetry
@@ -1462,7 +1401,6 @@ return|;
 block|}
 comment|/**          * Maximum connection retry when fail to connect to soroush API, if the          * quota is reached, MaximumConnectionRetryReachedException is thrown          * for that message.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group global          */
 DECL|method|maxConnectionRetry ( String maxConnectionRetry)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|maxConnectionRetry
@@ -1484,7 +1422,6 @@ return|;
 block|}
 comment|/**          * Maximum amount of time (in millisecond) a thread wait before retrying          * failed request.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|maxRetryWaitingTime ( Long maxRetryWaitingTime)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|maxRetryWaitingTime
@@ -1506,7 +1443,6 @@ return|;
 block|}
 comment|/**          * Maximum amount of time (in millisecond) a thread wait before retrying          * failed request.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|maxRetryWaitingTime ( String maxRetryWaitingTime)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|maxRetryWaitingTime
@@ -1528,7 +1464,6 @@ return|;
 block|}
 comment|/**          * Coefficient to compute back off time when using Exponential Back Off          * strategy.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|retryExponentialCoefficient ( Long retryExponentialCoefficient)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|retryExponentialCoefficient
@@ -1550,7 +1485,6 @@ return|;
 block|}
 comment|/**          * Coefficient to compute back off time when using Exponential Back Off          * strategy.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|retryExponentialCoefficient ( String retryExponentialCoefficient)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|retryExponentialCoefficient
@@ -1572,7 +1506,6 @@ return|;
 block|}
 comment|/**          * The amount of time (in millisecond) which adds to waiting time when          * using Linear back off strategy.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|retryLinearIncrement ( Long retryLinearIncrement)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|retryLinearIncrement
@@ -1594,7 +1527,6 @@ return|;
 block|}
 comment|/**          * The amount of time (in millisecond) which adds to waiting time when          * using Linear back off strategy.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|retryLinearIncrement ( String retryLinearIncrement)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|retryLinearIncrement
@@ -1616,7 +1548,6 @@ return|;
 block|}
 comment|/**          * Waiting time before retry failed request (Millisecond). If          * backOffStrategy is not Fixed this is the based value for computing          * back off waiting time. the first retry is always happen immediately          * after failure and retryWaitingTime do not apply to the first retry.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|retryWaitingTime ( Long retryWaitingTime)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|retryWaitingTime
@@ -1638,7 +1569,6 @@ return|;
 block|}
 comment|/**          * Waiting time before retry failed request (Millisecond). If          * backOffStrategy is not Fixed this is the based value for computing          * back off waiting time. the first retry is always happen immediately          * after failure and retryWaitingTime do not apply to the first retry.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|retryWaitingTime ( String retryWaitingTime)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|retryWaitingTime
@@ -1660,7 +1590,6 @@ return|;
 block|}
 comment|/**          * The authorization token for using the bot. if uri path does not          * contain authorization token, this token will be used.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|authorizationToken ( String authorizationToken)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|authorizationToken
@@ -1682,7 +1611,6 @@ return|;
 block|}
 comment|/**          * Automatically upload attachments when a message goes to the          * sendMessage endpoint and the SoroushMessage.file          * (SoroushMessage.thumbnail) has been set and          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is null.          * The option is a<code>java.lang.Boolean</code> type.          * @group sendMessage          */
 DECL|method|autoUploadFile ( Boolean autoUploadFile)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|autoUploadFile
@@ -1704,7 +1632,6 @@ return|;
 block|}
 comment|/**          * Automatically upload attachments when a message goes to the          * sendMessage endpoint and the SoroushMessage.file          * (SoroushMessage.thumbnail) has been set and          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is null.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group sendMessage          */
 DECL|method|autoUploadFile ( String autoUploadFile)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|autoUploadFile
@@ -1726,7 +1653,6 @@ return|;
 block|}
 comment|/**          * Force to upload SoroushMessage.file(SoroushMessage.thumbnail) if          * exists, even if the          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is not null in          * the message.          * The option is a<code>java.lang.Boolean</code> type.          * @group uploadFile          */
 DECL|method|forceUpload ( Boolean forceUpload)
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|forceUpload
@@ -1747,8 +1673,7 @@ name|this
 return|;
 block|}
 comment|/**          * Force to upload SoroushMessage.file(SoroushMessage.thumbnail) if          * exists, even if the          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is not null in          * the message.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group uploadFile          */
-DECL|method|forceUpload ( String forceUpload)
-specifier|public
+DECL|method|forceUpload (String forceUpload)
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|forceUpload
@@ -1778,7 +1703,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SoroushBotEndpointProducerBuilder
 name|basic
@@ -1793,7 +1717,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSoroushBotEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1815,7 +1738,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSoroushBotEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1837,7 +1759,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedSoroushBotEndpointProducerBuilder
 name|synchronous
@@ -1859,7 +1780,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSoroushBotEndpointProducerBuilder
 name|synchronous
@@ -1892,7 +1812,6 @@ extends|,
 name|SoroushBotEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSoroushBotEndpointBuilder
 name|advanced
@@ -1907,7 +1826,6 @@ return|;
 block|}
 comment|/**          * The endpoint type. Support getMessage as consumer and          * sendMessage,uploadFile,downloadFile as producer.          * The option is a          *<code>org.apache.camel.component.soroushbot.models.Endpoint</code>          * type.          * @group common          */
 DECL|method|endpoint (Endpoint endpoint)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|endpoint
@@ -1929,7 +1847,6 @@ return|;
 block|}
 comment|/**          * The endpoint type. Support getMessage as consumer and          * sendMessage,uploadFile,downloadFile as producer.          * The option will be converted to a          *<code>org.apache.camel.component.soroushbot.models.Endpoint</code>          * type.          * @group common          */
 DECL|method|endpoint (String endpoint)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|endpoint
@@ -1950,8 +1867,7 @@ name|this
 return|;
 block|}
 comment|/**          * Automatically download SoroushMessage.fileUrl and          * SoroushMessage.thumbnailUrl if exists for the message and store them          * in SoroushMessage.file and SoroushMessage.thumbnail field.          * The option is a<code>java.lang.Boolean</code> type.          * @group getMessage          */
-DECL|method|autoDownload ( Boolean autoDownload)
-specifier|public
+DECL|method|autoDownload (Boolean autoDownload)
 specifier|default
 name|SoroushBotEndpointBuilder
 name|autoDownload
@@ -1972,8 +1888,7 @@ name|this
 return|;
 block|}
 comment|/**          * Automatically download SoroushMessage.fileUrl and          * SoroushMessage.thumbnailUrl if exists for the message and store them          * in SoroushMessage.file and SoroushMessage.thumbnail field.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group getMessage          */
-DECL|method|autoDownload ( String autoDownload)
-specifier|public
+DECL|method|autoDownload (String autoDownload)
 specifier|default
 name|SoroushBotEndpointBuilder
 name|autoDownload
@@ -1995,7 +1910,6 @@ return|;
 block|}
 comment|/**          * The timeout in millisecond to reconnect the existing getMessage          * connection to ensure that the connection is always live and does not          * dead without notifying the bot. this value should not be changed.          * The option is a<code>long</code> type.          * @group getMessage          */
 DECL|method|reconnectIdleConnectionTimeout ( long reconnectIdleConnectionTimeout)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|reconnectIdleConnectionTimeout
@@ -2017,7 +1931,6 @@ return|;
 block|}
 comment|/**          * The timeout in millisecond to reconnect the existing getMessage          * connection to ensure that the connection is always live and does not          * dead without notifying the bot. this value should not be changed.          * The option will be converted to a<code>long</code> type.          * @group getMessage          */
 DECL|method|reconnectIdleConnectionTimeout ( String reconnectIdleConnectionTimeout)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|reconnectIdleConnectionTimeout
@@ -2039,7 +1952,6 @@ return|;
 block|}
 comment|/**          * If true, when downloading an attached file, thumbnail will be          * downloaded if provided in the message. Otherwise, only the file will          * be downloaded.          * The option is a<code>java.lang.Boolean</code> type.          * @group downloadFile          */
 DECL|method|downloadThumbnail ( Boolean downloadThumbnail)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|downloadThumbnail
@@ -2061,7 +1973,6 @@ return|;
 block|}
 comment|/**          * If true, when downloading an attached file, thumbnail will be          * downloaded if provided in the message. Otherwise, only the file will          * be downloaded.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group downloadFile          */
 DECL|method|downloadThumbnail ( String downloadThumbnail)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|downloadThumbnail
@@ -2082,8 +1993,7 @@ name|this
 return|;
 block|}
 comment|/**          * Force to download SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl)          * if exists, even if the SoroushMessage.file(SoroushMessage.thumbnail)          * was not null in that message.          * The option is a<code>java.lang.Boolean</code> type.          * @group downloadFile          */
-DECL|method|forceDownload ( Boolean forceDownload)
-specifier|public
+DECL|method|forceDownload (Boolean forceDownload)
 specifier|default
 name|SoroushBotEndpointBuilder
 name|forceDownload
@@ -2104,8 +2014,7 @@ name|this
 return|;
 block|}
 comment|/**          * Force to download SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl)          * if exists, even if the SoroushMessage.file(SoroushMessage.thumbnail)          * was not null in that message.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group downloadFile          */
-DECL|method|forceDownload ( String forceDownload)
-specifier|public
+DECL|method|forceDownload (String forceDownload)
 specifier|default
 name|SoroushBotEndpointBuilder
 name|forceDownload
@@ -2126,8 +2035,7 @@ name|this
 return|;
 block|}
 comment|/**          * The strategy to backoff in case of connection failure. Currently 3          * strategies are supported: 1. Exponential (default): It multiply          * retryWaitingTime by retryExponentialCoefficient after each connection          * failure. 2. Linear: It increase retryWaitingTime by          * retryLinearIncrement after each connection failure. 3. Fixed: Always          * use retryWaitingTime as the time between retries.          * The option is a<code>java.lang.String</code> type.          * @group global          */
-DECL|method|backOffStrategy ( String backOffStrategy)
-specifier|public
+DECL|method|backOffStrategy (String backOffStrategy)
 specifier|default
 name|SoroushBotEndpointBuilder
 name|backOffStrategy
@@ -2149,7 +2057,6 @@ return|;
 block|}
 comment|/**          * Connection timeout in ms when connecting to soroush API.          * The option is a<code>java.lang.Integer</code> type.          * @group global          */
 DECL|method|connectionTimeout ( Integer connectionTimeout)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|connectionTimeout
@@ -2171,7 +2078,6 @@ return|;
 block|}
 comment|/**          * Connection timeout in ms when connecting to soroush API.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group global          */
 DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|connectionTimeout
@@ -2193,7 +2099,6 @@ return|;
 block|}
 comment|/**          * Maximum connection retry when fail to connect to soroush API, if the          * quota is reached, MaximumConnectionRetryReachedException is thrown          * for that message.          * The option is a<code>java.lang.Integer</code> type.          * @group global          */
 DECL|method|maxConnectionRetry ( Integer maxConnectionRetry)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|maxConnectionRetry
@@ -2215,7 +2120,6 @@ return|;
 block|}
 comment|/**          * Maximum connection retry when fail to connect to soroush API, if the          * quota is reached, MaximumConnectionRetryReachedException is thrown          * for that message.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group global          */
 DECL|method|maxConnectionRetry ( String maxConnectionRetry)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|maxConnectionRetry
@@ -2237,7 +2141,6 @@ return|;
 block|}
 comment|/**          * Maximum amount of time (in millisecond) a thread wait before retrying          * failed request.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|maxRetryWaitingTime ( Long maxRetryWaitingTime)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|maxRetryWaitingTime
@@ -2259,7 +2162,6 @@ return|;
 block|}
 comment|/**          * Maximum amount of time (in millisecond) a thread wait before retrying          * failed request.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|maxRetryWaitingTime ( String maxRetryWaitingTime)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|maxRetryWaitingTime
@@ -2281,7 +2183,6 @@ return|;
 block|}
 comment|/**          * Coefficient to compute back off time when using Exponential Back Off          * strategy.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|retryExponentialCoefficient ( Long retryExponentialCoefficient)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|retryExponentialCoefficient
@@ -2303,7 +2204,6 @@ return|;
 block|}
 comment|/**          * Coefficient to compute back off time when using Exponential Back Off          * strategy.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|retryExponentialCoefficient ( String retryExponentialCoefficient)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|retryExponentialCoefficient
@@ -2325,7 +2225,6 @@ return|;
 block|}
 comment|/**          * The amount of time (in millisecond) which adds to waiting time when          * using Linear back off strategy.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|retryLinearIncrement ( Long retryLinearIncrement)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|retryLinearIncrement
@@ -2347,7 +2246,6 @@ return|;
 block|}
 comment|/**          * The amount of time (in millisecond) which adds to waiting time when          * using Linear back off strategy.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|retryLinearIncrement ( String retryLinearIncrement)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|retryLinearIncrement
@@ -2368,8 +2266,7 @@ name|this
 return|;
 block|}
 comment|/**          * Waiting time before retry failed request (Millisecond). If          * backOffStrategy is not Fixed this is the based value for computing          * back off waiting time. the first retry is always happen immediately          * after failure and retryWaitingTime do not apply to the first retry.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryWaitingTime ( Long retryWaitingTime)
-specifier|public
+DECL|method|retryWaitingTime (Long retryWaitingTime)
 specifier|default
 name|SoroushBotEndpointBuilder
 name|retryWaitingTime
@@ -2391,7 +2288,6 @@ return|;
 block|}
 comment|/**          * Waiting time before retry failed request (Millisecond). If          * backOffStrategy is not Fixed this is the based value for computing          * back off waiting time. the first retry is always happen immediately          * after failure and retryWaitingTime do not apply to the first retry.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
 DECL|method|retryWaitingTime ( String retryWaitingTime)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|retryWaitingTime
@@ -2413,7 +2309,6 @@ return|;
 block|}
 comment|/**          * The authorization token for using the bot. if uri path does not          * contain authorization token, this token will be used.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|authorizationToken ( String authorizationToken)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|authorizationToken
@@ -2434,8 +2329,7 @@ name|this
 return|;
 block|}
 comment|/**          * Automatically upload attachments when a message goes to the          * sendMessage endpoint and the SoroushMessage.file          * (SoroushMessage.thumbnail) has been set and          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is null.          * The option is a<code>java.lang.Boolean</code> type.          * @group sendMessage          */
-DECL|method|autoUploadFile ( Boolean autoUploadFile)
-specifier|public
+DECL|method|autoUploadFile (Boolean autoUploadFile)
 specifier|default
 name|SoroushBotEndpointBuilder
 name|autoUploadFile
@@ -2456,8 +2350,7 @@ name|this
 return|;
 block|}
 comment|/**          * Automatically upload attachments when a message goes to the          * sendMessage endpoint and the SoroushMessage.file          * (SoroushMessage.thumbnail) has been set and          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is null.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group sendMessage          */
-DECL|method|autoUploadFile ( String autoUploadFile)
-specifier|public
+DECL|method|autoUploadFile (String autoUploadFile)
 specifier|default
 name|SoroushBotEndpointBuilder
 name|autoUploadFile
@@ -2479,7 +2372,6 @@ return|;
 block|}
 comment|/**          * Force to upload SoroushMessage.file(SoroushMessage.thumbnail) if          * exists, even if the          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is not null in          * the message.          * The option is a<code>java.lang.Boolean</code> type.          * @group uploadFile          */
 DECL|method|forceUpload (Boolean forceUpload)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|forceUpload
@@ -2501,7 +2393,6 @@ return|;
 block|}
 comment|/**          * Force to upload SoroushMessage.file(SoroushMessage.thumbnail) if          * exists, even if the          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is not null in          * the message.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group uploadFile          */
 DECL|method|forceUpload (String forceUpload)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|forceUpload
@@ -2534,7 +2425,6 @@ extends|,
 name|AdvancedSoroushBotEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|basic
@@ -2549,7 +2439,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSoroushBotEndpointBuilder
 name|basicPropertyBinding
@@ -2571,7 +2460,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSoroushBotEndpointBuilder
 name|basicPropertyBinding
@@ -2593,7 +2481,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedSoroushBotEndpointBuilder
 name|synchronous
@@ -2614,8 +2501,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSoroushBotEndpointBuilder
 name|synchronous
@@ -2657,7 +2543,6 @@ name|downloadFile
 block|;     }
 comment|/**      * To integrate with the Soroush chat bot. Creates a builder to build      * endpoints for the Soroush component.      */
 DECL|method|soroushBot (String path)
-specifier|public
 specifier|default
 name|SoroushBotEndpointBuilder
 name|soroushBot

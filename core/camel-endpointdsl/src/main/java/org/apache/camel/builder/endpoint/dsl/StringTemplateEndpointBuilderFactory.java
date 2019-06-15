@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedStringTemplateEndpointBuilder
 name|advanced
@@ -113,8 +112,7 @@ name|this
 return|;
 block|}
 comment|/**          * Path to the resource. You can prefix with: classpath, file, http,          * ref, or bean. classpath, file and http loads the resource using these          * protocols (classpath is default). ref will lookup the resource in the          * registry. bean will call a method on a bean to be used as the          * resource. For bean you can specify the method name after dot, eg          * bean:myBean.myMethod.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|resourceUri ( String resourceUri)
-specifier|public
+DECL|method|resourceUri (String resourceUri)
 specifier|default
 name|StringTemplateEndpointBuilder
 name|resourceUri
@@ -135,8 +133,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether to use resource content cache or not.          * The option is a<code>boolean</code> type.          * @group producer          */
-DECL|method|contentCache ( boolean contentCache)
-specifier|public
+DECL|method|contentCache (boolean contentCache)
 specifier|default
 name|StringTemplateEndpointBuilder
 name|contentCache
@@ -157,8 +154,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether to use resource content cache or not.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
-DECL|method|contentCache ( String contentCache)
-specifier|public
+DECL|method|contentCache (String contentCache)
 specifier|default
 name|StringTemplateEndpointBuilder
 name|contentCache
@@ -179,8 +175,7 @@ name|this
 return|;
 block|}
 comment|/**          * The variable start delimiter.          * The option is a<code>char</code> type.          * @group producer          */
-DECL|method|delimiterStart ( char delimiterStart)
-specifier|public
+DECL|method|delimiterStart (char delimiterStart)
 specifier|default
 name|StringTemplateEndpointBuilder
 name|delimiterStart
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * The variable start delimiter.          * The option will be converted to a<code>char</code> type.          * @group producer          */
 DECL|method|delimiterStart ( String delimiterStart)
-specifier|public
 specifier|default
 name|StringTemplateEndpointBuilder
 name|delimiterStart
@@ -223,8 +217,7 @@ name|this
 return|;
 block|}
 comment|/**          * The variable end delimiter.          * The option is a<code>char</code> type.          * @group producer          */
-DECL|method|delimiterStop ( char delimiterStop)
-specifier|public
+DECL|method|delimiterStop (char delimiterStop)
 specifier|default
 name|StringTemplateEndpointBuilder
 name|delimiterStop
@@ -245,8 +238,7 @@ name|this
 return|;
 block|}
 comment|/**          * The variable end delimiter.          * The option will be converted to a<code>char</code> type.          * @group producer          */
-DECL|method|delimiterStop ( String delimiterStop)
-specifier|public
+DECL|method|delimiterStop (String delimiterStop)
 specifier|default
 name|StringTemplateEndpointBuilder
 name|delimiterStop
@@ -277,7 +269,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|StringTemplateEndpointBuilder
 name|basic
@@ -292,7 +283,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedStringTemplateEndpointBuilder
 name|basicPropertyBinding
@@ -314,7 +304,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedStringTemplateEndpointBuilder
 name|basicPropertyBinding
@@ -336,7 +325,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedStringTemplateEndpointBuilder
 name|synchronous
@@ -358,7 +346,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedStringTemplateEndpointBuilder
 name|synchronous
@@ -381,7 +368,6 @@ block|}
 block|}
 comment|/**      * Transforms the message using a String template. Creates a builder to      * build endpoints for the String Template component.      */
 DECL|method|stringTemplate (String path)
-specifier|public
 specifier|default
 name|StringTemplateEndpointBuilder
 name|stringTemplate

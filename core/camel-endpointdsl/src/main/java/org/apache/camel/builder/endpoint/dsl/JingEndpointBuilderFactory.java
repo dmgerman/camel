@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJingEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * URL to a local resource on the classpath or a full URL to a remote          * resource or resource on the file system which contains the schema to          * validate against.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|resourceUri (String resourceUri)
-specifier|public
 specifier|default
 name|JingEndpointBuilder
 name|resourceUri
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Whether to validate using RelaxNG compact syntax or not. By default          * this is false for using RelaxNG XML Syntax (rng) And true is for          * using RelaxNG Compact Syntax (rnc).          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|compactSyntax (boolean compactSyntax)
-specifier|public
 specifier|default
 name|JingEndpointBuilder
 name|compactSyntax
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Whether to validate using RelaxNG compact syntax or not. By default          * this is false for using RelaxNG XML Syntax (rng) And true is for          * using RelaxNG Compact Syntax (rnc).          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|compactSyntax (String compactSyntax)
-specifier|public
 specifier|default
 name|JingEndpointBuilder
 name|compactSyntax
@@ -189,7 +185,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JingEndpointBuilder
 name|basic
@@ -204,7 +199,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJingEndpointBuilder
 name|basicPropertyBinding
@@ -226,7 +220,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJingEndpointBuilder
 name|basicPropertyBinding
@@ -247,8 +240,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedJingEndpointBuilder
 name|synchronous
@@ -269,8 +261,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedJingEndpointBuilder
 name|synchronous
@@ -293,7 +284,6 @@ block|}
 block|}
 comment|/**      * Validates the payload of a message using RelaxNG Syntax using Jing      * library. Creates a builder to build endpoints for the Jing component.      */
 DECL|method|jing (String path)
-specifier|public
 specifier|default
 name|JingEndpointBuilder
 name|jing

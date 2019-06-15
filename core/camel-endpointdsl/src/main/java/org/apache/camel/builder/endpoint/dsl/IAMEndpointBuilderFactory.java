@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedIAMEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Logical name.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|label (String label)
-specifier|public
 specifier|default
 name|IAMEndpointBuilder
 name|label
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * The region in which IAM client needs to work.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|region (String region)
-specifier|public
 specifier|default
 name|IAMEndpointBuilder
 name|region
@@ -167,7 +164,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|IAMEndpointBuilder
 name|basic
@@ -182,7 +178,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedIAMEndpointBuilder
 name|basicPropertyBinding
@@ -204,7 +199,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedIAMEndpointBuilder
 name|basicPropertyBinding
@@ -225,8 +219,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedIAMEndpointBuilder
 name|synchronous
@@ -248,7 +241,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous (String synchronous)
-specifier|public
 specifier|default
 name|AdvancedIAMEndpointBuilder
 name|synchronous
@@ -317,7 +309,6 @@ name|removeUserFromGroup
 block|;     }
 comment|/**      * The aws-iam is used for managing Amazon IAM Creates a builder to build      * endpoints for the AWS IAM component.      */
 DECL|method|iAM (String path)
-specifier|public
 specifier|default
 name|IAMEndpointBuilder
 name|iAM

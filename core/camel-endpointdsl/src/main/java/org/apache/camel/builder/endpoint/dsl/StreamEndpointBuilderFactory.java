@@ -134,7 +134,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointConsumerBuilder
 name|advanced
@@ -149,7 +148,6 @@ return|;
 block|}
 comment|/**          * Kind of stream to use such as System.in or System.out.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|kind (String kind)
-specifier|public
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|kind
@@ -171,7 +169,6 @@ return|;
 block|}
 comment|/**          * You can configure the encoding (is a charset name) to use text-based          * streams (for example, message body is a String object). If not          * provided, Camel uses the JVM default Charset.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|encoding (String encoding)
-specifier|public
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|encoding
@@ -193,7 +190,6 @@ return|;
 block|}
 comment|/**          * When using the stream:file URI format, this option specifies the          * filename to stream to/from.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|fileName (String fileName)
-specifier|public
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|fileName
@@ -215,7 +211,6 @@ return|;
 block|}
 comment|/**          * When using the stream:url URI format, this option specifies the URL          * to stream to/from. The input/output stream will be opened using the          * JDK URLConnection facility.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|url (String url)
-specifier|public
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|url
@@ -237,7 +232,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -259,7 +253,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -280,8 +273,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use JVM file watcher to listen for file change events to support          * re-loading files that may be overwritten, somewhat like tail --retry.          * The option is a<code>boolean</code> type.          * @group consumer          */
-DECL|method|fileWatcher ( boolean fileWatcher)
-specifier|public
+DECL|method|fileWatcher (boolean fileWatcher)
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|fileWatcher
@@ -302,8 +294,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use JVM file watcher to listen for file change events to support          * re-loading files that may be overwritten, somewhat like tail --retry.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
-DECL|method|fileWatcher ( String fileWatcher)
-specifier|public
+DECL|method|fileWatcher (String fileWatcher)
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|fileWatcher
@@ -325,7 +316,6 @@ return|;
 block|}
 comment|/**          * To group X number of lines in the consumer. For example to group 10          * lines and therefore only spit out an Exchange with 10 lines, instead          * of 1 Exchange per line.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|groupLines (int groupLines)
-specifier|public
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|groupLines
@@ -346,8 +336,7 @@ name|this
 return|;
 block|}
 comment|/**          * To group X number of lines in the consumer. For example to group 10          * lines and therefore only spit out an Exchange with 10 lines, instead          * of 1 Exchange per line.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
-DECL|method|groupLines ( String groupLines)
-specifier|public
+DECL|method|groupLines (String groupLines)
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|groupLines
@@ -368,8 +357,7 @@ name|this
 return|;
 block|}
 comment|/**          * Allows to use a custom GroupStrategy to control how to group lines.          * The option is a          *<code>org.apache.camel.component.stream.GroupStrategy</code> type.          * @group consumer          */
-DECL|method|groupStrategy ( Object groupStrategy)
-specifier|public
+DECL|method|groupStrategy (Object groupStrategy)
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|groupStrategy
@@ -390,8 +378,7 @@ name|this
 return|;
 block|}
 comment|/**          * Allows to use a custom GroupStrategy to control how to group lines.          * The option will be converted to a          *<code>org.apache.camel.component.stream.GroupStrategy</code> type.          * @group consumer          */
-DECL|method|groupStrategy ( String groupStrategy)
-specifier|public
+DECL|method|groupStrategy (String groupStrategy)
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|groupStrategy
@@ -413,7 +400,6 @@ return|;
 block|}
 comment|/**          * Initial delay in milliseconds before showing the message prompt. This          * delay occurs only once. Can be used during system startup to avoid          * message prompts being written while other logging is done to the          * system out.          * The option is a<code>long</code> type.          * @group consumer          */
 DECL|method|initialPromptDelay ( long initialPromptDelay)
-specifier|public
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|initialPromptDelay
@@ -435,7 +421,6 @@ return|;
 block|}
 comment|/**          * Initial delay in milliseconds before showing the message prompt. This          * delay occurs only once. Can be used during system startup to avoid          * message prompts being written while other logging is done to the          * system out.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
 DECL|method|initialPromptDelay ( String initialPromptDelay)
-specifier|public
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|initialPromptDelay
@@ -456,8 +441,7 @@ name|this
 return|;
 block|}
 comment|/**          * Optional delay in milliseconds before showing the message prompt.          * The option is a<code>long</code> type.          * @group consumer          */
-DECL|method|promptDelay ( long promptDelay)
-specifier|public
+DECL|method|promptDelay (long promptDelay)
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|promptDelay
@@ -478,8 +462,7 @@ name|this
 return|;
 block|}
 comment|/**          * Optional delay in milliseconds before showing the message prompt.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
-DECL|method|promptDelay ( String promptDelay)
-specifier|public
+DECL|method|promptDelay (String promptDelay)
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|promptDelay
@@ -500,8 +483,7 @@ name|this
 return|;
 block|}
 comment|/**          * Message prompt to use when reading from stream:in; for example, you          * could set this to Enter a command:.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
-DECL|method|promptMessage ( String promptMessage)
-specifier|public
+DECL|method|promptMessage (String promptMessage)
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|promptMessage
@@ -523,7 +505,6 @@ return|;
 block|}
 comment|/**          * Will retry opening the stream if it's overwritten, somewhat like tail          * --retry If reading from files then you should also enable the          * fileWatcher option, to make it work reliable.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|retry (boolean retry)
-specifier|public
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|retry
@@ -545,7 +526,6 @@ return|;
 block|}
 comment|/**          * Will retry opening the stream if it's overwritten, somewhat like tail          * --retry If reading from files then you should also enable the          * fileWatcher option, to make it work reliable.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|retry (String retry)
-specifier|public
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|retry
@@ -566,8 +546,7 @@ name|this
 return|;
 block|}
 comment|/**          * To be used for continuously reading a stream such as the unix tail          * command.          * The option is a<code>boolean</code> type.          * @group consumer          */
-DECL|method|scanStream ( boolean scanStream)
-specifier|public
+DECL|method|scanStream (boolean scanStream)
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|scanStream
@@ -588,8 +567,7 @@ name|this
 return|;
 block|}
 comment|/**          * To be used for continuously reading a stream such as the unix tail          * command.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
-DECL|method|scanStream ( String scanStream)
-specifier|public
+DECL|method|scanStream (String scanStream)
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|scanStream
@@ -611,7 +589,6 @@ return|;
 block|}
 comment|/**          * Delay in milliseconds between read attempts when using scanStream.          * The option is a<code>long</code> type.          * @group consumer          */
 DECL|method|scanStreamDelay ( long scanStreamDelay)
-specifier|public
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|scanStreamDelay
@@ -633,7 +610,6 @@ return|;
 block|}
 comment|/**          * Delay in milliseconds between read attempts when using scanStream.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
 DECL|method|scanStreamDelay ( String scanStreamDelay)
-specifier|public
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|scanStreamDelay
@@ -663,7 +639,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|StreamEndpointConsumerBuilder
 name|basic
@@ -678,7 +653,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointConsumerBuilder
 name|exceptionHandler
@@ -700,7 +674,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointConsumerBuilder
 name|exceptionHandler
@@ -722,7 +695,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointConsumerBuilder
 name|exchangePattern
@@ -744,7 +716,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointConsumerBuilder
 name|exchangePattern
@@ -766,7 +737,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -788,7 +758,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -810,7 +779,6 @@ return|;
 block|}
 comment|/**          * Sets a specified timeout value, in milliseconds, to be used when          * opening a communications link to the resource referenced by this          * URLConnection. If the timeout expires before the connection can be          * established, a java.net.SocketTimeoutException is raised. A timeout          * of zero is interpreted as an infinite timeout.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|connectTimeout ( int connectTimeout)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointConsumerBuilder
 name|connectTimeout
@@ -832,7 +800,6 @@ return|;
 block|}
 comment|/**          * Sets a specified timeout value, in milliseconds, to be used when          * opening a communications link to the resource referenced by this          * URLConnection. If the timeout expires before the connection can be          * established, a java.net.SocketTimeoutException is raised. A timeout          * of zero is interpreted as an infinite timeout.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|connectTimeout ( String connectTimeout)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointConsumerBuilder
 name|connectTimeout
@@ -854,7 +821,6 @@ return|;
 block|}
 comment|/**          * Optional http headers to use in request when using HTTP URL.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|httpHeaders ( Map<String, Object> httpHeaders)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointConsumerBuilder
 name|httpHeaders
@@ -881,7 +847,6 @@ return|;
 block|}
 comment|/**          * Optional http headers to use in request when using HTTP URL.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|httpHeaders ( String httpHeaders)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointConsumerBuilder
 name|httpHeaders
@@ -903,7 +868,6 @@ return|;
 block|}
 comment|/**          * Sets the read timeout to a specified timeout, in milliseconds. A          * non-zero value specifies the timeout when reading from Input stream          * when a connection is established to a resource. If the timeout          * expires before there is data available for read, a          * java.net.SocketTimeoutException is raised. A timeout of zero is          * interpreted as an infinite timeout.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|readTimeout ( int readTimeout)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointConsumerBuilder
 name|readTimeout
@@ -925,7 +889,6 @@ return|;
 block|}
 comment|/**          * Sets the read timeout to a specified timeout, in milliseconds. A          * non-zero value specifies the timeout when reading from Input stream          * when a connection is established to a resource. If the timeout          * expires before there is data available for read, a          * java.net.SocketTimeoutException is raised. A timeout of zero is          * interpreted as an infinite timeout.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|readTimeout ( String readTimeout)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointConsumerBuilder
 name|readTimeout
@@ -947,7 +910,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointConsumerBuilder
 name|synchronous
@@ -969,7 +931,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointConsumerBuilder
 name|synchronous
@@ -1000,7 +961,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointProducerBuilder
 name|advanced
@@ -1015,7 +975,6 @@ return|;
 block|}
 comment|/**          * Kind of stream to use such as System.in or System.out.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|kind (String kind)
-specifier|public
 specifier|default
 name|StreamEndpointProducerBuilder
 name|kind
@@ -1037,7 +996,6 @@ return|;
 block|}
 comment|/**          * You can configure the encoding (is a charset name) to use text-based          * streams (for example, message body is a String object). If not          * provided, Camel uses the JVM default Charset.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|encoding (String encoding)
-specifier|public
 specifier|default
 name|StreamEndpointProducerBuilder
 name|encoding
@@ -1059,7 +1017,6 @@ return|;
 block|}
 comment|/**          * When using the stream:file URI format, this option specifies the          * filename to stream to/from.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|fileName (String fileName)
-specifier|public
 specifier|default
 name|StreamEndpointProducerBuilder
 name|fileName
@@ -1081,7 +1038,6 @@ return|;
 block|}
 comment|/**          * When using the stream:url URI format, this option specifies the URL          * to stream to/from. The input/output stream will be opened using the          * JDK URLConnection facility.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|url (String url)
-specifier|public
 specifier|default
 name|StreamEndpointProducerBuilder
 name|url
@@ -1102,8 +1058,7 @@ name|this
 return|;
 block|}
 comment|/**          * Number of messages to process before closing stream on Producer side.          * Never close stream by default (only when Producer is stopped). If          * more messages are sent, the stream is reopened for another          * autoCloseCount batch.          * The option is a<code>int</code> type.          * @group producer          */
-DECL|method|autoCloseCount ( int autoCloseCount)
-specifier|public
+DECL|method|autoCloseCount (int autoCloseCount)
 specifier|default
 name|StreamEndpointProducerBuilder
 name|autoCloseCount
@@ -1125,7 +1080,6 @@ return|;
 block|}
 comment|/**          * Number of messages to process before closing stream on Producer side.          * Never close stream by default (only when Producer is stopped). If          * more messages are sent, the stream is reopened for another          * autoCloseCount batch.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|autoCloseCount ( String autoCloseCount)
-specifier|public
 specifier|default
 name|StreamEndpointProducerBuilder
 name|autoCloseCount
@@ -1146,8 +1100,7 @@ name|this
 return|;
 block|}
 comment|/**          * This option is used in combination with Splitter and streaming to the          * same file. The idea is to keep the stream open and only close when          * the Splitter is done, to improve performance. Mind this requires that          * you only stream to the same file, and not 2 or more files.          * The option is a<code>boolean</code> type.          * @group producer          */
-DECL|method|closeOnDone ( boolean closeOnDone)
-specifier|public
+DECL|method|closeOnDone (boolean closeOnDone)
 specifier|default
 name|StreamEndpointProducerBuilder
 name|closeOnDone
@@ -1168,8 +1121,7 @@ name|this
 return|;
 block|}
 comment|/**          * This option is used in combination with Splitter and streaming to the          * same file. The idea is to keep the stream open and only close when          * the Splitter is done, to improve performance. Mind this requires that          * you only stream to the same file, and not 2 or more files.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
-DECL|method|closeOnDone ( String closeOnDone)
-specifier|public
+DECL|method|closeOnDone (String closeOnDone)
 specifier|default
 name|StreamEndpointProducerBuilder
 name|closeOnDone
@@ -1191,7 +1143,6 @@ return|;
 block|}
 comment|/**          * Initial delay in milliseconds before producing the stream.          * The option is a<code>long</code> type.          * @group producer          */
 DECL|method|delay (long delay)
-specifier|public
 specifier|default
 name|StreamEndpointProducerBuilder
 name|delay
@@ -1213,7 +1164,6 @@ return|;
 block|}
 comment|/**          * Initial delay in milliseconds before producing the stream.          * The option will be converted to a<code>long</code> type.          * @group producer          */
 DECL|method|delay (String delay)
-specifier|public
 specifier|default
 name|StreamEndpointProducerBuilder
 name|delay
@@ -1235,7 +1185,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|StreamEndpointProducerBuilder
 name|lazyStartProducer
@@ -1257,7 +1206,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|StreamEndpointProducerBuilder
 name|lazyStartProducer
@@ -1287,7 +1235,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|StreamEndpointProducerBuilder
 name|basic
@@ -1302,7 +1249,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1324,7 +1270,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1346,7 +1291,6 @@ return|;
 block|}
 comment|/**          * Sets a specified timeout value, in milliseconds, to be used when          * opening a communications link to the resource referenced by this          * URLConnection. If the timeout expires before the connection can be          * established, a java.net.SocketTimeoutException is raised. A timeout          * of zero is interpreted as an infinite timeout.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|connectTimeout ( int connectTimeout)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointProducerBuilder
 name|connectTimeout
@@ -1368,7 +1312,6 @@ return|;
 block|}
 comment|/**          * Sets a specified timeout value, in milliseconds, to be used when          * opening a communications link to the resource referenced by this          * URLConnection. If the timeout expires before the connection can be          * established, a java.net.SocketTimeoutException is raised. A timeout          * of zero is interpreted as an infinite timeout.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|connectTimeout ( String connectTimeout)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointProducerBuilder
 name|connectTimeout
@@ -1390,7 +1333,6 @@ return|;
 block|}
 comment|/**          * Optional http headers to use in request when using HTTP URL.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|httpHeaders ( Map<String, Object> httpHeaders)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointProducerBuilder
 name|httpHeaders
@@ -1417,7 +1359,6 @@ return|;
 block|}
 comment|/**          * Optional http headers to use in request when using HTTP URL.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|httpHeaders ( String httpHeaders)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointProducerBuilder
 name|httpHeaders
@@ -1439,7 +1380,6 @@ return|;
 block|}
 comment|/**          * Sets the read timeout to a specified timeout, in milliseconds. A          * non-zero value specifies the timeout when reading from Input stream          * when a connection is established to a resource. If the timeout          * expires before there is data available for read, a          * java.net.SocketTimeoutException is raised. A timeout of zero is          * interpreted as an infinite timeout.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|readTimeout ( int readTimeout)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointProducerBuilder
 name|readTimeout
@@ -1461,7 +1401,6 @@ return|;
 block|}
 comment|/**          * Sets the read timeout to a specified timeout, in milliseconds. A          * non-zero value specifies the timeout when reading from Input stream          * when a connection is established to a resource. If the timeout          * expires before there is data available for read, a          * java.net.SocketTimeoutException is raised. A timeout of zero is          * interpreted as an infinite timeout.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|readTimeout ( String readTimeout)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointProducerBuilder
 name|readTimeout
@@ -1483,7 +1422,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointProducerBuilder
 name|synchronous
@@ -1505,7 +1443,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointProducerBuilder
 name|synchronous
@@ -1538,7 +1475,6 @@ extends|,
 name|StreamEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointBuilder
 name|advanced
@@ -1553,7 +1489,6 @@ return|;
 block|}
 comment|/**          * Kind of stream to use such as System.in or System.out.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|kind (String kind)
-specifier|public
 specifier|default
 name|StreamEndpointBuilder
 name|kind
@@ -1575,7 +1510,6 @@ return|;
 block|}
 comment|/**          * You can configure the encoding (is a charset name) to use text-based          * streams (for example, message body is a String object). If not          * provided, Camel uses the JVM default Charset.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|encoding (String encoding)
-specifier|public
 specifier|default
 name|StreamEndpointBuilder
 name|encoding
@@ -1597,7 +1531,6 @@ return|;
 block|}
 comment|/**          * When using the stream:file URI format, this option specifies the          * filename to stream to/from.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|fileName (String fileName)
-specifier|public
 specifier|default
 name|StreamEndpointBuilder
 name|fileName
@@ -1619,7 +1552,6 @@ return|;
 block|}
 comment|/**          * When using the stream:url URI format, this option specifies the URL          * to stream to/from. The input/output stream will be opened using the          * JDK URLConnection facility.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|url (String url)
-specifier|public
 specifier|default
 name|StreamEndpointBuilder
 name|url
@@ -1652,7 +1584,6 @@ extends|,
 name|AdvancedStreamEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|StreamEndpointBuilder
 name|basic
@@ -1667,7 +1598,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointBuilder
 name|basicPropertyBinding
@@ -1689,7 +1619,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointBuilder
 name|basicPropertyBinding
@@ -1710,8 +1639,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets a specified timeout value, in milliseconds, to be used when          * opening a communications link to the resource referenced by this          * URLConnection. If the timeout expires before the connection can be          * established, a java.net.SocketTimeoutException is raised. A timeout          * of zero is interpreted as an infinite timeout.          * The option is a<code>int</code> type.          * @group advanced          */
-DECL|method|connectTimeout ( int connectTimeout)
-specifier|public
+DECL|method|connectTimeout (int connectTimeout)
 specifier|default
 name|AdvancedStreamEndpointBuilder
 name|connectTimeout
@@ -1733,7 +1661,6 @@ return|;
 block|}
 comment|/**          * Sets a specified timeout value, in milliseconds, to be used when          * opening a communications link to the resource referenced by this          * URLConnection. If the timeout expires before the connection can be          * established, a java.net.SocketTimeoutException is raised. A timeout          * of zero is interpreted as an infinite timeout.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|connectTimeout ( String connectTimeout)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointBuilder
 name|connectTimeout
@@ -1755,7 +1682,6 @@ return|;
 block|}
 comment|/**          * Optional http headers to use in request when using HTTP URL.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|httpHeaders ( Map<String, Object> httpHeaders)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointBuilder
 name|httpHeaders
@@ -1781,8 +1707,7 @@ name|this
 return|;
 block|}
 comment|/**          * Optional http headers to use in request when using HTTP URL.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
-DECL|method|httpHeaders ( String httpHeaders)
-specifier|public
+DECL|method|httpHeaders (String httpHeaders)
 specifier|default
 name|AdvancedStreamEndpointBuilder
 name|httpHeaders
@@ -1804,7 +1729,6 @@ return|;
 block|}
 comment|/**          * Sets the read timeout to a specified timeout, in milliseconds. A          * non-zero value specifies the timeout when reading from Input stream          * when a connection is established to a resource. If the timeout          * expires before there is data available for read, a          * java.net.SocketTimeoutException is raised. A timeout of zero is          * interpreted as an infinite timeout.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|readTimeout (int readTimeout)
-specifier|public
 specifier|default
 name|AdvancedStreamEndpointBuilder
 name|readTimeout
@@ -1825,8 +1749,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the read timeout to a specified timeout, in milliseconds. A          * non-zero value specifies the timeout when reading from Input stream          * when a connection is established to a resource. If the timeout          * expires before there is data available for read, a          * java.net.SocketTimeoutException is raised. A timeout of zero is          * interpreted as an infinite timeout.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
-DECL|method|readTimeout ( String readTimeout)
-specifier|public
+DECL|method|readTimeout (String readTimeout)
 specifier|default
 name|AdvancedStreamEndpointBuilder
 name|readTimeout
@@ -1847,8 +1770,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedStreamEndpointBuilder
 name|synchronous
@@ -1869,8 +1791,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedStreamEndpointBuilder
 name|synchronous
@@ -1893,7 +1814,6 @@ block|}
 block|}
 comment|/**      * The stream: component provides access to the system-in, system-out and      * system-err streams as well as allowing streaming of file and URL. Creates      * a builder to build endpoints for the Stream component.      */
 DECL|method|stream (String path)
-specifier|public
 specifier|default
 name|StreamEndpointBuilder
 name|stream

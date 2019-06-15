@@ -154,7 +154,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|advanced
@@ -169,7 +168,6 @@ return|;
 block|}
 comment|/**          * The distributed resource name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|resourceName ( String resourceName)
-specifier|public
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
 name|resourceName
@@ -191,7 +189,6 @@ return|;
 block|}
 comment|/**          * The Atomix instance to use.          * The option is a<code>io.atomix.AtomixClient</code> type.          * @group common          */
 DECL|method|atomix (Object atomix)
-specifier|public
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
 name|atomix
@@ -213,7 +210,6 @@ return|;
 block|}
 comment|/**          * The Atomix instance to use.          * The option will be converted to a<code>io.atomix.AtomixClient</code>          * type.          * @group common          */
 DECL|method|atomix (String atomix)
-specifier|public
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
 name|atomix
@@ -235,7 +231,6 @@ return|;
 block|}
 comment|/**          * The Atomix configuration uri.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|configurationUri ( String configurationUri)
-specifier|public
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
 name|configurationUri
@@ -257,7 +252,6 @@ return|;
 block|}
 comment|/**          * The default action.          * The option is a          *<code>org.apache.camel.component.atomix.client.map.AtomixMap$Action</code> type.          * @group common          */
 DECL|method|defaultAction ( Action defaultAction)
-specifier|public
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
 name|defaultAction
@@ -279,7 +273,6 @@ return|;
 block|}
 comment|/**          * The default action.          * The option will be converted to a          *<code>org.apache.camel.component.atomix.client.map.AtomixMap$Action</code> type.          * @group common          */
 DECL|method|defaultAction ( String defaultAction)
-specifier|public
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
 name|defaultAction
@@ -301,7 +294,6 @@ return|;
 block|}
 comment|/**          * The key to use if none is set in the header or to listen for events          * for a specific key.          * The option is a<code>java.lang.Object</code> type.          * @group common          */
 DECL|method|key (Object key)
-specifier|public
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
 name|key
@@ -323,7 +315,6 @@ return|;
 block|}
 comment|/**          * The key to use if none is set in the header or to listen for events          * for a specific key.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group common          */
 DECL|method|key (String key)
-specifier|public
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
 name|key
@@ -345,7 +336,6 @@ return|;
 block|}
 comment|/**          * The address of the nodes composing the cluster.          * The option is a          *<code>java.util.List&lt;io.atomix.catalyst.transport.Address&gt;</code> type.          * @group common          */
 DECL|method|nodes (List<Object> nodes)
-specifier|public
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
 name|nodes
@@ -370,7 +360,6 @@ return|;
 block|}
 comment|/**          * The address of the nodes composing the cluster.          * The option will be converted to a          *<code>java.util.List&lt;io.atomix.catalyst.transport.Address&gt;</code> type.          * @group common          */
 DECL|method|nodes (String nodes)
-specifier|public
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
 name|nodes
@@ -392,7 +381,6 @@ return|;
 block|}
 comment|/**          * The header that wil carry the result.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|resultHeader ( String resultHeader)
-specifier|public
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
 name|resultHeader
@@ -414,7 +402,6 @@ return|;
 block|}
 comment|/**          * Sets the Atomix transport.          * The option is a          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          * @group common          */
 DECL|method|transport ( Class<Object> transport)
-specifier|public
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
 name|transport
@@ -438,8 +425,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the Atomix transport.          * The option will be converted to a          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          * @group common          */
-DECL|method|transport ( String transport)
-specifier|public
+DECL|method|transport (String transport)
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
 name|transport
@@ -461,7 +447,6 @@ return|;
 block|}
 comment|/**          * The resource ttl.          * The option is a<code>long</code> type.          * @group common          */
 DECL|method|ttl (long ttl)
-specifier|public
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
 name|ttl
@@ -483,7 +468,6 @@ return|;
 block|}
 comment|/**          * The resource ttl.          * The option will be converted to a<code>long</code> type.          * @group common          */
 DECL|method|ttl (String ttl)
-specifier|public
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
 name|ttl
@@ -505,7 +489,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -527,7 +510,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -557,7 +539,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
 name|basic
@@ -572,7 +553,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|exceptionHandler
@@ -594,7 +574,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|exceptionHandler
@@ -616,7 +595,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|exchangePattern
@@ -638,7 +616,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|exchangePattern
@@ -660,7 +637,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -682,7 +658,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -704,7 +679,6 @@ return|;
 block|}
 comment|/**          * The cluster wide default resource configuration.          * The option is a<code>java.util.Properties</code> type.          * @group advanced          */
 DECL|method|defaultResourceConfig ( Properties defaultResourceConfig)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|defaultResourceConfig
@@ -726,7 +700,6 @@ return|;
 block|}
 comment|/**          * The cluster wide default resource configuration.          * The option will be converted to a<code>java.util.Properties</code>          * type.          * @group advanced          */
 DECL|method|defaultResourceConfig ( String defaultResourceConfig)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|defaultResourceConfig
@@ -748,7 +721,6 @@ return|;
 block|}
 comment|/**          * The local default resource options.          * The option is a<code>java.util.Properties</code> type.          * @group advanced          */
 DECL|method|defaultResourceOptions ( Properties defaultResourceOptions)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|defaultResourceOptions
@@ -770,7 +742,6 @@ return|;
 block|}
 comment|/**          * The local default resource options.          * The option will be converted to a<code>java.util.Properties</code>          * type.          * @group advanced          */
 DECL|method|defaultResourceOptions ( String defaultResourceOptions)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|defaultResourceOptions
@@ -792,7 +763,6 @@ return|;
 block|}
 comment|/**          * Sets if the local member should join groups as PersistentMember or          * not. If set to ephemeral the local member will receive an auto          * generated ID thus the local one is ignored.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|ephemeral ( boolean ephemeral)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|ephemeral
@@ -814,7 +784,6 @@ return|;
 block|}
 comment|/**          * Sets if the local member should join groups as PersistentMember or          * not. If set to ephemeral the local member will receive an auto          * generated ID thus the local one is ignored.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|ephemeral ( String ephemeral)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|ephemeral
@@ -836,7 +805,6 @@ return|;
 block|}
 comment|/**          * The read consistency level.          * The option is a<code>io.atomix.resource.ReadConsistency</code> type.          * @group advanced          */
 DECL|method|readConsistency ( ReadConsistency readConsistency)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|readConsistency
@@ -858,7 +826,6 @@ return|;
 block|}
 comment|/**          * The read consistency level.          * The option will be converted to a          *<code>io.atomix.resource.ReadConsistency</code> type.          * @group advanced          */
 DECL|method|readConsistency ( String readConsistency)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|readConsistency
@@ -880,7 +847,6 @@ return|;
 block|}
 comment|/**          * Cluster wide resources configuration.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
 DECL|method|resourceConfigs ( Map<String, Properties> resourceConfigs)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|resourceConfigs
@@ -907,7 +873,6 @@ return|;
 block|}
 comment|/**          * Cluster wide resources configuration.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
 DECL|method|resourceConfigs ( String resourceConfigs)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|resourceConfigs
@@ -929,7 +894,6 @@ return|;
 block|}
 comment|/**          * Local resources configurations.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
 DECL|method|resourceOptions ( Map<String, Properties> resourceOptions)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|resourceOptions
@@ -956,7 +920,6 @@ return|;
 block|}
 comment|/**          * Local resources configurations.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
 DECL|method|resourceOptions ( String resourceOptions)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|resourceOptions
@@ -978,7 +941,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|synchronous
@@ -1000,7 +962,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointConsumerBuilder
 name|synchronous
@@ -1031,7 +992,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointProducerBuilder
 name|advanced
@@ -1046,7 +1006,6 @@ return|;
 block|}
 comment|/**          * The distributed resource name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|resourceName ( String resourceName)
-specifier|public
 specifier|default
 name|AtomixMapEndpointProducerBuilder
 name|resourceName
@@ -1068,7 +1027,6 @@ return|;
 block|}
 comment|/**          * The Atomix instance to use.          * The option is a<code>io.atomix.AtomixClient</code> type.          * @group common          */
 DECL|method|atomix (Object atomix)
-specifier|public
 specifier|default
 name|AtomixMapEndpointProducerBuilder
 name|atomix
@@ -1090,7 +1048,6 @@ return|;
 block|}
 comment|/**          * The Atomix instance to use.          * The option will be converted to a<code>io.atomix.AtomixClient</code>          * type.          * @group common          */
 DECL|method|atomix (String atomix)
-specifier|public
 specifier|default
 name|AtomixMapEndpointProducerBuilder
 name|atomix
@@ -1112,7 +1069,6 @@ return|;
 block|}
 comment|/**          * The Atomix configuration uri.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|configurationUri ( String configurationUri)
-specifier|public
 specifier|default
 name|AtomixMapEndpointProducerBuilder
 name|configurationUri
@@ -1134,7 +1090,6 @@ return|;
 block|}
 comment|/**          * The default action.          * The option is a          *<code>org.apache.camel.component.atomix.client.map.AtomixMap$Action</code> type.          * @group common          */
 DECL|method|defaultAction ( Action defaultAction)
-specifier|public
 specifier|default
 name|AtomixMapEndpointProducerBuilder
 name|defaultAction
@@ -1156,7 +1111,6 @@ return|;
 block|}
 comment|/**          * The default action.          * The option will be converted to a          *<code>org.apache.camel.component.atomix.client.map.AtomixMap$Action</code> type.          * @group common          */
 DECL|method|defaultAction ( String defaultAction)
-specifier|public
 specifier|default
 name|AtomixMapEndpointProducerBuilder
 name|defaultAction
@@ -1178,7 +1132,6 @@ return|;
 block|}
 comment|/**          * The key to use if none is set in the header or to listen for events          * for a specific key.          * The option is a<code>java.lang.Object</code> type.          * @group common          */
 DECL|method|key (Object key)
-specifier|public
 specifier|default
 name|AtomixMapEndpointProducerBuilder
 name|key
@@ -1200,7 +1153,6 @@ return|;
 block|}
 comment|/**          * The key to use if none is set in the header or to listen for events          * for a specific key.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group common          */
 DECL|method|key (String key)
-specifier|public
 specifier|default
 name|AtomixMapEndpointProducerBuilder
 name|key
@@ -1222,7 +1174,6 @@ return|;
 block|}
 comment|/**          * The address of the nodes composing the cluster.          * The option is a          *<code>java.util.List&lt;io.atomix.catalyst.transport.Address&gt;</code> type.          * @group common          */
 DECL|method|nodes (List<Object> nodes)
-specifier|public
 specifier|default
 name|AtomixMapEndpointProducerBuilder
 name|nodes
@@ -1247,7 +1198,6 @@ return|;
 block|}
 comment|/**          * The address of the nodes composing the cluster.          * The option will be converted to a          *<code>java.util.List&lt;io.atomix.catalyst.transport.Address&gt;</code> type.          * @group common          */
 DECL|method|nodes (String nodes)
-specifier|public
 specifier|default
 name|AtomixMapEndpointProducerBuilder
 name|nodes
@@ -1269,7 +1219,6 @@ return|;
 block|}
 comment|/**          * The header that wil carry the result.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|resultHeader ( String resultHeader)
-specifier|public
 specifier|default
 name|AtomixMapEndpointProducerBuilder
 name|resultHeader
@@ -1291,7 +1240,6 @@ return|;
 block|}
 comment|/**          * Sets the Atomix transport.          * The option is a          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          * @group common          */
 DECL|method|transport ( Class<Object> transport)
-specifier|public
 specifier|default
 name|AtomixMapEndpointProducerBuilder
 name|transport
@@ -1315,8 +1263,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the Atomix transport.          * The option will be converted to a          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          * @group common          */
-DECL|method|transport ( String transport)
-specifier|public
+DECL|method|transport (String transport)
 specifier|default
 name|AtomixMapEndpointProducerBuilder
 name|transport
@@ -1338,7 +1285,6 @@ return|;
 block|}
 comment|/**          * The resource ttl.          * The option is a<code>long</code> type.          * @group common          */
 DECL|method|ttl (long ttl)
-specifier|public
 specifier|default
 name|AtomixMapEndpointProducerBuilder
 name|ttl
@@ -1360,7 +1306,6 @@ return|;
 block|}
 comment|/**          * The resource ttl.          * The option will be converted to a<code>long</code> type.          * @group common          */
 DECL|method|ttl (String ttl)
-specifier|public
 specifier|default
 name|AtomixMapEndpointProducerBuilder
 name|ttl
@@ -1382,7 +1327,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|AtomixMapEndpointProducerBuilder
 name|lazyStartProducer
@@ -1404,7 +1348,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|AtomixMapEndpointProducerBuilder
 name|lazyStartProducer
@@ -1434,7 +1377,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|AtomixMapEndpointProducerBuilder
 name|basic
@@ -1449,7 +1391,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1471,7 +1412,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1493,7 +1433,6 @@ return|;
 block|}
 comment|/**          * The cluster wide default resource configuration.          * The option is a<code>java.util.Properties</code> type.          * @group advanced          */
 DECL|method|defaultResourceConfig ( Properties defaultResourceConfig)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointProducerBuilder
 name|defaultResourceConfig
@@ -1515,7 +1454,6 @@ return|;
 block|}
 comment|/**          * The cluster wide default resource configuration.          * The option will be converted to a<code>java.util.Properties</code>          * type.          * @group advanced          */
 DECL|method|defaultResourceConfig ( String defaultResourceConfig)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointProducerBuilder
 name|defaultResourceConfig
@@ -1537,7 +1475,6 @@ return|;
 block|}
 comment|/**          * The local default resource options.          * The option is a<code>java.util.Properties</code> type.          * @group advanced          */
 DECL|method|defaultResourceOptions ( Properties defaultResourceOptions)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointProducerBuilder
 name|defaultResourceOptions
@@ -1559,7 +1496,6 @@ return|;
 block|}
 comment|/**          * The local default resource options.          * The option will be converted to a<code>java.util.Properties</code>          * type.          * @group advanced          */
 DECL|method|defaultResourceOptions ( String defaultResourceOptions)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointProducerBuilder
 name|defaultResourceOptions
@@ -1581,7 +1517,6 @@ return|;
 block|}
 comment|/**          * Sets if the local member should join groups as PersistentMember or          * not. If set to ephemeral the local member will receive an auto          * generated ID thus the local one is ignored.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|ephemeral ( boolean ephemeral)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointProducerBuilder
 name|ephemeral
@@ -1603,7 +1538,6 @@ return|;
 block|}
 comment|/**          * Sets if the local member should join groups as PersistentMember or          * not. If set to ephemeral the local member will receive an auto          * generated ID thus the local one is ignored.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|ephemeral ( String ephemeral)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointProducerBuilder
 name|ephemeral
@@ -1625,7 +1559,6 @@ return|;
 block|}
 comment|/**          * The read consistency level.          * The option is a<code>io.atomix.resource.ReadConsistency</code> type.          * @group advanced          */
 DECL|method|readConsistency ( ReadConsistency readConsistency)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointProducerBuilder
 name|readConsistency
@@ -1647,7 +1580,6 @@ return|;
 block|}
 comment|/**          * The read consistency level.          * The option will be converted to a          *<code>io.atomix.resource.ReadConsistency</code> type.          * @group advanced          */
 DECL|method|readConsistency ( String readConsistency)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointProducerBuilder
 name|readConsistency
@@ -1669,7 +1601,6 @@ return|;
 block|}
 comment|/**          * Cluster wide resources configuration.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
 DECL|method|resourceConfigs ( Map<String, Properties> resourceConfigs)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointProducerBuilder
 name|resourceConfigs
@@ -1696,7 +1627,6 @@ return|;
 block|}
 comment|/**          * Cluster wide resources configuration.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
 DECL|method|resourceConfigs ( String resourceConfigs)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointProducerBuilder
 name|resourceConfigs
@@ -1718,7 +1648,6 @@ return|;
 block|}
 comment|/**          * Local resources configurations.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
 DECL|method|resourceOptions ( Map<String, Properties> resourceOptions)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointProducerBuilder
 name|resourceOptions
@@ -1745,7 +1674,6 @@ return|;
 block|}
 comment|/**          * Local resources configurations.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
 DECL|method|resourceOptions ( String resourceOptions)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointProducerBuilder
 name|resourceOptions
@@ -1767,7 +1695,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointProducerBuilder
 name|synchronous
@@ -1789,7 +1716,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointProducerBuilder
 name|synchronous
@@ -1822,7 +1748,6 @@ extends|,
 name|AtomixMapEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointBuilder
 name|advanced
@@ -1837,7 +1762,6 @@ return|;
 block|}
 comment|/**          * The distributed resource name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|resourceName (String resourceName)
-specifier|public
 specifier|default
 name|AtomixMapEndpointBuilder
 name|resourceName
@@ -1859,7 +1783,6 @@ return|;
 block|}
 comment|/**          * The Atomix instance to use.          * The option is a<code>io.atomix.AtomixClient</code> type.          * @group common          */
 DECL|method|atomix (Object atomix)
-specifier|public
 specifier|default
 name|AtomixMapEndpointBuilder
 name|atomix
@@ -1881,7 +1804,6 @@ return|;
 block|}
 comment|/**          * The Atomix instance to use.          * The option will be converted to a<code>io.atomix.AtomixClient</code>          * type.          * @group common          */
 DECL|method|atomix (String atomix)
-specifier|public
 specifier|default
 name|AtomixMapEndpointBuilder
 name|atomix
@@ -1903,7 +1825,6 @@ return|;
 block|}
 comment|/**          * The Atomix configuration uri.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|configurationUri ( String configurationUri)
-specifier|public
 specifier|default
 name|AtomixMapEndpointBuilder
 name|configurationUri
@@ -1924,8 +1845,7 @@ name|this
 return|;
 block|}
 comment|/**          * The default action.          * The option is a          *<code>org.apache.camel.component.atomix.client.map.AtomixMap$Action</code> type.          * @group common          */
-DECL|method|defaultAction ( Action defaultAction)
-specifier|public
+DECL|method|defaultAction (Action defaultAction)
 specifier|default
 name|AtomixMapEndpointBuilder
 name|defaultAction
@@ -1946,8 +1866,7 @@ name|this
 return|;
 block|}
 comment|/**          * The default action.          * The option will be converted to a          *<code>org.apache.camel.component.atomix.client.map.AtomixMap$Action</code> type.          * @group common          */
-DECL|method|defaultAction ( String defaultAction)
-specifier|public
+DECL|method|defaultAction (String defaultAction)
 specifier|default
 name|AtomixMapEndpointBuilder
 name|defaultAction
@@ -1969,7 +1888,6 @@ return|;
 block|}
 comment|/**          * The key to use if none is set in the header or to listen for events          * for a specific key.          * The option is a<code>java.lang.Object</code> type.          * @group common          */
 DECL|method|key (Object key)
-specifier|public
 specifier|default
 name|AtomixMapEndpointBuilder
 name|key
@@ -1991,7 +1909,6 @@ return|;
 block|}
 comment|/**          * The key to use if none is set in the header or to listen for events          * for a specific key.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group common          */
 DECL|method|key (String key)
-specifier|public
 specifier|default
 name|AtomixMapEndpointBuilder
 name|key
@@ -2013,7 +1930,6 @@ return|;
 block|}
 comment|/**          * The address of the nodes composing the cluster.          * The option is a          *<code>java.util.List&lt;io.atomix.catalyst.transport.Address&gt;</code> type.          * @group common          */
 DECL|method|nodes (List<Object> nodes)
-specifier|public
 specifier|default
 name|AtomixMapEndpointBuilder
 name|nodes
@@ -2038,7 +1954,6 @@ return|;
 block|}
 comment|/**          * The address of the nodes composing the cluster.          * The option will be converted to a          *<code>java.util.List&lt;io.atomix.catalyst.transport.Address&gt;</code> type.          * @group common          */
 DECL|method|nodes (String nodes)
-specifier|public
 specifier|default
 name|AtomixMapEndpointBuilder
 name|nodes
@@ -2060,7 +1975,6 @@ return|;
 block|}
 comment|/**          * The header that wil carry the result.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|resultHeader (String resultHeader)
-specifier|public
 specifier|default
 name|AtomixMapEndpointBuilder
 name|resultHeader
@@ -2081,8 +1995,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the Atomix transport.          * The option is a          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          * @group common          */
-DECL|method|transport ( Class<Object> transport)
-specifier|public
+DECL|method|transport (Class<Object> transport)
 specifier|default
 name|AtomixMapEndpointBuilder
 name|transport
@@ -2107,7 +2020,6 @@ return|;
 block|}
 comment|/**          * Sets the Atomix transport.          * The option will be converted to a          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          * @group common          */
 DECL|method|transport (String transport)
-specifier|public
 specifier|default
 name|AtomixMapEndpointBuilder
 name|transport
@@ -2129,7 +2041,6 @@ return|;
 block|}
 comment|/**          * The resource ttl.          * The option is a<code>long</code> type.          * @group common          */
 DECL|method|ttl (long ttl)
-specifier|public
 specifier|default
 name|AtomixMapEndpointBuilder
 name|ttl
@@ -2151,7 +2062,6 @@ return|;
 block|}
 comment|/**          * The resource ttl.          * The option will be converted to a<code>long</code> type.          * @group common          */
 DECL|method|ttl (String ttl)
-specifier|public
 specifier|default
 name|AtomixMapEndpointBuilder
 name|ttl
@@ -2184,7 +2094,6 @@ extends|,
 name|AdvancedAtomixMapEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|AtomixMapEndpointBuilder
 name|basic
@@ -2199,7 +2108,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointBuilder
 name|basicPropertyBinding
@@ -2221,7 +2129,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointBuilder
 name|basicPropertyBinding
@@ -2243,7 +2150,6 @@ return|;
 block|}
 comment|/**          * The cluster wide default resource configuration.          * The option is a<code>java.util.Properties</code> type.          * @group advanced          */
 DECL|method|defaultResourceConfig ( Properties defaultResourceConfig)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointBuilder
 name|defaultResourceConfig
@@ -2265,7 +2171,6 @@ return|;
 block|}
 comment|/**          * The cluster wide default resource configuration.          * The option will be converted to a<code>java.util.Properties</code>          * type.          * @group advanced          */
 DECL|method|defaultResourceConfig ( String defaultResourceConfig)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointBuilder
 name|defaultResourceConfig
@@ -2287,7 +2192,6 @@ return|;
 block|}
 comment|/**          * The local default resource options.          * The option is a<code>java.util.Properties</code> type.          * @group advanced          */
 DECL|method|defaultResourceOptions ( Properties defaultResourceOptions)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointBuilder
 name|defaultResourceOptions
@@ -2309,7 +2213,6 @@ return|;
 block|}
 comment|/**          * The local default resource options.          * The option will be converted to a<code>java.util.Properties</code>          * type.          * @group advanced          */
 DECL|method|defaultResourceOptions ( String defaultResourceOptions)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointBuilder
 name|defaultResourceOptions
@@ -2330,8 +2233,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets if the local member should join groups as PersistentMember or          * not. If set to ephemeral the local member will receive an auto          * generated ID thus the local one is ignored.          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|ephemeral ( boolean ephemeral)
-specifier|public
+DECL|method|ephemeral (boolean ephemeral)
 specifier|default
 name|AdvancedAtomixMapEndpointBuilder
 name|ephemeral
@@ -2352,8 +2254,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets if the local member should join groups as PersistentMember or          * not. If set to ephemeral the local member will receive an auto          * generated ID thus the local one is ignored.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|ephemeral ( String ephemeral)
-specifier|public
+DECL|method|ephemeral (String ephemeral)
 specifier|default
 name|AdvancedAtomixMapEndpointBuilder
 name|ephemeral
@@ -2375,7 +2276,6 @@ return|;
 block|}
 comment|/**          * The read consistency level.          * The option is a<code>io.atomix.resource.ReadConsistency</code> type.          * @group advanced          */
 DECL|method|readConsistency ( ReadConsistency readConsistency)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointBuilder
 name|readConsistency
@@ -2397,7 +2297,6 @@ return|;
 block|}
 comment|/**          * The read consistency level.          * The option will be converted to a          *<code>io.atomix.resource.ReadConsistency</code> type.          * @group advanced          */
 DECL|method|readConsistency ( String readConsistency)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointBuilder
 name|readConsistency
@@ -2419,7 +2318,6 @@ return|;
 block|}
 comment|/**          * Cluster wide resources configuration.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
 DECL|method|resourceConfigs ( Map<String, Properties> resourceConfigs)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointBuilder
 name|resourceConfigs
@@ -2446,7 +2344,6 @@ return|;
 block|}
 comment|/**          * Cluster wide resources configuration.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
 DECL|method|resourceConfigs ( String resourceConfigs)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointBuilder
 name|resourceConfigs
@@ -2468,7 +2365,6 @@ return|;
 block|}
 comment|/**          * Local resources configurations.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
 DECL|method|resourceOptions ( Map<String, Properties> resourceOptions)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointBuilder
 name|resourceOptions
@@ -2495,7 +2391,6 @@ return|;
 block|}
 comment|/**          * Local resources configurations.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
 DECL|method|resourceOptions ( String resourceOptions)
-specifier|public
 specifier|default
 name|AdvancedAtomixMapEndpointBuilder
 name|resourceOptions
@@ -2516,8 +2411,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedAtomixMapEndpointBuilder
 name|synchronous
@@ -2538,8 +2432,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedAtomixMapEndpointBuilder
 name|synchronous
@@ -2624,7 +2517,6 @@ name|LOCAL
 block|;     }
 comment|/**      * The atomix-map component is used to access Atomix's distributed map.      * Creates a builder to build endpoints for the Atomix Map component.      */
 DECL|method|atomixMap (String path)
-specifier|public
 specifier|default
 name|AtomixMapEndpointBuilder
 name|atomixMap

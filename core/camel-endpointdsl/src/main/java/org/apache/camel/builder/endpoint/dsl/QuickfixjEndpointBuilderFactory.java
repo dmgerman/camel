@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedQuickfixjEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * The configFile is the name of the QuickFIX/J configuration to use for          * the FIX engine (located as a resource found in your classpath).          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|configurationName ( String configurationName)
-specifier|public
 specifier|default
 name|QuickfixjEndpointConsumerBuilder
 name|configurationName
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * This option allows to create QuickFIX/J engine on demand. Value true          * means the engine is started when first message is send or there's          * consumer configured in route definition. When false value is used,          * the engine is started at the endpoint creation. When this parameter          * is missing, the value of component's property lazyCreateEngines is          * being used.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|lazyCreateEngine ( boolean lazyCreateEngine)
-specifier|public
 specifier|default
 name|QuickfixjEndpointConsumerBuilder
 name|lazyCreateEngine
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * This option allows to create QuickFIX/J engine on demand. Value true          * means the engine is started when first message is send or there's          * consumer configured in route definition. When false value is used,          * the engine is started at the endpoint creation. When this parameter          * is missing, the value of component's property lazyCreateEngines is          * being used.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|lazyCreateEngine ( String lazyCreateEngine)
-specifier|public
 specifier|default
 name|QuickfixjEndpointConsumerBuilder
 name|lazyCreateEngine
@@ -204,8 +200,7 @@ name|this
 return|;
 block|}
 comment|/**          * The optional sessionID identifies a specific FIX session. The format          * of the sessionID is:          * (BeginString):(SenderCompID)/(SenderSubID)/(SenderLocationID)-(TargetCompID)/(TargetSubID)/(TargetLocationID).          * The option is a<code>quickfix.SessionID</code> type.          * @group common          */
-DECL|method|sessionID ( Object sessionID)
-specifier|public
+DECL|method|sessionID (Object sessionID)
 specifier|default
 name|QuickfixjEndpointConsumerBuilder
 name|sessionID
@@ -226,8 +221,7 @@ name|this
 return|;
 block|}
 comment|/**          * The optional sessionID identifies a specific FIX session. The format          * of the sessionID is:          * (BeginString):(SenderCompID)/(SenderSubID)/(SenderLocationID)-(TargetCompID)/(TargetSubID)/(TargetLocationID).          * The option will be converted to a<code>quickfix.SessionID</code>          * type.          * @group common          */
-DECL|method|sessionID ( String sessionID)
-specifier|public
+DECL|method|sessionID (String sessionID)
 specifier|default
 name|QuickfixjEndpointConsumerBuilder
 name|sessionID
@@ -249,7 +243,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|QuickfixjEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -271,7 +264,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|QuickfixjEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -301,7 +293,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|QuickfixjEndpointConsumerBuilder
 name|basic
@@ -316,7 +307,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedQuickfixjEndpointConsumerBuilder
 name|exceptionHandler
@@ -338,7 +328,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedQuickfixjEndpointConsumerBuilder
 name|exceptionHandler
@@ -360,7 +349,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedQuickfixjEndpointConsumerBuilder
 name|exchangePattern
@@ -382,7 +370,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedQuickfixjEndpointConsumerBuilder
 name|exchangePattern
@@ -404,7 +391,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedQuickfixjEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -426,7 +412,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedQuickfixjEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -448,7 +433,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedQuickfixjEndpointConsumerBuilder
 name|synchronous
@@ -470,7 +454,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedQuickfixjEndpointConsumerBuilder
 name|synchronous
@@ -501,7 +484,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedQuickfixjEndpointProducerBuilder
 name|advanced
@@ -516,7 +498,6 @@ return|;
 block|}
 comment|/**          * The configFile is the name of the QuickFIX/J configuration to use for          * the FIX engine (located as a resource found in your classpath).          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|configurationName ( String configurationName)
-specifier|public
 specifier|default
 name|QuickfixjEndpointProducerBuilder
 name|configurationName
@@ -538,7 +519,6 @@ return|;
 block|}
 comment|/**          * This option allows to create QuickFIX/J engine on demand. Value true          * means the engine is started when first message is send or there's          * consumer configured in route definition. When false value is used,          * the engine is started at the endpoint creation. When this parameter          * is missing, the value of component's property lazyCreateEngines is          * being used.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|lazyCreateEngine ( boolean lazyCreateEngine)
-specifier|public
 specifier|default
 name|QuickfixjEndpointProducerBuilder
 name|lazyCreateEngine
@@ -560,7 +540,6 @@ return|;
 block|}
 comment|/**          * This option allows to create QuickFIX/J engine on demand. Value true          * means the engine is started when first message is send or there's          * consumer configured in route definition. When false value is used,          * the engine is started at the endpoint creation. When this parameter          * is missing, the value of component's property lazyCreateEngines is          * being used.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|lazyCreateEngine ( String lazyCreateEngine)
-specifier|public
 specifier|default
 name|QuickfixjEndpointProducerBuilder
 name|lazyCreateEngine
@@ -581,8 +560,7 @@ name|this
 return|;
 block|}
 comment|/**          * The optional sessionID identifies a specific FIX session. The format          * of the sessionID is:          * (BeginString):(SenderCompID)/(SenderSubID)/(SenderLocationID)-(TargetCompID)/(TargetSubID)/(TargetLocationID).          * The option is a<code>quickfix.SessionID</code> type.          * @group common          */
-DECL|method|sessionID ( Object sessionID)
-specifier|public
+DECL|method|sessionID (Object sessionID)
 specifier|default
 name|QuickfixjEndpointProducerBuilder
 name|sessionID
@@ -603,8 +581,7 @@ name|this
 return|;
 block|}
 comment|/**          * The optional sessionID identifies a specific FIX session. The format          * of the sessionID is:          * (BeginString):(SenderCompID)/(SenderSubID)/(SenderLocationID)-(TargetCompID)/(TargetSubID)/(TargetLocationID).          * The option will be converted to a<code>quickfix.SessionID</code>          * type.          * @group common          */
-DECL|method|sessionID ( String sessionID)
-specifier|public
+DECL|method|sessionID (String sessionID)
 specifier|default
 name|QuickfixjEndpointProducerBuilder
 name|sessionID
@@ -626,7 +603,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|QuickfixjEndpointProducerBuilder
 name|lazyStartProducer
@@ -648,7 +624,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|QuickfixjEndpointProducerBuilder
 name|lazyStartProducer
@@ -678,7 +653,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|QuickfixjEndpointProducerBuilder
 name|basic
@@ -693,7 +667,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedQuickfixjEndpointProducerBuilder
 name|basicPropertyBinding
@@ -715,7 +688,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedQuickfixjEndpointProducerBuilder
 name|basicPropertyBinding
@@ -737,7 +709,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedQuickfixjEndpointProducerBuilder
 name|synchronous
@@ -759,7 +730,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedQuickfixjEndpointProducerBuilder
 name|synchronous
@@ -792,7 +762,6 @@ extends|,
 name|QuickfixjEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedQuickfixjEndpointBuilder
 name|advanced
@@ -807,7 +776,6 @@ return|;
 block|}
 comment|/**          * The configFile is the name of the QuickFIX/J configuration to use for          * the FIX engine (located as a resource found in your classpath).          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|configurationName ( String configurationName)
-specifier|public
 specifier|default
 name|QuickfixjEndpointBuilder
 name|configurationName
@@ -829,7 +797,6 @@ return|;
 block|}
 comment|/**          * This option allows to create QuickFIX/J engine on demand. Value true          * means the engine is started when first message is send or there's          * consumer configured in route definition. When false value is used,          * the engine is started at the endpoint creation. When this parameter          * is missing, the value of component's property lazyCreateEngines is          * being used.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|lazyCreateEngine ( boolean lazyCreateEngine)
-specifier|public
 specifier|default
 name|QuickfixjEndpointBuilder
 name|lazyCreateEngine
@@ -851,7 +818,6 @@ return|;
 block|}
 comment|/**          * This option allows to create QuickFIX/J engine on demand. Value true          * means the engine is started when first message is send or there's          * consumer configured in route definition. When false value is used,          * the engine is started at the endpoint creation. When this parameter          * is missing, the value of component's property lazyCreateEngines is          * being used.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|lazyCreateEngine ( String lazyCreateEngine)
-specifier|public
 specifier|default
 name|QuickfixjEndpointBuilder
 name|lazyCreateEngine
@@ -873,7 +839,6 @@ return|;
 block|}
 comment|/**          * The optional sessionID identifies a specific FIX session. The format          * of the sessionID is:          * (BeginString):(SenderCompID)/(SenderSubID)/(SenderLocationID)-(TargetCompID)/(TargetSubID)/(TargetLocationID).          * The option is a<code>quickfix.SessionID</code> type.          * @group common          */
 DECL|method|sessionID (Object sessionID)
-specifier|public
 specifier|default
 name|QuickfixjEndpointBuilder
 name|sessionID
@@ -895,7 +860,6 @@ return|;
 block|}
 comment|/**          * The optional sessionID identifies a specific FIX session. The format          * of the sessionID is:          * (BeginString):(SenderCompID)/(SenderSubID)/(SenderLocationID)-(TargetCompID)/(TargetSubID)/(TargetLocationID).          * The option will be converted to a<code>quickfix.SessionID</code>          * type.          * @group common          */
 DECL|method|sessionID (String sessionID)
-specifier|public
 specifier|default
 name|QuickfixjEndpointBuilder
 name|sessionID
@@ -928,7 +892,6 @@ extends|,
 name|AdvancedQuickfixjEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|QuickfixjEndpointBuilder
 name|basic
@@ -943,7 +906,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedQuickfixjEndpointBuilder
 name|basicPropertyBinding
@@ -965,7 +927,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedQuickfixjEndpointBuilder
 name|basicPropertyBinding
@@ -986,8 +947,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedQuickfixjEndpointBuilder
 name|synchronous
@@ -1008,8 +968,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedQuickfixjEndpointBuilder
 name|synchronous
@@ -1032,7 +991,6 @@ block|}
 block|}
 comment|/**      * The quickfix component allows to send Financial Interchange (FIX)      * messages to the QuickFix engine. Creates a builder to build endpoints for      * the QuickFix component.      */
 DECL|method|quickfixj (String path)
-specifier|public
 specifier|default
 name|QuickfixjEndpointBuilder
 name|quickfixj

@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedMustacheEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Path to the resource. You can prefix with: classpath, file, http,          * ref, or bean. classpath, file and http loads the resource using these          * protocols (classpath is default). ref will lookup the resource in the          * registry. bean will call a method on a bean to be used as the          * resource. For bean you can specify the method name after dot, eg          * bean:myBean.myMethod.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|resourceUri (String resourceUri)
-specifier|public
 specifier|default
 name|MustacheEndpointBuilder
 name|resourceUri
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Sets whether to use resource content cache or not.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|contentCache (boolean contentCache)
-specifier|public
 specifier|default
 name|MustacheEndpointBuilder
 name|contentCache
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Sets whether to use resource content cache or not.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|contentCache (String contentCache)
-specifier|public
 specifier|default
 name|MustacheEndpointBuilder
 name|contentCache
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Character encoding of the resource content.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|encoding (String encoding)
-specifier|public
 specifier|default
 name|MustacheEndpointBuilder
 name|encoding
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Characters used to mark template code end.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|endDelimiter (String endDelimiter)
-specifier|public
 specifier|default
 name|MustacheEndpointBuilder
 name|endDelimiter
@@ -223,8 +217,7 @@ name|this
 return|;
 block|}
 comment|/**          * Characters used to mark template code beginning.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|startDelimiter ( String startDelimiter)
-specifier|public
+DECL|method|startDelimiter (String startDelimiter)
 specifier|default
 name|MustacheEndpointBuilder
 name|startDelimiter
@@ -255,7 +248,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|MustacheEndpointBuilder
 name|basic
@@ -270,7 +262,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMustacheEndpointBuilder
 name|basicPropertyBinding
@@ -292,7 +283,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMustacheEndpointBuilder
 name|basicPropertyBinding
@@ -313,8 +303,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedMustacheEndpointBuilder
 name|synchronous
@@ -335,8 +324,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedMustacheEndpointBuilder
 name|synchronous
@@ -359,7 +347,6 @@ block|}
 block|}
 comment|/**      * Transforms the message using a Mustache template. Creates a builder to      * build endpoints for the Mustache component.      */
 DECL|method|mustache (String path)
-specifier|public
 specifier|default
 name|MustacheEndpointBuilder
 name|mustache

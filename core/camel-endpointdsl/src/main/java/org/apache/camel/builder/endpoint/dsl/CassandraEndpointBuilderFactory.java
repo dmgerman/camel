@@ -198,7 +198,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointConsumerBuilder
 name|advanced
@@ -213,7 +212,6 @@ return|;
 block|}
 comment|/**          * beanRef is defined using bean:id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|beanRef (String beanRef)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|beanRef
@@ -235,7 +233,6 @@ return|;
 block|}
 comment|/**          * Hostname(s) cassansdra server(s). Multiple hosts can be separated by          * comma.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|hosts (String hosts)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|hosts
@@ -257,7 +254,6 @@ return|;
 block|}
 comment|/**          * Port number of cassansdra server(s).          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|port (Integer port)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|port
@@ -279,7 +275,6 @@ return|;
 block|}
 comment|/**          * Port number of cassansdra server(s).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|port
@@ -301,7 +296,6 @@ return|;
 block|}
 comment|/**          * Keyspace to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|keyspace (String keyspace)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|keyspace
@@ -323,7 +317,6 @@ return|;
 block|}
 comment|/**          * To use the Cluster instance (you would normally not use this option).          * The option is a<code>com.datastax.driver.core.Cluster</code> type.          * @group common          */
 DECL|method|cluster (Object cluster)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|cluster
@@ -345,7 +338,6 @@ return|;
 block|}
 comment|/**          * To use the Cluster instance (you would normally not use this option).          * The option will be converted to a          *<code>com.datastax.driver.core.Cluster</code> type.          * @group common          */
 DECL|method|cluster (String cluster)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|cluster
@@ -366,8 +358,7 @@ name|this
 return|;
 block|}
 comment|/**          * Cluster name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|clusterName ( String clusterName)
-specifier|public
+DECL|method|clusterName (String clusterName)
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|clusterName
@@ -389,7 +380,6 @@ return|;
 block|}
 comment|/**          * Consistency level to use.          * The option is a          *<code>com.datastax.driver.core.ConsistencyLevel</code> type.          * @group common          */
 DECL|method|consistencyLevel ( ConsistencyLevel consistencyLevel)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|consistencyLevel
@@ -411,7 +401,6 @@ return|;
 block|}
 comment|/**          * Consistency level to use.          * The option will be converted to a          *<code>com.datastax.driver.core.ConsistencyLevel</code> type.          * @group common          */
 DECL|method|consistencyLevel ( String consistencyLevel)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|consistencyLevel
@@ -433,7 +422,6 @@ return|;
 block|}
 comment|/**          * CQL query to perform. Can be overridden with the message header with          * key CamelCqlQuery.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|cql (String cql)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|cql
@@ -455,7 +443,6 @@ return|;
 block|}
 comment|/**          * To use a specific LoadBalancingPolicy.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|loadBalancingPolicy ( String loadBalancingPolicy)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|loadBalancingPolicy
@@ -477,7 +464,6 @@ return|;
 block|}
 comment|/**          * Password for session authentication.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|password
@@ -499,7 +485,6 @@ return|;
 block|}
 comment|/**          * Whether to use PreparedStatements or regular Statements.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|prepareStatements ( boolean prepareStatements)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|prepareStatements
@@ -521,7 +506,6 @@ return|;
 block|}
 comment|/**          * Whether to use PreparedStatements or regular Statements.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|prepareStatements ( String prepareStatements)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|prepareStatements
@@ -543,7 +527,6 @@ return|;
 block|}
 comment|/**          * To use a custom class that implements logic for converting ResultSet          * into message body ALL, ONE, LIMIT_10, LIMIT_100...          * The option is a          *<code>org.apache.camel.component.cassandra.ResultSetConversionStrategy</code> type.          * @group common          */
 DECL|method|resultSetConversionStrategy ( Object resultSetConversionStrategy)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|resultSetConversionStrategy
@@ -565,7 +548,6 @@ return|;
 block|}
 comment|/**          * To use a custom class that implements logic for converting ResultSet          * into message body ALL, ONE, LIMIT_10, LIMIT_100...          * The option will be converted to a          *<code>org.apache.camel.component.cassandra.ResultSetConversionStrategy</code> type.          * @group common          */
 DECL|method|resultSetConversionStrategy ( String resultSetConversionStrategy)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|resultSetConversionStrategy
@@ -587,7 +569,6 @@ return|;
 block|}
 comment|/**          * To use the Session instance (you would normally not use this option).          * The option is a<code>com.datastax.driver.core.Session</code> type.          * @group common          */
 DECL|method|session (Object session)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|session
@@ -609,7 +590,6 @@ return|;
 block|}
 comment|/**          * To use the Session instance (you would normally not use this option).          * The option will be converted to a          *<code>com.datastax.driver.core.Session</code> type.          * @group common          */
 DECL|method|session (String session)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|session
@@ -631,7 +611,6 @@ return|;
 block|}
 comment|/**          * Username for session authentication.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|username
@@ -653,7 +632,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -675,7 +653,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -697,7 +674,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( boolean sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -719,7 +695,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( String sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -741,7 +716,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( int backoffErrorThreshold)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -763,7 +737,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( String backoffErrorThreshold)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -785,7 +758,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( int backoffIdleThreshold)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -807,7 +779,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( String backoffIdleThreshold)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -829,7 +800,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( int backoffMultiplier)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|backoffMultiplier
@@ -851,7 +821,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( String backoffMultiplier)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|backoffMultiplier
@@ -873,7 +842,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (long delay)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|delay
@@ -895,7 +863,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (String delay)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|delay
@@ -917,7 +884,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (boolean greedy)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|greedy
@@ -939,7 +905,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (String greedy)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|greedy
@@ -960,8 +925,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
-DECL|method|initialDelay ( long initialDelay)
-specifier|public
+DECL|method|initialDelay (long initialDelay)
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|initialDelay
@@ -983,7 +947,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
 DECL|method|initialDelay ( String initialDelay)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|initialDelay
@@ -1005,7 +968,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( LoggingLevel runLoggingLevel)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|runLoggingLevel
@@ -1027,7 +989,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( String runLoggingLevel)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|runLoggingLevel
@@ -1049,7 +1010,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option is a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( ScheduledExecutorService scheduledExecutorService)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -1071,7 +1031,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( String scheduledExecutorService)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -1093,7 +1052,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option is a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler ( ScheduledPollConsumerScheduler scheduler)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|scheduler
@@ -1114,8 +1072,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
-DECL|method|scheduler ( String scheduler)
-specifier|public
+DECL|method|scheduler (String scheduler)
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|scheduler
@@ -1137,7 +1094,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group scheduler          */
 DECL|method|schedulerProperties ( Map<String, Object> schedulerProperties)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|schedulerProperties
@@ -1164,7 +1120,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group scheduler          */
 DECL|method|schedulerProperties ( String schedulerProperties)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|schedulerProperties
@@ -1186,7 +1141,6 @@ return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|startScheduler ( boolean startScheduler)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|startScheduler
@@ -1208,7 +1162,6 @@ return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|startScheduler ( String startScheduler)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|startScheduler
@@ -1229,8 +1182,7 @@ name|this
 return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option is a<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
-DECL|method|timeUnit ( TimeUnit timeUnit)
-specifier|public
+DECL|method|timeUnit (TimeUnit timeUnit)
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|timeUnit
@@ -1252,7 +1204,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (String timeUnit)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|timeUnit
@@ -1274,7 +1225,6 @@ return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|useFixedDelay ( boolean useFixedDelay)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|useFixedDelay
@@ -1296,7 +1246,6 @@ return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|useFixedDelay ( String useFixedDelay)
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|useFixedDelay
@@ -1326,7 +1275,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|CassandraEndpointConsumerBuilder
 name|basic
@@ -1341,7 +1289,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointConsumerBuilder
 name|exceptionHandler
@@ -1363,7 +1310,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointConsumerBuilder
 name|exceptionHandler
@@ -1385,7 +1331,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointConsumerBuilder
 name|exchangePattern
@@ -1407,7 +1352,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointConsumerBuilder
 name|exchangePattern
@@ -1429,7 +1373,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option is a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( PollingConsumerPollStrategy pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointConsumerBuilder
 name|pollStrategy
@@ -1451,7 +1394,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( String pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointConsumerBuilder
 name|pollStrategy
@@ -1473,7 +1415,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1495,7 +1436,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1517,7 +1457,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointConsumerBuilder
 name|synchronous
@@ -1539,7 +1478,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointConsumerBuilder
 name|synchronous
@@ -1570,7 +1508,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointProducerBuilder
 name|advanced
@@ -1585,7 +1522,6 @@ return|;
 block|}
 comment|/**          * beanRef is defined using bean:id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|beanRef (String beanRef)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|beanRef
@@ -1607,7 +1543,6 @@ return|;
 block|}
 comment|/**          * Hostname(s) cassansdra server(s). Multiple hosts can be separated by          * comma.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|hosts (String hosts)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|hosts
@@ -1629,7 +1564,6 @@ return|;
 block|}
 comment|/**          * Port number of cassansdra server(s).          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|port (Integer port)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|port
@@ -1651,7 +1585,6 @@ return|;
 block|}
 comment|/**          * Port number of cassansdra server(s).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|port
@@ -1673,7 +1606,6 @@ return|;
 block|}
 comment|/**          * Keyspace to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|keyspace (String keyspace)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|keyspace
@@ -1695,7 +1627,6 @@ return|;
 block|}
 comment|/**          * To use the Cluster instance (you would normally not use this option).          * The option is a<code>com.datastax.driver.core.Cluster</code> type.          * @group common          */
 DECL|method|cluster (Object cluster)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|cluster
@@ -1717,7 +1648,6 @@ return|;
 block|}
 comment|/**          * To use the Cluster instance (you would normally not use this option).          * The option will be converted to a          *<code>com.datastax.driver.core.Cluster</code> type.          * @group common          */
 DECL|method|cluster (String cluster)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|cluster
@@ -1738,8 +1668,7 @@ name|this
 return|;
 block|}
 comment|/**          * Cluster name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|clusterName ( String clusterName)
-specifier|public
+DECL|method|clusterName (String clusterName)
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|clusterName
@@ -1761,7 +1690,6 @@ return|;
 block|}
 comment|/**          * Consistency level to use.          * The option is a          *<code>com.datastax.driver.core.ConsistencyLevel</code> type.          * @group common          */
 DECL|method|consistencyLevel ( ConsistencyLevel consistencyLevel)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|consistencyLevel
@@ -1783,7 +1711,6 @@ return|;
 block|}
 comment|/**          * Consistency level to use.          * The option will be converted to a          *<code>com.datastax.driver.core.ConsistencyLevel</code> type.          * @group common          */
 DECL|method|consistencyLevel ( String consistencyLevel)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|consistencyLevel
@@ -1805,7 +1732,6 @@ return|;
 block|}
 comment|/**          * CQL query to perform. Can be overridden with the message header with          * key CamelCqlQuery.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|cql (String cql)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|cql
@@ -1827,7 +1753,6 @@ return|;
 block|}
 comment|/**          * To use a specific LoadBalancingPolicy.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|loadBalancingPolicy ( String loadBalancingPolicy)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|loadBalancingPolicy
@@ -1849,7 +1774,6 @@ return|;
 block|}
 comment|/**          * Password for session authentication.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|password
@@ -1871,7 +1795,6 @@ return|;
 block|}
 comment|/**          * Whether to use PreparedStatements or regular Statements.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|prepareStatements ( boolean prepareStatements)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|prepareStatements
@@ -1893,7 +1816,6 @@ return|;
 block|}
 comment|/**          * Whether to use PreparedStatements or regular Statements.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|prepareStatements ( String prepareStatements)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|prepareStatements
@@ -1915,7 +1837,6 @@ return|;
 block|}
 comment|/**          * To use a custom class that implements logic for converting ResultSet          * into message body ALL, ONE, LIMIT_10, LIMIT_100...          * The option is a          *<code>org.apache.camel.component.cassandra.ResultSetConversionStrategy</code> type.          * @group common          */
 DECL|method|resultSetConversionStrategy ( Object resultSetConversionStrategy)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|resultSetConversionStrategy
@@ -1937,7 +1858,6 @@ return|;
 block|}
 comment|/**          * To use a custom class that implements logic for converting ResultSet          * into message body ALL, ONE, LIMIT_10, LIMIT_100...          * The option will be converted to a          *<code>org.apache.camel.component.cassandra.ResultSetConversionStrategy</code> type.          * @group common          */
 DECL|method|resultSetConversionStrategy ( String resultSetConversionStrategy)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|resultSetConversionStrategy
@@ -1959,7 +1879,6 @@ return|;
 block|}
 comment|/**          * To use the Session instance (you would normally not use this option).          * The option is a<code>com.datastax.driver.core.Session</code> type.          * @group common          */
 DECL|method|session (Object session)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|session
@@ -1981,7 +1900,6 @@ return|;
 block|}
 comment|/**          * To use the Session instance (you would normally not use this option).          * The option will be converted to a          *<code>com.datastax.driver.core.Session</code> type.          * @group common          */
 DECL|method|session (String session)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|session
@@ -2003,7 +1921,6 @@ return|;
 block|}
 comment|/**          * Username for session authentication.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|username
@@ -2025,7 +1942,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|lazyStartProducer
@@ -2047,7 +1963,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|lazyStartProducer
@@ -2077,7 +1992,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|CassandraEndpointProducerBuilder
 name|basic
@@ -2092,7 +2006,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointProducerBuilder
 name|basicPropertyBinding
@@ -2114,7 +2027,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointProducerBuilder
 name|basicPropertyBinding
@@ -2136,7 +2048,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointProducerBuilder
 name|synchronous
@@ -2158,7 +2069,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointProducerBuilder
 name|synchronous
@@ -2191,7 +2101,6 @@ extends|,
 name|CassandraEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointBuilder
 name|advanced
@@ -2206,7 +2115,6 @@ return|;
 block|}
 comment|/**          * beanRef is defined using bean:id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|beanRef (String beanRef)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|beanRef
@@ -2228,7 +2136,6 @@ return|;
 block|}
 comment|/**          * Hostname(s) cassansdra server(s). Multiple hosts can be separated by          * comma.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|hosts (String hosts)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|hosts
@@ -2250,7 +2157,6 @@ return|;
 block|}
 comment|/**          * Port number of cassansdra server(s).          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|port (Integer port)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|port
@@ -2272,7 +2178,6 @@ return|;
 block|}
 comment|/**          * Port number of cassansdra server(s).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|port
@@ -2294,7 +2199,6 @@ return|;
 block|}
 comment|/**          * Keyspace to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|keyspace (String keyspace)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|keyspace
@@ -2316,7 +2220,6 @@ return|;
 block|}
 comment|/**          * To use the Cluster instance (you would normally not use this option).          * The option is a<code>com.datastax.driver.core.Cluster</code> type.          * @group common          */
 DECL|method|cluster (Object cluster)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|cluster
@@ -2338,7 +2241,6 @@ return|;
 block|}
 comment|/**          * To use the Cluster instance (you would normally not use this option).          * The option will be converted to a          *<code>com.datastax.driver.core.Cluster</code> type.          * @group common          */
 DECL|method|cluster (String cluster)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|cluster
@@ -2360,7 +2262,6 @@ return|;
 block|}
 comment|/**          * Cluster name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clusterName (String clusterName)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|clusterName
@@ -2382,7 +2283,6 @@ return|;
 block|}
 comment|/**          * Consistency level to use.          * The option is a          *<code>com.datastax.driver.core.ConsistencyLevel</code> type.          * @group common          */
 DECL|method|consistencyLevel ( ConsistencyLevel consistencyLevel)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|consistencyLevel
@@ -2404,7 +2304,6 @@ return|;
 block|}
 comment|/**          * Consistency level to use.          * The option will be converted to a          *<code>com.datastax.driver.core.ConsistencyLevel</code> type.          * @group common          */
 DECL|method|consistencyLevel ( String consistencyLevel)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|consistencyLevel
@@ -2426,7 +2325,6 @@ return|;
 block|}
 comment|/**          * CQL query to perform. Can be overridden with the message header with          * key CamelCqlQuery.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|cql (String cql)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|cql
@@ -2448,7 +2346,6 @@ return|;
 block|}
 comment|/**          * To use a specific LoadBalancingPolicy.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|loadBalancingPolicy ( String loadBalancingPolicy)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|loadBalancingPolicy
@@ -2470,7 +2367,6 @@ return|;
 block|}
 comment|/**          * Password for session authentication.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|password
@@ -2492,7 +2388,6 @@ return|;
 block|}
 comment|/**          * Whether to use PreparedStatements or regular Statements.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|prepareStatements ( boolean prepareStatements)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|prepareStatements
@@ -2514,7 +2409,6 @@ return|;
 block|}
 comment|/**          * Whether to use PreparedStatements or regular Statements.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|prepareStatements ( String prepareStatements)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|prepareStatements
@@ -2536,7 +2430,6 @@ return|;
 block|}
 comment|/**          * To use a custom class that implements logic for converting ResultSet          * into message body ALL, ONE, LIMIT_10, LIMIT_100...          * The option is a          *<code>org.apache.camel.component.cassandra.ResultSetConversionStrategy</code> type.          * @group common          */
 DECL|method|resultSetConversionStrategy ( Object resultSetConversionStrategy)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|resultSetConversionStrategy
@@ -2558,7 +2451,6 @@ return|;
 block|}
 comment|/**          * To use a custom class that implements logic for converting ResultSet          * into message body ALL, ONE, LIMIT_10, LIMIT_100...          * The option will be converted to a          *<code>org.apache.camel.component.cassandra.ResultSetConversionStrategy</code> type.          * @group common          */
 DECL|method|resultSetConversionStrategy ( String resultSetConversionStrategy)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|resultSetConversionStrategy
@@ -2580,7 +2472,6 @@ return|;
 block|}
 comment|/**          * To use the Session instance (you would normally not use this option).          * The option is a<code>com.datastax.driver.core.Session</code> type.          * @group common          */
 DECL|method|session (Object session)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|session
@@ -2602,7 +2493,6 @@ return|;
 block|}
 comment|/**          * To use the Session instance (you would normally not use this option).          * The option will be converted to a          *<code>com.datastax.driver.core.Session</code> type.          * @group common          */
 DECL|method|session (String session)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|session
@@ -2624,7 +2514,6 @@ return|;
 block|}
 comment|/**          * Username for session authentication.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|username
@@ -2657,7 +2546,6 @@ extends|,
 name|AdvancedCassandraEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|basic
@@ -2672,7 +2560,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointBuilder
 name|basicPropertyBinding
@@ -2694,7 +2581,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCassandraEndpointBuilder
 name|basicPropertyBinding
@@ -2715,8 +2601,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedCassandraEndpointBuilder
 name|synchronous
@@ -2737,8 +2622,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedCassandraEndpointBuilder
 name|synchronous
@@ -2801,7 +2685,6 @@ name|LOCAL_ONE
 block|;     }
 comment|/**      * The cql component aims at integrating Cassandra 2.0 using the CQL3 API      * (not the Thrift API). Creates a builder to build endpoints for the      * Cassandra CQL component.      */
 DECL|method|cassandra (String path)
-specifier|public
 specifier|default
 name|CassandraEndpointBuilder
 name|cassandra

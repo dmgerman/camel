@@ -138,7 +138,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedStompEndpointConsumerBuilder
 name|advanced
@@ -152,8 +151,7 @@ name|this
 return|;
 block|}
 comment|/**          * Name of the queue.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|destination ( String destination)
-specifier|public
+DECL|method|destination (String destination)
 specifier|default
 name|StompEndpointConsumerBuilder
 name|destination
@@ -175,7 +173,6 @@ return|;
 block|}
 comment|/**          * The URI of the Stomp broker to connect to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|brokerURL (String brokerURL)
-specifier|public
 specifier|default
 name|StompEndpointConsumerBuilder
 name|brokerURL
@@ -197,7 +194,6 @@ return|;
 block|}
 comment|/**          * The virtual host name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|StompEndpointConsumerBuilder
 name|host
@@ -219,7 +215,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|StompEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -241,7 +236,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|StompEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -263,7 +257,6 @@ return|;
 block|}
 comment|/**          * The username.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|login (String login)
-specifier|public
 specifier|default
 name|StompEndpointConsumerBuilder
 name|login
@@ -285,7 +278,6 @@ return|;
 block|}
 comment|/**          * The password.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|passcode (String passcode)
-specifier|public
 specifier|default
 name|StompEndpointConsumerBuilder
 name|passcode
@@ -307,7 +299,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|StompEndpointConsumerBuilder
 name|sslContextParameters
@@ -329,7 +320,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|StompEndpointConsumerBuilder
 name|sslContextParameters
@@ -359,7 +349,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|StompEndpointConsumerBuilder
 name|basic
@@ -374,7 +363,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointConsumerBuilder
 name|exceptionHandler
@@ -396,7 +384,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointConsumerBuilder
 name|exceptionHandler
@@ -418,7 +405,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointConsumerBuilder
 name|exchangePattern
@@ -440,7 +426,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointConsumerBuilder
 name|exchangePattern
@@ -462,7 +447,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -484,7 +468,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -506,7 +489,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointConsumerBuilder
 name|headerFilterStrategy
@@ -528,7 +510,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointConsumerBuilder
 name|headerFilterStrategy
@@ -550,7 +531,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointConsumerBuilder
 name|synchronous
@@ -572,7 +552,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointConsumerBuilder
 name|synchronous
@@ -603,7 +582,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedStompEndpointProducerBuilder
 name|advanced
@@ -617,8 +595,7 @@ name|this
 return|;
 block|}
 comment|/**          * Name of the queue.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|destination ( String destination)
-specifier|public
+DECL|method|destination (String destination)
 specifier|default
 name|StompEndpointProducerBuilder
 name|destination
@@ -640,7 +617,6 @@ return|;
 block|}
 comment|/**          * The URI of the Stomp broker to connect to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|brokerURL (String brokerURL)
-specifier|public
 specifier|default
 name|StompEndpointProducerBuilder
 name|brokerURL
@@ -662,7 +638,6 @@ return|;
 block|}
 comment|/**          * The virtual host name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|StompEndpointProducerBuilder
 name|host
@@ -684,7 +659,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|StompEndpointProducerBuilder
 name|lazyStartProducer
@@ -706,7 +680,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|StompEndpointProducerBuilder
 name|lazyStartProducer
@@ -728,7 +701,6 @@ return|;
 block|}
 comment|/**          * The username.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|login (String login)
-specifier|public
 specifier|default
 name|StompEndpointProducerBuilder
 name|login
@@ -750,7 +722,6 @@ return|;
 block|}
 comment|/**          * The password.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|passcode (String passcode)
-specifier|public
 specifier|default
 name|StompEndpointProducerBuilder
 name|passcode
@@ -772,7 +743,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|StompEndpointProducerBuilder
 name|sslContextParameters
@@ -794,7 +764,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|StompEndpointProducerBuilder
 name|sslContextParameters
@@ -824,7 +793,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|StompEndpointProducerBuilder
 name|basic
@@ -839,7 +807,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointProducerBuilder
 name|basicPropertyBinding
@@ -861,7 +828,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointProducerBuilder
 name|basicPropertyBinding
@@ -883,7 +849,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointProducerBuilder
 name|headerFilterStrategy
@@ -905,7 +870,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointProducerBuilder
 name|headerFilterStrategy
@@ -927,7 +891,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointProducerBuilder
 name|synchronous
@@ -949,7 +912,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointProducerBuilder
 name|synchronous
@@ -982,7 +944,6 @@ extends|,
 name|StompEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedStompEndpointBuilder
 name|advanced
@@ -997,7 +958,6 @@ return|;
 block|}
 comment|/**          * Name of the queue.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|destination (String destination)
-specifier|public
 specifier|default
 name|StompEndpointBuilder
 name|destination
@@ -1019,7 +979,6 @@ return|;
 block|}
 comment|/**          * The URI of the Stomp broker to connect to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|brokerURL (String brokerURL)
-specifier|public
 specifier|default
 name|StompEndpointBuilder
 name|brokerURL
@@ -1041,7 +1000,6 @@ return|;
 block|}
 comment|/**          * The virtual host name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|StompEndpointBuilder
 name|host
@@ -1063,7 +1021,6 @@ return|;
 block|}
 comment|/**          * The username.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|login (String login)
-specifier|public
 specifier|default
 name|StompEndpointBuilder
 name|login
@@ -1085,7 +1042,6 @@ return|;
 block|}
 comment|/**          * The password.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|passcode (String passcode)
-specifier|public
 specifier|default
 name|StompEndpointBuilder
 name|passcode
@@ -1107,7 +1063,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|StompEndpointBuilder
 name|sslContextParameters
@@ -1129,7 +1084,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|StompEndpointBuilder
 name|sslContextParameters
@@ -1162,7 +1116,6 @@ extends|,
 name|AdvancedStompEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|StompEndpointBuilder
 name|basic
@@ -1177,7 +1130,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointBuilder
 name|basicPropertyBinding
@@ -1199,7 +1151,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointBuilder
 name|basicPropertyBinding
@@ -1221,7 +1172,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointBuilder
 name|headerFilterStrategy
@@ -1243,7 +1193,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedStompEndpointBuilder
 name|headerFilterStrategy
@@ -1264,8 +1213,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedStompEndpointBuilder
 name|synchronous
@@ -1286,8 +1234,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedStompEndpointBuilder
 name|synchronous
@@ -1310,7 +1257,6 @@ block|}
 block|}
 comment|/**      * The stomp component is used for communicating with Stomp compliant      * message brokers. Creates a builder to build endpoints for the Stomp      * component.      */
 DECL|method|stomp (String path)
-specifier|public
 specifier|default
 name|StompEndpointBuilder
 name|stomp

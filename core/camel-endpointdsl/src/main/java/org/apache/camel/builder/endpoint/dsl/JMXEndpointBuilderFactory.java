@@ -121,7 +121,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|advanced
@@ -136,7 +135,6 @@ return|;
 block|}
 comment|/**          * Server url comes from the remaining endpoint. Use platform to connect          * to local JVM.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|serverURL (String serverURL)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|serverURL
@@ -158,7 +156,6 @@ return|;
 block|}
 comment|/**          * Format for the message body. Either xml or raw. If xml, the          * notification is serialized to xml. If raw, then the raw java object          * is set as the body.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|format (String format)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|format
@@ -179,8 +176,7 @@ name|this
 return|;
 block|}
 comment|/**          * The frequency to poll the bean to check the monitor (monitor types          * only).          * The option is a<code>long</code> type.          * @group consumer          */
-DECL|method|granularityPeriod ( long granularityPeriod)
-specifier|public
+DECL|method|granularityPeriod (long granularityPeriod)
 specifier|default
 name|JMXEndpointBuilder
 name|granularityPeriod
@@ -201,8 +197,7 @@ name|this
 return|;
 block|}
 comment|/**          * The frequency to poll the bean to check the monitor (monitor types          * only).          * The option will be converted to a<code>long</code> type.          * @group consumer          */
-DECL|method|granularityPeriod ( String granularityPeriod)
-specifier|public
+DECL|method|granularityPeriod (String granularityPeriod)
 specifier|default
 name|JMXEndpointBuilder
 name|granularityPeriod
@@ -224,7 +219,6 @@ return|;
 block|}
 comment|/**          * The type of monitor to create. One of string, gauge, counter (monitor          * types only).          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|monitorType (String monitorType)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|monitorType
@@ -246,7 +240,6 @@ return|;
 block|}
 comment|/**          * The domain for the mbean you're connecting to.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|objectDomain (String objectDomain)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|objectDomain
@@ -268,7 +261,6 @@ return|;
 block|}
 comment|/**          * The name key for the mbean you're connecting to. This value is          * mutually exclusive with the object properties that get passed.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|objectName (String objectName)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|objectName
@@ -289,8 +281,7 @@ name|this
 return|;
 block|}
 comment|/**          * The attribute to observe for the monitor bean or consumer.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
-DECL|method|observedAttribute ( String observedAttribute)
-specifier|public
+DECL|method|observedAttribute (String observedAttribute)
 specifier|default
 name|JMXEndpointBuilder
 name|observedAttribute
@@ -312,7 +303,6 @@ return|;
 block|}
 comment|/**          * Initial threshold for the monitor. The value must exceed this before          * notifications are fired (counter monitor only).          * The option is a<code>int</code> type.          * @group counter          */
 DECL|method|initThreshold (int initThreshold)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|initThreshold
@@ -334,7 +324,6 @@ return|;
 block|}
 comment|/**          * Initial threshold for the monitor. The value must exceed this before          * notifications are fired (counter monitor only).          * The option will be converted to a<code>int</code> type.          * @group counter          */
 DECL|method|initThreshold (String initThreshold)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|initThreshold
@@ -356,7 +345,6 @@ return|;
 block|}
 comment|/**          * The value at which the counter is reset to zero (counter monitor          * only).          * The option is a<code>int</code> type.          * @group counter          */
 DECL|method|modulus (int modulus)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|modulus
@@ -378,7 +366,6 @@ return|;
 block|}
 comment|/**          * The value at which the counter is reset to zero (counter monitor          * only).          * The option will be converted to a<code>int</code> type.          * @group counter          */
 DECL|method|modulus (String modulus)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|modulus
@@ -400,7 +387,6 @@ return|;
 block|}
 comment|/**          * The amount to increment the threshold after it's been exceeded          * (counter monitor only).          * The option is a<code>int</code> type.          * @group counter          */
 DECL|method|offset (int offset)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|offset
@@ -422,7 +408,6 @@ return|;
 block|}
 comment|/**          * The amount to increment the threshold after it's been exceeded          * (counter monitor only).          * The option will be converted to a<code>int</code> type.          * @group counter          */
 DECL|method|offset (String offset)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|offset
@@ -444,7 +429,6 @@ return|;
 block|}
 comment|/**          * If true, then the value reported in the notification is the          * difference from the threshold as opposed to the value itself (counter          * and gauge monitor only).          * The option is a<code>boolean</code> type.          * @group gauge          */
 DECL|method|differenceMode (boolean differenceMode)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|differenceMode
@@ -466,7 +450,6 @@ return|;
 block|}
 comment|/**          * If true, then the value reported in the notification is the          * difference from the threshold as opposed to the value itself (counter          * and gauge monitor only).          * The option will be converted to a<code>boolean</code> type.          * @group gauge          */
 DECL|method|differenceMode (String differenceMode)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|differenceMode
@@ -488,7 +471,6 @@ return|;
 block|}
 comment|/**          * If true, the gauge will fire a notification when the high threshold          * is exceeded (gauge monitor only).          * The option is a<code>boolean</code> type.          * @group gauge          */
 DECL|method|notifyHigh (boolean notifyHigh)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|notifyHigh
@@ -510,7 +492,6 @@ return|;
 block|}
 comment|/**          * If true, the gauge will fire a notification when the high threshold          * is exceeded (gauge monitor only).          * The option will be converted to a<code>boolean</code> type.          * @group gauge          */
 DECL|method|notifyHigh (String notifyHigh)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|notifyHigh
@@ -532,7 +513,6 @@ return|;
 block|}
 comment|/**          * If true, the gauge will fire a notification when the low threshold is          * exceeded (gauge monitor only).          * The option is a<code>boolean</code> type.          * @group gauge          */
 DECL|method|notifyLow (boolean notifyLow)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|notifyLow
@@ -554,7 +534,6 @@ return|;
 block|}
 comment|/**          * If true, the gauge will fire a notification when the low threshold is          * exceeded (gauge monitor only).          * The option will be converted to a<code>boolean</code> type.          * @group gauge          */
 DECL|method|notifyLow (String notifyLow)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|notifyLow
@@ -576,7 +555,6 @@ return|;
 block|}
 comment|/**          * Value for the gauge's high threshold (gauge monitor only).          * The option is a<code>java.lang.Double</code> type.          * @group gauge          */
 DECL|method|thresholdHigh (Double thresholdHigh)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|thresholdHigh
@@ -598,7 +576,6 @@ return|;
 block|}
 comment|/**          * Value for the gauge's high threshold (gauge monitor only).          * The option will be converted to a<code>java.lang.Double</code> type.          * @group gauge          */
 DECL|method|thresholdHigh (String thresholdHigh)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|thresholdHigh
@@ -620,7 +597,6 @@ return|;
 block|}
 comment|/**          * Value for the gauge's low threshold (gauge monitor only).          * The option is a<code>java.lang.Double</code> type.          * @group gauge          */
 DECL|method|thresholdLow (Double thresholdLow)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|thresholdLow
@@ -642,7 +618,6 @@ return|;
 block|}
 comment|/**          * Value for the gauge's low threshold (gauge monitor only).          * The option will be converted to a<code>java.lang.Double</code> type.          * @group gauge          */
 DECL|method|thresholdLow (String thresholdLow)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|thresholdLow
@@ -664,7 +639,6 @@ return|;
 block|}
 comment|/**          * Credentials for making a remote connection.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|password
@@ -686,7 +660,6 @@ return|;
 block|}
 comment|/**          * Credentials for making a remote connection.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|user (String user)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|user
@@ -717,7 +690,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|basic
@@ -732,7 +704,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|basicPropertyBinding
@@ -754,7 +725,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|basicPropertyBinding
@@ -776,7 +746,6 @@ return|;
 block|}
 comment|/**          * To use a custom shared thread pool for the consumers. By default each          * consume has their own thread-pool to process and route notifications.          * The option is a<code>java.util.concurrent.ExecutorService</code>          * type.          * @group advanced          */
 DECL|method|executorService ( ExecutorService executorService)
-specifier|public
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|executorService
@@ -798,7 +767,6 @@ return|;
 block|}
 comment|/**          * To use a custom shared thread pool for the consumers. By default each          * consume has their own thread-pool to process and route notifications.          * The option will be converted to a          *<code>java.util.concurrent.ExecutorService</code> type.          * @group advanced          */
 DECL|method|executorService ( String executorService)
-specifier|public
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|executorService
@@ -820,7 +788,6 @@ return|;
 block|}
 comment|/**          * Value to handback to the listener when a notification is received.          * This value will be put in the message header with the key          * jmx.handback.          * The option is a<code>java.lang.Object</code> type.          * @group advanced          */
 DECL|method|handback (Object handback)
-specifier|public
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|handback
@@ -842,7 +809,6 @@ return|;
 block|}
 comment|/**          * Value to handback to the listener when a notification is received.          * This value will be put in the message header with the key          * jmx.handback.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group advanced          */
 DECL|method|handback (String handback)
-specifier|public
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|handback
@@ -864,7 +830,6 @@ return|;
 block|}
 comment|/**          * Reference to a bean that implements the NotificationFilter.          * The option is a<code>javax.management.NotificationFilter</code>          * type.          * @group advanced          */
 DECL|method|notificationFilter ( Object notificationFilter)
-specifier|public
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|notificationFilter
@@ -886,7 +851,6 @@ return|;
 block|}
 comment|/**          * Reference to a bean that implements the NotificationFilter.          * The option will be converted to a          *<code>javax.management.NotificationFilter</code> type.          * @group advanced          */
 DECL|method|notificationFilter ( String notificationFilter)
-specifier|public
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|notificationFilter
@@ -908,7 +872,6 @@ return|;
 block|}
 comment|/**          * Properties for the object name. These values will be used if the          * objectName param is not set.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group advanced          */
 DECL|method|objectProperties ( Map<String, String> objectProperties)
-specifier|public
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|objectProperties
@@ -935,7 +898,6 @@ return|;
 block|}
 comment|/**          * Properties for the object name. These values will be used if the          * objectName param is not set.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          * @group advanced          */
 DECL|method|objectProperties ( String objectProperties)
-specifier|public
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|objectProperties
@@ -956,8 +918,7 @@ name|this
 return|;
 block|}
 comment|/**          * The number of seconds to wait before attempting to retry          * establishment of the initial connection or attempt to reconnect a          * lost connection.          * The option is a<code>int</code> type.          * @group advanced          */
-DECL|method|reconnectDelay ( int reconnectDelay)
-specifier|public
+DECL|method|reconnectDelay (int reconnectDelay)
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|reconnectDelay
@@ -978,8 +939,7 @@ name|this
 return|;
 block|}
 comment|/**          * The number of seconds to wait before attempting to retry          * establishment of the initial connection or attempt to reconnect a          * lost connection.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
-DECL|method|reconnectDelay ( String reconnectDelay)
-specifier|public
+DECL|method|reconnectDelay (String reconnectDelay)
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|reconnectDelay
@@ -1001,7 +961,6 @@ return|;
 block|}
 comment|/**          * If true the consumer will attempt to reconnect to the JMX server when          * any connection failure occurs. The consumer will attempt to          * re-establish the JMX connection every 'x' seconds until the          * connection is made-- where 'x' is the configured reconnectionDelay.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|reconnectOnConnectionFailure ( boolean reconnectOnConnectionFailure)
-specifier|public
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|reconnectOnConnectionFailure
@@ -1023,7 +982,6 @@ return|;
 block|}
 comment|/**          * If true the consumer will attempt to reconnect to the JMX server when          * any connection failure occurs. The consumer will attempt to          * re-establish the JMX connection every 'x' seconds until the          * connection is made-- where 'x' is the configured reconnectionDelay.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|reconnectOnConnectionFailure ( String reconnectOnConnectionFailure)
-specifier|public
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|reconnectOnConnectionFailure
@@ -1044,8 +1002,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|synchronous
@@ -1067,7 +1024,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous (String synchronous)
-specifier|public
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|synchronous
@@ -1089,7 +1045,6 @@ return|;
 block|}
 comment|/**          * If true the consumer will throw an exception if unable to establish          * the JMX connection upon startup. If false, the consumer will attempt          * to establish the JMX connection every 'x' seconds until the          * connection is made -- where 'x' is the configured reconnectionDelay.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|testConnectionOnStartup ( boolean testConnectionOnStartup)
-specifier|public
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|testConnectionOnStartup
@@ -1111,7 +1066,6 @@ return|;
 block|}
 comment|/**          * If true the consumer will throw an exception if unable to establish          * the JMX connection upon startup. If false, the consumer will attempt          * to establish the JMX connection every 'x' seconds until the          * connection is made -- where 'x' is the configured reconnectionDelay.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|testConnectionOnStartup ( String testConnectionOnStartup)
-specifier|public
 specifier|default
 name|AdvancedJMXEndpointBuilder
 name|testConnectionOnStartup
@@ -1134,7 +1088,6 @@ block|}
 block|}
 comment|/**      * The jmx component allows to receive JMX notifications. Creates a builder      * to build endpoints for the JMX component.      */
 DECL|method|jMX (String path)
-specifier|public
 specifier|default
 name|JMXEndpointBuilder
 name|jMX

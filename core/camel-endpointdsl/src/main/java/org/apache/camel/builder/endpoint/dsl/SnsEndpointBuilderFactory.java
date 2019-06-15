@@ -113,7 +113,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSnsEndpointBuilder
 name|advanced
@@ -128,7 +127,6 @@ return|;
 block|}
 comment|/**          * Topic name or ARN.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|topicNameOrArn (String topicNameOrArn)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|topicNameOrArn
@@ -150,7 +148,6 @@ return|;
 block|}
 comment|/**          * To use the AmazonSNS as the client.          * The option is a<code>com.amazonaws.services.sns.AmazonSNS</code>          * type.          * @group producer          */
 DECL|method|amazonSNSClient (Object amazonSNSClient)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|amazonSNSClient
@@ -172,7 +169,6 @@ return|;
 block|}
 comment|/**          * To use the AmazonSNS as the client.          * The option will be converted to a          *<code>com.amazonaws.services.sns.AmazonSNS</code> type.          * @group producer          */
 DECL|method|amazonSNSClient (String amazonSNSClient)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|amazonSNSClient
@@ -194,7 +190,6 @@ return|;
 block|}
 comment|/**          * An SQS Client to use as bridge between SNS and SQS.          * The option is a<code>com.amazonaws.services.sqs.AmazonSQS</code>          * type.          * @group producer          */
 DECL|method|amazonSQSClient (Object amazonSQSClient)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|amazonSQSClient
@@ -216,7 +211,6 @@ return|;
 block|}
 comment|/**          * An SQS Client to use as bridge between SNS and SQS.          * The option will be converted to a          *<code>com.amazonaws.services.sqs.AmazonSQS</code> type.          * @group producer          */
 DECL|method|amazonSQSClient (String amazonSQSClient)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|amazonSQSClient
@@ -237,8 +231,7 @@ name|this
 return|;
 block|}
 comment|/**          * Setting the autocreation of the topic.          * The option is a<code>boolean</code> type.          * @group producer          */
-DECL|method|autoCreateTopic ( boolean autoCreateTopic)
-specifier|public
+DECL|method|autoCreateTopic (boolean autoCreateTopic)
 specifier|default
 name|SnsEndpointBuilder
 name|autoCreateTopic
@@ -260,7 +253,6 @@ return|;
 block|}
 comment|/**          * Setting the autocreation of the topic.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|autoCreateTopic (String autoCreateTopic)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|autoCreateTopic
@@ -282,7 +274,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to map headers to/from Camel.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group producer          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|headerFilterStrategy
@@ -304,7 +295,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to map headers to/from Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group producer          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|headerFilterStrategy
@@ -326,7 +316,6 @@ return|;
 block|}
 comment|/**          * The ID of an AWS-managed customer master key (CMK) for Amazon SNS or          * a custom CMK.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|kmsMasterKeyId (String kmsMasterKeyId)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|kmsMasterKeyId
@@ -347,8 +336,7 @@ name|this
 return|;
 block|}
 comment|/**          * The message structure to use such as json.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|messageStructure ( String messageStructure)
-specifier|public
+DECL|method|messageStructure (String messageStructure)
 specifier|default
 name|SnsEndpointBuilder
 name|messageStructure
@@ -370,7 +358,6 @@ return|;
 block|}
 comment|/**          * The policy for this queue.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|policy (String policy)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|policy
@@ -392,7 +379,6 @@ return|;
 block|}
 comment|/**          * To define a proxy host when instantiating the SNS client.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|proxyHost (String proxyHost)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|proxyHost
@@ -414,7 +400,6 @@ return|;
 block|}
 comment|/**          * To define a proxy port when instantiating the SNS client.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
 DECL|method|proxyPort (Integer proxyPort)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|proxyPort
@@ -436,7 +421,6 @@ return|;
 block|}
 comment|/**          * To define a proxy port when instantiating the SNS client.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
 DECL|method|proxyPort (String proxyPort)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|proxyPort
@@ -458,7 +442,6 @@ return|;
 block|}
 comment|/**          * The queueUrl to subscribe to.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|queueUrl (String queueUrl)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|queueUrl
@@ -480,7 +463,6 @@ return|;
 block|}
 comment|/**          * The region in which SNS client needs to work.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|region (String region)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|region
@@ -502,7 +484,6 @@ return|;
 block|}
 comment|/**          * Define if Server Side Encryption is enabled or not on the topic.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|serverSideEncryptionEnabled ( boolean serverSideEncryptionEnabled)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|serverSideEncryptionEnabled
@@ -524,7 +505,6 @@ return|;
 block|}
 comment|/**          * Define if Server Side Encryption is enabled or not on the topic.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|serverSideEncryptionEnabled ( String serverSideEncryptionEnabled)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|serverSideEncryptionEnabled
@@ -546,7 +526,6 @@ return|;
 block|}
 comment|/**          * The subject which is used if the message header 'CamelAwsSnsSubject'          * is not present.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|subject (String subject)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|subject
@@ -567,8 +546,7 @@ name|this
 return|;
 block|}
 comment|/**          * Define if the subscription between SNS Topic and SQS must be done or          * not.          * The option is a<code>boolean</code> type.          * @group producer          */
-DECL|method|subscribeSNStoSQS ( boolean subscribeSNStoSQS)
-specifier|public
+DECL|method|subscribeSNStoSQS (boolean subscribeSNStoSQS)
 specifier|default
 name|SnsEndpointBuilder
 name|subscribeSNStoSQS
@@ -589,8 +567,7 @@ name|this
 return|;
 block|}
 comment|/**          * Define if the subscription between SNS Topic and SQS must be done or          * not.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
-DECL|method|subscribeSNStoSQS ( String subscribeSNStoSQS)
-specifier|public
+DECL|method|subscribeSNStoSQS (String subscribeSNStoSQS)
 specifier|default
 name|SnsEndpointBuilder
 name|subscribeSNStoSQS
@@ -612,7 +589,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessKey (String accessKey)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|accessKey
@@ -634,7 +610,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|secretKey
@@ -665,7 +640,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|basic
@@ -680,7 +654,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSnsEndpointBuilder
 name|basicPropertyBinding
@@ -702,7 +675,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSnsEndpointBuilder
 name|basicPropertyBinding
@@ -723,8 +695,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSnsEndpointBuilder
 name|synchronous
@@ -746,7 +717,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous (String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSnsEndpointBuilder
 name|synchronous
@@ -769,7 +739,6 @@ block|}
 block|}
 comment|/**      * The aws-sns component is used for sending messages to an Amazon Simple      * Notification Topic. Creates a builder to build endpoints for the AWS      * Simple Notification System component.      */
 DECL|method|sns (String path)
-specifier|public
 specifier|default
 name|SnsEndpointBuilder
 name|sns

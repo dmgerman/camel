@@ -198,7 +198,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointConsumerBuilder
 name|advanced
@@ -213,7 +212,6 @@ return|;
 block|}
 comment|/**          * Name has no purpose.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|name
@@ -235,7 +233,6 @@ return|;
 block|}
 comment|/**          * Splunk app.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|app (String app)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|app
@@ -257,7 +254,6 @@ return|;
 block|}
 comment|/**          * Timeout in MS when connecting to Splunk server.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|connectionTimeout ( int connectionTimeout)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|connectionTimeout
@@ -279,7 +275,6 @@ return|;
 block|}
 comment|/**          * Timeout in MS when connecting to Splunk server.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|connectionTimeout
@@ -301,7 +296,6 @@ return|;
 block|}
 comment|/**          * Splunk host.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|host
@@ -323,7 +317,6 @@ return|;
 block|}
 comment|/**          * Splunk owner.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|owner (String owner)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|owner
@@ -345,7 +338,6 @@ return|;
 block|}
 comment|/**          * Splunk port.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|port
@@ -367,7 +359,6 @@ return|;
 block|}
 comment|/**          * Splunk port.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|port
@@ -389,7 +380,6 @@ return|;
 block|}
 comment|/**          * Splunk scheme.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|scheme (String scheme)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|scheme
@@ -411,7 +401,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -433,7 +422,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -455,7 +443,6 @@ return|;
 block|}
 comment|/**          * A number that indicates the maximum number of entities to return.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|count (int count)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|count
@@ -477,7 +464,6 @@ return|;
 block|}
 comment|/**          * A number that indicates the maximum number of entities to return.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|count (String count)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|count
@@ -498,8 +484,7 @@ name|this
 return|;
 block|}
 comment|/**          * Earliest time of the search time window.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
-DECL|method|earliestTime ( String earliestTime)
-specifier|public
+DECL|method|earliestTime (String earliestTime)
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|earliestTime
@@ -521,7 +506,6 @@ return|;
 block|}
 comment|/**          * Initial start offset of the first search.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|initEarliestTime ( String initEarliestTime)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|initEarliestTime
@@ -542,8 +526,7 @@ name|this
 return|;
 block|}
 comment|/**          * Latest time of the search time window.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
-DECL|method|latestTime ( String latestTime)
-specifier|public
+DECL|method|latestTime (String latestTime)
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|latestTime
@@ -564,8 +547,7 @@ name|this
 return|;
 block|}
 comment|/**          * The name of the query saved in Splunk to run.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
-DECL|method|savedSearch ( String savedSearch)
-specifier|public
+DECL|method|savedSearch (String savedSearch)
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|savedSearch
@@ -587,7 +569,6 @@ return|;
 block|}
 comment|/**          * The Splunk query to run.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|search (String search)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|search
@@ -609,7 +590,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( boolean sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -631,7 +611,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( String sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -653,7 +632,6 @@ return|;
 block|}
 comment|/**          * Sets streaming mode. Streaming mode sends exchanges as they are          * received, rather than in a batch.          * The option is a<code>java.lang.Boolean</code> type.          * @group consumer          */
 DECL|method|streaming (Boolean streaming)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|streaming
@@ -675,7 +653,6 @@ return|;
 block|}
 comment|/**          * Sets streaming mode. Streaming mode sends exchanges as they are          * received, rather than in a batch.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group consumer          */
 DECL|method|streaming (String streaming)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|streaming
@@ -697,7 +674,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( int backoffErrorThreshold)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -719,7 +695,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( String backoffErrorThreshold)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -741,7 +716,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( int backoffIdleThreshold)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -763,7 +737,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( String backoffIdleThreshold)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -785,7 +758,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( int backoffMultiplier)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|backoffMultiplier
@@ -807,7 +779,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( String backoffMultiplier)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|backoffMultiplier
@@ -829,7 +800,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (long delay)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|delay
@@ -851,7 +821,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (String delay)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|delay
@@ -873,7 +842,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (boolean greedy)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|greedy
@@ -895,7 +863,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (String greedy)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|greedy
@@ -916,8 +883,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
-DECL|method|initialDelay ( long initialDelay)
-specifier|public
+DECL|method|initialDelay (long initialDelay)
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|initialDelay
@@ -938,8 +904,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
-DECL|method|initialDelay ( String initialDelay)
-specifier|public
+DECL|method|initialDelay (String initialDelay)
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|initialDelay
@@ -961,7 +926,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( LoggingLevel runLoggingLevel)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|runLoggingLevel
@@ -983,7 +947,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( String runLoggingLevel)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|runLoggingLevel
@@ -1005,7 +968,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option is a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( ScheduledExecutorService scheduledExecutorService)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -1027,7 +989,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( String scheduledExecutorService)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -1049,7 +1010,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option is a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler ( ScheduledPollConsumerScheduler scheduler)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|scheduler
@@ -1071,7 +1031,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler (String scheduler)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|scheduler
@@ -1093,7 +1052,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group scheduler          */
 DECL|method|schedulerProperties ( Map<String, Object> schedulerProperties)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|schedulerProperties
@@ -1120,7 +1078,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group scheduler          */
 DECL|method|schedulerProperties ( String schedulerProperties)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|schedulerProperties
@@ -1142,7 +1099,6 @@ return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|startScheduler ( boolean startScheduler)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|startScheduler
@@ -1164,7 +1120,6 @@ return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|startScheduler ( String startScheduler)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|startScheduler
@@ -1186,7 +1141,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option is a<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (TimeUnit timeUnit)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|timeUnit
@@ -1208,7 +1162,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (String timeUnit)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|timeUnit
@@ -1230,7 +1183,6 @@ return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|useFixedDelay ( boolean useFixedDelay)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|useFixedDelay
@@ -1251,8 +1203,7 @@ name|this
 return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|useFixedDelay ( String useFixedDelay)
-specifier|public
+DECL|method|useFixedDelay (String useFixedDelay)
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|useFixedDelay
@@ -1274,7 +1225,6 @@ return|;
 block|}
 comment|/**          * Password for Splunk.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|password
@@ -1296,7 +1246,6 @@ return|;
 block|}
 comment|/**          * Set the ssl protocol to use.          * The option is a<code>com.splunk.SSLSecurityProtocol</code> type.          * @group security          */
 DECL|method|sslProtocol ( SSLSecurityProtocol sslProtocol)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|sslProtocol
@@ -1317,8 +1266,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the ssl protocol to use.          * The option will be converted to a          *<code>com.splunk.SSLSecurityProtocol</code> type.          * @group security          */
-DECL|method|sslProtocol ( String sslProtocol)
-specifier|public
+DECL|method|sslProtocol (String sslProtocol)
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|sslProtocol
@@ -1340,7 +1288,6 @@ return|;
 block|}
 comment|/**          * Username for Splunk.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|username
@@ -1362,7 +1309,6 @@ return|;
 block|}
 comment|/**          * Use sun.net.www.protocol.https.Handler Https handler to establish the          * Splunk Connection. Can be useful when running in application servers          * to avoid app. server https handling.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|useSunHttpsHandler ( boolean useSunHttpsHandler)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|useSunHttpsHandler
@@ -1384,7 +1330,6 @@ return|;
 block|}
 comment|/**          * Use sun.net.www.protocol.https.Handler Https handler to establish the          * Splunk Connection. Can be useful when running in application servers          * to avoid app. server https handling.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|useSunHttpsHandler ( String useSunHttpsHandler)
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|useSunHttpsHandler
@@ -1414,7 +1359,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SplunkEndpointConsumerBuilder
 name|basic
@@ -1429,7 +1373,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointConsumerBuilder
 name|exceptionHandler
@@ -1451,7 +1394,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointConsumerBuilder
 name|exceptionHandler
@@ -1473,7 +1415,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointConsumerBuilder
 name|exchangePattern
@@ -1495,7 +1436,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointConsumerBuilder
 name|exchangePattern
@@ -1517,7 +1457,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option is a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( PollingConsumerPollStrategy pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointConsumerBuilder
 name|pollStrategy
@@ -1539,7 +1478,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( String pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointConsumerBuilder
 name|pollStrategy
@@ -1561,7 +1499,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1583,7 +1520,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1605,7 +1541,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointConsumerBuilder
 name|synchronous
@@ -1627,7 +1562,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointConsumerBuilder
 name|synchronous
@@ -1658,7 +1592,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointProducerBuilder
 name|advanced
@@ -1673,7 +1606,6 @@ return|;
 block|}
 comment|/**          * Name has no purpose.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|name
@@ -1695,7 +1627,6 @@ return|;
 block|}
 comment|/**          * Splunk app.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|app (String app)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|app
@@ -1717,7 +1648,6 @@ return|;
 block|}
 comment|/**          * Timeout in MS when connecting to Splunk server.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|connectionTimeout ( int connectionTimeout)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|connectionTimeout
@@ -1739,7 +1669,6 @@ return|;
 block|}
 comment|/**          * Timeout in MS when connecting to Splunk server.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|connectionTimeout
@@ -1761,7 +1690,6 @@ return|;
 block|}
 comment|/**          * Splunk host.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|host
@@ -1783,7 +1711,6 @@ return|;
 block|}
 comment|/**          * Splunk owner.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|owner (String owner)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|owner
@@ -1805,7 +1732,6 @@ return|;
 block|}
 comment|/**          * Splunk port.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|port
@@ -1827,7 +1753,6 @@ return|;
 block|}
 comment|/**          * Splunk port.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|port
@@ -1849,7 +1774,6 @@ return|;
 block|}
 comment|/**          * Splunk scheme.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|scheme (String scheme)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|scheme
@@ -1871,7 +1795,6 @@ return|;
 block|}
 comment|/**          * Override the default Splunk event host field.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|eventHost (String eventHost)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|eventHost
@@ -1893,7 +1816,6 @@ return|;
 block|}
 comment|/**          * Splunk index to write to.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|index (String index)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|index
@@ -1915,7 +1837,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|lazyStartProducer
@@ -1937,7 +1858,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|lazyStartProducer
@@ -1959,7 +1879,6 @@ return|;
 block|}
 comment|/**          * Should the payload be inserted raw.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|raw (boolean raw)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|raw
@@ -1981,7 +1900,6 @@ return|;
 block|}
 comment|/**          * Should the payload be inserted raw.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|raw (String raw)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|raw
@@ -2003,7 +1921,6 @@ return|;
 block|}
 comment|/**          * Splunk source argument.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|source (String source)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|source
@@ -2024,8 +1941,7 @@ name|this
 return|;
 block|}
 comment|/**          * Splunk sourcetype argument.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|sourceType ( String sourceType)
-specifier|public
+DECL|method|sourceType (String sourceType)
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|sourceType
@@ -2047,7 +1963,6 @@ return|;
 block|}
 comment|/**          * Splunk tcp receiver port.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|tcpReceiverPort ( int tcpReceiverPort)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|tcpReceiverPort
@@ -2069,7 +1984,6 @@ return|;
 block|}
 comment|/**          * Splunk tcp receiver port.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|tcpReceiverPort ( String tcpReceiverPort)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|tcpReceiverPort
@@ -2091,7 +2005,6 @@ return|;
 block|}
 comment|/**          * Password for Splunk.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|password
@@ -2113,7 +2026,6 @@ return|;
 block|}
 comment|/**          * Set the ssl protocol to use.          * The option is a<code>com.splunk.SSLSecurityProtocol</code> type.          * @group security          */
 DECL|method|sslProtocol ( SSLSecurityProtocol sslProtocol)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|sslProtocol
@@ -2134,8 +2046,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the ssl protocol to use.          * The option will be converted to a          *<code>com.splunk.SSLSecurityProtocol</code> type.          * @group security          */
-DECL|method|sslProtocol ( String sslProtocol)
-specifier|public
+DECL|method|sslProtocol (String sslProtocol)
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|sslProtocol
@@ -2157,7 +2068,6 @@ return|;
 block|}
 comment|/**          * Username for Splunk.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|username
@@ -2179,7 +2089,6 @@ return|;
 block|}
 comment|/**          * Use sun.net.www.protocol.https.Handler Https handler to establish the          * Splunk Connection. Can be useful when running in application servers          * to avoid app. server https handling.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|useSunHttpsHandler ( boolean useSunHttpsHandler)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|useSunHttpsHandler
@@ -2201,7 +2110,6 @@ return|;
 block|}
 comment|/**          * Use sun.net.www.protocol.https.Handler Https handler to establish the          * Splunk Connection. Can be useful when running in application servers          * to avoid app. server https handling.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|useSunHttpsHandler ( String useSunHttpsHandler)
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|useSunHttpsHandler
@@ -2231,7 +2139,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SplunkEndpointProducerBuilder
 name|basic
@@ -2246,7 +2153,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointProducerBuilder
 name|basicPropertyBinding
@@ -2268,7 +2174,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointProducerBuilder
 name|basicPropertyBinding
@@ -2290,7 +2195,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointProducerBuilder
 name|synchronous
@@ -2312,7 +2216,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointProducerBuilder
 name|synchronous
@@ -2345,7 +2248,6 @@ extends|,
 name|SplunkEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointBuilder
 name|advanced
@@ -2360,7 +2262,6 @@ return|;
 block|}
 comment|/**          * Name has no purpose.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|SplunkEndpointBuilder
 name|name
@@ -2382,7 +2283,6 @@ return|;
 block|}
 comment|/**          * Splunk app.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|app (String app)
-specifier|public
 specifier|default
 name|SplunkEndpointBuilder
 name|app
@@ -2403,8 +2303,7 @@ name|this
 return|;
 block|}
 comment|/**          * Timeout in MS when connecting to Splunk server.          * The option is a<code>int</code> type.          * @group common          */
-DECL|method|connectionTimeout ( int connectionTimeout)
-specifier|public
+DECL|method|connectionTimeout (int connectionTimeout)
 specifier|default
 name|SplunkEndpointBuilder
 name|connectionTimeout
@@ -2425,8 +2324,7 @@ name|this
 return|;
 block|}
 comment|/**          * Timeout in MS when connecting to Splunk server.          * The option will be converted to a<code>int</code> type.          * @group common          */
-DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
+DECL|method|connectionTimeout (String connectionTimeout)
 specifier|default
 name|SplunkEndpointBuilder
 name|connectionTimeout
@@ -2448,7 +2346,6 @@ return|;
 block|}
 comment|/**          * Splunk host.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|SplunkEndpointBuilder
 name|host
@@ -2470,7 +2367,6 @@ return|;
 block|}
 comment|/**          * Splunk owner.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|owner (String owner)
-specifier|public
 specifier|default
 name|SplunkEndpointBuilder
 name|owner
@@ -2492,7 +2388,6 @@ return|;
 block|}
 comment|/**          * Splunk port.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|SplunkEndpointBuilder
 name|port
@@ -2514,7 +2409,6 @@ return|;
 block|}
 comment|/**          * Splunk port.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|SplunkEndpointBuilder
 name|port
@@ -2536,7 +2430,6 @@ return|;
 block|}
 comment|/**          * Splunk scheme.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|scheme (String scheme)
-specifier|public
 specifier|default
 name|SplunkEndpointBuilder
 name|scheme
@@ -2558,7 +2451,6 @@ return|;
 block|}
 comment|/**          * Password for Splunk.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|SplunkEndpointBuilder
 name|password
@@ -2580,7 +2472,6 @@ return|;
 block|}
 comment|/**          * Set the ssl protocol to use.          * The option is a<code>com.splunk.SSLSecurityProtocol</code> type.          * @group security          */
 DECL|method|sslProtocol ( SSLSecurityProtocol sslProtocol)
-specifier|public
 specifier|default
 name|SplunkEndpointBuilder
 name|sslProtocol
@@ -2602,7 +2493,6 @@ return|;
 block|}
 comment|/**          * Set the ssl protocol to use.          * The option will be converted to a          *<code>com.splunk.SSLSecurityProtocol</code> type.          * @group security          */
 DECL|method|sslProtocol (String sslProtocol)
-specifier|public
 specifier|default
 name|SplunkEndpointBuilder
 name|sslProtocol
@@ -2624,7 +2514,6 @@ return|;
 block|}
 comment|/**          * Username for Splunk.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|SplunkEndpointBuilder
 name|username
@@ -2646,7 +2535,6 @@ return|;
 block|}
 comment|/**          * Use sun.net.www.protocol.https.Handler Https handler to establish the          * Splunk Connection. Can be useful when running in application servers          * to avoid app. server https handling.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|useSunHttpsHandler ( boolean useSunHttpsHandler)
-specifier|public
 specifier|default
 name|SplunkEndpointBuilder
 name|useSunHttpsHandler
@@ -2668,7 +2556,6 @@ return|;
 block|}
 comment|/**          * Use sun.net.www.protocol.https.Handler Https handler to establish the          * Splunk Connection. Can be useful when running in application servers          * to avoid app. server https handling.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|useSunHttpsHandler ( String useSunHttpsHandler)
-specifier|public
 specifier|default
 name|SplunkEndpointBuilder
 name|useSunHttpsHandler
@@ -2701,7 +2588,6 @@ extends|,
 name|AdvancedSplunkEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SplunkEndpointBuilder
 name|basic
@@ -2716,7 +2602,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointBuilder
 name|basicPropertyBinding
@@ -2738,7 +2623,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSplunkEndpointBuilder
 name|basicPropertyBinding
@@ -2759,8 +2643,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSplunkEndpointBuilder
 name|synchronous
@@ -2781,8 +2664,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSplunkEndpointBuilder
 name|synchronous
@@ -2824,7 +2706,6 @@ name|SSLv3
 block|;     }
 comment|/**      * The splunk component allows to publish or search for events in Splunk.      * Creates a builder to build endpoints for the Splunk component.      */
 DECL|method|splunk (String path)
-specifier|public
 specifier|default
 name|SplunkEndpointBuilder
 name|splunk

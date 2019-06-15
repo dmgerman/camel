@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSdbEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * The name of the domain currently worked with.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|domainName (String domainName)
-specifier|public
 specifier|default
 name|SdbEndpointBuilder
 name|domainName
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|accessKey (String accessKey)
-specifier|public
 specifier|default
 name|SdbEndpointBuilder
 name|accessKey
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * To use the AmazonSimpleDB as the client.          * The option is a          *<code>com.amazonaws.services.simpledb.AmazonSimpleDB</code> type.          * @group producer          */
 DECL|method|amazonSDBClient (Object amazonSDBClient)
-specifier|public
 specifier|default
 name|SdbEndpointBuilder
 name|amazonSDBClient
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * To use the AmazonSimpleDB as the client.          * The option will be converted to a          *<code>com.amazonaws.services.simpledb.AmazonSimpleDB</code> type.          * @group producer          */
 DECL|method|amazonSDBClient (String amazonSDBClient)
-specifier|public
 specifier|default
 name|SdbEndpointBuilder
 name|amazonSDBClient
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not strong consistency should be enforced when          * data is read.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|consistentRead (boolean consistentRead)
-specifier|public
 specifier|default
 name|SdbEndpointBuilder
 name|consistentRead
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not strong consistency should be enforced when          * data is read.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|consistentRead (String consistentRead)
-specifier|public
 specifier|default
 name|SdbEndpointBuilder
 name|consistentRead
@@ -245,8 +238,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximum number of domain names you want returned. The range is 1          * to 100.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
-DECL|method|maxNumberOfDomains ( Integer maxNumberOfDomains)
-specifier|public
+DECL|method|maxNumberOfDomains (Integer maxNumberOfDomains)
 specifier|default
 name|SdbEndpointBuilder
 name|maxNumberOfDomains
@@ -267,8 +259,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximum number of domain names you want returned. The range is 1          * to 100.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
-DECL|method|maxNumberOfDomains ( String maxNumberOfDomains)
-specifier|public
+DECL|method|maxNumberOfDomains (String maxNumberOfDomains)
 specifier|default
 name|SdbEndpointBuilder
 name|maxNumberOfDomains
@@ -290,7 +281,6 @@ return|;
 block|}
 comment|/**          * Operation to perform.          * The option is a          *<code>org.apache.camel.component.aws.sdb.SdbOperations</code> type.          * @group producer          */
 DECL|method|operation (SdbOperations operation)
-specifier|public
 specifier|default
 name|SdbEndpointBuilder
 name|operation
@@ -312,7 +302,6 @@ return|;
 block|}
 comment|/**          * Operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.aws.sdb.SdbOperations</code> type.          * @group producer          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|SdbEndpointBuilder
 name|operation
@@ -334,7 +323,6 @@ return|;
 block|}
 comment|/**          * To define a proxy host when instantiating the SDB client.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|proxyHost (String proxyHost)
-specifier|public
 specifier|default
 name|SdbEndpointBuilder
 name|proxyHost
@@ -356,7 +344,6 @@ return|;
 block|}
 comment|/**          * To define a proxy port when instantiating the SDB client.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
 DECL|method|proxyPort (Integer proxyPort)
-specifier|public
 specifier|default
 name|SdbEndpointBuilder
 name|proxyPort
@@ -378,7 +365,6 @@ return|;
 block|}
 comment|/**          * To define a proxy port when instantiating the SDB client.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
 DECL|method|proxyPort (String proxyPort)
-specifier|public
 specifier|default
 name|SdbEndpointBuilder
 name|proxyPort
@@ -400,7 +386,6 @@ return|;
 block|}
 comment|/**          * The region in which SDB client needs to work.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|region (String region)
-specifier|public
 specifier|default
 name|SdbEndpointBuilder
 name|region
@@ -422,7 +407,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|SdbEndpointBuilder
 name|secretKey
@@ -453,7 +437,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SdbEndpointBuilder
 name|basic
@@ -468,7 +451,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSdbEndpointBuilder
 name|basicPropertyBinding
@@ -490,7 +472,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSdbEndpointBuilder
 name|basicPropertyBinding
@@ -511,8 +492,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSdbEndpointBuilder
 name|synchronous
@@ -534,7 +514,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous (String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSdbEndpointBuilder
 name|synchronous
@@ -591,7 +570,6 @@ name|Select
 block|;     }
 comment|/**      * The aws-sdb component is for storing and retrieving data from/to Amazon's      * SDB service. Creates a builder to build endpoints for the AWS SimpleDB      * component.      */
 DECL|method|sdb (String path)
-specifier|public
 specifier|default
 name|SdbEndpointBuilder
 name|sdb

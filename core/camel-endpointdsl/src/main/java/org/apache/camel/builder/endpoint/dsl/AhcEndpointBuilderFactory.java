@@ -133,7 +133,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedAhcEndpointBuilder
 name|advanced
@@ -148,7 +147,6 @@ return|;
 block|}
 comment|/**          * The URI to use such as http://hostname:port/path.          * The option is a<code>java.net.URI</code> type.          * @group producer          */
 DECL|method|httpUri (URI httpUri)
-specifier|public
 specifier|default
 name|AhcEndpointBuilder
 name|httpUri
@@ -170,7 +168,6 @@ return|;
 block|}
 comment|/**          * The URI to use such as http://hostname:port/path.          * The option will be converted to a<code>java.net.URI</code> type.          * @group producer          */
 DECL|method|httpUri (String httpUri)
-specifier|public
 specifier|default
 name|AhcEndpointBuilder
 name|httpUri
@@ -192,7 +189,6 @@ return|;
 block|}
 comment|/**          * If the option is true, then the Exchange.HTTP_URI header is ignored,          * and use the endpoint's URI for request. You may also set the          * throwExceptionOnFailure to be false to let the AhcProducer send all          * the fault response back.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|bridgeEndpoint (boolean bridgeEndpoint)
-specifier|public
 specifier|default
 name|AhcEndpointBuilder
 name|bridgeEndpoint
@@ -214,7 +210,6 @@ return|;
 block|}
 comment|/**          * If the option is true, then the Exchange.HTTP_URI header is ignored,          * and use the endpoint's URI for request. You may also set the          * throwExceptionOnFailure to be false to let the AhcProducer send all          * the fault response back.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|bridgeEndpoint (String bridgeEndpoint)
-specifier|public
 specifier|default
 name|AhcEndpointBuilder
 name|bridgeEndpoint
@@ -236,7 +231,6 @@ return|;
 block|}
 comment|/**          * The initial in-memory buffer size used when transferring data between          * Camel and AHC Client.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|bufferSize (int bufferSize)
-specifier|public
 specifier|default
 name|AhcEndpointBuilder
 name|bufferSize
@@ -258,7 +252,6 @@ return|;
 block|}
 comment|/**          * The initial in-memory buffer size used when transferring data between          * Camel and AHC Client.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|bufferSize (String bufferSize)
-specifier|public
 specifier|default
 name|AhcEndpointBuilder
 name|bufferSize
@@ -280,7 +273,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group producer          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AhcEndpointBuilder
 name|headerFilterStrategy
@@ -302,7 +294,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group producer          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AhcEndpointBuilder
 name|headerFilterStrategy
@@ -324,7 +315,6 @@ return|;
 block|}
 comment|/**          * Option to disable throwing the AhcOperationFailedException in case of          * failed responses from the remote server. This allows you to get all          * responses regardless of the HTTP status code.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|throwExceptionOnFailure ( boolean throwExceptionOnFailure)
-specifier|public
 specifier|default
 name|AhcEndpointBuilder
 name|throwExceptionOnFailure
@@ -346,7 +336,6 @@ return|;
 block|}
 comment|/**          * Option to disable throwing the AhcOperationFailedException in case of          * failed responses from the remote server. This allows you to get all          * responses regardless of the HTTP status code.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|throwExceptionOnFailure ( String throwExceptionOnFailure)
-specifier|public
 specifier|default
 name|AhcEndpointBuilder
 name|throwExceptionOnFailure
@@ -367,8 +356,7 @@ name|this
 return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type (for example          * using Jetty or Servlet Camel components). On the producer side the          * exception will be deserialized and thrown as is, instead of the          * AhcOperationFailedException. The caused exception is required to be          * serialized. This is by default turned off. If you enable this then be          * aware that Java will deserialize the incoming data from the request          * to Java and that can be a potential security risk.          * The option is a<code>boolean</code> type.          * @group producer          */
-DECL|method|transferException ( boolean transferException)
-specifier|public
+DECL|method|transferException (boolean transferException)
 specifier|default
 name|AhcEndpointBuilder
 name|transferException
@@ -389,8 +377,7 @@ name|this
 return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type (for example          * using Jetty or Servlet Camel components). On the producer side the          * exception will be deserialized and thrown as is, instead of the          * AhcOperationFailedException. The caused exception is required to be          * serialized. This is by default turned off. If you enable this then be          * aware that Java will deserialize the incoming data from the request          * to Java and that can be a potential security risk.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
-DECL|method|transferException ( String transferException)
-specifier|public
+DECL|method|transferException (String transferException)
 specifier|default
 name|AhcEndpointBuilder
 name|transferException
@@ -412,7 +399,6 @@ return|;
 block|}
 comment|/**          * Reference to a org.apache.camel.support.jsse.SSLContextParameters in          * the Registry. This reference overrides any configured          * SSLContextParameters at the component level. See Using the JSSE          * Configuration Utility. Note that configuring this option will          * override any SSL/TLS configuration options provided through the          * clientConfig option at the endpoint or component level.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|AhcEndpointBuilder
 name|sslContextParameters
@@ -434,7 +420,6 @@ return|;
 block|}
 comment|/**          * Reference to a org.apache.camel.support.jsse.SSLContextParameters in          * the Registry. This reference overrides any configured          * SSLContextParameters at the component level. See Using the JSSE          * Configuration Utility. Note that configuring this option will          * override any SSL/TLS configuration options provided through the          * clientConfig option at the endpoint or component level.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|AhcEndpointBuilder
 name|sslContextParameters
@@ -465,7 +450,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|AhcEndpointBuilder
 name|basic
@@ -480,7 +464,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAhcEndpointBuilder
 name|basicPropertyBinding
@@ -502,7 +485,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAhcEndpointBuilder
 name|basicPropertyBinding
@@ -524,7 +506,6 @@ return|;
 block|}
 comment|/**          * To use a custom AhcBinding which allows to control how to bind          * between AHC and Camel.          * The option is a          *<code>org.apache.camel.component.ahc.AhcBinding</code> type.          * @group advanced          */
 DECL|method|binding (Object binding)
-specifier|public
 specifier|default
 name|AdvancedAhcEndpointBuilder
 name|binding
@@ -546,7 +527,6 @@ return|;
 block|}
 comment|/**          * To use a custom AhcBinding which allows to control how to bind          * between AHC and Camel.          * The option will be converted to a          *<code>org.apache.camel.component.ahc.AhcBinding</code> type.          * @group advanced          */
 DECL|method|binding (String binding)
-specifier|public
 specifier|default
 name|AdvancedAhcEndpointBuilder
 name|binding
@@ -567,8 +547,7 @@ name|this
 return|;
 block|}
 comment|/**          * To configure the AsyncHttpClient to use a custom          * com.ning.http.client.AsyncHttpClientConfig instance.          * The option is a          *<code>org.asynchttpclient.AsyncHttpClientConfig</code> type.          * @group advanced          */
-DECL|method|clientConfig ( Object clientConfig)
-specifier|public
+DECL|method|clientConfig (Object clientConfig)
 specifier|default
 name|AdvancedAhcEndpointBuilder
 name|clientConfig
@@ -589,8 +568,7 @@ name|this
 return|;
 block|}
 comment|/**          * To configure the AsyncHttpClient to use a custom          * com.ning.http.client.AsyncHttpClientConfig instance.          * The option will be converted to a          *<code>org.asynchttpclient.AsyncHttpClientConfig</code> type.          * @group advanced          */
-DECL|method|clientConfig ( String clientConfig)
-specifier|public
+DECL|method|clientConfig (String clientConfig)
 specifier|default
 name|AdvancedAhcEndpointBuilder
 name|clientConfig
@@ -612,7 +590,6 @@ return|;
 block|}
 comment|/**          * To configure the AsyncHttpClientConfig using the key/values from the          * Map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|clientConfigOptions ( Map<String, Object> clientConfigOptions)
-specifier|public
 specifier|default
 name|AdvancedAhcEndpointBuilder
 name|clientConfigOptions
@@ -639,7 +616,6 @@ return|;
 block|}
 comment|/**          * To configure the AsyncHttpClientConfig using the key/values from the          * Map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|clientConfigOptions ( String clientConfigOptions)
-specifier|public
 specifier|default
 name|AdvancedAhcEndpointBuilder
 name|clientConfigOptions
@@ -660,8 +636,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedAhcEndpointBuilder
 name|synchronous
@@ -683,7 +658,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous (String synchronous)
-specifier|public
 specifier|default
 name|AdvancedAhcEndpointBuilder
 name|synchronous
@@ -705,7 +679,6 @@ return|;
 block|}
 comment|/**          * To configure the AsyncHttpClientConfig Realm using the key/values          * from the Map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group security          */
 DECL|method|clientConfigRealmOptions ( Map<String, Object> clientConfigRealmOptions)
-specifier|public
 specifier|default
 name|AdvancedAhcEndpointBuilder
 name|clientConfigRealmOptions
@@ -732,7 +705,6 @@ return|;
 block|}
 comment|/**          * To configure the AsyncHttpClientConfig Realm using the key/values          * from the Map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group security          */
 DECL|method|clientConfigRealmOptions ( String clientConfigRealmOptions)
-specifier|public
 specifier|default
 name|AdvancedAhcEndpointBuilder
 name|clientConfigRealmOptions
@@ -755,7 +727,6 @@ block|}
 block|}
 comment|/**      * To call external HTTP services using Async Http Client. Creates a builder      * to build endpoints for the AHC component.      */
 DECL|method|ahc (String path)
-specifier|public
 specifier|default
 name|AhcEndpointBuilder
 name|ahc

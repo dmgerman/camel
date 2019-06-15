@@ -99,7 +99,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSparkEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * get, post, put, patch, delete, head, trace, connect, or options.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|verb (String verb)
-specifier|public
 specifier|default
 name|SparkEndpointBuilder
 name|verb
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * The content path which support Spark syntax.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|path (String path)
-specifier|public
 specifier|default
 name|SparkEndpointBuilder
 name|path
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Accept type such as: 'text/xml', or 'application/json'. By default we          * accept all kinds of types.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|accept (String accept)
-specifier|public
 specifier|default
 name|SparkEndpointBuilder
 name|accept
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not the raw input stream from Spark          * HttpRequest#getContent() is cached or not (Camel will read the stream          * into a in light-weight memory based Stream caching) cache. By default          * Camel will cache the Netty input stream to support reading it          * multiple times to ensure Camel can retrieve all data from the stream.          * However you can set this option to true when you for example need to          * access the raw stream, such as streaming it directly to a file or          * other persistent store. Mind that if you enable this option, then you          * cannot read the Netty stream multiple times out of the box, and you          * would need manually to reset the reader index on the Spark raw          * stream.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|disableStreamCache ( boolean disableStreamCache)
-specifier|public
 specifier|default
 name|SparkEndpointBuilder
 name|disableStreamCache
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not the raw input stream from Spark          * HttpRequest#getContent() is cached or not (Camel will read the stream          * into a in light-weight memory based Stream caching) cache. By default          * Camel will cache the Netty input stream to support reading it          * multiple times to ensure Camel can retrieve all data from the stream.          * However you can set this option to true when you for example need to          * access the raw stream, such as streaming it directly to a file or          * other persistent store. Mind that if you enable this option, then you          * cannot read the Netty stream multiple times out of the box, and you          * would need manually to reset the reader index on the Spark raw          * stream.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|disableStreamCache ( String disableStreamCache)
-specifier|public
 specifier|default
 name|SparkEndpointBuilder
 name|disableStreamCache
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * If this option is enabled, then during binding from Spark to Camel          * Message then the headers will be mapped as well (eg added as header          * to the Camel Message as well). You can turn off this option to          * disable this. The headers can still be accessed from the          * org.apache.camel.component.sparkrest.SparkMessage message with the          * method getRequest() that returns the Spark HTTP request instance.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|mapHeaders (boolean mapHeaders)
-specifier|public
 specifier|default
 name|SparkEndpointBuilder
 name|mapHeaders
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * If this option is enabled, then during binding from Spark to Camel          * Message then the headers will be mapped as well (eg added as header          * to the Camel Message as well). You can turn off this option to          * disable this. The headers can still be accessed from the          * org.apache.camel.component.sparkrest.SparkMessage message with the          * method getRequest() that returns the Spark HTTP request instance.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|mapHeaders (String mapHeaders)
-specifier|public
 specifier|default
 name|SparkEndpointBuilder
 name|mapHeaders
@@ -267,8 +259,7 @@ name|this
 return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. This is by          * default turned off. If you enable this then be aware that Java will          * deserialize the incoming data from the request to Java and that can          * be a potential security risk.          * The option is a<code>boolean</code> type.          * @group consumer          */
-DECL|method|transferException ( boolean transferException)
-specifier|public
+DECL|method|transferException (boolean transferException)
 specifier|default
 name|SparkEndpointBuilder
 name|transferException
@@ -289,8 +280,7 @@ name|this
 return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. This is by          * default turned off. If you enable this then be aware that Java will          * deserialize the incoming data from the request to Java and that can          * be a potential security risk.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
-DECL|method|transferException ( String transferException)
-specifier|public
+DECL|method|transferException (String transferException)
 specifier|default
 name|SparkEndpointBuilder
 name|transferException
@@ -311,8 +301,7 @@ name|this
 return|;
 block|}
 comment|/**          * If this option is enabled, then during binding from Spark to Camel          * Message then the header values will be URL decoded (eg %20 will be a          * space character.).          * The option is a<code>boolean</code> type.          * @group consumer          */
-DECL|method|urlDecodeHeaders ( boolean urlDecodeHeaders)
-specifier|public
+DECL|method|urlDecodeHeaders (boolean urlDecodeHeaders)
 specifier|default
 name|SparkEndpointBuilder
 name|urlDecodeHeaders
@@ -333,8 +322,7 @@ name|this
 return|;
 block|}
 comment|/**          * If this option is enabled, then during binding from Spark to Camel          * Message then the header values will be URL decoded (eg %20 will be a          * space character.).          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
-DECL|method|urlDecodeHeaders ( String urlDecodeHeaders)
-specifier|public
+DECL|method|urlDecodeHeaders (String urlDecodeHeaders)
 specifier|default
 name|SparkEndpointBuilder
 name|urlDecodeHeaders
@@ -365,7 +353,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SparkEndpointBuilder
 name|basic
@@ -380,7 +367,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSparkEndpointBuilder
 name|basicPropertyBinding
@@ -402,7 +388,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSparkEndpointBuilder
 name|basicPropertyBinding
@@ -424,7 +409,6 @@ return|;
 block|}
 comment|/**          * Whether or not the consumer should try to find a target consumer by          * matching the URI prefix if no exact match is found.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|matchOnUriPrefix ( boolean matchOnUriPrefix)
-specifier|public
 specifier|default
 name|AdvancedSparkEndpointBuilder
 name|matchOnUriPrefix
@@ -446,7 +430,6 @@ return|;
 block|}
 comment|/**          * Whether or not the consumer should try to find a target consumer by          * matching the URI prefix if no exact match is found.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|matchOnUriPrefix ( String matchOnUriPrefix)
-specifier|public
 specifier|default
 name|AdvancedSparkEndpointBuilder
 name|matchOnUriPrefix
@@ -467,8 +450,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a custom SparkBinding to map to/from Camel message.          * The option is a          *<code>org.apache.camel.component.sparkrest.SparkBinding</code> type.          * @group advanced          */
-DECL|method|sparkBinding ( Object sparkBinding)
-specifier|public
+DECL|method|sparkBinding (Object sparkBinding)
 specifier|default
 name|AdvancedSparkEndpointBuilder
 name|sparkBinding
@@ -489,8 +471,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a custom SparkBinding to map to/from Camel message.          * The option will be converted to a          *<code>org.apache.camel.component.sparkrest.SparkBinding</code> type.          * @group advanced          */
-DECL|method|sparkBinding ( String sparkBinding)
-specifier|public
+DECL|method|sparkBinding (String sparkBinding)
 specifier|default
 name|AdvancedSparkEndpointBuilder
 name|sparkBinding
@@ -511,8 +492,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSparkEndpointBuilder
 name|synchronous
@@ -533,8 +513,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSparkEndpointBuilder
 name|synchronous
@@ -557,7 +536,6 @@ block|}
 block|}
 comment|/**      * The spark-rest component is used for hosting REST services which has been      * defined using Camel rest-dsl. Creates a builder to build endpoints for      * the Spark Rest component.      */
 DECL|method|spark (String path)
-specifier|public
 specifier|default
 name|SparkEndpointBuilder
 name|spark

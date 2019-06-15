@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedFopEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * The primary output format is PDF but other output formats are also          * supported.          * The option is a          *<code>org.apache.camel.component.fop.FopOutputType</code> type.          * @group producer          */
 DECL|method|outputType (FopOutputType outputType)
-specifier|public
 specifier|default
 name|FopEndpointBuilder
 name|outputType
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * The primary output format is PDF but other output formats are also          * supported.          * The option will be converted to a          *<code>org.apache.camel.component.fop.FopOutputType</code> type.          * @group producer          */
 DECL|method|outputType (String outputType)
-specifier|public
 specifier|default
 name|FopEndpointBuilder
 name|outputType
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Allows to use a custom configured or implementation of          * org.apache.fop.apps.FopFactory.          * The option is a<code>org.apache.fop.apps.FopFactory</code> type.          * @group producer          */
 DECL|method|fopFactory (Object fopFactory)
-specifier|public
 specifier|default
 name|FopEndpointBuilder
 name|fopFactory
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Allows to use a custom configured or implementation of          * org.apache.fop.apps.FopFactory.          * The option will be converted to a          *<code>org.apache.fop.apps.FopFactory</code> type.          * @group producer          */
 DECL|method|fopFactory (String fopFactory)
-specifier|public
 specifier|default
 name|FopEndpointBuilder
 name|fopFactory
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * The location of a configuration file which can be loaded from          * classpath or file system.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|userConfigURL (String userConfigURL)
-specifier|public
 specifier|default
 name|FopEndpointBuilder
 name|userConfigURL
@@ -233,7 +227,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|FopEndpointBuilder
 name|basic
@@ -248,7 +241,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFopEndpointBuilder
 name|basicPropertyBinding
@@ -270,7 +262,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFopEndpointBuilder
 name|basicPropertyBinding
@@ -291,8 +282,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedFopEndpointBuilder
 name|synchronous
@@ -314,7 +304,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous (String synchronous)
-specifier|public
 specifier|default
 name|AdvancedFopEndpointBuilder
 name|synchronous
@@ -374,7 +363,6 @@ name|txt
 block|;     }
 comment|/**      * The fop component allows you to render a message into different output      * formats using Apache FOP. Creates a builder to build endpoints for the      * FOP component.      */
 DECL|method|fop (String path)
-specifier|public
 specifier|default
 name|FopEndpointBuilder
 name|fop

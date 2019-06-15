@@ -109,7 +109,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedLuceneEndpointBuilder
 name|advanced
@@ -124,7 +123,6 @@ return|;
 block|}
 comment|/**          * The URL to the lucene server.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|LuceneEndpointBuilder
 name|host
@@ -146,7 +144,6 @@ return|;
 block|}
 comment|/**          * Operation to do such as insert or query.          * The option is a          *<code>org.apache.camel.component.lucene.LuceneOperation</code> type.          * @group producer          */
 DECL|method|operation (LuceneOperation operation)
-specifier|public
 specifier|default
 name|LuceneEndpointBuilder
 name|operation
@@ -168,7 +165,6 @@ return|;
 block|}
 comment|/**          * Operation to do such as insert or query.          * The option will be converted to a          *<code>org.apache.camel.component.lucene.LuceneOperation</code> type.          * @group producer          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|LuceneEndpointBuilder
 name|operation
@@ -190,7 +186,6 @@ return|;
 block|}
 comment|/**          * An Analyzer builds TokenStreams, which analyze text. It thus          * represents a policy for extracting index terms from text. The value          * for analyzer can be any class that extends the abstract class          * org.apache.lucene.analysis.Analyzer. Lucene also offers a rich set of          * analyzers out of the box.          * The option is a<code>org.apache.lucene.analysis.Analyzer</code>          * type.          * @group producer          */
 DECL|method|analyzer (Object analyzer)
-specifier|public
 specifier|default
 name|LuceneEndpointBuilder
 name|analyzer
@@ -212,7 +207,6 @@ return|;
 block|}
 comment|/**          * An Analyzer builds TokenStreams, which analyze text. It thus          * represents a policy for extracting index terms from text. The value          * for analyzer can be any class that extends the abstract class          * org.apache.lucene.analysis.Analyzer. Lucene also offers a rich set of          * analyzers out of the box.          * The option will be converted to a          *<code>org.apache.lucene.analysis.Analyzer</code> type.          * @group producer          */
 DECL|method|analyzer (String analyzer)
-specifier|public
 specifier|default
 name|LuceneEndpointBuilder
 name|analyzer
@@ -234,7 +228,6 @@ return|;
 block|}
 comment|/**          * A file system directory in which index files are created upon          * analysis of the document by the specified analyzer.          * The option is a<code>java.io.File</code> type.          * @group producer          */
 DECL|method|indexDir (File indexDir)
-specifier|public
 specifier|default
 name|LuceneEndpointBuilder
 name|indexDir
@@ -256,7 +249,6 @@ return|;
 block|}
 comment|/**          * A file system directory in which index files are created upon          * analysis of the document by the specified analyzer.          * The option will be converted to a<code>java.io.File</code> type.          * @group producer          */
 DECL|method|indexDir (String indexDir)
-specifier|public
 specifier|default
 name|LuceneEndpointBuilder
 name|indexDir
@@ -278,7 +270,6 @@ return|;
 block|}
 comment|/**          * An integer value that limits the result set of the search operation.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|maxHits (int maxHits)
-specifier|public
 specifier|default
 name|LuceneEndpointBuilder
 name|maxHits
@@ -300,7 +291,6 @@ return|;
 block|}
 comment|/**          * An integer value that limits the result set of the search operation.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|maxHits (String maxHits)
-specifier|public
 specifier|default
 name|LuceneEndpointBuilder
 name|maxHits
@@ -322,7 +312,6 @@ return|;
 block|}
 comment|/**          * An optional directory containing files to be used to be analyzed and          * added to the index at producer startup.          * The option is a<code>java.io.File</code> type.          * @group producer          */
 DECL|method|srcDir (File srcDir)
-specifier|public
 specifier|default
 name|LuceneEndpointBuilder
 name|srcDir
@@ -344,7 +333,6 @@ return|;
 block|}
 comment|/**          * An optional directory containing files to be used to be analyzed and          * added to the index at producer startup.          * The option will be converted to a<code>java.io.File</code> type.          * @group producer          */
 DECL|method|srcDir (String srcDir)
-specifier|public
 specifier|default
 name|LuceneEndpointBuilder
 name|srcDir
@@ -375,7 +363,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|LuceneEndpointBuilder
 name|basic
@@ -390,7 +377,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedLuceneEndpointBuilder
 name|basicPropertyBinding
@@ -412,7 +398,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedLuceneEndpointBuilder
 name|basicPropertyBinding
@@ -433,8 +418,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedLuceneEndpointBuilder
 name|synchronous
@@ -455,8 +439,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedLuceneEndpointBuilder
 name|synchronous
@@ -492,7 +475,6 @@ name|query
 block|;     }
 comment|/**      * To insert or query from Apache Lucene databases. Creates a builder to      * build endpoints for the Lucene component.      */
 DECL|method|lucene (String path)
-specifier|public
 specifier|default
 name|LuceneEndpointBuilder
 name|lucene

@@ -99,7 +99,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedRestApiEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * The base path.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|path (String path)
-specifier|public
 specifier|default
 name|RestApiEndpointBuilder
 name|path
@@ -135,8 +133,7 @@ name|this
 return|;
 block|}
 comment|/**          * Optional CamelContext id pattern to only allow Rest APIs from rest          * services within CamelContext's which name matches the pattern.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
-DECL|method|contextIdPattern ( String contextIdPattern)
-specifier|public
+DECL|method|contextIdPattern (String contextIdPattern)
 specifier|default
 name|RestApiEndpointBuilder
 name|contextIdPattern
@@ -157,8 +154,7 @@ name|this
 return|;
 block|}
 comment|/**          * The Camel Rest API component to use for generating the API of the          * REST services, such as swagger.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
-DECL|method|apiComponentName ( String apiComponentName)
-specifier|public
+DECL|method|apiComponentName (String apiComponentName)
 specifier|default
 name|RestApiEndpointBuilder
 name|apiComponentName
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * The Camel Rest component to use for (consumer) the REST transport,          * such as jetty, servlet, undertow. If no component has been explicit          * configured, then Camel will lookup if there is a Camel component that          * integrates with the Rest DSL, or if a          * org.apache.camel.spi.RestConsumerFactory is registered in the          * registry. If either one is found, then that is being used.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|consumerComponentName ( String consumerComponentName)
-specifier|public
 specifier|default
 name|RestApiEndpointBuilder
 name|consumerComponentName
@@ -211,7 +206,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|RestApiEndpointBuilder
 name|basic
@@ -226,7 +220,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedRestApiEndpointBuilder
 name|basicPropertyBinding
@@ -248,7 +241,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedRestApiEndpointBuilder
 name|basicPropertyBinding
@@ -269,8 +261,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedRestApiEndpointBuilder
 name|synchronous
@@ -291,8 +282,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedRestApiEndpointBuilder
 name|synchronous
@@ -315,7 +305,6 @@ block|}
 block|}
 comment|/**      * The rest-api component is used for providing Swagger API of the REST      * services which has been defined using the rest-dsl in Camel. Creates a      * builder to build endpoints for the REST API component.      */
 DECL|method|restApi (String path)
-specifier|public
 specifier|default
 name|RestApiEndpointBuilder
 name|restApi

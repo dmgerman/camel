@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedPrinterEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Hostname of the printer.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|hostname (String hostname)
-specifier|public
 specifier|default
 name|PrinterEndpointBuilder
 name|hostname
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Port number of the printer.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|PrinterEndpointBuilder
 name|port
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Port number of the printer.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|PrinterEndpointBuilder
 name|port
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Name of the printer.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|printername (String printername)
-specifier|public
 specifier|default
 name|PrinterEndpointBuilder
 name|printername
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Number of copies to print.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|copies (int copies)
-specifier|public
 specifier|default
 name|PrinterEndpointBuilder
 name|copies
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * Number of copies to print.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|copies (String copies)
-specifier|public
 specifier|default
 name|PrinterEndpointBuilder
 name|copies
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * Sets DocFlavor to use.          * The option is a<code>javax.print.DocFlavor</code> type.          * @group producer          */
 DECL|method|docFlavor (Object docFlavor)
-specifier|public
 specifier|default
 name|PrinterEndpointBuilder
 name|docFlavor
@@ -268,7 +260,6 @@ return|;
 block|}
 comment|/**          * Sets DocFlavor to use.          * The option will be converted to a<code>javax.print.DocFlavor</code>          * type.          * @group producer          */
 DECL|method|docFlavor (String docFlavor)
-specifier|public
 specifier|default
 name|PrinterEndpointBuilder
 name|docFlavor
@@ -290,7 +281,6 @@ return|;
 block|}
 comment|/**          * Sets DocFlavor to use.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|flavor (String flavor)
-specifier|public
 specifier|default
 name|PrinterEndpointBuilder
 name|flavor
@@ -312,7 +302,6 @@ return|;
 block|}
 comment|/**          * Sets the stationary as defined by enumeration names in the          * javax.print.attribute.standard.MediaSizeName API. The default setting          * is to use North American Letter sized stationary. The value's case is          * ignored, e.g. values of iso_a4 and ISO_A4 may be used.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|mediaSize (String mediaSize)
-specifier|public
 specifier|default
 name|PrinterEndpointBuilder
 name|mediaSize
@@ -334,7 +323,6 @@ return|;
 block|}
 comment|/**          * Sets MediaTray supported by the javax.print.DocFlavor API, for          * example upper,middle etc.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|mediaTray (String mediaTray)
-specifier|public
 specifier|default
 name|PrinterEndpointBuilder
 name|mediaTray
@@ -356,7 +344,6 @@ return|;
 block|}
 comment|/**          * Sets mimeTypes supported by the javax.print.DocFlavor API.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|mimeType (String mimeType)
-specifier|public
 specifier|default
 name|PrinterEndpointBuilder
 name|mimeType
@@ -378,7 +365,6 @@ return|;
 block|}
 comment|/**          * Sets the page orientation.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|orientation (String orientation)
-specifier|public
 specifier|default
 name|PrinterEndpointBuilder
 name|orientation
@@ -400,7 +386,6 @@ return|;
 block|}
 comment|/**          * Sets the prefix name of the printer, it is useful when the printer          * name does not start with //hostname/printer.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|printerPrefix (String printerPrefix)
-specifier|public
 specifier|default
 name|PrinterEndpointBuilder
 name|printerPrefix
@@ -421,8 +406,7 @@ name|this
 return|;
 block|}
 comment|/**          * etting this option to false prevents sending of the print data to the          * printer.          * The option is a<code>boolean</code> type.          * @group producer          */
-DECL|method|sendToPrinter ( boolean sendToPrinter)
-specifier|public
+DECL|method|sendToPrinter (boolean sendToPrinter)
 specifier|default
 name|PrinterEndpointBuilder
 name|sendToPrinter
@@ -444,7 +428,6 @@ return|;
 block|}
 comment|/**          * etting this option to false prevents sending of the print data to the          * printer.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|sendToPrinter (String sendToPrinter)
-specifier|public
 specifier|default
 name|PrinterEndpointBuilder
 name|sendToPrinter
@@ -466,7 +449,6 @@ return|;
 block|}
 comment|/**          * Sets one sided or two sided printing based on the          * javax.print.attribute.standard.Sides API.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|sides (String sides)
-specifier|public
 specifier|default
 name|PrinterEndpointBuilder
 name|sides
@@ -497,7 +479,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|PrinterEndpointBuilder
 name|basic
@@ -512,7 +493,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedPrinterEndpointBuilder
 name|basicPropertyBinding
@@ -534,7 +514,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedPrinterEndpointBuilder
 name|basicPropertyBinding
@@ -555,8 +534,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedPrinterEndpointBuilder
 name|synchronous
@@ -577,8 +555,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedPrinterEndpointBuilder
 name|synchronous
@@ -601,7 +578,6 @@ block|}
 block|}
 comment|/**      * The printer component is used for sending messages to printers as print      * jobs. Creates a builder to build endpoints for the Printer component.      */
 DECL|method|printer (String path)
-specifier|public
 specifier|default
 name|PrinterEndpointBuilder
 name|printer

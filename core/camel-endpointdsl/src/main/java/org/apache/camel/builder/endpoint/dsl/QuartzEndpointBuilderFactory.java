@@ -109,7 +109,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedQuartzEndpointBuilder
 name|advanced
@@ -124,7 +123,6 @@ return|;
 block|}
 comment|/**          * The quartz group name to use. The combination of group name and timer          * name should be unique.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|groupName (String groupName)
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|groupName
@@ -146,7 +144,6 @@ return|;
 block|}
 comment|/**          * The quartz timer name to use. The combination of group name and timer          * name should be unique.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|triggerName (String triggerName)
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|triggerName
@@ -168,7 +165,6 @@ return|;
 block|}
 comment|/**          * Specifies a cron expression to define when to trigger.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|cron (String cron)
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|cron
@@ -190,7 +186,6 @@ return|;
 block|}
 comment|/**          * If set to true, then the trigger automatically delete when route          * stop. Else if set to false, it will remain in scheduler. When set to          * false, it will also mean user may reuse pre-configured trigger with          * camel Uri. Just ensure the names match. Notice you cannot have both          * deleteJob and pauseJob set to true.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|deleteJob (boolean deleteJob)
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|deleteJob
@@ -212,7 +207,6 @@ return|;
 block|}
 comment|/**          * If set to true, then the trigger automatically delete when route          * stop. Else if set to false, it will remain in scheduler. When set to          * false, it will also mean user may reuse pre-configured trigger with          * camel Uri. Just ensure the names match. Notice you cannot have both          * deleteJob and pauseJob set to true.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|deleteJob (String deleteJob)
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|deleteJob
@@ -234,7 +228,6 @@ return|;
 block|}
 comment|/**          * Whether or not the job should remain stored after it is orphaned (no          * triggers point to it).          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|durableJob (boolean durableJob)
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|durableJob
@@ -256,7 +249,6 @@ return|;
 block|}
 comment|/**          * Whether or not the job should remain stored after it is orphaned (no          * triggers point to it).          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|durableJob (String durableJob)
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|durableJob
@@ -278,7 +270,6 @@ return|;
 block|}
 comment|/**          * If set to true, then the trigger automatically pauses when route          * stop. Else if set to false, it will remain in scheduler. When set to          * false, it will also mean user may reuse pre-configured trigger with          * camel Uri. Just ensure the names match. Notice you cannot have both          * deleteJob and pauseJob set to true.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|pauseJob (boolean pauseJob)
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|pauseJob
@@ -300,7 +291,6 @@ return|;
 block|}
 comment|/**          * If set to true, then the trigger automatically pauses when route          * stop. Else if set to false, it will remain in scheduler. When set to          * false, it will also mean user may reuse pre-configured trigger with          * camel Uri. Just ensure the names match. Notice you cannot have both          * deleteJob and pauseJob set to true.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|pauseJob (String pauseJob)
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|pauseJob
@@ -321,8 +311,7 @@ name|this
 return|;
 block|}
 comment|/**          * Instructs the scheduler whether or not the job should be re-executed          * if a 'recovery' or 'fail-over' situation is encountered.          * The option is a<code>boolean</code> type.          * @group consumer          */
-DECL|method|recoverableJob ( boolean recoverableJob)
-specifier|public
+DECL|method|recoverableJob (boolean recoverableJob)
 specifier|default
 name|QuartzEndpointBuilder
 name|recoverableJob
@@ -343,8 +332,7 @@ name|this
 return|;
 block|}
 comment|/**          * Instructs the scheduler whether or not the job should be re-executed          * if a 'recovery' or 'fail-over' situation is encountered.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
-DECL|method|recoverableJob ( String recoverableJob)
-specifier|public
+DECL|method|recoverableJob (String recoverableJob)
 specifier|default
 name|QuartzEndpointBuilder
 name|recoverableJob
@@ -366,7 +354,6 @@ return|;
 block|}
 comment|/**          * Uses a Quartz PersistJobDataAfterExecution and          * DisallowConcurrentExecution instead of the default job.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|stateful (boolean stateful)
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|stateful
@@ -388,7 +375,6 @@ return|;
 block|}
 comment|/**          * Uses a Quartz PersistJobDataAfterExecution and          * DisallowConcurrentExecution instead of the default job.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|stateful (String stateful)
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|stateful
@@ -410,7 +396,6 @@ return|;
 block|}
 comment|/**          * Whether or not the scheduler should be auto started.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|autoStartScheduler ( boolean autoStartScheduler)
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|autoStartScheduler
@@ -432,7 +417,6 @@ return|;
 block|}
 comment|/**          * Whether or not the scheduler should be auto started.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|autoStartScheduler ( String autoStartScheduler)
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|autoStartScheduler
@@ -454,7 +438,6 @@ return|;
 block|}
 comment|/**          * If it is true will fire the trigger when the route is start when          * using SimpleTrigger.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|fireNow (boolean fireNow)
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|fireNow
@@ -476,7 +459,6 @@ return|;
 block|}
 comment|/**          * If it is true will fire the trigger when the route is start when          * using SimpleTrigger.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|fireNow (String fireNow)
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|fireNow
@@ -498,7 +480,6 @@ return|;
 block|}
 comment|/**          * Seconds to wait before starting the quartz scheduler.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|startDelayedSeconds ( int startDelayedSeconds)
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|startDelayedSeconds
@@ -520,7 +501,6 @@ return|;
 block|}
 comment|/**          * Seconds to wait before starting the quartz scheduler.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|startDelayedSeconds ( String startDelayedSeconds)
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|startDelayedSeconds
@@ -541,8 +521,7 @@ name|this
 return|;
 block|}
 comment|/**          * In case of scheduler has already started, we want the trigger start          * slightly after current time to ensure endpoint is fully started          * before the job kicks in.          * The option is a<code>long</code> type.          * @group scheduler          */
-DECL|method|triggerStartDelay ( long triggerStartDelay)
-specifier|public
+DECL|method|triggerStartDelay (long triggerStartDelay)
 specifier|default
 name|QuartzEndpointBuilder
 name|triggerStartDelay
@@ -563,8 +542,7 @@ name|this
 return|;
 block|}
 comment|/**          * In case of scheduler has already started, we want the trigger start          * slightly after current time to ensure endpoint is fully started          * before the job kicks in.          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
-DECL|method|triggerStartDelay ( String triggerStartDelay)
-specifier|public
+DECL|method|triggerStartDelay (String triggerStartDelay)
 specifier|default
 name|QuartzEndpointBuilder
 name|triggerStartDelay
@@ -595,7 +573,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|basic
@@ -610,7 +587,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedQuartzEndpointBuilder
 name|basicPropertyBinding
@@ -632,7 +608,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedQuartzEndpointBuilder
 name|basicPropertyBinding
@@ -654,7 +629,6 @@ return|;
 block|}
 comment|/**          * Specifies a custom calendar to avoid specific range of date.          * The option is a<code>org.quartz.Calendar</code> type.          * @group advanced          */
 DECL|method|customCalendar ( Object customCalendar)
-specifier|public
 specifier|default
 name|AdvancedQuartzEndpointBuilder
 name|customCalendar
@@ -676,7 +650,6 @@ return|;
 block|}
 comment|/**          * Specifies a custom calendar to avoid specific range of date.          * The option will be converted to a<code>org.quartz.Calendar</code>          * type.          * @group advanced          */
 DECL|method|customCalendar ( String customCalendar)
-specifier|public
 specifier|default
 name|AdvancedQuartzEndpointBuilder
 name|customCalendar
@@ -698,7 +671,6 @@ return|;
 block|}
 comment|/**          * To configure additional options on the job.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|jobParameters ( Map<String, Object> jobParameters)
-specifier|public
 specifier|default
 name|AdvancedQuartzEndpointBuilder
 name|jobParameters
@@ -724,8 +696,7 @@ name|this
 return|;
 block|}
 comment|/**          * To configure additional options on the job.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
-DECL|method|jobParameters ( String jobParameters)
-specifier|public
+DECL|method|jobParameters (String jobParameters)
 specifier|default
 name|AdvancedQuartzEndpointBuilder
 name|jobParameters
@@ -747,7 +718,6 @@ return|;
 block|}
 comment|/**          * Whether the job name should be prefixed with endpoint id.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|prefixJobNameWithEndpointId ( boolean prefixJobNameWithEndpointId)
-specifier|public
 specifier|default
 name|AdvancedQuartzEndpointBuilder
 name|prefixJobNameWithEndpointId
@@ -769,7 +739,6 @@ return|;
 block|}
 comment|/**          * Whether the job name should be prefixed with endpoint id.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|prefixJobNameWithEndpointId ( String prefixJobNameWithEndpointId)
-specifier|public
 specifier|default
 name|AdvancedQuartzEndpointBuilder
 name|prefixJobNameWithEndpointId
@@ -790,8 +759,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedQuartzEndpointBuilder
 name|synchronous
@@ -812,8 +780,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedQuartzEndpointBuilder
 name|synchronous
@@ -835,7 +802,6 @@ return|;
 block|}
 comment|/**          * To configure additional options on the trigger.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|triggerParameters ( Map<String, Object> triggerParameters)
-specifier|public
 specifier|default
 name|AdvancedQuartzEndpointBuilder
 name|triggerParameters
@@ -862,7 +828,6 @@ return|;
 block|}
 comment|/**          * To configure additional options on the trigger.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|triggerParameters ( String triggerParameters)
-specifier|public
 specifier|default
 name|AdvancedQuartzEndpointBuilder
 name|triggerParameters
@@ -884,7 +849,6 @@ return|;
 block|}
 comment|/**          * If it is true, JobDataMap uses the CamelContext name directly to          * reference the CamelContext, if it is false, JobDataMap uses use the          * CamelContext management name which could be changed during the deploy          * time.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|usingFixedCamelContextName ( boolean usingFixedCamelContextName)
-specifier|public
 specifier|default
 name|AdvancedQuartzEndpointBuilder
 name|usingFixedCamelContextName
@@ -906,7 +870,6 @@ return|;
 block|}
 comment|/**          * If it is true, JobDataMap uses the CamelContext name directly to          * reference the CamelContext, if it is false, JobDataMap uses use the          * CamelContext management name which could be changed during the deploy          * time.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|usingFixedCamelContextName ( String usingFixedCamelContextName)
-specifier|public
 specifier|default
 name|AdvancedQuartzEndpointBuilder
 name|usingFixedCamelContextName
@@ -929,7 +892,6 @@ block|}
 block|}
 comment|/**      * Provides a scheduled delivery of messages using the Quartz 2.x scheduler.      * Creates a builder to build endpoints for the Quartz2 component.      */
 DECL|method|quartz (String path)
-specifier|public
 specifier|default
 name|QuartzEndpointBuilder
 name|quartz

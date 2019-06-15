@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedFreemarkerEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Path to the resource. You can prefix with: classpath, file, http,          * ref, or bean. classpath, file and http loads the resource using these          * protocols (classpath is default). ref will lookup the resource in the          * registry. bean will call a method on a bean to be used as the          * resource. For bean you can specify the method name after dot, eg          * bean:myBean.myMethod.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|resourceUri (String resourceUri)
-specifier|public
 specifier|default
 name|FreemarkerEndpointBuilder
 name|resourceUri
@@ -135,8 +133,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the Freemarker configuration to use.          * The option is a<code>freemarker.template.Configuration</code> type.          * @group producer          */
-DECL|method|configuration ( Object configuration)
-specifier|public
+DECL|method|configuration (Object configuration)
 specifier|default
 name|FreemarkerEndpointBuilder
 name|configuration
@@ -157,8 +154,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the Freemarker configuration to use.          * The option will be converted to a          *<code>freemarker.template.Configuration</code> type.          * @group producer          */
-DECL|method|configuration ( String configuration)
-specifier|public
+DECL|method|configuration (String configuration)
 specifier|default
 name|FreemarkerEndpointBuilder
 name|configuration
@@ -179,8 +175,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether to use resource content cache or not.          * The option is a<code>boolean</code> type.          * @group producer          */
-DECL|method|contentCache ( boolean contentCache)
-specifier|public
+DECL|method|contentCache (boolean contentCache)
 specifier|default
 name|FreemarkerEndpointBuilder
 name|contentCache
@@ -201,8 +196,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether to use resource content cache or not.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
-DECL|method|contentCache ( String contentCache)
-specifier|public
+DECL|method|contentCache (String contentCache)
 specifier|default
 name|FreemarkerEndpointBuilder
 name|contentCache
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * Sets the encoding to be used for loading the template file.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|encoding (String encoding)
-specifier|public
 specifier|default
 name|FreemarkerEndpointBuilder
 name|encoding
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * Number of seconds the loaded template resource will remain in the          * cache.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|templateUpdateDelay ( int templateUpdateDelay)
-specifier|public
 specifier|default
 name|FreemarkerEndpointBuilder
 name|templateUpdateDelay
@@ -268,7 +260,6 @@ return|;
 block|}
 comment|/**          * Number of seconds the loaded template resource will remain in the          * cache.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|templateUpdateDelay ( String templateUpdateDelay)
-specifier|public
 specifier|default
 name|FreemarkerEndpointBuilder
 name|templateUpdateDelay
@@ -299,7 +290,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|FreemarkerEndpointBuilder
 name|basic
@@ -314,7 +304,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFreemarkerEndpointBuilder
 name|basicPropertyBinding
@@ -336,7 +325,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFreemarkerEndpointBuilder
 name|basicPropertyBinding
@@ -358,7 +346,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedFreemarkerEndpointBuilder
 name|synchronous
@@ -379,8 +366,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedFreemarkerEndpointBuilder
 name|synchronous
@@ -403,7 +389,6 @@ block|}
 block|}
 comment|/**      * Transforms the message using a FreeMarker template. Creates a builder to      * build endpoints for the Freemarker component.      */
 DECL|method|freemarker (String path)
-specifier|public
 specifier|default
 name|FreemarkerEndpointBuilder
 name|freemarker

@@ -134,7 +134,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|advanced
@@ -148,8 +147,7 @@ name|this
 return|;
 block|}
 comment|/**          * The exchange name determines which exchange produced messages will          * sent to. In the case of consumers, the exchange name determines which          * exchange the queue will bind to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|exchangeName ( String exchangeName)
-specifier|public
+DECL|method|exchangeName (String exchangeName)
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|exchangeName
@@ -170,8 +168,7 @@ name|this
 return|;
 block|}
 comment|/**          * If this option is set, camel-rabbitmq will try to create connection          * based on the setting of option addresses. The addresses value is a          * string which looks like server1:12345, server2:12345.          * The option is a<code>com.rabbitmq.client.Address[]</code> type.          * @group common          */
-DECL|method|addresses ( Object[] addresses)
-specifier|public
+DECL|method|addresses (Object[] addresses)
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|addresses
@@ -193,8 +190,7 @@ name|this
 return|;
 block|}
 comment|/**          * If this option is set, camel-rabbitmq will try to create connection          * based on the setting of option addresses. The addresses value is a          * string which looks like server1:12345, server2:12345.          * The option will be converted to a          *<code>com.rabbitmq.client.Address[]</code> type.          * @group common          */
-DECL|method|addresses ( String addresses)
-specifier|public
+DECL|method|addresses (String addresses)
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|addresses
@@ -215,8 +211,7 @@ name|this
 return|;
 block|}
 comment|/**          * If it is true, the exchange will be deleted when it is no longer in          * use.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|autoDelete ( boolean autoDelete)
-specifier|public
+DECL|method|autoDelete (boolean autoDelete)
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|autoDelete
@@ -237,8 +232,7 @@ name|this
 return|;
 block|}
 comment|/**          * If it is true, the exchange will be deleted when it is no longer in          * use.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|autoDelete ( String autoDelete)
-specifier|public
+DECL|method|autoDelete (String autoDelete)
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|autoDelete
@@ -260,7 +254,6 @@ return|;
 block|}
 comment|/**          * To use a custom RabbitMQ connection factory. When this option is set,          * all connection options (connectionTimeout, requestedChannelMax...)          * set on URI are not used.          * The option is a<code>com.rabbitmq.client.ConnectionFactory</code>          * type.          * @group common          */
 DECL|method|connectionFactory ( Object connectionFactory)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|connectionFactory
@@ -282,7 +275,6 @@ return|;
 block|}
 comment|/**          * To use a custom RabbitMQ connection factory. When this option is set,          * all connection options (connectionTimeout, requestedChannelMax...)          * set on URI are not used.          * The option will be converted to a          *<code>com.rabbitmq.client.ConnectionFactory</code> type.          * @group common          */
 DECL|method|connectionFactory ( String connectionFactory)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|connectionFactory
@@ -304,7 +296,6 @@ return|;
 block|}
 comment|/**          * The name of the dead letter exchange.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|deadLetterExchange ( String deadLetterExchange)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|deadLetterExchange
@@ -326,7 +317,6 @@ return|;
 block|}
 comment|/**          * The type of the dead letter exchange.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|deadLetterExchangeType ( String deadLetterExchangeType)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|deadLetterExchangeType
@@ -348,7 +338,6 @@ return|;
 block|}
 comment|/**          * The name of the dead letter queue.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|deadLetterQueue ( String deadLetterQueue)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|deadLetterQueue
@@ -370,7 +359,6 @@ return|;
 block|}
 comment|/**          * The routing key for the dead letter exchange.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|deadLetterRoutingKey ( String deadLetterRoutingKey)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|deadLetterRoutingKey
@@ -392,7 +380,6 @@ return|;
 block|}
 comment|/**          * If the option is true, camel declare the exchange and queue name and          * bind them together. If the option is false, camel won't declare the          * exchange and queue name on the server.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|declare (boolean declare)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|declare
@@ -414,7 +401,6 @@ return|;
 block|}
 comment|/**          * If the option is true, camel declare the exchange and queue name and          * bind them together. If the option is false, camel won't declare the          * exchange and queue name on the server.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|declare (String declare)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|declare
@@ -436,7 +422,6 @@ return|;
 block|}
 comment|/**          * If we are declaring a durable exchange (the exchange will survive a          * server restart).          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|durable (boolean durable)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|durable
@@ -458,7 +443,6 @@ return|;
 block|}
 comment|/**          * If we are declaring a durable exchange (the exchange will survive a          * server restart).          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|durable (String durable)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|durable
@@ -479,8 +463,7 @@ name|this
 return|;
 block|}
 comment|/**          * The exchange type such as direct or topic.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|exchangeType ( String exchangeType)
-specifier|public
+DECL|method|exchangeType (String exchangeType)
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|exchangeType
@@ -501,8 +484,7 @@ name|this
 return|;
 block|}
 comment|/**          * Exclusive queues may only be accessed by the current connection, and          * are deleted when that connection closes.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|exclusive ( boolean exclusive)
-specifier|public
+DECL|method|exclusive (boolean exclusive)
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|exclusive
@@ -523,8 +505,7 @@ name|this
 return|;
 block|}
 comment|/**          * Exclusive queues may only be accessed by the current connection, and          * are deleted when that connection closes.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|exclusive ( String exclusive)
-specifier|public
+DECL|method|exclusive (String exclusive)
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|exclusive
@@ -546,7 +527,6 @@ return|;
 block|}
 comment|/**          * The hostname of the running rabbitmq instance or cluster.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|hostname (String hostname)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|hostname
@@ -568,7 +548,6 @@ return|;
 block|}
 comment|/**          * Passive queues depend on the queue already to be available at          * RabbitMQ.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|passive (boolean passive)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|passive
@@ -590,7 +569,6 @@ return|;
 block|}
 comment|/**          * Passive queues depend on the queue already to be available at          * RabbitMQ.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|passive (String passive)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|passive
@@ -612,7 +590,6 @@ return|;
 block|}
 comment|/**          * Port number for the host with the running rabbitmq instance or          * cluster. Default value is 5672.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|portNumber (int portNumber)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|portNumber
@@ -633,8 +610,7 @@ name|this
 return|;
 block|}
 comment|/**          * Port number for the host with the running rabbitmq instance or          * cluster. Default value is 5672.          * The option will be converted to a<code>int</code> type.          * @group common          */
-DECL|method|portNumber ( String portNumber)
-specifier|public
+DECL|method|portNumber (String portNumber)
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|portNumber
@@ -656,7 +632,6 @@ return|;
 block|}
 comment|/**          * The queue to receive messages from.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|queue (String queue)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|queue
@@ -677,8 +652,7 @@ name|this
 return|;
 block|}
 comment|/**          * The routing key to use when binding a consumer queue to the exchange.          * For producer routing keys, you set the header rabbitmq.ROUTING_KEY.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|routingKey ( String routingKey)
-specifier|public
+DECL|method|routingKey (String routingKey)
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|routingKey
@@ -700,7 +674,6 @@ return|;
 block|}
 comment|/**          * This can be used if we need to declare the queue but not the          * exchange.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|skipExchangeDeclare ( boolean skipExchangeDeclare)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|skipExchangeDeclare
@@ -722,7 +695,6 @@ return|;
 block|}
 comment|/**          * This can be used if we need to declare the queue but not the          * exchange.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|skipExchangeDeclare ( String skipExchangeDeclare)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|skipExchangeDeclare
@@ -744,7 +716,6 @@ return|;
 block|}
 comment|/**          * If true the queue will not be bound to the exchange after declaring          * it.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|skipQueueBind ( boolean skipQueueBind)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|skipQueueBind
@@ -766,7 +737,6 @@ return|;
 block|}
 comment|/**          * If true the queue will not be bound to the exchange after declaring          * it.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|skipQueueBind ( String skipQueueBind)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|skipQueueBind
@@ -788,7 +758,6 @@ return|;
 block|}
 comment|/**          * If true the producer will not declare and bind a queue. This can be          * used for directing messages via an existing routing key.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|skipQueueDeclare ( boolean skipQueueDeclare)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|skipQueueDeclare
@@ -810,7 +779,6 @@ return|;
 block|}
 comment|/**          * If true the producer will not declare and bind a queue. This can be          * used for directing messages via an existing routing key.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|skipQueueDeclare ( String skipQueueDeclare)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|skipQueueDeclare
@@ -832,7 +800,6 @@ return|;
 block|}
 comment|/**          * The vhost for the channel.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|vhost (String vhost)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|vhost
@@ -854,7 +821,6 @@ return|;
 block|}
 comment|/**          * If messages should be auto acknowledged.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|autoAck (boolean autoAck)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|autoAck
@@ -876,7 +842,6 @@ return|;
 block|}
 comment|/**          * If messages should be auto acknowledged.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|autoAck (String autoAck)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|autoAck
@@ -898,7 +863,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -920,7 +884,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -942,7 +905,6 @@ return|;
 block|}
 comment|/**          * Number of concurrent consumers when consuming from broker. (eg          * similar as to the same option for the JMS component).          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|concurrentConsumers ( int concurrentConsumers)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|concurrentConsumers
@@ -964,7 +926,6 @@ return|;
 block|}
 comment|/**          * Number of concurrent consumers when consuming from broker. (eg          * similar as to the same option for the JMS component).          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|concurrentConsumers ( String concurrentConsumers)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|concurrentConsumers
@@ -986,7 +947,6 @@ return|;
 block|}
 comment|/**          * Request exclusive access to the queue (meaning only this consumer can          * access the queue). This is useful when you want a long-lived shared          * queue to be temporarily accessible by just one consumer.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|exclusiveConsumer ( boolean exclusiveConsumer)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|exclusiveConsumer
@@ -1008,7 +968,6 @@ return|;
 block|}
 comment|/**          * Request exclusive access to the queue (meaning only this consumer can          * access the queue). This is useful when you want a long-lived shared          * queue to be temporarily accessible by just one consumer.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|exclusiveConsumer ( String exclusiveConsumer)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|exclusiveConsumer
@@ -1029,8 +988,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximum number of messages that the server will deliver, 0 if          * unlimited. You need to specify the option of prefetchSize,          * prefetchCount, prefetchGlobal at the same time.          * The option is a<code>int</code> type.          * @group consumer          */
-DECL|method|prefetchCount ( int prefetchCount)
-specifier|public
+DECL|method|prefetchCount (int prefetchCount)
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|prefetchCount
@@ -1052,7 +1010,6 @@ return|;
 block|}
 comment|/**          * The maximum number of messages that the server will deliver, 0 if          * unlimited. You need to specify the option of prefetchSize,          * prefetchCount, prefetchGlobal at the same time.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|prefetchCount ( String prefetchCount)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|prefetchCount
@@ -1074,7 +1031,6 @@ return|;
 block|}
 comment|/**          * Enables the quality of service on the RabbitMQConsumer side. You need          * to specify the option of prefetchSize, prefetchCount, prefetchGlobal          * at the same time.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|prefetchEnabled ( boolean prefetchEnabled)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|prefetchEnabled
@@ -1096,7 +1052,6 @@ return|;
 block|}
 comment|/**          * Enables the quality of service on the RabbitMQConsumer side. You need          * to specify the option of prefetchSize, prefetchCount, prefetchGlobal          * at the same time.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|prefetchEnabled ( String prefetchEnabled)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|prefetchEnabled
@@ -1118,7 +1073,6 @@ return|;
 block|}
 comment|/**          * If the settings should be applied to the entire channel rather than          * each consumer You need to specify the option of prefetchSize,          * prefetchCount, prefetchGlobal at the same time.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|prefetchGlobal ( boolean prefetchGlobal)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|prefetchGlobal
@@ -1140,7 +1094,6 @@ return|;
 block|}
 comment|/**          * If the settings should be applied to the entire channel rather than          * each consumer You need to specify the option of prefetchSize,          * prefetchCount, prefetchGlobal at the same time.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|prefetchGlobal ( String prefetchGlobal)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|prefetchGlobal
@@ -1161,8 +1114,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximum amount of content (measured in octets) that the server          * will deliver, 0 if unlimited. You need to specify the option of          * prefetchSize, prefetchCount, prefetchGlobal at the same time.          * The option is a<code>int</code> type.          * @group consumer          */
-DECL|method|prefetchSize ( int prefetchSize)
-specifier|public
+DECL|method|prefetchSize (int prefetchSize)
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|prefetchSize
@@ -1183,8 +1135,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximum amount of content (measured in octets) that the server          * will deliver, 0 if unlimited. You need to specify the option of          * prefetchSize, prefetchCount, prefetchGlobal at the same time.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
-DECL|method|prefetchSize ( String prefetchSize)
-specifier|public
+DECL|method|prefetchSize (String prefetchSize)
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|prefetchSize
@@ -1206,7 +1157,6 @@ return|;
 block|}
 comment|/**          * Password for authenticated access.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|password
@@ -1227,8 +1177,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enables SSL on connection, accepted value are true, TLS and 'SSLv3.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|sslProtocol ( String sslProtocol)
-specifier|public
+DECL|method|sslProtocol (String sslProtocol)
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|sslProtocol
@@ -1249,8 +1198,7 @@ name|this
 return|;
 block|}
 comment|/**          * Configure SSL trust manager, SSL should be enabled for this option to          * be effective.          * The option is a<code>javax.net.ssl.TrustManager</code> type.          * @group security          */
-DECL|method|trustManager ( Object trustManager)
-specifier|public
+DECL|method|trustManager (Object trustManager)
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|trustManager
@@ -1271,8 +1219,7 @@ name|this
 return|;
 block|}
 comment|/**          * Configure SSL trust manager, SSL should be enabled for this option to          * be effective.          * The option will be converted to a          *<code>javax.net.ssl.TrustManager</code> type.          * @group security          */
-DECL|method|trustManager ( String trustManager)
-specifier|public
+DECL|method|trustManager (String trustManager)
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|trustManager
@@ -1294,7 +1241,6 @@ return|;
 block|}
 comment|/**          * Username in case of authenticated access.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|username
@@ -1324,7 +1270,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
 name|basic
@@ -1339,7 +1284,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|exceptionHandler
@@ -1361,7 +1305,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|exceptionHandler
@@ -1383,7 +1326,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|exchangePattern
@@ -1405,7 +1347,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|exchangePattern
@@ -1427,7 +1368,6 @@ return|;
 block|}
 comment|/**          * The consumer uses a Thread Pool Executor with a fixed number of          * threads. This setting allows you to set that number of threads.          * The option is a<code>int</code> type.          * @group consumer (advanced)          */
 DECL|method|threadPoolSize ( int threadPoolSize)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|threadPoolSize
@@ -1449,7 +1389,6 @@ return|;
 block|}
 comment|/**          * The consumer uses a Thread Pool Executor with a fixed number of          * threads. This setting allows you to set that number of threads.          * The option will be converted to a<code>int</code> type.          * @group consumer (advanced)          */
 DECL|method|threadPoolSize ( String threadPoolSize)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|threadPoolSize
@@ -1471,7 +1410,6 @@ return|;
 block|}
 comment|/**          * Specify arguments for configuring the different RabbitMQ concepts, a          * different prefix is required for each: Exchange: arg.exchange. Queue:          * arg.queue. Binding: arg.binding. For example to declare a queue with          * message ttl argument:          * http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|args ( Map<String, Object> args)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|args
@@ -1498,7 +1436,6 @@ return|;
 block|}
 comment|/**          * Specify arguments for configuring the different RabbitMQ concepts, a          * different prefix is required for each: Exchange: arg.exchange. Queue:          * arg.queue. Binding: arg.binding. For example to declare a queue with          * message ttl argument:          * http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|args (String args)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|args
@@ -1520,7 +1457,6 @@ return|;
 block|}
 comment|/**          * Enables connection automatic recovery (uses connection implementation          * that performs automatic recovery when connection shutdown is not          * initiated by the application).          * The option is a<code>java.lang.Boolean</code> type.          * @group advanced          */
 DECL|method|automaticRecoveryEnabled ( Boolean automaticRecoveryEnabled)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|automaticRecoveryEnabled
@@ -1542,7 +1478,6 @@ return|;
 block|}
 comment|/**          * Enables connection automatic recovery (uses connection implementation          * that performs automatic recovery when connection shutdown is not          * initiated by the application).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group advanced          */
 DECL|method|automaticRecoveryEnabled ( String automaticRecoveryEnabled)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|automaticRecoveryEnabled
@@ -1564,7 +1499,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1586,7 +1520,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1608,7 +1541,6 @@ return|;
 block|}
 comment|/**          * Connection client properties (client info used in negotiating with          * the server).          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|clientProperties ( Map<String, Object> clientProperties)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|clientProperties
@@ -1635,7 +1567,6 @@ return|;
 block|}
 comment|/**          * Connection client properties (client info used in negotiating with          * the server).          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|clientProperties ( String clientProperties)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|clientProperties
@@ -1657,7 +1588,6 @@ return|;
 block|}
 comment|/**          * Connection timeout.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|connectionTimeout ( int connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|connectionTimeout
@@ -1679,7 +1609,6 @@ return|;
 block|}
 comment|/**          * Connection timeout.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|connectionTimeout
@@ -1701,7 +1630,6 @@ return|;
 block|}
 comment|/**          * Network recovery interval in milliseconds (interval used when          * recovering from network failure).          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
 DECL|method|networkRecoveryInterval ( Integer networkRecoveryInterval)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|networkRecoveryInterval
@@ -1723,7 +1651,6 @@ return|;
 block|}
 comment|/**          * Network recovery interval in milliseconds (interval used when          * recovering from network failure).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
 DECL|method|networkRecoveryInterval ( String networkRecoveryInterval)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|networkRecoveryInterval
@@ -1745,7 +1672,6 @@ return|;
 block|}
 comment|/**          * Connection requested channel max (max number of channels offered).          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|requestedChannelMax ( int requestedChannelMax)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|requestedChannelMax
@@ -1767,7 +1693,6 @@ return|;
 block|}
 comment|/**          * Connection requested channel max (max number of channels offered).          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|requestedChannelMax ( String requestedChannelMax)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|requestedChannelMax
@@ -1789,7 +1714,6 @@ return|;
 block|}
 comment|/**          * Connection requested frame max (max size of frame offered).          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|requestedFrameMax ( int requestedFrameMax)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|requestedFrameMax
@@ -1811,7 +1735,6 @@ return|;
 block|}
 comment|/**          * Connection requested frame max (max size of frame offered).          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|requestedFrameMax ( String requestedFrameMax)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|requestedFrameMax
@@ -1833,7 +1756,6 @@ return|;
 block|}
 comment|/**          * Connection requested heartbeat (heart-beat in seconds offered).          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|requestedHeartbeat ( int requestedHeartbeat)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|requestedHeartbeat
@@ -1855,7 +1777,6 @@ return|;
 block|}
 comment|/**          * Connection requested heartbeat (heart-beat in seconds offered).          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|requestedHeartbeat ( String requestedHeartbeat)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|requestedHeartbeat
@@ -1877,7 +1798,6 @@ return|;
 block|}
 comment|/**          * Set timeout for waiting for a reply when using the InOut Exchange          * Pattern (in milliseconds).          * The option is a<code>long</code> type.          * @group advanced          */
 DECL|method|requestTimeout ( long requestTimeout)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|requestTimeout
@@ -1899,7 +1819,6 @@ return|;
 block|}
 comment|/**          * Set timeout for waiting for a reply when using the InOut Exchange          * Pattern (in milliseconds).          * The option will be converted to a<code>long</code> type.          * @group advanced          */
 DECL|method|requestTimeout ( String requestTimeout)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|requestTimeout
@@ -1921,7 +1840,6 @@ return|;
 block|}
 comment|/**          * Set requestTimeoutCheckerInterval for inOut exchange.          * The option is a<code>long</code> type.          * @group advanced          */
 DECL|method|requestTimeoutCheckerInterval ( long requestTimeoutCheckerInterval)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|requestTimeoutCheckerInterval
@@ -1943,7 +1861,6 @@ return|;
 block|}
 comment|/**          * Set requestTimeoutCheckerInterval for inOut exchange.          * The option will be converted to a<code>long</code> type.          * @group advanced          */
 DECL|method|requestTimeoutCheckerInterval ( String requestTimeoutCheckerInterval)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|requestTimeoutCheckerInterval
@@ -1965,7 +1882,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|synchronous
@@ -1987,7 +1903,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|synchronous
@@ -2009,7 +1924,6 @@ return|;
 block|}
 comment|/**          * Enables connection topology recovery (should topology recovery be          * performed).          * The option is a<code>java.lang.Boolean</code> type.          * @group advanced          */
 DECL|method|topologyRecoveryEnabled ( Boolean topologyRecoveryEnabled)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|topologyRecoveryEnabled
@@ -2031,7 +1945,6 @@ return|;
 block|}
 comment|/**          * Enables connection topology recovery (should topology recovery be          * performed).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group advanced          */
 DECL|method|topologyRecoveryEnabled ( String topologyRecoveryEnabled)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|topologyRecoveryEnabled
@@ -2053,7 +1966,6 @@ return|;
 block|}
 comment|/**          * When true and an inOut Exchange failed on the consumer side send the          * caused Exception back in the response.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferException ( boolean transferException)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|transferException
@@ -2075,7 +1987,6 @@ return|;
 block|}
 comment|/**          * When true and an inOut Exchange failed on the consumer side send the          * caused Exception back in the response.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferException ( String transferException)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointConsumerBuilder
 name|transferException
@@ -2106,7 +2017,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|advanced
@@ -2120,8 +2030,7 @@ name|this
 return|;
 block|}
 comment|/**          * The exchange name determines which exchange produced messages will          * sent to. In the case of consumers, the exchange name determines which          * exchange the queue will bind to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|exchangeName ( String exchangeName)
-specifier|public
+DECL|method|exchangeName (String exchangeName)
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|exchangeName
@@ -2142,8 +2051,7 @@ name|this
 return|;
 block|}
 comment|/**          * If this option is set, camel-rabbitmq will try to create connection          * based on the setting of option addresses. The addresses value is a          * string which looks like server1:12345, server2:12345.          * The option is a<code>com.rabbitmq.client.Address[]</code> type.          * @group common          */
-DECL|method|addresses ( Object[] addresses)
-specifier|public
+DECL|method|addresses (Object[] addresses)
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|addresses
@@ -2165,8 +2073,7 @@ name|this
 return|;
 block|}
 comment|/**          * If this option is set, camel-rabbitmq will try to create connection          * based on the setting of option addresses. The addresses value is a          * string which looks like server1:12345, server2:12345.          * The option will be converted to a          *<code>com.rabbitmq.client.Address[]</code> type.          * @group common          */
-DECL|method|addresses ( String addresses)
-specifier|public
+DECL|method|addresses (String addresses)
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|addresses
@@ -2187,8 +2094,7 @@ name|this
 return|;
 block|}
 comment|/**          * If it is true, the exchange will be deleted when it is no longer in          * use.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|autoDelete ( boolean autoDelete)
-specifier|public
+DECL|method|autoDelete (boolean autoDelete)
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|autoDelete
@@ -2209,8 +2115,7 @@ name|this
 return|;
 block|}
 comment|/**          * If it is true, the exchange will be deleted when it is no longer in          * use.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|autoDelete ( String autoDelete)
-specifier|public
+DECL|method|autoDelete (String autoDelete)
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|autoDelete
@@ -2232,7 +2137,6 @@ return|;
 block|}
 comment|/**          * To use a custom RabbitMQ connection factory. When this option is set,          * all connection options (connectionTimeout, requestedChannelMax...)          * set on URI are not used.          * The option is a<code>com.rabbitmq.client.ConnectionFactory</code>          * type.          * @group common          */
 DECL|method|connectionFactory ( Object connectionFactory)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|connectionFactory
@@ -2254,7 +2158,6 @@ return|;
 block|}
 comment|/**          * To use a custom RabbitMQ connection factory. When this option is set,          * all connection options (connectionTimeout, requestedChannelMax...)          * set on URI are not used.          * The option will be converted to a          *<code>com.rabbitmq.client.ConnectionFactory</code> type.          * @group common          */
 DECL|method|connectionFactory ( String connectionFactory)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|connectionFactory
@@ -2276,7 +2179,6 @@ return|;
 block|}
 comment|/**          * The name of the dead letter exchange.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|deadLetterExchange ( String deadLetterExchange)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|deadLetterExchange
@@ -2298,7 +2200,6 @@ return|;
 block|}
 comment|/**          * The type of the dead letter exchange.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|deadLetterExchangeType ( String deadLetterExchangeType)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|deadLetterExchangeType
@@ -2320,7 +2221,6 @@ return|;
 block|}
 comment|/**          * The name of the dead letter queue.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|deadLetterQueue ( String deadLetterQueue)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|deadLetterQueue
@@ -2342,7 +2242,6 @@ return|;
 block|}
 comment|/**          * The routing key for the dead letter exchange.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|deadLetterRoutingKey ( String deadLetterRoutingKey)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|deadLetterRoutingKey
@@ -2364,7 +2263,6 @@ return|;
 block|}
 comment|/**          * If the option is true, camel declare the exchange and queue name and          * bind them together. If the option is false, camel won't declare the          * exchange and queue name on the server.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|declare (boolean declare)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|declare
@@ -2386,7 +2284,6 @@ return|;
 block|}
 comment|/**          * If the option is true, camel declare the exchange and queue name and          * bind them together. If the option is false, camel won't declare the          * exchange and queue name on the server.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|declare (String declare)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|declare
@@ -2408,7 +2305,6 @@ return|;
 block|}
 comment|/**          * If we are declaring a durable exchange (the exchange will survive a          * server restart).          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|durable (boolean durable)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|durable
@@ -2430,7 +2326,6 @@ return|;
 block|}
 comment|/**          * If we are declaring a durable exchange (the exchange will survive a          * server restart).          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|durable (String durable)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|durable
@@ -2451,8 +2346,7 @@ name|this
 return|;
 block|}
 comment|/**          * The exchange type such as direct or topic.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|exchangeType ( String exchangeType)
-specifier|public
+DECL|method|exchangeType (String exchangeType)
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|exchangeType
@@ -2473,8 +2367,7 @@ name|this
 return|;
 block|}
 comment|/**          * Exclusive queues may only be accessed by the current connection, and          * are deleted when that connection closes.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|exclusive ( boolean exclusive)
-specifier|public
+DECL|method|exclusive (boolean exclusive)
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|exclusive
@@ -2495,8 +2388,7 @@ name|this
 return|;
 block|}
 comment|/**          * Exclusive queues may only be accessed by the current connection, and          * are deleted when that connection closes.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|exclusive ( String exclusive)
-specifier|public
+DECL|method|exclusive (String exclusive)
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|exclusive
@@ -2518,7 +2410,6 @@ return|;
 block|}
 comment|/**          * The hostname of the running rabbitmq instance or cluster.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|hostname (String hostname)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|hostname
@@ -2540,7 +2431,6 @@ return|;
 block|}
 comment|/**          * Passive queues depend on the queue already to be available at          * RabbitMQ.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|passive (boolean passive)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|passive
@@ -2562,7 +2452,6 @@ return|;
 block|}
 comment|/**          * Passive queues depend on the queue already to be available at          * RabbitMQ.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|passive (String passive)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|passive
@@ -2584,7 +2473,6 @@ return|;
 block|}
 comment|/**          * Port number for the host with the running rabbitmq instance or          * cluster. Default value is 5672.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|portNumber (int portNumber)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|portNumber
@@ -2605,8 +2493,7 @@ name|this
 return|;
 block|}
 comment|/**          * Port number for the host with the running rabbitmq instance or          * cluster. Default value is 5672.          * The option will be converted to a<code>int</code> type.          * @group common          */
-DECL|method|portNumber ( String portNumber)
-specifier|public
+DECL|method|portNumber (String portNumber)
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|portNumber
@@ -2628,7 +2515,6 @@ return|;
 block|}
 comment|/**          * The queue to receive messages from.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|queue (String queue)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|queue
@@ -2649,8 +2535,7 @@ name|this
 return|;
 block|}
 comment|/**          * The routing key to use when binding a consumer queue to the exchange.          * For producer routing keys, you set the header rabbitmq.ROUTING_KEY.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|routingKey ( String routingKey)
-specifier|public
+DECL|method|routingKey (String routingKey)
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|routingKey
@@ -2672,7 +2557,6 @@ return|;
 block|}
 comment|/**          * This can be used if we need to declare the queue but not the          * exchange.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|skipExchangeDeclare ( boolean skipExchangeDeclare)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|skipExchangeDeclare
@@ -2694,7 +2578,6 @@ return|;
 block|}
 comment|/**          * This can be used if we need to declare the queue but not the          * exchange.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|skipExchangeDeclare ( String skipExchangeDeclare)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|skipExchangeDeclare
@@ -2716,7 +2599,6 @@ return|;
 block|}
 comment|/**          * If true the queue will not be bound to the exchange after declaring          * it.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|skipQueueBind ( boolean skipQueueBind)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|skipQueueBind
@@ -2738,7 +2620,6 @@ return|;
 block|}
 comment|/**          * If true the queue will not be bound to the exchange after declaring          * it.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|skipQueueBind ( String skipQueueBind)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|skipQueueBind
@@ -2760,7 +2641,6 @@ return|;
 block|}
 comment|/**          * If true the producer will not declare and bind a queue. This can be          * used for directing messages via an existing routing key.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|skipQueueDeclare ( boolean skipQueueDeclare)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|skipQueueDeclare
@@ -2782,7 +2662,6 @@ return|;
 block|}
 comment|/**          * If true the producer will not declare and bind a queue. This can be          * used for directing messages via an existing routing key.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|skipQueueDeclare ( String skipQueueDeclare)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|skipQueueDeclare
@@ -2804,7 +2683,6 @@ return|;
 block|}
 comment|/**          * The vhost for the channel.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|vhost (String vhost)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|vhost
@@ -2826,7 +2704,6 @@ return|;
 block|}
 comment|/**          * Allow pass null values to header.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|allowNullHeaders ( boolean allowNullHeaders)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|allowNullHeaders
@@ -2848,7 +2725,6 @@ return|;
 block|}
 comment|/**          * Allow pass null values to header.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|allowNullHeaders ( String allowNullHeaders)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|allowNullHeaders
@@ -2870,7 +2746,6 @@ return|;
 block|}
 comment|/**          * If the bridgeEndpoint is true, the producer will ignore the message          * header of rabbitmq.EXCHANGE_NAME and rabbitmq.ROUTING_KEY.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|bridgeEndpoint ( boolean bridgeEndpoint)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|bridgeEndpoint
@@ -2892,7 +2767,6 @@ return|;
 block|}
 comment|/**          * If the bridgeEndpoint is true, the producer will ignore the message          * header of rabbitmq.EXCHANGE_NAME and rabbitmq.ROUTING_KEY.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|bridgeEndpoint ( String bridgeEndpoint)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|bridgeEndpoint
@@ -2914,7 +2788,6 @@ return|;
 block|}
 comment|/**          * Get maximum number of opened channel in pool.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|channelPoolMaxSize ( int channelPoolMaxSize)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|channelPoolMaxSize
@@ -2936,7 +2809,6 @@ return|;
 block|}
 comment|/**          * Get maximum number of opened channel in pool.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|channelPoolMaxSize ( String channelPoolMaxSize)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|channelPoolMaxSize
@@ -2958,7 +2830,6 @@ return|;
 block|}
 comment|/**          * Set the maximum number of milliseconds to wait for a channel from the          * pool.          * The option is a<code>long</code> type.          * @group producer          */
 DECL|method|channelPoolMaxWait ( long channelPoolMaxWait)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|channelPoolMaxWait
@@ -2980,7 +2851,6 @@ return|;
 block|}
 comment|/**          * Set the maximum number of milliseconds to wait for a channel from the          * pool.          * The option will be converted to a<code>long</code> type.          * @group producer          */
 DECL|method|channelPoolMaxWait ( String channelPoolMaxWait)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|channelPoolMaxWait
@@ -3002,7 +2872,6 @@ return|;
 block|}
 comment|/**          * When true, an exception will be thrown when the message cannot be          * delivered (basic.return) and the message is marked as mandatory.          * PublisherAcknowledgement will also be activated in this case. See          * also publisher acknowledgements - When will messages be confirmed.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|guaranteedDeliveries ( boolean guaranteedDeliveries)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|guaranteedDeliveries
@@ -3024,7 +2893,6 @@ return|;
 block|}
 comment|/**          * When true, an exception will be thrown when the message cannot be          * delivered (basic.return) and the message is marked as mandatory.          * PublisherAcknowledgement will also be activated in this case. See          * also publisher acknowledgements - When will messages be confirmed.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|guaranteedDeliveries ( String guaranteedDeliveries)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|guaranteedDeliveries
@@ -3045,8 +2913,7 @@ name|this
 return|;
 block|}
 comment|/**          * This flag tells the server how to react if the message cannot be          * routed to a queue consumer immediately. If this flag is set, the          * server will return an undeliverable message with a Return method. If          * this flag is zero, the server will queue the message, but with no          * guarantee that it will ever be consumed. If the header is present          * rabbitmq.IMMEDIATE it will override this option.          * The option is a<code>boolean</code> type.          * @group producer          */
-DECL|method|immediate ( boolean immediate)
-specifier|public
+DECL|method|immediate (boolean immediate)
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|immediate
@@ -3067,8 +2934,7 @@ name|this
 return|;
 block|}
 comment|/**          * This flag tells the server how to react if the message cannot be          * routed to a queue consumer immediately. If this flag is set, the          * server will return an undeliverable message with a Return method. If          * this flag is zero, the server will queue the message, but with no          * guarantee that it will ever be consumed. If the header is present          * rabbitmq.IMMEDIATE it will override this option.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
-DECL|method|immediate ( String immediate)
-specifier|public
+DECL|method|immediate (String immediate)
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|immediate
@@ -3090,7 +2956,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|lazyStartProducer
@@ -3112,7 +2977,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|lazyStartProducer
@@ -3133,8 +2997,7 @@ name|this
 return|;
 block|}
 comment|/**          * This flag tells the server how to react if the message cannot be          * routed to a queue. If this flag is set, the server will return an          * unroutable message with a Return method. If this flag is zero, the          * server silently drops the message. If the header is present          * rabbitmq.MANDATORY it will override this option.          * The option is a<code>boolean</code> type.          * @group producer          */
-DECL|method|mandatory ( boolean mandatory)
-specifier|public
+DECL|method|mandatory (boolean mandatory)
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|mandatory
@@ -3155,8 +3018,7 @@ name|this
 return|;
 block|}
 comment|/**          * This flag tells the server how to react if the message cannot be          * routed to a queue. If this flag is set, the server will return an          * unroutable message with a Return method. If this flag is zero, the          * server silently drops the message. If the header is present          * rabbitmq.MANDATORY it will override this option.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
-DECL|method|mandatory ( String mandatory)
-specifier|public
+DECL|method|mandatory (String mandatory)
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|mandatory
@@ -3178,7 +3040,6 @@ return|;
 block|}
 comment|/**          * When true, the message will be published with publisher          * acknowledgements turned on.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|publisherAcknowledgements ( boolean publisherAcknowledgements)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|publisherAcknowledgements
@@ -3200,7 +3061,6 @@ return|;
 block|}
 comment|/**          * When true, the message will be published with publisher          * acknowledgements turned on.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|publisherAcknowledgements ( String publisherAcknowledgements)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|publisherAcknowledgements
@@ -3222,7 +3082,6 @@ return|;
 block|}
 comment|/**          * The amount of time in milliseconds to wait for a basic.ack response          * from RabbitMQ server.          * The option is a<code>long</code> type.          * @group producer          */
 DECL|method|publisherAcknowledgementsTimeout ( long publisherAcknowledgementsTimeout)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|publisherAcknowledgementsTimeout
@@ -3244,7 +3103,6 @@ return|;
 block|}
 comment|/**          * The amount of time in milliseconds to wait for a basic.ack response          * from RabbitMQ server.          * The option will be converted to a<code>long</code> type.          * @group producer          */
 DECL|method|publisherAcknowledgementsTimeout ( String publisherAcknowledgementsTimeout)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|publisherAcknowledgementsTimeout
@@ -3266,7 +3124,6 @@ return|;
 block|}
 comment|/**          * Password for authenticated access.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|password
@@ -3287,8 +3144,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enables SSL on connection, accepted value are true, TLS and 'SSLv3.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|sslProtocol ( String sslProtocol)
-specifier|public
+DECL|method|sslProtocol (String sslProtocol)
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|sslProtocol
@@ -3309,8 +3165,7 @@ name|this
 return|;
 block|}
 comment|/**          * Configure SSL trust manager, SSL should be enabled for this option to          * be effective.          * The option is a<code>javax.net.ssl.TrustManager</code> type.          * @group security          */
-DECL|method|trustManager ( Object trustManager)
-specifier|public
+DECL|method|trustManager (Object trustManager)
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|trustManager
@@ -3331,8 +3186,7 @@ name|this
 return|;
 block|}
 comment|/**          * Configure SSL trust manager, SSL should be enabled for this option to          * be effective.          * The option will be converted to a          *<code>javax.net.ssl.TrustManager</code> type.          * @group security          */
-DECL|method|trustManager ( String trustManager)
-specifier|public
+DECL|method|trustManager (String trustManager)
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|trustManager
@@ -3354,7 +3208,6 @@ return|;
 block|}
 comment|/**          * Username in case of authenticated access.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|username
@@ -3384,7 +3237,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|RabbitMQEndpointProducerBuilder
 name|basic
@@ -3399,7 +3251,6 @@ return|;
 block|}
 comment|/**          * Specify arguments for configuring the different RabbitMQ concepts, a          * different prefix is required for each: Exchange: arg.exchange. Queue:          * arg.queue. Binding: arg.binding. For example to declare a queue with          * message ttl argument:          * http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|args ( Map<String, Object> args)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|args
@@ -3426,7 +3277,6 @@ return|;
 block|}
 comment|/**          * Specify arguments for configuring the different RabbitMQ concepts, a          * different prefix is required for each: Exchange: arg.exchange. Queue:          * arg.queue. Binding: arg.binding. For example to declare a queue with          * message ttl argument:          * http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|args (String args)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|args
@@ -3448,7 +3298,6 @@ return|;
 block|}
 comment|/**          * Enables connection automatic recovery (uses connection implementation          * that performs automatic recovery when connection shutdown is not          * initiated by the application).          * The option is a<code>java.lang.Boolean</code> type.          * @group advanced          */
 DECL|method|automaticRecoveryEnabled ( Boolean automaticRecoveryEnabled)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|automaticRecoveryEnabled
@@ -3470,7 +3319,6 @@ return|;
 block|}
 comment|/**          * Enables connection automatic recovery (uses connection implementation          * that performs automatic recovery when connection shutdown is not          * initiated by the application).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group advanced          */
 DECL|method|automaticRecoveryEnabled ( String automaticRecoveryEnabled)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|automaticRecoveryEnabled
@@ -3492,7 +3340,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|basicPropertyBinding
@@ -3514,7 +3361,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|basicPropertyBinding
@@ -3536,7 +3382,6 @@ return|;
 block|}
 comment|/**          * Connection client properties (client info used in negotiating with          * the server).          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|clientProperties ( Map<String, Object> clientProperties)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|clientProperties
@@ -3563,7 +3408,6 @@ return|;
 block|}
 comment|/**          * Connection client properties (client info used in negotiating with          * the server).          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|clientProperties ( String clientProperties)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|clientProperties
@@ -3585,7 +3429,6 @@ return|;
 block|}
 comment|/**          * Connection timeout.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|connectionTimeout ( int connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|connectionTimeout
@@ -3607,7 +3450,6 @@ return|;
 block|}
 comment|/**          * Connection timeout.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|connectionTimeout
@@ -3629,7 +3471,6 @@ return|;
 block|}
 comment|/**          * Network recovery interval in milliseconds (interval used when          * recovering from network failure).          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
 DECL|method|networkRecoveryInterval ( Integer networkRecoveryInterval)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|networkRecoveryInterval
@@ -3651,7 +3492,6 @@ return|;
 block|}
 comment|/**          * Network recovery interval in milliseconds (interval used when          * recovering from network failure).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
 DECL|method|networkRecoveryInterval ( String networkRecoveryInterval)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|networkRecoveryInterval
@@ -3673,7 +3513,6 @@ return|;
 block|}
 comment|/**          * Connection requested channel max (max number of channels offered).          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|requestedChannelMax ( int requestedChannelMax)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|requestedChannelMax
@@ -3695,7 +3534,6 @@ return|;
 block|}
 comment|/**          * Connection requested channel max (max number of channels offered).          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|requestedChannelMax ( String requestedChannelMax)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|requestedChannelMax
@@ -3717,7 +3555,6 @@ return|;
 block|}
 comment|/**          * Connection requested frame max (max size of frame offered).          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|requestedFrameMax ( int requestedFrameMax)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|requestedFrameMax
@@ -3739,7 +3576,6 @@ return|;
 block|}
 comment|/**          * Connection requested frame max (max size of frame offered).          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|requestedFrameMax ( String requestedFrameMax)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|requestedFrameMax
@@ -3761,7 +3597,6 @@ return|;
 block|}
 comment|/**          * Connection requested heartbeat (heart-beat in seconds offered).          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|requestedHeartbeat ( int requestedHeartbeat)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|requestedHeartbeat
@@ -3783,7 +3618,6 @@ return|;
 block|}
 comment|/**          * Connection requested heartbeat (heart-beat in seconds offered).          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|requestedHeartbeat ( String requestedHeartbeat)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|requestedHeartbeat
@@ -3805,7 +3639,6 @@ return|;
 block|}
 comment|/**          * Set timeout for waiting for a reply when using the InOut Exchange          * Pattern (in milliseconds).          * The option is a<code>long</code> type.          * @group advanced          */
 DECL|method|requestTimeout ( long requestTimeout)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|requestTimeout
@@ -3827,7 +3660,6 @@ return|;
 block|}
 comment|/**          * Set timeout for waiting for a reply when using the InOut Exchange          * Pattern (in milliseconds).          * The option will be converted to a<code>long</code> type.          * @group advanced          */
 DECL|method|requestTimeout ( String requestTimeout)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|requestTimeout
@@ -3849,7 +3681,6 @@ return|;
 block|}
 comment|/**          * Set requestTimeoutCheckerInterval for inOut exchange.          * The option is a<code>long</code> type.          * @group advanced          */
 DECL|method|requestTimeoutCheckerInterval ( long requestTimeoutCheckerInterval)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|requestTimeoutCheckerInterval
@@ -3871,7 +3702,6 @@ return|;
 block|}
 comment|/**          * Set requestTimeoutCheckerInterval for inOut exchange.          * The option will be converted to a<code>long</code> type.          * @group advanced          */
 DECL|method|requestTimeoutCheckerInterval ( String requestTimeoutCheckerInterval)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|requestTimeoutCheckerInterval
@@ -3893,7 +3723,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|synchronous
@@ -3915,7 +3744,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|synchronous
@@ -3937,7 +3765,6 @@ return|;
 block|}
 comment|/**          * Enables connection topology recovery (should topology recovery be          * performed).          * The option is a<code>java.lang.Boolean</code> type.          * @group advanced          */
 DECL|method|topologyRecoveryEnabled ( Boolean topologyRecoveryEnabled)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|topologyRecoveryEnabled
@@ -3959,7 +3786,6 @@ return|;
 block|}
 comment|/**          * Enables connection topology recovery (should topology recovery be          * performed).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group advanced          */
 DECL|method|topologyRecoveryEnabled ( String topologyRecoveryEnabled)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|topologyRecoveryEnabled
@@ -3981,7 +3807,6 @@ return|;
 block|}
 comment|/**          * When true and an inOut Exchange failed on the consumer side send the          * caused Exception back in the response.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferException ( boolean transferException)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|transferException
@@ -4003,7 +3828,6 @@ return|;
 block|}
 comment|/**          * When true and an inOut Exchange failed on the consumer side send the          * caused Exception back in the response.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferException ( String transferException)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointProducerBuilder
 name|transferException
@@ -4036,7 +3860,6 @@ extends|,
 name|RabbitMQEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|advanced
@@ -4051,7 +3874,6 @@ return|;
 block|}
 comment|/**          * The exchange name determines which exchange produced messages will          * sent to. In the case of consumers, the exchange name determines which          * exchange the queue will bind to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|exchangeName (String exchangeName)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|exchangeName
@@ -4073,7 +3895,6 @@ return|;
 block|}
 comment|/**          * If this option is set, camel-rabbitmq will try to create connection          * based on the setting of option addresses. The addresses value is a          * string which looks like server1:12345, server2:12345.          * The option is a<code>com.rabbitmq.client.Address[]</code> type.          * @group common          */
 DECL|method|addresses (Object[] addresses)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|addresses
@@ -4096,7 +3917,6 @@ return|;
 block|}
 comment|/**          * If this option is set, camel-rabbitmq will try to create connection          * based on the setting of option addresses. The addresses value is a          * string which looks like server1:12345, server2:12345.          * The option will be converted to a          *<code>com.rabbitmq.client.Address[]</code> type.          * @group common          */
 DECL|method|addresses (String addresses)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|addresses
@@ -4118,7 +3938,6 @@ return|;
 block|}
 comment|/**          * If it is true, the exchange will be deleted when it is no longer in          * use.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|autoDelete (boolean autoDelete)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|autoDelete
@@ -4140,7 +3959,6 @@ return|;
 block|}
 comment|/**          * If it is true, the exchange will be deleted when it is no longer in          * use.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|autoDelete (String autoDelete)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|autoDelete
@@ -4162,7 +3980,6 @@ return|;
 block|}
 comment|/**          * To use a custom RabbitMQ connection factory. When this option is set,          * all connection options (connectionTimeout, requestedChannelMax...)          * set on URI are not used.          * The option is a<code>com.rabbitmq.client.ConnectionFactory</code>          * type.          * @group common          */
 DECL|method|connectionFactory ( Object connectionFactory)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|connectionFactory
@@ -4184,7 +4001,6 @@ return|;
 block|}
 comment|/**          * To use a custom RabbitMQ connection factory. When this option is set,          * all connection options (connectionTimeout, requestedChannelMax...)          * set on URI are not used.          * The option will be converted to a          *<code>com.rabbitmq.client.ConnectionFactory</code> type.          * @group common          */
 DECL|method|connectionFactory ( String connectionFactory)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|connectionFactory
@@ -4206,7 +4022,6 @@ return|;
 block|}
 comment|/**          * The name of the dead letter exchange.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|deadLetterExchange ( String deadLetterExchange)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|deadLetterExchange
@@ -4228,7 +4043,6 @@ return|;
 block|}
 comment|/**          * The type of the dead letter exchange.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|deadLetterExchangeType ( String deadLetterExchangeType)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|deadLetterExchangeType
@@ -4249,8 +4063,7 @@ name|this
 return|;
 block|}
 comment|/**          * The name of the dead letter queue.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|deadLetterQueue ( String deadLetterQueue)
-specifier|public
+DECL|method|deadLetterQueue (String deadLetterQueue)
 specifier|default
 name|RabbitMQEndpointBuilder
 name|deadLetterQueue
@@ -4272,7 +4085,6 @@ return|;
 block|}
 comment|/**          * The routing key for the dead letter exchange.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|deadLetterRoutingKey ( String deadLetterRoutingKey)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|deadLetterRoutingKey
@@ -4294,7 +4106,6 @@ return|;
 block|}
 comment|/**          * If the option is true, camel declare the exchange and queue name and          * bind them together. If the option is false, camel won't declare the          * exchange and queue name on the server.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|declare (boolean declare)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|declare
@@ -4316,7 +4127,6 @@ return|;
 block|}
 comment|/**          * If the option is true, camel declare the exchange and queue name and          * bind them together. If the option is false, camel won't declare the          * exchange and queue name on the server.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|declare (String declare)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|declare
@@ -4338,7 +4148,6 @@ return|;
 block|}
 comment|/**          * If we are declaring a durable exchange (the exchange will survive a          * server restart).          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|durable (boolean durable)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|durable
@@ -4360,7 +4169,6 @@ return|;
 block|}
 comment|/**          * If we are declaring a durable exchange (the exchange will survive a          * server restart).          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|durable (String durable)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|durable
@@ -4382,7 +4190,6 @@ return|;
 block|}
 comment|/**          * The exchange type such as direct or topic.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|exchangeType (String exchangeType)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|exchangeType
@@ -4404,7 +4211,6 @@ return|;
 block|}
 comment|/**          * Exclusive queues may only be accessed by the current connection, and          * are deleted when that connection closes.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|exclusive (boolean exclusive)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|exclusive
@@ -4426,7 +4232,6 @@ return|;
 block|}
 comment|/**          * Exclusive queues may only be accessed by the current connection, and          * are deleted when that connection closes.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|exclusive (String exclusive)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|exclusive
@@ -4448,7 +4253,6 @@ return|;
 block|}
 comment|/**          * The hostname of the running rabbitmq instance or cluster.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|hostname (String hostname)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|hostname
@@ -4470,7 +4274,6 @@ return|;
 block|}
 comment|/**          * Passive queues depend on the queue already to be available at          * RabbitMQ.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|passive (boolean passive)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|passive
@@ -4492,7 +4295,6 @@ return|;
 block|}
 comment|/**          * Passive queues depend on the queue already to be available at          * RabbitMQ.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|passive (String passive)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|passive
@@ -4514,7 +4316,6 @@ return|;
 block|}
 comment|/**          * Port number for the host with the running rabbitmq instance or          * cluster. Default value is 5672.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|portNumber (int portNumber)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|portNumber
@@ -4536,7 +4337,6 @@ return|;
 block|}
 comment|/**          * Port number for the host with the running rabbitmq instance or          * cluster. Default value is 5672.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|portNumber (String portNumber)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|portNumber
@@ -4558,7 +4358,6 @@ return|;
 block|}
 comment|/**          * The queue to receive messages from.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|queue (String queue)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|queue
@@ -4580,7 +4379,6 @@ return|;
 block|}
 comment|/**          * The routing key to use when binding a consumer queue to the exchange.          * For producer routing keys, you set the header rabbitmq.ROUTING_KEY.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|routingKey (String routingKey)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|routingKey
@@ -4602,7 +4400,6 @@ return|;
 block|}
 comment|/**          * This can be used if we need to declare the queue but not the          * exchange.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|skipExchangeDeclare ( boolean skipExchangeDeclare)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|skipExchangeDeclare
@@ -4624,7 +4421,6 @@ return|;
 block|}
 comment|/**          * This can be used if we need to declare the queue but not the          * exchange.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|skipExchangeDeclare ( String skipExchangeDeclare)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|skipExchangeDeclare
@@ -4645,8 +4441,7 @@ name|this
 return|;
 block|}
 comment|/**          * If true the queue will not be bound to the exchange after declaring          * it.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|skipQueueBind ( boolean skipQueueBind)
-specifier|public
+DECL|method|skipQueueBind (boolean skipQueueBind)
 specifier|default
 name|RabbitMQEndpointBuilder
 name|skipQueueBind
@@ -4667,8 +4462,7 @@ name|this
 return|;
 block|}
 comment|/**          * If true the queue will not be bound to the exchange after declaring          * it.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|skipQueueBind ( String skipQueueBind)
-specifier|public
+DECL|method|skipQueueBind (String skipQueueBind)
 specifier|default
 name|RabbitMQEndpointBuilder
 name|skipQueueBind
@@ -4690,7 +4484,6 @@ return|;
 block|}
 comment|/**          * If true the producer will not declare and bind a queue. This can be          * used for directing messages via an existing routing key.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|skipQueueDeclare ( boolean skipQueueDeclare)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|skipQueueDeclare
@@ -4711,8 +4504,7 @@ name|this
 return|;
 block|}
 comment|/**          * If true the producer will not declare and bind a queue. This can be          * used for directing messages via an existing routing key.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|skipQueueDeclare ( String skipQueueDeclare)
-specifier|public
+DECL|method|skipQueueDeclare (String skipQueueDeclare)
 specifier|default
 name|RabbitMQEndpointBuilder
 name|skipQueueDeclare
@@ -4734,7 +4526,6 @@ return|;
 block|}
 comment|/**          * The vhost for the channel.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|vhost (String vhost)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|vhost
@@ -4756,7 +4547,6 @@ return|;
 block|}
 comment|/**          * Password for authenticated access.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|password
@@ -4778,7 +4568,6 @@ return|;
 block|}
 comment|/**          * Enables SSL on connection, accepted value are true, TLS and 'SSLv3.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|sslProtocol (String sslProtocol)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|sslProtocol
@@ -4800,7 +4589,6 @@ return|;
 block|}
 comment|/**          * Configure SSL trust manager, SSL should be enabled for this option to          * be effective.          * The option is a<code>javax.net.ssl.TrustManager</code> type.          * @group security          */
 DECL|method|trustManager (Object trustManager)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|trustManager
@@ -4822,7 +4610,6 @@ return|;
 block|}
 comment|/**          * Configure SSL trust manager, SSL should be enabled for this option to          * be effective.          * The option will be converted to a          *<code>javax.net.ssl.TrustManager</code> type.          * @group security          */
 DECL|method|trustManager (String trustManager)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|trustManager
@@ -4844,7 +4631,6 @@ return|;
 block|}
 comment|/**          * Username in case of authenticated access.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|username
@@ -4877,7 +4663,6 @@ extends|,
 name|AdvancedRabbitMQEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|basic
@@ -4891,8 +4676,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specify arguments for configuring the different RabbitMQ concepts, a          * different prefix is required for each: Exchange: arg.exchange. Queue:          * arg.queue. Binding: arg.binding. For example to declare a queue with          * message ttl argument:          * http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
-DECL|method|args ( Map<String, Object> args)
-specifier|public
+DECL|method|args (Map<String, Object> args)
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|args
@@ -4919,7 +4703,6 @@ return|;
 block|}
 comment|/**          * Specify arguments for configuring the different RabbitMQ concepts, a          * different prefix is required for each: Exchange: arg.exchange. Queue:          * arg.queue. Binding: arg.binding. For example to declare a queue with          * message ttl argument:          * http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|args (String args)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|args
@@ -4941,7 +4724,6 @@ return|;
 block|}
 comment|/**          * Enables connection automatic recovery (uses connection implementation          * that performs automatic recovery when connection shutdown is not          * initiated by the application).          * The option is a<code>java.lang.Boolean</code> type.          * @group advanced          */
 DECL|method|automaticRecoveryEnabled ( Boolean automaticRecoveryEnabled)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|automaticRecoveryEnabled
@@ -4963,7 +4745,6 @@ return|;
 block|}
 comment|/**          * Enables connection automatic recovery (uses connection implementation          * that performs automatic recovery when connection shutdown is not          * initiated by the application).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group advanced          */
 DECL|method|automaticRecoveryEnabled ( String automaticRecoveryEnabled)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|automaticRecoveryEnabled
@@ -4985,7 +4766,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|basicPropertyBinding
@@ -5007,7 +4787,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|basicPropertyBinding
@@ -5029,7 +4808,6 @@ return|;
 block|}
 comment|/**          * Connection client properties (client info used in negotiating with          * the server).          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|clientProperties ( Map<String, Object> clientProperties)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|clientProperties
@@ -5056,7 +4834,6 @@ return|;
 block|}
 comment|/**          * Connection client properties (client info used in negotiating with          * the server).          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|clientProperties ( String clientProperties)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|clientProperties
@@ -5078,7 +4855,6 @@ return|;
 block|}
 comment|/**          * Connection timeout.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|connectionTimeout ( int connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|connectionTimeout
@@ -5100,7 +4876,6 @@ return|;
 block|}
 comment|/**          * Connection timeout.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|connectionTimeout
@@ -5122,7 +4897,6 @@ return|;
 block|}
 comment|/**          * Network recovery interval in milliseconds (interval used when          * recovering from network failure).          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
 DECL|method|networkRecoveryInterval ( Integer networkRecoveryInterval)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|networkRecoveryInterval
@@ -5144,7 +4918,6 @@ return|;
 block|}
 comment|/**          * Network recovery interval in milliseconds (interval used when          * recovering from network failure).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
 DECL|method|networkRecoveryInterval ( String networkRecoveryInterval)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|networkRecoveryInterval
@@ -5166,7 +4939,6 @@ return|;
 block|}
 comment|/**          * Connection requested channel max (max number of channels offered).          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|requestedChannelMax ( int requestedChannelMax)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|requestedChannelMax
@@ -5188,7 +4960,6 @@ return|;
 block|}
 comment|/**          * Connection requested channel max (max number of channels offered).          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|requestedChannelMax ( String requestedChannelMax)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|requestedChannelMax
@@ -5210,7 +4981,6 @@ return|;
 block|}
 comment|/**          * Connection requested frame max (max size of frame offered).          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|requestedFrameMax ( int requestedFrameMax)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|requestedFrameMax
@@ -5232,7 +5002,6 @@ return|;
 block|}
 comment|/**          * Connection requested frame max (max size of frame offered).          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|requestedFrameMax ( String requestedFrameMax)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|requestedFrameMax
@@ -5254,7 +5023,6 @@ return|;
 block|}
 comment|/**          * Connection requested heartbeat (heart-beat in seconds offered).          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|requestedHeartbeat ( int requestedHeartbeat)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|requestedHeartbeat
@@ -5276,7 +5044,6 @@ return|;
 block|}
 comment|/**          * Connection requested heartbeat (heart-beat in seconds offered).          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|requestedHeartbeat ( String requestedHeartbeat)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|requestedHeartbeat
@@ -5298,7 +5065,6 @@ return|;
 block|}
 comment|/**          * Set timeout for waiting for a reply when using the InOut Exchange          * Pattern (in milliseconds).          * The option is a<code>long</code> type.          * @group advanced          */
 DECL|method|requestTimeout ( long requestTimeout)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|requestTimeout
@@ -5320,7 +5086,6 @@ return|;
 block|}
 comment|/**          * Set timeout for waiting for a reply when using the InOut Exchange          * Pattern (in milliseconds).          * The option will be converted to a<code>long</code> type.          * @group advanced          */
 DECL|method|requestTimeout ( String requestTimeout)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|requestTimeout
@@ -5342,7 +5107,6 @@ return|;
 block|}
 comment|/**          * Set requestTimeoutCheckerInterval for inOut exchange.          * The option is a<code>long</code> type.          * @group advanced          */
 DECL|method|requestTimeoutCheckerInterval ( long requestTimeoutCheckerInterval)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|requestTimeoutCheckerInterval
@@ -5364,7 +5128,6 @@ return|;
 block|}
 comment|/**          * Set requestTimeoutCheckerInterval for inOut exchange.          * The option will be converted to a<code>long</code> type.          * @group advanced          */
 DECL|method|requestTimeoutCheckerInterval ( String requestTimeoutCheckerInterval)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|requestTimeoutCheckerInterval
@@ -5385,8 +5148,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|synchronous
@@ -5407,8 +5169,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|synchronous
@@ -5430,7 +5191,6 @@ return|;
 block|}
 comment|/**          * Enables connection topology recovery (should topology recovery be          * performed).          * The option is a<code>java.lang.Boolean</code> type.          * @group advanced          */
 DECL|method|topologyRecoveryEnabled ( Boolean topologyRecoveryEnabled)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|topologyRecoveryEnabled
@@ -5452,7 +5212,6 @@ return|;
 block|}
 comment|/**          * Enables connection topology recovery (should topology recovery be          * performed).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group advanced          */
 DECL|method|topologyRecoveryEnabled ( String topologyRecoveryEnabled)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|topologyRecoveryEnabled
@@ -5474,7 +5233,6 @@ return|;
 block|}
 comment|/**          * When true and an inOut Exchange failed on the consumer side send the          * caused Exception back in the response.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferException ( boolean transferException)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|transferException
@@ -5496,7 +5254,6 @@ return|;
 block|}
 comment|/**          * When true and an inOut Exchange failed on the consumer side send the          * caused Exception back in the response.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferException ( String transferException)
-specifier|public
 specifier|default
 name|AdvancedRabbitMQEndpointBuilder
 name|transferException
@@ -5519,7 +5276,6 @@ block|}
 block|}
 comment|/**      * The rabbitmq component allows you produce and consume messages from      * RabbitMQ instances. Creates a builder to build endpoints for the RabbitMQ      * component.      */
 DECL|method|rabbitMQ (String path)
-specifier|public
 specifier|default
 name|RabbitMQEndpointBuilder
 name|rabbitMQ

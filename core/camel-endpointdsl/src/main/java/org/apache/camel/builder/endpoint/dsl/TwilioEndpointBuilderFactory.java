@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedTwilioEndpointConsumerBuilder
 name|advanced
@@ -138,8 +137,7 @@ name|this
 return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.twilio.internal.TwilioApiName</code>          * type.          * @group common          */
-DECL|method|apiName ( TwilioApiName apiName)
-specifier|public
+DECL|method|apiName (TwilioApiName apiName)
 specifier|default
 name|TwilioEndpointConsumerBuilder
 name|apiName
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.twilio.internal.TwilioApiName</code>          * type.          * @group common          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|TwilioEndpointConsumerBuilder
 name|apiName
@@ -182,8 +179,7 @@ name|this
 return|;
 block|}
 comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|methodName ( String methodName)
-specifier|public
+DECL|method|methodName (String methodName)
 specifier|default
 name|TwilioEndpointConsumerBuilder
 name|methodName
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|TwilioEndpointConsumerBuilder
 name|inBody
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|TwilioEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -249,7 +243,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|TwilioEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -279,7 +272,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|TwilioEndpointConsumerBuilder
 name|basic
@@ -294,7 +286,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedTwilioEndpointConsumerBuilder
 name|exceptionHandler
@@ -316,7 +307,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedTwilioEndpointConsumerBuilder
 name|exceptionHandler
@@ -338,7 +328,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedTwilioEndpointConsumerBuilder
 name|exchangePattern
@@ -360,7 +349,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedTwilioEndpointConsumerBuilder
 name|exchangePattern
@@ -382,7 +370,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedTwilioEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -404,7 +391,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedTwilioEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -426,7 +412,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedTwilioEndpointConsumerBuilder
 name|synchronous
@@ -448,7 +433,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedTwilioEndpointConsumerBuilder
 name|synchronous
@@ -479,7 +463,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedTwilioEndpointProducerBuilder
 name|advanced
@@ -493,8 +476,7 @@ name|this
 return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.twilio.internal.TwilioApiName</code>          * type.          * @group common          */
-DECL|method|apiName ( TwilioApiName apiName)
-specifier|public
+DECL|method|apiName (TwilioApiName apiName)
 specifier|default
 name|TwilioEndpointProducerBuilder
 name|apiName
@@ -516,7 +498,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.twilio.internal.TwilioApiName</code>          * type.          * @group common          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|TwilioEndpointProducerBuilder
 name|apiName
@@ -537,8 +518,7 @@ name|this
 return|;
 block|}
 comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|methodName ( String methodName)
-specifier|public
+DECL|method|methodName (String methodName)
 specifier|default
 name|TwilioEndpointProducerBuilder
 name|methodName
@@ -560,7 +540,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|TwilioEndpointProducerBuilder
 name|inBody
@@ -582,7 +561,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|TwilioEndpointProducerBuilder
 name|lazyStartProducer
@@ -604,7 +582,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|TwilioEndpointProducerBuilder
 name|lazyStartProducer
@@ -634,7 +611,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|TwilioEndpointProducerBuilder
 name|basic
@@ -649,7 +625,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedTwilioEndpointProducerBuilder
 name|basicPropertyBinding
@@ -671,7 +646,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedTwilioEndpointProducerBuilder
 name|basicPropertyBinding
@@ -693,7 +667,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedTwilioEndpointProducerBuilder
 name|synchronous
@@ -715,7 +688,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedTwilioEndpointProducerBuilder
 name|synchronous
@@ -748,7 +720,6 @@ extends|,
 name|TwilioEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedTwilioEndpointBuilder
 name|advanced
@@ -763,7 +734,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.twilio.internal.TwilioApiName</code>          * type.          * @group common          */
 DECL|method|apiName (TwilioApiName apiName)
-specifier|public
 specifier|default
 name|TwilioEndpointBuilder
 name|apiName
@@ -785,7 +755,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.twilio.internal.TwilioApiName</code>          * type.          * @group common          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|TwilioEndpointBuilder
 name|apiName
@@ -807,7 +776,6 @@ return|;
 block|}
 comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|methodName (String methodName)
-specifier|public
 specifier|default
 name|TwilioEndpointBuilder
 name|methodName
@@ -829,7 +797,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|TwilioEndpointBuilder
 name|inBody
@@ -862,7 +829,6 @@ extends|,
 name|AdvancedTwilioEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|TwilioEndpointBuilder
 name|basic
@@ -877,7 +843,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedTwilioEndpointBuilder
 name|basicPropertyBinding
@@ -899,7 +864,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedTwilioEndpointBuilder
 name|basicPropertyBinding
@@ -920,8 +884,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedTwilioEndpointBuilder
 name|synchronous
@@ -942,8 +905,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedTwilioEndpointBuilder
 name|synchronous
@@ -1141,7 +1103,6 @@ name|USAGE_RECORD_YESTERDAY
 block|;     }
 comment|/**      * The Twilio component allows you to interact with the Twilio REST APIs      * using Twilio Java SDK. Creates a builder to build endpoints for the      * Twilio component.      */
 DECL|method|twilio (String path)
-specifier|public
 specifier|default
 name|TwilioEndpointBuilder
 name|twilio

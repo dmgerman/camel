@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedGrpcEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * The gRPC server host name. This is localhost or 0.0.0.0 when being a          * consumer or remote server host name when using producer.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|host
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * The gRPC local or remote server port.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|port
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * The gRPC local or remote server port.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|port
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * Fully qualified service name from the protocol buffer descriptor file          * (package dot service definition name).          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|service (String service)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|service
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * The HTTP/2 flow control window size (MiB).          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|flowControlWindow ( int flowControlWindow)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|flowControlWindow
@@ -249,7 +243,6 @@ return|;
 block|}
 comment|/**          * The HTTP/2 flow control window size (MiB).          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|flowControlWindow ( String flowControlWindow)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|flowControlWindow
@@ -270,8 +263,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximum message size allowed to be received/sent (MiB).          * The option is a<code>int</code> type.          * @group common          */
-DECL|method|maxMessageSize ( int maxMessageSize)
-specifier|public
+DECL|method|maxMessageSize (int maxMessageSize)
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|maxMessageSize
@@ -292,8 +284,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximum message size allowed to be received/sent (MiB).          * The option will be converted to a<code>int</code> type.          * @group common          */
-DECL|method|maxMessageSize ( String maxMessageSize)
-specifier|public
+DECL|method|maxMessageSize (String maxMessageSize)
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|maxMessageSize
@@ -315,7 +306,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -337,7 +327,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -359,7 +348,6 @@ return|;
 block|}
 comment|/**          * This option specifies the top-level strategy for processing service          * requests and responses in streaming mode. If an aggregation strategy          * is selected, all requests will be accumulated in the list, then          * transferred to the flow, and the accumulated responses will be sent          * to the sender. If a propagation strategy is selected, request is sent          * to the stream, and the response will be immediately sent back to the          * sender.          * The option is a          *<code>org.apache.camel.component.grpc.GrpcConsumerStrategy</code>          * type.          * @group consumer          */
 DECL|method|consumerStrategy ( GrpcConsumerStrategy consumerStrategy)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|consumerStrategy
@@ -381,7 +369,6 @@ return|;
 block|}
 comment|/**          * This option specifies the top-level strategy for processing service          * requests and responses in streaming mode. If an aggregation strategy          * is selected, all requests will be accumulated in the list, then          * transferred to the flow, and the accumulated responses will be sent          * to the sender. If a propagation strategy is selected, request is sent          * to the stream, and the response will be immediately sent back to the          * sender.          * The option will be converted to a          *<code>org.apache.camel.component.grpc.GrpcConsumerStrategy</code>          * type.          * @group consumer          */
 DECL|method|consumerStrategy ( String consumerStrategy)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|consumerStrategy
@@ -403,7 +390,6 @@ return|;
 block|}
 comment|/**          * Determines if onCompleted events should be pushed to the Camel route.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|forwardOnCompleted ( boolean forwardOnCompleted)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|forwardOnCompleted
@@ -425,7 +411,6 @@ return|;
 block|}
 comment|/**          * Determines if onCompleted events should be pushed to the Camel route.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|forwardOnCompleted ( String forwardOnCompleted)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|forwardOnCompleted
@@ -447,7 +432,6 @@ return|;
 block|}
 comment|/**          * Determines if onError events should be pushed to the Camel route.          * Exceptions will be set as message body.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|forwardOnError ( boolean forwardOnError)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|forwardOnError
@@ -468,8 +452,7 @@ name|this
 return|;
 block|}
 comment|/**          * Determines if onError events should be pushed to the Camel route.          * Exceptions will be set as message body.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
-DECL|method|forwardOnError ( String forwardOnError)
-specifier|public
+DECL|method|forwardOnError (String forwardOnError)
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|forwardOnError
@@ -491,7 +474,6 @@ return|;
 block|}
 comment|/**          * The maximum number of concurrent calls permitted for each incoming          * server connection.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|maxConcurrentCallsPerConnection ( int maxConcurrentCallsPerConnection)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|maxConcurrentCallsPerConnection
@@ -513,7 +495,6 @@ return|;
 block|}
 comment|/**          * The maximum number of concurrent calls permitted for each incoming          * server connection.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|maxConcurrentCallsPerConnection ( String maxConcurrentCallsPerConnection)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|maxConcurrentCallsPerConnection
@@ -535,7 +516,6 @@ return|;
 block|}
 comment|/**          * Authentication method type in advance to the SSL/TLS negotiation.          * The option is a          *<code>org.apache.camel.component.grpc.GrpcAuthType</code> type.          * @group security          */
 DECL|method|authenticationType ( GrpcAuthType authenticationType)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|authenticationType
@@ -557,7 +537,6 @@ return|;
 block|}
 comment|/**          * Authentication method type in advance to the SSL/TLS negotiation.          * The option will be converted to a          *<code>org.apache.camel.component.grpc.GrpcAuthType</code> type.          * @group security          */
 DECL|method|authenticationType ( String authenticationType)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|authenticationType
@@ -579,7 +558,6 @@ return|;
 block|}
 comment|/**          * JSON Web Token sign algorithm.          * The option is a          *<code>org.apache.camel.component.grpc.auth.jwt.JwtAlgorithm</code>          * type.          * @group security          */
 DECL|method|jwtAlgorithm ( JwtAlgorithm jwtAlgorithm)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|jwtAlgorithm
@@ -600,8 +578,7 @@ name|this
 return|;
 block|}
 comment|/**          * JSON Web Token sign algorithm.          * The option will be converted to a          *<code>org.apache.camel.component.grpc.auth.jwt.JwtAlgorithm</code>          * type.          * @group security          */
-DECL|method|jwtAlgorithm ( String jwtAlgorithm)
-specifier|public
+DECL|method|jwtAlgorithm (String jwtAlgorithm)
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|jwtAlgorithm
@@ -623,7 +600,6 @@ return|;
 block|}
 comment|/**          * JSON Web Token issuer.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|jwtIssuer (String jwtIssuer)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|jwtIssuer
@@ -645,7 +621,6 @@ return|;
 block|}
 comment|/**          * JSON Web Token secret.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|jwtSecret (String jwtSecret)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|jwtSecret
@@ -667,7 +642,6 @@ return|;
 block|}
 comment|/**          * JSON Web Token subject.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|jwtSubject (String jwtSubject)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|jwtSubject
@@ -689,7 +663,6 @@ return|;
 block|}
 comment|/**          * The X.509 certificate chain file resource in PEM format link.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|keyCertChainResource ( String keyCertChainResource)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|keyCertChainResource
@@ -710,8 +683,7 @@ name|this
 return|;
 block|}
 comment|/**          * The PKCS#8 private key file password.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|keyPassword ( String keyPassword)
-specifier|public
+DECL|method|keyPassword (String keyPassword)
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|keyPassword
@@ -732,8 +704,7 @@ name|this
 return|;
 block|}
 comment|/**          * The PKCS#8 private key file resource in PEM format link.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|keyResource ( String keyResource)
-specifier|public
+DECL|method|keyResource (String keyResource)
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|keyResource
@@ -755,7 +726,6 @@ return|;
 block|}
 comment|/**          * Identifies the security negotiation type used for HTTP/2          * communication.          * The option is a<code>io.grpc.netty.NegotiationType</code> type.          * @group security          */
 DECL|method|negotiationType ( NegotiationType negotiationType)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|negotiationType
@@ -777,7 +747,6 @@ return|;
 block|}
 comment|/**          * Identifies the security negotiation type used for HTTP/2          * communication.          * The option will be converted to a          *<code>io.grpc.netty.NegotiationType</code> type.          * @group security          */
 DECL|method|negotiationType ( String negotiationType)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|negotiationType
@@ -799,7 +768,6 @@ return|;
 block|}
 comment|/**          * Service Account key file in JSON format resource link supported by          * the Google Cloud SDK.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|serviceAccountResource ( String serviceAccountResource)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|serviceAccountResource
@@ -821,7 +789,6 @@ return|;
 block|}
 comment|/**          * The trusted certificates collection file resource in PEM format for          * verifying the remote endpoint's certificate.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|trustCertCollectionResource ( String trustCertCollectionResource)
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|trustCertCollectionResource
@@ -851,7 +818,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|GrpcEndpointConsumerBuilder
 name|basic
@@ -866,7 +832,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedGrpcEndpointConsumerBuilder
 name|exceptionHandler
@@ -888,7 +853,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedGrpcEndpointConsumerBuilder
 name|exceptionHandler
@@ -910,7 +874,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedGrpcEndpointConsumerBuilder
 name|exchangePattern
@@ -932,7 +895,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedGrpcEndpointConsumerBuilder
 name|exchangePattern
@@ -954,7 +916,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGrpcEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -976,7 +937,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGrpcEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -998,7 +958,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedGrpcEndpointConsumerBuilder
 name|synchronous
@@ -1020,7 +979,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedGrpcEndpointConsumerBuilder
 name|synchronous
@@ -1051,7 +1009,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedGrpcEndpointProducerBuilder
 name|advanced
@@ -1066,7 +1023,6 @@ return|;
 block|}
 comment|/**          * The gRPC server host name. This is localhost or 0.0.0.0 when being a          * consumer or remote server host name when using producer.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|host
@@ -1088,7 +1044,6 @@ return|;
 block|}
 comment|/**          * The gRPC local or remote server port.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|port
@@ -1110,7 +1065,6 @@ return|;
 block|}
 comment|/**          * The gRPC local or remote server port.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|port
@@ -1132,7 +1086,6 @@ return|;
 block|}
 comment|/**          * Fully qualified service name from the protocol buffer descriptor file          * (package dot service definition name).          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|service (String service)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|service
@@ -1154,7 +1107,6 @@ return|;
 block|}
 comment|/**          * The HTTP/2 flow control window size (MiB).          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|flowControlWindow ( int flowControlWindow)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|flowControlWindow
@@ -1176,7 +1128,6 @@ return|;
 block|}
 comment|/**          * The HTTP/2 flow control window size (MiB).          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|flowControlWindow ( String flowControlWindow)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|flowControlWindow
@@ -1197,8 +1148,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximum message size allowed to be received/sent (MiB).          * The option is a<code>int</code> type.          * @group common          */
-DECL|method|maxMessageSize ( int maxMessageSize)
-specifier|public
+DECL|method|maxMessageSize (int maxMessageSize)
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|maxMessageSize
@@ -1219,8 +1169,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximum message size allowed to be received/sent (MiB).          * The option will be converted to a<code>int</code> type.          * @group common          */
-DECL|method|maxMessageSize ( String maxMessageSize)
-specifier|public
+DECL|method|maxMessageSize (String maxMessageSize)
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|maxMessageSize
@@ -1242,7 +1191,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|lazyStartProducer
@@ -1264,7 +1212,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|lazyStartProducer
@@ -1286,7 +1233,6 @@ return|;
 block|}
 comment|/**          * gRPC method name.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|method (String method)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|method
@@ -1308,7 +1254,6 @@ return|;
 block|}
 comment|/**          * The mode used to communicate with a remote gRPC server. In SIMPLE          * mode a single exchange is translated into a remote procedure call. In          * STREAMING mode all exchanges will be sent within the same request          * (input and output of the recipient gRPC service must be of type          * 'stream').          * The option is a          *<code>org.apache.camel.component.grpc.GrpcProducerStrategy</code>          * type.          * @group producer          */
 DECL|method|producerStrategy ( GrpcProducerStrategy producerStrategy)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|producerStrategy
@@ -1330,7 +1275,6 @@ return|;
 block|}
 comment|/**          * The mode used to communicate with a remote gRPC server. In SIMPLE          * mode a single exchange is translated into a remote procedure call. In          * STREAMING mode all exchanges will be sent within the same request          * (input and output of the recipient gRPC service must be of type          * 'stream').          * The option will be converted to a          *<code>org.apache.camel.component.grpc.GrpcProducerStrategy</code>          * type.          * @group producer          */
 DECL|method|producerStrategy ( String producerStrategy)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|producerStrategy
@@ -1352,7 +1296,6 @@ return|;
 block|}
 comment|/**          * When using STREAMING client mode, it indicates the endpoint where          * responses should be forwarded.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|streamRepliesTo ( String streamRepliesTo)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|streamRepliesTo
@@ -1374,7 +1317,6 @@ return|;
 block|}
 comment|/**          * The user agent header passed to the server.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|userAgent (String userAgent)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|userAgent
@@ -1396,7 +1338,6 @@ return|;
 block|}
 comment|/**          * Authentication method type in advance to the SSL/TLS negotiation.          * The option is a          *<code>org.apache.camel.component.grpc.GrpcAuthType</code> type.          * @group security          */
 DECL|method|authenticationType ( GrpcAuthType authenticationType)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|authenticationType
@@ -1418,7 +1359,6 @@ return|;
 block|}
 comment|/**          * Authentication method type in advance to the SSL/TLS negotiation.          * The option will be converted to a          *<code>org.apache.camel.component.grpc.GrpcAuthType</code> type.          * @group security          */
 DECL|method|authenticationType ( String authenticationType)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|authenticationType
@@ -1440,7 +1380,6 @@ return|;
 block|}
 comment|/**          * JSON Web Token sign algorithm.          * The option is a          *<code>org.apache.camel.component.grpc.auth.jwt.JwtAlgorithm</code>          * type.          * @group security          */
 DECL|method|jwtAlgorithm ( JwtAlgorithm jwtAlgorithm)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|jwtAlgorithm
@@ -1461,8 +1400,7 @@ name|this
 return|;
 block|}
 comment|/**          * JSON Web Token sign algorithm.          * The option will be converted to a          *<code>org.apache.camel.component.grpc.auth.jwt.JwtAlgorithm</code>          * type.          * @group security          */
-DECL|method|jwtAlgorithm ( String jwtAlgorithm)
-specifier|public
+DECL|method|jwtAlgorithm (String jwtAlgorithm)
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|jwtAlgorithm
@@ -1484,7 +1422,6 @@ return|;
 block|}
 comment|/**          * JSON Web Token issuer.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|jwtIssuer (String jwtIssuer)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|jwtIssuer
@@ -1506,7 +1443,6 @@ return|;
 block|}
 comment|/**          * JSON Web Token secret.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|jwtSecret (String jwtSecret)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|jwtSecret
@@ -1528,7 +1464,6 @@ return|;
 block|}
 comment|/**          * JSON Web Token subject.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|jwtSubject (String jwtSubject)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|jwtSubject
@@ -1550,7 +1485,6 @@ return|;
 block|}
 comment|/**          * The X.509 certificate chain file resource in PEM format link.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|keyCertChainResource ( String keyCertChainResource)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|keyCertChainResource
@@ -1571,8 +1505,7 @@ name|this
 return|;
 block|}
 comment|/**          * The PKCS#8 private key file password.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|keyPassword ( String keyPassword)
-specifier|public
+DECL|method|keyPassword (String keyPassword)
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|keyPassword
@@ -1593,8 +1526,7 @@ name|this
 return|;
 block|}
 comment|/**          * The PKCS#8 private key file resource in PEM format link.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|keyResource ( String keyResource)
-specifier|public
+DECL|method|keyResource (String keyResource)
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|keyResource
@@ -1616,7 +1548,6 @@ return|;
 block|}
 comment|/**          * Identifies the security negotiation type used for HTTP/2          * communication.          * The option is a<code>io.grpc.netty.NegotiationType</code> type.          * @group security          */
 DECL|method|negotiationType ( NegotiationType negotiationType)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|negotiationType
@@ -1638,7 +1569,6 @@ return|;
 block|}
 comment|/**          * Identifies the security negotiation type used for HTTP/2          * communication.          * The option will be converted to a          *<code>io.grpc.netty.NegotiationType</code> type.          * @group security          */
 DECL|method|negotiationType ( String negotiationType)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|negotiationType
@@ -1660,7 +1590,6 @@ return|;
 block|}
 comment|/**          * Service Account key file in JSON format resource link supported by          * the Google Cloud SDK.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|serviceAccountResource ( String serviceAccountResource)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|serviceAccountResource
@@ -1682,7 +1611,6 @@ return|;
 block|}
 comment|/**          * The trusted certificates collection file resource in PEM format for          * verifying the remote endpoint's certificate.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|trustCertCollectionResource ( String trustCertCollectionResource)
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|trustCertCollectionResource
@@ -1712,7 +1640,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|GrpcEndpointProducerBuilder
 name|basic
@@ -1727,7 +1654,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGrpcEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1749,7 +1675,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGrpcEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1771,7 +1696,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedGrpcEndpointProducerBuilder
 name|synchronous
@@ -1793,7 +1717,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedGrpcEndpointProducerBuilder
 name|synchronous
@@ -1826,7 +1749,6 @@ extends|,
 name|GrpcEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedGrpcEndpointBuilder
 name|advanced
@@ -1841,7 +1763,6 @@ return|;
 block|}
 comment|/**          * The gRPC server host name. This is localhost or 0.0.0.0 when being a          * consumer or remote server host name when using producer.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|host
@@ -1863,7 +1784,6 @@ return|;
 block|}
 comment|/**          * The gRPC local or remote server port.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|port
@@ -1885,7 +1805,6 @@ return|;
 block|}
 comment|/**          * The gRPC local or remote server port.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|port
@@ -1907,7 +1826,6 @@ return|;
 block|}
 comment|/**          * Fully qualified service name from the protocol buffer descriptor file          * (package dot service definition name).          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|service (String service)
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|service
@@ -1928,8 +1846,7 @@ name|this
 return|;
 block|}
 comment|/**          * The HTTP/2 flow control window size (MiB).          * The option is a<code>int</code> type.          * @group common          */
-DECL|method|flowControlWindow ( int flowControlWindow)
-specifier|public
+DECL|method|flowControlWindow (int flowControlWindow)
 specifier|default
 name|GrpcEndpointBuilder
 name|flowControlWindow
@@ -1950,8 +1867,7 @@ name|this
 return|;
 block|}
 comment|/**          * The HTTP/2 flow control window size (MiB).          * The option will be converted to a<code>int</code> type.          * @group common          */
-DECL|method|flowControlWindow ( String flowControlWindow)
-specifier|public
+DECL|method|flowControlWindow (String flowControlWindow)
 specifier|default
 name|GrpcEndpointBuilder
 name|flowControlWindow
@@ -1973,7 +1889,6 @@ return|;
 block|}
 comment|/**          * The maximum message size allowed to be received/sent (MiB).          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|maxMessageSize (int maxMessageSize)
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|maxMessageSize
@@ -1995,7 +1910,6 @@ return|;
 block|}
 comment|/**          * The maximum message size allowed to be received/sent (MiB).          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|maxMessageSize (String maxMessageSize)
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|maxMessageSize
@@ -2017,7 +1931,6 @@ return|;
 block|}
 comment|/**          * Authentication method type in advance to the SSL/TLS negotiation.          * The option is a          *<code>org.apache.camel.component.grpc.GrpcAuthType</code> type.          * @group security          */
 DECL|method|authenticationType ( GrpcAuthType authenticationType)
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|authenticationType
@@ -2038,8 +1951,7 @@ name|this
 return|;
 block|}
 comment|/**          * Authentication method type in advance to the SSL/TLS negotiation.          * The option will be converted to a          *<code>org.apache.camel.component.grpc.GrpcAuthType</code> type.          * @group security          */
-DECL|method|authenticationType ( String authenticationType)
-specifier|public
+DECL|method|authenticationType (String authenticationType)
 specifier|default
 name|GrpcEndpointBuilder
 name|authenticationType
@@ -2060,8 +1972,7 @@ name|this
 return|;
 block|}
 comment|/**          * JSON Web Token sign algorithm.          * The option is a          *<code>org.apache.camel.component.grpc.auth.jwt.JwtAlgorithm</code>          * type.          * @group security          */
-DECL|method|jwtAlgorithm ( JwtAlgorithm jwtAlgorithm)
-specifier|public
+DECL|method|jwtAlgorithm (JwtAlgorithm jwtAlgorithm)
 specifier|default
 name|GrpcEndpointBuilder
 name|jwtAlgorithm
@@ -2083,7 +1994,6 @@ return|;
 block|}
 comment|/**          * JSON Web Token sign algorithm.          * The option will be converted to a          *<code>org.apache.camel.component.grpc.auth.jwt.JwtAlgorithm</code>          * type.          * @group security          */
 DECL|method|jwtAlgorithm (String jwtAlgorithm)
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|jwtAlgorithm
@@ -2105,7 +2015,6 @@ return|;
 block|}
 comment|/**          * JSON Web Token issuer.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|jwtIssuer (String jwtIssuer)
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|jwtIssuer
@@ -2127,7 +2036,6 @@ return|;
 block|}
 comment|/**          * JSON Web Token secret.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|jwtSecret (String jwtSecret)
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|jwtSecret
@@ -2149,7 +2057,6 @@ return|;
 block|}
 comment|/**          * JSON Web Token subject.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|jwtSubject (String jwtSubject)
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|jwtSubject
@@ -2171,7 +2078,6 @@ return|;
 block|}
 comment|/**          * The X.509 certificate chain file resource in PEM format link.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|keyCertChainResource ( String keyCertChainResource)
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|keyCertChainResource
@@ -2193,7 +2099,6 @@ return|;
 block|}
 comment|/**          * The PKCS#8 private key file password.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|keyPassword (String keyPassword)
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|keyPassword
@@ -2215,7 +2120,6 @@ return|;
 block|}
 comment|/**          * The PKCS#8 private key file resource in PEM format link.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|keyResource (String keyResource)
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|keyResource
@@ -2237,7 +2141,6 @@ return|;
 block|}
 comment|/**          * Identifies the security negotiation type used for HTTP/2          * communication.          * The option is a<code>io.grpc.netty.NegotiationType</code> type.          * @group security          */
 DECL|method|negotiationType ( NegotiationType negotiationType)
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|negotiationType
@@ -2258,8 +2161,7 @@ name|this
 return|;
 block|}
 comment|/**          * Identifies the security negotiation type used for HTTP/2          * communication.          * The option will be converted to a          *<code>io.grpc.netty.NegotiationType</code> type.          * @group security          */
-DECL|method|negotiationType ( String negotiationType)
-specifier|public
+DECL|method|negotiationType (String negotiationType)
 specifier|default
 name|GrpcEndpointBuilder
 name|negotiationType
@@ -2281,7 +2183,6 @@ return|;
 block|}
 comment|/**          * Service Account key file in JSON format resource link supported by          * the Google Cloud SDK.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|serviceAccountResource ( String serviceAccountResource)
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|serviceAccountResource
@@ -2303,7 +2204,6 @@ return|;
 block|}
 comment|/**          * The trusted certificates collection file resource in PEM format for          * verifying the remote endpoint's certificate.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|trustCertCollectionResource ( String trustCertCollectionResource)
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|trustCertCollectionResource
@@ -2336,7 +2236,6 @@ extends|,
 name|AdvancedGrpcEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|basic
@@ -2351,7 +2250,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGrpcEndpointBuilder
 name|basicPropertyBinding
@@ -2373,7 +2271,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGrpcEndpointBuilder
 name|basicPropertyBinding
@@ -2394,8 +2291,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedGrpcEndpointBuilder
 name|synchronous
@@ -2416,8 +2312,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedGrpcEndpointBuilder
 name|synchronous
@@ -2514,7 +2409,6 @@ name|PLAINTEXT
 block|;     }
 comment|/**      * The gRPC component allows to call and expose remote procedures via HTTP/2      * with protobuf dataformat Creates a builder to build endpoints for the      * gRPC component.      */
 DECL|method|grpc (String path)
-specifier|public
 specifier|default
 name|GrpcEndpointBuilder
 name|grpc

@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedDnsEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * The type of the lookup.          * The option is a<code>org.apache.camel.component.dns.DnsType</code>          * type.          * @group producer          */
 DECL|method|dnsType (DnsType dnsType)
-specifier|public
 specifier|default
 name|DnsEndpointBuilder
 name|dnsType
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * The type of the lookup.          * The option will be converted to a          *<code>org.apache.camel.component.dns.DnsType</code> type.          * @group producer          */
 DECL|method|dnsType (String dnsType)
-specifier|public
 specifier|default
 name|DnsEndpointBuilder
 name|dnsType
@@ -167,7 +164,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|DnsEndpointBuilder
 name|basic
@@ -182,7 +178,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDnsEndpointBuilder
 name|basicPropertyBinding
@@ -204,7 +199,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDnsEndpointBuilder
 name|basicPropertyBinding
@@ -225,8 +219,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedDnsEndpointBuilder
 name|synchronous
@@ -248,7 +241,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous (String synchronous)
-specifier|public
 specifier|default
 name|AdvancedDnsEndpointBuilder
 name|synchronous
@@ -290,7 +282,6 @@ name|wikipedia
 block|;     }
 comment|/**      * To lookup domain information and run DNS queries using DNSJava. Creates a      * builder to build endpoints for the DNS component.      */
 DECL|method|dns (String path)
-specifier|public
 specifier|default
 name|DnsEndpointBuilder
 name|dns

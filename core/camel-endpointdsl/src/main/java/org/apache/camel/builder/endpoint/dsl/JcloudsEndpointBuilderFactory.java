@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJcloudsEndpointConsumerBuilder
 name|advanced
@@ -138,8 +137,7 @@ name|this
 return|;
 block|}
 comment|/**          * What command to execute such as blobstore or compute.          * The option is a          *<code>org.apache.camel.component.jclouds.JcloudsCommand</code> type.          * @group common          */
-DECL|method|command ( JcloudsCommand command)
-specifier|public
+DECL|method|command (JcloudsCommand command)
 specifier|default
 name|JcloudsEndpointConsumerBuilder
 name|command
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * What command to execute such as blobstore or compute.          * The option will be converted to a          *<code>org.apache.camel.component.jclouds.JcloudsCommand</code> type.          * @group common          */
 DECL|method|command (String command)
-specifier|public
 specifier|default
 name|JcloudsEndpointConsumerBuilder
 name|command
@@ -182,8 +179,7 @@ name|this
 return|;
 block|}
 comment|/**          * The name of the cloud provider that provides the target service (e.g.          * aws-s3 or aws_ec2).          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|providerId ( String providerId)
-specifier|public
+DECL|method|providerId (String providerId)
 specifier|default
 name|JcloudsEndpointConsumerBuilder
 name|providerId
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|JcloudsEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|JcloudsEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -249,7 +243,6 @@ return|;
 block|}
 comment|/**          * The name of the blob container.          * The option is a<code>java.lang.String</code> type.          * @group blobstore          */
 DECL|method|container (String container)
-specifier|public
 specifier|default
 name|JcloudsEndpointConsumerBuilder
 name|container
@@ -271,7 +264,6 @@ return|;
 block|}
 comment|/**          * An optional directory name to use.          * The option is a<code>java.lang.String</code> type.          * @group blobstore          */
 DECL|method|directory (String directory)
-specifier|public
 specifier|default
 name|JcloudsEndpointConsumerBuilder
 name|directory
@@ -301,7 +293,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JcloudsEndpointConsumerBuilder
 name|basic
@@ -316,7 +307,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedJcloudsEndpointConsumerBuilder
 name|exceptionHandler
@@ -338,7 +328,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedJcloudsEndpointConsumerBuilder
 name|exceptionHandler
@@ -360,7 +349,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedJcloudsEndpointConsumerBuilder
 name|exchangePattern
@@ -382,7 +370,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedJcloudsEndpointConsumerBuilder
 name|exchangePattern
@@ -404,7 +391,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJcloudsEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -426,7 +412,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJcloudsEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -448,7 +433,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedJcloudsEndpointConsumerBuilder
 name|synchronous
@@ -470,7 +454,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedJcloudsEndpointConsumerBuilder
 name|synchronous
@@ -501,7 +484,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJcloudsEndpointProducerBuilder
 name|advanced
@@ -515,8 +497,7 @@ name|this
 return|;
 block|}
 comment|/**          * What command to execute such as blobstore or compute.          * The option is a          *<code>org.apache.camel.component.jclouds.JcloudsCommand</code> type.          * @group common          */
-DECL|method|command ( JcloudsCommand command)
-specifier|public
+DECL|method|command (JcloudsCommand command)
 specifier|default
 name|JcloudsEndpointProducerBuilder
 name|command
@@ -538,7 +519,6 @@ return|;
 block|}
 comment|/**          * What command to execute such as blobstore or compute.          * The option will be converted to a          *<code>org.apache.camel.component.jclouds.JcloudsCommand</code> type.          * @group common          */
 DECL|method|command (String command)
-specifier|public
 specifier|default
 name|JcloudsEndpointProducerBuilder
 name|command
@@ -559,8 +539,7 @@ name|this
 return|;
 block|}
 comment|/**          * The name of the cloud provider that provides the target service (e.g.          * aws-s3 or aws_ec2).          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|providerId ( String providerId)
-specifier|public
+DECL|method|providerId (String providerId)
 specifier|default
 name|JcloudsEndpointProducerBuilder
 name|providerId
@@ -582,7 +561,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|JcloudsEndpointProducerBuilder
 name|lazyStartProducer
@@ -604,7 +582,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|JcloudsEndpointProducerBuilder
 name|lazyStartProducer
@@ -626,7 +603,6 @@ return|;
 block|}
 comment|/**          * The name of the blob.          * The option is a<code>java.lang.String</code> type.          * @group blobstore          */
 DECL|method|blobName (String blobName)
-specifier|public
 specifier|default
 name|JcloudsEndpointProducerBuilder
 name|blobName
@@ -648,7 +624,6 @@ return|;
 block|}
 comment|/**          * The name of the blob container.          * The option is a<code>java.lang.String</code> type.          * @group blobstore          */
 DECL|method|container (String container)
-specifier|public
 specifier|default
 name|JcloudsEndpointProducerBuilder
 name|container
@@ -670,7 +645,6 @@ return|;
 block|}
 comment|/**          * The group that will be assigned to the newly created node. Values          * depend on the actual cloud provider.          * The option is a<code>java.lang.String</code> type.          * @group compute          */
 DECL|method|group (String group)
-specifier|public
 specifier|default
 name|JcloudsEndpointProducerBuilder
 name|group
@@ -691,8 +665,7 @@ name|this
 return|;
 block|}
 comment|/**          * The hardware that will be used for creating a node. Values depend on          * the actual cloud provider.          * The option is a<code>java.lang.String</code> type.          * @group compute          */
-DECL|method|hardwareId ( String hardwareId)
-specifier|public
+DECL|method|hardwareId (String hardwareId)
 specifier|default
 name|JcloudsEndpointProducerBuilder
 name|hardwareId
@@ -714,7 +687,6 @@ return|;
 block|}
 comment|/**          * The imageId that will be used for creating a node. Values depend on          * the actual cloud provider.          * The option is a<code>java.lang.String</code> type.          * @group compute          */
 DECL|method|imageId (String imageId)
-specifier|public
 specifier|default
 name|JcloudsEndpointProducerBuilder
 name|imageId
@@ -735,8 +707,7 @@ name|this
 return|;
 block|}
 comment|/**          * The location that will be used for creating a node. Values depend on          * the actual cloud provider.          * The option is a<code>java.lang.String</code> type.          * @group compute          */
-DECL|method|locationId ( String locationId)
-specifier|public
+DECL|method|locationId (String locationId)
 specifier|default
 name|JcloudsEndpointProducerBuilder
 name|locationId
@@ -758,7 +729,6 @@ return|;
 block|}
 comment|/**          * The id of the node that will run the script or destroyed.          * The option is a<code>java.lang.String</code> type.          * @group compute          */
 DECL|method|nodeId (String nodeId)
-specifier|public
 specifier|default
 name|JcloudsEndpointProducerBuilder
 name|nodeId
@@ -780,7 +750,6 @@ return|;
 block|}
 comment|/**          * To filter by node status to only select running nodes etc.          * The option is a<code>java.lang.String</code> type.          * @group compute          */
 DECL|method|nodeState (String nodeState)
-specifier|public
 specifier|default
 name|JcloudsEndpointProducerBuilder
 name|nodeState
@@ -802,7 +771,6 @@ return|;
 block|}
 comment|/**          * Specifies the type of operation that will be performed to the          * blobstore.          * The option is a<code>java.lang.String</code> type.          * @group compute          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|JcloudsEndpointProducerBuilder
 name|operation
@@ -824,7 +792,6 @@ return|;
 block|}
 comment|/**          * The user on the target node that will run the script.          * The option is a<code>java.lang.String</code> type.          * @group compute          */
 DECL|method|user (String user)
-specifier|public
 specifier|default
 name|JcloudsEndpointProducerBuilder
 name|user
@@ -854,7 +821,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JcloudsEndpointProducerBuilder
 name|basic
@@ -869,7 +835,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJcloudsEndpointProducerBuilder
 name|basicPropertyBinding
@@ -891,7 +856,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJcloudsEndpointProducerBuilder
 name|basicPropertyBinding
@@ -913,7 +877,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedJcloudsEndpointProducerBuilder
 name|synchronous
@@ -935,7 +898,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedJcloudsEndpointProducerBuilder
 name|synchronous
@@ -968,7 +930,6 @@ extends|,
 name|JcloudsEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJcloudsEndpointBuilder
 name|advanced
@@ -983,7 +944,6 @@ return|;
 block|}
 comment|/**          * What command to execute such as blobstore or compute.          * The option is a          *<code>org.apache.camel.component.jclouds.JcloudsCommand</code> type.          * @group common          */
 DECL|method|command (JcloudsCommand command)
-specifier|public
 specifier|default
 name|JcloudsEndpointBuilder
 name|command
@@ -1005,7 +965,6 @@ return|;
 block|}
 comment|/**          * What command to execute such as blobstore or compute.          * The option will be converted to a          *<code>org.apache.camel.component.jclouds.JcloudsCommand</code> type.          * @group common          */
 DECL|method|command (String command)
-specifier|public
 specifier|default
 name|JcloudsEndpointBuilder
 name|command
@@ -1027,7 +986,6 @@ return|;
 block|}
 comment|/**          * The name of the cloud provider that provides the target service (e.g.          * aws-s3 or aws_ec2).          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|providerId (String providerId)
-specifier|public
 specifier|default
 name|JcloudsEndpointBuilder
 name|providerId
@@ -1049,7 +1007,6 @@ return|;
 block|}
 comment|/**          * The name of the blob container.          * The option is a<code>java.lang.String</code> type.          * @group blobstore          */
 DECL|method|container (String container)
-specifier|public
 specifier|default
 name|JcloudsEndpointBuilder
 name|container
@@ -1082,7 +1039,6 @@ extends|,
 name|AdvancedJcloudsEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JcloudsEndpointBuilder
 name|basic
@@ -1097,7 +1053,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJcloudsEndpointBuilder
 name|basicPropertyBinding
@@ -1119,7 +1074,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJcloudsEndpointBuilder
 name|basicPropertyBinding
@@ -1140,8 +1094,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedJcloudsEndpointBuilder
 name|synchronous
@@ -1162,8 +1115,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedJcloudsEndpointBuilder
 name|synchronous
@@ -1199,7 +1151,6 @@ name|compute
 block|;     }
 comment|/**      * For interacting with cloud compute& blobstore service via jclouds.      * Creates a builder to build endpoints for the JClouds component.      */
 DECL|method|jclouds (String path)
-specifier|public
 specifier|default
 name|JcloudsEndpointBuilder
 name|jclouds

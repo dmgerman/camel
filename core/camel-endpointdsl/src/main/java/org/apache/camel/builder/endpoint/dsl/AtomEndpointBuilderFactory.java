@@ -109,7 +109,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedAtomEndpointBuilder
 name|advanced
@@ -124,7 +123,6 @@ return|;
 block|}
 comment|/**          * The URI to the feed to poll.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|feedUri (String feedUri)
-specifier|public
 specifier|default
 name|AtomEndpointBuilder
 name|feedUri
@@ -146,7 +144,6 @@ return|;
 block|}
 comment|/**          * Sets whether to add the feed object as a header.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|feedHeader (boolean feedHeader)
-specifier|public
 specifier|default
 name|AtomEndpointBuilder
 name|feedHeader
@@ -168,7 +165,6 @@ return|;
 block|}
 comment|/**          * Sets whether to add the feed object as a header.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|feedHeader (String feedHeader)
-specifier|public
 specifier|default
 name|AtomEndpointBuilder
 name|feedHeader
@@ -190,7 +186,6 @@ return|;
 block|}
 comment|/**          * Sets whether to use filtering or not of the entries.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|filter (boolean filter)
-specifier|public
 specifier|default
 name|AtomEndpointBuilder
 name|filter
@@ -212,7 +207,6 @@ return|;
 block|}
 comment|/**          * Sets whether to use filtering or not of the entries.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|filter (String filter)
-specifier|public
 specifier|default
 name|AtomEndpointBuilder
 name|filter
@@ -234,7 +228,6 @@ return|;
 block|}
 comment|/**          * Sets the timestamp to be used for filtering entries from the atom          * feeds. This options is only in conjunction with the splitEntries.          * The option is a<code>java.util.Date</code> type.          * @group consumer          */
 DECL|method|lastUpdate (Date lastUpdate)
-specifier|public
 specifier|default
 name|AtomEndpointBuilder
 name|lastUpdate
@@ -256,7 +249,6 @@ return|;
 block|}
 comment|/**          * Sets the timestamp to be used for filtering entries from the atom          * feeds. This options is only in conjunction with the splitEntries.          * The option will be converted to a<code>java.util.Date</code> type.          * @group consumer          */
 DECL|method|lastUpdate (String lastUpdate)
-specifier|public
 specifier|default
 name|AtomEndpointBuilder
 name|lastUpdate
@@ -278,7 +270,6 @@ return|;
 block|}
 comment|/**          * Sets the password to be used for basic authentication when polling          * from a HTTP feed.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|AtomEndpointBuilder
 name|password
@@ -300,7 +291,6 @@ return|;
 block|}
 comment|/**          * Sets whether to sort entries by published date. Only works when          * splitEntries = true.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sortEntries (boolean sortEntries)
-specifier|public
 specifier|default
 name|AtomEndpointBuilder
 name|sortEntries
@@ -322,7 +312,6 @@ return|;
 block|}
 comment|/**          * Sets whether to sort entries by published date. Only works when          * splitEntries = true.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sortEntries (String sortEntries)
-specifier|public
 specifier|default
 name|AtomEndpointBuilder
 name|sortEntries
@@ -344,7 +333,6 @@ return|;
 block|}
 comment|/**          * Sets whether or not entries should be sent individually or whether          * the entire feed should be sent as a single message.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|splitEntries (boolean splitEntries)
-specifier|public
 specifier|default
 name|AtomEndpointBuilder
 name|splitEntries
@@ -366,7 +354,6 @@ return|;
 block|}
 comment|/**          * Sets whether or not entries should be sent individually or whether          * the entire feed should be sent as a single message.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|splitEntries (String splitEntries)
-specifier|public
 specifier|default
 name|AtomEndpointBuilder
 name|splitEntries
@@ -387,8 +374,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether all entries identified in a single feed poll should be          * delivered immediately. If true, only one entry is processed per          * consumer.delay. Only applicable when splitEntries = true.          * The option is a<code>boolean</code> type.          * @group consumer          */
-DECL|method|throttleEntries ( boolean throttleEntries)
-specifier|public
+DECL|method|throttleEntries (boolean throttleEntries)
 specifier|default
 name|AtomEndpointBuilder
 name|throttleEntries
@@ -409,8 +395,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether all entries identified in a single feed poll should be          * delivered immediately. If true, only one entry is processed per          * consumer.delay. Only applicable when splitEntries = true.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
-DECL|method|throttleEntries ( String throttleEntries)
-specifier|public
+DECL|method|throttleEntries (String throttleEntries)
 specifier|default
 name|AtomEndpointBuilder
 name|throttleEntries
@@ -432,7 +417,6 @@ return|;
 block|}
 comment|/**          * Sets the username to be used for basic authentication when polling          * from a HTTP feed.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|AtomEndpointBuilder
 name|username
@@ -463,7 +447,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|AtomEndpointBuilder
 name|basic
@@ -478,7 +461,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtomEndpointBuilder
 name|basicPropertyBinding
@@ -500,7 +482,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtomEndpointBuilder
 name|basicPropertyBinding
@@ -521,8 +502,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedAtomEndpointBuilder
 name|synchronous
@@ -543,8 +523,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedAtomEndpointBuilder
 name|synchronous
@@ -567,7 +546,6 @@ block|}
 block|}
 comment|/**      * The atom component is used for consuming Atom RSS feeds. Creates a      * builder to build endpoints for the Atom component.      */
 DECL|method|atom (String path)
-specifier|public
 specifier|default
 name|AtomEndpointBuilder
 name|atom

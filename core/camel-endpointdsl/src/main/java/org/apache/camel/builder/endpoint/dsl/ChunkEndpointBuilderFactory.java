@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedChunkEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Path to the resource. You can prefix with: classpath, file, http,          * ref, or bean. classpath, file and http loads the resource using these          * protocols (classpath is default). ref will lookup the resource in the          * registry. bean will call a method on a bean to be used as the          * resource. For bean you can specify the method name after dot, eg          * bean:myBean.myMethod.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|resourceUri (String resourceUri)
-specifier|public
 specifier|default
 name|ChunkEndpointBuilder
 name|resourceUri
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Sets whether to use resource content cache or not.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|contentCache (boolean contentCache)
-specifier|public
 specifier|default
 name|ChunkEndpointBuilder
 name|contentCache
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Sets whether to use resource content cache or not.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|contentCache (String contentCache)
-specifier|public
 specifier|default
 name|ChunkEndpointBuilder
 name|contentCache
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Define the encoding of the body.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|encoding (String encoding)
-specifier|public
 specifier|default
 name|ChunkEndpointBuilder
 name|encoding
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Define the file extension of the template.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|extension (String extension)
-specifier|public
 specifier|default
 name|ChunkEndpointBuilder
 name|extension
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * Define the themes folder to scan.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|themeFolder (String themeFolder)
-specifier|public
 specifier|default
 name|ChunkEndpointBuilder
 name|themeFolder
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * Define the theme layer to elaborate.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|themeLayer (String themeLayer)
-specifier|public
 specifier|default
 name|ChunkEndpointBuilder
 name|themeLayer
@@ -268,7 +260,6 @@ return|;
 block|}
 comment|/**          * Define the themes subfolder to scan.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|themeSubfolder (String themeSubfolder)
-specifier|public
 specifier|default
 name|ChunkEndpointBuilder
 name|themeSubfolder
@@ -299,7 +290,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|ChunkEndpointBuilder
 name|basic
@@ -314,7 +304,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedChunkEndpointBuilder
 name|basicPropertyBinding
@@ -336,7 +325,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedChunkEndpointBuilder
 name|basicPropertyBinding
@@ -357,8 +345,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedChunkEndpointBuilder
 name|synchronous
@@ -379,8 +366,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedChunkEndpointBuilder
 name|synchronous
@@ -403,7 +389,6 @@ block|}
 block|}
 comment|/**      * Transforms the message using a Chunk template. Creates a builder to build      * endpoints for the Chunk component.      */
 DECL|method|chunk (String path)
-specifier|public
 specifier|default
 name|ChunkEndpointBuilder
 name|chunk

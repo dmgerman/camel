@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedElasticsearchEndpointBuilder
 name|advanced
@@ -113,8 +112,7 @@ name|this
 return|;
 block|}
 comment|/**          * Name of the cluster.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|clusterName ( String clusterName)
-specifier|public
+DECL|method|clusterName (String clusterName)
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|clusterName
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * The time in ms to wait before connection will timeout.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|connectionTimeout ( int connectionTimeout)
-specifier|public
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|connectionTimeout
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * The time in ms to wait before connection will timeout.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|connectionTimeout
@@ -179,8 +175,7 @@ name|this
 return|;
 block|}
 comment|/**          * Disconnect after it finish calling the producer.          * The option is a<code>boolean</code> type.          * @group producer          */
-DECL|method|disconnect ( boolean disconnect)
-specifier|public
+DECL|method|disconnect (boolean disconnect)
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|disconnect
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Disconnect after it finish calling the producer.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|disconnect (String disconnect)
-specifier|public
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|disconnect
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * Enable SSL.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|enableSSL (boolean enableSSL)
-specifier|public
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|enableSSL
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * Enable SSL.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|enableSSL (String enableSSL)
-specifier|public
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|enableSSL
@@ -267,8 +259,7 @@ name|this
 return|;
 block|}
 comment|/**          * Comma separated list with ip:port formatted remote transport          * addresses to use.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|hostAddresses ( String hostAddresses)
-specifier|public
+DECL|method|hostAddresses (String hostAddresses)
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|hostAddresses
@@ -290,7 +281,6 @@ return|;
 block|}
 comment|/**          * The name of the index to act against.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|indexName (String indexName)
-specifier|public
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|indexName
@@ -312,7 +302,6 @@ return|;
 block|}
 comment|/**          * The type of the index to act against.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|indexType (String indexType)
-specifier|public
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|indexType
@@ -333,8 +322,7 @@ name|this
 return|;
 block|}
 comment|/**          * The time in ms before retry.          * The option is a<code>int</code> type.          * @group producer          */
-DECL|method|maxRetryTimeout ( int maxRetryTimeout)
-specifier|public
+DECL|method|maxRetryTimeout (int maxRetryTimeout)
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|maxRetryTimeout
@@ -356,7 +344,6 @@ return|;
 block|}
 comment|/**          * The time in ms before retry.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|maxRetryTimeout ( String maxRetryTimeout)
-specifier|public
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|maxRetryTimeout
@@ -378,7 +365,6 @@ return|;
 block|}
 comment|/**          * What operation to perform.          * The option is a          *<code>org.apache.camel.component.elasticsearch.ElasticsearchOperation</code> type.          * @group producer          */
 DECL|method|operation ( ElasticsearchOperation operation)
-specifier|public
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|operation
@@ -400,7 +386,6 @@ return|;
 block|}
 comment|/**          * What operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.elasticsearch.ElasticsearchOperation</code> type.          * @group producer          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|operation
@@ -422,7 +407,6 @@ return|;
 block|}
 comment|/**          * Time in ms during which elasticsearch will keep search context alive.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|scrollKeepAliveMs ( int scrollKeepAliveMs)
-specifier|public
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|scrollKeepAliveMs
@@ -444,7 +428,6 @@ return|;
 block|}
 comment|/**          * Time in ms during which elasticsearch will keep search context alive.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|scrollKeepAliveMs ( String scrollKeepAliveMs)
-specifier|public
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|scrollKeepAliveMs
@@ -465,8 +448,7 @@ name|this
 return|;
 block|}
 comment|/**          * The timeout in ms to wait before the socket will timeout.          * The option is a<code>int</code> type.          * @group producer          */
-DECL|method|socketTimeout ( int socketTimeout)
-specifier|public
+DECL|method|socketTimeout (int socketTimeout)
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|socketTimeout
@@ -487,8 +469,7 @@ name|this
 return|;
 block|}
 comment|/**          * The timeout in ms to wait before the socket will timeout.          * The option will be converted to a<code>int</code> type.          * @group producer          */
-DECL|method|socketTimeout ( String socketTimeout)
-specifier|public
+DECL|method|socketTimeout (String socketTimeout)
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|socketTimeout
@@ -510,7 +491,6 @@ return|;
 block|}
 comment|/**          * Enable scroll usage.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|useScroll (boolean useScroll)
-specifier|public
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|useScroll
@@ -532,7 +512,6 @@ return|;
 block|}
 comment|/**          * Enable scroll usage.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|useScroll (String useScroll)
-specifier|public
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|useScroll
@@ -554,7 +533,6 @@ return|;
 block|}
 comment|/**          * Index creation waits for the write consistency number of shards to be          * available.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|waitForActiveShards ( int waitForActiveShards)
-specifier|public
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|waitForActiveShards
@@ -576,7 +554,6 @@ return|;
 block|}
 comment|/**          * Index creation waits for the write consistency number of shards to be          * available.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|waitForActiveShards ( String waitForActiveShards)
-specifier|public
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|waitForActiveShards
@@ -607,7 +584,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|basic
@@ -622,7 +598,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedElasticsearchEndpointBuilder
 name|basicPropertyBinding
@@ -644,7 +619,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedElasticsearchEndpointBuilder
 name|basicPropertyBinding
@@ -666,7 +640,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedElasticsearchEndpointBuilder
 name|synchronous
@@ -688,7 +661,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedElasticsearchEndpointBuilder
 name|synchronous
@@ -757,7 +729,6 @@ name|Info
 block|;     }
 comment|/**      * The elasticsearch component is used for interfacing with ElasticSearch      * server using REST API. Creates a builder to build endpoints for the      * Elastichsearch Rest component.      */
 DECL|method|elasticsearch (String path)
-specifier|public
 specifier|default
 name|ElasticsearchEndpointBuilder
 name|elasticsearch

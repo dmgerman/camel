@@ -99,7 +99,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSchedulerEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * The name of the scheduler.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|SchedulerEndpointBuilder
 name|name
@@ -135,8 +133,7 @@ name|this
 return|;
 block|}
 comment|/**          * Number of threads used by the scheduling thread pool. Is by default          * using a single thread.          * The option is a<code>int</code> type.          * @group scheduler          */
-DECL|method|concurrentTasks ( int concurrentTasks)
-specifier|public
+DECL|method|concurrentTasks (int concurrentTasks)
 specifier|default
 name|SchedulerEndpointBuilder
 name|concurrentTasks
@@ -157,8 +154,7 @@ name|this
 return|;
 block|}
 comment|/**          * Number of threads used by the scheduling thread pool. Is by default          * using a single thread.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
-DECL|method|concurrentTasks ( String concurrentTasks)
-specifier|public
+DECL|method|concurrentTasks (String concurrentTasks)
 specifier|default
 name|SchedulerEndpointBuilder
 name|concurrentTasks
@@ -189,7 +185,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SchedulerEndpointBuilder
 name|basic
@@ -204,7 +199,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSchedulerEndpointBuilder
 name|basicPropertyBinding
@@ -226,7 +220,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSchedulerEndpointBuilder
 name|basicPropertyBinding
@@ -247,8 +240,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSchedulerEndpointBuilder
 name|synchronous
@@ -269,8 +261,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSchedulerEndpointBuilder
 name|synchronous
@@ -293,7 +284,6 @@ block|}
 block|}
 comment|/**      * The scheduler component is used for generating message exchanges when a      * scheduler fires. Creates a builder to build endpoints for the Scheduler      * component.      */
 DECL|method|scheduler (String path)
-specifier|public
 specifier|default
 name|SchedulerEndpointBuilder
 name|scheduler

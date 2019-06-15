@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedGoogleBigQueryEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Google Cloud Project Id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|projectId (String projectId)
-specifier|public
 specifier|default
 name|GoogleBigQueryEndpointBuilder
 name|projectId
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * BigQuery Dataset Id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|datasetId (String datasetId)
-specifier|public
 specifier|default
 name|GoogleBigQueryEndpointBuilder
 name|datasetId
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * BigQuery table id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|tableId (String tableId)
-specifier|public
 specifier|default
 name|GoogleBigQueryEndpointBuilder
 name|tableId
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * ConnectionFactory to obtain connection to Bigquery Service. If non          * provided the default will be used.          * The option is a          *<code>org.apache.camel.component.google.bigquery.GoogleBigQueryConnectionFactory</code> type.          * @group producer          */
 DECL|method|connectionFactory ( Object connectionFactory)
-specifier|public
 specifier|default
 name|GoogleBigQueryEndpointBuilder
 name|connectionFactory
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * ConnectionFactory to obtain connection to Bigquery Service. If non          * provided the default will be used.          * The option will be converted to a          *<code>org.apache.camel.component.google.bigquery.GoogleBigQueryConnectionFactory</code> type.          * @group producer          */
 DECL|method|connectionFactory ( String connectionFactory)
-specifier|public
 specifier|default
 name|GoogleBigQueryEndpointBuilder
 name|connectionFactory
@@ -223,8 +217,7 @@ name|this
 return|;
 block|}
 comment|/**          * Field name to use as insert id.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|useAsInsertId ( String useAsInsertId)
-specifier|public
+DECL|method|useAsInsertId (String useAsInsertId)
 specifier|default
 name|GoogleBigQueryEndpointBuilder
 name|useAsInsertId
@@ -255,7 +248,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|GoogleBigQueryEndpointBuilder
 name|basic
@@ -270,7 +262,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGoogleBigQueryEndpointBuilder
 name|basicPropertyBinding
@@ -292,7 +283,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGoogleBigQueryEndpointBuilder
 name|basicPropertyBinding
@@ -314,7 +304,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedGoogleBigQueryEndpointBuilder
 name|synchronous
@@ -336,7 +325,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedGoogleBigQueryEndpointBuilder
 name|synchronous
@@ -359,7 +347,6 @@ block|}
 block|}
 comment|/**      * Google BigQuery data warehouse for analytics. Creates a builder to build      * endpoints for the Google BigQuery component.      */
 DECL|method|googleBigQuery (String path)
-specifier|public
 specifier|default
 name|GoogleBigQueryEndpointBuilder
 name|googleBigQuery

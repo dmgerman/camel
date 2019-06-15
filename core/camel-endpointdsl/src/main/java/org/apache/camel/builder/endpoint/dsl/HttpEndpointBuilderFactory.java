@@ -133,7 +133,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|advanced
@@ -148,7 +147,6 @@ return|;
 block|}
 comment|/**          * The url of the HTTP endpoint to call.          * The option is a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|httpUri (URI httpUri)
-specifier|public
 specifier|default
 name|HttpEndpointBuilder
 name|httpUri
@@ -170,7 +168,6 @@ return|;
 block|}
 comment|/**          * The url of the HTTP endpoint to call.          * The option will be converted to a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|httpUri (String httpUri)
-specifier|public
 specifier|default
 name|HttpEndpointBuilder
 name|httpUri
@@ -192,7 +189,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not the raw input stream from Servlet is cached          * or not (Camel will read the stream into a in memory/overflow to file,          * Stream caching) cache. By default Camel will cache the Servlet input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store.          * DefaultHttpBinding will copy the request input stream into a stream          * cache and put it into message body if this option is false to support          * reading the stream multiple times. If you use Servlet to bridge/proxy          * an endpoint then consider enabling this option to improve          * performance, in case you do not need to read the message payload          * multiple times. The http/http4 producer will by default cache the          * response body stream. If setting this option to true, then the          * producers will not cache the response body stream but use the          * response stream as-is as the message body.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|disableStreamCache ( boolean disableStreamCache)
-specifier|public
 specifier|default
 name|HttpEndpointBuilder
 name|disableStreamCache
@@ -213,8 +209,7 @@ name|this
 return|;
 block|}
 comment|/**          * Determines whether or not the raw input stream from Servlet is cached          * or not (Camel will read the stream into a in memory/overflow to file,          * Stream caching) cache. By default Camel will cache the Servlet input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store.          * DefaultHttpBinding will copy the request input stream into a stream          * cache and put it into message body if this option is false to support          * reading the stream multiple times. If you use Servlet to bridge/proxy          * an endpoint then consider enabling this option to improve          * performance, in case you do not need to read the message payload          * multiple times. The http/http4 producer will by default cache the          * response body stream. If setting this option to true, then the          * producers will not cache the response body stream but use the          * response stream as-is as the message body.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|disableStreamCache ( String disableStreamCache)
-specifier|public
+DECL|method|disableStreamCache (String disableStreamCache)
 specifier|default
 name|HttpEndpointBuilder
 name|disableStreamCache
@@ -236,7 +231,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|HttpEndpointBuilder
 name|headerFilterStrategy
@@ -258,7 +252,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|HttpEndpointBuilder
 name|headerFilterStrategy
@@ -280,7 +273,6 @@ return|;
 block|}
 comment|/**          * If this option is false the Servlet will disable the HTTP streaming          * and set the content-length header on the response.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|chunked (boolean chunked)
-specifier|public
 specifier|default
 name|HttpEndpointBuilder
 name|chunked
@@ -302,7 +294,6 @@ return|;
 block|}
 comment|/**          * If this option is false the Servlet will disable the HTTP streaming          * and set the content-length header on the response.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|chunked (String chunked)
-specifier|public
 specifier|default
 name|HttpEndpointBuilder
 name|chunked
@@ -323,8 +314,7 @@ name|this
 return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          * The option is a<code>boolean</code> type.          * @group producer          */
-DECL|method|transferException ( boolean transferException)
-specifier|public
+DECL|method|transferException (boolean transferException)
 specifier|default
 name|HttpEndpointBuilder
 name|transferException
@@ -345,8 +335,7 @@ name|this
 return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
-DECL|method|transferException ( String transferException)
-specifier|public
+DECL|method|transferException (String transferException)
 specifier|default
 name|HttpEndpointBuilder
 name|transferException
@@ -368,7 +357,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters. Important: Only one          * instance of org.apache.camel.util.jsse.SSLContextParameters is          * supported per HttpComponent. If you need to use 2 or more different          * instances, you need to define a new HttpComponent per instance you          * need.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|HttpEndpointBuilder
 name|sslContextParameters
@@ -390,7 +378,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters. Important: Only one          * instance of org.apache.camel.util.jsse.SSLContextParameters is          * supported per HttpComponent. If you need to use 2 or more different          * instances, you need to define a new HttpComponent per instance you          * need.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|HttpEndpointBuilder
 name|sslContextParameters
@@ -412,7 +399,6 @@ return|;
 block|}
 comment|/**          * To use a custom X509HostnameVerifier such as DefaultHostnameVerifier          * or org.apache.http.conn.ssl.NoopHostnameVerifier.          * The option is a<code>javax.net.ssl.HostnameVerifier</code> type.          * @group security          */
 DECL|method|x509HostnameVerifier ( Object x509HostnameVerifier)
-specifier|public
 specifier|default
 name|HttpEndpointBuilder
 name|x509HostnameVerifier
@@ -434,7 +420,6 @@ return|;
 block|}
 comment|/**          * To use a custom X509HostnameVerifier such as DefaultHostnameVerifier          * or org.apache.http.conn.ssl.NoopHostnameVerifier.          * The option will be converted to a          *<code>javax.net.ssl.HostnameVerifier</code> type.          * @group security          */
 DECL|method|x509HostnameVerifier ( String x509HostnameVerifier)
-specifier|public
 specifier|default
 name|HttpEndpointBuilder
 name|x509HostnameVerifier
@@ -465,7 +450,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|HttpEndpointBuilder
 name|basic
@@ -479,8 +463,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a custom HttpBinding to control the mapping between Camel          * message and HttpClient.          * The option is a<code>org.apache.camel.http.common.HttpBinding</code>          * type.          * @group common (advanced)          */
-DECL|method|httpBinding ( Object httpBinding)
-specifier|public
+DECL|method|httpBinding (Object httpBinding)
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|httpBinding
@@ -501,8 +484,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a custom HttpBinding to control the mapping between Camel          * message and HttpClient.          * The option will be converted to a          *<code>org.apache.camel.http.common.HttpBinding</code> type.          * @group common (advanced)          */
-DECL|method|httpBinding ( String httpBinding)
-specifier|public
+DECL|method|httpBinding (String httpBinding)
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|httpBinding
@@ -524,7 +506,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|basicPropertyBinding
@@ -546,7 +527,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|basicPropertyBinding
@@ -567,8 +547,7 @@ name|this
 return|;
 block|}
 comment|/**          * Provide access to the http client request parameters used on new          * RequestConfig instances used by producers or consumers of this          * endpoint.          * The option is a          *<code>org.apache.http.impl.client.HttpClientBuilder</code> type.          * @group advanced          */
-DECL|method|clientBuilder ( Object clientBuilder)
-specifier|public
+DECL|method|clientBuilder (Object clientBuilder)
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|clientBuilder
@@ -589,8 +568,7 @@ name|this
 return|;
 block|}
 comment|/**          * Provide access to the http client request parameters used on new          * RequestConfig instances used by producers or consumers of this          * endpoint.          * The option will be converted to a          *<code>org.apache.http.impl.client.HttpClientBuilder</code> type.          * @group advanced          */
-DECL|method|clientBuilder ( String clientBuilder)
-specifier|public
+DECL|method|clientBuilder (String clientBuilder)
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|clientBuilder
@@ -612,7 +590,6 @@ return|;
 block|}
 comment|/**          * To use a custom HttpClientConnectionManager to manage connections.          * The option is a          *<code>org.apache.http.conn.HttpClientConnectionManager</code> type.          * @group advanced          */
 DECL|method|clientConnectionManager ( Object clientConnectionManager)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|clientConnectionManager
@@ -634,7 +611,6 @@ return|;
 block|}
 comment|/**          * To use a custom HttpClientConnectionManager to manage connections.          * The option will be converted to a          *<code>org.apache.http.conn.HttpClientConnectionManager</code> type.          * @group advanced          */
 DECL|method|clientConnectionManager ( String clientConnectionManager)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|clientConnectionManager
@@ -656,7 +632,6 @@ return|;
 block|}
 comment|/**          * The maximum number of connections per route.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|connectionsPerRoute ( int connectionsPerRoute)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|connectionsPerRoute
@@ -678,7 +653,6 @@ return|;
 block|}
 comment|/**          * The maximum number of connections per route.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|connectionsPerRoute ( String connectionsPerRoute)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|connectionsPerRoute
@@ -700,7 +674,6 @@ return|;
 block|}
 comment|/**          * Sets a custom HttpClient to be used by the producer.          * The option is a<code>org.apache.http.client.HttpClient</code> type.          * @group advanced          */
 DECL|method|httpClient (Object httpClient)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|httpClient
@@ -722,7 +695,6 @@ return|;
 block|}
 comment|/**          * Sets a custom HttpClient to be used by the producer.          * The option will be converted to a          *<code>org.apache.http.client.HttpClient</code> type.          * @group advanced          */
 DECL|method|httpClient (String httpClient)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|httpClient
@@ -744,7 +716,6 @@ return|;
 block|}
 comment|/**          * Register a custom configuration strategy for new HttpClient instances          * created by producers or consumers such as to configure authentication          * mechanisms etc.          * The option is a          *<code>org.apache.camel.component.http4.HttpClientConfigurer</code>          * type.          * @group advanced          */
 DECL|method|httpClientConfigurer ( Object httpClientConfigurer)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|httpClientConfigurer
@@ -766,7 +737,6 @@ return|;
 block|}
 comment|/**          * Register a custom configuration strategy for new HttpClient instances          * created by producers or consumers such as to configure authentication          * mechanisms etc.          * The option will be converted to a          *<code>org.apache.camel.component.http4.HttpClientConfigurer</code>          * type.          * @group advanced          */
 DECL|method|httpClientConfigurer ( String httpClientConfigurer)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|httpClientConfigurer
@@ -788,7 +758,6 @@ return|;
 block|}
 comment|/**          * To configure the HttpClient using the key/values from the Map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|httpClientOptions ( Map<String, Object> httpClientOptions)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|httpClientOptions
@@ -815,7 +784,6 @@ return|;
 block|}
 comment|/**          * To configure the HttpClient using the key/values from the Map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|httpClientOptions ( String httpClientOptions)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|httpClientOptions
@@ -836,8 +804,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a custom HttpContext instance.          * The option is a<code>org.apache.http.protocol.HttpContext</code>          * type.          * @group advanced          */
-DECL|method|httpContext ( Object httpContext)
-specifier|public
+DECL|method|httpContext (Object httpContext)
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|httpContext
@@ -858,8 +825,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a custom HttpContext instance.          * The option will be converted to a          *<code>org.apache.http.protocol.HttpContext</code> type.          * @group advanced          */
-DECL|method|httpContext ( String httpContext)
-specifier|public
+DECL|method|httpContext (String httpContext)
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|httpContext
@@ -881,7 +847,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Body of the exchange will be          * mapped to HTTP body. Setting this to false will avoid the HTTP          * mapping.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageBody ( boolean mapHttpMessageBody)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|mapHttpMessageBody
@@ -903,7 +868,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Body of the exchange will be          * mapped to HTTP body. Setting this to false will avoid the HTTP          * mapping.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageBody ( String mapHttpMessageBody)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|mapHttpMessageBody
@@ -925,7 +889,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Form Encoded body of the          * exchange will be mapped to HTTP. Setting this to false will avoid the          * HTTP Form Encoded body mapping.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageFormUrlEncodedBody ( boolean mapHttpMessageFormUrlEncodedBody)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|mapHttpMessageFormUrlEncodedBody
@@ -947,7 +910,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Form Encoded body of the          * exchange will be mapped to HTTP. Setting this to false will avoid the          * HTTP Form Encoded body mapping.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageFormUrlEncodedBody ( String mapHttpMessageFormUrlEncodedBody)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|mapHttpMessageFormUrlEncodedBody
@@ -969,7 +931,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Headers of the exchange will          * be mapped to HTTP headers. Setting this to false will avoid the HTTP          * Headers mapping.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageHeaders ( boolean mapHttpMessageHeaders)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|mapHttpMessageHeaders
@@ -991,7 +952,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Headers of the exchange will          * be mapped to HTTP headers. Setting this to false will avoid the HTTP          * Headers mapping.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageHeaders ( String mapHttpMessageHeaders)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|mapHttpMessageHeaders
@@ -1013,7 +973,6 @@ return|;
 block|}
 comment|/**          * The maximum number of connections.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|maxTotalConnections ( int maxTotalConnections)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|maxTotalConnections
@@ -1035,7 +994,6 @@ return|;
 block|}
 comment|/**          * The maximum number of connections.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|maxTotalConnections ( String maxTotalConnections)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|maxTotalConnections
@@ -1056,8 +1014,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|synchronous
@@ -1078,8 +1035,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|synchronous
@@ -1101,7 +1057,6 @@ return|;
 block|}
 comment|/**          * To use System Properties as fallback for configuration.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|useSystemProperties ( boolean useSystemProperties)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|useSystemProperties
@@ -1123,7 +1078,6 @@ return|;
 block|}
 comment|/**          * To use System Properties as fallback for configuration.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|useSystemProperties ( String useSystemProperties)
-specifier|public
 specifier|default
 name|AdvancedHttpEndpointBuilder
 name|useSystemProperties
@@ -1177,7 +1131,6 @@ name|PATCH
 block|;     }
 comment|/**      * For calling out to external HTTP servers using Apache HTTP Client 4.x.      * Creates a builder to build endpoints for the HTTP4 component.      */
 DECL|method|http (String path)
-specifier|public
 specifier|default
 name|HttpEndpointBuilder
 name|http

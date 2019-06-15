@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedAtmosEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * Atmos name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|AtmosEndpointConsumerBuilder
 name|name
@@ -160,8 +158,7 @@ name|this
 return|;
 block|}
 comment|/**          * Operation to perform.          * The option is a          *<code>org.apache.camel.component.atmos.util.AtmosOperation</code>          * type.          * @group common          */
-DECL|method|operation ( AtmosOperation operation)
-specifier|public
+DECL|method|operation (AtmosOperation operation)
 specifier|default
 name|AtmosEndpointConsumerBuilder
 name|operation
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * Operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.atmos.util.AtmosOperation</code>          * type.          * @group common          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|AtmosEndpointConsumerBuilder
 name|operation
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * Atmos SSL validation.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|enableSslValidation ( boolean enableSslValidation)
-specifier|public
 specifier|default
 name|AtmosEndpointConsumerBuilder
 name|enableSslValidation
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * Atmos SSL validation.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|enableSslValidation ( String enableSslValidation)
-specifier|public
 specifier|default
 name|AtmosEndpointConsumerBuilder
 name|enableSslValidation
@@ -248,8 +242,7 @@ name|this
 return|;
 block|}
 comment|/**          * Atmos client fullTokenId.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|fullTokenId ( String fullTokenId)
-specifier|public
+DECL|method|fullTokenId (String fullTokenId)
 specifier|default
 name|AtmosEndpointConsumerBuilder
 name|fullTokenId
@@ -271,7 +264,6 @@ return|;
 block|}
 comment|/**          * Local path to put files.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|localPath (String localPath)
-specifier|public
 specifier|default
 name|AtmosEndpointConsumerBuilder
 name|localPath
@@ -292,8 +284,7 @@ name|this
 return|;
 block|}
 comment|/**          * New path on Atmos when moving files.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|newRemotePath ( String newRemotePath)
-specifier|public
+DECL|method|newRemotePath (String newRemotePath)
 specifier|default
 name|AtmosEndpointConsumerBuilder
 name|newRemotePath
@@ -315,7 +306,6 @@ return|;
 block|}
 comment|/**          * Search query on Atmos.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|query (String query)
-specifier|public
 specifier|default
 name|AtmosEndpointConsumerBuilder
 name|query
@@ -337,7 +327,6 @@ return|;
 block|}
 comment|/**          * Where to put files on Atmos.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|remotePath (String remotePath)
-specifier|public
 specifier|default
 name|AtmosEndpointConsumerBuilder
 name|remotePath
@@ -359,7 +348,6 @@ return|;
 block|}
 comment|/**          * Atmos shared secret.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|AtmosEndpointConsumerBuilder
 name|secretKey
@@ -381,7 +369,6 @@ return|;
 block|}
 comment|/**          * Atomos server uri.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|uri (String uri)
-specifier|public
 specifier|default
 name|AtmosEndpointConsumerBuilder
 name|uri
@@ -403,7 +390,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|AtmosEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -425,7 +411,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|AtmosEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -455,7 +440,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|AtmosEndpointConsumerBuilder
 name|basic
@@ -470,7 +454,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedAtmosEndpointConsumerBuilder
 name|exceptionHandler
@@ -492,7 +475,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedAtmosEndpointConsumerBuilder
 name|exceptionHandler
@@ -514,7 +496,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedAtmosEndpointConsumerBuilder
 name|exchangePattern
@@ -536,7 +517,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedAtmosEndpointConsumerBuilder
 name|exchangePattern
@@ -558,7 +538,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -580,7 +559,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -602,7 +580,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedAtmosEndpointConsumerBuilder
 name|synchronous
@@ -624,7 +601,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedAtmosEndpointConsumerBuilder
 name|synchronous
@@ -655,7 +631,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedAtmosEndpointProducerBuilder
 name|advanced
@@ -670,7 +645,6 @@ return|;
 block|}
 comment|/**          * Atmos name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|AtmosEndpointProducerBuilder
 name|name
@@ -691,8 +665,7 @@ name|this
 return|;
 block|}
 comment|/**          * Operation to perform.          * The option is a          *<code>org.apache.camel.component.atmos.util.AtmosOperation</code>          * type.          * @group common          */
-DECL|method|operation ( AtmosOperation operation)
-specifier|public
+DECL|method|operation (AtmosOperation operation)
 specifier|default
 name|AtmosEndpointProducerBuilder
 name|operation
@@ -714,7 +687,6 @@ return|;
 block|}
 comment|/**          * Operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.atmos.util.AtmosOperation</code>          * type.          * @group common          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|AtmosEndpointProducerBuilder
 name|operation
@@ -736,7 +708,6 @@ return|;
 block|}
 comment|/**          * Atmos SSL validation.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|enableSslValidation ( boolean enableSslValidation)
-specifier|public
 specifier|default
 name|AtmosEndpointProducerBuilder
 name|enableSslValidation
@@ -758,7 +729,6 @@ return|;
 block|}
 comment|/**          * Atmos SSL validation.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|enableSslValidation ( String enableSslValidation)
-specifier|public
 specifier|default
 name|AtmosEndpointProducerBuilder
 name|enableSslValidation
@@ -779,8 +749,7 @@ name|this
 return|;
 block|}
 comment|/**          * Atmos client fullTokenId.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|fullTokenId ( String fullTokenId)
-specifier|public
+DECL|method|fullTokenId (String fullTokenId)
 specifier|default
 name|AtmosEndpointProducerBuilder
 name|fullTokenId
@@ -802,7 +771,6 @@ return|;
 block|}
 comment|/**          * Local path to put files.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|localPath (String localPath)
-specifier|public
 specifier|default
 name|AtmosEndpointProducerBuilder
 name|localPath
@@ -823,8 +791,7 @@ name|this
 return|;
 block|}
 comment|/**          * New path on Atmos when moving files.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|newRemotePath ( String newRemotePath)
-specifier|public
+DECL|method|newRemotePath (String newRemotePath)
 specifier|default
 name|AtmosEndpointProducerBuilder
 name|newRemotePath
@@ -846,7 +813,6 @@ return|;
 block|}
 comment|/**          * Search query on Atmos.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|query (String query)
-specifier|public
 specifier|default
 name|AtmosEndpointProducerBuilder
 name|query
@@ -868,7 +834,6 @@ return|;
 block|}
 comment|/**          * Where to put files on Atmos.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|remotePath (String remotePath)
-specifier|public
 specifier|default
 name|AtmosEndpointProducerBuilder
 name|remotePath
@@ -890,7 +855,6 @@ return|;
 block|}
 comment|/**          * Atmos shared secret.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|AtmosEndpointProducerBuilder
 name|secretKey
@@ -912,7 +876,6 @@ return|;
 block|}
 comment|/**          * Atomos server uri.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|uri (String uri)
-specifier|public
 specifier|default
 name|AtmosEndpointProducerBuilder
 name|uri
@@ -934,7 +897,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|AtmosEndpointProducerBuilder
 name|lazyStartProducer
@@ -956,7 +918,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|AtmosEndpointProducerBuilder
 name|lazyStartProducer
@@ -986,7 +947,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|AtmosEndpointProducerBuilder
 name|basic
@@ -1001,7 +961,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1023,7 +982,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1045,7 +1003,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedAtmosEndpointProducerBuilder
 name|synchronous
@@ -1067,7 +1024,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedAtmosEndpointProducerBuilder
 name|synchronous
@@ -1100,7 +1056,6 @@ extends|,
 name|AtmosEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedAtmosEndpointBuilder
 name|advanced
@@ -1115,7 +1070,6 @@ return|;
 block|}
 comment|/**          * Atmos name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|AtmosEndpointBuilder
 name|name
@@ -1137,7 +1091,6 @@ return|;
 block|}
 comment|/**          * Operation to perform.          * The option is a          *<code>org.apache.camel.component.atmos.util.AtmosOperation</code>          * type.          * @group common          */
 DECL|method|operation (AtmosOperation operation)
-specifier|public
 specifier|default
 name|AtmosEndpointBuilder
 name|operation
@@ -1159,7 +1112,6 @@ return|;
 block|}
 comment|/**          * Operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.atmos.util.AtmosOperation</code>          * type.          * @group common          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|AtmosEndpointBuilder
 name|operation
@@ -1181,7 +1133,6 @@ return|;
 block|}
 comment|/**          * Atmos SSL validation.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|enableSslValidation ( boolean enableSslValidation)
-specifier|public
 specifier|default
 name|AtmosEndpointBuilder
 name|enableSslValidation
@@ -1203,7 +1154,6 @@ return|;
 block|}
 comment|/**          * Atmos SSL validation.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|enableSslValidation ( String enableSslValidation)
-specifier|public
 specifier|default
 name|AtmosEndpointBuilder
 name|enableSslValidation
@@ -1225,7 +1175,6 @@ return|;
 block|}
 comment|/**          * Atmos client fullTokenId.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|fullTokenId (String fullTokenId)
-specifier|public
 specifier|default
 name|AtmosEndpointBuilder
 name|fullTokenId
@@ -1247,7 +1196,6 @@ return|;
 block|}
 comment|/**          * Local path to put files.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|localPath (String localPath)
-specifier|public
 specifier|default
 name|AtmosEndpointBuilder
 name|localPath
@@ -1269,7 +1217,6 @@ return|;
 block|}
 comment|/**          * New path on Atmos when moving files.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|newRemotePath (String newRemotePath)
-specifier|public
 specifier|default
 name|AtmosEndpointBuilder
 name|newRemotePath
@@ -1291,7 +1238,6 @@ return|;
 block|}
 comment|/**          * Search query on Atmos.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|query (String query)
-specifier|public
 specifier|default
 name|AtmosEndpointBuilder
 name|query
@@ -1313,7 +1259,6 @@ return|;
 block|}
 comment|/**          * Where to put files on Atmos.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|remotePath (String remotePath)
-specifier|public
 specifier|default
 name|AtmosEndpointBuilder
 name|remotePath
@@ -1335,7 +1280,6 @@ return|;
 block|}
 comment|/**          * Atmos shared secret.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|AtmosEndpointBuilder
 name|secretKey
@@ -1357,7 +1301,6 @@ return|;
 block|}
 comment|/**          * Atomos server uri.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|uri (String uri)
-specifier|public
 specifier|default
 name|AtmosEndpointBuilder
 name|uri
@@ -1390,7 +1333,6 @@ extends|,
 name|AdvancedAtmosEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|AtmosEndpointBuilder
 name|basic
@@ -1405,7 +1347,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosEndpointBuilder
 name|basicPropertyBinding
@@ -1427,7 +1368,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosEndpointBuilder
 name|basicPropertyBinding
@@ -1448,8 +1388,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedAtmosEndpointBuilder
 name|synchronous
@@ -1470,8 +1409,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedAtmosEndpointBuilder
 name|synchronous
@@ -1516,7 +1454,6 @@ name|move
 block|;     }
 comment|/**      * The atmos component is used for integrating with EMC's Atomos Storage.      * Creates a builder to build endpoints for the Atmos component.      */
 DECL|method|atmos (String path)
-specifier|public
 specifier|default
 name|AtmosEndpointBuilder
 name|atmos

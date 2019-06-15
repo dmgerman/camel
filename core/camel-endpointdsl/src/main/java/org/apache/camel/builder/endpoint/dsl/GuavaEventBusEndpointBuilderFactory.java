@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * To lookup the Guava EventBus from the registry with the given name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|eventBusRef ( String eventBusRef)
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointConsumerBuilder
 name|eventBusRef
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * If used on the consumer side of the route, will filter events          * received from the EventBus to the instances of the class and          * superclasses of eventClass. Null value of this option is equal to          * setting it to the java.lang.Object i.e. the consumer will capture all          * messages incoming to the event bus. This option cannot be used          * together with listenerInterface option.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group common          */
 DECL|method|eventClass ( Class<Object> eventClass)
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointConsumerBuilder
 name|eventClass
@@ -186,7 +183,6 @@ return|;
 block|}
 comment|/**          * If used on the consumer side of the route, will filter events          * received from the EventBus to the instances of the class and          * superclasses of eventClass. Null value of this option is equal to          * setting it to the java.lang.Object i.e. the consumer will capture all          * messages incoming to the event bus. This option cannot be used          * together with listenerInterface option.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group common          */
 DECL|method|eventClass ( String eventClass)
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointConsumerBuilder
 name|eventClass
@@ -208,7 +204,6 @@ return|;
 block|}
 comment|/**          * The interface with method(s) marked with the Subscribe annotation.          * Dynamic proxy will be created over the interface so it could be          * registered as the EventBus listener. Particularly useful when          * creating multi-event listeners and for handling DeadEvent properly.          * This option cannot be used together with eventClass option.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group common          */
 DECL|method|listenerInterface ( Class<Object> listenerInterface)
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointConsumerBuilder
 name|listenerInterface
@@ -233,7 +228,6 @@ return|;
 block|}
 comment|/**          * The interface with method(s) marked with the Subscribe annotation.          * Dynamic proxy will be created over the interface so it could be          * registered as the EventBus listener. Particularly useful when          * creating multi-event listeners and for handling DeadEvent properly.          * This option cannot be used together with eventClass option.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group common          */
 DECL|method|listenerInterface ( String listenerInterface)
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointConsumerBuilder
 name|listenerInterface
@@ -255,7 +249,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -277,7 +270,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -307,7 +299,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointConsumerBuilder
 name|basic
@@ -322,7 +313,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointConsumerBuilder
 name|exceptionHandler
@@ -344,7 +334,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointConsumerBuilder
 name|exceptionHandler
@@ -366,7 +355,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointConsumerBuilder
 name|exchangePattern
@@ -388,7 +376,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointConsumerBuilder
 name|exchangePattern
@@ -410,7 +397,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -432,7 +418,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -454,7 +439,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointConsumerBuilder
 name|synchronous
@@ -476,7 +460,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointConsumerBuilder
 name|synchronous
@@ -507,7 +490,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointProducerBuilder
 name|advanced
@@ -522,7 +504,6 @@ return|;
 block|}
 comment|/**          * To lookup the Guava EventBus from the registry with the given name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|eventBusRef ( String eventBusRef)
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointProducerBuilder
 name|eventBusRef
@@ -544,7 +525,6 @@ return|;
 block|}
 comment|/**          * If used on the consumer side of the route, will filter events          * received from the EventBus to the instances of the class and          * superclasses of eventClass. Null value of this option is equal to          * setting it to the java.lang.Object i.e. the consumer will capture all          * messages incoming to the event bus. This option cannot be used          * together with listenerInterface option.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group common          */
 DECL|method|eventClass ( Class<Object> eventClass)
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointProducerBuilder
 name|eventClass
@@ -569,7 +549,6 @@ return|;
 block|}
 comment|/**          * If used on the consumer side of the route, will filter events          * received from the EventBus to the instances of the class and          * superclasses of eventClass. Null value of this option is equal to          * setting it to the java.lang.Object i.e. the consumer will capture all          * messages incoming to the event bus. This option cannot be used          * together with listenerInterface option.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group common          */
 DECL|method|eventClass ( String eventClass)
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointProducerBuilder
 name|eventClass
@@ -591,7 +570,6 @@ return|;
 block|}
 comment|/**          * The interface with method(s) marked with the Subscribe annotation.          * Dynamic proxy will be created over the interface so it could be          * registered as the EventBus listener. Particularly useful when          * creating multi-event listeners and for handling DeadEvent properly.          * This option cannot be used together with eventClass option.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group common          */
 DECL|method|listenerInterface ( Class<Object> listenerInterface)
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointProducerBuilder
 name|listenerInterface
@@ -616,7 +594,6 @@ return|;
 block|}
 comment|/**          * The interface with method(s) marked with the Subscribe annotation.          * Dynamic proxy will be created over the interface so it could be          * registered as the EventBus listener. Particularly useful when          * creating multi-event listeners and for handling DeadEvent properly.          * This option cannot be used together with eventClass option.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group common          */
 DECL|method|listenerInterface ( String listenerInterface)
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointProducerBuilder
 name|listenerInterface
@@ -638,7 +615,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointProducerBuilder
 name|lazyStartProducer
@@ -660,7 +636,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointProducerBuilder
 name|lazyStartProducer
@@ -690,7 +665,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointProducerBuilder
 name|basic
@@ -705,7 +679,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointProducerBuilder
 name|basicPropertyBinding
@@ -727,7 +700,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointProducerBuilder
 name|basicPropertyBinding
@@ -749,7 +721,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointProducerBuilder
 name|synchronous
@@ -771,7 +742,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointProducerBuilder
 name|synchronous
@@ -804,7 +774,6 @@ extends|,
 name|GuavaEventBusEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointBuilder
 name|advanced
@@ -818,8 +787,7 @@ name|this
 return|;
 block|}
 comment|/**          * To lookup the Guava EventBus from the registry with the given name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|eventBusRef ( String eventBusRef)
-specifier|public
+DECL|method|eventBusRef (String eventBusRef)
 specifier|default
 name|GuavaEventBusEndpointBuilder
 name|eventBusRef
@@ -840,8 +808,7 @@ name|this
 return|;
 block|}
 comment|/**          * If used on the consumer side of the route, will filter events          * received from the EventBus to the instances of the class and          * superclasses of eventClass. Null value of this option is equal to          * setting it to the java.lang.Object i.e. the consumer will capture all          * messages incoming to the event bus. This option cannot be used          * together with listenerInterface option.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group common          */
-DECL|method|eventClass ( Class<Object> eventClass)
-specifier|public
+DECL|method|eventClass (Class<Object> eventClass)
 specifier|default
 name|GuavaEventBusEndpointBuilder
 name|eventClass
@@ -866,7 +833,6 @@ return|;
 block|}
 comment|/**          * If used on the consumer side of the route, will filter events          * received from the EventBus to the instances of the class and          * superclasses of eventClass. Null value of this option is equal to          * setting it to the java.lang.Object i.e. the consumer will capture all          * messages incoming to the event bus. This option cannot be used          * together with listenerInterface option.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group common          */
 DECL|method|eventClass (String eventClass)
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointBuilder
 name|eventClass
@@ -888,7 +854,6 @@ return|;
 block|}
 comment|/**          * The interface with method(s) marked with the Subscribe annotation.          * Dynamic proxy will be created over the interface so it could be          * registered as the EventBus listener. Particularly useful when          * creating multi-event listeners and for handling DeadEvent properly.          * This option cannot be used together with eventClass option.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group common          */
 DECL|method|listenerInterface ( Class<Object> listenerInterface)
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointBuilder
 name|listenerInterface
@@ -913,7 +878,6 @@ return|;
 block|}
 comment|/**          * The interface with method(s) marked with the Subscribe annotation.          * Dynamic proxy will be created over the interface so it could be          * registered as the EventBus listener. Particularly useful when          * creating multi-event listeners and for handling DeadEvent properly.          * This option cannot be used together with eventClass option.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group common          */
 DECL|method|listenerInterface ( String listenerInterface)
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointBuilder
 name|listenerInterface
@@ -946,7 +910,6 @@ extends|,
 name|AdvancedGuavaEventBusEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointBuilder
 name|basic
@@ -961,7 +924,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointBuilder
 name|basicPropertyBinding
@@ -983,7 +945,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointBuilder
 name|basicPropertyBinding
@@ -1005,7 +966,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointBuilder
 name|synchronous
@@ -1027,7 +987,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedGuavaEventBusEndpointBuilder
 name|synchronous
@@ -1050,7 +1009,6 @@ block|}
 block|}
 comment|/**      * The guava-eventbus component provides integration bridge between Camel      * and Google Guava EventBus. Creates a builder to build endpoints for the      * Guava EventBus component.      */
 DECL|method|guavaEventBus (String path)
-specifier|public
 specifier|default
 name|GuavaEventBusEndpointBuilder
 name|guavaEventBus

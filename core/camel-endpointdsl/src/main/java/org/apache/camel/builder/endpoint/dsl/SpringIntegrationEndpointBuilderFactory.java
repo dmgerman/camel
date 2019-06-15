@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * The default channel name which is used by the Spring Integration          * Spring context. It will equal to the inputChannel name for the Spring          * Integration consumer and the outputChannel name for the Spring          * Integration provider.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|defaultChannel ( String defaultChannel)
-specifier|public
 specifier|default
 name|SpringIntegrationEndpointConsumerBuilder
 name|defaultChannel
@@ -160,8 +158,7 @@ name|this
 return|;
 block|}
 comment|/**          * The exchange pattern that the Spring integration endpoint should use.          * If inOut=true then a reply channel is expected, either from the          * Spring Integration Message header or configured on the endpoint.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|inOut ( boolean inOut)
-specifier|public
+DECL|method|inOut (boolean inOut)
 specifier|default
 name|SpringIntegrationEndpointConsumerBuilder
 name|inOut
@@ -182,8 +179,7 @@ name|this
 return|;
 block|}
 comment|/**          * The exchange pattern that the Spring integration endpoint should use.          * If inOut=true then a reply channel is expected, either from the          * Spring Integration Message header or configured on the endpoint.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|inOut ( String inOut)
-specifier|public
+DECL|method|inOut (String inOut)
 specifier|default
 name|SpringIntegrationEndpointConsumerBuilder
 name|inOut
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|SpringIntegrationEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|SpringIntegrationEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -249,7 +243,6 @@ return|;
 block|}
 comment|/**          * The Spring integration input channel name that this endpoint wants to          * consume from Spring integration.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|inputChannel ( String inputChannel)
-specifier|public
 specifier|default
 name|SpringIntegrationEndpointConsumerBuilder
 name|inputChannel
@@ -279,7 +272,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SpringIntegrationEndpointConsumerBuilder
 name|basic
@@ -294,7 +286,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointConsumerBuilder
 name|exceptionHandler
@@ -316,7 +307,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointConsumerBuilder
 name|exceptionHandler
@@ -338,7 +328,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointConsumerBuilder
 name|exchangePattern
@@ -360,7 +349,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointConsumerBuilder
 name|exchangePattern
@@ -382,7 +370,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -404,7 +391,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -426,7 +412,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointConsumerBuilder
 name|synchronous
@@ -448,7 +433,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointConsumerBuilder
 name|synchronous
@@ -479,7 +463,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointProducerBuilder
 name|advanced
@@ -494,7 +477,6 @@ return|;
 block|}
 comment|/**          * The default channel name which is used by the Spring Integration          * Spring context. It will equal to the inputChannel name for the Spring          * Integration consumer and the outputChannel name for the Spring          * Integration provider.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|defaultChannel ( String defaultChannel)
-specifier|public
 specifier|default
 name|SpringIntegrationEndpointProducerBuilder
 name|defaultChannel
@@ -515,8 +497,7 @@ name|this
 return|;
 block|}
 comment|/**          * The exchange pattern that the Spring integration endpoint should use.          * If inOut=true then a reply channel is expected, either from the          * Spring Integration Message header or configured on the endpoint.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|inOut ( boolean inOut)
-specifier|public
+DECL|method|inOut (boolean inOut)
 specifier|default
 name|SpringIntegrationEndpointProducerBuilder
 name|inOut
@@ -537,8 +518,7 @@ name|this
 return|;
 block|}
 comment|/**          * The exchange pattern that the Spring integration endpoint should use.          * If inOut=true then a reply channel is expected, either from the          * Spring Integration Message header or configured on the endpoint.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|inOut ( String inOut)
-specifier|public
+DECL|method|inOut (String inOut)
 specifier|default
 name|SpringIntegrationEndpointProducerBuilder
 name|inOut
@@ -560,7 +540,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|SpringIntegrationEndpointProducerBuilder
 name|lazyStartProducer
@@ -582,7 +561,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|SpringIntegrationEndpointProducerBuilder
 name|lazyStartProducer
@@ -604,7 +582,6 @@ return|;
 block|}
 comment|/**          * The Spring integration output channel name that is used to send          * messages to Spring integration.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|outputChannel ( String outputChannel)
-specifier|public
 specifier|default
 name|SpringIntegrationEndpointProducerBuilder
 name|outputChannel
@@ -634,7 +611,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SpringIntegrationEndpointProducerBuilder
 name|basic
@@ -649,7 +625,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointProducerBuilder
 name|basicPropertyBinding
@@ -671,7 +646,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointProducerBuilder
 name|basicPropertyBinding
@@ -693,7 +667,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointProducerBuilder
 name|synchronous
@@ -715,7 +688,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointProducerBuilder
 name|synchronous
@@ -748,7 +720,6 @@ extends|,
 name|SpringIntegrationEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointBuilder
 name|advanced
@@ -763,7 +734,6 @@ return|;
 block|}
 comment|/**          * The default channel name which is used by the Spring Integration          * Spring context. It will equal to the inputChannel name for the Spring          * Integration consumer and the outputChannel name for the Spring          * Integration provider.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|defaultChannel ( String defaultChannel)
-specifier|public
 specifier|default
 name|SpringIntegrationEndpointBuilder
 name|defaultChannel
@@ -785,7 +755,6 @@ return|;
 block|}
 comment|/**          * The exchange pattern that the Spring integration endpoint should use.          * If inOut=true then a reply channel is expected, either from the          * Spring Integration Message header or configured on the endpoint.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|inOut (boolean inOut)
-specifier|public
 specifier|default
 name|SpringIntegrationEndpointBuilder
 name|inOut
@@ -807,7 +776,6 @@ return|;
 block|}
 comment|/**          * The exchange pattern that the Spring integration endpoint should use.          * If inOut=true then a reply channel is expected, either from the          * Spring Integration Message header or configured on the endpoint.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|inOut (String inOut)
-specifier|public
 specifier|default
 name|SpringIntegrationEndpointBuilder
 name|inOut
@@ -840,7 +808,6 @@ extends|,
 name|AdvancedSpringIntegrationEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SpringIntegrationEndpointBuilder
 name|basic
@@ -855,7 +822,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointBuilder
 name|basicPropertyBinding
@@ -877,7 +843,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointBuilder
 name|basicPropertyBinding
@@ -899,7 +864,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointBuilder
 name|synchronous
@@ -921,7 +885,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSpringIntegrationEndpointBuilder
 name|synchronous
@@ -943,8 +906,7 @@ return|;
 block|}
 block|}
 comment|/**      * Bridges Camel with Spring Integration. Creates a builder to build      * endpoints for the Spring Integration component.      */
-DECL|method|springIntegration ( String path)
-specifier|public
+DECL|method|springIntegration (String path)
 specifier|default
 name|SpringIntegrationEndpointBuilder
 name|springIntegration

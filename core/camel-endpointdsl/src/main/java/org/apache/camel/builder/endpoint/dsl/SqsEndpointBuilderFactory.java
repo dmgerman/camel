@@ -212,7 +212,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointConsumerBuilder
 name|advanced
@@ -226,8 +225,7 @@ name|this
 return|;
 block|}
 comment|/**          * Queue name or ARN.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|queueNameOrArn ( String queueNameOrArn)
-specifier|public
+DECL|method|queueNameOrArn (String queueNameOrArn)
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|queueNameOrArn
@@ -248,8 +246,7 @@ name|this
 return|;
 block|}
 comment|/**          * The hostname of the Amazon AWS cloud.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|amazonAWSHost ( String amazonAWSHost)
-specifier|public
+DECL|method|amazonAWSHost (String amazonAWSHost)
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|amazonAWSHost
@@ -271,7 +268,6 @@ return|;
 block|}
 comment|/**          * To use the AmazonSQS as client.          * The option is a<code>com.amazonaws.services.sqs.AmazonSQS</code>          * type.          * @group common          */
 DECL|method|amazonSQSClient ( Object amazonSQSClient)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|amazonSQSClient
@@ -293,7 +289,6 @@ return|;
 block|}
 comment|/**          * To use the AmazonSQS as client.          * The option will be converted to a          *<code>com.amazonaws.services.sqs.AmazonSQS</code> type.          * @group common          */
 DECL|method|amazonSQSClient ( String amazonSQSClient)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|amazonSQSClient
@@ -315,7 +310,6 @@ return|;
 block|}
 comment|/**          * Setting the autocreation of the queue.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|autoCreateQueue ( boolean autoCreateQueue)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|autoCreateQueue
@@ -337,7 +331,6 @@ return|;
 block|}
 comment|/**          * Setting the autocreation of the queue.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|autoCreateQueue ( String autoCreateQueue)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|autoCreateQueue
@@ -359,7 +352,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to map headers to/from Camel.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|headerFilterStrategy
@@ -381,7 +373,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to map headers to/from Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|headerFilterStrategy
@@ -403,7 +394,6 @@ return|;
 block|}
 comment|/**          * Specify the queue owner aws account id when you need to connect the          * queue with different account owner.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|queueOwnerAWSAccountId ( String queueOwnerAWSAccountId)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|queueOwnerAWSAccountId
@@ -425,7 +415,6 @@ return|;
 block|}
 comment|/**          * Specify the queue region which could be used with          * queueOwnerAWSAccountId to build the service URL.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|region (String region)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|region
@@ -446,8 +435,7 @@ name|this
 return|;
 block|}
 comment|/**          * A list of attribute names to receive when consuming. Multiple names          * can be separated by comma.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
-DECL|method|attributeNames ( String attributeNames)
-specifier|public
+DECL|method|attributeNames (String attributeNames)
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|attributeNames
@@ -469,7 +457,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -491,7 +478,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -513,7 +499,6 @@ return|;
 block|}
 comment|/**          * Allows you to use multiple threads to poll the sqs queue to increase          * throughput.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|concurrentConsumers ( int concurrentConsumers)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|concurrentConsumers
@@ -535,7 +520,6 @@ return|;
 block|}
 comment|/**          * Allows you to use multiple threads to poll the sqs queue to increase          * throughput.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|concurrentConsumers ( String concurrentConsumers)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|concurrentConsumers
@@ -557,7 +541,6 @@ return|;
 block|}
 comment|/**          * The default visibility timeout (in seconds).          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
 DECL|method|defaultVisibilityTimeout ( Integer defaultVisibilityTimeout)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|defaultVisibilityTimeout
@@ -579,7 +562,6 @@ return|;
 block|}
 comment|/**          * The default visibility timeout (in seconds).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
 DECL|method|defaultVisibilityTimeout ( String defaultVisibilityTimeout)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|defaultVisibilityTimeout
@@ -601,7 +583,6 @@ return|;
 block|}
 comment|/**          * Delete message from SQS after it has been read.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|deleteAfterRead ( boolean deleteAfterRead)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|deleteAfterRead
@@ -623,7 +604,6 @@ return|;
 block|}
 comment|/**          * Delete message from SQS after it has been read.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|deleteAfterRead ( String deleteAfterRead)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|deleteAfterRead
@@ -645,7 +625,6 @@ return|;
 block|}
 comment|/**          * Whether or not to send the DeleteMessage to the SQS queue if an          * exchange fails to get through a filter. If 'false' and exchange does          * not make it through a Camel filter upstream in the route, then don't          * send DeleteMessage.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|deleteIfFiltered ( boolean deleteIfFiltered)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|deleteIfFiltered
@@ -667,7 +646,6 @@ return|;
 block|}
 comment|/**          * Whether or not to send the DeleteMessage to the SQS queue if an          * exchange fails to get through a filter. If 'false' and exchange does          * not make it through a Camel filter upstream in the route, then don't          * send DeleteMessage.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|deleteIfFiltered ( String deleteIfFiltered)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|deleteIfFiltered
@@ -689,7 +667,6 @@ return|;
 block|}
 comment|/**          * If enabled then a scheduled background task will keep extending the          * message visibility on SQS. This is needed if it takes a long time to          * process the message. If set to true defaultVisibilityTimeout must be          * set. See details at Amazon docs.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|extendMessageVisibility ( boolean extendMessageVisibility)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|extendMessageVisibility
@@ -711,7 +688,6 @@ return|;
 block|}
 comment|/**          * If enabled then a scheduled background task will keep extending the          * message visibility on SQS. This is needed if it takes a long time to          * process the message. If set to true defaultVisibilityTimeout must be          * set. See details at Amazon docs.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|extendMessageVisibility ( String extendMessageVisibility)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|extendMessageVisibility
@@ -733,7 +709,6 @@ return|;
 block|}
 comment|/**          * The length of time, in seconds, for which Amazon SQS can reuse a data          * key to encrypt or decrypt messages before calling AWS KMS again. An          * integer representing seconds, between 60 seconds (1 minute) and          * 86,400 seconds (24 hours). Default: 300 (5 minutes).          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
 DECL|method|kmsDataKeyReusePeriodSeconds ( Integer kmsDataKeyReusePeriodSeconds)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|kmsDataKeyReusePeriodSeconds
@@ -755,7 +730,6 @@ return|;
 block|}
 comment|/**          * The length of time, in seconds, for which Amazon SQS can reuse a data          * key to encrypt or decrypt messages before calling AWS KMS again. An          * integer representing seconds, between 60 seconds (1 minute) and          * 86,400 seconds (24 hours). Default: 300 (5 minutes).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
 DECL|method|kmsDataKeyReusePeriodSeconds ( String kmsDataKeyReusePeriodSeconds)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|kmsDataKeyReusePeriodSeconds
@@ -776,8 +750,7 @@ name|this
 return|;
 block|}
 comment|/**          * The ID of an AWS-managed customer master key (CMK) for Amazon SQS or          * a custom CMK.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
-DECL|method|kmsMasterKeyId ( String kmsMasterKeyId)
-specifier|public
+DECL|method|kmsMasterKeyId (String kmsMasterKeyId)
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|kmsMasterKeyId
@@ -799,7 +772,6 @@ return|;
 block|}
 comment|/**          * Gets the maximum number of messages as a limit to poll at each          * polling. Is default unlimited, but use 0 or negative number to          * disable it as unlimited.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|maxMessagesPerPoll ( int maxMessagesPerPoll)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|maxMessagesPerPoll
@@ -821,7 +793,6 @@ return|;
 block|}
 comment|/**          * Gets the maximum number of messages as a limit to poll at each          * polling. Is default unlimited, but use 0 or negative number to          * disable it as unlimited.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|maxMessagesPerPoll ( String maxMessagesPerPoll)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|maxMessagesPerPoll
@@ -843,7 +814,6 @@ return|;
 block|}
 comment|/**          * A list of message attribute names to receive when consuming. Multiple          * names can be separated by comma.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|messageAttributeNames ( String messageAttributeNames)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|messageAttributeNames
@@ -865,7 +835,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( boolean sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -887,7 +856,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( String sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -909,7 +877,6 @@ return|;
 block|}
 comment|/**          * Define if Server Side Encryption is enabled or not on the queue.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|serverSideEncryptionEnabled ( boolean serverSideEncryptionEnabled)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|serverSideEncryptionEnabled
@@ -931,7 +898,6 @@ return|;
 block|}
 comment|/**          * Define if Server Side Encryption is enabled or not on the queue.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|serverSideEncryptionEnabled ( String serverSideEncryptionEnabled)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|serverSideEncryptionEnabled
@@ -953,7 +919,6 @@ return|;
 block|}
 comment|/**          * The duration (in seconds) that the received messages are hidden from          * subsequent retrieve requests after being retrieved by a          * ReceiveMessage request to set in the          * com.amazonaws.services.sqs.model.SetQueueAttributesRequest. This only          * make sense if its different from defaultVisibilityTimeout. It changes          * the queue visibility timeout attribute permanently.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
 DECL|method|visibilityTimeout ( Integer visibilityTimeout)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|visibilityTimeout
@@ -975,7 +940,6 @@ return|;
 block|}
 comment|/**          * The duration (in seconds) that the received messages are hidden from          * subsequent retrieve requests after being retrieved by a          * ReceiveMessage request to set in the          * com.amazonaws.services.sqs.model.SetQueueAttributesRequest. This only          * make sense if its different from defaultVisibilityTimeout. It changes          * the queue visibility timeout attribute permanently.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
 DECL|method|visibilityTimeout ( String visibilityTimeout)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|visibilityTimeout
@@ -997,7 +961,6 @@ return|;
 block|}
 comment|/**          * Duration in seconds (0 to 20) that the ReceiveMessage action call          * will wait until a message is in the queue to include in the response.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
 DECL|method|waitTimeSeconds ( Integer waitTimeSeconds)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|waitTimeSeconds
@@ -1019,7 +982,6 @@ return|;
 block|}
 comment|/**          * Duration in seconds (0 to 20) that the ReceiveMessage action call          * will wait until a message is in the queue to include in the response.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
 DECL|method|waitTimeSeconds ( String waitTimeSeconds)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|waitTimeSeconds
@@ -1041,7 +1003,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( int backoffErrorThreshold)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -1063,7 +1024,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( String backoffErrorThreshold)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -1085,7 +1045,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( int backoffIdleThreshold)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -1107,7 +1066,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( String backoffIdleThreshold)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -1129,7 +1087,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( int backoffMultiplier)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|backoffMultiplier
@@ -1151,7 +1108,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( String backoffMultiplier)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|backoffMultiplier
@@ -1173,7 +1129,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (long delay)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|delay
@@ -1195,7 +1150,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (String delay)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|delay
@@ -1217,7 +1171,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (boolean greedy)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|greedy
@@ -1239,7 +1192,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (String greedy)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|greedy
@@ -1261,7 +1213,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
 DECL|method|initialDelay (long initialDelay)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|initialDelay
@@ -1282,8 +1233,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
-DECL|method|initialDelay ( String initialDelay)
-specifier|public
+DECL|method|initialDelay (String initialDelay)
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|initialDelay
@@ -1305,7 +1255,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( LoggingLevel runLoggingLevel)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|runLoggingLevel
@@ -1327,7 +1276,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( String runLoggingLevel)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|runLoggingLevel
@@ -1349,7 +1297,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option is a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( ScheduledExecutorService scheduledExecutorService)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -1371,7 +1318,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( String scheduledExecutorService)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -1393,7 +1339,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option is a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler ( ScheduledPollConsumerScheduler scheduler)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|scheduler
@@ -1415,7 +1360,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler (String scheduler)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|scheduler
@@ -1437,7 +1381,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group scheduler          */
 DECL|method|schedulerProperties ( Map<String, Object> schedulerProperties)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|schedulerProperties
@@ -1464,7 +1407,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group scheduler          */
 DECL|method|schedulerProperties ( String schedulerProperties)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|schedulerProperties
@@ -1485,8 +1427,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option is a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|startScheduler ( boolean startScheduler)
-specifier|public
+DECL|method|startScheduler (boolean startScheduler)
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|startScheduler
@@ -1507,8 +1448,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|startScheduler ( String startScheduler)
-specifier|public
+DECL|method|startScheduler (String startScheduler)
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|startScheduler
@@ -1530,7 +1470,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option is a<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (TimeUnit timeUnit)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|timeUnit
@@ -1552,7 +1491,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (String timeUnit)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|timeUnit
@@ -1573,8 +1511,7 @@ name|this
 return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option is a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|useFixedDelay ( boolean useFixedDelay)
-specifier|public
+DECL|method|useFixedDelay (boolean useFixedDelay)
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|useFixedDelay
@@ -1595,8 +1532,7 @@ name|this
 return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|useFixedDelay ( String useFixedDelay)
-specifier|public
+DECL|method|useFixedDelay (String useFixedDelay)
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|useFixedDelay
@@ -1618,7 +1554,6 @@ return|;
 block|}
 comment|/**          * To define a proxy host when instantiating the SQS client.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|proxyHost (String proxyHost)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|proxyHost
@@ -1640,7 +1575,6 @@ return|;
 block|}
 comment|/**          * To define a proxy port when instantiating the SQS client.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
 DECL|method|proxyPort (Integer proxyPort)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|proxyPort
@@ -1662,7 +1596,6 @@ return|;
 block|}
 comment|/**          * To define a proxy port when instantiating the SQS client.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
 DECL|method|proxyPort (String proxyPort)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|proxyPort
@@ -1684,7 +1617,6 @@ return|;
 block|}
 comment|/**          * The maximumMessageSize (in bytes) an SQS message can contain for this          * queue.          * The option is a<code>java.lang.Integer</code> type.          * @group queue          */
 DECL|method|maximumMessageSize ( Integer maximumMessageSize)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|maximumMessageSize
@@ -1706,7 +1638,6 @@ return|;
 block|}
 comment|/**          * The maximumMessageSize (in bytes) an SQS message can contain for this          * queue.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group queue          */
 DECL|method|maximumMessageSize ( String maximumMessageSize)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|maximumMessageSize
@@ -1728,7 +1659,6 @@ return|;
 block|}
 comment|/**          * The messageRetentionPeriod (in seconds) a message will be retained by          * SQS for this queue.          * The option is a<code>java.lang.Integer</code> type.          * @group queue          */
 DECL|method|messageRetentionPeriod ( Integer messageRetentionPeriod)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|messageRetentionPeriod
@@ -1750,7 +1680,6 @@ return|;
 block|}
 comment|/**          * The messageRetentionPeriod (in seconds) a message will be retained by          * SQS for this queue.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group queue          */
 DECL|method|messageRetentionPeriod ( String messageRetentionPeriod)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|messageRetentionPeriod
@@ -1772,7 +1701,6 @@ return|;
 block|}
 comment|/**          * The policy for this queue.          * The option is a<code>java.lang.String</code> type.          * @group queue          */
 DECL|method|policy (String policy)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|policy
@@ -1794,7 +1722,6 @@ return|;
 block|}
 comment|/**          * If you do not specify WaitTimeSeconds in the request, the queue          * attribute ReceiveMessageWaitTimeSeconds is used to determine how long          * to wait.          * The option is a<code>java.lang.Integer</code> type.          * @group queue          */
 DECL|method|receiveMessageWaitTimeSeconds ( Integer receiveMessageWaitTimeSeconds)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|receiveMessageWaitTimeSeconds
@@ -1816,7 +1743,6 @@ return|;
 block|}
 comment|/**          * If you do not specify WaitTimeSeconds in the request, the queue          * attribute ReceiveMessageWaitTimeSeconds is used to determine how long          * to wait.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group queue          */
 DECL|method|receiveMessageWaitTimeSeconds ( String receiveMessageWaitTimeSeconds)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|receiveMessageWaitTimeSeconds
@@ -1837,8 +1763,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specify the policy that send message to DeadLetter queue. See detail          * at Amazon docs.          * The option is a<code>java.lang.String</code> type.          * @group queue          */
-DECL|method|redrivePolicy ( String redrivePolicy)
-specifier|public
+DECL|method|redrivePolicy (String redrivePolicy)
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|redrivePolicy
@@ -1860,7 +1785,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessKey (String accessKey)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|accessKey
@@ -1882,7 +1806,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|secretKey
@@ -1912,7 +1835,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SqsEndpointConsumerBuilder
 name|basic
@@ -1927,7 +1849,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointConsumerBuilder
 name|exceptionHandler
@@ -1949,7 +1870,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointConsumerBuilder
 name|exceptionHandler
@@ -1971,7 +1891,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointConsumerBuilder
 name|exchangePattern
@@ -1993,7 +1912,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointConsumerBuilder
 name|exchangePattern
@@ -2015,7 +1933,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option is a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( PollingConsumerPollStrategy pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointConsumerBuilder
 name|pollStrategy
@@ -2037,7 +1954,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( String pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointConsumerBuilder
 name|pollStrategy
@@ -2059,7 +1975,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -2081,7 +1996,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -2102,8 +2016,7 @@ name|this
 return|;
 block|}
 comment|/**          * Define if you want to apply delaySeconds option to the queue or on          * single messages.          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|delayQueue ( boolean delayQueue)
-specifier|public
+DECL|method|delayQueue (boolean delayQueue)
 specifier|default
 name|AdvancedSqsEndpointConsumerBuilder
 name|delayQueue
@@ -2124,8 +2037,7 @@ name|this
 return|;
 block|}
 comment|/**          * Define if you want to apply delaySeconds option to the queue or on          * single messages.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|delayQueue ( String delayQueue)
-specifier|public
+DECL|method|delayQueue (String delayQueue)
 specifier|default
 name|AdvancedSqsEndpointConsumerBuilder
 name|delayQueue
@@ -2146,8 +2058,7 @@ name|this
 return|;
 block|}
 comment|/**          * To define the queueUrl explicitly. All other parameters, which would          * influence the queueUrl, are ignored. This parameter is intended to be          * used, to connect to a mock implementation of SQS, for testing          * purposes.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
-DECL|method|queueUrl ( String queueUrl)
-specifier|public
+DECL|method|queueUrl (String queueUrl)
 specifier|default
 name|AdvancedSqsEndpointConsumerBuilder
 name|queueUrl
@@ -2169,7 +2080,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointConsumerBuilder
 name|synchronous
@@ -2191,7 +2101,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointConsumerBuilder
 name|synchronous
@@ -2222,7 +2131,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointProducerBuilder
 name|advanced
@@ -2236,8 +2144,7 @@ name|this
 return|;
 block|}
 comment|/**          * Queue name or ARN.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|queueNameOrArn ( String queueNameOrArn)
-specifier|public
+DECL|method|queueNameOrArn (String queueNameOrArn)
 specifier|default
 name|SqsEndpointProducerBuilder
 name|queueNameOrArn
@@ -2258,8 +2165,7 @@ name|this
 return|;
 block|}
 comment|/**          * The hostname of the Amazon AWS cloud.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|amazonAWSHost ( String amazonAWSHost)
-specifier|public
+DECL|method|amazonAWSHost (String amazonAWSHost)
 specifier|default
 name|SqsEndpointProducerBuilder
 name|amazonAWSHost
@@ -2281,7 +2187,6 @@ return|;
 block|}
 comment|/**          * To use the AmazonSQS as client.          * The option is a<code>com.amazonaws.services.sqs.AmazonSQS</code>          * type.          * @group common          */
 DECL|method|amazonSQSClient ( Object amazonSQSClient)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|amazonSQSClient
@@ -2303,7 +2208,6 @@ return|;
 block|}
 comment|/**          * To use the AmazonSQS as client.          * The option will be converted to a          *<code>com.amazonaws.services.sqs.AmazonSQS</code> type.          * @group common          */
 DECL|method|amazonSQSClient ( String amazonSQSClient)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|amazonSQSClient
@@ -2325,7 +2229,6 @@ return|;
 block|}
 comment|/**          * Setting the autocreation of the queue.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|autoCreateQueue ( boolean autoCreateQueue)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|autoCreateQueue
@@ -2347,7 +2250,6 @@ return|;
 block|}
 comment|/**          * Setting the autocreation of the queue.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|autoCreateQueue ( String autoCreateQueue)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|autoCreateQueue
@@ -2369,7 +2271,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to map headers to/from Camel.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|headerFilterStrategy
@@ -2391,7 +2292,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to map headers to/from Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|headerFilterStrategy
@@ -2413,7 +2313,6 @@ return|;
 block|}
 comment|/**          * Specify the queue owner aws account id when you need to connect the          * queue with different account owner.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|queueOwnerAWSAccountId ( String queueOwnerAWSAccountId)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|queueOwnerAWSAccountId
@@ -2435,7 +2334,6 @@ return|;
 block|}
 comment|/**          * Specify the queue region which could be used with          * queueOwnerAWSAccountId to build the service URL.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|region (String region)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|region
@@ -2456,8 +2354,7 @@ name|this
 return|;
 block|}
 comment|/**          * Delay sending messages for a number of seconds.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
-DECL|method|delaySeconds ( Integer delaySeconds)
-specifier|public
+DECL|method|delaySeconds (Integer delaySeconds)
 specifier|default
 name|SqsEndpointProducerBuilder
 name|delaySeconds
@@ -2478,8 +2375,7 @@ name|this
 return|;
 block|}
 comment|/**          * Delay sending messages for a number of seconds.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
-DECL|method|delaySeconds ( String delaySeconds)
-specifier|public
+DECL|method|delaySeconds (String delaySeconds)
 specifier|default
 name|SqsEndpointProducerBuilder
 name|delaySeconds
@@ -2501,7 +2397,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|lazyStartProducer
@@ -2523,7 +2418,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|lazyStartProducer
@@ -2545,7 +2439,6 @@ return|;
 block|}
 comment|/**          * Only for FIFO queues. Strategy for setting the messageDeduplicationId          * on the message. Can be one of the following options: useExchangeId,          * useContentBasedDeduplication. For the useContentBasedDeduplication          * option, no messageDeduplicationId will be set on the message.          * The option is a          *<code>org.apache.camel.component.aws.sqs.MessageDeduplicationIdStrategy</code> type.          * @group producer          */
 DECL|method|messageDeduplicationIdStrategy ( Object messageDeduplicationIdStrategy)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|messageDeduplicationIdStrategy
@@ -2567,7 +2460,6 @@ return|;
 block|}
 comment|/**          * Only for FIFO queues. Strategy for setting the messageDeduplicationId          * on the message. Can be one of the following options: useExchangeId,          * useContentBasedDeduplication. For the useContentBasedDeduplication          * option, no messageDeduplicationId will be set on the message.          * The option will be converted to a          *<code>org.apache.camel.component.aws.sqs.MessageDeduplicationIdStrategy</code> type.          * @group producer          */
 DECL|method|messageDeduplicationIdStrategy ( String messageDeduplicationIdStrategy)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|messageDeduplicationIdStrategy
@@ -2589,7 +2481,6 @@ return|;
 block|}
 comment|/**          * Only for FIFO queues. Strategy for setting the messageGroupId on the          * message. Can be one of the following options: useConstant,          * useExchangeId, usePropertyValue. For the usePropertyValue option, the          * value of property CamelAwsMessageGroupId will be used.          * The option is a          *<code>org.apache.camel.component.aws.sqs.MessageGroupIdStrategy</code> type.          * @group producer          */
 DECL|method|messageGroupIdStrategy ( Object messageGroupIdStrategy)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|messageGroupIdStrategy
@@ -2611,7 +2502,6 @@ return|;
 block|}
 comment|/**          * Only for FIFO queues. Strategy for setting the messageGroupId on the          * message. Can be one of the following options: useConstant,          * useExchangeId, usePropertyValue. For the usePropertyValue option, the          * value of property CamelAwsMessageGroupId will be used.          * The option will be converted to a          *<code>org.apache.camel.component.aws.sqs.MessageGroupIdStrategy</code> type.          * @group producer          */
 DECL|method|messageGroupIdStrategy ( String messageGroupIdStrategy)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|messageGroupIdStrategy
@@ -2632,8 +2522,7 @@ name|this
 return|;
 block|}
 comment|/**          * The operation to do in case the user don't want to send only a          * message.          * The option is a          *<code>org.apache.camel.component.aws.sqs.SqsOperations</code> type.          * @group producer          */
-DECL|method|operation ( SqsOperations operation)
-specifier|public
+DECL|method|operation (SqsOperations operation)
 specifier|default
 name|SqsEndpointProducerBuilder
 name|operation
@@ -2655,7 +2544,6 @@ return|;
 block|}
 comment|/**          * The operation to do in case the user don't want to send only a          * message.          * The option will be converted to a          *<code>org.apache.camel.component.aws.sqs.SqsOperations</code> type.          * @group producer          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|operation
@@ -2677,7 +2565,6 @@ return|;
 block|}
 comment|/**          * To define a proxy host when instantiating the SQS client.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|proxyHost (String proxyHost)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|proxyHost
@@ -2699,7 +2586,6 @@ return|;
 block|}
 comment|/**          * To define a proxy port when instantiating the SQS client.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
 DECL|method|proxyPort (Integer proxyPort)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|proxyPort
@@ -2721,7 +2607,6 @@ return|;
 block|}
 comment|/**          * To define a proxy port when instantiating the SQS client.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
 DECL|method|proxyPort (String proxyPort)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|proxyPort
@@ -2743,7 +2628,6 @@ return|;
 block|}
 comment|/**          * The maximumMessageSize (in bytes) an SQS message can contain for this          * queue.          * The option is a<code>java.lang.Integer</code> type.          * @group queue          */
 DECL|method|maximumMessageSize ( Integer maximumMessageSize)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|maximumMessageSize
@@ -2765,7 +2649,6 @@ return|;
 block|}
 comment|/**          * The maximumMessageSize (in bytes) an SQS message can contain for this          * queue.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group queue          */
 DECL|method|maximumMessageSize ( String maximumMessageSize)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|maximumMessageSize
@@ -2787,7 +2670,6 @@ return|;
 block|}
 comment|/**          * The messageRetentionPeriod (in seconds) a message will be retained by          * SQS for this queue.          * The option is a<code>java.lang.Integer</code> type.          * @group queue          */
 DECL|method|messageRetentionPeriod ( Integer messageRetentionPeriod)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|messageRetentionPeriod
@@ -2809,7 +2691,6 @@ return|;
 block|}
 comment|/**          * The messageRetentionPeriod (in seconds) a message will be retained by          * SQS for this queue.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group queue          */
 DECL|method|messageRetentionPeriod ( String messageRetentionPeriod)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|messageRetentionPeriod
@@ -2831,7 +2712,6 @@ return|;
 block|}
 comment|/**          * The policy for this queue.          * The option is a<code>java.lang.String</code> type.          * @group queue          */
 DECL|method|policy (String policy)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|policy
@@ -2853,7 +2733,6 @@ return|;
 block|}
 comment|/**          * If you do not specify WaitTimeSeconds in the request, the queue          * attribute ReceiveMessageWaitTimeSeconds is used to determine how long          * to wait.          * The option is a<code>java.lang.Integer</code> type.          * @group queue          */
 DECL|method|receiveMessageWaitTimeSeconds ( Integer receiveMessageWaitTimeSeconds)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|receiveMessageWaitTimeSeconds
@@ -2875,7 +2754,6 @@ return|;
 block|}
 comment|/**          * If you do not specify WaitTimeSeconds in the request, the queue          * attribute ReceiveMessageWaitTimeSeconds is used to determine how long          * to wait.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group queue          */
 DECL|method|receiveMessageWaitTimeSeconds ( String receiveMessageWaitTimeSeconds)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|receiveMessageWaitTimeSeconds
@@ -2896,8 +2774,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specify the policy that send message to DeadLetter queue. See detail          * at Amazon docs.          * The option is a<code>java.lang.String</code> type.          * @group queue          */
-DECL|method|redrivePolicy ( String redrivePolicy)
-specifier|public
+DECL|method|redrivePolicy (String redrivePolicy)
 specifier|default
 name|SqsEndpointProducerBuilder
 name|redrivePolicy
@@ -2919,7 +2796,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessKey (String accessKey)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|accessKey
@@ -2941,7 +2817,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|secretKey
@@ -2971,7 +2846,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SqsEndpointProducerBuilder
 name|basic
@@ -2986,7 +2860,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointProducerBuilder
 name|basicPropertyBinding
@@ -3008,7 +2881,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointProducerBuilder
 name|basicPropertyBinding
@@ -3029,8 +2901,7 @@ name|this
 return|;
 block|}
 comment|/**          * Define if you want to apply delaySeconds option to the queue or on          * single messages.          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|delayQueue ( boolean delayQueue)
-specifier|public
+DECL|method|delayQueue (boolean delayQueue)
 specifier|default
 name|AdvancedSqsEndpointProducerBuilder
 name|delayQueue
@@ -3051,8 +2922,7 @@ name|this
 return|;
 block|}
 comment|/**          * Define if you want to apply delaySeconds option to the queue or on          * single messages.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|delayQueue ( String delayQueue)
-specifier|public
+DECL|method|delayQueue (String delayQueue)
 specifier|default
 name|AdvancedSqsEndpointProducerBuilder
 name|delayQueue
@@ -3073,8 +2943,7 @@ name|this
 return|;
 block|}
 comment|/**          * To define the queueUrl explicitly. All other parameters, which would          * influence the queueUrl, are ignored. This parameter is intended to be          * used, to connect to a mock implementation of SQS, for testing          * purposes.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
-DECL|method|queueUrl ( String queueUrl)
-specifier|public
+DECL|method|queueUrl (String queueUrl)
 specifier|default
 name|AdvancedSqsEndpointProducerBuilder
 name|queueUrl
@@ -3096,7 +2965,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointProducerBuilder
 name|synchronous
@@ -3118,7 +2986,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointProducerBuilder
 name|synchronous
@@ -3151,7 +3018,6 @@ extends|,
 name|SqsEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointBuilder
 name|advanced
@@ -3166,7 +3032,6 @@ return|;
 block|}
 comment|/**          * Queue name or ARN.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|queueNameOrArn (String queueNameOrArn)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|queueNameOrArn
@@ -3188,7 +3053,6 @@ return|;
 block|}
 comment|/**          * The hostname of the Amazon AWS cloud.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|amazonAWSHost (String amazonAWSHost)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|amazonAWSHost
@@ -3210,7 +3074,6 @@ return|;
 block|}
 comment|/**          * To use the AmazonSQS as client.          * The option is a<code>com.amazonaws.services.sqs.AmazonSQS</code>          * type.          * @group common          */
 DECL|method|amazonSQSClient (Object amazonSQSClient)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|amazonSQSClient
@@ -3232,7 +3095,6 @@ return|;
 block|}
 comment|/**          * To use the AmazonSQS as client.          * The option will be converted to a          *<code>com.amazonaws.services.sqs.AmazonSQS</code> type.          * @group common          */
 DECL|method|amazonSQSClient (String amazonSQSClient)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|amazonSQSClient
@@ -3253,8 +3115,7 @@ name|this
 return|;
 block|}
 comment|/**          * Setting the autocreation of the queue.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|autoCreateQueue ( boolean autoCreateQueue)
-specifier|public
+DECL|method|autoCreateQueue (boolean autoCreateQueue)
 specifier|default
 name|SqsEndpointBuilder
 name|autoCreateQueue
@@ -3276,7 +3137,6 @@ return|;
 block|}
 comment|/**          * Setting the autocreation of the queue.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|autoCreateQueue (String autoCreateQueue)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|autoCreateQueue
@@ -3298,7 +3158,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to map headers to/from Camel.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|headerFilterStrategy
@@ -3320,7 +3179,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to map headers to/from Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|headerFilterStrategy
@@ -3342,7 +3200,6 @@ return|;
 block|}
 comment|/**          * Specify the queue owner aws account id when you need to connect the          * queue with different account owner.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|queueOwnerAWSAccountId ( String queueOwnerAWSAccountId)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|queueOwnerAWSAccountId
@@ -3364,7 +3221,6 @@ return|;
 block|}
 comment|/**          * Specify the queue region which could be used with          * queueOwnerAWSAccountId to build the service URL.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|region (String region)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|region
@@ -3386,7 +3242,6 @@ return|;
 block|}
 comment|/**          * To define a proxy host when instantiating the SQS client.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|proxyHost (String proxyHost)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|proxyHost
@@ -3408,7 +3263,6 @@ return|;
 block|}
 comment|/**          * To define a proxy port when instantiating the SQS client.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
 DECL|method|proxyPort (Integer proxyPort)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|proxyPort
@@ -3430,7 +3284,6 @@ return|;
 block|}
 comment|/**          * To define a proxy port when instantiating the SQS client.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
 DECL|method|proxyPort (String proxyPort)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|proxyPort
@@ -3451,8 +3304,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximumMessageSize (in bytes) an SQS message can contain for this          * queue.          * The option is a<code>java.lang.Integer</code> type.          * @group queue          */
-DECL|method|maximumMessageSize ( Integer maximumMessageSize)
-specifier|public
+DECL|method|maximumMessageSize (Integer maximumMessageSize)
 specifier|default
 name|SqsEndpointBuilder
 name|maximumMessageSize
@@ -3473,8 +3325,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximumMessageSize (in bytes) an SQS message can contain for this          * queue.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group queue          */
-DECL|method|maximumMessageSize ( String maximumMessageSize)
-specifier|public
+DECL|method|maximumMessageSize (String maximumMessageSize)
 specifier|default
 name|SqsEndpointBuilder
 name|maximumMessageSize
@@ -3496,7 +3347,6 @@ return|;
 block|}
 comment|/**          * The messageRetentionPeriod (in seconds) a message will be retained by          * SQS for this queue.          * The option is a<code>java.lang.Integer</code> type.          * @group queue          */
 DECL|method|messageRetentionPeriod ( Integer messageRetentionPeriod)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|messageRetentionPeriod
@@ -3518,7 +3368,6 @@ return|;
 block|}
 comment|/**          * The messageRetentionPeriod (in seconds) a message will be retained by          * SQS for this queue.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group queue          */
 DECL|method|messageRetentionPeriod ( String messageRetentionPeriod)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|messageRetentionPeriod
@@ -3540,7 +3389,6 @@ return|;
 block|}
 comment|/**          * The policy for this queue.          * The option is a<code>java.lang.String</code> type.          * @group queue          */
 DECL|method|policy (String policy)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|policy
@@ -3562,7 +3410,6 @@ return|;
 block|}
 comment|/**          * If you do not specify WaitTimeSeconds in the request, the queue          * attribute ReceiveMessageWaitTimeSeconds is used to determine how long          * to wait.          * The option is a<code>java.lang.Integer</code> type.          * @group queue          */
 DECL|method|receiveMessageWaitTimeSeconds ( Integer receiveMessageWaitTimeSeconds)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|receiveMessageWaitTimeSeconds
@@ -3584,7 +3431,6 @@ return|;
 block|}
 comment|/**          * If you do not specify WaitTimeSeconds in the request, the queue          * attribute ReceiveMessageWaitTimeSeconds is used to determine how long          * to wait.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group queue          */
 DECL|method|receiveMessageWaitTimeSeconds ( String receiveMessageWaitTimeSeconds)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|receiveMessageWaitTimeSeconds
@@ -3606,7 +3452,6 @@ return|;
 block|}
 comment|/**          * Specify the policy that send message to DeadLetter queue. See detail          * at Amazon docs.          * The option is a<code>java.lang.String</code> type.          * @group queue          */
 DECL|method|redrivePolicy (String redrivePolicy)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|redrivePolicy
@@ -3628,7 +3473,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessKey (String accessKey)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|accessKey
@@ -3650,7 +3494,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|secretKey
@@ -3683,7 +3526,6 @@ extends|,
 name|AdvancedSqsEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|basic
@@ -3698,7 +3540,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointBuilder
 name|basicPropertyBinding
@@ -3720,7 +3561,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointBuilder
 name|basicPropertyBinding
@@ -3742,7 +3582,6 @@ return|;
 block|}
 comment|/**          * Define if you want to apply delaySeconds option to the queue or on          * single messages.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|delayQueue (boolean delayQueue)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointBuilder
 name|delayQueue
@@ -3764,7 +3603,6 @@ return|;
 block|}
 comment|/**          * Define if you want to apply delaySeconds option to the queue or on          * single messages.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|delayQueue (String delayQueue)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointBuilder
 name|delayQueue
@@ -3786,7 +3624,6 @@ return|;
 block|}
 comment|/**          * To define the queueUrl explicitly. All other parameters, which would          * influence the queueUrl, are ignored. This parameter is intended to be          * used, to connect to a mock implementation of SQS, for testing          * purposes.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|queueUrl (String queueUrl)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointBuilder
 name|queueUrl
@@ -3807,8 +3644,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSqsEndpointBuilder
 name|synchronous
@@ -3830,7 +3666,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous (String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSqsEndpointBuilder
 name|synchronous
@@ -3869,7 +3704,6 @@ name|listQueues
 block|;     }
 comment|/**      * The aws-sqs component is used for sending and receiving messages to      * Amazon's SQS service. Creates a builder to build endpoints for the AWS      * Simple Queue Service component.      */
 DECL|method|sqs (String path)
-specifier|public
 specifier|default
 name|SqsEndpointBuilder
 name|sqs

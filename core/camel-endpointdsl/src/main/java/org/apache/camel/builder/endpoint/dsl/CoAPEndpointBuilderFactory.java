@@ -154,7 +154,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedCoAPEndpointConsumerBuilder
 name|advanced
@@ -169,7 +168,6 @@ return|;
 block|}
 comment|/**          * The URI for the CoAP endpoint.          * The option is a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|uri (URI uri)
-specifier|public
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|uri
@@ -191,7 +189,6 @@ return|;
 block|}
 comment|/**          * The URI for the CoAP endpoint.          * The option will be converted to a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|uri (String uri)
-specifier|public
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|uri
@@ -213,7 +210,6 @@ return|;
 block|}
 comment|/**          * Sets the alias used to query the KeyStore for the private key and          * certificate. This parameter is used when we are enabling TLS with          * certificates on the service side, and similarly on the client side          * when TLS is used with certificates and client authentication. If the          * parameter is not specified then the default behavior is to use the          * first alias in the keystore that contains a key entry. This          * configuration parameter does not apply to configuring TLS via a Raw          * Public Key or a Pre-Shared Key.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|alias (String alias)
-specifier|public
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|alias
@@ -234,8 +230,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the cipherSuites String. This is a comma separated String of          * ciphersuites to configure. If it is not specified, then it falls back          * to getting the ciphersuites from the sslContextParameters object.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|cipherSuites ( String cipherSuites)
-specifier|public
+DECL|method|cipherSuites (String cipherSuites)
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|cipherSuites
@@ -257,7 +252,6 @@ return|;
 block|}
 comment|/**          * Sets the configuration options for server-side client-authentication          * requirements. The value must be one of NONE, WANT, REQUIRE. If this          * value is not specified, then it falls back to checking the          * sslContextParameters.getServerParameters().getClientAuthentication()          * value.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientAuthentication ( String clientAuthentication)
-specifier|public
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|clientAuthentication
@@ -278,8 +272,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the configured private key for use with Raw Public Key.          * The option is a<code>java.security.PrivateKey</code> type.          * @group common          */
-DECL|method|privateKey ( PrivateKey privateKey)
-specifier|public
+DECL|method|privateKey (PrivateKey privateKey)
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|privateKey
@@ -301,7 +294,6 @@ return|;
 block|}
 comment|/**          * Set the configured private key for use with Raw Public Key.          * The option will be converted to a          *<code>java.security.PrivateKey</code> type.          * @group common          */
 DECL|method|privateKey (String privateKey)
-specifier|public
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|privateKey
@@ -323,7 +315,6 @@ return|;
 block|}
 comment|/**          * Set the PskStore to use for pre-shared key.          * The option is a          *<code>org.eclipse.californium.scandium.dtls.pskstore.PskStore</code>          * type.          * @group common          */
 DECL|method|pskStore (Object pskStore)
-specifier|public
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|pskStore
@@ -345,7 +336,6 @@ return|;
 block|}
 comment|/**          * Set the PskStore to use for pre-shared key.          * The option will be converted to a          *<code>org.eclipse.californium.scandium.dtls.pskstore.PskStore</code>          * type.          * @group common          */
 DECL|method|pskStore (String pskStore)
-specifier|public
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|pskStore
@@ -367,7 +357,6 @@ return|;
 block|}
 comment|/**          * Set the configured public key for use with Raw Public Key.          * The option is a<code>java.security.PublicKey</code> type.          * @group common          */
 DECL|method|publicKey (PublicKey publicKey)
-specifier|public
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|publicKey
@@ -389,7 +378,6 @@ return|;
 block|}
 comment|/**          * Set the configured public key for use with Raw Public Key.          * The option will be converted to a          *<code>java.security.PublicKey</code> type.          * @group common          */
 DECL|method|publicKey (String publicKey)
-specifier|public
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|publicKey
@@ -411,7 +399,6 @@ return|;
 block|}
 comment|/**          * Set the SSLContextParameters object for setting up TLS. This is          * required for coapstcp, and for coaps when we are using certificates          * for TLS (as opposed to RPK or PKS).          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group common          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|sslContextParameters
@@ -433,7 +420,6 @@ return|;
 block|}
 comment|/**          * Set the SSLContextParameters object for setting up TLS. This is          * required for coapstcp, and for coaps when we are using certificates          * for TLS (as opposed to RPK or PKS).          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group common          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|sslContextParameters
@@ -455,7 +441,6 @@ return|;
 block|}
 comment|/**          * Set the TrustedRpkStore to use to determine trust in raw public keys.          * The option is a          *<code>org.eclipse.californium.scandium.dtls.rpkstore.TrustedRpkStore</code> type.          * @group common          */
 DECL|method|trustedRpkStore ( Object trustedRpkStore)
-specifier|public
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|trustedRpkStore
@@ -477,7 +462,6 @@ return|;
 block|}
 comment|/**          * Set the TrustedRpkStore to use to determine trust in raw public keys.          * The option will be converted to a          *<code>org.eclipse.californium.scandium.dtls.rpkstore.TrustedRpkStore</code> type.          * @group common          */
 DECL|method|trustedRpkStore ( String trustedRpkStore)
-specifier|public
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|trustedRpkStore
@@ -499,7 +483,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -521,7 +504,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -543,7 +525,6 @@ return|;
 block|}
 comment|/**          * Comma separated list of methods that the CoAP consumer will bind to.          * The default is to bind to all methods (DELETE, GET, POST, PUT).          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|coapMethodRestrict ( String coapMethodRestrict)
-specifier|public
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|coapMethodRestrict
@@ -573,7 +554,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|CoAPEndpointConsumerBuilder
 name|basic
@@ -588,7 +568,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedCoAPEndpointConsumerBuilder
 name|exceptionHandler
@@ -610,7 +589,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedCoAPEndpointConsumerBuilder
 name|exceptionHandler
@@ -632,7 +610,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedCoAPEndpointConsumerBuilder
 name|exchangePattern
@@ -654,7 +631,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedCoAPEndpointConsumerBuilder
 name|exchangePattern
@@ -676,7 +652,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCoAPEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -698,7 +673,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCoAPEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -720,7 +694,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedCoAPEndpointConsumerBuilder
 name|synchronous
@@ -742,7 +715,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedCoAPEndpointConsumerBuilder
 name|synchronous
@@ -773,7 +745,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedCoAPEndpointProducerBuilder
 name|advanced
@@ -788,7 +759,6 @@ return|;
 block|}
 comment|/**          * The URI for the CoAP endpoint.          * The option is a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|uri (URI uri)
-specifier|public
 specifier|default
 name|CoAPEndpointProducerBuilder
 name|uri
@@ -810,7 +780,6 @@ return|;
 block|}
 comment|/**          * The URI for the CoAP endpoint.          * The option will be converted to a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|uri (String uri)
-specifier|public
 specifier|default
 name|CoAPEndpointProducerBuilder
 name|uri
@@ -832,7 +801,6 @@ return|;
 block|}
 comment|/**          * Sets the alias used to query the KeyStore for the private key and          * certificate. This parameter is used when we are enabling TLS with          * certificates on the service side, and similarly on the client side          * when TLS is used with certificates and client authentication. If the          * parameter is not specified then the default behavior is to use the          * first alias in the keystore that contains a key entry. This          * configuration parameter does not apply to configuring TLS via a Raw          * Public Key or a Pre-Shared Key.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|alias (String alias)
-specifier|public
 specifier|default
 name|CoAPEndpointProducerBuilder
 name|alias
@@ -853,8 +821,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the cipherSuites String. This is a comma separated String of          * ciphersuites to configure. If it is not specified, then it falls back          * to getting the ciphersuites from the sslContextParameters object.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|cipherSuites ( String cipherSuites)
-specifier|public
+DECL|method|cipherSuites (String cipherSuites)
 specifier|default
 name|CoAPEndpointProducerBuilder
 name|cipherSuites
@@ -876,7 +843,6 @@ return|;
 block|}
 comment|/**          * Sets the configuration options for server-side client-authentication          * requirements. The value must be one of NONE, WANT, REQUIRE. If this          * value is not specified, then it falls back to checking the          * sslContextParameters.getServerParameters().getClientAuthentication()          * value.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientAuthentication ( String clientAuthentication)
-specifier|public
 specifier|default
 name|CoAPEndpointProducerBuilder
 name|clientAuthentication
@@ -897,8 +863,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the configured private key for use with Raw Public Key.          * The option is a<code>java.security.PrivateKey</code> type.          * @group common          */
-DECL|method|privateKey ( PrivateKey privateKey)
-specifier|public
+DECL|method|privateKey (PrivateKey privateKey)
 specifier|default
 name|CoAPEndpointProducerBuilder
 name|privateKey
@@ -920,7 +885,6 @@ return|;
 block|}
 comment|/**          * Set the configured private key for use with Raw Public Key.          * The option will be converted to a          *<code>java.security.PrivateKey</code> type.          * @group common          */
 DECL|method|privateKey (String privateKey)
-specifier|public
 specifier|default
 name|CoAPEndpointProducerBuilder
 name|privateKey
@@ -942,7 +906,6 @@ return|;
 block|}
 comment|/**          * Set the PskStore to use for pre-shared key.          * The option is a          *<code>org.eclipse.californium.scandium.dtls.pskstore.PskStore</code>          * type.          * @group common          */
 DECL|method|pskStore (Object pskStore)
-specifier|public
 specifier|default
 name|CoAPEndpointProducerBuilder
 name|pskStore
@@ -964,7 +927,6 @@ return|;
 block|}
 comment|/**          * Set the PskStore to use for pre-shared key.          * The option will be converted to a          *<code>org.eclipse.californium.scandium.dtls.pskstore.PskStore</code>          * type.          * @group common          */
 DECL|method|pskStore (String pskStore)
-specifier|public
 specifier|default
 name|CoAPEndpointProducerBuilder
 name|pskStore
@@ -986,7 +948,6 @@ return|;
 block|}
 comment|/**          * Set the configured public key for use with Raw Public Key.          * The option is a<code>java.security.PublicKey</code> type.          * @group common          */
 DECL|method|publicKey (PublicKey publicKey)
-specifier|public
 specifier|default
 name|CoAPEndpointProducerBuilder
 name|publicKey
@@ -1008,7 +969,6 @@ return|;
 block|}
 comment|/**          * Set the configured public key for use with Raw Public Key.          * The option will be converted to a          *<code>java.security.PublicKey</code> type.          * @group common          */
 DECL|method|publicKey (String publicKey)
-specifier|public
 specifier|default
 name|CoAPEndpointProducerBuilder
 name|publicKey
@@ -1030,7 +990,6 @@ return|;
 block|}
 comment|/**          * Set the SSLContextParameters object for setting up TLS. This is          * required for coapstcp, and for coaps when we are using certificates          * for TLS (as opposed to RPK or PKS).          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group common          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|CoAPEndpointProducerBuilder
 name|sslContextParameters
@@ -1052,7 +1011,6 @@ return|;
 block|}
 comment|/**          * Set the SSLContextParameters object for setting up TLS. This is          * required for coapstcp, and for coaps when we are using certificates          * for TLS (as opposed to RPK or PKS).          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group common          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|CoAPEndpointProducerBuilder
 name|sslContextParameters
@@ -1074,7 +1032,6 @@ return|;
 block|}
 comment|/**          * Set the TrustedRpkStore to use to determine trust in raw public keys.          * The option is a          *<code>org.eclipse.californium.scandium.dtls.rpkstore.TrustedRpkStore</code> type.          * @group common          */
 DECL|method|trustedRpkStore ( Object trustedRpkStore)
-specifier|public
 specifier|default
 name|CoAPEndpointProducerBuilder
 name|trustedRpkStore
@@ -1096,7 +1053,6 @@ return|;
 block|}
 comment|/**          * Set the TrustedRpkStore to use to determine trust in raw public keys.          * The option will be converted to a          *<code>org.eclipse.californium.scandium.dtls.rpkstore.TrustedRpkStore</code> type.          * @group common          */
 DECL|method|trustedRpkStore ( String trustedRpkStore)
-specifier|public
 specifier|default
 name|CoAPEndpointProducerBuilder
 name|trustedRpkStore
@@ -1118,7 +1074,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|CoAPEndpointProducerBuilder
 name|lazyStartProducer
@@ -1140,7 +1095,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|CoAPEndpointProducerBuilder
 name|lazyStartProducer
@@ -1170,7 +1124,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|CoAPEndpointProducerBuilder
 name|basic
@@ -1185,7 +1138,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCoAPEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1207,7 +1159,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCoAPEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1229,7 +1180,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedCoAPEndpointProducerBuilder
 name|synchronous
@@ -1251,7 +1201,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedCoAPEndpointProducerBuilder
 name|synchronous
@@ -1284,7 +1233,6 @@ extends|,
 name|CoAPEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedCoAPEndpointBuilder
 name|advanced
@@ -1299,7 +1247,6 @@ return|;
 block|}
 comment|/**          * The URI for the CoAP endpoint.          * The option is a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|uri (URI uri)
-specifier|public
 specifier|default
 name|CoAPEndpointBuilder
 name|uri
@@ -1321,7 +1268,6 @@ return|;
 block|}
 comment|/**          * The URI for the CoAP endpoint.          * The option will be converted to a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|uri (String uri)
-specifier|public
 specifier|default
 name|CoAPEndpointBuilder
 name|uri
@@ -1343,7 +1289,6 @@ return|;
 block|}
 comment|/**          * Sets the alias used to query the KeyStore for the private key and          * certificate. This parameter is used when we are enabling TLS with          * certificates on the service side, and similarly on the client side          * when TLS is used with certificates and client authentication. If the          * parameter is not specified then the default behavior is to use the          * first alias in the keystore that contains a key entry. This          * configuration parameter does not apply to configuring TLS via a Raw          * Public Key or a Pre-Shared Key.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|alias (String alias)
-specifier|public
 specifier|default
 name|CoAPEndpointBuilder
 name|alias
@@ -1365,7 +1310,6 @@ return|;
 block|}
 comment|/**          * Sets the cipherSuites String. This is a comma separated String of          * ciphersuites to configure. If it is not specified, then it falls back          * to getting the ciphersuites from the sslContextParameters object.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|cipherSuites (String cipherSuites)
-specifier|public
 specifier|default
 name|CoAPEndpointBuilder
 name|cipherSuites
@@ -1387,7 +1331,6 @@ return|;
 block|}
 comment|/**          * Sets the configuration options for server-side client-authentication          * requirements. The value must be one of NONE, WANT, REQUIRE. If this          * value is not specified, then it falls back to checking the          * sslContextParameters.getServerParameters().getClientAuthentication()          * value.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientAuthentication ( String clientAuthentication)
-specifier|public
 specifier|default
 name|CoAPEndpointBuilder
 name|clientAuthentication
@@ -1409,7 +1352,6 @@ return|;
 block|}
 comment|/**          * Set the configured private key for use with Raw Public Key.          * The option is a<code>java.security.PrivateKey</code> type.          * @group common          */
 DECL|method|privateKey (PrivateKey privateKey)
-specifier|public
 specifier|default
 name|CoAPEndpointBuilder
 name|privateKey
@@ -1431,7 +1373,6 @@ return|;
 block|}
 comment|/**          * Set the configured private key for use with Raw Public Key.          * The option will be converted to a          *<code>java.security.PrivateKey</code> type.          * @group common          */
 DECL|method|privateKey (String privateKey)
-specifier|public
 specifier|default
 name|CoAPEndpointBuilder
 name|privateKey
@@ -1453,7 +1394,6 @@ return|;
 block|}
 comment|/**          * Set the PskStore to use for pre-shared key.          * The option is a          *<code>org.eclipse.californium.scandium.dtls.pskstore.PskStore</code>          * type.          * @group common          */
 DECL|method|pskStore (Object pskStore)
-specifier|public
 specifier|default
 name|CoAPEndpointBuilder
 name|pskStore
@@ -1475,7 +1415,6 @@ return|;
 block|}
 comment|/**          * Set the PskStore to use for pre-shared key.          * The option will be converted to a          *<code>org.eclipse.californium.scandium.dtls.pskstore.PskStore</code>          * type.          * @group common          */
 DECL|method|pskStore (String pskStore)
-specifier|public
 specifier|default
 name|CoAPEndpointBuilder
 name|pskStore
@@ -1497,7 +1436,6 @@ return|;
 block|}
 comment|/**          * Set the configured public key for use with Raw Public Key.          * The option is a<code>java.security.PublicKey</code> type.          * @group common          */
 DECL|method|publicKey (PublicKey publicKey)
-specifier|public
 specifier|default
 name|CoAPEndpointBuilder
 name|publicKey
@@ -1519,7 +1457,6 @@ return|;
 block|}
 comment|/**          * Set the configured public key for use with Raw Public Key.          * The option will be converted to a          *<code>java.security.PublicKey</code> type.          * @group common          */
 DECL|method|publicKey (String publicKey)
-specifier|public
 specifier|default
 name|CoAPEndpointBuilder
 name|publicKey
@@ -1541,7 +1478,6 @@ return|;
 block|}
 comment|/**          * Set the SSLContextParameters object for setting up TLS. This is          * required for coapstcp, and for coaps when we are using certificates          * for TLS (as opposed to RPK or PKS).          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group common          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|CoAPEndpointBuilder
 name|sslContextParameters
@@ -1563,7 +1499,6 @@ return|;
 block|}
 comment|/**          * Set the SSLContextParameters object for setting up TLS. This is          * required for coapstcp, and for coaps when we are using certificates          * for TLS (as opposed to RPK or PKS).          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group common          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|CoAPEndpointBuilder
 name|sslContextParameters
@@ -1584,8 +1519,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the TrustedRpkStore to use to determine trust in raw public keys.          * The option is a          *<code>org.eclipse.californium.scandium.dtls.rpkstore.TrustedRpkStore</code> type.          * @group common          */
-DECL|method|trustedRpkStore ( Object trustedRpkStore)
-specifier|public
+DECL|method|trustedRpkStore (Object trustedRpkStore)
 specifier|default
 name|CoAPEndpointBuilder
 name|trustedRpkStore
@@ -1606,8 +1540,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the TrustedRpkStore to use to determine trust in raw public keys.          * The option will be converted to a          *<code>org.eclipse.californium.scandium.dtls.rpkstore.TrustedRpkStore</code> type.          * @group common          */
-DECL|method|trustedRpkStore ( String trustedRpkStore)
-specifier|public
+DECL|method|trustedRpkStore (String trustedRpkStore)
 specifier|default
 name|CoAPEndpointBuilder
 name|trustedRpkStore
@@ -1640,7 +1573,6 @@ extends|,
 name|AdvancedCoAPEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|CoAPEndpointBuilder
 name|basic
@@ -1655,7 +1587,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCoAPEndpointBuilder
 name|basicPropertyBinding
@@ -1677,7 +1608,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCoAPEndpointBuilder
 name|basicPropertyBinding
@@ -1698,8 +1628,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedCoAPEndpointBuilder
 name|synchronous
@@ -1720,8 +1649,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedCoAPEndpointBuilder
 name|synchronous
@@ -1744,7 +1672,6 @@ block|}
 block|}
 comment|/**      * The coap component is used for sending and receiving messages from COAP      * capable devices. Creates a builder to build endpoints for the CoAP      * component.      */
 DECL|method|coAP (String path)
-specifier|public
 specifier|default
 name|CoAPEndpointBuilder
 name|coAP

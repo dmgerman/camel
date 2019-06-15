@@ -144,7 +144,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedMiloClientEndpointConsumerBuilder
 name|advanced
@@ -158,8 +157,7 @@ name|this
 return|;
 block|}
 comment|/**          * The OPC UA server endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|endpointUri ( String endpointUri)
-specifier|public
+DECL|method|endpointUri (String endpointUri)
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|endpointUri
@@ -180,8 +178,7 @@ name|this
 return|;
 block|}
 comment|/**          * A virtual client id to force the creation of a new connection          * instance.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|clientId ( String clientId)
-specifier|public
+DECL|method|clientId (String clientId)
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|clientId
@@ -203,7 +200,6 @@ return|;
 block|}
 comment|/**          * Default await setting for writes.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|defaultAwaitWrites ( boolean defaultAwaitWrites)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|defaultAwaitWrites
@@ -225,7 +221,6 @@ return|;
 block|}
 comment|/**          * Default await setting for writes.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|defaultAwaitWrites ( String defaultAwaitWrites)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|defaultAwaitWrites
@@ -247,7 +242,6 @@ return|;
 block|}
 comment|/**          * A suffix for endpoint URI when discovering.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|discoveryEndpointSuffix ( String discoveryEndpointSuffix)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|discoveryEndpointSuffix
@@ -269,7 +263,6 @@ return|;
 block|}
 comment|/**          * An alternative discovery URI.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|discoveryEndpointUri ( String discoveryEndpointUri)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|discoveryEndpointUri
@@ -291,7 +284,6 @@ return|;
 block|}
 comment|/**          * The method definition (see Method ID).          * The option is a          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          * @group common          */
 DECL|method|method (Object method)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|method
@@ -313,7 +305,6 @@ return|;
 block|}
 comment|/**          * The method definition (see Method ID).          * The option will be converted to a          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          * @group common          */
 DECL|method|method (String method)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|method
@@ -335,7 +326,6 @@ return|;
 block|}
 comment|/**          * The node definition (see Node ID).          * The option is a          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          * @group common          */
 DECL|method|node (Object node)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|node
@@ -357,7 +347,6 @@ return|;
 block|}
 comment|/**          * The node definition (see Node ID).          * The option will be converted to a          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          * @group common          */
 DECL|method|node (String node)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|node
@@ -379,7 +368,6 @@ return|;
 block|}
 comment|/**          * The sampling interval in milliseconds.          * The option is a<code>java.lang.Double</code> type.          * @group common          */
 DECL|method|samplingInterval ( Double samplingInterval)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|samplingInterval
@@ -401,7 +389,6 @@ return|;
 block|}
 comment|/**          * The sampling interval in milliseconds.          * The option will be converted to a<code>java.lang.Double</code> type.          * @group common          */
 DECL|method|samplingInterval ( String samplingInterval)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|samplingInterval
@@ -423,7 +410,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -445,7 +431,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -467,7 +452,6 @@ return|;
 block|}
 comment|/**          * A set of allowed security policy URIs. Default is to accept all and          * use the highest.          * The option is a<code>java.util.Set&lt;java.lang.String&gt;</code>          * type.          * @group client          */
 DECL|method|allowedSecurityPolicies ( Set<String> allowedSecurityPolicies)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|allowedSecurityPolicies
@@ -492,7 +476,6 @@ return|;
 block|}
 comment|/**          * A set of allowed security policy URIs. Default is to accept all and          * use the highest.          * The option will be converted to a          *<code>java.util.Set&lt;java.lang.String&gt;</code> type.          * @group client          */
 DECL|method|allowedSecurityPolicies ( String allowedSecurityPolicies)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|allowedSecurityPolicies
@@ -514,7 +497,6 @@ return|;
 block|}
 comment|/**          * The application name.          * The option is a<code>java.lang.String</code> type.          * @group client          */
 DECL|method|applicationName ( String applicationName)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|applicationName
@@ -536,7 +518,6 @@ return|;
 block|}
 comment|/**          * The application URI.          * The option is a<code>java.lang.String</code> type.          * @group client          */
 DECL|method|applicationUri ( String applicationUri)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|applicationUri
@@ -558,7 +539,6 @@ return|;
 block|}
 comment|/**          * Channel lifetime in milliseconds.          * The option is a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|channelLifetime ( Long channelLifetime)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|channelLifetime
@@ -580,7 +560,6 @@ return|;
 block|}
 comment|/**          * Channel lifetime in milliseconds.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|channelLifetime ( String channelLifetime)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|channelLifetime
@@ -601,8 +580,7 @@ name|this
 return|;
 block|}
 comment|/**          * The name of the key in the keystore file.          * The option is a<code>java.lang.String</code> type.          * @group client          */
-DECL|method|keyAlias ( String keyAlias)
-specifier|public
+DECL|method|keyAlias (String keyAlias)
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|keyAlias
@@ -623,8 +601,7 @@ name|this
 return|;
 block|}
 comment|/**          * The key password.          * The option is a<code>java.lang.String</code> type.          * @group client          */
-DECL|method|keyPassword ( String keyPassword)
-specifier|public
+DECL|method|keyPassword (String keyPassword)
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|keyPassword
@@ -646,7 +623,6 @@ return|;
 block|}
 comment|/**          * The keystore password.          * The option is a<code>java.lang.String</code> type.          * @group client          */
 DECL|method|keyStorePassword ( String keyStorePassword)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|keyStorePassword
@@ -668,7 +644,6 @@ return|;
 block|}
 comment|/**          * The key store type.          * The option is a<code>java.lang.String</code> type.          * @group client          */
 DECL|method|keyStoreType ( String keyStoreType)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|keyStoreType
@@ -689,8 +664,7 @@ name|this
 return|;
 block|}
 comment|/**          * The URL where the key should be loaded from.          * The option is a<code>java.net.URL</code> type.          * @group client          */
-DECL|method|keyStoreUrl ( URL keyStoreUrl)
-specifier|public
+DECL|method|keyStoreUrl (URL keyStoreUrl)
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|keyStoreUrl
@@ -711,8 +685,7 @@ name|this
 return|;
 block|}
 comment|/**          * The URL where the key should be loaded from.          * The option will be converted to a<code>java.net.URL</code> type.          * @group client          */
-DECL|method|keyStoreUrl ( String keyStoreUrl)
-specifier|public
+DECL|method|keyStoreUrl (String keyStoreUrl)
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|keyStoreUrl
@@ -734,7 +707,6 @@ return|;
 block|}
 comment|/**          * The maximum number of pending publish requests.          * The option is a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|maxPendingPublishRequests ( Long maxPendingPublishRequests)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|maxPendingPublishRequests
@@ -756,7 +728,6 @@ return|;
 block|}
 comment|/**          * The maximum number of pending publish requests.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|maxPendingPublishRequests ( String maxPendingPublishRequests)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|maxPendingPublishRequests
@@ -778,7 +749,6 @@ return|;
 block|}
 comment|/**          * The maximum number of bytes a response message may have.          * The option is a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|maxResponseMessageSize ( Long maxResponseMessageSize)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|maxResponseMessageSize
@@ -800,7 +770,6 @@ return|;
 block|}
 comment|/**          * The maximum number of bytes a response message may have.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|maxResponseMessageSize ( String maxResponseMessageSize)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|maxResponseMessageSize
@@ -822,7 +791,6 @@ return|;
 block|}
 comment|/**          * Override the server reported endpoint host with the host from the          * endpoint URI.          * The option is a<code>boolean</code> type.          * @group client          */
 DECL|method|overrideHost ( boolean overrideHost)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|overrideHost
@@ -844,7 +812,6 @@ return|;
 block|}
 comment|/**          * Override the server reported endpoint host with the host from the          * endpoint URI.          * The option will be converted to a<code>boolean</code> type.          * @group client          */
 DECL|method|overrideHost ( String overrideHost)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|overrideHost
@@ -865,8 +832,7 @@ name|this
 return|;
 block|}
 comment|/**          * The product URI.          * The option is a<code>java.lang.String</code> type.          * @group client          */
-DECL|method|productUri ( String productUri)
-specifier|public
+DECL|method|productUri (String productUri)
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|productUri
@@ -888,7 +854,6 @@ return|;
 block|}
 comment|/**          * Request timeout in milliseconds.          * The option is a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|requestTimeout ( Long requestTimeout)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|requestTimeout
@@ -910,7 +875,6 @@ return|;
 block|}
 comment|/**          * Request timeout in milliseconds.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|requestTimeout ( String requestTimeout)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|requestTimeout
@@ -931,8 +895,7 @@ name|this
 return|;
 block|}
 comment|/**          * Session name.          * The option is a<code>java.lang.String</code> type.          * @group client          */
-DECL|method|sessionName ( String sessionName)
-specifier|public
+DECL|method|sessionName (String sessionName)
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|sessionName
@@ -954,7 +917,6 @@ return|;
 block|}
 comment|/**          * Session timeout in milliseconds.          * The option is a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|sessionTimeout ( Long sessionTimeout)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|sessionTimeout
@@ -976,7 +938,6 @@ return|;
 block|}
 comment|/**          * Session timeout in milliseconds.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|sessionTimeout ( String sessionTimeout)
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|sessionTimeout
@@ -1006,7 +967,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|MiloClientEndpointConsumerBuilder
 name|basic
@@ -1021,7 +981,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedMiloClientEndpointConsumerBuilder
 name|exceptionHandler
@@ -1043,7 +1002,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedMiloClientEndpointConsumerBuilder
 name|exceptionHandler
@@ -1065,7 +1023,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedMiloClientEndpointConsumerBuilder
 name|exchangePattern
@@ -1087,7 +1044,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedMiloClientEndpointConsumerBuilder
 name|exchangePattern
@@ -1109,7 +1065,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMiloClientEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1131,7 +1086,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMiloClientEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1153,7 +1107,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedMiloClientEndpointConsumerBuilder
 name|synchronous
@@ -1175,7 +1128,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedMiloClientEndpointConsumerBuilder
 name|synchronous
@@ -1206,7 +1158,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedMiloClientEndpointProducerBuilder
 name|advanced
@@ -1220,8 +1171,7 @@ name|this
 return|;
 block|}
 comment|/**          * The OPC UA server endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|endpointUri ( String endpointUri)
-specifier|public
+DECL|method|endpointUri (String endpointUri)
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|endpointUri
@@ -1242,8 +1192,7 @@ name|this
 return|;
 block|}
 comment|/**          * A virtual client id to force the creation of a new connection          * instance.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|clientId ( String clientId)
-specifier|public
+DECL|method|clientId (String clientId)
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|clientId
@@ -1265,7 +1214,6 @@ return|;
 block|}
 comment|/**          * Default await setting for writes.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|defaultAwaitWrites ( boolean defaultAwaitWrites)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|defaultAwaitWrites
@@ -1287,7 +1235,6 @@ return|;
 block|}
 comment|/**          * Default await setting for writes.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|defaultAwaitWrites ( String defaultAwaitWrites)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|defaultAwaitWrites
@@ -1309,7 +1256,6 @@ return|;
 block|}
 comment|/**          * A suffix for endpoint URI when discovering.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|discoveryEndpointSuffix ( String discoveryEndpointSuffix)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|discoveryEndpointSuffix
@@ -1331,7 +1277,6 @@ return|;
 block|}
 comment|/**          * An alternative discovery URI.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|discoveryEndpointUri ( String discoveryEndpointUri)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|discoveryEndpointUri
@@ -1353,7 +1298,6 @@ return|;
 block|}
 comment|/**          * The method definition (see Method ID).          * The option is a          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          * @group common          */
 DECL|method|method (Object method)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|method
@@ -1375,7 +1319,6 @@ return|;
 block|}
 comment|/**          * The method definition (see Method ID).          * The option will be converted to a          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          * @group common          */
 DECL|method|method (String method)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|method
@@ -1397,7 +1340,6 @@ return|;
 block|}
 comment|/**          * The node definition (see Node ID).          * The option is a          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          * @group common          */
 DECL|method|node (Object node)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|node
@@ -1419,7 +1361,6 @@ return|;
 block|}
 comment|/**          * The node definition (see Node ID).          * The option will be converted to a          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          * @group common          */
 DECL|method|node (String node)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|node
@@ -1441,7 +1382,6 @@ return|;
 block|}
 comment|/**          * The sampling interval in milliseconds.          * The option is a<code>java.lang.Double</code> type.          * @group common          */
 DECL|method|samplingInterval ( Double samplingInterval)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|samplingInterval
@@ -1463,7 +1403,6 @@ return|;
 block|}
 comment|/**          * The sampling interval in milliseconds.          * The option will be converted to a<code>java.lang.Double</code> type.          * @group common          */
 DECL|method|samplingInterval ( String samplingInterval)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|samplingInterval
@@ -1485,7 +1424,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|lazyStartProducer
@@ -1507,7 +1445,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|lazyStartProducer
@@ -1529,7 +1466,6 @@ return|;
 block|}
 comment|/**          * A set of allowed security policy URIs. Default is to accept all and          * use the highest.          * The option is a<code>java.util.Set&lt;java.lang.String&gt;</code>          * type.          * @group client          */
 DECL|method|allowedSecurityPolicies ( Set<String> allowedSecurityPolicies)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|allowedSecurityPolicies
@@ -1554,7 +1490,6 @@ return|;
 block|}
 comment|/**          * A set of allowed security policy URIs. Default is to accept all and          * use the highest.          * The option will be converted to a          *<code>java.util.Set&lt;java.lang.String&gt;</code> type.          * @group client          */
 DECL|method|allowedSecurityPolicies ( String allowedSecurityPolicies)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|allowedSecurityPolicies
@@ -1576,7 +1511,6 @@ return|;
 block|}
 comment|/**          * The application name.          * The option is a<code>java.lang.String</code> type.          * @group client          */
 DECL|method|applicationName ( String applicationName)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|applicationName
@@ -1598,7 +1532,6 @@ return|;
 block|}
 comment|/**          * The application URI.          * The option is a<code>java.lang.String</code> type.          * @group client          */
 DECL|method|applicationUri ( String applicationUri)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|applicationUri
@@ -1620,7 +1553,6 @@ return|;
 block|}
 comment|/**          * Channel lifetime in milliseconds.          * The option is a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|channelLifetime ( Long channelLifetime)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|channelLifetime
@@ -1642,7 +1574,6 @@ return|;
 block|}
 comment|/**          * Channel lifetime in milliseconds.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|channelLifetime ( String channelLifetime)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|channelLifetime
@@ -1663,8 +1594,7 @@ name|this
 return|;
 block|}
 comment|/**          * The name of the key in the keystore file.          * The option is a<code>java.lang.String</code> type.          * @group client          */
-DECL|method|keyAlias ( String keyAlias)
-specifier|public
+DECL|method|keyAlias (String keyAlias)
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|keyAlias
@@ -1685,8 +1615,7 @@ name|this
 return|;
 block|}
 comment|/**          * The key password.          * The option is a<code>java.lang.String</code> type.          * @group client          */
-DECL|method|keyPassword ( String keyPassword)
-specifier|public
+DECL|method|keyPassword (String keyPassword)
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|keyPassword
@@ -1708,7 +1637,6 @@ return|;
 block|}
 comment|/**          * The keystore password.          * The option is a<code>java.lang.String</code> type.          * @group client          */
 DECL|method|keyStorePassword ( String keyStorePassword)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|keyStorePassword
@@ -1730,7 +1658,6 @@ return|;
 block|}
 comment|/**          * The key store type.          * The option is a<code>java.lang.String</code> type.          * @group client          */
 DECL|method|keyStoreType ( String keyStoreType)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|keyStoreType
@@ -1751,8 +1678,7 @@ name|this
 return|;
 block|}
 comment|/**          * The URL where the key should be loaded from.          * The option is a<code>java.net.URL</code> type.          * @group client          */
-DECL|method|keyStoreUrl ( URL keyStoreUrl)
-specifier|public
+DECL|method|keyStoreUrl (URL keyStoreUrl)
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|keyStoreUrl
@@ -1773,8 +1699,7 @@ name|this
 return|;
 block|}
 comment|/**          * The URL where the key should be loaded from.          * The option will be converted to a<code>java.net.URL</code> type.          * @group client          */
-DECL|method|keyStoreUrl ( String keyStoreUrl)
-specifier|public
+DECL|method|keyStoreUrl (String keyStoreUrl)
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|keyStoreUrl
@@ -1796,7 +1721,6 @@ return|;
 block|}
 comment|/**          * The maximum number of pending publish requests.          * The option is a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|maxPendingPublishRequests ( Long maxPendingPublishRequests)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|maxPendingPublishRequests
@@ -1818,7 +1742,6 @@ return|;
 block|}
 comment|/**          * The maximum number of pending publish requests.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|maxPendingPublishRequests ( String maxPendingPublishRequests)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|maxPendingPublishRequests
@@ -1840,7 +1763,6 @@ return|;
 block|}
 comment|/**          * The maximum number of bytes a response message may have.          * The option is a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|maxResponseMessageSize ( Long maxResponseMessageSize)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|maxResponseMessageSize
@@ -1862,7 +1784,6 @@ return|;
 block|}
 comment|/**          * The maximum number of bytes a response message may have.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|maxResponseMessageSize ( String maxResponseMessageSize)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|maxResponseMessageSize
@@ -1884,7 +1805,6 @@ return|;
 block|}
 comment|/**          * Override the server reported endpoint host with the host from the          * endpoint URI.          * The option is a<code>boolean</code> type.          * @group client          */
 DECL|method|overrideHost ( boolean overrideHost)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|overrideHost
@@ -1906,7 +1826,6 @@ return|;
 block|}
 comment|/**          * Override the server reported endpoint host with the host from the          * endpoint URI.          * The option will be converted to a<code>boolean</code> type.          * @group client          */
 DECL|method|overrideHost ( String overrideHost)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|overrideHost
@@ -1927,8 +1846,7 @@ name|this
 return|;
 block|}
 comment|/**          * The product URI.          * The option is a<code>java.lang.String</code> type.          * @group client          */
-DECL|method|productUri ( String productUri)
-specifier|public
+DECL|method|productUri (String productUri)
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|productUri
@@ -1950,7 +1868,6 @@ return|;
 block|}
 comment|/**          * Request timeout in milliseconds.          * The option is a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|requestTimeout ( Long requestTimeout)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|requestTimeout
@@ -1972,7 +1889,6 @@ return|;
 block|}
 comment|/**          * Request timeout in milliseconds.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|requestTimeout ( String requestTimeout)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|requestTimeout
@@ -1993,8 +1909,7 @@ name|this
 return|;
 block|}
 comment|/**          * Session name.          * The option is a<code>java.lang.String</code> type.          * @group client          */
-DECL|method|sessionName ( String sessionName)
-specifier|public
+DECL|method|sessionName (String sessionName)
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|sessionName
@@ -2016,7 +1931,6 @@ return|;
 block|}
 comment|/**          * Session timeout in milliseconds.          * The option is a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|sessionTimeout ( Long sessionTimeout)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|sessionTimeout
@@ -2038,7 +1952,6 @@ return|;
 block|}
 comment|/**          * Session timeout in milliseconds.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|sessionTimeout ( String sessionTimeout)
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|sessionTimeout
@@ -2068,7 +1981,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|MiloClientEndpointProducerBuilder
 name|basic
@@ -2083,7 +1995,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMiloClientEndpointProducerBuilder
 name|basicPropertyBinding
@@ -2105,7 +2016,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMiloClientEndpointProducerBuilder
 name|basicPropertyBinding
@@ -2127,7 +2037,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedMiloClientEndpointProducerBuilder
 name|synchronous
@@ -2149,7 +2058,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedMiloClientEndpointProducerBuilder
 name|synchronous
@@ -2182,7 +2090,6 @@ extends|,
 name|MiloClientEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedMiloClientEndpointBuilder
 name|advanced
@@ -2197,7 +2104,6 @@ return|;
 block|}
 comment|/**          * The OPC UA server endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|endpointUri (String endpointUri)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|endpointUri
@@ -2219,7 +2125,6 @@ return|;
 block|}
 comment|/**          * A virtual client id to force the creation of a new connection          * instance.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientId (String clientId)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|clientId
@@ -2241,7 +2146,6 @@ return|;
 block|}
 comment|/**          * Default await setting for writes.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|defaultAwaitWrites ( boolean defaultAwaitWrites)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|defaultAwaitWrites
@@ -2263,7 +2167,6 @@ return|;
 block|}
 comment|/**          * Default await setting for writes.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|defaultAwaitWrites ( String defaultAwaitWrites)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|defaultAwaitWrites
@@ -2285,7 +2188,6 @@ return|;
 block|}
 comment|/**          * A suffix for endpoint URI when discovering.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|discoveryEndpointSuffix ( String discoveryEndpointSuffix)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|discoveryEndpointSuffix
@@ -2307,7 +2209,6 @@ return|;
 block|}
 comment|/**          * An alternative discovery URI.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|discoveryEndpointUri ( String discoveryEndpointUri)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|discoveryEndpointUri
@@ -2329,7 +2230,6 @@ return|;
 block|}
 comment|/**          * The method definition (see Method ID).          * The option is a          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          * @group common          */
 DECL|method|method (Object method)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|method
@@ -2351,7 +2251,6 @@ return|;
 block|}
 comment|/**          * The method definition (see Method ID).          * The option will be converted to a          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          * @group common          */
 DECL|method|method (String method)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|method
@@ -2373,7 +2272,6 @@ return|;
 block|}
 comment|/**          * The node definition (see Node ID).          * The option is a          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          * @group common          */
 DECL|method|node (Object node)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|node
@@ -2395,7 +2293,6 @@ return|;
 block|}
 comment|/**          * The node definition (see Node ID).          * The option will be converted to a          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          * @group common          */
 DECL|method|node (String node)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|node
@@ -2417,7 +2314,6 @@ return|;
 block|}
 comment|/**          * The sampling interval in milliseconds.          * The option is a<code>java.lang.Double</code> type.          * @group common          */
 DECL|method|samplingInterval ( Double samplingInterval)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|samplingInterval
@@ -2439,7 +2335,6 @@ return|;
 block|}
 comment|/**          * The sampling interval in milliseconds.          * The option will be converted to a<code>java.lang.Double</code> type.          * @group common          */
 DECL|method|samplingInterval ( String samplingInterval)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|samplingInterval
@@ -2461,7 +2356,6 @@ return|;
 block|}
 comment|/**          * A set of allowed security policy URIs. Default is to accept all and          * use the highest.          * The option is a<code>java.util.Set&lt;java.lang.String&gt;</code>          * type.          * @group client          */
 DECL|method|allowedSecurityPolicies ( Set<String> allowedSecurityPolicies)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|allowedSecurityPolicies
@@ -2486,7 +2380,6 @@ return|;
 block|}
 comment|/**          * A set of allowed security policy URIs. Default is to accept all and          * use the highest.          * The option will be converted to a          *<code>java.util.Set&lt;java.lang.String&gt;</code> type.          * @group client          */
 DECL|method|allowedSecurityPolicies ( String allowedSecurityPolicies)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|allowedSecurityPolicies
@@ -2507,8 +2400,7 @@ name|this
 return|;
 block|}
 comment|/**          * The application name.          * The option is a<code>java.lang.String</code> type.          * @group client          */
-DECL|method|applicationName ( String applicationName)
-specifier|public
+DECL|method|applicationName (String applicationName)
 specifier|default
 name|MiloClientEndpointBuilder
 name|applicationName
@@ -2529,8 +2421,7 @@ name|this
 return|;
 block|}
 comment|/**          * The application URI.          * The option is a<code>java.lang.String</code> type.          * @group client          */
-DECL|method|applicationUri ( String applicationUri)
-specifier|public
+DECL|method|applicationUri (String applicationUri)
 specifier|default
 name|MiloClientEndpointBuilder
 name|applicationUri
@@ -2551,8 +2442,7 @@ name|this
 return|;
 block|}
 comment|/**          * Channel lifetime in milliseconds.          * The option is a<code>java.lang.Long</code> type.          * @group client          */
-DECL|method|channelLifetime ( Long channelLifetime)
-specifier|public
+DECL|method|channelLifetime (Long channelLifetime)
 specifier|default
 name|MiloClientEndpointBuilder
 name|channelLifetime
@@ -2573,8 +2463,7 @@ name|this
 return|;
 block|}
 comment|/**          * Channel lifetime in milliseconds.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group client          */
-DECL|method|channelLifetime ( String channelLifetime)
-specifier|public
+DECL|method|channelLifetime (String channelLifetime)
 specifier|default
 name|MiloClientEndpointBuilder
 name|channelLifetime
@@ -2596,7 +2485,6 @@ return|;
 block|}
 comment|/**          * The name of the key in the keystore file.          * The option is a<code>java.lang.String</code> type.          * @group client          */
 DECL|method|keyAlias (String keyAlias)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|keyAlias
@@ -2618,7 +2506,6 @@ return|;
 block|}
 comment|/**          * The key password.          * The option is a<code>java.lang.String</code> type.          * @group client          */
 DECL|method|keyPassword (String keyPassword)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|keyPassword
@@ -2640,7 +2527,6 @@ return|;
 block|}
 comment|/**          * The keystore password.          * The option is a<code>java.lang.String</code> type.          * @group client          */
 DECL|method|keyStorePassword ( String keyStorePassword)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|keyStorePassword
@@ -2661,8 +2547,7 @@ name|this
 return|;
 block|}
 comment|/**          * The key store type.          * The option is a<code>java.lang.String</code> type.          * @group client          */
-DECL|method|keyStoreType ( String keyStoreType)
-specifier|public
+DECL|method|keyStoreType (String keyStoreType)
 specifier|default
 name|MiloClientEndpointBuilder
 name|keyStoreType
@@ -2684,7 +2569,6 @@ return|;
 block|}
 comment|/**          * The URL where the key should be loaded from.          * The option is a<code>java.net.URL</code> type.          * @group client          */
 DECL|method|keyStoreUrl (URL keyStoreUrl)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|keyStoreUrl
@@ -2706,7 +2590,6 @@ return|;
 block|}
 comment|/**          * The URL where the key should be loaded from.          * The option will be converted to a<code>java.net.URL</code> type.          * @group client          */
 DECL|method|keyStoreUrl (String keyStoreUrl)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|keyStoreUrl
@@ -2728,7 +2611,6 @@ return|;
 block|}
 comment|/**          * The maximum number of pending publish requests.          * The option is a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|maxPendingPublishRequests ( Long maxPendingPublishRequests)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|maxPendingPublishRequests
@@ -2750,7 +2632,6 @@ return|;
 block|}
 comment|/**          * The maximum number of pending publish requests.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|maxPendingPublishRequests ( String maxPendingPublishRequests)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|maxPendingPublishRequests
@@ -2772,7 +2653,6 @@ return|;
 block|}
 comment|/**          * The maximum number of bytes a response message may have.          * The option is a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|maxResponseMessageSize ( Long maxResponseMessageSize)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|maxResponseMessageSize
@@ -2794,7 +2674,6 @@ return|;
 block|}
 comment|/**          * The maximum number of bytes a response message may have.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group client          */
 DECL|method|maxResponseMessageSize ( String maxResponseMessageSize)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|maxResponseMessageSize
@@ -2815,8 +2694,7 @@ name|this
 return|;
 block|}
 comment|/**          * Override the server reported endpoint host with the host from the          * endpoint URI.          * The option is a<code>boolean</code> type.          * @group client          */
-DECL|method|overrideHost ( boolean overrideHost)
-specifier|public
+DECL|method|overrideHost (boolean overrideHost)
 specifier|default
 name|MiloClientEndpointBuilder
 name|overrideHost
@@ -2837,8 +2715,7 @@ name|this
 return|;
 block|}
 comment|/**          * Override the server reported endpoint host with the host from the          * endpoint URI.          * The option will be converted to a<code>boolean</code> type.          * @group client          */
-DECL|method|overrideHost ( String overrideHost)
-specifier|public
+DECL|method|overrideHost (String overrideHost)
 specifier|default
 name|MiloClientEndpointBuilder
 name|overrideHost
@@ -2860,7 +2737,6 @@ return|;
 block|}
 comment|/**          * The product URI.          * The option is a<code>java.lang.String</code> type.          * @group client          */
 DECL|method|productUri (String productUri)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|productUri
@@ -2881,8 +2757,7 @@ name|this
 return|;
 block|}
 comment|/**          * Request timeout in milliseconds.          * The option is a<code>java.lang.Long</code> type.          * @group client          */
-DECL|method|requestTimeout ( Long requestTimeout)
-specifier|public
+DECL|method|requestTimeout (Long requestTimeout)
 specifier|default
 name|MiloClientEndpointBuilder
 name|requestTimeout
@@ -2903,8 +2778,7 @@ name|this
 return|;
 block|}
 comment|/**          * Request timeout in milliseconds.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group client          */
-DECL|method|requestTimeout ( String requestTimeout)
-specifier|public
+DECL|method|requestTimeout (String requestTimeout)
 specifier|default
 name|MiloClientEndpointBuilder
 name|requestTimeout
@@ -2926,7 +2800,6 @@ return|;
 block|}
 comment|/**          * Session name.          * The option is a<code>java.lang.String</code> type.          * @group client          */
 DECL|method|sessionName (String sessionName)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|sessionName
@@ -2947,8 +2820,7 @@ name|this
 return|;
 block|}
 comment|/**          * Session timeout in milliseconds.          * The option is a<code>java.lang.Long</code> type.          * @group client          */
-DECL|method|sessionTimeout ( Long sessionTimeout)
-specifier|public
+DECL|method|sessionTimeout (Long sessionTimeout)
 specifier|default
 name|MiloClientEndpointBuilder
 name|sessionTimeout
@@ -2969,8 +2841,7 @@ name|this
 return|;
 block|}
 comment|/**          * Session timeout in milliseconds.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group client          */
-DECL|method|sessionTimeout ( String sessionTimeout)
-specifier|public
+DECL|method|sessionTimeout (String sessionTimeout)
 specifier|default
 name|MiloClientEndpointBuilder
 name|sessionTimeout
@@ -3003,7 +2874,6 @@ extends|,
 name|AdvancedMiloClientEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|basic
@@ -3018,7 +2888,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMiloClientEndpointBuilder
 name|basicPropertyBinding
@@ -3040,7 +2909,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMiloClientEndpointBuilder
 name|basicPropertyBinding
@@ -3062,7 +2930,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedMiloClientEndpointBuilder
 name|synchronous
@@ -3083,8 +2950,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedMiloClientEndpointBuilder
 name|synchronous
@@ -3107,7 +2973,6 @@ block|}
 block|}
 comment|/**      * Connect to OPC UA servers using the binary protocol for acquiring      * telemetry data Creates a builder to build endpoints for the OPC UA Client      * component.      */
 DECL|method|miloClient (String path)
-specifier|public
 specifier|default
 name|MiloClientEndpointBuilder
 name|miloClient

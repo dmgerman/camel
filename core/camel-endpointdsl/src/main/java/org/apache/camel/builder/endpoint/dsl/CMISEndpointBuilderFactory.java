@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * URL to the cmis repository.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|cmsUrl (String cmsUrl)
-specifier|public
 specifier|default
 name|CMISEndpointConsumerBuilder
 name|cmsUrl
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * Number of nodes to retrieve per page.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|pageSize (int pageSize)
-specifier|public
 specifier|default
 name|CMISEndpointConsumerBuilder
 name|pageSize
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * Number of nodes to retrieve per page.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|pageSize (String pageSize)
-specifier|public
 specifier|default
 name|CMISEndpointConsumerBuilder
 name|pageSize
@@ -204,8 +200,7 @@ name|this
 return|;
 block|}
 comment|/**          * If set to true, the content of document node will be retrieved in          * addition to the properties.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|readContent ( boolean readContent)
-specifier|public
+DECL|method|readContent (boolean readContent)
 specifier|default
 name|CMISEndpointConsumerBuilder
 name|readContent
@@ -226,8 +221,7 @@ name|this
 return|;
 block|}
 comment|/**          * If set to true, the content of document node will be retrieved in          * addition to the properties.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|readContent ( String readContent)
-specifier|public
+DECL|method|readContent (String readContent)
 specifier|default
 name|CMISEndpointConsumerBuilder
 name|readContent
@@ -249,7 +243,6 @@ return|;
 block|}
 comment|/**          * Max number of nodes to read.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|readCount (int readCount)
-specifier|public
 specifier|default
 name|CMISEndpointConsumerBuilder
 name|readCount
@@ -271,7 +264,6 @@ return|;
 block|}
 comment|/**          * Max number of nodes to read.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|readCount (String readCount)
-specifier|public
 specifier|default
 name|CMISEndpointConsumerBuilder
 name|readCount
@@ -292,8 +284,7 @@ name|this
 return|;
 block|}
 comment|/**          * The Id of the repository to use. If not specified the first available          * repository is used.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|repositoryId ( String repositoryId)
-specifier|public
+DECL|method|repositoryId (String repositoryId)
 specifier|default
 name|CMISEndpointConsumerBuilder
 name|repositoryId
@@ -315,7 +306,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|CMISEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -337,7 +327,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|CMISEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -359,7 +348,6 @@ return|;
 block|}
 comment|/**          * The cmis query to execute against the repository. If not specified,          * the consumer will retrieve every node from the content repository by          * iterating the content tree recursively.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|query (String query)
-specifier|public
 specifier|default
 name|CMISEndpointConsumerBuilder
 name|query
@@ -381,7 +369,6 @@ return|;
 block|}
 comment|/**          * Password for the cmis repository.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|CMISEndpointConsumerBuilder
 name|password
@@ -403,7 +390,6 @@ return|;
 block|}
 comment|/**          * Username for the cmis repository.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|CMISEndpointConsumerBuilder
 name|username
@@ -433,7 +419,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|CMISEndpointConsumerBuilder
 name|basic
@@ -448,7 +433,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointConsumerBuilder
 name|exceptionHandler
@@ -470,7 +454,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointConsumerBuilder
 name|exceptionHandler
@@ -492,7 +475,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointConsumerBuilder
 name|exchangePattern
@@ -514,7 +496,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointConsumerBuilder
 name|exchangePattern
@@ -536,7 +517,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -558,7 +538,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -580,7 +559,6 @@ return|;
 block|}
 comment|/**          * To use a custom CMISSessionFacadeFactory to create the          * CMISSessionFacade instances.          * The option is a          *<code>org.apache.camel.component.cmis.CMISSessionFacadeFactory</code>          * type.          * @group advanced          */
 DECL|method|sessionFacadeFactory ( Object sessionFacadeFactory)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointConsumerBuilder
 name|sessionFacadeFactory
@@ -602,7 +580,6 @@ return|;
 block|}
 comment|/**          * To use a custom CMISSessionFacadeFactory to create the          * CMISSessionFacade instances.          * The option will be converted to a          *<code>org.apache.camel.component.cmis.CMISSessionFacadeFactory</code>          * type.          * @group advanced          */
 DECL|method|sessionFacadeFactory ( String sessionFacadeFactory)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointConsumerBuilder
 name|sessionFacadeFactory
@@ -624,7 +601,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointConsumerBuilder
 name|synchronous
@@ -646,7 +622,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointConsumerBuilder
 name|synchronous
@@ -677,7 +652,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointProducerBuilder
 name|advanced
@@ -692,7 +666,6 @@ return|;
 block|}
 comment|/**          * URL to the cmis repository.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|cmsUrl (String cmsUrl)
-specifier|public
 specifier|default
 name|CMISEndpointProducerBuilder
 name|cmsUrl
@@ -714,7 +687,6 @@ return|;
 block|}
 comment|/**          * Number of nodes to retrieve per page.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|pageSize (int pageSize)
-specifier|public
 specifier|default
 name|CMISEndpointProducerBuilder
 name|pageSize
@@ -736,7 +708,6 @@ return|;
 block|}
 comment|/**          * Number of nodes to retrieve per page.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|pageSize (String pageSize)
-specifier|public
 specifier|default
 name|CMISEndpointProducerBuilder
 name|pageSize
@@ -757,8 +728,7 @@ name|this
 return|;
 block|}
 comment|/**          * If set to true, the content of document node will be retrieved in          * addition to the properties.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|readContent ( boolean readContent)
-specifier|public
+DECL|method|readContent (boolean readContent)
 specifier|default
 name|CMISEndpointProducerBuilder
 name|readContent
@@ -779,8 +749,7 @@ name|this
 return|;
 block|}
 comment|/**          * If set to true, the content of document node will be retrieved in          * addition to the properties.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|readContent ( String readContent)
-specifier|public
+DECL|method|readContent (String readContent)
 specifier|default
 name|CMISEndpointProducerBuilder
 name|readContent
@@ -802,7 +771,6 @@ return|;
 block|}
 comment|/**          * Max number of nodes to read.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|readCount (int readCount)
-specifier|public
 specifier|default
 name|CMISEndpointProducerBuilder
 name|readCount
@@ -824,7 +792,6 @@ return|;
 block|}
 comment|/**          * Max number of nodes to read.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|readCount (String readCount)
-specifier|public
 specifier|default
 name|CMISEndpointProducerBuilder
 name|readCount
@@ -845,8 +812,7 @@ name|this
 return|;
 block|}
 comment|/**          * The Id of the repository to use. If not specified the first available          * repository is used.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|repositoryId ( String repositoryId)
-specifier|public
+DECL|method|repositoryId (String repositoryId)
 specifier|default
 name|CMISEndpointProducerBuilder
 name|repositoryId
@@ -868,7 +834,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|CMISEndpointProducerBuilder
 name|lazyStartProducer
@@ -890,7 +855,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|CMISEndpointProducerBuilder
 name|lazyStartProducer
@@ -912,7 +876,6 @@ return|;
 block|}
 comment|/**          * If true, will execute the cmis query from the message body and return          * result, otherwise will create a node in the cmis repository.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|queryMode (boolean queryMode)
-specifier|public
 specifier|default
 name|CMISEndpointProducerBuilder
 name|queryMode
@@ -934,7 +897,6 @@ return|;
 block|}
 comment|/**          * If true, will execute the cmis query from the message body and return          * result, otherwise will create a node in the cmis repository.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|queryMode (String queryMode)
-specifier|public
 specifier|default
 name|CMISEndpointProducerBuilder
 name|queryMode
@@ -956,7 +918,6 @@ return|;
 block|}
 comment|/**          * Password for the cmis repository.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|CMISEndpointProducerBuilder
 name|password
@@ -978,7 +939,6 @@ return|;
 block|}
 comment|/**          * Username for the cmis repository.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|CMISEndpointProducerBuilder
 name|username
@@ -1008,7 +968,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|CMISEndpointProducerBuilder
 name|basic
@@ -1023,7 +982,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1045,7 +1003,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1067,7 +1024,6 @@ return|;
 block|}
 comment|/**          * To use a custom CMISSessionFacadeFactory to create the          * CMISSessionFacade instances.          * The option is a          *<code>org.apache.camel.component.cmis.CMISSessionFacadeFactory</code>          * type.          * @group advanced          */
 DECL|method|sessionFacadeFactory ( Object sessionFacadeFactory)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointProducerBuilder
 name|sessionFacadeFactory
@@ -1089,7 +1045,6 @@ return|;
 block|}
 comment|/**          * To use a custom CMISSessionFacadeFactory to create the          * CMISSessionFacade instances.          * The option will be converted to a          *<code>org.apache.camel.component.cmis.CMISSessionFacadeFactory</code>          * type.          * @group advanced          */
 DECL|method|sessionFacadeFactory ( String sessionFacadeFactory)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointProducerBuilder
 name|sessionFacadeFactory
@@ -1111,7 +1066,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointProducerBuilder
 name|synchronous
@@ -1133,7 +1087,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointProducerBuilder
 name|synchronous
@@ -1166,7 +1119,6 @@ extends|,
 name|CMISEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointBuilder
 name|advanced
@@ -1181,7 +1133,6 @@ return|;
 block|}
 comment|/**          * URL to the cmis repository.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|cmsUrl (String cmsUrl)
-specifier|public
 specifier|default
 name|CMISEndpointBuilder
 name|cmsUrl
@@ -1203,7 +1154,6 @@ return|;
 block|}
 comment|/**          * Number of nodes to retrieve per page.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|pageSize (int pageSize)
-specifier|public
 specifier|default
 name|CMISEndpointBuilder
 name|pageSize
@@ -1225,7 +1175,6 @@ return|;
 block|}
 comment|/**          * Number of nodes to retrieve per page.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|pageSize (String pageSize)
-specifier|public
 specifier|default
 name|CMISEndpointBuilder
 name|pageSize
@@ -1247,7 +1196,6 @@ return|;
 block|}
 comment|/**          * If set to true, the content of document node will be retrieved in          * addition to the properties.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|readContent (boolean readContent)
-specifier|public
 specifier|default
 name|CMISEndpointBuilder
 name|readContent
@@ -1269,7 +1217,6 @@ return|;
 block|}
 comment|/**          * If set to true, the content of document node will be retrieved in          * addition to the properties.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|readContent (String readContent)
-specifier|public
 specifier|default
 name|CMISEndpointBuilder
 name|readContent
@@ -1291,7 +1238,6 @@ return|;
 block|}
 comment|/**          * Max number of nodes to read.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|readCount (int readCount)
-specifier|public
 specifier|default
 name|CMISEndpointBuilder
 name|readCount
@@ -1313,7 +1259,6 @@ return|;
 block|}
 comment|/**          * Max number of nodes to read.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|readCount (String readCount)
-specifier|public
 specifier|default
 name|CMISEndpointBuilder
 name|readCount
@@ -1335,7 +1280,6 @@ return|;
 block|}
 comment|/**          * The Id of the repository to use. If not specified the first available          * repository is used.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|repositoryId (String repositoryId)
-specifier|public
 specifier|default
 name|CMISEndpointBuilder
 name|repositoryId
@@ -1357,7 +1301,6 @@ return|;
 block|}
 comment|/**          * Password for the cmis repository.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|CMISEndpointBuilder
 name|password
@@ -1379,7 +1322,6 @@ return|;
 block|}
 comment|/**          * Username for the cmis repository.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|CMISEndpointBuilder
 name|username
@@ -1412,7 +1354,6 @@ extends|,
 name|AdvancedCMISEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|CMISEndpointBuilder
 name|basic
@@ -1427,7 +1368,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointBuilder
 name|basicPropertyBinding
@@ -1449,7 +1389,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointBuilder
 name|basicPropertyBinding
@@ -1471,7 +1410,6 @@ return|;
 block|}
 comment|/**          * To use a custom CMISSessionFacadeFactory to create the          * CMISSessionFacade instances.          * The option is a          *<code>org.apache.camel.component.cmis.CMISSessionFacadeFactory</code>          * type.          * @group advanced          */
 DECL|method|sessionFacadeFactory ( Object sessionFacadeFactory)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointBuilder
 name|sessionFacadeFactory
@@ -1493,7 +1431,6 @@ return|;
 block|}
 comment|/**          * To use a custom CMISSessionFacadeFactory to create the          * CMISSessionFacade instances.          * The option will be converted to a          *<code>org.apache.camel.component.cmis.CMISSessionFacadeFactory</code>          * type.          * @group advanced          */
 DECL|method|sessionFacadeFactory ( String sessionFacadeFactory)
-specifier|public
 specifier|default
 name|AdvancedCMISEndpointBuilder
 name|sessionFacadeFactory
@@ -1514,8 +1451,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedCMISEndpointBuilder
 name|synchronous
@@ -1536,8 +1472,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedCMISEndpointBuilder
 name|synchronous
@@ -1560,7 +1495,6 @@ block|}
 block|}
 comment|/**      * The cmis component uses the Apache Chemistry client API and allows you to      * add/read nodes to/from a CMIS compliant content repositories. Creates a      * builder to build endpoints for the CMIS component.      */
 DECL|method|cMIS (String path)
-specifier|public
 specifier|default
 name|CMISEndpointBuilder
 name|cMIS

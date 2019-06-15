@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedDropboxEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * The specific action (typically is a CRUD action) to perform on          * Dropbox remote folder.          * The option is a          *<code>org.apache.camel.component.dropbox.util.DropboxOperation</code>          * type.          * @group common          */
 DECL|method|operation ( DropboxOperation operation)
-specifier|public
 specifier|default
 name|DropboxEndpointConsumerBuilder
 name|operation
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * The specific action (typically is a CRUD action) to perform on          * Dropbox remote folder.          * The option will be converted to a          *<code>org.apache.camel.component.dropbox.util.DropboxOperation</code>          * type.          * @group common          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|DropboxEndpointConsumerBuilder
 name|operation
@@ -182,8 +179,7 @@ name|this
 return|;
 block|}
 comment|/**          * The access token to make API requests for a specific Dropbox user.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|accessToken ( String accessToken)
-specifier|public
+DECL|method|accessToken (String accessToken)
 specifier|default
 name|DropboxEndpointConsumerBuilder
 name|accessToken
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * To use an existing DbxClient instance as DropBox client.          * The option is a<code>com.dropbox.core.v2.DbxClientV2</code> type.          * @group common          */
 DECL|method|client (Object client)
-specifier|public
 specifier|default
 name|DropboxEndpointConsumerBuilder
 name|client
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * To use an existing DbxClient instance as DropBox client.          * The option will be converted to a          *<code>com.dropbox.core.v2.DbxClientV2</code> type.          * @group common          */
 DECL|method|client (String client)
-specifier|public
 specifier|default
 name|DropboxEndpointConsumerBuilder
 name|client
@@ -249,7 +243,6 @@ return|;
 block|}
 comment|/**          * Name of the app registered to make API requests.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientIdentifier ( String clientIdentifier)
-specifier|public
 specifier|default
 name|DropboxEndpointConsumerBuilder
 name|clientIdentifier
@@ -271,7 +264,6 @@ return|;
 block|}
 comment|/**          * Optional folder or file to upload on Dropbox from the local          * filesystem. If this option has not been configured then the message          * body is used as the content to upload.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|localPath (String localPath)
-specifier|public
 specifier|default
 name|DropboxEndpointConsumerBuilder
 name|localPath
@@ -293,7 +285,6 @@ return|;
 block|}
 comment|/**          * Destination file or folder.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|newRemotePath ( String newRemotePath)
-specifier|public
 specifier|default
 name|DropboxEndpointConsumerBuilder
 name|newRemotePath
@@ -315,7 +306,6 @@ return|;
 block|}
 comment|/**          * A space-separated list of sub-strings to search for. A file matches          * only if it contains all the sub-strings. If this option is not set,          * all files will be matched.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|query (String query)
-specifier|public
 specifier|default
 name|DropboxEndpointConsumerBuilder
 name|query
@@ -336,8 +326,7 @@ name|this
 return|;
 block|}
 comment|/**          * Original file or folder to move.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|remotePath ( String remotePath)
-specifier|public
+DECL|method|remotePath (String remotePath)
 specifier|default
 name|DropboxEndpointConsumerBuilder
 name|remotePath
@@ -359,7 +348,6 @@ return|;
 block|}
 comment|/**          * Which mode to upload. in case of add the new file will be renamed if          * a file with the same name already exists on dropbox. in case of force          * if a file with the same name already exists on dropbox, this will be          * overwritten.          * The option is a          *<code>org.apache.camel.component.dropbox.util.DropboxUploadMode</code> type.          * @group common          */
 DECL|method|uploadMode ( DropboxUploadMode uploadMode)
-specifier|public
 specifier|default
 name|DropboxEndpointConsumerBuilder
 name|uploadMode
@@ -380,8 +368,7 @@ name|this
 return|;
 block|}
 comment|/**          * Which mode to upload. in case of add the new file will be renamed if          * a file with the same name already exists on dropbox. in case of force          * if a file with the same name already exists on dropbox, this will be          * overwritten.          * The option will be converted to a          *<code>org.apache.camel.component.dropbox.util.DropboxUploadMode</code> type.          * @group common          */
-DECL|method|uploadMode ( String uploadMode)
-specifier|public
+DECL|method|uploadMode (String uploadMode)
 specifier|default
 name|DropboxEndpointConsumerBuilder
 name|uploadMode
@@ -403,7 +390,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|DropboxEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -425,7 +411,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|DropboxEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -455,7 +440,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|DropboxEndpointConsumerBuilder
 name|basic
@@ -470,7 +454,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedDropboxEndpointConsumerBuilder
 name|exceptionHandler
@@ -492,7 +475,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedDropboxEndpointConsumerBuilder
 name|exceptionHandler
@@ -514,7 +496,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedDropboxEndpointConsumerBuilder
 name|exchangePattern
@@ -536,7 +517,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedDropboxEndpointConsumerBuilder
 name|exchangePattern
@@ -558,7 +538,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDropboxEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -580,7 +559,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDropboxEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -602,7 +580,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedDropboxEndpointConsumerBuilder
 name|synchronous
@@ -624,7 +601,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedDropboxEndpointConsumerBuilder
 name|synchronous
@@ -655,7 +631,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedDropboxEndpointProducerBuilder
 name|advanced
@@ -670,7 +645,6 @@ return|;
 block|}
 comment|/**          * The specific action (typically is a CRUD action) to perform on          * Dropbox remote folder.          * The option is a          *<code>org.apache.camel.component.dropbox.util.DropboxOperation</code>          * type.          * @group common          */
 DECL|method|operation ( DropboxOperation operation)
-specifier|public
 specifier|default
 name|DropboxEndpointProducerBuilder
 name|operation
@@ -692,7 +666,6 @@ return|;
 block|}
 comment|/**          * The specific action (typically is a CRUD action) to perform on          * Dropbox remote folder.          * The option will be converted to a          *<code>org.apache.camel.component.dropbox.util.DropboxOperation</code>          * type.          * @group common          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|DropboxEndpointProducerBuilder
 name|operation
@@ -713,8 +686,7 @@ name|this
 return|;
 block|}
 comment|/**          * The access token to make API requests for a specific Dropbox user.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|accessToken ( String accessToken)
-specifier|public
+DECL|method|accessToken (String accessToken)
 specifier|default
 name|DropboxEndpointProducerBuilder
 name|accessToken
@@ -736,7 +708,6 @@ return|;
 block|}
 comment|/**          * To use an existing DbxClient instance as DropBox client.          * The option is a<code>com.dropbox.core.v2.DbxClientV2</code> type.          * @group common          */
 DECL|method|client (Object client)
-specifier|public
 specifier|default
 name|DropboxEndpointProducerBuilder
 name|client
@@ -758,7 +729,6 @@ return|;
 block|}
 comment|/**          * To use an existing DbxClient instance as DropBox client.          * The option will be converted to a          *<code>com.dropbox.core.v2.DbxClientV2</code> type.          * @group common          */
 DECL|method|client (String client)
-specifier|public
 specifier|default
 name|DropboxEndpointProducerBuilder
 name|client
@@ -780,7 +750,6 @@ return|;
 block|}
 comment|/**          * Name of the app registered to make API requests.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientIdentifier ( String clientIdentifier)
-specifier|public
 specifier|default
 name|DropboxEndpointProducerBuilder
 name|clientIdentifier
@@ -802,7 +771,6 @@ return|;
 block|}
 comment|/**          * Optional folder or file to upload on Dropbox from the local          * filesystem. If this option has not been configured then the message          * body is used as the content to upload.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|localPath (String localPath)
-specifier|public
 specifier|default
 name|DropboxEndpointProducerBuilder
 name|localPath
@@ -824,7 +792,6 @@ return|;
 block|}
 comment|/**          * Destination file or folder.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|newRemotePath ( String newRemotePath)
-specifier|public
 specifier|default
 name|DropboxEndpointProducerBuilder
 name|newRemotePath
@@ -846,7 +813,6 @@ return|;
 block|}
 comment|/**          * A space-separated list of sub-strings to search for. A file matches          * only if it contains all the sub-strings. If this option is not set,          * all files will be matched.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|query (String query)
-specifier|public
 specifier|default
 name|DropboxEndpointProducerBuilder
 name|query
@@ -867,8 +833,7 @@ name|this
 return|;
 block|}
 comment|/**          * Original file or folder to move.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|remotePath ( String remotePath)
-specifier|public
+DECL|method|remotePath (String remotePath)
 specifier|default
 name|DropboxEndpointProducerBuilder
 name|remotePath
@@ -890,7 +855,6 @@ return|;
 block|}
 comment|/**          * Which mode to upload. in case of add the new file will be renamed if          * a file with the same name already exists on dropbox. in case of force          * if a file with the same name already exists on dropbox, this will be          * overwritten.          * The option is a          *<code>org.apache.camel.component.dropbox.util.DropboxUploadMode</code> type.          * @group common          */
 DECL|method|uploadMode ( DropboxUploadMode uploadMode)
-specifier|public
 specifier|default
 name|DropboxEndpointProducerBuilder
 name|uploadMode
@@ -911,8 +875,7 @@ name|this
 return|;
 block|}
 comment|/**          * Which mode to upload. in case of add the new file will be renamed if          * a file with the same name already exists on dropbox. in case of force          * if a file with the same name already exists on dropbox, this will be          * overwritten.          * The option will be converted to a          *<code>org.apache.camel.component.dropbox.util.DropboxUploadMode</code> type.          * @group common          */
-DECL|method|uploadMode ( String uploadMode)
-specifier|public
+DECL|method|uploadMode (String uploadMode)
 specifier|default
 name|DropboxEndpointProducerBuilder
 name|uploadMode
@@ -934,7 +897,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|DropboxEndpointProducerBuilder
 name|lazyStartProducer
@@ -956,7 +918,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|DropboxEndpointProducerBuilder
 name|lazyStartProducer
@@ -986,7 +947,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|DropboxEndpointProducerBuilder
 name|basic
@@ -1001,7 +961,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDropboxEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1023,7 +982,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDropboxEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1045,7 +1003,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedDropboxEndpointProducerBuilder
 name|synchronous
@@ -1067,7 +1024,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedDropboxEndpointProducerBuilder
 name|synchronous
@@ -1100,7 +1056,6 @@ extends|,
 name|DropboxEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedDropboxEndpointBuilder
 name|advanced
@@ -1114,8 +1069,7 @@ name|this
 return|;
 block|}
 comment|/**          * The specific action (typically is a CRUD action) to perform on          * Dropbox remote folder.          * The option is a          *<code>org.apache.camel.component.dropbox.util.DropboxOperation</code>          * type.          * @group common          */
-DECL|method|operation ( DropboxOperation operation)
-specifier|public
+DECL|method|operation (DropboxOperation operation)
 specifier|default
 name|DropboxEndpointBuilder
 name|operation
@@ -1137,7 +1091,6 @@ return|;
 block|}
 comment|/**          * The specific action (typically is a CRUD action) to perform on          * Dropbox remote folder.          * The option will be converted to a          *<code>org.apache.camel.component.dropbox.util.DropboxOperation</code>          * type.          * @group common          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|DropboxEndpointBuilder
 name|operation
@@ -1159,7 +1112,6 @@ return|;
 block|}
 comment|/**          * The access token to make API requests for a specific Dropbox user.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|accessToken (String accessToken)
-specifier|public
 specifier|default
 name|DropboxEndpointBuilder
 name|accessToken
@@ -1181,7 +1133,6 @@ return|;
 block|}
 comment|/**          * To use an existing DbxClient instance as DropBox client.          * The option is a<code>com.dropbox.core.v2.DbxClientV2</code> type.          * @group common          */
 DECL|method|client (Object client)
-specifier|public
 specifier|default
 name|DropboxEndpointBuilder
 name|client
@@ -1203,7 +1154,6 @@ return|;
 block|}
 comment|/**          * To use an existing DbxClient instance as DropBox client.          * The option will be converted to a          *<code>com.dropbox.core.v2.DbxClientV2</code> type.          * @group common          */
 DECL|method|client (String client)
-specifier|public
 specifier|default
 name|DropboxEndpointBuilder
 name|client
@@ -1224,8 +1174,7 @@ name|this
 return|;
 block|}
 comment|/**          * Name of the app registered to make API requests.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|clientIdentifier ( String clientIdentifier)
-specifier|public
+DECL|method|clientIdentifier (String clientIdentifier)
 specifier|default
 name|DropboxEndpointBuilder
 name|clientIdentifier
@@ -1247,7 +1196,6 @@ return|;
 block|}
 comment|/**          * Optional folder or file to upload on Dropbox from the local          * filesystem. If this option has not been configured then the message          * body is used as the content to upload.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|localPath (String localPath)
-specifier|public
 specifier|default
 name|DropboxEndpointBuilder
 name|localPath
@@ -1269,7 +1217,6 @@ return|;
 block|}
 comment|/**          * Destination file or folder.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|newRemotePath (String newRemotePath)
-specifier|public
 specifier|default
 name|DropboxEndpointBuilder
 name|newRemotePath
@@ -1291,7 +1238,6 @@ return|;
 block|}
 comment|/**          * A space-separated list of sub-strings to search for. A file matches          * only if it contains all the sub-strings. If this option is not set,          * all files will be matched.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|query (String query)
-specifier|public
 specifier|default
 name|DropboxEndpointBuilder
 name|query
@@ -1313,7 +1259,6 @@ return|;
 block|}
 comment|/**          * Original file or folder to move.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|remotePath (String remotePath)
-specifier|public
 specifier|default
 name|DropboxEndpointBuilder
 name|remotePath
@@ -1334,8 +1279,7 @@ name|this
 return|;
 block|}
 comment|/**          * Which mode to upload. in case of add the new file will be renamed if          * a file with the same name already exists on dropbox. in case of force          * if a file with the same name already exists on dropbox, this will be          * overwritten.          * The option is a          *<code>org.apache.camel.component.dropbox.util.DropboxUploadMode</code> type.          * @group common          */
-DECL|method|uploadMode ( DropboxUploadMode uploadMode)
-specifier|public
+DECL|method|uploadMode (DropboxUploadMode uploadMode)
 specifier|default
 name|DropboxEndpointBuilder
 name|uploadMode
@@ -1357,7 +1301,6 @@ return|;
 block|}
 comment|/**          * Which mode to upload. in case of add the new file will be renamed if          * a file with the same name already exists on dropbox. in case of force          * if a file with the same name already exists on dropbox, this will be          * overwritten.          * The option will be converted to a          *<code>org.apache.camel.component.dropbox.util.DropboxUploadMode</code> type.          * @group common          */
 DECL|method|uploadMode (String uploadMode)
-specifier|public
 specifier|default
 name|DropboxEndpointBuilder
 name|uploadMode
@@ -1390,7 +1333,6 @@ extends|,
 name|AdvancedDropboxEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|DropboxEndpointBuilder
 name|basic
@@ -1405,7 +1347,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDropboxEndpointBuilder
 name|basicPropertyBinding
@@ -1427,7 +1368,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDropboxEndpointBuilder
 name|basicPropertyBinding
@@ -1448,8 +1388,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedDropboxEndpointBuilder
 name|synchronous
@@ -1470,8 +1409,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedDropboxEndpointBuilder
 name|synchronous
@@ -1529,7 +1467,6 @@ name|force
 block|;     }
 comment|/**      * For uploading, downloading and managing files, folders, groups,      * collaborations, etc on dropbox DOT com. Creates a builder to build      * endpoints for the Dropbox component.      */
 DECL|method|dropbox (String path)
-specifier|public
 specifier|default
 name|DropboxEndpointBuilder
 name|dropbox

@@ -109,7 +109,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedGoogleSheetsStreamEndpointBuilder
 name|advanced
@@ -124,7 +123,6 @@ return|;
 block|}
 comment|/**          * Sets the apiName.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|apiName
@@ -145,8 +143,7 @@ name|this
 return|;
 block|}
 comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
-DECL|method|accessToken ( String accessToken)
-specifier|public
+DECL|method|accessToken (String accessToken)
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|accessToken
@@ -168,7 +165,6 @@ return|;
 block|}
 comment|/**          * Google sheets application name. Example would be          * camel-google-sheets/1.0.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|applicationName ( String applicationName)
-specifier|public
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|applicationName
@@ -189,8 +185,7 @@ name|this
 return|;
 block|}
 comment|/**          * Client ID of the sheets application.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
-DECL|method|clientId ( String clientId)
-specifier|public
+DECL|method|clientId (String clientId)
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|clientId
@@ -212,7 +207,6 @@ return|;
 block|}
 comment|/**          * Client secret of the sheets application.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|clientSecret ( String clientSecret)
-specifier|public
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|clientSecret
@@ -234,7 +228,6 @@ return|;
 block|}
 comment|/**          * True if grid data should be returned.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|includeGridData ( boolean includeGridData)
-specifier|public
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|includeGridData
@@ -256,7 +249,6 @@ return|;
 block|}
 comment|/**          * True if grid data should be returned.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|includeGridData ( String includeGridData)
-specifier|public
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|includeGridData
@@ -278,7 +270,6 @@ return|;
 block|}
 comment|/**          * Specifies the major dimension that results should use..          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|majorDimension ( String majorDimension)
-specifier|public
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|majorDimension
@@ -299,8 +290,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specify the maximum number of returned results. This will limit the          * number of rows in a returned value range data set or the number of          * returned value ranges in a batch request.          * The option is a<code>int</code> type.          * @group consumer          */
-DECL|method|maxResults ( int maxResults)
-specifier|public
+DECL|method|maxResults (int maxResults)
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|maxResults
@@ -321,8 +311,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specify the maximum number of returned results. This will limit the          * number of rows in a returned value range data set or the number of          * returned value ranges in a batch request.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
-DECL|method|maxResults ( String maxResults)
-specifier|public
+DECL|method|maxResults (String maxResults)
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|maxResults
@@ -344,7 +333,6 @@ return|;
 block|}
 comment|/**          * Specifies the range of rows and columns in a sheet to get data from.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|range (String range)
-specifier|public
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|range
@@ -366,7 +354,6 @@ return|;
 block|}
 comment|/**          * OAuth 2 refresh token. Using this, the Google Calendar component can          * obtain a new accessToken whenever the current one expires - a          * necessity if the application is long-lived.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|refreshToken ( String refreshToken)
-specifier|public
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|refreshToken
@@ -387,8 +374,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specifies the level of permissions you want a sheets application to          * have to a user account. See          * https://developers.google.com/identity/protocols/googlescopes for          * more info.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group consumer          */
-DECL|method|scopes ( List<String> scopes)
-specifier|public
+DECL|method|scopes (List<String> scopes)
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|scopes
@@ -413,7 +399,6 @@ return|;
 block|}
 comment|/**          * Specifies the level of permissions you want a sheets application to          * have to a user account. See          * https://developers.google.com/identity/protocols/googlescopes for          * more info.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group consumer          */
 DECL|method|scopes (String scopes)
-specifier|public
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|scopes
@@ -435,7 +420,6 @@ return|;
 block|}
 comment|/**          * True if value range result should be split into rows or columns to          * process each of them individually. When true each row or column is          * represented with a separate exchange in batch processing. Otherwise          * value range object is used as exchange junk size.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|splitResults ( boolean splitResults)
-specifier|public
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|splitResults
@@ -457,7 +441,6 @@ return|;
 block|}
 comment|/**          * True if value range result should be split into rows or columns to          * process each of them individually. When true each row or column is          * represented with a separate exchange in batch processing. Otherwise          * value range object is used as exchange junk size.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|splitResults ( String splitResults)
-specifier|public
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|splitResults
@@ -479,7 +462,6 @@ return|;
 block|}
 comment|/**          * Specifies the spreadsheet identifier that is used to identify the          * target to obtain.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|spreadsheetId ( String spreadsheetId)
-specifier|public
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|spreadsheetId
@@ -501,7 +483,6 @@ return|;
 block|}
 comment|/**          * Determines how values should be rendered in the output.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|valueRenderOption ( String valueRenderOption)
-specifier|public
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|valueRenderOption
@@ -532,7 +513,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|basic
@@ -547,7 +527,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGoogleSheetsStreamEndpointBuilder
 name|basicPropertyBinding
@@ -569,7 +548,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGoogleSheetsStreamEndpointBuilder
 name|basicPropertyBinding
@@ -591,7 +569,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedGoogleSheetsStreamEndpointBuilder
 name|synchronous
@@ -613,7 +590,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedGoogleSheetsStreamEndpointBuilder
 name|synchronous
@@ -635,8 +611,7 @@ return|;
 block|}
 block|}
 comment|/**      * The google-sheets component provides access to Google Sheets. Creates a      * builder to build endpoints for the Google Sheets Stream component.      */
-DECL|method|googleSheetsStream ( String path)
-specifier|public
+DECL|method|googleSheetsStream (String path)
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder
 name|googleSheetsStream

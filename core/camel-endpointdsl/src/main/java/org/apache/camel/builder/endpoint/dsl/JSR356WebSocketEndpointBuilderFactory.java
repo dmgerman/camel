@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * If a path (/foo) it will deploy locally the endpoint, if an uri it          * will connect to the corresponding server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|websocketPathOrUri ( String websocketPathOrUri)
-specifier|public
 specifier|default
 name|JSR356WebSocketEndpointConsumerBuilder
 name|websocketPathOrUri
@@ -160,8 +158,7 @@ name|this
 return|;
 block|}
 comment|/**          * the servlet context to use (represented by its path).          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|context ( String context)
-specifier|public
+DECL|method|context (String context)
 specifier|default
 name|JSR356WebSocketEndpointConsumerBuilder
 name|context
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * Used when the endpoint is in client mode to populate a pool of          * sessions.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|sessionCount ( int sessionCount)
-specifier|public
 specifier|default
 name|JSR356WebSocketEndpointConsumerBuilder
 name|sessionCount
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * Used when the endpoint is in client mode to populate a pool of          * sessions.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|sessionCount ( String sessionCount)
-specifier|public
 specifier|default
 name|JSR356WebSocketEndpointConsumerBuilder
 name|sessionCount
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|JSR356WebSocketEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -249,7 +243,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|JSR356WebSocketEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -279,7 +272,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JSR356WebSocketEndpointConsumerBuilder
 name|basic
@@ -294,7 +286,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointConsumerBuilder
 name|exceptionHandler
@@ -316,7 +307,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointConsumerBuilder
 name|exceptionHandler
@@ -338,7 +328,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointConsumerBuilder
 name|exchangePattern
@@ -360,7 +349,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointConsumerBuilder
 name|exchangePattern
@@ -382,7 +370,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -404,7 +391,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -426,7 +412,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointConsumerBuilder
 name|synchronous
@@ -448,7 +433,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointConsumerBuilder
 name|synchronous
@@ -479,7 +463,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointProducerBuilder
 name|advanced
@@ -494,7 +477,6 @@ return|;
 block|}
 comment|/**          * If a path (/foo) it will deploy locally the endpoint, if an uri it          * will connect to the corresponding server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|websocketPathOrUri ( String websocketPathOrUri)
-specifier|public
 specifier|default
 name|JSR356WebSocketEndpointProducerBuilder
 name|websocketPathOrUri
@@ -515,8 +497,7 @@ name|this
 return|;
 block|}
 comment|/**          * the servlet context to use (represented by its path).          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|context ( String context)
-specifier|public
+DECL|method|context (String context)
 specifier|default
 name|JSR356WebSocketEndpointProducerBuilder
 name|context
@@ -538,7 +519,6 @@ return|;
 block|}
 comment|/**          * Used when the endpoint is in client mode to populate a pool of          * sessions.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|sessionCount ( int sessionCount)
-specifier|public
 specifier|default
 name|JSR356WebSocketEndpointProducerBuilder
 name|sessionCount
@@ -560,7 +540,6 @@ return|;
 block|}
 comment|/**          * Used when the endpoint is in client mode to populate a pool of          * sessions.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|sessionCount ( String sessionCount)
-specifier|public
 specifier|default
 name|JSR356WebSocketEndpointProducerBuilder
 name|sessionCount
@@ -582,7 +561,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|JSR356WebSocketEndpointProducerBuilder
 name|lazyStartProducer
@@ -604,7 +582,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|JSR356WebSocketEndpointProducerBuilder
 name|lazyStartProducer
@@ -634,7 +611,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JSR356WebSocketEndpointProducerBuilder
 name|basic
@@ -649,7 +625,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointProducerBuilder
 name|basicPropertyBinding
@@ -671,7 +646,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointProducerBuilder
 name|basicPropertyBinding
@@ -693,7 +667,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointProducerBuilder
 name|synchronous
@@ -715,7 +688,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointProducerBuilder
 name|synchronous
@@ -748,7 +720,6 @@ extends|,
 name|JSR356WebSocketEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointBuilder
 name|advanced
@@ -763,7 +734,6 @@ return|;
 block|}
 comment|/**          * If a path (/foo) it will deploy locally the endpoint, if an uri it          * will connect to the corresponding server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|websocketPathOrUri ( String websocketPathOrUri)
-specifier|public
 specifier|default
 name|JSR356WebSocketEndpointBuilder
 name|websocketPathOrUri
@@ -785,7 +755,6 @@ return|;
 block|}
 comment|/**          * the servlet context to use (represented by its path).          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|context (String context)
-specifier|public
 specifier|default
 name|JSR356WebSocketEndpointBuilder
 name|context
@@ -806,8 +775,7 @@ name|this
 return|;
 block|}
 comment|/**          * Used when the endpoint is in client mode to populate a pool of          * sessions.          * The option is a<code>int</code> type.          * @group common          */
-DECL|method|sessionCount ( int sessionCount)
-specifier|public
+DECL|method|sessionCount (int sessionCount)
 specifier|default
 name|JSR356WebSocketEndpointBuilder
 name|sessionCount
@@ -828,8 +796,7 @@ name|this
 return|;
 block|}
 comment|/**          * Used when the endpoint is in client mode to populate a pool of          * sessions.          * The option will be converted to a<code>int</code> type.          * @group common          */
-DECL|method|sessionCount ( String sessionCount)
-specifier|public
+DECL|method|sessionCount (String sessionCount)
 specifier|default
 name|JSR356WebSocketEndpointBuilder
 name|sessionCount
@@ -862,7 +829,6 @@ extends|,
 name|AdvancedJSR356WebSocketEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JSR356WebSocketEndpointBuilder
 name|basic
@@ -877,7 +843,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointBuilder
 name|basicPropertyBinding
@@ -899,7 +864,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointBuilder
 name|basicPropertyBinding
@@ -921,7 +885,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointBuilder
 name|synchronous
@@ -943,7 +906,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedJSR356WebSocketEndpointBuilder
 name|synchronous
@@ -966,7 +928,6 @@ block|}
 block|}
 comment|/**      * Camel WebSocket using JSR356 (javax) Creates a builder to build endpoints      * for the Javax Websocket component.      */
 DECL|method|jSR356WebSocket (String path)
-specifier|public
 specifier|default
 name|JSR356WebSocketEndpointBuilder
 name|jSR356WebSocket

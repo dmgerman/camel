@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * The topic name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|topic (String topic)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointConsumerBuilder
 name|topic
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( boolean propagateIncomingBodyIfNoReturnValue)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointConsumerBuilder
 name|propagateIncomingBodyIfNoReturnValue
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( String propagateIncomingBodyIfNoReturnValue)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointConsumerBuilder
 name|propagateIncomingBodyIfNoReturnValue
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * Sets whether to treat Collections as cache objects or as Collections          * of items to insert/update/compute, etc.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|treatCollectionsAsCacheObjects ( boolean treatCollectionsAsCacheObjects)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointConsumerBuilder
 name|treatCollectionsAsCacheObjects
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * Sets whether to treat Collections as cache objects or as Collections          * of items to insert/update/compute, etc.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|treatCollectionsAsCacheObjects ( String treatCollectionsAsCacheObjects)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointConsumerBuilder
 name|treatCollectionsAsCacheObjects
@@ -249,7 +243,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -271,7 +264,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -301,7 +293,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointConsumerBuilder
 name|basic
@@ -316,7 +307,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointConsumerBuilder
 name|exceptionHandler
@@ -338,7 +328,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointConsumerBuilder
 name|exceptionHandler
@@ -360,7 +349,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointConsumerBuilder
 name|exchangePattern
@@ -382,7 +370,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointConsumerBuilder
 name|exchangePattern
@@ -404,7 +391,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -426,7 +412,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -448,7 +433,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointConsumerBuilder
 name|synchronous
@@ -470,7 +454,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointConsumerBuilder
 name|synchronous
@@ -501,7 +484,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointProducerBuilder
 name|advanced
@@ -516,7 +498,6 @@ return|;
 block|}
 comment|/**          * The topic name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|topic (String topic)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointProducerBuilder
 name|topic
@@ -538,7 +519,6 @@ return|;
 block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( boolean propagateIncomingBodyIfNoReturnValue)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointProducerBuilder
 name|propagateIncomingBodyIfNoReturnValue
@@ -560,7 +540,6 @@ return|;
 block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( String propagateIncomingBodyIfNoReturnValue)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointProducerBuilder
 name|propagateIncomingBodyIfNoReturnValue
@@ -582,7 +561,6 @@ return|;
 block|}
 comment|/**          * Sets whether to treat Collections as cache objects or as Collections          * of items to insert/update/compute, etc.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|treatCollectionsAsCacheObjects ( boolean treatCollectionsAsCacheObjects)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointProducerBuilder
 name|treatCollectionsAsCacheObjects
@@ -604,7 +582,6 @@ return|;
 block|}
 comment|/**          * Sets whether to treat Collections as cache objects or as Collections          * of items to insert/update/compute, etc.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|treatCollectionsAsCacheObjects ( String treatCollectionsAsCacheObjects)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointProducerBuilder
 name|treatCollectionsAsCacheObjects
@@ -626,7 +603,6 @@ return|;
 block|}
 comment|/**          * The cluster group expression.          * The option is a          *<code>org.apache.camel.component.ignite.ClusterGroupExpression</code>          * type.          * @group producer          */
 DECL|method|clusterGroupExpression ( Object clusterGroupExpression)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointProducerBuilder
 name|clusterGroupExpression
@@ -648,7 +624,6 @@ return|;
 block|}
 comment|/**          * The cluster group expression.          * The option will be converted to a          *<code>org.apache.camel.component.ignite.ClusterGroupExpression</code>          * type.          * @group producer          */
 DECL|method|clusterGroupExpression ( String clusterGroupExpression)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointProducerBuilder
 name|clusterGroupExpression
@@ -670,7 +645,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointProducerBuilder
 name|lazyStartProducer
@@ -692,7 +666,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointProducerBuilder
 name|lazyStartProducer
@@ -714,7 +687,6 @@ return|;
 block|}
 comment|/**          * The send mode to use. Possible values: UNORDERED, ORDERED.          * The option is a          *<code>org.apache.camel.component.ignite.messaging.IgniteMessagingSendMode</code> type.          * @group producer          */
 DECL|method|sendMode ( IgniteMessagingSendMode sendMode)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointProducerBuilder
 name|sendMode
@@ -735,8 +707,7 @@ name|this
 return|;
 block|}
 comment|/**          * The send mode to use. Possible values: UNORDERED, ORDERED.          * The option will be converted to a          *<code>org.apache.camel.component.ignite.messaging.IgniteMessagingSendMode</code> type.          * @group producer          */
-DECL|method|sendMode ( String sendMode)
-specifier|public
+DECL|method|sendMode (String sendMode)
 specifier|default
 name|IgniteMessagingEndpointProducerBuilder
 name|sendMode
@@ -757,8 +728,7 @@ name|this
 return|;
 block|}
 comment|/**          * The timeout for the send operation when using ordered messages.          * The option is a<code>java.lang.Long</code> type.          * @group producer          */
-DECL|method|timeout ( Long timeout)
-specifier|public
+DECL|method|timeout (Long timeout)
 specifier|default
 name|IgniteMessagingEndpointProducerBuilder
 name|timeout
@@ -779,8 +749,7 @@ name|this
 return|;
 block|}
 comment|/**          * The timeout for the send operation when using ordered messages.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group producer          */
-DECL|method|timeout ( String timeout)
-specifier|public
+DECL|method|timeout (String timeout)
 specifier|default
 name|IgniteMessagingEndpointProducerBuilder
 name|timeout
@@ -810,7 +779,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointProducerBuilder
 name|basic
@@ -825,7 +793,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointProducerBuilder
 name|basicPropertyBinding
@@ -847,7 +814,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointProducerBuilder
 name|basicPropertyBinding
@@ -869,7 +835,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointProducerBuilder
 name|synchronous
@@ -891,7 +856,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointProducerBuilder
 name|synchronous
@@ -924,7 +888,6 @@ extends|,
 name|IgniteMessagingEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointBuilder
 name|advanced
@@ -939,7 +902,6 @@ return|;
 block|}
 comment|/**          * The topic name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|topic (String topic)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointBuilder
 name|topic
@@ -961,7 +923,6 @@ return|;
 block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( boolean propagateIncomingBodyIfNoReturnValue)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointBuilder
 name|propagateIncomingBodyIfNoReturnValue
@@ -983,7 +944,6 @@ return|;
 block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( String propagateIncomingBodyIfNoReturnValue)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointBuilder
 name|propagateIncomingBodyIfNoReturnValue
@@ -1005,7 +965,6 @@ return|;
 block|}
 comment|/**          * Sets whether to treat Collections as cache objects or as Collections          * of items to insert/update/compute, etc.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|treatCollectionsAsCacheObjects ( boolean treatCollectionsAsCacheObjects)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointBuilder
 name|treatCollectionsAsCacheObjects
@@ -1027,7 +986,6 @@ return|;
 block|}
 comment|/**          * Sets whether to treat Collections as cache objects or as Collections          * of items to insert/update/compute, etc.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|treatCollectionsAsCacheObjects ( String treatCollectionsAsCacheObjects)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointBuilder
 name|treatCollectionsAsCacheObjects
@@ -1060,7 +1018,6 @@ extends|,
 name|AdvancedIgniteMessagingEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointBuilder
 name|basic
@@ -1075,7 +1032,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointBuilder
 name|basicPropertyBinding
@@ -1097,7 +1053,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointBuilder
 name|basicPropertyBinding
@@ -1119,7 +1074,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointBuilder
 name|synchronous
@@ -1141,7 +1095,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedIgniteMessagingEndpointBuilder
 name|synchronous
@@ -1177,7 +1130,6 @@ name|UNORDERED
 block|;     }
 comment|/**      * The Ignite Messaging endpoint is one of camel-ignite endpoints which      * allows you to send and consume messages from an Ignite topic. Creates a      * builder to build endpoints for the Ignite Messaging component.      */
 DECL|method|igniteMessaging (String path)
-specifier|public
 specifier|default
 name|IgniteMessagingEndpointBuilder
 name|igniteMessaging

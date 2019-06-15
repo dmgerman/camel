@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedHazelcastRingbufferEndpointBuilder
 name|advanced
@@ -113,8 +112,7 @@ name|this
 return|;
 block|}
 comment|/**          * The name of the cache.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|cacheName ( String cacheName)
-specifier|public
+DECL|method|cacheName (String cacheName)
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|cacheName
@@ -135,8 +133,7 @@ name|this
 return|;
 block|}
 comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|reliable ( boolean reliable)
-specifier|public
+DECL|method|reliable (boolean reliable)
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|reliable
@@ -157,8 +154,7 @@ name|this
 return|;
 block|}
 comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|reliable ( String reliable)
-specifier|public
+DECL|method|reliable (String reliable)
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|reliable
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * To specify a default operation to use, if no operation header has          * been provided.          * The option is a          *<code>org.apache.camel.component.hazelcast.HazelcastOperation</code>          * type.          * @group producer          */
 DECL|method|defaultOperation ( HazelcastOperation defaultOperation)
-specifier|public
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|defaultOperation
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * To specify a default operation to use, if no operation header has          * been provided.          * The option will be converted to a          *<code>org.apache.camel.component.hazelcast.HazelcastOperation</code>          * type.          * @group producer          */
 DECL|method|defaultOperation ( String defaultOperation)
-specifier|public
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|defaultOperation
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * The hazelcast instance reference which can be used for hazelcast          * endpoint.          * The option is a<code>com.hazelcast.core.HazelcastInstance</code>          * type.          * @group producer          */
 DECL|method|hazelcastInstance ( Object hazelcastInstance)
-specifier|public
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|hazelcastInstance
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * The hazelcast instance reference which can be used for hazelcast          * endpoint.          * The option will be converted to a          *<code>com.hazelcast.core.HazelcastInstance</code> type.          * @group producer          */
 DECL|method|hazelcastInstance ( String hazelcastInstance)
-specifier|public
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|hazelcastInstance
@@ -268,7 +260,6 @@ return|;
 block|}
 comment|/**          * The hazelcast instance reference name which can be used for hazelcast          * endpoint. If you don't specify the instance reference, camel use the          * default hazelcast instance from the camel-hazelcast instance.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|hazelcastInstanceName ( String hazelcastInstanceName)
-specifier|public
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|hazelcastInstanceName
@@ -290,7 +281,6 @@ return|;
 block|}
 comment|/**          * To use concurrent consumers polling from the SEDA queue.          * The option is a<code>int</code> type.          * @group seda          */
 DECL|method|concurrentConsumers ( int concurrentConsumers)
-specifier|public
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|concurrentConsumers
@@ -312,7 +302,6 @@ return|;
 block|}
 comment|/**          * To use concurrent consumers polling from the SEDA queue.          * The option will be converted to a<code>int</code> type.          * @group seda          */
 DECL|method|concurrentConsumers ( String concurrentConsumers)
-specifier|public
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|concurrentConsumers
@@ -333,8 +322,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before consumer continues polling after an error has          * occurred.          * The option is a<code>int</code> type.          * @group seda          */
-DECL|method|onErrorDelay ( int onErrorDelay)
-specifier|public
+DECL|method|onErrorDelay (int onErrorDelay)
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|onErrorDelay
@@ -356,7 +344,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before consumer continues polling after an error has          * occurred.          * The option will be converted to a<code>int</code> type.          * @group seda          */
 DECL|method|onErrorDelay ( String onErrorDelay)
-specifier|public
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|onErrorDelay
@@ -377,8 +364,7 @@ name|this
 return|;
 block|}
 comment|/**          * The timeout used when consuming from the SEDA queue. When a timeout          * occurs, the consumer can check whether it is allowed to continue          * running. Setting a lower value allows the consumer to react more          * quickly upon shutdown.          * The option is a<code>int</code> type.          * @group seda          */
-DECL|method|pollTimeout ( int pollTimeout)
-specifier|public
+DECL|method|pollTimeout (int pollTimeout)
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|pollTimeout
@@ -400,7 +386,6 @@ return|;
 block|}
 comment|/**          * The timeout used when consuming from the SEDA queue. When a timeout          * occurs, the consumer can check whether it is allowed to continue          * running. Setting a lower value allows the consumer to react more          * quickly upon shutdown.          * The option will be converted to a<code>int</code> type.          * @group seda          */
 DECL|method|pollTimeout ( String pollTimeout)
-specifier|public
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|pollTimeout
@@ -421,8 +406,7 @@ name|this
 return|;
 block|}
 comment|/**          * If set to true then the consumer runs in transaction mode, where the          * messages in the seda queue will only be removed if the transaction          * commits, which happens when the processing is complete.          * The option is a<code>boolean</code> type.          * @group seda          */
-DECL|method|transacted ( boolean transacted)
-specifier|public
+DECL|method|transacted (boolean transacted)
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|transacted
@@ -443,8 +427,7 @@ name|this
 return|;
 block|}
 comment|/**          * If set to true then the consumer runs in transaction mode, where the          * messages in the seda queue will only be removed if the transaction          * commits, which happens when the processing is complete.          * The option will be converted to a<code>boolean</code> type.          * @group seda          */
-DECL|method|transacted ( String transacted)
-specifier|public
+DECL|method|transacted (String transacted)
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|transacted
@@ -466,7 +449,6 @@ return|;
 block|}
 comment|/**          * If set to true the whole Exchange will be transfered. If header or          * body contains not serializable objects, they will be skipped.          * The option is a<code>boolean</code> type.          * @group seda          */
 DECL|method|transferExchange ( boolean transferExchange)
-specifier|public
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|transferExchange
@@ -488,7 +470,6 @@ return|;
 block|}
 comment|/**          * If set to true the whole Exchange will be transfered. If header or          * body contains not serializable objects, they will be skipped.          * The option will be converted to a<code>boolean</code> type.          * @group seda          */
 DECL|method|transferExchange ( String transferExchange)
-specifier|public
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|transferExchange
@@ -519,7 +500,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|basic
@@ -534,7 +514,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHazelcastRingbufferEndpointBuilder
 name|basicPropertyBinding
@@ -556,7 +535,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHazelcastRingbufferEndpointBuilder
 name|basicPropertyBinding
@@ -578,7 +556,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedHazelcastRingbufferEndpointBuilder
 name|synchronous
@@ -600,7 +577,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedHazelcastRingbufferEndpointBuilder
 name|synchronous
@@ -737,8 +713,7 @@ block|,
 name|capacity
 block|;     }
 comment|/**      * The hazelcast-ringbuffer component is used to access Hazelcast      * distributed ringbuffer. Creates a builder to build endpoints for the      * Hazelcast Ringbuffer component.      */
-DECL|method|hazelcastRingbuffer ( String path)
-specifier|public
+DECL|method|hazelcastRingbuffer (String path)
 specifier|default
 name|HazelcastRingbufferEndpointBuilder
 name|hazelcastRingbuffer

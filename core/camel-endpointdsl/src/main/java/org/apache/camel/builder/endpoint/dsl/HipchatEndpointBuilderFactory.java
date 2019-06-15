@@ -198,7 +198,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointConsumerBuilder
 name|advanced
@@ -213,7 +212,6 @@ return|;
 block|}
 comment|/**          * The protocol for the hipchat server, such as http.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|protocol (String protocol)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|protocol
@@ -235,7 +233,6 @@ return|;
 block|}
 comment|/**          * The host for the hipchat server, such as api.hipchat.com.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|host
@@ -257,7 +254,6 @@ return|;
 block|}
 comment|/**          * The port for the hipchat server. Is by default 80.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|port (Integer port)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|port
@@ -279,7 +275,6 @@ return|;
 block|}
 comment|/**          * The port for the hipchat server. Is by default 80.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|port
@@ -301,7 +296,6 @@ return|;
 block|}
 comment|/**          * OAuth 2 auth token.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|authToken (String authToken)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|authToken
@@ -322,8 +316,7 @@ name|this
 return|;
 block|}
 comment|/**          * Username(s) when consuming messages from the hiptchat server.          * Multiple user names can be separated by comma.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|consumeUsers ( String consumeUsers)
-specifier|public
+DECL|method|consumeUsers (String consumeUsers)
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|consumeUsers
@@ -344,8 +337,7 @@ name|this
 return|;
 block|}
 comment|/**          * The CloseableHttpClient reference from registry to be used during API          * HTTP requests.          * The option is a          *<code>org.apache.http.impl.client.CloseableHttpClient</code> type.          * @group common          */
-DECL|method|httpClient ( Object httpClient)
-specifier|public
+DECL|method|httpClient (Object httpClient)
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|httpClient
@@ -366,8 +358,7 @@ name|this
 return|;
 block|}
 comment|/**          * The CloseableHttpClient reference from registry to be used during API          * HTTP requests.          * The option will be converted to a          *<code>org.apache.http.impl.client.CloseableHttpClient</code> type.          * @group common          */
-DECL|method|httpClient ( String httpClient)
-specifier|public
+DECL|method|httpClient (String httpClient)
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|httpClient
@@ -389,7 +380,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -411,7 +401,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -433,7 +422,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( boolean sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -455,7 +443,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( String sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -477,7 +464,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( int backoffErrorThreshold)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -499,7 +485,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( String backoffErrorThreshold)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -521,7 +506,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( int backoffIdleThreshold)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -543,7 +527,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( String backoffIdleThreshold)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -565,7 +548,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( int backoffMultiplier)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|backoffMultiplier
@@ -587,7 +569,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( String backoffMultiplier)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|backoffMultiplier
@@ -609,7 +590,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (long delay)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|delay
@@ -631,7 +611,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (String delay)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|delay
@@ -653,7 +632,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (boolean greedy)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|greedy
@@ -675,7 +653,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (String greedy)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|greedy
@@ -696,8 +673,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
-DECL|method|initialDelay ( long initialDelay)
-specifier|public
+DECL|method|initialDelay (long initialDelay)
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|initialDelay
@@ -718,8 +694,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
-DECL|method|initialDelay ( String initialDelay)
-specifier|public
+DECL|method|initialDelay (String initialDelay)
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|initialDelay
@@ -741,7 +716,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( LoggingLevel runLoggingLevel)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|runLoggingLevel
@@ -763,7 +737,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( String runLoggingLevel)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|runLoggingLevel
@@ -785,7 +758,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option is a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( ScheduledExecutorService scheduledExecutorService)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -807,7 +779,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( String scheduledExecutorService)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -829,7 +800,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option is a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler ( ScheduledPollConsumerScheduler scheduler)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|scheduler
@@ -851,7 +821,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler (String scheduler)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|scheduler
@@ -873,7 +842,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group scheduler          */
 DECL|method|schedulerProperties ( Map<String, Object> schedulerProperties)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|schedulerProperties
@@ -900,7 +868,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group scheduler          */
 DECL|method|schedulerProperties ( String schedulerProperties)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|schedulerProperties
@@ -922,7 +889,6 @@ return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|startScheduler ( boolean startScheduler)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|startScheduler
@@ -944,7 +910,6 @@ return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|startScheduler ( String startScheduler)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|startScheduler
@@ -966,7 +931,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option is a<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (TimeUnit timeUnit)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|timeUnit
@@ -988,7 +952,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (String timeUnit)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|timeUnit
@@ -1010,7 +973,6 @@ return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|useFixedDelay ( boolean useFixedDelay)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|useFixedDelay
@@ -1032,7 +994,6 @@ return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|useFixedDelay ( String useFixedDelay)
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|useFixedDelay
@@ -1062,7 +1023,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|HipchatEndpointConsumerBuilder
 name|basic
@@ -1077,7 +1037,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointConsumerBuilder
 name|exceptionHandler
@@ -1099,7 +1058,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointConsumerBuilder
 name|exceptionHandler
@@ -1121,7 +1079,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointConsumerBuilder
 name|exchangePattern
@@ -1143,7 +1100,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointConsumerBuilder
 name|exchangePattern
@@ -1165,7 +1121,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option is a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( PollingConsumerPollStrategy pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointConsumerBuilder
 name|pollStrategy
@@ -1187,7 +1142,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( String pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointConsumerBuilder
 name|pollStrategy
@@ -1209,7 +1163,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1231,7 +1184,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1253,7 +1205,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointConsumerBuilder
 name|synchronous
@@ -1275,7 +1226,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointConsumerBuilder
 name|synchronous
@@ -1306,7 +1256,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointProducerBuilder
 name|advanced
@@ -1321,7 +1270,6 @@ return|;
 block|}
 comment|/**          * The protocol for the hipchat server, such as http.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|protocol (String protocol)
-specifier|public
 specifier|default
 name|HipchatEndpointProducerBuilder
 name|protocol
@@ -1343,7 +1291,6 @@ return|;
 block|}
 comment|/**          * The host for the hipchat server, such as api.hipchat.com.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|HipchatEndpointProducerBuilder
 name|host
@@ -1365,7 +1312,6 @@ return|;
 block|}
 comment|/**          * The port for the hipchat server. Is by default 80.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|port (Integer port)
-specifier|public
 specifier|default
 name|HipchatEndpointProducerBuilder
 name|port
@@ -1387,7 +1333,6 @@ return|;
 block|}
 comment|/**          * The port for the hipchat server. Is by default 80.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|HipchatEndpointProducerBuilder
 name|port
@@ -1409,7 +1354,6 @@ return|;
 block|}
 comment|/**          * OAuth 2 auth token.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|authToken (String authToken)
-specifier|public
 specifier|default
 name|HipchatEndpointProducerBuilder
 name|authToken
@@ -1430,8 +1374,7 @@ name|this
 return|;
 block|}
 comment|/**          * Username(s) when consuming messages from the hiptchat server.          * Multiple user names can be separated by comma.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|consumeUsers ( String consumeUsers)
-specifier|public
+DECL|method|consumeUsers (String consumeUsers)
 specifier|default
 name|HipchatEndpointProducerBuilder
 name|consumeUsers
@@ -1452,8 +1395,7 @@ name|this
 return|;
 block|}
 comment|/**          * The CloseableHttpClient reference from registry to be used during API          * HTTP requests.          * The option is a          *<code>org.apache.http.impl.client.CloseableHttpClient</code> type.          * @group common          */
-DECL|method|httpClient ( Object httpClient)
-specifier|public
+DECL|method|httpClient (Object httpClient)
 specifier|default
 name|HipchatEndpointProducerBuilder
 name|httpClient
@@ -1474,8 +1416,7 @@ name|this
 return|;
 block|}
 comment|/**          * The CloseableHttpClient reference from registry to be used during API          * HTTP requests.          * The option will be converted to a          *<code>org.apache.http.impl.client.CloseableHttpClient</code> type.          * @group common          */
-DECL|method|httpClient ( String httpClient)
-specifier|public
+DECL|method|httpClient (String httpClient)
 specifier|default
 name|HipchatEndpointProducerBuilder
 name|httpClient
@@ -1497,7 +1438,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|HipchatEndpointProducerBuilder
 name|lazyStartProducer
@@ -1519,7 +1459,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|HipchatEndpointProducerBuilder
 name|lazyStartProducer
@@ -1549,7 +1488,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|HipchatEndpointProducerBuilder
 name|basic
@@ -1564,7 +1502,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1586,7 +1523,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1608,7 +1544,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointProducerBuilder
 name|synchronous
@@ -1630,7 +1565,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointProducerBuilder
 name|synchronous
@@ -1663,7 +1597,6 @@ extends|,
 name|HipchatEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointBuilder
 name|advanced
@@ -1678,7 +1611,6 @@ return|;
 block|}
 comment|/**          * The protocol for the hipchat server, such as http.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|protocol (String protocol)
-specifier|public
 specifier|default
 name|HipchatEndpointBuilder
 name|protocol
@@ -1700,7 +1632,6 @@ return|;
 block|}
 comment|/**          * The host for the hipchat server, such as api.hipchat.com.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|HipchatEndpointBuilder
 name|host
@@ -1722,7 +1653,6 @@ return|;
 block|}
 comment|/**          * The port for the hipchat server. Is by default 80.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|port (Integer port)
-specifier|public
 specifier|default
 name|HipchatEndpointBuilder
 name|port
@@ -1744,7 +1674,6 @@ return|;
 block|}
 comment|/**          * The port for the hipchat server. Is by default 80.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|HipchatEndpointBuilder
 name|port
@@ -1766,7 +1695,6 @@ return|;
 block|}
 comment|/**          * OAuth 2 auth token.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|authToken (String authToken)
-specifier|public
 specifier|default
 name|HipchatEndpointBuilder
 name|authToken
@@ -1788,7 +1716,6 @@ return|;
 block|}
 comment|/**          * Username(s) when consuming messages from the hiptchat server.          * Multiple user names can be separated by comma.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|consumeUsers (String consumeUsers)
-specifier|public
 specifier|default
 name|HipchatEndpointBuilder
 name|consumeUsers
@@ -1810,7 +1737,6 @@ return|;
 block|}
 comment|/**          * The CloseableHttpClient reference from registry to be used during API          * HTTP requests.          * The option is a          *<code>org.apache.http.impl.client.CloseableHttpClient</code> type.          * @group common          */
 DECL|method|httpClient (Object httpClient)
-specifier|public
 specifier|default
 name|HipchatEndpointBuilder
 name|httpClient
@@ -1832,7 +1758,6 @@ return|;
 block|}
 comment|/**          * The CloseableHttpClient reference from registry to be used during API          * HTTP requests.          * The option will be converted to a          *<code>org.apache.http.impl.client.CloseableHttpClient</code> type.          * @group common          */
 DECL|method|httpClient (String httpClient)
-specifier|public
 specifier|default
 name|HipchatEndpointBuilder
 name|httpClient
@@ -1865,7 +1790,6 @@ extends|,
 name|AdvancedHipchatEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|HipchatEndpointBuilder
 name|basic
@@ -1880,7 +1804,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointBuilder
 name|basicPropertyBinding
@@ -1902,7 +1825,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHipchatEndpointBuilder
 name|basicPropertyBinding
@@ -1923,8 +1845,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedHipchatEndpointBuilder
 name|synchronous
@@ -1945,8 +1866,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedHipchatEndpointBuilder
 name|synchronous
@@ -1969,7 +1889,6 @@ block|}
 block|}
 comment|/**      * The hipchat component supports producing and consuming messages from/to      * Hipchat service. Creates a builder to build endpoints for the Hipchat      * component.      */
 DECL|method|hipchat (String path)
-specifier|public
 specifier|default
 name|HipchatEndpointBuilder
 name|hipchat

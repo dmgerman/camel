@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedLambdaEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Name of the Lambda function.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|function (String function)
-specifier|public
 specifier|default
 name|LambdaEndpointBuilder
 name|function
@@ -135,8 +133,7 @@ name|this
 return|;
 block|}
 comment|/**          * The operation to perform. It can be listFunctions, getFunction,          * createFunction, deleteFunction or invokeFunction.          * The option is a          *<code>org.apache.camel.component.aws.lambda.LambdaOperations</code>          * type.          * @group producer          */
-DECL|method|operation ( LambdaOperations operation)
-specifier|public
+DECL|method|operation (LambdaOperations operation)
 specifier|default
 name|LambdaEndpointBuilder
 name|operation
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * The operation to perform. It can be listFunctions, getFunction,          * createFunction, deleteFunction or invokeFunction.          * The option will be converted to a          *<code>org.apache.camel.component.aws.lambda.LambdaOperations</code>          * type.          * @group producer          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|LambdaEndpointBuilder
 name|operation
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * To define a proxy host when instantiating the Lambda client.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|proxyHost (String proxyHost)
-specifier|public
 specifier|default
 name|LambdaEndpointBuilder
 name|proxyHost
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * To define a proxy port when instantiating the Lambda client.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
 DECL|method|proxyPort (Integer proxyPort)
-specifier|public
 specifier|default
 name|LambdaEndpointBuilder
 name|proxyPort
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * To define a proxy port when instantiating the Lambda client.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
 DECL|method|proxyPort (String proxyPort)
-specifier|public
 specifier|default
 name|LambdaEndpointBuilder
 name|proxyPort
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessKey (String accessKey)
-specifier|public
 specifier|default
 name|LambdaEndpointBuilder
 name|accessKey
@@ -268,7 +260,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|LambdaEndpointBuilder
 name|secretKey
@@ -299,7 +290,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|LambdaEndpointBuilder
 name|basic
@@ -314,7 +304,6 @@ return|;
 block|}
 comment|/**          * To use a existing configured AwsLambdaClient as client.          * The option is a<code>com.amazonaws.services.lambda.AWSLambda</code>          * type.          * @group advanced          */
 DECL|method|awsLambdaClient ( Object awsLambdaClient)
-specifier|public
 specifier|default
 name|AdvancedLambdaEndpointBuilder
 name|awsLambdaClient
@@ -336,7 +325,6 @@ return|;
 block|}
 comment|/**          * To use a existing configured AwsLambdaClient as client.          * The option will be converted to a          *<code>com.amazonaws.services.lambda.AWSLambda</code> type.          * @group advanced          */
 DECL|method|awsLambdaClient ( String awsLambdaClient)
-specifier|public
 specifier|default
 name|AdvancedLambdaEndpointBuilder
 name|awsLambdaClient
@@ -358,7 +346,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedLambdaEndpointBuilder
 name|basicPropertyBinding
@@ -380,7 +367,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedLambdaEndpointBuilder
 name|basicPropertyBinding
@@ -401,8 +387,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedLambdaEndpointBuilder
 name|synchronous
@@ -423,8 +408,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedLambdaEndpointBuilder
 name|synchronous
@@ -496,7 +480,6 @@ name|listVersions
 block|;     }
 comment|/**      * The aws-lambda is used for managing and invoking functions from Amazon      * Lambda. Creates a builder to build endpoints for the AWS Lambda      * component.      */
 DECL|method|lambda (String path)
-specifier|public
 specifier|default
 name|LambdaEndpointBuilder
 name|lambda

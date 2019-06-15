@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointConsumerBuilder
 name|advanced
@@ -138,8 +137,7 @@ name|this
 return|;
 block|}
 comment|/**          * The cache name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|cacheName ( String cacheName)
-specifier|public
+DECL|method|cacheName (String cacheName)
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|cacheName
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( boolean propagateIncomingBodyIfNoReturnValue)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|propagateIncomingBodyIfNoReturnValue
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( String propagateIncomingBodyIfNoReturnValue)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|propagateIncomingBodyIfNoReturnValue
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * Sets whether to treat Collections as cache objects or as Collections          * of items to insert/update/compute, etc.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|treatCollectionsAsCacheObjects ( boolean treatCollectionsAsCacheObjects)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|treatCollectionsAsCacheObjects
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * Sets whether to treat Collections as cache objects or as Collections          * of items to insert/update/compute, etc.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|treatCollectionsAsCacheObjects ( String treatCollectionsAsCacheObjects)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|treatCollectionsAsCacheObjects
@@ -249,7 +243,6 @@ return|;
 block|}
 comment|/**          * Whether auto unsubscribe is enabled in the Continuous Query Consumer.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|autoUnsubscribe ( boolean autoUnsubscribe)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|autoUnsubscribe
@@ -271,7 +264,6 @@ return|;
 block|}
 comment|/**          * Whether auto unsubscribe is enabled in the Continuous Query Consumer.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|autoUnsubscribe ( String autoUnsubscribe)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|autoUnsubscribe
@@ -293,7 +285,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -315,7 +306,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -337,7 +327,6 @@ return|;
 block|}
 comment|/**          * Whether to process existing results that match the query. Used on          * initialization of the Continuous Query Consumer.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|fireExistingQueryResults ( boolean fireExistingQueryResults)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|fireExistingQueryResults
@@ -359,7 +348,6 @@ return|;
 block|}
 comment|/**          * Whether to process existing results that match the query. Used on          * initialization of the Continuous Query Consumer.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|fireExistingQueryResults ( String fireExistingQueryResults)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|fireExistingQueryResults
@@ -381,7 +369,6 @@ return|;
 block|}
 comment|/**          * Whether to pack each update in an individual Exchange, even if          * multiple updates are received in one batch. Only used by the          * Continuous Query Consumer.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|oneExchangePerUpdate ( boolean oneExchangePerUpdate)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|oneExchangePerUpdate
@@ -403,7 +390,6 @@ return|;
 block|}
 comment|/**          * Whether to pack each update in an individual Exchange, even if          * multiple updates are received in one batch. Only used by the          * Continuous Query Consumer.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|oneExchangePerUpdate ( String oneExchangePerUpdate)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|oneExchangePerUpdate
@@ -425,7 +411,6 @@ return|;
 block|}
 comment|/**          * The page size. Only used by the Continuous Query Consumer.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|pageSize (int pageSize)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|pageSize
@@ -446,8 +431,7 @@ name|this
 return|;
 block|}
 comment|/**          * The page size. Only used by the Continuous Query Consumer.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
-DECL|method|pageSize ( String pageSize)
-specifier|public
+DECL|method|pageSize (String pageSize)
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|pageSize
@@ -469,7 +453,6 @@ return|;
 block|}
 comment|/**          * The remote filter, only used by the Continuous Query Consumer.          * The option is a          *<code>org.apache.ignite.cache.CacheEntryEventSerializableFilter&lt;java.lang.Object, java.lang.Object&gt;</code> type.          * @group consumer          */
 DECL|method|remoteFilter ( Object remoteFilter)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|remoteFilter
@@ -491,7 +474,6 @@ return|;
 block|}
 comment|/**          * The remote filter, only used by the Continuous Query Consumer.          * The option will be converted to a          *<code>org.apache.ignite.cache.CacheEntryEventSerializableFilter&lt;java.lang.Object, java.lang.Object&gt;</code> type.          * @group consumer          */
 DECL|method|remoteFilter ( String remoteFilter)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|remoteFilter
@@ -513,7 +495,6 @@ return|;
 block|}
 comment|/**          * The time interval for the Continuous Query Consumer.          * The option is a<code>long</code> type.          * @group consumer          */
 DECL|method|timeInterval ( long timeInterval)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|timeInterval
@@ -535,7 +516,6 @@ return|;
 block|}
 comment|/**          * The time interval for the Continuous Query Consumer.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
 DECL|method|timeInterval ( String timeInterval)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|timeInterval
@@ -565,7 +545,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|IgniteCacheEndpointConsumerBuilder
 name|basic
@@ -580,7 +559,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointConsumerBuilder
 name|exceptionHandler
@@ -602,7 +580,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointConsumerBuilder
 name|exceptionHandler
@@ -624,7 +601,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointConsumerBuilder
 name|exchangePattern
@@ -646,7 +622,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointConsumerBuilder
 name|exchangePattern
@@ -668,7 +643,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -690,7 +664,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -712,7 +685,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointConsumerBuilder
 name|synchronous
@@ -734,7 +706,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointConsumerBuilder
 name|synchronous
@@ -765,7 +736,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointProducerBuilder
 name|advanced
@@ -779,8 +749,7 @@ name|this
 return|;
 block|}
 comment|/**          * The cache name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|cacheName ( String cacheName)
-specifier|public
+DECL|method|cacheName (String cacheName)
 specifier|default
 name|IgniteCacheEndpointProducerBuilder
 name|cacheName
@@ -802,7 +771,6 @@ return|;
 block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( boolean propagateIncomingBodyIfNoReturnValue)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointProducerBuilder
 name|propagateIncomingBodyIfNoReturnValue
@@ -824,7 +792,6 @@ return|;
 block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( String propagateIncomingBodyIfNoReturnValue)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointProducerBuilder
 name|propagateIncomingBodyIfNoReturnValue
@@ -846,7 +813,6 @@ return|;
 block|}
 comment|/**          * Sets whether to treat Collections as cache objects or as Collections          * of items to insert/update/compute, etc.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|treatCollectionsAsCacheObjects ( boolean treatCollectionsAsCacheObjects)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointProducerBuilder
 name|treatCollectionsAsCacheObjects
@@ -868,7 +834,6 @@ return|;
 block|}
 comment|/**          * Sets whether to treat Collections as cache objects or as Collections          * of items to insert/update/compute, etc.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|treatCollectionsAsCacheObjects ( String treatCollectionsAsCacheObjects)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointProducerBuilder
 name|treatCollectionsAsCacheObjects
@@ -890,7 +855,6 @@ return|;
 block|}
 comment|/**          * The Query to execute, only needed for operations that require it, and          * for the Continuous Query Consumer.          * The option is a          *<code>org.apache.ignite.cache.query.Query&lt;javax.cache.Cache$Entry&lt;java.lang.Object, java.lang.Object&gt;&gt;</code> type.          * @group consumer          */
 DECL|method|query (Object query)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointProducerBuilder
 name|query
@@ -912,7 +876,6 @@ return|;
 block|}
 comment|/**          * The Query to execute, only needed for operations that require it, and          * for the Continuous Query Consumer.          * The option will be converted to a          *<code>org.apache.ignite.cache.query.Query&lt;javax.cache.Cache$Entry&lt;java.lang.Object, java.lang.Object&gt;&gt;</code> type.          * @group consumer          */
 DECL|method|query (String query)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointProducerBuilder
 name|query
@@ -934,7 +897,6 @@ return|;
 block|}
 comment|/**          * The CachePeekMode, only needed for operations that require it          * (IgniteCacheOperation#SIZE).          * The option is a<code>org.apache.ignite.cache.CachePeekMode</code>          * type.          * @group producer          */
 DECL|method|cachePeekMode ( CachePeekMode cachePeekMode)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointProducerBuilder
 name|cachePeekMode
@@ -956,7 +918,6 @@ return|;
 block|}
 comment|/**          * The CachePeekMode, only needed for operations that require it          * (IgniteCacheOperation#SIZE).          * The option will be converted to a          *<code>org.apache.ignite.cache.CachePeekMode</code> type.          * @group producer          */
 DECL|method|cachePeekMode ( String cachePeekMode)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointProducerBuilder
 name|cachePeekMode
@@ -978,7 +939,6 @@ return|;
 block|}
 comment|/**          * Whether to fail the initialization if the cache doesn't exist.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|failIfInexistentCache ( boolean failIfInexistentCache)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointProducerBuilder
 name|failIfInexistentCache
@@ -1000,7 +960,6 @@ return|;
 block|}
 comment|/**          * Whether to fail the initialization if the cache doesn't exist.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|failIfInexistentCache ( String failIfInexistentCache)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointProducerBuilder
 name|failIfInexistentCache
@@ -1022,7 +981,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointProducerBuilder
 name|lazyStartProducer
@@ -1044,7 +1002,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointProducerBuilder
 name|lazyStartProducer
@@ -1066,7 +1023,6 @@ return|;
 block|}
 comment|/**          * The cache operation to invoke. Possible values: GET, PUT, REMOVE,          * SIZE, REBALANCE, QUERY, CLEAR.          * The option is a          *<code>org.apache.camel.component.ignite.cache.IgniteCacheOperation</code> type.          * @group producer          */
 DECL|method|operation ( IgniteCacheOperation operation)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointProducerBuilder
 name|operation
@@ -1087,8 +1043,7 @@ name|this
 return|;
 block|}
 comment|/**          * The cache operation to invoke. Possible values: GET, PUT, REMOVE,          * SIZE, REBALANCE, QUERY, CLEAR.          * The option will be converted to a          *<code>org.apache.camel.component.ignite.cache.IgniteCacheOperation</code> type.          * @group producer          */
-DECL|method|operation ( String operation)
-specifier|public
+DECL|method|operation (String operation)
 specifier|default
 name|IgniteCacheEndpointProducerBuilder
 name|operation
@@ -1118,7 +1073,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|IgniteCacheEndpointProducerBuilder
 name|basic
@@ -1133,7 +1087,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1155,7 +1108,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1177,7 +1129,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointProducerBuilder
 name|synchronous
@@ -1199,7 +1150,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointProducerBuilder
 name|synchronous
@@ -1232,7 +1182,6 @@ extends|,
 name|IgniteCacheEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointBuilder
 name|advanced
@@ -1247,7 +1196,6 @@ return|;
 block|}
 comment|/**          * The cache name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|cacheName (String cacheName)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointBuilder
 name|cacheName
@@ -1269,7 +1217,6 @@ return|;
 block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( boolean propagateIncomingBodyIfNoReturnValue)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointBuilder
 name|propagateIncomingBodyIfNoReturnValue
@@ -1291,7 +1238,6 @@ return|;
 block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( String propagateIncomingBodyIfNoReturnValue)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointBuilder
 name|propagateIncomingBodyIfNoReturnValue
@@ -1313,7 +1259,6 @@ return|;
 block|}
 comment|/**          * Sets whether to treat Collections as cache objects or as Collections          * of items to insert/update/compute, etc.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|treatCollectionsAsCacheObjects ( boolean treatCollectionsAsCacheObjects)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointBuilder
 name|treatCollectionsAsCacheObjects
@@ -1335,7 +1280,6 @@ return|;
 block|}
 comment|/**          * Sets whether to treat Collections as cache objects or as Collections          * of items to insert/update/compute, etc.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|treatCollectionsAsCacheObjects ( String treatCollectionsAsCacheObjects)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointBuilder
 name|treatCollectionsAsCacheObjects
@@ -1368,7 +1312,6 @@ extends|,
 name|AdvancedIgniteCacheEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|IgniteCacheEndpointBuilder
 name|basic
@@ -1383,7 +1326,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointBuilder
 name|basicPropertyBinding
@@ -1405,7 +1347,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointBuilder
 name|basicPropertyBinding
@@ -1427,7 +1368,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointBuilder
 name|synchronous
@@ -1449,7 +1389,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedIgniteCacheEndpointBuilder
 name|synchronous
@@ -1525,7 +1464,6 @@ name|CLEAR
 block|;     }
 comment|/**      * The Ignite Cache endpoint is one of camel-ignite endpoints which allows      * you to interact with an Ignite Cache. Creates a builder to build      * endpoints for the Ignite Cache component.      */
 DECL|method|igniteCache (String path)
-specifier|public
 specifier|default
 name|IgniteCacheEndpointBuilder
 name|igniteCache

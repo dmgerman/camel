@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedIgniteIdGenEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * The sequence name.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|IgniteIdGenEndpointBuilder
 name|name
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( boolean propagateIncomingBodyIfNoReturnValue)
-specifier|public
 specifier|default
 name|IgniteIdGenEndpointBuilder
 name|propagateIncomingBodyIfNoReturnValue
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( String propagateIncomingBodyIfNoReturnValue)
-specifier|public
 specifier|default
 name|IgniteIdGenEndpointBuilder
 name|propagateIncomingBodyIfNoReturnValue
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Sets whether to treat Collections as cache objects or as Collections          * of items to insert/update/compute, etc.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|treatCollectionsAsCacheObjects ( boolean treatCollectionsAsCacheObjects)
-specifier|public
 specifier|default
 name|IgniteIdGenEndpointBuilder
 name|treatCollectionsAsCacheObjects
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Sets whether to treat Collections as cache objects or as Collections          * of items to insert/update/compute, etc.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|treatCollectionsAsCacheObjects ( String treatCollectionsAsCacheObjects)
-specifier|public
 specifier|default
 name|IgniteIdGenEndpointBuilder
 name|treatCollectionsAsCacheObjects
@@ -233,7 +227,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|IgniteIdGenEndpointBuilder
 name|basic
@@ -248,7 +241,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedIgniteIdGenEndpointBuilder
 name|basicPropertyBinding
@@ -270,7 +262,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedIgniteIdGenEndpointBuilder
 name|basicPropertyBinding
@@ -292,7 +283,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedIgniteIdGenEndpointBuilder
 name|synchronous
@@ -314,7 +304,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedIgniteIdGenEndpointBuilder
 name|synchronous
@@ -359,7 +348,6 @@ name|INCREMENT_AND_GET
 block|;     }
 comment|/**      * The Ignite ID Generator endpoint is one of camel-ignite endpoints which      * allows you to interact with Ignite Atomic Sequences and ID Generators.      * Creates a builder to build endpoints for the Ignite ID Generator      * component.      */
 DECL|method|igniteIdGen (String path)
-specifier|public
 specifier|default
 name|IgniteIdGenEndpointBuilder
 name|igniteIdGen

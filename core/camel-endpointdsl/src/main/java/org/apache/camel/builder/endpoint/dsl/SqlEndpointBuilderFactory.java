@@ -198,7 +198,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|advanced
@@ -213,7 +212,6 @@ return|;
 block|}
 comment|/**          * Sets the SQL query to perform. You can externalize the query by using          * file: or classpath: as prefix and specify the location of the file.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|query (String query)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|query
@@ -235,7 +233,6 @@ return|;
 block|}
 comment|/**          * Whether to allow using named parameters in the queries.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|allowNamedParameters ( boolean allowNamedParameters)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|allowNamedParameters
@@ -257,7 +254,6 @@ return|;
 block|}
 comment|/**          * Whether to allow using named parameters in the queries.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|allowNamedParameters ( String allowNamedParameters)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|allowNamedParameters
@@ -279,7 +275,6 @@ return|;
 block|}
 comment|/**          * Sets the DataSource to use to communicate with the database.          * The option is a<code>javax.sql.DataSource</code> type.          * @group common          */
 DECL|method|dataSource (Object dataSource)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|dataSource
@@ -301,7 +296,6 @@ return|;
 block|}
 comment|/**          * Sets the DataSource to use to communicate with the database.          * The option will be converted to a<code>javax.sql.DataSource</code>          * type.          * @group common          */
 DECL|method|dataSource (String dataSource)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|dataSource
@@ -324,8 +318,7 @@ block|}
 comment|/**          * Sets the reference to a DataSource to lookup from the registry, to          * use for communicating with the database.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 annotation|@
 name|Deprecated
-DECL|method|dataSourceRef ( String dataSourceRef)
-specifier|public
+DECL|method|dataSourceRef (String dataSourceRef)
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|dataSourceRef
@@ -347,7 +340,6 @@ return|;
 block|}
 comment|/**          * Specify the full package and class name to use as conversion when          * outputType=SelectOne.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|outputClass (String outputClass)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|outputClass
@@ -368,8 +360,7 @@ name|this
 return|;
 block|}
 comment|/**          * Store the query result in a header instead of the message body. By          * default, outputHeader == null and the query result is stored in the          * message body, any existing content in the message body is discarded.          * If outputHeader is set, the value is used as the name of the header          * to store the query result and the original message body is preserved.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|outputHeader ( String outputHeader)
-specifier|public
+DECL|method|outputHeader (String outputHeader)
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|outputHeader
@@ -390,8 +381,7 @@ name|this
 return|;
 block|}
 comment|/**          * Make the output of consumer or producer to SelectList as List of Map,          * or SelectOne as single Java object in the following way: a) If the          * query has only single column, then that JDBC Column object is          * returned. (such as SELECT COUNT( ) FROM PROJECT will return a Long          * object. b) If the query has more than one column, then it will return          * a Map of that result. c) If the outputClass is set, then it will          * convert the query result into an Java bean object by calling all the          * setters that match the column names. It will assume your class has a          * default constructor to create instance with. d) If the query resulted          * in more than one rows, it throws an non-unique result exception.          * The option is a          *<code>org.apache.camel.component.sql.SqlOutputType</code> type.          * @group common          */
-DECL|method|outputType ( SqlOutputType outputType)
-specifier|public
+DECL|method|outputType (SqlOutputType outputType)
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|outputType
@@ -413,7 +403,6 @@ return|;
 block|}
 comment|/**          * Make the output of consumer or producer to SelectList as List of Map,          * or SelectOne as single Java object in the following way: a) If the          * query has only single column, then that JDBC Column object is          * returned. (such as SELECT COUNT( ) FROM PROJECT will return a Long          * object. b) If the query has more than one column, then it will return          * a Map of that result. c) If the outputClass is set, then it will          * convert the query result into an Java bean object by calling all the          * setters that match the column names. It will assume your class has a          * default constructor to create instance with. d) If the query resulted          * in more than one rows, it throws an non-unique result exception.          * The option will be converted to a          *<code>org.apache.camel.component.sql.SqlOutputType</code> type.          * @group common          */
 DECL|method|outputType (String outputType)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|outputType
@@ -435,7 +424,6 @@ return|;
 block|}
 comment|/**          * The separator to use when parameter values is taken from message body          * (if the body is a String type), to be inserted at # placeholders.          * Notice if you use named parameters, then a Map type is used instead.          * The default value is comma.          * The option is a<code>char</code> type.          * @group common          */
 DECL|method|separator (char separator)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|separator
@@ -457,7 +445,6 @@ return|;
 block|}
 comment|/**          * The separator to use when parameter values is taken from message body          * (if the body is a String type), to be inserted at # placeholders.          * Notice if you use named parameters, then a Map type is used instead.          * The default value is comma.          * The option will be converted to a<code>char</code> type.          * @group common          */
 DECL|method|separator (String separator)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|separator
@@ -479,7 +466,6 @@ return|;
 block|}
 comment|/**          * Sets whether to break batch if onConsume failed.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|breakBatchOnConsumeFail ( boolean breakBatchOnConsumeFail)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|breakBatchOnConsumeFail
@@ -501,7 +487,6 @@ return|;
 block|}
 comment|/**          * Sets whether to break batch if onConsume failed.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|breakBatchOnConsumeFail ( String breakBatchOnConsumeFail)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|breakBatchOnConsumeFail
@@ -523,7 +508,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -545,7 +529,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -567,7 +550,6 @@ return|;
 block|}
 comment|/**          * Sets an expected update count to validate when using onConsume.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|expectedUpdateCount ( int expectedUpdateCount)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|expectedUpdateCount
@@ -589,7 +571,6 @@ return|;
 block|}
 comment|/**          * Sets an expected update count to validate when using onConsume.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|expectedUpdateCount ( String expectedUpdateCount)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|expectedUpdateCount
@@ -611,7 +592,6 @@ return|;
 block|}
 comment|/**          * Sets the maximum number of messages to poll.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|maxMessagesPerPoll ( int maxMessagesPerPoll)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|maxMessagesPerPoll
@@ -633,7 +613,6 @@ return|;
 block|}
 comment|/**          * Sets the maximum number of messages to poll.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|maxMessagesPerPoll ( String maxMessagesPerPoll)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|maxMessagesPerPoll
@@ -655,7 +634,6 @@ return|;
 block|}
 comment|/**          * After processing each row then this query can be executed, if the          * Exchange was processed successfully, for example to mark the row as          * processed. The query can have parameter.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|onConsume (String onConsume)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|onConsume
@@ -677,7 +655,6 @@ return|;
 block|}
 comment|/**          * After processing the entire batch, this query can be executed to bulk          * update rows etc. The query cannot have parameters.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|onConsumeBatchComplete ( String onConsumeBatchComplete)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|onConsumeBatchComplete
@@ -699,7 +676,6 @@ return|;
 block|}
 comment|/**          * After processing each row then this query can be executed, if the          * Exchange failed, for example to mark the row as failed. The query can          * have parameter.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|onConsumeFailed ( String onConsumeFailed)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|onConsumeFailed
@@ -721,7 +697,6 @@ return|;
 block|}
 comment|/**          * Sets whether empty resultset should be allowed to be sent to the next          * hop. Defaults to false. So the empty resultset will be filtered out.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|routeEmptyResultSet ( boolean routeEmptyResultSet)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|routeEmptyResultSet
@@ -743,7 +718,6 @@ return|;
 block|}
 comment|/**          * Sets whether empty resultset should be allowed to be sent to the next          * hop. Defaults to false. So the empty resultset will be filtered out.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|routeEmptyResultSet ( String routeEmptyResultSet)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|routeEmptyResultSet
@@ -765,7 +739,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( boolean sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -787,7 +760,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( String sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -809,7 +781,6 @@ return|;
 block|}
 comment|/**          * Enables or disables transaction. If enabled then if processing an          * exchange failed then the consumer break out processing any further          * exchanges to cause a rollback eager.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|transacted (boolean transacted)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|transacted
@@ -831,7 +802,6 @@ return|;
 block|}
 comment|/**          * Enables or disables transaction. If enabled then if processing an          * exchange failed then the consumer break out processing any further          * exchanges to cause a rollback eager.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|transacted (String transacted)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|transacted
@@ -852,8 +822,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets how resultset should be delivered to route. Indicates delivery          * as either a list or individual object. defaults to true.          * The option is a<code>boolean</code> type.          * @group consumer          */
-DECL|method|useIterator ( boolean useIterator)
-specifier|public
+DECL|method|useIterator (boolean useIterator)
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|useIterator
@@ -875,7 +844,6 @@ return|;
 block|}
 comment|/**          * Sets how resultset should be delivered to route. Indicates delivery          * as either a list or individual object. defaults to true.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|useIterator (String useIterator)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|useIterator
@@ -897,7 +865,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( int backoffErrorThreshold)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -919,7 +886,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( String backoffErrorThreshold)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -941,7 +907,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( int backoffIdleThreshold)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -963,7 +928,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( String backoffIdleThreshold)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -985,7 +949,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( int backoffMultiplier)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|backoffMultiplier
@@ -1007,7 +970,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( String backoffMultiplier)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|backoffMultiplier
@@ -1029,7 +991,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (long delay)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|delay
@@ -1051,7 +1012,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (String delay)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|delay
@@ -1073,7 +1033,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (boolean greedy)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|greedy
@@ -1095,7 +1054,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (String greedy)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|greedy
@@ -1117,7 +1075,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
 DECL|method|initialDelay (long initialDelay)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|initialDelay
@@ -1138,8 +1095,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
-DECL|method|initialDelay ( String initialDelay)
-specifier|public
+DECL|method|initialDelay (String initialDelay)
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|initialDelay
@@ -1161,7 +1117,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( LoggingLevel runLoggingLevel)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|runLoggingLevel
@@ -1183,7 +1138,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( String runLoggingLevel)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|runLoggingLevel
@@ -1205,7 +1159,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option is a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( ScheduledExecutorService scheduledExecutorService)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -1227,7 +1180,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( String scheduledExecutorService)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -1249,7 +1201,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option is a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler ( ScheduledPollConsumerScheduler scheduler)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|scheduler
@@ -1271,7 +1222,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler (String scheduler)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|scheduler
@@ -1293,7 +1243,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group scheduler          */
 DECL|method|schedulerProperties ( Map<String, Object> schedulerProperties)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|schedulerProperties
@@ -1320,7 +1269,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group scheduler          */
 DECL|method|schedulerProperties ( String schedulerProperties)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|schedulerProperties
@@ -1341,8 +1289,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option is a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|startScheduler ( boolean startScheduler)
-specifier|public
+DECL|method|startScheduler (boolean startScheduler)
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|startScheduler
@@ -1363,8 +1310,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|startScheduler ( String startScheduler)
-specifier|public
+DECL|method|startScheduler (String startScheduler)
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|startScheduler
@@ -1386,7 +1332,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option is a<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (TimeUnit timeUnit)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|timeUnit
@@ -1408,7 +1353,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (String timeUnit)
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|timeUnit
@@ -1429,8 +1373,7 @@ name|this
 return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option is a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|useFixedDelay ( boolean useFixedDelay)
-specifier|public
+DECL|method|useFixedDelay (boolean useFixedDelay)
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|useFixedDelay
@@ -1451,8 +1394,7 @@ name|this
 return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|useFixedDelay ( String useFixedDelay)
-specifier|public
+DECL|method|useFixedDelay (String useFixedDelay)
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|useFixedDelay
@@ -1482,7 +1424,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SqlEndpointConsumerBuilder
 name|basic
@@ -1497,7 +1438,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|exceptionHandler
@@ -1519,7 +1459,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|exceptionHandler
@@ -1541,7 +1480,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|exchangePattern
@@ -1563,7 +1501,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|exchangePattern
@@ -1585,7 +1522,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option is a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( PollingConsumerPollStrategy pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|pollStrategy
@@ -1607,7 +1543,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( String pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|pollStrategy
@@ -1629,7 +1564,6 @@ return|;
 block|}
 comment|/**          * Allows to plugin to use a custom          * org.apache.camel.component.sql.SqlProcessingStrategy to execute          * queries when the consumer has processed the rows/batch.          * The option is a          *<code>org.apache.camel.component.sql.SqlProcessingStrategy</code>          * type.          * @group consumer (advanced)          */
 DECL|method|processingStrategy ( Object processingStrategy)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|processingStrategy
@@ -1651,7 +1585,6 @@ return|;
 block|}
 comment|/**          * Allows to plugin to use a custom          * org.apache.camel.component.sql.SqlProcessingStrategy to execute          * queries when the consumer has processed the rows/batch.          * The option will be converted to a          *<code>org.apache.camel.component.sql.SqlProcessingStrategy</code>          * type.          * @group consumer (advanced)          */
 DECL|method|processingStrategy ( String processingStrategy)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|processingStrategy
@@ -1673,7 +1606,6 @@ return|;
 block|}
 comment|/**          * If enabled then the populateStatement method from          * org.apache.camel.component.sql.SqlPrepareStatementStrategy is always          * invoked, also if there is no expected parameters to be prepared. When          * this is false then the populateStatement is only invoked if there is          * 1 or more expected parameters to be set; for example this avoids          * reading the message body/headers for SQL queries with no parameters.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|alwaysPopulateStatement ( boolean alwaysPopulateStatement)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|alwaysPopulateStatement
@@ -1695,7 +1627,6 @@ return|;
 block|}
 comment|/**          * If enabled then the populateStatement method from          * org.apache.camel.component.sql.SqlPrepareStatementStrategy is always          * invoked, also if there is no expected parameters to be prepared. When          * this is false then the populateStatement is only invoked if there is          * 1 or more expected parameters to be set; for example this avoids          * reading the message body/headers for SQL queries with no parameters.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|alwaysPopulateStatement ( String alwaysPopulateStatement)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|alwaysPopulateStatement
@@ -1717,7 +1648,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1739,7 +1669,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1761,7 +1690,6 @@ return|;
 block|}
 comment|/**          * If set greater than zero, then Camel will use this count value of          * parameters to replace instead of querying via JDBC metadata API. This          * is useful if the JDBC vendor could not return correct parameters          * count, then user may override instead.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|parametersCount ( int parametersCount)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|parametersCount
@@ -1783,7 +1711,6 @@ return|;
 block|}
 comment|/**          * If set greater than zero, then Camel will use this count value of          * parameters to replace instead of querying via JDBC metadata API. This          * is useful if the JDBC vendor could not return correct parameters          * count, then user may override instead.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|parametersCount ( String parametersCount)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|parametersCount
@@ -1805,7 +1732,6 @@ return|;
 block|}
 comment|/**          * Specifies a character that will be replaced to in SQL query. Notice,          * that it is simple String.replaceAll() operation and no SQL parsing is          * involved (quoted strings will also change).          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|placeholder ( String placeholder)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|placeholder
@@ -1827,7 +1753,6 @@ return|;
 block|}
 comment|/**          * Allows to plugin to use a custom          * org.apache.camel.component.sql.SqlPrepareStatementStrategy to control          * preparation of the query and prepared statement.          * The option is a          *<code>org.apache.camel.component.sql.SqlPrepareStatementStrategy</code> type.          * @group advanced          */
 DECL|method|prepareStatementStrategy ( Object prepareStatementStrategy)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|prepareStatementStrategy
@@ -1849,7 +1774,6 @@ return|;
 block|}
 comment|/**          * Allows to plugin to use a custom          * org.apache.camel.component.sql.SqlPrepareStatementStrategy to control          * preparation of the query and prepared statement.          * The option will be converted to a          *<code>org.apache.camel.component.sql.SqlPrepareStatementStrategy</code> type.          * @group advanced          */
 DECL|method|prepareStatementStrategy ( String prepareStatementStrategy)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|prepareStatementStrategy
@@ -1871,7 +1795,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|synchronous
@@ -1893,7 +1816,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|synchronous
@@ -1915,7 +1837,6 @@ return|;
 block|}
 comment|/**          * Configures the Spring JdbcTemplate with the key/values from the Map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|templateOptions ( Map<String, Object> templateOptions)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|templateOptions
@@ -1942,7 +1863,6 @@ return|;
 block|}
 comment|/**          * Configures the Spring JdbcTemplate with the key/values from the Map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|templateOptions ( String templateOptions)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|templateOptions
@@ -1964,7 +1884,6 @@ return|;
 block|}
 comment|/**          * Sets whether to use placeholder and replace all placeholder          * characters with sign in the SQL queries. This option is default true.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|usePlaceholder ( boolean usePlaceholder)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|usePlaceholder
@@ -1986,7 +1905,6 @@ return|;
 block|}
 comment|/**          * Sets whether to use placeholder and replace all placeholder          * characters with sign in the SQL queries. This option is default true.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|usePlaceholder ( String usePlaceholder)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointConsumerBuilder
 name|usePlaceholder
@@ -2017,7 +1935,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointProducerBuilder
 name|advanced
@@ -2032,7 +1949,6 @@ return|;
 block|}
 comment|/**          * Sets the SQL query to perform. You can externalize the query by using          * file: or classpath: as prefix and specify the location of the file.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|query (String query)
-specifier|public
 specifier|default
 name|SqlEndpointProducerBuilder
 name|query
@@ -2054,7 +1970,6 @@ return|;
 block|}
 comment|/**          * Whether to allow using named parameters in the queries.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|allowNamedParameters ( boolean allowNamedParameters)
-specifier|public
 specifier|default
 name|SqlEndpointProducerBuilder
 name|allowNamedParameters
@@ -2076,7 +1991,6 @@ return|;
 block|}
 comment|/**          * Whether to allow using named parameters in the queries.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|allowNamedParameters ( String allowNamedParameters)
-specifier|public
 specifier|default
 name|SqlEndpointProducerBuilder
 name|allowNamedParameters
@@ -2098,7 +2012,6 @@ return|;
 block|}
 comment|/**          * Sets the DataSource to use to communicate with the database.          * The option is a<code>javax.sql.DataSource</code> type.          * @group common          */
 DECL|method|dataSource (Object dataSource)
-specifier|public
 specifier|default
 name|SqlEndpointProducerBuilder
 name|dataSource
@@ -2120,7 +2033,6 @@ return|;
 block|}
 comment|/**          * Sets the DataSource to use to communicate with the database.          * The option will be converted to a<code>javax.sql.DataSource</code>          * type.          * @group common          */
 DECL|method|dataSource (String dataSource)
-specifier|public
 specifier|default
 name|SqlEndpointProducerBuilder
 name|dataSource
@@ -2143,8 +2055,7 @@ block|}
 comment|/**          * Sets the reference to a DataSource to lookup from the registry, to          * use for communicating with the database.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 annotation|@
 name|Deprecated
-DECL|method|dataSourceRef ( String dataSourceRef)
-specifier|public
+DECL|method|dataSourceRef (String dataSourceRef)
 specifier|default
 name|SqlEndpointProducerBuilder
 name|dataSourceRef
@@ -2166,7 +2077,6 @@ return|;
 block|}
 comment|/**          * Specify the full package and class name to use as conversion when          * outputType=SelectOne.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|outputClass (String outputClass)
-specifier|public
 specifier|default
 name|SqlEndpointProducerBuilder
 name|outputClass
@@ -2187,8 +2097,7 @@ name|this
 return|;
 block|}
 comment|/**          * Store the query result in a header instead of the message body. By          * default, outputHeader == null and the query result is stored in the          * message body, any existing content in the message body is discarded.          * If outputHeader is set, the value is used as the name of the header          * to store the query result and the original message body is preserved.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|outputHeader ( String outputHeader)
-specifier|public
+DECL|method|outputHeader (String outputHeader)
 specifier|default
 name|SqlEndpointProducerBuilder
 name|outputHeader
@@ -2209,8 +2118,7 @@ name|this
 return|;
 block|}
 comment|/**          * Make the output of consumer or producer to SelectList as List of Map,          * or SelectOne as single Java object in the following way: a) If the          * query has only single column, then that JDBC Column object is          * returned. (such as SELECT COUNT( ) FROM PROJECT will return a Long          * object. b) If the query has more than one column, then it will return          * a Map of that result. c) If the outputClass is set, then it will          * convert the query result into an Java bean object by calling all the          * setters that match the column names. It will assume your class has a          * default constructor to create instance with. d) If the query resulted          * in more than one rows, it throws an non-unique result exception.          * The option is a          *<code>org.apache.camel.component.sql.SqlOutputType</code> type.          * @group common          */
-DECL|method|outputType ( SqlOutputType outputType)
-specifier|public
+DECL|method|outputType (SqlOutputType outputType)
 specifier|default
 name|SqlEndpointProducerBuilder
 name|outputType
@@ -2232,7 +2140,6 @@ return|;
 block|}
 comment|/**          * Make the output of consumer or producer to SelectList as List of Map,          * or SelectOne as single Java object in the following way: a) If the          * query has only single column, then that JDBC Column object is          * returned. (such as SELECT COUNT( ) FROM PROJECT will return a Long          * object. b) If the query has more than one column, then it will return          * a Map of that result. c) If the outputClass is set, then it will          * convert the query result into an Java bean object by calling all the          * setters that match the column names. It will assume your class has a          * default constructor to create instance with. d) If the query resulted          * in more than one rows, it throws an non-unique result exception.          * The option will be converted to a          *<code>org.apache.camel.component.sql.SqlOutputType</code> type.          * @group common          */
 DECL|method|outputType (String outputType)
-specifier|public
 specifier|default
 name|SqlEndpointProducerBuilder
 name|outputType
@@ -2254,7 +2161,6 @@ return|;
 block|}
 comment|/**          * The separator to use when parameter values is taken from message body          * (if the body is a String type), to be inserted at # placeholders.          * Notice if you use named parameters, then a Map type is used instead.          * The default value is comma.          * The option is a<code>char</code> type.          * @group common          */
 DECL|method|separator (char separator)
-specifier|public
 specifier|default
 name|SqlEndpointProducerBuilder
 name|separator
@@ -2276,7 +2182,6 @@ return|;
 block|}
 comment|/**          * The separator to use when parameter values is taken from message body          * (if the body is a String type), to be inserted at # placeholders.          * Notice if you use named parameters, then a Map type is used instead.          * The default value is comma.          * The option will be converted to a<code>char</code> type.          * @group common          */
 DECL|method|separator (String separator)
-specifier|public
 specifier|default
 name|SqlEndpointProducerBuilder
 name|separator
@@ -2298,7 +2203,6 @@ return|;
 block|}
 comment|/**          * Enables or disables batch mode.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|batch (boolean batch)
-specifier|public
 specifier|default
 name|SqlEndpointProducerBuilder
 name|batch
@@ -2320,7 +2224,6 @@ return|;
 block|}
 comment|/**          * Enables or disables batch mode.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|batch (String batch)
-specifier|public
 specifier|default
 name|SqlEndpointProducerBuilder
 name|batch
@@ -2342,7 +2245,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|SqlEndpointProducerBuilder
 name|lazyStartProducer
@@ -2364,7 +2266,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|SqlEndpointProducerBuilder
 name|lazyStartProducer
@@ -2386,7 +2287,6 @@ return|;
 block|}
 comment|/**          * If set, will ignore the results of the SQL query and use the existing          * IN message as the OUT message for the continuation of processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|noop (boolean noop)
-specifier|public
 specifier|default
 name|SqlEndpointProducerBuilder
 name|noop
@@ -2408,7 +2308,6 @@ return|;
 block|}
 comment|/**          * If set, will ignore the results of the SQL query and use the existing          * IN message as the OUT message for the continuation of processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|noop (String noop)
-specifier|public
 specifier|default
 name|SqlEndpointProducerBuilder
 name|noop
@@ -2430,7 +2329,6 @@ return|;
 block|}
 comment|/**          * Whether to use the message body as the SQL and then headers for          * parameters. If this option is enabled then the SQL in the uri is not          * used.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|useMessageBodyForSql ( boolean useMessageBodyForSql)
-specifier|public
 specifier|default
 name|SqlEndpointProducerBuilder
 name|useMessageBodyForSql
@@ -2452,7 +2350,6 @@ return|;
 block|}
 comment|/**          * Whether to use the message body as the SQL and then headers for          * parameters. If this option is enabled then the SQL in the uri is not          * used.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|useMessageBodyForSql ( String useMessageBodyForSql)
-specifier|public
 specifier|default
 name|SqlEndpointProducerBuilder
 name|useMessageBodyForSql
@@ -2482,7 +2379,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SqlEndpointProducerBuilder
 name|basic
@@ -2497,7 +2393,6 @@ return|;
 block|}
 comment|/**          * If enabled then the populateStatement method from          * org.apache.camel.component.sql.SqlPrepareStatementStrategy is always          * invoked, also if there is no expected parameters to be prepared. When          * this is false then the populateStatement is only invoked if there is          * 1 or more expected parameters to be set; for example this avoids          * reading the message body/headers for SQL queries with no parameters.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|alwaysPopulateStatement ( boolean alwaysPopulateStatement)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointProducerBuilder
 name|alwaysPopulateStatement
@@ -2519,7 +2414,6 @@ return|;
 block|}
 comment|/**          * If enabled then the populateStatement method from          * org.apache.camel.component.sql.SqlPrepareStatementStrategy is always          * invoked, also if there is no expected parameters to be prepared. When          * this is false then the populateStatement is only invoked if there is          * 1 or more expected parameters to be set; for example this avoids          * reading the message body/headers for SQL queries with no parameters.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|alwaysPopulateStatement ( String alwaysPopulateStatement)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointProducerBuilder
 name|alwaysPopulateStatement
@@ -2541,7 +2435,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointProducerBuilder
 name|basicPropertyBinding
@@ -2563,7 +2456,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointProducerBuilder
 name|basicPropertyBinding
@@ -2585,7 +2477,6 @@ return|;
 block|}
 comment|/**          * If set greater than zero, then Camel will use this count value of          * parameters to replace instead of querying via JDBC metadata API. This          * is useful if the JDBC vendor could not return correct parameters          * count, then user may override instead.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|parametersCount ( int parametersCount)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointProducerBuilder
 name|parametersCount
@@ -2607,7 +2498,6 @@ return|;
 block|}
 comment|/**          * If set greater than zero, then Camel will use this count value of          * parameters to replace instead of querying via JDBC metadata API. This          * is useful if the JDBC vendor could not return correct parameters          * count, then user may override instead.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|parametersCount ( String parametersCount)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointProducerBuilder
 name|parametersCount
@@ -2629,7 +2519,6 @@ return|;
 block|}
 comment|/**          * Specifies a character that will be replaced to in SQL query. Notice,          * that it is simple String.replaceAll() operation and no SQL parsing is          * involved (quoted strings will also change).          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|placeholder ( String placeholder)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointProducerBuilder
 name|placeholder
@@ -2651,7 +2540,6 @@ return|;
 block|}
 comment|/**          * Allows to plugin to use a custom          * org.apache.camel.component.sql.SqlPrepareStatementStrategy to control          * preparation of the query and prepared statement.          * The option is a          *<code>org.apache.camel.component.sql.SqlPrepareStatementStrategy</code> type.          * @group advanced          */
 DECL|method|prepareStatementStrategy ( Object prepareStatementStrategy)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointProducerBuilder
 name|prepareStatementStrategy
@@ -2673,7 +2561,6 @@ return|;
 block|}
 comment|/**          * Allows to plugin to use a custom          * org.apache.camel.component.sql.SqlPrepareStatementStrategy to control          * preparation of the query and prepared statement.          * The option will be converted to a          *<code>org.apache.camel.component.sql.SqlPrepareStatementStrategy</code> type.          * @group advanced          */
 DECL|method|prepareStatementStrategy ( String prepareStatementStrategy)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointProducerBuilder
 name|prepareStatementStrategy
@@ -2695,7 +2582,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointProducerBuilder
 name|synchronous
@@ -2717,7 +2603,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointProducerBuilder
 name|synchronous
@@ -2739,7 +2624,6 @@ return|;
 block|}
 comment|/**          * Configures the Spring JdbcTemplate with the key/values from the Map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|templateOptions ( Map<String, Object> templateOptions)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointProducerBuilder
 name|templateOptions
@@ -2766,7 +2650,6 @@ return|;
 block|}
 comment|/**          * Configures the Spring JdbcTemplate with the key/values from the Map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|templateOptions ( String templateOptions)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointProducerBuilder
 name|templateOptions
@@ -2788,7 +2671,6 @@ return|;
 block|}
 comment|/**          * Sets whether to use placeholder and replace all placeholder          * characters with sign in the SQL queries. This option is default true.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|usePlaceholder ( boolean usePlaceholder)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointProducerBuilder
 name|usePlaceholder
@@ -2810,7 +2692,6 @@ return|;
 block|}
 comment|/**          * Sets whether to use placeholder and replace all placeholder          * characters with sign in the SQL queries. This option is default true.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|usePlaceholder ( String usePlaceholder)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointProducerBuilder
 name|usePlaceholder
@@ -2843,7 +2724,6 @@ extends|,
 name|SqlEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointBuilder
 name|advanced
@@ -2858,7 +2738,6 @@ return|;
 block|}
 comment|/**          * Sets the SQL query to perform. You can externalize the query by using          * file: or classpath: as prefix and specify the location of the file.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|query (String query)
-specifier|public
 specifier|default
 name|SqlEndpointBuilder
 name|query
@@ -2880,7 +2759,6 @@ return|;
 block|}
 comment|/**          * Whether to allow using named parameters in the queries.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|allowNamedParameters ( boolean allowNamedParameters)
-specifier|public
 specifier|default
 name|SqlEndpointBuilder
 name|allowNamedParameters
@@ -2902,7 +2780,6 @@ return|;
 block|}
 comment|/**          * Whether to allow using named parameters in the queries.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|allowNamedParameters ( String allowNamedParameters)
-specifier|public
 specifier|default
 name|SqlEndpointBuilder
 name|allowNamedParameters
@@ -2924,7 +2801,6 @@ return|;
 block|}
 comment|/**          * Sets the DataSource to use to communicate with the database.          * The option is a<code>javax.sql.DataSource</code> type.          * @group common          */
 DECL|method|dataSource (Object dataSource)
-specifier|public
 specifier|default
 name|SqlEndpointBuilder
 name|dataSource
@@ -2946,7 +2822,6 @@ return|;
 block|}
 comment|/**          * Sets the DataSource to use to communicate with the database.          * The option will be converted to a<code>javax.sql.DataSource</code>          * type.          * @group common          */
 DECL|method|dataSource (String dataSource)
-specifier|public
 specifier|default
 name|SqlEndpointBuilder
 name|dataSource
@@ -2970,7 +2845,6 @@ comment|/**          * Sets the reference to a DataSource to lookup from the reg
 annotation|@
 name|Deprecated
 DECL|method|dataSourceRef (String dataSourceRef)
-specifier|public
 specifier|default
 name|SqlEndpointBuilder
 name|dataSourceRef
@@ -2992,7 +2866,6 @@ return|;
 block|}
 comment|/**          * Specify the full package and class name to use as conversion when          * outputType=SelectOne.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|outputClass (String outputClass)
-specifier|public
 specifier|default
 name|SqlEndpointBuilder
 name|outputClass
@@ -3014,7 +2887,6 @@ return|;
 block|}
 comment|/**          * Store the query result in a header instead of the message body. By          * default, outputHeader == null and the query result is stored in the          * message body, any existing content in the message body is discarded.          * If outputHeader is set, the value is used as the name of the header          * to store the query result and the original message body is preserved.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|outputHeader (String outputHeader)
-specifier|public
 specifier|default
 name|SqlEndpointBuilder
 name|outputHeader
@@ -3036,7 +2908,6 @@ return|;
 block|}
 comment|/**          * Make the output of consumer or producer to SelectList as List of Map,          * or SelectOne as single Java object in the following way: a) If the          * query has only single column, then that JDBC Column object is          * returned. (such as SELECT COUNT( ) FROM PROJECT will return a Long          * object. b) If the query has more than one column, then it will return          * a Map of that result. c) If the outputClass is set, then it will          * convert the query result into an Java bean object by calling all the          * setters that match the column names. It will assume your class has a          * default constructor to create instance with. d) If the query resulted          * in more than one rows, it throws an non-unique result exception.          * The option is a          *<code>org.apache.camel.component.sql.SqlOutputType</code> type.          * @group common          */
 DECL|method|outputType (SqlOutputType outputType)
-specifier|public
 specifier|default
 name|SqlEndpointBuilder
 name|outputType
@@ -3058,7 +2929,6 @@ return|;
 block|}
 comment|/**          * Make the output of consumer or producer to SelectList as List of Map,          * or SelectOne as single Java object in the following way: a) If the          * query has only single column, then that JDBC Column object is          * returned. (such as SELECT COUNT( ) FROM PROJECT will return a Long          * object. b) If the query has more than one column, then it will return          * a Map of that result. c) If the outputClass is set, then it will          * convert the query result into an Java bean object by calling all the          * setters that match the column names. It will assume your class has a          * default constructor to create instance with. d) If the query resulted          * in more than one rows, it throws an non-unique result exception.          * The option will be converted to a          *<code>org.apache.camel.component.sql.SqlOutputType</code> type.          * @group common          */
 DECL|method|outputType (String outputType)
-specifier|public
 specifier|default
 name|SqlEndpointBuilder
 name|outputType
@@ -3080,7 +2950,6 @@ return|;
 block|}
 comment|/**          * The separator to use when parameter values is taken from message body          * (if the body is a String type), to be inserted at # placeholders.          * Notice if you use named parameters, then a Map type is used instead.          * The default value is comma.          * The option is a<code>char</code> type.          * @group common          */
 DECL|method|separator (char separator)
-specifier|public
 specifier|default
 name|SqlEndpointBuilder
 name|separator
@@ -3102,7 +2971,6 @@ return|;
 block|}
 comment|/**          * The separator to use when parameter values is taken from message body          * (if the body is a String type), to be inserted at # placeholders.          * Notice if you use named parameters, then a Map type is used instead.          * The default value is comma.          * The option will be converted to a<code>char</code> type.          * @group common          */
 DECL|method|separator (String separator)
-specifier|public
 specifier|default
 name|SqlEndpointBuilder
 name|separator
@@ -3135,7 +3003,6 @@ extends|,
 name|AdvancedSqlEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SqlEndpointBuilder
 name|basic
@@ -3150,7 +3017,6 @@ return|;
 block|}
 comment|/**          * If enabled then the populateStatement method from          * org.apache.camel.component.sql.SqlPrepareStatementStrategy is always          * invoked, also if there is no expected parameters to be prepared. When          * this is false then the populateStatement is only invoked if there is          * 1 or more expected parameters to be set; for example this avoids          * reading the message body/headers for SQL queries with no parameters.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|alwaysPopulateStatement ( boolean alwaysPopulateStatement)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointBuilder
 name|alwaysPopulateStatement
@@ -3172,7 +3038,6 @@ return|;
 block|}
 comment|/**          * If enabled then the populateStatement method from          * org.apache.camel.component.sql.SqlPrepareStatementStrategy is always          * invoked, also if there is no expected parameters to be prepared. When          * this is false then the populateStatement is only invoked if there is          * 1 or more expected parameters to be set; for example this avoids          * reading the message body/headers for SQL queries with no parameters.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|alwaysPopulateStatement ( String alwaysPopulateStatement)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointBuilder
 name|alwaysPopulateStatement
@@ -3194,7 +3059,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointBuilder
 name|basicPropertyBinding
@@ -3216,7 +3080,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointBuilder
 name|basicPropertyBinding
@@ -3237,8 +3100,7 @@ name|this
 return|;
 block|}
 comment|/**          * If set greater than zero, then Camel will use this count value of          * parameters to replace instead of querying via JDBC metadata API. This          * is useful if the JDBC vendor could not return correct parameters          * count, then user may override instead.          * The option is a<code>int</code> type.          * @group advanced          */
-DECL|method|parametersCount ( int parametersCount)
-specifier|public
+DECL|method|parametersCount (int parametersCount)
 specifier|default
 name|AdvancedSqlEndpointBuilder
 name|parametersCount
@@ -3260,7 +3122,6 @@ return|;
 block|}
 comment|/**          * If set greater than zero, then Camel will use this count value of          * parameters to replace instead of querying via JDBC metadata API. This          * is useful if the JDBC vendor could not return correct parameters          * count, then user may override instead.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|parametersCount ( String parametersCount)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointBuilder
 name|parametersCount
@@ -3282,7 +3143,6 @@ return|;
 block|}
 comment|/**          * Specifies a character that will be replaced to in SQL query. Notice,          * that it is simple String.replaceAll() operation and no SQL parsing is          * involved (quoted strings will also change).          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|placeholder (String placeholder)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointBuilder
 name|placeholder
@@ -3304,7 +3164,6 @@ return|;
 block|}
 comment|/**          * Allows to plugin to use a custom          * org.apache.camel.component.sql.SqlPrepareStatementStrategy to control          * preparation of the query and prepared statement.          * The option is a          *<code>org.apache.camel.component.sql.SqlPrepareStatementStrategy</code> type.          * @group advanced          */
 DECL|method|prepareStatementStrategy ( Object prepareStatementStrategy)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointBuilder
 name|prepareStatementStrategy
@@ -3326,7 +3185,6 @@ return|;
 block|}
 comment|/**          * Allows to plugin to use a custom          * org.apache.camel.component.sql.SqlPrepareStatementStrategy to control          * preparation of the query and prepared statement.          * The option will be converted to a          *<code>org.apache.camel.component.sql.SqlPrepareStatementStrategy</code> type.          * @group advanced          */
 DECL|method|prepareStatementStrategy ( String prepareStatementStrategy)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointBuilder
 name|prepareStatementStrategy
@@ -3347,8 +3205,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSqlEndpointBuilder
 name|synchronous
@@ -3370,7 +3227,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous (String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointBuilder
 name|synchronous
@@ -3392,7 +3248,6 @@ return|;
 block|}
 comment|/**          * Configures the Spring JdbcTemplate with the key/values from the Map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|templateOptions ( Map<String, Object> templateOptions)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointBuilder
 name|templateOptions
@@ -3419,7 +3274,6 @@ return|;
 block|}
 comment|/**          * Configures the Spring JdbcTemplate with the key/values from the Map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|templateOptions ( String templateOptions)
-specifier|public
 specifier|default
 name|AdvancedSqlEndpointBuilder
 name|templateOptions
@@ -3440,8 +3294,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether to use placeholder and replace all placeholder          * characters with sign in the SQL queries. This option is default true.          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|usePlaceholder ( boolean usePlaceholder)
-specifier|public
+DECL|method|usePlaceholder (boolean usePlaceholder)
 specifier|default
 name|AdvancedSqlEndpointBuilder
 name|usePlaceholder
@@ -3462,8 +3315,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether to use placeholder and replace all placeholder          * characters with sign in the SQL queries. This option is default true.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|usePlaceholder ( String usePlaceholder)
-specifier|public
+DECL|method|usePlaceholder (String usePlaceholder)
 specifier|default
 name|AdvancedSqlEndpointBuilder
 name|usePlaceholder
@@ -3502,7 +3354,6 @@ name|StreamList
 block|;     }
 comment|/**      * The sql component allows you to work with databases using JDBC SQL      * queries. Creates a builder to build endpoints for the SQL component.      */
 DECL|method|sql (String path)
-specifier|public
 specifier|default
 name|SqlEndpointBuilder
 name|sql

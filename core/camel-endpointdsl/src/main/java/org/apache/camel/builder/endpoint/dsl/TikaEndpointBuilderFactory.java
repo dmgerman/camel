@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedTikaEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Tika Operation. parse or detect.          * The option is a          *<code>org.apache.camel.component.tika.TikaOperation</code> type.          * @group producer          */
 DECL|method|operation (TikaOperation operation)
-specifier|public
 specifier|default
 name|TikaEndpointBuilder
 name|operation
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Tika Operation. parse or detect.          * The option will be converted to a          *<code>org.apache.camel.component.tika.TikaOperation</code> type.          * @group producer          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|TikaEndpointBuilder
 name|operation
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Tika Config.          * The option is a<code>org.apache.tika.config.TikaConfig</code> type.          * @group producer          */
 DECL|method|tikaConfig (Object tikaConfig)
-specifier|public
 specifier|default
 name|TikaEndpointBuilder
 name|tikaConfig
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Tika Config.          * The option will be converted to a          *<code>org.apache.tika.config.TikaConfig</code> type.          * @group producer          */
 DECL|method|tikaConfig (String tikaConfig)
-specifier|public
 specifier|default
 name|TikaEndpointBuilder
 name|tikaConfig
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Tika Config Uri: The URI of tika-config.xml.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|tikaConfigUri (String tikaConfigUri)
-specifier|public
 specifier|default
 name|TikaEndpointBuilder
 name|tikaConfigUri
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * Tika Parse Output Encoding - Used to specify the character encoding          * of the parsed output. Defaults to Charset.defaultCharset() .          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|tikaParseOutputEncoding ( String tikaParseOutputEncoding)
-specifier|public
 specifier|default
 name|TikaEndpointBuilder
 name|tikaParseOutputEncoding
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * Tika Output Format. Supported output formats. xml: Returns Parsed          * Content as XML. html: Returns Parsed Content as HTML. text: Returns          * Parsed Content as Text. textMain: Uses the boilerpipe library to          * automatically extract the main content from a web page.          * The option is a          *<code>org.apache.camel.component.tika.TikaParseOutputFormat</code>          * type.          * @group producer          */
 DECL|method|tikaParseOutputFormat ( TikaParseOutputFormat tikaParseOutputFormat)
-specifier|public
 specifier|default
 name|TikaEndpointBuilder
 name|tikaParseOutputFormat
@@ -268,7 +260,6 @@ return|;
 block|}
 comment|/**          * Tika Output Format. Supported output formats. xml: Returns Parsed          * Content as XML. html: Returns Parsed Content as HTML. text: Returns          * Parsed Content as Text. textMain: Uses the boilerpipe library to          * automatically extract the main content from a web page.          * The option will be converted to a          *<code>org.apache.camel.component.tika.TikaParseOutputFormat</code>          * type.          * @group producer          */
 DECL|method|tikaParseOutputFormat ( String tikaParseOutputFormat)
-specifier|public
 specifier|default
 name|TikaEndpointBuilder
 name|tikaParseOutputFormat
@@ -299,7 +290,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|TikaEndpointBuilder
 name|basic
@@ -314,7 +304,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedTikaEndpointBuilder
 name|basicPropertyBinding
@@ -336,7 +325,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedTikaEndpointBuilder
 name|basicPropertyBinding
@@ -357,8 +345,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedTikaEndpointBuilder
 name|synchronous
@@ -379,8 +366,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedTikaEndpointBuilder
 name|synchronous
@@ -435,7 +421,6 @@ name|textMain
 block|;     }
 comment|/**      * This component integrates with Apache Tika to extract content and      * metadata from thousands of file types. Creates a builder to build      * endpoints for the Tika component.      */
 DECL|method|tika (String path)
-specifier|public
 specifier|default
 name|TikaEndpointBuilder
 name|tika

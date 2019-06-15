@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * The channel used for subscribing/publishing events.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|channel (String channel)
-specifier|public
 specifier|default
 name|PubNubEndpointConsumerBuilder
 name|channel
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * UUID to be used as a device identifier, a default UUID is generated          * if not passed.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|uuid (String uuid)
-specifier|public
 specifier|default
 name|PubNubEndpointConsumerBuilder
 name|uuid
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|PubNubEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|PubNubEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -226,8 +221,7 @@ name|this
 return|;
 block|}
 comment|/**          * Also subscribe to related presence information.          * The option is a<code>boolean</code> type.          * @group consumer          */
-DECL|method|withPresence ( boolean withPresence)
-specifier|public
+DECL|method|withPresence (boolean withPresence)
 specifier|default
 name|PubNubEndpointConsumerBuilder
 name|withPresence
@@ -248,8 +242,7 @@ name|this
 return|;
 block|}
 comment|/**          * Also subscribe to related presence information.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
-DECL|method|withPresence ( String withPresence)
-specifier|public
+DECL|method|withPresence (String withPresence)
 specifier|default
 name|PubNubEndpointConsumerBuilder
 name|withPresence
@@ -271,7 +264,6 @@ return|;
 block|}
 comment|/**          * If Access Manager is utilized, client will use this authKey in all          * restricted requests.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|authKey (String authKey)
-specifier|public
 specifier|default
 name|PubNubEndpointConsumerBuilder
 name|authKey
@@ -293,7 +285,6 @@ return|;
 block|}
 comment|/**          * If cipher is passed, all communicatons to/from PubNub will be          * encrypted.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|cipherKey (String cipherKey)
-specifier|public
 specifier|default
 name|PubNubEndpointConsumerBuilder
 name|cipherKey
@@ -314,8 +305,7 @@ name|this
 return|;
 block|}
 comment|/**          * The publish key obtained from your PubNub account. Required when          * publishing messages.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|publishKey ( String publishKey)
-specifier|public
+DECL|method|publishKey (String publishKey)
 specifier|default
 name|PubNubEndpointConsumerBuilder
 name|publishKey
@@ -337,7 +327,6 @@ return|;
 block|}
 comment|/**          * The secret key used for message signing.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|PubNubEndpointConsumerBuilder
 name|secretKey
@@ -359,7 +348,6 @@ return|;
 block|}
 comment|/**          * Use SSL for secure transmission.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|secure (boolean secure)
-specifier|public
 specifier|default
 name|PubNubEndpointConsumerBuilder
 name|secure
@@ -381,7 +369,6 @@ return|;
 block|}
 comment|/**          * Use SSL for secure transmission.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|secure (String secure)
-specifier|public
 specifier|default
 name|PubNubEndpointConsumerBuilder
 name|secure
@@ -402,8 +389,7 @@ name|this
 return|;
 block|}
 comment|/**          * The subscribe key obtained from your PubNub account. Required when          * subscribing to channels or listening for presence events.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|subscribeKey ( String subscribeKey)
-specifier|public
+DECL|method|subscribeKey (String subscribeKey)
 specifier|default
 name|PubNubEndpointConsumerBuilder
 name|subscribeKey
@@ -433,7 +419,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|PubNubEndpointConsumerBuilder
 name|basic
@@ -448,7 +433,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointConsumerBuilder
 name|exceptionHandler
@@ -470,7 +454,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointConsumerBuilder
 name|exceptionHandler
@@ -492,7 +475,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointConsumerBuilder
 name|exchangePattern
@@ -514,7 +496,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointConsumerBuilder
 name|exchangePattern
@@ -536,7 +517,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -558,7 +538,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -579,8 +558,7 @@ name|this
 return|;
 block|}
 comment|/**          * Reference to a Pubnub client in the registry.          * The option is a<code>com.pubnub.api.PubNub</code> type.          * @group advanced          */
-DECL|method|pubnub ( Object pubnub)
-specifier|public
+DECL|method|pubnub (Object pubnub)
 specifier|default
 name|AdvancedPubNubEndpointConsumerBuilder
 name|pubnub
@@ -601,8 +579,7 @@ name|this
 return|;
 block|}
 comment|/**          * Reference to a Pubnub client in the registry.          * The option will be converted to a<code>com.pubnub.api.PubNub</code>          * type.          * @group advanced          */
-DECL|method|pubnub ( String pubnub)
-specifier|public
+DECL|method|pubnub (String pubnub)
 specifier|default
 name|AdvancedPubNubEndpointConsumerBuilder
 name|pubnub
@@ -624,7 +601,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointConsumerBuilder
 name|synchronous
@@ -646,7 +622,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointConsumerBuilder
 name|synchronous
@@ -677,7 +652,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointProducerBuilder
 name|advanced
@@ -692,7 +666,6 @@ return|;
 block|}
 comment|/**          * The channel used for subscribing/publishing events.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|channel (String channel)
-specifier|public
 specifier|default
 name|PubNubEndpointProducerBuilder
 name|channel
@@ -714,7 +687,6 @@ return|;
 block|}
 comment|/**          * UUID to be used as a device identifier, a default UUID is generated          * if not passed.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|uuid (String uuid)
-specifier|public
 specifier|default
 name|PubNubEndpointProducerBuilder
 name|uuid
@@ -736,7 +708,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|PubNubEndpointProducerBuilder
 name|lazyStartProducer
@@ -758,7 +729,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|PubNubEndpointProducerBuilder
 name|lazyStartProducer
@@ -780,7 +750,6 @@ return|;
 block|}
 comment|/**          * The operation to perform. PUBLISH: Default. Send a message to all          * subscribers of a channel. FIRE: allows the client to send a message          * to BLOCKS Event Handlers. These messages will go directly to any          * Event Handlers registered on the channel. HERENOW: Obtain information          * about the current state of a channel including a list of unique          * user-ids currently subscribed to the channel and the total occupancy          * count. WHERENOW: Obtain information about the current list of          * channels to which a uuid is subscribed to. GETSTATE: Used to get          * key/value pairs specific to a subscriber uuid. State information is          * supplied as a JSON object of key/value pairs SETSTATE: Used to set          * key/value pairs specific to a subscriber uuid GETHISTORY: Fetches          * historical messages of a channel.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|PubNubEndpointProducerBuilder
 name|operation
@@ -802,7 +771,6 @@ return|;
 block|}
 comment|/**          * If Access Manager is utilized, client will use this authKey in all          * restricted requests.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|authKey (String authKey)
-specifier|public
 specifier|default
 name|PubNubEndpointProducerBuilder
 name|authKey
@@ -824,7 +792,6 @@ return|;
 block|}
 comment|/**          * If cipher is passed, all communicatons to/from PubNub will be          * encrypted.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|cipherKey (String cipherKey)
-specifier|public
 specifier|default
 name|PubNubEndpointProducerBuilder
 name|cipherKey
@@ -845,8 +812,7 @@ name|this
 return|;
 block|}
 comment|/**          * The publish key obtained from your PubNub account. Required when          * publishing messages.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|publishKey ( String publishKey)
-specifier|public
+DECL|method|publishKey (String publishKey)
 specifier|default
 name|PubNubEndpointProducerBuilder
 name|publishKey
@@ -868,7 +834,6 @@ return|;
 block|}
 comment|/**          * The secret key used for message signing.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|PubNubEndpointProducerBuilder
 name|secretKey
@@ -890,7 +855,6 @@ return|;
 block|}
 comment|/**          * Use SSL for secure transmission.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|secure (boolean secure)
-specifier|public
 specifier|default
 name|PubNubEndpointProducerBuilder
 name|secure
@@ -912,7 +876,6 @@ return|;
 block|}
 comment|/**          * Use SSL for secure transmission.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|secure (String secure)
-specifier|public
 specifier|default
 name|PubNubEndpointProducerBuilder
 name|secure
@@ -933,8 +896,7 @@ name|this
 return|;
 block|}
 comment|/**          * The subscribe key obtained from your PubNub account. Required when          * subscribing to channels or listening for presence events.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|subscribeKey ( String subscribeKey)
-specifier|public
+DECL|method|subscribeKey (String subscribeKey)
 specifier|default
 name|PubNubEndpointProducerBuilder
 name|subscribeKey
@@ -964,7 +926,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|PubNubEndpointProducerBuilder
 name|basic
@@ -979,7 +940,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1001,7 +961,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1022,8 +981,7 @@ name|this
 return|;
 block|}
 comment|/**          * Reference to a Pubnub client in the registry.          * The option is a<code>com.pubnub.api.PubNub</code> type.          * @group advanced          */
-DECL|method|pubnub ( Object pubnub)
-specifier|public
+DECL|method|pubnub (Object pubnub)
 specifier|default
 name|AdvancedPubNubEndpointProducerBuilder
 name|pubnub
@@ -1044,8 +1002,7 @@ name|this
 return|;
 block|}
 comment|/**          * Reference to a Pubnub client in the registry.          * The option will be converted to a<code>com.pubnub.api.PubNub</code>          * type.          * @group advanced          */
-DECL|method|pubnub ( String pubnub)
-specifier|public
+DECL|method|pubnub (String pubnub)
 specifier|default
 name|AdvancedPubNubEndpointProducerBuilder
 name|pubnub
@@ -1067,7 +1024,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointProducerBuilder
 name|synchronous
@@ -1089,7 +1045,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointProducerBuilder
 name|synchronous
@@ -1122,7 +1077,6 @@ extends|,
 name|PubNubEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointBuilder
 name|advanced
@@ -1137,7 +1091,6 @@ return|;
 block|}
 comment|/**          * The channel used for subscribing/publishing events.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|channel (String channel)
-specifier|public
 specifier|default
 name|PubNubEndpointBuilder
 name|channel
@@ -1159,7 +1112,6 @@ return|;
 block|}
 comment|/**          * UUID to be used as a device identifier, a default UUID is generated          * if not passed.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|uuid (String uuid)
-specifier|public
 specifier|default
 name|PubNubEndpointBuilder
 name|uuid
@@ -1181,7 +1133,6 @@ return|;
 block|}
 comment|/**          * If Access Manager is utilized, client will use this authKey in all          * restricted requests.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|authKey (String authKey)
-specifier|public
 specifier|default
 name|PubNubEndpointBuilder
 name|authKey
@@ -1203,7 +1154,6 @@ return|;
 block|}
 comment|/**          * If cipher is passed, all communicatons to/from PubNub will be          * encrypted.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|cipherKey (String cipherKey)
-specifier|public
 specifier|default
 name|PubNubEndpointBuilder
 name|cipherKey
@@ -1225,7 +1175,6 @@ return|;
 block|}
 comment|/**          * The publish key obtained from your PubNub account. Required when          * publishing messages.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|publishKey (String publishKey)
-specifier|public
 specifier|default
 name|PubNubEndpointBuilder
 name|publishKey
@@ -1247,7 +1196,6 @@ return|;
 block|}
 comment|/**          * The secret key used for message signing.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|PubNubEndpointBuilder
 name|secretKey
@@ -1269,7 +1217,6 @@ return|;
 block|}
 comment|/**          * Use SSL for secure transmission.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|secure (boolean secure)
-specifier|public
 specifier|default
 name|PubNubEndpointBuilder
 name|secure
@@ -1291,7 +1238,6 @@ return|;
 block|}
 comment|/**          * Use SSL for secure transmission.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|secure (String secure)
-specifier|public
 specifier|default
 name|PubNubEndpointBuilder
 name|secure
@@ -1313,7 +1259,6 @@ return|;
 block|}
 comment|/**          * The subscribe key obtained from your PubNub account. Required when          * subscribing to channels or listening for presence events.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|subscribeKey (String subscribeKey)
-specifier|public
 specifier|default
 name|PubNubEndpointBuilder
 name|subscribeKey
@@ -1346,7 +1291,6 @@ extends|,
 name|AdvancedPubNubEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|PubNubEndpointBuilder
 name|basic
@@ -1361,7 +1305,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointBuilder
 name|basicPropertyBinding
@@ -1383,7 +1326,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointBuilder
 name|basicPropertyBinding
@@ -1405,7 +1347,6 @@ return|;
 block|}
 comment|/**          * Reference to a Pubnub client in the registry.          * The option is a<code>com.pubnub.api.PubNub</code> type.          * @group advanced          */
 DECL|method|pubnub (Object pubnub)
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointBuilder
 name|pubnub
@@ -1427,7 +1368,6 @@ return|;
 block|}
 comment|/**          * Reference to a Pubnub client in the registry.          * The option will be converted to a<code>com.pubnub.api.PubNub</code>          * type.          * @group advanced          */
 DECL|method|pubnub (String pubnub)
-specifier|public
 specifier|default
 name|AdvancedPubNubEndpointBuilder
 name|pubnub
@@ -1448,8 +1388,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedPubNubEndpointBuilder
 name|synchronous
@@ -1470,8 +1409,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedPubNubEndpointBuilder
 name|synchronous
@@ -1494,7 +1432,6 @@ block|}
 block|}
 comment|/**      * To send and receive messages to PubNub data stream network for connected      * devices. Creates a builder to build endpoints for the PubNub component.      */
 DECL|method|pubNub (String path)
-specifier|public
 specifier|default
 name|PubNubEndpointBuilder
 name|pubNub

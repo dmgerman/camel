@@ -134,7 +134,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedPropertiesEndpointConsumerBuilder
 name|advanced
@@ -149,7 +148,6 @@ return|;
 block|}
 comment|/**          * Property key to use as placeholder.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|key (String key)
-specifier|public
 specifier|default
 name|PropertiesEndpointConsumerBuilder
 name|key
@@ -171,7 +169,6 @@ return|;
 block|}
 comment|/**          * Whether to silently ignore if a location cannot be located, such as a          * properties file not found.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|ignoreMissingLocation ( boolean ignoreMissingLocation)
-specifier|public
 specifier|default
 name|PropertiesEndpointConsumerBuilder
 name|ignoreMissingLocation
@@ -193,7 +190,6 @@ return|;
 block|}
 comment|/**          * Whether to silently ignore if a location cannot be located, such as a          * properties file not found.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|ignoreMissingLocation ( String ignoreMissingLocation)
-specifier|public
 specifier|default
 name|PropertiesEndpointConsumerBuilder
 name|ignoreMissingLocation
@@ -215,7 +211,6 @@ return|;
 block|}
 comment|/**          * A list of locations to load properties. You can use comma to separate          * multiple locations. This option will override any default locations          * and only use the locations from this option.          * The option is a          *<code>java.util.List&lt;org.apache.camel.component.properties.PropertiesLocation&gt;</code> type.          * @group common          */
 DECL|method|locations ( List<Object> locations)
-specifier|public
 specifier|default
 name|PropertiesEndpointConsumerBuilder
 name|locations
@@ -239,8 +234,7 @@ name|this
 return|;
 block|}
 comment|/**          * A list of locations to load properties. You can use comma to separate          * multiple locations. This option will override any default locations          * and only use the locations from this option.          * The option will be converted to a          *<code>java.util.List&lt;org.apache.camel.component.properties.PropertiesLocation&gt;</code> type.          * @group common          */
-DECL|method|locations ( String locations)
-specifier|public
+DECL|method|locations (String locations)
 specifier|default
 name|PropertiesEndpointConsumerBuilder
 name|locations
@@ -262,7 +256,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|PropertiesEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -284,7 +277,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|PropertiesEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -314,7 +306,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|PropertiesEndpointConsumerBuilder
 name|basic
@@ -329,7 +320,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedPropertiesEndpointConsumerBuilder
 name|exceptionHandler
@@ -351,7 +341,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedPropertiesEndpointConsumerBuilder
 name|exceptionHandler
@@ -373,7 +362,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedPropertiesEndpointConsumerBuilder
 name|exchangePattern
@@ -395,7 +383,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedPropertiesEndpointConsumerBuilder
 name|exchangePattern
@@ -417,7 +404,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedPropertiesEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -439,7 +425,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedPropertiesEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -461,7 +446,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedPropertiesEndpointConsumerBuilder
 name|synchronous
@@ -483,7 +467,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedPropertiesEndpointConsumerBuilder
 name|synchronous
@@ -514,7 +497,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedPropertiesEndpointProducerBuilder
 name|advanced
@@ -529,7 +511,6 @@ return|;
 block|}
 comment|/**          * Property key to use as placeholder.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|key (String key)
-specifier|public
 specifier|default
 name|PropertiesEndpointProducerBuilder
 name|key
@@ -551,7 +532,6 @@ return|;
 block|}
 comment|/**          * Whether to silently ignore if a location cannot be located, such as a          * properties file not found.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|ignoreMissingLocation ( boolean ignoreMissingLocation)
-specifier|public
 specifier|default
 name|PropertiesEndpointProducerBuilder
 name|ignoreMissingLocation
@@ -573,7 +553,6 @@ return|;
 block|}
 comment|/**          * Whether to silently ignore if a location cannot be located, such as a          * properties file not found.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|ignoreMissingLocation ( String ignoreMissingLocation)
-specifier|public
 specifier|default
 name|PropertiesEndpointProducerBuilder
 name|ignoreMissingLocation
@@ -595,7 +574,6 @@ return|;
 block|}
 comment|/**          * A list of locations to load properties. You can use comma to separate          * multiple locations. This option will override any default locations          * and only use the locations from this option.          * The option is a          *<code>java.util.List&lt;org.apache.camel.component.properties.PropertiesLocation&gt;</code> type.          * @group common          */
 DECL|method|locations ( List<Object> locations)
-specifier|public
 specifier|default
 name|PropertiesEndpointProducerBuilder
 name|locations
@@ -619,8 +597,7 @@ name|this
 return|;
 block|}
 comment|/**          * A list of locations to load properties. You can use comma to separate          * multiple locations. This option will override any default locations          * and only use the locations from this option.          * The option will be converted to a          *<code>java.util.List&lt;org.apache.camel.component.properties.PropertiesLocation&gt;</code> type.          * @group common          */
-DECL|method|locations ( String locations)
-specifier|public
+DECL|method|locations (String locations)
 specifier|default
 name|PropertiesEndpointProducerBuilder
 name|locations
@@ -642,7 +619,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|PropertiesEndpointProducerBuilder
 name|lazyStartProducer
@@ -664,7 +640,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|PropertiesEndpointProducerBuilder
 name|lazyStartProducer
@@ -694,7 +669,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|PropertiesEndpointProducerBuilder
 name|basic
@@ -709,7 +683,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedPropertiesEndpointProducerBuilder
 name|basicPropertyBinding
@@ -731,7 +704,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedPropertiesEndpointProducerBuilder
 name|basicPropertyBinding
@@ -753,7 +725,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedPropertiesEndpointProducerBuilder
 name|synchronous
@@ -775,7 +746,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedPropertiesEndpointProducerBuilder
 name|synchronous
@@ -808,7 +778,6 @@ extends|,
 name|PropertiesEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedPropertiesEndpointBuilder
 name|advanced
@@ -823,7 +792,6 @@ return|;
 block|}
 comment|/**          * Property key to use as placeholder.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|key (String key)
-specifier|public
 specifier|default
 name|PropertiesEndpointBuilder
 name|key
@@ -845,7 +813,6 @@ return|;
 block|}
 comment|/**          * Whether to silently ignore if a location cannot be located, such as a          * properties file not found.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|ignoreMissingLocation ( boolean ignoreMissingLocation)
-specifier|public
 specifier|default
 name|PropertiesEndpointBuilder
 name|ignoreMissingLocation
@@ -867,7 +834,6 @@ return|;
 block|}
 comment|/**          * Whether to silently ignore if a location cannot be located, such as a          * properties file not found.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|ignoreMissingLocation ( String ignoreMissingLocation)
-specifier|public
 specifier|default
 name|PropertiesEndpointBuilder
 name|ignoreMissingLocation
@@ -888,8 +854,7 @@ name|this
 return|;
 block|}
 comment|/**          * A list of locations to load properties. You can use comma to separate          * multiple locations. This option will override any default locations          * and only use the locations from this option.          * The option is a          *<code>java.util.List&lt;org.apache.camel.component.properties.PropertiesLocation&gt;</code> type.          * @group common          */
-DECL|method|locations ( List<Object> locations)
-specifier|public
+DECL|method|locations (List<Object> locations)
 specifier|default
 name|PropertiesEndpointBuilder
 name|locations
@@ -914,7 +879,6 @@ return|;
 block|}
 comment|/**          * A list of locations to load properties. You can use comma to separate          * multiple locations. This option will override any default locations          * and only use the locations from this option.          * The option will be converted to a          *<code>java.util.List&lt;org.apache.camel.component.properties.PropertiesLocation&gt;</code> type.          * @group common          */
 DECL|method|locations (String locations)
-specifier|public
 specifier|default
 name|PropertiesEndpointBuilder
 name|locations
@@ -947,7 +911,6 @@ extends|,
 name|AdvancedPropertiesEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|PropertiesEndpointBuilder
 name|basic
@@ -962,7 +925,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedPropertiesEndpointBuilder
 name|basicPropertyBinding
@@ -984,7 +946,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedPropertiesEndpointBuilder
 name|basicPropertyBinding
@@ -1006,7 +967,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedPropertiesEndpointBuilder
 name|synchronous
@@ -1027,8 +987,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedPropertiesEndpointBuilder
 name|synchronous
@@ -1051,7 +1010,6 @@ block|}
 block|}
 comment|/**      * The properties component is used for using property placeholders in      * endpoint uris. Creates a builder to build endpoints for the Properties      * component.      */
 DECL|method|properties (String path)
-specifier|public
 specifier|default
 name|PropertiesEndpointBuilder
 name|properties

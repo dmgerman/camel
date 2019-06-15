@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSagaEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Action to execute (complete or compensate).          * The option is a          *<code>org.apache.camel.component.saga.SagaEndpoint$SagaEndpointAction</code> type.          * @group producer          */
 DECL|method|action (SagaEndpointAction action)
-specifier|public
 specifier|default
 name|SagaEndpointBuilder
 name|action
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Action to execute (complete or compensate).          * The option will be converted to a          *<code>org.apache.camel.component.saga.SagaEndpoint$SagaEndpointAction</code> type.          * @group producer          */
 DECL|method|action (String action)
-specifier|public
 specifier|default
 name|SagaEndpointBuilder
 name|action
@@ -167,7 +164,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SagaEndpointBuilder
 name|basic
@@ -182,7 +178,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSagaEndpointBuilder
 name|basicPropertyBinding
@@ -204,7 +199,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSagaEndpointBuilder
 name|basicPropertyBinding
@@ -225,8 +219,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSagaEndpointBuilder
 name|synchronous
@@ -247,8 +240,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSagaEndpointBuilder
 name|synchronous
@@ -284,7 +276,6 @@ name|COMPENSATE
 block|;     }
 comment|/**      * The saga component provides access to advanced options for managing the      * flow in the Saga EIP. Creates a builder to build endpoints for the Saga      * component.      */
 DECL|method|saga (String path)
-specifier|public
 specifier|default
 name|SagaEndpointBuilder
 name|saga

@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * Kubernetes Master url.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|masterUrl ( String masterUrl)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|masterUrl
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * The Kubernetes API Version to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|apiVersion ( String apiVersion)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|apiVersion
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * The dns domain, used for ServiceCall EIP.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|dnsDomain ( String dnsDomain)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|dnsDomain
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * Default KubernetesClient to use if provided.          * The option is a          *<code>io.fabric8.kubernetes.client.KubernetesClient</code> type.          * @group common          */
 DECL|method|kubernetesClient ( Object kubernetesClient)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|kubernetesClient
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * Default KubernetesClient to use if provided.          * The option will be converted to a          *<code>io.fabric8.kubernetes.client.KubernetesClient</code> type.          * @group common          */
 DECL|method|kubernetesClient ( String kubernetesClient)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|kubernetesClient
@@ -248,8 +242,7 @@ name|this
 return|;
 block|}
 comment|/**          * The port name, used for ServiceCall EIP.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|portName ( String portName)
-specifier|public
+DECL|method|portName (String portName)
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|portName
@@ -271,7 +264,6 @@ return|;
 block|}
 comment|/**          * The port protocol, used for ServiceCall EIP.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|portProtocol ( String portProtocol)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|portProtocol
@@ -293,7 +285,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -315,7 +306,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -336,8 +326,7 @@ name|this
 return|;
 block|}
 comment|/**          * The Consumer Label key when watching at some resources.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
-DECL|method|labelKey ( String labelKey)
-specifier|public
+DECL|method|labelKey (String labelKey)
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|labelKey
@@ -359,7 +348,6 @@ return|;
 block|}
 comment|/**          * The Consumer Label value when watching at some resources.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|labelValue ( String labelValue)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|labelValue
@@ -381,7 +369,6 @@ return|;
 block|}
 comment|/**          * The namespace.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|namespace ( String namespace)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|namespace
@@ -402,8 +389,7 @@ name|this
 return|;
 block|}
 comment|/**          * The Consumer pool size.          * The option is a<code>int</code> type.          * @group consumer          */
-DECL|method|poolSize ( int poolSize)
-specifier|public
+DECL|method|poolSize (int poolSize)
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|poolSize
@@ -424,8 +410,7 @@ name|this
 return|;
 block|}
 comment|/**          * The Consumer pool size.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
-DECL|method|poolSize ( String poolSize)
-specifier|public
+DECL|method|poolSize (String poolSize)
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|poolSize
@@ -447,7 +432,6 @@ return|;
 block|}
 comment|/**          * The Consumer Resource Name we would like to watch.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|resourceName ( String resourceName)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|resourceName
@@ -469,7 +453,6 @@ return|;
 block|}
 comment|/**          * The CA Cert Data.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|caCertData ( String caCertData)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|caCertData
@@ -491,7 +474,6 @@ return|;
 block|}
 comment|/**          * The CA Cert File.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|caCertFile ( String caCertFile)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|caCertFile
@@ -513,7 +495,6 @@ return|;
 block|}
 comment|/**          * The Client Cert Data.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientCertData ( String clientCertData)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|clientCertData
@@ -535,7 +516,6 @@ return|;
 block|}
 comment|/**          * The Client Cert File.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientCertFile ( String clientCertFile)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|clientCertFile
@@ -557,7 +537,6 @@ return|;
 block|}
 comment|/**          * The Key Algorithm used by the client.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientKeyAlgo ( String clientKeyAlgo)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|clientKeyAlgo
@@ -579,7 +558,6 @@ return|;
 block|}
 comment|/**          * The Client Key data.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientKeyData ( String clientKeyData)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|clientKeyData
@@ -601,7 +579,6 @@ return|;
 block|}
 comment|/**          * The Client Key file.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientKeyFile ( String clientKeyFile)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|clientKeyFile
@@ -623,7 +600,6 @@ return|;
 block|}
 comment|/**          * The Client Key Passphrase.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientKeyPassphrase ( String clientKeyPassphrase)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|clientKeyPassphrase
@@ -645,7 +621,6 @@ return|;
 block|}
 comment|/**          * The Auth Token.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|oauthToken ( String oauthToken)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|oauthToken
@@ -666,8 +641,7 @@ name|this
 return|;
 block|}
 comment|/**          * Password to connect to Kubernetes.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|password ( String password)
-specifier|public
+DECL|method|password (String password)
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|password
@@ -689,7 +663,6 @@ return|;
 block|}
 comment|/**          * Define if the certs we used are trusted anyway or not.          * The option is a<code>java.lang.Boolean</code> type.          * @group security          */
 DECL|method|trustCerts ( Boolean trustCerts)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|trustCerts
@@ -711,7 +684,6 @@ return|;
 block|}
 comment|/**          * Define if the certs we used are trusted anyway or not.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group security          */
 DECL|method|trustCerts ( String trustCerts)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|trustCerts
@@ -732,8 +704,7 @@ name|this
 return|;
 block|}
 comment|/**          * Username to connect to Kubernetes.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|username ( String username)
-specifier|public
+DECL|method|username (String username)
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|username
@@ -763,7 +734,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointConsumerBuilder
 name|basic
@@ -778,7 +748,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointConsumerBuilder
 name|exceptionHandler
@@ -800,7 +769,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointConsumerBuilder
 name|exceptionHandler
@@ -822,7 +790,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointConsumerBuilder
 name|exchangePattern
@@ -844,7 +811,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointConsumerBuilder
 name|exchangePattern
@@ -866,7 +832,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -888,7 +853,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -910,7 +874,6 @@ return|;
 block|}
 comment|/**          * Connection timeout in milliseconds to use when making requests to the          * Kubernetes API server.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
 DECL|method|connectionTimeout ( Integer connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointConsumerBuilder
 name|connectionTimeout
@@ -932,7 +895,6 @@ return|;
 block|}
 comment|/**          * Connection timeout in milliseconds to use when making requests to the          * Kubernetes API server.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
 DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointConsumerBuilder
 name|connectionTimeout
@@ -954,7 +916,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointConsumerBuilder
 name|synchronous
@@ -976,7 +937,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointConsumerBuilder
 name|synchronous
@@ -1007,7 +967,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointProducerBuilder
 name|advanced
@@ -1022,7 +981,6 @@ return|;
 block|}
 comment|/**          * Kubernetes Master url.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|masterUrl ( String masterUrl)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|masterUrl
@@ -1044,7 +1002,6 @@ return|;
 block|}
 comment|/**          * The Kubernetes API Version to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|apiVersion ( String apiVersion)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|apiVersion
@@ -1066,7 +1023,6 @@ return|;
 block|}
 comment|/**          * The dns domain, used for ServiceCall EIP.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|dnsDomain ( String dnsDomain)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|dnsDomain
@@ -1088,7 +1044,6 @@ return|;
 block|}
 comment|/**          * Default KubernetesClient to use if provided.          * The option is a          *<code>io.fabric8.kubernetes.client.KubernetesClient</code> type.          * @group common          */
 DECL|method|kubernetesClient ( Object kubernetesClient)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|kubernetesClient
@@ -1110,7 +1065,6 @@ return|;
 block|}
 comment|/**          * Default KubernetesClient to use if provided.          * The option will be converted to a          *<code>io.fabric8.kubernetes.client.KubernetesClient</code> type.          * @group common          */
 DECL|method|kubernetesClient ( String kubernetesClient)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|kubernetesClient
@@ -1131,8 +1085,7 @@ name|this
 return|;
 block|}
 comment|/**          * The port name, used for ServiceCall EIP.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|portName ( String portName)
-specifier|public
+DECL|method|portName (String portName)
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|portName
@@ -1154,7 +1107,6 @@ return|;
 block|}
 comment|/**          * The port protocol, used for ServiceCall EIP.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|portProtocol ( String portProtocol)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|portProtocol
@@ -1176,7 +1128,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|lazyStartProducer
@@ -1198,7 +1149,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|lazyStartProducer
@@ -1220,7 +1170,6 @@ return|;
 block|}
 comment|/**          * Producer operation to do on Kubernetes.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|operation ( String operation)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|operation
@@ -1242,7 +1191,6 @@ return|;
 block|}
 comment|/**          * The CA Cert Data.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|caCertData ( String caCertData)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|caCertData
@@ -1264,7 +1212,6 @@ return|;
 block|}
 comment|/**          * The CA Cert File.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|caCertFile ( String caCertFile)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|caCertFile
@@ -1286,7 +1233,6 @@ return|;
 block|}
 comment|/**          * The Client Cert Data.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientCertData ( String clientCertData)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|clientCertData
@@ -1308,7 +1254,6 @@ return|;
 block|}
 comment|/**          * The Client Cert File.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientCertFile ( String clientCertFile)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|clientCertFile
@@ -1330,7 +1275,6 @@ return|;
 block|}
 comment|/**          * The Key Algorithm used by the client.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientKeyAlgo ( String clientKeyAlgo)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|clientKeyAlgo
@@ -1352,7 +1296,6 @@ return|;
 block|}
 comment|/**          * The Client Key data.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientKeyData ( String clientKeyData)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|clientKeyData
@@ -1374,7 +1317,6 @@ return|;
 block|}
 comment|/**          * The Client Key file.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientKeyFile ( String clientKeyFile)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|clientKeyFile
@@ -1396,7 +1338,6 @@ return|;
 block|}
 comment|/**          * The Client Key Passphrase.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientKeyPassphrase ( String clientKeyPassphrase)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|clientKeyPassphrase
@@ -1418,7 +1359,6 @@ return|;
 block|}
 comment|/**          * The Auth Token.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|oauthToken ( String oauthToken)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|oauthToken
@@ -1439,8 +1379,7 @@ name|this
 return|;
 block|}
 comment|/**          * Password to connect to Kubernetes.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|password ( String password)
-specifier|public
+DECL|method|password (String password)
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|password
@@ -1462,7 +1401,6 @@ return|;
 block|}
 comment|/**          * Define if the certs we used are trusted anyway or not.          * The option is a<code>java.lang.Boolean</code> type.          * @group security          */
 DECL|method|trustCerts ( Boolean trustCerts)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|trustCerts
@@ -1484,7 +1422,6 @@ return|;
 block|}
 comment|/**          * Define if the certs we used are trusted anyway or not.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group security          */
 DECL|method|trustCerts ( String trustCerts)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|trustCerts
@@ -1505,8 +1442,7 @@ name|this
 return|;
 block|}
 comment|/**          * Username to connect to Kubernetes.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|username ( String username)
-specifier|public
+DECL|method|username (String username)
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|username
@@ -1536,7 +1472,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointProducerBuilder
 name|basic
@@ -1551,7 +1486,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1573,7 +1507,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1595,7 +1528,6 @@ return|;
 block|}
 comment|/**          * Connection timeout in milliseconds to use when making requests to the          * Kubernetes API server.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
 DECL|method|connectionTimeout ( Integer connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointProducerBuilder
 name|connectionTimeout
@@ -1617,7 +1549,6 @@ return|;
 block|}
 comment|/**          * Connection timeout in milliseconds to use when making requests to the          * Kubernetes API server.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
 DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointProducerBuilder
 name|connectionTimeout
@@ -1639,7 +1570,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointProducerBuilder
 name|synchronous
@@ -1661,7 +1591,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointProducerBuilder
 name|synchronous
@@ -1694,7 +1623,6 @@ extends|,
 name|KubernetesNodesEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointBuilder
 name|advanced
@@ -1709,7 +1637,6 @@ return|;
 block|}
 comment|/**          * Kubernetes Master url.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|masterUrl (String masterUrl)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|masterUrl
@@ -1730,8 +1657,7 @@ name|this
 return|;
 block|}
 comment|/**          * The Kubernetes API Version to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|apiVersion ( String apiVersion)
-specifier|public
+DECL|method|apiVersion (String apiVersion)
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|apiVersion
@@ -1753,7 +1679,6 @@ return|;
 block|}
 comment|/**          * The dns domain, used for ServiceCall EIP.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|dnsDomain (String dnsDomain)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|dnsDomain
@@ -1775,7 +1700,6 @@ return|;
 block|}
 comment|/**          * Default KubernetesClient to use if provided.          * The option is a          *<code>io.fabric8.kubernetes.client.KubernetesClient</code> type.          * @group common          */
 DECL|method|kubernetesClient ( Object kubernetesClient)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|kubernetesClient
@@ -1797,7 +1721,6 @@ return|;
 block|}
 comment|/**          * Default KubernetesClient to use if provided.          * The option will be converted to a          *<code>io.fabric8.kubernetes.client.KubernetesClient</code> type.          * @group common          */
 DECL|method|kubernetesClient ( String kubernetesClient)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|kubernetesClient
@@ -1819,7 +1742,6 @@ return|;
 block|}
 comment|/**          * The port name, used for ServiceCall EIP.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|portName (String portName)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|portName
@@ -1840,8 +1762,7 @@ name|this
 return|;
 block|}
 comment|/**          * The port protocol, used for ServiceCall EIP.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|portProtocol ( String portProtocol)
-specifier|public
+DECL|method|portProtocol (String portProtocol)
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|portProtocol
@@ -1862,8 +1783,7 @@ name|this
 return|;
 block|}
 comment|/**          * The CA Cert Data.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|caCertData ( String caCertData)
-specifier|public
+DECL|method|caCertData (String caCertData)
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|caCertData
@@ -1884,8 +1804,7 @@ name|this
 return|;
 block|}
 comment|/**          * The CA Cert File.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|caCertFile ( String caCertFile)
-specifier|public
+DECL|method|caCertFile (String caCertFile)
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|caCertFile
@@ -1907,7 +1826,6 @@ return|;
 block|}
 comment|/**          * The Client Cert Data.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientCertData ( String clientCertData)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|clientCertData
@@ -1929,7 +1847,6 @@ return|;
 block|}
 comment|/**          * The Client Cert File.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientCertFile ( String clientCertFile)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|clientCertFile
@@ -1951,7 +1868,6 @@ return|;
 block|}
 comment|/**          * The Key Algorithm used by the client.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientKeyAlgo ( String clientKeyAlgo)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|clientKeyAlgo
@@ -1973,7 +1889,6 @@ return|;
 block|}
 comment|/**          * The Client Key data.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientKeyData ( String clientKeyData)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|clientKeyData
@@ -1995,7 +1910,6 @@ return|;
 block|}
 comment|/**          * The Client Key file.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientKeyFile ( String clientKeyFile)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|clientKeyFile
@@ -2017,7 +1931,6 @@ return|;
 block|}
 comment|/**          * The Client Key Passphrase.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientKeyPassphrase ( String clientKeyPassphrase)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|clientKeyPassphrase
@@ -2038,8 +1951,7 @@ name|this
 return|;
 block|}
 comment|/**          * The Auth Token.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|oauthToken ( String oauthToken)
-specifier|public
+DECL|method|oauthToken (String oauthToken)
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|oauthToken
@@ -2061,7 +1973,6 @@ return|;
 block|}
 comment|/**          * Password to connect to Kubernetes.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|password
@@ -2082,8 +1993,7 @@ name|this
 return|;
 block|}
 comment|/**          * Define if the certs we used are trusted anyway or not.          * The option is a<code>java.lang.Boolean</code> type.          * @group security          */
-DECL|method|trustCerts ( Boolean trustCerts)
-specifier|public
+DECL|method|trustCerts (Boolean trustCerts)
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|trustCerts
@@ -2104,8 +2014,7 @@ name|this
 return|;
 block|}
 comment|/**          * Define if the certs we used are trusted anyway or not.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group security          */
-DECL|method|trustCerts ( String trustCerts)
-specifier|public
+DECL|method|trustCerts (String trustCerts)
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|trustCerts
@@ -2127,7 +2036,6 @@ return|;
 block|}
 comment|/**          * Username to connect to Kubernetes.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|username
@@ -2160,7 +2068,6 @@ extends|,
 name|AdvancedKubernetesNodesEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|basic
@@ -2175,7 +2082,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointBuilder
 name|basicPropertyBinding
@@ -2197,7 +2103,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointBuilder
 name|basicPropertyBinding
@@ -2219,7 +2124,6 @@ return|;
 block|}
 comment|/**          * Connection timeout in milliseconds to use when making requests to the          * Kubernetes API server.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
 DECL|method|connectionTimeout ( Integer connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointBuilder
 name|connectionTimeout
@@ -2241,7 +2145,6 @@ return|;
 block|}
 comment|/**          * Connection timeout in milliseconds to use when making requests to the          * Kubernetes API server.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
 DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointBuilder
 name|connectionTimeout
@@ -2263,7 +2166,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointBuilder
 name|synchronous
@@ -2285,7 +2187,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedKubernetesNodesEndpointBuilder
 name|synchronous
@@ -2308,7 +2209,6 @@ block|}
 block|}
 comment|/**      * The Kubernetes Nodes component provides a producer to execute kubernetes      * node operations and a consumer to consume node events. Creates a builder      * to build endpoints for the Kubernetes Nodes component.      */
 DECL|method|kubernetesNodes (String path)
-specifier|public
 specifier|default
 name|KubernetesNodesEndpointBuilder
 name|kubernetesNodes

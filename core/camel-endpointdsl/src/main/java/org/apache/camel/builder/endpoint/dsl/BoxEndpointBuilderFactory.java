@@ -134,7 +134,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointConsumerBuilder
 name|advanced
@@ -149,7 +148,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.box.internal.BoxApiName</code> type.          * @group common          */
 DECL|method|apiName (BoxApiName apiName)
-specifier|public
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|apiName
@@ -171,7 +169,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.box.internal.BoxApiName</code> type.          * @group common          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|apiName
@@ -193,7 +190,6 @@ return|;
 block|}
 comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|methodName (String methodName)
-specifier|public
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|methodName
@@ -215,7 +211,6 @@ return|;
 block|}
 comment|/**          * Box application client ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientId (String clientId)
-specifier|public
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|clientId
@@ -236,8 +231,7 @@ name|this
 return|;
 block|}
 comment|/**          * The enterprise ID to use for an App Enterprise.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|enterpriseId ( String enterpriseId)
-specifier|public
+DECL|method|enterpriseId (String enterpriseId)
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|enterpriseId
@@ -259,7 +253,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|inBody
@@ -281,7 +274,6 @@ return|;
 block|}
 comment|/**          * The user ID to use for an App User.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userId (String userId)
-specifier|public
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|userId
@@ -303,7 +295,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -325,7 +316,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -346,8 +336,7 @@ name|this
 return|;
 block|}
 comment|/**          * Box application client secret.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|clientSecret ( String clientSecret)
-specifier|public
+DECL|method|clientSecret (String clientSecret)
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|clientSecret
@@ -369,7 +358,6 @@ return|;
 block|}
 comment|/**          * The type of authentication for connection. Types of Authentication:          * STANDARD_AUTHENTICATION - OAuth 2.0 (3-legged) SERVER_AUTHENTICATION          * - OAuth 2.0 with JSON Web Tokens.          * The option is a<code>java.lang.String</code> type.          * @group authentication          */
 DECL|method|authenticationType ( String authenticationType)
-specifier|public
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|authenticationType
@@ -390,8 +378,7 @@ name|this
 return|;
 block|}
 comment|/**          * The private key for generating the JWT signature.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|privateKeyFile ( String privateKeyFile)
-specifier|public
+DECL|method|privateKeyFile (String privateKeyFile)
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|privateKeyFile
@@ -413,7 +400,6 @@ return|;
 block|}
 comment|/**          * The password for the private key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|privateKeyPassword ( String privateKeyPassword)
-specifier|public
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|privateKeyPassword
@@ -435,7 +421,6 @@ return|;
 block|}
 comment|/**          * The ID for public key for validating the JWT signature.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|publicKeyId (String publicKeyId)
-specifier|public
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|publicKeyId
@@ -457,7 +442,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|sslContextParameters
@@ -479,7 +463,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|sslContextParameters
@@ -501,7 +484,6 @@ return|;
 block|}
 comment|/**          * Box user name, MUST be provided.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|userName (String userName)
-specifier|public
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|userName
@@ -522,8 +504,7 @@ name|this
 return|;
 block|}
 comment|/**          * Box user password, MUST be provided if authSecureStorage is not set,          * or returns null on first call.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|userPassword ( String userPassword)
-specifier|public
+DECL|method|userPassword (String userPassword)
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|userPassword
@@ -553,7 +534,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|BoxEndpointConsumerBuilder
 name|basic
@@ -568,7 +548,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointConsumerBuilder
 name|exceptionHandler
@@ -590,7 +569,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointConsumerBuilder
 name|exceptionHandler
@@ -612,7 +590,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointConsumerBuilder
 name|exchangePattern
@@ -634,7 +611,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointConsumerBuilder
 name|exchangePattern
@@ -656,7 +632,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -678,7 +653,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -700,7 +674,6 @@ return|;
 block|}
 comment|/**          * Custom HTTP params for settings like proxy host.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|httpParams ( Map<String, Object> httpParams)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointConsumerBuilder
 name|httpParams
@@ -726,8 +699,7 @@ name|this
 return|;
 block|}
 comment|/**          * Custom HTTP params for settings like proxy host.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
-DECL|method|httpParams ( String httpParams)
-specifier|public
+DECL|method|httpParams (String httpParams)
 specifier|default
 name|AdvancedBoxEndpointConsumerBuilder
 name|httpParams
@@ -749,7 +721,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointConsumerBuilder
 name|synchronous
@@ -771,7 +742,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointConsumerBuilder
 name|synchronous
@@ -793,7 +763,6 @@ return|;
 block|}
 comment|/**          * Custom Access Token Cache for storing and retrieving access tokens.          * The option is a<code>com.box.sdk.IAccessTokenCache</code> type.          * @group security          */
 DECL|method|accessTokenCache ( Object accessTokenCache)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointConsumerBuilder
 name|accessTokenCache
@@ -815,7 +784,6 @@ return|;
 block|}
 comment|/**          * Custom Access Token Cache for storing and retrieving access tokens.          * The option will be converted to a          *<code>com.box.sdk.IAccessTokenCache</code> type.          * @group security          */
 DECL|method|accessTokenCache ( String accessTokenCache)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointConsumerBuilder
 name|accessTokenCache
@@ -837,7 +805,6 @@ return|;
 block|}
 comment|/**          * The type of encryption algorithm for JWT. Supported Algorithms:          * RSA_SHA_256 RSA_SHA_384 RSA_SHA_512.          * The option is a<code>com.box.sdk.EncryptionAlgorithm</code> type.          * @group security          */
 DECL|method|encryptionAlgorithm ( EncryptionAlgorithm encryptionAlgorithm)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointConsumerBuilder
 name|encryptionAlgorithm
@@ -859,7 +826,6 @@ return|;
 block|}
 comment|/**          * The type of encryption algorithm for JWT. Supported Algorithms:          * RSA_SHA_256 RSA_SHA_384 RSA_SHA_512.          * The option will be converted to a          *<code>com.box.sdk.EncryptionAlgorithm</code> type.          * @group security          */
 DECL|method|encryptionAlgorithm ( String encryptionAlgorithm)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointConsumerBuilder
 name|encryptionAlgorithm
@@ -881,7 +847,6 @@ return|;
 block|}
 comment|/**          * The maximum number of access tokens in cache.          * The option is a<code>int</code> type.          * @group security          */
 DECL|method|maxCacheEntries ( int maxCacheEntries)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointConsumerBuilder
 name|maxCacheEntries
@@ -903,7 +868,6 @@ return|;
 block|}
 comment|/**          * The maximum number of access tokens in cache.          * The option will be converted to a<code>int</code> type.          * @group security          */
 DECL|method|maxCacheEntries ( String maxCacheEntries)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointConsumerBuilder
 name|maxCacheEntries
@@ -934,7 +898,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointProducerBuilder
 name|advanced
@@ -949,7 +912,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.box.internal.BoxApiName</code> type.          * @group common          */
 DECL|method|apiName (BoxApiName apiName)
-specifier|public
 specifier|default
 name|BoxEndpointProducerBuilder
 name|apiName
@@ -971,7 +933,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.box.internal.BoxApiName</code> type.          * @group common          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|BoxEndpointProducerBuilder
 name|apiName
@@ -993,7 +954,6 @@ return|;
 block|}
 comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|methodName (String methodName)
-specifier|public
 specifier|default
 name|BoxEndpointProducerBuilder
 name|methodName
@@ -1015,7 +975,6 @@ return|;
 block|}
 comment|/**          * Box application client ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientId (String clientId)
-specifier|public
 specifier|default
 name|BoxEndpointProducerBuilder
 name|clientId
@@ -1036,8 +995,7 @@ name|this
 return|;
 block|}
 comment|/**          * The enterprise ID to use for an App Enterprise.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|enterpriseId ( String enterpriseId)
-specifier|public
+DECL|method|enterpriseId (String enterpriseId)
 specifier|default
 name|BoxEndpointProducerBuilder
 name|enterpriseId
@@ -1059,7 +1017,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|BoxEndpointProducerBuilder
 name|inBody
@@ -1081,7 +1038,6 @@ return|;
 block|}
 comment|/**          * The user ID to use for an App User.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userId (String userId)
-specifier|public
 specifier|default
 name|BoxEndpointProducerBuilder
 name|userId
@@ -1103,7 +1059,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|BoxEndpointProducerBuilder
 name|lazyStartProducer
@@ -1125,7 +1080,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|BoxEndpointProducerBuilder
 name|lazyStartProducer
@@ -1146,8 +1100,7 @@ name|this
 return|;
 block|}
 comment|/**          * Box application client secret.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|clientSecret ( String clientSecret)
-specifier|public
+DECL|method|clientSecret (String clientSecret)
 specifier|default
 name|BoxEndpointProducerBuilder
 name|clientSecret
@@ -1169,7 +1122,6 @@ return|;
 block|}
 comment|/**          * The type of authentication for connection. Types of Authentication:          * STANDARD_AUTHENTICATION - OAuth 2.0 (3-legged) SERVER_AUTHENTICATION          * - OAuth 2.0 with JSON Web Tokens.          * The option is a<code>java.lang.String</code> type.          * @group authentication          */
 DECL|method|authenticationType ( String authenticationType)
-specifier|public
 specifier|default
 name|BoxEndpointProducerBuilder
 name|authenticationType
@@ -1190,8 +1142,7 @@ name|this
 return|;
 block|}
 comment|/**          * The private key for generating the JWT signature.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|privateKeyFile ( String privateKeyFile)
-specifier|public
+DECL|method|privateKeyFile (String privateKeyFile)
 specifier|default
 name|BoxEndpointProducerBuilder
 name|privateKeyFile
@@ -1213,7 +1164,6 @@ return|;
 block|}
 comment|/**          * The password for the private key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|privateKeyPassword ( String privateKeyPassword)
-specifier|public
 specifier|default
 name|BoxEndpointProducerBuilder
 name|privateKeyPassword
@@ -1235,7 +1185,6 @@ return|;
 block|}
 comment|/**          * The ID for public key for validating the JWT signature.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|publicKeyId (String publicKeyId)
-specifier|public
 specifier|default
 name|BoxEndpointProducerBuilder
 name|publicKeyId
@@ -1257,7 +1206,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|BoxEndpointProducerBuilder
 name|sslContextParameters
@@ -1279,7 +1227,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|BoxEndpointProducerBuilder
 name|sslContextParameters
@@ -1301,7 +1248,6 @@ return|;
 block|}
 comment|/**          * Box user name, MUST be provided.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|userName (String userName)
-specifier|public
 specifier|default
 name|BoxEndpointProducerBuilder
 name|userName
@@ -1322,8 +1268,7 @@ name|this
 return|;
 block|}
 comment|/**          * Box user password, MUST be provided if authSecureStorage is not set,          * or returns null on first call.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|userPassword ( String userPassword)
-specifier|public
+DECL|method|userPassword (String userPassword)
 specifier|default
 name|BoxEndpointProducerBuilder
 name|userPassword
@@ -1353,7 +1298,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|BoxEndpointProducerBuilder
 name|basic
@@ -1368,7 +1312,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1390,7 +1333,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1412,7 +1354,6 @@ return|;
 block|}
 comment|/**          * Custom HTTP params for settings like proxy host.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|httpParams ( Map<String, Object> httpParams)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointProducerBuilder
 name|httpParams
@@ -1438,8 +1379,7 @@ name|this
 return|;
 block|}
 comment|/**          * Custom HTTP params for settings like proxy host.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
-DECL|method|httpParams ( String httpParams)
-specifier|public
+DECL|method|httpParams (String httpParams)
 specifier|default
 name|AdvancedBoxEndpointProducerBuilder
 name|httpParams
@@ -1461,7 +1401,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointProducerBuilder
 name|synchronous
@@ -1483,7 +1422,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointProducerBuilder
 name|synchronous
@@ -1505,7 +1443,6 @@ return|;
 block|}
 comment|/**          * Custom Access Token Cache for storing and retrieving access tokens.          * The option is a<code>com.box.sdk.IAccessTokenCache</code> type.          * @group security          */
 DECL|method|accessTokenCache ( Object accessTokenCache)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointProducerBuilder
 name|accessTokenCache
@@ -1527,7 +1464,6 @@ return|;
 block|}
 comment|/**          * Custom Access Token Cache for storing and retrieving access tokens.          * The option will be converted to a          *<code>com.box.sdk.IAccessTokenCache</code> type.          * @group security          */
 DECL|method|accessTokenCache ( String accessTokenCache)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointProducerBuilder
 name|accessTokenCache
@@ -1549,7 +1485,6 @@ return|;
 block|}
 comment|/**          * The type of encryption algorithm for JWT. Supported Algorithms:          * RSA_SHA_256 RSA_SHA_384 RSA_SHA_512.          * The option is a<code>com.box.sdk.EncryptionAlgorithm</code> type.          * @group security          */
 DECL|method|encryptionAlgorithm ( EncryptionAlgorithm encryptionAlgorithm)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointProducerBuilder
 name|encryptionAlgorithm
@@ -1571,7 +1506,6 @@ return|;
 block|}
 comment|/**          * The type of encryption algorithm for JWT. Supported Algorithms:          * RSA_SHA_256 RSA_SHA_384 RSA_SHA_512.          * The option will be converted to a          *<code>com.box.sdk.EncryptionAlgorithm</code> type.          * @group security          */
 DECL|method|encryptionAlgorithm ( String encryptionAlgorithm)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointProducerBuilder
 name|encryptionAlgorithm
@@ -1593,7 +1527,6 @@ return|;
 block|}
 comment|/**          * The maximum number of access tokens in cache.          * The option is a<code>int</code> type.          * @group security          */
 DECL|method|maxCacheEntries ( int maxCacheEntries)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointProducerBuilder
 name|maxCacheEntries
@@ -1615,7 +1548,6 @@ return|;
 block|}
 comment|/**          * The maximum number of access tokens in cache.          * The option will be converted to a<code>int</code> type.          * @group security          */
 DECL|method|maxCacheEntries ( String maxCacheEntries)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointProducerBuilder
 name|maxCacheEntries
@@ -1648,7 +1580,6 @@ extends|,
 name|BoxEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointBuilder
 name|advanced
@@ -1663,7 +1594,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.box.internal.BoxApiName</code> type.          * @group common          */
 DECL|method|apiName (BoxApiName apiName)
-specifier|public
 specifier|default
 name|BoxEndpointBuilder
 name|apiName
@@ -1685,7 +1615,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.box.internal.BoxApiName</code> type.          * @group common          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|BoxEndpointBuilder
 name|apiName
@@ -1707,7 +1636,6 @@ return|;
 block|}
 comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|methodName (String methodName)
-specifier|public
 specifier|default
 name|BoxEndpointBuilder
 name|methodName
@@ -1729,7 +1657,6 @@ return|;
 block|}
 comment|/**          * Box application client ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientId (String clientId)
-specifier|public
 specifier|default
 name|BoxEndpointBuilder
 name|clientId
@@ -1751,7 +1678,6 @@ return|;
 block|}
 comment|/**          * The enterprise ID to use for an App Enterprise.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|enterpriseId (String enterpriseId)
-specifier|public
 specifier|default
 name|BoxEndpointBuilder
 name|enterpriseId
@@ -1773,7 +1699,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|BoxEndpointBuilder
 name|inBody
@@ -1795,7 +1720,6 @@ return|;
 block|}
 comment|/**          * The user ID to use for an App User.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userId (String userId)
-specifier|public
 specifier|default
 name|BoxEndpointBuilder
 name|userId
@@ -1817,7 +1741,6 @@ return|;
 block|}
 comment|/**          * Box application client secret.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientSecret (String clientSecret)
-specifier|public
 specifier|default
 name|BoxEndpointBuilder
 name|clientSecret
@@ -1838,8 +1761,7 @@ name|this
 return|;
 block|}
 comment|/**          * The type of authentication for connection. Types of Authentication:          * STANDARD_AUTHENTICATION - OAuth 2.0 (3-legged) SERVER_AUTHENTICATION          * - OAuth 2.0 with JSON Web Tokens.          * The option is a<code>java.lang.String</code> type.          * @group authentication          */
-DECL|method|authenticationType ( String authenticationType)
-specifier|public
+DECL|method|authenticationType (String authenticationType)
 specifier|default
 name|BoxEndpointBuilder
 name|authenticationType
@@ -1861,7 +1783,6 @@ return|;
 block|}
 comment|/**          * The private key for generating the JWT signature.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|privateKeyFile (String privateKeyFile)
-specifier|public
 specifier|default
 name|BoxEndpointBuilder
 name|privateKeyFile
@@ -1882,8 +1803,7 @@ name|this
 return|;
 block|}
 comment|/**          * The password for the private key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|privateKeyPassword ( String privateKeyPassword)
-specifier|public
+DECL|method|privateKeyPassword (String privateKeyPassword)
 specifier|default
 name|BoxEndpointBuilder
 name|privateKeyPassword
@@ -1905,7 +1825,6 @@ return|;
 block|}
 comment|/**          * The ID for public key for validating the JWT signature.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|publicKeyId (String publicKeyId)
-specifier|public
 specifier|default
 name|BoxEndpointBuilder
 name|publicKeyId
@@ -1927,7 +1846,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|BoxEndpointBuilder
 name|sslContextParameters
@@ -1949,7 +1867,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|BoxEndpointBuilder
 name|sslContextParameters
@@ -1971,7 +1888,6 @@ return|;
 block|}
 comment|/**          * Box user name, MUST be provided.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|userName (String userName)
-specifier|public
 specifier|default
 name|BoxEndpointBuilder
 name|userName
@@ -1993,7 +1909,6 @@ return|;
 block|}
 comment|/**          * Box user password, MUST be provided if authSecureStorage is not set,          * or returns null on first call.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|userPassword (String userPassword)
-specifier|public
 specifier|default
 name|BoxEndpointBuilder
 name|userPassword
@@ -2026,7 +1941,6 @@ extends|,
 name|AdvancedBoxEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|BoxEndpointBuilder
 name|basic
@@ -2041,7 +1955,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointBuilder
 name|basicPropertyBinding
@@ -2063,7 +1976,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointBuilder
 name|basicPropertyBinding
@@ -2085,7 +1997,6 @@ return|;
 block|}
 comment|/**          * Custom HTTP params for settings like proxy host.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|httpParams ( Map<String, Object> httpParams)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointBuilder
 name|httpParams
@@ -2112,7 +2023,6 @@ return|;
 block|}
 comment|/**          * Custom HTTP params for settings like proxy host.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|httpParams (String httpParams)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointBuilder
 name|httpParams
@@ -2133,8 +2043,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedBoxEndpointBuilder
 name|synchronous
@@ -2156,7 +2065,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous (String synchronous)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointBuilder
 name|synchronous
@@ -2178,7 +2086,6 @@ return|;
 block|}
 comment|/**          * Custom Access Token Cache for storing and retrieving access tokens.          * The option is a<code>com.box.sdk.IAccessTokenCache</code> type.          * @group security          */
 DECL|method|accessTokenCache ( Object accessTokenCache)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointBuilder
 name|accessTokenCache
@@ -2200,7 +2107,6 @@ return|;
 block|}
 comment|/**          * Custom Access Token Cache for storing and retrieving access tokens.          * The option will be converted to a          *<code>com.box.sdk.IAccessTokenCache</code> type.          * @group security          */
 DECL|method|accessTokenCache ( String accessTokenCache)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointBuilder
 name|accessTokenCache
@@ -2222,7 +2128,6 @@ return|;
 block|}
 comment|/**          * The type of encryption algorithm for JWT. Supported Algorithms:          * RSA_SHA_256 RSA_SHA_384 RSA_SHA_512.          * The option is a<code>com.box.sdk.EncryptionAlgorithm</code> type.          * @group security          */
 DECL|method|encryptionAlgorithm ( EncryptionAlgorithm encryptionAlgorithm)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointBuilder
 name|encryptionAlgorithm
@@ -2244,7 +2149,6 @@ return|;
 block|}
 comment|/**          * The type of encryption algorithm for JWT. Supported Algorithms:          * RSA_SHA_256 RSA_SHA_384 RSA_SHA_512.          * The option will be converted to a          *<code>com.box.sdk.EncryptionAlgorithm</code> type.          * @group security          */
 DECL|method|encryptionAlgorithm ( String encryptionAlgorithm)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointBuilder
 name|encryptionAlgorithm
@@ -2265,8 +2169,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximum number of access tokens in cache.          * The option is a<code>int</code> type.          * @group security          */
-DECL|method|maxCacheEntries ( int maxCacheEntries)
-specifier|public
+DECL|method|maxCacheEntries (int maxCacheEntries)
 specifier|default
 name|AdvancedBoxEndpointBuilder
 name|maxCacheEntries
@@ -2288,7 +2191,6 @@ return|;
 block|}
 comment|/**          * The maximum number of access tokens in cache.          * The option will be converted to a<code>int</code> type.          * @group security          */
 DECL|method|maxCacheEntries ( String maxCacheEntries)
-specifier|public
 specifier|default
 name|AdvancedBoxEndpointBuilder
 name|maxCacheEntries
@@ -2364,7 +2266,6 @@ name|RSA_SHA_512
 block|;     }
 comment|/**      * For uploading downloading and managing files folders groups      * collaborations etc on box DOT com. Creates a builder to build endpoints      * for the Box component.      */
 DECL|method|box (String path)
-specifier|public
 specifier|default
 name|BoxEndpointBuilder
 name|box

@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedDataFormatEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Name of data format.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|DataFormatEndpointBuilder
 name|name
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Operation to use either marshal or unmarshal.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|DataFormatEndpointBuilder
 name|operation
@@ -167,7 +164,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|DataFormatEndpointBuilder
 name|basic
@@ -182,7 +178,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDataFormatEndpointBuilder
 name|basicPropertyBinding
@@ -204,7 +199,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDataFormatEndpointBuilder
 name|basicPropertyBinding
@@ -226,7 +220,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedDataFormatEndpointBuilder
 name|synchronous
@@ -247,8 +240,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedDataFormatEndpointBuilder
 name|synchronous
@@ -271,7 +263,6 @@ block|}
 block|}
 comment|/**      * The dataformat component is used for working with Data Formats as if it      * was a regular Component supporting Endpoints and URIs. Creates a builder      * to build endpoints for the Data Format component.      */
 DECL|method|dataFormat (String path)
-specifier|public
 specifier|default
 name|DataFormatEndpointBuilder
 name|dataFormat

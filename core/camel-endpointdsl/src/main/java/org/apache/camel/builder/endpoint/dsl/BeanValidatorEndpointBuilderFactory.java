@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedBeanValidatorEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Where label is an arbitrary text value describing the endpoint.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|label (String label)
-specifier|public
 specifier|default
 name|BeanValidatorEndpointBuilder
 name|label
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * To use a custom ConstraintValidatorFactory.          * The option is a          *<code>javax.validation.ConstraintValidatorFactory</code> type.          * @group producer          */
 DECL|method|constraintValidatorFactory ( Object constraintValidatorFactory)
-specifier|public
 specifier|default
 name|BeanValidatorEndpointBuilder
 name|constraintValidatorFactory
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * To use a custom ConstraintValidatorFactory.          * The option will be converted to a          *<code>javax.validation.ConstraintValidatorFactory</code> type.          * @group producer          */
 DECL|method|constraintValidatorFactory ( String constraintValidatorFactory)
-specifier|public
 specifier|default
 name|BeanValidatorEndpointBuilder
 name|constraintValidatorFactory
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * To use a custom validation group.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|group (String group)
-specifier|public
 specifier|default
 name|BeanValidatorEndpointBuilder
 name|group
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * To use a custom MessageInterpolator.          * The option is a<code>javax.validation.MessageInterpolator</code>          * type.          * @group producer          */
 DECL|method|messageInterpolator ( Object messageInterpolator)
-specifier|public
 specifier|default
 name|BeanValidatorEndpointBuilder
 name|messageInterpolator
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * To use a custom MessageInterpolator.          * The option will be converted to a          *<code>javax.validation.MessageInterpolator</code> type.          * @group producer          */
 DECL|method|messageInterpolator ( String messageInterpolator)
-specifier|public
 specifier|default
 name|BeanValidatorEndpointBuilder
 name|messageInterpolator
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * To use a custom TraversableResolver.          * The option is a<code>javax.validation.TraversableResolver</code>          * type.          * @group producer          */
 DECL|method|traversableResolver ( Object traversableResolver)
-specifier|public
 specifier|default
 name|BeanValidatorEndpointBuilder
 name|traversableResolver
@@ -268,7 +260,6 @@ return|;
 block|}
 comment|/**          * To use a custom TraversableResolver.          * The option will be converted to a          *<code>javax.validation.TraversableResolver</code> type.          * @group producer          */
 DECL|method|traversableResolver ( String traversableResolver)
-specifier|public
 specifier|default
 name|BeanValidatorEndpointBuilder
 name|traversableResolver
@@ -290,7 +281,6 @@ return|;
 block|}
 comment|/**          * To use a a custom ValidationProviderResolver.          * The option is a          *<code>javax.validation.ValidationProviderResolver</code> type.          * @group producer          */
 DECL|method|validationProviderResolver ( Object validationProviderResolver)
-specifier|public
 specifier|default
 name|BeanValidatorEndpointBuilder
 name|validationProviderResolver
@@ -312,7 +302,6 @@ return|;
 block|}
 comment|/**          * To use a a custom ValidationProviderResolver.          * The option will be converted to a          *<code>javax.validation.ValidationProviderResolver</code> type.          * @group producer          */
 DECL|method|validationProviderResolver ( String validationProviderResolver)
-specifier|public
 specifier|default
 name|BeanValidatorEndpointBuilder
 name|validationProviderResolver
@@ -343,7 +332,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|BeanValidatorEndpointBuilder
 name|basic
@@ -358,7 +346,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedBeanValidatorEndpointBuilder
 name|basicPropertyBinding
@@ -380,7 +367,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedBeanValidatorEndpointBuilder
 name|basicPropertyBinding
@@ -402,7 +388,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedBeanValidatorEndpointBuilder
 name|synchronous
@@ -424,7 +409,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedBeanValidatorEndpointBuilder
 name|synchronous
@@ -447,7 +431,6 @@ block|}
 block|}
 comment|/**      * The Validator component performs bean validation of the message body      * using the Java Bean Validation API. Creates a builder to build endpoints      * for the Bean Validator component.      */
 DECL|method|beanValidator (String path)
-specifier|public
 specifier|default
 name|BeanValidatorEndpointBuilder
 name|beanValidator

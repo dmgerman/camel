@@ -109,7 +109,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedClassEndpointBuilder
 name|advanced
@@ -124,7 +123,6 @@ return|;
 block|}
 comment|/**          * Sets the name of the bean to invoke.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|beanName (String beanName)
-specifier|public
 specifier|default
 name|ClassEndpointBuilder
 name|beanName
@@ -146,7 +144,6 @@ return|;
 block|}
 comment|/**          * If enabled, Camel will cache the result of the first Registry          * look-up. Cache can be enabled if the bean in the Registry is defined          * as a singleton scope.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|cache (Boolean cache)
-specifier|public
 specifier|default
 name|ClassEndpointBuilder
 name|cache
@@ -168,7 +165,6 @@ return|;
 block|}
 comment|/**          * If enabled, Camel will cache the result of the first Registry          * look-up. Cache can be enabled if the bean in the Registry is defined          * as a singleton scope.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
 DECL|method|cache (String cache)
-specifier|public
 specifier|default
 name|ClassEndpointBuilder
 name|cache
@@ -190,7 +186,6 @@ return|;
 block|}
 comment|/**          * Sets the name of the method to invoke on the bean.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|method (String method)
-specifier|public
 specifier|default
 name|ClassEndpointBuilder
 name|method
@@ -211,8 +206,7 @@ name|this
 return|;
 block|}
 comment|/**          * Used for configuring additional properties on the bean.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
-DECL|method|parameters ( Map<String, Object> parameters)
-specifier|public
+DECL|method|parameters (Map<String, Object> parameters)
 specifier|default
 name|ClassEndpointBuilder
 name|parameters
@@ -239,7 +233,6 @@ return|;
 block|}
 comment|/**          * Used for configuring additional properties on the bean.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
 DECL|method|parameters (String parameters)
-specifier|public
 specifier|default
 name|ClassEndpointBuilder
 name|parameters
@@ -270,7 +263,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|ClassEndpointBuilder
 name|basic
@@ -285,7 +277,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedClassEndpointBuilder
 name|basicPropertyBinding
@@ -307,7 +298,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedClassEndpointBuilder
 name|basicPropertyBinding
@@ -328,8 +318,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedClassEndpointBuilder
 name|synchronous
@@ -350,8 +339,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedClassEndpointBuilder
 name|synchronous
@@ -374,7 +362,6 @@ block|}
 block|}
 comment|/**      * The class component is for invoking Java classes (Java beans) from Camel.      * Creates a builder to build endpoints for the Class component.      */
 DECL|method|classEndpoint (String path)
-specifier|public
 specifier|default
 name|ClassEndpointBuilder
 name|classEndpoint

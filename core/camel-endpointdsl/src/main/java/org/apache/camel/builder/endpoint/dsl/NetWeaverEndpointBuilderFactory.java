@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedNetWeaverEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Url to the SAP net-weaver gateway server.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|url (String url)
-specifier|public
 specifier|default
 name|NetWeaverEndpointBuilder
 name|url
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * If the JSON Map contains only a single entry, then flattern by          * storing that single entry value as the message body.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|flatternMap (boolean flatternMap)
-specifier|public
 specifier|default
 name|NetWeaverEndpointBuilder
 name|flatternMap
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * If the JSON Map contains only a single entry, then flattern by          * storing that single entry value as the message body.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|flatternMap (String flatternMap)
-specifier|public
 specifier|default
 name|NetWeaverEndpointBuilder
 name|flatternMap
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Whether to return data in JSON format. If this option is false, then          * XML is returned in Atom format.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|json (boolean json)
-specifier|public
 specifier|default
 name|NetWeaverEndpointBuilder
 name|json
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Whether to return data in JSON format. If this option is false, then          * XML is returned in Atom format.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|json (String json)
-specifier|public
 specifier|default
 name|NetWeaverEndpointBuilder
 name|json
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * To transform the JSON from a String to a Map in the message body.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|jsonAsMap (boolean jsonAsMap)
-specifier|public
 specifier|default
 name|NetWeaverEndpointBuilder
 name|jsonAsMap
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * To transform the JSON from a String to a Map in the message body.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|jsonAsMap (String jsonAsMap)
-specifier|public
 specifier|default
 name|NetWeaverEndpointBuilder
 name|jsonAsMap
@@ -268,7 +260,6 @@ return|;
 block|}
 comment|/**          * Password for account.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|NetWeaverEndpointBuilder
 name|password
@@ -290,7 +281,6 @@ return|;
 block|}
 comment|/**          * Username for account.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|NetWeaverEndpointBuilder
 name|username
@@ -321,7 +311,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|NetWeaverEndpointBuilder
 name|basic
@@ -336,7 +325,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedNetWeaverEndpointBuilder
 name|basicPropertyBinding
@@ -358,7 +346,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedNetWeaverEndpointBuilder
 name|basicPropertyBinding
@@ -379,8 +366,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedNetWeaverEndpointBuilder
 name|synchronous
@@ -401,8 +387,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedNetWeaverEndpointBuilder
 name|synchronous
@@ -425,7 +410,6 @@ block|}
 block|}
 comment|/**      * The sap-netweaver component integrates with the SAP NetWeaver Gateway      * using HTTP transports. Creates a builder to build endpoints for the SAP      * NetWeaver component.      */
 DECL|method|netWeaver (String path)
-specifier|public
 specifier|default
 name|NetWeaverEndpointBuilder
 name|netWeaver

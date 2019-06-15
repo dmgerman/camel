@@ -198,7 +198,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointConsumerBuilder
 name|advanced
@@ -212,8 +211,7 @@ name|this
 return|;
 block|}
 comment|/**          * The API namespace to use.          * The option is a          *<code>org.apache.camel.component.etcd.EtcdNamespace</code> type.          * @group common          */
-DECL|method|namespace ( EtcdNamespace namespace)
-specifier|public
+DECL|method|namespace (EtcdNamespace namespace)
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|namespace
@@ -235,7 +233,6 @@ return|;
 block|}
 comment|/**          * The API namespace to use.          * The option will be converted to a          *<code>org.apache.camel.component.etcd.EtcdNamespace</code> type.          * @group common          */
 DECL|method|namespace (String namespace)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|namespace
@@ -257,7 +254,6 @@ return|;
 block|}
 comment|/**          * The path the endpoint refers to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|path (String path)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|path
@@ -279,7 +275,6 @@ return|;
 block|}
 comment|/**          * To apply an action recursively.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|recursive (boolean recursive)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|recursive
@@ -301,7 +296,6 @@ return|;
 block|}
 comment|/**          * To apply an action recursively.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|recursive (String recursive)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|recursive
@@ -322,8 +316,7 @@ name|this
 return|;
 block|}
 comment|/**          * The path to look for for service discovery.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|servicePath ( String servicePath)
-specifier|public
+DECL|method|servicePath (String servicePath)
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|servicePath
@@ -345,7 +338,6 @@ return|;
 block|}
 comment|/**          * To set the maximum time an action could take to complete.          * The option is a<code>java.lang.Long</code> type.          * @group common          */
 DECL|method|timeout (Long timeout)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|timeout
@@ -367,7 +359,6 @@ return|;
 block|}
 comment|/**          * To set the maximum time an action could take to complete.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group common          */
 DECL|method|timeout (String timeout)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|timeout
@@ -389,7 +380,6 @@ return|;
 block|}
 comment|/**          * To set the URIs the client connects.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|uris (String uris)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|uris
@@ -411,7 +401,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -433,7 +422,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -455,7 +443,6 @@ return|;
 block|}
 comment|/**          * To send an empty message in case of timeout watching for a key.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyExchangeOnTimeout ( boolean sendEmptyExchangeOnTimeout)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|sendEmptyExchangeOnTimeout
@@ -477,7 +464,6 @@ return|;
 block|}
 comment|/**          * To send an empty message in case of timeout watching for a key.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyExchangeOnTimeout ( String sendEmptyExchangeOnTimeout)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|sendEmptyExchangeOnTimeout
@@ -499,7 +485,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( boolean sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -521,7 +506,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( String sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -543,7 +527,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( int backoffErrorThreshold)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -565,7 +548,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( String backoffErrorThreshold)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -587,7 +569,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( int backoffIdleThreshold)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -609,7 +590,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( String backoffIdleThreshold)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -631,7 +611,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( int backoffMultiplier)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|backoffMultiplier
@@ -653,7 +632,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( String backoffMultiplier)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|backoffMultiplier
@@ -675,7 +653,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (long delay)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|delay
@@ -697,7 +674,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (String delay)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|delay
@@ -719,7 +695,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (boolean greedy)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|greedy
@@ -741,7 +716,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (String greedy)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|greedy
@@ -762,8 +736,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
-DECL|method|initialDelay ( long initialDelay)
-specifier|public
+DECL|method|initialDelay (long initialDelay)
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|initialDelay
@@ -784,8 +757,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
-DECL|method|initialDelay ( String initialDelay)
-specifier|public
+DECL|method|initialDelay (String initialDelay)
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|initialDelay
@@ -807,7 +779,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( LoggingLevel runLoggingLevel)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|runLoggingLevel
@@ -829,7 +800,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( String runLoggingLevel)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|runLoggingLevel
@@ -851,7 +821,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option is a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( ScheduledExecutorService scheduledExecutorService)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -873,7 +842,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( String scheduledExecutorService)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -895,7 +863,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option is a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler ( ScheduledPollConsumerScheduler scheduler)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|scheduler
@@ -917,7 +884,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler (String scheduler)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|scheduler
@@ -939,7 +905,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group scheduler          */
 DECL|method|schedulerProperties ( Map<String, Object> schedulerProperties)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|schedulerProperties
@@ -966,7 +931,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group scheduler          */
 DECL|method|schedulerProperties ( String schedulerProperties)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|schedulerProperties
@@ -988,7 +952,6 @@ return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|startScheduler ( boolean startScheduler)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|startScheduler
@@ -1009,8 +972,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|startScheduler ( String startScheduler)
-specifier|public
+DECL|method|startScheduler (String startScheduler)
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|startScheduler
@@ -1032,7 +994,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option is a<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (TimeUnit timeUnit)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|timeUnit
@@ -1054,7 +1015,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (String timeUnit)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|timeUnit
@@ -1075,8 +1035,7 @@ name|this
 return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option is a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|useFixedDelay ( boolean useFixedDelay)
-specifier|public
+DECL|method|useFixedDelay (boolean useFixedDelay)
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|useFixedDelay
@@ -1097,8 +1056,7 @@ name|this
 return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|useFixedDelay ( String useFixedDelay)
-specifier|public
+DECL|method|useFixedDelay (String useFixedDelay)
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|useFixedDelay
@@ -1120,7 +1078,6 @@ return|;
 block|}
 comment|/**          * The password to use for basic authentication.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|password
@@ -1142,7 +1099,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|sslContextParameters
@@ -1164,7 +1120,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|sslContextParameters
@@ -1186,7 +1141,6 @@ return|;
 block|}
 comment|/**          * The user name to use for basic authentication.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|userName (String userName)
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|userName
@@ -1216,7 +1170,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|EtcdEndpointConsumerBuilder
 name|basic
@@ -1231,7 +1184,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointConsumerBuilder
 name|exceptionHandler
@@ -1253,7 +1205,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointConsumerBuilder
 name|exceptionHandler
@@ -1275,7 +1226,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointConsumerBuilder
 name|exchangePattern
@@ -1297,7 +1247,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointConsumerBuilder
 name|exchangePattern
@@ -1318,8 +1267,7 @@ name|this
 return|;
 block|}
 comment|/**          * The index to watch from.          * The option is a<code>java.lang.Long</code> type.          * @group consumer (advanced)          */
-DECL|method|fromIndex ( Long fromIndex)
-specifier|public
+DECL|method|fromIndex (Long fromIndex)
 specifier|default
 name|AdvancedEtcdEndpointConsumerBuilder
 name|fromIndex
@@ -1340,8 +1288,7 @@ name|this
 return|;
 block|}
 comment|/**          * The index to watch from.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group consumer (advanced)          */
-DECL|method|fromIndex ( String fromIndex)
-specifier|public
+DECL|method|fromIndex (String fromIndex)
 specifier|default
 name|AdvancedEtcdEndpointConsumerBuilder
 name|fromIndex
@@ -1363,7 +1310,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option is a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( PollingConsumerPollStrategy pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointConsumerBuilder
 name|pollStrategy
@@ -1385,7 +1331,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( String pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointConsumerBuilder
 name|pollStrategy
@@ -1407,7 +1352,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1429,7 +1373,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1451,7 +1394,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointConsumerBuilder
 name|synchronous
@@ -1473,7 +1415,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointConsumerBuilder
 name|synchronous
@@ -1504,7 +1445,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointProducerBuilder
 name|advanced
@@ -1518,8 +1458,7 @@ name|this
 return|;
 block|}
 comment|/**          * The API namespace to use.          * The option is a          *<code>org.apache.camel.component.etcd.EtcdNamespace</code> type.          * @group common          */
-DECL|method|namespace ( EtcdNamespace namespace)
-specifier|public
+DECL|method|namespace (EtcdNamespace namespace)
 specifier|default
 name|EtcdEndpointProducerBuilder
 name|namespace
@@ -1541,7 +1480,6 @@ return|;
 block|}
 comment|/**          * The API namespace to use.          * The option will be converted to a          *<code>org.apache.camel.component.etcd.EtcdNamespace</code> type.          * @group common          */
 DECL|method|namespace (String namespace)
-specifier|public
 specifier|default
 name|EtcdEndpointProducerBuilder
 name|namespace
@@ -1563,7 +1501,6 @@ return|;
 block|}
 comment|/**          * The path the endpoint refers to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|path (String path)
-specifier|public
 specifier|default
 name|EtcdEndpointProducerBuilder
 name|path
@@ -1585,7 +1522,6 @@ return|;
 block|}
 comment|/**          * To apply an action recursively.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|recursive (boolean recursive)
-specifier|public
 specifier|default
 name|EtcdEndpointProducerBuilder
 name|recursive
@@ -1607,7 +1543,6 @@ return|;
 block|}
 comment|/**          * To apply an action recursively.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|recursive (String recursive)
-specifier|public
 specifier|default
 name|EtcdEndpointProducerBuilder
 name|recursive
@@ -1628,8 +1563,7 @@ name|this
 return|;
 block|}
 comment|/**          * The path to look for for service discovery.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|servicePath ( String servicePath)
-specifier|public
+DECL|method|servicePath (String servicePath)
 specifier|default
 name|EtcdEndpointProducerBuilder
 name|servicePath
@@ -1651,7 +1585,6 @@ return|;
 block|}
 comment|/**          * To set the maximum time an action could take to complete.          * The option is a<code>java.lang.Long</code> type.          * @group common          */
 DECL|method|timeout (Long timeout)
-specifier|public
 specifier|default
 name|EtcdEndpointProducerBuilder
 name|timeout
@@ -1673,7 +1606,6 @@ return|;
 block|}
 comment|/**          * To set the maximum time an action could take to complete.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group common          */
 DECL|method|timeout (String timeout)
-specifier|public
 specifier|default
 name|EtcdEndpointProducerBuilder
 name|timeout
@@ -1695,7 +1627,6 @@ return|;
 block|}
 comment|/**          * To set the URIs the client connects.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|uris (String uris)
-specifier|public
 specifier|default
 name|EtcdEndpointProducerBuilder
 name|uris
@@ -1717,7 +1648,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|EtcdEndpointProducerBuilder
 name|lazyStartProducer
@@ -1739,7 +1669,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|EtcdEndpointProducerBuilder
 name|lazyStartProducer
@@ -1761,7 +1690,6 @@ return|;
 block|}
 comment|/**          * To set the lifespan of a key in milliseconds.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
 DECL|method|timeToLive (Integer timeToLive)
-specifier|public
 specifier|default
 name|EtcdEndpointProducerBuilder
 name|timeToLive
@@ -1783,7 +1711,6 @@ return|;
 block|}
 comment|/**          * To set the lifespan of a key in milliseconds.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
 DECL|method|timeToLive (String timeToLive)
-specifier|public
 specifier|default
 name|EtcdEndpointProducerBuilder
 name|timeToLive
@@ -1805,7 +1732,6 @@ return|;
 block|}
 comment|/**          * The password to use for basic authentication.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|EtcdEndpointProducerBuilder
 name|password
@@ -1827,7 +1753,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|EtcdEndpointProducerBuilder
 name|sslContextParameters
@@ -1849,7 +1774,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|EtcdEndpointProducerBuilder
 name|sslContextParameters
@@ -1871,7 +1795,6 @@ return|;
 block|}
 comment|/**          * The user name to use for basic authentication.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|userName (String userName)
-specifier|public
 specifier|default
 name|EtcdEndpointProducerBuilder
 name|userName
@@ -1901,7 +1824,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|EtcdEndpointProducerBuilder
 name|basic
@@ -1916,7 +1838,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1938,7 +1859,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1960,7 +1880,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointProducerBuilder
 name|synchronous
@@ -1982,7 +1901,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointProducerBuilder
 name|synchronous
@@ -2015,7 +1933,6 @@ extends|,
 name|EtcdEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointBuilder
 name|advanced
@@ -2030,7 +1947,6 @@ return|;
 block|}
 comment|/**          * The API namespace to use.          * The option is a          *<code>org.apache.camel.component.etcd.EtcdNamespace</code> type.          * @group common          */
 DECL|method|namespace (EtcdNamespace namespace)
-specifier|public
 specifier|default
 name|EtcdEndpointBuilder
 name|namespace
@@ -2052,7 +1968,6 @@ return|;
 block|}
 comment|/**          * The API namespace to use.          * The option will be converted to a          *<code>org.apache.camel.component.etcd.EtcdNamespace</code> type.          * @group common          */
 DECL|method|namespace (String namespace)
-specifier|public
 specifier|default
 name|EtcdEndpointBuilder
 name|namespace
@@ -2074,7 +1989,6 @@ return|;
 block|}
 comment|/**          * The path the endpoint refers to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|path (String path)
-specifier|public
 specifier|default
 name|EtcdEndpointBuilder
 name|path
@@ -2096,7 +2010,6 @@ return|;
 block|}
 comment|/**          * To apply an action recursively.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|recursive (boolean recursive)
-specifier|public
 specifier|default
 name|EtcdEndpointBuilder
 name|recursive
@@ -2118,7 +2031,6 @@ return|;
 block|}
 comment|/**          * To apply an action recursively.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|recursive (String recursive)
-specifier|public
 specifier|default
 name|EtcdEndpointBuilder
 name|recursive
@@ -2140,7 +2052,6 @@ return|;
 block|}
 comment|/**          * The path to look for for service discovery.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|servicePath (String servicePath)
-specifier|public
 specifier|default
 name|EtcdEndpointBuilder
 name|servicePath
@@ -2162,7 +2073,6 @@ return|;
 block|}
 comment|/**          * To set the maximum time an action could take to complete.          * The option is a<code>java.lang.Long</code> type.          * @group common          */
 DECL|method|timeout (Long timeout)
-specifier|public
 specifier|default
 name|EtcdEndpointBuilder
 name|timeout
@@ -2184,7 +2094,6 @@ return|;
 block|}
 comment|/**          * To set the maximum time an action could take to complete.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group common          */
 DECL|method|timeout (String timeout)
-specifier|public
 specifier|default
 name|EtcdEndpointBuilder
 name|timeout
@@ -2206,7 +2115,6 @@ return|;
 block|}
 comment|/**          * To set the URIs the client connects.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|uris (String uris)
-specifier|public
 specifier|default
 name|EtcdEndpointBuilder
 name|uris
@@ -2228,7 +2136,6 @@ return|;
 block|}
 comment|/**          * The password to use for basic authentication.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|EtcdEndpointBuilder
 name|password
@@ -2250,7 +2157,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|EtcdEndpointBuilder
 name|sslContextParameters
@@ -2272,7 +2178,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|EtcdEndpointBuilder
 name|sslContextParameters
@@ -2294,7 +2199,6 @@ return|;
 block|}
 comment|/**          * The user name to use for basic authentication.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|userName (String userName)
-specifier|public
 specifier|default
 name|EtcdEndpointBuilder
 name|userName
@@ -2327,7 +2231,6 @@ extends|,
 name|AdvancedEtcdEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|EtcdEndpointBuilder
 name|basic
@@ -2342,7 +2245,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointBuilder
 name|basicPropertyBinding
@@ -2364,7 +2266,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedEtcdEndpointBuilder
 name|basicPropertyBinding
@@ -2385,8 +2286,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedEtcdEndpointBuilder
 name|synchronous
@@ -2407,8 +2307,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedEtcdEndpointBuilder
 name|synchronous
@@ -2447,7 +2346,6 @@ name|keys
 block|;     }
 comment|/**      * The camel etcd component allows you to work with Etcd, a distributed      * reliable key-value store. Creates a builder to build endpoints for the      * etcd component.      */
 DECL|method|etcd (String path)
-specifier|public
 specifier|default
 name|EtcdEndpointBuilder
 name|etcd

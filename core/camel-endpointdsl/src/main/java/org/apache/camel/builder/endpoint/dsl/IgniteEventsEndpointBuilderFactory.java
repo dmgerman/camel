@@ -99,7 +99,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedIgniteEventsEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * The endpoint ID (not used).          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|endpointId (String endpointId)
-specifier|public
 specifier|default
 name|IgniteEventsEndpointBuilder
 name|endpointId
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( boolean propagateIncomingBodyIfNoReturnValue)
-specifier|public
 specifier|default
 name|IgniteEventsEndpointBuilder
 name|propagateIncomingBodyIfNoReturnValue
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( String propagateIncomingBodyIfNoReturnValue)
-specifier|public
 specifier|default
 name|IgniteEventsEndpointBuilder
 name|propagateIncomingBodyIfNoReturnValue
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Sets whether to treat Collections as cache objects or as Collections          * of items to insert/update/compute, etc.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|treatCollectionsAsCacheObjects ( boolean treatCollectionsAsCacheObjects)
-specifier|public
 specifier|default
 name|IgniteEventsEndpointBuilder
 name|treatCollectionsAsCacheObjects
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Sets whether to treat Collections as cache objects or as Collections          * of items to insert/update/compute, etc.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|treatCollectionsAsCacheObjects ( String treatCollectionsAsCacheObjects)
-specifier|public
 specifier|default
 name|IgniteEventsEndpointBuilder
 name|treatCollectionsAsCacheObjects
@@ -233,7 +227,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|IgniteEventsEndpointBuilder
 name|basic
@@ -248,7 +241,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedIgniteEventsEndpointBuilder
 name|basicPropertyBinding
@@ -270,7 +262,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedIgniteEventsEndpointBuilder
 name|basicPropertyBinding
@@ -292,7 +283,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedIgniteEventsEndpointBuilder
 name|synchronous
@@ -314,7 +304,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedIgniteEventsEndpointBuilder
 name|synchronous
@@ -337,7 +326,6 @@ block|}
 block|}
 comment|/**      * The Ignite Events endpoint is one of camel-ignite endpoints which allows      * you to receive events from the Ignite cluster by creating a local event      * listener. Creates a builder to build endpoints for the Ignite Events      * component.      */
 DECL|method|igniteEvents (String path)
-specifier|public
 specifier|default
 name|IgniteEventsEndpointBuilder
 name|igniteEvents

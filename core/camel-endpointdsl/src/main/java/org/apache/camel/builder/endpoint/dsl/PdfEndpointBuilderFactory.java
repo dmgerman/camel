@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedPdfEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Operation type.          * The option is a          *<code>org.apache.camel.component.pdf.PdfOperation</code> type.          * @group producer          */
 DECL|method|operation (PdfOperation operation)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|operation
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Operation type.          * The option will be converted to a          *<code>org.apache.camel.component.pdf.PdfOperation</code> type.          * @group producer          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|operation
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Font.          * The option is a<code>org.apache.pdfbox.pdmodel.font.PDFont</code>          * type.          * @group producer          */
 DECL|method|font (Object font)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|font
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Font.          * The option will be converted to a          *<code>org.apache.pdfbox.pdmodel.font.PDFont</code> type.          * @group producer          */
 DECL|method|font (String font)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|font
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Font size in pixels.          * The option is a<code>float</code> type.          * @group producer          */
 DECL|method|fontSize (float fontSize)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|fontSize
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * Font size in pixels.          * The option will be converted to a<code>float</code> type.          * @group producer          */
 DECL|method|fontSize (String fontSize)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|fontSize
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * Margin bottom in pixels.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|marginBottom (int marginBottom)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|marginBottom
@@ -268,7 +260,6 @@ return|;
 block|}
 comment|/**          * Margin bottom in pixels.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|marginBottom (String marginBottom)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|marginBottom
@@ -290,7 +281,6 @@ return|;
 block|}
 comment|/**          * Margin left in pixels.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|marginLeft (int marginLeft)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|marginLeft
@@ -312,7 +302,6 @@ return|;
 block|}
 comment|/**          * Margin left in pixels.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|marginLeft (String marginLeft)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|marginLeft
@@ -334,7 +323,6 @@ return|;
 block|}
 comment|/**          * Margin right in pixels.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|marginRight (int marginRight)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|marginRight
@@ -356,7 +344,6 @@ return|;
 block|}
 comment|/**          * Margin right in pixels.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|marginRight (String marginRight)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|marginRight
@@ -378,7 +365,6 @@ return|;
 block|}
 comment|/**          * Margin top in pixels.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|marginTop (int marginTop)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|marginTop
@@ -400,7 +386,6 @@ return|;
 block|}
 comment|/**          * Margin top in pixels.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|marginTop (String marginTop)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|marginTop
@@ -422,7 +407,6 @@ return|;
 block|}
 comment|/**          * Page size.          * The option is a          *<code>org.apache.pdfbox.pdmodel.common.PDRectangle</code> type.          * @group producer          */
 DECL|method|pageSize (Object pageSize)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|pageSize
@@ -444,7 +428,6 @@ return|;
 block|}
 comment|/**          * Page size.          * The option will be converted to a          *<code>org.apache.pdfbox.pdmodel.common.PDRectangle</code> type.          * @group producer          */
 DECL|method|pageSize (String pageSize)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|pageSize
@@ -466,7 +449,6 @@ return|;
 block|}
 comment|/**          * Text processing to use. autoFormatting: Text is getting sliced by          * words, then max amount of words that fits in the line will be written          * into pdf document. With this strategy all words that doesn't fit in          * the line will be moved to the new line. lineTermination: Builds set          * of classes for line-termination writing strategy. Text getting sliced          * by line termination symbol and then it will be written regardless it          * fits in the line or not.          * The option is a          *<code>org.apache.camel.component.pdf.TextProcessingFactory</code>          * type.          * @group producer          */
 DECL|method|textProcessingFactory ( TextProcessingFactory textProcessingFactory)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|textProcessingFactory
@@ -488,7 +470,6 @@ return|;
 block|}
 comment|/**          * Text processing to use. autoFormatting: Text is getting sliced by          * words, then max amount of words that fits in the line will be written          * into pdf document. With this strategy all words that doesn't fit in          * the line will be moved to the new line. lineTermination: Builds set          * of classes for line-termination writing strategy. Text getting sliced          * by line termination symbol and then it will be written regardless it          * fits in the line or not.          * The option will be converted to a          *<code>org.apache.camel.component.pdf.TextProcessingFactory</code>          * type.          * @group producer          */
 DECL|method|textProcessingFactory ( String textProcessingFactory)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|textProcessingFactory
@@ -519,7 +500,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|basic
@@ -534,7 +514,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedPdfEndpointBuilder
 name|basicPropertyBinding
@@ -556,7 +535,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedPdfEndpointBuilder
 name|basicPropertyBinding
@@ -577,8 +555,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedPdfEndpointBuilder
 name|synchronous
@@ -600,7 +577,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous (String synchronous)
-specifier|public
 specifier|default
 name|AdvancedPdfEndpointBuilder
 name|synchronous
@@ -652,7 +628,6 @@ name|lineTermination
 block|;     }
 comment|/**      * The pdf components provides the ability to create, modify or extract      * content from PDF documents. Creates a builder to build endpoints for the      * PDF component.      */
 DECL|method|pdf (String path)
-specifier|public
 specifier|default
 name|PdfEndpointBuilder
 name|pdf

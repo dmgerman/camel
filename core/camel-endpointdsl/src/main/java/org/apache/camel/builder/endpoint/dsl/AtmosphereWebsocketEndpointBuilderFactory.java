@@ -138,7 +138,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|advanced
@@ -153,7 +152,6 @@ return|;
 block|}
 comment|/**          * Name of websocket endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|servicePath ( String servicePath)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|servicePath
@@ -175,7 +173,6 @@ return|;
 block|}
 comment|/**          * Whether to send to all (broadcast) or send to a single receiver.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|sendToAll ( boolean sendToAll)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|sendToAll
@@ -197,7 +194,6 @@ return|;
 block|}
 comment|/**          * Whether to send to all (broadcast) or send to a single receiver.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|sendToAll ( String sendToAll)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|sendToAll
@@ -219,7 +215,6 @@ return|;
 block|}
 comment|/**          * To enable streaming to send data as multiple text fragments.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|useStreaming ( boolean useStreaming)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|useStreaming
@@ -241,7 +236,6 @@ return|;
 block|}
 comment|/**          * To enable streaming to send data as multiple text fragments.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|useStreaming ( String useStreaming)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|useStreaming
@@ -263,7 +257,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not the raw input stream from Servlet is cached          * or not (Camel will read the stream into a in memory/overflow to file,          * Stream caching) cache. By default Camel will cache the Servlet input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store.          * DefaultHttpBinding will copy the request input stream into a stream          * cache and put it into message body if this option is false to support          * reading the stream multiple times. If you use Servlet to bridge/proxy          * an endpoint then consider enabling this option to improve          * performance, in case you do not need to read the message payload          * multiple times. The http/http4 producer will by default cache the          * response body stream. If setting this option to true, then the          * producers will not cache the response body stream but use the          * response stream as-is as the message body.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|disableStreamCache ( boolean disableStreamCache)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|disableStreamCache
@@ -285,7 +278,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not the raw input stream from Servlet is cached          * or not (Camel will read the stream into a in memory/overflow to file,          * Stream caching) cache. By default Camel will cache the Servlet input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store.          * DefaultHttpBinding will copy the request input stream into a stream          * cache and put it into message body if this option is false to support          * reading the stream multiple times. If you use Servlet to bridge/proxy          * an endpoint then consider enabling this option to improve          * performance, in case you do not need to read the message payload          * multiple times. The http/http4 producer will by default cache the          * response body stream. If setting this option to true, then the          * producers will not cache the response body stream but use the          * response stream as-is as the message body.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|disableStreamCache ( String disableStreamCache)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|disableStreamCache
@@ -307,7 +299,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|headerFilterStrategy
@@ -329,7 +320,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|headerFilterStrategy
@@ -350,8 +340,7 @@ name|this
 return|;
 block|}
 comment|/**          * Configure the consumer to work in async mode.          * The option is a<code>boolean</code> type.          * @group consumer          */
-DECL|method|async ( boolean async)
-specifier|public
+DECL|method|async (boolean async)
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|async
@@ -372,8 +361,7 @@ name|this
 return|;
 block|}
 comment|/**          * Configure the consumer to work in async mode.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
-DECL|method|async ( String async)
-specifier|public
+DECL|method|async (String async)
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|async
@@ -395,7 +383,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -417,7 +404,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -439,7 +425,6 @@ return|;
 block|}
 comment|/**          * If this option is false the Servlet will disable the HTTP streaming          * and set the content-length header on the response.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|chunked ( boolean chunked)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|chunked
@@ -461,7 +446,6 @@ return|;
 block|}
 comment|/**          * If this option is false the Servlet will disable the HTTP streaming          * and set the content-length header on the response.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|chunked ( String chunked)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|chunked
@@ -483,7 +467,6 @@ return|;
 block|}
 comment|/**          * Used to only allow consuming if the HttpMethod matches, such as          * GET/POST/PUT etc. Multiple methods can be specified separated by          * comma.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|httpMethodRestrict ( String httpMethodRestrict)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|httpMethodRestrict
@@ -505,7 +488,6 @@ return|;
 block|}
 comment|/**          * Whether or not the consumer should try to find a target consumer by          * matching the URI prefix if no exact match is found.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|matchOnUriPrefix ( boolean matchOnUriPrefix)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|matchOnUriPrefix
@@ -527,7 +509,6 @@ return|;
 block|}
 comment|/**          * Whether or not the consumer should try to find a target consumer by          * matching the URI prefix if no exact match is found.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|matchOnUriPrefix ( String matchOnUriPrefix)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|matchOnUriPrefix
@@ -549,7 +530,6 @@ return|;
 block|}
 comment|/**          * To use a custom buffer size on the javax.servlet.ServletResponse.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
 DECL|method|responseBufferSize ( Integer responseBufferSize)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|responseBufferSize
@@ -571,7 +551,6 @@ return|;
 block|}
 comment|/**          * To use a custom buffer size on the javax.servlet.ServletResponse.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
 DECL|method|responseBufferSize ( String responseBufferSize)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|responseBufferSize
@@ -593,7 +572,6 @@ return|;
 block|}
 comment|/**          * Name of the servlet to use.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|servletName ( String servletName)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|servletName
@@ -615,7 +593,6 @@ return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|transferException ( boolean transferException)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|transferException
@@ -637,7 +614,6 @@ return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|transferException ( String transferException)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|transferException
@@ -667,7 +643,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointConsumerBuilder
 name|basic
@@ -682,7 +657,6 @@ return|;
 block|}
 comment|/**          * To use a custom HttpBinding to control the mapping between Camel          * message and HttpClient.          * The option is a<code>org.apache.camel.http.common.HttpBinding</code>          * type.          * @group common (advanced)          */
 DECL|method|httpBinding ( Object httpBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|httpBinding
@@ -704,7 +678,6 @@ return|;
 block|}
 comment|/**          * To use a custom HttpBinding to control the mapping between Camel          * message and HttpClient.          * The option will be converted to a          *<code>org.apache.camel.http.common.HttpBinding</code> type.          * @group common (advanced)          */
 DECL|method|httpBinding ( String httpBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|httpBinding
@@ -726,7 +699,6 @@ return|;
 block|}
 comment|/**          * Whether to automatic bind multipart/form-data as attachments on the          * Camel Exchange. The options attachmentMultipartBinding=true and          * disableStreamCache=false cannot work together. Remove          * disableStreamCache to use AttachmentMultipartBinding. This is turn          * off by default as this may require servlet specific configuration to          * enable this when using Servlet's.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|attachmentMultipartBinding ( boolean attachmentMultipartBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|attachmentMultipartBinding
@@ -748,7 +720,6 @@ return|;
 block|}
 comment|/**          * Whether to automatic bind multipart/form-data as attachments on the          * Camel Exchange. The options attachmentMultipartBinding=true and          * disableStreamCache=false cannot work together. Remove          * disableStreamCache to use AttachmentMultipartBinding. This is turn          * off by default as this may require servlet specific configuration to          * enable this when using Servlet's.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|attachmentMultipartBinding ( String attachmentMultipartBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|attachmentMultipartBinding
@@ -770,7 +741,6 @@ return|;
 block|}
 comment|/**          * Whether to eager check whether the HTTP requests has content if the          * content-length header is 0 or not present. This can be turned on in          * case HTTP clients do not send streamed data.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|eagerCheckContentAvailable ( boolean eagerCheckContentAvailable)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|eagerCheckContentAvailable
@@ -792,7 +762,6 @@ return|;
 block|}
 comment|/**          * Whether to eager check whether the HTTP requests has content if the          * content-length header is 0 or not present. This can be turned on in          * case HTTP clients do not send streamed data.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|eagerCheckContentAvailable ( String eagerCheckContentAvailable)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|eagerCheckContentAvailable
@@ -814,7 +783,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|exceptionHandler
@@ -836,7 +804,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|exceptionHandler
@@ -858,7 +825,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|exchangePattern
@@ -880,7 +846,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|exchangePattern
@@ -902,7 +867,6 @@ return|;
 block|}
 comment|/**          * Whitelist of accepted filename extensions for accepting uploaded          * files. Multiple extensions can be separated by comma, such as          * txt,xml.          * The option is a<code>java.lang.String</code> type.          * @group consumer (advanced)          */
 DECL|method|fileNameExtWhitelist ( String fileNameExtWhitelist)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|fileNameExtWhitelist
@@ -924,7 +888,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to enable HTTP OPTIONS for this Servlet consumer.          * By default OPTIONS is turned off.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|optionsEnabled ( boolean optionsEnabled)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|optionsEnabled
@@ -946,7 +909,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to enable HTTP OPTIONS for this Servlet consumer.          * By default OPTIONS is turned off.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|optionsEnabled ( String optionsEnabled)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|optionsEnabled
@@ -968,7 +930,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to enable HTTP TRACE for this Servlet consumer. By          * default TRACE is turned off.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|traceEnabled ( boolean traceEnabled)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|traceEnabled
@@ -990,7 +951,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to enable HTTP TRACE for this Servlet consumer. By          * default TRACE is turned off.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|traceEnabled ( String traceEnabled)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|traceEnabled
@@ -1012,7 +972,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1034,7 +993,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1056,7 +1014,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Body of the exchange will be          * mapped to HTTP body. Setting this to false will avoid the HTTP          * mapping.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageBody ( boolean mapHttpMessageBody)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|mapHttpMessageBody
@@ -1078,7 +1035,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Body of the exchange will be          * mapped to HTTP body. Setting this to false will avoid the HTTP          * mapping.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageBody ( String mapHttpMessageBody)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|mapHttpMessageBody
@@ -1100,7 +1056,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Form Encoded body of the          * exchange will be mapped to HTTP. Setting this to false will avoid the          * HTTP Form Encoded body mapping.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageFormUrlEncodedBody ( boolean mapHttpMessageFormUrlEncodedBody)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|mapHttpMessageFormUrlEncodedBody
@@ -1122,7 +1077,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Form Encoded body of the          * exchange will be mapped to HTTP. Setting this to false will avoid the          * HTTP Form Encoded body mapping.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageFormUrlEncodedBody ( String mapHttpMessageFormUrlEncodedBody)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|mapHttpMessageFormUrlEncodedBody
@@ -1144,7 +1098,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Headers of the exchange will          * be mapped to HTTP headers. Setting this to false will avoid the HTTP          * Headers mapping.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageHeaders ( boolean mapHttpMessageHeaders)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|mapHttpMessageHeaders
@@ -1166,7 +1119,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Headers of the exchange will          * be mapped to HTTP headers. Setting this to false will avoid the HTTP          * Headers mapping.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageHeaders ( String mapHttpMessageHeaders)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|mapHttpMessageHeaders
@@ -1188,7 +1140,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|synchronous
@@ -1210,7 +1161,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointConsumerBuilder
 name|synchronous
@@ -1241,7 +1191,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointProducerBuilder
 name|advanced
@@ -1256,7 +1205,6 @@ return|;
 block|}
 comment|/**          * Name of websocket endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|servicePath ( String servicePath)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointProducerBuilder
 name|servicePath
@@ -1278,7 +1226,6 @@ return|;
 block|}
 comment|/**          * Whether to send to all (broadcast) or send to a single receiver.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|sendToAll ( boolean sendToAll)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointProducerBuilder
 name|sendToAll
@@ -1300,7 +1247,6 @@ return|;
 block|}
 comment|/**          * Whether to send to all (broadcast) or send to a single receiver.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|sendToAll ( String sendToAll)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointProducerBuilder
 name|sendToAll
@@ -1322,7 +1268,6 @@ return|;
 block|}
 comment|/**          * To enable streaming to send data as multiple text fragments.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|useStreaming ( boolean useStreaming)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointProducerBuilder
 name|useStreaming
@@ -1344,7 +1289,6 @@ return|;
 block|}
 comment|/**          * To enable streaming to send data as multiple text fragments.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|useStreaming ( String useStreaming)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointProducerBuilder
 name|useStreaming
@@ -1366,7 +1310,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not the raw input stream from Servlet is cached          * or not (Camel will read the stream into a in memory/overflow to file,          * Stream caching) cache. By default Camel will cache the Servlet input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store.          * DefaultHttpBinding will copy the request input stream into a stream          * cache and put it into message body if this option is false to support          * reading the stream multiple times. If you use Servlet to bridge/proxy          * an endpoint then consider enabling this option to improve          * performance, in case you do not need to read the message payload          * multiple times. The http/http4 producer will by default cache the          * response body stream. If setting this option to true, then the          * producers will not cache the response body stream but use the          * response stream as-is as the message body.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|disableStreamCache ( boolean disableStreamCache)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointProducerBuilder
 name|disableStreamCache
@@ -1388,7 +1331,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not the raw input stream from Servlet is cached          * or not (Camel will read the stream into a in memory/overflow to file,          * Stream caching) cache. By default Camel will cache the Servlet input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store.          * DefaultHttpBinding will copy the request input stream into a stream          * cache and put it into message body if this option is false to support          * reading the stream multiple times. If you use Servlet to bridge/proxy          * an endpoint then consider enabling this option to improve          * performance, in case you do not need to read the message payload          * multiple times. The http/http4 producer will by default cache the          * response body stream. If setting this option to true, then the          * producers will not cache the response body stream but use the          * response stream as-is as the message body.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|disableStreamCache ( String disableStreamCache)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointProducerBuilder
 name|disableStreamCache
@@ -1410,7 +1352,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointProducerBuilder
 name|headerFilterStrategy
@@ -1432,7 +1373,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointProducerBuilder
 name|headerFilterStrategy
@@ -1454,7 +1394,6 @@ return|;
 block|}
 comment|/**          * If this option is false the Servlet will disable the HTTP streaming          * and set the content-length header on the response.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|chunked ( boolean chunked)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointProducerBuilder
 name|chunked
@@ -1476,7 +1415,6 @@ return|;
 block|}
 comment|/**          * If this option is false the Servlet will disable the HTTP streaming          * and set the content-length header on the response.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|chunked ( String chunked)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointProducerBuilder
 name|chunked
@@ -1498,7 +1436,6 @@ return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|transferException ( boolean transferException)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointProducerBuilder
 name|transferException
@@ -1520,7 +1457,6 @@ return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|transferException ( String transferException)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointProducerBuilder
 name|transferException
@@ -1550,7 +1486,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointProducerBuilder
 name|basic
@@ -1565,7 +1500,6 @@ return|;
 block|}
 comment|/**          * To use a custom HttpBinding to control the mapping between Camel          * message and HttpClient.          * The option is a<code>org.apache.camel.http.common.HttpBinding</code>          * type.          * @group common (advanced)          */
 DECL|method|httpBinding ( Object httpBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointProducerBuilder
 name|httpBinding
@@ -1587,7 +1521,6 @@ return|;
 block|}
 comment|/**          * To use a custom HttpBinding to control the mapping between Camel          * message and HttpClient.          * The option will be converted to a          *<code>org.apache.camel.http.common.HttpBinding</code> type.          * @group common (advanced)          */
 DECL|method|httpBinding ( String httpBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointProducerBuilder
 name|httpBinding
@@ -1609,7 +1542,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1631,7 +1563,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1653,7 +1584,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Body of the exchange will be          * mapped to HTTP body. Setting this to false will avoid the HTTP          * mapping.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageBody ( boolean mapHttpMessageBody)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointProducerBuilder
 name|mapHttpMessageBody
@@ -1675,7 +1605,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Body of the exchange will be          * mapped to HTTP body. Setting this to false will avoid the HTTP          * mapping.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageBody ( String mapHttpMessageBody)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointProducerBuilder
 name|mapHttpMessageBody
@@ -1697,7 +1626,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Form Encoded body of the          * exchange will be mapped to HTTP. Setting this to false will avoid the          * HTTP Form Encoded body mapping.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageFormUrlEncodedBody ( boolean mapHttpMessageFormUrlEncodedBody)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointProducerBuilder
 name|mapHttpMessageFormUrlEncodedBody
@@ -1719,7 +1647,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Form Encoded body of the          * exchange will be mapped to HTTP. Setting this to false will avoid the          * HTTP Form Encoded body mapping.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageFormUrlEncodedBody ( String mapHttpMessageFormUrlEncodedBody)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointProducerBuilder
 name|mapHttpMessageFormUrlEncodedBody
@@ -1741,7 +1668,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Headers of the exchange will          * be mapped to HTTP headers. Setting this to false will avoid the HTTP          * Headers mapping.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageHeaders ( boolean mapHttpMessageHeaders)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointProducerBuilder
 name|mapHttpMessageHeaders
@@ -1763,7 +1689,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Headers of the exchange will          * be mapped to HTTP headers. Setting this to false will avoid the HTTP          * Headers mapping.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageHeaders ( String mapHttpMessageHeaders)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointProducerBuilder
 name|mapHttpMessageHeaders
@@ -1785,7 +1710,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointProducerBuilder
 name|synchronous
@@ -1807,7 +1731,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointProducerBuilder
 name|synchronous
@@ -1840,7 +1763,6 @@ extends|,
 name|AtmosphereWebsocketEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointBuilder
 name|advanced
@@ -1855,7 +1777,6 @@ return|;
 block|}
 comment|/**          * Name of websocket endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|servicePath ( String servicePath)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointBuilder
 name|servicePath
@@ -1876,8 +1797,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether to send to all (broadcast) or send to a single receiver.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|sendToAll ( boolean sendToAll)
-specifier|public
+DECL|method|sendToAll (boolean sendToAll)
 specifier|default
 name|AtmosphereWebsocketEndpointBuilder
 name|sendToAll
@@ -1898,8 +1818,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether to send to all (broadcast) or send to a single receiver.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|sendToAll ( String sendToAll)
-specifier|public
+DECL|method|sendToAll (String sendToAll)
 specifier|default
 name|AtmosphereWebsocketEndpointBuilder
 name|sendToAll
@@ -1921,7 +1840,6 @@ return|;
 block|}
 comment|/**          * To enable streaming to send data as multiple text fragments.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|useStreaming ( boolean useStreaming)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointBuilder
 name|useStreaming
@@ -1943,7 +1861,6 @@ return|;
 block|}
 comment|/**          * To enable streaming to send data as multiple text fragments.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|useStreaming ( String useStreaming)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointBuilder
 name|useStreaming
@@ -1965,7 +1882,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not the raw input stream from Servlet is cached          * or not (Camel will read the stream into a in memory/overflow to file,          * Stream caching) cache. By default Camel will cache the Servlet input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store.          * DefaultHttpBinding will copy the request input stream into a stream          * cache and put it into message body if this option is false to support          * reading the stream multiple times. If you use Servlet to bridge/proxy          * an endpoint then consider enabling this option to improve          * performance, in case you do not need to read the message payload          * multiple times. The http/http4 producer will by default cache the          * response body stream. If setting this option to true, then the          * producers will not cache the response body stream but use the          * response stream as-is as the message body.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|disableStreamCache ( boolean disableStreamCache)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointBuilder
 name|disableStreamCache
@@ -1987,7 +1903,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not the raw input stream from Servlet is cached          * or not (Camel will read the stream into a in memory/overflow to file,          * Stream caching) cache. By default Camel will cache the Servlet input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store.          * DefaultHttpBinding will copy the request input stream into a stream          * cache and put it into message body if this option is false to support          * reading the stream multiple times. If you use Servlet to bridge/proxy          * an endpoint then consider enabling this option to improve          * performance, in case you do not need to read the message payload          * multiple times. The http/http4 producer will by default cache the          * response body stream. If setting this option to true, then the          * producers will not cache the response body stream but use the          * response stream as-is as the message body.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|disableStreamCache ( String disableStreamCache)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointBuilder
 name|disableStreamCache
@@ -2009,7 +1924,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointBuilder
 name|headerFilterStrategy
@@ -2031,7 +1945,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointBuilder
 name|headerFilterStrategy
@@ -2052,8 +1965,7 @@ name|this
 return|;
 block|}
 comment|/**          * If this option is false the Servlet will disable the HTTP streaming          * and set the content-length header on the response.          * The option is a<code>boolean</code> type.          * @group consumer          */
-DECL|method|chunked ( boolean chunked)
-specifier|public
+DECL|method|chunked (boolean chunked)
 specifier|default
 name|AtmosphereWebsocketEndpointBuilder
 name|chunked
@@ -2075,7 +1987,6 @@ return|;
 block|}
 comment|/**          * If this option is false the Servlet will disable the HTTP streaming          * and set the content-length header on the response.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|chunked (String chunked)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointBuilder
 name|chunked
@@ -2097,7 +2008,6 @@ return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|transferException ( boolean transferException)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointBuilder
 name|transferException
@@ -2119,7 +2029,6 @@ return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|transferException ( String transferException)
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointBuilder
 name|transferException
@@ -2152,7 +2061,6 @@ extends|,
 name|AdvancedAtmosphereWebsocketEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|AtmosphereWebsocketEndpointBuilder
 name|basic
@@ -2167,7 +2075,6 @@ return|;
 block|}
 comment|/**          * To use a custom HttpBinding to control the mapping between Camel          * message and HttpClient.          * The option is a<code>org.apache.camel.http.common.HttpBinding</code>          * type.          * @group common (advanced)          */
 DECL|method|httpBinding ( Object httpBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointBuilder
 name|httpBinding
@@ -2189,7 +2096,6 @@ return|;
 block|}
 comment|/**          * To use a custom HttpBinding to control the mapping between Camel          * message and HttpClient.          * The option will be converted to a          *<code>org.apache.camel.http.common.HttpBinding</code> type.          * @group common (advanced)          */
 DECL|method|httpBinding ( String httpBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointBuilder
 name|httpBinding
@@ -2211,7 +2117,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointBuilder
 name|basicPropertyBinding
@@ -2233,7 +2138,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointBuilder
 name|basicPropertyBinding
@@ -2255,7 +2159,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Body of the exchange will be          * mapped to HTTP body. Setting this to false will avoid the HTTP          * mapping.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageBody ( boolean mapHttpMessageBody)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointBuilder
 name|mapHttpMessageBody
@@ -2277,7 +2180,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Body of the exchange will be          * mapped to HTTP body. Setting this to false will avoid the HTTP          * mapping.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageBody ( String mapHttpMessageBody)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointBuilder
 name|mapHttpMessageBody
@@ -2299,7 +2201,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Form Encoded body of the          * exchange will be mapped to HTTP. Setting this to false will avoid the          * HTTP Form Encoded body mapping.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageFormUrlEncodedBody ( boolean mapHttpMessageFormUrlEncodedBody)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointBuilder
 name|mapHttpMessageFormUrlEncodedBody
@@ -2321,7 +2222,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Form Encoded body of the          * exchange will be mapped to HTTP. Setting this to false will avoid the          * HTTP Form Encoded body mapping.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageFormUrlEncodedBody ( String mapHttpMessageFormUrlEncodedBody)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointBuilder
 name|mapHttpMessageFormUrlEncodedBody
@@ -2343,7 +2243,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Headers of the exchange will          * be mapped to HTTP headers. Setting this to false will avoid the HTTP          * Headers mapping.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageHeaders ( boolean mapHttpMessageHeaders)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointBuilder
 name|mapHttpMessageHeaders
@@ -2365,7 +2264,6 @@ return|;
 block|}
 comment|/**          * If this option is true then IN exchange Headers of the exchange will          * be mapped to HTTP headers. Setting this to false will avoid the HTTP          * Headers mapping.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|mapHttpMessageHeaders ( String mapHttpMessageHeaders)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointBuilder
 name|mapHttpMessageHeaders
@@ -2387,7 +2285,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointBuilder
 name|synchronous
@@ -2409,7 +2306,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedAtmosphereWebsocketEndpointBuilder
 name|synchronous
@@ -2431,8 +2327,7 @@ return|;
 block|}
 block|}
 comment|/**      * To exchange data with external Websocket clients using Atmosphere.      * Creates a builder to build endpoints for the Atmosphere Websocket      * component.      */
-DECL|method|atmosphereWebsocket ( String path)
-specifier|public
+DECL|method|atmosphereWebsocket (String path)
 specifier|default
 name|AtmosphereWebsocketEndpointBuilder
 name|atmosphereWebsocket

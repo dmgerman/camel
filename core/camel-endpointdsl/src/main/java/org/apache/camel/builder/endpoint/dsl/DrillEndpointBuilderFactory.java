@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedDrillEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * ZooKeeper host name or IP address. Use local instead of a host name          * or IP address to connect to the local Drillbit.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|DrillEndpointBuilder
 name|host
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Cluster ID          * https://drill.apache.org/docs/using-the-jdbc-driver/#determining-the-cluster-id.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|clusterId (String clusterId)
-specifier|public
 specifier|default
 name|DrillEndpointBuilder
 name|clusterId
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Drill directory in ZooKeeper.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|directory (String directory)
-specifier|public
 specifier|default
 name|DrillEndpointBuilder
 name|directory
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Connection mode: zk: Zookeeper drillbit: Drillbit direct connection          * https://drill.apache.org/docs/using-the-jdbc-driver/.          * The option is a          *<code>org.apache.camel.component.drill.DrillConnectionMode</code>          * type.          * @group producer          */
 DECL|method|mode (DrillConnectionMode mode)
-specifier|public
 specifier|default
 name|DrillEndpointBuilder
 name|mode
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Connection mode: zk: Zookeeper drillbit: Drillbit direct connection          * https://drill.apache.org/docs/using-the-jdbc-driver/.          * The option will be converted to a          *<code>org.apache.camel.component.drill.DrillConnectionMode</code>          * type.          * @group producer          */
 DECL|method|mode (String mode)
-specifier|public
 specifier|default
 name|DrillEndpointBuilder
 name|mode
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * ZooKeeper port number.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
 DECL|method|port (Integer port)
-specifier|public
 specifier|default
 name|DrillEndpointBuilder
 name|port
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * ZooKeeper port number.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|DrillEndpointBuilder
 name|port
@@ -277,7 +269,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|DrillEndpointBuilder
 name|basic
@@ -292,7 +283,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDrillEndpointBuilder
 name|basicPropertyBinding
@@ -314,7 +304,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDrillEndpointBuilder
 name|basicPropertyBinding
@@ -335,8 +324,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedDrillEndpointBuilder
 name|synchronous
@@ -357,8 +345,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedDrillEndpointBuilder
 name|synchronous
@@ -394,7 +381,6 @@ name|DRILLBIT
 block|;     }
 comment|/**      * The drill component gives you the ability to quering into apache drill      * cluster. Creates a builder to build endpoints for the Drill component.      */
 DECL|method|drill (String path)
-specifier|public
 specifier|default
 name|DrillEndpointBuilder
 name|drill

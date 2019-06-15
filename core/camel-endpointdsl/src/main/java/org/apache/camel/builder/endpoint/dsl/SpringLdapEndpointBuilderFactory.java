@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSpringLdapEndpointBuilder
 name|advanced
@@ -113,8 +112,7 @@ name|this
 return|;
 block|}
 comment|/**          * Name of the Spring LDAP Template bean.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|templateName ( String templateName)
-specifier|public
+DECL|method|templateName (String templateName)
 specifier|default
 name|SpringLdapEndpointBuilder
 name|templateName
@@ -135,8 +133,7 @@ name|this
 return|;
 block|}
 comment|/**          * The LDAP operation to be performed.          * The option is a          *<code>org.apache.camel.component.springldap.LdapOperation</code>          * type.          * @group producer          */
-DECL|method|operation ( LdapOperation operation)
-specifier|public
+DECL|method|operation (LdapOperation operation)
 specifier|default
 name|SpringLdapEndpointBuilder
 name|operation
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * The LDAP operation to be performed.          * The option will be converted to a          *<code>org.apache.camel.component.springldap.LdapOperation</code>          * type.          * @group producer          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|SpringLdapEndpointBuilder
 name|operation
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * The scope of the search operation.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|scope (String scope)
-specifier|public
 specifier|default
 name|SpringLdapEndpointBuilder
 name|scope
@@ -211,7 +206,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SpringLdapEndpointBuilder
 name|basic
@@ -226,7 +220,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSpringLdapEndpointBuilder
 name|basicPropertyBinding
@@ -248,7 +241,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSpringLdapEndpointBuilder
 name|basicPropertyBinding
@@ -270,7 +262,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedSpringLdapEndpointBuilder
 name|synchronous
@@ -291,8 +282,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSpringLdapEndpointBuilder
 name|synchronous
@@ -340,7 +330,6 @@ name|FUNCTION_DRIVEN
 block|;     }
 comment|/**      * The spring-ldap component allows you to perform searches in LDAP servers      * using filters as the message payload. Creates a builder to build      * endpoints for the Spring LDAP component.      */
 DECL|method|springLdap (String path)
-specifier|public
 specifier|default
 name|SpringLdapEndpointBuilder
 name|springLdap

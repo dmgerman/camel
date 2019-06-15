@@ -198,7 +198,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointConsumerBuilder
 name|advanced
@@ -213,7 +212,6 @@ return|;
 block|}
 comment|/**          * Returns the ID of the AS/400 user.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userID (String userID)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|userID
@@ -235,7 +233,6 @@ return|;
 block|}
 comment|/**          * Returns the password of the AS/400 user.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|password
@@ -257,7 +254,6 @@ return|;
 block|}
 comment|/**          * Returns the name of the AS/400 system.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|systemName (String systemName)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|systemName
@@ -279,7 +275,6 @@ return|;
 block|}
 comment|/**          * Returns the fully qualified integrated file system path name of the          * target object of this endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|objectPath (String objectPath)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|objectPath
@@ -301,7 +296,6 @@ return|;
 block|}
 comment|/**          * Whether to work with data queues or remote program call.          * The option is a          *<code>org.apache.camel.component.jt400.Jt400Type</code> type.          * @group common          */
 DECL|method|type (Jt400Type type)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|type
@@ -323,7 +317,6 @@ return|;
 block|}
 comment|/**          * Whether to work with data queues or remote program call.          * The option will be converted to a          *<code>org.apache.camel.component.jt400.Jt400Type</code> type.          * @group common          */
 DECL|method|type (String type)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|type
@@ -345,7 +338,6 @@ return|;
 block|}
 comment|/**          * Sets the CCSID to use for the connection with the AS/400 system.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|ccsid (int ccsid)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|ccsid
@@ -367,7 +359,6 @@ return|;
 block|}
 comment|/**          * Sets the CCSID to use for the connection with the AS/400 system.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|ccsid (String ccsid)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|ccsid
@@ -389,7 +380,6 @@ return|;
 block|}
 comment|/**          * Sets the data format for sending messages.          * The option is a          *<code>org.apache.camel.component.jt400.Jt400Configuration$Format</code> type.          * @group common          */
 DECL|method|format (Format format)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|format
@@ -411,7 +401,6 @@ return|;
 block|}
 comment|/**          * Sets the data format for sending messages.          * The option will be converted to a          *<code>org.apache.camel.component.jt400.Jt400Configuration$Format</code> type.          * @group common          */
 DECL|method|format (String format)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|format
@@ -432,8 +421,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether AS/400 prompting is enabled in the environment running          * Camel.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|guiAvailable ( boolean guiAvailable)
-specifier|public
+DECL|method|guiAvailable (boolean guiAvailable)
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|guiAvailable
@@ -454,8 +442,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether AS/400 prompting is enabled in the environment running          * Camel.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|guiAvailable ( String guiAvailable)
-specifier|public
+DECL|method|guiAvailable (String guiAvailable)
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|guiAvailable
@@ -477,7 +464,6 @@ return|;
 block|}
 comment|/**          * Whether to use keyed or non-keyed data queues.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|keyed (boolean keyed)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|keyed
@@ -499,7 +485,6 @@ return|;
 block|}
 comment|/**          * Whether to use keyed or non-keyed data queues.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|keyed (String keyed)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|keyed
@@ -521,7 +506,6 @@ return|;
 block|}
 comment|/**          * Specifies which fields (program parameters) are output parameters.          * The option is a<code>java.lang.Integer[]</code> type.          * @group common          */
 DECL|method|outputFieldsIdxArray ( Integer[] outputFieldsIdxArray)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|outputFieldsIdxArray
@@ -544,7 +528,6 @@ return|;
 block|}
 comment|/**          * Specifies which fields (program parameters) are output parameters.          * The option will be converted to a<code>java.lang.Integer[]</code>          * type.          * @group common          */
 DECL|method|outputFieldsIdxArray ( String outputFieldsIdxArray)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|outputFieldsIdxArray
@@ -566,7 +549,6 @@ return|;
 block|}
 comment|/**          * Specifies the fields (program parameters) length as in the AS/400          * program definition.          * The option is a<code>java.lang.Integer[]</code> type.          * @group common          */
 DECL|method|outputFieldsLengthArray ( Integer[] outputFieldsLengthArray)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|outputFieldsLengthArray
@@ -589,7 +571,6 @@ return|;
 block|}
 comment|/**          * Specifies the fields (program parameters) length as in the AS/400          * program definition.          * The option will be converted to a<code>java.lang.Integer[]</code>          * type.          * @group common          */
 DECL|method|outputFieldsLengthArray ( String outputFieldsLengthArray)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|outputFieldsLengthArray
@@ -611,7 +592,6 @@ return|;
 block|}
 comment|/**          * Search key for keyed data queues.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|searchKey (String searchKey)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|searchKey
@@ -632,8 +612,7 @@ name|this
 return|;
 block|}
 comment|/**          * Search type such as EQ for equal etc.          * The option is a          *<code>org.apache.camel.component.jt400.Jt400Configuration$SearchType</code> type.          * @group common          */
-DECL|method|searchType ( SearchType searchType)
-specifier|public
+DECL|method|searchType (SearchType searchType)
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|searchType
@@ -655,7 +634,6 @@ return|;
 block|}
 comment|/**          * Search type such as EQ for equal etc.          * The option will be converted to a          *<code>org.apache.camel.component.jt400.Jt400Configuration$SearchType</code> type.          * @group common          */
 DECL|method|searchType (String searchType)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|searchType
@@ -677,7 +655,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -699,7 +676,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -721,7 +697,6 @@ return|;
 block|}
 comment|/**          * Timeout in millis the consumer will wait while trying to read a new          * message of the data queue.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|readTimeout (int readTimeout)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|readTimeout
@@ -742,8 +717,7 @@ name|this
 return|;
 block|}
 comment|/**          * Timeout in millis the consumer will wait while trying to read a new          * message of the data queue.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
-DECL|method|readTimeout ( String readTimeout)
-specifier|public
+DECL|method|readTimeout (String readTimeout)
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|readTimeout
@@ -765,7 +739,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( boolean sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -787,7 +760,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( String sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -809,7 +781,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( int backoffErrorThreshold)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -831,7 +802,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( String backoffErrorThreshold)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -853,7 +823,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( int backoffIdleThreshold)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -875,7 +844,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( String backoffIdleThreshold)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -897,7 +865,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( int backoffMultiplier)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|backoffMultiplier
@@ -919,7 +886,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( String backoffMultiplier)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|backoffMultiplier
@@ -941,7 +907,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (long delay)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|delay
@@ -963,7 +928,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (String delay)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|delay
@@ -985,7 +949,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (boolean greedy)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|greedy
@@ -1007,7 +970,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (String greedy)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|greedy
@@ -1028,8 +990,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
-DECL|method|initialDelay ( long initialDelay)
-specifier|public
+DECL|method|initialDelay (long initialDelay)
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|initialDelay
@@ -1050,8 +1011,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
-DECL|method|initialDelay ( String initialDelay)
-specifier|public
+DECL|method|initialDelay (String initialDelay)
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|initialDelay
@@ -1073,7 +1033,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( LoggingLevel runLoggingLevel)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|runLoggingLevel
@@ -1095,7 +1054,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( String runLoggingLevel)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|runLoggingLevel
@@ -1117,7 +1075,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option is a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( ScheduledExecutorService scheduledExecutorService)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|scheduledExecutorService
@@ -1139,7 +1096,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( String scheduledExecutorService)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|scheduledExecutorService
@@ -1161,7 +1117,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option is a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler ( ScheduledPollConsumerScheduler scheduler)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|scheduler
@@ -1183,7 +1138,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler (String scheduler)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|scheduler
@@ -1205,7 +1159,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group scheduler          */
 DECL|method|schedulerProperties ( Map<String, Object> schedulerProperties)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|schedulerProperties
@@ -1232,7 +1185,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group scheduler          */
 DECL|method|schedulerProperties ( String schedulerProperties)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|schedulerProperties
@@ -1254,7 +1206,6 @@ return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|startScheduler ( boolean startScheduler)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|startScheduler
@@ -1276,7 +1227,6 @@ return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|startScheduler ( String startScheduler)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|startScheduler
@@ -1298,7 +1248,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option is a<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (TimeUnit timeUnit)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|timeUnit
@@ -1320,7 +1269,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (String timeUnit)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|timeUnit
@@ -1341,8 +1289,7 @@ name|this
 return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option is a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|useFixedDelay ( boolean useFixedDelay)
-specifier|public
+DECL|method|useFixedDelay (boolean useFixedDelay)
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|useFixedDelay
@@ -1363,8 +1310,7 @@ name|this
 return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|useFixedDelay ( String useFixedDelay)
-specifier|public
+DECL|method|useFixedDelay (String useFixedDelay)
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|useFixedDelay
@@ -1385,8 +1331,7 @@ name|this
 return|;
 block|}
 comment|/**          * Procedure name from a service program to call.          * The option is a<code>java.lang.String</code> type.          * @group procedureName          */
-DECL|method|procedureName ( String procedureName)
-specifier|public
+DECL|method|procedureName (String procedureName)
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|procedureName
@@ -1408,7 +1353,6 @@ return|;
 block|}
 comment|/**          * Whether connections to AS/400 are secured with SSL.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|secured (boolean secured)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|secured
@@ -1430,7 +1374,6 @@ return|;
 block|}
 comment|/**          * Whether connections to AS/400 are secured with SSL.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|secured (String secured)
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|secured
@@ -1460,7 +1403,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|Jt400EndpointConsumerBuilder
 name|basic
@@ -1475,7 +1417,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointConsumerBuilder
 name|exceptionHandler
@@ -1497,7 +1438,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointConsumerBuilder
 name|exceptionHandler
@@ -1519,7 +1459,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointConsumerBuilder
 name|exchangePattern
@@ -1541,7 +1480,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointConsumerBuilder
 name|exchangePattern
@@ -1563,7 +1501,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option is a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( PollingConsumerPollStrategy pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointConsumerBuilder
 name|pollStrategy
@@ -1585,7 +1522,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( String pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointConsumerBuilder
 name|pollStrategy
@@ -1607,7 +1543,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1629,7 +1564,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1651,7 +1585,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointConsumerBuilder
 name|synchronous
@@ -1673,7 +1606,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointConsumerBuilder
 name|synchronous
@@ -1704,7 +1636,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointProducerBuilder
 name|advanced
@@ -1719,7 +1650,6 @@ return|;
 block|}
 comment|/**          * Returns the ID of the AS/400 user.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userID (String userID)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|userID
@@ -1741,7 +1671,6 @@ return|;
 block|}
 comment|/**          * Returns the password of the AS/400 user.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|password
@@ -1763,7 +1692,6 @@ return|;
 block|}
 comment|/**          * Returns the name of the AS/400 system.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|systemName (String systemName)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|systemName
@@ -1785,7 +1713,6 @@ return|;
 block|}
 comment|/**          * Returns the fully qualified integrated file system path name of the          * target object of this endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|objectPath (String objectPath)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|objectPath
@@ -1807,7 +1734,6 @@ return|;
 block|}
 comment|/**          * Whether to work with data queues or remote program call.          * The option is a          *<code>org.apache.camel.component.jt400.Jt400Type</code> type.          * @group common          */
 DECL|method|type (Jt400Type type)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|type
@@ -1829,7 +1755,6 @@ return|;
 block|}
 comment|/**          * Whether to work with data queues or remote program call.          * The option will be converted to a          *<code>org.apache.camel.component.jt400.Jt400Type</code> type.          * @group common          */
 DECL|method|type (String type)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|type
@@ -1851,7 +1776,6 @@ return|;
 block|}
 comment|/**          * Sets the CCSID to use for the connection with the AS/400 system.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|ccsid (int ccsid)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|ccsid
@@ -1873,7 +1797,6 @@ return|;
 block|}
 comment|/**          * Sets the CCSID to use for the connection with the AS/400 system.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|ccsid (String ccsid)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|ccsid
@@ -1895,7 +1818,6 @@ return|;
 block|}
 comment|/**          * Sets the data format for sending messages.          * The option is a          *<code>org.apache.camel.component.jt400.Jt400Configuration$Format</code> type.          * @group common          */
 DECL|method|format (Format format)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|format
@@ -1917,7 +1839,6 @@ return|;
 block|}
 comment|/**          * Sets the data format for sending messages.          * The option will be converted to a          *<code>org.apache.camel.component.jt400.Jt400Configuration$Format</code> type.          * @group common          */
 DECL|method|format (String format)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|format
@@ -1938,8 +1859,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether AS/400 prompting is enabled in the environment running          * Camel.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|guiAvailable ( boolean guiAvailable)
-specifier|public
+DECL|method|guiAvailable (boolean guiAvailable)
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|guiAvailable
@@ -1960,8 +1880,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether AS/400 prompting is enabled in the environment running          * Camel.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|guiAvailable ( String guiAvailable)
-specifier|public
+DECL|method|guiAvailable (String guiAvailable)
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|guiAvailable
@@ -1983,7 +1902,6 @@ return|;
 block|}
 comment|/**          * Whether to use keyed or non-keyed data queues.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|keyed (boolean keyed)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|keyed
@@ -2005,7 +1923,6 @@ return|;
 block|}
 comment|/**          * Whether to use keyed or non-keyed data queues.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|keyed (String keyed)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|keyed
@@ -2027,7 +1944,6 @@ return|;
 block|}
 comment|/**          * Specifies which fields (program parameters) are output parameters.          * The option is a<code>java.lang.Integer[]</code> type.          * @group common          */
 DECL|method|outputFieldsIdxArray ( Integer[] outputFieldsIdxArray)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|outputFieldsIdxArray
@@ -2050,7 +1966,6 @@ return|;
 block|}
 comment|/**          * Specifies which fields (program parameters) are output parameters.          * The option will be converted to a<code>java.lang.Integer[]</code>          * type.          * @group common          */
 DECL|method|outputFieldsIdxArray ( String outputFieldsIdxArray)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|outputFieldsIdxArray
@@ -2072,7 +1987,6 @@ return|;
 block|}
 comment|/**          * Specifies the fields (program parameters) length as in the AS/400          * program definition.          * The option is a<code>java.lang.Integer[]</code> type.          * @group common          */
 DECL|method|outputFieldsLengthArray ( Integer[] outputFieldsLengthArray)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|outputFieldsLengthArray
@@ -2095,7 +2009,6 @@ return|;
 block|}
 comment|/**          * Specifies the fields (program parameters) length as in the AS/400          * program definition.          * The option will be converted to a<code>java.lang.Integer[]</code>          * type.          * @group common          */
 DECL|method|outputFieldsLengthArray ( String outputFieldsLengthArray)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|outputFieldsLengthArray
@@ -2117,7 +2030,6 @@ return|;
 block|}
 comment|/**          * Search key for keyed data queues.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|searchKey (String searchKey)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|searchKey
@@ -2138,8 +2050,7 @@ name|this
 return|;
 block|}
 comment|/**          * Search type such as EQ for equal etc.          * The option is a          *<code>org.apache.camel.component.jt400.Jt400Configuration$SearchType</code> type.          * @group common          */
-DECL|method|searchType ( SearchType searchType)
-specifier|public
+DECL|method|searchType (SearchType searchType)
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|searchType
@@ -2161,7 +2072,6 @@ return|;
 block|}
 comment|/**          * Search type such as EQ for equal etc.          * The option will be converted to a          *<code>org.apache.camel.component.jt400.Jt400Configuration$SearchType</code> type.          * @group common          */
 DECL|method|searchType (String searchType)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|searchType
@@ -2183,7 +2093,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|lazyStartProducer
@@ -2205,7 +2114,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|lazyStartProducer
@@ -2226,8 +2134,7 @@ name|this
 return|;
 block|}
 comment|/**          * Procedure name from a service program to call.          * The option is a<code>java.lang.String</code> type.          * @group procedureName          */
-DECL|method|procedureName ( String procedureName)
-specifier|public
+DECL|method|procedureName (String procedureName)
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|procedureName
@@ -2249,7 +2156,6 @@ return|;
 block|}
 comment|/**          * Whether connections to AS/400 are secured with SSL.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|secured (boolean secured)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|secured
@@ -2271,7 +2177,6 @@ return|;
 block|}
 comment|/**          * Whether connections to AS/400 are secured with SSL.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|secured (String secured)
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|secured
@@ -2301,7 +2206,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|Jt400EndpointProducerBuilder
 name|basic
@@ -2316,7 +2220,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointProducerBuilder
 name|basicPropertyBinding
@@ -2338,7 +2241,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointProducerBuilder
 name|basicPropertyBinding
@@ -2360,7 +2262,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointProducerBuilder
 name|synchronous
@@ -2382,7 +2283,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointProducerBuilder
 name|synchronous
@@ -2415,7 +2315,6 @@ extends|,
 name|Jt400EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointBuilder
 name|advanced
@@ -2430,7 +2329,6 @@ return|;
 block|}
 comment|/**          * Returns the ID of the AS/400 user.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userID (String userID)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|userID
@@ -2452,7 +2350,6 @@ return|;
 block|}
 comment|/**          * Returns the password of the AS/400 user.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|password
@@ -2474,7 +2371,6 @@ return|;
 block|}
 comment|/**          * Returns the name of the AS/400 system.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|systemName (String systemName)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|systemName
@@ -2496,7 +2392,6 @@ return|;
 block|}
 comment|/**          * Returns the fully qualified integrated file system path name of the          * target object of this endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|objectPath (String objectPath)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|objectPath
@@ -2518,7 +2413,6 @@ return|;
 block|}
 comment|/**          * Whether to work with data queues or remote program call.          * The option is a          *<code>org.apache.camel.component.jt400.Jt400Type</code> type.          * @group common          */
 DECL|method|type (Jt400Type type)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|type
@@ -2540,7 +2434,6 @@ return|;
 block|}
 comment|/**          * Whether to work with data queues or remote program call.          * The option will be converted to a          *<code>org.apache.camel.component.jt400.Jt400Type</code> type.          * @group common          */
 DECL|method|type (String type)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|type
@@ -2562,7 +2455,6 @@ return|;
 block|}
 comment|/**          * Sets the CCSID to use for the connection with the AS/400 system.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|ccsid (int ccsid)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|ccsid
@@ -2584,7 +2476,6 @@ return|;
 block|}
 comment|/**          * Sets the CCSID to use for the connection with the AS/400 system.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|ccsid (String ccsid)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|ccsid
@@ -2606,7 +2497,6 @@ return|;
 block|}
 comment|/**          * Sets the data format for sending messages.          * The option is a          *<code>org.apache.camel.component.jt400.Jt400Configuration$Format</code> type.          * @group common          */
 DECL|method|format (Format format)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|format
@@ -2628,7 +2518,6 @@ return|;
 block|}
 comment|/**          * Sets the data format for sending messages.          * The option will be converted to a          *<code>org.apache.camel.component.jt400.Jt400Configuration$Format</code> type.          * @group common          */
 DECL|method|format (String format)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|format
@@ -2650,7 +2539,6 @@ return|;
 block|}
 comment|/**          * Sets whether AS/400 prompting is enabled in the environment running          * Camel.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|guiAvailable (boolean guiAvailable)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|guiAvailable
@@ -2672,7 +2560,6 @@ return|;
 block|}
 comment|/**          * Sets whether AS/400 prompting is enabled in the environment running          * Camel.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|guiAvailable (String guiAvailable)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|guiAvailable
@@ -2694,7 +2581,6 @@ return|;
 block|}
 comment|/**          * Whether to use keyed or non-keyed data queues.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|keyed (boolean keyed)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|keyed
@@ -2716,7 +2602,6 @@ return|;
 block|}
 comment|/**          * Whether to use keyed or non-keyed data queues.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|keyed (String keyed)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|keyed
@@ -2738,7 +2623,6 @@ return|;
 block|}
 comment|/**          * Specifies which fields (program parameters) are output parameters.          * The option is a<code>java.lang.Integer[]</code> type.          * @group common          */
 DECL|method|outputFieldsIdxArray ( Integer[] outputFieldsIdxArray)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|outputFieldsIdxArray
@@ -2761,7 +2645,6 @@ return|;
 block|}
 comment|/**          * Specifies which fields (program parameters) are output parameters.          * The option will be converted to a<code>java.lang.Integer[]</code>          * type.          * @group common          */
 DECL|method|outputFieldsIdxArray ( String outputFieldsIdxArray)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|outputFieldsIdxArray
@@ -2783,7 +2666,6 @@ return|;
 block|}
 comment|/**          * Specifies the fields (program parameters) length as in the AS/400          * program definition.          * The option is a<code>java.lang.Integer[]</code> type.          * @group common          */
 DECL|method|outputFieldsLengthArray ( Integer[] outputFieldsLengthArray)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|outputFieldsLengthArray
@@ -2806,7 +2688,6 @@ return|;
 block|}
 comment|/**          * Specifies the fields (program parameters) length as in the AS/400          * program definition.          * The option will be converted to a<code>java.lang.Integer[]</code>          * type.          * @group common          */
 DECL|method|outputFieldsLengthArray ( String outputFieldsLengthArray)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|outputFieldsLengthArray
@@ -2828,7 +2709,6 @@ return|;
 block|}
 comment|/**          * Search key for keyed data queues.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|searchKey (String searchKey)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|searchKey
@@ -2850,7 +2730,6 @@ return|;
 block|}
 comment|/**          * Search type such as EQ for equal etc.          * The option is a          *<code>org.apache.camel.component.jt400.Jt400Configuration$SearchType</code> type.          * @group common          */
 DECL|method|searchType (SearchType searchType)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|searchType
@@ -2872,7 +2751,6 @@ return|;
 block|}
 comment|/**          * Search type such as EQ for equal etc.          * The option will be converted to a          *<code>org.apache.camel.component.jt400.Jt400Configuration$SearchType</code> type.          * @group common          */
 DECL|method|searchType (String searchType)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|searchType
@@ -2894,7 +2772,6 @@ return|;
 block|}
 comment|/**          * Procedure name from a service program to call.          * The option is a<code>java.lang.String</code> type.          * @group procedureName          */
 DECL|method|procedureName (String procedureName)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|procedureName
@@ -2916,7 +2793,6 @@ return|;
 block|}
 comment|/**          * Whether connections to AS/400 are secured with SSL.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|secured (boolean secured)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|secured
@@ -2938,7 +2814,6 @@ return|;
 block|}
 comment|/**          * Whether connections to AS/400 are secured with SSL.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|secured (String secured)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|secured
@@ -2971,7 +2846,6 @@ extends|,
 name|AdvancedJt400EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|basic
@@ -2986,7 +2860,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointBuilder
 name|basicPropertyBinding
@@ -3008,7 +2881,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJt400EndpointBuilder
 name|basicPropertyBinding
@@ -3029,8 +2901,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedJt400EndpointBuilder
 name|synchronous
@@ -3051,8 +2922,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedJt400EndpointBuilder
 name|synchronous
@@ -3129,7 +2999,6 @@ name|GE
 block|;     }
 comment|/**      * The jt400 component allows you to exchanges messages with an AS/400      * system using data queues or program call. Creates a builder to build      * endpoints for the JT400 component.      */
 DECL|method|jt400 (String path)
-specifier|public
 specifier|default
 name|Jt400EndpointBuilder
 name|jt400

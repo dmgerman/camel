@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJoltEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Path to the resource. You can prefix with: classpath, file, http,          * ref, or bean. classpath, file and http loads the resource using these          * protocols (classpath is default). ref will lookup the resource in the          * registry. bean will call a method on a bean to be used as the          * resource. For bean you can specify the method name after dot, eg          * bean:myBean.myMethod.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|resourceUri (String resourceUri)
-specifier|public
 specifier|default
 name|JoltEndpointBuilder
 name|resourceUri
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Sets whether to use resource content cache or not.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|contentCache (boolean contentCache)
-specifier|public
 specifier|default
 name|JoltEndpointBuilder
 name|contentCache
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Sets whether to use resource content cache or not.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|contentCache (String contentCache)
-specifier|public
 specifier|default
 name|JoltEndpointBuilder
 name|contentCache
@@ -179,8 +175,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specifies if the input is hydrated JSON or a JSON String.          * The option is a          *<code>org.apache.camel.component.jolt.JoltInputOutputType</code>          * type.          * @group producer          */
-DECL|method|inputType ( JoltInputOutputType inputType)
-specifier|public
+DECL|method|inputType (JoltInputOutputType inputType)
 specifier|default
 name|JoltEndpointBuilder
 name|inputType
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Specifies if the input is hydrated JSON or a JSON String.          * The option will be converted to a          *<code>org.apache.camel.component.jolt.JoltInputOutputType</code>          * type.          * @group producer          */
 DECL|method|inputType (String inputType)
-specifier|public
 specifier|default
 name|JoltEndpointBuilder
 name|inputType
@@ -223,8 +217,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specifies if the output should be hydrated JSON or a JSON String.          * The option is a          *<code>org.apache.camel.component.jolt.JoltInputOutputType</code>          * type.          * @group producer          */
-DECL|method|outputType ( JoltInputOutputType outputType)
-specifier|public
+DECL|method|outputType (JoltInputOutputType outputType)
 specifier|default
 name|JoltEndpointBuilder
 name|outputType
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * Specifies if the output should be hydrated JSON or a JSON String.          * The option will be converted to a          *<code>org.apache.camel.component.jolt.JoltInputOutputType</code>          * type.          * @group producer          */
 DECL|method|outputType (String outputType)
-specifier|public
 specifier|default
 name|JoltEndpointBuilder
 name|outputType
@@ -267,8 +259,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specifies the Transform DSL of the endpoint resource. If none is          * specified Chainr will be used.          * The option is a          *<code>org.apache.camel.component.jolt.JoltTransformType</code> type.          * @group producer          */
-DECL|method|transformDsl ( JoltTransformType transformDsl)
-specifier|public
+DECL|method|transformDsl (JoltTransformType transformDsl)
 specifier|default
 name|JoltEndpointBuilder
 name|transformDsl
@@ -290,7 +281,6 @@ return|;
 block|}
 comment|/**          * Specifies the Transform DSL of the endpoint resource. If none is          * specified Chainr will be used.          * The option will be converted to a          *<code>org.apache.camel.component.jolt.JoltTransformType</code> type.          * @group producer          */
 DECL|method|transformDsl (String transformDsl)
-specifier|public
 specifier|default
 name|JoltEndpointBuilder
 name|transformDsl
@@ -321,7 +311,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JoltEndpointBuilder
 name|basic
@@ -336,7 +325,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJoltEndpointBuilder
 name|basicPropertyBinding
@@ -358,7 +346,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJoltEndpointBuilder
 name|basicPropertyBinding
@@ -379,8 +366,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedJoltEndpointBuilder
 name|synchronous
@@ -401,8 +387,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedJoltEndpointBuilder
 name|synchronous
@@ -460,7 +445,6 @@ name|Sortr
 block|;     }
 comment|/**      * The jolt component allows you to process a JSON messages using an JOLT      * specification (such as JSON-JSON transformation). Creates a builder to      * build endpoints for the JOLT component.      */
 DECL|method|jolt (String path)
-specifier|public
 specifier|default
 name|JoltEndpointBuilder
 name|jolt

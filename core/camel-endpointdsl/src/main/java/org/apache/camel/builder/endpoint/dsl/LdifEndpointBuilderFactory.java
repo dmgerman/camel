@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedLdifEndpointBuilder
 name|advanced
@@ -113,8 +112,7 @@ name|this
 return|;
 block|}
 comment|/**          * The name of the LdapConnection bean to pull from the registry. Note          * that this must be of scope prototype to avoid it being shared among          * threads or using a connection that has timed out.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|ldapConnectionName ( String ldapConnectionName)
-specifier|public
+DECL|method|ldapConnectionName (String ldapConnectionName)
 specifier|default
 name|LdifEndpointBuilder
 name|ldapConnectionName
@@ -145,7 +143,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|LdifEndpointBuilder
 name|basic
@@ -160,7 +157,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedLdifEndpointBuilder
 name|basicPropertyBinding
@@ -182,7 +178,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedLdifEndpointBuilder
 name|basicPropertyBinding
@@ -203,8 +198,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedLdifEndpointBuilder
 name|synchronous
@@ -225,8 +219,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedLdifEndpointBuilder
 name|synchronous
@@ -249,7 +242,6 @@ block|}
 block|}
 comment|/**      * The ldif component allows you to do updates on an LDAP server from a LDIF      * body content. Creates a builder to build endpoints for the LDIF      * component.      */
 DECL|method|ldif (String path)
-specifier|public
 specifier|default
 name|LdifEndpointBuilder
 name|ldif

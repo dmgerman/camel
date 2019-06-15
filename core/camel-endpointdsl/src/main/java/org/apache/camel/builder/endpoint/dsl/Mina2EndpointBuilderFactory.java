@@ -146,7 +146,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|advanced
@@ -161,7 +160,6 @@ return|;
 block|}
 comment|/**          * Protocol to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|protocol (String protocol)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|protocol
@@ -183,7 +181,6 @@ return|;
 block|}
 comment|/**          * Hostname to use. Use localhost or 0.0.0.0 for local server as          * consumer. For producer use the hostname or ip address of the remote          * server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|host
@@ -205,7 +202,6 @@ return|;
 block|}
 comment|/**          * Port number.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|port
@@ -227,7 +223,6 @@ return|;
 block|}
 comment|/**          * Port number.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|port
@@ -248,8 +243,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether or not to disconnect(close) from Mina session right after          * use. Can be used for both consumer and producer.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|disconnect ( boolean disconnect)
-specifier|public
+DECL|method|disconnect (boolean disconnect)
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|disconnect
@@ -271,7 +265,6 @@ return|;
 block|}
 comment|/**          * Whether or not to disconnect(close) from Mina session right after          * use. Can be used for both consumer and producer.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|disconnect (String disconnect)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|disconnect
@@ -292,8 +285,7 @@ name|this
 return|;
 block|}
 comment|/**          * You can enable the Apache MINA logging filter. Apache MINA uses slf4j          * logging at INFO level to log all input and output.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|minaLogger ( boolean minaLogger)
-specifier|public
+DECL|method|minaLogger (boolean minaLogger)
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|minaLogger
@@ -315,7 +307,6 @@ return|;
 block|}
 comment|/**          * You can enable the Apache MINA logging filter. Apache MINA uses slf4j          * logging at INFO level to log all input and output.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|minaLogger (String minaLogger)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|minaLogger
@@ -337,7 +328,6 @@ return|;
 block|}
 comment|/**          * Setting to set endpoint as one-way or request-response.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|sync (boolean sync)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|sync
@@ -359,7 +349,6 @@ return|;
 block|}
 comment|/**          * Setting to set endpoint as one-way or request-response.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|sync (String sync)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|sync
@@ -381,7 +370,6 @@ return|;
 block|}
 comment|/**          * You can configure the timeout that specifies how long to wait for a          * response from a remote server. The timeout unit is in milliseconds,          * so 60000 is 60 seconds.          * The option is a<code>long</code> type.          * @group common          */
 DECL|method|timeout (long timeout)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|timeout
@@ -403,7 +391,6 @@ return|;
 block|}
 comment|/**          * You can configure the timeout that specifies how long to wait for a          * response from a remote server. The timeout unit is in milliseconds,          * so 60000 is 60 seconds.          * The option will be converted to a<code>long</code> type.          * @group common          */
 DECL|method|timeout (String timeout)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|timeout
@@ -424,8 +411,7 @@ name|this
 return|;
 block|}
 comment|/**          * Maximum amount of time it should take to send data to the MINA          * session. Default is 10000 milliseconds.          * The option is a<code>long</code> type.          * @group common          */
-DECL|method|writeTimeout ( long writeTimeout)
-specifier|public
+DECL|method|writeTimeout (long writeTimeout)
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|writeTimeout
@@ -446,8 +432,7 @@ name|this
 return|;
 block|}
 comment|/**          * Maximum amount of time it should take to send data to the MINA          * session. Default is 10000 milliseconds.          * The option will be converted to a<code>long</code> type.          * @group common          */
-DECL|method|writeTimeout ( String writeTimeout)
-specifier|public
+DECL|method|writeTimeout (String writeTimeout)
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|writeTimeout
@@ -469,7 +454,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -491,7 +475,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -512,8 +495,7 @@ name|this
 return|;
 block|}
 comment|/**          * If the clientMode is true, mina consumer will connect the address as          * a TCP client.          * The option is a<code>boolean</code> type.          * @group consumer          */
-DECL|method|clientMode ( boolean clientMode)
-specifier|public
+DECL|method|clientMode (boolean clientMode)
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|clientMode
@@ -535,7 +517,6 @@ return|;
 block|}
 comment|/**          * If the clientMode is true, mina consumer will connect the address as          * a TCP client.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|clientMode (String clientMode)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|clientMode
@@ -557,7 +538,6 @@ return|;
 block|}
 comment|/**          * The mina component installs a default codec if both, codec is null          * and textline is false. Setting allowDefaultCodec to false prevents          * the mina component from installing a default codec as the first          * element in the filter chain. This is useful in scenarios where          * another filter must be the first in the filter chain, like the SSL          * filter.          * The option is a<code>boolean</code> type.          * @group codec          */
 DECL|method|allowDefaultCodec ( boolean allowDefaultCodec)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|allowDefaultCodec
@@ -579,7 +559,6 @@ return|;
 block|}
 comment|/**          * The mina component installs a default codec if both, codec is null          * and textline is false. Setting allowDefaultCodec to false prevents          * the mina component from installing a default codec as the first          * element in the filter chain. This is useful in scenarios where          * another filter must be the first in the filter chain, like the SSL          * filter.          * The option will be converted to a<code>boolean</code> type.          * @group codec          */
 DECL|method|allowDefaultCodec ( String allowDefaultCodec)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|allowDefaultCodec
@@ -601,7 +580,6 @@ return|;
 block|}
 comment|/**          * To use a custom minda codec implementation.          * The option is a          *<code>org.apache.mina.filter.codec.ProtocolCodecFactory</code> type.          * @group codec          */
 DECL|method|codec (Object codec)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|codec
@@ -623,7 +601,6 @@ return|;
 block|}
 comment|/**          * To use a custom minda codec implementation.          * The option will be converted to a          *<code>org.apache.mina.filter.codec.ProtocolCodecFactory</code> type.          * @group codec          */
 DECL|method|codec (String codec)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|codec
@@ -645,7 +622,6 @@ return|;
 block|}
 comment|/**          * To set the textline protocol decoder max line length. By default the          * default value of Mina itself is used which are 1024.          * The option is a<code>int</code> type.          * @group codec          */
 DECL|method|decoderMaxLineLength ( int decoderMaxLineLength)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|decoderMaxLineLength
@@ -667,7 +643,6 @@ return|;
 block|}
 comment|/**          * To set the textline protocol decoder max line length. By default the          * default value of Mina itself is used which are 1024.          * The option will be converted to a<code>int</code> type.          * @group codec          */
 DECL|method|decoderMaxLineLength ( String decoderMaxLineLength)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|decoderMaxLineLength
@@ -689,7 +664,6 @@ return|;
 block|}
 comment|/**          * To set the textline protocol encoder max line length. By default the          * default value of Mina itself is used which are Integer.MAX_VALUE.          * The option is a<code>int</code> type.          * @group codec          */
 DECL|method|encoderMaxLineLength ( int encoderMaxLineLength)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|encoderMaxLineLength
@@ -711,7 +685,6 @@ return|;
 block|}
 comment|/**          * To set the textline protocol encoder max line length. By default the          * default value of Mina itself is used which are Integer.MAX_VALUE.          * The option will be converted to a<code>int</code> type.          * @group codec          */
 DECL|method|encoderMaxLineLength ( String encoderMaxLineLength)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|encoderMaxLineLength
@@ -733,7 +706,6 @@ return|;
 block|}
 comment|/**          * You can configure the encoding (a charset name) to use for the TCP          * textline codec and the UDP protocol. If not provided, Camel will use          * the JVM default Charset.          * The option is a<code>java.lang.String</code> type.          * @group codec          */
 DECL|method|encoding (String encoding)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|encoding
@@ -755,7 +727,6 @@ return|;
 block|}
 comment|/**          * You can set a list of Mina IoFilters to use.          * The option is a          *<code>java.util.List&lt;org.apache.mina.core.filterchain.IoFilter&gt;</code> type.          * @group codec          */
 DECL|method|filters (List<Object> filters)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|filters
@@ -780,7 +751,6 @@ return|;
 block|}
 comment|/**          * You can set a list of Mina IoFilters to use.          * The option will be converted to a          *<code>java.util.List&lt;org.apache.mina.core.filterchain.IoFilter&gt;</code> type.          * @group codec          */
 DECL|method|filters (String filters)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|filters
@@ -802,7 +772,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP. If no codec is specified, you can use this flag to          * indicate a text line based codec; if not specified or the value is          * false, then Object Serialization is assumed over TCP.          * The option is a<code>boolean</code> type.          * @group codec          */
 DECL|method|textline (boolean textline)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|textline
@@ -824,7 +793,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP. If no codec is specified, you can use this flag to          * indicate a text line based codec; if not specified or the value is          * false, then Object Serialization is assumed over TCP.          * The option will be converted to a<code>boolean</code> type.          * @group codec          */
 DECL|method|textline (String textline)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|textline
@@ -846,7 +814,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP and if textline=true. Sets the text line delimiter          * to use. If none provided, Camel will use DEFAULT. This delimiter is          * used to mark the end of text.          * The option is a          *<code>org.apache.camel.component.mina2.Mina2TextLineDelimiter</code>          * type.          * @group codec          */
 DECL|method|textlineDelimiter ( Mina2TextLineDelimiter textlineDelimiter)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|textlineDelimiter
@@ -868,7 +835,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP and if textline=true. Sets the text line delimiter          * to use. If none provided, Camel will use DEFAULT. This delimiter is          * used to mark the end of text.          * The option will be converted to a          *<code>org.apache.camel.component.mina2.Mina2TextLineDelimiter</code>          * type.          * @group codec          */
 DECL|method|textlineDelimiter ( String textlineDelimiter)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|textlineDelimiter
@@ -889,8 +855,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether to auto start SSL handshake.          * The option is a<code>boolean</code> type.          * @group security          */
-DECL|method|autoStartTls ( boolean autoStartTls)
-specifier|public
+DECL|method|autoStartTls (boolean autoStartTls)
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|autoStartTls
@@ -911,8 +876,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether to auto start SSL handshake.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
-DECL|method|autoStartTls ( String autoStartTls)
-specifier|public
+DECL|method|autoStartTls (String autoStartTls)
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|autoStartTls
@@ -934,7 +898,6 @@ return|;
 block|}
 comment|/**          * To configure SSL security.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|sslContextParameters
@@ -956,7 +919,6 @@ return|;
 block|}
 comment|/**          * To configure SSL security.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|sslContextParameters
@@ -986,7 +948,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|Mina2EndpointConsumerBuilder
 name|basic
@@ -1001,7 +962,6 @@ return|;
 block|}
 comment|/**          * If sync is enabled then this option dictates MinaConsumer if it          * should disconnect where there is no reply to send back.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|disconnectOnNoReply ( boolean disconnectOnNoReply)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|disconnectOnNoReply
@@ -1023,7 +983,6 @@ return|;
 block|}
 comment|/**          * If sync is enabled then this option dictates MinaConsumer if it          * should disconnect where there is no reply to send back.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|disconnectOnNoReply ( String disconnectOnNoReply)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|disconnectOnNoReply
@@ -1045,7 +1004,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|exceptionHandler
@@ -1067,7 +1025,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|exceptionHandler
@@ -1089,7 +1046,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|exchangePattern
@@ -1111,7 +1067,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|exchangePattern
@@ -1133,7 +1088,6 @@ return|;
 block|}
 comment|/**          * If sync is enabled this option dictates MinaConsumer which logging          * level to use when logging a there is no reply to send back.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group consumer (advanced)          */
 DECL|method|noReplyLogLevel ( LoggingLevel noReplyLogLevel)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|noReplyLogLevel
@@ -1155,7 +1109,6 @@ return|;
 block|}
 comment|/**          * If sync is enabled this option dictates MinaConsumer which logging          * level to use when logging a there is no reply to send back.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group consumer (advanced)          */
 DECL|method|noReplyLogLevel ( String noReplyLogLevel)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|noReplyLogLevel
@@ -1177,7 +1130,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1199,7 +1151,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1221,7 +1172,6 @@ return|;
 block|}
 comment|/**          * Number of worker threads in the worker pool for TCP and UDP.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|maximumPoolSize ( int maximumPoolSize)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|maximumPoolSize
@@ -1243,7 +1193,6 @@ return|;
 block|}
 comment|/**          * Number of worker threads in the worker pool for TCP and UDP.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|maximumPoolSize ( String maximumPoolSize)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|maximumPoolSize
@@ -1265,7 +1214,6 @@ return|;
 block|}
 comment|/**          * Whether to use ordered thread pool, to ensure events are processed          * orderly on the same channel.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|orderedThreadPoolExecutor ( boolean orderedThreadPoolExecutor)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|orderedThreadPoolExecutor
@@ -1287,7 +1235,6 @@ return|;
 block|}
 comment|/**          * Whether to use ordered thread pool, to ensure events are processed          * orderly on the same channel.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|orderedThreadPoolExecutor ( String orderedThreadPoolExecutor)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|orderedThreadPoolExecutor
@@ -1309,7 +1256,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|synchronous
@@ -1331,7 +1277,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|synchronous
@@ -1353,7 +1298,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP. You can transfer the exchange over the wire          * instead of just the body. The following fields are transferred: In          * body, Out body, fault body, In headers, Out headers, fault headers,          * exchange properties, exchange exception. This requires that the          * objects are serializable. Camel will exclude any non-serializable          * objects and log it at WARN level.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferExchange ( boolean transferExchange)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|transferExchange
@@ -1375,7 +1319,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP. You can transfer the exchange over the wire          * instead of just the body. The following fields are transferred: In          * body, Out body, fault body, In headers, Out headers, fault headers,          * exchange properties, exchange exception. This requires that the          * objects are serializable. Camel will exclude any non-serializable          * objects and log it at WARN level.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferExchange ( String transferExchange)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointConsumerBuilder
 name|transferExchange
@@ -1406,7 +1349,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointProducerBuilder
 name|advanced
@@ -1421,7 +1363,6 @@ return|;
 block|}
 comment|/**          * Protocol to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|protocol (String protocol)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|protocol
@@ -1443,7 +1384,6 @@ return|;
 block|}
 comment|/**          * Hostname to use. Use localhost or 0.0.0.0 for local server as          * consumer. For producer use the hostname or ip address of the remote          * server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|host
@@ -1465,7 +1405,6 @@ return|;
 block|}
 comment|/**          * Port number.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|port
@@ -1487,7 +1426,6 @@ return|;
 block|}
 comment|/**          * Port number.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|port
@@ -1508,8 +1446,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether or not to disconnect(close) from Mina session right after          * use. Can be used for both consumer and producer.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|disconnect ( boolean disconnect)
-specifier|public
+DECL|method|disconnect (boolean disconnect)
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|disconnect
@@ -1531,7 +1468,6 @@ return|;
 block|}
 comment|/**          * Whether or not to disconnect(close) from Mina session right after          * use. Can be used for both consumer and producer.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|disconnect (String disconnect)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|disconnect
@@ -1552,8 +1488,7 @@ name|this
 return|;
 block|}
 comment|/**          * You can enable the Apache MINA logging filter. Apache MINA uses slf4j          * logging at INFO level to log all input and output.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|minaLogger ( boolean minaLogger)
-specifier|public
+DECL|method|minaLogger (boolean minaLogger)
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|minaLogger
@@ -1575,7 +1510,6 @@ return|;
 block|}
 comment|/**          * You can enable the Apache MINA logging filter. Apache MINA uses slf4j          * logging at INFO level to log all input and output.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|minaLogger (String minaLogger)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|minaLogger
@@ -1597,7 +1531,6 @@ return|;
 block|}
 comment|/**          * Setting to set endpoint as one-way or request-response.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|sync (boolean sync)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|sync
@@ -1619,7 +1552,6 @@ return|;
 block|}
 comment|/**          * Setting to set endpoint as one-way or request-response.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|sync (String sync)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|sync
@@ -1641,7 +1573,6 @@ return|;
 block|}
 comment|/**          * You can configure the timeout that specifies how long to wait for a          * response from a remote server. The timeout unit is in milliseconds,          * so 60000 is 60 seconds.          * The option is a<code>long</code> type.          * @group common          */
 DECL|method|timeout (long timeout)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|timeout
@@ -1663,7 +1594,6 @@ return|;
 block|}
 comment|/**          * You can configure the timeout that specifies how long to wait for a          * response from a remote server. The timeout unit is in milliseconds,          * so 60000 is 60 seconds.          * The option will be converted to a<code>long</code> type.          * @group common          */
 DECL|method|timeout (String timeout)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|timeout
@@ -1684,8 +1614,7 @@ name|this
 return|;
 block|}
 comment|/**          * Maximum amount of time it should take to send data to the MINA          * session. Default is 10000 milliseconds.          * The option is a<code>long</code> type.          * @group common          */
-DECL|method|writeTimeout ( long writeTimeout)
-specifier|public
+DECL|method|writeTimeout (long writeTimeout)
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|writeTimeout
@@ -1706,8 +1635,7 @@ name|this
 return|;
 block|}
 comment|/**          * Maximum amount of time it should take to send data to the MINA          * session. Default is 10000 milliseconds.          * The option will be converted to a<code>long</code> type.          * @group common          */
-DECL|method|writeTimeout ( String writeTimeout)
-specifier|public
+DECL|method|writeTimeout (String writeTimeout)
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|writeTimeout
@@ -1729,7 +1657,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|lazyStartProducer
@@ -1751,7 +1678,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|lazyStartProducer
@@ -1773,7 +1699,6 @@ return|;
 block|}
 comment|/**          * The mina component installs a default codec if both, codec is null          * and textline is false. Setting allowDefaultCodec to false prevents          * the mina component from installing a default codec as the first          * element in the filter chain. This is useful in scenarios where          * another filter must be the first in the filter chain, like the SSL          * filter.          * The option is a<code>boolean</code> type.          * @group codec          */
 DECL|method|allowDefaultCodec ( boolean allowDefaultCodec)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|allowDefaultCodec
@@ -1795,7 +1720,6 @@ return|;
 block|}
 comment|/**          * The mina component installs a default codec if both, codec is null          * and textline is false. Setting allowDefaultCodec to false prevents          * the mina component from installing a default codec as the first          * element in the filter chain. This is useful in scenarios where          * another filter must be the first in the filter chain, like the SSL          * filter.          * The option will be converted to a<code>boolean</code> type.          * @group codec          */
 DECL|method|allowDefaultCodec ( String allowDefaultCodec)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|allowDefaultCodec
@@ -1817,7 +1741,6 @@ return|;
 block|}
 comment|/**          * To use a custom minda codec implementation.          * The option is a          *<code>org.apache.mina.filter.codec.ProtocolCodecFactory</code> type.          * @group codec          */
 DECL|method|codec (Object codec)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|codec
@@ -1839,7 +1762,6 @@ return|;
 block|}
 comment|/**          * To use a custom minda codec implementation.          * The option will be converted to a          *<code>org.apache.mina.filter.codec.ProtocolCodecFactory</code> type.          * @group codec          */
 DECL|method|codec (String codec)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|codec
@@ -1861,7 +1783,6 @@ return|;
 block|}
 comment|/**          * To set the textline protocol decoder max line length. By default the          * default value of Mina itself is used which are 1024.          * The option is a<code>int</code> type.          * @group codec          */
 DECL|method|decoderMaxLineLength ( int decoderMaxLineLength)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|decoderMaxLineLength
@@ -1883,7 +1804,6 @@ return|;
 block|}
 comment|/**          * To set the textline protocol decoder max line length. By default the          * default value of Mina itself is used which are 1024.          * The option will be converted to a<code>int</code> type.          * @group codec          */
 DECL|method|decoderMaxLineLength ( String decoderMaxLineLength)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|decoderMaxLineLength
@@ -1905,7 +1825,6 @@ return|;
 block|}
 comment|/**          * To set the textline protocol encoder max line length. By default the          * default value of Mina itself is used which are Integer.MAX_VALUE.          * The option is a<code>int</code> type.          * @group codec          */
 DECL|method|encoderMaxLineLength ( int encoderMaxLineLength)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|encoderMaxLineLength
@@ -1927,7 +1846,6 @@ return|;
 block|}
 comment|/**          * To set the textline protocol encoder max line length. By default the          * default value of Mina itself is used which are Integer.MAX_VALUE.          * The option will be converted to a<code>int</code> type.          * @group codec          */
 DECL|method|encoderMaxLineLength ( String encoderMaxLineLength)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|encoderMaxLineLength
@@ -1949,7 +1867,6 @@ return|;
 block|}
 comment|/**          * You can configure the encoding (a charset name) to use for the TCP          * textline codec and the UDP protocol. If not provided, Camel will use          * the JVM default Charset.          * The option is a<code>java.lang.String</code> type.          * @group codec          */
 DECL|method|encoding (String encoding)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|encoding
@@ -1971,7 +1888,6 @@ return|;
 block|}
 comment|/**          * You can set a list of Mina IoFilters to use.          * The option is a          *<code>java.util.List&lt;org.apache.mina.core.filterchain.IoFilter&gt;</code> type.          * @group codec          */
 DECL|method|filters (List<Object> filters)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|filters
@@ -1996,7 +1912,6 @@ return|;
 block|}
 comment|/**          * You can set a list of Mina IoFilters to use.          * The option will be converted to a          *<code>java.util.List&lt;org.apache.mina.core.filterchain.IoFilter&gt;</code> type.          * @group codec          */
 DECL|method|filters (String filters)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|filters
@@ -2018,7 +1933,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP. If no codec is specified, you can use this flag to          * indicate a text line based codec; if not specified or the value is          * false, then Object Serialization is assumed over TCP.          * The option is a<code>boolean</code> type.          * @group codec          */
 DECL|method|textline (boolean textline)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|textline
@@ -2040,7 +1954,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP. If no codec is specified, you can use this flag to          * indicate a text line based codec; if not specified or the value is          * false, then Object Serialization is assumed over TCP.          * The option will be converted to a<code>boolean</code> type.          * @group codec          */
 DECL|method|textline (String textline)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|textline
@@ -2062,7 +1975,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP and if textline=true. Sets the text line delimiter          * to use. If none provided, Camel will use DEFAULT. This delimiter is          * used to mark the end of text.          * The option is a          *<code>org.apache.camel.component.mina2.Mina2TextLineDelimiter</code>          * type.          * @group codec          */
 DECL|method|textlineDelimiter ( Mina2TextLineDelimiter textlineDelimiter)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|textlineDelimiter
@@ -2084,7 +1996,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP and if textline=true. Sets the text line delimiter          * to use. If none provided, Camel will use DEFAULT. This delimiter is          * used to mark the end of text.          * The option will be converted to a          *<code>org.apache.camel.component.mina2.Mina2TextLineDelimiter</code>          * type.          * @group codec          */
 DECL|method|textlineDelimiter ( String textlineDelimiter)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|textlineDelimiter
@@ -2105,8 +2016,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether to auto start SSL handshake.          * The option is a<code>boolean</code> type.          * @group security          */
-DECL|method|autoStartTls ( boolean autoStartTls)
-specifier|public
+DECL|method|autoStartTls (boolean autoStartTls)
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|autoStartTls
@@ -2127,8 +2037,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether to auto start SSL handshake.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
-DECL|method|autoStartTls ( String autoStartTls)
-specifier|public
+DECL|method|autoStartTls (String autoStartTls)
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|autoStartTls
@@ -2150,7 +2059,6 @@ return|;
 block|}
 comment|/**          * To configure SSL security.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|sslContextParameters
@@ -2172,7 +2080,6 @@ return|;
 block|}
 comment|/**          * To configure SSL security.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|sslContextParameters
@@ -2202,7 +2109,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|Mina2EndpointProducerBuilder
 name|basic
@@ -2217,7 +2123,6 @@ return|;
 block|}
 comment|/**          * Whether to create the InetAddress once and reuse. Setting this to          * false allows to pickup DNS changes in the network.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|cachedAddress ( boolean cachedAddress)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointProducerBuilder
 name|cachedAddress
@@ -2239,7 +2144,6 @@ return|;
 block|}
 comment|/**          * Whether to create the InetAddress once and reuse. Setting this to          * false allows to pickup DNS changes in the network.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|cachedAddress ( String cachedAddress)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointProducerBuilder
 name|cachedAddress
@@ -2261,7 +2165,6 @@ return|;
 block|}
 comment|/**          * Sessions can be lazily created to avoid exceptions, if the remote          * server is not up and running when the Camel producer is started.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|lazySessionCreation ( boolean lazySessionCreation)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointProducerBuilder
 name|lazySessionCreation
@@ -2283,7 +2186,6 @@ return|;
 block|}
 comment|/**          * Sessions can be lazily created to avoid exceptions, if the remote          * server is not up and running when the Camel producer is started.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|lazySessionCreation ( String lazySessionCreation)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointProducerBuilder
 name|lazySessionCreation
@@ -2305,7 +2207,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointProducerBuilder
 name|basicPropertyBinding
@@ -2327,7 +2228,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointProducerBuilder
 name|basicPropertyBinding
@@ -2349,7 +2249,6 @@ return|;
 block|}
 comment|/**          * Number of worker threads in the worker pool for TCP and UDP.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|maximumPoolSize ( int maximumPoolSize)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointProducerBuilder
 name|maximumPoolSize
@@ -2371,7 +2270,6 @@ return|;
 block|}
 comment|/**          * Number of worker threads in the worker pool for TCP and UDP.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|maximumPoolSize ( String maximumPoolSize)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointProducerBuilder
 name|maximumPoolSize
@@ -2393,7 +2291,6 @@ return|;
 block|}
 comment|/**          * Whether to use ordered thread pool, to ensure events are processed          * orderly on the same channel.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|orderedThreadPoolExecutor ( boolean orderedThreadPoolExecutor)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointProducerBuilder
 name|orderedThreadPoolExecutor
@@ -2415,7 +2312,6 @@ return|;
 block|}
 comment|/**          * Whether to use ordered thread pool, to ensure events are processed          * orderly on the same channel.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|orderedThreadPoolExecutor ( String orderedThreadPoolExecutor)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointProducerBuilder
 name|orderedThreadPoolExecutor
@@ -2437,7 +2333,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointProducerBuilder
 name|synchronous
@@ -2459,7 +2354,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointProducerBuilder
 name|synchronous
@@ -2481,7 +2375,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP. You can transfer the exchange over the wire          * instead of just the body. The following fields are transferred: In          * body, Out body, fault body, In headers, Out headers, fault headers,          * exchange properties, exchange exception. This requires that the          * objects are serializable. Camel will exclude any non-serializable          * objects and log it at WARN level.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferExchange ( boolean transferExchange)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointProducerBuilder
 name|transferExchange
@@ -2503,7 +2396,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP. You can transfer the exchange over the wire          * instead of just the body. The following fields are transferred: In          * body, Out body, fault body, In headers, Out headers, fault headers,          * exchange properties, exchange exception. This requires that the          * objects are serializable. Camel will exclude any non-serializable          * objects and log it at WARN level.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferExchange ( String transferExchange)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointProducerBuilder
 name|transferExchange
@@ -2536,7 +2428,6 @@ extends|,
 name|Mina2EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointBuilder
 name|advanced
@@ -2551,7 +2442,6 @@ return|;
 block|}
 comment|/**          * Protocol to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|protocol (String protocol)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|protocol
@@ -2573,7 +2463,6 @@ return|;
 block|}
 comment|/**          * Hostname to use. Use localhost or 0.0.0.0 for local server as          * consumer. For producer use the hostname or ip address of the remote          * server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|host
@@ -2595,7 +2484,6 @@ return|;
 block|}
 comment|/**          * Port number.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|port
@@ -2617,7 +2505,6 @@ return|;
 block|}
 comment|/**          * Port number.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|port
@@ -2639,7 +2526,6 @@ return|;
 block|}
 comment|/**          * Whether or not to disconnect(close) from Mina session right after          * use. Can be used for both consumer and producer.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|disconnect (boolean disconnect)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|disconnect
@@ -2661,7 +2547,6 @@ return|;
 block|}
 comment|/**          * Whether or not to disconnect(close) from Mina session right after          * use. Can be used for both consumer and producer.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|disconnect (String disconnect)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|disconnect
@@ -2683,7 +2568,6 @@ return|;
 block|}
 comment|/**          * You can enable the Apache MINA logging filter. Apache MINA uses slf4j          * logging at INFO level to log all input and output.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|minaLogger (boolean minaLogger)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|minaLogger
@@ -2705,7 +2589,6 @@ return|;
 block|}
 comment|/**          * You can enable the Apache MINA logging filter. Apache MINA uses slf4j          * logging at INFO level to log all input and output.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|minaLogger (String minaLogger)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|minaLogger
@@ -2727,7 +2610,6 @@ return|;
 block|}
 comment|/**          * Setting to set endpoint as one-way or request-response.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|sync (boolean sync)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|sync
@@ -2749,7 +2631,6 @@ return|;
 block|}
 comment|/**          * Setting to set endpoint as one-way or request-response.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|sync (String sync)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|sync
@@ -2771,7 +2652,6 @@ return|;
 block|}
 comment|/**          * You can configure the timeout that specifies how long to wait for a          * response from a remote server. The timeout unit is in milliseconds,          * so 60000 is 60 seconds.          * The option is a<code>long</code> type.          * @group common          */
 DECL|method|timeout (long timeout)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|timeout
@@ -2793,7 +2673,6 @@ return|;
 block|}
 comment|/**          * You can configure the timeout that specifies how long to wait for a          * response from a remote server. The timeout unit is in milliseconds,          * so 60000 is 60 seconds.          * The option will be converted to a<code>long</code> type.          * @group common          */
 DECL|method|timeout (String timeout)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|timeout
@@ -2815,7 +2694,6 @@ return|;
 block|}
 comment|/**          * Maximum amount of time it should take to send data to the MINA          * session. Default is 10000 milliseconds.          * The option is a<code>long</code> type.          * @group common          */
 DECL|method|writeTimeout (long writeTimeout)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|writeTimeout
@@ -2837,7 +2715,6 @@ return|;
 block|}
 comment|/**          * Maximum amount of time it should take to send data to the MINA          * session. Default is 10000 milliseconds.          * The option will be converted to a<code>long</code> type.          * @group common          */
 DECL|method|writeTimeout (String writeTimeout)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|writeTimeout
@@ -2858,8 +2735,7 @@ name|this
 return|;
 block|}
 comment|/**          * The mina component installs a default codec if both, codec is null          * and textline is false. Setting allowDefaultCodec to false prevents          * the mina component from installing a default codec as the first          * element in the filter chain. This is useful in scenarios where          * another filter must be the first in the filter chain, like the SSL          * filter.          * The option is a<code>boolean</code> type.          * @group codec          */
-DECL|method|allowDefaultCodec ( boolean allowDefaultCodec)
-specifier|public
+DECL|method|allowDefaultCodec (boolean allowDefaultCodec)
 specifier|default
 name|Mina2EndpointBuilder
 name|allowDefaultCodec
@@ -2880,8 +2756,7 @@ name|this
 return|;
 block|}
 comment|/**          * The mina component installs a default codec if both, codec is null          * and textline is false. Setting allowDefaultCodec to false prevents          * the mina component from installing a default codec as the first          * element in the filter chain. This is useful in scenarios where          * another filter must be the first in the filter chain, like the SSL          * filter.          * The option will be converted to a<code>boolean</code> type.          * @group codec          */
-DECL|method|allowDefaultCodec ( String allowDefaultCodec)
-specifier|public
+DECL|method|allowDefaultCodec (String allowDefaultCodec)
 specifier|default
 name|Mina2EndpointBuilder
 name|allowDefaultCodec
@@ -2903,7 +2778,6 @@ return|;
 block|}
 comment|/**          * To use a custom minda codec implementation.          * The option is a          *<code>org.apache.mina.filter.codec.ProtocolCodecFactory</code> type.          * @group codec          */
 DECL|method|codec (Object codec)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|codec
@@ -2925,7 +2799,6 @@ return|;
 block|}
 comment|/**          * To use a custom minda codec implementation.          * The option will be converted to a          *<code>org.apache.mina.filter.codec.ProtocolCodecFactory</code> type.          * @group codec          */
 DECL|method|codec (String codec)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|codec
@@ -2947,7 +2820,6 @@ return|;
 block|}
 comment|/**          * To set the textline protocol decoder max line length. By default the          * default value of Mina itself is used which are 1024.          * The option is a<code>int</code> type.          * @group codec          */
 DECL|method|decoderMaxLineLength ( int decoderMaxLineLength)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|decoderMaxLineLength
@@ -2969,7 +2841,6 @@ return|;
 block|}
 comment|/**          * To set the textline protocol decoder max line length. By default the          * default value of Mina itself is used which are 1024.          * The option will be converted to a<code>int</code> type.          * @group codec          */
 DECL|method|decoderMaxLineLength ( String decoderMaxLineLength)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|decoderMaxLineLength
@@ -2991,7 +2862,6 @@ return|;
 block|}
 comment|/**          * To set the textline protocol encoder max line length. By default the          * default value of Mina itself is used which are Integer.MAX_VALUE.          * The option is a<code>int</code> type.          * @group codec          */
 DECL|method|encoderMaxLineLength ( int encoderMaxLineLength)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|encoderMaxLineLength
@@ -3013,7 +2883,6 @@ return|;
 block|}
 comment|/**          * To set the textline protocol encoder max line length. By default the          * default value of Mina itself is used which are Integer.MAX_VALUE.          * The option will be converted to a<code>int</code> type.          * @group codec          */
 DECL|method|encoderMaxLineLength ( String encoderMaxLineLength)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|encoderMaxLineLength
@@ -3035,7 +2904,6 @@ return|;
 block|}
 comment|/**          * You can configure the encoding (a charset name) to use for the TCP          * textline codec and the UDP protocol. If not provided, Camel will use          * the JVM default Charset.          * The option is a<code>java.lang.String</code> type.          * @group codec          */
 DECL|method|encoding (String encoding)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|encoding
@@ -3057,7 +2925,6 @@ return|;
 block|}
 comment|/**          * You can set a list of Mina IoFilters to use.          * The option is a          *<code>java.util.List&lt;org.apache.mina.core.filterchain.IoFilter&gt;</code> type.          * @group codec          */
 DECL|method|filters (List<Object> filters)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|filters
@@ -3082,7 +2949,6 @@ return|;
 block|}
 comment|/**          * You can set a list of Mina IoFilters to use.          * The option will be converted to a          *<code>java.util.List&lt;org.apache.mina.core.filterchain.IoFilter&gt;</code> type.          * @group codec          */
 DECL|method|filters (String filters)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|filters
@@ -3104,7 +2970,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP. If no codec is specified, you can use this flag to          * indicate a text line based codec; if not specified or the value is          * false, then Object Serialization is assumed over TCP.          * The option is a<code>boolean</code> type.          * @group codec          */
 DECL|method|textline (boolean textline)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|textline
@@ -3126,7 +2991,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP. If no codec is specified, you can use this flag to          * indicate a text line based codec; if not specified or the value is          * false, then Object Serialization is assumed over TCP.          * The option will be converted to a<code>boolean</code> type.          * @group codec          */
 DECL|method|textline (String textline)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|textline
@@ -3148,7 +3012,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP and if textline=true. Sets the text line delimiter          * to use. If none provided, Camel will use DEFAULT. This delimiter is          * used to mark the end of text.          * The option is a          *<code>org.apache.camel.component.mina2.Mina2TextLineDelimiter</code>          * type.          * @group codec          */
 DECL|method|textlineDelimiter ( Mina2TextLineDelimiter textlineDelimiter)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|textlineDelimiter
@@ -3169,8 +3032,7 @@ name|this
 return|;
 block|}
 comment|/**          * Only used for TCP and if textline=true. Sets the text line delimiter          * to use. If none provided, Camel will use DEFAULT. This delimiter is          * used to mark the end of text.          * The option will be converted to a          *<code>org.apache.camel.component.mina2.Mina2TextLineDelimiter</code>          * type.          * @group codec          */
-DECL|method|textlineDelimiter ( String textlineDelimiter)
-specifier|public
+DECL|method|textlineDelimiter (String textlineDelimiter)
 specifier|default
 name|Mina2EndpointBuilder
 name|textlineDelimiter
@@ -3192,7 +3054,6 @@ return|;
 block|}
 comment|/**          * Whether to auto start SSL handshake.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|autoStartTls (boolean autoStartTls)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|autoStartTls
@@ -3214,7 +3075,6 @@ return|;
 block|}
 comment|/**          * Whether to auto start SSL handshake.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|autoStartTls (String autoStartTls)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|autoStartTls
@@ -3236,7 +3096,6 @@ return|;
 block|}
 comment|/**          * To configure SSL security.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|sslContextParameters
@@ -3258,7 +3117,6 @@ return|;
 block|}
 comment|/**          * To configure SSL security.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|sslContextParameters
@@ -3291,7 +3149,6 @@ extends|,
 name|AdvancedMina2EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|basic
@@ -3306,7 +3163,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointBuilder
 name|basicPropertyBinding
@@ -3328,7 +3184,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointBuilder
 name|basicPropertyBinding
@@ -3349,8 +3204,7 @@ name|this
 return|;
 block|}
 comment|/**          * Number of worker threads in the worker pool for TCP and UDP.          * The option is a<code>int</code> type.          * @group advanced          */
-DECL|method|maximumPoolSize ( int maximumPoolSize)
-specifier|public
+DECL|method|maximumPoolSize (int maximumPoolSize)
 specifier|default
 name|AdvancedMina2EndpointBuilder
 name|maximumPoolSize
@@ -3372,7 +3226,6 @@ return|;
 block|}
 comment|/**          * Number of worker threads in the worker pool for TCP and UDP.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|maximumPoolSize ( String maximumPoolSize)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointBuilder
 name|maximumPoolSize
@@ -3394,7 +3247,6 @@ return|;
 block|}
 comment|/**          * Whether to use ordered thread pool, to ensure events are processed          * orderly on the same channel.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|orderedThreadPoolExecutor ( boolean orderedThreadPoolExecutor)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointBuilder
 name|orderedThreadPoolExecutor
@@ -3416,7 +3268,6 @@ return|;
 block|}
 comment|/**          * Whether to use ordered thread pool, to ensure events are processed          * orderly on the same channel.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|orderedThreadPoolExecutor ( String orderedThreadPoolExecutor)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointBuilder
 name|orderedThreadPoolExecutor
@@ -3437,8 +3288,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedMina2EndpointBuilder
 name|synchronous
@@ -3459,8 +3309,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedMina2EndpointBuilder
 name|synchronous
@@ -3482,7 +3331,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP. You can transfer the exchange over the wire          * instead of just the body. The following fields are transferred: In          * body, Out body, fault body, In headers, Out headers, fault headers,          * exchange properties, exchange exception. This requires that the          * objects are serializable. Camel will exclude any non-serializable          * objects and log it at WARN level.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferExchange ( boolean transferExchange)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointBuilder
 name|transferExchange
@@ -3504,7 +3352,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP. You can transfer the exchange over the wire          * instead of just the body. The following fields are transferred: In          * body, Out body, fault body, In headers, Out headers, fault headers,          * exchange properties, exchange exception. This requires that the          * objects are serializable. Camel will exclude any non-serializable          * objects and log it at WARN level.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferExchange ( String transferExchange)
-specifier|public
 specifier|default
 name|AdvancedMina2EndpointBuilder
 name|transferExchange
@@ -3549,7 +3396,6 @@ name|MAC
 block|;     }
 comment|/**      * Socket level networking using TCP or UDP with the Apache Mina 2.x      * library. Creates a builder to build endpoints for the Mina2 component.      */
 DECL|method|mina2 (String path)
-specifier|public
 specifier|default
 name|Mina2EndpointBuilder
 name|mina2

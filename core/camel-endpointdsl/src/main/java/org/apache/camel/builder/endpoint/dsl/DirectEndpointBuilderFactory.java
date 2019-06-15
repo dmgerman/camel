@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedDirectEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * Name of direct endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|DirectEndpointConsumerBuilder
 name|name
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|DirectEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|DirectEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -213,7 +209,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|DirectEndpointConsumerBuilder
 name|basic
@@ -228,7 +223,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedDirectEndpointConsumerBuilder
 name|exceptionHandler
@@ -250,7 +244,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedDirectEndpointConsumerBuilder
 name|exceptionHandler
@@ -272,7 +265,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedDirectEndpointConsumerBuilder
 name|exchangePattern
@@ -294,7 +286,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedDirectEndpointConsumerBuilder
 name|exchangePattern
@@ -316,7 +307,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDirectEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -338,7 +328,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDirectEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -360,7 +349,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedDirectEndpointConsumerBuilder
 name|synchronous
@@ -382,7 +370,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedDirectEndpointConsumerBuilder
 name|synchronous
@@ -413,7 +400,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedDirectEndpointProducerBuilder
 name|advanced
@@ -428,7 +414,6 @@ return|;
 block|}
 comment|/**          * Name of direct endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|DirectEndpointProducerBuilder
 name|name
@@ -450,7 +435,6 @@ return|;
 block|}
 comment|/**          * If sending a message to a direct endpoint which has no active          * consumer, then we can tell the producer to block and wait for the          * consumer to become active.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|block (boolean block)
-specifier|public
 specifier|default
 name|DirectEndpointProducerBuilder
 name|block
@@ -472,7 +456,6 @@ return|;
 block|}
 comment|/**          * If sending a message to a direct endpoint which has no active          * consumer, then we can tell the producer to block and wait for the          * consumer to become active.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|block (String block)
-specifier|public
 specifier|default
 name|DirectEndpointProducerBuilder
 name|block
@@ -494,7 +477,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should fail by throwing an exception, when          * sending to a DIRECT endpoint with no active consumers.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|failIfNoConsumers ( boolean failIfNoConsumers)
-specifier|public
 specifier|default
 name|DirectEndpointProducerBuilder
 name|failIfNoConsumers
@@ -516,7 +498,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should fail by throwing an exception, when          * sending to a DIRECT endpoint with no active consumers.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|failIfNoConsumers ( String failIfNoConsumers)
-specifier|public
 specifier|default
 name|DirectEndpointProducerBuilder
 name|failIfNoConsumers
@@ -538,7 +519,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|DirectEndpointProducerBuilder
 name|lazyStartProducer
@@ -560,7 +540,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|DirectEndpointProducerBuilder
 name|lazyStartProducer
@@ -582,7 +561,6 @@ return|;
 block|}
 comment|/**          * The timeout value to use if block is enabled.          * The option is a<code>long</code> type.          * @group producer          */
 DECL|method|timeout (long timeout)
-specifier|public
 specifier|default
 name|DirectEndpointProducerBuilder
 name|timeout
@@ -604,7 +582,6 @@ return|;
 block|}
 comment|/**          * The timeout value to use if block is enabled.          * The option will be converted to a<code>long</code> type.          * @group producer          */
 DECL|method|timeout (String timeout)
-specifier|public
 specifier|default
 name|DirectEndpointProducerBuilder
 name|timeout
@@ -634,7 +611,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|DirectEndpointProducerBuilder
 name|basic
@@ -649,7 +625,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDirectEndpointProducerBuilder
 name|basicPropertyBinding
@@ -671,7 +646,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDirectEndpointProducerBuilder
 name|basicPropertyBinding
@@ -693,7 +667,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedDirectEndpointProducerBuilder
 name|synchronous
@@ -715,7 +688,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedDirectEndpointProducerBuilder
 name|synchronous
@@ -748,7 +720,6 @@ extends|,
 name|DirectEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedDirectEndpointBuilder
 name|advanced
@@ -763,7 +734,6 @@ return|;
 block|}
 comment|/**          * Name of direct endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|DirectEndpointBuilder
 name|name
@@ -796,7 +766,6 @@ extends|,
 name|AdvancedDirectEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|DirectEndpointBuilder
 name|basic
@@ -811,7 +780,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDirectEndpointBuilder
 name|basicPropertyBinding
@@ -833,7 +801,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDirectEndpointBuilder
 name|basicPropertyBinding
@@ -854,8 +821,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedDirectEndpointBuilder
 name|synchronous
@@ -876,8 +842,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedDirectEndpointBuilder
 name|synchronous
@@ -900,7 +865,6 @@ block|}
 block|}
 comment|/**      * The direct component provides direct, synchronous call to another      * endpoint from the same CamelContext. Creates a builder to build endpoints      * for the Direct component.      */
 DECL|method|direct (String path)
-specifier|public
 specifier|default
 name|DirectEndpointBuilder
 name|direct

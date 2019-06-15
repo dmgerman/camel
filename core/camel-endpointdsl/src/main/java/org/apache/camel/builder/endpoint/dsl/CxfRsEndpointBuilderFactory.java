@@ -148,7 +148,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|advanced
@@ -163,7 +162,6 @@ return|;
 block|}
 comment|/**          * To lookup an existing configured CxfRsEndpoint. Must used bean: as          * prefix.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|beanId (String beanId)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|beanId
@@ -185,7 +183,6 @@ return|;
 block|}
 comment|/**          * The service publish address.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|address (String address)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|address
@@ -206,8 +203,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the feature list to the CxfRs endpoint.          * The option is a          *<code>java.util.List&lt;org.apache.cxf.feature.Feature&gt;</code>          * type.          * @group common          */
-DECL|method|features ( List<Object> features)
-specifier|public
+DECL|method|features (List<Object> features)
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|features
@@ -232,7 +228,6 @@ return|;
 block|}
 comment|/**          * Set the feature list to the CxfRs endpoint.          * The option will be converted to a          *<code>java.util.List&lt;org.apache.cxf.feature.Feature&gt;</code>          * type.          * @group common          */
 DECL|method|features (String features)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|features
@@ -254,7 +249,6 @@ return|;
 block|}
 comment|/**          * This option enables CXF Logging Feature which writes inbound and          * outbound REST messages to log.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|loggingFeatureEnabled ( boolean loggingFeatureEnabled)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|loggingFeatureEnabled
@@ -276,7 +270,6 @@ return|;
 block|}
 comment|/**          * This option enables CXF Logging Feature which writes inbound and          * outbound REST messages to log.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|loggingFeatureEnabled ( String loggingFeatureEnabled)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|loggingFeatureEnabled
@@ -298,7 +291,6 @@ return|;
 block|}
 comment|/**          * To limit the total size of number of bytes the logger will output          * when logging feature has been enabled.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|loggingSizeLimit ( int loggingSizeLimit)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|loggingSizeLimit
@@ -320,7 +312,6 @@ return|;
 block|}
 comment|/**          * To limit the total size of number of bytes the logger will output          * when logging feature has been enabled.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|loggingSizeLimit ( String loggingSizeLimit)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|loggingSizeLimit
@@ -342,7 +333,6 @@ return|;
 block|}
 comment|/**          * This option is used to specify the model file which is useful for the          * resource class without annotation. When using this option, then the          * service class can be omitted, to emulate document-only endpoints.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|modelRef (String modelRef)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|modelRef
@@ -363,8 +353,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set custom JAX-RS provider(s) list to the CxfRs endpoint. You can          * specify a string with a list of providers to lookup in the registy          * separated by comma.          * The option is a<code>java.util.List&lt;java.lang.Object&gt;</code>          * type.          * @group common          */
-DECL|method|providers ( List<Object> providers)
-specifier|public
+DECL|method|providers (List<Object> providers)
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|providers
@@ -389,7 +378,6 @@ return|;
 block|}
 comment|/**          * Set custom JAX-RS provider(s) list to the CxfRs endpoint. You can          * specify a string with a list of providers to lookup in the registy          * separated by comma.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.Object&gt;</code> type.          * @group common          */
 DECL|method|providers (String providers)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|providers
@@ -411,7 +399,6 @@ return|;
 block|}
 comment|/**          * The resource classes which you want to export as REST service.          * Multiple classes can be separated by comma.          * The option is a          *<code>java.util.List&lt;java.lang.Class&lt;java.lang.Object&gt;&gt;</code> type.          * @group common          */
 DECL|method|resourceClasses ( List<Class<Object>> resourceClasses)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|resourceClasses
@@ -439,7 +426,6 @@ return|;
 block|}
 comment|/**          * The resource classes which you want to export as REST service.          * Multiple classes can be separated by comma.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.Class&lt;java.lang.Object&gt;&gt;</code> type.          * @group common          */
 DECL|method|resourceClasses ( String resourceClasses)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|resourceClasses
@@ -461,7 +447,6 @@ return|;
 block|}
 comment|/**          * Sets the locations of the schema(s) which can be used to validate the          * incoming XML or JAXB-driven JSON.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|schemaLocations ( List<String> schemaLocations)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|schemaLocations
@@ -486,7 +471,6 @@ return|;
 block|}
 comment|/**          * Sets the locations of the schema(s) which can be used to validate the          * incoming XML or JAXB-driven JSON.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|schemaLocations ( String schemaLocations)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|schemaLocations
@@ -508,7 +492,6 @@ return|;
 block|}
 comment|/**          * This option controls whether the PhaseInterceptorChain skips logging          * the Fault that it catches.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|skipFaultLogging ( boolean skipFaultLogging)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|skipFaultLogging
@@ -530,7 +513,6 @@ return|;
 block|}
 comment|/**          * This option controls whether the PhaseInterceptorChain skips logging          * the Fault that it catches.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|skipFaultLogging ( String skipFaultLogging)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|skipFaultLogging
@@ -552,7 +534,6 @@ return|;
 block|}
 comment|/**          * Sets how requests and responses will be mapped to/from Camel. Two          * values are possible: SimpleConsumer: This binding style processes          * request parameters, multiparts, etc. and maps them to IN headers, IN          * attachments and to the message body. It aims to eliminate low-level          * processing of org.apache.cxf.message.MessageContentsList. It also          * also adds more flexibility and simplicity to the response mapping.          * Only available for consumers. Default: The default style. For          * consumers this passes on a MessageContentsList to the route,          * requiring low-level processing in the route. This is the traditional          * binding style, which simply dumps the          * org.apache.cxf.message.MessageContentsList coming in from the CXF          * stack onto the IN message body. The user is then responsible for          * processing it according to the contract defined by the JAX-RS method          * signature. Custom: allows you to specify a custom binding through the          * binding option.          * The option is a          *<code>org.apache.camel.component.cxf.jaxrs.BindingStyle</code> type.          * @group consumer          */
 DECL|method|bindingStyle ( BindingStyle bindingStyle)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|bindingStyle
@@ -573,8 +554,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets how requests and responses will be mapped to/from Camel. Two          * values are possible: SimpleConsumer: This binding style processes          * request parameters, multiparts, etc. and maps them to IN headers, IN          * attachments and to the message body. It aims to eliminate low-level          * processing of org.apache.cxf.message.MessageContentsList. It also          * also adds more flexibility and simplicity to the response mapping.          * Only available for consumers. Default: The default style. For          * consumers this passes on a MessageContentsList to the route,          * requiring low-level processing in the route. This is the traditional          * binding style, which simply dumps the          * org.apache.cxf.message.MessageContentsList coming in from the CXF          * stack onto the IN message body. The user is then responsible for          * processing it according to the contract defined by the JAX-RS method          * signature. Custom: allows you to specify a custom binding through the          * binding option.          * The option will be converted to a          *<code>org.apache.camel.component.cxf.jaxrs.BindingStyle</code> type.          * @group consumer          */
-DECL|method|bindingStyle ( String bindingStyle)
-specifier|public
+DECL|method|bindingStyle (String bindingStyle)
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|bindingStyle
@@ -596,7 +576,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -618,7 +597,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -640,7 +618,6 @@ return|;
 block|}
 comment|/**          * This option can override the endpointUrl that published from the WADL          * which can be accessed with resource address url plus _wadl.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|publishedEndpointUrl ( String publishedEndpointUrl)
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|publishedEndpointUrl
@@ -670,7 +647,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|CxfRsEndpointConsumerBuilder
 name|basic
@@ -685,7 +661,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|exceptionHandler
@@ -707,7 +682,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|exceptionHandler
@@ -729,7 +703,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|exchangePattern
@@ -751,7 +724,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|exchangePattern
@@ -773,7 +745,6 @@ return|;
 block|}
 comment|/**          * The service beans which you want to export as REST service. Multiple          * beans can be separated by comma.          * The option is a<code>java.util.List&lt;java.lang.Object&gt;</code>          * type.          * @group consumer (advanced)          */
 DECL|method|serviceBeans ( List<Object> serviceBeans)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|serviceBeans
@@ -798,7 +769,6 @@ return|;
 block|}
 comment|/**          * The service beans which you want to export as REST service. Multiple          * beans can be separated by comma.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.Object&gt;</code> type.          * @group consumer (advanced)          */
 DECL|method|serviceBeans ( String serviceBeans)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|serviceBeans
@@ -820,7 +790,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -842,7 +811,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -863,8 +831,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a custom CxfBinding to control the binding between Camel          * Message and CXF Message.          * The option is a          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsBinding</code> type.          * @group advanced          */
-DECL|method|binding ( Object binding)
-specifier|public
+DECL|method|binding (Object binding)
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|binding
@@ -885,8 +852,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a custom CxfBinding to control the binding between Camel          * Message and CXF Message.          * The option will be converted to a          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsBinding</code> type.          * @group advanced          */
-DECL|method|binding ( String binding)
-specifier|public
+DECL|method|binding (String binding)
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|binding
@@ -908,7 +874,6 @@ return|;
 block|}
 comment|/**          * To use a custom configured CXF Bus.          * The option is a<code>org.apache.cxf.Bus</code> type.          * @group advanced          */
 DECL|method|bus (Object bus)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|bus
@@ -930,7 +895,6 @@ return|;
 block|}
 comment|/**          * To use a custom configured CXF Bus.          * The option will be converted to a<code>org.apache.cxf.Bus</code>          * type.          * @group advanced          */
 DECL|method|bus (String bus)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|bus
@@ -952,7 +916,6 @@ return|;
 block|}
 comment|/**          * This option is used to set the CXF continuation timeout which could          * be used in CxfConsumer by default when the CXF server is using Jetty          * or Servlet transport.          * The option is a<code>long</code> type.          * @group advanced          */
 DECL|method|continuationTimeout ( long continuationTimeout)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|continuationTimeout
@@ -974,7 +937,6 @@ return|;
 block|}
 comment|/**          * This option is used to set the CXF continuation timeout which could          * be used in CxfConsumer by default when the CXF server is using Jetty          * or Servlet transport.          * The option will be converted to a<code>long</code> type.          * @group advanced          */
 DECL|method|continuationTimeout ( String continuationTimeout)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|continuationTimeout
@@ -996,7 +958,6 @@ return|;
 block|}
 comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which          * supports to configure the CXF endpoint in programmatic way. User can          * configure the CXF server and client by implementing          * configure{Server/Client} method of CxfEndpointConfigurer.          * The option is a          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer</code> type.          * @group advanced          */
 DECL|method|cxfRsEndpointConfigurer ( Object cxfRsEndpointConfigurer)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|cxfRsEndpointConfigurer
@@ -1018,7 +979,6 @@ return|;
 block|}
 comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which          * supports to configure the CXF endpoint in programmatic way. User can          * configure the CXF server and client by implementing          * configure{Server/Client} method of CxfEndpointConfigurer.          * The option will be converted to a          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer</code> type.          * @group advanced          */
 DECL|method|cxfRsEndpointConfigurer ( String cxfRsEndpointConfigurer)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|cxfRsEndpointConfigurer
@@ -1040,7 +1000,6 @@ return|;
 block|}
 comment|/**          * Will set the default bus when CXF endpoint create a bus by itself.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|defaultBus ( boolean defaultBus)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|defaultBus
@@ -1062,7 +1021,6 @@ return|;
 block|}
 comment|/**          * Will set the default bus when CXF endpoint create a bus by itself.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|defaultBus ( String defaultBus)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|defaultBus
@@ -1084,7 +1042,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|headerFilterStrategy
@@ -1106,7 +1063,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|headerFilterStrategy
@@ -1128,7 +1084,6 @@ return|;
 block|}
 comment|/**          * When the option is true, Camel will perform the invocation of the          * resource class instance and put the response object into the exchange          * for further processing.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|performInvocation ( boolean performInvocation)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|performInvocation
@@ -1150,7 +1105,6 @@ return|;
 block|}
 comment|/**          * When the option is true, Camel will perform the invocation of the          * resource class instance and put the response object into the exchange          * for further processing.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|performInvocation ( String performInvocation)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|performInvocation
@@ -1172,7 +1126,6 @@ return|;
 block|}
 comment|/**          * When the option is true, JAXRS UriInfo, HttpHeaders, Request and          * SecurityContext contexts will be available to custom CXFRS processors          * as typed Camel exchange properties. These contexts can be used to          * analyze the current requests using JAX-RS API.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|propagateContexts ( boolean propagateContexts)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|propagateContexts
@@ -1194,7 +1147,6 @@ return|;
 block|}
 comment|/**          * When the option is true, JAXRS UriInfo, HttpHeaders, Request and          * SecurityContext contexts will be available to custom CXFRS processors          * as typed Camel exchange properties. These contexts can be used to          * analyze the current requests using JAX-RS API.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|propagateContexts ( String propagateContexts)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|propagateContexts
@@ -1216,7 +1168,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|synchronous
@@ -1238,7 +1189,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
 name|synchronous
@@ -1269,7 +1219,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|advanced
@@ -1284,7 +1233,6 @@ return|;
 block|}
 comment|/**          * To lookup an existing configured CxfRsEndpoint. Must used bean: as          * prefix.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|beanId (String beanId)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|beanId
@@ -1306,7 +1254,6 @@ return|;
 block|}
 comment|/**          * The service publish address.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|address (String address)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|address
@@ -1327,8 +1274,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the feature list to the CxfRs endpoint.          * The option is a          *<code>java.util.List&lt;org.apache.cxf.feature.Feature&gt;</code>          * type.          * @group common          */
-DECL|method|features ( List<Object> features)
-specifier|public
+DECL|method|features (List<Object> features)
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|features
@@ -1353,7 +1299,6 @@ return|;
 block|}
 comment|/**          * Set the feature list to the CxfRs endpoint.          * The option will be converted to a          *<code>java.util.List&lt;org.apache.cxf.feature.Feature&gt;</code>          * type.          * @group common          */
 DECL|method|features (String features)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|features
@@ -1375,7 +1320,6 @@ return|;
 block|}
 comment|/**          * This option enables CXF Logging Feature which writes inbound and          * outbound REST messages to log.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|loggingFeatureEnabled ( boolean loggingFeatureEnabled)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|loggingFeatureEnabled
@@ -1397,7 +1341,6 @@ return|;
 block|}
 comment|/**          * This option enables CXF Logging Feature which writes inbound and          * outbound REST messages to log.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|loggingFeatureEnabled ( String loggingFeatureEnabled)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|loggingFeatureEnabled
@@ -1419,7 +1362,6 @@ return|;
 block|}
 comment|/**          * To limit the total size of number of bytes the logger will output          * when logging feature has been enabled.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|loggingSizeLimit ( int loggingSizeLimit)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|loggingSizeLimit
@@ -1441,7 +1383,6 @@ return|;
 block|}
 comment|/**          * To limit the total size of number of bytes the logger will output          * when logging feature has been enabled.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|loggingSizeLimit ( String loggingSizeLimit)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|loggingSizeLimit
@@ -1463,7 +1404,6 @@ return|;
 block|}
 comment|/**          * This option is used to specify the model file which is useful for the          * resource class without annotation. When using this option, then the          * service class can be omitted, to emulate document-only endpoints.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|modelRef (String modelRef)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|modelRef
@@ -1484,8 +1424,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set custom JAX-RS provider(s) list to the CxfRs endpoint. You can          * specify a string with a list of providers to lookup in the registy          * separated by comma.          * The option is a<code>java.util.List&lt;java.lang.Object&gt;</code>          * type.          * @group common          */
-DECL|method|providers ( List<Object> providers)
-specifier|public
+DECL|method|providers (List<Object> providers)
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|providers
@@ -1510,7 +1449,6 @@ return|;
 block|}
 comment|/**          * Set custom JAX-RS provider(s) list to the CxfRs endpoint. You can          * specify a string with a list of providers to lookup in the registy          * separated by comma.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.Object&gt;</code> type.          * @group common          */
 DECL|method|providers (String providers)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|providers
@@ -1532,7 +1470,6 @@ return|;
 block|}
 comment|/**          * The resource classes which you want to export as REST service.          * Multiple classes can be separated by comma.          * The option is a          *<code>java.util.List&lt;java.lang.Class&lt;java.lang.Object&gt;&gt;</code> type.          * @group common          */
 DECL|method|resourceClasses ( List<Class<Object>> resourceClasses)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|resourceClasses
@@ -1560,7 +1497,6 @@ return|;
 block|}
 comment|/**          * The resource classes which you want to export as REST service.          * Multiple classes can be separated by comma.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.Class&lt;java.lang.Object&gt;&gt;</code> type.          * @group common          */
 DECL|method|resourceClasses ( String resourceClasses)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|resourceClasses
@@ -1582,7 +1518,6 @@ return|;
 block|}
 comment|/**          * Sets the locations of the schema(s) which can be used to validate the          * incoming XML or JAXB-driven JSON.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|schemaLocations ( List<String> schemaLocations)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|schemaLocations
@@ -1607,7 +1542,6 @@ return|;
 block|}
 comment|/**          * Sets the locations of the schema(s) which can be used to validate the          * incoming XML or JAXB-driven JSON.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|schemaLocations ( String schemaLocations)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|schemaLocations
@@ -1629,7 +1563,6 @@ return|;
 block|}
 comment|/**          * This option controls whether the PhaseInterceptorChain skips logging          * the Fault that it catches.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|skipFaultLogging ( boolean skipFaultLogging)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|skipFaultLogging
@@ -1651,7 +1584,6 @@ return|;
 block|}
 comment|/**          * This option controls whether the PhaseInterceptorChain skips logging          * the Fault that it catches.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|skipFaultLogging ( String skipFaultLogging)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|skipFaultLogging
@@ -1672,8 +1604,7 @@ name|this
 return|;
 block|}
 comment|/**          * Configure a cookie handler to maintain a HTTP session.          * The option is a          *<code>org.apache.camel.http.common.cookie.CookieHandler</code> type.          * @group producer          */
-DECL|method|cookieHandler ( Object cookieHandler)
-specifier|public
+DECL|method|cookieHandler (Object cookieHandler)
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|cookieHandler
@@ -1694,8 +1625,7 @@ name|this
 return|;
 block|}
 comment|/**          * Configure a cookie handler to maintain a HTTP session.          * The option will be converted to a          *<code>org.apache.camel.http.common.cookie.CookieHandler</code> type.          * @group producer          */
-DECL|method|cookieHandler ( String cookieHandler)
-specifier|public
+DECL|method|cookieHandler (String cookieHandler)
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|cookieHandler
@@ -1717,7 +1647,6 @@ return|;
 block|}
 comment|/**          * The hostname verifier to be used. Use the # notation to reference a          * HostnameVerifier from the registry.          * The option is a<code>javax.net.ssl.HostnameVerifier</code> type.          * @group producer          */
 DECL|method|hostnameVerifier ( Object hostnameVerifier)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|hostnameVerifier
@@ -1739,7 +1668,6 @@ return|;
 block|}
 comment|/**          * The hostname verifier to be used. Use the # notation to reference a          * HostnameVerifier from the registry.          * The option will be converted to a          *<code>javax.net.ssl.HostnameVerifier</code> type.          * @group producer          */
 DECL|method|hostnameVerifier ( String hostnameVerifier)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|hostnameVerifier
@@ -1761,7 +1689,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|lazyStartProducer
@@ -1783,7 +1710,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|lazyStartProducer
@@ -1805,7 +1731,6 @@ return|;
 block|}
 comment|/**          * The Camel SSL setting reference. Use the # notation to reference the          * SSL Context.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group producer          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|sslContextParameters
@@ -1827,7 +1752,6 @@ return|;
 block|}
 comment|/**          * The Camel SSL setting reference. Use the # notation to reference the          * SSL Context.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group producer          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|sslContextParameters
@@ -1849,7 +1773,6 @@ return|;
 block|}
 comment|/**          * This option tells the CxfRsProducer to inspect return codes and will          * generate an Exception if the return code is larger than 207.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|throwExceptionOnFailure ( boolean throwExceptionOnFailure)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|throwExceptionOnFailure
@@ -1871,7 +1794,6 @@ return|;
 block|}
 comment|/**          * This option tells the CxfRsProducer to inspect return codes and will          * generate an Exception if the return code is larger than 207.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|throwExceptionOnFailure ( String throwExceptionOnFailure)
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|throwExceptionOnFailure
@@ -1901,7 +1823,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|CxfRsEndpointProducerBuilder
 name|basic
@@ -1916,7 +1837,6 @@ return|;
 block|}
 comment|/**          * If it is true, the CxfRsProducer will use the HttpClientAPI to invoke          * the service. If it is false, the CxfRsProducer will use the          * ProxyClientAPI to invoke the service.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|httpClientAPI ( boolean httpClientAPI)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|httpClientAPI
@@ -1938,7 +1858,6 @@ return|;
 block|}
 comment|/**          * If it is true, the CxfRsProducer will use the HttpClientAPI to invoke          * the service. If it is false, the CxfRsProducer will use the          * ProxyClientAPI to invoke the service.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|httpClientAPI ( String httpClientAPI)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|httpClientAPI
@@ -1960,7 +1879,6 @@ return|;
 block|}
 comment|/**          * This option is used to tell CxfRsProducer to ignore the message body          * of the DELETE method when using HTTP API.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|ignoreDeleteMethodMessageBody ( boolean ignoreDeleteMethodMessageBody)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|ignoreDeleteMethodMessageBody
@@ -1982,7 +1900,6 @@ return|;
 block|}
 comment|/**          * This option is used to tell CxfRsProducer to ignore the message body          * of the DELETE method when using HTTP API.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|ignoreDeleteMethodMessageBody ( String ignoreDeleteMethodMessageBody)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|ignoreDeleteMethodMessageBody
@@ -2004,7 +1921,6 @@ return|;
 block|}
 comment|/**          * This option allows you to configure the maximum size of the cache.          * The implementation caches CXF clients or ClientFactoryBean in          * CxfProvider and CxfRsProvider.          * The option is a<code>int</code> type.          * @group producer (advanced)          */
 DECL|method|maxClientCacheSize ( int maxClientCacheSize)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|maxClientCacheSize
@@ -2026,7 +1942,6 @@ return|;
 block|}
 comment|/**          * This option allows you to configure the maximum size of the cache.          * The implementation caches CXF clients or ClientFactoryBean in          * CxfProvider and CxfRsProvider.          * The option will be converted to a<code>int</code> type.          * @group producer (advanced)          */
 DECL|method|maxClientCacheSize ( String maxClientCacheSize)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|maxClientCacheSize
@@ -2048,7 +1963,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|basicPropertyBinding
@@ -2070,7 +1984,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|basicPropertyBinding
@@ -2091,8 +2004,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a custom CxfBinding to control the binding between Camel          * Message and CXF Message.          * The option is a          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsBinding</code> type.          * @group advanced          */
-DECL|method|binding ( Object binding)
-specifier|public
+DECL|method|binding (Object binding)
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|binding
@@ -2113,8 +2025,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a custom CxfBinding to control the binding between Camel          * Message and CXF Message.          * The option will be converted to a          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsBinding</code> type.          * @group advanced          */
-DECL|method|binding ( String binding)
-specifier|public
+DECL|method|binding (String binding)
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|binding
@@ -2136,7 +2047,6 @@ return|;
 block|}
 comment|/**          * To use a custom configured CXF Bus.          * The option is a<code>org.apache.cxf.Bus</code> type.          * @group advanced          */
 DECL|method|bus (Object bus)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|bus
@@ -2158,7 +2068,6 @@ return|;
 block|}
 comment|/**          * To use a custom configured CXF Bus.          * The option will be converted to a<code>org.apache.cxf.Bus</code>          * type.          * @group advanced          */
 DECL|method|bus (String bus)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|bus
@@ -2180,7 +2089,6 @@ return|;
 block|}
 comment|/**          * This option is used to set the CXF continuation timeout which could          * be used in CxfConsumer by default when the CXF server is using Jetty          * or Servlet transport.          * The option is a<code>long</code> type.          * @group advanced          */
 DECL|method|continuationTimeout ( long continuationTimeout)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|continuationTimeout
@@ -2202,7 +2110,6 @@ return|;
 block|}
 comment|/**          * This option is used to set the CXF continuation timeout which could          * be used in CxfConsumer by default when the CXF server is using Jetty          * or Servlet transport.          * The option will be converted to a<code>long</code> type.          * @group advanced          */
 DECL|method|continuationTimeout ( String continuationTimeout)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|continuationTimeout
@@ -2224,7 +2131,6 @@ return|;
 block|}
 comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which          * supports to configure the CXF endpoint in programmatic way. User can          * configure the CXF server and client by implementing          * configure{Server/Client} method of CxfEndpointConfigurer.          * The option is a          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer</code> type.          * @group advanced          */
 DECL|method|cxfRsEndpointConfigurer ( Object cxfRsEndpointConfigurer)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|cxfRsEndpointConfigurer
@@ -2246,7 +2152,6 @@ return|;
 block|}
 comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which          * supports to configure the CXF endpoint in programmatic way. User can          * configure the CXF server and client by implementing          * configure{Server/Client} method of CxfEndpointConfigurer.          * The option will be converted to a          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer</code> type.          * @group advanced          */
 DECL|method|cxfRsEndpointConfigurer ( String cxfRsEndpointConfigurer)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|cxfRsEndpointConfigurer
@@ -2268,7 +2173,6 @@ return|;
 block|}
 comment|/**          * Will set the default bus when CXF endpoint create a bus by itself.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|defaultBus ( boolean defaultBus)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|defaultBus
@@ -2290,7 +2194,6 @@ return|;
 block|}
 comment|/**          * Will set the default bus when CXF endpoint create a bus by itself.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|defaultBus ( String defaultBus)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|defaultBus
@@ -2312,7 +2215,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|headerFilterStrategy
@@ -2334,7 +2236,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|headerFilterStrategy
@@ -2356,7 +2257,6 @@ return|;
 block|}
 comment|/**          * When the option is true, Camel will perform the invocation of the          * resource class instance and put the response object into the exchange          * for further processing.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|performInvocation ( boolean performInvocation)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|performInvocation
@@ -2378,7 +2278,6 @@ return|;
 block|}
 comment|/**          * When the option is true, Camel will perform the invocation of the          * resource class instance and put the response object into the exchange          * for further processing.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|performInvocation ( String performInvocation)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|performInvocation
@@ -2400,7 +2299,6 @@ return|;
 block|}
 comment|/**          * When the option is true, JAXRS UriInfo, HttpHeaders, Request and          * SecurityContext contexts will be available to custom CXFRS processors          * as typed Camel exchange properties. These contexts can be used to          * analyze the current requests using JAX-RS API.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|propagateContexts ( boolean propagateContexts)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|propagateContexts
@@ -2422,7 +2320,6 @@ return|;
 block|}
 comment|/**          * When the option is true, JAXRS UriInfo, HttpHeaders, Request and          * SecurityContext contexts will be available to custom CXFRS processors          * as typed Camel exchange properties. These contexts can be used to          * analyze the current requests using JAX-RS API.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|propagateContexts ( String propagateContexts)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|propagateContexts
@@ -2444,7 +2341,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|synchronous
@@ -2466,7 +2362,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
 name|synchronous
@@ -2499,7 +2394,6 @@ extends|,
 name|CxfRsEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|advanced
@@ -2514,7 +2408,6 @@ return|;
 block|}
 comment|/**          * To lookup an existing configured CxfRsEndpoint. Must used bean: as          * prefix.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|beanId (String beanId)
-specifier|public
 specifier|default
 name|CxfRsEndpointBuilder
 name|beanId
@@ -2536,7 +2429,6 @@ return|;
 block|}
 comment|/**          * The service publish address.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|address (String address)
-specifier|public
 specifier|default
 name|CxfRsEndpointBuilder
 name|address
@@ -2558,7 +2450,6 @@ return|;
 block|}
 comment|/**          * Set the feature list to the CxfRs endpoint.          * The option is a          *<code>java.util.List&lt;org.apache.cxf.feature.Feature&gt;</code>          * type.          * @group common          */
 DECL|method|features (List<Object> features)
-specifier|public
 specifier|default
 name|CxfRsEndpointBuilder
 name|features
@@ -2583,7 +2474,6 @@ return|;
 block|}
 comment|/**          * Set the feature list to the CxfRs endpoint.          * The option will be converted to a          *<code>java.util.List&lt;org.apache.cxf.feature.Feature&gt;</code>          * type.          * @group common          */
 DECL|method|features (String features)
-specifier|public
 specifier|default
 name|CxfRsEndpointBuilder
 name|features
@@ -2605,7 +2495,6 @@ return|;
 block|}
 comment|/**          * This option enables CXF Logging Feature which writes inbound and          * outbound REST messages to log.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|loggingFeatureEnabled ( boolean loggingFeatureEnabled)
-specifier|public
 specifier|default
 name|CxfRsEndpointBuilder
 name|loggingFeatureEnabled
@@ -2627,7 +2516,6 @@ return|;
 block|}
 comment|/**          * This option enables CXF Logging Feature which writes inbound and          * outbound REST messages to log.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|loggingFeatureEnabled ( String loggingFeatureEnabled)
-specifier|public
 specifier|default
 name|CxfRsEndpointBuilder
 name|loggingFeatureEnabled
@@ -2648,8 +2536,7 @@ name|this
 return|;
 block|}
 comment|/**          * To limit the total size of number of bytes the logger will output          * when logging feature has been enabled.          * The option is a<code>int</code> type.          * @group common          */
-DECL|method|loggingSizeLimit ( int loggingSizeLimit)
-specifier|public
+DECL|method|loggingSizeLimit (int loggingSizeLimit)
 specifier|default
 name|CxfRsEndpointBuilder
 name|loggingSizeLimit
@@ -2670,8 +2557,7 @@ name|this
 return|;
 block|}
 comment|/**          * To limit the total size of number of bytes the logger will output          * when logging feature has been enabled.          * The option will be converted to a<code>int</code> type.          * @group common          */
-DECL|method|loggingSizeLimit ( String loggingSizeLimit)
-specifier|public
+DECL|method|loggingSizeLimit (String loggingSizeLimit)
 specifier|default
 name|CxfRsEndpointBuilder
 name|loggingSizeLimit
@@ -2693,7 +2579,6 @@ return|;
 block|}
 comment|/**          * This option is used to specify the model file which is useful for the          * resource class without annotation. When using this option, then the          * service class can be omitted, to emulate document-only endpoints.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|modelRef (String modelRef)
-specifier|public
 specifier|default
 name|CxfRsEndpointBuilder
 name|modelRef
@@ -2715,7 +2600,6 @@ return|;
 block|}
 comment|/**          * Set custom JAX-RS provider(s) list to the CxfRs endpoint. You can          * specify a string with a list of providers to lookup in the registy          * separated by comma.          * The option is a<code>java.util.List&lt;java.lang.Object&gt;</code>          * type.          * @group common          */
 DECL|method|providers (List<Object> providers)
-specifier|public
 specifier|default
 name|CxfRsEndpointBuilder
 name|providers
@@ -2740,7 +2624,6 @@ return|;
 block|}
 comment|/**          * Set custom JAX-RS provider(s) list to the CxfRs endpoint. You can          * specify a string with a list of providers to lookup in the registy          * separated by comma.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.Object&gt;</code> type.          * @group common          */
 DECL|method|providers (String providers)
-specifier|public
 specifier|default
 name|CxfRsEndpointBuilder
 name|providers
@@ -2762,7 +2645,6 @@ return|;
 block|}
 comment|/**          * The resource classes which you want to export as REST service.          * Multiple classes can be separated by comma.          * The option is a          *<code>java.util.List&lt;java.lang.Class&lt;java.lang.Object&gt;&gt;</code> type.          * @group common          */
 DECL|method|resourceClasses ( List<Class<Object>> resourceClasses)
-specifier|public
 specifier|default
 name|CxfRsEndpointBuilder
 name|resourceClasses
@@ -2789,8 +2671,7 @@ name|this
 return|;
 block|}
 comment|/**          * The resource classes which you want to export as REST service.          * Multiple classes can be separated by comma.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.Class&lt;java.lang.Object&gt;&gt;</code> type.          * @group common          */
-DECL|method|resourceClasses ( String resourceClasses)
-specifier|public
+DECL|method|resourceClasses (String resourceClasses)
 specifier|default
 name|CxfRsEndpointBuilder
 name|resourceClasses
@@ -2812,7 +2693,6 @@ return|;
 block|}
 comment|/**          * Sets the locations of the schema(s) which can be used to validate the          * incoming XML or JAXB-driven JSON.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|schemaLocations ( List<String> schemaLocations)
-specifier|public
 specifier|default
 name|CxfRsEndpointBuilder
 name|schemaLocations
@@ -2836,8 +2716,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the locations of the schema(s) which can be used to validate the          * incoming XML or JAXB-driven JSON.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
-DECL|method|schemaLocations ( String schemaLocations)
-specifier|public
+DECL|method|schemaLocations (String schemaLocations)
 specifier|default
 name|CxfRsEndpointBuilder
 name|schemaLocations
@@ -2858,8 +2737,7 @@ name|this
 return|;
 block|}
 comment|/**          * This option controls whether the PhaseInterceptorChain skips logging          * the Fault that it catches.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|skipFaultLogging ( boolean skipFaultLogging)
-specifier|public
+DECL|method|skipFaultLogging (boolean skipFaultLogging)
 specifier|default
 name|CxfRsEndpointBuilder
 name|skipFaultLogging
@@ -2880,8 +2758,7 @@ name|this
 return|;
 block|}
 comment|/**          * This option controls whether the PhaseInterceptorChain skips logging          * the Fault that it catches.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|skipFaultLogging ( String skipFaultLogging)
-specifier|public
+DECL|method|skipFaultLogging (String skipFaultLogging)
 specifier|default
 name|CxfRsEndpointBuilder
 name|skipFaultLogging
@@ -2914,7 +2791,6 @@ extends|,
 name|AdvancedCxfRsEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|CxfRsEndpointBuilder
 name|basic
@@ -2929,7 +2805,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|basicPropertyBinding
@@ -2951,7 +2826,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|basicPropertyBinding
@@ -2973,7 +2847,6 @@ return|;
 block|}
 comment|/**          * To use a custom CxfBinding to control the binding between Camel          * Message and CXF Message.          * The option is a          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsBinding</code> type.          * @group advanced          */
 DECL|method|binding (Object binding)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|binding
@@ -2995,7 +2868,6 @@ return|;
 block|}
 comment|/**          * To use a custom CxfBinding to control the binding between Camel          * Message and CXF Message.          * The option will be converted to a          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsBinding</code> type.          * @group advanced          */
 DECL|method|binding (String binding)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|binding
@@ -3017,7 +2889,6 @@ return|;
 block|}
 comment|/**          * To use a custom configured CXF Bus.          * The option is a<code>org.apache.cxf.Bus</code> type.          * @group advanced          */
 DECL|method|bus (Object bus)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|bus
@@ -3039,7 +2910,6 @@ return|;
 block|}
 comment|/**          * To use a custom configured CXF Bus.          * The option will be converted to a<code>org.apache.cxf.Bus</code>          * type.          * @group advanced          */
 DECL|method|bus (String bus)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|bus
@@ -3061,7 +2931,6 @@ return|;
 block|}
 comment|/**          * This option is used to set the CXF continuation timeout which could          * be used in CxfConsumer by default when the CXF server is using Jetty          * or Servlet transport.          * The option is a<code>long</code> type.          * @group advanced          */
 DECL|method|continuationTimeout ( long continuationTimeout)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|continuationTimeout
@@ -3083,7 +2952,6 @@ return|;
 block|}
 comment|/**          * This option is used to set the CXF continuation timeout which could          * be used in CxfConsumer by default when the CXF server is using Jetty          * or Servlet transport.          * The option will be converted to a<code>long</code> type.          * @group advanced          */
 DECL|method|continuationTimeout ( String continuationTimeout)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|continuationTimeout
@@ -3105,7 +2973,6 @@ return|;
 block|}
 comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which          * supports to configure the CXF endpoint in programmatic way. User can          * configure the CXF server and client by implementing          * configure{Server/Client} method of CxfEndpointConfigurer.          * The option is a          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer</code> type.          * @group advanced          */
 DECL|method|cxfRsEndpointConfigurer ( Object cxfRsEndpointConfigurer)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|cxfRsEndpointConfigurer
@@ -3127,7 +2994,6 @@ return|;
 block|}
 comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which          * supports to configure the CXF endpoint in programmatic way. User can          * configure the CXF server and client by implementing          * configure{Server/Client} method of CxfEndpointConfigurer.          * The option will be converted to a          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer</code> type.          * @group advanced          */
 DECL|method|cxfRsEndpointConfigurer ( String cxfRsEndpointConfigurer)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|cxfRsEndpointConfigurer
@@ -3148,8 +3014,7 @@ name|this
 return|;
 block|}
 comment|/**          * Will set the default bus when CXF endpoint create a bus by itself.          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|defaultBus ( boolean defaultBus)
-specifier|public
+DECL|method|defaultBus (boolean defaultBus)
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|defaultBus
@@ -3171,7 +3036,6 @@ return|;
 block|}
 comment|/**          * Will set the default bus when CXF endpoint create a bus by itself.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|defaultBus (String defaultBus)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|defaultBus
@@ -3193,7 +3057,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|headerFilterStrategy
@@ -3215,7 +3078,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|headerFilterStrategy
@@ -3237,7 +3099,6 @@ return|;
 block|}
 comment|/**          * When the option is true, Camel will perform the invocation of the          * resource class instance and put the response object into the exchange          * for further processing.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|performInvocation ( boolean performInvocation)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|performInvocation
@@ -3259,7 +3120,6 @@ return|;
 block|}
 comment|/**          * When the option is true, Camel will perform the invocation of the          * resource class instance and put the response object into the exchange          * for further processing.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|performInvocation ( String performInvocation)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|performInvocation
@@ -3281,7 +3141,6 @@ return|;
 block|}
 comment|/**          * When the option is true, JAXRS UriInfo, HttpHeaders, Request and          * SecurityContext contexts will be available to custom CXFRS processors          * as typed Camel exchange properties. These contexts can be used to          * analyze the current requests using JAX-RS API.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|propagateContexts ( boolean propagateContexts)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|propagateContexts
@@ -3303,7 +3162,6 @@ return|;
 block|}
 comment|/**          * When the option is true, JAXRS UriInfo, HttpHeaders, Request and          * SecurityContext contexts will be available to custom CXFRS processors          * as typed Camel exchange properties. These contexts can be used to          * analyze the current requests using JAX-RS API.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|propagateContexts ( String propagateContexts)
-specifier|public
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|propagateContexts
@@ -3324,8 +3182,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|synchronous
@@ -3346,8 +3203,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
 name|synchronous
@@ -3386,7 +3242,6 @@ name|Custom
 block|;     }
 comment|/**      * The cxfrs component is used for JAX-RS REST services using Apache CXF.      * Creates a builder to build endpoints for the CXF-RS component.      */
 DECL|method|cxfRs (String path)
-specifier|public
 specifier|default
 name|CxfRsEndpointBuilder
 name|cxfRs

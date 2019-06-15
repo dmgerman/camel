@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * the cache name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|cacheName ( String cacheName)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointConsumerBuilder
 name|cacheName
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|createCacheIfNotExist ( boolean createCacheIfNotExist)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointConsumerBuilder
 name|createCacheIfNotExist
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|createCacheIfNotExist ( String createCacheIfNotExist)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointConsumerBuilder
 name|createCacheIfNotExist
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -257,7 +251,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointConsumerBuilder
 name|basic
@@ -272,7 +265,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointConsumerBuilder
 name|exceptionHandler
@@ -294,7 +286,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointConsumerBuilder
 name|exceptionHandler
@@ -316,7 +307,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointConsumerBuilder
 name|exchangePattern
@@ -338,7 +328,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointConsumerBuilder
 name|exchangePattern
@@ -360,7 +349,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -382,7 +370,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -404,7 +391,6 @@ return|;
 block|}
 comment|/**          * The cache key type, default java.lang.Object.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|keyType ( Class<Object> keyType)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointConsumerBuilder
 name|keyType
@@ -429,7 +415,6 @@ return|;
 block|}
 comment|/**          * The cache key type, default java.lang.Object.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|keyType ( String keyType)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointConsumerBuilder
 name|keyType
@@ -451,7 +436,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointConsumerBuilder
 name|synchronous
@@ -473,7 +457,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointConsumerBuilder
 name|synchronous
@@ -495,7 +478,6 @@ return|;
 block|}
 comment|/**          * The cache value type, default java.lang.Object.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|valueType ( Class<Object> valueType)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointConsumerBuilder
 name|valueType
@@ -520,7 +502,6 @@ return|;
 block|}
 comment|/**          * The cache value type, default java.lang.Object.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|valueType ( String valueType)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointConsumerBuilder
 name|valueType
@@ -551,7 +532,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointProducerBuilder
 name|advanced
@@ -566,7 +546,6 @@ return|;
 block|}
 comment|/**          * the cache name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|cacheName ( String cacheName)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|cacheName
@@ -588,7 +567,6 @@ return|;
 block|}
 comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|createCacheIfNotExist ( boolean createCacheIfNotExist)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|createCacheIfNotExist
@@ -610,7 +588,6 @@ return|;
 block|}
 comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|createCacheIfNotExist ( String createCacheIfNotExist)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|createCacheIfNotExist
@@ -631,8 +608,7 @@ name|this
 return|;
 block|}
 comment|/**          * To configure the default cache action. If an action is set in the          * message header, then the operation from the header takes precedence.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|action ( String action)
-specifier|public
+DECL|method|action (String action)
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|action
@@ -653,8 +629,7 @@ name|this
 return|;
 block|}
 comment|/**          * To configure an already instantiated cache to be used.          * The option is a          *<code>com.github.benmanes.caffeine.cache.LoadingCache</code> type.          * @group producer          */
-DECL|method|cache ( Object cache)
-specifier|public
+DECL|method|cache (Object cache)
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|cache
@@ -675,8 +650,7 @@ name|this
 return|;
 block|}
 comment|/**          * To configure an already instantiated cache to be used.          * The option will be converted to a          *<code>com.github.benmanes.caffeine.cache.LoadingCache</code> type.          * @group producer          */
-DECL|method|cache ( String cache)
-specifier|public
+DECL|method|cache (String cache)
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|cache
@@ -698,7 +672,6 @@ return|;
 block|}
 comment|/**          * To configure a CacheLoader in case of a LoadCache use.          * The option is a          *<code>com.github.benmanes.caffeine.cache.CacheLoader</code> type.          * @group producer          */
 DECL|method|cacheLoader ( Object cacheLoader)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|cacheLoader
@@ -720,7 +693,6 @@ return|;
 block|}
 comment|/**          * To configure a CacheLoader in case of a LoadCache use.          * The option will be converted to a          *<code>com.github.benmanes.caffeine.cache.CacheLoader</code> type.          * @group producer          */
 DECL|method|cacheLoader ( String cacheLoader)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|cacheLoader
@@ -742,7 +714,6 @@ return|;
 block|}
 comment|/**          * Set the eviction Type for this cache.          * The option is a          *<code>org.apache.camel.component.caffeine.EvictionType</code> type.          * @group producer          */
 DECL|method|evictionType ( EvictionType evictionType)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|evictionType
@@ -764,7 +735,6 @@ return|;
 block|}
 comment|/**          * Set the eviction Type for this cache.          * The option will be converted to a          *<code>org.apache.camel.component.caffeine.EvictionType</code> type.          * @group producer          */
 DECL|method|evictionType ( String evictionType)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|evictionType
@@ -786,7 +756,6 @@ return|;
 block|}
 comment|/**          * Set the expire After Access Time in case of time based Eviction (in          * seconds).          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|expireAfterAccessTime ( int expireAfterAccessTime)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|expireAfterAccessTime
@@ -808,7 +777,6 @@ return|;
 block|}
 comment|/**          * Set the expire After Access Time in case of time based Eviction (in          * seconds).          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|expireAfterAccessTime ( String expireAfterAccessTime)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|expireAfterAccessTime
@@ -830,7 +798,6 @@ return|;
 block|}
 comment|/**          * Set the expire After Access Write in case of time based Eviction (in          * seconds).          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|expireAfterWriteTime ( int expireAfterWriteTime)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|expireAfterWriteTime
@@ -852,7 +819,6 @@ return|;
 block|}
 comment|/**          * Set the expire After Access Write in case of time based Eviction (in          * seconds).          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|expireAfterWriteTime ( String expireAfterWriteTime)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|expireAfterWriteTime
@@ -874,7 +840,6 @@ return|;
 block|}
 comment|/**          * Set the initial Capacity for the cache.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|initialCapacity ( int initialCapacity)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|initialCapacity
@@ -896,7 +861,6 @@ return|;
 block|}
 comment|/**          * Set the initial Capacity for the cache.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|initialCapacity ( String initialCapacity)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|initialCapacity
@@ -918,7 +882,6 @@ return|;
 block|}
 comment|/**          * To configure the default action key. If a key is set in the message          * header, then the key from the header takes precedence.          * The option is a<code>java.lang.Object</code> type.          * @group producer          */
 DECL|method|key (Object key)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|key
@@ -940,7 +903,6 @@ return|;
 block|}
 comment|/**          * To configure the default action key. If a key is set in the message          * header, then the key from the header takes precedence.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group producer          */
 DECL|method|key (String key)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|key
@@ -962,7 +924,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|lazyStartProducer
@@ -984,7 +945,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|lazyStartProducer
@@ -1006,7 +966,6 @@ return|;
 block|}
 comment|/**          * Set the maximum size for the cache.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|maximumSize ( int maximumSize)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|maximumSize
@@ -1028,7 +987,6 @@ return|;
 block|}
 comment|/**          * Set the maximum size for the cache.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|maximumSize ( String maximumSize)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|maximumSize
@@ -1050,7 +1008,6 @@ return|;
 block|}
 comment|/**          * Set a specific removal Listener for the cache.          * The option is a          *<code>com.github.benmanes.caffeine.cache.RemovalListener</code> type.          * @group producer          */
 DECL|method|removalListener ( Object removalListener)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|removalListener
@@ -1072,7 +1029,6 @@ return|;
 block|}
 comment|/**          * Set a specific removal Listener for the cache.          * The option will be converted to a          *<code>com.github.benmanes.caffeine.cache.RemovalListener</code> type.          * @group producer          */
 DECL|method|removalListener ( String removalListener)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|removalListener
@@ -1094,7 +1050,6 @@ return|;
 block|}
 comment|/**          * Set a specific Stats Counter for the cache stats.          * The option is a          *<code>com.github.benmanes.caffeine.cache.stats.StatsCounter</code>          * type.          * @group producer          */
 DECL|method|statsCounter ( Object statsCounter)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|statsCounter
@@ -1116,7 +1071,6 @@ return|;
 block|}
 comment|/**          * Set a specific Stats Counter for the cache stats.          * The option will be converted to a          *<code>com.github.benmanes.caffeine.cache.stats.StatsCounter</code>          * type.          * @group producer          */
 DECL|method|statsCounter ( String statsCounter)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|statsCounter
@@ -1138,7 +1092,6 @@ return|;
 block|}
 comment|/**          * To enable stats on the cache.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|statsEnabled ( boolean statsEnabled)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|statsEnabled
@@ -1160,7 +1113,6 @@ return|;
 block|}
 comment|/**          * To enable stats on the cache.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|statsEnabled ( String statsEnabled)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|statsEnabled
@@ -1190,7 +1142,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointProducerBuilder
 name|basic
@@ -1205,7 +1156,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1227,7 +1177,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1249,7 +1198,6 @@ return|;
 block|}
 comment|/**          * The cache key type, default java.lang.Object.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|keyType ( Class<Object> keyType)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointProducerBuilder
 name|keyType
@@ -1274,7 +1222,6 @@ return|;
 block|}
 comment|/**          * The cache key type, default java.lang.Object.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|keyType ( String keyType)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointProducerBuilder
 name|keyType
@@ -1296,7 +1243,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointProducerBuilder
 name|synchronous
@@ -1318,7 +1264,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointProducerBuilder
 name|synchronous
@@ -1340,7 +1285,6 @@ return|;
 block|}
 comment|/**          * The cache value type, default java.lang.Object.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|valueType ( Class<Object> valueType)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointProducerBuilder
 name|valueType
@@ -1365,7 +1309,6 @@ return|;
 block|}
 comment|/**          * The cache value type, default java.lang.Object.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|valueType ( String valueType)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointProducerBuilder
 name|valueType
@@ -1398,7 +1341,6 @@ extends|,
 name|CaffeineLoadCacheEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointBuilder
 name|advanced
@@ -1412,8 +1354,7 @@ name|this
 return|;
 block|}
 comment|/**          * the cache name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|cacheName ( String cacheName)
-specifier|public
+DECL|method|cacheName (String cacheName)
 specifier|default
 name|CaffeineLoadCacheEndpointBuilder
 name|cacheName
@@ -1435,7 +1376,6 @@ return|;
 block|}
 comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|createCacheIfNotExist ( boolean createCacheIfNotExist)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointBuilder
 name|createCacheIfNotExist
@@ -1457,7 +1397,6 @@ return|;
 block|}
 comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|createCacheIfNotExist ( String createCacheIfNotExist)
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointBuilder
 name|createCacheIfNotExist
@@ -1490,7 +1429,6 @@ extends|,
 name|AdvancedCaffeineLoadCacheEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|CaffeineLoadCacheEndpointBuilder
 name|basic
@@ -1505,7 +1443,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointBuilder
 name|basicPropertyBinding
@@ -1527,7 +1464,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointBuilder
 name|basicPropertyBinding
@@ -1549,7 +1485,6 @@ return|;
 block|}
 comment|/**          * The cache key type, default java.lang.Object.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|keyType ( Class<Object> keyType)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointBuilder
 name|keyType
@@ -1573,8 +1508,7 @@ name|this
 return|;
 block|}
 comment|/**          * The cache key type, default java.lang.Object.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group advanced          */
-DECL|method|keyType ( String keyType)
-specifier|public
+DECL|method|keyType (String keyType)
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointBuilder
 name|keyType
@@ -1596,7 +1530,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointBuilder
 name|synchronous
@@ -1618,7 +1551,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointBuilder
 name|synchronous
@@ -1640,7 +1572,6 @@ return|;
 block|}
 comment|/**          * The cache value type, default java.lang.Object.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|valueType ( Class<Object> valueType)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointBuilder
 name|valueType
@@ -1665,7 +1596,6 @@ return|;
 block|}
 comment|/**          * The cache value type, default java.lang.Object.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|valueType ( String valueType)
-specifier|public
 specifier|default
 name|AdvancedCaffeineLoadCacheEndpointBuilder
 name|valueType
@@ -1700,8 +1630,7 @@ block|,
 name|time_based
 block|;     }
 comment|/**      * The caffeine-loadcache component is used for integration with Caffeine      * Load Cache. Creates a builder to build endpoints for the Caffeine      * LoadCache component.      */
-DECL|method|caffeineLoadCache ( String path)
-specifier|public
+DECL|method|caffeineLoadCache (String path)
 specifier|default
 name|CaffeineLoadCacheEndpointBuilder
 name|caffeineLoadCache

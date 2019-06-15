@@ -198,7 +198,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointConsumerBuilder
 name|advanced
@@ -213,7 +212,6 @@ return|;
 block|}
 comment|/**          * Whether to use fixed or delimiter.          * The option is a          *<code>org.apache.camel.component.flatpack.FlatpackType</code> type.          * @group common          */
 DECL|method|type (FlatpackType type)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|type
@@ -235,7 +233,6 @@ return|;
 block|}
 comment|/**          * Whether to use fixed or delimiter.          * The option will be converted to a          *<code>org.apache.camel.component.flatpack.FlatpackType</code> type.          * @group common          */
 DECL|method|type (String type)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|type
@@ -256,8 +253,7 @@ name|this
 return|;
 block|}
 comment|/**          * URL for loading the flatpack mapping file from classpath or file          * system.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|resourceUri ( String resourceUri)
-specifier|public
+DECL|method|resourceUri (String resourceUri)
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|resourceUri
@@ -279,7 +275,6 @@ return|;
 block|}
 comment|/**          * Allows for lines to be shorter than expected and ignores the extra          * characters.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|allowShortLines ( boolean allowShortLines)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|allowShortLines
@@ -301,7 +296,6 @@ return|;
 block|}
 comment|/**          * Allows for lines to be shorter than expected and ignores the extra          * characters.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|allowShortLines ( String allowShortLines)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|allowShortLines
@@ -323,7 +317,6 @@ return|;
 block|}
 comment|/**          * The default character delimiter for delimited files.          * The option is a<code>char</code> type.          * @group common          */
 DECL|method|delimiter (char delimiter)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|delimiter
@@ -344,8 +337,7 @@ name|this
 return|;
 block|}
 comment|/**          * The default character delimiter for delimited files.          * The option will be converted to a<code>char</code> type.          * @group common          */
-DECL|method|delimiter ( String delimiter)
-specifier|public
+DECL|method|delimiter (String delimiter)
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|delimiter
@@ -367,7 +359,6 @@ return|;
 block|}
 comment|/**          * Allows for lines to be longer than expected and ignores the extra          * characters.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|ignoreExtraColumns ( boolean ignoreExtraColumns)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|ignoreExtraColumns
@@ -389,7 +380,6 @@ return|;
 block|}
 comment|/**          * Allows for lines to be longer than expected and ignores the extra          * characters.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|ignoreExtraColumns ( String ignoreExtraColumns)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|ignoreExtraColumns
@@ -411,7 +401,6 @@ return|;
 block|}
 comment|/**          * Whether the first line is ignored for delimited files (for the column          * headers).          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|ignoreFirstRecord ( boolean ignoreFirstRecord)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|ignoreFirstRecord
@@ -433,7 +422,6 @@ return|;
 block|}
 comment|/**          * Whether the first line is ignored for delimited files (for the column          * headers).          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|ignoreFirstRecord ( String ignoreFirstRecord)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|ignoreFirstRecord
@@ -454,8 +442,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the Component to send each row as a separate exchange once          * parsed.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|splitRows ( boolean splitRows)
-specifier|public
+DECL|method|splitRows (boolean splitRows)
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|splitRows
@@ -476,8 +463,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the Component to send each row as a separate exchange once          * parsed.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|splitRows ( String splitRows)
-specifier|public
+DECL|method|splitRows (String splitRows)
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|splitRows
@@ -498,8 +484,7 @@ name|this
 return|;
 block|}
 comment|/**          * The text qualifier for delimited files.          * The option is a<code>char</code> type.          * @group common          */
-DECL|method|textQualifier ( char textQualifier)
-specifier|public
+DECL|method|textQualifier (char textQualifier)
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|textQualifier
@@ -521,7 +506,6 @@ return|;
 block|}
 comment|/**          * The text qualifier for delimited files.          * The option will be converted to a<code>char</code> type.          * @group common          */
 DECL|method|textQualifier ( String textQualifier)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|textQualifier
@@ -543,7 +527,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -565,7 +548,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -587,7 +569,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( boolean sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -609,7 +590,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( String sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -631,7 +611,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( int backoffErrorThreshold)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -653,7 +632,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( String backoffErrorThreshold)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -675,7 +653,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( int backoffIdleThreshold)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -697,7 +674,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( String backoffIdleThreshold)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -719,7 +695,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( int backoffMultiplier)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|backoffMultiplier
@@ -741,7 +716,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( String backoffMultiplier)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|backoffMultiplier
@@ -763,7 +737,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (long delay)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|delay
@@ -785,7 +758,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (String delay)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|delay
@@ -807,7 +779,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (boolean greedy)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|greedy
@@ -829,7 +800,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (String greedy)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|greedy
@@ -850,8 +820,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
-DECL|method|initialDelay ( long initialDelay)
-specifier|public
+DECL|method|initialDelay (long initialDelay)
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|initialDelay
@@ -872,8 +841,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
-DECL|method|initialDelay ( String initialDelay)
-specifier|public
+DECL|method|initialDelay (String initialDelay)
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|initialDelay
@@ -895,7 +863,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( LoggingLevel runLoggingLevel)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|runLoggingLevel
@@ -917,7 +884,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( String runLoggingLevel)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|runLoggingLevel
@@ -939,7 +905,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option is a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( ScheduledExecutorService scheduledExecutorService)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -961,7 +926,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( String scheduledExecutorService)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -983,7 +947,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option is a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler ( ScheduledPollConsumerScheduler scheduler)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|scheduler
@@ -1004,8 +967,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
-DECL|method|scheduler ( String scheduler)
-specifier|public
+DECL|method|scheduler (String scheduler)
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|scheduler
@@ -1027,7 +989,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group scheduler          */
 DECL|method|schedulerProperties ( Map<String, Object> schedulerProperties)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|schedulerProperties
@@ -1054,7 +1015,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group scheduler          */
 DECL|method|schedulerProperties ( String schedulerProperties)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|schedulerProperties
@@ -1076,7 +1036,6 @@ return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|startScheduler ( boolean startScheduler)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|startScheduler
@@ -1098,7 +1057,6 @@ return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|startScheduler ( String startScheduler)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|startScheduler
@@ -1119,8 +1077,7 @@ name|this
 return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option is a<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
-DECL|method|timeUnit ( TimeUnit timeUnit)
-specifier|public
+DECL|method|timeUnit (TimeUnit timeUnit)
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|timeUnit
@@ -1142,7 +1099,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (String timeUnit)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|timeUnit
@@ -1164,7 +1120,6 @@ return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|useFixedDelay ( boolean useFixedDelay)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|useFixedDelay
@@ -1186,7 +1141,6 @@ return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|useFixedDelay ( String useFixedDelay)
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|useFixedDelay
@@ -1216,7 +1170,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|FlatpackEndpointConsumerBuilder
 name|basic
@@ -1231,7 +1184,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointConsumerBuilder
 name|exceptionHandler
@@ -1253,7 +1205,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointConsumerBuilder
 name|exceptionHandler
@@ -1275,7 +1226,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointConsumerBuilder
 name|exchangePattern
@@ -1297,7 +1247,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointConsumerBuilder
 name|exchangePattern
@@ -1319,7 +1268,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option is a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( PollingConsumerPollStrategy pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointConsumerBuilder
 name|pollStrategy
@@ -1341,7 +1289,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( String pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointConsumerBuilder
 name|pollStrategy
@@ -1363,7 +1310,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1385,7 +1331,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1407,7 +1352,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointConsumerBuilder
 name|synchronous
@@ -1429,7 +1373,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointConsumerBuilder
 name|synchronous
@@ -1460,7 +1403,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointProducerBuilder
 name|advanced
@@ -1475,7 +1417,6 @@ return|;
 block|}
 comment|/**          * Whether to use fixed or delimiter.          * The option is a          *<code>org.apache.camel.component.flatpack.FlatpackType</code> type.          * @group common          */
 DECL|method|type (FlatpackType type)
-specifier|public
 specifier|default
 name|FlatpackEndpointProducerBuilder
 name|type
@@ -1497,7 +1438,6 @@ return|;
 block|}
 comment|/**          * Whether to use fixed or delimiter.          * The option will be converted to a          *<code>org.apache.camel.component.flatpack.FlatpackType</code> type.          * @group common          */
 DECL|method|type (String type)
-specifier|public
 specifier|default
 name|FlatpackEndpointProducerBuilder
 name|type
@@ -1518,8 +1458,7 @@ name|this
 return|;
 block|}
 comment|/**          * URL for loading the flatpack mapping file from classpath or file          * system.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|resourceUri ( String resourceUri)
-specifier|public
+DECL|method|resourceUri (String resourceUri)
 specifier|default
 name|FlatpackEndpointProducerBuilder
 name|resourceUri
@@ -1541,7 +1480,6 @@ return|;
 block|}
 comment|/**          * Allows for lines to be shorter than expected and ignores the extra          * characters.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|allowShortLines ( boolean allowShortLines)
-specifier|public
 specifier|default
 name|FlatpackEndpointProducerBuilder
 name|allowShortLines
@@ -1563,7 +1501,6 @@ return|;
 block|}
 comment|/**          * Allows for lines to be shorter than expected and ignores the extra          * characters.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|allowShortLines ( String allowShortLines)
-specifier|public
 specifier|default
 name|FlatpackEndpointProducerBuilder
 name|allowShortLines
@@ -1585,7 +1522,6 @@ return|;
 block|}
 comment|/**          * The default character delimiter for delimited files.          * The option is a<code>char</code> type.          * @group common          */
 DECL|method|delimiter (char delimiter)
-specifier|public
 specifier|default
 name|FlatpackEndpointProducerBuilder
 name|delimiter
@@ -1606,8 +1542,7 @@ name|this
 return|;
 block|}
 comment|/**          * The default character delimiter for delimited files.          * The option will be converted to a<code>char</code> type.          * @group common          */
-DECL|method|delimiter ( String delimiter)
-specifier|public
+DECL|method|delimiter (String delimiter)
 specifier|default
 name|FlatpackEndpointProducerBuilder
 name|delimiter
@@ -1629,7 +1564,6 @@ return|;
 block|}
 comment|/**          * Allows for lines to be longer than expected and ignores the extra          * characters.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|ignoreExtraColumns ( boolean ignoreExtraColumns)
-specifier|public
 specifier|default
 name|FlatpackEndpointProducerBuilder
 name|ignoreExtraColumns
@@ -1651,7 +1585,6 @@ return|;
 block|}
 comment|/**          * Allows for lines to be longer than expected and ignores the extra          * characters.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|ignoreExtraColumns ( String ignoreExtraColumns)
-specifier|public
 specifier|default
 name|FlatpackEndpointProducerBuilder
 name|ignoreExtraColumns
@@ -1673,7 +1606,6 @@ return|;
 block|}
 comment|/**          * Whether the first line is ignored for delimited files (for the column          * headers).          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|ignoreFirstRecord ( boolean ignoreFirstRecord)
-specifier|public
 specifier|default
 name|FlatpackEndpointProducerBuilder
 name|ignoreFirstRecord
@@ -1695,7 +1627,6 @@ return|;
 block|}
 comment|/**          * Whether the first line is ignored for delimited files (for the column          * headers).          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|ignoreFirstRecord ( String ignoreFirstRecord)
-specifier|public
 specifier|default
 name|FlatpackEndpointProducerBuilder
 name|ignoreFirstRecord
@@ -1716,8 +1647,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the Component to send each row as a separate exchange once          * parsed.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|splitRows ( boolean splitRows)
-specifier|public
+DECL|method|splitRows (boolean splitRows)
 specifier|default
 name|FlatpackEndpointProducerBuilder
 name|splitRows
@@ -1738,8 +1668,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the Component to send each row as a separate exchange once          * parsed.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|splitRows ( String splitRows)
-specifier|public
+DECL|method|splitRows (String splitRows)
 specifier|default
 name|FlatpackEndpointProducerBuilder
 name|splitRows
@@ -1760,8 +1689,7 @@ name|this
 return|;
 block|}
 comment|/**          * The text qualifier for delimited files.          * The option is a<code>char</code> type.          * @group common          */
-DECL|method|textQualifier ( char textQualifier)
-specifier|public
+DECL|method|textQualifier (char textQualifier)
 specifier|default
 name|FlatpackEndpointProducerBuilder
 name|textQualifier
@@ -1783,7 +1711,6 @@ return|;
 block|}
 comment|/**          * The text qualifier for delimited files.          * The option will be converted to a<code>char</code> type.          * @group common          */
 DECL|method|textQualifier ( String textQualifier)
-specifier|public
 specifier|default
 name|FlatpackEndpointProducerBuilder
 name|textQualifier
@@ -1805,7 +1732,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|FlatpackEndpointProducerBuilder
 name|lazyStartProducer
@@ -1827,7 +1753,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|FlatpackEndpointProducerBuilder
 name|lazyStartProducer
@@ -1857,7 +1782,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|FlatpackEndpointProducerBuilder
 name|basic
@@ -1872,7 +1796,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1894,7 +1817,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1916,7 +1838,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointProducerBuilder
 name|synchronous
@@ -1938,7 +1859,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointProducerBuilder
 name|synchronous
@@ -1971,7 +1891,6 @@ extends|,
 name|FlatpackEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointBuilder
 name|advanced
@@ -1986,7 +1905,6 @@ return|;
 block|}
 comment|/**          * Whether to use fixed or delimiter.          * The option is a          *<code>org.apache.camel.component.flatpack.FlatpackType</code> type.          * @group common          */
 DECL|method|type (FlatpackType type)
-specifier|public
 specifier|default
 name|FlatpackEndpointBuilder
 name|type
@@ -2008,7 +1926,6 @@ return|;
 block|}
 comment|/**          * Whether to use fixed or delimiter.          * The option will be converted to a          *<code>org.apache.camel.component.flatpack.FlatpackType</code> type.          * @group common          */
 DECL|method|type (String type)
-specifier|public
 specifier|default
 name|FlatpackEndpointBuilder
 name|type
@@ -2030,7 +1947,6 @@ return|;
 block|}
 comment|/**          * URL for loading the flatpack mapping file from classpath or file          * system.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|resourceUri (String resourceUri)
-specifier|public
 specifier|default
 name|FlatpackEndpointBuilder
 name|resourceUri
@@ -2051,8 +1967,7 @@ name|this
 return|;
 block|}
 comment|/**          * Allows for lines to be shorter than expected and ignores the extra          * characters.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|allowShortLines ( boolean allowShortLines)
-specifier|public
+DECL|method|allowShortLines (boolean allowShortLines)
 specifier|default
 name|FlatpackEndpointBuilder
 name|allowShortLines
@@ -2073,8 +1988,7 @@ name|this
 return|;
 block|}
 comment|/**          * Allows for lines to be shorter than expected and ignores the extra          * characters.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|allowShortLines ( String allowShortLines)
-specifier|public
+DECL|method|allowShortLines (String allowShortLines)
 specifier|default
 name|FlatpackEndpointBuilder
 name|allowShortLines
@@ -2096,7 +2010,6 @@ return|;
 block|}
 comment|/**          * The default character delimiter for delimited files.          * The option is a<code>char</code> type.          * @group common          */
 DECL|method|delimiter (char delimiter)
-specifier|public
 specifier|default
 name|FlatpackEndpointBuilder
 name|delimiter
@@ -2118,7 +2031,6 @@ return|;
 block|}
 comment|/**          * The default character delimiter for delimited files.          * The option will be converted to a<code>char</code> type.          * @group common          */
 DECL|method|delimiter (String delimiter)
-specifier|public
 specifier|default
 name|FlatpackEndpointBuilder
 name|delimiter
@@ -2140,7 +2052,6 @@ return|;
 block|}
 comment|/**          * Allows for lines to be longer than expected and ignores the extra          * characters.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|ignoreExtraColumns ( boolean ignoreExtraColumns)
-specifier|public
 specifier|default
 name|FlatpackEndpointBuilder
 name|ignoreExtraColumns
@@ -2162,7 +2073,6 @@ return|;
 block|}
 comment|/**          * Allows for lines to be longer than expected and ignores the extra          * characters.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|ignoreExtraColumns ( String ignoreExtraColumns)
-specifier|public
 specifier|default
 name|FlatpackEndpointBuilder
 name|ignoreExtraColumns
@@ -2184,7 +2094,6 @@ return|;
 block|}
 comment|/**          * Whether the first line is ignored for delimited files (for the column          * headers).          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|ignoreFirstRecord ( boolean ignoreFirstRecord)
-specifier|public
 specifier|default
 name|FlatpackEndpointBuilder
 name|ignoreFirstRecord
@@ -2206,7 +2115,6 @@ return|;
 block|}
 comment|/**          * Whether the first line is ignored for delimited files (for the column          * headers).          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|ignoreFirstRecord ( String ignoreFirstRecord)
-specifier|public
 specifier|default
 name|FlatpackEndpointBuilder
 name|ignoreFirstRecord
@@ -2228,7 +2136,6 @@ return|;
 block|}
 comment|/**          * Sets the Component to send each row as a separate exchange once          * parsed.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|splitRows (boolean splitRows)
-specifier|public
 specifier|default
 name|FlatpackEndpointBuilder
 name|splitRows
@@ -2250,7 +2157,6 @@ return|;
 block|}
 comment|/**          * Sets the Component to send each row as a separate exchange once          * parsed.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|splitRows (String splitRows)
-specifier|public
 specifier|default
 name|FlatpackEndpointBuilder
 name|splitRows
@@ -2272,7 +2178,6 @@ return|;
 block|}
 comment|/**          * The text qualifier for delimited files.          * The option is a<code>char</code> type.          * @group common          */
 DECL|method|textQualifier (char textQualifier)
-specifier|public
 specifier|default
 name|FlatpackEndpointBuilder
 name|textQualifier
@@ -2293,8 +2198,7 @@ name|this
 return|;
 block|}
 comment|/**          * The text qualifier for delimited files.          * The option will be converted to a<code>char</code> type.          * @group common          */
-DECL|method|textQualifier ( String textQualifier)
-specifier|public
+DECL|method|textQualifier (String textQualifier)
 specifier|default
 name|FlatpackEndpointBuilder
 name|textQualifier
@@ -2327,7 +2231,6 @@ extends|,
 name|AdvancedFlatpackEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|FlatpackEndpointBuilder
 name|basic
@@ -2342,7 +2245,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointBuilder
 name|basicPropertyBinding
@@ -2364,7 +2266,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFlatpackEndpointBuilder
 name|basicPropertyBinding
@@ -2385,8 +2286,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedFlatpackEndpointBuilder
 name|synchronous
@@ -2407,8 +2307,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedFlatpackEndpointBuilder
 name|synchronous
@@ -2444,7 +2343,6 @@ name|delim
 block|;     }
 comment|/**      * The flatpack component supports fixed width and delimited file parsing      * via the FlatPack library. Creates a builder to build endpoints for the      * Flatpack component.      */
 DECL|method|flatpack (String path)
-specifier|public
 specifier|default
 name|FlatpackEndpointBuilder
 name|flatpack

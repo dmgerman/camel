@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJiraEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * Operation to perform. Consumers: NewIssues, NewComments. Producers:          * AddIssue, AttachFile, DeleteIssue, TransitionIssue, UpdateIssue,          * Watchers. See this class javadoc description for more information.          * The option is a<code>org.apache.camel.component.jira.JiraType</code>          * type.          * @group common          */
 DECL|method|type (JiraType type)
-specifier|public
 specifier|default
 name|JiraEndpointConsumerBuilder
 name|type
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * Operation to perform. Consumers: NewIssues, NewComments. Producers:          * AddIssue, AttachFile, DeleteIssue, TransitionIssue, UpdateIssue,          * Watchers. See this class javadoc description for more information.          * The option will be converted to a          *<code>org.apache.camel.component.jira.JiraType</code> type.          * @group common          */
 DECL|method|type (String type)
-specifier|public
 specifier|default
 name|JiraEndpointConsumerBuilder
 name|type
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * Time in milliseconds to elapse for the next poll.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|delay (Integer delay)
-specifier|public
 specifier|default
 name|JiraEndpointConsumerBuilder
 name|delay
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * Time in milliseconds to elapse for the next poll.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|delay (String delay)
-specifier|public
 specifier|default
 name|JiraEndpointConsumerBuilder
 name|delay
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * The Jira server url, example: http://my_jira.com:8081.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|jiraUrl (String jiraUrl)
-specifier|public
 specifier|default
 name|JiraEndpointConsumerBuilder
 name|jiraUrl
@@ -249,7 +243,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|JiraEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -271,7 +264,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|JiraEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -293,7 +285,6 @@ return|;
 block|}
 comment|/**          * JQL is the query language from JIRA which allows you to retrieve the          * data you want. For example jql=project=MyProject Where MyProject is          * the product key in Jira. It is important to use the RAW() and set the          * JQL inside it to prevent camel parsing it, example: RAW(project in          * (MYP, COM) AND resolution = Unresolved).          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|jql (String jql)
-specifier|public
 specifier|default
 name|JiraEndpointConsumerBuilder
 name|jql
@@ -315,7 +306,6 @@ return|;
 block|}
 comment|/**          * Max number of issues to search for.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
 DECL|method|maxResults (Integer maxResults)
-specifier|public
 specifier|default
 name|JiraEndpointConsumerBuilder
 name|maxResults
@@ -337,7 +327,6 @@ return|;
 block|}
 comment|/**          * Max number of issues to search for.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
 DECL|method|maxResults (String maxResults)
-specifier|public
 specifier|default
 name|JiraEndpointConsumerBuilder
 name|maxResults
@@ -358,8 +347,7 @@ name|this
 return|;
 block|}
 comment|/**          * (OAuth only) The access token generated by the Jira server.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|accessToken ( String accessToken)
-specifier|public
+DECL|method|accessToken (String accessToken)
 specifier|default
 name|JiraEndpointConsumerBuilder
 name|accessToken
@@ -380,8 +368,7 @@ name|this
 return|;
 block|}
 comment|/**          * (OAuth only) The consumer key from Jira settings.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|consumerKey ( String consumerKey)
-specifier|public
+DECL|method|consumerKey (String consumerKey)
 specifier|default
 name|JiraEndpointConsumerBuilder
 name|consumerKey
@@ -403,7 +390,6 @@ return|;
 block|}
 comment|/**          * (Basic authentication only) The password to authenticate to the Jira          * server. Use only if username basic authentication is used.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|JiraEndpointConsumerBuilder
 name|password
@@ -425,7 +411,6 @@ return|;
 block|}
 comment|/**          * (OAuth only) The private key generated by the client to encrypt the          * conversation to the server.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|privateKey (String privateKey)
-specifier|public
 specifier|default
 name|JiraEndpointConsumerBuilder
 name|privateKey
@@ -447,7 +432,6 @@ return|;
 block|}
 comment|/**          * (Basic authentication only) The username to authenticate to the Jira          * server. Use only if OAuth is not enabled on the Jira server. Do not          * set the username and OAuth token parameter, if they are both set, the          * username basic authentication takes precedence.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|JiraEndpointConsumerBuilder
 name|username
@@ -469,7 +453,6 @@ return|;
 block|}
 comment|/**          * (OAuth only) The verification code from Jira generated in the first          * step of the authorization proccess.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|verificationCode ( String verificationCode)
-specifier|public
 specifier|default
 name|JiraEndpointConsumerBuilder
 name|verificationCode
@@ -499,7 +482,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JiraEndpointConsumerBuilder
 name|basic
@@ -514,7 +496,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedJiraEndpointConsumerBuilder
 name|exceptionHandler
@@ -536,7 +517,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedJiraEndpointConsumerBuilder
 name|exceptionHandler
@@ -558,7 +538,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedJiraEndpointConsumerBuilder
 name|exchangePattern
@@ -580,7 +559,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedJiraEndpointConsumerBuilder
 name|exchangePattern
@@ -602,7 +580,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJiraEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -624,7 +601,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJiraEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -646,7 +622,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedJiraEndpointConsumerBuilder
 name|synchronous
@@ -668,7 +643,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedJiraEndpointConsumerBuilder
 name|synchronous
@@ -699,7 +673,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJiraEndpointProducerBuilder
 name|advanced
@@ -714,7 +687,6 @@ return|;
 block|}
 comment|/**          * Operation to perform. Consumers: NewIssues, NewComments. Producers:          * AddIssue, AttachFile, DeleteIssue, TransitionIssue, UpdateIssue,          * Watchers. See this class javadoc description for more information.          * The option is a<code>org.apache.camel.component.jira.JiraType</code>          * type.          * @group common          */
 DECL|method|type (JiraType type)
-specifier|public
 specifier|default
 name|JiraEndpointProducerBuilder
 name|type
@@ -736,7 +708,6 @@ return|;
 block|}
 comment|/**          * Operation to perform. Consumers: NewIssues, NewComments. Producers:          * AddIssue, AttachFile, DeleteIssue, TransitionIssue, UpdateIssue,          * Watchers. See this class javadoc description for more information.          * The option will be converted to a          *<code>org.apache.camel.component.jira.JiraType</code> type.          * @group common          */
 DECL|method|type (String type)
-specifier|public
 specifier|default
 name|JiraEndpointProducerBuilder
 name|type
@@ -758,7 +729,6 @@ return|;
 block|}
 comment|/**          * Time in milliseconds to elapse for the next poll.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|delay (Integer delay)
-specifier|public
 specifier|default
 name|JiraEndpointProducerBuilder
 name|delay
@@ -780,7 +750,6 @@ return|;
 block|}
 comment|/**          * Time in milliseconds to elapse for the next poll.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|delay (String delay)
-specifier|public
 specifier|default
 name|JiraEndpointProducerBuilder
 name|delay
@@ -802,7 +771,6 @@ return|;
 block|}
 comment|/**          * The Jira server url, example: http://my_jira.com:8081.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|jiraUrl (String jiraUrl)
-specifier|public
 specifier|default
 name|JiraEndpointProducerBuilder
 name|jiraUrl
@@ -824,7 +792,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|JiraEndpointProducerBuilder
 name|lazyStartProducer
@@ -846,7 +813,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|JiraEndpointProducerBuilder
 name|lazyStartProducer
@@ -867,8 +833,7 @@ name|this
 return|;
 block|}
 comment|/**          * (OAuth only) The access token generated by the Jira server.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|accessToken ( String accessToken)
-specifier|public
+DECL|method|accessToken (String accessToken)
 specifier|default
 name|JiraEndpointProducerBuilder
 name|accessToken
@@ -889,8 +854,7 @@ name|this
 return|;
 block|}
 comment|/**          * (OAuth only) The consumer key from Jira settings.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|consumerKey ( String consumerKey)
-specifier|public
+DECL|method|consumerKey (String consumerKey)
 specifier|default
 name|JiraEndpointProducerBuilder
 name|consumerKey
@@ -912,7 +876,6 @@ return|;
 block|}
 comment|/**          * (Basic authentication only) The password to authenticate to the Jira          * server. Use only if username basic authentication is used.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|JiraEndpointProducerBuilder
 name|password
@@ -934,7 +897,6 @@ return|;
 block|}
 comment|/**          * (OAuth only) The private key generated by the client to encrypt the          * conversation to the server.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|privateKey (String privateKey)
-specifier|public
 specifier|default
 name|JiraEndpointProducerBuilder
 name|privateKey
@@ -956,7 +918,6 @@ return|;
 block|}
 comment|/**          * (Basic authentication only) The username to authenticate to the Jira          * server. Use only if OAuth is not enabled on the Jira server. Do not          * set the username and OAuth token parameter, if they are both set, the          * username basic authentication takes precedence.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|JiraEndpointProducerBuilder
 name|username
@@ -978,7 +939,6 @@ return|;
 block|}
 comment|/**          * (OAuth only) The verification code from Jira generated in the first          * step of the authorization proccess.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|verificationCode ( String verificationCode)
-specifier|public
 specifier|default
 name|JiraEndpointProducerBuilder
 name|verificationCode
@@ -1008,7 +968,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JiraEndpointProducerBuilder
 name|basic
@@ -1023,7 +982,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJiraEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1045,7 +1003,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJiraEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1067,7 +1024,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedJiraEndpointProducerBuilder
 name|synchronous
@@ -1089,7 +1045,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedJiraEndpointProducerBuilder
 name|synchronous
@@ -1122,7 +1077,6 @@ extends|,
 name|JiraEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJiraEndpointBuilder
 name|advanced
@@ -1137,7 +1091,6 @@ return|;
 block|}
 comment|/**          * Operation to perform. Consumers: NewIssues, NewComments. Producers:          * AddIssue, AttachFile, DeleteIssue, TransitionIssue, UpdateIssue,          * Watchers. See this class javadoc description for more information.          * The option is a<code>org.apache.camel.component.jira.JiraType</code>          * type.          * @group common          */
 DECL|method|type (JiraType type)
-specifier|public
 specifier|default
 name|JiraEndpointBuilder
 name|type
@@ -1159,7 +1112,6 @@ return|;
 block|}
 comment|/**          * Operation to perform. Consumers: NewIssues, NewComments. Producers:          * AddIssue, AttachFile, DeleteIssue, TransitionIssue, UpdateIssue,          * Watchers. See this class javadoc description for more information.          * The option will be converted to a          *<code>org.apache.camel.component.jira.JiraType</code> type.          * @group common          */
 DECL|method|type (String type)
-specifier|public
 specifier|default
 name|JiraEndpointBuilder
 name|type
@@ -1181,7 +1133,6 @@ return|;
 block|}
 comment|/**          * Time in milliseconds to elapse for the next poll.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|delay (Integer delay)
-specifier|public
 specifier|default
 name|JiraEndpointBuilder
 name|delay
@@ -1203,7 +1154,6 @@ return|;
 block|}
 comment|/**          * Time in milliseconds to elapse for the next poll.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|delay (String delay)
-specifier|public
 specifier|default
 name|JiraEndpointBuilder
 name|delay
@@ -1225,7 +1175,6 @@ return|;
 block|}
 comment|/**          * The Jira server url, example: http://my_jira.com:8081.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|jiraUrl (String jiraUrl)
-specifier|public
 specifier|default
 name|JiraEndpointBuilder
 name|jiraUrl
@@ -1247,7 +1196,6 @@ return|;
 block|}
 comment|/**          * (OAuth only) The access token generated by the Jira server.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessToken (String accessToken)
-specifier|public
 specifier|default
 name|JiraEndpointBuilder
 name|accessToken
@@ -1269,7 +1217,6 @@ return|;
 block|}
 comment|/**          * (OAuth only) The consumer key from Jira settings.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|consumerKey (String consumerKey)
-specifier|public
 specifier|default
 name|JiraEndpointBuilder
 name|consumerKey
@@ -1291,7 +1238,6 @@ return|;
 block|}
 comment|/**          * (Basic authentication only) The password to authenticate to the Jira          * server. Use only if username basic authentication is used.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|JiraEndpointBuilder
 name|password
@@ -1313,7 +1259,6 @@ return|;
 block|}
 comment|/**          * (OAuth only) The private key generated by the client to encrypt the          * conversation to the server.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|privateKey (String privateKey)
-specifier|public
 specifier|default
 name|JiraEndpointBuilder
 name|privateKey
@@ -1335,7 +1280,6 @@ return|;
 block|}
 comment|/**          * (Basic authentication only) The username to authenticate to the Jira          * server. Use only if OAuth is not enabled on the Jira server. Do not          * set the username and OAuth token parameter, if they are both set, the          * username basic authentication takes precedence.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|JiraEndpointBuilder
 name|username
@@ -1356,8 +1300,7 @@ name|this
 return|;
 block|}
 comment|/**          * (OAuth only) The verification code from Jira generated in the first          * step of the authorization proccess.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|verificationCode ( String verificationCode)
-specifier|public
+DECL|method|verificationCode (String verificationCode)
 specifier|default
 name|JiraEndpointBuilder
 name|verificationCode
@@ -1390,7 +1333,6 @@ extends|,
 name|AdvancedJiraEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JiraEndpointBuilder
 name|basic
@@ -1405,7 +1347,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJiraEndpointBuilder
 name|basicPropertyBinding
@@ -1427,7 +1368,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJiraEndpointBuilder
 name|basicPropertyBinding
@@ -1448,8 +1388,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedJiraEndpointBuilder
 name|synchronous
@@ -1470,8 +1409,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedJiraEndpointBuilder
 name|synchronous
@@ -1528,7 +1466,6 @@ name|WATCHERS
 block|;     }
 comment|/**      * The jira component interacts with the JIRA issue tracker. Creates a      * builder to build endpoints for the Jira component.      */
 DECL|method|jira (String path)
-specifier|public
 specifier|default
 name|JiraEndpointBuilder
 name|jira

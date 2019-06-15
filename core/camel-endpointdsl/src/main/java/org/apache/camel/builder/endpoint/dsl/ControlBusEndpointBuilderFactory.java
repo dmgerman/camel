@@ -125,7 +125,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedControlBusEndpointBuilder
 name|advanced
@@ -140,7 +139,6 @@ return|;
 block|}
 comment|/**          * Command can be either route or language.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|command (String command)
-specifier|public
 specifier|default
 name|ControlBusEndpointBuilder
 name|command
@@ -162,7 +160,6 @@ return|;
 block|}
 comment|/**          * Allows you to specify the name of a Language to use for evaluating          * the message body. If there is any result from the evaluation, then          * the result is put in the message body.          * The option is a<code>org.apache.camel.spi.Language</code> type.          * @group producer          */
 DECL|method|language (Language language)
-specifier|public
 specifier|default
 name|ControlBusEndpointBuilder
 name|language
@@ -184,7 +181,6 @@ return|;
 block|}
 comment|/**          * Allows you to specify the name of a Language to use for evaluating          * the message body. If there is any result from the evaluation, then          * the result is put in the message body.          * The option will be converted to a          *<code>org.apache.camel.spi.Language</code> type.          * @group producer          */
 DECL|method|language (String language)
-specifier|public
 specifier|default
 name|ControlBusEndpointBuilder
 name|language
@@ -206,7 +202,6 @@ return|;
 block|}
 comment|/**          * To denote an action that can be either: start, stop, or status. To          * either start or stop a route, or to get the status of the route as          * output in the message body. You can use suspend and resume from Camel          * 2.11.1 onwards to either suspend or resume a route. And from Camel          * 2.11.1 onwards you can use stats to get performance statics returned          * in XML format; the routeId option can be used to define which route          * to get the performance stats for, if routeId is not defined, then you          * get statistics for the entire CamelContext. The restart action will          * restart the route.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|action (String action)
-specifier|public
 specifier|default
 name|ControlBusEndpointBuilder
 name|action
@@ -228,7 +223,6 @@ return|;
 block|}
 comment|/**          * Whether to execute the control bus task asynchronously. Important: If          * this option is enabled, then any result from the task is not set on          * the Exchange. This is only possible if executing tasks synchronously.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|async (boolean async)
-specifier|public
 specifier|default
 name|ControlBusEndpointBuilder
 name|async
@@ -250,7 +244,6 @@ return|;
 block|}
 comment|/**          * Whether to execute the control bus task asynchronously. Important: If          * this option is enabled, then any result from the task is not set on          * the Exchange. This is only possible if executing tasks synchronously.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|async (String async)
-specifier|public
 specifier|default
 name|ControlBusEndpointBuilder
 name|async
@@ -271,8 +264,7 @@ name|this
 return|;
 block|}
 comment|/**          * Logging level used for logging when task is done, or if any          * exceptions occurred during processing the task.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group producer          */
-DECL|method|loggingLevel ( LoggingLevel loggingLevel)
-specifier|public
+DECL|method|loggingLevel (LoggingLevel loggingLevel)
 specifier|default
 name|ControlBusEndpointBuilder
 name|loggingLevel
@@ -293,8 +285,7 @@ name|this
 return|;
 block|}
 comment|/**          * Logging level used for logging when task is done, or if any          * exceptions occurred during processing the task.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group producer          */
-DECL|method|loggingLevel ( String loggingLevel)
-specifier|public
+DECL|method|loggingLevel (String loggingLevel)
 specifier|default
 name|ControlBusEndpointBuilder
 name|loggingLevel
@@ -316,7 +307,6 @@ return|;
 block|}
 comment|/**          * The delay in millis to use when restarting a route.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|restartDelay (int restartDelay)
-specifier|public
 specifier|default
 name|ControlBusEndpointBuilder
 name|restartDelay
@@ -337,8 +327,7 @@ name|this
 return|;
 block|}
 comment|/**          * The delay in millis to use when restarting a route.          * The option will be converted to a<code>int</code> type.          * @group producer          */
-DECL|method|restartDelay ( String restartDelay)
-specifier|public
+DECL|method|restartDelay (String restartDelay)
 specifier|default
 name|ControlBusEndpointBuilder
 name|restartDelay
@@ -360,7 +349,6 @@ return|;
 block|}
 comment|/**          * To specify a route by its id. The special keyword current indicates          * the current route.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|routeId (String routeId)
-specifier|public
 specifier|default
 name|ControlBusEndpointBuilder
 name|routeId
@@ -391,7 +379,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|ControlBusEndpointBuilder
 name|basic
@@ -406,7 +393,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedControlBusEndpointBuilder
 name|basicPropertyBinding
@@ -428,7 +414,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedControlBusEndpointBuilder
 name|basicPropertyBinding
@@ -450,7 +435,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedControlBusEndpointBuilder
 name|synchronous
@@ -471,8 +455,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedControlBusEndpointBuilder
 name|synchronous
@@ -495,7 +478,6 @@ block|}
 block|}
 comment|/**      * The controlbus component provides easy management of Camel applications      * based on the Control Bus EIP pattern. Creates a builder to build      * endpoints for the Control Bus component.      */
 DECL|method|controlBus (String path)
-specifier|public
 specifier|default
 name|ControlBusEndpointBuilder
 name|controlBus

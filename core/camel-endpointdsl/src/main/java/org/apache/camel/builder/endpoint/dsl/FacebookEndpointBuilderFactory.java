@@ -164,7 +164,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedFacebookEndpointConsumerBuilder
 name|advanced
@@ -178,8 +177,7 @@ name|this
 return|;
 block|}
 comment|/**          * What operation to perform.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|methodName ( String methodName)
-specifier|public
+DECL|method|methodName (String methodName)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|methodName
@@ -201,7 +199,6 @@ return|;
 block|}
 comment|/**          * The unique URL of the achievement.          * The option is a<code>java.net.URL</code> type.          * @group common          */
 DECL|method|achievementURL ( URL achievementURL)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|achievementURL
@@ -223,7 +220,6 @@ return|;
 block|}
 comment|/**          * The unique URL of the achievement.          * The option will be converted to a<code>java.net.URL</code> type.          * @group common          */
 DECL|method|achievementURL ( String achievementURL)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|achievementURL
@@ -245,7 +241,6 @@ return|;
 block|}
 comment|/**          * The album ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|albumId (String albumId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|albumId
@@ -266,8 +261,7 @@ name|this
 return|;
 block|}
 comment|/**          * The facebook Album to be created or updated.          * The option is a<code>facebook4j.AlbumUpdate</code> type.          * @group common          */
-DECL|method|albumUpdate ( Object albumUpdate)
-specifier|public
+DECL|method|albumUpdate (Object albumUpdate)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|albumUpdate
@@ -288,8 +282,7 @@ name|this
 return|;
 block|}
 comment|/**          * The facebook Album to be created or updated.          * The option will be converted to a<code>facebook4j.AlbumUpdate</code>          * type.          * @group common          */
-DECL|method|albumUpdate ( String albumUpdate)
-specifier|public
+DECL|method|albumUpdate (String albumUpdate)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|albumUpdate
@@ -311,7 +304,6 @@ return|;
 block|}
 comment|/**          * The ID of the Facebook Application.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|appId (String appId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|appId
@@ -333,7 +325,6 @@ return|;
 block|}
 comment|/**          * Location latitude and longitude.          * The option is a<code>facebook4j.GeoLocation</code> type.          * @group common          */
 DECL|method|center (Object center)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|center
@@ -355,7 +346,6 @@ return|;
 block|}
 comment|/**          * Location latitude and longitude.          * The option will be converted to a<code>facebook4j.GeoLocation</code>          * type.          * @group common          */
 DECL|method|center (String center)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|center
@@ -376,8 +366,7 @@ name|this
 return|;
 block|}
 comment|/**          * The checkin ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|checkinId ( String checkinId)
-specifier|public
+DECL|method|checkinId (String checkinId)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|checkinId
@@ -401,7 +390,6 @@ comment|/**          * The checkin to be created. Deprecated, instead create a P
 annotation|@
 name|Deprecated
 DECL|method|checkinUpdate ( Object checkinUpdate)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|checkinUpdate
@@ -425,7 +413,6 @@ comment|/**          * The checkin to be created. Deprecated, instead create a P
 annotation|@
 name|Deprecated
 DECL|method|checkinUpdate ( String checkinUpdate)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|checkinUpdate
@@ -446,8 +433,7 @@ name|this
 return|;
 block|}
 comment|/**          * Facebook4J API client URL.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|clientURL ( String clientURL)
-specifier|public
+DECL|method|clientURL (String clientURL)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|clientURL
@@ -469,7 +455,6 @@ return|;
 block|}
 comment|/**          * Facebook4J client API version.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientVersion ( String clientVersion)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|clientVersion
@@ -490,8 +475,7 @@ name|this
 return|;
 block|}
 comment|/**          * The comment ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|commentId ( String commentId)
-specifier|public
+DECL|method|commentId (String commentId)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|commentId
@@ -513,7 +497,6 @@ return|;
 block|}
 comment|/**          * The facebook Comment to be created or updated.          * The option is a<code>facebook4j.CommentUpdate</code> type.          * @group common          */
 DECL|method|commentUpdate ( Object commentUpdate)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|commentUpdate
@@ -535,7 +518,6 @@ return|;
 block|}
 comment|/**          * The facebook Comment to be created or updated.          * The option will be converted to a          *<code>facebook4j.CommentUpdate</code> type.          * @group common          */
 DECL|method|commentUpdate ( String commentUpdate)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|commentUpdate
@@ -557,7 +539,6 @@ return|;
 block|}
 comment|/**          * Enables deubg output. Effective only with the embedded logger.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|debugEnabled ( Boolean debugEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|debugEnabled
@@ -578,8 +559,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enables deubg output. Effective only with the embedded logger.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
-DECL|method|debugEnabled ( String debugEnabled)
-specifier|public
+DECL|method|debugEnabled (String debugEnabled)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|debugEnabled
@@ -600,8 +580,7 @@ name|this
 return|;
 block|}
 comment|/**          * The description text.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|description ( String description)
-specifier|public
+DECL|method|description (String description)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|description
@@ -623,7 +602,6 @@ return|;
 block|}
 comment|/**          * Distance in meters.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|distance (Integer distance)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|distance
@@ -645,7 +623,6 @@ return|;
 block|}
 comment|/**          * Distance in meters.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|distance (String distance)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|distance
@@ -667,7 +644,6 @@ return|;
 block|}
 comment|/**          * The domain ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|domainId (String domainId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|domainId
@@ -688,8 +664,7 @@ name|this
 return|;
 block|}
 comment|/**          * The domain name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|domainName ( String domainName)
-specifier|public
+DECL|method|domainName (String domainName)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|domainName
@@ -711,7 +686,6 @@ return|;
 block|}
 comment|/**          * The domain names.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|domainNames ( List<String> domainNames)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|domainNames
@@ -735,8 +709,7 @@ name|this
 return|;
 block|}
 comment|/**          * The domain names.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
-DECL|method|domainNames ( String domainNames)
-specifier|public
+DECL|method|domainNames (String domainNames)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|domainNames
@@ -758,7 +731,6 @@ return|;
 block|}
 comment|/**          * The event ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|eventId (String eventId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|eventId
@@ -779,8 +751,7 @@ name|this
 return|;
 block|}
 comment|/**          * The event to be created or updated.          * The option is a<code>facebook4j.EventUpdate</code> type.          * @group common          */
-DECL|method|eventUpdate ( Object eventUpdate)
-specifier|public
+DECL|method|eventUpdate (Object eventUpdate)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|eventUpdate
@@ -801,8 +772,7 @@ name|this
 return|;
 block|}
 comment|/**          * The event to be created or updated.          * The option will be converted to a<code>facebook4j.EventUpdate</code>          * type.          * @group common          */
-DECL|method|eventUpdate ( String eventUpdate)
-specifier|public
+DECL|method|eventUpdate (String eventUpdate)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|eventUpdate
@@ -824,7 +794,6 @@ return|;
 block|}
 comment|/**          * The friend ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|friendId (String friendId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|friendId
@@ -845,8 +814,7 @@ name|this
 return|;
 block|}
 comment|/**          * The friend list ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|friendlistId ( String friendlistId)
-specifier|public
+DECL|method|friendlistId (String friendlistId)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|friendlistId
@@ -868,7 +836,6 @@ return|;
 block|}
 comment|/**          * The friend list Name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|friendlistName ( String friendlistName)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|friendlistName
@@ -889,8 +856,7 @@ name|this
 return|;
 block|}
 comment|/**          * The friend user ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|friendUserId ( String friendUserId)
-specifier|public
+DECL|method|friendUserId (String friendUserId)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|friendUserId
@@ -912,7 +878,6 @@ return|;
 block|}
 comment|/**          * The group ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|groupId (String groupId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|groupId
@@ -933,8 +898,7 @@ name|this
 return|;
 block|}
 comment|/**          * Use Facebook GZIP encoding.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
-DECL|method|gzipEnabled ( Boolean gzipEnabled)
-specifier|public
+DECL|method|gzipEnabled (Boolean gzipEnabled)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|gzipEnabled
@@ -955,8 +919,7 @@ name|this
 return|;
 block|}
 comment|/**          * Use Facebook GZIP encoding.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
-DECL|method|gzipEnabled ( String gzipEnabled)
-specifier|public
+DECL|method|gzipEnabled (String gzipEnabled)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|gzipEnabled
@@ -978,7 +941,6 @@ return|;
 block|}
 comment|/**          * Http connection timeout in milliseconds.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpConnectionTimeout ( Integer httpConnectionTimeout)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpConnectionTimeout
@@ -1000,7 +962,6 @@ return|;
 block|}
 comment|/**          * Http connection timeout in milliseconds.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpConnectionTimeout ( String httpConnectionTimeout)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpConnectionTimeout
@@ -1022,7 +983,6 @@ return|;
 block|}
 comment|/**          * HTTP maximum connections per route.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpDefaultMaxPerRoute ( Integer httpDefaultMaxPerRoute)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpDefaultMaxPerRoute
@@ -1044,7 +1004,6 @@ return|;
 block|}
 comment|/**          * HTTP maximum connections per route.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpDefaultMaxPerRoute ( String httpDefaultMaxPerRoute)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpDefaultMaxPerRoute
@@ -1066,7 +1025,6 @@ return|;
 block|}
 comment|/**          * HTTP maximum total connections.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpMaxTotalConnections ( Integer httpMaxTotalConnections)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpMaxTotalConnections
@@ -1088,7 +1046,6 @@ return|;
 block|}
 comment|/**          * HTTP maximum total connections.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpMaxTotalConnections ( String httpMaxTotalConnections)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpMaxTotalConnections
@@ -1110,7 +1067,6 @@ return|;
 block|}
 comment|/**          * Http read timeout in milliseconds.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpReadTimeout ( Integer httpReadTimeout)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpReadTimeout
@@ -1132,7 +1088,6 @@ return|;
 block|}
 comment|/**          * Http read timeout in milliseconds.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpReadTimeout ( String httpReadTimeout)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpReadTimeout
@@ -1154,7 +1109,6 @@ return|;
 block|}
 comment|/**          * Number of HTTP retries.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpRetryCount ( Integer httpRetryCount)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpRetryCount
@@ -1176,7 +1130,6 @@ return|;
 block|}
 comment|/**          * Number of HTTP retries.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpRetryCount ( String httpRetryCount)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpRetryCount
@@ -1198,7 +1151,6 @@ return|;
 block|}
 comment|/**          * HTTP retry interval in seconds.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpRetryIntervalSeconds ( Integer httpRetryIntervalSeconds)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpRetryIntervalSeconds
@@ -1220,7 +1172,6 @@ return|;
 block|}
 comment|/**          * HTTP retry interval in seconds.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpRetryIntervalSeconds ( String httpRetryIntervalSeconds)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpRetryIntervalSeconds
@@ -1242,7 +1193,6 @@ return|;
 block|}
 comment|/**          * HTTP streaming read timeout in milliseconds.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpStreamingReadTimeout ( Integer httpStreamingReadTimeout)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpStreamingReadTimeout
@@ -1264,7 +1214,6 @@ return|;
 block|}
 comment|/**          * HTTP streaming read timeout in milliseconds.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpStreamingReadTimeout ( String httpStreamingReadTimeout)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpStreamingReadTimeout
@@ -1286,7 +1235,6 @@ return|;
 block|}
 comment|/**          * The ids of users.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|ids (List<String> ids)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|ids
@@ -1311,7 +1259,6 @@ return|;
 block|}
 comment|/**          * The ids of users.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|ids (String ids)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|ids
@@ -1333,7 +1280,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|inBody
@@ -1354,8 +1300,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enables notifications that the user has already read in addition to          * unread ones.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
-DECL|method|includeRead ( Boolean includeRead)
-specifier|public
+DECL|method|includeRead (Boolean includeRead)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|includeRead
@@ -1376,8 +1321,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enables notifications that the user has already read in addition to          * unread ones.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
-DECL|method|includeRead ( String includeRead)
-specifier|public
+DECL|method|includeRead (String includeRead)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|includeRead
@@ -1399,7 +1343,6 @@ return|;
 block|}
 comment|/**          * Whether hidden.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|isHidden (Boolean isHidden)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|isHidden
@@ -1421,7 +1364,6 @@ return|;
 block|}
 comment|/**          * Whether hidden.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
 DECL|method|isHidden (String isHidden)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|isHidden
@@ -1443,7 +1385,6 @@ return|;
 block|}
 comment|/**          * If set to true, raw JSON forms will be stored in DataObjectFactory.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|jsonStoreEnabled ( Boolean jsonStoreEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|jsonStoreEnabled
@@ -1465,7 +1406,6 @@ return|;
 block|}
 comment|/**          * If set to true, raw JSON forms will be stored in DataObjectFactory.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
 DECL|method|jsonStoreEnabled ( String jsonStoreEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|jsonStoreEnabled
@@ -1487,7 +1427,6 @@ return|;
 block|}
 comment|/**          * Link URL.          * The option is a<code>java.net.URL</code> type.          * @group common          */
 DECL|method|link (URL link)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|link
@@ -1509,7 +1448,6 @@ return|;
 block|}
 comment|/**          * Link URL.          * The option will be converted to a<code>java.net.URL</code> type.          * @group common          */
 DECL|method|link (String link)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|link
@@ -1531,7 +1469,6 @@ return|;
 block|}
 comment|/**          * Link ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|linkId (String linkId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|linkId
@@ -1553,7 +1490,6 @@ return|;
 block|}
 comment|/**          * Desired FQL locale.          * The option is a<code>java.util.Locale</code> type.          * @group common          */
 DECL|method|locale (Locale locale)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|locale
@@ -1575,7 +1511,6 @@ return|;
 block|}
 comment|/**          * Desired FQL locale.          * The option will be converted to a<code>java.util.Locale</code> type.          * @group common          */
 DECL|method|locale (String locale)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|locale
@@ -1597,7 +1532,6 @@ return|;
 block|}
 comment|/**          * If set to true, Facebook4J mbean will be registerd.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|mbeanEnabled ( Boolean mbeanEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|mbeanEnabled
@@ -1618,8 +1552,7 @@ name|this
 return|;
 block|}
 comment|/**          * If set to true, Facebook4J mbean will be registerd.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
-DECL|method|mbeanEnabled ( String mbeanEnabled)
-specifier|public
+DECL|method|mbeanEnabled (String mbeanEnabled)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|mbeanEnabled
@@ -1641,7 +1574,6 @@ return|;
 block|}
 comment|/**          * The message text.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|message (String message)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|message
@@ -1662,8 +1594,7 @@ name|this
 return|;
 block|}
 comment|/**          * The message ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|messageId ( String messageId)
-specifier|public
+DECL|method|messageId (String messageId)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|messageId
@@ -1685,7 +1616,6 @@ return|;
 block|}
 comment|/**          * The metric name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|metric (String metric)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|metric
@@ -1706,8 +1636,7 @@ name|this
 return|;
 block|}
 comment|/**          * The milestone id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|milestoneId ( String milestoneId)
-specifier|public
+DECL|method|milestoneId (String milestoneId)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|milestoneId
@@ -1729,7 +1658,6 @@ return|;
 block|}
 comment|/**          * Test user name, must be of the form 'first last'.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|name
@@ -1751,7 +1679,6 @@ return|;
 block|}
 comment|/**          * The note ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|noteId (String noteId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|noteId
@@ -1773,7 +1700,6 @@ return|;
 block|}
 comment|/**          * The notification ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|notificationId ( String notificationId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|notificationId
@@ -1795,7 +1721,6 @@ return|;
 block|}
 comment|/**          * The insight object ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|objectId (String objectId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|objectId
@@ -1817,7 +1742,6 @@ return|;
 block|}
 comment|/**          * The offer id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|offerId (String offerId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|offerId
@@ -1839,7 +1763,6 @@ return|;
 block|}
 comment|/**          * The question's answer option description.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|optionDescription ( String optionDescription)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|optionDescription
@@ -1861,7 +1784,6 @@ return|;
 block|}
 comment|/**          * The page id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|pageId (String pageId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|pageId
@@ -1883,7 +1805,6 @@ return|;
 block|}
 comment|/**          * The permission name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|permissionName ( String permissionName)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|permissionName
@@ -1904,8 +1825,7 @@ name|this
 return|;
 block|}
 comment|/**          * Test user permissions in the format perm1,perm2,...          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|permissions ( String permissions)
-specifier|public
+DECL|method|permissions (String permissions)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|permissions
@@ -1927,7 +1847,6 @@ return|;
 block|}
 comment|/**          * The photo ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|photoId (String photoId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|photoId
@@ -1948,8 +1867,7 @@ name|this
 return|;
 block|}
 comment|/**          * The picture id.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
-DECL|method|pictureId ( Integer pictureId)
-specifier|public
+DECL|method|pictureId (Integer pictureId)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|pictureId
@@ -1970,8 +1888,7 @@ name|this
 return|;
 block|}
 comment|/**          * The picture id.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
-DECL|method|pictureId ( String pictureId)
-specifier|public
+DECL|method|pictureId (String pictureId)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|pictureId
@@ -1992,8 +1909,7 @@ name|this
 return|;
 block|}
 comment|/**          * The picture2 id.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
-DECL|method|pictureId2 ( Integer pictureId2)
-specifier|public
+DECL|method|pictureId2 (Integer pictureId2)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|pictureId2
@@ -2014,8 +1930,7 @@ name|this
 return|;
 block|}
 comment|/**          * The picture2 id.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
-DECL|method|pictureId2 ( String pictureId2)
-specifier|public
+DECL|method|pictureId2 (String pictureId2)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|pictureId2
@@ -2037,7 +1952,6 @@ return|;
 block|}
 comment|/**          * The picture size.          * The option is a<code>facebook4j.PictureSize</code> type.          * @group common          */
 DECL|method|pictureSize ( PictureSize pictureSize)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|pictureSize
@@ -2058,8 +1972,7 @@ name|this
 return|;
 block|}
 comment|/**          * The picture size.          * The option will be converted to a<code>facebook4j.PictureSize</code>          * type.          * @group common          */
-DECL|method|pictureSize ( String pictureSize)
-specifier|public
+DECL|method|pictureSize (String pictureSize)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|pictureSize
@@ -2081,7 +1994,6 @@ return|;
 block|}
 comment|/**          * The place ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|placeId (String placeId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|placeId
@@ -2103,7 +2015,6 @@ return|;
 block|}
 comment|/**          * The post ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|postId (String postId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|postId
@@ -2124,8 +2035,7 @@ name|this
 return|;
 block|}
 comment|/**          * The post to create or update.          * The option is a<code>facebook4j.PostUpdate</code> type.          * @group common          */
-DECL|method|postUpdate ( Object postUpdate)
-specifier|public
+DECL|method|postUpdate (Object postUpdate)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|postUpdate
@@ -2146,8 +2056,7 @@ name|this
 return|;
 block|}
 comment|/**          * The post to create or update.          * The option will be converted to a<code>facebook4j.PostUpdate</code>          * type.          * @group common          */
-DECL|method|postUpdate ( String postUpdate)
-specifier|public
+DECL|method|postUpdate (String postUpdate)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|postUpdate
@@ -2169,7 +2078,6 @@ return|;
 block|}
 comment|/**          * Prettify JSON debug output if set to true.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|prettyDebugEnabled ( Boolean prettyDebugEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|prettyDebugEnabled
@@ -2191,7 +2099,6 @@ return|;
 block|}
 comment|/**          * Prettify JSON debug output if set to true.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
 DECL|method|prettyDebugEnabled ( String prettyDebugEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|prettyDebugEnabled
@@ -2213,7 +2120,6 @@ return|;
 block|}
 comment|/**          * FQL queries.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|queries ( Map<String, String> queries)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|queries
@@ -2240,7 +2146,6 @@ return|;
 block|}
 comment|/**          * FQL queries.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|queries (String queries)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|queries
@@ -2262,7 +2167,6 @@ return|;
 block|}
 comment|/**          * FQL query or search terms for search endpoints.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|query (String query)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|query
@@ -2283,8 +2187,7 @@ name|this
 return|;
 block|}
 comment|/**          * The question id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|questionId ( String questionId)
-specifier|public
+DECL|method|questionId (String questionId)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|questionId
@@ -2306,7 +2209,6 @@ return|;
 block|}
 comment|/**          * Optional reading parameters. See Reading Options(#reading).          * The option is a<code>facebook4j.Reading</code> type.          * @group common          */
 DECL|method|reading (Object reading)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|reading
@@ -2328,7 +2230,6 @@ return|;
 block|}
 comment|/**          * Optional reading parameters. See Reading Options(#reading).          * The option will be converted to a<code>facebook4j.Reading</code>          * type.          * @group common          */
 DECL|method|reading (String reading)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|reading
@@ -2350,7 +2251,6 @@ return|;
 block|}
 comment|/**          * To configure Reading using key/value pairs from the Map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
 DECL|method|readingOptions ( Map<String, Object> readingOptions)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|readingOptions
@@ -2377,7 +2277,6 @@ return|;
 block|}
 comment|/**          * To configure Reading using key/value pairs from the Map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
 DECL|method|readingOptions ( String readingOptions)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|readingOptions
@@ -2398,8 +2297,7 @@ name|this
 return|;
 block|}
 comment|/**          * API base URL.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|restBaseURL ( String restBaseURL)
-specifier|public
+DECL|method|restBaseURL (String restBaseURL)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|restBaseURL
@@ -2420,8 +2318,7 @@ name|this
 return|;
 block|}
 comment|/**          * The numeric score with value.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
-DECL|method|scoreValue ( Integer scoreValue)
-specifier|public
+DECL|method|scoreValue (Integer scoreValue)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|scoreValue
@@ -2442,8 +2339,7 @@ name|this
 return|;
 block|}
 comment|/**          * The numeric score with value.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
-DECL|method|scoreValue ( String scoreValue)
-specifier|public
+DECL|method|scoreValue (String scoreValue)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|scoreValue
@@ -2465,7 +2361,6 @@ return|;
 block|}
 comment|/**          * The picture size, one of large, normal, small or square.          * The option is a<code>facebook4j.PictureSize</code> type.          * @group common          */
 DECL|method|size (PictureSize size)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|size
@@ -2487,7 +2382,6 @@ return|;
 block|}
 comment|/**          * The picture size, one of large, normal, small or square.          * The option will be converted to a<code>facebook4j.PictureSize</code>          * type.          * @group common          */
 DECL|method|size (String size)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|size
@@ -2509,7 +2403,6 @@ return|;
 block|}
 comment|/**          * The media content from either a java.io.File or java.io.Inputstream.          * The option is a<code>facebook4j.Media</code> type.          * @group common          */
 DECL|method|source (Object source)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|source
@@ -2531,7 +2424,6 @@ return|;
 block|}
 comment|/**          * The media content from either a java.io.File or java.io.Inputstream.          * The option will be converted to a<code>facebook4j.Media</code> type.          * @group common          */
 DECL|method|source (String source)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|source
@@ -2553,7 +2445,6 @@ return|;
 block|}
 comment|/**          * The note of the subject.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|subject (String subject)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|subject
@@ -2575,7 +2466,6 @@ return|;
 block|}
 comment|/**          * The tab id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|tabId (String tabId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|tabId
@@ -2596,8 +2486,7 @@ name|this
 return|;
 block|}
 comment|/**          * Photo tag information.          * The option is a<code>facebook4j.TagUpdate</code> type.          * @group common          */
-DECL|method|tagUpdate ( Object tagUpdate)
-specifier|public
+DECL|method|tagUpdate (Object tagUpdate)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|tagUpdate
@@ -2618,8 +2507,7 @@ name|this
 return|;
 block|}
 comment|/**          * Photo tag information.          * The option will be converted to a<code>facebook4j.TagUpdate</code>          * type.          * @group common          */
-DECL|method|tagUpdate ( String tagUpdate)
-specifier|public
+DECL|method|tagUpdate (String tagUpdate)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|tagUpdate
@@ -2640,8 +2528,7 @@ name|this
 return|;
 block|}
 comment|/**          * Test user 1.          * The option is a<code>facebook4j.TestUser</code> type.          * @group common          */
-DECL|method|testUser1 ( Object testUser1)
-specifier|public
+DECL|method|testUser1 (Object testUser1)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|testUser1
@@ -2662,8 +2549,7 @@ name|this
 return|;
 block|}
 comment|/**          * Test user 1.          * The option will be converted to a<code>facebook4j.TestUser</code>          * type.          * @group common          */
-DECL|method|testUser1 ( String testUser1)
-specifier|public
+DECL|method|testUser1 (String testUser1)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|testUser1
@@ -2684,8 +2570,7 @@ name|this
 return|;
 block|}
 comment|/**          * Test user 2.          * The option is a<code>facebook4j.TestUser</code> type.          * @group common          */
-DECL|method|testUser2 ( Object testUser2)
-specifier|public
+DECL|method|testUser2 (Object testUser2)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|testUser2
@@ -2706,8 +2591,7 @@ name|this
 return|;
 block|}
 comment|/**          * Test user 2.          * The option will be converted to a<code>facebook4j.TestUser</code>          * type.          * @group common          */
-DECL|method|testUser2 ( String testUser2)
-specifier|public
+DECL|method|testUser2 (String testUser2)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|testUser2
@@ -2728,8 +2612,7 @@ name|this
 return|;
 block|}
 comment|/**          * The ID of the test user.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|testUserId ( String testUserId)
-specifier|public
+DECL|method|testUserId (String testUserId)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|testUserId
@@ -2751,7 +2634,6 @@ return|;
 block|}
 comment|/**          * The title text.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|title (String title)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|title
@@ -2773,7 +2655,6 @@ return|;
 block|}
 comment|/**          * The ID of the user to tag.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|toUserId (String toUserId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|toUserId
@@ -2794,8 +2675,7 @@ name|this
 return|;
 block|}
 comment|/**          * The IDs of the users to tag.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
-DECL|method|toUserIds ( List<String> toUserIds)
-specifier|public
+DECL|method|toUserIds (List<String> toUserIds)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|toUserIds
@@ -2819,8 +2699,7 @@ name|this
 return|;
 block|}
 comment|/**          * The IDs of the users to tag.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
-DECL|method|toUserIds ( String toUserIds)
-specifier|public
+DECL|method|toUserIds (String toUserIds)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|toUserIds
@@ -2842,7 +2721,6 @@ return|;
 block|}
 comment|/**          * The Facebook user ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userId (String userId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|userId
@@ -2864,7 +2742,6 @@ return|;
 block|}
 comment|/**          * The ID of a user 1.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userId1 (String userId1)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|userId1
@@ -2886,7 +2763,6 @@ return|;
 block|}
 comment|/**          * The ID of a user 2.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userId2 (String userId2)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|userId2
@@ -2907,8 +2783,7 @@ name|this
 return|;
 block|}
 comment|/**          * The IDs of users to invite to event.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
-DECL|method|userIds ( List<String> userIds)
-specifier|public
+DECL|method|userIds (List<String> userIds)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|userIds
@@ -2933,7 +2808,6 @@ return|;
 block|}
 comment|/**          * The IDs of users to invite to event.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|userIds (String userIds)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|userIds
@@ -2954,8 +2828,7 @@ name|this
 return|;
 block|}
 comment|/**          * The test user locale.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|userLocale ( String userLocale)
-specifier|public
+DECL|method|userLocale (String userLocale)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|userLocale
@@ -2977,7 +2850,6 @@ return|;
 block|}
 comment|/**          * Use SSL.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|useSSL (Boolean useSSL)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|useSSL
@@ -2999,7 +2871,6 @@ return|;
 block|}
 comment|/**          * Use SSL.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
 DECL|method|useSSL (String useSSL)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|useSSL
@@ -3020,8 +2891,7 @@ name|this
 return|;
 block|}
 comment|/**          * Video API base URL.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|videoBaseURL ( String videoBaseURL)
-specifier|public
+DECL|method|videoBaseURL (String videoBaseURL)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|videoBaseURL
@@ -3043,7 +2913,6 @@ return|;
 block|}
 comment|/**          * The video ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|videoId (String videoId)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|videoId
@@ -3065,7 +2934,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -3087,7 +2955,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -3109,7 +2976,6 @@ return|;
 block|}
 comment|/**          * HTTP proxy server host name.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|httpProxyHost ( String httpProxyHost)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpProxyHost
@@ -3131,7 +2997,6 @@ return|;
 block|}
 comment|/**          * HTTP proxy server password.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|httpProxyPassword ( String httpProxyPassword)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpProxyPassword
@@ -3153,7 +3018,6 @@ return|;
 block|}
 comment|/**          * HTTP proxy server port.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
 DECL|method|httpProxyPort ( Integer httpProxyPort)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpProxyPort
@@ -3175,7 +3039,6 @@ return|;
 block|}
 comment|/**          * HTTP proxy server port.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
 DECL|method|httpProxyPort ( String httpProxyPort)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpProxyPort
@@ -3197,7 +3060,6 @@ return|;
 block|}
 comment|/**          * HTTP proxy server user name.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|httpProxyUser ( String httpProxyUser)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|httpProxyUser
@@ -3219,7 +3081,6 @@ return|;
 block|}
 comment|/**          * The user access token.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|oAuthAccessToken ( String oAuthAccessToken)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|oAuthAccessToken
@@ -3241,7 +3102,6 @@ return|;
 block|}
 comment|/**          * OAuth access token URL.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|oAuthAccessTokenURL ( String oAuthAccessTokenURL)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|oAuthAccessTokenURL
@@ -3262,8 +3122,7 @@ name|this
 return|;
 block|}
 comment|/**          * The application Id.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|oAuthAppId ( String oAuthAppId)
-specifier|public
+DECL|method|oAuthAppId (String oAuthAppId)
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|oAuthAppId
@@ -3285,7 +3144,6 @@ return|;
 block|}
 comment|/**          * The application Secret.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|oAuthAppSecret ( String oAuthAppSecret)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|oAuthAppSecret
@@ -3307,7 +3165,6 @@ return|;
 block|}
 comment|/**          * OAuth authorization URL.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|oAuthAuthorizationURL ( String oAuthAuthorizationURL)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|oAuthAuthorizationURL
@@ -3329,7 +3186,6 @@ return|;
 block|}
 comment|/**          * Default OAuth permissions. Comma separated permission names. See          * https://developers.facebook.com/docs/reference/login/#permissions for          * the detail.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|oAuthPermissions ( String oAuthPermissions)
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|oAuthPermissions
@@ -3359,7 +3215,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|FacebookEndpointConsumerBuilder
 name|basic
@@ -3374,7 +3229,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedFacebookEndpointConsumerBuilder
 name|exceptionHandler
@@ -3396,7 +3250,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedFacebookEndpointConsumerBuilder
 name|exceptionHandler
@@ -3418,7 +3271,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedFacebookEndpointConsumerBuilder
 name|exchangePattern
@@ -3440,7 +3292,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedFacebookEndpointConsumerBuilder
 name|exchangePattern
@@ -3462,7 +3313,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFacebookEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -3484,7 +3334,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFacebookEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -3506,7 +3355,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedFacebookEndpointConsumerBuilder
 name|synchronous
@@ -3528,7 +3376,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedFacebookEndpointConsumerBuilder
 name|synchronous
@@ -3559,7 +3406,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedFacebookEndpointProducerBuilder
 name|advanced
@@ -3573,8 +3419,7 @@ name|this
 return|;
 block|}
 comment|/**          * What operation to perform.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|methodName ( String methodName)
-specifier|public
+DECL|method|methodName (String methodName)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|methodName
@@ -3596,7 +3441,6 @@ return|;
 block|}
 comment|/**          * The unique URL of the achievement.          * The option is a<code>java.net.URL</code> type.          * @group common          */
 DECL|method|achievementURL ( URL achievementURL)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|achievementURL
@@ -3618,7 +3462,6 @@ return|;
 block|}
 comment|/**          * The unique URL of the achievement.          * The option will be converted to a<code>java.net.URL</code> type.          * @group common          */
 DECL|method|achievementURL ( String achievementURL)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|achievementURL
@@ -3640,7 +3483,6 @@ return|;
 block|}
 comment|/**          * The album ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|albumId (String albumId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|albumId
@@ -3661,8 +3503,7 @@ name|this
 return|;
 block|}
 comment|/**          * The facebook Album to be created or updated.          * The option is a<code>facebook4j.AlbumUpdate</code> type.          * @group common          */
-DECL|method|albumUpdate ( Object albumUpdate)
-specifier|public
+DECL|method|albumUpdate (Object albumUpdate)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|albumUpdate
@@ -3683,8 +3524,7 @@ name|this
 return|;
 block|}
 comment|/**          * The facebook Album to be created or updated.          * The option will be converted to a<code>facebook4j.AlbumUpdate</code>          * type.          * @group common          */
-DECL|method|albumUpdate ( String albumUpdate)
-specifier|public
+DECL|method|albumUpdate (String albumUpdate)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|albumUpdate
@@ -3706,7 +3546,6 @@ return|;
 block|}
 comment|/**          * The ID of the Facebook Application.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|appId (String appId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|appId
@@ -3728,7 +3567,6 @@ return|;
 block|}
 comment|/**          * Location latitude and longitude.          * The option is a<code>facebook4j.GeoLocation</code> type.          * @group common          */
 DECL|method|center (Object center)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|center
@@ -3750,7 +3588,6 @@ return|;
 block|}
 comment|/**          * Location latitude and longitude.          * The option will be converted to a<code>facebook4j.GeoLocation</code>          * type.          * @group common          */
 DECL|method|center (String center)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|center
@@ -3771,8 +3608,7 @@ name|this
 return|;
 block|}
 comment|/**          * The checkin ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|checkinId ( String checkinId)
-specifier|public
+DECL|method|checkinId (String checkinId)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|checkinId
@@ -3796,7 +3632,6 @@ comment|/**          * The checkin to be created. Deprecated, instead create a P
 annotation|@
 name|Deprecated
 DECL|method|checkinUpdate ( Object checkinUpdate)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|checkinUpdate
@@ -3820,7 +3655,6 @@ comment|/**          * The checkin to be created. Deprecated, instead create a P
 annotation|@
 name|Deprecated
 DECL|method|checkinUpdate ( String checkinUpdate)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|checkinUpdate
@@ -3841,8 +3675,7 @@ name|this
 return|;
 block|}
 comment|/**          * Facebook4J API client URL.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|clientURL ( String clientURL)
-specifier|public
+DECL|method|clientURL (String clientURL)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|clientURL
@@ -3864,7 +3697,6 @@ return|;
 block|}
 comment|/**          * Facebook4J client API version.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientVersion ( String clientVersion)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|clientVersion
@@ -3885,8 +3717,7 @@ name|this
 return|;
 block|}
 comment|/**          * The comment ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|commentId ( String commentId)
-specifier|public
+DECL|method|commentId (String commentId)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|commentId
@@ -3908,7 +3739,6 @@ return|;
 block|}
 comment|/**          * The facebook Comment to be created or updated.          * The option is a<code>facebook4j.CommentUpdate</code> type.          * @group common          */
 DECL|method|commentUpdate ( Object commentUpdate)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|commentUpdate
@@ -3930,7 +3760,6 @@ return|;
 block|}
 comment|/**          * The facebook Comment to be created or updated.          * The option will be converted to a          *<code>facebook4j.CommentUpdate</code> type.          * @group common          */
 DECL|method|commentUpdate ( String commentUpdate)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|commentUpdate
@@ -3952,7 +3781,6 @@ return|;
 block|}
 comment|/**          * Enables deubg output. Effective only with the embedded logger.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|debugEnabled ( Boolean debugEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|debugEnabled
@@ -3973,8 +3801,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enables deubg output. Effective only with the embedded logger.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
-DECL|method|debugEnabled ( String debugEnabled)
-specifier|public
+DECL|method|debugEnabled (String debugEnabled)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|debugEnabled
@@ -3995,8 +3822,7 @@ name|this
 return|;
 block|}
 comment|/**          * The description text.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|description ( String description)
-specifier|public
+DECL|method|description (String description)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|description
@@ -4018,7 +3844,6 @@ return|;
 block|}
 comment|/**          * Distance in meters.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|distance (Integer distance)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|distance
@@ -4040,7 +3865,6 @@ return|;
 block|}
 comment|/**          * Distance in meters.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|distance (String distance)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|distance
@@ -4062,7 +3886,6 @@ return|;
 block|}
 comment|/**          * The domain ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|domainId (String domainId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|domainId
@@ -4083,8 +3906,7 @@ name|this
 return|;
 block|}
 comment|/**          * The domain name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|domainName ( String domainName)
-specifier|public
+DECL|method|domainName (String domainName)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|domainName
@@ -4106,7 +3928,6 @@ return|;
 block|}
 comment|/**          * The domain names.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|domainNames ( List<String> domainNames)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|domainNames
@@ -4130,8 +3951,7 @@ name|this
 return|;
 block|}
 comment|/**          * The domain names.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
-DECL|method|domainNames ( String domainNames)
-specifier|public
+DECL|method|domainNames (String domainNames)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|domainNames
@@ -4153,7 +3973,6 @@ return|;
 block|}
 comment|/**          * The event ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|eventId (String eventId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|eventId
@@ -4174,8 +3993,7 @@ name|this
 return|;
 block|}
 comment|/**          * The event to be created or updated.          * The option is a<code>facebook4j.EventUpdate</code> type.          * @group common          */
-DECL|method|eventUpdate ( Object eventUpdate)
-specifier|public
+DECL|method|eventUpdate (Object eventUpdate)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|eventUpdate
@@ -4196,8 +4014,7 @@ name|this
 return|;
 block|}
 comment|/**          * The event to be created or updated.          * The option will be converted to a<code>facebook4j.EventUpdate</code>          * type.          * @group common          */
-DECL|method|eventUpdate ( String eventUpdate)
-specifier|public
+DECL|method|eventUpdate (String eventUpdate)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|eventUpdate
@@ -4219,7 +4036,6 @@ return|;
 block|}
 comment|/**          * The friend ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|friendId (String friendId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|friendId
@@ -4240,8 +4056,7 @@ name|this
 return|;
 block|}
 comment|/**          * The friend list ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|friendlistId ( String friendlistId)
-specifier|public
+DECL|method|friendlistId (String friendlistId)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|friendlistId
@@ -4263,7 +4078,6 @@ return|;
 block|}
 comment|/**          * The friend list Name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|friendlistName ( String friendlistName)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|friendlistName
@@ -4284,8 +4098,7 @@ name|this
 return|;
 block|}
 comment|/**          * The friend user ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|friendUserId ( String friendUserId)
-specifier|public
+DECL|method|friendUserId (String friendUserId)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|friendUserId
@@ -4307,7 +4120,6 @@ return|;
 block|}
 comment|/**          * The group ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|groupId (String groupId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|groupId
@@ -4328,8 +4140,7 @@ name|this
 return|;
 block|}
 comment|/**          * Use Facebook GZIP encoding.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
-DECL|method|gzipEnabled ( Boolean gzipEnabled)
-specifier|public
+DECL|method|gzipEnabled (Boolean gzipEnabled)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|gzipEnabled
@@ -4350,8 +4161,7 @@ name|this
 return|;
 block|}
 comment|/**          * Use Facebook GZIP encoding.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
-DECL|method|gzipEnabled ( String gzipEnabled)
-specifier|public
+DECL|method|gzipEnabled (String gzipEnabled)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|gzipEnabled
@@ -4373,7 +4183,6 @@ return|;
 block|}
 comment|/**          * Http connection timeout in milliseconds.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpConnectionTimeout ( Integer httpConnectionTimeout)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpConnectionTimeout
@@ -4395,7 +4204,6 @@ return|;
 block|}
 comment|/**          * Http connection timeout in milliseconds.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpConnectionTimeout ( String httpConnectionTimeout)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpConnectionTimeout
@@ -4417,7 +4225,6 @@ return|;
 block|}
 comment|/**          * HTTP maximum connections per route.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpDefaultMaxPerRoute ( Integer httpDefaultMaxPerRoute)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpDefaultMaxPerRoute
@@ -4439,7 +4246,6 @@ return|;
 block|}
 comment|/**          * HTTP maximum connections per route.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpDefaultMaxPerRoute ( String httpDefaultMaxPerRoute)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpDefaultMaxPerRoute
@@ -4461,7 +4267,6 @@ return|;
 block|}
 comment|/**          * HTTP maximum total connections.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpMaxTotalConnections ( Integer httpMaxTotalConnections)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpMaxTotalConnections
@@ -4483,7 +4288,6 @@ return|;
 block|}
 comment|/**          * HTTP maximum total connections.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpMaxTotalConnections ( String httpMaxTotalConnections)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpMaxTotalConnections
@@ -4505,7 +4309,6 @@ return|;
 block|}
 comment|/**          * Http read timeout in milliseconds.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpReadTimeout ( Integer httpReadTimeout)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpReadTimeout
@@ -4527,7 +4330,6 @@ return|;
 block|}
 comment|/**          * Http read timeout in milliseconds.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpReadTimeout ( String httpReadTimeout)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpReadTimeout
@@ -4549,7 +4351,6 @@ return|;
 block|}
 comment|/**          * Number of HTTP retries.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpRetryCount ( Integer httpRetryCount)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpRetryCount
@@ -4571,7 +4372,6 @@ return|;
 block|}
 comment|/**          * Number of HTTP retries.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpRetryCount ( String httpRetryCount)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpRetryCount
@@ -4593,7 +4393,6 @@ return|;
 block|}
 comment|/**          * HTTP retry interval in seconds.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpRetryIntervalSeconds ( Integer httpRetryIntervalSeconds)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpRetryIntervalSeconds
@@ -4615,7 +4414,6 @@ return|;
 block|}
 comment|/**          * HTTP retry interval in seconds.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpRetryIntervalSeconds ( String httpRetryIntervalSeconds)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpRetryIntervalSeconds
@@ -4637,7 +4435,6 @@ return|;
 block|}
 comment|/**          * HTTP streaming read timeout in milliseconds.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpStreamingReadTimeout ( Integer httpStreamingReadTimeout)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpStreamingReadTimeout
@@ -4659,7 +4456,6 @@ return|;
 block|}
 comment|/**          * HTTP streaming read timeout in milliseconds.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpStreamingReadTimeout ( String httpStreamingReadTimeout)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpStreamingReadTimeout
@@ -4681,7 +4477,6 @@ return|;
 block|}
 comment|/**          * The ids of users.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|ids (List<String> ids)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|ids
@@ -4706,7 +4501,6 @@ return|;
 block|}
 comment|/**          * The ids of users.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|ids (String ids)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|ids
@@ -4728,7 +4522,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|inBody
@@ -4749,8 +4542,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enables notifications that the user has already read in addition to          * unread ones.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
-DECL|method|includeRead ( Boolean includeRead)
-specifier|public
+DECL|method|includeRead (Boolean includeRead)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|includeRead
@@ -4771,8 +4563,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enables notifications that the user has already read in addition to          * unread ones.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
-DECL|method|includeRead ( String includeRead)
-specifier|public
+DECL|method|includeRead (String includeRead)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|includeRead
@@ -4794,7 +4585,6 @@ return|;
 block|}
 comment|/**          * Whether hidden.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|isHidden (Boolean isHidden)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|isHidden
@@ -4816,7 +4606,6 @@ return|;
 block|}
 comment|/**          * Whether hidden.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
 DECL|method|isHidden (String isHidden)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|isHidden
@@ -4838,7 +4627,6 @@ return|;
 block|}
 comment|/**          * If set to true, raw JSON forms will be stored in DataObjectFactory.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|jsonStoreEnabled ( Boolean jsonStoreEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|jsonStoreEnabled
@@ -4860,7 +4648,6 @@ return|;
 block|}
 comment|/**          * If set to true, raw JSON forms will be stored in DataObjectFactory.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
 DECL|method|jsonStoreEnabled ( String jsonStoreEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|jsonStoreEnabled
@@ -4882,7 +4669,6 @@ return|;
 block|}
 comment|/**          * Link URL.          * The option is a<code>java.net.URL</code> type.          * @group common          */
 DECL|method|link (URL link)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|link
@@ -4904,7 +4690,6 @@ return|;
 block|}
 comment|/**          * Link URL.          * The option will be converted to a<code>java.net.URL</code> type.          * @group common          */
 DECL|method|link (String link)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|link
@@ -4926,7 +4711,6 @@ return|;
 block|}
 comment|/**          * Link ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|linkId (String linkId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|linkId
@@ -4948,7 +4732,6 @@ return|;
 block|}
 comment|/**          * Desired FQL locale.          * The option is a<code>java.util.Locale</code> type.          * @group common          */
 DECL|method|locale (Locale locale)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|locale
@@ -4970,7 +4753,6 @@ return|;
 block|}
 comment|/**          * Desired FQL locale.          * The option will be converted to a<code>java.util.Locale</code> type.          * @group common          */
 DECL|method|locale (String locale)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|locale
@@ -4992,7 +4774,6 @@ return|;
 block|}
 comment|/**          * If set to true, Facebook4J mbean will be registerd.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|mbeanEnabled ( Boolean mbeanEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|mbeanEnabled
@@ -5013,8 +4794,7 @@ name|this
 return|;
 block|}
 comment|/**          * If set to true, Facebook4J mbean will be registerd.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
-DECL|method|mbeanEnabled ( String mbeanEnabled)
-specifier|public
+DECL|method|mbeanEnabled (String mbeanEnabled)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|mbeanEnabled
@@ -5036,7 +4816,6 @@ return|;
 block|}
 comment|/**          * The message text.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|message (String message)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|message
@@ -5057,8 +4836,7 @@ name|this
 return|;
 block|}
 comment|/**          * The message ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|messageId ( String messageId)
-specifier|public
+DECL|method|messageId (String messageId)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|messageId
@@ -5080,7 +4858,6 @@ return|;
 block|}
 comment|/**          * The metric name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|metric (String metric)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|metric
@@ -5101,8 +4878,7 @@ name|this
 return|;
 block|}
 comment|/**          * The milestone id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|milestoneId ( String milestoneId)
-specifier|public
+DECL|method|milestoneId (String milestoneId)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|milestoneId
@@ -5124,7 +4900,6 @@ return|;
 block|}
 comment|/**          * Test user name, must be of the form 'first last'.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|name
@@ -5146,7 +4921,6 @@ return|;
 block|}
 comment|/**          * The note ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|noteId (String noteId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|noteId
@@ -5168,7 +4942,6 @@ return|;
 block|}
 comment|/**          * The notification ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|notificationId ( String notificationId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|notificationId
@@ -5190,7 +4963,6 @@ return|;
 block|}
 comment|/**          * The insight object ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|objectId (String objectId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|objectId
@@ -5212,7 +4984,6 @@ return|;
 block|}
 comment|/**          * The offer id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|offerId (String offerId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|offerId
@@ -5234,7 +5005,6 @@ return|;
 block|}
 comment|/**          * The question's answer option description.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|optionDescription ( String optionDescription)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|optionDescription
@@ -5256,7 +5026,6 @@ return|;
 block|}
 comment|/**          * The page id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|pageId (String pageId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|pageId
@@ -5278,7 +5047,6 @@ return|;
 block|}
 comment|/**          * The permission name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|permissionName ( String permissionName)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|permissionName
@@ -5299,8 +5067,7 @@ name|this
 return|;
 block|}
 comment|/**          * Test user permissions in the format perm1,perm2,...          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|permissions ( String permissions)
-specifier|public
+DECL|method|permissions (String permissions)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|permissions
@@ -5322,7 +5089,6 @@ return|;
 block|}
 comment|/**          * The photo ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|photoId (String photoId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|photoId
@@ -5343,8 +5109,7 @@ name|this
 return|;
 block|}
 comment|/**          * The picture id.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
-DECL|method|pictureId ( Integer pictureId)
-specifier|public
+DECL|method|pictureId (Integer pictureId)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|pictureId
@@ -5365,8 +5130,7 @@ name|this
 return|;
 block|}
 comment|/**          * The picture id.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
-DECL|method|pictureId ( String pictureId)
-specifier|public
+DECL|method|pictureId (String pictureId)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|pictureId
@@ -5387,8 +5151,7 @@ name|this
 return|;
 block|}
 comment|/**          * The picture2 id.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
-DECL|method|pictureId2 ( Integer pictureId2)
-specifier|public
+DECL|method|pictureId2 (Integer pictureId2)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|pictureId2
@@ -5409,8 +5172,7 @@ name|this
 return|;
 block|}
 comment|/**          * The picture2 id.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
-DECL|method|pictureId2 ( String pictureId2)
-specifier|public
+DECL|method|pictureId2 (String pictureId2)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|pictureId2
@@ -5432,7 +5194,6 @@ return|;
 block|}
 comment|/**          * The picture size.          * The option is a<code>facebook4j.PictureSize</code> type.          * @group common          */
 DECL|method|pictureSize ( PictureSize pictureSize)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|pictureSize
@@ -5453,8 +5214,7 @@ name|this
 return|;
 block|}
 comment|/**          * The picture size.          * The option will be converted to a<code>facebook4j.PictureSize</code>          * type.          * @group common          */
-DECL|method|pictureSize ( String pictureSize)
-specifier|public
+DECL|method|pictureSize (String pictureSize)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|pictureSize
@@ -5476,7 +5236,6 @@ return|;
 block|}
 comment|/**          * The place ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|placeId (String placeId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|placeId
@@ -5498,7 +5257,6 @@ return|;
 block|}
 comment|/**          * The post ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|postId (String postId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|postId
@@ -5519,8 +5277,7 @@ name|this
 return|;
 block|}
 comment|/**          * The post to create or update.          * The option is a<code>facebook4j.PostUpdate</code> type.          * @group common          */
-DECL|method|postUpdate ( Object postUpdate)
-specifier|public
+DECL|method|postUpdate (Object postUpdate)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|postUpdate
@@ -5541,8 +5298,7 @@ name|this
 return|;
 block|}
 comment|/**          * The post to create or update.          * The option will be converted to a<code>facebook4j.PostUpdate</code>          * type.          * @group common          */
-DECL|method|postUpdate ( String postUpdate)
-specifier|public
+DECL|method|postUpdate (String postUpdate)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|postUpdate
@@ -5564,7 +5320,6 @@ return|;
 block|}
 comment|/**          * Prettify JSON debug output if set to true.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|prettyDebugEnabled ( Boolean prettyDebugEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|prettyDebugEnabled
@@ -5586,7 +5341,6 @@ return|;
 block|}
 comment|/**          * Prettify JSON debug output if set to true.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
 DECL|method|prettyDebugEnabled ( String prettyDebugEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|prettyDebugEnabled
@@ -5608,7 +5362,6 @@ return|;
 block|}
 comment|/**          * FQL queries.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|queries ( Map<String, String> queries)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|queries
@@ -5635,7 +5388,6 @@ return|;
 block|}
 comment|/**          * FQL queries.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|queries (String queries)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|queries
@@ -5657,7 +5409,6 @@ return|;
 block|}
 comment|/**          * FQL query or search terms for search endpoints.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|query (String query)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|query
@@ -5678,8 +5429,7 @@ name|this
 return|;
 block|}
 comment|/**          * The question id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|questionId ( String questionId)
-specifier|public
+DECL|method|questionId (String questionId)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|questionId
@@ -5701,7 +5451,6 @@ return|;
 block|}
 comment|/**          * Optional reading parameters. See Reading Options(#reading).          * The option is a<code>facebook4j.Reading</code> type.          * @group common          */
 DECL|method|reading (Object reading)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|reading
@@ -5723,7 +5472,6 @@ return|;
 block|}
 comment|/**          * Optional reading parameters. See Reading Options(#reading).          * The option will be converted to a<code>facebook4j.Reading</code>          * type.          * @group common          */
 DECL|method|reading (String reading)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|reading
@@ -5745,7 +5493,6 @@ return|;
 block|}
 comment|/**          * To configure Reading using key/value pairs from the Map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
 DECL|method|readingOptions ( Map<String, Object> readingOptions)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|readingOptions
@@ -5772,7 +5519,6 @@ return|;
 block|}
 comment|/**          * To configure Reading using key/value pairs from the Map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
 DECL|method|readingOptions ( String readingOptions)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|readingOptions
@@ -5793,8 +5539,7 @@ name|this
 return|;
 block|}
 comment|/**          * API base URL.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|restBaseURL ( String restBaseURL)
-specifier|public
+DECL|method|restBaseURL (String restBaseURL)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|restBaseURL
@@ -5815,8 +5560,7 @@ name|this
 return|;
 block|}
 comment|/**          * The numeric score with value.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
-DECL|method|scoreValue ( Integer scoreValue)
-specifier|public
+DECL|method|scoreValue (Integer scoreValue)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|scoreValue
@@ -5837,8 +5581,7 @@ name|this
 return|;
 block|}
 comment|/**          * The numeric score with value.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
-DECL|method|scoreValue ( String scoreValue)
-specifier|public
+DECL|method|scoreValue (String scoreValue)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|scoreValue
@@ -5860,7 +5603,6 @@ return|;
 block|}
 comment|/**          * The picture size, one of large, normal, small or square.          * The option is a<code>facebook4j.PictureSize</code> type.          * @group common          */
 DECL|method|size (PictureSize size)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|size
@@ -5882,7 +5624,6 @@ return|;
 block|}
 comment|/**          * The picture size, one of large, normal, small or square.          * The option will be converted to a<code>facebook4j.PictureSize</code>          * type.          * @group common          */
 DECL|method|size (String size)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|size
@@ -5904,7 +5645,6 @@ return|;
 block|}
 comment|/**          * The media content from either a java.io.File or java.io.Inputstream.          * The option is a<code>facebook4j.Media</code> type.          * @group common          */
 DECL|method|source (Object source)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|source
@@ -5926,7 +5666,6 @@ return|;
 block|}
 comment|/**          * The media content from either a java.io.File or java.io.Inputstream.          * The option will be converted to a<code>facebook4j.Media</code> type.          * @group common          */
 DECL|method|source (String source)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|source
@@ -5948,7 +5687,6 @@ return|;
 block|}
 comment|/**          * The note of the subject.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|subject (String subject)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|subject
@@ -5970,7 +5708,6 @@ return|;
 block|}
 comment|/**          * The tab id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|tabId (String tabId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|tabId
@@ -5991,8 +5728,7 @@ name|this
 return|;
 block|}
 comment|/**          * Photo tag information.          * The option is a<code>facebook4j.TagUpdate</code> type.          * @group common          */
-DECL|method|tagUpdate ( Object tagUpdate)
-specifier|public
+DECL|method|tagUpdate (Object tagUpdate)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|tagUpdate
@@ -6013,8 +5749,7 @@ name|this
 return|;
 block|}
 comment|/**          * Photo tag information.          * The option will be converted to a<code>facebook4j.TagUpdate</code>          * type.          * @group common          */
-DECL|method|tagUpdate ( String tagUpdate)
-specifier|public
+DECL|method|tagUpdate (String tagUpdate)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|tagUpdate
@@ -6035,8 +5770,7 @@ name|this
 return|;
 block|}
 comment|/**          * Test user 1.          * The option is a<code>facebook4j.TestUser</code> type.          * @group common          */
-DECL|method|testUser1 ( Object testUser1)
-specifier|public
+DECL|method|testUser1 (Object testUser1)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|testUser1
@@ -6057,8 +5791,7 @@ name|this
 return|;
 block|}
 comment|/**          * Test user 1.          * The option will be converted to a<code>facebook4j.TestUser</code>          * type.          * @group common          */
-DECL|method|testUser1 ( String testUser1)
-specifier|public
+DECL|method|testUser1 (String testUser1)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|testUser1
@@ -6079,8 +5812,7 @@ name|this
 return|;
 block|}
 comment|/**          * Test user 2.          * The option is a<code>facebook4j.TestUser</code> type.          * @group common          */
-DECL|method|testUser2 ( Object testUser2)
-specifier|public
+DECL|method|testUser2 (Object testUser2)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|testUser2
@@ -6101,8 +5833,7 @@ name|this
 return|;
 block|}
 comment|/**          * Test user 2.          * The option will be converted to a<code>facebook4j.TestUser</code>          * type.          * @group common          */
-DECL|method|testUser2 ( String testUser2)
-specifier|public
+DECL|method|testUser2 (String testUser2)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|testUser2
@@ -6123,8 +5854,7 @@ name|this
 return|;
 block|}
 comment|/**          * The ID of the test user.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|testUserId ( String testUserId)
-specifier|public
+DECL|method|testUserId (String testUserId)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|testUserId
@@ -6146,7 +5876,6 @@ return|;
 block|}
 comment|/**          * The title text.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|title (String title)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|title
@@ -6168,7 +5897,6 @@ return|;
 block|}
 comment|/**          * The ID of the user to tag.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|toUserId (String toUserId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|toUserId
@@ -6189,8 +5917,7 @@ name|this
 return|;
 block|}
 comment|/**          * The IDs of the users to tag.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
-DECL|method|toUserIds ( List<String> toUserIds)
-specifier|public
+DECL|method|toUserIds (List<String> toUserIds)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|toUserIds
@@ -6214,8 +5941,7 @@ name|this
 return|;
 block|}
 comment|/**          * The IDs of the users to tag.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
-DECL|method|toUserIds ( String toUserIds)
-specifier|public
+DECL|method|toUserIds (String toUserIds)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|toUserIds
@@ -6237,7 +5963,6 @@ return|;
 block|}
 comment|/**          * The Facebook user ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userId (String userId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|userId
@@ -6259,7 +5984,6 @@ return|;
 block|}
 comment|/**          * The ID of a user 1.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userId1 (String userId1)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|userId1
@@ -6281,7 +6005,6 @@ return|;
 block|}
 comment|/**          * The ID of a user 2.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userId2 (String userId2)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|userId2
@@ -6302,8 +6025,7 @@ name|this
 return|;
 block|}
 comment|/**          * The IDs of users to invite to event.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
-DECL|method|userIds ( List<String> userIds)
-specifier|public
+DECL|method|userIds (List<String> userIds)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|userIds
@@ -6328,7 +6050,6 @@ return|;
 block|}
 comment|/**          * The IDs of users to invite to event.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|userIds (String userIds)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|userIds
@@ -6349,8 +6070,7 @@ name|this
 return|;
 block|}
 comment|/**          * The test user locale.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|userLocale ( String userLocale)
-specifier|public
+DECL|method|userLocale (String userLocale)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|userLocale
@@ -6372,7 +6092,6 @@ return|;
 block|}
 comment|/**          * Use SSL.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|useSSL (Boolean useSSL)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|useSSL
@@ -6394,7 +6113,6 @@ return|;
 block|}
 comment|/**          * Use SSL.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
 DECL|method|useSSL (String useSSL)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|useSSL
@@ -6415,8 +6133,7 @@ name|this
 return|;
 block|}
 comment|/**          * Video API base URL.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|videoBaseURL ( String videoBaseURL)
-specifier|public
+DECL|method|videoBaseURL (String videoBaseURL)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|videoBaseURL
@@ -6438,7 +6155,6 @@ return|;
 block|}
 comment|/**          * The video ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|videoId (String videoId)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|videoId
@@ -6460,7 +6176,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|lazyStartProducer
@@ -6482,7 +6197,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|lazyStartProducer
@@ -6504,7 +6218,6 @@ return|;
 block|}
 comment|/**          * HTTP proxy server host name.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|httpProxyHost ( String httpProxyHost)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpProxyHost
@@ -6526,7 +6239,6 @@ return|;
 block|}
 comment|/**          * HTTP proxy server password.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|httpProxyPassword ( String httpProxyPassword)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpProxyPassword
@@ -6548,7 +6260,6 @@ return|;
 block|}
 comment|/**          * HTTP proxy server port.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
 DECL|method|httpProxyPort ( Integer httpProxyPort)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpProxyPort
@@ -6570,7 +6281,6 @@ return|;
 block|}
 comment|/**          * HTTP proxy server port.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
 DECL|method|httpProxyPort ( String httpProxyPort)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpProxyPort
@@ -6592,7 +6302,6 @@ return|;
 block|}
 comment|/**          * HTTP proxy server user name.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|httpProxyUser ( String httpProxyUser)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|httpProxyUser
@@ -6614,7 +6323,6 @@ return|;
 block|}
 comment|/**          * The user access token.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|oAuthAccessToken ( String oAuthAccessToken)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|oAuthAccessToken
@@ -6636,7 +6344,6 @@ return|;
 block|}
 comment|/**          * OAuth access token URL.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|oAuthAccessTokenURL ( String oAuthAccessTokenURL)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|oAuthAccessTokenURL
@@ -6657,8 +6364,7 @@ name|this
 return|;
 block|}
 comment|/**          * The application Id.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|oAuthAppId ( String oAuthAppId)
-specifier|public
+DECL|method|oAuthAppId (String oAuthAppId)
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|oAuthAppId
@@ -6680,7 +6386,6 @@ return|;
 block|}
 comment|/**          * The application Secret.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|oAuthAppSecret ( String oAuthAppSecret)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|oAuthAppSecret
@@ -6702,7 +6407,6 @@ return|;
 block|}
 comment|/**          * OAuth authorization URL.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|oAuthAuthorizationURL ( String oAuthAuthorizationURL)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|oAuthAuthorizationURL
@@ -6724,7 +6428,6 @@ return|;
 block|}
 comment|/**          * Default OAuth permissions. Comma separated permission names. See          * https://developers.facebook.com/docs/reference/login/#permissions for          * the detail.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|oAuthPermissions ( String oAuthPermissions)
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|oAuthPermissions
@@ -6754,7 +6457,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|FacebookEndpointProducerBuilder
 name|basic
@@ -6769,7 +6471,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFacebookEndpointProducerBuilder
 name|basicPropertyBinding
@@ -6791,7 +6492,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFacebookEndpointProducerBuilder
 name|basicPropertyBinding
@@ -6813,7 +6513,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedFacebookEndpointProducerBuilder
 name|synchronous
@@ -6835,7 +6534,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedFacebookEndpointProducerBuilder
 name|synchronous
@@ -6868,7 +6566,6 @@ extends|,
 name|FacebookEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedFacebookEndpointBuilder
 name|advanced
@@ -6883,7 +6580,6 @@ return|;
 block|}
 comment|/**          * What operation to perform.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|methodName (String methodName)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|methodName
@@ -6905,7 +6601,6 @@ return|;
 block|}
 comment|/**          * The unique URL of the achievement.          * The option is a<code>java.net.URL</code> type.          * @group common          */
 DECL|method|achievementURL (URL achievementURL)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|achievementURL
@@ -6926,8 +6621,7 @@ name|this
 return|;
 block|}
 comment|/**          * The unique URL of the achievement.          * The option will be converted to a<code>java.net.URL</code> type.          * @group common          */
-DECL|method|achievementURL ( String achievementURL)
-specifier|public
+DECL|method|achievementURL (String achievementURL)
 specifier|default
 name|FacebookEndpointBuilder
 name|achievementURL
@@ -6949,7 +6643,6 @@ return|;
 block|}
 comment|/**          * The album ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|albumId (String albumId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|albumId
@@ -6971,7 +6664,6 @@ return|;
 block|}
 comment|/**          * The facebook Album to be created or updated.          * The option is a<code>facebook4j.AlbumUpdate</code> type.          * @group common          */
 DECL|method|albumUpdate (Object albumUpdate)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|albumUpdate
@@ -6993,7 +6685,6 @@ return|;
 block|}
 comment|/**          * The facebook Album to be created or updated.          * The option will be converted to a<code>facebook4j.AlbumUpdate</code>          * type.          * @group common          */
 DECL|method|albumUpdate (String albumUpdate)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|albumUpdate
@@ -7015,7 +6706,6 @@ return|;
 block|}
 comment|/**          * The ID of the Facebook Application.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|appId (String appId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|appId
@@ -7037,7 +6727,6 @@ return|;
 block|}
 comment|/**          * Location latitude and longitude.          * The option is a<code>facebook4j.GeoLocation</code> type.          * @group common          */
 DECL|method|center (Object center)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|center
@@ -7059,7 +6748,6 @@ return|;
 block|}
 comment|/**          * Location latitude and longitude.          * The option will be converted to a<code>facebook4j.GeoLocation</code>          * type.          * @group common          */
 DECL|method|center (String center)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|center
@@ -7081,7 +6769,6 @@ return|;
 block|}
 comment|/**          * The checkin ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|checkinId (String checkinId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|checkinId
@@ -7104,8 +6791,7 @@ block|}
 comment|/**          * The checkin to be created. Deprecated, instead create a Post with an          * attached location.          * The option is a<code>facebook4j.CheckinUpdate</code> type.          * @group common          */
 annotation|@
 name|Deprecated
-DECL|method|checkinUpdate ( Object checkinUpdate)
-specifier|public
+DECL|method|checkinUpdate (Object checkinUpdate)
 specifier|default
 name|FacebookEndpointBuilder
 name|checkinUpdate
@@ -7128,8 +6814,7 @@ block|}
 comment|/**          * The checkin to be created. Deprecated, instead create a Post with an          * attached location.          * The option will be converted to a          *<code>facebook4j.CheckinUpdate</code> type.          * @group common          */
 annotation|@
 name|Deprecated
-DECL|method|checkinUpdate ( String checkinUpdate)
-specifier|public
+DECL|method|checkinUpdate (String checkinUpdate)
 specifier|default
 name|FacebookEndpointBuilder
 name|checkinUpdate
@@ -7151,7 +6836,6 @@ return|;
 block|}
 comment|/**          * Facebook4J API client URL.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientURL (String clientURL)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|clientURL
@@ -7172,8 +6856,7 @@ name|this
 return|;
 block|}
 comment|/**          * Facebook4J client API version.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|clientVersion ( String clientVersion)
-specifier|public
+DECL|method|clientVersion (String clientVersion)
 specifier|default
 name|FacebookEndpointBuilder
 name|clientVersion
@@ -7195,7 +6878,6 @@ return|;
 block|}
 comment|/**          * The comment ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|commentId (String commentId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|commentId
@@ -7216,8 +6898,7 @@ name|this
 return|;
 block|}
 comment|/**          * The facebook Comment to be created or updated.          * The option is a<code>facebook4j.CommentUpdate</code> type.          * @group common          */
-DECL|method|commentUpdate ( Object commentUpdate)
-specifier|public
+DECL|method|commentUpdate (Object commentUpdate)
 specifier|default
 name|FacebookEndpointBuilder
 name|commentUpdate
@@ -7238,8 +6919,7 @@ name|this
 return|;
 block|}
 comment|/**          * The facebook Comment to be created or updated.          * The option will be converted to a          *<code>facebook4j.CommentUpdate</code> type.          * @group common          */
-DECL|method|commentUpdate ( String commentUpdate)
-specifier|public
+DECL|method|commentUpdate (String commentUpdate)
 specifier|default
 name|FacebookEndpointBuilder
 name|commentUpdate
@@ -7261,7 +6941,6 @@ return|;
 block|}
 comment|/**          * Enables deubg output. Effective only with the embedded logger.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|debugEnabled (Boolean debugEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|debugEnabled
@@ -7283,7 +6962,6 @@ return|;
 block|}
 comment|/**          * Enables deubg output. Effective only with the embedded logger.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
 DECL|method|debugEnabled (String debugEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|debugEnabled
@@ -7305,7 +6983,6 @@ return|;
 block|}
 comment|/**          * The description text.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|description (String description)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|description
@@ -7327,7 +7004,6 @@ return|;
 block|}
 comment|/**          * Distance in meters.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|distance (Integer distance)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|distance
@@ -7349,7 +7025,6 @@ return|;
 block|}
 comment|/**          * Distance in meters.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|distance (String distance)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|distance
@@ -7371,7 +7046,6 @@ return|;
 block|}
 comment|/**          * The domain ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|domainId (String domainId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|domainId
@@ -7393,7 +7067,6 @@ return|;
 block|}
 comment|/**          * The domain name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|domainName (String domainName)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|domainName
@@ -7414,8 +7087,7 @@ name|this
 return|;
 block|}
 comment|/**          * The domain names.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
-DECL|method|domainNames ( List<String> domainNames)
-specifier|public
+DECL|method|domainNames (List<String> domainNames)
 specifier|default
 name|FacebookEndpointBuilder
 name|domainNames
@@ -7440,7 +7112,6 @@ return|;
 block|}
 comment|/**          * The domain names.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|domainNames (String domainNames)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|domainNames
@@ -7462,7 +7133,6 @@ return|;
 block|}
 comment|/**          * The event ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|eventId (String eventId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|eventId
@@ -7484,7 +7154,6 @@ return|;
 block|}
 comment|/**          * The event to be created or updated.          * The option is a<code>facebook4j.EventUpdate</code> type.          * @group common          */
 DECL|method|eventUpdate (Object eventUpdate)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|eventUpdate
@@ -7506,7 +7175,6 @@ return|;
 block|}
 comment|/**          * The event to be created or updated.          * The option will be converted to a<code>facebook4j.EventUpdate</code>          * type.          * @group common          */
 DECL|method|eventUpdate (String eventUpdate)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|eventUpdate
@@ -7528,7 +7196,6 @@ return|;
 block|}
 comment|/**          * The friend ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|friendId (String friendId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|friendId
@@ -7550,7 +7217,6 @@ return|;
 block|}
 comment|/**          * The friend list ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|friendlistId (String friendlistId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|friendlistId
@@ -7571,8 +7237,7 @@ name|this
 return|;
 block|}
 comment|/**          * The friend list Name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|friendlistName ( String friendlistName)
-specifier|public
+DECL|method|friendlistName (String friendlistName)
 specifier|default
 name|FacebookEndpointBuilder
 name|friendlistName
@@ -7594,7 +7259,6 @@ return|;
 block|}
 comment|/**          * The friend user ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|friendUserId (String friendUserId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|friendUserId
@@ -7616,7 +7280,6 @@ return|;
 block|}
 comment|/**          * The group ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|groupId (String groupId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|groupId
@@ -7638,7 +7301,6 @@ return|;
 block|}
 comment|/**          * Use Facebook GZIP encoding.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|gzipEnabled (Boolean gzipEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|gzipEnabled
@@ -7660,7 +7322,6 @@ return|;
 block|}
 comment|/**          * Use Facebook GZIP encoding.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
 DECL|method|gzipEnabled (String gzipEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|gzipEnabled
@@ -7682,7 +7343,6 @@ return|;
 block|}
 comment|/**          * Http connection timeout in milliseconds.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpConnectionTimeout ( Integer httpConnectionTimeout)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|httpConnectionTimeout
@@ -7704,7 +7364,6 @@ return|;
 block|}
 comment|/**          * Http connection timeout in milliseconds.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpConnectionTimeout ( String httpConnectionTimeout)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|httpConnectionTimeout
@@ -7726,7 +7385,6 @@ return|;
 block|}
 comment|/**          * HTTP maximum connections per route.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpDefaultMaxPerRoute ( Integer httpDefaultMaxPerRoute)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|httpDefaultMaxPerRoute
@@ -7748,7 +7406,6 @@ return|;
 block|}
 comment|/**          * HTTP maximum connections per route.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpDefaultMaxPerRoute ( String httpDefaultMaxPerRoute)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|httpDefaultMaxPerRoute
@@ -7770,7 +7427,6 @@ return|;
 block|}
 comment|/**          * HTTP maximum total connections.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpMaxTotalConnections ( Integer httpMaxTotalConnections)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|httpMaxTotalConnections
@@ -7792,7 +7448,6 @@ return|;
 block|}
 comment|/**          * HTTP maximum total connections.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpMaxTotalConnections ( String httpMaxTotalConnections)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|httpMaxTotalConnections
@@ -7813,8 +7468,7 @@ name|this
 return|;
 block|}
 comment|/**          * Http read timeout in milliseconds.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
-DECL|method|httpReadTimeout ( Integer httpReadTimeout)
-specifier|public
+DECL|method|httpReadTimeout (Integer httpReadTimeout)
 specifier|default
 name|FacebookEndpointBuilder
 name|httpReadTimeout
@@ -7835,8 +7489,7 @@ name|this
 return|;
 block|}
 comment|/**          * Http read timeout in milliseconds.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
-DECL|method|httpReadTimeout ( String httpReadTimeout)
-specifier|public
+DECL|method|httpReadTimeout (String httpReadTimeout)
 specifier|default
 name|FacebookEndpointBuilder
 name|httpReadTimeout
@@ -7857,8 +7510,7 @@ name|this
 return|;
 block|}
 comment|/**          * Number of HTTP retries.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
-DECL|method|httpRetryCount ( Integer httpRetryCount)
-specifier|public
+DECL|method|httpRetryCount (Integer httpRetryCount)
 specifier|default
 name|FacebookEndpointBuilder
 name|httpRetryCount
@@ -7879,8 +7531,7 @@ name|this
 return|;
 block|}
 comment|/**          * Number of HTTP retries.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
-DECL|method|httpRetryCount ( String httpRetryCount)
-specifier|public
+DECL|method|httpRetryCount (String httpRetryCount)
 specifier|default
 name|FacebookEndpointBuilder
 name|httpRetryCount
@@ -7902,7 +7553,6 @@ return|;
 block|}
 comment|/**          * HTTP retry interval in seconds.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpRetryIntervalSeconds ( Integer httpRetryIntervalSeconds)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|httpRetryIntervalSeconds
@@ -7924,7 +7574,6 @@ return|;
 block|}
 comment|/**          * HTTP retry interval in seconds.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpRetryIntervalSeconds ( String httpRetryIntervalSeconds)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|httpRetryIntervalSeconds
@@ -7946,7 +7595,6 @@ return|;
 block|}
 comment|/**          * HTTP streaming read timeout in milliseconds.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|httpStreamingReadTimeout ( Integer httpStreamingReadTimeout)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|httpStreamingReadTimeout
@@ -7968,7 +7616,6 @@ return|;
 block|}
 comment|/**          * HTTP streaming read timeout in milliseconds.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|httpStreamingReadTimeout ( String httpStreamingReadTimeout)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|httpStreamingReadTimeout
@@ -7990,7 +7637,6 @@ return|;
 block|}
 comment|/**          * The ids of users.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|ids (List<String> ids)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|ids
@@ -8015,7 +7661,6 @@ return|;
 block|}
 comment|/**          * The ids of users.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|ids (String ids)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|ids
@@ -8037,7 +7682,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|inBody
@@ -8059,7 +7703,6 @@ return|;
 block|}
 comment|/**          * Enables notifications that the user has already read in addition to          * unread ones.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|includeRead (Boolean includeRead)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|includeRead
@@ -8081,7 +7724,6 @@ return|;
 block|}
 comment|/**          * Enables notifications that the user has already read in addition to          * unread ones.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
 DECL|method|includeRead (String includeRead)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|includeRead
@@ -8103,7 +7745,6 @@ return|;
 block|}
 comment|/**          * Whether hidden.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|isHidden (Boolean isHidden)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|isHidden
@@ -8125,7 +7766,6 @@ return|;
 block|}
 comment|/**          * Whether hidden.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
 DECL|method|isHidden (String isHidden)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|isHidden
@@ -8147,7 +7787,6 @@ return|;
 block|}
 comment|/**          * If set to true, raw JSON forms will be stored in DataObjectFactory.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|jsonStoreEnabled ( Boolean jsonStoreEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|jsonStoreEnabled
@@ -8168,8 +7807,7 @@ name|this
 return|;
 block|}
 comment|/**          * If set to true, raw JSON forms will be stored in DataObjectFactory.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
-DECL|method|jsonStoreEnabled ( String jsonStoreEnabled)
-specifier|public
+DECL|method|jsonStoreEnabled (String jsonStoreEnabled)
 specifier|default
 name|FacebookEndpointBuilder
 name|jsonStoreEnabled
@@ -8191,7 +7829,6 @@ return|;
 block|}
 comment|/**          * Link URL.          * The option is a<code>java.net.URL</code> type.          * @group common          */
 DECL|method|link (URL link)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|link
@@ -8213,7 +7850,6 @@ return|;
 block|}
 comment|/**          * Link URL.          * The option will be converted to a<code>java.net.URL</code> type.          * @group common          */
 DECL|method|link (String link)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|link
@@ -8235,7 +7871,6 @@ return|;
 block|}
 comment|/**          * Link ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|linkId (String linkId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|linkId
@@ -8257,7 +7892,6 @@ return|;
 block|}
 comment|/**          * Desired FQL locale.          * The option is a<code>java.util.Locale</code> type.          * @group common          */
 DECL|method|locale (Locale locale)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|locale
@@ -8279,7 +7913,6 @@ return|;
 block|}
 comment|/**          * Desired FQL locale.          * The option will be converted to a<code>java.util.Locale</code> type.          * @group common          */
 DECL|method|locale (String locale)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|locale
@@ -8301,7 +7934,6 @@ return|;
 block|}
 comment|/**          * If set to true, Facebook4J mbean will be registerd.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|mbeanEnabled (Boolean mbeanEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|mbeanEnabled
@@ -8323,7 +7955,6 @@ return|;
 block|}
 comment|/**          * If set to true, Facebook4J mbean will be registerd.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
 DECL|method|mbeanEnabled (String mbeanEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|mbeanEnabled
@@ -8345,7 +7976,6 @@ return|;
 block|}
 comment|/**          * The message text.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|message (String message)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|message
@@ -8367,7 +7997,6 @@ return|;
 block|}
 comment|/**          * The message ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|messageId (String messageId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|messageId
@@ -8389,7 +8018,6 @@ return|;
 block|}
 comment|/**          * The metric name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|metric (String metric)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|metric
@@ -8411,7 +8039,6 @@ return|;
 block|}
 comment|/**          * The milestone id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|milestoneId (String milestoneId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|milestoneId
@@ -8433,7 +8060,6 @@ return|;
 block|}
 comment|/**          * Test user name, must be of the form 'first last'.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|name
@@ -8455,7 +8081,6 @@ return|;
 block|}
 comment|/**          * The note ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|noteId (String noteId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|noteId
@@ -8476,8 +8101,7 @@ name|this
 return|;
 block|}
 comment|/**          * The notification ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|notificationId ( String notificationId)
-specifier|public
+DECL|method|notificationId (String notificationId)
 specifier|default
 name|FacebookEndpointBuilder
 name|notificationId
@@ -8499,7 +8123,6 @@ return|;
 block|}
 comment|/**          * The insight object ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|objectId (String objectId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|objectId
@@ -8521,7 +8144,6 @@ return|;
 block|}
 comment|/**          * The offer id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|offerId (String offerId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|offerId
@@ -8543,7 +8165,6 @@ return|;
 block|}
 comment|/**          * The question's answer option description.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|optionDescription ( String optionDescription)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|optionDescription
@@ -8565,7 +8186,6 @@ return|;
 block|}
 comment|/**          * The page id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|pageId (String pageId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|pageId
@@ -8586,8 +8206,7 @@ name|this
 return|;
 block|}
 comment|/**          * The permission name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|permissionName ( String permissionName)
-specifier|public
+DECL|method|permissionName (String permissionName)
 specifier|default
 name|FacebookEndpointBuilder
 name|permissionName
@@ -8609,7 +8228,6 @@ return|;
 block|}
 comment|/**          * Test user permissions in the format perm1,perm2,...          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|permissions (String permissions)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|permissions
@@ -8631,7 +8249,6 @@ return|;
 block|}
 comment|/**          * The photo ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|photoId (String photoId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|photoId
@@ -8653,7 +8270,6 @@ return|;
 block|}
 comment|/**          * The picture id.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|pictureId (Integer pictureId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|pictureId
@@ -8675,7 +8291,6 @@ return|;
 block|}
 comment|/**          * The picture id.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|pictureId (String pictureId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|pictureId
@@ -8697,7 +8312,6 @@ return|;
 block|}
 comment|/**          * The picture2 id.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|pictureId2 (Integer pictureId2)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|pictureId2
@@ -8719,7 +8333,6 @@ return|;
 block|}
 comment|/**          * The picture2 id.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|pictureId2 (String pictureId2)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|pictureId2
@@ -8740,8 +8353,7 @@ name|this
 return|;
 block|}
 comment|/**          * The picture size.          * The option is a<code>facebook4j.PictureSize</code> type.          * @group common          */
-DECL|method|pictureSize ( PictureSize pictureSize)
-specifier|public
+DECL|method|pictureSize (PictureSize pictureSize)
 specifier|default
 name|FacebookEndpointBuilder
 name|pictureSize
@@ -8763,7 +8375,6 @@ return|;
 block|}
 comment|/**          * The picture size.          * The option will be converted to a<code>facebook4j.PictureSize</code>          * type.          * @group common          */
 DECL|method|pictureSize (String pictureSize)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|pictureSize
@@ -8785,7 +8396,6 @@ return|;
 block|}
 comment|/**          * The place ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|placeId (String placeId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|placeId
@@ -8807,7 +8417,6 @@ return|;
 block|}
 comment|/**          * The post ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|postId (String postId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|postId
@@ -8829,7 +8438,6 @@ return|;
 block|}
 comment|/**          * The post to create or update.          * The option is a<code>facebook4j.PostUpdate</code> type.          * @group common          */
 DECL|method|postUpdate (Object postUpdate)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|postUpdate
@@ -8851,7 +8459,6 @@ return|;
 block|}
 comment|/**          * The post to create or update.          * The option will be converted to a<code>facebook4j.PostUpdate</code>          * type.          * @group common          */
 DECL|method|postUpdate (String postUpdate)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|postUpdate
@@ -8873,7 +8480,6 @@ return|;
 block|}
 comment|/**          * Prettify JSON debug output if set to true.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|prettyDebugEnabled ( Boolean prettyDebugEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|prettyDebugEnabled
@@ -8895,7 +8501,6 @@ return|;
 block|}
 comment|/**          * Prettify JSON debug output if set to true.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
 DECL|method|prettyDebugEnabled ( String prettyDebugEnabled)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|prettyDebugEnabled
@@ -8916,8 +8521,7 @@ name|this
 return|;
 block|}
 comment|/**          * FQL queries.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group common          */
-DECL|method|queries ( Map<String, String> queries)
-specifier|public
+DECL|method|queries (Map<String, String> queries)
 specifier|default
 name|FacebookEndpointBuilder
 name|queries
@@ -8944,7 +8548,6 @@ return|;
 block|}
 comment|/**          * FQL queries.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|queries (String queries)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|queries
@@ -8966,7 +8569,6 @@ return|;
 block|}
 comment|/**          * FQL query or search terms for search endpoints.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|query (String query)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|query
@@ -8988,7 +8590,6 @@ return|;
 block|}
 comment|/**          * The question id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|questionId (String questionId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|questionId
@@ -9010,7 +8611,6 @@ return|;
 block|}
 comment|/**          * Optional reading parameters. See Reading Options(#reading).          * The option is a<code>facebook4j.Reading</code> type.          * @group common          */
 DECL|method|reading (Object reading)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|reading
@@ -9032,7 +8632,6 @@ return|;
 block|}
 comment|/**          * Optional reading parameters. See Reading Options(#reading).          * The option will be converted to a<code>facebook4j.Reading</code>          * type.          * @group common          */
 DECL|method|reading (String reading)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|reading
@@ -9054,7 +8653,6 @@ return|;
 block|}
 comment|/**          * To configure Reading using key/value pairs from the Map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
 DECL|method|readingOptions ( Map<String, Object> readingOptions)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|readingOptions
@@ -9080,8 +8678,7 @@ name|this
 return|;
 block|}
 comment|/**          * To configure Reading using key/value pairs from the Map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
-DECL|method|readingOptions ( String readingOptions)
-specifier|public
+DECL|method|readingOptions (String readingOptions)
 specifier|default
 name|FacebookEndpointBuilder
 name|readingOptions
@@ -9103,7 +8700,6 @@ return|;
 block|}
 comment|/**          * API base URL.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|restBaseURL (String restBaseURL)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|restBaseURL
@@ -9125,7 +8721,6 @@ return|;
 block|}
 comment|/**          * The numeric score with value.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|scoreValue (Integer scoreValue)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|scoreValue
@@ -9147,7 +8742,6 @@ return|;
 block|}
 comment|/**          * The numeric score with value.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|scoreValue (String scoreValue)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|scoreValue
@@ -9169,7 +8763,6 @@ return|;
 block|}
 comment|/**          * The picture size, one of large, normal, small or square.          * The option is a<code>facebook4j.PictureSize</code> type.          * @group common          */
 DECL|method|size (PictureSize size)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|size
@@ -9191,7 +8784,6 @@ return|;
 block|}
 comment|/**          * The picture size, one of large, normal, small or square.          * The option will be converted to a<code>facebook4j.PictureSize</code>          * type.          * @group common          */
 DECL|method|size (String size)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|size
@@ -9213,7 +8805,6 @@ return|;
 block|}
 comment|/**          * The media content from either a java.io.File or java.io.Inputstream.          * The option is a<code>facebook4j.Media</code> type.          * @group common          */
 DECL|method|source (Object source)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|source
@@ -9235,7 +8826,6 @@ return|;
 block|}
 comment|/**          * The media content from either a java.io.File or java.io.Inputstream.          * The option will be converted to a<code>facebook4j.Media</code> type.          * @group common          */
 DECL|method|source (String source)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|source
@@ -9257,7 +8847,6 @@ return|;
 block|}
 comment|/**          * The note of the subject.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|subject (String subject)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|subject
@@ -9279,7 +8868,6 @@ return|;
 block|}
 comment|/**          * The tab id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|tabId (String tabId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|tabId
@@ -9301,7 +8889,6 @@ return|;
 block|}
 comment|/**          * Photo tag information.          * The option is a<code>facebook4j.TagUpdate</code> type.          * @group common          */
 DECL|method|tagUpdate (Object tagUpdate)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|tagUpdate
@@ -9323,7 +8910,6 @@ return|;
 block|}
 comment|/**          * Photo tag information.          * The option will be converted to a<code>facebook4j.TagUpdate</code>          * type.          * @group common          */
 DECL|method|tagUpdate (String tagUpdate)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|tagUpdate
@@ -9345,7 +8931,6 @@ return|;
 block|}
 comment|/**          * Test user 1.          * The option is a<code>facebook4j.TestUser</code> type.          * @group common          */
 DECL|method|testUser1 (Object testUser1)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|testUser1
@@ -9367,7 +8952,6 @@ return|;
 block|}
 comment|/**          * Test user 1.          * The option will be converted to a<code>facebook4j.TestUser</code>          * type.          * @group common          */
 DECL|method|testUser1 (String testUser1)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|testUser1
@@ -9389,7 +8973,6 @@ return|;
 block|}
 comment|/**          * Test user 2.          * The option is a<code>facebook4j.TestUser</code> type.          * @group common          */
 DECL|method|testUser2 (Object testUser2)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|testUser2
@@ -9411,7 +8994,6 @@ return|;
 block|}
 comment|/**          * Test user 2.          * The option will be converted to a<code>facebook4j.TestUser</code>          * type.          * @group common          */
 DECL|method|testUser2 (String testUser2)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|testUser2
@@ -9433,7 +9015,6 @@ return|;
 block|}
 comment|/**          * The ID of the test user.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|testUserId (String testUserId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|testUserId
@@ -9455,7 +9036,6 @@ return|;
 block|}
 comment|/**          * The title text.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|title (String title)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|title
@@ -9477,7 +9057,6 @@ return|;
 block|}
 comment|/**          * The ID of the user to tag.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|toUserId (String toUserId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|toUserId
@@ -9499,7 +9078,6 @@ return|;
 block|}
 comment|/**          * The IDs of the users to tag.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|toUserIds (List<String> toUserIds)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|toUserIds
@@ -9524,7 +9102,6 @@ return|;
 block|}
 comment|/**          * The IDs of the users to tag.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|toUserIds (String toUserIds)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|toUserIds
@@ -9546,7 +9123,6 @@ return|;
 block|}
 comment|/**          * The Facebook user ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userId (String userId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|userId
@@ -9568,7 +9144,6 @@ return|;
 block|}
 comment|/**          * The ID of a user 1.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userId1 (String userId1)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|userId1
@@ -9590,7 +9165,6 @@ return|;
 block|}
 comment|/**          * The ID of a user 2.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userId2 (String userId2)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|userId2
@@ -9612,7 +9186,6 @@ return|;
 block|}
 comment|/**          * The IDs of users to invite to event.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|userIds (List<String> userIds)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|userIds
@@ -9637,7 +9210,6 @@ return|;
 block|}
 comment|/**          * The IDs of users to invite to event.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|userIds (String userIds)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|userIds
@@ -9659,7 +9231,6 @@ return|;
 block|}
 comment|/**          * The test user locale.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userLocale (String userLocale)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|userLocale
@@ -9681,7 +9252,6 @@ return|;
 block|}
 comment|/**          * Use SSL.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
 DECL|method|useSSL (Boolean useSSL)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|useSSL
@@ -9703,7 +9273,6 @@ return|;
 block|}
 comment|/**          * Use SSL.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
 DECL|method|useSSL (String useSSL)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|useSSL
@@ -9725,7 +9294,6 @@ return|;
 block|}
 comment|/**          * Video API base URL.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|videoBaseURL (String videoBaseURL)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|videoBaseURL
@@ -9747,7 +9315,6 @@ return|;
 block|}
 comment|/**          * The video ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|videoId (String videoId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|videoId
@@ -9768,8 +9335,7 @@ name|this
 return|;
 block|}
 comment|/**          * HTTP proxy server host name.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
-DECL|method|httpProxyHost ( String httpProxyHost)
-specifier|public
+DECL|method|httpProxyHost (String httpProxyHost)
 specifier|default
 name|FacebookEndpointBuilder
 name|httpProxyHost
@@ -9791,7 +9357,6 @@ return|;
 block|}
 comment|/**          * HTTP proxy server password.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|httpProxyPassword ( String httpProxyPassword)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|httpProxyPassword
@@ -9812,8 +9377,7 @@ name|this
 return|;
 block|}
 comment|/**          * HTTP proxy server port.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
-DECL|method|httpProxyPort ( Integer httpProxyPort)
-specifier|public
+DECL|method|httpProxyPort (Integer httpProxyPort)
 specifier|default
 name|FacebookEndpointBuilder
 name|httpProxyPort
@@ -9834,8 +9398,7 @@ name|this
 return|;
 block|}
 comment|/**          * HTTP proxy server port.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
-DECL|method|httpProxyPort ( String httpProxyPort)
-specifier|public
+DECL|method|httpProxyPort (String httpProxyPort)
 specifier|default
 name|FacebookEndpointBuilder
 name|httpProxyPort
@@ -9856,8 +9419,7 @@ name|this
 return|;
 block|}
 comment|/**          * HTTP proxy server user name.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
-DECL|method|httpProxyUser ( String httpProxyUser)
-specifier|public
+DECL|method|httpProxyUser (String httpProxyUser)
 specifier|default
 name|FacebookEndpointBuilder
 name|httpProxyUser
@@ -9878,8 +9440,7 @@ name|this
 return|;
 block|}
 comment|/**          * The user access token.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|oAuthAccessToken ( String oAuthAccessToken)
-specifier|public
+DECL|method|oAuthAccessToken (String oAuthAccessToken)
 specifier|default
 name|FacebookEndpointBuilder
 name|oAuthAccessToken
@@ -9901,7 +9462,6 @@ return|;
 block|}
 comment|/**          * OAuth access token URL.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|oAuthAccessTokenURL ( String oAuthAccessTokenURL)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|oAuthAccessTokenURL
@@ -9923,7 +9483,6 @@ return|;
 block|}
 comment|/**          * The application Id.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|oAuthAppId (String oAuthAppId)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|oAuthAppId
@@ -9944,8 +9503,7 @@ name|this
 return|;
 block|}
 comment|/**          * The application Secret.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|oAuthAppSecret ( String oAuthAppSecret)
-specifier|public
+DECL|method|oAuthAppSecret (String oAuthAppSecret)
 specifier|default
 name|FacebookEndpointBuilder
 name|oAuthAppSecret
@@ -9967,7 +9525,6 @@ return|;
 block|}
 comment|/**          * OAuth authorization URL.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|oAuthAuthorizationURL ( String oAuthAuthorizationURL)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|oAuthAuthorizationURL
@@ -9988,8 +9545,7 @@ name|this
 return|;
 block|}
 comment|/**          * Default OAuth permissions. Comma separated permission names. See          * https://developers.facebook.com/docs/reference/login/#permissions for          * the detail.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|oAuthPermissions ( String oAuthPermissions)
-specifier|public
+DECL|method|oAuthPermissions (String oAuthPermissions)
 specifier|default
 name|FacebookEndpointBuilder
 name|oAuthPermissions
@@ -10022,7 +9578,6 @@ extends|,
 name|AdvancedFacebookEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|basic
@@ -10037,7 +9592,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFacebookEndpointBuilder
 name|basicPropertyBinding
@@ -10059,7 +9613,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFacebookEndpointBuilder
 name|basicPropertyBinding
@@ -10080,8 +9633,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedFacebookEndpointBuilder
 name|synchronous
@@ -10102,8 +9654,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedFacebookEndpointBuilder
 name|synchronous
@@ -10151,7 +9702,6 @@ name|album
 block|;     }
 comment|/**      * The Facebook component provides access to all of the Facebook APIs      * accessible using Facebook4J. Creates a builder to build endpoints for the      * Facebook component.      */
 DECL|method|facebook (String path)
-specifier|public
 specifier|default
 name|FacebookEndpointBuilder
 name|facebook

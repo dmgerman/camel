@@ -198,7 +198,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|advanced
@@ -211,9 +210,8 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The search keywords. Multiple values can be separated with comma.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|keywords ( String keywords)
-specifier|public
+comment|/**          * The search query, use the keywords AND, OR, - and () to narrow the          * search results.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+DECL|method|keywords (String keywords)
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|keywords
@@ -235,7 +233,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -257,7 +254,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -279,7 +275,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( boolean sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -301,7 +296,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( String sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -322,8 +316,7 @@ name|this
 return|;
 block|}
 comment|/**          * Endpoint type to use. Only streaming supports event type.          * The option is a          *<code>org.apache.camel.component.twitter.data.EndpointType</code>          * type.          * @group consumer          */
-DECL|method|type ( EndpointType type)
-specifier|public
+DECL|method|type (EndpointType type)
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|type
@@ -345,7 +338,6 @@ return|;
 block|}
 comment|/**          * Endpoint type to use. Only streaming supports event type.          * The option will be converted to a          *<code>org.apache.camel.component.twitter.data.EndpointType</code>          * type.          * @group consumer          */
 DECL|method|type (String type)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|type
@@ -367,7 +359,6 @@ return|;
 block|}
 comment|/**          * Limiting number of results per page.          * The option is a<code>java.lang.Integer</code> type.          * @group filter          */
 DECL|method|count (Integer count)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|count
@@ -389,7 +380,6 @@ return|;
 block|}
 comment|/**          * Limiting number of results per page.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group filter          */
 DECL|method|count (String count)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|count
@@ -410,8 +400,7 @@ name|this
 return|;
 block|}
 comment|/**          * Filter out old tweets, that has previously been polled. This state is          * stored in memory only, and based on last tweet id.          * The option is a<code>boolean</code> type.          * @group filter          */
-DECL|method|filterOld ( boolean filterOld)
-specifier|public
+DECL|method|filterOld (boolean filterOld)
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|filterOld
@@ -432,8 +421,7 @@ name|this
 return|;
 block|}
 comment|/**          * Filter out old tweets, that has previously been polled. This state is          * stored in memory only, and based on last tweet id.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
-DECL|method|filterOld ( String filterOld)
-specifier|public
+DECL|method|filterOld (String filterOld)
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|filterOld
@@ -455,7 +443,6 @@ return|;
 block|}
 comment|/**          * The lang string ISO_639-1 which will be used for searching.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
 DECL|method|lang (String lang)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|lang
@@ -477,7 +464,6 @@ return|;
 block|}
 comment|/**          * The number of pages result which you want camel-twitter to consume.          * The option is a<code>java.lang.Integer</code> type.          * @group filter          */
 DECL|method|numberOfPages ( Integer numberOfPages)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|numberOfPages
@@ -499,7 +485,6 @@ return|;
 block|}
 comment|/**          * The number of pages result which you want camel-twitter to consume.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group filter          */
 DECL|method|numberOfPages ( String numberOfPages)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|numberOfPages
@@ -521,7 +506,6 @@ return|;
 block|}
 comment|/**          * The last tweet id which will be used for pulling the tweets. It is          * useful when the camel route is restarted after a long running.          * The option is a<code>long</code> type.          * @group filter          */
 DECL|method|sinceId (long sinceId)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|sinceId
@@ -542,8 +526,7 @@ name|this
 return|;
 block|}
 comment|/**          * The last tweet id which will be used for pulling the tweets. It is          * useful when the camel route is restarted after a long running.          * The option will be converted to a<code>long</code> type.          * @group filter          */
-DECL|method|sinceId ( String sinceId)
-specifier|public
+DECL|method|sinceId (String sinceId)
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|sinceId
@@ -564,8 +547,7 @@ name|this
 return|;
 block|}
 comment|/**          * To filter by user ids for streaming/filter. Multiple values can be          * separated by comma.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
-DECL|method|userIds ( String userIds)
-specifier|public
+DECL|method|userIds (String userIds)
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|userIds
@@ -587,7 +569,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( int backoffErrorThreshold)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -609,7 +590,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( String backoffErrorThreshold)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -631,7 +611,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( int backoffIdleThreshold)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -653,7 +632,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( String backoffIdleThreshold)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -675,7 +653,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( int backoffMultiplier)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|backoffMultiplier
@@ -697,7 +674,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( String backoffMultiplier)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|backoffMultiplier
@@ -719,7 +695,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll.          * The option is a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (long delay)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|delay
@@ -741,7 +716,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll.          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (String delay)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|delay
@@ -762,8 +736,7 @@ name|this
 return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option is a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|greedy ( boolean greedy)
-specifier|public
+DECL|method|greedy (boolean greedy)
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|greedy
@@ -785,7 +758,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (String greedy)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|greedy
@@ -807,7 +779,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
 DECL|method|initialDelay ( long initialDelay)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|initialDelay
@@ -829,7 +800,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
 DECL|method|initialDelay ( String initialDelay)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|initialDelay
@@ -851,7 +821,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( LoggingLevel runLoggingLevel)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|runLoggingLevel
@@ -873,7 +842,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( String runLoggingLevel)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|runLoggingLevel
@@ -895,7 +863,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option is a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( ScheduledExecutorService scheduledExecutorService)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -917,7 +884,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( String scheduledExecutorService)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -939,7 +905,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option is a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler ( ScheduledPollConsumerScheduler scheduler)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|scheduler
@@ -960,8 +925,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
-DECL|method|scheduler ( String scheduler)
-specifier|public
+DECL|method|scheduler (String scheduler)
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|scheduler
@@ -983,7 +947,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group scheduler          */
 DECL|method|schedulerProperties ( Map<String, Object> schedulerProperties)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|schedulerProperties
@@ -1010,7 +973,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group scheduler          */
 DECL|method|schedulerProperties ( String schedulerProperties)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|schedulerProperties
@@ -1032,7 +994,6 @@ return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|startScheduler ( boolean startScheduler)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|startScheduler
@@ -1054,7 +1015,6 @@ return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|startScheduler ( String startScheduler)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|startScheduler
@@ -1075,8 +1035,7 @@ name|this
 return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option is a<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
-DECL|method|timeUnit ( TimeUnit timeUnit)
-specifier|public
+DECL|method|timeUnit (TimeUnit timeUnit)
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|timeUnit
@@ -1097,8 +1056,7 @@ name|this
 return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
-DECL|method|timeUnit ( String timeUnit)
-specifier|public
+DECL|method|timeUnit (String timeUnit)
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|timeUnit
@@ -1120,7 +1078,6 @@ return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|useFixedDelay ( boolean useFixedDelay)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|useFixedDelay
@@ -1142,7 +1099,6 @@ return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|useFixedDelay ( String useFixedDelay)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|useFixedDelay
@@ -1163,8 +1119,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sorts by id, so the oldest are first, and newest last.          * The option is a<code>boolean</code> type.          * @group sort          */
-DECL|method|sortById ( boolean sortById)
-specifier|public
+DECL|method|sortById (boolean sortById)
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|sortById
@@ -1185,8 +1140,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sorts by id, so the oldest are first, and newest last.          * The option will be converted to a<code>boolean</code> type.          * @group sort          */
-DECL|method|sortById ( String sortById)
-specifier|public
+DECL|method|sortById (String sortById)
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|sortById
@@ -1208,7 +1162,6 @@ return|;
 block|}
 comment|/**          * The http proxy host which can be used for the camel-twitter. Can also          * be configured on the TwitterComponent level instead.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|httpProxyHost ( String httpProxyHost)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|httpProxyHost
@@ -1230,7 +1183,6 @@ return|;
 block|}
 comment|/**          * The http proxy password which can be used for the camel-twitter. Can          * also be configured on the TwitterComponent level instead.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|httpProxyPassword ( String httpProxyPassword)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|httpProxyPassword
@@ -1252,7 +1204,6 @@ return|;
 block|}
 comment|/**          * The http proxy port which can be used for the camel-twitter. Can also          * be configured on the TwitterComponent level instead.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
 DECL|method|httpProxyPort ( Integer httpProxyPort)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|httpProxyPort
@@ -1274,7 +1225,6 @@ return|;
 block|}
 comment|/**          * The http proxy port which can be used for the camel-twitter. Can also          * be configured on the TwitterComponent level instead.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
 DECL|method|httpProxyPort ( String httpProxyPort)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|httpProxyPort
@@ -1296,7 +1246,6 @@ return|;
 block|}
 comment|/**          * The http proxy user which can be used for the camel-twitter. Can also          * be configured on the TwitterComponent level instead.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|httpProxyUser ( String httpProxyUser)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|httpProxyUser
@@ -1318,7 +1267,6 @@ return|;
 block|}
 comment|/**          * The access token. Can also be configured on the TwitterComponent          * level instead.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessToken ( String accessToken)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|accessToken
@@ -1340,7 +1288,6 @@ return|;
 block|}
 comment|/**          * The access secret. Can also be configured on the TwitterComponent          * level instead.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessTokenSecret ( String accessTokenSecret)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|accessTokenSecret
@@ -1362,7 +1309,6 @@ return|;
 block|}
 comment|/**          * The consumer key. Can also be configured on the TwitterComponent          * level instead.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|consumerKey ( String consumerKey)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|consumerKey
@@ -1384,7 +1330,6 @@ return|;
 block|}
 comment|/**          * The consumer secret. Can also be configured on the TwitterComponent          * level instead.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|consumerSecret ( String consumerSecret)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|consumerSecret
@@ -1414,7 +1359,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|TwitterSearchEndpointConsumerBuilder
 name|basic
@@ -1429,7 +1373,6 @@ return|;
 block|}
 comment|/**          * Used by the non-stream geography search, to search by radius using          * the configured metrics. The unit can either be mi for miles, or km          * for kilometers. You need to configure all the following options:          * longitude, latitude, radius, and distanceMetric.          * The option is a<code>java.lang.String</code> type.          * @group consumer (advanced)          */
 DECL|method|distanceMetric ( String distanceMetric)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|distanceMetric
@@ -1451,7 +1394,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|exceptionHandler
@@ -1473,7 +1415,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|exceptionHandler
@@ -1495,7 +1436,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|exchangePattern
@@ -1517,7 +1457,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|exchangePattern
@@ -1539,7 +1478,6 @@ return|;
 block|}
 comment|/**          * Used for enabling full text from twitter (eg receive tweets that          * contains more than 140 characters).          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|extendedMode ( boolean extendedMode)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|extendedMode
@@ -1561,7 +1499,6 @@ return|;
 block|}
 comment|/**          * Used for enabling full text from twitter (eg receive tweets that          * contains more than 140 characters).          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|extendedMode ( String extendedMode)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|extendedMode
@@ -1583,7 +1520,6 @@ return|;
 block|}
 comment|/**          * Used by the non-stream geography search to search by latitude. You          * need to configure all the following options: longitude, latitude,          * radius, and distanceMetric.          * The option is a<code>java.lang.Double</code> type.          * @group consumer (advanced)          */
 DECL|method|latitude ( Double latitude)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|latitude
@@ -1605,7 +1541,6 @@ return|;
 block|}
 comment|/**          * Used by the non-stream geography search to search by latitude. You          * need to configure all the following options: longitude, latitude,          * radius, and distanceMetric.          * The option will be converted to a<code>java.lang.Double</code> type.          * @group consumer (advanced)          */
 DECL|method|latitude ( String latitude)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|latitude
@@ -1627,7 +1562,6 @@ return|;
 block|}
 comment|/**          * Bounding boxes, created by pairs of lat/lons. Can be used for          * streaming/filter. A pair is defined as lat,lon. And multiple paris          * can be separated by semi colon.          * The option is a<code>java.lang.String</code> type.          * @group consumer (advanced)          */
 DECL|method|locations ( String locations)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|locations
@@ -1649,7 +1583,6 @@ return|;
 block|}
 comment|/**          * Used by the non-stream geography search to search by longitude. You          * need to configure all the following options: longitude, latitude,          * radius, and distanceMetric.          * The option is a<code>java.lang.Double</code> type.          * @group consumer (advanced)          */
 DECL|method|longitude ( Double longitude)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|longitude
@@ -1671,7 +1604,6 @@ return|;
 block|}
 comment|/**          * Used by the non-stream geography search to search by longitude. You          * need to configure all the following options: longitude, latitude,          * radius, and distanceMetric.          * The option will be converted to a<code>java.lang.Double</code> type.          * @group consumer (advanced)          */
 DECL|method|longitude ( String longitude)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|longitude
@@ -1693,7 +1625,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option is a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( PollingConsumerPollStrategy pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|pollStrategy
@@ -1715,7 +1646,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( String pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|pollStrategy
@@ -1737,7 +1667,6 @@ return|;
 block|}
 comment|/**          * Used by the non-stream geography search to search by radius. You need          * to configure all the following options: longitude, latitude, radius,          * and distanceMetric.          * The option is a<code>java.lang.Double</code> type.          * @group consumer (advanced)          */
 DECL|method|radius ( Double radius)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|radius
@@ -1759,7 +1688,6 @@ return|;
 block|}
 comment|/**          * Used by the non-stream geography search to search by radius. You need          * to configure all the following options: longitude, latitude, radius,          * and distanceMetric.          * The option will be converted to a<code>java.lang.Double</code> type.          * @group consumer (advanced)          */
 DECL|method|radius ( String radius)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|radius
@@ -1781,7 +1709,6 @@ return|;
 block|}
 comment|/**          * To use a custom instance of TwitterStream.          * The option is a<code>twitter4j.TwitterStream</code> type.          * @group consumer (advanced)          */
 DECL|method|twitterStream ( Object twitterStream)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|twitterStream
@@ -1803,7 +1730,6 @@ return|;
 block|}
 comment|/**          * To use a custom instance of TwitterStream.          * The option will be converted to a          *<code>twitter4j.TwitterStream</code> type.          * @group consumer (advanced)          */
 DECL|method|twitterStream ( String twitterStream)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|twitterStream
@@ -1825,7 +1751,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1847,7 +1772,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1869,7 +1793,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|synchronous
@@ -1891,7 +1814,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointConsumerBuilder
 name|synchronous
@@ -1922,7 +1844,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointProducerBuilder
 name|advanced
@@ -1935,9 +1856,8 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The search keywords. Multiple values can be separated with comma.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|keywords ( String keywords)
-specifier|public
+comment|/**          * The search query, use the keywords AND, OR, - and () to narrow the          * search results.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+DECL|method|keywords (String keywords)
 specifier|default
 name|TwitterSearchEndpointProducerBuilder
 name|keywords
@@ -1959,7 +1879,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointProducerBuilder
 name|lazyStartProducer
@@ -1981,7 +1900,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointProducerBuilder
 name|lazyStartProducer
@@ -2003,7 +1921,6 @@ return|;
 block|}
 comment|/**          * The http proxy host which can be used for the camel-twitter. Can also          * be configured on the TwitterComponent level instead.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|httpProxyHost ( String httpProxyHost)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointProducerBuilder
 name|httpProxyHost
@@ -2025,7 +1942,6 @@ return|;
 block|}
 comment|/**          * The http proxy password which can be used for the camel-twitter. Can          * also be configured on the TwitterComponent level instead.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|httpProxyPassword ( String httpProxyPassword)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointProducerBuilder
 name|httpProxyPassword
@@ -2047,7 +1963,6 @@ return|;
 block|}
 comment|/**          * The http proxy port which can be used for the camel-twitter. Can also          * be configured on the TwitterComponent level instead.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
 DECL|method|httpProxyPort ( Integer httpProxyPort)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointProducerBuilder
 name|httpProxyPort
@@ -2069,7 +1984,6 @@ return|;
 block|}
 comment|/**          * The http proxy port which can be used for the camel-twitter. Can also          * be configured on the TwitterComponent level instead.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
 DECL|method|httpProxyPort ( String httpProxyPort)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointProducerBuilder
 name|httpProxyPort
@@ -2091,7 +2005,6 @@ return|;
 block|}
 comment|/**          * The http proxy user which can be used for the camel-twitter. Can also          * be configured on the TwitterComponent level instead.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|httpProxyUser ( String httpProxyUser)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointProducerBuilder
 name|httpProxyUser
@@ -2113,7 +2026,6 @@ return|;
 block|}
 comment|/**          * The access token. Can also be configured on the TwitterComponent          * level instead.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessToken ( String accessToken)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointProducerBuilder
 name|accessToken
@@ -2135,7 +2047,6 @@ return|;
 block|}
 comment|/**          * The access secret. Can also be configured on the TwitterComponent          * level instead.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessTokenSecret ( String accessTokenSecret)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointProducerBuilder
 name|accessTokenSecret
@@ -2157,7 +2068,6 @@ return|;
 block|}
 comment|/**          * The consumer key. Can also be configured on the TwitterComponent          * level instead.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|consumerKey ( String consumerKey)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointProducerBuilder
 name|consumerKey
@@ -2179,7 +2089,6 @@ return|;
 block|}
 comment|/**          * The consumer secret. Can also be configured on the TwitterComponent          * level instead.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|consumerSecret ( String consumerSecret)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointProducerBuilder
 name|consumerSecret
@@ -2209,7 +2118,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|TwitterSearchEndpointProducerBuilder
 name|basic
@@ -2224,7 +2132,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointProducerBuilder
 name|basicPropertyBinding
@@ -2246,7 +2153,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointProducerBuilder
 name|basicPropertyBinding
@@ -2268,7 +2174,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointProducerBuilder
 name|synchronous
@@ -2290,7 +2195,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointProducerBuilder
 name|synchronous
@@ -2323,7 +2227,6 @@ extends|,
 name|TwitterSearchEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointBuilder
 name|advanced
@@ -2336,9 +2239,8 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The search keywords. Multiple values can be separated with comma.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The search query, use the keywords AND, OR, - and () to narrow the          * search results.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|keywords (String keywords)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointBuilder
 name|keywords
@@ -2359,8 +2261,7 @@ name|this
 return|;
 block|}
 comment|/**          * The http proxy host which can be used for the camel-twitter. Can also          * be configured on the TwitterComponent level instead.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
-DECL|method|httpProxyHost ( String httpProxyHost)
-specifier|public
+DECL|method|httpProxyHost (String httpProxyHost)
 specifier|default
 name|TwitterSearchEndpointBuilder
 name|httpProxyHost
@@ -2382,7 +2283,6 @@ return|;
 block|}
 comment|/**          * The http proxy password which can be used for the camel-twitter. Can          * also be configured on the TwitterComponent level instead.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|httpProxyPassword ( String httpProxyPassword)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointBuilder
 name|httpProxyPassword
@@ -2403,8 +2303,7 @@ name|this
 return|;
 block|}
 comment|/**          * The http proxy port which can be used for the camel-twitter. Can also          * be configured on the TwitterComponent level instead.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
-DECL|method|httpProxyPort ( Integer httpProxyPort)
-specifier|public
+DECL|method|httpProxyPort (Integer httpProxyPort)
 specifier|default
 name|TwitterSearchEndpointBuilder
 name|httpProxyPort
@@ -2425,8 +2324,7 @@ name|this
 return|;
 block|}
 comment|/**          * The http proxy port which can be used for the camel-twitter. Can also          * be configured on the TwitterComponent level instead.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
-DECL|method|httpProxyPort ( String httpProxyPort)
-specifier|public
+DECL|method|httpProxyPort (String httpProxyPort)
 specifier|default
 name|TwitterSearchEndpointBuilder
 name|httpProxyPort
@@ -2447,8 +2345,7 @@ name|this
 return|;
 block|}
 comment|/**          * The http proxy user which can be used for the camel-twitter. Can also          * be configured on the TwitterComponent level instead.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
-DECL|method|httpProxyUser ( String httpProxyUser)
-specifier|public
+DECL|method|httpProxyUser (String httpProxyUser)
 specifier|default
 name|TwitterSearchEndpointBuilder
 name|httpProxyUser
@@ -2469,8 +2366,7 @@ name|this
 return|;
 block|}
 comment|/**          * The access token. Can also be configured on the TwitterComponent          * level instead.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|accessToken ( String accessToken)
-specifier|public
+DECL|method|accessToken (String accessToken)
 specifier|default
 name|TwitterSearchEndpointBuilder
 name|accessToken
@@ -2492,7 +2388,6 @@ return|;
 block|}
 comment|/**          * The access secret. Can also be configured on the TwitterComponent          * level instead.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessTokenSecret ( String accessTokenSecret)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointBuilder
 name|accessTokenSecret
@@ -2513,8 +2408,7 @@ name|this
 return|;
 block|}
 comment|/**          * The consumer key. Can also be configured on the TwitterComponent          * level instead.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|consumerKey ( String consumerKey)
-specifier|public
+DECL|method|consumerKey (String consumerKey)
 specifier|default
 name|TwitterSearchEndpointBuilder
 name|consumerKey
@@ -2536,7 +2430,6 @@ return|;
 block|}
 comment|/**          * The consumer secret. Can also be configured on the TwitterComponent          * level instead.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|consumerSecret ( String consumerSecret)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointBuilder
 name|consumerSecret
@@ -2569,7 +2462,6 @@ extends|,
 name|AdvancedTwitterSearchEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|TwitterSearchEndpointBuilder
 name|basic
@@ -2584,7 +2476,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointBuilder
 name|basicPropertyBinding
@@ -2606,7 +2497,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointBuilder
 name|basicPropertyBinding
@@ -2628,7 +2518,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointBuilder
 name|synchronous
@@ -2650,7 +2539,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedTwitterSearchEndpointBuilder
 name|synchronous
@@ -2689,7 +2577,6 @@ name|EVENT
 block|;     }
 comment|/**      * The Twitter Search component consumes search results. Creates a builder      * to build endpoints for the Twitter Search component.      */
 DECL|method|twitterSearch (String path)
-specifier|public
 specifier|default
 name|TwitterSearchEndpointBuilder
 name|twitterSearch

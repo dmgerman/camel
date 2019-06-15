@@ -111,7 +111,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedScpEndpointBuilder
 name|advanced
@@ -126,7 +125,6 @@ return|;
 block|}
 comment|/**          * Hostname of the FTP server.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|host
@@ -148,7 +146,6 @@ return|;
 block|}
 comment|/**          * Port of the FTP server.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|port
@@ -170,7 +167,6 @@ return|;
 block|}
 comment|/**          * Port of the FTP server.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|port
@@ -192,7 +188,6 @@ return|;
 block|}
 comment|/**          * The starting directory.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|directoryName (String directoryName)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|directoryName
@@ -214,7 +209,6 @@ return|;
 block|}
 comment|/**          * Whether or not to disconnect from remote FTP server right after use.          * Disconnect will only disconnect the current connection to the FTP          * server. If you have a consumer which you want to stop, then you need          * to stop the consumer/route instead.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|disconnect (boolean disconnect)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|disconnect
@@ -236,7 +230,6 @@ return|;
 block|}
 comment|/**          * Whether or not to disconnect from remote FTP server right after use.          * Disconnect will only disconnect the current connection to the FTP          * server. If you have a consumer which you want to stop, then you need          * to stop the consumer/route instead.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|disconnect (String disconnect)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|disconnect
@@ -258,7 +251,6 @@ return|;
 block|}
 comment|/**          * Allows you to set chmod on the stored file. For example chmod=664.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|chmod (String chmod)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|chmod
@@ -280,7 +272,6 @@ return|;
 block|}
 comment|/**          * Use Expression such as File Language to dynamically set the filename.          * For consumers, it's used as a filename filter. For producers, it's          * used to evaluate the filename to write. If an expression is set, it          * take precedence over the CamelFileName header. (Note: The header          * itself can also be an Expression). The expression options support          * both String and Expression types. If the expression is a String type,          * it is always evaluated using the File Language. If the expression is          * an Expression type, the specified Expression type is used - this          * allows you, for instance, to use OGNL expressions. For the consumer,          * you can use it to filter filenames, so you can for instance consume          * today's file using the File Language syntax:          * mydata-${date:now:yyyyMMdd}.txt. The producers support the          * CamelOverruleFileName header which takes precedence over any existing          * CamelFileName header; the CamelOverruleFileName is a header that is          * used only once, and makes it easier as this avoids to temporary store          * CamelFileName and have to restore it afterwards.          * The option is a<code>org.apache.camel.Expression</code> type.          * @group producer          */
 DECL|method|fileName (Expression fileName)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|fileName
@@ -302,7 +293,6 @@ return|;
 block|}
 comment|/**          * Use Expression such as File Language to dynamically set the filename.          * For consumers, it's used as a filename filter. For producers, it's          * used to evaluate the filename to write. If an expression is set, it          * take precedence over the CamelFileName header. (Note: The header          * itself can also be an Expression). The expression options support          * both String and Expression types. If the expression is a String type,          * it is always evaluated using the File Language. If the expression is          * an Expression type, the specified Expression type is used - this          * allows you, for instance, to use OGNL expressions. For the consumer,          * you can use it to filter filenames, so you can for instance consume          * today's file using the File Language syntax:          * mydata-${date:now:yyyyMMdd}.txt. The producers support the          * CamelOverruleFileName header which takes precedence over any existing          * CamelFileName header; the CamelOverruleFileName is a header that is          * used only once, and makes it easier as this avoids to temporary store          * CamelFileName and have to restore it afterwards.          * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          * @group producer          */
 DECL|method|fileName (String fileName)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|fileName
@@ -324,7 +314,6 @@ return|;
 block|}
 comment|/**          * Sets whether to use strict host key checking. Possible values are:          * no, yes.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|strictHostKeyChecking ( String strictHostKeyChecking)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|strictHostKeyChecking
@@ -346,7 +335,6 @@ return|;
 block|}
 comment|/**          * Sets the known_hosts file, so that the jsch endpoint can do host key          * verification. You can prefix with classpath: to load the file from          * classpath instead of file system.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|knownHostsFile (String knownHostsFile)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|knownHostsFile
@@ -368,7 +356,6 @@ return|;
 block|}
 comment|/**          * Password to use for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|password
@@ -390,7 +377,6 @@ return|;
 block|}
 comment|/**          * Set a comma separated list of authentications that will be used in          * order of preference. Possible authentication methods are defined by          * JCraft JSCH. Some examples include:          * gssapi-with-mic,publickey,keyboard-interactive,password If not          * specified the JSCH and/or system defaults will be used.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|preferredAuthentications ( String preferredAuthentications)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|preferredAuthentications
@@ -412,7 +398,6 @@ return|;
 block|}
 comment|/**          * Set the private key bytes to that the endpoint can do private key          * verification. This must be used only if privateKeyFile wasn't set.          * Otherwise the file will have the priority.          * The option is a<code>byte[]</code> type.          * @group security          */
 DECL|method|privateKeyBytes (Byte[] privateKeyBytes)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|privateKeyBytes
@@ -435,7 +420,6 @@ return|;
 block|}
 comment|/**          * Set the private key bytes to that the endpoint can do private key          * verification. This must be used only if privateKeyFile wasn't set.          * Otherwise the file will have the priority.          * The option will be converted to a<code>byte[]</code> type.          * @group security          */
 DECL|method|privateKeyBytes (String privateKeyBytes)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|privateKeyBytes
@@ -457,7 +441,6 @@ return|;
 block|}
 comment|/**          * Set the private key file to that the endpoint can do private key          * verification. You can prefix with classpath: to load the file from          * classpath instead of file system.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|privateKeyFile (String privateKeyFile)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|privateKeyFile
@@ -479,7 +462,6 @@ return|;
 block|}
 comment|/**          * Set the private key file passphrase to that the endpoint can do          * private key verification.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|privateKeyFilePassphrase ( String privateKeyFilePassphrase)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|privateKeyFilePassphrase
@@ -501,7 +483,6 @@ return|;
 block|}
 comment|/**          * Username to use for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|username
@@ -523,7 +504,6 @@ return|;
 block|}
 comment|/**          * If knownHostFile has not been explicit configured, then use the host          * file from System.getProperty(user.home) /.ssh/known_hosts.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|useUserKnownHostsFile ( boolean useUserKnownHostsFile)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|useUserKnownHostsFile
@@ -545,7 +525,6 @@ return|;
 block|}
 comment|/**          * If knownHostFile has not been explicit configured, then use the host          * file from System.getProperty(user.home) /.ssh/known_hosts.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|useUserKnownHostsFile ( String useUserKnownHostsFile)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|useUserKnownHostsFile
@@ -576,7 +555,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|basic
@@ -591,7 +569,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedScpEndpointBuilder
 name|basicPropertyBinding
@@ -613,7 +590,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedScpEndpointBuilder
 name|basicPropertyBinding
@@ -634,8 +610,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the connect timeout for waiting for a connection to be          * established Used by both FTPClient and JSCH.          * The option is a<code>int</code> type.          * @group advanced          */
-DECL|method|connectTimeout ( int connectTimeout)
-specifier|public
+DECL|method|connectTimeout (int connectTimeout)
 specifier|default
 name|AdvancedScpEndpointBuilder
 name|connectTimeout
@@ -656,8 +631,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the connect timeout for waiting for a connection to be          * established Used by both FTPClient and JSCH.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
-DECL|method|connectTimeout ( String connectTimeout)
-specifier|public
+DECL|method|connectTimeout (String connectTimeout)
 specifier|default
 name|AdvancedScpEndpointBuilder
 name|connectTimeout
@@ -679,7 +653,6 @@ return|;
 block|}
 comment|/**          * Sets the so timeout FTP and FTPS Only for Camel 2.4. SFTP for Camel          * 2.14.3/2.15.3/2.16 onwards. Is the SocketOptions.SO_TIMEOUT value in          * millis. Recommended option is to set this to 300000 so as not have a          * hanged connection. On SFTP this option is set as timeout on the JSCH          * Session instance.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|soTimeout (int soTimeout)
-specifier|public
 specifier|default
 name|AdvancedScpEndpointBuilder
 name|soTimeout
@@ -701,7 +674,6 @@ return|;
 block|}
 comment|/**          * Sets the so timeout FTP and FTPS Only for Camel 2.4. SFTP for Camel          * 2.14.3/2.15.3/2.16 onwards. Is the SocketOptions.SO_TIMEOUT value in          * millis. Recommended option is to set this to 300000 so as not have a          * hanged connection. On SFTP this option is set as timeout on the JSCH          * Session instance.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|soTimeout (String soTimeout)
-specifier|public
 specifier|default
 name|AdvancedScpEndpointBuilder
 name|soTimeout
@@ -722,8 +694,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedScpEndpointBuilder
 name|synchronous
@@ -745,7 +716,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous (String synchronous)
-specifier|public
 specifier|default
 name|AdvancedScpEndpointBuilder
 name|synchronous
@@ -767,7 +737,6 @@ return|;
 block|}
 comment|/**          * Sets the data timeout for waiting for reply Used only by FTPClient.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|timeout (int timeout)
-specifier|public
 specifier|default
 name|AdvancedScpEndpointBuilder
 name|timeout
@@ -789,7 +758,6 @@ return|;
 block|}
 comment|/**          * Sets the data timeout for waiting for reply Used only by FTPClient.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|timeout (String timeout)
-specifier|public
 specifier|default
 name|AdvancedScpEndpointBuilder
 name|timeout
@@ -811,7 +779,6 @@ return|;
 block|}
 comment|/**          * Set a comma separated list of ciphers that will be used in order of          * preference. Possible cipher names are defined by JCraft JSCH. Some          * examples include:          * aes128-ctr,aes128-cbc,3des-ctr,3des-cbc,blowfish-cbc,aes192-cbc,aes256-cbc. If not specified the default list from JSCH will be used.          * The option is a<code>java.lang.String</code> type.          * @group security (advanced)          */
 DECL|method|ciphers (String ciphers)
-specifier|public
 specifier|default
 name|AdvancedScpEndpointBuilder
 name|ciphers
@@ -834,7 +801,6 @@ block|}
 block|}
 comment|/**      * To copy files using the secure copy protocol (SCP). Creates a builder to      * build endpoints for the SCP component.      */
 DECL|method|scp (String path)
-specifier|public
 specifier|default
 name|ScpEndpointBuilder
 name|scp

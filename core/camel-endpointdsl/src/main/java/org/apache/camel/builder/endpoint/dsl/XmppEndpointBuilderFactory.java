@@ -138,7 +138,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointConsumerBuilder
 name|advanced
@@ -153,7 +152,6 @@ return|;
 block|}
 comment|/**          * Hostname for the chat server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|host
@@ -175,7 +173,6 @@ return|;
 block|}
 comment|/**          * Port number for the chat server.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|port
@@ -197,7 +194,6 @@ return|;
 block|}
 comment|/**          * Port number for the chat server.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|port
@@ -218,8 +214,7 @@ name|this
 return|;
 block|}
 comment|/**          * JID (Jabber ID) of person to receive messages. room parameter has          * precedence over participant.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|participant ( String participant)
-specifier|public
+DECL|method|participant (String participant)
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|participant
@@ -241,7 +236,6 @@ return|;
 block|}
 comment|/**          * Whether to login the user.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|login (boolean login)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|login
@@ -263,7 +257,6 @@ return|;
 block|}
 comment|/**          * Whether to login the user.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|login (String login)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|login
@@ -285,7 +278,6 @@ return|;
 block|}
 comment|/**          * Use nickname when joining room. If room is specified and nickname is          * not, user will be used for the nickname.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|nickname (String nickname)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|nickname
@@ -307,7 +299,6 @@ return|;
 block|}
 comment|/**          * Accept pubsub packets on input, default is false.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|pubsub (boolean pubsub)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|pubsub
@@ -329,7 +320,6 @@ return|;
 block|}
 comment|/**          * Accept pubsub packets on input, default is false.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|pubsub (String pubsub)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|pubsub
@@ -351,7 +341,6 @@ return|;
 block|}
 comment|/**          * If this option is specified, the component will connect to MUC (Multi          * User Chat). Usually, the domain name for MUC is different from the          * login domain. For example, if you are supermanjabber.org and want to          * join the krypton room, then the room URL is          * kryptonconference.jabber.org. Note the conference part. It is not a          * requirement to provide the full room JID. If the room parameter does          * not contain the symbol, the domain part will be discovered and added          * by Camel.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|room (String room)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|room
@@ -372,8 +361,7 @@ name|this
 return|;
 block|}
 comment|/**          * The name of the service you are connecting to. For Google Talk, this          * would be gmail.com.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|serviceName ( String serviceName)
-specifier|public
+DECL|method|serviceName (String serviceName)
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|serviceName
@@ -395,7 +383,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to test the connection on startup. This is used to          * ensure that the XMPP client has a valid connection to the XMPP server          * when the route starts. Camel throws an exception on startup if a          * connection cannot be established. When this option is set to false,          * Camel will attempt to establish a lazy connection when needed by a          * producer, and will poll for a consumer connection until the          * connection is established. Default is true.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|testConnectionOnStartup ( boolean testConnectionOnStartup)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|testConnectionOnStartup
@@ -417,7 +404,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to test the connection on startup. This is used to          * ensure that the XMPP client has a valid connection to the XMPP server          * when the route starts. Camel throws an exception on startup if a          * connection cannot be established. When this option is set to false,          * Camel will attempt to establish a lazy connection when needed by a          * producer, and will poll for a consumer connection until the          * connection is established. Default is true.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|testConnectionOnStartup ( String testConnectionOnStartup)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|testConnectionOnStartup
@@ -439,7 +425,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -461,7 +446,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -483,7 +467,6 @@ return|;
 block|}
 comment|/**          * The amount of time in seconds between polls (in seconds) to verify          * the health of the XMPP connection, or between attempts to establish          * an initial consumer connection. Camel will try to re-establish a          * connection if it has become inactive. Default is 10 seconds.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|connectionPollDelay ( int connectionPollDelay)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|connectionPollDelay
@@ -505,7 +488,6 @@ return|;
 block|}
 comment|/**          * The amount of time in seconds between polls (in seconds) to verify          * the health of the XMPP connection, or between attempts to establish          * an initial consumer connection. Camel will try to re-establish a          * connection if it has become inactive. Default is 10 seconds.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|connectionPollDelay ( String connectionPollDelay)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|connectionPollDelay
@@ -527,7 +509,6 @@ return|;
 block|}
 comment|/**          * Set a doc header on the IN message containing a Document form of the          * incoming packet; default is true if presence or pubsub are true,          * otherwise false.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|doc (boolean doc)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|doc
@@ -549,7 +530,6 @@ return|;
 block|}
 comment|/**          * Set a doc header on the IN message containing a Document form of the          * incoming packet; default is true if presence or pubsub are true,          * otherwise false.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|doc (String doc)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|doc
@@ -571,7 +551,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group filter          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|headerFilterStrategy
@@ -593,7 +572,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group filter          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|headerFilterStrategy
@@ -615,7 +593,6 @@ return|;
 block|}
 comment|/**          * Password for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|password
@@ -637,7 +614,6 @@ return|;
 block|}
 comment|/**          * User name (without server name). If not specified, anonymous login          * will be attempted.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|user (String user)
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|user
@@ -667,7 +643,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|XmppEndpointConsumerBuilder
 name|basic
@@ -682,7 +657,6 @@ return|;
 block|}
 comment|/**          * If true, an attempt to create an account will be made. Default is          * false.          * The option is a<code>boolean</code> type.          * @group common (advanced)          */
 DECL|method|createAccount ( boolean createAccount)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointConsumerBuilder
 name|createAccount
@@ -704,7 +678,6 @@ return|;
 block|}
 comment|/**          * If true, an attempt to create an account will be made. Default is          * false.          * The option will be converted to a<code>boolean</code> type.          * @group common (advanced)          */
 DECL|method|createAccount ( String createAccount)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointConsumerBuilder
 name|createAccount
@@ -725,8 +698,7 @@ name|this
 return|;
 block|}
 comment|/**          * XMPP resource. The default is Camel.          * The option is a<code>java.lang.String</code> type.          * @group common (advanced)          */
-DECL|method|resource ( String resource)
-specifier|public
+DECL|method|resource (String resource)
 specifier|default
 name|AdvancedXmppEndpointConsumerBuilder
 name|resource
@@ -748,7 +720,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointConsumerBuilder
 name|exceptionHandler
@@ -770,7 +741,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointConsumerBuilder
 name|exceptionHandler
@@ -792,7 +762,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointConsumerBuilder
 name|exchangePattern
@@ -814,7 +783,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointConsumerBuilder
 name|exchangePattern
@@ -836,7 +804,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -858,7 +825,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -880,7 +846,6 @@ return|;
 block|}
 comment|/**          * To use an existing connection configuration. Currently          * org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration is only          * supported (XMPP over TCP).          * The option is a          *<code>org.jivesoftware.smack.ConnectionConfiguration</code> type.          * @group advanced          */
 DECL|method|connectionConfig ( Object connectionConfig)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointConsumerBuilder
 name|connectionConfig
@@ -902,7 +867,6 @@ return|;
 block|}
 comment|/**          * To use an existing connection configuration. Currently          * org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration is only          * supported (XMPP over TCP).          * The option will be converted to a          *<code>org.jivesoftware.smack.ConnectionConfiguration</code> type.          * @group advanced          */
 DECL|method|connectionConfig ( String connectionConfig)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointConsumerBuilder
 name|connectionConfig
@@ -924,7 +888,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointConsumerBuilder
 name|synchronous
@@ -946,7 +909,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointConsumerBuilder
 name|synchronous
@@ -977,7 +939,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointProducerBuilder
 name|advanced
@@ -992,7 +953,6 @@ return|;
 block|}
 comment|/**          * Hostname for the chat server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|XmppEndpointProducerBuilder
 name|host
@@ -1014,7 +974,6 @@ return|;
 block|}
 comment|/**          * Port number for the chat server.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|XmppEndpointProducerBuilder
 name|port
@@ -1036,7 +995,6 @@ return|;
 block|}
 comment|/**          * Port number for the chat server.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|XmppEndpointProducerBuilder
 name|port
@@ -1057,8 +1015,7 @@ name|this
 return|;
 block|}
 comment|/**          * JID (Jabber ID) of person to receive messages. room parameter has          * precedence over participant.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|participant ( String participant)
-specifier|public
+DECL|method|participant (String participant)
 specifier|default
 name|XmppEndpointProducerBuilder
 name|participant
@@ -1080,7 +1037,6 @@ return|;
 block|}
 comment|/**          * Whether to login the user.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|login (boolean login)
-specifier|public
 specifier|default
 name|XmppEndpointProducerBuilder
 name|login
@@ -1102,7 +1058,6 @@ return|;
 block|}
 comment|/**          * Whether to login the user.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|login (String login)
-specifier|public
 specifier|default
 name|XmppEndpointProducerBuilder
 name|login
@@ -1124,7 +1079,6 @@ return|;
 block|}
 comment|/**          * Use nickname when joining room. If room is specified and nickname is          * not, user will be used for the nickname.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|nickname (String nickname)
-specifier|public
 specifier|default
 name|XmppEndpointProducerBuilder
 name|nickname
@@ -1146,7 +1100,6 @@ return|;
 block|}
 comment|/**          * Accept pubsub packets on input, default is false.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|pubsub (boolean pubsub)
-specifier|public
 specifier|default
 name|XmppEndpointProducerBuilder
 name|pubsub
@@ -1168,7 +1121,6 @@ return|;
 block|}
 comment|/**          * Accept pubsub packets on input, default is false.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|pubsub (String pubsub)
-specifier|public
 specifier|default
 name|XmppEndpointProducerBuilder
 name|pubsub
@@ -1190,7 +1142,6 @@ return|;
 block|}
 comment|/**          * If this option is specified, the component will connect to MUC (Multi          * User Chat). Usually, the domain name for MUC is different from the          * login domain. For example, if you are supermanjabber.org and want to          * join the krypton room, then the room URL is          * kryptonconference.jabber.org. Note the conference part. It is not a          * requirement to provide the full room JID. If the room parameter does          * not contain the symbol, the domain part will be discovered and added          * by Camel.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|room (String room)
-specifier|public
 specifier|default
 name|XmppEndpointProducerBuilder
 name|room
@@ -1211,8 +1162,7 @@ name|this
 return|;
 block|}
 comment|/**          * The name of the service you are connecting to. For Google Talk, this          * would be gmail.com.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|serviceName ( String serviceName)
-specifier|public
+DECL|method|serviceName (String serviceName)
 specifier|default
 name|XmppEndpointProducerBuilder
 name|serviceName
@@ -1234,7 +1184,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to test the connection on startup. This is used to          * ensure that the XMPP client has a valid connection to the XMPP server          * when the route starts. Camel throws an exception on startup if a          * connection cannot be established. When this option is set to false,          * Camel will attempt to establish a lazy connection when needed by a          * producer, and will poll for a consumer connection until the          * connection is established. Default is true.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|testConnectionOnStartup ( boolean testConnectionOnStartup)
-specifier|public
 specifier|default
 name|XmppEndpointProducerBuilder
 name|testConnectionOnStartup
@@ -1256,7 +1205,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to test the connection on startup. This is used to          * ensure that the XMPP client has a valid connection to the XMPP server          * when the route starts. Camel throws an exception on startup if a          * connection cannot be established. When this option is set to false,          * Camel will attempt to establish a lazy connection when needed by a          * producer, and will poll for a consumer connection until the          * connection is established. Default is true.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|testConnectionOnStartup ( String testConnectionOnStartup)
-specifier|public
 specifier|default
 name|XmppEndpointProducerBuilder
 name|testConnectionOnStartup
@@ -1278,7 +1226,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|XmppEndpointProducerBuilder
 name|lazyStartProducer
@@ -1300,7 +1247,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|XmppEndpointProducerBuilder
 name|lazyStartProducer
@@ -1322,7 +1268,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group filter          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|XmppEndpointProducerBuilder
 name|headerFilterStrategy
@@ -1344,7 +1289,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group filter          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|XmppEndpointProducerBuilder
 name|headerFilterStrategy
@@ -1366,7 +1310,6 @@ return|;
 block|}
 comment|/**          * Password for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|XmppEndpointProducerBuilder
 name|password
@@ -1388,7 +1331,6 @@ return|;
 block|}
 comment|/**          * User name (without server name). If not specified, anonymous login          * will be attempted.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|user (String user)
-specifier|public
 specifier|default
 name|XmppEndpointProducerBuilder
 name|user
@@ -1418,7 +1360,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|XmppEndpointProducerBuilder
 name|basic
@@ -1433,7 +1374,6 @@ return|;
 block|}
 comment|/**          * If true, an attempt to create an account will be made. Default is          * false.          * The option is a<code>boolean</code> type.          * @group common (advanced)          */
 DECL|method|createAccount ( boolean createAccount)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointProducerBuilder
 name|createAccount
@@ -1455,7 +1395,6 @@ return|;
 block|}
 comment|/**          * If true, an attempt to create an account will be made. Default is          * false.          * The option will be converted to a<code>boolean</code> type.          * @group common (advanced)          */
 DECL|method|createAccount ( String createAccount)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointProducerBuilder
 name|createAccount
@@ -1476,8 +1415,7 @@ name|this
 return|;
 block|}
 comment|/**          * XMPP resource. The default is Camel.          * The option is a<code>java.lang.String</code> type.          * @group common (advanced)          */
-DECL|method|resource ( String resource)
-specifier|public
+DECL|method|resource (String resource)
 specifier|default
 name|AdvancedXmppEndpointProducerBuilder
 name|resource
@@ -1499,7 +1437,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1521,7 +1458,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1543,7 +1479,6 @@ return|;
 block|}
 comment|/**          * To use an existing connection configuration. Currently          * org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration is only          * supported (XMPP over TCP).          * The option is a          *<code>org.jivesoftware.smack.ConnectionConfiguration</code> type.          * @group advanced          */
 DECL|method|connectionConfig ( Object connectionConfig)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointProducerBuilder
 name|connectionConfig
@@ -1565,7 +1500,6 @@ return|;
 block|}
 comment|/**          * To use an existing connection configuration. Currently          * org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration is only          * supported (XMPP over TCP).          * The option will be converted to a          *<code>org.jivesoftware.smack.ConnectionConfiguration</code> type.          * @group advanced          */
 DECL|method|connectionConfig ( String connectionConfig)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointProducerBuilder
 name|connectionConfig
@@ -1587,7 +1521,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointProducerBuilder
 name|synchronous
@@ -1609,7 +1542,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointProducerBuilder
 name|synchronous
@@ -1642,7 +1574,6 @@ extends|,
 name|XmppEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointBuilder
 name|advanced
@@ -1657,7 +1588,6 @@ return|;
 block|}
 comment|/**          * Hostname for the chat server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|host
@@ -1679,7 +1609,6 @@ return|;
 block|}
 comment|/**          * Port number for the chat server.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|port
@@ -1701,7 +1630,6 @@ return|;
 block|}
 comment|/**          * Port number for the chat server.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|port
@@ -1723,7 +1651,6 @@ return|;
 block|}
 comment|/**          * JID (Jabber ID) of person to receive messages. room parameter has          * precedence over participant.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|participant (String participant)
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|participant
@@ -1745,7 +1672,6 @@ return|;
 block|}
 comment|/**          * Whether to login the user.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|login (boolean login)
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|login
@@ -1767,7 +1693,6 @@ return|;
 block|}
 comment|/**          * Whether to login the user.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|login (String login)
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|login
@@ -1789,7 +1714,6 @@ return|;
 block|}
 comment|/**          * Use nickname when joining room. If room is specified and nickname is          * not, user will be used for the nickname.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|nickname (String nickname)
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|nickname
@@ -1811,7 +1735,6 @@ return|;
 block|}
 comment|/**          * Accept pubsub packets on input, default is false.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|pubsub (boolean pubsub)
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|pubsub
@@ -1833,7 +1756,6 @@ return|;
 block|}
 comment|/**          * Accept pubsub packets on input, default is false.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|pubsub (String pubsub)
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|pubsub
@@ -1855,7 +1777,6 @@ return|;
 block|}
 comment|/**          * If this option is specified, the component will connect to MUC (Multi          * User Chat). Usually, the domain name for MUC is different from the          * login domain. For example, if you are supermanjabber.org and want to          * join the krypton room, then the room URL is          * kryptonconference.jabber.org. Note the conference part. It is not a          * requirement to provide the full room JID. If the room parameter does          * not contain the symbol, the domain part will be discovered and added          * by Camel.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|room (String room)
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|room
@@ -1877,7 +1798,6 @@ return|;
 block|}
 comment|/**          * The name of the service you are connecting to. For Google Talk, this          * would be gmail.com.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|serviceName (String serviceName)
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|serviceName
@@ -1899,7 +1819,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to test the connection on startup. This is used to          * ensure that the XMPP client has a valid connection to the XMPP server          * when the route starts. Camel throws an exception on startup if a          * connection cannot be established. When this option is set to false,          * Camel will attempt to establish a lazy connection when needed by a          * producer, and will poll for a consumer connection until the          * connection is established. Default is true.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|testConnectionOnStartup ( boolean testConnectionOnStartup)
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|testConnectionOnStartup
@@ -1921,7 +1840,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to test the connection on startup. This is used to          * ensure that the XMPP client has a valid connection to the XMPP server          * when the route starts. Camel throws an exception on startup if a          * connection cannot be established. When this option is set to false,          * Camel will attempt to establish a lazy connection when needed by a          * producer, and will poll for a consumer connection until the          * connection is established. Default is true.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|testConnectionOnStartup ( String testConnectionOnStartup)
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|testConnectionOnStartup
@@ -1943,7 +1861,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group filter          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|headerFilterStrategy
@@ -1965,7 +1882,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group filter          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|headerFilterStrategy
@@ -1987,7 +1903,6 @@ return|;
 block|}
 comment|/**          * Password for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|password
@@ -2009,7 +1924,6 @@ return|;
 block|}
 comment|/**          * User name (without server name). If not specified, anonymous login          * will be attempted.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|user (String user)
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|user
@@ -2042,7 +1956,6 @@ extends|,
 name|AdvancedXmppEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|basic
@@ -2056,8 +1969,7 @@ name|this
 return|;
 block|}
 comment|/**          * If true, an attempt to create an account will be made. Default is          * false.          * The option is a<code>boolean</code> type.          * @group common (advanced)          */
-DECL|method|createAccount ( boolean createAccount)
-specifier|public
+DECL|method|createAccount (boolean createAccount)
 specifier|default
 name|AdvancedXmppEndpointBuilder
 name|createAccount
@@ -2078,8 +1990,7 @@ name|this
 return|;
 block|}
 comment|/**          * If true, an attempt to create an account will be made. Default is          * false.          * The option will be converted to a<code>boolean</code> type.          * @group common (advanced)          */
-DECL|method|createAccount ( String createAccount)
-specifier|public
+DECL|method|createAccount (String createAccount)
 specifier|default
 name|AdvancedXmppEndpointBuilder
 name|createAccount
@@ -2101,7 +2012,6 @@ return|;
 block|}
 comment|/**          * XMPP resource. The default is Camel.          * The option is a<code>java.lang.String</code> type.          * @group common (advanced)          */
 DECL|method|resource (String resource)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointBuilder
 name|resource
@@ -2123,7 +2033,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointBuilder
 name|basicPropertyBinding
@@ -2145,7 +2054,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointBuilder
 name|basicPropertyBinding
@@ -2167,7 +2075,6 @@ return|;
 block|}
 comment|/**          * To use an existing connection configuration. Currently          * org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration is only          * supported (XMPP over TCP).          * The option is a          *<code>org.jivesoftware.smack.ConnectionConfiguration</code> type.          * @group advanced          */
 DECL|method|connectionConfig ( Object connectionConfig)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointBuilder
 name|connectionConfig
@@ -2189,7 +2096,6 @@ return|;
 block|}
 comment|/**          * To use an existing connection configuration. Currently          * org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration is only          * supported (XMPP over TCP).          * The option will be converted to a          *<code>org.jivesoftware.smack.ConnectionConfiguration</code> type.          * @group advanced          */
 DECL|method|connectionConfig ( String connectionConfig)
-specifier|public
 specifier|default
 name|AdvancedXmppEndpointBuilder
 name|connectionConfig
@@ -2210,8 +2116,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedXmppEndpointBuilder
 name|synchronous
@@ -2232,8 +2137,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedXmppEndpointBuilder
 name|synchronous
@@ -2256,7 +2160,6 @@ block|}
 block|}
 comment|/**      * To send and receive messages from a XMPP (chat) server. Creates a builder      * to build endpoints for the XMPP component.      */
 DECL|method|xmpp (String path)
-specifier|public
 specifier|default
 name|XmppEndpointBuilder
 name|xmpp

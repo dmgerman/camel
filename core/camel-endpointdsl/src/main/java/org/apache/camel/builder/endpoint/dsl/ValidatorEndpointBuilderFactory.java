@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedValidatorEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * URL to a local resource on the classpath,or a reference to lookup a          * bean in the Registry, or a full URL to a remote resource or resource          * on the file system which contains the XSD to validate against.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|resourceUri (String resourceUri)
-specifier|public
 specifier|default
 name|ValidatorEndpointBuilder
 name|resourceUri
@@ -135,8 +133,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether to fail if no body exists.          * The option is a<code>boolean</code> type.          * @group producer          */
-DECL|method|failOnNullBody ( boolean failOnNullBody)
-specifier|public
+DECL|method|failOnNullBody (boolean failOnNullBody)
 specifier|default
 name|ValidatorEndpointBuilder
 name|failOnNullBody
@@ -157,8 +154,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether to fail if no body exists.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
-DECL|method|failOnNullBody ( String failOnNullBody)
-specifier|public
+DECL|method|failOnNullBody (String failOnNullBody)
 specifier|default
 name|ValidatorEndpointBuilder
 name|failOnNullBody
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Whether to fail if no header exists when validating against a header.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|failOnNullHeader ( boolean failOnNullHeader)
-specifier|public
 specifier|default
 name|ValidatorEndpointBuilder
 name|failOnNullHeader
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Whether to fail if no header exists when validating against a header.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|failOnNullHeader ( String failOnNullHeader)
-specifier|public
 specifier|default
 name|ValidatorEndpointBuilder
 name|failOnNullHeader
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * To validate against a header instead of the message body.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|headerName (String headerName)
-specifier|public
 specifier|default
 name|ValidatorEndpointBuilder
 name|headerName
@@ -255,7 +248,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|ValidatorEndpointBuilder
 name|basic
@@ -270,7 +262,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedValidatorEndpointBuilder
 name|basicPropertyBinding
@@ -292,7 +283,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedValidatorEndpointBuilder
 name|basicPropertyBinding
@@ -314,7 +304,6 @@ return|;
 block|}
 comment|/**          * To use a custom          * org.apache.camel.processor.validation.ValidatorErrorHandler. The          * default error handler captures the errors and throws an exception.          * The option is a          *<code>org.apache.camel.support.processor.validation.ValidatorErrorHandler</code> type.          * @group advanced          */
 DECL|method|errorHandler ( Object errorHandler)
-specifier|public
 specifier|default
 name|AdvancedValidatorEndpointBuilder
 name|errorHandler
@@ -336,7 +325,6 @@ return|;
 block|}
 comment|/**          * To use a custom          * org.apache.camel.processor.validation.ValidatorErrorHandler. The          * default error handler captures the errors and throws an exception.          * The option will be converted to a          *<code>org.apache.camel.support.processor.validation.ValidatorErrorHandler</code> type.          * @group advanced          */
 DECL|method|errorHandler ( String errorHandler)
-specifier|public
 specifier|default
 name|AdvancedValidatorEndpointBuilder
 name|errorHandler
@@ -358,7 +346,6 @@ return|;
 block|}
 comment|/**          * To use a custom LSResourceResolver. See also          * setResourceResolverFactory(ValidatorResourceResolverFactory).          * The option is a<code>org.w3c.dom.ls.LSResourceResolver</code> type.          * @group advanced          */
 DECL|method|resourceResolver ( Object resourceResolver)
-specifier|public
 specifier|default
 name|AdvancedValidatorEndpointBuilder
 name|resourceResolver
@@ -380,7 +367,6 @@ return|;
 block|}
 comment|/**          * To use a custom LSResourceResolver. See also          * setResourceResolverFactory(ValidatorResourceResolverFactory).          * The option will be converted to a          *<code>org.w3c.dom.ls.LSResourceResolver</code> type.          * @group advanced          */
 DECL|method|resourceResolver ( String resourceResolver)
-specifier|public
 specifier|default
 name|AdvancedValidatorEndpointBuilder
 name|resourceResolver
@@ -402,7 +388,6 @@ return|;
 block|}
 comment|/**          * For creating a resource resolver which depends on the endpoint          * resource URI. Must not be used in combination with method          * setResourceResolver(LSResourceResolver). If not set then          * DefaultValidatorResourceResolverFactory is used.          * The option is a          *<code>org.apache.camel.component.validator.ValidatorResourceResolverFactory</code> type.          * @group advanced          */
 DECL|method|resourceResolverFactory ( Object resourceResolverFactory)
-specifier|public
 specifier|default
 name|AdvancedValidatorEndpointBuilder
 name|resourceResolverFactory
@@ -424,7 +409,6 @@ return|;
 block|}
 comment|/**          * For creating a resource resolver which depends on the endpoint          * resource URI. Must not be used in combination with method          * setResourceResolver(LSResourceResolver). If not set then          * DefaultValidatorResourceResolverFactory is used.          * The option will be converted to a          *<code>org.apache.camel.component.validator.ValidatorResourceResolverFactory</code> type.          * @group advanced          */
 DECL|method|resourceResolverFactory ( String resourceResolverFactory)
-specifier|public
 specifier|default
 name|AdvancedValidatorEndpointBuilder
 name|resourceResolverFactory
@@ -446,7 +430,6 @@ return|;
 block|}
 comment|/**          * To use a custom javax.xml.validation.SchemaFactory.          * The option is a<code>javax.xml.validation.SchemaFactory</code> type.          * @group advanced          */
 DECL|method|schemaFactory ( Object schemaFactory)
-specifier|public
 specifier|default
 name|AdvancedValidatorEndpointBuilder
 name|schemaFactory
@@ -468,7 +451,6 @@ return|;
 block|}
 comment|/**          * To use a custom javax.xml.validation.SchemaFactory.          * The option will be converted to a          *<code>javax.xml.validation.SchemaFactory</code> type.          * @group advanced          */
 DECL|method|schemaFactory ( String schemaFactory)
-specifier|public
 specifier|default
 name|AdvancedValidatorEndpointBuilder
 name|schemaFactory
@@ -490,7 +472,6 @@ return|;
 block|}
 comment|/**          * Configures the W3C XML Schema Namespace URI.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|schemaLanguage ( String schemaLanguage)
-specifier|public
 specifier|default
 name|AdvancedValidatorEndpointBuilder
 name|schemaLanguage
@@ -511,8 +492,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedValidatorEndpointBuilder
 name|synchronous
@@ -533,8 +513,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedValidatorEndpointBuilder
 name|synchronous
@@ -556,7 +535,6 @@ return|;
 block|}
 comment|/**          * Whether the Schema instance should be shared or not. This option is          * introduced to work around a JDK 1.6.x bug. Xerces should not have          * this issue.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|useSharedSchema ( boolean useSharedSchema)
-specifier|public
 specifier|default
 name|AdvancedValidatorEndpointBuilder
 name|useSharedSchema
@@ -578,7 +556,6 @@ return|;
 block|}
 comment|/**          * Whether the Schema instance should be shared or not. This option is          * introduced to work around a JDK 1.6.x bug. Xerces should not have          * this issue.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|useSharedSchema ( String useSharedSchema)
-specifier|public
 specifier|default
 name|AdvancedValidatorEndpointBuilder
 name|useSharedSchema
@@ -601,7 +578,6 @@ block|}
 block|}
 comment|/**      * Validates the payload of a message using XML Schema and JAXP Validation.      * Creates a builder to build endpoints for the Validator component.      */
 DECL|method|validator (String path)
-specifier|public
 specifier|default
 name|ValidatorEndpointBuilder
 name|validator

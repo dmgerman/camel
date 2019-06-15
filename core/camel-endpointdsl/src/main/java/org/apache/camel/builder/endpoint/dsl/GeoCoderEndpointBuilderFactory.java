@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedGeoCoderEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * The geo address which should be prefixed with address:.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|address (String address)
-specifier|public
 specifier|default
 name|GeoCoderEndpointBuilder
 name|address
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * The geo latitude and longitude which should be prefixed with latlng:.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|latlng (String latlng)
-specifier|public
 specifier|default
 name|GeoCoderEndpointBuilder
 name|latlng
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Whether to only enrich the Exchange with headers, and leave the body          * as-is.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|headersOnly (boolean headersOnly)
-specifier|public
 specifier|default
 name|GeoCoderEndpointBuilder
 name|headersOnly
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Whether to only enrich the Exchange with headers, and leave the body          * as-is.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|headersOnly (String headersOnly)
-specifier|public
 specifier|default
 name|GeoCoderEndpointBuilder
 name|headersOnly
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * The language to use.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|language (String language)
-specifier|public
 specifier|default
 name|GeoCoderEndpointBuilder
 name|language
@@ -223,8 +217,7 @@ name|this
 return|;
 block|}
 comment|/**          * Domain for proxy NTML authentication.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
-DECL|method|proxyAuthDomain ( String proxyAuthDomain)
-specifier|public
+DECL|method|proxyAuthDomain (String proxyAuthDomain)
 specifier|default
 name|GeoCoderEndpointBuilder
 name|proxyAuthDomain
@@ -245,8 +238,7 @@ name|this
 return|;
 block|}
 comment|/**          * Optional host for proxy NTML authentication.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
-DECL|method|proxyAuthHost ( String proxyAuthHost)
-specifier|public
+DECL|method|proxyAuthHost (String proxyAuthHost)
 specifier|default
 name|GeoCoderEndpointBuilder
 name|proxyAuthHost
@@ -267,8 +259,7 @@ name|this
 return|;
 block|}
 comment|/**          * Authentication method for proxy, either as Basic, Digest or NTLM.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
-DECL|method|proxyAuthMethod ( String proxyAuthMethod)
-specifier|public
+DECL|method|proxyAuthMethod (String proxyAuthMethod)
 specifier|default
 name|GeoCoderEndpointBuilder
 name|proxyAuthMethod
@@ -290,7 +281,6 @@ return|;
 block|}
 comment|/**          * Password for proxy authentication.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|proxyAuthPassword ( String proxyAuthPassword)
-specifier|public
 specifier|default
 name|GeoCoderEndpointBuilder
 name|proxyAuthPassword
@@ -312,7 +302,6 @@ return|;
 block|}
 comment|/**          * Username for proxy authentication.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|proxyAuthUsername ( String proxyAuthUsername)
-specifier|public
 specifier|default
 name|GeoCoderEndpointBuilder
 name|proxyAuthUsername
@@ -334,7 +323,6 @@ return|;
 block|}
 comment|/**          * The proxy host name.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|proxyHost (String proxyHost)
-specifier|public
 specifier|default
 name|GeoCoderEndpointBuilder
 name|proxyHost
@@ -356,7 +344,6 @@ return|;
 block|}
 comment|/**          * The proxy port number.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
 DECL|method|proxyPort (Integer proxyPort)
-specifier|public
 specifier|default
 name|GeoCoderEndpointBuilder
 name|proxyPort
@@ -378,7 +365,6 @@ return|;
 block|}
 comment|/**          * The proxy port number.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
 DECL|method|proxyPort (String proxyPort)
-specifier|public
 specifier|default
 name|GeoCoderEndpointBuilder
 name|proxyPort
@@ -400,7 +386,6 @@ return|;
 block|}
 comment|/**          * To use google apiKey.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|apiKey (String apiKey)
-specifier|public
 specifier|default
 name|GeoCoderEndpointBuilder
 name|apiKey
@@ -422,7 +407,6 @@ return|;
 block|}
 comment|/**          * To use google premium with this client id.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientId (String clientId)
-specifier|public
 specifier|default
 name|GeoCoderEndpointBuilder
 name|clientId
@@ -444,7 +428,6 @@ return|;
 block|}
 comment|/**          * To use google premium with this client key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|clientKey (String clientKey)
-specifier|public
 specifier|default
 name|GeoCoderEndpointBuilder
 name|clientKey
@@ -475,7 +458,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|GeoCoderEndpointBuilder
 name|basic
@@ -490,7 +472,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGeoCoderEndpointBuilder
 name|basicPropertyBinding
@@ -512,7 +493,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGeoCoderEndpointBuilder
 name|basicPropertyBinding
@@ -533,8 +513,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedGeoCoderEndpointBuilder
 name|synchronous
@@ -555,8 +534,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedGeoCoderEndpointBuilder
 name|synchronous
@@ -579,7 +557,6 @@ block|}
 block|}
 comment|/**      * The geocoder component is used for looking up geocodes (latitude and      * longitude) for a given address, or reverse lookup. Creates a builder to      * build endpoints for the Geocoder component.      */
 DECL|method|geoCoder (String path)
-specifier|public
 specifier|default
 name|GeoCoderEndpointBuilder
 name|geoCoder

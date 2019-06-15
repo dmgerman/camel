@@ -144,7 +144,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|advanced
@@ -159,7 +158,6 @@ return|;
 block|}
 comment|/**          * The name of the cache.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|cacheName (String cacheName)
-specifier|public
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|cacheName
@@ -181,7 +179,6 @@ return|;
 block|}
 comment|/**          * A Configuration for the Cache.          * The option is a<code>javax.cache.configuration.Configuration</code>          * type.          * @group common          */
 DECL|method|cacheConfiguration ( Object cacheConfiguration)
-specifier|public
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|cacheConfiguration
@@ -203,7 +200,6 @@ return|;
 block|}
 comment|/**          * A Configuration for the Cache.          * The option will be converted to a          *<code>javax.cache.configuration.Configuration</code> type.          * @group common          */
 DECL|method|cacheConfiguration ( String cacheConfiguration)
-specifier|public
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|cacheConfiguration
@@ -225,7 +221,6 @@ return|;
 block|}
 comment|/**          * The Properties for the javax.cache.spi.CachingProvider to create the          * CacheManager.          * The option is a<code>java.util.Properties</code> type.          * @group common          */
 DECL|method|cacheConfigurationProperties ( Properties cacheConfigurationProperties)
-specifier|public
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|cacheConfigurationProperties
@@ -247,7 +242,6 @@ return|;
 block|}
 comment|/**          * The Properties for the javax.cache.spi.CachingProvider to create the          * CacheManager.          * The option will be converted to a<code>java.util.Properties</code>          * type.          * @group common          */
 DECL|method|cacheConfigurationProperties ( String cacheConfigurationProperties)
-specifier|public
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|cacheConfigurationProperties
@@ -269,7 +263,6 @@ return|;
 block|}
 comment|/**          * The fully qualified class name of the          * javax.cache.spi.CachingProvider.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|cachingProvider ( String cachingProvider)
-specifier|public
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|cachingProvider
@@ -291,7 +284,6 @@ return|;
 block|}
 comment|/**          * An implementation specific URI for the CacheManager.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|configurationUri ( String configurationUri)
-specifier|public
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|configurationUri
@@ -313,7 +305,6 @@ return|;
 block|}
 comment|/**          * Whether management gathering is enabled.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|managementEnabled ( boolean managementEnabled)
-specifier|public
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|managementEnabled
@@ -335,7 +326,6 @@ return|;
 block|}
 comment|/**          * Whether management gathering is enabled.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|managementEnabled ( String managementEnabled)
-specifier|public
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|managementEnabled
@@ -356,8 +346,7 @@ name|this
 return|;
 block|}
 comment|/**          * If read-through caching should be used.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|readThrough ( boolean readThrough)
-specifier|public
+DECL|method|readThrough (boolean readThrough)
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|readThrough
@@ -378,8 +367,7 @@ name|this
 return|;
 block|}
 comment|/**          * If read-through caching should be used.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|readThrough ( String readThrough)
-specifier|public
+DECL|method|readThrough (String readThrough)
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|readThrough
@@ -401,7 +389,6 @@ return|;
 block|}
 comment|/**          * Whether statistics gathering is enabled.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|statisticsEnabled ( boolean statisticsEnabled)
-specifier|public
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|statisticsEnabled
@@ -423,7 +410,6 @@ return|;
 block|}
 comment|/**          * Whether statistics gathering is enabled.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|statisticsEnabled ( String statisticsEnabled)
-specifier|public
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|statisticsEnabled
@@ -444,8 +430,7 @@ name|this
 return|;
 block|}
 comment|/**          * If cache should use store-by-value or store-by-reference semantics.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|storeByValue ( boolean storeByValue)
-specifier|public
+DECL|method|storeByValue (boolean storeByValue)
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|storeByValue
@@ -466,8 +451,7 @@ name|this
 return|;
 block|}
 comment|/**          * If cache should use store-by-value or store-by-reference semantics.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|storeByValue ( String storeByValue)
-specifier|public
+DECL|method|storeByValue (String storeByValue)
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|storeByValue
@@ -488,8 +472,7 @@ name|this
 return|;
 block|}
 comment|/**          * If write-through caching should be used.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|writeThrough ( boolean writeThrough)
-specifier|public
+DECL|method|writeThrough (boolean writeThrough)
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|writeThrough
@@ -510,8 +493,7 @@ name|this
 return|;
 block|}
 comment|/**          * If write-through caching should be used.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|writeThrough ( String writeThrough)
-specifier|public
+DECL|method|writeThrough (String writeThrough)
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|writeThrough
@@ -533,7 +515,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -555,7 +536,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -577,7 +557,6 @@ return|;
 block|}
 comment|/**          * Events a consumer should filter. If using filteredEvents option, then          * eventFilters one will be ignored.          * The option is a          *<code>java.util.List&lt;javax.cache.event.EventType&gt;</code> type.          * @group consumer          */
 DECL|method|filteredEvents ( List<EventType> filteredEvents)
-specifier|public
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|filteredEvents
@@ -602,7 +581,6 @@ return|;
 block|}
 comment|/**          * Events a consumer should filter. If using filteredEvents option, then          * eventFilters one will be ignored.          * The option will be converted to a          *<code>java.util.List&lt;javax.cache.event.EventType&gt;</code> type.          * @group consumer          */
 DECL|method|filteredEvents ( String filteredEvents)
-specifier|public
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|filteredEvents
@@ -624,7 +602,6 @@ return|;
 block|}
 comment|/**          * if the old value is required for events.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|oldValueRequired ( boolean oldValueRequired)
-specifier|public
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|oldValueRequired
@@ -646,7 +623,6 @@ return|;
 block|}
 comment|/**          * if the old value is required for events.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|oldValueRequired ( String oldValueRequired)
-specifier|public
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|oldValueRequired
@@ -667,8 +643,7 @@ name|this
 return|;
 block|}
 comment|/**          * if the event listener should block the thread causing the event.          * The option is a<code>boolean</code> type.          * @group consumer          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|synchronous
@@ -689,8 +664,7 @@ name|this
 return|;
 block|}
 comment|/**          * if the event listener should block the thread causing the event.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|synchronous
@@ -720,7 +694,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JCacheEndpointConsumerBuilder
 name|basic
@@ -735,7 +708,6 @@ return|;
 block|}
 comment|/**          * The CacheEntryEventFilter. If using eventFilters option, then          * filteredEvents one will be ignored.          * The option is a          *<code>java.util.List&lt;javax.cache.event.CacheEntryEventFilter&gt;</code> type.          * @group consumer (advanced)          */
 DECL|method|eventFilters ( List<Object> eventFilters)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|eventFilters
@@ -760,7 +732,6 @@ return|;
 block|}
 comment|/**          * The CacheEntryEventFilter. If using eventFilters option, then          * filteredEvents one will be ignored.          * The option will be converted to a          *<code>java.util.List&lt;javax.cache.event.CacheEntryEventFilter&gt;</code> type.          * @group consumer (advanced)          */
 DECL|method|eventFilters ( String eventFilters)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|eventFilters
@@ -782,7 +753,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|exceptionHandler
@@ -804,7 +774,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|exceptionHandler
@@ -826,7 +795,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|exchangePattern
@@ -848,7 +816,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|exchangePattern
@@ -870,7 +837,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -892,7 +858,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -914,7 +879,6 @@ return|;
 block|}
 comment|/**          * The CacheLoader factory.          * The option is a          *<code>javax.cache.configuration.Factory&lt;javax.cache.integration.CacheLoader&gt;</code> type.          * @group advanced          */
 DECL|method|cacheLoaderFactory ( Object cacheLoaderFactory)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|cacheLoaderFactory
@@ -936,7 +900,6 @@ return|;
 block|}
 comment|/**          * The CacheLoader factory.          * The option will be converted to a          *<code>javax.cache.configuration.Factory&lt;javax.cache.integration.CacheLoader&gt;</code> type.          * @group advanced          */
 DECL|method|cacheLoaderFactory ( String cacheLoaderFactory)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|cacheLoaderFactory
@@ -958,7 +921,6 @@ return|;
 block|}
 comment|/**          * The CacheWriter factory.          * The option is a          *<code>javax.cache.configuration.Factory&lt;javax.cache.integration.CacheWriter&gt;</code> type.          * @group advanced          */
 DECL|method|cacheWriterFactory ( Object cacheWriterFactory)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|cacheWriterFactory
@@ -980,7 +942,6 @@ return|;
 block|}
 comment|/**          * The CacheWriter factory.          * The option will be converted to a          *<code>javax.cache.configuration.Factory&lt;javax.cache.integration.CacheWriter&gt;</code> type.          * @group advanced          */
 DECL|method|cacheWriterFactory ( String cacheWriterFactory)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|cacheWriterFactory
@@ -1002,7 +963,6 @@ return|;
 block|}
 comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|createCacheIfNotExists ( boolean createCacheIfNotExists)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|createCacheIfNotExists
@@ -1024,7 +984,6 @@ return|;
 block|}
 comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|createCacheIfNotExists ( String createCacheIfNotExists)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|createCacheIfNotExists
@@ -1046,7 +1005,6 @@ return|;
 block|}
 comment|/**          * The ExpiryPolicy factory.          * The option is a          *<code>javax.cache.configuration.Factory&lt;javax.cache.expiry.ExpiryPolicy&gt;</code> type.          * @group advanced          */
 DECL|method|expiryPolicyFactory ( Object expiryPolicyFactory)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|expiryPolicyFactory
@@ -1068,7 +1026,6 @@ return|;
 block|}
 comment|/**          * The ExpiryPolicy factory.          * The option will be converted to a          *<code>javax.cache.configuration.Factory&lt;javax.cache.expiry.ExpiryPolicy&gt;</code> type.          * @group advanced          */
 DECL|method|expiryPolicyFactory ( String expiryPolicyFactory)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|expiryPolicyFactory
@@ -1090,7 +1047,6 @@ return|;
 block|}
 comment|/**          * Configure if a camel-cache should try to find implementations of          * jcache api in runtimes like OSGi.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|lookupProviders ( boolean lookupProviders)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|lookupProviders
@@ -1112,7 +1068,6 @@ return|;
 block|}
 comment|/**          * Configure if a camel-cache should try to find implementations of          * jcache api in runtimes like OSGi.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|lookupProviders ( String lookupProviders)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointConsumerBuilder
 name|lookupProviders
@@ -1143,7 +1098,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointProducerBuilder
 name|advanced
@@ -1158,7 +1112,6 @@ return|;
 block|}
 comment|/**          * The name of the cache.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|cacheName (String cacheName)
-specifier|public
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|cacheName
@@ -1180,7 +1133,6 @@ return|;
 block|}
 comment|/**          * A Configuration for the Cache.          * The option is a<code>javax.cache.configuration.Configuration</code>          * type.          * @group common          */
 DECL|method|cacheConfiguration ( Object cacheConfiguration)
-specifier|public
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|cacheConfiguration
@@ -1202,7 +1154,6 @@ return|;
 block|}
 comment|/**          * A Configuration for the Cache.          * The option will be converted to a          *<code>javax.cache.configuration.Configuration</code> type.          * @group common          */
 DECL|method|cacheConfiguration ( String cacheConfiguration)
-specifier|public
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|cacheConfiguration
@@ -1224,7 +1175,6 @@ return|;
 block|}
 comment|/**          * The Properties for the javax.cache.spi.CachingProvider to create the          * CacheManager.          * The option is a<code>java.util.Properties</code> type.          * @group common          */
 DECL|method|cacheConfigurationProperties ( Properties cacheConfigurationProperties)
-specifier|public
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|cacheConfigurationProperties
@@ -1246,7 +1196,6 @@ return|;
 block|}
 comment|/**          * The Properties for the javax.cache.spi.CachingProvider to create the          * CacheManager.          * The option will be converted to a<code>java.util.Properties</code>          * type.          * @group common          */
 DECL|method|cacheConfigurationProperties ( String cacheConfigurationProperties)
-specifier|public
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|cacheConfigurationProperties
@@ -1268,7 +1217,6 @@ return|;
 block|}
 comment|/**          * The fully qualified class name of the          * javax.cache.spi.CachingProvider.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|cachingProvider ( String cachingProvider)
-specifier|public
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|cachingProvider
@@ -1290,7 +1238,6 @@ return|;
 block|}
 comment|/**          * An implementation specific URI for the CacheManager.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|configurationUri ( String configurationUri)
-specifier|public
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|configurationUri
@@ -1312,7 +1259,6 @@ return|;
 block|}
 comment|/**          * Whether management gathering is enabled.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|managementEnabled ( boolean managementEnabled)
-specifier|public
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|managementEnabled
@@ -1334,7 +1280,6 @@ return|;
 block|}
 comment|/**          * Whether management gathering is enabled.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|managementEnabled ( String managementEnabled)
-specifier|public
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|managementEnabled
@@ -1355,8 +1300,7 @@ name|this
 return|;
 block|}
 comment|/**          * If read-through caching should be used.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|readThrough ( boolean readThrough)
-specifier|public
+DECL|method|readThrough (boolean readThrough)
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|readThrough
@@ -1377,8 +1321,7 @@ name|this
 return|;
 block|}
 comment|/**          * If read-through caching should be used.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|readThrough ( String readThrough)
-specifier|public
+DECL|method|readThrough (String readThrough)
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|readThrough
@@ -1400,7 +1343,6 @@ return|;
 block|}
 comment|/**          * Whether statistics gathering is enabled.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|statisticsEnabled ( boolean statisticsEnabled)
-specifier|public
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|statisticsEnabled
@@ -1422,7 +1364,6 @@ return|;
 block|}
 comment|/**          * Whether statistics gathering is enabled.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|statisticsEnabled ( String statisticsEnabled)
-specifier|public
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|statisticsEnabled
@@ -1443,8 +1384,7 @@ name|this
 return|;
 block|}
 comment|/**          * If cache should use store-by-value or store-by-reference semantics.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|storeByValue ( boolean storeByValue)
-specifier|public
+DECL|method|storeByValue (boolean storeByValue)
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|storeByValue
@@ -1465,8 +1405,7 @@ name|this
 return|;
 block|}
 comment|/**          * If cache should use store-by-value or store-by-reference semantics.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|storeByValue ( String storeByValue)
-specifier|public
+DECL|method|storeByValue (String storeByValue)
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|storeByValue
@@ -1487,8 +1426,7 @@ name|this
 return|;
 block|}
 comment|/**          * If write-through caching should be used.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|writeThrough ( boolean writeThrough)
-specifier|public
+DECL|method|writeThrough (boolean writeThrough)
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|writeThrough
@@ -1509,8 +1447,7 @@ name|this
 return|;
 block|}
 comment|/**          * If write-through caching should be used.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|writeThrough ( String writeThrough)
-specifier|public
+DECL|method|writeThrough (String writeThrough)
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|writeThrough
@@ -1532,7 +1469,6 @@ return|;
 block|}
 comment|/**          * To configure using a cache operation by default. If an operation in          * the message header, then the operation from the header takes          * precedence.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|action (String action)
-specifier|public
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|action
@@ -1554,7 +1490,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|lazyStartProducer
@@ -1576,7 +1511,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|lazyStartProducer
@@ -1606,7 +1540,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JCacheEndpointProducerBuilder
 name|basic
@@ -1621,7 +1554,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1643,7 +1575,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1665,7 +1596,6 @@ return|;
 block|}
 comment|/**          * The CacheLoader factory.          * The option is a          *<code>javax.cache.configuration.Factory&lt;javax.cache.integration.CacheLoader&gt;</code> type.          * @group advanced          */
 DECL|method|cacheLoaderFactory ( Object cacheLoaderFactory)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointProducerBuilder
 name|cacheLoaderFactory
@@ -1687,7 +1617,6 @@ return|;
 block|}
 comment|/**          * The CacheLoader factory.          * The option will be converted to a          *<code>javax.cache.configuration.Factory&lt;javax.cache.integration.CacheLoader&gt;</code> type.          * @group advanced          */
 DECL|method|cacheLoaderFactory ( String cacheLoaderFactory)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointProducerBuilder
 name|cacheLoaderFactory
@@ -1709,7 +1638,6 @@ return|;
 block|}
 comment|/**          * The CacheWriter factory.          * The option is a          *<code>javax.cache.configuration.Factory&lt;javax.cache.integration.CacheWriter&gt;</code> type.          * @group advanced          */
 DECL|method|cacheWriterFactory ( Object cacheWriterFactory)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointProducerBuilder
 name|cacheWriterFactory
@@ -1731,7 +1659,6 @@ return|;
 block|}
 comment|/**          * The CacheWriter factory.          * The option will be converted to a          *<code>javax.cache.configuration.Factory&lt;javax.cache.integration.CacheWriter&gt;</code> type.          * @group advanced          */
 DECL|method|cacheWriterFactory ( String cacheWriterFactory)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointProducerBuilder
 name|cacheWriterFactory
@@ -1753,7 +1680,6 @@ return|;
 block|}
 comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|createCacheIfNotExists ( boolean createCacheIfNotExists)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointProducerBuilder
 name|createCacheIfNotExists
@@ -1775,7 +1701,6 @@ return|;
 block|}
 comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|createCacheIfNotExists ( String createCacheIfNotExists)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointProducerBuilder
 name|createCacheIfNotExists
@@ -1797,7 +1722,6 @@ return|;
 block|}
 comment|/**          * The ExpiryPolicy factory.          * The option is a          *<code>javax.cache.configuration.Factory&lt;javax.cache.expiry.ExpiryPolicy&gt;</code> type.          * @group advanced          */
 DECL|method|expiryPolicyFactory ( Object expiryPolicyFactory)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointProducerBuilder
 name|expiryPolicyFactory
@@ -1819,7 +1743,6 @@ return|;
 block|}
 comment|/**          * The ExpiryPolicy factory.          * The option will be converted to a          *<code>javax.cache.configuration.Factory&lt;javax.cache.expiry.ExpiryPolicy&gt;</code> type.          * @group advanced          */
 DECL|method|expiryPolicyFactory ( String expiryPolicyFactory)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointProducerBuilder
 name|expiryPolicyFactory
@@ -1841,7 +1764,6 @@ return|;
 block|}
 comment|/**          * Configure if a camel-cache should try to find implementations of          * jcache api in runtimes like OSGi.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|lookupProviders ( boolean lookupProviders)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointProducerBuilder
 name|lookupProviders
@@ -1863,7 +1785,6 @@ return|;
 block|}
 comment|/**          * Configure if a camel-cache should try to find implementations of          * jcache api in runtimes like OSGi.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|lookupProviders ( String lookupProviders)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointProducerBuilder
 name|lookupProviders
@@ -1896,7 +1817,6 @@ extends|,
 name|JCacheEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointBuilder
 name|advanced
@@ -1911,7 +1831,6 @@ return|;
 block|}
 comment|/**          * The name of the cache.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|cacheName (String cacheName)
-specifier|public
 specifier|default
 name|JCacheEndpointBuilder
 name|cacheName
@@ -1933,7 +1852,6 @@ return|;
 block|}
 comment|/**          * A Configuration for the Cache.          * The option is a<code>javax.cache.configuration.Configuration</code>          * type.          * @group common          */
 DECL|method|cacheConfiguration ( Object cacheConfiguration)
-specifier|public
 specifier|default
 name|JCacheEndpointBuilder
 name|cacheConfiguration
@@ -1955,7 +1873,6 @@ return|;
 block|}
 comment|/**          * A Configuration for the Cache.          * The option will be converted to a          *<code>javax.cache.configuration.Configuration</code> type.          * @group common          */
 DECL|method|cacheConfiguration ( String cacheConfiguration)
-specifier|public
 specifier|default
 name|JCacheEndpointBuilder
 name|cacheConfiguration
@@ -1977,7 +1894,6 @@ return|;
 block|}
 comment|/**          * The Properties for the javax.cache.spi.CachingProvider to create the          * CacheManager.          * The option is a<code>java.util.Properties</code> type.          * @group common          */
 DECL|method|cacheConfigurationProperties ( Properties cacheConfigurationProperties)
-specifier|public
 specifier|default
 name|JCacheEndpointBuilder
 name|cacheConfigurationProperties
@@ -1999,7 +1915,6 @@ return|;
 block|}
 comment|/**          * The Properties for the javax.cache.spi.CachingProvider to create the          * CacheManager.          * The option will be converted to a<code>java.util.Properties</code>          * type.          * @group common          */
 DECL|method|cacheConfigurationProperties ( String cacheConfigurationProperties)
-specifier|public
 specifier|default
 name|JCacheEndpointBuilder
 name|cacheConfigurationProperties
@@ -2020,8 +1935,7 @@ name|this
 return|;
 block|}
 comment|/**          * The fully qualified class name of the          * javax.cache.spi.CachingProvider.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|cachingProvider ( String cachingProvider)
-specifier|public
+DECL|method|cachingProvider (String cachingProvider)
 specifier|default
 name|JCacheEndpointBuilder
 name|cachingProvider
@@ -2042,8 +1956,7 @@ name|this
 return|;
 block|}
 comment|/**          * An implementation specific URI for the CacheManager.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|configurationUri ( String configurationUri)
-specifier|public
+DECL|method|configurationUri (String configurationUri)
 specifier|default
 name|JCacheEndpointBuilder
 name|configurationUri
@@ -2065,7 +1978,6 @@ return|;
 block|}
 comment|/**          * Whether management gathering is enabled.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|managementEnabled ( boolean managementEnabled)
-specifier|public
 specifier|default
 name|JCacheEndpointBuilder
 name|managementEnabled
@@ -2086,8 +1998,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether management gathering is enabled.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|managementEnabled ( String managementEnabled)
-specifier|public
+DECL|method|managementEnabled (String managementEnabled)
 specifier|default
 name|JCacheEndpointBuilder
 name|managementEnabled
@@ -2109,7 +2020,6 @@ return|;
 block|}
 comment|/**          * If read-through caching should be used.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|readThrough (boolean readThrough)
-specifier|public
 specifier|default
 name|JCacheEndpointBuilder
 name|readThrough
@@ -2131,7 +2041,6 @@ return|;
 block|}
 comment|/**          * If read-through caching should be used.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|readThrough (String readThrough)
-specifier|public
 specifier|default
 name|JCacheEndpointBuilder
 name|readThrough
@@ -2153,7 +2062,6 @@ return|;
 block|}
 comment|/**          * Whether statistics gathering is enabled.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|statisticsEnabled ( boolean statisticsEnabled)
-specifier|public
 specifier|default
 name|JCacheEndpointBuilder
 name|statisticsEnabled
@@ -2174,8 +2082,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether statistics gathering is enabled.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|statisticsEnabled ( String statisticsEnabled)
-specifier|public
+DECL|method|statisticsEnabled (String statisticsEnabled)
 specifier|default
 name|JCacheEndpointBuilder
 name|statisticsEnabled
@@ -2197,7 +2104,6 @@ return|;
 block|}
 comment|/**          * If cache should use store-by-value or store-by-reference semantics.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|storeByValue (boolean storeByValue)
-specifier|public
 specifier|default
 name|JCacheEndpointBuilder
 name|storeByValue
@@ -2219,7 +2125,6 @@ return|;
 block|}
 comment|/**          * If cache should use store-by-value or store-by-reference semantics.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|storeByValue (String storeByValue)
-specifier|public
 specifier|default
 name|JCacheEndpointBuilder
 name|storeByValue
@@ -2241,7 +2146,6 @@ return|;
 block|}
 comment|/**          * If write-through caching should be used.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|writeThrough (boolean writeThrough)
-specifier|public
 specifier|default
 name|JCacheEndpointBuilder
 name|writeThrough
@@ -2263,7 +2167,6 @@ return|;
 block|}
 comment|/**          * If write-through caching should be used.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|writeThrough (String writeThrough)
-specifier|public
 specifier|default
 name|JCacheEndpointBuilder
 name|writeThrough
@@ -2296,7 +2199,6 @@ extends|,
 name|AdvancedJCacheEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JCacheEndpointBuilder
 name|basic
@@ -2311,7 +2213,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointBuilder
 name|basicPropertyBinding
@@ -2333,7 +2234,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointBuilder
 name|basicPropertyBinding
@@ -2355,7 +2255,6 @@ return|;
 block|}
 comment|/**          * The CacheLoader factory.          * The option is a          *<code>javax.cache.configuration.Factory&lt;javax.cache.integration.CacheLoader&gt;</code> type.          * @group advanced          */
 DECL|method|cacheLoaderFactory ( Object cacheLoaderFactory)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointBuilder
 name|cacheLoaderFactory
@@ -2377,7 +2276,6 @@ return|;
 block|}
 comment|/**          * The CacheLoader factory.          * The option will be converted to a          *<code>javax.cache.configuration.Factory&lt;javax.cache.integration.CacheLoader&gt;</code> type.          * @group advanced          */
 DECL|method|cacheLoaderFactory ( String cacheLoaderFactory)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointBuilder
 name|cacheLoaderFactory
@@ -2399,7 +2297,6 @@ return|;
 block|}
 comment|/**          * The CacheWriter factory.          * The option is a          *<code>javax.cache.configuration.Factory&lt;javax.cache.integration.CacheWriter&gt;</code> type.          * @group advanced          */
 DECL|method|cacheWriterFactory ( Object cacheWriterFactory)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointBuilder
 name|cacheWriterFactory
@@ -2421,7 +2318,6 @@ return|;
 block|}
 comment|/**          * The CacheWriter factory.          * The option will be converted to a          *<code>javax.cache.configuration.Factory&lt;javax.cache.integration.CacheWriter&gt;</code> type.          * @group advanced          */
 DECL|method|cacheWriterFactory ( String cacheWriterFactory)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointBuilder
 name|cacheWriterFactory
@@ -2443,7 +2339,6 @@ return|;
 block|}
 comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|createCacheIfNotExists ( boolean createCacheIfNotExists)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointBuilder
 name|createCacheIfNotExists
@@ -2465,7 +2360,6 @@ return|;
 block|}
 comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|createCacheIfNotExists ( String createCacheIfNotExists)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointBuilder
 name|createCacheIfNotExists
@@ -2487,7 +2381,6 @@ return|;
 block|}
 comment|/**          * The ExpiryPolicy factory.          * The option is a          *<code>javax.cache.configuration.Factory&lt;javax.cache.expiry.ExpiryPolicy&gt;</code> type.          * @group advanced          */
 DECL|method|expiryPolicyFactory ( Object expiryPolicyFactory)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointBuilder
 name|expiryPolicyFactory
@@ -2509,7 +2402,6 @@ return|;
 block|}
 comment|/**          * The ExpiryPolicy factory.          * The option will be converted to a          *<code>javax.cache.configuration.Factory&lt;javax.cache.expiry.ExpiryPolicy&gt;</code> type.          * @group advanced          */
 DECL|method|expiryPolicyFactory ( String expiryPolicyFactory)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointBuilder
 name|expiryPolicyFactory
@@ -2531,7 +2423,6 @@ return|;
 block|}
 comment|/**          * Configure if a camel-cache should try to find implementations of          * jcache api in runtimes like OSGi.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|lookupProviders ( boolean lookupProviders)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointBuilder
 name|lookupProviders
@@ -2553,7 +2444,6 @@ return|;
 block|}
 comment|/**          * Configure if a camel-cache should try to find implementations of          * jcache api in runtimes like OSGi.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|lookupProviders ( String lookupProviders)
-specifier|public
 specifier|default
 name|AdvancedJCacheEndpointBuilder
 name|lookupProviders
@@ -2595,7 +2485,6 @@ name|EXPIRED
 block|;     }
 comment|/**      * The jcache component enables you to perform caching operations using      * JSR107/JCache as cache implementation. Creates a builder to build      * endpoints for the JCache component.      */
 DECL|method|jCache (String path)
-specifier|public
 specifier|default
 name|JCacheEndpointBuilder
 name|jCache

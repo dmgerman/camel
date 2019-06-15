@@ -149,7 +149,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|advanced
@@ -163,8 +162,7 @@ name|this
 return|;
 block|}
 comment|/**          * The destination name. Only queues are supported, names may be          * prefixed by 'queue:'.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
-DECL|method|destinationName ( String destinationName)
-specifier|public
+DECL|method|destinationName (String destinationName)
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|destinationName
@@ -186,7 +184,6 @@ return|;
 block|}
 comment|/**          * The aggregation strategy to use, which merges all the batched          * messages into a single message.          * The option is a<code>org.apache.camel.AggregationStrategy</code>          * type.          * @group consumer          */
 DECL|method|aggregationStrategy ( AggregationStrategy aggregationStrategy)
-specifier|public
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|aggregationStrategy
@@ -208,7 +205,6 @@ return|;
 block|}
 comment|/**          * The aggregation strategy to use, which merges all the batched          * messages into a single message.          * The option will be converted to a          *<code>org.apache.camel.AggregationStrategy</code> type.          * @group consumer          */
 DECL|method|aggregationStrategy ( String aggregationStrategy)
-specifier|public
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|aggregationStrategy
@@ -229,8 +225,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether to allow sending messages with no body. If this option is          * false and the message body is null, then an JMSException is thrown.          * The option is a<code>boolean</code> type.          * @group consumer          */
-DECL|method|allowNullBody ( boolean allowNullBody)
-specifier|public
+DECL|method|allowNullBody (boolean allowNullBody)
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|allowNullBody
@@ -251,8 +246,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether to allow sending messages with no body. If this option is          * false and the message body is null, then an JMSException is thrown.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
-DECL|method|allowNullBody ( String allowNullBody)
-specifier|public
+DECL|method|allowNullBody (String allowNullBody)
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|allowNullBody
@@ -274,7 +268,6 @@ return|;
 block|}
 comment|/**          * The completion interval in millis, which causes batches to be          * completed in a scheduled fixed rate every interval. The batch may be          * empty if the timeout triggered and there was no messages in the          * batch. Notice you cannot use both completion timeout and completion          * interval at the same time, only one can be configured.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|completionInterval ( int completionInterval)
-specifier|public
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|completionInterval
@@ -296,7 +289,6 @@ return|;
 block|}
 comment|/**          * The completion interval in millis, which causes batches to be          * completed in a scheduled fixed rate every interval. The batch may be          * empty if the timeout triggered and there was no messages in the          * batch. Notice you cannot use both completion timeout and completion          * interval at the same time, only one can be configured.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|completionInterval ( String completionInterval)
-specifier|public
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|completionInterval
@@ -318,7 +310,6 @@ return|;
 block|}
 comment|/**          * The completion predicate, which causes batches to be completed when          * the predicate evaluates as true. The predicate can also be configured          * using the simple language using the string syntax. You may want to          * set the option eagerCheckCompletion to true to let the predicate          * match the incoming message, as otherwise it matches the aggregated          * message.          * The option is a<code>org.apache.camel.Predicate</code> type.          * @group consumer          */
 DECL|method|completionPredicate ( Predicate completionPredicate)
-specifier|public
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|completionPredicate
@@ -340,7 +331,6 @@ return|;
 block|}
 comment|/**          * The completion predicate, which causes batches to be completed when          * the predicate evaluates as true. The predicate can also be configured          * using the simple language using the string syntax. You may want to          * set the option eagerCheckCompletion to true to let the predicate          * match the incoming message, as otherwise it matches the aggregated          * message.          * The option will be converted to a          *<code>org.apache.camel.Predicate</code> type.          * @group consumer          */
 DECL|method|completionPredicate ( String completionPredicate)
-specifier|public
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|completionPredicate
@@ -361,8 +351,7 @@ name|this
 return|;
 block|}
 comment|/**          * The number of messages consumed at which the batch will be completed.          * The option is a<code>int</code> type.          * @group consumer          */
-DECL|method|completionSize ( int completionSize)
-specifier|public
+DECL|method|completionSize (int completionSize)
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|completionSize
@@ -383,8 +372,7 @@ name|this
 return|;
 block|}
 comment|/**          * The number of messages consumed at which the batch will be completed.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
-DECL|method|completionSize ( String completionSize)
-specifier|public
+DECL|method|completionSize (String completionSize)
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|completionSize
@@ -405,8 +393,7 @@ name|this
 return|;
 block|}
 comment|/**          * The timeout in millis from receipt of the first first message when          * the batch will be completed. The batch may be empty if the timeout          * triggered and there was no messages in the batch. Notice you cannot          * use both completion timeout and completion interval at the same time,          * only one can be configured.          * The option is a<code>int</code> type.          * @group consumer          */
-DECL|method|completionTimeout ( int completionTimeout)
-specifier|public
+DECL|method|completionTimeout (int completionTimeout)
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|completionTimeout
@@ -428,7 +415,6 @@ return|;
 block|}
 comment|/**          * The timeout in millis from receipt of the first first message when          * the batch will be completed. The batch may be empty if the timeout          * triggered and there was no messages in the batch. Notice you cannot          * use both completion timeout and completion interval at the same time,          * only one can be configured.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|completionTimeout ( String completionTimeout)
-specifier|public
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|completionTimeout
@@ -450,7 +436,6 @@ return|;
 block|}
 comment|/**          * The number of JMS sessions to consume from.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|consumerCount (int consumerCount)
-specifier|public
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|consumerCount
@@ -471,8 +456,7 @@ name|this
 return|;
 block|}
 comment|/**          * The number of JMS sessions to consume from.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
-DECL|method|consumerCount ( String consumerCount)
-specifier|public
+DECL|method|consumerCount (String consumerCount)
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|consumerCount
@@ -494,7 +478,6 @@ return|;
 block|}
 comment|/**          * Use eager completion checking which means that the          * completionPredicate will use the incoming Exchange. As opposed to          * without eager completion checking the completionPredicate will use          * the aggregated Exchange.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|eagerCheckCompletion ( boolean eagerCheckCompletion)
-specifier|public
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|eagerCheckCompletion
@@ -516,7 +499,6 @@ return|;
 block|}
 comment|/**          * Use eager completion checking which means that the          * completionPredicate will use the incoming Exchange. As opposed to          * without eager completion checking the completionPredicate will use          * the aggregated Exchange.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|eagerCheckCompletion ( String eagerCheckCompletion)
-specifier|public
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|eagerCheckCompletion
@@ -538,7 +520,6 @@ return|;
 block|}
 comment|/**          * Whether to include all JMSXxxx properties when mapping from JMS to          * Camel Message. Setting this to true will include properties such as          * JMSXAppID, and JMSXUserID etc. Note: If you are using a custom          * headerFilterStrategy then this option does not apply.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|includeAllJMSXProperties ( boolean includeAllJMSXProperties)
-specifier|public
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|includeAllJMSXProperties
@@ -560,7 +541,6 @@ return|;
 block|}
 comment|/**          * Whether to include all JMSXxxx properties when mapping from JMS to          * Camel Message. Setting this to true will include properties such as          * JMSXAppID, and JMSXUserID etc. Note: If you are using a custom          * headerFilterStrategy then this option does not apply.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|includeAllJMSXProperties ( String includeAllJMSXProperties)
-specifier|public
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|includeAllJMSXProperties
@@ -581,8 +561,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specifies whether Camel should auto map the received JMS message to a          * suited payload type, such as javax.jms.TextMessage to a String etc.          * See section about how mapping works below for more details.          * The option is a<code>boolean</code> type.          * @group consumer          */
-DECL|method|mapJmsMessage ( boolean mapJmsMessage)
-specifier|public
+DECL|method|mapJmsMessage (boolean mapJmsMessage)
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|mapJmsMessage
@@ -603,8 +582,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specifies whether Camel should auto map the received JMS message to a          * suited payload type, such as javax.jms.TextMessage to a String etc.          * See section about how mapping works below for more details.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
-DECL|method|mapJmsMessage ( String mapJmsMessage)
-specifier|public
+DECL|method|mapJmsMessage (String mapJmsMessage)
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|mapJmsMessage
@@ -626,7 +604,6 @@ return|;
 block|}
 comment|/**          * The duration in milliseconds of each poll for messages.          * completionTimeOut will be used if it is shorter and a batch has          * started.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|pollDuration (int pollDuration)
-specifier|public
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|pollDuration
@@ -648,7 +625,6 @@ return|;
 block|}
 comment|/**          * The duration in milliseconds of each poll for messages.          * completionTimeOut will be used if it is shorter and a batch has          * started.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|pollDuration (String pollDuration)
-specifier|public
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|pollDuration
@@ -670,7 +646,6 @@ return|;
 block|}
 comment|/**          * If using completion timeout or interval, then the batch may be empty          * if the timeout triggered and there was no messages in the batch. If          * this option is true and the batch is empty then an empty message is          * added to the batch so an empty message is routed.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( boolean sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|sendEmptyMessageWhenIdle
@@ -692,7 +667,6 @@ return|;
 block|}
 comment|/**          * If using completion timeout or interval, then the batch may be empty          * if the timeout triggered and there was no messages in the batch. If          * this option is true and the batch is empty then an empty message is          * added to the batch so an empty message is routed.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( String sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|sendEmptyMessageWhenIdle
@@ -723,7 +697,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|basic
@@ -738,7 +711,6 @@ return|;
 block|}
 comment|/**          * Whether to startup the consumer message listener asynchronously, when          * starting a route. For example if a JmsConsumer cannot get a          * connection to a remote JMS broker, then it may block while retrying          * and/or failover. This will cause Camel to block while starting          * routes. By setting this option to true, you will let routes startup,          * while the JmsConsumer connects to the JMS broker using a dedicated          * thread in asynchronous mode. If this option is used, then beware that          * if the connection could not be established, then an exception is          * logged at WARN level, and the consumer will not be able to receive          * messages; You can then restart the route to retry.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|asyncStartListener ( boolean asyncStartListener)
-specifier|public
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|asyncStartListener
@@ -760,7 +732,6 @@ return|;
 block|}
 comment|/**          * Whether to startup the consumer message listener asynchronously, when          * starting a route. For example if a JmsConsumer cannot get a          * connection to a remote JMS broker, then it may block while retrying          * and/or failover. This will cause Camel to block while starting          * routes. By setting this option to true, you will let routes startup,          * while the JmsConsumer connects to the JMS broker using a dedicated          * thread in asynchronous mode. If this option is used, then beware that          * if the connection could not be established, then an exception is          * logged at WARN level, and the consumer will not be able to receive          * messages; You can then restart the route to retry.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|asyncStartListener ( String asyncStartListener)
-specifier|public
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|asyncStartListener
@@ -782,7 +753,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|basicPropertyBinding
@@ -804,7 +774,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|basicPropertyBinding
@@ -826,7 +795,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|headerFilterStrategy
@@ -848,7 +816,6 @@ return|;
 block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|headerFilterStrategy
@@ -870,7 +837,6 @@ return|;
 block|}
 comment|/**          * Pluggable strategy for encoding and decoding JMS keys so they can be          * compliant with the JMS specification. Camel provides two          * implementations out of the box: default and passthrough. The default          * strategy will safely marshal dots and hyphens (. and -). The          * passthrough strategy leaves the key as is. Can be used for JMS          * brokers which do not care whether JMS header keys contain illegal          * characters. You can provide your own implementation of the          * org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it          * using the # notation.          * The option is a          *<code>org.apache.camel.component.sjms.jms.JmsKeyFormatStrategy</code>          * type.          * @group advanced          */
 DECL|method|jmsKeyFormatStrategy ( Object jmsKeyFormatStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|jmsKeyFormatStrategy
@@ -892,7 +858,6 @@ return|;
 block|}
 comment|/**          * Pluggable strategy for encoding and decoding JMS keys so they can be          * compliant with the JMS specification. Camel provides two          * implementations out of the box: default and passthrough. The default          * strategy will safely marshal dots and hyphens (. and -). The          * passthrough strategy leaves the key as is. Can be used for JMS          * brokers which do not care whether JMS header keys contain illegal          * characters. You can provide your own implementation of the          * org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it          * using the # notation.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.jms.JmsKeyFormatStrategy</code>          * type.          * @group advanced          */
 DECL|method|jmsKeyFormatStrategy ( String jmsKeyFormatStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|jmsKeyFormatStrategy
@@ -914,7 +879,6 @@ return|;
 block|}
 comment|/**          * The delay in millis between attempts to re-establish a valid session.          * If this is a positive value the SjmsBatchConsumer will attempt to          * create a new session if it sees an IllegalStateException during          * message consumption. This delay value allows you to pause between          * attempts to prevent spamming the logs. If this is a negative value          * (default is -1) then the SjmsBatchConsumer will behave as it always          * has before - that is it will bail out and the route will shut down if          * it sees an IllegalStateException.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|keepAliveDelay ( int keepAliveDelay)
-specifier|public
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|keepAliveDelay
@@ -936,7 +900,6 @@ return|;
 block|}
 comment|/**          * The delay in millis between attempts to re-establish a valid session.          * If this is a positive value the SjmsBatchConsumer will attempt to          * create a new session if it sees an IllegalStateException during          * message consumption. This delay value allows you to pause between          * attempts to prevent spamming the logs. If this is a negative value          * (default is -1) then the SjmsBatchConsumer will behave as it always          * has before - that is it will bail out and the route will shut down if          * it sees an IllegalStateException.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|keepAliveDelay ( String keepAliveDelay)
-specifier|public
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|keepAliveDelay
@@ -958,7 +921,6 @@ return|;
 block|}
 comment|/**          * To use the given MessageCreatedStrategy which are invoked when Camel          * creates new instances of javax.jms.Message objects when Camel is          * sending a JMS message.          * The option is a          *<code>org.apache.camel.component.sjms.jms.MessageCreatedStrategy</code> type.          * @group advanced          */
 DECL|method|messageCreatedStrategy ( Object messageCreatedStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|messageCreatedStrategy
@@ -980,7 +942,6 @@ return|;
 block|}
 comment|/**          * To use the given MessageCreatedStrategy which are invoked when Camel          * creates new instances of javax.jms.Message objects when Camel is          * sending a JMS message.          * The option will be converted to a          *<code>org.apache.camel.component.sjms.jms.MessageCreatedStrategy</code> type.          * @group advanced          */
 DECL|method|messageCreatedStrategy ( String messageCreatedStrategy)
-specifier|public
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|messageCreatedStrategy
@@ -1002,7 +963,6 @@ return|;
 block|}
 comment|/**          * Specifies the interval between recovery attempts, i.e. when a          * connection is being refreshed, in milliseconds. The default is 5000          * ms, that is, 5 seconds.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|recoveryInterval ( int recoveryInterval)
-specifier|public
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|recoveryInterval
@@ -1024,7 +984,6 @@ return|;
 block|}
 comment|/**          * Specifies the interval between recovery attempts, i.e. when a          * connection is being refreshed, in milliseconds. The default is 5000          * ms, that is, 5 seconds.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|recoveryInterval ( String recoveryInterval)
-specifier|public
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|recoveryInterval
@@ -1045,8 +1004,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|synchronous
@@ -1067,8 +1025,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|synchronous
@@ -1090,7 +1047,6 @@ return|;
 block|}
 comment|/**          * If using the completionInterval option a background thread is created          * to trigger the completion interval. Set this option to provide a          * custom thread pool to be used rather than creating a new thread for          * every consumer.          * The option is a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group advanced          */
 DECL|method|timeoutCheckerExecutorService ( ScheduledExecutorService timeoutCheckerExecutorService)
-specifier|public
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|timeoutCheckerExecutorService
@@ -1112,7 +1068,6 @@ return|;
 block|}
 comment|/**          * If using the completionInterval option a background thread is created          * to trigger the completion interval. Set this option to provide a          * custom thread pool to be used rather than creating a new thread for          * every consumer.          * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group advanced          */
 DECL|method|timeoutCheckerExecutorService ( String timeoutCheckerExecutorService)
-specifier|public
 specifier|default
 name|AdvancedSjmsBatchEndpointBuilder
 name|timeoutCheckerExecutorService
@@ -1135,7 +1090,6 @@ block|}
 block|}
 comment|/**      * The sjms-batch component is a specialized for highly performant,      * transactional batch consumption from a JMS queue. Creates a builder to      * build endpoints for the Simple JMS Batch component.      */
 DECL|method|sjmsBatch (String path)
-specifier|public
 specifier|default
 name|SjmsBatchEndpointBuilder
 name|sjmsBatch

@@ -99,7 +99,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSnmpEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Hostname of the SNMP enabled device.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|host
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Port number of the SNMP enabled device.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
 DECL|method|port (Integer port)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|port
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Port number of the SNMP enabled device.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|port
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Defines which values you are interested in. Please have a look at the          * Wikipedia to get a better understanding. You may provide a single OID          * or a coma separated list of OIDs. Example:          * oids=1.3.6.1.2.1.1.3.0,1.3.6.1.2.1.25.3.2.1.5.1,1.3.6.1.2.1.25.3.5.1.1.1,1.3.6.1.2.1.43.5.1.1.11.1.          * The option is a<code>org.apache.camel.component.snmp.OIDList</code>          * type.          * @group consumer          */
 DECL|method|oids (Object oids)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|oids
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Defines which values you are interested in. Please have a look at the          * Wikipedia to get a better understanding. You may provide a single OID          * or a coma separated list of OIDs. Example:          * oids=1.3.6.1.2.1.1.3.0,1.3.6.1.2.1.25.3.2.1.5.1,1.3.6.1.2.1.25.3.5.1.1.1,1.3.6.1.2.1.43.5.1.1.11.1.          * The option will be converted to a          *<code>org.apache.camel.component.snmp.OIDList</code> type.          * @group consumer          */
 DECL|method|oids (String oids)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|oids
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * Here you can select which protocol to use. You can use either udp or          * tcp.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|protocol (String protocol)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|protocol
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * Defines how often a retry is made before canceling the request.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|retries (int retries)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|retries
@@ -268,7 +260,6 @@ return|;
 block|}
 comment|/**          * Defines how often a retry is made before canceling the request.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|retries (String retries)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|retries
@@ -290,7 +281,6 @@ return|;
 block|}
 comment|/**          * Sets the community octet string for the snmp request.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|snmpCommunity (String snmpCommunity)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|snmpCommunity
@@ -312,7 +302,6 @@ return|;
 block|}
 comment|/**          * Sets the context engine ID field of the scoped PDU.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|snmpContextEngineId ( String snmpContextEngineId)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|snmpContextEngineId
@@ -333,8 +322,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the context name field of this scoped PDU.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
-DECL|method|snmpContextName ( String snmpContextName)
-specifier|public
+DECL|method|snmpContextName (String snmpContextName)
 specifier|default
 name|SnmpEndpointBuilder
 name|snmpContextName
@@ -356,7 +344,6 @@ return|;
 block|}
 comment|/**          * Sets the snmp version for the request. The value 0 means SNMPv1, 1          * means SNMPv2c, and the value 3 means SNMPv3.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|snmpVersion (int snmpVersion)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|snmpVersion
@@ -378,7 +365,6 @@ return|;
 block|}
 comment|/**          * Sets the snmp version for the request. The value 0 means SNMPv1, 1          * means SNMPv2c, and the value 3 means SNMPv3.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|snmpVersion (String snmpVersion)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|snmpVersion
@@ -400,7 +386,6 @@ return|;
 block|}
 comment|/**          * Sets the timeout value for the request in millis.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|timeout (int timeout)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|timeout
@@ -422,7 +407,6 @@ return|;
 block|}
 comment|/**          * Sets the timeout value for the request in millis.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|timeout (String timeout)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|timeout
@@ -444,7 +428,6 @@ return|;
 block|}
 comment|/**          * Which operation to perform such as poll, trap, etc.          * The option is a          *<code>org.apache.camel.component.snmp.SnmpActionType</code> type.          * @group consumer          */
 DECL|method|type (SnmpActionType type)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|type
@@ -466,7 +449,6 @@ return|;
 block|}
 comment|/**          * Which operation to perform such as poll, trap, etc.          * The option will be converted to a          *<code>org.apache.camel.component.snmp.SnmpActionType</code> type.          * @group consumer          */
 DECL|method|type (String type)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|type
@@ -488,7 +470,6 @@ return|;
 block|}
 comment|/**          * The authentication passphrase. If not null, authenticationProtocol          * must also be not null. RFC3414 11.2 requires passphrases to have a          * minimum length of 8 bytes. If the length of authenticationPassphrase          * is less than 8 bytes an IllegalArgumentException is thrown.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|authenticationPassphrase ( String authenticationPassphrase)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|authenticationPassphrase
@@ -510,7 +491,6 @@ return|;
 block|}
 comment|/**          * Authentication protocol to use if security level is set to enable          * authentication The possible values are: MD5, SHA1.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|authenticationProtocol ( String authenticationProtocol)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|authenticationProtocol
@@ -531,8 +511,7 @@ name|this
 return|;
 block|}
 comment|/**          * The privacy passphrase. If not null, privacyProtocol must also be not          * null. RFC3414 11.2 requires passphrases to have a minimum length of 8          * bytes. If the length of authenticationPassphrase is less than 8 bytes          * an IllegalArgumentException is thrown.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|privacyPassphrase ( String privacyPassphrase)
-specifier|public
+DECL|method|privacyPassphrase (String privacyPassphrase)
 specifier|default
 name|SnmpEndpointBuilder
 name|privacyPassphrase
@@ -553,8 +532,7 @@ name|this
 return|;
 block|}
 comment|/**          * The privacy protocol ID to be associated with this user. If set to          * null, this user only supports unencrypted messages.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|privacyProtocol ( String privacyProtocol)
-specifier|public
+DECL|method|privacyProtocol (String privacyProtocol)
 specifier|default
 name|SnmpEndpointBuilder
 name|privacyProtocol
@@ -576,7 +554,6 @@ return|;
 block|}
 comment|/**          * Sets the security level for this target. The supplied security level          * must be supported by the security model dependent information          * associated with the security name set for this target. The value 1          * means: No authentication and no encryption. Anyone can create and          * read messages with this security level The value 2 means:          * Authentication and no encryption. Only the one with the right          * authentication key can create messages with this security level, but          * anyone can read the contents of the message. The value 3 means:          * Authentication and encryption. Only the one with the right          * authentication key can create messages with this security level, and          * only the one with the right encryption/decryption key can read the          * contents of the message.          * The option is a<code>int</code> type.          * @group security          */
 DECL|method|securityLevel (int securityLevel)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|securityLevel
@@ -598,7 +575,6 @@ return|;
 block|}
 comment|/**          * Sets the security level for this target. The supplied security level          * must be supported by the security model dependent information          * associated with the security name set for this target. The value 1          * means: No authentication and no encryption. Anyone can create and          * read messages with this security level The value 2 means:          * Authentication and no encryption. Only the one with the right          * authentication key can create messages with this security level, but          * anyone can read the contents of the message. The value 3 means:          * Authentication and encryption. Only the one with the right          * authentication key can create messages with this security level, and          * only the one with the right encryption/decryption key can read the          * contents of the message.          * The option will be converted to a<code>int</code> type.          * @group security          */
 DECL|method|securityLevel (String securityLevel)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|securityLevel
@@ -620,7 +596,6 @@ return|;
 block|}
 comment|/**          * Sets the security name to be used with this target.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|securityName (String securityName)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|securityName
@@ -651,7 +626,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|basic
@@ -666,7 +640,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSnmpEndpointBuilder
 name|basicPropertyBinding
@@ -688,7 +661,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSnmpEndpointBuilder
 name|basicPropertyBinding
@@ -709,8 +681,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSnmpEndpointBuilder
 name|synchronous
@@ -731,8 +702,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSnmpEndpointBuilder
 name|synchronous
@@ -771,7 +741,6 @@ name|GET_NEXT
 block|;     }
 comment|/**      * The snmp component gives you the ability to poll SNMP capable devices or      * receiving traps. Creates a builder to build endpoints for the SNMP      * component.      */
 DECL|method|snmp (String path)
-specifier|public
 specifier|default
 name|SnmpEndpointBuilder
 name|snmp

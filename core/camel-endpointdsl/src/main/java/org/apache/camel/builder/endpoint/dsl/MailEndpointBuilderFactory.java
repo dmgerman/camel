@@ -236,7 +236,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|advanced
@@ -251,7 +250,6 @@ return|;
 block|}
 comment|/**          * The mail server host name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|host
@@ -273,7 +271,6 @@ return|;
 block|}
 comment|/**          * The port number of the mail server.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|port
@@ -295,7 +292,6 @@ return|;
 block|}
 comment|/**          * The port number of the mail server.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|port
@@ -317,7 +313,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -339,7 +334,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -360,8 +354,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether the consumer should close the folder after polling. Setting          * this option to false and having disconnect=false as well, then the          * consumer keep the folder open between polls.          * The option is a<code>boolean</code> type.          * @group consumer          */
-DECL|method|closeFolder ( boolean closeFolder)
-specifier|public
+DECL|method|closeFolder (boolean closeFolder)
 specifier|default
 name|MailEndpointConsumerBuilder
 name|closeFolder
@@ -382,8 +375,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether the consumer should close the folder after polling. Setting          * this option to false and having disconnect=false as well, then the          * consumer keep the folder open between polls.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
-DECL|method|closeFolder ( String closeFolder)
-specifier|public
+DECL|method|closeFolder (String closeFolder)
 specifier|default
 name|MailEndpointConsumerBuilder
 name|closeFolder
@@ -405,7 +397,6 @@ return|;
 block|}
 comment|/**          * After processing a mail message, it can be copied to a mail folder          * with the given name. You can override this configuration value, with          * a header with the key copyTo, allowing you to copy messages to folder          * names configured at runtime.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|copyTo (String copyTo)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|copyTo
@@ -427,7 +418,6 @@ return|;
 block|}
 comment|/**          * Deletes the messages after they have been processed. This is done by          * setting the DELETED flag on the mail message. If false, the SEEN flag          * is set instead. As of Camel 2.10 you can override this configuration          * option by setting a header with the key delete to determine if the          * mail should be deleted or not.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|delete (boolean delete)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|delete
@@ -449,7 +439,6 @@ return|;
 block|}
 comment|/**          * Deletes the messages after they have been processed. This is done by          * setting the DELETED flag on the mail message. If false, the SEEN flag          * is set instead. As of Camel 2.10 you can override this configuration          * option by setting a header with the key delete to determine if the          * mail should be deleted or not.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|delete (String delete)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|delete
@@ -471,7 +460,6 @@ return|;
 block|}
 comment|/**          * Whether the consumer should disconnect after polling. If enabled this          * forces Camel to connect on each poll.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|disconnect (boolean disconnect)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|disconnect
@@ -493,7 +481,6 @@ return|;
 block|}
 comment|/**          * Whether the consumer should disconnect after polling. If enabled this          * forces Camel to connect on each poll.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|disconnect (String disconnect)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|disconnect
@@ -515,7 +502,6 @@ return|;
 block|}
 comment|/**          * If the mail consumer cannot retrieve a given mail message, then this          * option allows to handle the caused exception by the consumer's error          * handler. By enable the bridge error handler on the consumer, then the          * Camel routing error handler can handle the exception instead. The          * default behavior would be the consumer throws an exception and no          * mails from the batch would be able to be routed by Camel.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|handleFailedMessage ( boolean handleFailedMessage)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|handleFailedMessage
@@ -537,7 +523,6 @@ return|;
 block|}
 comment|/**          * If the mail consumer cannot retrieve a given mail message, then this          * option allows to handle the caused exception by the consumer's error          * handler. By enable the bridge error handler on the consumer, then the          * Camel routing error handler can handle the exception instead. The          * default behavior would be the consumer throws an exception and no          * mails from the batch would be able to be routed by Camel.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|handleFailedMessage ( String handleFailedMessage)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|handleFailedMessage
@@ -559,7 +544,6 @@ return|;
 block|}
 comment|/**          * Specifies the maximum number of messages to gather per poll. By          * default, no maximum is set. Can be used to set a limit of e.g. 1000          * to avoid downloading thousands of files when the server starts up.          * Set a value of 0 or negative to disable this option.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|maxMessagesPerPoll ( int maxMessagesPerPoll)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|maxMessagesPerPoll
@@ -581,7 +565,6 @@ return|;
 block|}
 comment|/**          * Specifies the maximum number of messages to gather per poll. By          * default, no maximum is set. Can be used to set a limit of e.g. 1000          * to avoid downloading thousands of files when the server starts up.          * Set a value of 0 or negative to disable this option.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|maxMessagesPerPoll ( String maxMessagesPerPoll)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|maxMessagesPerPoll
@@ -603,7 +586,6 @@ return|;
 block|}
 comment|/**          * This option enables transparent MIME decoding and unfolding for mail          * headers.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|mimeDecodeHeaders ( boolean mimeDecodeHeaders)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|mimeDecodeHeaders
@@ -625,7 +607,6 @@ return|;
 block|}
 comment|/**          * This option enables transparent MIME decoding and unfolding for mail          * headers.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|mimeDecodeHeaders ( String mimeDecodeHeaders)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|mimeDecodeHeaders
@@ -647,7 +628,6 @@ return|;
 block|}
 comment|/**          * Will mark the javax.mail.Message as peeked before processing the mail          * message. This applies to IMAPMessage messages types only. By using          * peek the mail will not be eager marked as SEEN on the mail server,          * which allows us to rollback the mail message if there is an error          * processing in Camel.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|peek (boolean peek)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|peek
@@ -669,7 +649,6 @@ return|;
 block|}
 comment|/**          * Will mark the javax.mail.Message as peeked before processing the mail          * message. This applies to IMAPMessage messages types only. By using          * peek the mail will not be eager marked as SEEN on the mail server,          * which allows us to rollback the mail message if there is an error          * processing in Camel.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|peek (String peek)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|peek
@@ -691,7 +670,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( boolean sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -713,7 +691,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( String sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -735,7 +712,6 @@ return|;
 block|}
 comment|/**          * If the mail consumer cannot retrieve a given mail message, then this          * option allows to skip the message and move on to retrieve the next          * mail message. The default behavior would be the consumer throws an          * exception and no mails from the batch would be able to be routed by          * Camel.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|skipFailedMessage ( boolean skipFailedMessage)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|skipFailedMessage
@@ -757,7 +733,6 @@ return|;
 block|}
 comment|/**          * If the mail consumer cannot retrieve a given mail message, then this          * option allows to skip the message and move on to retrieve the next          * mail message. The default behavior would be the consumer throws an          * exception and no mails from the batch would be able to be routed by          * Camel.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|skipFailedMessage ( String skipFailedMessage)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|skipFailedMessage
@@ -779,7 +754,6 @@ return|;
 block|}
 comment|/**          * Whether to limit by unseen mails only.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|unseen (boolean unseen)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|unseen
@@ -801,7 +775,6 @@ return|;
 block|}
 comment|/**          * Whether to limit by unseen mails only.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|unseen (String unseen)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|unseen
@@ -823,7 +796,6 @@ return|;
 block|}
 comment|/**          * A pluggable repository org.apache.camel.spi.IdempotentRepository          * which allows to cluster consuming from the same mailbox, and let the          * repository coordinate whether a mail message is valid for the          * consumer to process. By default no repository is in use.          * The option is a          *<code>org.apache.camel.spi.IdempotentRepository</code> type.          * @group filter          */
 DECL|method|idempotentRepository ( IdempotentRepository idempotentRepository)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|idempotentRepository
@@ -845,7 +817,6 @@ return|;
 block|}
 comment|/**          * A pluggable repository org.apache.camel.spi.IdempotentRepository          * which allows to cluster consuming from the same mailbox, and let the          * repository coordinate whether a mail message is valid for the          * consumer to process. By default no repository is in use.          * The option will be converted to a          *<code>org.apache.camel.spi.IdempotentRepository</code> type.          * @group filter          */
 DECL|method|idempotentRepository ( String idempotentRepository)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|idempotentRepository
@@ -867,7 +838,6 @@ return|;
 block|}
 comment|/**          * When using idempotent repository, then when the mail message has been          * successfully processed and is committed, should the message id be          * removed from the idempotent repository (default) or be kept in the          * repository. By default its assumed the message id is unique and has          * no value to be kept in the repository, because the mail message will          * be marked as seen/moved or deleted to prevent it from being consumed          * again. And therefore having the message id stored in the idempotent          * repository has little value. However this option allows to store the          * message id, for whatever reason you may have.          * The option is a<code>boolean</code> type.          * @group filter          */
 DECL|method|idempotentRepositoryRemoveOnCommit ( boolean idempotentRepositoryRemoveOnCommit)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|idempotentRepositoryRemoveOnCommit
@@ -889,7 +859,6 @@ return|;
 block|}
 comment|/**          * When using idempotent repository, then when the mail message has been          * successfully processed and is committed, should the message id be          * removed from the idempotent repository (default) or be kept in the          * repository. By default its assumed the message id is unique and has          * no value to be kept in the repository, because the mail message will          * be marked as seen/moved or deleted to prevent it from being consumed          * again. And therefore having the message id stored in the idempotent          * repository has little value. However this option allows to store the          * message id, for whatever reason you may have.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
 DECL|method|idempotentRepositoryRemoveOnCommit ( String idempotentRepositoryRemoveOnCommit)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|idempotentRepositoryRemoveOnCommit
@@ -911,7 +880,6 @@ return|;
 block|}
 comment|/**          * Refers to a javax.mail.search.SearchTerm which allows to filter mails          * based on search criteria such as subject, body, from, sent after a          * certain date etc.          * The option is a<code>javax.mail.search.SearchTerm</code> type.          * @group filter          */
 DECL|method|searchTerm (Object searchTerm)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|searchTerm
@@ -933,7 +901,6 @@ return|;
 block|}
 comment|/**          * Refers to a javax.mail.search.SearchTerm which allows to filter mails          * based on search criteria such as subject, body, from, sent after a          * certain date etc.          * The option will be converted to a          *<code>javax.mail.search.SearchTerm</code> type.          * @group filter          */
 DECL|method|searchTerm (String searchTerm)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|searchTerm
@@ -955,7 +922,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( int backoffErrorThreshold)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -977,7 +943,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( String backoffErrorThreshold)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -999,7 +964,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( int backoffIdleThreshold)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -1021,7 +985,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( String backoffIdleThreshold)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -1043,7 +1006,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( int backoffMultiplier)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|backoffMultiplier
@@ -1065,7 +1027,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( String backoffMultiplier)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|backoffMultiplier
@@ -1087,7 +1048,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll.          * The option is a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (long delay)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|delay
@@ -1109,7 +1069,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll.          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (String delay)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|delay
@@ -1131,7 +1090,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (boolean greedy)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|greedy
@@ -1153,7 +1111,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (String greedy)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|greedy
@@ -1174,8 +1131,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
-DECL|method|initialDelay ( long initialDelay)
-specifier|public
+DECL|method|initialDelay (long initialDelay)
 specifier|default
 name|MailEndpointConsumerBuilder
 name|initialDelay
@@ -1196,8 +1152,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
-DECL|method|initialDelay ( String initialDelay)
-specifier|public
+DECL|method|initialDelay (String initialDelay)
 specifier|default
 name|MailEndpointConsumerBuilder
 name|initialDelay
@@ -1219,7 +1174,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( LoggingLevel runLoggingLevel)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|runLoggingLevel
@@ -1241,7 +1195,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( String runLoggingLevel)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|runLoggingLevel
@@ -1263,7 +1216,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option is a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( ScheduledExecutorService scheduledExecutorService)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -1285,7 +1237,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( String scheduledExecutorService)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -1307,7 +1258,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option is a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler ( ScheduledPollConsumerScheduler scheduler)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|scheduler
@@ -1329,7 +1279,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler (String scheduler)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|scheduler
@@ -1351,7 +1300,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group scheduler          */
 DECL|method|schedulerProperties ( Map<String, Object> schedulerProperties)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|schedulerProperties
@@ -1378,7 +1326,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group scheduler          */
 DECL|method|schedulerProperties ( String schedulerProperties)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|schedulerProperties
@@ -1400,7 +1347,6 @@ return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|startScheduler ( boolean startScheduler)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|startScheduler
@@ -1421,8 +1367,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|startScheduler ( String startScheduler)
-specifier|public
+DECL|method|startScheduler (String startScheduler)
 specifier|default
 name|MailEndpointConsumerBuilder
 name|startScheduler
@@ -1444,7 +1389,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option is a<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (TimeUnit timeUnit)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|timeUnit
@@ -1466,7 +1410,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (String timeUnit)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|timeUnit
@@ -1487,8 +1430,7 @@ name|this
 return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option is a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|useFixedDelay ( boolean useFixedDelay)
-specifier|public
+DECL|method|useFixedDelay (boolean useFixedDelay)
 specifier|default
 name|MailEndpointConsumerBuilder
 name|useFixedDelay
@@ -1509,8 +1451,7 @@ name|this
 return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|useFixedDelay ( String useFixedDelay)
-specifier|public
+DECL|method|useFixedDelay (String useFixedDelay)
 specifier|default
 name|MailEndpointConsumerBuilder
 name|useFixedDelay
@@ -1532,7 +1473,6 @@ return|;
 block|}
 comment|/**          * Sorting order for messages. Only natively supported for IMAP.          * Emulated to some degree when using POP3 or when IMAP server does not          * have the SORT capability.          * The option is a<code>com.sun.mail.imap.SortTerm[]</code> type.          * @group sort          */
 DECL|method|sortTerm (Object[] sortTerm)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|sortTerm
@@ -1555,7 +1495,6 @@ return|;
 block|}
 comment|/**          * Sorting order for messages. Only natively supported for IMAP.          * Emulated to some degree when using POP3 or when IMAP server does not          * have the SORT capability.          * The option will be converted to a          *<code>com.sun.mail.imap.SortTerm[]</code> type.          * @group sort          */
 DECL|method|sortTerm (String sortTerm)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|sortTerm
@@ -1577,7 +1516,6 @@ return|;
 block|}
 comment|/**          * To use a dummy security setting for trusting all certificates. Should          * only be used for development mode, and not production.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|dummyTrustManager ( boolean dummyTrustManager)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|dummyTrustManager
@@ -1599,7 +1537,6 @@ return|;
 block|}
 comment|/**          * To use a dummy security setting for trusting all certificates. Should          * only be used for development mode, and not production.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|dummyTrustManager ( String dummyTrustManager)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|dummyTrustManager
@@ -1621,7 +1558,6 @@ return|;
 block|}
 comment|/**          * The password for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|password
@@ -1643,7 +1579,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|sslContextParameters
@@ -1665,7 +1600,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|sslContextParameters
@@ -1687,7 +1621,6 @@ return|;
 block|}
 comment|/**          * The username for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|username
@@ -1717,7 +1650,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|MailEndpointConsumerBuilder
 name|basic
@@ -1732,7 +1664,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|exceptionHandler
@@ -1754,7 +1685,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|exceptionHandler
@@ -1776,7 +1706,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|exchangePattern
@@ -1798,7 +1727,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|exchangePattern
@@ -1819,8 +1747,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the maximum number of messages to consume during a poll. This          * can be used to avoid overloading a mail server, if a mailbox folder          * contains a lot of messages. Default value of -1 means no fetch size          * and all messages will be consumed. Setting the value to 0 is a          * special corner case, where Camel will not consume any messages at          * all.          * The option is a<code>int</code> type.          * @group consumer (advanced)          */
-DECL|method|fetchSize ( int fetchSize)
-specifier|public
+DECL|method|fetchSize (int fetchSize)
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|fetchSize
@@ -1841,8 +1768,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the maximum number of messages to consume during a poll. This          * can be used to avoid overloading a mail server, if a mailbox folder          * contains a lot of messages. Default value of -1 means no fetch size          * and all messages will be consumed. Setting the value to 0 is a          * special corner case, where Camel will not consume any messages at          * all.          * The option will be converted to a<code>int</code> type.          * @group consumer (advanced)          */
-DECL|method|fetchSize ( String fetchSize)
-specifier|public
+DECL|method|fetchSize (String fetchSize)
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|fetchSize
@@ -1863,8 +1789,7 @@ name|this
 return|;
 block|}
 comment|/**          * The folder to poll.          * The option is a<code>java.lang.String</code> type.          * @group consumer (advanced)          */
-DECL|method|folderName ( String folderName)
-specifier|public
+DECL|method|folderName (String folderName)
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|folderName
@@ -1886,7 +1811,6 @@ return|;
 block|}
 comment|/**          * A pluggable MailUidGenerator that allows to use custom logic to          * generate UUID of the mail message.          * The option is a          *<code>org.apache.camel.component.mail.MailUidGenerator</code> type.          * @group consumer (advanced)          */
 DECL|method|mailUidGenerator ( Object mailUidGenerator)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|mailUidGenerator
@@ -1908,7 +1832,6 @@ return|;
 block|}
 comment|/**          * A pluggable MailUidGenerator that allows to use custom logic to          * generate UUID of the mail message.          * The option will be converted to a          *<code>org.apache.camel.component.mail.MailUidGenerator</code> type.          * @group consumer (advanced)          */
 DECL|method|mailUidGenerator ( String mailUidGenerator)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|mailUidGenerator
@@ -1930,7 +1853,6 @@ return|;
 block|}
 comment|/**          * Specifies whether Camel should map the received mail message to Camel          * body/headers. If set to true, the body of the mail message is mapped          * to the body of the Camel IN message and the mail headers are mapped          * to IN headers. If this option is set to false then the IN message          * contains a raw javax.mail.Message. You can retrieve this raw message          * by calling exchange.getIn().getBody(javax.mail.Message.class).          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|mapMailMessage ( boolean mapMailMessage)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|mapMailMessage
@@ -1952,7 +1874,6 @@ return|;
 block|}
 comment|/**          * Specifies whether Camel should map the received mail message to Camel          * body/headers. If set to true, the body of the mail message is mapped          * to the body of the Camel IN message and the mail headers are mapped          * to IN headers. If this option is set to false then the IN message          * contains a raw javax.mail.Message. You can retrieve this raw message          * by calling exchange.getIn().getBody(javax.mail.Message.class).          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|mapMailMessage ( String mapMailMessage)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|mapMailMessage
@@ -1974,7 +1895,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option is a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( PollingConsumerPollStrategy pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|pollStrategy
@@ -1996,7 +1916,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( String pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|pollStrategy
@@ -2018,7 +1937,6 @@ return|;
 block|}
 comment|/**          * Refers to an MailBoxPostProcessAction for doing post processing tasks          * on the mailbox once the normal processing ended.          * The option is a          *<code>org.apache.camel.component.mail.MailBoxPostProcessAction</code>          * type.          * @group consumer (advanced)          */
 DECL|method|postProcessAction ( Object postProcessAction)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|postProcessAction
@@ -2040,7 +1958,6 @@ return|;
 block|}
 comment|/**          * Refers to an MailBoxPostProcessAction for doing post processing tasks          * on the mailbox once the normal processing ended.          * The option will be converted to a          *<code>org.apache.camel.component.mail.MailBoxPostProcessAction</code>          * type.          * @group consumer (advanced)          */
 DECL|method|postProcessAction ( String postProcessAction)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|postProcessAction
@@ -2062,7 +1979,6 @@ return|;
 block|}
 comment|/**          * Sets additional java mail properties, that will append/override any          * default properties that is set based on all the other options. This          * is useful if you need to add some special options but want to keep          * the others as is.          * The option is a<code>java.util.Properties</code> type.          * @group advanced          */
 DECL|method|additionalJavaMailProperties ( Properties additionalJavaMailProperties)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|additionalJavaMailProperties
@@ -2084,7 +2000,6 @@ return|;
 block|}
 comment|/**          * Sets additional java mail properties, that will append/override any          * default properties that is set based on all the other options. This          * is useful if you need to add some special options but want to keep          * the others as is.          * The option will be converted to a<code>java.util.Properties</code>          * type.          * @group advanced          */
 DECL|method|additionalJavaMailProperties ( String additionalJavaMailProperties)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|additionalJavaMailProperties
@@ -2106,7 +2021,6 @@ return|;
 block|}
 comment|/**          * Specifies the key to an IN message header that contains an          * alternative email body. For example, if you send emails in text/html          * format and want to provide an alternative mail body for non-HTML          * email clients, set the alternative mail body with this key as a          * header.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|alternativeBodyHeader ( String alternativeBodyHeader)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|alternativeBodyHeader
@@ -2128,7 +2042,6 @@ return|;
 block|}
 comment|/**          * To use a custom AttachmentsContentTransferEncodingResolver to resolve          * what content-type-encoding to use for attachments.          * The option is a          *<code>org.apache.camel.component.mail.AttachmentsContentTransferEncodingResolver</code> type.          * @group advanced          */
 DECL|method|attachmentsContentTransferEncodingResolver ( Object attachmentsContentTransferEncodingResolver)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|attachmentsContentTransferEncodingResolver
@@ -2150,7 +2063,6 @@ return|;
 block|}
 comment|/**          * To use a custom AttachmentsContentTransferEncodingResolver to resolve          * what content-type-encoding to use for attachments.          * The option will be converted to a          *<code>org.apache.camel.component.mail.AttachmentsContentTransferEncodingResolver</code> type.          * @group advanced          */
 DECL|method|attachmentsContentTransferEncodingResolver ( String attachmentsContentTransferEncodingResolver)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|attachmentsContentTransferEncodingResolver
@@ -2172,7 +2084,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -2194,7 +2105,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -2215,8 +2125,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the binding used to convert from a Camel message to and from a          * Mail message.          * The option is a          *<code>org.apache.camel.component.mail.MailBinding</code> type.          * @group advanced          */
-DECL|method|binding ( Object binding)
-specifier|public
+DECL|method|binding (Object binding)
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|binding
@@ -2237,8 +2146,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the binding used to convert from a Camel message to and from a          * Mail message.          * The option will be converted to a          *<code>org.apache.camel.component.mail.MailBinding</code> type.          * @group advanced          */
-DECL|method|binding ( String binding)
-specifier|public
+DECL|method|binding (String binding)
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|binding
@@ -2260,7 +2168,6 @@ return|;
 block|}
 comment|/**          * The connection timeout in milliseconds.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|connectionTimeout ( int connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|connectionTimeout
@@ -2282,7 +2189,6 @@ return|;
 block|}
 comment|/**          * The connection timeout in milliseconds.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|connectionTimeout
@@ -2304,7 +2210,6 @@ return|;
 block|}
 comment|/**          * The mail message content type. Use text/html for HTML mails.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|contentType ( String contentType)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|contentType
@@ -2326,7 +2231,6 @@ return|;
 block|}
 comment|/**          * Resolver to determine Content-Type for file attachments.          * The option is a          *<code>org.apache.camel.component.mail.ContentTypeResolver</code>          * type.          * @group advanced          */
 DECL|method|contentTypeResolver ( Object contentTypeResolver)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|contentTypeResolver
@@ -2348,7 +2252,6 @@ return|;
 block|}
 comment|/**          * Resolver to determine Content-Type for file attachments.          * The option will be converted to a          *<code>org.apache.camel.component.mail.ContentTypeResolver</code>          * type.          * @group advanced          */
 DECL|method|contentTypeResolver ( String contentTypeResolver)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|contentTypeResolver
@@ -2369,8 +2272,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enable debug mode on the underlying mail framework. The SUN Mail          * framework logs the debug messages to System.out by default.          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|debugMode ( boolean debugMode)
-specifier|public
+DECL|method|debugMode (boolean debugMode)
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|debugMode
@@ -2391,8 +2293,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enable debug mode on the underlying mail framework. The SUN Mail          * framework logs the debug messages to System.out by default.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|debugMode ( String debugMode)
-specifier|public
+DECL|method|debugMode (String debugMode)
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|debugMode
@@ -2414,7 +2315,6 @@ return|;
 block|}
 comment|/**          * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter          * headers.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|headerFilterStrategy
@@ -2436,7 +2336,6 @@ return|;
 block|}
 comment|/**          * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter          * headers.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|headerFilterStrategy
@@ -2458,7 +2357,6 @@ return|;
 block|}
 comment|/**          * Option to let Camel ignore unsupported charset in the local JVM when          * sending mails. If the charset is unsupported then charset=XXX (where          * XXX represents the unsupported charset) is removed from the          * content-type and it relies on the platform default instead.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|ignoreUnsupportedCharset ( boolean ignoreUnsupportedCharset)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|ignoreUnsupportedCharset
@@ -2480,7 +2378,6 @@ return|;
 block|}
 comment|/**          * Option to let Camel ignore unsupported charset in the local JVM when          * sending mails. If the charset is unsupported then charset=XXX (where          * XXX represents the unsupported charset) is removed from the          * content-type and it relies on the platform default instead.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|ignoreUnsupportedCharset ( String ignoreUnsupportedCharset)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|ignoreUnsupportedCharset
@@ -2502,7 +2399,6 @@ return|;
 block|}
 comment|/**          * Option to let Camel ignore unsupported charset in the local JVM when          * sending mails. If the charset is unsupported then charset=XXX (where          * XXX represents the unsupported charset) is removed from the          * content-type and it relies on the platform default instead.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|ignoreUriScheme ( boolean ignoreUriScheme)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|ignoreUriScheme
@@ -2524,7 +2420,6 @@ return|;
 block|}
 comment|/**          * Option to let Camel ignore unsupported charset in the local JVM when          * sending mails. If the charset is unsupported then charset=XXX (where          * XXX represents the unsupported charset) is removed from the          * content-type and it relies on the platform default instead.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|ignoreUriScheme ( String ignoreUriScheme)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|ignoreUriScheme
@@ -2545,8 +2440,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specifies the mail session that camel should use for all mail          * interactions. Useful in scenarios where mail sessions are created and          * managed by some other resource, such as a JavaEE container. If this          * is not specified, Camel automatically creates the mail session for          * you.          * The option is a<code>javax.mail.Session</code> type.          * @group advanced          */
-DECL|method|session ( Object session)
-specifier|public
+DECL|method|session (Object session)
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|session
@@ -2567,8 +2461,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specifies the mail session that camel should use for all mail          * interactions. Useful in scenarios where mail sessions are created and          * managed by some other resource, such as a JavaEE container. If this          * is not specified, Camel automatically creates the mail session for          * you.          * The option will be converted to a<code>javax.mail.Session</code>          * type.          * @group advanced          */
-DECL|method|session ( String session)
-specifier|public
+DECL|method|session (String session)
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|session
@@ -2590,7 +2483,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|synchronous
@@ -2612,7 +2504,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|synchronous
@@ -2634,7 +2525,6 @@ return|;
 block|}
 comment|/**          * Whether to use disposition inline or attachment.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|useInlineAttachments ( boolean useInlineAttachments)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|useInlineAttachments
@@ -2656,7 +2546,6 @@ return|;
 block|}
 comment|/**          * Whether to use disposition inline or attachment.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|useInlineAttachments ( String useInlineAttachments)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
 name|useInlineAttachments
@@ -2687,7 +2576,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|advanced
@@ -2702,7 +2590,6 @@ return|;
 block|}
 comment|/**          * The mail server host name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|MailEndpointProducerBuilder
 name|host
@@ -2724,7 +2611,6 @@ return|;
 block|}
 comment|/**          * The port number of the mail server.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|MailEndpointProducerBuilder
 name|port
@@ -2746,7 +2632,6 @@ return|;
 block|}
 comment|/**          * The port number of the mail server.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|MailEndpointProducerBuilder
 name|port
@@ -2768,7 +2653,6 @@ return|;
 block|}
 comment|/**          * Sets the BCC email address. Separate multiple email addresses with          * comma.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|bcc (String bcc)
-specifier|public
 specifier|default
 name|MailEndpointProducerBuilder
 name|bcc
@@ -2790,7 +2674,6 @@ return|;
 block|}
 comment|/**          * Sets the CC email address. Separate multiple email addresses with          * comma.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|cc (String cc)
-specifier|public
 specifier|default
 name|MailEndpointProducerBuilder
 name|cc
@@ -2812,7 +2695,6 @@ return|;
 block|}
 comment|/**          * The from email address.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|from (String from)
-specifier|public
 specifier|default
 name|MailEndpointProducerBuilder
 name|from
@@ -2834,7 +2716,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|MailEndpointProducerBuilder
 name|lazyStartProducer
@@ -2856,7 +2737,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|MailEndpointProducerBuilder
 name|lazyStartProducer
@@ -2878,7 +2758,6 @@ return|;
 block|}
 comment|/**          * The Reply-To recipients (the receivers of the response mail).          * Separate multiple email addresses with a comma.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|replyTo (String replyTo)
-specifier|public
 specifier|default
 name|MailEndpointProducerBuilder
 name|replyTo
@@ -2900,7 +2779,6 @@ return|;
 block|}
 comment|/**          * The Subject of the message being sent. Note: Setting the subject in          * the header takes precedence over this option.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|subject (String subject)
-specifier|public
 specifier|default
 name|MailEndpointProducerBuilder
 name|subject
@@ -2922,7 +2800,6 @@ return|;
 block|}
 comment|/**          * Sets the To email address. Separate multiple email addresses with          * comma.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|to (String to)
-specifier|public
 specifier|default
 name|MailEndpointProducerBuilder
 name|to
@@ -2944,7 +2821,6 @@ return|;
 block|}
 comment|/**          * To use a dummy security setting for trusting all certificates. Should          * only be used for development mode, and not production.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|dummyTrustManager ( boolean dummyTrustManager)
-specifier|public
 specifier|default
 name|MailEndpointProducerBuilder
 name|dummyTrustManager
@@ -2966,7 +2842,6 @@ return|;
 block|}
 comment|/**          * To use a dummy security setting for trusting all certificates. Should          * only be used for development mode, and not production.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|dummyTrustManager ( String dummyTrustManager)
-specifier|public
 specifier|default
 name|MailEndpointProducerBuilder
 name|dummyTrustManager
@@ -2988,7 +2863,6 @@ return|;
 block|}
 comment|/**          * The password for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|MailEndpointProducerBuilder
 name|password
@@ -3010,7 +2884,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|MailEndpointProducerBuilder
 name|sslContextParameters
@@ -3032,7 +2905,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|MailEndpointProducerBuilder
 name|sslContextParameters
@@ -3054,7 +2926,6 @@ return|;
 block|}
 comment|/**          * The username for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|MailEndpointProducerBuilder
 name|username
@@ -3084,7 +2955,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|MailEndpointProducerBuilder
 name|basic
@@ -3099,7 +2969,6 @@ return|;
 block|}
 comment|/**          * To use a custom org.apache.camel.component.mail.JavaMailSender for          * sending emails.          * The option is a          *<code>org.apache.camel.component.mail.JavaMailSender</code> type.          * @group producer (advanced)          */
 DECL|method|javaMailSender ( Object javaMailSender)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|javaMailSender
@@ -3121,7 +2990,6 @@ return|;
 block|}
 comment|/**          * To use a custom org.apache.camel.component.mail.JavaMailSender for          * sending emails.          * The option will be converted to a          *<code>org.apache.camel.component.mail.JavaMailSender</code> type.          * @group producer (advanced)          */
 DECL|method|javaMailSender ( String javaMailSender)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|javaMailSender
@@ -3143,7 +3011,6 @@ return|;
 block|}
 comment|/**          * Sets additional java mail properties, that will append/override any          * default properties that is set based on all the other options. This          * is useful if you need to add some special options but want to keep          * the others as is.          * The option is a<code>java.util.Properties</code> type.          * @group advanced          */
 DECL|method|additionalJavaMailProperties ( Properties additionalJavaMailProperties)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|additionalJavaMailProperties
@@ -3165,7 +3032,6 @@ return|;
 block|}
 comment|/**          * Sets additional java mail properties, that will append/override any          * default properties that is set based on all the other options. This          * is useful if you need to add some special options but want to keep          * the others as is.          * The option will be converted to a<code>java.util.Properties</code>          * type.          * @group advanced          */
 DECL|method|additionalJavaMailProperties ( String additionalJavaMailProperties)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|additionalJavaMailProperties
@@ -3187,7 +3053,6 @@ return|;
 block|}
 comment|/**          * Specifies the key to an IN message header that contains an          * alternative email body. For example, if you send emails in text/html          * format and want to provide an alternative mail body for non-HTML          * email clients, set the alternative mail body with this key as a          * header.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|alternativeBodyHeader ( String alternativeBodyHeader)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|alternativeBodyHeader
@@ -3209,7 +3074,6 @@ return|;
 block|}
 comment|/**          * To use a custom AttachmentsContentTransferEncodingResolver to resolve          * what content-type-encoding to use for attachments.          * The option is a          *<code>org.apache.camel.component.mail.AttachmentsContentTransferEncodingResolver</code> type.          * @group advanced          */
 DECL|method|attachmentsContentTransferEncodingResolver ( Object attachmentsContentTransferEncodingResolver)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|attachmentsContentTransferEncodingResolver
@@ -3231,7 +3095,6 @@ return|;
 block|}
 comment|/**          * To use a custom AttachmentsContentTransferEncodingResolver to resolve          * what content-type-encoding to use for attachments.          * The option will be converted to a          *<code>org.apache.camel.component.mail.AttachmentsContentTransferEncodingResolver</code> type.          * @group advanced          */
 DECL|method|attachmentsContentTransferEncodingResolver ( String attachmentsContentTransferEncodingResolver)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|attachmentsContentTransferEncodingResolver
@@ -3253,7 +3116,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|basicPropertyBinding
@@ -3275,7 +3137,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|basicPropertyBinding
@@ -3296,8 +3157,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the binding used to convert from a Camel message to and from a          * Mail message.          * The option is a          *<code>org.apache.camel.component.mail.MailBinding</code> type.          * @group advanced          */
-DECL|method|binding ( Object binding)
-specifier|public
+DECL|method|binding (Object binding)
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|binding
@@ -3318,8 +3178,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the binding used to convert from a Camel message to and from a          * Mail message.          * The option will be converted to a          *<code>org.apache.camel.component.mail.MailBinding</code> type.          * @group advanced          */
-DECL|method|binding ( String binding)
-specifier|public
+DECL|method|binding (String binding)
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|binding
@@ -3341,7 +3200,6 @@ return|;
 block|}
 comment|/**          * The connection timeout in milliseconds.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|connectionTimeout ( int connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|connectionTimeout
@@ -3363,7 +3221,6 @@ return|;
 block|}
 comment|/**          * The connection timeout in milliseconds.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|connectionTimeout
@@ -3385,7 +3242,6 @@ return|;
 block|}
 comment|/**          * The mail message content type. Use text/html for HTML mails.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|contentType ( String contentType)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|contentType
@@ -3407,7 +3263,6 @@ return|;
 block|}
 comment|/**          * Resolver to determine Content-Type for file attachments.          * The option is a          *<code>org.apache.camel.component.mail.ContentTypeResolver</code>          * type.          * @group advanced          */
 DECL|method|contentTypeResolver ( Object contentTypeResolver)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|contentTypeResolver
@@ -3429,7 +3284,6 @@ return|;
 block|}
 comment|/**          * Resolver to determine Content-Type for file attachments.          * The option will be converted to a          *<code>org.apache.camel.component.mail.ContentTypeResolver</code>          * type.          * @group advanced          */
 DECL|method|contentTypeResolver ( String contentTypeResolver)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|contentTypeResolver
@@ -3450,8 +3304,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enable debug mode on the underlying mail framework. The SUN Mail          * framework logs the debug messages to System.out by default.          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|debugMode ( boolean debugMode)
-specifier|public
+DECL|method|debugMode (boolean debugMode)
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|debugMode
@@ -3472,8 +3325,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enable debug mode on the underlying mail framework. The SUN Mail          * framework logs the debug messages to System.out by default.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|debugMode ( String debugMode)
-specifier|public
+DECL|method|debugMode (String debugMode)
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|debugMode
@@ -3495,7 +3347,6 @@ return|;
 block|}
 comment|/**          * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter          * headers.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|headerFilterStrategy
@@ -3517,7 +3368,6 @@ return|;
 block|}
 comment|/**          * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter          * headers.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|headerFilterStrategy
@@ -3539,7 +3389,6 @@ return|;
 block|}
 comment|/**          * Option to let Camel ignore unsupported charset in the local JVM when          * sending mails. If the charset is unsupported then charset=XXX (where          * XXX represents the unsupported charset) is removed from the          * content-type and it relies on the platform default instead.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|ignoreUnsupportedCharset ( boolean ignoreUnsupportedCharset)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|ignoreUnsupportedCharset
@@ -3561,7 +3410,6 @@ return|;
 block|}
 comment|/**          * Option to let Camel ignore unsupported charset in the local JVM when          * sending mails. If the charset is unsupported then charset=XXX (where          * XXX represents the unsupported charset) is removed from the          * content-type and it relies on the platform default instead.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|ignoreUnsupportedCharset ( String ignoreUnsupportedCharset)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|ignoreUnsupportedCharset
@@ -3583,7 +3431,6 @@ return|;
 block|}
 comment|/**          * Option to let Camel ignore unsupported charset in the local JVM when          * sending mails. If the charset is unsupported then charset=XXX (where          * XXX represents the unsupported charset) is removed from the          * content-type and it relies on the platform default instead.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|ignoreUriScheme ( boolean ignoreUriScheme)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|ignoreUriScheme
@@ -3605,7 +3452,6 @@ return|;
 block|}
 comment|/**          * Option to let Camel ignore unsupported charset in the local JVM when          * sending mails. If the charset is unsupported then charset=XXX (where          * XXX represents the unsupported charset) is removed from the          * content-type and it relies on the platform default instead.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|ignoreUriScheme ( String ignoreUriScheme)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|ignoreUriScheme
@@ -3626,8 +3472,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specifies the mail session that camel should use for all mail          * interactions. Useful in scenarios where mail sessions are created and          * managed by some other resource, such as a JavaEE container. If this          * is not specified, Camel automatically creates the mail session for          * you.          * The option is a<code>javax.mail.Session</code> type.          * @group advanced          */
-DECL|method|session ( Object session)
-specifier|public
+DECL|method|session (Object session)
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|session
@@ -3648,8 +3493,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specifies the mail session that camel should use for all mail          * interactions. Useful in scenarios where mail sessions are created and          * managed by some other resource, such as a JavaEE container. If this          * is not specified, Camel automatically creates the mail session for          * you.          * The option will be converted to a<code>javax.mail.Session</code>          * type.          * @group advanced          */
-DECL|method|session ( String session)
-specifier|public
+DECL|method|session (String session)
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|session
@@ -3671,7 +3515,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|synchronous
@@ -3693,7 +3536,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|synchronous
@@ -3715,7 +3557,6 @@ return|;
 block|}
 comment|/**          * Whether to use disposition inline or attachment.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|useInlineAttachments ( boolean useInlineAttachments)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|useInlineAttachments
@@ -3737,7 +3578,6 @@ return|;
 block|}
 comment|/**          * Whether to use disposition inline or attachment.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|useInlineAttachments ( String useInlineAttachments)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
 name|useInlineAttachments
@@ -3770,7 +3610,6 @@ extends|,
 name|MailEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|advanced
@@ -3785,7 +3624,6 @@ return|;
 block|}
 comment|/**          * The mail server host name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|MailEndpointBuilder
 name|host
@@ -3807,7 +3645,6 @@ return|;
 block|}
 comment|/**          * The port number of the mail server.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|MailEndpointBuilder
 name|port
@@ -3829,7 +3666,6 @@ return|;
 block|}
 comment|/**          * The port number of the mail server.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|MailEndpointBuilder
 name|port
@@ -3850,8 +3686,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a dummy security setting for trusting all certificates. Should          * only be used for development mode, and not production.          * The option is a<code>boolean</code> type.          * @group security          */
-DECL|method|dummyTrustManager ( boolean dummyTrustManager)
-specifier|public
+DECL|method|dummyTrustManager (boolean dummyTrustManager)
 specifier|default
 name|MailEndpointBuilder
 name|dummyTrustManager
@@ -3872,8 +3707,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a dummy security setting for trusting all certificates. Should          * only be used for development mode, and not production.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
-DECL|method|dummyTrustManager ( String dummyTrustManager)
-specifier|public
+DECL|method|dummyTrustManager (String dummyTrustManager)
 specifier|default
 name|MailEndpointBuilder
 name|dummyTrustManager
@@ -3895,7 +3729,6 @@ return|;
 block|}
 comment|/**          * The password for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|MailEndpointBuilder
 name|password
@@ -3917,7 +3750,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|MailEndpointBuilder
 name|sslContextParameters
@@ -3939,7 +3771,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|MailEndpointBuilder
 name|sslContextParameters
@@ -3961,7 +3792,6 @@ return|;
 block|}
 comment|/**          * The username for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|MailEndpointBuilder
 name|username
@@ -3994,7 +3824,6 @@ extends|,
 name|AdvancedMailEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|MailEndpointBuilder
 name|basic
@@ -4009,7 +3838,6 @@ return|;
 block|}
 comment|/**          * Sets additional java mail properties, that will append/override any          * default properties that is set based on all the other options. This          * is useful if you need to add some special options but want to keep          * the others as is.          * The option is a<code>java.util.Properties</code> type.          * @group advanced          */
 DECL|method|additionalJavaMailProperties ( Properties additionalJavaMailProperties)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|additionalJavaMailProperties
@@ -4031,7 +3859,6 @@ return|;
 block|}
 comment|/**          * Sets additional java mail properties, that will append/override any          * default properties that is set based on all the other options. This          * is useful if you need to add some special options but want to keep          * the others as is.          * The option will be converted to a<code>java.util.Properties</code>          * type.          * @group advanced          */
 DECL|method|additionalJavaMailProperties ( String additionalJavaMailProperties)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|additionalJavaMailProperties
@@ -4053,7 +3880,6 @@ return|;
 block|}
 comment|/**          * Specifies the key to an IN message header that contains an          * alternative email body. For example, if you send emails in text/html          * format and want to provide an alternative mail body for non-HTML          * email clients, set the alternative mail body with this key as a          * header.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|alternativeBodyHeader ( String alternativeBodyHeader)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|alternativeBodyHeader
@@ -4075,7 +3901,6 @@ return|;
 block|}
 comment|/**          * To use a custom AttachmentsContentTransferEncodingResolver to resolve          * what content-type-encoding to use for attachments.          * The option is a          *<code>org.apache.camel.component.mail.AttachmentsContentTransferEncodingResolver</code> type.          * @group advanced          */
 DECL|method|attachmentsContentTransferEncodingResolver ( Object attachmentsContentTransferEncodingResolver)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|attachmentsContentTransferEncodingResolver
@@ -4097,7 +3922,6 @@ return|;
 block|}
 comment|/**          * To use a custom AttachmentsContentTransferEncodingResolver to resolve          * what content-type-encoding to use for attachments.          * The option will be converted to a          *<code>org.apache.camel.component.mail.AttachmentsContentTransferEncodingResolver</code> type.          * @group advanced          */
 DECL|method|attachmentsContentTransferEncodingResolver ( String attachmentsContentTransferEncodingResolver)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|attachmentsContentTransferEncodingResolver
@@ -4119,7 +3943,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|basicPropertyBinding
@@ -4141,7 +3964,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|basicPropertyBinding
@@ -4163,7 +3985,6 @@ return|;
 block|}
 comment|/**          * Sets the binding used to convert from a Camel message to and from a          * Mail message.          * The option is a          *<code>org.apache.camel.component.mail.MailBinding</code> type.          * @group advanced          */
 DECL|method|binding (Object binding)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|binding
@@ -4185,7 +4006,6 @@ return|;
 block|}
 comment|/**          * Sets the binding used to convert from a Camel message to and from a          * Mail message.          * The option will be converted to a          *<code>org.apache.camel.component.mail.MailBinding</code> type.          * @group advanced          */
 DECL|method|binding (String binding)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|binding
@@ -4207,7 +4027,6 @@ return|;
 block|}
 comment|/**          * The connection timeout in milliseconds.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|connectionTimeout ( int connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|connectionTimeout
@@ -4229,7 +4048,6 @@ return|;
 block|}
 comment|/**          * The connection timeout in milliseconds.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|connectionTimeout
@@ -4250,8 +4068,7 @@ name|this
 return|;
 block|}
 comment|/**          * The mail message content type. Use text/html for HTML mails.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
-DECL|method|contentType ( String contentType)
-specifier|public
+DECL|method|contentType (String contentType)
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|contentType
@@ -4273,7 +4090,6 @@ return|;
 block|}
 comment|/**          * Resolver to determine Content-Type for file attachments.          * The option is a          *<code>org.apache.camel.component.mail.ContentTypeResolver</code>          * type.          * @group advanced          */
 DECL|method|contentTypeResolver ( Object contentTypeResolver)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|contentTypeResolver
@@ -4295,7 +4111,6 @@ return|;
 block|}
 comment|/**          * Resolver to determine Content-Type for file attachments.          * The option will be converted to a          *<code>org.apache.camel.component.mail.ContentTypeResolver</code>          * type.          * @group advanced          */
 DECL|method|contentTypeResolver ( String contentTypeResolver)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|contentTypeResolver
@@ -4317,7 +4132,6 @@ return|;
 block|}
 comment|/**          * Enable debug mode on the underlying mail framework. The SUN Mail          * framework logs the debug messages to System.out by default.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|debugMode (boolean debugMode)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|debugMode
@@ -4339,7 +4153,6 @@ return|;
 block|}
 comment|/**          * Enable debug mode on the underlying mail framework. The SUN Mail          * framework logs the debug messages to System.out by default.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|debugMode (String debugMode)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|debugMode
@@ -4361,7 +4174,6 @@ return|;
 block|}
 comment|/**          * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter          * headers.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|headerFilterStrategy
@@ -4383,7 +4195,6 @@ return|;
 block|}
 comment|/**          * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter          * headers.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|headerFilterStrategy
@@ -4405,7 +4216,6 @@ return|;
 block|}
 comment|/**          * Option to let Camel ignore unsupported charset in the local JVM when          * sending mails. If the charset is unsupported then charset=XXX (where          * XXX represents the unsupported charset) is removed from the          * content-type and it relies on the platform default instead.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|ignoreUnsupportedCharset ( boolean ignoreUnsupportedCharset)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|ignoreUnsupportedCharset
@@ -4427,7 +4237,6 @@ return|;
 block|}
 comment|/**          * Option to let Camel ignore unsupported charset in the local JVM when          * sending mails. If the charset is unsupported then charset=XXX (where          * XXX represents the unsupported charset) is removed from the          * content-type and it relies on the platform default instead.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|ignoreUnsupportedCharset ( String ignoreUnsupportedCharset)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|ignoreUnsupportedCharset
@@ -4449,7 +4258,6 @@ return|;
 block|}
 comment|/**          * Option to let Camel ignore unsupported charset in the local JVM when          * sending mails. If the charset is unsupported then charset=XXX (where          * XXX represents the unsupported charset) is removed from the          * content-type and it relies on the platform default instead.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|ignoreUriScheme ( boolean ignoreUriScheme)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|ignoreUriScheme
@@ -4471,7 +4279,6 @@ return|;
 block|}
 comment|/**          * Option to let Camel ignore unsupported charset in the local JVM when          * sending mails. If the charset is unsupported then charset=XXX (where          * XXX represents the unsupported charset) is removed from the          * content-type and it relies on the platform default instead.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|ignoreUriScheme ( String ignoreUriScheme)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|ignoreUriScheme
@@ -4493,7 +4300,6 @@ return|;
 block|}
 comment|/**          * Specifies the mail session that camel should use for all mail          * interactions. Useful in scenarios where mail sessions are created and          * managed by some other resource, such as a JavaEE container. If this          * is not specified, Camel automatically creates the mail session for          * you.          * The option is a<code>javax.mail.Session</code> type.          * @group advanced          */
 DECL|method|session (Object session)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|session
@@ -4515,7 +4321,6 @@ return|;
 block|}
 comment|/**          * Specifies the mail session that camel should use for all mail          * interactions. Useful in scenarios where mail sessions are created and          * managed by some other resource, such as a JavaEE container. If this          * is not specified, Camel automatically creates the mail session for          * you.          * The option will be converted to a<code>javax.mail.Session</code>          * type.          * @group advanced          */
 DECL|method|session (String session)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|session
@@ -4536,8 +4341,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|synchronous
@@ -4558,8 +4362,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|synchronous
@@ -4581,7 +4384,6 @@ return|;
 block|}
 comment|/**          * Whether to use disposition inline or attachment.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|useInlineAttachments ( boolean useInlineAttachments)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|useInlineAttachments
@@ -4603,7 +4405,6 @@ return|;
 block|}
 comment|/**          * Whether to use disposition inline or attachment.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|useInlineAttachments ( String useInlineAttachments)
-specifier|public
 specifier|default
 name|AdvancedMailEndpointBuilder
 name|useInlineAttachments
@@ -4626,7 +4427,6 @@ block|}
 block|}
 comment|/**      * To send or receive emails using imap/pop3 or smtp protocols. Creates a      * builder to build endpoints for the IMAP component.      */
 DECL|method|mail (String path)
-specifier|public
 specifier|default
 name|MailEndpointBuilder
 name|mail

@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedAvroEndpointConsumerBuilder
 name|advanced
@@ -138,8 +137,7 @@ name|this
 return|;
 block|}
 comment|/**          * Transport to use, can be either http or netty.          * The option is a          *<code>org.apache.camel.component.avro.AvroTransport</code> type.          * @group common          */
-DECL|method|transport ( AvroTransport transport)
-specifier|public
+DECL|method|transport (AvroTransport transport)
 specifier|default
 name|AvroEndpointConsumerBuilder
 name|transport
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * Transport to use, can be either http or netty.          * The option will be converted to a          *<code>org.apache.camel.component.avro.AvroTransport</code> type.          * @group common          */
 DECL|method|transport (String transport)
-specifier|public
 specifier|default
 name|AvroEndpointConsumerBuilder
 name|transport
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * Port number to use.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|AvroEndpointConsumerBuilder
 name|port
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * Port number to use.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|AvroEndpointConsumerBuilder
 name|port
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * Hostname to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|AvroEndpointConsumerBuilder
 name|host
@@ -248,8 +242,7 @@ name|this
 return|;
 block|}
 comment|/**          * The name of the message to send.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|messageName ( String messageName)
-specifier|public
+DECL|method|messageName (String messageName)
 specifier|default
 name|AvroEndpointConsumerBuilder
 name|messageName
@@ -271,7 +264,6 @@ return|;
 block|}
 comment|/**          * Avro protocol to use.          * The option is a<code>org.apache.avro.Protocol</code> type.          * @group common          */
 DECL|method|protocol (Object protocol)
-specifier|public
 specifier|default
 name|AvroEndpointConsumerBuilder
 name|protocol
@@ -293,7 +285,6 @@ return|;
 block|}
 comment|/**          * Avro protocol to use.          * The option will be converted to a          *<code>org.apache.avro.Protocol</code> type.          * @group common          */
 DECL|method|protocol (String protocol)
-specifier|public
 specifier|default
 name|AvroEndpointConsumerBuilder
 name|protocol
@@ -315,7 +306,6 @@ return|;
 block|}
 comment|/**          * Avro protocol to use defined by the FQN class name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|protocolClassName ( String protocolClassName)
-specifier|public
 specifier|default
 name|AvroEndpointConsumerBuilder
 name|protocolClassName
@@ -337,7 +327,6 @@ return|;
 block|}
 comment|/**          * Avro protocol location.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|protocolLocation ( String protocolLocation)
-specifier|public
 specifier|default
 name|AvroEndpointConsumerBuilder
 name|protocolLocation
@@ -359,7 +348,6 @@ return|;
 block|}
 comment|/**          * If protocol object provided is reflection protocol. Should be used          * only with protocol parameter because for protocolClassName protocol          * type will be auto detected.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|reflectionProtocol ( boolean reflectionProtocol)
-specifier|public
 specifier|default
 name|AvroEndpointConsumerBuilder
 name|reflectionProtocol
@@ -381,7 +369,6 @@ return|;
 block|}
 comment|/**          * If protocol object provided is reflection protocol. Should be used          * only with protocol parameter because for protocolClassName protocol          * type will be auto detected.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|reflectionProtocol ( String reflectionProtocol)
-specifier|public
 specifier|default
 name|AvroEndpointConsumerBuilder
 name|reflectionProtocol
@@ -403,7 +390,6 @@ return|;
 block|}
 comment|/**          * If true, consumer parameter won't be wrapped into array. Will fail if          * protocol specifies more then 1 parameter for the message.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|singleParameter ( boolean singleParameter)
-specifier|public
 specifier|default
 name|AvroEndpointConsumerBuilder
 name|singleParameter
@@ -425,7 +411,6 @@ return|;
 block|}
 comment|/**          * If true, consumer parameter won't be wrapped into array. Will fail if          * protocol specifies more then 1 parameter for the message.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|singleParameter ( String singleParameter)
-specifier|public
 specifier|default
 name|AvroEndpointConsumerBuilder
 name|singleParameter
@@ -446,8 +431,7 @@ name|this
 return|;
 block|}
 comment|/**          * Authority to use (username and password).          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|uriAuthority ( String uriAuthority)
-specifier|public
+DECL|method|uriAuthority (String uriAuthority)
 specifier|default
 name|AvroEndpointConsumerBuilder
 name|uriAuthority
@@ -469,7 +453,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|AvroEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -491,7 +474,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|AvroEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -521,7 +503,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|AvroEndpointConsumerBuilder
 name|basic
@@ -536,7 +517,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedAvroEndpointConsumerBuilder
 name|exceptionHandler
@@ -558,7 +538,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedAvroEndpointConsumerBuilder
 name|exceptionHandler
@@ -580,7 +559,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedAvroEndpointConsumerBuilder
 name|exchangePattern
@@ -602,7 +580,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedAvroEndpointConsumerBuilder
 name|exchangePattern
@@ -624,7 +601,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAvroEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -646,7 +622,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAvroEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -668,7 +643,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedAvroEndpointConsumerBuilder
 name|synchronous
@@ -690,7 +664,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedAvroEndpointConsumerBuilder
 name|synchronous
@@ -721,7 +694,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedAvroEndpointProducerBuilder
 name|advanced
@@ -735,8 +707,7 @@ name|this
 return|;
 block|}
 comment|/**          * Transport to use, can be either http or netty.          * The option is a          *<code>org.apache.camel.component.avro.AvroTransport</code> type.          * @group common          */
-DECL|method|transport ( AvroTransport transport)
-specifier|public
+DECL|method|transport (AvroTransport transport)
 specifier|default
 name|AvroEndpointProducerBuilder
 name|transport
@@ -758,7 +729,6 @@ return|;
 block|}
 comment|/**          * Transport to use, can be either http or netty.          * The option will be converted to a          *<code>org.apache.camel.component.avro.AvroTransport</code> type.          * @group common          */
 DECL|method|transport (String transport)
-specifier|public
 specifier|default
 name|AvroEndpointProducerBuilder
 name|transport
@@ -780,7 +750,6 @@ return|;
 block|}
 comment|/**          * Port number to use.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|AvroEndpointProducerBuilder
 name|port
@@ -802,7 +771,6 @@ return|;
 block|}
 comment|/**          * Port number to use.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|AvroEndpointProducerBuilder
 name|port
@@ -824,7 +792,6 @@ return|;
 block|}
 comment|/**          * Hostname to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|AvroEndpointProducerBuilder
 name|host
@@ -845,8 +812,7 @@ name|this
 return|;
 block|}
 comment|/**          * The name of the message to send.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|messageName ( String messageName)
-specifier|public
+DECL|method|messageName (String messageName)
 specifier|default
 name|AvroEndpointProducerBuilder
 name|messageName
@@ -868,7 +834,6 @@ return|;
 block|}
 comment|/**          * Avro protocol to use.          * The option is a<code>org.apache.avro.Protocol</code> type.          * @group common          */
 DECL|method|protocol (Object protocol)
-specifier|public
 specifier|default
 name|AvroEndpointProducerBuilder
 name|protocol
@@ -890,7 +855,6 @@ return|;
 block|}
 comment|/**          * Avro protocol to use.          * The option will be converted to a          *<code>org.apache.avro.Protocol</code> type.          * @group common          */
 DECL|method|protocol (String protocol)
-specifier|public
 specifier|default
 name|AvroEndpointProducerBuilder
 name|protocol
@@ -912,7 +876,6 @@ return|;
 block|}
 comment|/**          * Avro protocol to use defined by the FQN class name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|protocolClassName ( String protocolClassName)
-specifier|public
 specifier|default
 name|AvroEndpointProducerBuilder
 name|protocolClassName
@@ -934,7 +897,6 @@ return|;
 block|}
 comment|/**          * Avro protocol location.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|protocolLocation ( String protocolLocation)
-specifier|public
 specifier|default
 name|AvroEndpointProducerBuilder
 name|protocolLocation
@@ -956,7 +918,6 @@ return|;
 block|}
 comment|/**          * If protocol object provided is reflection protocol. Should be used          * only with protocol parameter because for protocolClassName protocol          * type will be auto detected.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|reflectionProtocol ( boolean reflectionProtocol)
-specifier|public
 specifier|default
 name|AvroEndpointProducerBuilder
 name|reflectionProtocol
@@ -978,7 +939,6 @@ return|;
 block|}
 comment|/**          * If protocol object provided is reflection protocol. Should be used          * only with protocol parameter because for protocolClassName protocol          * type will be auto detected.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|reflectionProtocol ( String reflectionProtocol)
-specifier|public
 specifier|default
 name|AvroEndpointProducerBuilder
 name|reflectionProtocol
@@ -1000,7 +960,6 @@ return|;
 block|}
 comment|/**          * If true, consumer parameter won't be wrapped into array. Will fail if          * protocol specifies more then 1 parameter for the message.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|singleParameter ( boolean singleParameter)
-specifier|public
 specifier|default
 name|AvroEndpointProducerBuilder
 name|singleParameter
@@ -1022,7 +981,6 @@ return|;
 block|}
 comment|/**          * If true, consumer parameter won't be wrapped into array. Will fail if          * protocol specifies more then 1 parameter for the message.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|singleParameter ( String singleParameter)
-specifier|public
 specifier|default
 name|AvroEndpointProducerBuilder
 name|singleParameter
@@ -1043,8 +1001,7 @@ name|this
 return|;
 block|}
 comment|/**          * Authority to use (username and password).          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|uriAuthority ( String uriAuthority)
-specifier|public
+DECL|method|uriAuthority (String uriAuthority)
 specifier|default
 name|AvroEndpointProducerBuilder
 name|uriAuthority
@@ -1066,7 +1023,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|AvroEndpointProducerBuilder
 name|lazyStartProducer
@@ -1088,7 +1044,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|AvroEndpointProducerBuilder
 name|lazyStartProducer
@@ -1118,7 +1073,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|AvroEndpointProducerBuilder
 name|basic
@@ -1133,7 +1087,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAvroEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1155,7 +1108,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAvroEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1177,7 +1129,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedAvroEndpointProducerBuilder
 name|synchronous
@@ -1199,7 +1150,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedAvroEndpointProducerBuilder
 name|synchronous
@@ -1232,7 +1182,6 @@ extends|,
 name|AvroEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedAvroEndpointBuilder
 name|advanced
@@ -1247,7 +1196,6 @@ return|;
 block|}
 comment|/**          * Transport to use, can be either http or netty.          * The option is a          *<code>org.apache.camel.component.avro.AvroTransport</code> type.          * @group common          */
 DECL|method|transport (AvroTransport transport)
-specifier|public
 specifier|default
 name|AvroEndpointBuilder
 name|transport
@@ -1269,7 +1217,6 @@ return|;
 block|}
 comment|/**          * Transport to use, can be either http or netty.          * The option will be converted to a          *<code>org.apache.camel.component.avro.AvroTransport</code> type.          * @group common          */
 DECL|method|transport (String transport)
-specifier|public
 specifier|default
 name|AvroEndpointBuilder
 name|transport
@@ -1291,7 +1238,6 @@ return|;
 block|}
 comment|/**          * Port number to use.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|AvroEndpointBuilder
 name|port
@@ -1313,7 +1259,6 @@ return|;
 block|}
 comment|/**          * Port number to use.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|AvroEndpointBuilder
 name|port
@@ -1335,7 +1280,6 @@ return|;
 block|}
 comment|/**          * Hostname to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|AvroEndpointBuilder
 name|host
@@ -1357,7 +1301,6 @@ return|;
 block|}
 comment|/**          * The name of the message to send.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|messageName (String messageName)
-specifier|public
 specifier|default
 name|AvroEndpointBuilder
 name|messageName
@@ -1379,7 +1322,6 @@ return|;
 block|}
 comment|/**          * Avro protocol to use.          * The option is a<code>org.apache.avro.Protocol</code> type.          * @group common          */
 DECL|method|protocol (Object protocol)
-specifier|public
 specifier|default
 name|AvroEndpointBuilder
 name|protocol
@@ -1401,7 +1343,6 @@ return|;
 block|}
 comment|/**          * Avro protocol to use.          * The option will be converted to a          *<code>org.apache.avro.Protocol</code> type.          * @group common          */
 DECL|method|protocol (String protocol)
-specifier|public
 specifier|default
 name|AvroEndpointBuilder
 name|protocol
@@ -1422,8 +1363,7 @@ name|this
 return|;
 block|}
 comment|/**          * Avro protocol to use defined by the FQN class name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|protocolClassName ( String protocolClassName)
-specifier|public
+DECL|method|protocolClassName (String protocolClassName)
 specifier|default
 name|AvroEndpointBuilder
 name|protocolClassName
@@ -1444,8 +1384,7 @@ name|this
 return|;
 block|}
 comment|/**          * Avro protocol location.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|protocolLocation ( String protocolLocation)
-specifier|public
+DECL|method|protocolLocation (String protocolLocation)
 specifier|default
 name|AvroEndpointBuilder
 name|protocolLocation
@@ -1467,7 +1406,6 @@ return|;
 block|}
 comment|/**          * If protocol object provided is reflection protocol. Should be used          * only with protocol parameter because for protocolClassName protocol          * type will be auto detected.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|reflectionProtocol ( boolean reflectionProtocol)
-specifier|public
 specifier|default
 name|AvroEndpointBuilder
 name|reflectionProtocol
@@ -1488,8 +1426,7 @@ name|this
 return|;
 block|}
 comment|/**          * If protocol object provided is reflection protocol. Should be used          * only with protocol parameter because for protocolClassName protocol          * type will be auto detected.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|reflectionProtocol ( String reflectionProtocol)
-specifier|public
+DECL|method|reflectionProtocol (String reflectionProtocol)
 specifier|default
 name|AvroEndpointBuilder
 name|reflectionProtocol
@@ -1510,8 +1447,7 @@ name|this
 return|;
 block|}
 comment|/**          * If true, consumer parameter won't be wrapped into array. Will fail if          * protocol specifies more then 1 parameter for the message.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|singleParameter ( boolean singleParameter)
-specifier|public
+DECL|method|singleParameter (boolean singleParameter)
 specifier|default
 name|AvroEndpointBuilder
 name|singleParameter
@@ -1532,8 +1468,7 @@ name|this
 return|;
 block|}
 comment|/**          * If true, consumer parameter won't be wrapped into array. Will fail if          * protocol specifies more then 1 parameter for the message.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|singleParameter ( String singleParameter)
-specifier|public
+DECL|method|singleParameter (String singleParameter)
 specifier|default
 name|AvroEndpointBuilder
 name|singleParameter
@@ -1555,7 +1490,6 @@ return|;
 block|}
 comment|/**          * Authority to use (username and password).          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|uriAuthority (String uriAuthority)
-specifier|public
 specifier|default
 name|AvroEndpointBuilder
 name|uriAuthority
@@ -1588,7 +1522,6 @@ extends|,
 name|AdvancedAvroEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|AvroEndpointBuilder
 name|basic
@@ -1603,7 +1536,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAvroEndpointBuilder
 name|basicPropertyBinding
@@ -1625,7 +1557,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedAvroEndpointBuilder
 name|basicPropertyBinding
@@ -1646,8 +1577,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedAvroEndpointBuilder
 name|synchronous
@@ -1668,8 +1598,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedAvroEndpointBuilder
 name|synchronous
@@ -1705,7 +1634,6 @@ name|netty
 block|;     }
 comment|/**      * Working with Apache Avro for data serialization. Creates a builder to      * build endpoints for the Avro component.      */
 DECL|method|avro (String path)
-specifier|public
 specifier|default
 name|AvroEndpointBuilder
 name|avro

@@ -1747,9 +1747,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|setPublic
-argument_list|()
-operator|.
 name|setDefault
 argument_list|()
 operator|.
@@ -1782,9 +1779,6 @@ name|getCanonicalName
 argument_list|()
 argument_list|)
 argument_list|)
-operator|.
-name|setPublic
-argument_list|()
 operator|.
 name|setDefault
 argument_list|()
@@ -1952,9 +1946,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|setPublic
-argument_list|()
-operator|.
 name|setDefault
 argument_list|()
 operator|.
@@ -1987,9 +1978,6 @@ name|getCanonicalName
 argument_list|()
 argument_list|)
 argument_list|)
-operator|.
-name|setPublic
-argument_list|()
 operator|.
 name|setDefault
 argument_list|()
@@ -2285,9 +2273,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|setPublic
-argument_list|()
-operator|.
 name|setDefault
 argument_list|()
 operator|.
@@ -2320,9 +2305,6 @@ name|getCanonicalName
 argument_list|()
 argument_list|)
 argument_list|)
-operator|.
-name|setPublic
-argument_list|()
 operator|.
 name|setDefault
 argument_list|()
@@ -2689,9 +2671,6 @@ operator|.
 name|addMethod
 argument_list|()
 operator|.
-name|setPublic
-argument_list|()
-operator|.
 name|setDefault
 argument_list|()
 operator|.
@@ -2884,9 +2863,6 @@ operator|.
 name|addMethod
 argument_list|()
 operator|.
-name|setPublic
-argument_list|()
-operator|.
 name|setDefault
 argument_list|()
 operator|.
@@ -3072,9 +3048,6 @@ init|=
 name|javaClass
 operator|.
 name|addMethod
-argument_list|()
-operator|.
-name|setPublic
 argument_list|()
 operator|.
 name|setDefault

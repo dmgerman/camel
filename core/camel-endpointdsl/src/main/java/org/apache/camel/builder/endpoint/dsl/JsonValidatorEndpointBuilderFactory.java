@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJsonValidatorEndpointBuilder
 name|advanced
@@ -113,8 +112,7 @@ name|this
 return|;
 block|}
 comment|/**          * Path to the resource. You can prefix with: classpath, file, http,          * ref, or bean. classpath, file and http loads the resource using these          * protocols (classpath is default). ref will lookup the resource in the          * registry. bean will call a method on a bean to be used as the          * resource. For bean you can specify the method name after dot, eg          * bean:myBean.myMethod.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|resourceUri ( String resourceUri)
-specifier|public
+DECL|method|resourceUri (String resourceUri)
 specifier|default
 name|JsonValidatorEndpointBuilder
 name|resourceUri
@@ -135,8 +133,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether to use resource content cache or not.          * The option is a<code>boolean</code> type.          * @group producer          */
-DECL|method|contentCache ( boolean contentCache)
-specifier|public
+DECL|method|contentCache (boolean contentCache)
 specifier|default
 name|JsonValidatorEndpointBuilder
 name|contentCache
@@ -157,8 +154,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether to use resource content cache or not.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
-DECL|method|contentCache ( String contentCache)
-specifier|public
+DECL|method|contentCache (String contentCache)
 specifier|default
 name|JsonValidatorEndpointBuilder
 name|contentCache
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Whether to fail if no body exists.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|failOnNullBody ( boolean failOnNullBody)
-specifier|public
 specifier|default
 name|JsonValidatorEndpointBuilder
 name|failOnNullBody
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Whether to fail if no body exists.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|failOnNullBody ( String failOnNullBody)
-specifier|public
 specifier|default
 name|JsonValidatorEndpointBuilder
 name|failOnNullBody
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * Whether to fail if no header exists when validating against a header.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|failOnNullHeader ( boolean failOnNullHeader)
-specifier|public
 specifier|default
 name|JsonValidatorEndpointBuilder
 name|failOnNullHeader
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * Whether to fail if no header exists when validating against a header.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|failOnNullHeader ( String failOnNullHeader)
-specifier|public
 specifier|default
 name|JsonValidatorEndpointBuilder
 name|failOnNullHeader
@@ -268,7 +260,6 @@ return|;
 block|}
 comment|/**          * To validate against a header instead of the message body.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|headerName (String headerName)
-specifier|public
 specifier|default
 name|JsonValidatorEndpointBuilder
 name|headerName
@@ -299,7 +290,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JsonValidatorEndpointBuilder
 name|basic
@@ -314,7 +304,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJsonValidatorEndpointBuilder
 name|basicPropertyBinding
@@ -336,7 +325,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJsonValidatorEndpointBuilder
 name|basicPropertyBinding
@@ -358,7 +346,6 @@ return|;
 block|}
 comment|/**          * To use a custom ValidatorErrorHandler. The default error handler          * captures the errors and throws an exception.          * The option is a          *<code>org.apache.camel.component.jsonvalidator.JsonValidatorErrorHandler</code> type.          * @group advanced          */
 DECL|method|errorHandler ( Object errorHandler)
-specifier|public
 specifier|default
 name|AdvancedJsonValidatorEndpointBuilder
 name|errorHandler
@@ -380,7 +367,6 @@ return|;
 block|}
 comment|/**          * To use a custom ValidatorErrorHandler. The default error handler          * captures the errors and throws an exception.          * The option will be converted to a          *<code>org.apache.camel.component.jsonvalidator.JsonValidatorErrorHandler</code> type.          * @group advanced          */
 DECL|method|errorHandler ( String errorHandler)
-specifier|public
 specifier|default
 name|AdvancedJsonValidatorEndpointBuilder
 name|errorHandler
@@ -402,7 +388,6 @@ return|;
 block|}
 comment|/**          * To use a custom schema loader allowing for adding custom format          * validation. The default implementation will create a schema loader          * with draft v4 support.          * The option is a          *<code>org.apache.camel.component.jsonvalidator.JsonSchemaLoader</code> type.          * @group advanced          */
 DECL|method|schemaLoader ( Object schemaLoader)
-specifier|public
 specifier|default
 name|AdvancedJsonValidatorEndpointBuilder
 name|schemaLoader
@@ -424,7 +409,6 @@ return|;
 block|}
 comment|/**          * To use a custom schema loader allowing for adding custom format          * validation. The default implementation will create a schema loader          * with draft v4 support.          * The option will be converted to a          *<code>org.apache.camel.component.jsonvalidator.JsonSchemaLoader</code> type.          * @group advanced          */
 DECL|method|schemaLoader ( String schemaLoader)
-specifier|public
 specifier|default
 name|AdvancedJsonValidatorEndpointBuilder
 name|schemaLoader
@@ -446,7 +430,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedJsonValidatorEndpointBuilder
 name|synchronous
@@ -468,7 +451,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedJsonValidatorEndpointBuilder
 name|synchronous
@@ -491,7 +473,6 @@ block|}
 block|}
 comment|/**      * Validates the payload of a message using NetworkNT JSON Schema library.      * Creates a builder to build endpoints for the JSON Schema Validator      * component.      */
 DECL|method|jsonValidator (String path)
-specifier|public
 specifier|default
 name|JsonValidatorEndpointBuilder
 name|jsonValidator

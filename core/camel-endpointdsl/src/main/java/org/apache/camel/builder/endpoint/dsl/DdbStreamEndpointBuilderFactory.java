@@ -99,7 +99,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedDdbStreamEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * To define a proxy host when instantiating the DDBStreams client.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|proxyHost (String proxyHost)
-specifier|public
 specifier|default
 name|DdbStreamEndpointBuilder
 name|proxyHost
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * To define a proxy port when instantiating the DDBStreams client.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
 DECL|method|proxyPort (Integer proxyPort)
-specifier|public
 specifier|default
 name|DdbStreamEndpointBuilder
 name|proxyPort
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * To define a proxy port when instantiating the DDBStreams client.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
 DECL|method|proxyPort (String proxyPort)
-specifier|public
 specifier|default
 name|DdbStreamEndpointBuilder
 name|proxyPort
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * The region in which DDBStreams client needs to work.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|region (String region)
-specifier|public
 specifier|default
 name|DdbStreamEndpointBuilder
 name|region
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessKey (String accessKey)
-specifier|public
 specifier|default
 name|DdbStreamEndpointBuilder
 name|accessKey
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|DdbStreamEndpointBuilder
 name|secretKey
@@ -255,7 +248,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|DdbStreamEndpointBuilder
 name|basic
@@ -270,7 +262,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDdbStreamEndpointBuilder
 name|basicPropertyBinding
@@ -292,7 +283,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDdbStreamEndpointBuilder
 name|basicPropertyBinding
@@ -313,8 +303,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedDdbStreamEndpointBuilder
 name|synchronous
@@ -335,8 +324,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedDdbStreamEndpointBuilder
 name|synchronous
@@ -378,7 +366,6 @@ name|AFTER_SEQUENCE_NUMBER
 block|;     }
 comment|/**      * The aws-ddbstream component is used for working with Amazon DynamoDB      * Streams. Creates a builder to build endpoints for the AWS DynamoDB      * Streams component.      */
 DECL|method|ddbStream (String path)
-specifier|public
 specifier|default
 name|DdbStreamEndpointBuilder
 name|ddbStream

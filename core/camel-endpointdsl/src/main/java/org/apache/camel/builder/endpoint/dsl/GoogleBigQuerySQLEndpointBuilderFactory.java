@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedGoogleBigQuerySQLEndpointBuilder
 name|advanced
@@ -113,8 +112,7 @@ name|this
 return|;
 block|}
 comment|/**          * Google Cloud Project Id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|projectId ( String projectId)
-specifier|public
+DECL|method|projectId (String projectId)
 specifier|default
 name|GoogleBigQuerySQLEndpointBuilder
 name|projectId
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * BigQuery standard SQL query.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|query (String query)
-specifier|public
 specifier|default
 name|GoogleBigQuerySQLEndpointBuilder
 name|query
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * ConnectionFactory to obtain connection to Bigquery Service. If non          * provided the default will be used.          * The option is a          *<code>org.apache.camel.component.google.bigquery.GoogleBigQueryConnectionFactory</code> type.          * @group producer          */
 DECL|method|connectionFactory ( Object connectionFactory)
-specifier|public
 specifier|default
 name|GoogleBigQuerySQLEndpointBuilder
 name|connectionFactory
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * ConnectionFactory to obtain connection to Bigquery Service. If non          * provided the default will be used.          * The option will be converted to a          *<code>org.apache.camel.component.google.bigquery.GoogleBigQueryConnectionFactory</code> type.          * @group producer          */
 DECL|method|connectionFactory ( String connectionFactory)
-specifier|public
 specifier|default
 name|GoogleBigQuerySQLEndpointBuilder
 name|connectionFactory
@@ -211,7 +206,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|GoogleBigQuerySQLEndpointBuilder
 name|basic
@@ -226,7 +220,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGoogleBigQuerySQLEndpointBuilder
 name|basicPropertyBinding
@@ -248,7 +241,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGoogleBigQuerySQLEndpointBuilder
 name|basicPropertyBinding
@@ -270,7 +262,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedGoogleBigQuerySQLEndpointBuilder
 name|synchronous
@@ -292,7 +283,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedGoogleBigQuerySQLEndpointBuilder
 name|synchronous
@@ -314,8 +304,7 @@ return|;
 block|}
 block|}
 comment|/**      * Google BigQuery data warehouse for analytics (using SQL queries). Creates      * a builder to build endpoints for the Google BigQuery Standard SQL      * component.      */
-DECL|method|googleBigQuerySQL ( String path)
-specifier|public
+DECL|method|googleBigQuerySQL (String path)
 specifier|default
 name|GoogleBigQuerySQLEndpointBuilder
 name|googleBigQuerySQL

@@ -99,7 +99,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedZooKeeperMasterEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * The name of the cluster group to use.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|groupName (String groupName)
-specifier|public
 specifier|default
 name|ZooKeeperMasterEndpointBuilder
 name|groupName
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * The consumer endpoint to use in master/slave mode.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|consumerEndpointUri ( String consumerEndpointUri)
-specifier|public
 specifier|default
 name|ZooKeeperMasterEndpointBuilder
 name|consumerEndpointUri
@@ -167,7 +164,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|ZooKeeperMasterEndpointBuilder
 name|basic
@@ -182,7 +178,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedZooKeeperMasterEndpointBuilder
 name|basicPropertyBinding
@@ -204,7 +199,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedZooKeeperMasterEndpointBuilder
 name|basicPropertyBinding
@@ -226,7 +220,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedZooKeeperMasterEndpointBuilder
 name|synchronous
@@ -248,7 +241,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedZooKeeperMasterEndpointBuilder
 name|synchronous
@@ -271,7 +263,6 @@ block|}
 block|}
 comment|/**      * Represents an endpoint which only becomes active when it obtains the      * master lock Creates a builder to build endpoints for the ZooKeeper Master      * component.      */
 DECL|method|zooKeeperMaster (String path)
-specifier|public
 specifier|default
 name|ZooKeeperMasterEndpointBuilder
 name|zooKeeperMaster

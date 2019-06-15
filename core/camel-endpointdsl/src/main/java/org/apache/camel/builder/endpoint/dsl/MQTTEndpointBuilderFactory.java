@@ -146,7 +146,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointConsumerBuilder
 name|advanced
@@ -161,7 +160,6 @@ return|;
 block|}
 comment|/**          * A logical name to use which is not the topic name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|name
@@ -183,7 +181,6 @@ return|;
 block|}
 comment|/**          * SSL connections perform blocking operations against internal thread          * pool unless you call the setBlockingExecutor method to configure that          * executor they will use instead.          * The option is a<code>java.util.concurrent.Executor</code> type.          * @group common          */
 DECL|method|blockingExecutor ( Executor blockingExecutor)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|blockingExecutor
@@ -205,7 +202,6 @@ return|;
 block|}
 comment|/**          * SSL connections perform blocking operations against internal thread          * pool unless you call the setBlockingExecutor method to configure that          * executor they will use instead.          * The option will be converted to a          *<code>java.util.concurrent.Executor</code> type.          * @group common          */
 DECL|method|blockingExecutor ( String blockingExecutor)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|blockingExecutor
@@ -227,7 +223,6 @@ return|;
 block|}
 comment|/**          * The default retain policy to be used on messages sent to the MQTT          * broker.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|byDefaultRetain ( boolean byDefaultRetain)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|byDefaultRetain
@@ -249,7 +244,6 @@ return|;
 block|}
 comment|/**          * The default retain policy to be used on messages sent to the MQTT          * broker.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|byDefaultRetain ( String byDefaultRetain)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|byDefaultRetain
@@ -270,8 +264,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set to false if you want the MQTT server to persist topic          * subscriptions and ack positions across client sessions. Defaults to          * true.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|cleanSession ( boolean cleanSession)
-specifier|public
+DECL|method|cleanSession (boolean cleanSession)
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|cleanSession
@@ -292,8 +285,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set to false if you want the MQTT server to persist topic          * subscriptions and ack positions across client sessions. Defaults to          * true.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|cleanSession ( String cleanSession)
-specifier|public
+DECL|method|cleanSession (String cleanSession)
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|cleanSession
@@ -315,7 +307,6 @@ return|;
 block|}
 comment|/**          * Use to set the client Id of the session. This is what an MQTT server          * uses to identify a session where setCleanSession(false); is being          * used. The id must be 23 characters or less. Defaults to auto          * generated id (based on your socket address, port and timestamp).          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientId (String clientId)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|clientId
@@ -337,7 +328,6 @@ return|;
 block|}
 comment|/**          * The maximum number of reconnect attempts before an error is reported          * back to the client on the first attempt by the client to connect to a          * server. Set to -1 to use unlimited attempts. Defaults to -1.          * The option is a<code>long</code> type.          * @group common          */
 DECL|method|connectAttemptsMax ( long connectAttemptsMax)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|connectAttemptsMax
@@ -359,7 +349,6 @@ return|;
 block|}
 comment|/**          * The maximum number of reconnect attempts before an error is reported          * back to the client on the first attempt by the client to connect to a          * server. Set to -1 to use unlimited attempts. Defaults to -1.          * The option will be converted to a<code>long</code> type.          * @group common          */
 DECL|method|connectAttemptsMax ( String connectAttemptsMax)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|connectAttemptsMax
@@ -381,7 +370,6 @@ return|;
 block|}
 comment|/**          * Delay in seconds the Component will wait for a connection to be          * established to the MQTT broker.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|connectWaitInSeconds ( int connectWaitInSeconds)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|connectWaitInSeconds
@@ -403,7 +391,6 @@ return|;
 block|}
 comment|/**          * Delay in seconds the Component will wait for a connection to be          * established to the MQTT broker.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|connectWaitInSeconds ( String connectWaitInSeconds)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|connectWaitInSeconds
@@ -425,7 +412,6 @@ return|;
 block|}
 comment|/**          * The number of seconds the Component will wait for a valid disconnect          * on stop() from the MQTT broker.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|disconnectWaitInSeconds ( int disconnectWaitInSeconds)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|disconnectWaitInSeconds
@@ -447,7 +433,6 @@ return|;
 block|}
 comment|/**          * The number of seconds the Component will wait for a valid disconnect          * on stop() from the MQTT broker.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|disconnectWaitInSeconds ( String disconnectWaitInSeconds)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|disconnectWaitInSeconds
@@ -468,8 +453,7 @@ name|this
 return|;
 block|}
 comment|/**          * A HawtDispatch dispatch queue is used to synchronize access to the          * connection. If an explicit queue is not configured via the          * setDispatchQueue method, then a new queue will be created for the          * connection. Setting an explicit queue might be handy if you want          * multiple connection to share the same queue for synchronization.          * The option is a          *<code>org.fusesource.hawtdispatch.DispatchQueue</code> type.          * @group common          */
-DECL|method|dispatchQueue ( Object dispatchQueue)
-specifier|public
+DECL|method|dispatchQueue (Object dispatchQueue)
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|dispatchQueue
@@ -490,8 +474,7 @@ name|this
 return|;
 block|}
 comment|/**          * A HawtDispatch dispatch queue is used to synchronize access to the          * connection. If an explicit queue is not configured via the          * setDispatchQueue method, then a new queue will be created for the          * connection. Setting an explicit queue might be handy if you want          * multiple connection to share the same queue for synchronization.          * The option will be converted to a          *<code>org.fusesource.hawtdispatch.DispatchQueue</code> type.          * @group common          */
-DECL|method|dispatchQueue ( String dispatchQueue)
-specifier|public
+DECL|method|dispatchQueue (String dispatchQueue)
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|dispatchQueue
@@ -513,7 +496,6 @@ return|;
 block|}
 comment|/**          * The URI of the MQTT broker to connect too - this component also          * supports SSL - e.g. ssl://127.0.0.1:8883.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|host
@@ -535,7 +517,6 @@ return|;
 block|}
 comment|/**          * Configures the Keep Alive timer in seconds. Defines the maximum time          * interval between messages received from a client. It enables the          * server to detect that the network connection to a client has dropped,          * without having to wait for the long TCP/IP timeout.          * The option is a<code>short</code> type.          * @group common          */
 DECL|method|keepAlive (short keepAlive)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|keepAlive
@@ -557,7 +538,6 @@ return|;
 block|}
 comment|/**          * Configures the Keep Alive timer in seconds. Defines the maximum time          * interval between messages received from a client. It enables the          * server to detect that the network connection to a client has dropped,          * without having to wait for the long TCP/IP timeout.          * The option will be converted to a<code>short</code> type.          * @group common          */
 DECL|method|keepAlive (String keepAlive)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|keepAlive
@@ -579,7 +559,6 @@ return|;
 block|}
 comment|/**          * The local InetAddress and port to use.          * The option is a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|localAddress (URI localAddress)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|localAddress
@@ -600,8 +579,7 @@ name|this
 return|;
 block|}
 comment|/**          * The local InetAddress and port to use.          * The option will be converted to a<code>java.net.URI</code> type.          * @group common          */
-DECL|method|localAddress ( String localAddress)
-specifier|public
+DECL|method|localAddress (String localAddress)
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|localAddress
@@ -623,7 +601,6 @@ return|;
 block|}
 comment|/**          * Sets the maximum bytes per second that this transport will receive          * data at. This setting throttles reads so that the rate is not          * exceeded. Defaults to 0 which disables throttling.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|maxReadRate (int maxReadRate)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|maxReadRate
@@ -644,8 +621,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the maximum bytes per second that this transport will receive          * data at. This setting throttles reads so that the rate is not          * exceeded. Defaults to 0 which disables throttling.          * The option will be converted to a<code>int</code> type.          * @group common          */
-DECL|method|maxReadRate ( String maxReadRate)
-specifier|public
+DECL|method|maxReadRate (String maxReadRate)
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|maxReadRate
@@ -667,7 +643,6 @@ return|;
 block|}
 comment|/**          * Sets the maximum bytes per second that this transport will send data          * at. This setting throttles writes so that the rate is not exceeded.          * Defaults to 0 which disables throttling.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|maxWriteRate (int maxWriteRate)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|maxWriteRate
@@ -688,8 +663,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the maximum bytes per second that this transport will send data          * at. This setting throttles writes so that the rate is not exceeded.          * Defaults to 0 which disables throttling.          * The option will be converted to a<code>int</code> type.          * @group common          */
-DECL|method|maxWriteRate ( String maxWriteRate)
-specifier|public
+DECL|method|maxWriteRate (String maxWriteRate)
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|maxWriteRate
@@ -711,7 +685,6 @@ return|;
 block|}
 comment|/**          * The property name to look for on an Exchange for an individual          * published message. If this is set (one of AtMostOnce, AtLeastOnce or          * ExactlyOnce ) - then that QoS will be set on the message sent to the          * MQTT message broker.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|mqttQosPropertyName ( String mqttQosPropertyName)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|mqttQosPropertyName
@@ -733,7 +706,6 @@ return|;
 block|}
 comment|/**          * The property name to look for on an Exchange for an individual          * published message. If this is set (expects a Boolean value) - then          * the retain property will be set on the message sent to the MQTT          * message broker.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|mqttRetainPropertyName ( String mqttRetainPropertyName)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|mqttRetainPropertyName
@@ -755,7 +727,6 @@ return|;
 block|}
 comment|/**          * These a properties that are looked for in an Exchange - to publish          * to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|mqttTopicPropertyName ( String mqttTopicPropertyName)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|mqttTopicPropertyName
@@ -777,7 +748,6 @@ return|;
 block|}
 comment|/**          * The default Topic to publish messages on.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|publishTopicName ( String publishTopicName)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|publishTopicName
@@ -799,7 +769,6 @@ return|;
 block|}
 comment|/**          * Quality of service level to use for topics.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|qualityOfService ( String qualityOfService)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|qualityOfService
@@ -821,7 +790,6 @@ return|;
 block|}
 comment|/**          * Sets the size of the internal socket receive buffer. Defaults to          * 65536 (64k).          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|receiveBufferSize ( int receiveBufferSize)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|receiveBufferSize
@@ -843,7 +811,6 @@ return|;
 block|}
 comment|/**          * Sets the size of the internal socket receive buffer. Defaults to          * 65536 (64k).          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|receiveBufferSize ( String receiveBufferSize)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|receiveBufferSize
@@ -865,7 +832,6 @@ return|;
 block|}
 comment|/**          * The maximum number of reconnect attempts before an error is reported          * back to the client after a server connection had previously been          * established. Set to -1 to use unlimited attempts. Defaults to -1.          * The option is a<code>long</code> type.          * @group common          */
 DECL|method|reconnectAttemptsMax ( long reconnectAttemptsMax)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|reconnectAttemptsMax
@@ -887,7 +853,6 @@ return|;
 block|}
 comment|/**          * The maximum number of reconnect attempts before an error is reported          * back to the client after a server connection had previously been          * established. Set to -1 to use unlimited attempts. Defaults to -1.          * The option will be converted to a<code>long</code> type.          * @group common          */
 DECL|method|reconnectAttemptsMax ( String reconnectAttemptsMax)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|reconnectAttemptsMax
@@ -909,7 +874,6 @@ return|;
 block|}
 comment|/**          * The Exponential backoff be used between reconnect attempts. Set to 1          * to disable exponential backoff. Defaults to 2.          * The option is a<code>double</code> type.          * @group common          */
 DECL|method|reconnectBackOffMultiplier ( double reconnectBackOffMultiplier)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|reconnectBackOffMultiplier
@@ -931,7 +895,6 @@ return|;
 block|}
 comment|/**          * The Exponential backoff be used between reconnect attempts. Set to 1          * to disable exponential backoff. Defaults to 2.          * The option will be converted to a<code>double</code> type.          * @group common          */
 DECL|method|reconnectBackOffMultiplier ( String reconnectBackOffMultiplier)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|reconnectBackOffMultiplier
@@ -952,8 +915,7 @@ name|this
 return|;
 block|}
 comment|/**          * How long to wait in ms before the first reconnect attempt. Defaults          * to 10.          * The option is a<code>long</code> type.          * @group common          */
-DECL|method|reconnectDelay ( long reconnectDelay)
-specifier|public
+DECL|method|reconnectDelay (long reconnectDelay)
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|reconnectDelay
@@ -974,8 +936,7 @@ name|this
 return|;
 block|}
 comment|/**          * How long to wait in ms before the first reconnect attempt. Defaults          * to 10.          * The option will be converted to a<code>long</code> type.          * @group common          */
-DECL|method|reconnectDelay ( String reconnectDelay)
-specifier|public
+DECL|method|reconnectDelay (String reconnectDelay)
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|reconnectDelay
@@ -997,7 +958,6 @@ return|;
 block|}
 comment|/**          * The maximum amount of time in ms to wait between reconnect attempts.          * Defaults to 30,000.          * The option is a<code>long</code> type.          * @group common          */
 DECL|method|reconnectDelayMax ( long reconnectDelayMax)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|reconnectDelayMax
@@ -1019,7 +979,6 @@ return|;
 block|}
 comment|/**          * The maximum amount of time in ms to wait between reconnect attempts.          * Defaults to 30,000.          * The option will be converted to a<code>long</code> type.          * @group common          */
 DECL|method|reconnectDelayMax ( String reconnectDelayMax)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|reconnectDelayMax
@@ -1040,8 +999,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the size of the internal socket send buffer. Defaults to 65536          * (64k).          * The option is a<code>int</code> type.          * @group common          */
-DECL|method|sendBufferSize ( int sendBufferSize)
-specifier|public
+DECL|method|sendBufferSize (int sendBufferSize)
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|sendBufferSize
@@ -1062,8 +1020,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the size of the internal socket send buffer. Defaults to 65536          * (64k).          * The option will be converted to a<code>int</code> type.          * @group common          */
-DECL|method|sendBufferSize ( String sendBufferSize)
-specifier|public
+DECL|method|sendBufferSize (String sendBufferSize)
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|sendBufferSize
@@ -1085,7 +1042,6 @@ return|;
 block|}
 comment|/**          * The maximum time the Component will wait for a receipt from the MQTT          * broker to acknowledge a published message before throwing an          * exception.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|sendWaitInSeconds ( int sendWaitInSeconds)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|sendWaitInSeconds
@@ -1107,7 +1063,6 @@ return|;
 block|}
 comment|/**          * The maximum time the Component will wait for a receipt from the MQTT          * broker to acknowledge a published message before throwing an          * exception.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|sendWaitInSeconds ( String sendWaitInSeconds)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|sendWaitInSeconds
@@ -1129,7 +1084,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContext configuration.          * The option is a<code>javax.net.ssl.SSLContext</code> type.          * @group common          */
 DECL|method|sslContext (Object sslContext)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|sslContext
@@ -1151,7 +1105,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContext configuration.          * The option will be converted to a          *<code>javax.net.ssl.SSLContext</code> type.          * @group common          */
 DECL|method|sslContext (String sslContext)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|sslContext
@@ -1175,7 +1128,6 @@ comment|/**          * These are set on the Endpoint - together with properties 
 annotation|@
 name|Deprecated
 DECL|method|subscribeTopicName ( String subscribeTopicName)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|subscribeTopicName
@@ -1197,7 +1149,6 @@ return|;
 block|}
 comment|/**          * A comma-delimited list of Topics to subscribe to for messages. Note          * that each item of this list can contain MQTT wildcards ( and/or #),          * in order to subscribe to topics matching a certain pattern within a          * hierarchy. For example, is a wildcard for all topics at a level          * within the hierarchy, so if a broker has topics topics/one and          * topics/two, then topics/ can be used to subscribe to both. A caveat          * to consider here is that if the broker adds topics/three, the route          * would also begin to receive messages from that topic.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|subscribeTopicNames ( String subscribeTopicNames)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|subscribeTopicNames
@@ -1219,7 +1170,6 @@ return|;
 block|}
 comment|/**          * Sets traffic class or type-of-service octet in the IP header for          * packets sent from the transport. Defaults to 8 which means the          * traffic should be optimized for throughput.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|trafficClass (int trafficClass)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|trafficClass
@@ -1240,8 +1190,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets traffic class or type-of-service octet in the IP header for          * packets sent from the transport. Defaults to 8 which means the          * traffic should be optimized for throughput.          * The option will be converted to a<code>int</code> type.          * @group common          */
-DECL|method|trafficClass ( String trafficClass)
-specifier|public
+DECL|method|trafficClass (String trafficClass)
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|trafficClass
@@ -1263,7 +1212,6 @@ return|;
 block|}
 comment|/**          * Set to 3.1.1 to use MQTT version 3.1.1. Otherwise defaults to the 3.1          * protocol version.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|version (String version)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|version
@@ -1284,8 +1232,7 @@ name|this
 return|;
 block|}
 comment|/**          * The Will message to send. Defaults to a zero length message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|willMessage ( String willMessage)
-specifier|public
+DECL|method|willMessage (String willMessage)
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|willMessage
@@ -1307,7 +1254,6 @@ return|;
 block|}
 comment|/**          * Sets the quality of service to use for the Will message. Defaults to          * AT_MOST_ONCE.          * The option is a<code>org.fusesource.mqtt.client.QoS</code> type.          * @group common          */
 DECL|method|willQos (QoS willQos)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|willQos
@@ -1329,7 +1275,6 @@ return|;
 block|}
 comment|/**          * Sets the quality of service to use for the Will message. Defaults to          * AT_MOST_ONCE.          * The option will be converted to a          *<code>org.fusesource.mqtt.client.QoS</code> type.          * @group common          */
 DECL|method|willQos (String willQos)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|willQos
@@ -1351,7 +1296,6 @@ return|;
 block|}
 comment|/**          * Set to true if you want the Will to be published with the retain          * option.          * The option is a<code>org.fusesource.mqtt.client.QoS</code> type.          * @group common          */
 DECL|method|willRetain (QoS willRetain)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|willRetain
@@ -1373,7 +1317,6 @@ return|;
 block|}
 comment|/**          * Set to true if you want the Will to be published with the retain          * option.          * The option will be converted to a          *<code>org.fusesource.mqtt.client.QoS</code> type.          * @group common          */
 DECL|method|willRetain (String willRetain)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|willRetain
@@ -1395,7 +1338,6 @@ return|;
 block|}
 comment|/**          * If set the server will publish the client's Will message to the          * specified topics if the client has an unexpected disconnection.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|willTopic (String willTopic)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|willTopic
@@ -1417,7 +1359,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -1439,7 +1380,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -1469,7 +1409,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|basic
@@ -1484,7 +1423,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointConsumerBuilder
 name|exceptionHandler
@@ -1506,7 +1444,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointConsumerBuilder
 name|exceptionHandler
@@ -1528,7 +1465,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointConsumerBuilder
 name|exchangePattern
@@ -1550,7 +1486,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointConsumerBuilder
 name|exchangePattern
@@ -1572,7 +1507,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1594,7 +1528,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1616,7 +1549,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointConsumerBuilder
 name|synchronous
@@ -1638,7 +1570,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointConsumerBuilder
 name|synchronous
@@ -1669,7 +1600,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointProducerBuilder
 name|advanced
@@ -1684,7 +1614,6 @@ return|;
 block|}
 comment|/**          * A logical name to use which is not the topic name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|name
@@ -1706,7 +1635,6 @@ return|;
 block|}
 comment|/**          * SSL connections perform blocking operations against internal thread          * pool unless you call the setBlockingExecutor method to configure that          * executor they will use instead.          * The option is a<code>java.util.concurrent.Executor</code> type.          * @group common          */
 DECL|method|blockingExecutor ( Executor blockingExecutor)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|blockingExecutor
@@ -1728,7 +1656,6 @@ return|;
 block|}
 comment|/**          * SSL connections perform blocking operations against internal thread          * pool unless you call the setBlockingExecutor method to configure that          * executor they will use instead.          * The option will be converted to a          *<code>java.util.concurrent.Executor</code> type.          * @group common          */
 DECL|method|blockingExecutor ( String blockingExecutor)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|blockingExecutor
@@ -1750,7 +1677,6 @@ return|;
 block|}
 comment|/**          * The default retain policy to be used on messages sent to the MQTT          * broker.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|byDefaultRetain ( boolean byDefaultRetain)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|byDefaultRetain
@@ -1772,7 +1698,6 @@ return|;
 block|}
 comment|/**          * The default retain policy to be used on messages sent to the MQTT          * broker.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|byDefaultRetain ( String byDefaultRetain)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|byDefaultRetain
@@ -1793,8 +1718,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set to false if you want the MQTT server to persist topic          * subscriptions and ack positions across client sessions. Defaults to          * true.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|cleanSession ( boolean cleanSession)
-specifier|public
+DECL|method|cleanSession (boolean cleanSession)
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|cleanSession
@@ -1815,8 +1739,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set to false if you want the MQTT server to persist topic          * subscriptions and ack positions across client sessions. Defaults to          * true.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|cleanSession ( String cleanSession)
-specifier|public
+DECL|method|cleanSession (String cleanSession)
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|cleanSession
@@ -1838,7 +1761,6 @@ return|;
 block|}
 comment|/**          * Use to set the client Id of the session. This is what an MQTT server          * uses to identify a session where setCleanSession(false); is being          * used. The id must be 23 characters or less. Defaults to auto          * generated id (based on your socket address, port and timestamp).          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientId (String clientId)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|clientId
@@ -1860,7 +1782,6 @@ return|;
 block|}
 comment|/**          * The maximum number of reconnect attempts before an error is reported          * back to the client on the first attempt by the client to connect to a          * server. Set to -1 to use unlimited attempts. Defaults to -1.          * The option is a<code>long</code> type.          * @group common          */
 DECL|method|connectAttemptsMax ( long connectAttemptsMax)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|connectAttemptsMax
@@ -1882,7 +1803,6 @@ return|;
 block|}
 comment|/**          * The maximum number of reconnect attempts before an error is reported          * back to the client on the first attempt by the client to connect to a          * server. Set to -1 to use unlimited attempts. Defaults to -1.          * The option will be converted to a<code>long</code> type.          * @group common          */
 DECL|method|connectAttemptsMax ( String connectAttemptsMax)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|connectAttemptsMax
@@ -1904,7 +1824,6 @@ return|;
 block|}
 comment|/**          * Delay in seconds the Component will wait for a connection to be          * established to the MQTT broker.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|connectWaitInSeconds ( int connectWaitInSeconds)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|connectWaitInSeconds
@@ -1926,7 +1845,6 @@ return|;
 block|}
 comment|/**          * Delay in seconds the Component will wait for a connection to be          * established to the MQTT broker.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|connectWaitInSeconds ( String connectWaitInSeconds)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|connectWaitInSeconds
@@ -1948,7 +1866,6 @@ return|;
 block|}
 comment|/**          * The number of seconds the Component will wait for a valid disconnect          * on stop() from the MQTT broker.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|disconnectWaitInSeconds ( int disconnectWaitInSeconds)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|disconnectWaitInSeconds
@@ -1970,7 +1887,6 @@ return|;
 block|}
 comment|/**          * The number of seconds the Component will wait for a valid disconnect          * on stop() from the MQTT broker.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|disconnectWaitInSeconds ( String disconnectWaitInSeconds)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|disconnectWaitInSeconds
@@ -1991,8 +1907,7 @@ name|this
 return|;
 block|}
 comment|/**          * A HawtDispatch dispatch queue is used to synchronize access to the          * connection. If an explicit queue is not configured via the          * setDispatchQueue method, then a new queue will be created for the          * connection. Setting an explicit queue might be handy if you want          * multiple connection to share the same queue for synchronization.          * The option is a          *<code>org.fusesource.hawtdispatch.DispatchQueue</code> type.          * @group common          */
-DECL|method|dispatchQueue ( Object dispatchQueue)
-specifier|public
+DECL|method|dispatchQueue (Object dispatchQueue)
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|dispatchQueue
@@ -2013,8 +1928,7 @@ name|this
 return|;
 block|}
 comment|/**          * A HawtDispatch dispatch queue is used to synchronize access to the          * connection. If an explicit queue is not configured via the          * setDispatchQueue method, then a new queue will be created for the          * connection. Setting an explicit queue might be handy if you want          * multiple connection to share the same queue for synchronization.          * The option will be converted to a          *<code>org.fusesource.hawtdispatch.DispatchQueue</code> type.          * @group common          */
-DECL|method|dispatchQueue ( String dispatchQueue)
-specifier|public
+DECL|method|dispatchQueue (String dispatchQueue)
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|dispatchQueue
@@ -2036,7 +1950,6 @@ return|;
 block|}
 comment|/**          * The URI of the MQTT broker to connect too - this component also          * supports SSL - e.g. ssl://127.0.0.1:8883.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|host
@@ -2058,7 +1971,6 @@ return|;
 block|}
 comment|/**          * Configures the Keep Alive timer in seconds. Defines the maximum time          * interval between messages received from a client. It enables the          * server to detect that the network connection to a client has dropped,          * without having to wait for the long TCP/IP timeout.          * The option is a<code>short</code> type.          * @group common          */
 DECL|method|keepAlive (short keepAlive)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|keepAlive
@@ -2080,7 +1992,6 @@ return|;
 block|}
 comment|/**          * Configures the Keep Alive timer in seconds. Defines the maximum time          * interval between messages received from a client. It enables the          * server to detect that the network connection to a client has dropped,          * without having to wait for the long TCP/IP timeout.          * The option will be converted to a<code>short</code> type.          * @group common          */
 DECL|method|keepAlive (String keepAlive)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|keepAlive
@@ -2102,7 +2013,6 @@ return|;
 block|}
 comment|/**          * The local InetAddress and port to use.          * The option is a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|localAddress (URI localAddress)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|localAddress
@@ -2123,8 +2033,7 @@ name|this
 return|;
 block|}
 comment|/**          * The local InetAddress and port to use.          * The option will be converted to a<code>java.net.URI</code> type.          * @group common          */
-DECL|method|localAddress ( String localAddress)
-specifier|public
+DECL|method|localAddress (String localAddress)
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|localAddress
@@ -2146,7 +2055,6 @@ return|;
 block|}
 comment|/**          * Sets the maximum bytes per second that this transport will receive          * data at. This setting throttles reads so that the rate is not          * exceeded. Defaults to 0 which disables throttling.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|maxReadRate (int maxReadRate)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|maxReadRate
@@ -2167,8 +2075,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the maximum bytes per second that this transport will receive          * data at. This setting throttles reads so that the rate is not          * exceeded. Defaults to 0 which disables throttling.          * The option will be converted to a<code>int</code> type.          * @group common          */
-DECL|method|maxReadRate ( String maxReadRate)
-specifier|public
+DECL|method|maxReadRate (String maxReadRate)
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|maxReadRate
@@ -2190,7 +2097,6 @@ return|;
 block|}
 comment|/**          * Sets the maximum bytes per second that this transport will send data          * at. This setting throttles writes so that the rate is not exceeded.          * Defaults to 0 which disables throttling.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|maxWriteRate (int maxWriteRate)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|maxWriteRate
@@ -2211,8 +2117,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the maximum bytes per second that this transport will send data          * at. This setting throttles writes so that the rate is not exceeded.          * Defaults to 0 which disables throttling.          * The option will be converted to a<code>int</code> type.          * @group common          */
-DECL|method|maxWriteRate ( String maxWriteRate)
-specifier|public
+DECL|method|maxWriteRate (String maxWriteRate)
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|maxWriteRate
@@ -2234,7 +2139,6 @@ return|;
 block|}
 comment|/**          * The property name to look for on an Exchange for an individual          * published message. If this is set (one of AtMostOnce, AtLeastOnce or          * ExactlyOnce ) - then that QoS will be set on the message sent to the          * MQTT message broker.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|mqttQosPropertyName ( String mqttQosPropertyName)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|mqttQosPropertyName
@@ -2256,7 +2160,6 @@ return|;
 block|}
 comment|/**          * The property name to look for on an Exchange for an individual          * published message. If this is set (expects a Boolean value) - then          * the retain property will be set on the message sent to the MQTT          * message broker.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|mqttRetainPropertyName ( String mqttRetainPropertyName)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|mqttRetainPropertyName
@@ -2278,7 +2181,6 @@ return|;
 block|}
 comment|/**          * These a properties that are looked for in an Exchange - to publish          * to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|mqttTopicPropertyName ( String mqttTopicPropertyName)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|mqttTopicPropertyName
@@ -2300,7 +2202,6 @@ return|;
 block|}
 comment|/**          * The default Topic to publish messages on.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|publishTopicName ( String publishTopicName)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|publishTopicName
@@ -2322,7 +2223,6 @@ return|;
 block|}
 comment|/**          * Quality of service level to use for topics.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|qualityOfService ( String qualityOfService)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|qualityOfService
@@ -2344,7 +2244,6 @@ return|;
 block|}
 comment|/**          * Sets the size of the internal socket receive buffer. Defaults to          * 65536 (64k).          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|receiveBufferSize ( int receiveBufferSize)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|receiveBufferSize
@@ -2366,7 +2265,6 @@ return|;
 block|}
 comment|/**          * Sets the size of the internal socket receive buffer. Defaults to          * 65536 (64k).          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|receiveBufferSize ( String receiveBufferSize)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|receiveBufferSize
@@ -2388,7 +2286,6 @@ return|;
 block|}
 comment|/**          * The maximum number of reconnect attempts before an error is reported          * back to the client after a server connection had previously been          * established. Set to -1 to use unlimited attempts. Defaults to -1.          * The option is a<code>long</code> type.          * @group common          */
 DECL|method|reconnectAttemptsMax ( long reconnectAttemptsMax)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|reconnectAttemptsMax
@@ -2410,7 +2307,6 @@ return|;
 block|}
 comment|/**          * The maximum number of reconnect attempts before an error is reported          * back to the client after a server connection had previously been          * established. Set to -1 to use unlimited attempts. Defaults to -1.          * The option will be converted to a<code>long</code> type.          * @group common          */
 DECL|method|reconnectAttemptsMax ( String reconnectAttemptsMax)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|reconnectAttemptsMax
@@ -2432,7 +2328,6 @@ return|;
 block|}
 comment|/**          * The Exponential backoff be used between reconnect attempts. Set to 1          * to disable exponential backoff. Defaults to 2.          * The option is a<code>double</code> type.          * @group common          */
 DECL|method|reconnectBackOffMultiplier ( double reconnectBackOffMultiplier)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|reconnectBackOffMultiplier
@@ -2454,7 +2349,6 @@ return|;
 block|}
 comment|/**          * The Exponential backoff be used between reconnect attempts. Set to 1          * to disable exponential backoff. Defaults to 2.          * The option will be converted to a<code>double</code> type.          * @group common          */
 DECL|method|reconnectBackOffMultiplier ( String reconnectBackOffMultiplier)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|reconnectBackOffMultiplier
@@ -2475,8 +2369,7 @@ name|this
 return|;
 block|}
 comment|/**          * How long to wait in ms before the first reconnect attempt. Defaults          * to 10.          * The option is a<code>long</code> type.          * @group common          */
-DECL|method|reconnectDelay ( long reconnectDelay)
-specifier|public
+DECL|method|reconnectDelay (long reconnectDelay)
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|reconnectDelay
@@ -2497,8 +2390,7 @@ name|this
 return|;
 block|}
 comment|/**          * How long to wait in ms before the first reconnect attempt. Defaults          * to 10.          * The option will be converted to a<code>long</code> type.          * @group common          */
-DECL|method|reconnectDelay ( String reconnectDelay)
-specifier|public
+DECL|method|reconnectDelay (String reconnectDelay)
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|reconnectDelay
@@ -2520,7 +2412,6 @@ return|;
 block|}
 comment|/**          * The maximum amount of time in ms to wait between reconnect attempts.          * Defaults to 30,000.          * The option is a<code>long</code> type.          * @group common          */
 DECL|method|reconnectDelayMax ( long reconnectDelayMax)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|reconnectDelayMax
@@ -2542,7 +2433,6 @@ return|;
 block|}
 comment|/**          * The maximum amount of time in ms to wait between reconnect attempts.          * Defaults to 30,000.          * The option will be converted to a<code>long</code> type.          * @group common          */
 DECL|method|reconnectDelayMax ( String reconnectDelayMax)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|reconnectDelayMax
@@ -2563,8 +2453,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the size of the internal socket send buffer. Defaults to 65536          * (64k).          * The option is a<code>int</code> type.          * @group common          */
-DECL|method|sendBufferSize ( int sendBufferSize)
-specifier|public
+DECL|method|sendBufferSize (int sendBufferSize)
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|sendBufferSize
@@ -2585,8 +2474,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the size of the internal socket send buffer. Defaults to 65536          * (64k).          * The option will be converted to a<code>int</code> type.          * @group common          */
-DECL|method|sendBufferSize ( String sendBufferSize)
-specifier|public
+DECL|method|sendBufferSize (String sendBufferSize)
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|sendBufferSize
@@ -2608,7 +2496,6 @@ return|;
 block|}
 comment|/**          * The maximum time the Component will wait for a receipt from the MQTT          * broker to acknowledge a published message before throwing an          * exception.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|sendWaitInSeconds ( int sendWaitInSeconds)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|sendWaitInSeconds
@@ -2630,7 +2517,6 @@ return|;
 block|}
 comment|/**          * The maximum time the Component will wait for a receipt from the MQTT          * broker to acknowledge a published message before throwing an          * exception.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|sendWaitInSeconds ( String sendWaitInSeconds)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|sendWaitInSeconds
@@ -2652,7 +2538,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContext configuration.          * The option is a<code>javax.net.ssl.SSLContext</code> type.          * @group common          */
 DECL|method|sslContext (Object sslContext)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|sslContext
@@ -2674,7 +2559,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContext configuration.          * The option will be converted to a          *<code>javax.net.ssl.SSLContext</code> type.          * @group common          */
 DECL|method|sslContext (String sslContext)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|sslContext
@@ -2698,7 +2582,6 @@ comment|/**          * These are set on the Endpoint - together with properties 
 annotation|@
 name|Deprecated
 DECL|method|subscribeTopicName ( String subscribeTopicName)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|subscribeTopicName
@@ -2720,7 +2603,6 @@ return|;
 block|}
 comment|/**          * A comma-delimited list of Topics to subscribe to for messages. Note          * that each item of this list can contain MQTT wildcards ( and/or #),          * in order to subscribe to topics matching a certain pattern within a          * hierarchy. For example, is a wildcard for all topics at a level          * within the hierarchy, so if a broker has topics topics/one and          * topics/two, then topics/ can be used to subscribe to both. A caveat          * to consider here is that if the broker adds topics/three, the route          * would also begin to receive messages from that topic.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|subscribeTopicNames ( String subscribeTopicNames)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|subscribeTopicNames
@@ -2742,7 +2624,6 @@ return|;
 block|}
 comment|/**          * Sets traffic class or type-of-service octet in the IP header for          * packets sent from the transport. Defaults to 8 which means the          * traffic should be optimized for throughput.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|trafficClass (int trafficClass)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|trafficClass
@@ -2763,8 +2644,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets traffic class or type-of-service octet in the IP header for          * packets sent from the transport. Defaults to 8 which means the          * traffic should be optimized for throughput.          * The option will be converted to a<code>int</code> type.          * @group common          */
-DECL|method|trafficClass ( String trafficClass)
-specifier|public
+DECL|method|trafficClass (String trafficClass)
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|trafficClass
@@ -2786,7 +2666,6 @@ return|;
 block|}
 comment|/**          * Set to 3.1.1 to use MQTT version 3.1.1. Otherwise defaults to the 3.1          * protocol version.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|version (String version)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|version
@@ -2807,8 +2686,7 @@ name|this
 return|;
 block|}
 comment|/**          * The Will message to send. Defaults to a zero length message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|willMessage ( String willMessage)
-specifier|public
+DECL|method|willMessage (String willMessage)
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|willMessage
@@ -2830,7 +2708,6 @@ return|;
 block|}
 comment|/**          * Sets the quality of service to use for the Will message. Defaults to          * AT_MOST_ONCE.          * The option is a<code>org.fusesource.mqtt.client.QoS</code> type.          * @group common          */
 DECL|method|willQos (QoS willQos)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|willQos
@@ -2852,7 +2729,6 @@ return|;
 block|}
 comment|/**          * Sets the quality of service to use for the Will message. Defaults to          * AT_MOST_ONCE.          * The option will be converted to a          *<code>org.fusesource.mqtt.client.QoS</code> type.          * @group common          */
 DECL|method|willQos (String willQos)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|willQos
@@ -2874,7 +2750,6 @@ return|;
 block|}
 comment|/**          * Set to true if you want the Will to be published with the retain          * option.          * The option is a<code>org.fusesource.mqtt.client.QoS</code> type.          * @group common          */
 DECL|method|willRetain (QoS willRetain)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|willRetain
@@ -2896,7 +2771,6 @@ return|;
 block|}
 comment|/**          * Set to true if you want the Will to be published with the retain          * option.          * The option will be converted to a          *<code>org.fusesource.mqtt.client.QoS</code> type.          * @group common          */
 DECL|method|willRetain (String willRetain)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|willRetain
@@ -2918,7 +2792,6 @@ return|;
 block|}
 comment|/**          * If set the server will publish the client's Will message to the          * specified topics if the client has an unexpected disconnection.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|willTopic (String willTopic)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|willTopic
@@ -2940,7 +2813,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|lazyStartProducer
@@ -2962,7 +2834,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|lazyStartProducer
@@ -2992,7 +2863,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|basic
@@ -3007,7 +2877,6 @@ return|;
 block|}
 comment|/**          * Sessions can be lazily created to avoid exceptions, if the remote          * server is not up and running when the Camel producer is started.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|lazySessionCreation ( boolean lazySessionCreation)
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointProducerBuilder
 name|lazySessionCreation
@@ -3029,7 +2898,6 @@ return|;
 block|}
 comment|/**          * Sessions can be lazily created to avoid exceptions, if the remote          * server is not up and running when the Camel producer is started.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|lazySessionCreation ( String lazySessionCreation)
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointProducerBuilder
 name|lazySessionCreation
@@ -3051,7 +2919,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointProducerBuilder
 name|basicPropertyBinding
@@ -3073,7 +2940,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointProducerBuilder
 name|basicPropertyBinding
@@ -3095,7 +2961,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointProducerBuilder
 name|synchronous
@@ -3117,7 +2982,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointProducerBuilder
 name|synchronous
@@ -3150,7 +3014,6 @@ extends|,
 name|MQTTEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointBuilder
 name|advanced
@@ -3165,7 +3028,6 @@ return|;
 block|}
 comment|/**          * A logical name to use which is not the topic name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|name
@@ -3186,8 +3048,7 @@ name|this
 return|;
 block|}
 comment|/**          * SSL connections perform blocking operations against internal thread          * pool unless you call the setBlockingExecutor method to configure that          * executor they will use instead.          * The option is a<code>java.util.concurrent.Executor</code> type.          * @group common          */
-DECL|method|blockingExecutor ( Executor blockingExecutor)
-specifier|public
+DECL|method|blockingExecutor (Executor blockingExecutor)
 specifier|default
 name|MQTTEndpointBuilder
 name|blockingExecutor
@@ -3208,8 +3069,7 @@ name|this
 return|;
 block|}
 comment|/**          * SSL connections perform blocking operations against internal thread          * pool unless you call the setBlockingExecutor method to configure that          * executor they will use instead.          * The option will be converted to a          *<code>java.util.concurrent.Executor</code> type.          * @group common          */
-DECL|method|blockingExecutor ( String blockingExecutor)
-specifier|public
+DECL|method|blockingExecutor (String blockingExecutor)
 specifier|default
 name|MQTTEndpointBuilder
 name|blockingExecutor
@@ -3230,8 +3090,7 @@ name|this
 return|;
 block|}
 comment|/**          * The default retain policy to be used on messages sent to the MQTT          * broker.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|byDefaultRetain ( boolean byDefaultRetain)
-specifier|public
+DECL|method|byDefaultRetain (boolean byDefaultRetain)
 specifier|default
 name|MQTTEndpointBuilder
 name|byDefaultRetain
@@ -3252,8 +3111,7 @@ name|this
 return|;
 block|}
 comment|/**          * The default retain policy to be used on messages sent to the MQTT          * broker.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|byDefaultRetain ( String byDefaultRetain)
-specifier|public
+DECL|method|byDefaultRetain (String byDefaultRetain)
 specifier|default
 name|MQTTEndpointBuilder
 name|byDefaultRetain
@@ -3275,7 +3133,6 @@ return|;
 block|}
 comment|/**          * Set to false if you want the MQTT server to persist topic          * subscriptions and ack positions across client sessions. Defaults to          * true.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|cleanSession (boolean cleanSession)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|cleanSession
@@ -3297,7 +3154,6 @@ return|;
 block|}
 comment|/**          * Set to false if you want the MQTT server to persist topic          * subscriptions and ack positions across client sessions. Defaults to          * true.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|cleanSession (String cleanSession)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|cleanSession
@@ -3319,7 +3175,6 @@ return|;
 block|}
 comment|/**          * Use to set the client Id of the session. This is what an MQTT server          * uses to identify a session where setCleanSession(false); is being          * used. The id must be 23 characters or less. Defaults to auto          * generated id (based on your socket address, port and timestamp).          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientId (String clientId)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|clientId
@@ -3340,8 +3195,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximum number of reconnect attempts before an error is reported          * back to the client on the first attempt by the client to connect to a          * server. Set to -1 to use unlimited attempts. Defaults to -1.          * The option is a<code>long</code> type.          * @group common          */
-DECL|method|connectAttemptsMax ( long connectAttemptsMax)
-specifier|public
+DECL|method|connectAttemptsMax (long connectAttemptsMax)
 specifier|default
 name|MQTTEndpointBuilder
 name|connectAttemptsMax
@@ -3362,8 +3216,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximum number of reconnect attempts before an error is reported          * back to the client on the first attempt by the client to connect to a          * server. Set to -1 to use unlimited attempts. Defaults to -1.          * The option will be converted to a<code>long</code> type.          * @group common          */
-DECL|method|connectAttemptsMax ( String connectAttemptsMax)
-specifier|public
+DECL|method|connectAttemptsMax (String connectAttemptsMax)
 specifier|default
 name|MQTTEndpointBuilder
 name|connectAttemptsMax
@@ -3385,7 +3238,6 @@ return|;
 block|}
 comment|/**          * Delay in seconds the Component will wait for a connection to be          * established to the MQTT broker.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|connectWaitInSeconds ( int connectWaitInSeconds)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|connectWaitInSeconds
@@ -3407,7 +3259,6 @@ return|;
 block|}
 comment|/**          * Delay in seconds the Component will wait for a connection to be          * established to the MQTT broker.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|connectWaitInSeconds ( String connectWaitInSeconds)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|connectWaitInSeconds
@@ -3429,7 +3280,6 @@ return|;
 block|}
 comment|/**          * The number of seconds the Component will wait for a valid disconnect          * on stop() from the MQTT broker.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|disconnectWaitInSeconds ( int disconnectWaitInSeconds)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|disconnectWaitInSeconds
@@ -3451,7 +3301,6 @@ return|;
 block|}
 comment|/**          * The number of seconds the Component will wait for a valid disconnect          * on stop() from the MQTT broker.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|disconnectWaitInSeconds ( String disconnectWaitInSeconds)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|disconnectWaitInSeconds
@@ -3473,7 +3322,6 @@ return|;
 block|}
 comment|/**          * A HawtDispatch dispatch queue is used to synchronize access to the          * connection. If an explicit queue is not configured via the          * setDispatchQueue method, then a new queue will be created for the          * connection. Setting an explicit queue might be handy if you want          * multiple connection to share the same queue for synchronization.          * The option is a          *<code>org.fusesource.hawtdispatch.DispatchQueue</code> type.          * @group common          */
 DECL|method|dispatchQueue (Object dispatchQueue)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|dispatchQueue
@@ -3495,7 +3343,6 @@ return|;
 block|}
 comment|/**          * A HawtDispatch dispatch queue is used to synchronize access to the          * connection. If an explicit queue is not configured via the          * setDispatchQueue method, then a new queue will be created for the          * connection. Setting an explicit queue might be handy if you want          * multiple connection to share the same queue for synchronization.          * The option will be converted to a          *<code>org.fusesource.hawtdispatch.DispatchQueue</code> type.          * @group common          */
 DECL|method|dispatchQueue (String dispatchQueue)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|dispatchQueue
@@ -3517,7 +3364,6 @@ return|;
 block|}
 comment|/**          * The URI of the MQTT broker to connect too - this component also          * supports SSL - e.g. ssl://127.0.0.1:8883.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|host
@@ -3539,7 +3385,6 @@ return|;
 block|}
 comment|/**          * Configures the Keep Alive timer in seconds. Defines the maximum time          * interval between messages received from a client. It enables the          * server to detect that the network connection to a client has dropped,          * without having to wait for the long TCP/IP timeout.          * The option is a<code>short</code> type.          * @group common          */
 DECL|method|keepAlive (short keepAlive)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|keepAlive
@@ -3561,7 +3406,6 @@ return|;
 block|}
 comment|/**          * Configures the Keep Alive timer in seconds. Defines the maximum time          * interval between messages received from a client. It enables the          * server to detect that the network connection to a client has dropped,          * without having to wait for the long TCP/IP timeout.          * The option will be converted to a<code>short</code> type.          * @group common          */
 DECL|method|keepAlive (String keepAlive)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|keepAlive
@@ -3583,7 +3427,6 @@ return|;
 block|}
 comment|/**          * The local InetAddress and port to use.          * The option is a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|localAddress (URI localAddress)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|localAddress
@@ -3605,7 +3448,6 @@ return|;
 block|}
 comment|/**          * The local InetAddress and port to use.          * The option will be converted to a<code>java.net.URI</code> type.          * @group common          */
 DECL|method|localAddress (String localAddress)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|localAddress
@@ -3627,7 +3469,6 @@ return|;
 block|}
 comment|/**          * Sets the maximum bytes per second that this transport will receive          * data at. This setting throttles reads so that the rate is not          * exceeded. Defaults to 0 which disables throttling.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|maxReadRate (int maxReadRate)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|maxReadRate
@@ -3649,7 +3490,6 @@ return|;
 block|}
 comment|/**          * Sets the maximum bytes per second that this transport will receive          * data at. This setting throttles reads so that the rate is not          * exceeded. Defaults to 0 which disables throttling.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|maxReadRate (String maxReadRate)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|maxReadRate
@@ -3671,7 +3511,6 @@ return|;
 block|}
 comment|/**          * Sets the maximum bytes per second that this transport will send data          * at. This setting throttles writes so that the rate is not exceeded.          * Defaults to 0 which disables throttling.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|maxWriteRate (int maxWriteRate)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|maxWriteRate
@@ -3693,7 +3532,6 @@ return|;
 block|}
 comment|/**          * Sets the maximum bytes per second that this transport will send data          * at. This setting throttles writes so that the rate is not exceeded.          * Defaults to 0 which disables throttling.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|maxWriteRate (String maxWriteRate)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|maxWriteRate
@@ -3715,7 +3553,6 @@ return|;
 block|}
 comment|/**          * The property name to look for on an Exchange for an individual          * published message. If this is set (one of AtMostOnce, AtLeastOnce or          * ExactlyOnce ) - then that QoS will be set on the message sent to the          * MQTT message broker.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|mqttQosPropertyName ( String mqttQosPropertyName)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|mqttQosPropertyName
@@ -3737,7 +3574,6 @@ return|;
 block|}
 comment|/**          * The property name to look for on an Exchange for an individual          * published message. If this is set (expects a Boolean value) - then          * the retain property will be set on the message sent to the MQTT          * message broker.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|mqttRetainPropertyName ( String mqttRetainPropertyName)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|mqttRetainPropertyName
@@ -3759,7 +3595,6 @@ return|;
 block|}
 comment|/**          * These a properties that are looked for in an Exchange - to publish          * to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|mqttTopicPropertyName ( String mqttTopicPropertyName)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|mqttTopicPropertyName
@@ -3780,8 +3615,7 @@ name|this
 return|;
 block|}
 comment|/**          * The default Topic to publish messages on.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|publishTopicName ( String publishTopicName)
-specifier|public
+DECL|method|publishTopicName (String publishTopicName)
 specifier|default
 name|MQTTEndpointBuilder
 name|publishTopicName
@@ -3802,8 +3636,7 @@ name|this
 return|;
 block|}
 comment|/**          * Quality of service level to use for topics.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|qualityOfService ( String qualityOfService)
-specifier|public
+DECL|method|qualityOfService (String qualityOfService)
 specifier|default
 name|MQTTEndpointBuilder
 name|qualityOfService
@@ -3824,8 +3657,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the size of the internal socket receive buffer. Defaults to          * 65536 (64k).          * The option is a<code>int</code> type.          * @group common          */
-DECL|method|receiveBufferSize ( int receiveBufferSize)
-specifier|public
+DECL|method|receiveBufferSize (int receiveBufferSize)
 specifier|default
 name|MQTTEndpointBuilder
 name|receiveBufferSize
@@ -3846,8 +3678,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the size of the internal socket receive buffer. Defaults to          * 65536 (64k).          * The option will be converted to a<code>int</code> type.          * @group common          */
-DECL|method|receiveBufferSize ( String receiveBufferSize)
-specifier|public
+DECL|method|receiveBufferSize (String receiveBufferSize)
 specifier|default
 name|MQTTEndpointBuilder
 name|receiveBufferSize
@@ -3869,7 +3700,6 @@ return|;
 block|}
 comment|/**          * The maximum number of reconnect attempts before an error is reported          * back to the client after a server connection had previously been          * established. Set to -1 to use unlimited attempts. Defaults to -1.          * The option is a<code>long</code> type.          * @group common          */
 DECL|method|reconnectAttemptsMax ( long reconnectAttemptsMax)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|reconnectAttemptsMax
@@ -3891,7 +3721,6 @@ return|;
 block|}
 comment|/**          * The maximum number of reconnect attempts before an error is reported          * back to the client after a server connection had previously been          * established. Set to -1 to use unlimited attempts. Defaults to -1.          * The option will be converted to a<code>long</code> type.          * @group common          */
 DECL|method|reconnectAttemptsMax ( String reconnectAttemptsMax)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|reconnectAttemptsMax
@@ -3913,7 +3742,6 @@ return|;
 block|}
 comment|/**          * The Exponential backoff be used between reconnect attempts. Set to 1          * to disable exponential backoff. Defaults to 2.          * The option is a<code>double</code> type.          * @group common          */
 DECL|method|reconnectBackOffMultiplier ( double reconnectBackOffMultiplier)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|reconnectBackOffMultiplier
@@ -3935,7 +3763,6 @@ return|;
 block|}
 comment|/**          * The Exponential backoff be used between reconnect attempts. Set to 1          * to disable exponential backoff. Defaults to 2.          * The option will be converted to a<code>double</code> type.          * @group common          */
 DECL|method|reconnectBackOffMultiplier ( String reconnectBackOffMultiplier)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|reconnectBackOffMultiplier
@@ -3957,7 +3784,6 @@ return|;
 block|}
 comment|/**          * How long to wait in ms before the first reconnect attempt. Defaults          * to 10.          * The option is a<code>long</code> type.          * @group common          */
 DECL|method|reconnectDelay (long reconnectDelay)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|reconnectDelay
@@ -3979,7 +3805,6 @@ return|;
 block|}
 comment|/**          * How long to wait in ms before the first reconnect attempt. Defaults          * to 10.          * The option will be converted to a<code>long</code> type.          * @group common          */
 DECL|method|reconnectDelay (String reconnectDelay)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|reconnectDelay
@@ -4000,8 +3825,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximum amount of time in ms to wait between reconnect attempts.          * Defaults to 30,000.          * The option is a<code>long</code> type.          * @group common          */
-DECL|method|reconnectDelayMax ( long reconnectDelayMax)
-specifier|public
+DECL|method|reconnectDelayMax (long reconnectDelayMax)
 specifier|default
 name|MQTTEndpointBuilder
 name|reconnectDelayMax
@@ -4022,8 +3846,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximum amount of time in ms to wait between reconnect attempts.          * Defaults to 30,000.          * The option will be converted to a<code>long</code> type.          * @group common          */
-DECL|method|reconnectDelayMax ( String reconnectDelayMax)
-specifier|public
+DECL|method|reconnectDelayMax (String reconnectDelayMax)
 specifier|default
 name|MQTTEndpointBuilder
 name|reconnectDelayMax
@@ -4045,7 +3868,6 @@ return|;
 block|}
 comment|/**          * Sets the size of the internal socket send buffer. Defaults to 65536          * (64k).          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|sendBufferSize (int sendBufferSize)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|sendBufferSize
@@ -4067,7 +3889,6 @@ return|;
 block|}
 comment|/**          * Sets the size of the internal socket send buffer. Defaults to 65536          * (64k).          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|sendBufferSize (String sendBufferSize)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|sendBufferSize
@@ -4088,8 +3909,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximum time the Component will wait for a receipt from the MQTT          * broker to acknowledge a published message before throwing an          * exception.          * The option is a<code>int</code> type.          * @group common          */
-DECL|method|sendWaitInSeconds ( int sendWaitInSeconds)
-specifier|public
+DECL|method|sendWaitInSeconds (int sendWaitInSeconds)
 specifier|default
 name|MQTTEndpointBuilder
 name|sendWaitInSeconds
@@ -4110,8 +3930,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximum time the Component will wait for a receipt from the MQTT          * broker to acknowledge a published message before throwing an          * exception.          * The option will be converted to a<code>int</code> type.          * @group common          */
-DECL|method|sendWaitInSeconds ( String sendWaitInSeconds)
-specifier|public
+DECL|method|sendWaitInSeconds (String sendWaitInSeconds)
 specifier|default
 name|MQTTEndpointBuilder
 name|sendWaitInSeconds
@@ -4133,7 +3952,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContext configuration.          * The option is a<code>javax.net.ssl.SSLContext</code> type.          * @group common          */
 DECL|method|sslContext (Object sslContext)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|sslContext
@@ -4155,7 +3973,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContext configuration.          * The option will be converted to a          *<code>javax.net.ssl.SSLContext</code> type.          * @group common          */
 DECL|method|sslContext (String sslContext)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|sslContext
@@ -4178,8 +3995,7 @@ block|}
 comment|/**          * These are set on the Endpoint - together with properties inherited          * from MQTT.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 annotation|@
 name|Deprecated
-DECL|method|subscribeTopicName ( String subscribeTopicName)
-specifier|public
+DECL|method|subscribeTopicName (String subscribeTopicName)
 specifier|default
 name|MQTTEndpointBuilder
 name|subscribeTopicName
@@ -4201,7 +4017,6 @@ return|;
 block|}
 comment|/**          * A comma-delimited list of Topics to subscribe to for messages. Note          * that each item of this list can contain MQTT wildcards ( and/or #),          * in order to subscribe to topics matching a certain pattern within a          * hierarchy. For example, is a wildcard for all topics at a level          * within the hierarchy, so if a broker has topics topics/one and          * topics/two, then topics/ can be used to subscribe to both. A caveat          * to consider here is that if the broker adds topics/three, the route          * would also begin to receive messages from that topic.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|subscribeTopicNames ( String subscribeTopicNames)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|subscribeTopicNames
@@ -4223,7 +4038,6 @@ return|;
 block|}
 comment|/**          * Sets traffic class or type-of-service octet in the IP header for          * packets sent from the transport. Defaults to 8 which means the          * traffic should be optimized for throughput.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|trafficClass (int trafficClass)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|trafficClass
@@ -4245,7 +4059,6 @@ return|;
 block|}
 comment|/**          * Sets traffic class or type-of-service octet in the IP header for          * packets sent from the transport. Defaults to 8 which means the          * traffic should be optimized for throughput.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|trafficClass (String trafficClass)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|trafficClass
@@ -4267,7 +4080,6 @@ return|;
 block|}
 comment|/**          * Set to 3.1.1 to use MQTT version 3.1.1. Otherwise defaults to the 3.1          * protocol version.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|version (String version)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|version
@@ -4289,7 +4101,6 @@ return|;
 block|}
 comment|/**          * The Will message to send. Defaults to a zero length message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|willMessage (String willMessage)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|willMessage
@@ -4311,7 +4122,6 @@ return|;
 block|}
 comment|/**          * Sets the quality of service to use for the Will message. Defaults to          * AT_MOST_ONCE.          * The option is a<code>org.fusesource.mqtt.client.QoS</code> type.          * @group common          */
 DECL|method|willQos (QoS willQos)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|willQos
@@ -4333,7 +4143,6 @@ return|;
 block|}
 comment|/**          * Sets the quality of service to use for the Will message. Defaults to          * AT_MOST_ONCE.          * The option will be converted to a          *<code>org.fusesource.mqtt.client.QoS</code> type.          * @group common          */
 DECL|method|willQos (String willQos)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|willQos
@@ -4355,7 +4164,6 @@ return|;
 block|}
 comment|/**          * Set to true if you want the Will to be published with the retain          * option.          * The option is a<code>org.fusesource.mqtt.client.QoS</code> type.          * @group common          */
 DECL|method|willRetain (QoS willRetain)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|willRetain
@@ -4377,7 +4185,6 @@ return|;
 block|}
 comment|/**          * Set to true if you want the Will to be published with the retain          * option.          * The option will be converted to a          *<code>org.fusesource.mqtt.client.QoS</code> type.          * @group common          */
 DECL|method|willRetain (String willRetain)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|willRetain
@@ -4399,7 +4206,6 @@ return|;
 block|}
 comment|/**          * If set the server will publish the client's Will message to the          * specified topics if the client has an unexpected disconnection.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|willTopic (String willTopic)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|willTopic
@@ -4432,7 +4238,6 @@ extends|,
 name|AdvancedMQTTEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|basic
@@ -4447,7 +4252,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointBuilder
 name|basicPropertyBinding
@@ -4469,7 +4273,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMQTTEndpointBuilder
 name|basicPropertyBinding
@@ -4490,8 +4293,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedMQTTEndpointBuilder
 name|synchronous
@@ -4512,8 +4314,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedMQTTEndpointBuilder
 name|synchronous
@@ -4552,7 +4353,6 @@ name|EXACTLY_ONCE
 block|;     }
 comment|/**      * Component for communicating with MQTT M2M message brokers using      * FuseSource MQTT Client. Creates a builder to build endpoints for the MQTT      * component.      */
 DECL|method|mQTT (String path)
-specifier|public
 specifier|default
 name|MQTTEndpointBuilder
 name|mQTT

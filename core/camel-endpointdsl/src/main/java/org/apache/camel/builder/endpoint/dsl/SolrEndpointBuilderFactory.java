@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSolrEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Hostname and port for the solr server.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|url (String url)
-specifier|public
 specifier|default
 name|SolrEndpointBuilder
 name|url
@@ -135,8 +133,7 @@ name|this
 return|;
 block|}
 comment|/**          * Server side must support gzip or deflate for this to have any effect.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
-DECL|method|allowCompression ( Boolean allowCompression)
-specifier|public
+DECL|method|allowCompression (Boolean allowCompression)
 specifier|default
 name|SolrEndpointBuilder
 name|allowCompression
@@ -157,8 +154,7 @@ name|this
 return|;
 block|}
 comment|/**          * Server side must support gzip or deflate for this to have any effect.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
-DECL|method|allowCompression ( String allowCompression)
-specifier|public
+DECL|method|allowCompression (String allowCompression)
 specifier|default
 name|SolrEndpointBuilder
 name|allowCompression
@@ -179,8 +175,7 @@ name|this
 return|;
 block|}
 comment|/**          * connectionTimeout on the underlying HttpConnectionManager.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
-DECL|method|connectionTimeout ( Integer connectionTimeout)
-specifier|public
+DECL|method|connectionTimeout (Integer connectionTimeout)
 specifier|default
 name|SolrEndpointBuilder
 name|connectionTimeout
@@ -201,8 +196,7 @@ name|this
 return|;
 block|}
 comment|/**          * connectionTimeout on the underlying HttpConnectionManager.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
-DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
+DECL|method|connectionTimeout (String connectionTimeout)
 specifier|default
 name|SolrEndpointBuilder
 name|connectionTimeout
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * maxConnectionsPerHost on the underlying HttpConnectionManager.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
 DECL|method|defaultMaxConnectionsPerHost ( Integer defaultMaxConnectionsPerHost)
-specifier|public
 specifier|default
 name|SolrEndpointBuilder
 name|defaultMaxConnectionsPerHost
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * maxConnectionsPerHost on the underlying HttpConnectionManager.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
 DECL|method|defaultMaxConnectionsPerHost ( String defaultMaxConnectionsPerHost)
-specifier|public
 specifier|default
 name|SolrEndpointBuilder
 name|defaultMaxConnectionsPerHost
@@ -267,8 +259,7 @@ name|this
 return|;
 block|}
 comment|/**          * indicates whether redirects are used to get to the Solr server.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
-DECL|method|followRedirects ( Boolean followRedirects)
-specifier|public
+DECL|method|followRedirects (Boolean followRedirects)
 specifier|default
 name|SolrEndpointBuilder
 name|followRedirects
@@ -289,8 +280,7 @@ name|this
 return|;
 block|}
 comment|/**          * indicates whether redirects are used to get to the Solr server.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
-DECL|method|followRedirects ( String followRedirects)
-specifier|public
+DECL|method|followRedirects (String followRedirects)
 specifier|default
 name|SolrEndpointBuilder
 name|followRedirects
@@ -312,7 +302,6 @@ return|;
 block|}
 comment|/**          * Maximum number of retries to attempt in the event of transient          * errors.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
 DECL|method|maxRetries (Integer maxRetries)
-specifier|public
 specifier|default
 name|SolrEndpointBuilder
 name|maxRetries
@@ -334,7 +323,6 @@ return|;
 block|}
 comment|/**          * Maximum number of retries to attempt in the event of transient          * errors.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
 DECL|method|maxRetries (String maxRetries)
-specifier|public
 specifier|default
 name|SolrEndpointBuilder
 name|maxRetries
@@ -356,7 +344,6 @@ return|;
 block|}
 comment|/**          * maxTotalConnection on the underlying HttpConnectionManager.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
 DECL|method|maxTotalConnections ( Integer maxTotalConnections)
-specifier|public
 specifier|default
 name|SolrEndpointBuilder
 name|maxTotalConnections
@@ -378,7 +365,6 @@ return|;
 block|}
 comment|/**          * maxTotalConnection on the underlying HttpConnectionManager.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
 DECL|method|maxTotalConnections ( String maxTotalConnections)
-specifier|public
 specifier|default
 name|SolrEndpointBuilder
 name|maxTotalConnections
@@ -400,7 +386,6 @@ return|;
 block|}
 comment|/**          * Set the request handler to be used.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|requestHandler (String requestHandler)
-specifier|public
 specifier|default
 name|SolrEndpointBuilder
 name|requestHandler
@@ -422,7 +407,6 @@ return|;
 block|}
 comment|/**          * Read timeout on the underlying HttpConnectionManager. This is          * desirable for queries, but probably not for indexing.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
 DECL|method|soTimeout (Integer soTimeout)
-specifier|public
 specifier|default
 name|SolrEndpointBuilder
 name|soTimeout
@@ -444,7 +428,6 @@ return|;
 block|}
 comment|/**          * Read timeout on the underlying HttpConnectionManager. This is          * desirable for queries, but probably not for indexing.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
 DECL|method|soTimeout (String soTimeout)
-specifier|public
 specifier|default
 name|SolrEndpointBuilder
 name|soTimeout
@@ -465,8 +448,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the queue size for the StreamingUpdateSolrServer.          * The option is a<code>int</code> type.          * @group producer          */
-DECL|method|streamingQueueSize ( int streamingQueueSize)
-specifier|public
+DECL|method|streamingQueueSize (int streamingQueueSize)
 specifier|default
 name|SolrEndpointBuilder
 name|streamingQueueSize
@@ -487,8 +469,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the queue size for the StreamingUpdateSolrServer.          * The option will be converted to a<code>int</code> type.          * @group producer          */
-DECL|method|streamingQueueSize ( String streamingQueueSize)
-specifier|public
+DECL|method|streamingQueueSize (String streamingQueueSize)
 specifier|default
 name|SolrEndpointBuilder
 name|streamingQueueSize
@@ -510,7 +491,6 @@ return|;
 block|}
 comment|/**          * Set the number of threads for the StreamingUpdateSolrServer.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|streamingThreadCount ( int streamingThreadCount)
-specifier|public
 specifier|default
 name|SolrEndpointBuilder
 name|streamingThreadCount
@@ -532,7 +512,6 @@ return|;
 block|}
 comment|/**          * Set the number of threads for the StreamingUpdateSolrServer.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|streamingThreadCount ( String streamingThreadCount)
-specifier|public
 specifier|default
 name|SolrEndpointBuilder
 name|streamingThreadCount
@@ -554,7 +533,6 @@ return|;
 block|}
 comment|/**          * Set the collection name which the solrCloud server could use.          * The option is a<code>java.lang.String</code> type.          * @group solrCloud          */
 DECL|method|collection (String collection)
-specifier|public
 specifier|default
 name|SolrEndpointBuilder
 name|collection
@@ -576,7 +554,6 @@ return|;
 block|}
 comment|/**          * Set the ZooKeeper host information which the solrCloud could use,          * such as zkhost=localhost:8123.          * The option is a<code>java.lang.String</code> type.          * @group solrCloud          */
 DECL|method|zkHost (String zkHost)
-specifier|public
 specifier|default
 name|SolrEndpointBuilder
 name|zkHost
@@ -607,7 +584,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SolrEndpointBuilder
 name|basic
@@ -622,7 +598,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSolrEndpointBuilder
 name|basicPropertyBinding
@@ -644,7 +619,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSolrEndpointBuilder
 name|basicPropertyBinding
@@ -665,8 +639,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSolrEndpointBuilder
 name|synchronous
@@ -687,8 +660,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSolrEndpointBuilder
 name|synchronous
@@ -711,7 +683,6 @@ block|}
 block|}
 comment|/**      * The solr component allows you to interface with an Apache Lucene Solr      * server. Creates a builder to build endpoints for the Solr component.      */
 DECL|method|solr (String path)
-specifier|public
 specifier|default
 name|SolrEndpointBuilder
 name|solr

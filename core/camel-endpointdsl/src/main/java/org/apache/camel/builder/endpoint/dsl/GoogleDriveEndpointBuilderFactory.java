@@ -134,7 +134,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointConsumerBuilder
 name|advanced
@@ -149,7 +148,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.google.drive.internal.GoogleDriveApiName</code> type.          * @group common          */
 DECL|method|apiName ( GoogleDriveApiName apiName)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointConsumerBuilder
 name|apiName
@@ -171,7 +169,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.google.drive.internal.GoogleDriveApiName</code> type.          * @group common          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointConsumerBuilder
 name|apiName
@@ -192,8 +189,7 @@ name|this
 return|;
 block|}
 comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|methodName ( String methodName)
-specifier|public
+DECL|method|methodName (String methodName)
 specifier|default
 name|GoogleDriveEndpointConsumerBuilder
 name|methodName
@@ -215,7 +211,6 @@ return|;
 block|}
 comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|accessToken ( String accessToken)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointConsumerBuilder
 name|accessToken
@@ -237,7 +232,6 @@ return|;
 block|}
 comment|/**          * Google drive application name. Example would be          * camel-google-drive/1.0.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|applicationName ( String applicationName)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointConsumerBuilder
 name|applicationName
@@ -259,7 +253,6 @@ return|;
 block|}
 comment|/**          * To use the GoogleCalendarClientFactory as factory for creating the          * client. Will by default use BatchGoogleDriveClientFactory.          * The option is a          *<code>org.apache.camel.component.google.drive.GoogleDriveClientFactory</code> type.          * @group common          */
 DECL|method|clientFactory ( Object clientFactory)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointConsumerBuilder
 name|clientFactory
@@ -281,7 +274,6 @@ return|;
 block|}
 comment|/**          * To use the GoogleCalendarClientFactory as factory for creating the          * client. Will by default use BatchGoogleDriveClientFactory.          * The option will be converted to a          *<code>org.apache.camel.component.google.drive.GoogleDriveClientFactory</code> type.          * @group common          */
 DECL|method|clientFactory ( String clientFactory)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointConsumerBuilder
 name|clientFactory
@@ -302,8 +294,7 @@ name|this
 return|;
 block|}
 comment|/**          * Client ID of the drive application.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|clientId ( String clientId)
-specifier|public
+DECL|method|clientId (String clientId)
 specifier|default
 name|GoogleDriveEndpointConsumerBuilder
 name|clientId
@@ -325,7 +316,6 @@ return|;
 block|}
 comment|/**          * Client secret of the drive application.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientSecret ( String clientSecret)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointConsumerBuilder
 name|clientSecret
@@ -347,7 +337,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointConsumerBuilder
 name|inBody
@@ -369,7 +358,6 @@ return|;
 block|}
 comment|/**          * OAuth 2 refresh token. Using this, the Google Calendar component can          * obtain a new accessToken whenever the current one expires - a          * necessity if the application is long-lived.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|refreshToken ( String refreshToken)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointConsumerBuilder
 name|refreshToken
@@ -390,8 +378,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specifies the level of permissions you want a drive application to          * have to a user account. See          * https://developers.google.com/drive/web/scopes for more info.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
-DECL|method|scopes ( List<String> scopes)
-specifier|public
+DECL|method|scopes (List<String> scopes)
 specifier|default
 name|GoogleDriveEndpointConsumerBuilder
 name|scopes
@@ -416,7 +403,6 @@ return|;
 block|}
 comment|/**          * Specifies the level of permissions you want a drive application to          * have to a user account. See          * https://developers.google.com/drive/web/scopes for more info.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|scopes (String scopes)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointConsumerBuilder
 name|scopes
@@ -438,7 +424,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -460,7 +445,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -490,7 +474,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|GoogleDriveEndpointConsumerBuilder
 name|basic
@@ -505,7 +488,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointConsumerBuilder
 name|exceptionHandler
@@ -527,7 +509,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointConsumerBuilder
 name|exceptionHandler
@@ -549,7 +530,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointConsumerBuilder
 name|exchangePattern
@@ -571,7 +551,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointConsumerBuilder
 name|exchangePattern
@@ -593,7 +572,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -615,7 +593,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -637,7 +614,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointConsumerBuilder
 name|synchronous
@@ -659,7 +635,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointConsumerBuilder
 name|synchronous
@@ -690,7 +665,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointProducerBuilder
 name|advanced
@@ -705,7 +679,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.google.drive.internal.GoogleDriveApiName</code> type.          * @group common          */
 DECL|method|apiName ( GoogleDriveApiName apiName)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointProducerBuilder
 name|apiName
@@ -727,7 +700,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.google.drive.internal.GoogleDriveApiName</code> type.          * @group common          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointProducerBuilder
 name|apiName
@@ -748,8 +720,7 @@ name|this
 return|;
 block|}
 comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|methodName ( String methodName)
-specifier|public
+DECL|method|methodName (String methodName)
 specifier|default
 name|GoogleDriveEndpointProducerBuilder
 name|methodName
@@ -771,7 +742,6 @@ return|;
 block|}
 comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|accessToken ( String accessToken)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointProducerBuilder
 name|accessToken
@@ -793,7 +763,6 @@ return|;
 block|}
 comment|/**          * Google drive application name. Example would be          * camel-google-drive/1.0.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|applicationName ( String applicationName)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointProducerBuilder
 name|applicationName
@@ -815,7 +784,6 @@ return|;
 block|}
 comment|/**          * To use the GoogleCalendarClientFactory as factory for creating the          * client. Will by default use BatchGoogleDriveClientFactory.          * The option is a          *<code>org.apache.camel.component.google.drive.GoogleDriveClientFactory</code> type.          * @group common          */
 DECL|method|clientFactory ( Object clientFactory)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointProducerBuilder
 name|clientFactory
@@ -837,7 +805,6 @@ return|;
 block|}
 comment|/**          * To use the GoogleCalendarClientFactory as factory for creating the          * client. Will by default use BatchGoogleDriveClientFactory.          * The option will be converted to a          *<code>org.apache.camel.component.google.drive.GoogleDriveClientFactory</code> type.          * @group common          */
 DECL|method|clientFactory ( String clientFactory)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointProducerBuilder
 name|clientFactory
@@ -858,8 +825,7 @@ name|this
 return|;
 block|}
 comment|/**          * Client ID of the drive application.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|clientId ( String clientId)
-specifier|public
+DECL|method|clientId (String clientId)
 specifier|default
 name|GoogleDriveEndpointProducerBuilder
 name|clientId
@@ -881,7 +847,6 @@ return|;
 block|}
 comment|/**          * Client secret of the drive application.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientSecret ( String clientSecret)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointProducerBuilder
 name|clientSecret
@@ -903,7 +868,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointProducerBuilder
 name|inBody
@@ -925,7 +889,6 @@ return|;
 block|}
 comment|/**          * OAuth 2 refresh token. Using this, the Google Calendar component can          * obtain a new accessToken whenever the current one expires - a          * necessity if the application is long-lived.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|refreshToken ( String refreshToken)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointProducerBuilder
 name|refreshToken
@@ -946,8 +909,7 @@ name|this
 return|;
 block|}
 comment|/**          * Specifies the level of permissions you want a drive application to          * have to a user account. See          * https://developers.google.com/drive/web/scopes for more info.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
-DECL|method|scopes ( List<String> scopes)
-specifier|public
+DECL|method|scopes (List<String> scopes)
 specifier|default
 name|GoogleDriveEndpointProducerBuilder
 name|scopes
@@ -972,7 +934,6 @@ return|;
 block|}
 comment|/**          * Specifies the level of permissions you want a drive application to          * have to a user account. See          * https://developers.google.com/drive/web/scopes for more info.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|scopes (String scopes)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointProducerBuilder
 name|scopes
@@ -994,7 +955,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointProducerBuilder
 name|lazyStartProducer
@@ -1016,7 +976,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointProducerBuilder
 name|lazyStartProducer
@@ -1046,7 +1005,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|GoogleDriveEndpointProducerBuilder
 name|basic
@@ -1061,7 +1019,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1083,7 +1040,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1105,7 +1061,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointProducerBuilder
 name|synchronous
@@ -1127,7 +1082,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointProducerBuilder
 name|synchronous
@@ -1160,7 +1114,6 @@ extends|,
 name|GoogleDriveEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointBuilder
 name|advanced
@@ -1174,8 +1127,7 @@ name|this
 return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.google.drive.internal.GoogleDriveApiName</code> type.          * @group common          */
-DECL|method|apiName ( GoogleDriveApiName apiName)
-specifier|public
+DECL|method|apiName (GoogleDriveApiName apiName)
 specifier|default
 name|GoogleDriveEndpointBuilder
 name|apiName
@@ -1197,7 +1149,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.google.drive.internal.GoogleDriveApiName</code> type.          * @group common          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointBuilder
 name|apiName
@@ -1219,7 +1170,6 @@ return|;
 block|}
 comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|methodName (String methodName)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointBuilder
 name|methodName
@@ -1241,7 +1191,6 @@ return|;
 block|}
 comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|accessToken (String accessToken)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointBuilder
 name|accessToken
@@ -1263,7 +1212,6 @@ return|;
 block|}
 comment|/**          * Google drive application name. Example would be          * camel-google-drive/1.0.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|applicationName ( String applicationName)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointBuilder
 name|applicationName
@@ -1284,8 +1232,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use the GoogleCalendarClientFactory as factory for creating the          * client. Will by default use BatchGoogleDriveClientFactory.          * The option is a          *<code>org.apache.camel.component.google.drive.GoogleDriveClientFactory</code> type.          * @group common          */
-DECL|method|clientFactory ( Object clientFactory)
-specifier|public
+DECL|method|clientFactory (Object clientFactory)
 specifier|default
 name|GoogleDriveEndpointBuilder
 name|clientFactory
@@ -1306,8 +1253,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use the GoogleCalendarClientFactory as factory for creating the          * client. Will by default use BatchGoogleDriveClientFactory.          * The option will be converted to a          *<code>org.apache.camel.component.google.drive.GoogleDriveClientFactory</code> type.          * @group common          */
-DECL|method|clientFactory ( String clientFactory)
-specifier|public
+DECL|method|clientFactory (String clientFactory)
 specifier|default
 name|GoogleDriveEndpointBuilder
 name|clientFactory
@@ -1329,7 +1275,6 @@ return|;
 block|}
 comment|/**          * Client ID of the drive application.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientId (String clientId)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointBuilder
 name|clientId
@@ -1350,8 +1295,7 @@ name|this
 return|;
 block|}
 comment|/**          * Client secret of the drive application.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|clientSecret ( String clientSecret)
-specifier|public
+DECL|method|clientSecret (String clientSecret)
 specifier|default
 name|GoogleDriveEndpointBuilder
 name|clientSecret
@@ -1373,7 +1317,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointBuilder
 name|inBody
@@ -1394,8 +1337,7 @@ name|this
 return|;
 block|}
 comment|/**          * OAuth 2 refresh token. Using this, the Google Calendar component can          * obtain a new accessToken whenever the current one expires - a          * necessity if the application is long-lived.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|refreshToken ( String refreshToken)
-specifier|public
+DECL|method|refreshToken (String refreshToken)
 specifier|default
 name|GoogleDriveEndpointBuilder
 name|refreshToken
@@ -1417,7 +1359,6 @@ return|;
 block|}
 comment|/**          * Specifies the level of permissions you want a drive application to          * have to a user account. See          * https://developers.google.com/drive/web/scopes for more info.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group common          */
 DECL|method|scopes (List<String> scopes)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointBuilder
 name|scopes
@@ -1442,7 +1383,6 @@ return|;
 block|}
 comment|/**          * Specifies the level of permissions you want a drive application to          * have to a user account. See          * https://developers.google.com/drive/web/scopes for more info.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group common          */
 DECL|method|scopes (String scopes)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointBuilder
 name|scopes
@@ -1475,7 +1415,6 @@ extends|,
 name|AdvancedGoogleDriveEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|GoogleDriveEndpointBuilder
 name|basic
@@ -1490,7 +1429,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointBuilder
 name|basicPropertyBinding
@@ -1512,7 +1450,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointBuilder
 name|basicPropertyBinding
@@ -1534,7 +1471,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointBuilder
 name|synchronous
@@ -1556,7 +1492,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedGoogleDriveEndpointBuilder
 name|synchronous
@@ -1625,7 +1560,6 @@ name|DRIVE_REVISIONS
 block|;     }
 comment|/**      * The google-drive component provides access to Google Drive file storage      * service. Creates a builder to build endpoints for the Google Drive      * component.      */
 DECL|method|googleDrive (String path)
-specifier|public
 specifier|default
 name|GoogleDriveEndpointBuilder
 name|googleDrive

@@ -99,7 +99,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedTwitterStreamingEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * The streaming type to consume.          * The option is a          *<code>org.apache.camel.component.twitter.data.StreamingType</code>          * type.          * @group consumer          */
 DECL|method|streamingType ( StreamingType streamingType)
-specifier|public
 specifier|default
 name|TwitterStreamingEndpointBuilder
 name|streamingType
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * The streaming type to consume.          * The option will be converted to a          *<code>org.apache.camel.component.twitter.data.StreamingType</code>          * type.          * @group consumer          */
 DECL|method|streamingType ( String streamingType)
-specifier|public
 specifier|default
 name|TwitterStreamingEndpointBuilder
 name|streamingType
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * The http proxy host which can be used for the camel-twitter. Can also          * be configured on the TwitterComponent level instead.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|httpProxyHost ( String httpProxyHost)
-specifier|public
 specifier|default
 name|TwitterStreamingEndpointBuilder
 name|httpProxyHost
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * The http proxy password which can be used for the camel-twitter. Can          * also be configured on the TwitterComponent level instead.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|httpProxyPassword ( String httpProxyPassword)
-specifier|public
 specifier|default
 name|TwitterStreamingEndpointBuilder
 name|httpProxyPassword
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * The http proxy port which can be used for the camel-twitter. Can also          * be configured on the TwitterComponent level instead.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
 DECL|method|httpProxyPort ( Integer httpProxyPort)
-specifier|public
 specifier|default
 name|TwitterStreamingEndpointBuilder
 name|httpProxyPort
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * The http proxy port which can be used for the camel-twitter. Can also          * be configured on the TwitterComponent level instead.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
 DECL|method|httpProxyPort ( String httpProxyPort)
-specifier|public
 specifier|default
 name|TwitterStreamingEndpointBuilder
 name|httpProxyPort
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * The http proxy user which can be used for the camel-twitter. Can also          * be configured on the TwitterComponent level instead.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|httpProxyUser ( String httpProxyUser)
-specifier|public
 specifier|default
 name|TwitterStreamingEndpointBuilder
 name|httpProxyUser
@@ -267,8 +259,7 @@ name|this
 return|;
 block|}
 comment|/**          * The access token. Can also be configured on the TwitterComponent          * level instead.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|accessToken ( String accessToken)
-specifier|public
+DECL|method|accessToken (String accessToken)
 specifier|default
 name|TwitterStreamingEndpointBuilder
 name|accessToken
@@ -290,7 +281,6 @@ return|;
 block|}
 comment|/**          * The access secret. Can also be configured on the TwitterComponent          * level instead.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessTokenSecret ( String accessTokenSecret)
-specifier|public
 specifier|default
 name|TwitterStreamingEndpointBuilder
 name|accessTokenSecret
@@ -311,8 +301,7 @@ name|this
 return|;
 block|}
 comment|/**          * The consumer key. Can also be configured on the TwitterComponent          * level instead.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|consumerKey ( String consumerKey)
-specifier|public
+DECL|method|consumerKey (String consumerKey)
 specifier|default
 name|TwitterStreamingEndpointBuilder
 name|consumerKey
@@ -334,7 +323,6 @@ return|;
 block|}
 comment|/**          * The consumer secret. Can also be configured on the TwitterComponent          * level instead.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|consumerSecret ( String consumerSecret)
-specifier|public
 specifier|default
 name|TwitterStreamingEndpointBuilder
 name|consumerSecret
@@ -365,7 +353,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|TwitterStreamingEndpointBuilder
 name|basic
@@ -380,7 +367,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedTwitterStreamingEndpointBuilder
 name|basicPropertyBinding
@@ -402,7 +388,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedTwitterStreamingEndpointBuilder
 name|basicPropertyBinding
@@ -424,7 +409,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedTwitterStreamingEndpointBuilder
 name|synchronous
@@ -446,7 +430,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedTwitterStreamingEndpointBuilder
 name|synchronous
@@ -504,7 +487,6 @@ name|EVENT
 block|;     }
 comment|/**      * The Twitter Streaming component consumes twitter statuses using Streaming      * API. Creates a builder to build endpoints for the Twitter Streaming      * component.      */
 DECL|method|twitterStreaming (String path)
-specifier|public
 specifier|default
 name|TwitterStreamingEndpointBuilder
 name|twitterStreaming

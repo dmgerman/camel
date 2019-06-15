@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSchematronEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * The path to the schematron rules file. Can either be in class path or          * location in the file system.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|path (String path)
-specifier|public
 specifier|default
 name|SchematronEndpointBuilder
 name|path
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Flag to abort the route and throw a schematron validation exception.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|abort (boolean abort)
-specifier|public
 specifier|default
 name|SchematronEndpointBuilder
 name|abort
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Flag to abort the route and throw a schematron validation exception.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|abort (String abort)
-specifier|public
 specifier|default
 name|SchematronEndpointBuilder
 name|abort
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * To use the given schematron rules instead of loading from the path.          * The option is a<code>javax.xml.transform.Templates</code> type.          * @group producer          */
 DECL|method|rules (Object rules)
-specifier|public
 specifier|default
 name|SchematronEndpointBuilder
 name|rules
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * To use the given schematron rules instead of loading from the path.          * The option will be converted to a          *<code>javax.xml.transform.Templates</code> type.          * @group producer          */
 DECL|method|rules (String rules)
-specifier|public
 specifier|default
 name|SchematronEndpointBuilder
 name|rules
@@ -233,7 +227,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SchematronEndpointBuilder
 name|basic
@@ -248,7 +241,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSchematronEndpointBuilder
 name|basicPropertyBinding
@@ -270,7 +262,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSchematronEndpointBuilder
 name|basicPropertyBinding
@@ -292,7 +283,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedSchematronEndpointBuilder
 name|synchronous
@@ -313,8 +303,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSchematronEndpointBuilder
 name|synchronous
@@ -335,8 +324,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the URIResolver to be used for resolving schematron includes in          * the rules file.          * The option is a<code>javax.xml.transform.URIResolver</code> type.          * @group advanced          */
-DECL|method|uriResolver ( Object uriResolver)
-specifier|public
+DECL|method|uriResolver (Object uriResolver)
 specifier|default
 name|AdvancedSchematronEndpointBuilder
 name|uriResolver
@@ -357,8 +345,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the URIResolver to be used for resolving schematron includes in          * the rules file.          * The option will be converted to a          *<code>javax.xml.transform.URIResolver</code> type.          * @group advanced          */
-DECL|method|uriResolver ( String uriResolver)
-specifier|public
+DECL|method|uriResolver (String uriResolver)
 specifier|default
 name|AdvancedSchematronEndpointBuilder
 name|uriResolver
@@ -381,7 +368,6 @@ block|}
 block|}
 comment|/**      * Validates the payload of a message using the Schematron Library. Creates      * a builder to build endpoints for the Schematron component.      */
 DECL|method|schematron (String path)
-specifier|public
 specifier|default
 name|SchematronEndpointBuilder
 name|schematron

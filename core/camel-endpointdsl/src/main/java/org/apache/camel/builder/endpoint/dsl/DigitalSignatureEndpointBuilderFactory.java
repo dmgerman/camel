@@ -151,7 +151,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedDigitalSignatureEndpointBuilder
 name|advanced
@@ -166,7 +165,6 @@ return|;
 block|}
 comment|/**          * Set the Crypto operation from that supplied after the crypto scheme          * in the endpoint uri e.g. crypto:sign sets sign as the operation.          * The option is a          *<code>org.apache.camel.component.crypto.CryptoOperation</code> type.          * @group producer          */
 DECL|method|cryptoOperation ( CryptoOperation cryptoOperation)
-specifier|public
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|cryptoOperation
@@ -188,7 +186,6 @@ return|;
 block|}
 comment|/**          * Set the Crypto operation from that supplied after the crypto scheme          * in the endpoint uri e.g. crypto:sign sets sign as the operation.          * The option will be converted to a          *<code>org.apache.camel.component.crypto.CryptoOperation</code> type.          * @group producer          */
 DECL|method|cryptoOperation ( String cryptoOperation)
-specifier|public
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|cryptoOperation
@@ -210,7 +207,6 @@ return|;
 block|}
 comment|/**          * The logical name of this operation.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|name
@@ -231,8 +227,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the JCE name of the Algorithm that should be used for the          * signer.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|algorithm ( String algorithm)
-specifier|public
+DECL|method|algorithm (String algorithm)
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|algorithm
@@ -254,7 +249,6 @@ return|;
 block|}
 comment|/**          * Sets the alias used to query the KeyStore for keys and {link          * java.security.cert.Certificate Certificates} to be used in signing          * and verifying exchanges. This value can be provided at runtime via          * the message header          * org.apache.camel.component.crypto.DigitalSignatureConstants#KEYSTORE_ALIAS.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|alias (String alias)
-specifier|public
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|alias
@@ -276,7 +270,6 @@ return|;
 block|}
 comment|/**          * Sets the reference name for a PrivateKey that can be found in the          * registry.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|certificateName ( String certificateName)
-specifier|public
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|certificateName
@@ -297,8 +290,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the KeyStore that can contain keys and Certficates for use in          * signing and verifying exchanges. A KeyStore is typically used with an          * alias, either one supplied in the Route definition or dynamically via          * the message header CamelSignatureKeyStoreAlias. If no alias is          * supplied and there is only a single entry in the Keystore, then this          * single entry will be used.          * The option is a<code>java.security.KeyStore</code> type.          * @group producer          */
-DECL|method|keystore ( KeyStore keystore)
-specifier|public
+DECL|method|keystore (KeyStore keystore)
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|keystore
@@ -320,7 +312,6 @@ return|;
 block|}
 comment|/**          * Sets the KeyStore that can contain keys and Certficates for use in          * signing and verifying exchanges. A KeyStore is typically used with an          * alias, either one supplied in the Route definition or dynamically via          * the message header CamelSignatureKeyStoreAlias. If no alias is          * supplied and there is only a single entry in the Keystore, then this          * single entry will be used.          * The option will be converted to a<code>java.security.KeyStore</code>          * type.          * @group producer          */
 DECL|method|keystore (String keystore)
-specifier|public
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|keystore
@@ -341,8 +332,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the reference name for a Keystore that can be found in the          * registry.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|keystoreName ( String keystoreName)
-specifier|public
+DECL|method|keystoreName (String keystoreName)
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|keystoreName
@@ -363,8 +353,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the PrivateKey that should be used to sign the exchange.          * The option is a<code>java.security.PrivateKey</code> type.          * @group producer          */
-DECL|method|privateKey ( PrivateKey privateKey)
-specifier|public
+DECL|method|privateKey (PrivateKey privateKey)
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|privateKey
@@ -385,8 +374,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the PrivateKey that should be used to sign the exchange.          * The option will be converted to a          *<code>java.security.PrivateKey</code> type.          * @group producer          */
-DECL|method|privateKey ( String privateKey)
-specifier|public
+DECL|method|privateKey (String privateKey)
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|privateKey
@@ -408,7 +396,6 @@ return|;
 block|}
 comment|/**          * Sets the reference name for a PrivateKey that can be found in the          * registry.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|privateKeyName ( String privateKeyName)
-specifier|public
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|privateKeyName
@@ -430,7 +417,6 @@ return|;
 block|}
 comment|/**          * Set the id of the security provider that provides the configured          * Signature algorithm.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|provider (String provider)
-specifier|public
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|provider
@@ -452,7 +438,6 @@ return|;
 block|}
 comment|/**          * references that should be resolved when the context changes.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|publicKeyName ( String publicKeyName)
-specifier|public
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|publicKeyName
@@ -474,7 +459,6 @@ return|;
 block|}
 comment|/**          * Sets the reference name for a SecureRandom that can be found in the          * registry.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|secureRandomName ( String secureRandomName)
-specifier|public
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|secureRandomName
@@ -496,7 +480,6 @@ return|;
 block|}
 comment|/**          * Set the name of the message header that should be used to store the          * base64 encoded signature. This defaults to 'CamelDigitalSignature'.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|signatureHeaderName ( String signatureHeaderName)
-specifier|public
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|signatureHeaderName
@@ -517,8 +500,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the password used to access an aliased PrivateKey in the          * KeyStore.          * The option is a<code>char[]</code> type.          * @group security          */
-DECL|method|password ( Character[] password)
-specifier|public
+DECL|method|password (Character[] password)
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|password
@@ -541,7 +523,6 @@ return|;
 block|}
 comment|/**          * Sets the password used to access an aliased PrivateKey in the          * KeyStore.          * The option will be converted to a<code>char[]</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|password
@@ -572,7 +553,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|basic
@@ -587,7 +567,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDigitalSignatureEndpointBuilder
 name|basicPropertyBinding
@@ -609,7 +588,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedDigitalSignatureEndpointBuilder
 name|basicPropertyBinding
@@ -631,7 +609,6 @@ return|;
 block|}
 comment|/**          * Set the size of the buffer used to read in the Exchange payload data.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
 DECL|method|bufferSize ( Integer bufferSize)
-specifier|public
 specifier|default
 name|AdvancedDigitalSignatureEndpointBuilder
 name|bufferSize
@@ -653,7 +630,6 @@ return|;
 block|}
 comment|/**          * Set the size of the buffer used to read in the Exchange payload data.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
 DECL|method|bufferSize ( String bufferSize)
-specifier|public
 specifier|default
 name|AdvancedDigitalSignatureEndpointBuilder
 name|bufferSize
@@ -675,7 +651,6 @@ return|;
 block|}
 comment|/**          * Set the Certificate that should be used to verify the signature in          * the exchange based on its payload.          * The option is a<code>java.security.cert.Certificate</code> type.          * @group advanced          */
 DECL|method|certificate ( Certificate certificate)
-specifier|public
 specifier|default
 name|AdvancedDigitalSignatureEndpointBuilder
 name|certificate
@@ -697,7 +672,6 @@ return|;
 block|}
 comment|/**          * Set the Certificate that should be used to verify the signature in          * the exchange based on its payload.          * The option will be converted to a          *<code>java.security.cert.Certificate</code> type.          * @group advanced          */
 DECL|method|certificate ( String certificate)
-specifier|public
 specifier|default
 name|AdvancedDigitalSignatureEndpointBuilder
 name|certificate
@@ -719,7 +693,6 @@ return|;
 block|}
 comment|/**          * Determines if the Signature specific headers be cleared after signing          * and verification. Defaults to true, and should only be made otherwise          * at your extreme peril as vital private information such as Keys and          * passwords may escape if unset.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|clearHeaders ( boolean clearHeaders)
-specifier|public
 specifier|default
 name|AdvancedDigitalSignatureEndpointBuilder
 name|clearHeaders
@@ -741,7 +714,6 @@ return|;
 block|}
 comment|/**          * Determines if the Signature specific headers be cleared after signing          * and verification. Defaults to true, and should only be made otherwise          * at your extreme peril as vital private information such as Keys and          * passwords may escape if unset.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|clearHeaders ( String clearHeaders)
-specifier|public
 specifier|default
 name|AdvancedDigitalSignatureEndpointBuilder
 name|clearHeaders
@@ -763,7 +735,6 @@ return|;
 block|}
 comment|/**          * Sets the KeyStore that can contain keys and Certficates for use in          * signing and verifying exchanges based on the given          * KeyStoreParameters. A KeyStore is typically used with an alias,          * either one supplied in the Route definition or dynamically via the          * message header CamelSignatureKeyStoreAlias. If no alias is supplied          * and there is only a single entry in the Keystore, then this single          * entry will be used.          * The option is a          *<code>org.apache.camel.support.jsse.KeyStoreParameters</code> type.          * @group advanced          */
 DECL|method|keyStoreParameters ( Object keyStoreParameters)
-specifier|public
 specifier|default
 name|AdvancedDigitalSignatureEndpointBuilder
 name|keyStoreParameters
@@ -785,7 +756,6 @@ return|;
 block|}
 comment|/**          * Sets the KeyStore that can contain keys and Certficates for use in          * signing and verifying exchanges based on the given          * KeyStoreParameters. A KeyStore is typically used with an alias,          * either one supplied in the Route definition or dynamically via the          * message header CamelSignatureKeyStoreAlias. If no alias is supplied          * and there is only a single entry in the Keystore, then this single          * entry will be used.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.KeyStoreParameters</code> type.          * @group advanced          */
 DECL|method|keyStoreParameters ( String keyStoreParameters)
-specifier|public
 specifier|default
 name|AdvancedDigitalSignatureEndpointBuilder
 name|keyStoreParameters
@@ -807,7 +777,6 @@ return|;
 block|}
 comment|/**          * Set the PublicKey that should be used to verify the signature in the          * exchange.          * The option is a<code>java.security.PublicKey</code> type.          * @group advanced          */
 DECL|method|publicKey ( PublicKey publicKey)
-specifier|public
 specifier|default
 name|AdvancedDigitalSignatureEndpointBuilder
 name|publicKey
@@ -829,7 +798,6 @@ return|;
 block|}
 comment|/**          * Set the PublicKey that should be used to verify the signature in the          * exchange.          * The option will be converted to a          *<code>java.security.PublicKey</code> type.          * @group advanced          */
 DECL|method|publicKey ( String publicKey)
-specifier|public
 specifier|default
 name|AdvancedDigitalSignatureEndpointBuilder
 name|publicKey
@@ -851,7 +819,6 @@ return|;
 block|}
 comment|/**          * Set the SecureRandom used to initialize the Signature service.          * The option is a<code>java.security.SecureRandom</code> type.          * @group advanced          */
 DECL|method|secureRandom ( SecureRandom secureRandom)
-specifier|public
 specifier|default
 name|AdvancedDigitalSignatureEndpointBuilder
 name|secureRandom
@@ -873,7 +840,6 @@ return|;
 block|}
 comment|/**          * Set the SecureRandom used to initialize the Signature service.          * The option will be converted to a          *<code>java.security.SecureRandom</code> type.          * @group advanced          */
 DECL|method|secureRandom ( String secureRandom)
-specifier|public
 specifier|default
 name|AdvancedDigitalSignatureEndpointBuilder
 name|secureRandom
@@ -895,7 +861,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedDigitalSignatureEndpointBuilder
 name|synchronous
@@ -917,7 +882,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedDigitalSignatureEndpointBuilder
 name|synchronous
@@ -953,7 +917,6 @@ name|verify
 block|;     }
 comment|/**      * The crypto component is used for signing and verifying exchanges using      * the Signature Service of the Java Cryptographic Extension (JCE). Creates      * a builder to build endpoints for the Crypto (JCE) component.      */
 DECL|method|digitalSignature (String path)
-specifier|public
 specifier|default
 name|DigitalSignatureEndpointBuilder
 name|digitalSignature

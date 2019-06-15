@@ -136,7 +136,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointConsumerBuilder
 name|advanced
@@ -151,7 +150,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.braintree.internal.BraintreeApiName</code> type.          * @group common          */
 DECL|method|apiName ( BraintreeApiName apiName)
-specifier|public
 specifier|default
 name|BraintreeEndpointConsumerBuilder
 name|apiName
@@ -173,7 +171,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.braintree.internal.BraintreeApiName</code> type.          * @group common          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|BraintreeEndpointConsumerBuilder
 name|apiName
@@ -194,8 +191,7 @@ name|this
 return|;
 block|}
 comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|methodName ( String methodName)
-specifier|public
+DECL|method|methodName (String methodName)
 specifier|default
 name|BraintreeEndpointConsumerBuilder
 name|methodName
@@ -216,8 +212,7 @@ name|this
 return|;
 block|}
 comment|/**          * The environment Either SANDBOX or PRODUCTION.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|environment ( String environment)
-specifier|public
+DECL|method|environment (String environment)
 specifier|default
 name|BraintreeEndpointConsumerBuilder
 name|environment
@@ -239,7 +234,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|BraintreeEndpointConsumerBuilder
 name|inBody
@@ -260,8 +254,7 @@ name|this
 return|;
 block|}
 comment|/**          * The merchant id provided by Braintree.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|merchantId ( String merchantId)
-specifier|public
+DECL|method|merchantId (String merchantId)
 specifier|default
 name|BraintreeEndpointConsumerBuilder
 name|merchantId
@@ -282,8 +275,7 @@ name|this
 return|;
 block|}
 comment|/**          * The private key provided by Braintree.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|privateKey ( String privateKey)
-specifier|public
+DECL|method|privateKey (String privateKey)
 specifier|default
 name|BraintreeEndpointConsumerBuilder
 name|privateKey
@@ -304,8 +296,7 @@ name|this
 return|;
 block|}
 comment|/**          * The public key provided by Braintree.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|publicKey ( String publicKey)
-specifier|public
+DECL|method|publicKey (String publicKey)
 specifier|default
 name|BraintreeEndpointConsumerBuilder
 name|publicKey
@@ -327,7 +318,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|BraintreeEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -349,7 +339,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|BraintreeEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -370,8 +359,7 @@ name|this
 return|;
 block|}
 comment|/**          * The proxy host.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
-DECL|method|proxyHost ( String proxyHost)
-specifier|public
+DECL|method|proxyHost (String proxyHost)
 specifier|default
 name|BraintreeEndpointConsumerBuilder
 name|proxyHost
@@ -392,8 +380,7 @@ name|this
 return|;
 block|}
 comment|/**          * The proxy port.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
-DECL|method|proxyPort ( Integer proxyPort)
-specifier|public
+DECL|method|proxyPort (Integer proxyPort)
 specifier|default
 name|BraintreeEndpointConsumerBuilder
 name|proxyPort
@@ -414,8 +401,7 @@ name|this
 return|;
 block|}
 comment|/**          * The proxy port.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
-DECL|method|proxyPort ( String proxyPort)
-specifier|public
+DECL|method|proxyPort (String proxyPort)
 specifier|default
 name|BraintreeEndpointConsumerBuilder
 name|proxyPort
@@ -445,7 +431,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|BraintreeEndpointConsumerBuilder
 name|basic
@@ -460,7 +445,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointConsumerBuilder
 name|exceptionHandler
@@ -482,7 +466,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointConsumerBuilder
 name|exceptionHandler
@@ -504,7 +487,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointConsumerBuilder
 name|exchangePattern
@@ -526,7 +508,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointConsumerBuilder
 name|exchangePattern
@@ -548,7 +529,6 @@ return|;
 block|}
 comment|/**          * The access token granted by a merchant to another in order to process          * transactions on their behalf. Used in place of environment, merchant          * id, public key and private key fields.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|accessToken ( String accessToken)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointConsumerBuilder
 name|accessToken
@@ -570,7 +550,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -592,7 +571,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -614,7 +592,6 @@ return|;
 block|}
 comment|/**          * Set read timeout for http calls.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
 DECL|method|httpReadTimeout ( Integer httpReadTimeout)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointConsumerBuilder
 name|httpReadTimeout
@@ -636,7 +613,6 @@ return|;
 block|}
 comment|/**          * Set read timeout for http calls.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
 DECL|method|httpReadTimeout ( String httpReadTimeout)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointConsumerBuilder
 name|httpReadTimeout
@@ -658,7 +634,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointConsumerBuilder
 name|synchronous
@@ -680,7 +655,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointConsumerBuilder
 name|synchronous
@@ -702,7 +676,6 @@ return|;
 block|}
 comment|/**          * Set logging level for http calls, see java.util.logging.Level.          * The option is a<code>java.util.logging.Level</code> type.          * @group logging          */
 DECL|method|httpLogLevel ( Level httpLogLevel)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointConsumerBuilder
 name|httpLogLevel
@@ -724,7 +697,6 @@ return|;
 block|}
 comment|/**          * Set logging level for http calls, see java.util.logging.Level.          * The option will be converted to a          *<code>java.util.logging.Level</code> type.          * @group logging          */
 DECL|method|httpLogLevel ( String httpLogLevel)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointConsumerBuilder
 name|httpLogLevel
@@ -755,7 +727,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointProducerBuilder
 name|advanced
@@ -770,7 +741,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.braintree.internal.BraintreeApiName</code> type.          * @group common          */
 DECL|method|apiName ( BraintreeApiName apiName)
-specifier|public
 specifier|default
 name|BraintreeEndpointProducerBuilder
 name|apiName
@@ -792,7 +762,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.braintree.internal.BraintreeApiName</code> type.          * @group common          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|BraintreeEndpointProducerBuilder
 name|apiName
@@ -813,8 +782,7 @@ name|this
 return|;
 block|}
 comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|methodName ( String methodName)
-specifier|public
+DECL|method|methodName (String methodName)
 specifier|default
 name|BraintreeEndpointProducerBuilder
 name|methodName
@@ -835,8 +803,7 @@ name|this
 return|;
 block|}
 comment|/**          * The environment Either SANDBOX or PRODUCTION.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|environment ( String environment)
-specifier|public
+DECL|method|environment (String environment)
 specifier|default
 name|BraintreeEndpointProducerBuilder
 name|environment
@@ -858,7 +825,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|BraintreeEndpointProducerBuilder
 name|inBody
@@ -879,8 +845,7 @@ name|this
 return|;
 block|}
 comment|/**          * The merchant id provided by Braintree.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|merchantId ( String merchantId)
-specifier|public
+DECL|method|merchantId (String merchantId)
 specifier|default
 name|BraintreeEndpointProducerBuilder
 name|merchantId
@@ -901,8 +866,7 @@ name|this
 return|;
 block|}
 comment|/**          * The private key provided by Braintree.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|privateKey ( String privateKey)
-specifier|public
+DECL|method|privateKey (String privateKey)
 specifier|default
 name|BraintreeEndpointProducerBuilder
 name|privateKey
@@ -923,8 +887,7 @@ name|this
 return|;
 block|}
 comment|/**          * The public key provided by Braintree.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|publicKey ( String publicKey)
-specifier|public
+DECL|method|publicKey (String publicKey)
 specifier|default
 name|BraintreeEndpointProducerBuilder
 name|publicKey
@@ -946,7 +909,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|BraintreeEndpointProducerBuilder
 name|lazyStartProducer
@@ -968,7 +930,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|BraintreeEndpointProducerBuilder
 name|lazyStartProducer
@@ -989,8 +950,7 @@ name|this
 return|;
 block|}
 comment|/**          * The proxy host.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
-DECL|method|proxyHost ( String proxyHost)
-specifier|public
+DECL|method|proxyHost (String proxyHost)
 specifier|default
 name|BraintreeEndpointProducerBuilder
 name|proxyHost
@@ -1011,8 +971,7 @@ name|this
 return|;
 block|}
 comment|/**          * The proxy port.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
-DECL|method|proxyPort ( Integer proxyPort)
-specifier|public
+DECL|method|proxyPort (Integer proxyPort)
 specifier|default
 name|BraintreeEndpointProducerBuilder
 name|proxyPort
@@ -1033,8 +992,7 @@ name|this
 return|;
 block|}
 comment|/**          * The proxy port.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
-DECL|method|proxyPort ( String proxyPort)
-specifier|public
+DECL|method|proxyPort (String proxyPort)
 specifier|default
 name|BraintreeEndpointProducerBuilder
 name|proxyPort
@@ -1064,7 +1022,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|BraintreeEndpointProducerBuilder
 name|basic
@@ -1079,7 +1036,6 @@ return|;
 block|}
 comment|/**          * The access token granted by a merchant to another in order to process          * transactions on their behalf. Used in place of environment, merchant          * id, public key and private key fields.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|accessToken ( String accessToken)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointProducerBuilder
 name|accessToken
@@ -1101,7 +1057,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1123,7 +1078,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1145,7 +1099,6 @@ return|;
 block|}
 comment|/**          * Set read timeout for http calls.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
 DECL|method|httpReadTimeout ( Integer httpReadTimeout)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointProducerBuilder
 name|httpReadTimeout
@@ -1167,7 +1120,6 @@ return|;
 block|}
 comment|/**          * Set read timeout for http calls.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
 DECL|method|httpReadTimeout ( String httpReadTimeout)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointProducerBuilder
 name|httpReadTimeout
@@ -1189,7 +1141,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointProducerBuilder
 name|synchronous
@@ -1211,7 +1162,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointProducerBuilder
 name|synchronous
@@ -1233,7 +1183,6 @@ return|;
 block|}
 comment|/**          * Set logging level for http calls, see java.util.logging.Level.          * The option is a<code>java.util.logging.Level</code> type.          * @group logging          */
 DECL|method|httpLogLevel ( Level httpLogLevel)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointProducerBuilder
 name|httpLogLevel
@@ -1255,7 +1204,6 @@ return|;
 block|}
 comment|/**          * Set logging level for http calls, see java.util.logging.Level.          * The option will be converted to a          *<code>java.util.logging.Level</code> type.          * @group logging          */
 DECL|method|httpLogLevel ( String httpLogLevel)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointProducerBuilder
 name|httpLogLevel
@@ -1288,7 +1236,6 @@ extends|,
 name|BraintreeEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointBuilder
 name|advanced
@@ -1303,7 +1250,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.braintree.internal.BraintreeApiName</code> type.          * @group common          */
 DECL|method|apiName (BraintreeApiName apiName)
-specifier|public
 specifier|default
 name|BraintreeEndpointBuilder
 name|apiName
@@ -1325,7 +1271,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.braintree.internal.BraintreeApiName</code> type.          * @group common          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|BraintreeEndpointBuilder
 name|apiName
@@ -1347,7 +1292,6 @@ return|;
 block|}
 comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|methodName (String methodName)
-specifier|public
 specifier|default
 name|BraintreeEndpointBuilder
 name|methodName
@@ -1369,7 +1313,6 @@ return|;
 block|}
 comment|/**          * The environment Either SANDBOX or PRODUCTION.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|environment (String environment)
-specifier|public
 specifier|default
 name|BraintreeEndpointBuilder
 name|environment
@@ -1391,7 +1334,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|BraintreeEndpointBuilder
 name|inBody
@@ -1413,7 +1355,6 @@ return|;
 block|}
 comment|/**          * The merchant id provided by Braintree.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|merchantId (String merchantId)
-specifier|public
 specifier|default
 name|BraintreeEndpointBuilder
 name|merchantId
@@ -1435,7 +1376,6 @@ return|;
 block|}
 comment|/**          * The private key provided by Braintree.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|privateKey (String privateKey)
-specifier|public
 specifier|default
 name|BraintreeEndpointBuilder
 name|privateKey
@@ -1457,7 +1397,6 @@ return|;
 block|}
 comment|/**          * The public key provided by Braintree.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|publicKey (String publicKey)
-specifier|public
 specifier|default
 name|BraintreeEndpointBuilder
 name|publicKey
@@ -1479,7 +1418,6 @@ return|;
 block|}
 comment|/**          * The proxy host.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|proxyHost (String proxyHost)
-specifier|public
 specifier|default
 name|BraintreeEndpointBuilder
 name|proxyHost
@@ -1501,7 +1439,6 @@ return|;
 block|}
 comment|/**          * The proxy port.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
 DECL|method|proxyPort (Integer proxyPort)
-specifier|public
 specifier|default
 name|BraintreeEndpointBuilder
 name|proxyPort
@@ -1523,7 +1460,6 @@ return|;
 block|}
 comment|/**          * The proxy port.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
 DECL|method|proxyPort (String proxyPort)
-specifier|public
 specifier|default
 name|BraintreeEndpointBuilder
 name|proxyPort
@@ -1556,7 +1492,6 @@ extends|,
 name|AdvancedBraintreeEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|BraintreeEndpointBuilder
 name|basic
@@ -1570,8 +1505,7 @@ name|this
 return|;
 block|}
 comment|/**          * The access token granted by a merchant to another in order to process          * transactions on their behalf. Used in place of environment, merchant          * id, public key and private key fields.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
-DECL|method|accessToken ( String accessToken)
-specifier|public
+DECL|method|accessToken (String accessToken)
 specifier|default
 name|AdvancedBraintreeEndpointBuilder
 name|accessToken
@@ -1593,7 +1527,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointBuilder
 name|basicPropertyBinding
@@ -1615,7 +1548,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointBuilder
 name|basicPropertyBinding
@@ -1637,7 +1569,6 @@ return|;
 block|}
 comment|/**          * Set read timeout for http calls.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
 DECL|method|httpReadTimeout ( Integer httpReadTimeout)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointBuilder
 name|httpReadTimeout
@@ -1659,7 +1590,6 @@ return|;
 block|}
 comment|/**          * Set read timeout for http calls.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
 DECL|method|httpReadTimeout ( String httpReadTimeout)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointBuilder
 name|httpReadTimeout
@@ -1680,8 +1610,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedBraintreeEndpointBuilder
 name|synchronous
@@ -1702,8 +1631,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedBraintreeEndpointBuilder
 name|synchronous
@@ -1724,8 +1652,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set logging level for http calls, see java.util.logging.Level.          * The option is a<code>java.util.logging.Level</code> type.          * @group logging          */
-DECL|method|httpLogLevel ( Level httpLogLevel)
-specifier|public
+DECL|method|httpLogLevel (Level httpLogLevel)
 specifier|default
 name|AdvancedBraintreeEndpointBuilder
 name|httpLogLevel
@@ -1747,7 +1674,6 @@ return|;
 block|}
 comment|/**          * Set logging level for http calls, see java.util.logging.Level.          * The option will be converted to a          *<code>java.util.logging.Level</code> type.          * @group logging          */
 DECL|method|httpLogLevel ( String httpLogLevel)
-specifier|public
 specifier|default
 name|AdvancedBraintreeEndpointBuilder
 name|httpLogLevel
@@ -1828,7 +1754,6 @@ name|WEBHOOKNOTIFICATION
 block|;     }
 comment|/**      * The braintree component is used for integrating with the Braintree      * Payment System. Creates a builder to build endpoints for the Braintree      * component.      */
 DECL|method|braintree (String path)
-specifier|public
 specifier|default
 name|BraintreeEndpointBuilder
 name|braintree

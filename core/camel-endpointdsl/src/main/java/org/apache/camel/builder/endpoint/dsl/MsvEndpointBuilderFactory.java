@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedMsvEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * URL to a local resource on the classpath,or a reference to lookup a          * bean in the Registry, or a full URL to a remote resource or resource          * on the file system which contains the XSD to validate against.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|resourceUri (String resourceUri)
-specifier|public
 specifier|default
 name|MsvEndpointBuilder
 name|resourceUri
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Whether to fail if no body exists.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|failOnNullBody (boolean failOnNullBody)
-specifier|public
 specifier|default
 name|MsvEndpointBuilder
 name|failOnNullBody
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Whether to fail if no body exists.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|failOnNullBody (String failOnNullBody)
-specifier|public
 specifier|default
 name|MsvEndpointBuilder
 name|failOnNullBody
@@ -179,8 +175,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether to fail if no header exists when validating against a header.          * The option is a<code>boolean</code> type.          * @group producer          */
-DECL|method|failOnNullHeader ( boolean failOnNullHeader)
-specifier|public
+DECL|method|failOnNullHeader (boolean failOnNullHeader)
 specifier|default
 name|MsvEndpointBuilder
 name|failOnNullHeader
@@ -201,8 +196,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether to fail if no header exists when validating against a header.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
-DECL|method|failOnNullHeader ( String failOnNullHeader)
-specifier|public
+DECL|method|failOnNullHeader (String failOnNullHeader)
 specifier|default
 name|MsvEndpointBuilder
 name|failOnNullHeader
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * To validate against a header instead of the message body.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|headerName (String headerName)
-specifier|public
 specifier|default
 name|MsvEndpointBuilder
 name|headerName
@@ -255,7 +248,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|MsvEndpointBuilder
 name|basic
@@ -270,7 +262,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMsvEndpointBuilder
 name|basicPropertyBinding
@@ -292,7 +283,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMsvEndpointBuilder
 name|basicPropertyBinding
@@ -313,8 +303,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a custom          * org.apache.camel.processor.validation.ValidatorErrorHandler. The          * default error handler captures the errors and throws an exception.          * The option is a          *<code>org.apache.camel.support.processor.validation.ValidatorErrorHandler</code> type.          * @group advanced          */
-DECL|method|errorHandler ( Object errorHandler)
-specifier|public
+DECL|method|errorHandler (Object errorHandler)
 specifier|default
 name|AdvancedMsvEndpointBuilder
 name|errorHandler
@@ -335,8 +324,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a custom          * org.apache.camel.processor.validation.ValidatorErrorHandler. The          * default error handler captures the errors and throws an exception.          * The option will be converted to a          *<code>org.apache.camel.support.processor.validation.ValidatorErrorHandler</code> type.          * @group advanced          */
-DECL|method|errorHandler ( String errorHandler)
-specifier|public
+DECL|method|errorHandler (String errorHandler)
 specifier|default
 name|AdvancedMsvEndpointBuilder
 name|errorHandler
@@ -358,7 +346,6 @@ return|;
 block|}
 comment|/**          * To use a custom LSResourceResolver. See also          * setResourceResolverFactory(ValidatorResourceResolverFactory).          * The option is a<code>org.w3c.dom.ls.LSResourceResolver</code> type.          * @group advanced          */
 DECL|method|resourceResolver ( Object resourceResolver)
-specifier|public
 specifier|default
 name|AdvancedMsvEndpointBuilder
 name|resourceResolver
@@ -380,7 +367,6 @@ return|;
 block|}
 comment|/**          * To use a custom LSResourceResolver. See also          * setResourceResolverFactory(ValidatorResourceResolverFactory).          * The option will be converted to a          *<code>org.w3c.dom.ls.LSResourceResolver</code> type.          * @group advanced          */
 DECL|method|resourceResolver ( String resourceResolver)
-specifier|public
 specifier|default
 name|AdvancedMsvEndpointBuilder
 name|resourceResolver
@@ -402,7 +388,6 @@ return|;
 block|}
 comment|/**          * For creating a resource resolver which depends on the endpoint          * resource URI. Must not be used in combination with method          * setResourceResolver(LSResourceResolver). If not set then          * DefaultValidatorResourceResolverFactory is used.          * The option is a          *<code>org.apache.camel.component.validator.ValidatorResourceResolverFactory</code> type.          * @group advanced          */
 DECL|method|resourceResolverFactory ( Object resourceResolverFactory)
-specifier|public
 specifier|default
 name|AdvancedMsvEndpointBuilder
 name|resourceResolverFactory
@@ -424,7 +409,6 @@ return|;
 block|}
 comment|/**          * For creating a resource resolver which depends on the endpoint          * resource URI. Must not be used in combination with method          * setResourceResolver(LSResourceResolver). If not set then          * DefaultValidatorResourceResolverFactory is used.          * The option will be converted to a          *<code>org.apache.camel.component.validator.ValidatorResourceResolverFactory</code> type.          * @group advanced          */
 DECL|method|resourceResolverFactory ( String resourceResolverFactory)
-specifier|public
 specifier|default
 name|AdvancedMsvEndpointBuilder
 name|resourceResolverFactory
@@ -445,8 +429,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a custom javax.xml.validation.SchemaFactory.          * The option is a<code>javax.xml.validation.SchemaFactory</code> type.          * @group advanced          */
-DECL|method|schemaFactory ( Object schemaFactory)
-specifier|public
+DECL|method|schemaFactory (Object schemaFactory)
 specifier|default
 name|AdvancedMsvEndpointBuilder
 name|schemaFactory
@@ -467,8 +450,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a custom javax.xml.validation.SchemaFactory.          * The option will be converted to a          *<code>javax.xml.validation.SchemaFactory</code> type.          * @group advanced          */
-DECL|method|schemaFactory ( String schemaFactory)
-specifier|public
+DECL|method|schemaFactory (String schemaFactory)
 specifier|default
 name|AdvancedMsvEndpointBuilder
 name|schemaFactory
@@ -489,8 +471,7 @@ name|this
 return|;
 block|}
 comment|/**          * Configures the W3C XML Schema Namespace URI.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
-DECL|method|schemaLanguage ( String schemaLanguage)
-specifier|public
+DECL|method|schemaLanguage (String schemaLanguage)
 specifier|default
 name|AdvancedMsvEndpointBuilder
 name|schemaLanguage
@@ -511,8 +492,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedMsvEndpointBuilder
 name|synchronous
@@ -534,7 +514,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous (String synchronous)
-specifier|public
 specifier|default
 name|AdvancedMsvEndpointBuilder
 name|synchronous
@@ -556,7 +535,6 @@ return|;
 block|}
 comment|/**          * Whether the Schema instance should be shared or not. This option is          * introduced to work around a JDK 1.6.x bug. Xerces should not have          * this issue.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|useSharedSchema ( boolean useSharedSchema)
-specifier|public
 specifier|default
 name|AdvancedMsvEndpointBuilder
 name|useSharedSchema
@@ -578,7 +556,6 @@ return|;
 block|}
 comment|/**          * Whether the Schema instance should be shared or not. This option is          * introduced to work around a JDK 1.6.x bug. Xerces should not have          * this issue.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|useSharedSchema ( String useSharedSchema)
-specifier|public
 specifier|default
 name|AdvancedMsvEndpointBuilder
 name|useSharedSchema
@@ -601,7 +578,6 @@ block|}
 block|}
 comment|/**      * Validates the payload of a message using the MSV Library. Creates a      * builder to build endpoints for the MSV component.      */
 DECL|method|msv (String path)
-specifier|public
 specifier|default
 name|MsvEndpointBuilder
 name|msv

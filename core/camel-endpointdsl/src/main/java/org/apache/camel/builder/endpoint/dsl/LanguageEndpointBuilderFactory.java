@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedLanguageEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Sets the name of the language to use.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|languageName (String languageName)
-specifier|public
 specifier|default
 name|LanguageEndpointBuilder
 name|languageName
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Path to the resource, or a reference to lookup a bean in the Registry          * to use as the resource.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|resourceUri (String resourceUri)
-specifier|public
 specifier|default
 name|LanguageEndpointBuilder
 name|resourceUri
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Whether the script is binary content or text content. By default the          * script is read as text content (eg java.lang.String).          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|binary (boolean binary)
-specifier|public
 specifier|default
 name|LanguageEndpointBuilder
 name|binary
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Whether the script is binary content or text content. By default the          * script is read as text content (eg java.lang.String).          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|binary (String binary)
-specifier|public
 specifier|default
 name|LanguageEndpointBuilder
 name|binary
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Whether to cache the compiled script and reuse Notice reusing the          * script can cause side effects from processing one Camel          * org.apache.camel.Exchange to the next org.apache.camel.Exchange.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|cacheScript (boolean cacheScript)
-specifier|public
 specifier|default
 name|LanguageEndpointBuilder
 name|cacheScript
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * Whether to cache the compiled script and reuse Notice reusing the          * script can cause side effects from processing one Camel          * org.apache.camel.Exchange to the next org.apache.camel.Exchange.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|cacheScript (String cacheScript)
-specifier|public
 specifier|default
 name|LanguageEndpointBuilder
 name|cacheScript
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * Sets whether to use resource content cache or not.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|contentCache (boolean contentCache)
-specifier|public
 specifier|default
 name|LanguageEndpointBuilder
 name|contentCache
@@ -268,7 +260,6 @@ return|;
 block|}
 comment|/**          * Sets whether to use resource content cache or not.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|contentCache (String contentCache)
-specifier|public
 specifier|default
 name|LanguageEndpointBuilder
 name|contentCache
@@ -290,7 +281,6 @@ return|;
 block|}
 comment|/**          * Sets the script to execute.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|script (String script)
-specifier|public
 specifier|default
 name|LanguageEndpointBuilder
 name|script
@@ -312,7 +302,6 @@ return|;
 block|}
 comment|/**          * Whether or not the result of the script should be used as message          * body. This options is default true.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|transform (boolean transform)
-specifier|public
 specifier|default
 name|LanguageEndpointBuilder
 name|transform
@@ -334,7 +323,6 @@ return|;
 block|}
 comment|/**          * Whether or not the result of the script should be used as message          * body. This options is default true.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|transform (String transform)
-specifier|public
 specifier|default
 name|LanguageEndpointBuilder
 name|transform
@@ -365,7 +353,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|LanguageEndpointBuilder
 name|basic
@@ -380,7 +367,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedLanguageEndpointBuilder
 name|basicPropertyBinding
@@ -402,7 +388,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedLanguageEndpointBuilder
 name|basicPropertyBinding
@@ -423,8 +408,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedLanguageEndpointBuilder
 name|synchronous
@@ -445,8 +429,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedLanguageEndpointBuilder
 name|synchronous
@@ -469,7 +452,6 @@ block|}
 block|}
 comment|/**      * The language component allows you to send a message to an endpoint which      * executes a script by any of the supported Languages in Camel. Creates a      * builder to build endpoints for the Language component.      */
 DECL|method|language (String path)
-specifier|public
 specifier|default
 name|LanguageEndpointBuilder
 name|language

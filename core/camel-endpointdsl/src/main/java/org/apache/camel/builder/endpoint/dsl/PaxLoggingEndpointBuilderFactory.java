@@ -99,7 +99,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedPaxLoggingEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Appender is the name of the pax appender that need to be configured          * in the PaxLogging service configuration.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|appender (String appender)
-specifier|public
 specifier|default
 name|PaxLoggingEndpointBuilder
 name|appender
@@ -145,7 +143,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|PaxLoggingEndpointBuilder
 name|basic
@@ -160,7 +157,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedPaxLoggingEndpointBuilder
 name|basicPropertyBinding
@@ -182,7 +178,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedPaxLoggingEndpointBuilder
 name|basicPropertyBinding
@@ -204,7 +199,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedPaxLoggingEndpointBuilder
 name|synchronous
@@ -225,8 +219,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedPaxLoggingEndpointBuilder
 name|synchronous
@@ -249,7 +242,6 @@ block|}
 block|}
 comment|/**      * The paxlogging component can be used in an OSGi environment to receive      * PaxLogging events and process them. Creates a builder to build endpoints      * for the OSGi PAX Logging component.      */
 DECL|method|paxLogging (String path)
-specifier|public
 specifier|default
 name|PaxLoggingEndpointBuilder
 name|paxLogging

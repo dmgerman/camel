@@ -198,7 +198,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|advanced
@@ -213,7 +212,6 @@ return|;
 block|}
 comment|/**          * HDFS host to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|hostName (String hostName)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|hostName
@@ -235,7 +233,6 @@ return|;
 block|}
 comment|/**          * HDFS port to use.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|port
@@ -257,7 +254,6 @@ return|;
 block|}
 comment|/**          * HDFS port to use.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|port
@@ -279,7 +275,6 @@ return|;
 block|}
 comment|/**          * The directory path to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|path (String path)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|path
@@ -301,7 +296,6 @@ return|;
 block|}
 comment|/**          * Whether to connect to the HDFS file system on starting the          * producer/consumer. If false then the connection is created on-demand.          * Notice that HDFS may take up till 15 minutes to establish a          * connection, as it has hardcoded 45 x 20 sec redelivery. By setting          * this option to false allows your application to startup, and not          * block for up till 15 minutes.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|connectOnStartup ( boolean connectOnStartup)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|connectOnStartup
@@ -323,7 +317,6 @@ return|;
 block|}
 comment|/**          * Whether to connect to the HDFS file system on starting the          * producer/consumer. If false then the connection is created on-demand.          * Notice that HDFS may take up till 15 minutes to establish a          * connection, as it has hardcoded 45 x 20 sec redelivery. By setting          * this option to false allows your application to startup, and not          * block for up till 15 minutes.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|connectOnStartup ( String connectOnStartup)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|connectOnStartup
@@ -345,7 +338,6 @@ return|;
 block|}
 comment|/**          * Set to LOCAL to not use HDFS but local java.io.File instead.          * The option is a          *<code>org.apache.camel.component.hdfs2.HdfsFileSystemType</code>          * type.          * @group common          */
 DECL|method|fileSystemType ( HdfsFileSystemType fileSystemType)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|fileSystemType
@@ -366,8 +358,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set to LOCAL to not use HDFS but local java.io.File instead.          * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.HdfsFileSystemType</code>          * type.          * @group common          */
-DECL|method|fileSystemType ( String fileSystemType)
-specifier|public
+DECL|method|fileSystemType (String fileSystemType)
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|fileSystemType
@@ -388,8 +379,7 @@ name|this
 return|;
 block|}
 comment|/**          * The file type to use. For more details see Hadoop HDFS documentation          * about the various files types.          * The option is a          *<code>org.apache.camel.component.hdfs2.HdfsFileType</code> type.          * @group common          */
-DECL|method|fileType ( HdfsFileType fileType)
-specifier|public
+DECL|method|fileType (HdfsFileType fileType)
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|fileType
@@ -411,7 +401,6 @@ return|;
 block|}
 comment|/**          * The file type to use. For more details see Hadoop HDFS documentation          * about the various files types.          * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.HdfsFileType</code> type.          * @group common          */
 DECL|method|fileType (String fileType)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|fileType
@@ -433,7 +422,6 @@ return|;
 block|}
 comment|/**          * The type for the key in case of sequence or map files.          * The option is a          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          * @group common          */
 DECL|method|keyType (WritableType keyType)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|keyType
@@ -455,7 +443,6 @@ return|;
 block|}
 comment|/**          * The type for the key in case of sequence or map files.          * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          * @group common          */
 DECL|method|keyType (String keyType)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|keyType
@@ -477,7 +464,6 @@ return|;
 block|}
 comment|/**          * The file owner must match this owner for the consumer to pickup the          * file. Otherwise the file is skipped.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|owner (String owner)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|owner
@@ -498,8 +484,7 @@ name|this
 return|;
 block|}
 comment|/**          * The type for the key in case of sequence or map files.          * The option is a          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          * @group common          */
-DECL|method|valueType ( WritableType valueType)
-specifier|public
+DECL|method|valueType (WritableType valueType)
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|valueType
@@ -521,7 +506,6 @@ return|;
 block|}
 comment|/**          * The type for the key in case of sequence or map files.          * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          * @group common          */
 DECL|method|valueType (String valueType)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|valueType
@@ -543,7 +527,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -565,7 +548,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -587,7 +569,6 @@ return|;
 block|}
 comment|/**          * The pattern used for scanning the directory.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|pattern (String pattern)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|pattern
@@ -609,7 +590,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( boolean sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -631,7 +611,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( String sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -653,7 +632,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( int backoffErrorThreshold)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -675,7 +653,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( String backoffErrorThreshold)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -697,7 +674,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( int backoffIdleThreshold)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -719,7 +695,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( String backoffIdleThreshold)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -741,7 +716,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( int backoffMultiplier)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|backoffMultiplier
@@ -763,7 +737,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( String backoffMultiplier)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|backoffMultiplier
@@ -785,7 +758,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (long delay)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|delay
@@ -807,7 +779,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (String delay)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|delay
@@ -829,7 +800,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (boolean greedy)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|greedy
@@ -851,7 +821,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (String greedy)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|greedy
@@ -872,8 +841,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
-DECL|method|initialDelay ( long initialDelay)
-specifier|public
+DECL|method|initialDelay (long initialDelay)
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|initialDelay
@@ -894,8 +862,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
-DECL|method|initialDelay ( String initialDelay)
-specifier|public
+DECL|method|initialDelay (String initialDelay)
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|initialDelay
@@ -917,7 +884,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( LoggingLevel runLoggingLevel)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|runLoggingLevel
@@ -939,7 +905,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( String runLoggingLevel)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|runLoggingLevel
@@ -961,7 +926,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option is a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( ScheduledExecutorService scheduledExecutorService)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -983,7 +947,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( String scheduledExecutorService)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|scheduledExecutorService
@@ -1005,7 +968,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option is a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler ( ScheduledPollConsumerScheduler scheduler)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|scheduler
@@ -1027,7 +989,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler (String scheduler)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|scheduler
@@ -1049,7 +1010,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group scheduler          */
 DECL|method|schedulerProperties ( Map<String, Object> schedulerProperties)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|schedulerProperties
@@ -1076,7 +1036,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group scheduler          */
 DECL|method|schedulerProperties ( String schedulerProperties)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|schedulerProperties
@@ -1098,7 +1057,6 @@ return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|startScheduler ( boolean startScheduler)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|startScheduler
@@ -1119,8 +1077,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|startScheduler ( String startScheduler)
-specifier|public
+DECL|method|startScheduler (String startScheduler)
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|startScheduler
@@ -1142,7 +1099,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option is a<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (TimeUnit timeUnit)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|timeUnit
@@ -1164,7 +1120,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (String timeUnit)
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|timeUnit
@@ -1185,8 +1140,7 @@ name|this
 return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option is a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|useFixedDelay ( boolean useFixedDelay)
-specifier|public
+DECL|method|useFixedDelay (boolean useFixedDelay)
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|useFixedDelay
@@ -1207,8 +1161,7 @@ name|this
 return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|useFixedDelay ( String useFixedDelay)
-specifier|public
+DECL|method|useFixedDelay (String useFixedDelay)
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|useFixedDelay
@@ -1238,7 +1191,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|HdfsEndpointConsumerBuilder
 name|basic
@@ -1253,7 +1205,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|exceptionHandler
@@ -1275,7 +1226,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|exceptionHandler
@@ -1297,7 +1247,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|exchangePattern
@@ -1319,7 +1268,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|exchangePattern
@@ -1341,7 +1289,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option is a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( PollingConsumerPollStrategy pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|pollStrategy
@@ -1363,7 +1310,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( String pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|pollStrategy
@@ -1385,7 +1331,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1407,7 +1352,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1428,8 +1372,7 @@ name|this
 return|;
 block|}
 comment|/**          * The size of the HDFS blocks.          * The option is a<code>long</code> type.          * @group advanced          */
-DECL|method|blockSize ( long blockSize)
-specifier|public
+DECL|method|blockSize (long blockSize)
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|blockSize
@@ -1450,8 +1393,7 @@ name|this
 return|;
 block|}
 comment|/**          * The size of the HDFS blocks.          * The option will be converted to a<code>long</code> type.          * @group advanced          */
-DECL|method|blockSize ( String blockSize)
-specifier|public
+DECL|method|blockSize (String blockSize)
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|blockSize
@@ -1472,8 +1414,7 @@ name|this
 return|;
 block|}
 comment|/**          * The buffer size used by HDFS.          * The option is a<code>int</code> type.          * @group advanced          */
-DECL|method|bufferSize ( int bufferSize)
-specifier|public
+DECL|method|bufferSize (int bufferSize)
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|bufferSize
@@ -1494,8 +1435,7 @@ name|this
 return|;
 block|}
 comment|/**          * The buffer size used by HDFS.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
-DECL|method|bufferSize ( String bufferSize)
-specifier|public
+DECL|method|bufferSize (String bufferSize)
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|bufferSize
@@ -1517,7 +1457,6 @@ return|;
 block|}
 comment|/**          * How often (time in millis) in to run the idle checker background          * task. This option is only in use if the splitter strategy is IDLE.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|checkIdleInterval ( int checkIdleInterval)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|checkIdleInterval
@@ -1539,7 +1478,6 @@ return|;
 block|}
 comment|/**          * How often (time in millis) in to run the idle checker background          * task. This option is only in use if the splitter strategy is IDLE.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|checkIdleInterval ( String checkIdleInterval)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|checkIdleInterval
@@ -1560,8 +1498,7 @@ name|this
 return|;
 block|}
 comment|/**          * When reading a normal file, this is split into chunks producing a          * message per chunk.          * The option is a<code>int</code> type.          * @group advanced          */
-DECL|method|chunkSize ( int chunkSize)
-specifier|public
+DECL|method|chunkSize (int chunkSize)
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|chunkSize
@@ -1582,8 +1519,7 @@ name|this
 return|;
 block|}
 comment|/**          * When reading a normal file, this is split into chunks producing a          * message per chunk.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
-DECL|method|chunkSize ( String chunkSize)
-specifier|public
+DECL|method|chunkSize (String chunkSize)
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|chunkSize
@@ -1605,7 +1541,6 @@ return|;
 block|}
 comment|/**          * The compression codec to use.          * The option is a          *<code>org.apache.camel.component.hdfs2.HdfsCompressionCodec</code>          * type.          * @group advanced          */
 DECL|method|compressionCodec ( HdfsCompressionCodec compressionCodec)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|compressionCodec
@@ -1627,7 +1562,6 @@ return|;
 block|}
 comment|/**          * The compression codec to use.          * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.HdfsCompressionCodec</code>          * type.          * @group advanced          */
 DECL|method|compressionCodec ( String compressionCodec)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|compressionCodec
@@ -1649,7 +1583,6 @@ return|;
 block|}
 comment|/**          * The compression type to use (is default not in use).          * The option is a          *<code>org.apache.hadoop.io.SequenceFile$CompressionType</code> type.          * @group advanced          */
 DECL|method|compressionType ( CompressionType compressionType)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|compressionType
@@ -1671,7 +1604,6 @@ return|;
 block|}
 comment|/**          * The compression type to use (is default not in use).          * The option will be converted to a          *<code>org.apache.hadoop.io.SequenceFile$CompressionType</code> type.          * @group advanced          */
 DECL|method|compressionType ( String compressionType)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|compressionType
@@ -1693,7 +1625,6 @@ return|;
 block|}
 comment|/**          * When a file is opened for reading/writing the file is renamed with          * this suffix to avoid to read it during the writing phase.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|openedSuffix ( String openedSuffix)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|openedSuffix
@@ -1714,8 +1645,7 @@ name|this
 return|;
 block|}
 comment|/**          * Once the file has been read is renamed with this suffix to avoid to          * read it again.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
-DECL|method|readSuffix ( String readSuffix)
-specifier|public
+DECL|method|readSuffix (String readSuffix)
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|readSuffix
@@ -1737,7 +1667,6 @@ return|;
 block|}
 comment|/**          * The HDFS replication factor.          * The option is a<code>short</code> type.          * @group advanced          */
 DECL|method|replication ( short replication)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|replication
@@ -1759,7 +1688,6 @@ return|;
 block|}
 comment|/**          * The HDFS replication factor.          * The option will be converted to a<code>short</code> type.          * @group advanced          */
 DECL|method|replication ( String replication)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|replication
@@ -1781,7 +1709,6 @@ return|;
 block|}
 comment|/**          * In the current version of Hadoop opening a file in append mode is          * disabled since it's not very reliable. So, for the moment, it's only          * possible to create new files. The Camel HDFS endpoint tries to solve          * this problem in this way: If the split strategy option has been          * defined, the hdfs path will be used as a directory and files will be          * created using the configured UuidGenerator. Every time a splitting          * condition is met, a new file is created. The splitStrategy option is          * defined as a string with the following syntax:          * splitStrategy=ST:value,ST:value,... where ST can be: BYTES a new file          * is created, and the old is closed when the number of written bytes is          * more than value MESSAGES a new file is created, and the old is closed          * when the number of written messages is more than value IDLE a new          * file is created, and the old is closed when no writing happened in          * the last value milliseconds.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|splitStrategy ( String splitStrategy)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|splitStrategy
@@ -1803,7 +1730,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|synchronous
@@ -1825,7 +1751,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
 name|synchronous
@@ -1856,7 +1781,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|advanced
@@ -1871,7 +1795,6 @@ return|;
 block|}
 comment|/**          * HDFS host to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|hostName (String hostName)
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|hostName
@@ -1893,7 +1816,6 @@ return|;
 block|}
 comment|/**          * HDFS port to use.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|port
@@ -1915,7 +1837,6 @@ return|;
 block|}
 comment|/**          * HDFS port to use.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|port
@@ -1937,7 +1858,6 @@ return|;
 block|}
 comment|/**          * The directory path to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|path (String path)
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|path
@@ -1959,7 +1879,6 @@ return|;
 block|}
 comment|/**          * Whether to connect to the HDFS file system on starting the          * producer/consumer. If false then the connection is created on-demand.          * Notice that HDFS may take up till 15 minutes to establish a          * connection, as it has hardcoded 45 x 20 sec redelivery. By setting          * this option to false allows your application to startup, and not          * block for up till 15 minutes.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|connectOnStartup ( boolean connectOnStartup)
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|connectOnStartup
@@ -1981,7 +1900,6 @@ return|;
 block|}
 comment|/**          * Whether to connect to the HDFS file system on starting the          * producer/consumer. If false then the connection is created on-demand.          * Notice that HDFS may take up till 15 minutes to establish a          * connection, as it has hardcoded 45 x 20 sec redelivery. By setting          * this option to false allows your application to startup, and not          * block for up till 15 minutes.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|connectOnStartup ( String connectOnStartup)
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|connectOnStartup
@@ -2003,7 +1921,6 @@ return|;
 block|}
 comment|/**          * Set to LOCAL to not use HDFS but local java.io.File instead.          * The option is a          *<code>org.apache.camel.component.hdfs2.HdfsFileSystemType</code>          * type.          * @group common          */
 DECL|method|fileSystemType ( HdfsFileSystemType fileSystemType)
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|fileSystemType
@@ -2024,8 +1941,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set to LOCAL to not use HDFS but local java.io.File instead.          * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.HdfsFileSystemType</code>          * type.          * @group common          */
-DECL|method|fileSystemType ( String fileSystemType)
-specifier|public
+DECL|method|fileSystemType (String fileSystemType)
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|fileSystemType
@@ -2046,8 +1962,7 @@ name|this
 return|;
 block|}
 comment|/**          * The file type to use. For more details see Hadoop HDFS documentation          * about the various files types.          * The option is a          *<code>org.apache.camel.component.hdfs2.HdfsFileType</code> type.          * @group common          */
-DECL|method|fileType ( HdfsFileType fileType)
-specifier|public
+DECL|method|fileType (HdfsFileType fileType)
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|fileType
@@ -2069,7 +1984,6 @@ return|;
 block|}
 comment|/**          * The file type to use. For more details see Hadoop HDFS documentation          * about the various files types.          * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.HdfsFileType</code> type.          * @group common          */
 DECL|method|fileType (String fileType)
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|fileType
@@ -2091,7 +2005,6 @@ return|;
 block|}
 comment|/**          * The type for the key in case of sequence or map files.          * The option is a          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          * @group common          */
 DECL|method|keyType (WritableType keyType)
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|keyType
@@ -2113,7 +2026,6 @@ return|;
 block|}
 comment|/**          * The type for the key in case of sequence or map files.          * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          * @group common          */
 DECL|method|keyType (String keyType)
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|keyType
@@ -2135,7 +2047,6 @@ return|;
 block|}
 comment|/**          * The file owner must match this owner for the consumer to pickup the          * file. Otherwise the file is skipped.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|owner (String owner)
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|owner
@@ -2156,8 +2067,7 @@ name|this
 return|;
 block|}
 comment|/**          * The type for the key in case of sequence or map files.          * The option is a          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          * @group common          */
-DECL|method|valueType ( WritableType valueType)
-specifier|public
+DECL|method|valueType (WritableType valueType)
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|valueType
@@ -2179,7 +2089,6 @@ return|;
 block|}
 comment|/**          * The type for the key in case of sequence or map files.          * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          * @group common          */
 DECL|method|valueType (String valueType)
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|valueType
@@ -2201,7 +2110,6 @@ return|;
 block|}
 comment|/**          * Append to existing file. Notice that not all HDFS file systems          * support the append option.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|append (boolean append)
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|append
@@ -2223,7 +2131,6 @@ return|;
 block|}
 comment|/**          * Append to existing file. Notice that not all HDFS file systems          * support the append option.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|append (String append)
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|append
@@ -2245,7 +2152,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|lazyStartProducer
@@ -2267,7 +2173,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|lazyStartProducer
@@ -2289,7 +2194,6 @@ return|;
 block|}
 comment|/**          * Whether to overwrite existing files with the same name.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|overwrite (boolean overwrite)
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|overwrite
@@ -2311,7 +2215,6 @@ return|;
 block|}
 comment|/**          * Whether to overwrite existing files with the same name.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|overwrite (String overwrite)
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|overwrite
@@ -2341,7 +2244,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|HdfsEndpointProducerBuilder
 name|basic
@@ -2356,7 +2258,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|basicPropertyBinding
@@ -2378,7 +2279,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|basicPropertyBinding
@@ -2399,8 +2299,7 @@ name|this
 return|;
 block|}
 comment|/**          * The size of the HDFS blocks.          * The option is a<code>long</code> type.          * @group advanced          */
-DECL|method|blockSize ( long blockSize)
-specifier|public
+DECL|method|blockSize (long blockSize)
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|blockSize
@@ -2421,8 +2320,7 @@ name|this
 return|;
 block|}
 comment|/**          * The size of the HDFS blocks.          * The option will be converted to a<code>long</code> type.          * @group advanced          */
-DECL|method|blockSize ( String blockSize)
-specifier|public
+DECL|method|blockSize (String blockSize)
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|blockSize
@@ -2443,8 +2341,7 @@ name|this
 return|;
 block|}
 comment|/**          * The buffer size used by HDFS.          * The option is a<code>int</code> type.          * @group advanced          */
-DECL|method|bufferSize ( int bufferSize)
-specifier|public
+DECL|method|bufferSize (int bufferSize)
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|bufferSize
@@ -2465,8 +2362,7 @@ name|this
 return|;
 block|}
 comment|/**          * The buffer size used by HDFS.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
-DECL|method|bufferSize ( String bufferSize)
-specifier|public
+DECL|method|bufferSize (String bufferSize)
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|bufferSize
@@ -2488,7 +2384,6 @@ return|;
 block|}
 comment|/**          * How often (time in millis) in to run the idle checker background          * task. This option is only in use if the splitter strategy is IDLE.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|checkIdleInterval ( int checkIdleInterval)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|checkIdleInterval
@@ -2510,7 +2405,6 @@ return|;
 block|}
 comment|/**          * How often (time in millis) in to run the idle checker background          * task. This option is only in use if the splitter strategy is IDLE.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|checkIdleInterval ( String checkIdleInterval)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|checkIdleInterval
@@ -2531,8 +2425,7 @@ name|this
 return|;
 block|}
 comment|/**          * When reading a normal file, this is split into chunks producing a          * message per chunk.          * The option is a<code>int</code> type.          * @group advanced          */
-DECL|method|chunkSize ( int chunkSize)
-specifier|public
+DECL|method|chunkSize (int chunkSize)
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|chunkSize
@@ -2553,8 +2446,7 @@ name|this
 return|;
 block|}
 comment|/**          * When reading a normal file, this is split into chunks producing a          * message per chunk.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
-DECL|method|chunkSize ( String chunkSize)
-specifier|public
+DECL|method|chunkSize (String chunkSize)
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|chunkSize
@@ -2576,7 +2468,6 @@ return|;
 block|}
 comment|/**          * The compression codec to use.          * The option is a          *<code>org.apache.camel.component.hdfs2.HdfsCompressionCodec</code>          * type.          * @group advanced          */
 DECL|method|compressionCodec ( HdfsCompressionCodec compressionCodec)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|compressionCodec
@@ -2598,7 +2489,6 @@ return|;
 block|}
 comment|/**          * The compression codec to use.          * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.HdfsCompressionCodec</code>          * type.          * @group advanced          */
 DECL|method|compressionCodec ( String compressionCodec)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|compressionCodec
@@ -2620,7 +2510,6 @@ return|;
 block|}
 comment|/**          * The compression type to use (is default not in use).          * The option is a          *<code>org.apache.hadoop.io.SequenceFile$CompressionType</code> type.          * @group advanced          */
 DECL|method|compressionType ( CompressionType compressionType)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|compressionType
@@ -2642,7 +2531,6 @@ return|;
 block|}
 comment|/**          * The compression type to use (is default not in use).          * The option will be converted to a          *<code>org.apache.hadoop.io.SequenceFile$CompressionType</code> type.          * @group advanced          */
 DECL|method|compressionType ( String compressionType)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|compressionType
@@ -2664,7 +2552,6 @@ return|;
 block|}
 comment|/**          * When a file is opened for reading/writing the file is renamed with          * this suffix to avoid to read it during the writing phase.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|openedSuffix ( String openedSuffix)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|openedSuffix
@@ -2685,8 +2572,7 @@ name|this
 return|;
 block|}
 comment|/**          * Once the file has been read is renamed with this suffix to avoid to          * read it again.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
-DECL|method|readSuffix ( String readSuffix)
-specifier|public
+DECL|method|readSuffix (String readSuffix)
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|readSuffix
@@ -2708,7 +2594,6 @@ return|;
 block|}
 comment|/**          * The HDFS replication factor.          * The option is a<code>short</code> type.          * @group advanced          */
 DECL|method|replication ( short replication)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|replication
@@ -2730,7 +2615,6 @@ return|;
 block|}
 comment|/**          * The HDFS replication factor.          * The option will be converted to a<code>short</code> type.          * @group advanced          */
 DECL|method|replication ( String replication)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|replication
@@ -2752,7 +2636,6 @@ return|;
 block|}
 comment|/**          * In the current version of Hadoop opening a file in append mode is          * disabled since it's not very reliable. So, for the moment, it's only          * possible to create new files. The Camel HDFS endpoint tries to solve          * this problem in this way: If the split strategy option has been          * defined, the hdfs path will be used as a directory and files will be          * created using the configured UuidGenerator. Every time a splitting          * condition is met, a new file is created. The splitStrategy option is          * defined as a string with the following syntax:          * splitStrategy=ST:value,ST:value,... where ST can be: BYTES a new file          * is created, and the old is closed when the number of written bytes is          * more than value MESSAGES a new file is created, and the old is closed          * when the number of written messages is more than value IDLE a new          * file is created, and the old is closed when no writing happened in          * the last value milliseconds.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|splitStrategy ( String splitStrategy)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|splitStrategy
@@ -2774,7 +2657,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|synchronous
@@ -2796,7 +2678,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
 name|synchronous
@@ -2829,7 +2710,6 @@ extends|,
 name|HdfsEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|advanced
@@ -2844,7 +2724,6 @@ return|;
 block|}
 comment|/**          * HDFS host to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|hostName (String hostName)
-specifier|public
 specifier|default
 name|HdfsEndpointBuilder
 name|hostName
@@ -2866,7 +2745,6 @@ return|;
 block|}
 comment|/**          * HDFS port to use.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|HdfsEndpointBuilder
 name|port
@@ -2888,7 +2766,6 @@ return|;
 block|}
 comment|/**          * HDFS port to use.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|HdfsEndpointBuilder
 name|port
@@ -2910,7 +2787,6 @@ return|;
 block|}
 comment|/**          * The directory path to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|path (String path)
-specifier|public
 specifier|default
 name|HdfsEndpointBuilder
 name|path
@@ -2931,8 +2807,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether to connect to the HDFS file system on starting the          * producer/consumer. If false then the connection is created on-demand.          * Notice that HDFS may take up till 15 minutes to establish a          * connection, as it has hardcoded 45 x 20 sec redelivery. By setting          * this option to false allows your application to startup, and not          * block for up till 15 minutes.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|connectOnStartup ( boolean connectOnStartup)
-specifier|public
+DECL|method|connectOnStartup (boolean connectOnStartup)
 specifier|default
 name|HdfsEndpointBuilder
 name|connectOnStartup
@@ -2953,8 +2828,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether to connect to the HDFS file system on starting the          * producer/consumer. If false then the connection is created on-demand.          * Notice that HDFS may take up till 15 minutes to establish a          * connection, as it has hardcoded 45 x 20 sec redelivery. By setting          * this option to false allows your application to startup, and not          * block for up till 15 minutes.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|connectOnStartup ( String connectOnStartup)
-specifier|public
+DECL|method|connectOnStartup (String connectOnStartup)
 specifier|default
 name|HdfsEndpointBuilder
 name|connectOnStartup
@@ -2976,7 +2850,6 @@ return|;
 block|}
 comment|/**          * Set to LOCAL to not use HDFS but local java.io.File instead.          * The option is a          *<code>org.apache.camel.component.hdfs2.HdfsFileSystemType</code>          * type.          * @group common          */
 DECL|method|fileSystemType ( HdfsFileSystemType fileSystemType)
-specifier|public
 specifier|default
 name|HdfsEndpointBuilder
 name|fileSystemType
@@ -2998,7 +2871,6 @@ return|;
 block|}
 comment|/**          * Set to LOCAL to not use HDFS but local java.io.File instead.          * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.HdfsFileSystemType</code>          * type.          * @group common          */
 DECL|method|fileSystemType (String fileSystemType)
-specifier|public
 specifier|default
 name|HdfsEndpointBuilder
 name|fileSystemType
@@ -3020,7 +2892,6 @@ return|;
 block|}
 comment|/**          * The file type to use. For more details see Hadoop HDFS documentation          * about the various files types.          * The option is a          *<code>org.apache.camel.component.hdfs2.HdfsFileType</code> type.          * @group common          */
 DECL|method|fileType (HdfsFileType fileType)
-specifier|public
 specifier|default
 name|HdfsEndpointBuilder
 name|fileType
@@ -3042,7 +2913,6 @@ return|;
 block|}
 comment|/**          * The file type to use. For more details see Hadoop HDFS documentation          * about the various files types.          * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.HdfsFileType</code> type.          * @group common          */
 DECL|method|fileType (String fileType)
-specifier|public
 specifier|default
 name|HdfsEndpointBuilder
 name|fileType
@@ -3064,7 +2934,6 @@ return|;
 block|}
 comment|/**          * The type for the key in case of sequence or map files.          * The option is a          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          * @group common          */
 DECL|method|keyType (WritableType keyType)
-specifier|public
 specifier|default
 name|HdfsEndpointBuilder
 name|keyType
@@ -3086,7 +2955,6 @@ return|;
 block|}
 comment|/**          * The type for the key in case of sequence or map files.          * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          * @group common          */
 DECL|method|keyType (String keyType)
-specifier|public
 specifier|default
 name|HdfsEndpointBuilder
 name|keyType
@@ -3108,7 +2976,6 @@ return|;
 block|}
 comment|/**          * The file owner must match this owner for the consumer to pickup the          * file. Otherwise the file is skipped.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|owner (String owner)
-specifier|public
 specifier|default
 name|HdfsEndpointBuilder
 name|owner
@@ -3130,7 +2997,6 @@ return|;
 block|}
 comment|/**          * The type for the key in case of sequence or map files.          * The option is a          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          * @group common          */
 DECL|method|valueType (WritableType valueType)
-specifier|public
 specifier|default
 name|HdfsEndpointBuilder
 name|valueType
@@ -3152,7 +3018,6 @@ return|;
 block|}
 comment|/**          * The type for the key in case of sequence or map files.          * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          * @group common          */
 DECL|method|valueType (String valueType)
-specifier|public
 specifier|default
 name|HdfsEndpointBuilder
 name|valueType
@@ -3185,7 +3050,6 @@ extends|,
 name|AdvancedHdfsEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|HdfsEndpointBuilder
 name|basic
@@ -3200,7 +3064,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|basicPropertyBinding
@@ -3222,7 +3085,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|basicPropertyBinding
@@ -3244,7 +3106,6 @@ return|;
 block|}
 comment|/**          * The size of the HDFS blocks.          * The option is a<code>long</code> type.          * @group advanced          */
 DECL|method|blockSize (long blockSize)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|blockSize
@@ -3266,7 +3127,6 @@ return|;
 block|}
 comment|/**          * The size of the HDFS blocks.          * The option will be converted to a<code>long</code> type.          * @group advanced          */
 DECL|method|blockSize (String blockSize)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|blockSize
@@ -3288,7 +3148,6 @@ return|;
 block|}
 comment|/**          * The buffer size used by HDFS.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|bufferSize (int bufferSize)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|bufferSize
@@ -3310,7 +3169,6 @@ return|;
 block|}
 comment|/**          * The buffer size used by HDFS.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|bufferSize (String bufferSize)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|bufferSize
@@ -3332,7 +3190,6 @@ return|;
 block|}
 comment|/**          * How often (time in millis) in to run the idle checker background          * task. This option is only in use if the splitter strategy is IDLE.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|checkIdleInterval ( int checkIdleInterval)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|checkIdleInterval
@@ -3354,7 +3211,6 @@ return|;
 block|}
 comment|/**          * How often (time in millis) in to run the idle checker background          * task. This option is only in use if the splitter strategy is IDLE.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|checkIdleInterval ( String checkIdleInterval)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|checkIdleInterval
@@ -3376,7 +3232,6 @@ return|;
 block|}
 comment|/**          * When reading a normal file, this is split into chunks producing a          * message per chunk.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|chunkSize (int chunkSize)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|chunkSize
@@ -3398,7 +3253,6 @@ return|;
 block|}
 comment|/**          * When reading a normal file, this is split into chunks producing a          * message per chunk.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|chunkSize (String chunkSize)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|chunkSize
@@ -3420,7 +3274,6 @@ return|;
 block|}
 comment|/**          * The compression codec to use.          * The option is a          *<code>org.apache.camel.component.hdfs2.HdfsCompressionCodec</code>          * type.          * @group advanced          */
 DECL|method|compressionCodec ( HdfsCompressionCodec compressionCodec)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|compressionCodec
@@ -3442,7 +3295,6 @@ return|;
 block|}
 comment|/**          * The compression codec to use.          * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.HdfsCompressionCodec</code>          * type.          * @group advanced          */
 DECL|method|compressionCodec ( String compressionCodec)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|compressionCodec
@@ -3464,7 +3316,6 @@ return|;
 block|}
 comment|/**          * The compression type to use (is default not in use).          * The option is a          *<code>org.apache.hadoop.io.SequenceFile$CompressionType</code> type.          * @group advanced          */
 DECL|method|compressionType ( CompressionType compressionType)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|compressionType
@@ -3486,7 +3337,6 @@ return|;
 block|}
 comment|/**          * The compression type to use (is default not in use).          * The option will be converted to a          *<code>org.apache.hadoop.io.SequenceFile$CompressionType</code> type.          * @group advanced          */
 DECL|method|compressionType ( String compressionType)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|compressionType
@@ -3507,8 +3357,7 @@ name|this
 return|;
 block|}
 comment|/**          * When a file is opened for reading/writing the file is renamed with          * this suffix to avoid to read it during the writing phase.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
-DECL|method|openedSuffix ( String openedSuffix)
-specifier|public
+DECL|method|openedSuffix (String openedSuffix)
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|openedSuffix
@@ -3530,7 +3379,6 @@ return|;
 block|}
 comment|/**          * Once the file has been read is renamed with this suffix to avoid to          * read it again.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|readSuffix (String readSuffix)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|readSuffix
@@ -3552,7 +3400,6 @@ return|;
 block|}
 comment|/**          * The HDFS replication factor.          * The option is a<code>short</code> type.          * @group advanced          */
 DECL|method|replication (short replication)
-specifier|public
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|replication
@@ -3573,8 +3420,7 @@ name|this
 return|;
 block|}
 comment|/**          * The HDFS replication factor.          * The option will be converted to a<code>short</code> type.          * @group advanced          */
-DECL|method|replication ( String replication)
-specifier|public
+DECL|method|replication (String replication)
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|replication
@@ -3595,8 +3441,7 @@ name|this
 return|;
 block|}
 comment|/**          * In the current version of Hadoop opening a file in append mode is          * disabled since it's not very reliable. So, for the moment, it's only          * possible to create new files. The Camel HDFS endpoint tries to solve          * this problem in this way: If the split strategy option has been          * defined, the hdfs path will be used as a directory and files will be          * created using the configured UuidGenerator. Every time a splitting          * condition is met, a new file is created. The splitStrategy option is          * defined as a string with the following syntax:          * splitStrategy=ST:value,ST:value,... where ST can be: BYTES a new file          * is created, and the old is closed when the number of written bytes is          * more than value MESSAGES a new file is created, and the old is closed          * when the number of written messages is more than value IDLE a new          * file is created, and the old is closed when no writing happened in          * the last value milliseconds.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
-DECL|method|splitStrategy ( String splitStrategy)
-specifier|public
+DECL|method|splitStrategy (String splitStrategy)
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|splitStrategy
@@ -3617,8 +3462,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|synchronous
@@ -3639,8 +3483,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedHdfsEndpointBuilder
 name|synchronous
@@ -3764,7 +3607,6 @@ name|BLOCK
 block|;     }
 comment|/**      * For reading/writing from/to an HDFS filesystem using Hadoop 2.x. Creates      * a builder to build endpoints for the HDFS2 component.      */
 DECL|method|hdfs (String path)
-specifier|public
 specifier|default
 name|HdfsEndpointBuilder
 name|hdfs

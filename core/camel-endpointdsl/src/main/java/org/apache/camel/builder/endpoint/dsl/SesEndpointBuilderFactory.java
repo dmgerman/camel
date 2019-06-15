@@ -109,7 +109,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedSesEndpointBuilder
 name|advanced
@@ -124,7 +123,6 @@ return|;
 block|}
 comment|/**          * The sender's email address.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|from (String from)
-specifier|public
 specifier|default
 name|SesEndpointBuilder
 name|from
@@ -146,7 +144,6 @@ return|;
 block|}
 comment|/**          * To use the AmazonSimpleEmailService as the client.          * The option is a          *<code>com.amazonaws.services.simpleemail.AmazonSimpleEmailService</code> type.          * @group producer          */
 DECL|method|amazonSESClient (Object amazonSESClient)
-specifier|public
 specifier|default
 name|SesEndpointBuilder
 name|amazonSESClient
@@ -168,7 +165,6 @@ return|;
 block|}
 comment|/**          * To use the AmazonSimpleEmailService as the client.          * The option will be converted to a          *<code>com.amazonaws.services.simpleemail.AmazonSimpleEmailService</code> type.          * @group producer          */
 DECL|method|amazonSESClient (String amazonSESClient)
-specifier|public
 specifier|default
 name|SesEndpointBuilder
 name|amazonSESClient
@@ -190,7 +186,6 @@ return|;
 block|}
 comment|/**          * To define a proxy host when instantiating the SES client.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|proxyHost (String proxyHost)
-specifier|public
 specifier|default
 name|SesEndpointBuilder
 name|proxyHost
@@ -212,7 +207,6 @@ return|;
 block|}
 comment|/**          * To define a proxy port when instantiating the SES client.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
 DECL|method|proxyPort (Integer proxyPort)
-specifier|public
 specifier|default
 name|SesEndpointBuilder
 name|proxyPort
@@ -234,7 +228,6 @@ return|;
 block|}
 comment|/**          * To define a proxy port when instantiating the SES client.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
 DECL|method|proxyPort (String proxyPort)
-specifier|public
 specifier|default
 name|SesEndpointBuilder
 name|proxyPort
@@ -256,7 +249,6 @@ return|;
 block|}
 comment|/**          * The region in which SES client needs to work.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|region (String region)
-specifier|public
 specifier|default
 name|SesEndpointBuilder
 name|region
@@ -278,7 +270,6 @@ return|;
 block|}
 comment|/**          * List of reply-to email address(es) for the message, override it using          * 'CamelAwsSesReplyToAddresses' header.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group producer          */
 DECL|method|replyToAddresses ( List<String> replyToAddresses)
-specifier|public
 specifier|default
 name|SesEndpointBuilder
 name|replyToAddresses
@@ -302,8 +293,7 @@ name|this
 return|;
 block|}
 comment|/**          * List of reply-to email address(es) for the message, override it using          * 'CamelAwsSesReplyToAddresses' header.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group producer          */
-DECL|method|replyToAddresses ( String replyToAddresses)
-specifier|public
+DECL|method|replyToAddresses (String replyToAddresses)
 specifier|default
 name|SesEndpointBuilder
 name|replyToAddresses
@@ -325,7 +315,6 @@ return|;
 block|}
 comment|/**          * The email address to which bounce notifications are to be forwarded,          * override it using 'CamelAwsSesReturnPath' header.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|returnPath (String returnPath)
-specifier|public
 specifier|default
 name|SesEndpointBuilder
 name|returnPath
@@ -347,7 +336,6 @@ return|;
 block|}
 comment|/**          * The subject which is used if the message header 'CamelAwsSesSubject'          * is not present.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|subject (String subject)
-specifier|public
 specifier|default
 name|SesEndpointBuilder
 name|subject
@@ -369,7 +357,6 @@ return|;
 block|}
 comment|/**          * List of destination email address. Can be overriden with          * 'CamelAwsSesTo' header.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group producer          */
 DECL|method|to (List<String> to)
-specifier|public
 specifier|default
 name|SesEndpointBuilder
 name|to
@@ -394,7 +381,6 @@ return|;
 block|}
 comment|/**          * List of destination email address. Can be overriden with          * 'CamelAwsSesTo' header.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group producer          */
 DECL|method|to (String to)
-specifier|public
 specifier|default
 name|SesEndpointBuilder
 name|to
@@ -416,7 +402,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessKey (String accessKey)
-specifier|public
 specifier|default
 name|SesEndpointBuilder
 name|accessKey
@@ -438,7 +423,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|SesEndpointBuilder
 name|secretKey
@@ -469,7 +453,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|SesEndpointBuilder
 name|basic
@@ -484,7 +467,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSesEndpointBuilder
 name|basicPropertyBinding
@@ -506,7 +488,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedSesEndpointBuilder
 name|basicPropertyBinding
@@ -527,8 +508,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSesEndpointBuilder
 name|synchronous
@@ -550,7 +530,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous (String synchronous)
-specifier|public
 specifier|default
 name|AdvancedSesEndpointBuilder
 name|synchronous
@@ -573,7 +552,6 @@ block|}
 block|}
 comment|/**      * The aws-ses component is used for sending emails with Amazon's SES      * service. Creates a builder to build endpoints for the AWS Simple Email      * Service component.      */
 DECL|method|ses (String path)
-specifier|public
 specifier|default
 name|SesEndpointBuilder
 name|ses

@@ -180,7 +180,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|advanced
@@ -195,7 +194,6 @@ return|;
 block|}
 comment|/**          * The protocol to use which is either http, https or proxy - a consumer          * only option.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|protocol (String protocol)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|protocol
@@ -217,7 +215,6 @@ return|;
 block|}
 comment|/**          * The local hostname such as localhost, or 0.0.0.0 when being a          * consumer. The remote HTTP server hostname when using producer.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|host
@@ -239,7 +236,6 @@ return|;
 block|}
 comment|/**          * The host port number.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|port
@@ -261,7 +257,6 @@ return|;
 block|}
 comment|/**          * The host port number.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|port
@@ -283,7 +278,6 @@ return|;
 block|}
 comment|/**          * Resource path.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|path (String path)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|path
@@ -305,7 +299,6 @@ return|;
 block|}
 comment|/**          * If the option is true, the producer will ignore the Exchange.HTTP_URI          * header, and use the endpoint's URI for request. You may also set the          * throwExceptionOnFailure to be false to let the producer send all the          * fault response back. The consumer working in the bridge mode will          * skip the gzip compression and WWW URL form encoding (by adding the          * Exchange.SKIP_GZIP_ENCODING and Exchange.SKIP_WWW_FORM_URLENCODED          * headers to the consumed exchange).          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|bridgeEndpoint ( boolean bridgeEndpoint)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|bridgeEndpoint
@@ -327,7 +320,6 @@ return|;
 block|}
 comment|/**          * If the option is true, the producer will ignore the Exchange.HTTP_URI          * header, and use the endpoint's URI for request. You may also set the          * throwExceptionOnFailure to be false to let the producer send all the          * fault response back. The consumer working in the bridge mode will          * skip the gzip compression and WWW URL form encoding (by adding the          * Exchange.SKIP_GZIP_ENCODING and Exchange.SKIP_WWW_FORM_URLENCODED          * headers to the consumed exchange).          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|bridgeEndpoint ( String bridgeEndpoint)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|bridgeEndpoint
@@ -348,8 +340,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether or not to disconnect(close) from Netty Channel right after          * use. Can be used for both consumer and producer.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|disconnect ( boolean disconnect)
-specifier|public
+DECL|method|disconnect (boolean disconnect)
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|disconnect
@@ -370,8 +361,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether or not to disconnect(close) from Netty Channel right after          * use. Can be used for both consumer and producer.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|disconnect ( String disconnect)
-specifier|public
+DECL|method|disconnect (String disconnect)
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|disconnect
@@ -392,8 +382,7 @@ name|this
 return|;
 block|}
 comment|/**          * Setting to ensure socket is not closed due to inactivity.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|keepAlive ( boolean keepAlive)
-specifier|public
+DECL|method|keepAlive (boolean keepAlive)
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|keepAlive
@@ -414,8 +403,7 @@ name|this
 return|;
 block|}
 comment|/**          * Setting to ensure socket is not closed due to inactivity.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|keepAlive ( String keepAlive)
-specifier|public
+DECL|method|keepAlive (String keepAlive)
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|keepAlive
@@ -437,7 +425,6 @@ return|;
 block|}
 comment|/**          * Setting to facilitate socket multiplexing.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|reuseAddress ( boolean reuseAddress)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|reuseAddress
@@ -459,7 +446,6 @@ return|;
 block|}
 comment|/**          * Setting to facilitate socket multiplexing.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|reuseAddress ( String reuseAddress)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|reuseAddress
@@ -481,7 +467,6 @@ return|;
 block|}
 comment|/**          * This option allows producers and consumers (in client mode) to reuse          * the same Netty Channel for the lifecycle of processing the Exchange.          * This is useful if you need to call a server multiple times in a Camel          * route and want to use the same network connection. When using this,          * the channel is not returned to the connection pool until the Exchange          * is done; or disconnected if the disconnect option is set to true. The          * reused Channel is stored on the Exchange as an exchange property with          * the key NettyConstants#NETTY_CHANNEL which allows you to obtain the          * channel during routing and use it as well.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|reuseChannel ( boolean reuseChannel)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|reuseChannel
@@ -503,7 +488,6 @@ return|;
 block|}
 comment|/**          * This option allows producers and consumers (in client mode) to reuse          * the same Netty Channel for the lifecycle of processing the Exchange.          * This is useful if you need to call a server multiple times in a Camel          * route and want to use the same network connection. When using this,          * the channel is not returned to the connection pool until the Exchange          * is done; or disconnected if the disconnect option is set to true. The          * reused Channel is stored on the Exchange as an exchange property with          * the key NettyConstants#NETTY_CHANNEL which allows you to obtain the          * channel during routing and use it as well.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|reuseChannel ( String reuseChannel)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|reuseChannel
@@ -525,7 +509,6 @@ return|;
 block|}
 comment|/**          * Setting to set endpoint as one-way or request-response.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|sync (boolean sync)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|sync
@@ -547,7 +530,6 @@ return|;
 block|}
 comment|/**          * Setting to set endpoint as one-way or request-response.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|sync (String sync)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|sync
@@ -568,8 +550,7 @@ name|this
 return|;
 block|}
 comment|/**          * Setting to improve TCP protocol performance.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|tcpNoDelay ( boolean tcpNoDelay)
-specifier|public
+DECL|method|tcpNoDelay (boolean tcpNoDelay)
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|tcpNoDelay
@@ -590,8 +571,7 @@ name|this
 return|;
 block|}
 comment|/**          * Setting to improve TCP protocol performance.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|tcpNoDelay ( String tcpNoDelay)
-specifier|public
+DECL|method|tcpNoDelay (String tcpNoDelay)
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|tcpNoDelay
@@ -613,7 +593,6 @@ return|;
 block|}
 comment|/**          * Whether or not Camel should try to find a target consumer by matching          * the URI prefix if no exact match is found.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|matchOnUriPrefix ( boolean matchOnUriPrefix)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|matchOnUriPrefix
@@ -635,7 +614,6 @@ return|;
 block|}
 comment|/**          * Whether or not Camel should try to find a target consumer by matching          * the URI prefix if no exact match is found.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|matchOnUriPrefix ( String matchOnUriPrefix)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|matchOnUriPrefix
@@ -657,7 +635,6 @@ return|;
 block|}
 comment|/**          * Whether to send back HTTP status code 503 when the consumer has been          * suspended. If the option is false then the Netty Acceptor is unbound          * when the consumer is suspended, so clients cannot connect anymore.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|send503whenSuspended ( boolean send503whenSuspended)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|send503whenSuspended
@@ -679,7 +656,6 @@ return|;
 block|}
 comment|/**          * Whether to send back HTTP status code 503 when the consumer has been          * suspended. If the option is false then the Netty Acceptor is unbound          * when the consumer is suspended, so clients cannot connect anymore.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|send503whenSuspended ( String send503whenSuspended)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|send503whenSuspended
@@ -703,7 +679,6 @@ comment|/**          * To use a single decoder. This options is deprecated use e
 annotation|@
 name|Deprecated
 DECL|method|decoder (Object decoder)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|decoder
@@ -727,7 +702,6 @@ comment|/**          * To use a single decoder. This options is deprecated use e
 annotation|@
 name|Deprecated
 DECL|method|decoder (String decoder)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|decoder
@@ -748,8 +722,7 @@ name|this
 return|;
 block|}
 comment|/**          * A list of decoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          * The option is a          *<code>java.util.List&lt;io.netty.channel.ChannelHandler&gt;</code>          * type.          * @group codec          */
-DECL|method|decoders ( List<Object> decoders)
-specifier|public
+DECL|method|decoders (List<Object> decoders)
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|decoders
@@ -774,7 +747,6 @@ return|;
 block|}
 comment|/**          * A list of decoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          * The option will be converted to a          *<code>java.util.List&lt;io.netty.channel.ChannelHandler&gt;</code>          * type.          * @group codec          */
 DECL|method|decoders (String decoders)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|decoders
@@ -798,7 +770,6 @@ comment|/**          * To use a single encoder. This options is deprecated use e
 annotation|@
 name|Deprecated
 DECL|method|encoder (Object encoder)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|encoder
@@ -822,7 +793,6 @@ comment|/**          * To use a single encoder. This options is deprecated use e
 annotation|@
 name|Deprecated
 DECL|method|encoder (String encoder)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|encoder
@@ -843,8 +813,7 @@ name|this
 return|;
 block|}
 comment|/**          * A list of encoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          * The option is a          *<code>java.util.List&lt;io.netty.channel.ChannelHandler&gt;</code>          * type.          * @group codec          */
-DECL|method|encoders ( List<Object> encoders)
-specifier|public
+DECL|method|encoders (List<Object> encoders)
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|encoders
@@ -869,7 +838,6 @@ return|;
 block|}
 comment|/**          * A list of encoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          * The option will be converted to a          *<code>java.util.List&lt;io.netty.channel.ChannelHandler&gt;</code>          * type.          * @group codec          */
 DECL|method|encoders (String encoders)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|encoders
@@ -891,7 +859,6 @@ return|;
 block|}
 comment|/**          * Which protocols to enable when using SSL.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|enabledProtocols ( String enabledProtocols)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|enabledProtocols
@@ -912,8 +879,7 @@ name|this
 return|;
 block|}
 comment|/**          * Client side certificate keystore to be used for encryption.          * The option is a<code>java.io.File</code> type.          * @group security          */
-DECL|method|keyStoreFile ( File keyStoreFile)
-specifier|public
+DECL|method|keyStoreFile (File keyStoreFile)
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|keyStoreFile
@@ -935,7 +901,6 @@ return|;
 block|}
 comment|/**          * Client side certificate keystore to be used for encryption.          * The option will be converted to a<code>java.io.File</code> type.          * @group security          */
 DECL|method|keyStoreFile ( String keyStoreFile)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|keyStoreFile
@@ -957,7 +922,6 @@ return|;
 block|}
 comment|/**          * Keystore format to be used for payload encryption. Defaults to JKS if          * not set.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|keyStoreFormat ( String keyStoreFormat)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|keyStoreFormat
@@ -979,7 +943,6 @@ return|;
 block|}
 comment|/**          * Client side certificate keystore to be used for encryption. Is loaded          * by default from classpath, but you can prefix with classpath:, file:,          * or http: to load the resource from different systems.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|keyStoreResource ( String keyStoreResource)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|keyStoreResource
@@ -1001,7 +964,6 @@ return|;
 block|}
 comment|/**          * Configures whether the server needs client authentication when using          * SSL.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|needClientAuth ( boolean needClientAuth)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|needClientAuth
@@ -1023,7 +985,6 @@ return|;
 block|}
 comment|/**          * Configures whether the server needs client authentication when using          * SSL.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|needClientAuth ( String needClientAuth)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|needClientAuth
@@ -1044,8 +1005,7 @@ name|this
 return|;
 block|}
 comment|/**          * Password setting to use in order to encrypt/decrypt payloads sent          * using SSH.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|passphrase ( String passphrase)
-specifier|public
+DECL|method|passphrase (String passphrase)
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|passphrase
@@ -1067,7 +1027,6 @@ return|;
 block|}
 comment|/**          * Refers to a          * org.apache.camel.component.netty4.http.NettyHttpSecurityConfiguration          * for configuring secure web resources.          * The option is a          *<code>org.apache.camel.component.netty4.http.NettyHttpSecurityConfiguration</code> type.          * @group security          */
 DECL|method|securityConfiguration ( Object securityConfiguration)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|securityConfiguration
@@ -1089,7 +1048,6 @@ return|;
 block|}
 comment|/**          * Refers to a          * org.apache.camel.component.netty4.http.NettyHttpSecurityConfiguration          * for configuring secure web resources.          * The option will be converted to a          *<code>org.apache.camel.component.netty4.http.NettyHttpSecurityConfiguration</code> type.          * @group security          */
 DECL|method|securityConfiguration ( String securityConfiguration)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|securityConfiguration
@@ -1111,7 +1069,6 @@ return|;
 block|}
 comment|/**          * To configure NettyHttpSecurityConfiguration using key/value pairs          * from the map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group security          */
 DECL|method|securityOptions ( Map<String, Object> securityOptions)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|securityOptions
@@ -1138,7 +1095,6 @@ return|;
 block|}
 comment|/**          * To configure NettyHttpSecurityConfiguration using key/value pairs          * from the map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group security          */
 DECL|method|securityOptions ( String securityOptions)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|securityOptions
@@ -1160,7 +1116,6 @@ return|;
 block|}
 comment|/**          * Security provider to be used for payload encryption. Defaults to          * SunX509 if not set.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|securityProvider ( String securityProvider)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|securityProvider
@@ -1182,7 +1137,6 @@ return|;
 block|}
 comment|/**          * Setting to specify whether SSL encryption is applied to this          * endpoint.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|ssl (boolean ssl)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|ssl
@@ -1204,7 +1158,6 @@ return|;
 block|}
 comment|/**          * Setting to specify whether SSL encryption is applied to this          * endpoint.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|ssl (String ssl)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|ssl
@@ -1226,7 +1179,6 @@ return|;
 block|}
 comment|/**          * When enabled and in SSL mode, then the Netty consumer will enrich the          * Camel Message with headers having information about the client          * certificate such as subject name, issuer name, serial number, and the          * valid date range.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|sslClientCertHeaders ( boolean sslClientCertHeaders)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|sslClientCertHeaders
@@ -1248,7 +1200,6 @@ return|;
 block|}
 comment|/**          * When enabled and in SSL mode, then the Netty consumer will enrich the          * Camel Message with headers having information about the client          * certificate such as subject name, issuer name, serial number, and the          * valid date range.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|sslClientCertHeaders ( String sslClientCertHeaders)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|sslClientCertHeaders
@@ -1270,7 +1221,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|sslContextParameters
@@ -1292,7 +1242,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|sslContextParameters
@@ -1313,8 +1262,7 @@ name|this
 return|;
 block|}
 comment|/**          * Reference to a class that could be used to return an SSL Handler.          * The option is a<code>io.netty.handler.ssl.SslHandler</code> type.          * @group security          */
-DECL|method|sslHandler ( Object sslHandler)
-specifier|public
+DECL|method|sslHandler (Object sslHandler)
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|sslHandler
@@ -1335,8 +1283,7 @@ name|this
 return|;
 block|}
 comment|/**          * Reference to a class that could be used to return an SSL Handler.          * The option will be converted to a          *<code>io.netty.handler.ssl.SslHandler</code> type.          * @group security          */
-DECL|method|sslHandler ( String sslHandler)
-specifier|public
+DECL|method|sslHandler (String sslHandler)
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|sslHandler
@@ -1358,7 +1305,6 @@ return|;
 block|}
 comment|/**          * Server side certificate keystore to be used for encryption.          * The option is a<code>java.io.File</code> type.          * @group security          */
 DECL|method|trustStoreFile ( File trustStoreFile)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|trustStoreFile
@@ -1380,7 +1326,6 @@ return|;
 block|}
 comment|/**          * Server side certificate keystore to be used for encryption.          * The option will be converted to a<code>java.io.File</code> type.          * @group security          */
 DECL|method|trustStoreFile ( String trustStoreFile)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|trustStoreFile
@@ -1402,7 +1347,6 @@ return|;
 block|}
 comment|/**          * Server side certificate keystore to be used for encryption. Is loaded          * by default from classpath, but you can prefix with classpath:, file:,          * or http: to load the resource from different systems.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|trustStoreResource ( String trustStoreResource)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|trustStoreResource
@@ -1424,7 +1368,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -1446,7 +1389,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -1476,7 +1418,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|NettyHttpEndpointConsumerBuilder
 name|basic
@@ -1490,8 +1431,7 @@ name|this
 return|;
 block|}
 comment|/**          * Allows to configure a backlog for netty consumer (server). Note the          * backlog is just a best effort depending on the OS. Setting this          * option to a value such as 200, 500 or 1000, tells the TCP stack how          * long the accept queue can be If this option is not configured, then          * the backlog depends on OS setting.          * The option is a<code>int</code> type.          * @group consumer (advanced)          */
-DECL|method|backlog ( int backlog)
-specifier|public
+DECL|method|backlog (int backlog)
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|backlog
@@ -1512,8 +1452,7 @@ name|this
 return|;
 block|}
 comment|/**          * Allows to configure a backlog for netty consumer (server). Note the          * backlog is just a best effort depending on the OS. Setting this          * option to a value such as 200, 500 or 1000, tells the TCP stack how          * long the accept queue can be If this option is not configured, then          * the backlog depends on OS setting.          * The option will be converted to a<code>int</code> type.          * @group consumer (advanced)          */
-DECL|method|backlog ( String backlog)
-specifier|public
+DECL|method|backlog (String backlog)
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|backlog
@@ -1534,8 +1473,7 @@ name|this
 return|;
 block|}
 comment|/**          * When netty works on nio mode, it uses default bossCount parameter          * from Netty, which is 1. User can use this operation to override the          * default bossCount from Netty.          * The option is a<code>int</code> type.          * @group consumer (advanced)          */
-DECL|method|bossCount ( int bossCount)
-specifier|public
+DECL|method|bossCount (int bossCount)
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|bossCount
@@ -1557,7 +1495,6 @@ return|;
 block|}
 comment|/**          * When netty works on nio mode, it uses default bossCount parameter          * from Netty, which is 1. User can use this operation to override the          * default bossCount from Netty.          * The option will be converted to a<code>int</code> type.          * @group consumer (advanced)          */
 DECL|method|bossCount ( String bossCount)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|bossCount
@@ -1579,7 +1516,6 @@ return|;
 block|}
 comment|/**          * Set the BossGroup which could be used for handling the new connection          * of the server side across the NettyEndpoint.          * The option is a<code>io.netty.channel.EventLoopGroup</code> type.          * @group consumer (advanced)          */
 DECL|method|bossGroup ( Object bossGroup)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|bossGroup
@@ -1601,7 +1537,6 @@ return|;
 block|}
 comment|/**          * Set the BossGroup which could be used for handling the new connection          * of the server side across the NettyEndpoint.          * The option will be converted to a          *<code>io.netty.channel.EventLoopGroup</code> type.          * @group consumer (advanced)          */
 DECL|method|bossGroup ( String bossGroup)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|bossGroup
@@ -1623,7 +1558,6 @@ return|;
 block|}
 comment|/**          * Value in bytes the max content length per chunked frame received on          * the Netty HTTP server.          * The option is a<code>int</code> type.          * @group consumer (advanced)          */
 DECL|method|chunkedMaxContentLength ( int chunkedMaxContentLength)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|chunkedMaxContentLength
@@ -1645,7 +1579,6 @@ return|;
 block|}
 comment|/**          * Value in bytes the max content length per chunked frame received on          * the Netty HTTP server.          * The option will be converted to a<code>int</code> type.          * @group consumer (advanced)          */
 DECL|method|chunkedMaxContentLength ( String chunkedMaxContentLength)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|chunkedMaxContentLength
@@ -1667,7 +1600,6 @@ return|;
 block|}
 comment|/**          * Allow using gzip/deflate for compression on the Netty HTTP server if          * the client supports it from the HTTP headers.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|compression ( boolean compression)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|compression
@@ -1689,7 +1621,6 @@ return|;
 block|}
 comment|/**          * Allow using gzip/deflate for compression on the Netty HTTP server if          * the client supports it from the HTTP headers.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|compression ( String compression)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|compression
@@ -1711,7 +1642,6 @@ return|;
 block|}
 comment|/**          * If sync is enabled then this option dictates NettyConsumer if it          * should disconnect where there is no reply to send back.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|disconnectOnNoReply ( boolean disconnectOnNoReply)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|disconnectOnNoReply
@@ -1733,7 +1663,6 @@ return|;
 block|}
 comment|/**          * If sync is enabled then this option dictates NettyConsumer if it          * should disconnect where there is no reply to send back.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|disconnectOnNoReply ( String disconnectOnNoReply)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|disconnectOnNoReply
@@ -1755,7 +1684,6 @@ return|;
 block|}
 comment|/**          * To disable HTTP methods on the Netty HTTP consumer. You can specify          * multiple separated by comma.          * The option is a<code>java.lang.String</code> type.          * @group consumer (advanced)          */
 DECL|method|httpMethodRestrict ( String httpMethodRestrict)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|httpMethodRestrict
@@ -1777,7 +1705,6 @@ return|;
 block|}
 comment|/**          * If this option is enabled, then during binding from Netty to Camel          * Message then the headers will be mapped as well (eg added as header          * to the Camel Message as well). You can turn off this option to          * disable this. The headers can still be accessed from the          * org.apache.camel.component.netty.http.NettyHttpMessage message with          * the method getHttpRequest() that returns the Netty HTTP request          * io.netty.handler.codec.http.HttpRequest instance.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|mapHeaders ( boolean mapHeaders)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|mapHeaders
@@ -1799,7 +1726,6 @@ return|;
 block|}
 comment|/**          * If this option is enabled, then during binding from Netty to Camel          * Message then the headers will be mapped as well (eg added as header          * to the Camel Message as well). You can turn off this option to          * disable this. The headers can still be accessed from the          * org.apache.camel.component.netty.http.NettyHttpMessage message with          * the method getHttpRequest() that returns the Netty HTTP request          * io.netty.handler.codec.http.HttpRequest instance.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|mapHeaders ( String mapHeaders)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|mapHeaders
@@ -1821,7 +1747,6 @@ return|;
 block|}
 comment|/**          * The maximum length of all headers. If the sum of the length of each          * header exceeds this value, a          * io.netty.handler.codec.TooLongFrameException will be raised.          * The option is a<code>int</code> type.          * @group consumer (advanced)          */
 DECL|method|maxHeaderSize ( int maxHeaderSize)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|maxHeaderSize
@@ -1843,7 +1768,6 @@ return|;
 block|}
 comment|/**          * The maximum length of all headers. If the sum of the length of each          * header exceeds this value, a          * io.netty.handler.codec.TooLongFrameException will be raised.          * The option will be converted to a<code>int</code> type.          * @group consumer (advanced)          */
 DECL|method|maxHeaderSize ( String maxHeaderSize)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|maxHeaderSize
@@ -1865,7 +1789,6 @@ return|;
 block|}
 comment|/**          * To use a custom NettyServerBootstrapFactory.          * The option is a          *<code>org.apache.camel.component.netty4.NettyServerBootstrapFactory</code> type.          * @group consumer (advanced)          */
 DECL|method|nettyServerBootstrapFactory ( Object nettyServerBootstrapFactory)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|nettyServerBootstrapFactory
@@ -1887,7 +1810,6 @@ return|;
 block|}
 comment|/**          * To use a custom NettyServerBootstrapFactory.          * The option will be converted to a          *<code>org.apache.camel.component.netty4.NettyServerBootstrapFactory</code> type.          * @group consumer (advanced)          */
 DECL|method|nettyServerBootstrapFactory ( String nettyServerBootstrapFactory)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|nettyServerBootstrapFactory
@@ -1909,7 +1831,6 @@ return|;
 block|}
 comment|/**          * To use a shared Netty HTTP server. See Netty HTTP Server Example for          * more details.          * The option is a          *<code>org.apache.camel.component.netty4.http.NettySharedHttpServer</code> type.          * @group consumer (advanced)          */
 DECL|method|nettySharedHttpServer ( Object nettySharedHttpServer)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|nettySharedHttpServer
@@ -1931,7 +1852,6 @@ return|;
 block|}
 comment|/**          * To use a shared Netty HTTP server. See Netty HTTP Server Example for          * more details.          * The option will be converted to a          *<code>org.apache.camel.component.netty4.http.NettySharedHttpServer</code> type.          * @group consumer (advanced)          */
 DECL|method|nettySharedHttpServer ( String nettySharedHttpServer)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|nettySharedHttpServer
@@ -1953,7 +1873,6 @@ return|;
 block|}
 comment|/**          * If sync is enabled this option dictates NettyConsumer which logging          * level to use when logging a there is no reply to send back.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group consumer (advanced)          */
 DECL|method|noReplyLogLevel ( LoggingLevel noReplyLogLevel)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|noReplyLogLevel
@@ -1975,7 +1894,6 @@ return|;
 block|}
 comment|/**          * If sync is enabled this option dictates NettyConsumer which logging          * level to use when logging a there is no reply to send back.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group consumer (advanced)          */
 DECL|method|noReplyLogLevel ( String noReplyLogLevel)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|noReplyLogLevel
@@ -1997,7 +1915,6 @@ return|;
 block|}
 comment|/**          * If the server (NettyConsumer) catches an          * java.nio.channels.ClosedChannelException then its logged using this          * logging level. This is used to avoid logging the closed channel          * exceptions, as clients can disconnect abruptly and then cause a flood          * of closed exceptions in the Netty server.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group consumer (advanced)          */
 DECL|method|serverClosedChannelExceptionCaughtLogLevel ( LoggingLevel serverClosedChannelExceptionCaughtLogLevel)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|serverClosedChannelExceptionCaughtLogLevel
@@ -2019,7 +1936,6 @@ return|;
 block|}
 comment|/**          * If the server (NettyConsumer) catches an          * java.nio.channels.ClosedChannelException then its logged using this          * logging level. This is used to avoid logging the closed channel          * exceptions, as clients can disconnect abruptly and then cause a flood          * of closed exceptions in the Netty server.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group consumer (advanced)          */
 DECL|method|serverClosedChannelExceptionCaughtLogLevel ( String serverClosedChannelExceptionCaughtLogLevel)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|serverClosedChannelExceptionCaughtLogLevel
@@ -2041,7 +1957,6 @@ return|;
 block|}
 comment|/**          * If the server (NettyConsumer) catches an exception then its logged          * using this logging level.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group consumer (advanced)          */
 DECL|method|serverExceptionCaughtLogLevel ( LoggingLevel serverExceptionCaughtLogLevel)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|serverExceptionCaughtLogLevel
@@ -2063,7 +1978,6 @@ return|;
 block|}
 comment|/**          * If the server (NettyConsumer) catches an exception then its logged          * using this logging level.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group consumer (advanced)          */
 DECL|method|serverExceptionCaughtLogLevel ( String serverExceptionCaughtLogLevel)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|serverExceptionCaughtLogLevel
@@ -2085,7 +1999,6 @@ return|;
 block|}
 comment|/**          * To use a custom ServerInitializerFactory.          * The option is a          *<code>org.apache.camel.component.netty4.ServerInitializerFactory</code> type.          * @group consumer (advanced)          */
 DECL|method|serverInitializerFactory ( Object serverInitializerFactory)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|serverInitializerFactory
@@ -2107,7 +2020,6 @@ return|;
 block|}
 comment|/**          * To use a custom ServerInitializerFactory.          * The option will be converted to a          *<code>org.apache.camel.component.netty4.ServerInitializerFactory</code> type.          * @group consumer (advanced)          */
 DECL|method|serverInitializerFactory ( String serverInitializerFactory)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|serverInitializerFactory
@@ -2129,7 +2041,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to enable HTTP TRACE for this Netty HTTP consumer.          * By default TRACE is turned off.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|traceEnabled ( boolean traceEnabled)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|traceEnabled
@@ -2151,7 +2062,6 @@ return|;
 block|}
 comment|/**          * Specifies whether to enable HTTP TRACE for this Netty HTTP consumer.          * By default TRACE is turned off.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|traceEnabled ( String traceEnabled)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|traceEnabled
@@ -2173,7 +2083,6 @@ return|;
 block|}
 comment|/**          * If this option is enabled, then during binding from Netty to Camel          * Message then the header values will be URL decoded (eg %20 will be a          * space character. Notice this option is used by the default          * org.apache.camel.component.netty.http.NettyHttpBinding and therefore          * if you implement a custom          * org.apache.camel.component.netty4.http.NettyHttpBinding then you          * would need to decode the headers accordingly to this option.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|urlDecodeHeaders ( boolean urlDecodeHeaders)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|urlDecodeHeaders
@@ -2195,7 +2104,6 @@ return|;
 block|}
 comment|/**          * If this option is enabled, then during binding from Netty to Camel          * Message then the header values will be URL decoded (eg %20 will be a          * space character. Notice this option is used by the default          * org.apache.camel.component.netty.http.NettyHttpBinding and therefore          * if you implement a custom          * org.apache.camel.component.netty4.http.NettyHttpBinding then you          * would need to decode the headers accordingly to this option.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|urlDecodeHeaders ( String urlDecodeHeaders)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|urlDecodeHeaders
@@ -2217,7 +2125,6 @@ return|;
 block|}
 comment|/**          * Whether to use ordered thread pool, to ensure events are processed          * orderly on the same channel.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|usingExecutorService ( boolean usingExecutorService)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|usingExecutorService
@@ -2239,7 +2146,6 @@ return|;
 block|}
 comment|/**          * Whether to use ordered thread pool, to ensure events are processed          * orderly on the same channel.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|usingExecutorService ( String usingExecutorService)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|usingExecutorService
@@ -2261,7 +2167,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP when transferExchange is true. When set to true,          * serializable objects in headers and properties will be added to the          * exchange. Otherwise Camel will exclude any non-serializable objects          * and log it at WARN level.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|allowSerializedHeaders ( boolean allowSerializedHeaders)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|allowSerializedHeaders
@@ -2283,7 +2188,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP when transferExchange is true. When set to true,          * serializable objects in headers and properties will be added to the          * exchange. Otherwise Camel will exclude any non-serializable objects          * and log it at WARN level.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|allowSerializedHeaders ( String allowSerializedHeaders)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|allowSerializedHeaders
@@ -2305,7 +2209,6 @@ return|;
 block|}
 comment|/**          * To use a explicit ChannelGroup.          * The option is a<code>io.netty.channel.group.ChannelGroup</code>          * type.          * @group advanced          */
 DECL|method|channelGroup ( Object channelGroup)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|channelGroup
@@ -2327,7 +2230,6 @@ return|;
 block|}
 comment|/**          * To use a explicit ChannelGroup.          * The option will be converted to a          *<code>io.netty.channel.group.ChannelGroup</code> type.          * @group advanced          */
 DECL|method|channelGroup ( String channelGroup)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|channelGroup
@@ -2349,7 +2251,6 @@ return|;
 block|}
 comment|/**          * To use a custom configured NettyHttpConfiguration for configuring          * this endpoint.          * The option is a          *<code>org.apache.camel.component.netty4.http.NettyHttpConfiguration</code> type.          * @group advanced          */
 DECL|method|configuration ( Object configuration)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|configuration
@@ -2371,7 +2272,6 @@ return|;
 block|}
 comment|/**          * To use a custom configured NettyHttpConfiguration for configuring          * this endpoint.          * The option will be converted to a          *<code>org.apache.camel.component.netty4.http.NettyHttpConfiguration</code> type.          * @group advanced          */
 DECL|method|configuration ( String configuration)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|configuration
@@ -2393,7 +2293,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not the raw input stream from Netty          * HttpRequest#getContent() or HttpResponset#getContent() is cached or          * not (Camel will read the stream into a in light-weight memory based          * Stream caching) cache. By default Camel will cache the Netty input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store. Mind that          * if you enable this option, then you cannot read the Netty stream          * multiple times out of the box, and you would need manually to reset          * the reader index on the Netty raw stream. Also Netty will auto-close          * the Netty stream when the Netty HTTP server/HTTP client is done          * processing, which means that if the asynchronous routing engine is in          * use then any asynchronous thread that may continue routing the          * org.apache.camel.Exchange may not be able to read the Netty stream,          * because Netty has closed it.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|disableStreamCache ( boolean disableStreamCache)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|disableStreamCache
@@ -2415,7 +2314,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not the raw input stream from Netty          * HttpRequest#getContent() or HttpResponset#getContent() is cached or          * not (Camel will read the stream into a in light-weight memory based          * Stream caching) cache. By default Camel will cache the Netty input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store. Mind that          * if you enable this option, then you cannot read the Netty stream          * multiple times out of the box, and you would need manually to reset          * the reader index on the Netty raw stream. Also Netty will auto-close          * the Netty stream when the Netty HTTP server/HTTP client is done          * processing, which means that if the asynchronous routing engine is in          * use then any asynchronous thread that may continue routing the          * org.apache.camel.Exchange may not be able to read the Netty stream,          * because Netty has closed it.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|disableStreamCache ( String disableStreamCache)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|disableStreamCache
@@ -2437,7 +2335,6 @@ return|;
 block|}
 comment|/**          * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter          * headers.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|headerFilterStrategy
@@ -2459,7 +2356,6 @@ return|;
 block|}
 comment|/**          * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter          * headers.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|headerFilterStrategy
@@ -2481,7 +2377,6 @@ return|;
 block|}
 comment|/**          * Whether to use native transport instead of NIO. Native transport          * takes advantage of the host operating system and is only supported on          * some platforms. You need to add the netty JAR for the host operating          * system you are using. See more details at:          * http://netty.io/wiki/native-transports.html.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|nativeTransport ( boolean nativeTransport)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|nativeTransport
@@ -2503,7 +2398,6 @@ return|;
 block|}
 comment|/**          * Whether to use native transport instead of NIO. Native transport          * takes advantage of the host operating system and is only supported on          * some platforms. You need to add the netty JAR for the host operating          * system you are using. See more details at:          * http://netty.io/wiki/native-transports.html.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|nativeTransport ( String nativeTransport)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|nativeTransport
@@ -2525,7 +2419,6 @@ return|;
 block|}
 comment|/**          * To use a custom          * org.apache.camel.component.netty4.http.NettyHttpBinding for binding          * to/from Netty and Camel Message API.          * The option is a          *<code>org.apache.camel.component.netty4.http.NettyHttpBinding</code>          * type.          * @group advanced          */
 DECL|method|nettyHttpBinding ( Object nettyHttpBinding)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|nettyHttpBinding
@@ -2547,7 +2440,6 @@ return|;
 block|}
 comment|/**          * To use a custom          * org.apache.camel.component.netty4.http.NettyHttpBinding for binding          * to/from Netty and Camel Message API.          * The option will be converted to a          *<code>org.apache.camel.component.netty4.http.NettyHttpBinding</code>          * type.          * @group advanced          */
 DECL|method|nettyHttpBinding ( String nettyHttpBinding)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|nettyHttpBinding
@@ -2569,7 +2461,6 @@ return|;
 block|}
 comment|/**          * Allows to configure additional netty options using option. as prefix.          * For example option.child.keepAlive=false to set the netty option          * child.keepAlive=false. See the Netty documentation for possible          * options that can be used.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|options ( Map<String, Object> options)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|options
@@ -2595,8 +2486,7 @@ name|this
 return|;
 block|}
 comment|/**          * Allows to configure additional netty options using option. as prefix.          * For example option.child.keepAlive=false to set the netty option          * child.keepAlive=false. See the Netty documentation for possible          * options that can be used.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
-DECL|method|options ( String options)
-specifier|public
+DECL|method|options (String options)
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|options
@@ -2618,7 +2508,6 @@ return|;
 block|}
 comment|/**          * The TCP/UDP buffer sizes to be used during inbound communication.          * Size is bytes.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|receiveBufferSize ( int receiveBufferSize)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|receiveBufferSize
@@ -2640,7 +2529,6 @@ return|;
 block|}
 comment|/**          * The TCP/UDP buffer sizes to be used during inbound communication.          * Size is bytes.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|receiveBufferSize ( String receiveBufferSize)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|receiveBufferSize
@@ -2662,7 +2550,6 @@ return|;
 block|}
 comment|/**          * Configures the buffer size predictor. See details at Jetty          * documentation and this mail thread.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|receiveBufferSizePredictor ( int receiveBufferSizePredictor)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|receiveBufferSizePredictor
@@ -2684,7 +2571,6 @@ return|;
 block|}
 comment|/**          * Configures the buffer size predictor. See details at Jetty          * documentation and this mail thread.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|receiveBufferSizePredictor ( String receiveBufferSizePredictor)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|receiveBufferSizePredictor
@@ -2706,7 +2592,6 @@ return|;
 block|}
 comment|/**          * The TCP/UDP buffer sizes to be used during outbound communication.          * Size is bytes.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|sendBufferSize ( int sendBufferSize)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|sendBufferSize
@@ -2728,7 +2613,6 @@ return|;
 block|}
 comment|/**          * The TCP/UDP buffer sizes to be used during outbound communication.          * Size is bytes.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|sendBufferSize ( String sendBufferSize)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|sendBufferSize
@@ -2750,7 +2634,6 @@ return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferException ( boolean transferException)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|transferException
@@ -2772,7 +2655,6 @@ return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferException ( String transferException)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|transferException
@@ -2794,7 +2676,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP. You can transfer the exchange over the wire          * instead of just the body. The following fields are transferred: In          * body, Out body, fault body, In headers, Out headers, fault headers,          * exchange properties, exchange exception. This requires that the          * objects are serializable. Camel will exclude any non-serializable          * objects and log it at WARN level.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferExchange ( boolean transferExchange)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|transferExchange
@@ -2816,7 +2697,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP. You can transfer the exchange over the wire          * instead of just the body. The following fields are transferred: In          * body, Out body, fault body, In headers, Out headers, fault headers,          * exchange properties, exchange exception. This requires that the          * objects are serializable. Camel will exclude any non-serializable          * objects and log it at WARN level.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferExchange ( String transferExchange)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|transferExchange
@@ -2838,7 +2718,6 @@ return|;
 block|}
 comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty, which is cpu_core_threads x 2. User can use this          * operation to override the default workerCount from Netty.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|workerCount ( int workerCount)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|workerCount
@@ -2860,7 +2739,6 @@ return|;
 block|}
 comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty, which is cpu_core_threads x 2. User can use this          * operation to override the default workerCount from Netty.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|workerCount ( String workerCount)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|workerCount
@@ -2882,7 +2760,6 @@ return|;
 block|}
 comment|/**          * To use a explicit EventLoopGroup as the boss thread pool. For example          * to share a thread pool with multiple consumers or producers. By          * default each consumer or producer has their own worker pool with 2 x          * cpu count core threads.          * The option is a<code>io.netty.channel.EventLoopGroup</code> type.          * @group advanced          */
 DECL|method|workerGroup ( Object workerGroup)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|workerGroup
@@ -2904,7 +2781,6 @@ return|;
 block|}
 comment|/**          * To use a explicit EventLoopGroup as the boss thread pool. For example          * to share a thread pool with multiple consumers or producers. By          * default each consumer or producer has their own worker pool with 2 x          * cpu count core threads.          * The option will be converted to a          *<code>io.netty.channel.EventLoopGroup</code> type.          * @group advanced          */
 DECL|method|workerGroup ( String workerGroup)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|workerGroup
@@ -2926,7 +2802,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|exceptionHandler
@@ -2948,7 +2823,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|exceptionHandler
@@ -2970,7 +2844,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|exchangePattern
@@ -2992,7 +2865,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|exchangePattern
@@ -3014,7 +2886,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -3036,7 +2907,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -3058,7 +2928,6 @@ return|;
 block|}
 comment|/**          * To use a custom configured NettyServerBootstrapConfiguration for          * configuring this endpoint.          * The option is a<code>java.lang.Object</code> type.          * @group advanced          */
 DECL|method|bootstrapConfiguration ( Object bootstrapConfiguration)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|bootstrapConfiguration
@@ -3080,7 +2949,6 @@ return|;
 block|}
 comment|/**          * To use a custom configured NettyServerBootstrapConfiguration for          * configuring this endpoint.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group advanced          */
 DECL|method|bootstrapConfiguration ( String bootstrapConfiguration)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|bootstrapConfiguration
@@ -3102,7 +2970,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|synchronous
@@ -3124,7 +2991,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointConsumerBuilder
 name|synchronous
@@ -3155,7 +3021,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|advanced
@@ -3170,7 +3035,6 @@ return|;
 block|}
 comment|/**          * The protocol to use which is either http, https or proxy - a consumer          * only option.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|protocol (String protocol)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|protocol
@@ -3192,7 +3056,6 @@ return|;
 block|}
 comment|/**          * The local hostname such as localhost, or 0.0.0.0 when being a          * consumer. The remote HTTP server hostname when using producer.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|host
@@ -3214,7 +3077,6 @@ return|;
 block|}
 comment|/**          * The host port number.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|port
@@ -3236,7 +3098,6 @@ return|;
 block|}
 comment|/**          * The host port number.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|port
@@ -3258,7 +3119,6 @@ return|;
 block|}
 comment|/**          * Resource path.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|path (String path)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|path
@@ -3280,7 +3140,6 @@ return|;
 block|}
 comment|/**          * If the option is true, the producer will ignore the Exchange.HTTP_URI          * header, and use the endpoint's URI for request. You may also set the          * throwExceptionOnFailure to be false to let the producer send all the          * fault response back. The consumer working in the bridge mode will          * skip the gzip compression and WWW URL form encoding (by adding the          * Exchange.SKIP_GZIP_ENCODING and Exchange.SKIP_WWW_FORM_URLENCODED          * headers to the consumed exchange).          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|bridgeEndpoint ( boolean bridgeEndpoint)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|bridgeEndpoint
@@ -3302,7 +3161,6 @@ return|;
 block|}
 comment|/**          * If the option is true, the producer will ignore the Exchange.HTTP_URI          * header, and use the endpoint's URI for request. You may also set the          * throwExceptionOnFailure to be false to let the producer send all the          * fault response back. The consumer working in the bridge mode will          * skip the gzip compression and WWW URL form encoding (by adding the          * Exchange.SKIP_GZIP_ENCODING and Exchange.SKIP_WWW_FORM_URLENCODED          * headers to the consumed exchange).          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|bridgeEndpoint ( String bridgeEndpoint)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|bridgeEndpoint
@@ -3323,8 +3181,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether or not to disconnect(close) from Netty Channel right after          * use. Can be used for both consumer and producer.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|disconnect ( boolean disconnect)
-specifier|public
+DECL|method|disconnect (boolean disconnect)
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|disconnect
@@ -3345,8 +3202,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether or not to disconnect(close) from Netty Channel right after          * use. Can be used for both consumer and producer.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|disconnect ( String disconnect)
-specifier|public
+DECL|method|disconnect (String disconnect)
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|disconnect
@@ -3367,8 +3223,7 @@ name|this
 return|;
 block|}
 comment|/**          * Setting to ensure socket is not closed due to inactivity.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|keepAlive ( boolean keepAlive)
-specifier|public
+DECL|method|keepAlive (boolean keepAlive)
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|keepAlive
@@ -3389,8 +3244,7 @@ name|this
 return|;
 block|}
 comment|/**          * Setting to ensure socket is not closed due to inactivity.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|keepAlive ( String keepAlive)
-specifier|public
+DECL|method|keepAlive (String keepAlive)
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|keepAlive
@@ -3412,7 +3266,6 @@ return|;
 block|}
 comment|/**          * Setting to facilitate socket multiplexing.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|reuseAddress ( boolean reuseAddress)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|reuseAddress
@@ -3434,7 +3287,6 @@ return|;
 block|}
 comment|/**          * Setting to facilitate socket multiplexing.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|reuseAddress ( String reuseAddress)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|reuseAddress
@@ -3456,7 +3308,6 @@ return|;
 block|}
 comment|/**          * This option allows producers and consumers (in client mode) to reuse          * the same Netty Channel for the lifecycle of processing the Exchange.          * This is useful if you need to call a server multiple times in a Camel          * route and want to use the same network connection. When using this,          * the channel is not returned to the connection pool until the Exchange          * is done; or disconnected if the disconnect option is set to true. The          * reused Channel is stored on the Exchange as an exchange property with          * the key NettyConstants#NETTY_CHANNEL which allows you to obtain the          * channel during routing and use it as well.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|reuseChannel ( boolean reuseChannel)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|reuseChannel
@@ -3478,7 +3329,6 @@ return|;
 block|}
 comment|/**          * This option allows producers and consumers (in client mode) to reuse          * the same Netty Channel for the lifecycle of processing the Exchange.          * This is useful if you need to call a server multiple times in a Camel          * route and want to use the same network connection. When using this,          * the channel is not returned to the connection pool until the Exchange          * is done; or disconnected if the disconnect option is set to true. The          * reused Channel is stored on the Exchange as an exchange property with          * the key NettyConstants#NETTY_CHANNEL which allows you to obtain the          * channel during routing and use it as well.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|reuseChannel ( String reuseChannel)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|reuseChannel
@@ -3500,7 +3350,6 @@ return|;
 block|}
 comment|/**          * Setting to set endpoint as one-way or request-response.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|sync (boolean sync)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|sync
@@ -3522,7 +3371,6 @@ return|;
 block|}
 comment|/**          * Setting to set endpoint as one-way or request-response.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|sync (String sync)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|sync
@@ -3543,8 +3391,7 @@ name|this
 return|;
 block|}
 comment|/**          * Setting to improve TCP protocol performance.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|tcpNoDelay ( boolean tcpNoDelay)
-specifier|public
+DECL|method|tcpNoDelay (boolean tcpNoDelay)
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|tcpNoDelay
@@ -3565,8 +3412,7 @@ name|this
 return|;
 block|}
 comment|/**          * Setting to improve TCP protocol performance.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|tcpNoDelay ( String tcpNoDelay)
-specifier|public
+DECL|method|tcpNoDelay (String tcpNoDelay)
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|tcpNoDelay
@@ -3588,7 +3434,6 @@ return|;
 block|}
 comment|/**          * Time to wait for a socket connection to be available. Value is in          * milliseconds.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|connectTimeout ( int connectTimeout)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|connectTimeout
@@ -3610,7 +3455,6 @@ return|;
 block|}
 comment|/**          * Time to wait for a socket connection to be available. Value is in          * milliseconds.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|connectTimeout ( String connectTimeout)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|connectTimeout
@@ -3632,7 +3476,6 @@ return|;
 block|}
 comment|/**          * Configure a cookie handler to maintain a HTTP session.          * The option is a          *<code>org.apache.camel.http.common.cookie.CookieHandler</code> type.          * @group producer          */
 DECL|method|cookieHandler ( Object cookieHandler)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|cookieHandler
@@ -3654,7 +3497,6 @@ return|;
 block|}
 comment|/**          * Configure a cookie handler to maintain a HTTP session.          * The option will be converted to a          *<code>org.apache.camel.http.common.cookie.CookieHandler</code> type.          * @group producer          */
 DECL|method|cookieHandler ( String cookieHandler)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|cookieHandler
@@ -3676,7 +3518,6 @@ return|;
 block|}
 comment|/**          * Allows to use a timeout for the Netty producer when calling a remote          * server. By default no timeout is in use. The value is in milli          * seconds, so eg 30000 is 30 seconds. The requestTimeout is using          * Netty's ReadTimeoutHandler to trigger the timeout.          * The option is a<code>long</code> type.          * @group producer          */
 DECL|method|requestTimeout ( long requestTimeout)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|requestTimeout
@@ -3698,7 +3539,6 @@ return|;
 block|}
 comment|/**          * Allows to use a timeout for the Netty producer when calling a remote          * server. By default no timeout is in use. The value is in milli          * seconds, so eg 30000 is 30 seconds. The requestTimeout is using          * Netty's ReadTimeoutHandler to trigger the timeout.          * The option will be converted to a<code>long</code> type.          * @group producer          */
 DECL|method|requestTimeout ( String requestTimeout)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|requestTimeout
@@ -3720,7 +3560,6 @@ return|;
 block|}
 comment|/**          * Option to disable throwing the HttpOperationFailedException in case          * of failed responses from the remote server. This allows you to get          * all responses regardless of the HTTP status code.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|throwExceptionOnFailure ( boolean throwExceptionOnFailure)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|throwExceptionOnFailure
@@ -3742,7 +3581,6 @@ return|;
 block|}
 comment|/**          * Option to disable throwing the HttpOperationFailedException in case          * of failed responses from the remote server. This allows you to get          * all responses regardless of the HTTP status code.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|throwExceptionOnFailure ( String throwExceptionOnFailure)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|throwExceptionOnFailure
@@ -3766,7 +3604,6 @@ comment|/**          * To use a single decoder. This options is deprecated use e
 annotation|@
 name|Deprecated
 DECL|method|decoder (Object decoder)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|decoder
@@ -3790,7 +3627,6 @@ comment|/**          * To use a single decoder. This options is deprecated use e
 annotation|@
 name|Deprecated
 DECL|method|decoder (String decoder)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|decoder
@@ -3811,8 +3647,7 @@ name|this
 return|;
 block|}
 comment|/**          * A list of decoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          * The option is a          *<code>java.util.List&lt;io.netty.channel.ChannelHandler&gt;</code>          * type.          * @group codec          */
-DECL|method|decoders ( List<Object> decoders)
-specifier|public
+DECL|method|decoders (List<Object> decoders)
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|decoders
@@ -3837,7 +3672,6 @@ return|;
 block|}
 comment|/**          * A list of decoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          * The option will be converted to a          *<code>java.util.List&lt;io.netty.channel.ChannelHandler&gt;</code>          * type.          * @group codec          */
 DECL|method|decoders (String decoders)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|decoders
@@ -3861,7 +3695,6 @@ comment|/**          * To use a single encoder. This options is deprecated use e
 annotation|@
 name|Deprecated
 DECL|method|encoder (Object encoder)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|encoder
@@ -3885,7 +3718,6 @@ comment|/**          * To use a single encoder. This options is deprecated use e
 annotation|@
 name|Deprecated
 DECL|method|encoder (String encoder)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|encoder
@@ -3906,8 +3738,7 @@ name|this
 return|;
 block|}
 comment|/**          * A list of encoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          * The option is a          *<code>java.util.List&lt;io.netty.channel.ChannelHandler&gt;</code>          * type.          * @group codec          */
-DECL|method|encoders ( List<Object> encoders)
-specifier|public
+DECL|method|encoders (List<Object> encoders)
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|encoders
@@ -3932,7 +3763,6 @@ return|;
 block|}
 comment|/**          * A list of encoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          * The option will be converted to a          *<code>java.util.List&lt;io.netty.channel.ChannelHandler&gt;</code>          * type.          * @group codec          */
 DECL|method|encoders (String encoders)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|encoders
@@ -3954,7 +3784,6 @@ return|;
 block|}
 comment|/**          * Which protocols to enable when using SSL.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|enabledProtocols ( String enabledProtocols)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|enabledProtocols
@@ -3975,8 +3804,7 @@ name|this
 return|;
 block|}
 comment|/**          * Client side certificate keystore to be used for encryption.          * The option is a<code>java.io.File</code> type.          * @group security          */
-DECL|method|keyStoreFile ( File keyStoreFile)
-specifier|public
+DECL|method|keyStoreFile (File keyStoreFile)
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|keyStoreFile
@@ -3998,7 +3826,6 @@ return|;
 block|}
 comment|/**          * Client side certificate keystore to be used for encryption.          * The option will be converted to a<code>java.io.File</code> type.          * @group security          */
 DECL|method|keyStoreFile ( String keyStoreFile)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|keyStoreFile
@@ -4020,7 +3847,6 @@ return|;
 block|}
 comment|/**          * Keystore format to be used for payload encryption. Defaults to JKS if          * not set.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|keyStoreFormat ( String keyStoreFormat)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|keyStoreFormat
@@ -4042,7 +3868,6 @@ return|;
 block|}
 comment|/**          * Client side certificate keystore to be used for encryption. Is loaded          * by default from classpath, but you can prefix with classpath:, file:,          * or http: to load the resource from different systems.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|keyStoreResource ( String keyStoreResource)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|keyStoreResource
@@ -4063,8 +3888,7 @@ name|this
 return|;
 block|}
 comment|/**          * Password setting to use in order to encrypt/decrypt payloads sent          * using SSH.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|passphrase ( String passphrase)
-specifier|public
+DECL|method|passphrase (String passphrase)
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|passphrase
@@ -4086,7 +3910,6 @@ return|;
 block|}
 comment|/**          * Security provider to be used for payload encryption. Defaults to          * SunX509 if not set.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|securityProvider ( String securityProvider)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|securityProvider
@@ -4108,7 +3931,6 @@ return|;
 block|}
 comment|/**          * Setting to specify whether SSL encryption is applied to this          * endpoint.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|ssl (boolean ssl)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|ssl
@@ -4130,7 +3952,6 @@ return|;
 block|}
 comment|/**          * Setting to specify whether SSL encryption is applied to this          * endpoint.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|ssl (String ssl)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|ssl
@@ -4152,7 +3973,6 @@ return|;
 block|}
 comment|/**          * When enabled and in SSL mode, then the Netty consumer will enrich the          * Camel Message with headers having information about the client          * certificate such as subject name, issuer name, serial number, and the          * valid date range.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|sslClientCertHeaders ( boolean sslClientCertHeaders)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|sslClientCertHeaders
@@ -4174,7 +3994,6 @@ return|;
 block|}
 comment|/**          * When enabled and in SSL mode, then the Netty consumer will enrich the          * Camel Message with headers having information about the client          * certificate such as subject name, issuer name, serial number, and the          * valid date range.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|sslClientCertHeaders ( String sslClientCertHeaders)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|sslClientCertHeaders
@@ -4196,7 +4015,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|sslContextParameters
@@ -4218,7 +4036,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|sslContextParameters
@@ -4239,8 +4056,7 @@ name|this
 return|;
 block|}
 comment|/**          * Reference to a class that could be used to return an SSL Handler.          * The option is a<code>io.netty.handler.ssl.SslHandler</code> type.          * @group security          */
-DECL|method|sslHandler ( Object sslHandler)
-specifier|public
+DECL|method|sslHandler (Object sslHandler)
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|sslHandler
@@ -4261,8 +4077,7 @@ name|this
 return|;
 block|}
 comment|/**          * Reference to a class that could be used to return an SSL Handler.          * The option will be converted to a          *<code>io.netty.handler.ssl.SslHandler</code> type.          * @group security          */
-DECL|method|sslHandler ( String sslHandler)
-specifier|public
+DECL|method|sslHandler (String sslHandler)
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|sslHandler
@@ -4284,7 +4099,6 @@ return|;
 block|}
 comment|/**          * Server side certificate keystore to be used for encryption.          * The option is a<code>java.io.File</code> type.          * @group security          */
 DECL|method|trustStoreFile ( File trustStoreFile)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|trustStoreFile
@@ -4306,7 +4120,6 @@ return|;
 block|}
 comment|/**          * Server side certificate keystore to be used for encryption.          * The option will be converted to a<code>java.io.File</code> type.          * @group security          */
 DECL|method|trustStoreFile ( String trustStoreFile)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|trustStoreFile
@@ -4328,7 +4141,6 @@ return|;
 block|}
 comment|/**          * Server side certificate keystore to be used for encryption. Is loaded          * by default from classpath, but you can prefix with classpath:, file:,          * or http: to load the resource from different systems.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|trustStoreResource ( String trustStoreResource)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|trustStoreResource
@@ -4350,7 +4162,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|lazyStartProducer
@@ -4372,7 +4183,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|lazyStartProducer
@@ -4402,7 +4212,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|NettyHttpEndpointProducerBuilder
 name|basic
@@ -4417,7 +4226,6 @@ return|;
 block|}
 comment|/**          * To use a custom ClientInitializerFactory.          * The option is a          *<code>org.apache.camel.component.netty4.ClientInitializerFactory</code> type.          * @group producer (advanced)          */
 DECL|method|clientInitializerFactory ( Object clientInitializerFactory)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|clientInitializerFactory
@@ -4439,7 +4247,6 @@ return|;
 block|}
 comment|/**          * To use a custom ClientInitializerFactory.          * The option will be converted to a          *<code>org.apache.camel.component.netty4.ClientInitializerFactory</code> type.          * @group producer (advanced)          */
 DECL|method|clientInitializerFactory ( String clientInitializerFactory)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|clientInitializerFactory
@@ -4461,7 +4268,6 @@ return|;
 block|}
 comment|/**          * Channels can be lazily created to avoid exceptions, if the remote          * server is not up and running when the Camel producer is started.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|lazyChannelCreation ( boolean lazyChannelCreation)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|lazyChannelCreation
@@ -4483,7 +4289,6 @@ return|;
 block|}
 comment|/**          * Channels can be lazily created to avoid exceptions, if the remote          * server is not up and running when the Camel producer is started.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|lazyChannelCreation ( String lazyChannelCreation)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|lazyChannelCreation
@@ -4505,7 +4310,6 @@ return|;
 block|}
 comment|/**          * The status codes which are considered a success response. The values          * are inclusive. Multiple ranges can be defined, separated by comma,          * e.g. 200-204,209,301-304. Each range must be a single number or          * from-to with the dash included. The default range is 200-299.          * The option is a<code>java.lang.String</code> type.          * @group producer (advanced)          */
 DECL|method|okStatusCodeRange ( String okStatusCodeRange)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|okStatusCodeRange
@@ -4527,7 +4331,6 @@ return|;
 block|}
 comment|/**          * Whether producer pool is enabled or not. Important: If you turn this          * off then a single shared connection is used for the producer, also if          * you are doing request/reply. That means there is a potential issue          * with interleaved responses if replies comes back out-of-order.          * Therefore you need to have a correlation id in both the request and          * reply messages so you can properly correlate the replies to the Camel          * callback that is responsible for continue processing the message in          * Camel. To do this you need to implement          * NettyCamelStateCorrelationManager as correlation manager and          * configure it via the correlationManager option. See also the          * correlationManager option for more details.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|producerPoolEnabled ( boolean producerPoolEnabled)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|producerPoolEnabled
@@ -4549,7 +4352,6 @@ return|;
 block|}
 comment|/**          * Whether producer pool is enabled or not. Important: If you turn this          * off then a single shared connection is used for the producer, also if          * you are doing request/reply. That means there is a potential issue          * with interleaved responses if replies comes back out-of-order.          * Therefore you need to have a correlation id in both the request and          * reply messages so you can properly correlate the replies to the Camel          * callback that is responsible for continue processing the message in          * Camel. To do this you need to implement          * NettyCamelStateCorrelationManager as correlation manager and          * configure it via the correlationManager option. See also the          * correlationManager option for more details.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|producerPoolEnabled ( String producerPoolEnabled)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|producerPoolEnabled
@@ -4571,7 +4373,6 @@ return|;
 block|}
 comment|/**          * Sets the cap on the number of objects that can be allocated by the          * pool (checked out to clients, or idle awaiting checkout) at a given          * time. Use a negative value for no limit.          * The option is a<code>int</code> type.          * @group producer (advanced)          */
 DECL|method|producerPoolMaxActive ( int producerPoolMaxActive)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|producerPoolMaxActive
@@ -4593,7 +4394,6 @@ return|;
 block|}
 comment|/**          * Sets the cap on the number of objects that can be allocated by the          * pool (checked out to clients, or idle awaiting checkout) at a given          * time. Use a negative value for no limit.          * The option will be converted to a<code>int</code> type.          * @group producer (advanced)          */
 DECL|method|producerPoolMaxActive ( String producerPoolMaxActive)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|producerPoolMaxActive
@@ -4615,7 +4415,6 @@ return|;
 block|}
 comment|/**          * Sets the cap on the number of idle instances in the pool.          * The option is a<code>int</code> type.          * @group producer (advanced)          */
 DECL|method|producerPoolMaxIdle ( int producerPoolMaxIdle)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|producerPoolMaxIdle
@@ -4637,7 +4436,6 @@ return|;
 block|}
 comment|/**          * Sets the cap on the number of idle instances in the pool.          * The option will be converted to a<code>int</code> type.          * @group producer (advanced)          */
 DECL|method|producerPoolMaxIdle ( String producerPoolMaxIdle)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|producerPoolMaxIdle
@@ -4659,7 +4457,6 @@ return|;
 block|}
 comment|/**          * Sets the minimum amount of time (value in millis) an object may sit          * idle in the pool before it is eligible for eviction by the idle          * object evictor.          * The option is a<code>long</code> type.          * @group producer (advanced)          */
 DECL|method|producerPoolMinEvictableIdle ( long producerPoolMinEvictableIdle)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|producerPoolMinEvictableIdle
@@ -4681,7 +4478,6 @@ return|;
 block|}
 comment|/**          * Sets the minimum amount of time (value in millis) an object may sit          * idle in the pool before it is eligible for eviction by the idle          * object evictor.          * The option will be converted to a<code>long</code> type.          * @group producer (advanced)          */
 DECL|method|producerPoolMinEvictableIdle ( String producerPoolMinEvictableIdle)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|producerPoolMinEvictableIdle
@@ -4703,7 +4499,6 @@ return|;
 block|}
 comment|/**          * Sets the minimum number of instances allowed in the producer pool          * before the evictor thread (if active) spawns new objects.          * The option is a<code>int</code> type.          * @group producer (advanced)          */
 DECL|method|producerPoolMinIdle ( int producerPoolMinIdle)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|producerPoolMinIdle
@@ -4725,7 +4520,6 @@ return|;
 block|}
 comment|/**          * Sets the minimum number of instances allowed in the producer pool          * before the evictor thread (if active) spawns new objects.          * The option will be converted to a<code>int</code> type.          * @group producer (advanced)          */
 DECL|method|producerPoolMinIdle ( String producerPoolMinIdle)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|producerPoolMinIdle
@@ -4747,7 +4541,6 @@ return|;
 block|}
 comment|/**          * Sets whether to use a relative path in HTTP requests.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|useRelativePath ( boolean useRelativePath)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|useRelativePath
@@ -4769,7 +4562,6 @@ return|;
 block|}
 comment|/**          * Sets whether to use a relative path in HTTP requests.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
 DECL|method|useRelativePath ( String useRelativePath)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|useRelativePath
@@ -4791,7 +4583,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP when transferExchange is true. When set to true,          * serializable objects in headers and properties will be added to the          * exchange. Otherwise Camel will exclude any non-serializable objects          * and log it at WARN level.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|allowSerializedHeaders ( boolean allowSerializedHeaders)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|allowSerializedHeaders
@@ -4813,7 +4604,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP when transferExchange is true. When set to true,          * serializable objects in headers and properties will be added to the          * exchange. Otherwise Camel will exclude any non-serializable objects          * and log it at WARN level.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|allowSerializedHeaders ( String allowSerializedHeaders)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|allowSerializedHeaders
@@ -4835,7 +4625,6 @@ return|;
 block|}
 comment|/**          * To use a explicit ChannelGroup.          * The option is a<code>io.netty.channel.group.ChannelGroup</code>          * type.          * @group advanced          */
 DECL|method|channelGroup ( Object channelGroup)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|channelGroup
@@ -4857,7 +4646,6 @@ return|;
 block|}
 comment|/**          * To use a explicit ChannelGroup.          * The option will be converted to a          *<code>io.netty.channel.group.ChannelGroup</code> type.          * @group advanced          */
 DECL|method|channelGroup ( String channelGroup)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|channelGroup
@@ -4879,7 +4667,6 @@ return|;
 block|}
 comment|/**          * To use a custom configured NettyHttpConfiguration for configuring          * this endpoint.          * The option is a          *<code>org.apache.camel.component.netty4.http.NettyHttpConfiguration</code> type.          * @group advanced          */
 DECL|method|configuration ( Object configuration)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|configuration
@@ -4901,7 +4688,6 @@ return|;
 block|}
 comment|/**          * To use a custom configured NettyHttpConfiguration for configuring          * this endpoint.          * The option will be converted to a          *<code>org.apache.camel.component.netty4.http.NettyHttpConfiguration</code> type.          * @group advanced          */
 DECL|method|configuration ( String configuration)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|configuration
@@ -4923,7 +4709,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not the raw input stream from Netty          * HttpRequest#getContent() or HttpResponset#getContent() is cached or          * not (Camel will read the stream into a in light-weight memory based          * Stream caching) cache. By default Camel will cache the Netty input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store. Mind that          * if you enable this option, then you cannot read the Netty stream          * multiple times out of the box, and you would need manually to reset          * the reader index on the Netty raw stream. Also Netty will auto-close          * the Netty stream when the Netty HTTP server/HTTP client is done          * processing, which means that if the asynchronous routing engine is in          * use then any asynchronous thread that may continue routing the          * org.apache.camel.Exchange may not be able to read the Netty stream,          * because Netty has closed it.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|disableStreamCache ( boolean disableStreamCache)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|disableStreamCache
@@ -4945,7 +4730,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not the raw input stream from Netty          * HttpRequest#getContent() or HttpResponset#getContent() is cached or          * not (Camel will read the stream into a in light-weight memory based          * Stream caching) cache. By default Camel will cache the Netty input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store. Mind that          * if you enable this option, then you cannot read the Netty stream          * multiple times out of the box, and you would need manually to reset          * the reader index on the Netty raw stream. Also Netty will auto-close          * the Netty stream when the Netty HTTP server/HTTP client is done          * processing, which means that if the asynchronous routing engine is in          * use then any asynchronous thread that may continue routing the          * org.apache.camel.Exchange may not be able to read the Netty stream,          * because Netty has closed it.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|disableStreamCache ( String disableStreamCache)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|disableStreamCache
@@ -4967,7 +4751,6 @@ return|;
 block|}
 comment|/**          * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter          * headers.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|headerFilterStrategy
@@ -4989,7 +4772,6 @@ return|;
 block|}
 comment|/**          * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter          * headers.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|headerFilterStrategy
@@ -5011,7 +4793,6 @@ return|;
 block|}
 comment|/**          * Whether to use native transport instead of NIO. Native transport          * takes advantage of the host operating system and is only supported on          * some platforms. You need to add the netty JAR for the host operating          * system you are using. See more details at:          * http://netty.io/wiki/native-transports.html.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|nativeTransport ( boolean nativeTransport)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|nativeTransport
@@ -5033,7 +4814,6 @@ return|;
 block|}
 comment|/**          * Whether to use native transport instead of NIO. Native transport          * takes advantage of the host operating system and is only supported on          * some platforms. You need to add the netty JAR for the host operating          * system you are using. See more details at:          * http://netty.io/wiki/native-transports.html.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|nativeTransport ( String nativeTransport)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|nativeTransport
@@ -5055,7 +4835,6 @@ return|;
 block|}
 comment|/**          * To use a custom          * org.apache.camel.component.netty4.http.NettyHttpBinding for binding          * to/from Netty and Camel Message API.          * The option is a          *<code>org.apache.camel.component.netty4.http.NettyHttpBinding</code>          * type.          * @group advanced          */
 DECL|method|nettyHttpBinding ( Object nettyHttpBinding)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|nettyHttpBinding
@@ -5077,7 +4856,6 @@ return|;
 block|}
 comment|/**          * To use a custom          * org.apache.camel.component.netty4.http.NettyHttpBinding for binding          * to/from Netty and Camel Message API.          * The option will be converted to a          *<code>org.apache.camel.component.netty4.http.NettyHttpBinding</code>          * type.          * @group advanced          */
 DECL|method|nettyHttpBinding ( String nettyHttpBinding)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|nettyHttpBinding
@@ -5099,7 +4877,6 @@ return|;
 block|}
 comment|/**          * Allows to configure additional netty options using option. as prefix.          * For example option.child.keepAlive=false to set the netty option          * child.keepAlive=false. See the Netty documentation for possible          * options that can be used.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|options ( Map<String, Object> options)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|options
@@ -5125,8 +4902,7 @@ name|this
 return|;
 block|}
 comment|/**          * Allows to configure additional netty options using option. as prefix.          * For example option.child.keepAlive=false to set the netty option          * child.keepAlive=false. See the Netty documentation for possible          * options that can be used.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
-DECL|method|options ( String options)
-specifier|public
+DECL|method|options (String options)
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|options
@@ -5148,7 +4924,6 @@ return|;
 block|}
 comment|/**          * The TCP/UDP buffer sizes to be used during inbound communication.          * Size is bytes.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|receiveBufferSize ( int receiveBufferSize)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|receiveBufferSize
@@ -5170,7 +4945,6 @@ return|;
 block|}
 comment|/**          * The TCP/UDP buffer sizes to be used during inbound communication.          * Size is bytes.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|receiveBufferSize ( String receiveBufferSize)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|receiveBufferSize
@@ -5192,7 +4966,6 @@ return|;
 block|}
 comment|/**          * Configures the buffer size predictor. See details at Jetty          * documentation and this mail thread.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|receiveBufferSizePredictor ( int receiveBufferSizePredictor)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|receiveBufferSizePredictor
@@ -5214,7 +4987,6 @@ return|;
 block|}
 comment|/**          * Configures the buffer size predictor. See details at Jetty          * documentation and this mail thread.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|receiveBufferSizePredictor ( String receiveBufferSizePredictor)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|receiveBufferSizePredictor
@@ -5236,7 +5008,6 @@ return|;
 block|}
 comment|/**          * The TCP/UDP buffer sizes to be used during outbound communication.          * Size is bytes.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|sendBufferSize ( int sendBufferSize)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|sendBufferSize
@@ -5258,7 +5029,6 @@ return|;
 block|}
 comment|/**          * The TCP/UDP buffer sizes to be used during outbound communication.          * Size is bytes.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|sendBufferSize ( String sendBufferSize)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|sendBufferSize
@@ -5280,7 +5050,6 @@ return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferException ( boolean transferException)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|transferException
@@ -5302,7 +5071,6 @@ return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferException ( String transferException)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|transferException
@@ -5324,7 +5092,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP. You can transfer the exchange over the wire          * instead of just the body. The following fields are transferred: In          * body, Out body, fault body, In headers, Out headers, fault headers,          * exchange properties, exchange exception. This requires that the          * objects are serializable. Camel will exclude any non-serializable          * objects and log it at WARN level.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferExchange ( boolean transferExchange)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|transferExchange
@@ -5346,7 +5113,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP. You can transfer the exchange over the wire          * instead of just the body. The following fields are transferred: In          * body, Out body, fault body, In headers, Out headers, fault headers,          * exchange properties, exchange exception. This requires that the          * objects are serializable. Camel will exclude any non-serializable          * objects and log it at WARN level.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferExchange ( String transferExchange)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|transferExchange
@@ -5368,7 +5134,6 @@ return|;
 block|}
 comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty, which is cpu_core_threads x 2. User can use this          * operation to override the default workerCount from Netty.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|workerCount ( int workerCount)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|workerCount
@@ -5390,7 +5155,6 @@ return|;
 block|}
 comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty, which is cpu_core_threads x 2. User can use this          * operation to override the default workerCount from Netty.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|workerCount ( String workerCount)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|workerCount
@@ -5412,7 +5176,6 @@ return|;
 block|}
 comment|/**          * To use a explicit EventLoopGroup as the boss thread pool. For example          * to share a thread pool with multiple consumers or producers. By          * default each consumer or producer has their own worker pool with 2 x          * cpu count core threads.          * The option is a<code>io.netty.channel.EventLoopGroup</code> type.          * @group advanced          */
 DECL|method|workerGroup ( Object workerGroup)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|workerGroup
@@ -5434,7 +5197,6 @@ return|;
 block|}
 comment|/**          * To use a explicit EventLoopGroup as the boss thread pool. For example          * to share a thread pool with multiple consumers or producers. By          * default each consumer or producer has their own worker pool with 2 x          * cpu count core threads.          * The option will be converted to a          *<code>io.netty.channel.EventLoopGroup</code> type.          * @group advanced          */
 DECL|method|workerGroup ( String workerGroup)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|workerGroup
@@ -5456,7 +5218,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|basicPropertyBinding
@@ -5478,7 +5239,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|basicPropertyBinding
@@ -5500,7 +5260,6 @@ return|;
 block|}
 comment|/**          * To use a custom configured NettyServerBootstrapConfiguration for          * configuring this endpoint.          * The option is a<code>java.lang.Object</code> type.          * @group advanced          */
 DECL|method|bootstrapConfiguration ( Object bootstrapConfiguration)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|bootstrapConfiguration
@@ -5522,7 +5281,6 @@ return|;
 block|}
 comment|/**          * To use a custom configured NettyServerBootstrapConfiguration for          * configuring this endpoint.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group advanced          */
 DECL|method|bootstrapConfiguration ( String bootstrapConfiguration)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|bootstrapConfiguration
@@ -5544,7 +5302,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|synchronous
@@ -5566,7 +5323,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointProducerBuilder
 name|synchronous
@@ -5599,7 +5355,6 @@ extends|,
 name|NettyHttpEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|advanced
@@ -5614,7 +5369,6 @@ return|;
 block|}
 comment|/**          * The protocol to use which is either http, https or proxy - a consumer          * only option.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|protocol (String protocol)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|protocol
@@ -5636,7 +5390,6 @@ return|;
 block|}
 comment|/**          * The local hostname such as localhost, or 0.0.0.0 when being a          * consumer. The remote HTTP server hostname when using producer.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|host
@@ -5658,7 +5411,6 @@ return|;
 block|}
 comment|/**          * The host port number.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|port
@@ -5680,7 +5432,6 @@ return|;
 block|}
 comment|/**          * The host port number.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|port
@@ -5702,7 +5453,6 @@ return|;
 block|}
 comment|/**          * Resource path.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|path (String path)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|path
@@ -5723,8 +5473,7 @@ name|this
 return|;
 block|}
 comment|/**          * If the option is true, the producer will ignore the Exchange.HTTP_URI          * header, and use the endpoint's URI for request. You may also set the          * throwExceptionOnFailure to be false to let the producer send all the          * fault response back. The consumer working in the bridge mode will          * skip the gzip compression and WWW URL form encoding (by adding the          * Exchange.SKIP_GZIP_ENCODING and Exchange.SKIP_WWW_FORM_URLENCODED          * headers to the consumed exchange).          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|bridgeEndpoint ( boolean bridgeEndpoint)
-specifier|public
+DECL|method|bridgeEndpoint (boolean bridgeEndpoint)
 specifier|default
 name|NettyHttpEndpointBuilder
 name|bridgeEndpoint
@@ -5745,8 +5494,7 @@ name|this
 return|;
 block|}
 comment|/**          * If the option is true, the producer will ignore the Exchange.HTTP_URI          * header, and use the endpoint's URI for request. You may also set the          * throwExceptionOnFailure to be false to let the producer send all the          * fault response back. The consumer working in the bridge mode will          * skip the gzip compression and WWW URL form encoding (by adding the          * Exchange.SKIP_GZIP_ENCODING and Exchange.SKIP_WWW_FORM_URLENCODED          * headers to the consumed exchange).          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|bridgeEndpoint ( String bridgeEndpoint)
-specifier|public
+DECL|method|bridgeEndpoint (String bridgeEndpoint)
 specifier|default
 name|NettyHttpEndpointBuilder
 name|bridgeEndpoint
@@ -5768,7 +5516,6 @@ return|;
 block|}
 comment|/**          * Whether or not to disconnect(close) from Netty Channel right after          * use. Can be used for both consumer and producer.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|disconnect (boolean disconnect)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|disconnect
@@ -5790,7 +5537,6 @@ return|;
 block|}
 comment|/**          * Whether or not to disconnect(close) from Netty Channel right after          * use. Can be used for both consumer and producer.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|disconnect (String disconnect)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|disconnect
@@ -5812,7 +5558,6 @@ return|;
 block|}
 comment|/**          * Setting to ensure socket is not closed due to inactivity.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|keepAlive (boolean keepAlive)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|keepAlive
@@ -5834,7 +5579,6 @@ return|;
 block|}
 comment|/**          * Setting to ensure socket is not closed due to inactivity.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|keepAlive (String keepAlive)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|keepAlive
@@ -5855,8 +5599,7 @@ name|this
 return|;
 block|}
 comment|/**          * Setting to facilitate socket multiplexing.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|reuseAddress ( boolean reuseAddress)
-specifier|public
+DECL|method|reuseAddress (boolean reuseAddress)
 specifier|default
 name|NettyHttpEndpointBuilder
 name|reuseAddress
@@ -5878,7 +5621,6 @@ return|;
 block|}
 comment|/**          * Setting to facilitate socket multiplexing.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|reuseAddress (String reuseAddress)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|reuseAddress
@@ -5899,8 +5641,7 @@ name|this
 return|;
 block|}
 comment|/**          * This option allows producers and consumers (in client mode) to reuse          * the same Netty Channel for the lifecycle of processing the Exchange.          * This is useful if you need to call a server multiple times in a Camel          * route and want to use the same network connection. When using this,          * the channel is not returned to the connection pool until the Exchange          * is done; or disconnected if the disconnect option is set to true. The          * reused Channel is stored on the Exchange as an exchange property with          * the key NettyConstants#NETTY_CHANNEL which allows you to obtain the          * channel during routing and use it as well.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|reuseChannel ( boolean reuseChannel)
-specifier|public
+DECL|method|reuseChannel (boolean reuseChannel)
 specifier|default
 name|NettyHttpEndpointBuilder
 name|reuseChannel
@@ -5922,7 +5663,6 @@ return|;
 block|}
 comment|/**          * This option allows producers and consumers (in client mode) to reuse          * the same Netty Channel for the lifecycle of processing the Exchange.          * This is useful if you need to call a server multiple times in a Camel          * route and want to use the same network connection. When using this,          * the channel is not returned to the connection pool until the Exchange          * is done; or disconnected if the disconnect option is set to true. The          * reused Channel is stored on the Exchange as an exchange property with          * the key NettyConstants#NETTY_CHANNEL which allows you to obtain the          * channel during routing and use it as well.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|reuseChannel (String reuseChannel)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|reuseChannel
@@ -5944,7 +5684,6 @@ return|;
 block|}
 comment|/**          * Setting to set endpoint as one-way or request-response.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|sync (boolean sync)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|sync
@@ -5966,7 +5705,6 @@ return|;
 block|}
 comment|/**          * Setting to set endpoint as one-way or request-response.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|sync (String sync)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|sync
@@ -5988,7 +5726,6 @@ return|;
 block|}
 comment|/**          * Setting to improve TCP protocol performance.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|tcpNoDelay (boolean tcpNoDelay)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|tcpNoDelay
@@ -6010,7 +5747,6 @@ return|;
 block|}
 comment|/**          * Setting to improve TCP protocol performance.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|tcpNoDelay (String tcpNoDelay)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|tcpNoDelay
@@ -6034,7 +5770,6 @@ comment|/**          * To use a single decoder. This options is deprecated use e
 annotation|@
 name|Deprecated
 DECL|method|decoder (Object decoder)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|decoder
@@ -6058,7 +5793,6 @@ comment|/**          * To use a single decoder. This options is deprecated use e
 annotation|@
 name|Deprecated
 DECL|method|decoder (String decoder)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|decoder
@@ -6080,7 +5814,6 @@ return|;
 block|}
 comment|/**          * A list of decoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          * The option is a          *<code>java.util.List&lt;io.netty.channel.ChannelHandler&gt;</code>          * type.          * @group codec          */
 DECL|method|decoders (List<Object> decoders)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|decoders
@@ -6105,7 +5838,6 @@ return|;
 block|}
 comment|/**          * A list of decoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          * The option will be converted to a          *<code>java.util.List&lt;io.netty.channel.ChannelHandler&gt;</code>          * type.          * @group codec          */
 DECL|method|decoders (String decoders)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|decoders
@@ -6129,7 +5861,6 @@ comment|/**          * To use a single encoder. This options is deprecated use e
 annotation|@
 name|Deprecated
 DECL|method|encoder (Object encoder)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|encoder
@@ -6153,7 +5884,6 @@ comment|/**          * To use a single encoder. This options is deprecated use e
 annotation|@
 name|Deprecated
 DECL|method|encoder (String encoder)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|encoder
@@ -6175,7 +5905,6 @@ return|;
 block|}
 comment|/**          * A list of encoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          * The option is a          *<code>java.util.List&lt;io.netty.channel.ChannelHandler&gt;</code>          * type.          * @group codec          */
 DECL|method|encoders (List<Object> encoders)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|encoders
@@ -6200,7 +5929,6 @@ return|;
 block|}
 comment|/**          * A list of encoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          * The option will be converted to a          *<code>java.util.List&lt;io.netty.channel.ChannelHandler&gt;</code>          * type.          * @group codec          */
 DECL|method|encoders (String encoders)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|encoders
@@ -6222,7 +5950,6 @@ return|;
 block|}
 comment|/**          * Which protocols to enable when using SSL.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|enabledProtocols ( String enabledProtocols)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|enabledProtocols
@@ -6244,7 +5971,6 @@ return|;
 block|}
 comment|/**          * Client side certificate keystore to be used for encryption.          * The option is a<code>java.io.File</code> type.          * @group security          */
 DECL|method|keyStoreFile (File keyStoreFile)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|keyStoreFile
@@ -6266,7 +5992,6 @@ return|;
 block|}
 comment|/**          * Client side certificate keystore to be used for encryption.          * The option will be converted to a<code>java.io.File</code> type.          * @group security          */
 DECL|method|keyStoreFile (String keyStoreFile)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|keyStoreFile
@@ -6287,8 +6012,7 @@ name|this
 return|;
 block|}
 comment|/**          * Keystore format to be used for payload encryption. Defaults to JKS if          * not set.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|keyStoreFormat ( String keyStoreFormat)
-specifier|public
+DECL|method|keyStoreFormat (String keyStoreFormat)
 specifier|default
 name|NettyHttpEndpointBuilder
 name|keyStoreFormat
@@ -6310,7 +6034,6 @@ return|;
 block|}
 comment|/**          * Client side certificate keystore to be used for encryption. Is loaded          * by default from classpath, but you can prefix with classpath:, file:,          * or http: to load the resource from different systems.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|keyStoreResource ( String keyStoreResource)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|keyStoreResource
@@ -6332,7 +6055,6 @@ return|;
 block|}
 comment|/**          * Password setting to use in order to encrypt/decrypt payloads sent          * using SSH.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|passphrase (String passphrase)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|passphrase
@@ -6354,7 +6076,6 @@ return|;
 block|}
 comment|/**          * Security provider to be used for payload encryption. Defaults to          * SunX509 if not set.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|securityProvider ( String securityProvider)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|securityProvider
@@ -6376,7 +6097,6 @@ return|;
 block|}
 comment|/**          * Setting to specify whether SSL encryption is applied to this          * endpoint.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|ssl (boolean ssl)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|ssl
@@ -6398,7 +6118,6 @@ return|;
 block|}
 comment|/**          * Setting to specify whether SSL encryption is applied to this          * endpoint.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|ssl (String ssl)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|ssl
@@ -6420,7 +6139,6 @@ return|;
 block|}
 comment|/**          * When enabled and in SSL mode, then the Netty consumer will enrich the          * Camel Message with headers having information about the client          * certificate such as subject name, issuer name, serial number, and the          * valid date range.          * The option is a<code>boolean</code> type.          * @group security          */
 DECL|method|sslClientCertHeaders ( boolean sslClientCertHeaders)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|sslClientCertHeaders
@@ -6442,7 +6160,6 @@ return|;
 block|}
 comment|/**          * When enabled and in SSL mode, then the Netty consumer will enrich the          * Camel Message with headers having information about the client          * certificate such as subject name, issuer name, serial number, and the          * valid date range.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
 DECL|method|sslClientCertHeaders ( String sslClientCertHeaders)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|sslClientCertHeaders
@@ -6464,7 +6181,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|sslContextParameters
@@ -6486,7 +6202,6 @@ return|;
 block|}
 comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|sslContextParameters
@@ -6508,7 +6223,6 @@ return|;
 block|}
 comment|/**          * Reference to a class that could be used to return an SSL Handler.          * The option is a<code>io.netty.handler.ssl.SslHandler</code> type.          * @group security          */
 DECL|method|sslHandler (Object sslHandler)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|sslHandler
@@ -6530,7 +6244,6 @@ return|;
 block|}
 comment|/**          * Reference to a class that could be used to return an SSL Handler.          * The option will be converted to a          *<code>io.netty.handler.ssl.SslHandler</code> type.          * @group security          */
 DECL|method|sslHandler (String sslHandler)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|sslHandler
@@ -6551,8 +6264,7 @@ name|this
 return|;
 block|}
 comment|/**          * Server side certificate keystore to be used for encryption.          * The option is a<code>java.io.File</code> type.          * @group security          */
-DECL|method|trustStoreFile ( File trustStoreFile)
-specifier|public
+DECL|method|trustStoreFile (File trustStoreFile)
 specifier|default
 name|NettyHttpEndpointBuilder
 name|trustStoreFile
@@ -6573,8 +6285,7 @@ name|this
 return|;
 block|}
 comment|/**          * Server side certificate keystore to be used for encryption.          * The option will be converted to a<code>java.io.File</code> type.          * @group security          */
-DECL|method|trustStoreFile ( String trustStoreFile)
-specifier|public
+DECL|method|trustStoreFile (String trustStoreFile)
 specifier|default
 name|NettyHttpEndpointBuilder
 name|trustStoreFile
@@ -6596,7 +6307,6 @@ return|;
 block|}
 comment|/**          * Server side certificate keystore to be used for encryption. Is loaded          * by default from classpath, but you can prefix with classpath:, file:,          * or http: to load the resource from different systems.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|trustStoreResource ( String trustStoreResource)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|trustStoreResource
@@ -6629,7 +6339,6 @@ extends|,
 name|AdvancedNettyHttpEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|basic
@@ -6644,7 +6353,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP when transferExchange is true. When set to true,          * serializable objects in headers and properties will be added to the          * exchange. Otherwise Camel will exclude any non-serializable objects          * and log it at WARN level.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|allowSerializedHeaders ( boolean allowSerializedHeaders)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|allowSerializedHeaders
@@ -6666,7 +6374,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP when transferExchange is true. When set to true,          * serializable objects in headers and properties will be added to the          * exchange. Otherwise Camel will exclude any non-serializable objects          * and log it at WARN level.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|allowSerializedHeaders ( String allowSerializedHeaders)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|allowSerializedHeaders
@@ -6688,7 +6395,6 @@ return|;
 block|}
 comment|/**          * To use a explicit ChannelGroup.          * The option is a<code>io.netty.channel.group.ChannelGroup</code>          * type.          * @group advanced          */
 DECL|method|channelGroup ( Object channelGroup)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|channelGroup
@@ -6710,7 +6416,6 @@ return|;
 block|}
 comment|/**          * To use a explicit ChannelGroup.          * The option will be converted to a          *<code>io.netty.channel.group.ChannelGroup</code> type.          * @group advanced          */
 DECL|method|channelGroup ( String channelGroup)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|channelGroup
@@ -6732,7 +6437,6 @@ return|;
 block|}
 comment|/**          * To use a custom configured NettyHttpConfiguration for configuring          * this endpoint.          * The option is a          *<code>org.apache.camel.component.netty4.http.NettyHttpConfiguration</code> type.          * @group advanced          */
 DECL|method|configuration ( Object configuration)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|configuration
@@ -6754,7 +6458,6 @@ return|;
 block|}
 comment|/**          * To use a custom configured NettyHttpConfiguration for configuring          * this endpoint.          * The option will be converted to a          *<code>org.apache.camel.component.netty4.http.NettyHttpConfiguration</code> type.          * @group advanced          */
 DECL|method|configuration ( String configuration)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|configuration
@@ -6776,7 +6479,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not the raw input stream from Netty          * HttpRequest#getContent() or HttpResponset#getContent() is cached or          * not (Camel will read the stream into a in light-weight memory based          * Stream caching) cache. By default Camel will cache the Netty input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store. Mind that          * if you enable this option, then you cannot read the Netty stream          * multiple times out of the box, and you would need manually to reset          * the reader index on the Netty raw stream. Also Netty will auto-close          * the Netty stream when the Netty HTTP server/HTTP client is done          * processing, which means that if the asynchronous routing engine is in          * use then any asynchronous thread that may continue routing the          * org.apache.camel.Exchange may not be able to read the Netty stream,          * because Netty has closed it.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|disableStreamCache ( boolean disableStreamCache)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|disableStreamCache
@@ -6798,7 +6500,6 @@ return|;
 block|}
 comment|/**          * Determines whether or not the raw input stream from Netty          * HttpRequest#getContent() or HttpResponset#getContent() is cached or          * not (Camel will read the stream into a in light-weight memory based          * Stream caching) cache. By default Camel will cache the Netty input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store. Mind that          * if you enable this option, then you cannot read the Netty stream          * multiple times out of the box, and you would need manually to reset          * the reader index on the Netty raw stream. Also Netty will auto-close          * the Netty stream when the Netty HTTP server/HTTP client is done          * processing, which means that if the asynchronous routing engine is in          * use then any asynchronous thread that may continue routing the          * org.apache.camel.Exchange may not be able to read the Netty stream,          * because Netty has closed it.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|disableStreamCache ( String disableStreamCache)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|disableStreamCache
@@ -6820,7 +6521,6 @@ return|;
 block|}
 comment|/**          * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter          * headers.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|headerFilterStrategy
@@ -6842,7 +6542,6 @@ return|;
 block|}
 comment|/**          * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter          * headers.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|headerFilterStrategy
@@ -6864,7 +6563,6 @@ return|;
 block|}
 comment|/**          * Whether to use native transport instead of NIO. Native transport          * takes advantage of the host operating system and is only supported on          * some platforms. You need to add the netty JAR for the host operating          * system you are using. See more details at:          * http://netty.io/wiki/native-transports.html.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|nativeTransport ( boolean nativeTransport)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|nativeTransport
@@ -6886,7 +6584,6 @@ return|;
 block|}
 comment|/**          * Whether to use native transport instead of NIO. Native transport          * takes advantage of the host operating system and is only supported on          * some platforms. You need to add the netty JAR for the host operating          * system you are using. See more details at:          * http://netty.io/wiki/native-transports.html.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|nativeTransport ( String nativeTransport)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|nativeTransport
@@ -6908,7 +6605,6 @@ return|;
 block|}
 comment|/**          * To use a custom          * org.apache.camel.component.netty4.http.NettyHttpBinding for binding          * to/from Netty and Camel Message API.          * The option is a          *<code>org.apache.camel.component.netty4.http.NettyHttpBinding</code>          * type.          * @group advanced          */
 DECL|method|nettyHttpBinding ( Object nettyHttpBinding)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|nettyHttpBinding
@@ -6930,7 +6626,6 @@ return|;
 block|}
 comment|/**          * To use a custom          * org.apache.camel.component.netty4.http.NettyHttpBinding for binding          * to/from Netty and Camel Message API.          * The option will be converted to a          *<code>org.apache.camel.component.netty4.http.NettyHttpBinding</code>          * type.          * @group advanced          */
 DECL|method|nettyHttpBinding ( String nettyHttpBinding)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|nettyHttpBinding
@@ -6952,7 +6647,6 @@ return|;
 block|}
 comment|/**          * Allows to configure additional netty options using option. as prefix.          * For example option.child.keepAlive=false to set the netty option          * child.keepAlive=false. See the Netty documentation for possible          * options that can be used.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
 DECL|method|options ( Map<String, Object> options)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|options
@@ -6979,7 +6673,6 @@ return|;
 block|}
 comment|/**          * Allows to configure additional netty options using option. as prefix.          * For example option.child.keepAlive=false to set the netty option          * child.keepAlive=false. See the Netty documentation for possible          * options that can be used.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
 DECL|method|options (String options)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|options
@@ -7001,7 +6694,6 @@ return|;
 block|}
 comment|/**          * The TCP/UDP buffer sizes to be used during inbound communication.          * Size is bytes.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|receiveBufferSize ( int receiveBufferSize)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|receiveBufferSize
@@ -7023,7 +6715,6 @@ return|;
 block|}
 comment|/**          * The TCP/UDP buffer sizes to be used during inbound communication.          * Size is bytes.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|receiveBufferSize ( String receiveBufferSize)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|receiveBufferSize
@@ -7045,7 +6736,6 @@ return|;
 block|}
 comment|/**          * Configures the buffer size predictor. See details at Jetty          * documentation and this mail thread.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|receiveBufferSizePredictor ( int receiveBufferSizePredictor)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|receiveBufferSizePredictor
@@ -7067,7 +6757,6 @@ return|;
 block|}
 comment|/**          * Configures the buffer size predictor. See details at Jetty          * documentation and this mail thread.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|receiveBufferSizePredictor ( String receiveBufferSizePredictor)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|receiveBufferSizePredictor
@@ -7089,7 +6778,6 @@ return|;
 block|}
 comment|/**          * The TCP/UDP buffer sizes to be used during outbound communication.          * Size is bytes.          * The option is a<code>int</code> type.          * @group advanced          */
 DECL|method|sendBufferSize ( int sendBufferSize)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|sendBufferSize
@@ -7111,7 +6799,6 @@ return|;
 block|}
 comment|/**          * The TCP/UDP buffer sizes to be used during outbound communication.          * Size is bytes.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
 DECL|method|sendBufferSize ( String sendBufferSize)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|sendBufferSize
@@ -7133,7 +6820,6 @@ return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferException ( boolean transferException)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|transferException
@@ -7155,7 +6841,6 @@ return|;
 block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferException ( String transferException)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|transferException
@@ -7177,7 +6862,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP. You can transfer the exchange over the wire          * instead of just the body. The following fields are transferred: In          * body, Out body, fault body, In headers, Out headers, fault headers,          * exchange properties, exchange exception. This requires that the          * objects are serializable. Camel will exclude any non-serializable          * objects and log it at WARN level.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferExchange ( boolean transferExchange)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|transferExchange
@@ -7199,7 +6883,6 @@ return|;
 block|}
 comment|/**          * Only used for TCP. You can transfer the exchange over the wire          * instead of just the body. The following fields are transferred: In          * body, Out body, fault body, In headers, Out headers, fault headers,          * exchange properties, exchange exception. This requires that the          * objects are serializable. Camel will exclude any non-serializable          * objects and log it at WARN level.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|transferExchange ( String transferExchange)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|transferExchange
@@ -7220,8 +6903,7 @@ name|this
 return|;
 block|}
 comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty, which is cpu_core_threads x 2. User can use this          * operation to override the default workerCount from Netty.          * The option is a<code>int</code> type.          * @group advanced          */
-DECL|method|workerCount ( int workerCount)
-specifier|public
+DECL|method|workerCount (int workerCount)
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|workerCount
@@ -7242,8 +6924,7 @@ name|this
 return|;
 block|}
 comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty, which is cpu_core_threads x 2. User can use this          * operation to override the default workerCount from Netty.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
-DECL|method|workerCount ( String workerCount)
-specifier|public
+DECL|method|workerCount (String workerCount)
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|workerCount
@@ -7264,8 +6945,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a explicit EventLoopGroup as the boss thread pool. For example          * to share a thread pool with multiple consumers or producers. By          * default each consumer or producer has their own worker pool with 2 x          * cpu count core threads.          * The option is a<code>io.netty.channel.EventLoopGroup</code> type.          * @group advanced          */
-DECL|method|workerGroup ( Object workerGroup)
-specifier|public
+DECL|method|workerGroup (Object workerGroup)
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|workerGroup
@@ -7286,8 +6966,7 @@ name|this
 return|;
 block|}
 comment|/**          * To use a explicit EventLoopGroup as the boss thread pool. For example          * to share a thread pool with multiple consumers or producers. By          * default each consumer or producer has their own worker pool with 2 x          * cpu count core threads.          * The option will be converted to a          *<code>io.netty.channel.EventLoopGroup</code> type.          * @group advanced          */
-DECL|method|workerGroup ( String workerGroup)
-specifier|public
+DECL|method|workerGroup (String workerGroup)
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|workerGroup
@@ -7309,7 +6988,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|basicPropertyBinding
@@ -7331,7 +7009,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|basicPropertyBinding
@@ -7353,7 +7030,6 @@ return|;
 block|}
 comment|/**          * To use a custom configured NettyServerBootstrapConfiguration for          * configuring this endpoint.          * The option is a<code>java.lang.Object</code> type.          * @group advanced          */
 DECL|method|bootstrapConfiguration ( Object bootstrapConfiguration)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|bootstrapConfiguration
@@ -7375,7 +7051,6 @@ return|;
 block|}
 comment|/**          * To use a custom configured NettyServerBootstrapConfiguration for          * configuring this endpoint.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group advanced          */
 DECL|method|bootstrapConfiguration ( String bootstrapConfiguration)
-specifier|public
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|bootstrapConfiguration
@@ -7396,8 +7071,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|synchronous
@@ -7418,8 +7092,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedNettyHttpEndpointBuilder
 name|synchronous
@@ -7442,7 +7115,6 @@ block|}
 block|}
 comment|/**      * Netty HTTP server and client using the Netty 4.x library. Creates a      * builder to build endpoints for the Netty4 HTTP component.      */
 DECL|method|nettyHttp (String path)
-specifier|public
 specifier|default
 name|NettyHttpEndpointBuilder
 name|nettyHttp

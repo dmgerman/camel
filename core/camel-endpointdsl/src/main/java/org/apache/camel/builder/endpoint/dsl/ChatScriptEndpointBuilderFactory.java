@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedChatScriptEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Hostname or IP of the server on which CS server is running.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|ChatScriptEndpointBuilder
 name|host
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Port on which ChatScript is listening to.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|ChatScriptEndpointBuilder
 name|port
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Port on which ChatScript is listening to.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|ChatScriptEndpointBuilder
 name|port
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Name of the Bot in CS to converse with.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|botName (String botName)
-specifier|public
 specifier|default
 name|ChatScriptEndpointBuilder
 name|botName
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * Issues :reset command to start a new conversation everytime.          * The option is a<code>boolean</code> type.          * @group reset          */
 DECL|method|resetchat (boolean resetchat)
-specifier|public
 specifier|default
 name|ChatScriptEndpointBuilder
 name|resetchat
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * Issues :reset command to start a new conversation everytime.          * The option will be converted to a<code>boolean</code> type.          * @group reset          */
 DECL|method|resetchat (String resetchat)
-specifier|public
 specifier|default
 name|ChatScriptEndpointBuilder
 name|resetchat
@@ -245,8 +238,7 @@ name|this
 return|;
 block|}
 comment|/**          * Username who initializes the CS conversation. To be set when chat is          * initialized from camel route.          * The option is a<code>java.lang.String</code> type.          * @group username          */
-DECL|method|chatUserName ( String chatUserName)
-specifier|public
+DECL|method|chatUserName (String chatUserName)
 specifier|default
 name|ChatScriptEndpointBuilder
 name|chatUserName
@@ -277,7 +269,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|ChatScriptEndpointBuilder
 name|basic
@@ -292,7 +283,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedChatScriptEndpointBuilder
 name|basicPropertyBinding
@@ -314,7 +304,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedChatScriptEndpointBuilder
 name|basicPropertyBinding
@@ -336,7 +325,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedChatScriptEndpointBuilder
 name|synchronous
@@ -357,8 +345,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedChatScriptEndpointBuilder
 name|synchronous
@@ -381,7 +368,6 @@ block|}
 block|}
 comment|/**      * Represents a ChatScript endpoint. Creates a builder to build endpoints      * for the ChatScript component.      */
 DECL|method|chatScript (String path)
-specifier|public
 specifier|default
 name|ChatScriptEndpointBuilder
 name|chatScript

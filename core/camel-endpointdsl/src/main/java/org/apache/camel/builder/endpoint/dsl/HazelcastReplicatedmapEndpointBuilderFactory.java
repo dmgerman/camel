@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * The name of the cache.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|cacheName ( String cacheName)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|cacheName
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * To specify a default operation to use, if no operation header has          * been provided.          * The option is a          *<code>org.apache.camel.component.hazelcast.HazelcastOperation</code>          * type.          * @group common          */
 DECL|method|defaultOperation ( HazelcastOperation defaultOperation)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|defaultOperation
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * To specify a default operation to use, if no operation header has          * been provided.          * The option will be converted to a          *<code>org.apache.camel.component.hazelcast.HazelcastOperation</code>          * type.          * @group common          */
 DECL|method|defaultOperation ( String defaultOperation)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|defaultOperation
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * The hazelcast instance reference which can be used for hazelcast          * endpoint.          * The option is a<code>com.hazelcast.core.HazelcastInstance</code>          * type.          * @group common          */
 DECL|method|hazelcastInstance ( Object hazelcastInstance)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|hazelcastInstance
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * The hazelcast instance reference which can be used for hazelcast          * endpoint.          * The option will be converted to a          *<code>com.hazelcast.core.HazelcastInstance</code> type.          * @group common          */
 DECL|method|hazelcastInstance ( String hazelcastInstance)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|hazelcastInstance
@@ -249,7 +243,6 @@ return|;
 block|}
 comment|/**          * The hazelcast instance reference name which can be used for hazelcast          * endpoint. If you don't specify the instance reference, camel use the          * default hazelcast instance from the camel-hazelcast instance.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|hazelcastInstanceName ( String hazelcastInstanceName)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|hazelcastInstanceName
@@ -271,7 +264,6 @@ return|;
 block|}
 comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|reliable ( boolean reliable)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|reliable
@@ -293,7 +285,6 @@ return|;
 block|}
 comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|reliable ( String reliable)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|reliable
@@ -315,7 +306,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -337,7 +327,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -359,7 +348,6 @@ return|;
 block|}
 comment|/**          * Define the polling timeout of the Queue consumer in Poll mode.          * The option is a<code>long</code> type.          * @group consumer          */
 DECL|method|pollingTimeout ( long pollingTimeout)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|pollingTimeout
@@ -381,7 +369,6 @@ return|;
 block|}
 comment|/**          * Define the polling timeout of the Queue consumer in Poll mode.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
 DECL|method|pollingTimeout ( String pollingTimeout)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|pollingTimeout
@@ -403,7 +390,6 @@ return|;
 block|}
 comment|/**          * Define the Pool size for Queue Consumer Executor.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|poolSize ( int poolSize)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|poolSize
@@ -425,7 +411,6 @@ return|;
 block|}
 comment|/**          * Define the Pool size for Queue Consumer Executor.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|poolSize ( String poolSize)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|poolSize
@@ -447,7 +432,6 @@ return|;
 block|}
 comment|/**          * Define the Queue Consumer mode: Listen or Poll.          * The option is a          *<code>org.apache.camel.component.hazelcast.queue.HazelcastQueueConsumerMode</code> type.          * @group consumer          */
 DECL|method|queueConsumerMode ( HazelcastQueueConsumerMode queueConsumerMode)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|queueConsumerMode
@@ -469,7 +453,6 @@ return|;
 block|}
 comment|/**          * Define the Queue Consumer mode: Listen or Poll.          * The option will be converted to a          *<code>org.apache.camel.component.hazelcast.queue.HazelcastQueueConsumerMode</code> type.          * @group consumer          */
 DECL|method|queueConsumerMode ( String queueConsumerMode)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|queueConsumerMode
@@ -491,7 +474,6 @@ return|;
 block|}
 comment|/**          * To use concurrent consumers polling from the SEDA queue.          * The option is a<code>int</code> type.          * @group seda          */
 DECL|method|concurrentConsumers ( int concurrentConsumers)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|concurrentConsumers
@@ -513,7 +495,6 @@ return|;
 block|}
 comment|/**          * To use concurrent consumers polling from the SEDA queue.          * The option will be converted to a<code>int</code> type.          * @group seda          */
 DECL|method|concurrentConsumers ( String concurrentConsumers)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|concurrentConsumers
@@ -535,7 +516,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before consumer continues polling after an error has          * occurred.          * The option is a<code>int</code> type.          * @group seda          */
 DECL|method|onErrorDelay ( int onErrorDelay)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|onErrorDelay
@@ -557,7 +537,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before consumer continues polling after an error has          * occurred.          * The option will be converted to a<code>int</code> type.          * @group seda          */
 DECL|method|onErrorDelay ( String onErrorDelay)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|onErrorDelay
@@ -579,7 +558,6 @@ return|;
 block|}
 comment|/**          * The timeout used when consuming from the SEDA queue. When a timeout          * occurs, the consumer can check whether it is allowed to continue          * running. Setting a lower value allows the consumer to react more          * quickly upon shutdown.          * The option is a<code>int</code> type.          * @group seda          */
 DECL|method|pollTimeout ( int pollTimeout)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|pollTimeout
@@ -601,7 +579,6 @@ return|;
 block|}
 comment|/**          * The timeout used when consuming from the SEDA queue. When a timeout          * occurs, the consumer can check whether it is allowed to continue          * running. Setting a lower value allows the consumer to react more          * quickly upon shutdown.          * The option will be converted to a<code>int</code> type.          * @group seda          */
 DECL|method|pollTimeout ( String pollTimeout)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|pollTimeout
@@ -623,7 +600,6 @@ return|;
 block|}
 comment|/**          * If set to true then the consumer runs in transaction mode, where the          * messages in the seda queue will only be removed if the transaction          * commits, which happens when the processing is complete.          * The option is a<code>boolean</code> type.          * @group seda          */
 DECL|method|transacted ( boolean transacted)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|transacted
@@ -645,7 +621,6 @@ return|;
 block|}
 comment|/**          * If set to true then the consumer runs in transaction mode, where the          * messages in the seda queue will only be removed if the transaction          * commits, which happens when the processing is complete.          * The option will be converted to a<code>boolean</code> type.          * @group seda          */
 DECL|method|transacted ( String transacted)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|transacted
@@ -667,7 +642,6 @@ return|;
 block|}
 comment|/**          * If set to true the whole Exchange will be transfered. If header or          * body contains not serializable objects, they will be skipped.          * The option is a<code>boolean</code> type.          * @group seda          */
 DECL|method|transferExchange ( boolean transferExchange)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|transferExchange
@@ -689,7 +663,6 @@ return|;
 block|}
 comment|/**          * If set to true the whole Exchange will be transfered. If header or          * body contains not serializable objects, they will be skipped.          * The option will be converted to a<code>boolean</code> type.          * @group seda          */
 DECL|method|transferExchange ( String transferExchange)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|transferExchange
@@ -719,7 +692,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointConsumerBuilder
 name|basic
@@ -734,7 +706,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointConsumerBuilder
 name|exceptionHandler
@@ -756,7 +727,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointConsumerBuilder
 name|exceptionHandler
@@ -778,7 +748,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointConsumerBuilder
 name|exchangePattern
@@ -800,7 +769,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointConsumerBuilder
 name|exchangePattern
@@ -822,7 +790,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -844,7 +811,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -866,7 +832,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointConsumerBuilder
 name|synchronous
@@ -888,7 +853,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointConsumerBuilder
 name|synchronous
@@ -919,7 +883,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointProducerBuilder
 name|advanced
@@ -934,7 +897,6 @@ return|;
 block|}
 comment|/**          * The name of the cache.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|cacheName ( String cacheName)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|cacheName
@@ -956,7 +918,6 @@ return|;
 block|}
 comment|/**          * To specify a default operation to use, if no operation header has          * been provided.          * The option is a          *<code>org.apache.camel.component.hazelcast.HazelcastOperation</code>          * type.          * @group common          */
 DECL|method|defaultOperation ( HazelcastOperation defaultOperation)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|defaultOperation
@@ -978,7 +939,6 @@ return|;
 block|}
 comment|/**          * To specify a default operation to use, if no operation header has          * been provided.          * The option will be converted to a          *<code>org.apache.camel.component.hazelcast.HazelcastOperation</code>          * type.          * @group common          */
 DECL|method|defaultOperation ( String defaultOperation)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|defaultOperation
@@ -1000,7 +960,6 @@ return|;
 block|}
 comment|/**          * The hazelcast instance reference which can be used for hazelcast          * endpoint.          * The option is a<code>com.hazelcast.core.HazelcastInstance</code>          * type.          * @group common          */
 DECL|method|hazelcastInstance ( Object hazelcastInstance)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|hazelcastInstance
@@ -1022,7 +981,6 @@ return|;
 block|}
 comment|/**          * The hazelcast instance reference which can be used for hazelcast          * endpoint.          * The option will be converted to a          *<code>com.hazelcast.core.HazelcastInstance</code> type.          * @group common          */
 DECL|method|hazelcastInstance ( String hazelcastInstance)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|hazelcastInstance
@@ -1044,7 +1002,6 @@ return|;
 block|}
 comment|/**          * The hazelcast instance reference name which can be used for hazelcast          * endpoint. If you don't specify the instance reference, camel use the          * default hazelcast instance from the camel-hazelcast instance.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|hazelcastInstanceName ( String hazelcastInstanceName)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|hazelcastInstanceName
@@ -1066,7 +1023,6 @@ return|;
 block|}
 comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|reliable ( boolean reliable)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|reliable
@@ -1088,7 +1044,6 @@ return|;
 block|}
 comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|reliable ( String reliable)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|reliable
@@ -1110,7 +1065,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|lazyStartProducer
@@ -1132,7 +1086,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|lazyStartProducer
@@ -1154,7 +1107,6 @@ return|;
 block|}
 comment|/**          * To use concurrent consumers polling from the SEDA queue.          * The option is a<code>int</code> type.          * @group seda          */
 DECL|method|concurrentConsumers ( int concurrentConsumers)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|concurrentConsumers
@@ -1176,7 +1128,6 @@ return|;
 block|}
 comment|/**          * To use concurrent consumers polling from the SEDA queue.          * The option will be converted to a<code>int</code> type.          * @group seda          */
 DECL|method|concurrentConsumers ( String concurrentConsumers)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|concurrentConsumers
@@ -1198,7 +1149,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before consumer continues polling after an error has          * occurred.          * The option is a<code>int</code> type.          * @group seda          */
 DECL|method|onErrorDelay ( int onErrorDelay)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|onErrorDelay
@@ -1220,7 +1170,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before consumer continues polling after an error has          * occurred.          * The option will be converted to a<code>int</code> type.          * @group seda          */
 DECL|method|onErrorDelay ( String onErrorDelay)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|onErrorDelay
@@ -1242,7 +1191,6 @@ return|;
 block|}
 comment|/**          * The timeout used when consuming from the SEDA queue. When a timeout          * occurs, the consumer can check whether it is allowed to continue          * running. Setting a lower value allows the consumer to react more          * quickly upon shutdown.          * The option is a<code>int</code> type.          * @group seda          */
 DECL|method|pollTimeout ( int pollTimeout)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|pollTimeout
@@ -1264,7 +1212,6 @@ return|;
 block|}
 comment|/**          * The timeout used when consuming from the SEDA queue. When a timeout          * occurs, the consumer can check whether it is allowed to continue          * running. Setting a lower value allows the consumer to react more          * quickly upon shutdown.          * The option will be converted to a<code>int</code> type.          * @group seda          */
 DECL|method|pollTimeout ( String pollTimeout)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|pollTimeout
@@ -1286,7 +1233,6 @@ return|;
 block|}
 comment|/**          * If set to true then the consumer runs in transaction mode, where the          * messages in the seda queue will only be removed if the transaction          * commits, which happens when the processing is complete.          * The option is a<code>boolean</code> type.          * @group seda          */
 DECL|method|transacted ( boolean transacted)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|transacted
@@ -1308,7 +1254,6 @@ return|;
 block|}
 comment|/**          * If set to true then the consumer runs in transaction mode, where the          * messages in the seda queue will only be removed if the transaction          * commits, which happens when the processing is complete.          * The option will be converted to a<code>boolean</code> type.          * @group seda          */
 DECL|method|transacted ( String transacted)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|transacted
@@ -1330,7 +1275,6 @@ return|;
 block|}
 comment|/**          * If set to true the whole Exchange will be transfered. If header or          * body contains not serializable objects, they will be skipped.          * The option is a<code>boolean</code> type.          * @group seda          */
 DECL|method|transferExchange ( boolean transferExchange)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|transferExchange
@@ -1352,7 +1296,6 @@ return|;
 block|}
 comment|/**          * If set to true the whole Exchange will be transfered. If header or          * body contains not serializable objects, they will be skipped.          * The option will be converted to a<code>boolean</code> type.          * @group seda          */
 DECL|method|transferExchange ( String transferExchange)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|transferExchange
@@ -1382,7 +1325,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointProducerBuilder
 name|basic
@@ -1397,7 +1339,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1419,7 +1360,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1441,7 +1381,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointProducerBuilder
 name|synchronous
@@ -1463,7 +1402,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointProducerBuilder
 name|synchronous
@@ -1496,7 +1434,6 @@ extends|,
 name|HazelcastReplicatedmapEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointBuilder
 name|advanced
@@ -1510,8 +1447,7 @@ name|this
 return|;
 block|}
 comment|/**          * The name of the cache.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|cacheName ( String cacheName)
-specifier|public
+DECL|method|cacheName (String cacheName)
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|cacheName
@@ -1533,7 +1469,6 @@ return|;
 block|}
 comment|/**          * To specify a default operation to use, if no operation header has          * been provided.          * The option is a          *<code>org.apache.camel.component.hazelcast.HazelcastOperation</code>          * type.          * @group common          */
 DECL|method|defaultOperation ( HazelcastOperation defaultOperation)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|defaultOperation
@@ -1555,7 +1490,6 @@ return|;
 block|}
 comment|/**          * To specify a default operation to use, if no operation header has          * been provided.          * The option will be converted to a          *<code>org.apache.camel.component.hazelcast.HazelcastOperation</code>          * type.          * @group common          */
 DECL|method|defaultOperation ( String defaultOperation)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|defaultOperation
@@ -1577,7 +1511,6 @@ return|;
 block|}
 comment|/**          * The hazelcast instance reference which can be used for hazelcast          * endpoint.          * The option is a<code>com.hazelcast.core.HazelcastInstance</code>          * type.          * @group common          */
 DECL|method|hazelcastInstance ( Object hazelcastInstance)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|hazelcastInstance
@@ -1599,7 +1532,6 @@ return|;
 block|}
 comment|/**          * The hazelcast instance reference which can be used for hazelcast          * endpoint.          * The option will be converted to a          *<code>com.hazelcast.core.HazelcastInstance</code> type.          * @group common          */
 DECL|method|hazelcastInstance ( String hazelcastInstance)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|hazelcastInstance
@@ -1621,7 +1553,6 @@ return|;
 block|}
 comment|/**          * The hazelcast instance reference name which can be used for hazelcast          * endpoint. If you don't specify the instance reference, camel use the          * default hazelcast instance from the camel-hazelcast instance.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|hazelcastInstanceName ( String hazelcastInstanceName)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|hazelcastInstanceName
@@ -1642,8 +1573,7 @@ name|this
 return|;
 block|}
 comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|reliable ( boolean reliable)
-specifier|public
+DECL|method|reliable (boolean reliable)
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|reliable
@@ -1664,8 +1594,7 @@ name|this
 return|;
 block|}
 comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|reliable ( String reliable)
-specifier|public
+DECL|method|reliable (String reliable)
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|reliable
@@ -1687,7 +1616,6 @@ return|;
 block|}
 comment|/**          * To use concurrent consumers polling from the SEDA queue.          * The option is a<code>int</code> type.          * @group seda          */
 DECL|method|concurrentConsumers ( int concurrentConsumers)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|concurrentConsumers
@@ -1709,7 +1637,6 @@ return|;
 block|}
 comment|/**          * To use concurrent consumers polling from the SEDA queue.          * The option will be converted to a<code>int</code> type.          * @group seda          */
 DECL|method|concurrentConsumers ( String concurrentConsumers)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|concurrentConsumers
@@ -1731,7 +1658,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before consumer continues polling after an error has          * occurred.          * The option is a<code>int</code> type.          * @group seda          */
 DECL|method|onErrorDelay ( int onErrorDelay)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|onErrorDelay
@@ -1753,7 +1679,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before consumer continues polling after an error has          * occurred.          * The option will be converted to a<code>int</code> type.          * @group seda          */
 DECL|method|onErrorDelay ( String onErrorDelay)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|onErrorDelay
@@ -1775,7 +1700,6 @@ return|;
 block|}
 comment|/**          * The timeout used when consuming from the SEDA queue. When a timeout          * occurs, the consumer can check whether it is allowed to continue          * running. Setting a lower value allows the consumer to react more          * quickly upon shutdown.          * The option is a<code>int</code> type.          * @group seda          */
 DECL|method|pollTimeout ( int pollTimeout)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|pollTimeout
@@ -1797,7 +1721,6 @@ return|;
 block|}
 comment|/**          * The timeout used when consuming from the SEDA queue. When a timeout          * occurs, the consumer can check whether it is allowed to continue          * running. Setting a lower value allows the consumer to react more          * quickly upon shutdown.          * The option will be converted to a<code>int</code> type.          * @group seda          */
 DECL|method|pollTimeout ( String pollTimeout)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|pollTimeout
@@ -1819,7 +1742,6 @@ return|;
 block|}
 comment|/**          * If set to true then the consumer runs in transaction mode, where the          * messages in the seda queue will only be removed if the transaction          * commits, which happens when the processing is complete.          * The option is a<code>boolean</code> type.          * @group seda          */
 DECL|method|transacted ( boolean transacted)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|transacted
@@ -1841,7 +1763,6 @@ return|;
 block|}
 comment|/**          * If set to true then the consumer runs in transaction mode, where the          * messages in the seda queue will only be removed if the transaction          * commits, which happens when the processing is complete.          * The option will be converted to a<code>boolean</code> type.          * @group seda          */
 DECL|method|transacted ( String transacted)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|transacted
@@ -1863,7 +1784,6 @@ return|;
 block|}
 comment|/**          * If set to true the whole Exchange will be transfered. If header or          * body contains not serializable objects, they will be skipped.          * The option is a<code>boolean</code> type.          * @group seda          */
 DECL|method|transferExchange ( boolean transferExchange)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|transferExchange
@@ -1885,7 +1805,6 @@ return|;
 block|}
 comment|/**          * If set to true the whole Exchange will be transfered. If header or          * body contains not serializable objects, they will be skipped.          * The option will be converted to a<code>boolean</code> type.          * @group seda          */
 DECL|method|transferExchange ( String transferExchange)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|transferExchange
@@ -1918,7 +1837,6 @@ extends|,
 name|AdvancedHazelcastReplicatedmapEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|basic
@@ -1933,7 +1851,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointBuilder
 name|basicPropertyBinding
@@ -1955,7 +1872,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointBuilder
 name|basicPropertyBinding
@@ -1977,7 +1893,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointBuilder
 name|synchronous
@@ -1999,7 +1914,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedHazelcastReplicatedmapEndpointBuilder
 name|synchronous
@@ -2150,7 +2064,6 @@ name|poll
 block|;     }
 comment|/**      * The hazelcast-replicatedmap component is used to access Hazelcast      * replicated map. Creates a builder to build endpoints for the Hazelcast      * Replicated Map component.      */
 DECL|method|hazelcastReplicatedmap ( String path)
-specifier|public
 specifier|default
 name|HazelcastReplicatedmapEndpointBuilder
 name|hazelcastReplicatedmap

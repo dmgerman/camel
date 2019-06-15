@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.fhir.internal.FhirApiName</code>          * type.          * @group common          */
 DECL|method|apiName (FhirApiName apiName)
-specifier|public
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|apiName
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.fhir.internal.FhirApiName</code>          * type.          * @group common          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|apiName
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|methodName (String methodName)
-specifier|public
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|methodName
@@ -204,8 +200,7 @@ name|this
 return|;
 block|}
 comment|/**          * Encoding to use for all request.          * The option is a<code>ca.uhn.fhir.rest.api.EncodingEnum</code> type.          * @group common          */
-DECL|method|encoding ( EncodingEnum encoding)
-specifier|public
+DECL|method|encoding (EncodingEnum encoding)
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|encoding
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * Encoding to use for all request.          * The option will be converted to a          *<code>ca.uhn.fhir.rest.api.EncodingEnum</code> type.          * @group common          */
 DECL|method|encoding (String encoding)
-specifier|public
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|encoding
@@ -249,7 +243,6 @@ return|;
 block|}
 comment|/**          * The FHIR Version to use.          * The option is a<code>ca.uhn.fhir.context.FhirVersionEnum</code>          * type.          * @group common          */
 DECL|method|fhirVersion ( FhirVersionEnum fhirVersion)
-specifier|public
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|fhirVersion
@@ -270,8 +263,7 @@ name|this
 return|;
 block|}
 comment|/**          * The FHIR Version to use.          * The option will be converted to a          *<code>ca.uhn.fhir.context.FhirVersionEnum</code> type.          * @group common          */
-DECL|method|fhirVersion ( String fhirVersion)
-specifier|public
+DECL|method|fhirVersion (String fhirVersion)
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|fhirVersion
@@ -293,7 +285,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|inBody
@@ -315,7 +306,6 @@ return|;
 block|}
 comment|/**          * Will log every requests and responses.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|log (boolean log)
-specifier|public
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|log
@@ -337,7 +327,6 @@ return|;
 block|}
 comment|/**          * Will log every requests and responses.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|log (String log)
-specifier|public
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|log
@@ -358,8 +347,7 @@ name|this
 return|;
 block|}
 comment|/**          * Pretty print all request.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|prettyPrint ( boolean prettyPrint)
-specifier|public
+DECL|method|prettyPrint (boolean prettyPrint)
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|prettyPrint
@@ -380,8 +368,7 @@ name|this
 return|;
 block|}
 comment|/**          * Pretty print all request.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|prettyPrint ( String prettyPrint)
-specifier|public
+DECL|method|prettyPrint (String prettyPrint)
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|prettyPrint
@@ -403,7 +390,6 @@ return|;
 block|}
 comment|/**          * The FHIR server base URL.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|serverUrl (String serverUrl)
-specifier|public
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|serverUrl
@@ -425,7 +411,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -447,7 +432,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -469,7 +453,6 @@ return|;
 block|}
 comment|/**          * The proxy host.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|proxyHost (String proxyHost)
-specifier|public
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|proxyHost
@@ -490,8 +473,7 @@ name|this
 return|;
 block|}
 comment|/**          * The proxy password.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
-DECL|method|proxyPassword ( String proxyPassword)
-specifier|public
+DECL|method|proxyPassword (String proxyPassword)
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|proxyPassword
@@ -513,7 +495,6 @@ return|;
 block|}
 comment|/**          * The proxy port.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
 DECL|method|proxyPort (Integer proxyPort)
-specifier|public
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|proxyPort
@@ -535,7 +516,6 @@ return|;
 block|}
 comment|/**          * The proxy port.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
 DECL|method|proxyPort (String proxyPort)
-specifier|public
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|proxyPort
@@ -557,7 +537,6 @@ return|;
 block|}
 comment|/**          * The proxy username.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|proxyUser (String proxyUser)
-specifier|public
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|proxyUser
@@ -578,8 +557,7 @@ name|this
 return|;
 block|}
 comment|/**          * OAuth access token.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|accessToken ( String accessToken)
-specifier|public
+DECL|method|accessToken (String accessToken)
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|accessToken
@@ -601,7 +579,6 @@ return|;
 block|}
 comment|/**          * Username to use for basic authentication.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|password
@@ -623,7 +600,6 @@ return|;
 block|}
 comment|/**          * Username to use for basic authentication.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|username
@@ -653,7 +629,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|FhirEndpointConsumerBuilder
 name|basic
@@ -668,7 +643,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|exceptionHandler
@@ -690,7 +664,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|exceptionHandler
@@ -712,7 +685,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|exchangePattern
@@ -734,7 +706,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|exchangePattern
@@ -756,7 +727,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -778,7 +748,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -799,8 +768,7 @@ name|this
 return|;
 block|}
 comment|/**          * Compresses outgoing (POST/PUT) contents to the GZIP format.          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|compress ( boolean compress)
-specifier|public
+DECL|method|compress (boolean compress)
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|compress
@@ -821,8 +789,7 @@ name|this
 return|;
 block|}
 comment|/**          * Compresses outgoing (POST/PUT) contents to the GZIP format.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|compress ( String compress)
-specifier|public
+DECL|method|compress (String compress)
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|compress
@@ -844,7 +811,6 @@ return|;
 block|}
 comment|/**          * How long to try and establish the initial TCP connection (in ms).          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
 DECL|method|connectionTimeout ( Integer connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|connectionTimeout
@@ -866,7 +832,6 @@ return|;
 block|}
 comment|/**          * How long to try and establish the initial TCP connection (in ms).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
 DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|connectionTimeout
@@ -888,7 +853,6 @@ return|;
 block|}
 comment|/**          * When this option is set, model classes will not be scanned for          * children until the child list for the given type is actually          * accessed.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|deferModelScanning ( boolean deferModelScanning)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|deferModelScanning
@@ -910,7 +874,6 @@ return|;
 block|}
 comment|/**          * When this option is set, model classes will not be scanned for          * children until the child list for the given type is actually          * accessed.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|deferModelScanning ( String deferModelScanning)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|deferModelScanning
@@ -932,7 +895,6 @@ return|;
 block|}
 comment|/**          * FhirContext is an expensive object to create. To avoid creating          * multiple instances, it can be set directly.          * The option is a<code>ca.uhn.fhir.context.FhirContext</code> type.          * @group advanced          */
 DECL|method|fhirContext ( Object fhirContext)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|fhirContext
@@ -954,7 +916,6 @@ return|;
 block|}
 comment|/**          * FhirContext is an expensive object to create. To avoid creating          * multiple instances, it can be set directly.          * The option will be converted to a          *<code>ca.uhn.fhir.context.FhirContext</code> type.          * @group advanced          */
 DECL|method|fhirContext ( String fhirContext)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|fhirContext
@@ -976,7 +937,6 @@ return|;
 block|}
 comment|/**          * Force conformance check.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|forceConformanceCheck ( boolean forceConformanceCheck)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|forceConformanceCheck
@@ -998,7 +958,6 @@ return|;
 block|}
 comment|/**          * Force conformance check.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|forceConformanceCheck ( String forceConformanceCheck)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|forceConformanceCheck
@@ -1020,7 +979,6 @@ return|;
 block|}
 comment|/**          * HTTP session cookie to add to every request.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|sessionCookie ( String sessionCookie)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|sessionCookie
@@ -1042,7 +1000,6 @@ return|;
 block|}
 comment|/**          * How long to block for individual read/write operations (in ms).          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
 DECL|method|socketTimeout ( Integer socketTimeout)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|socketTimeout
@@ -1064,7 +1021,6 @@ return|;
 block|}
 comment|/**          * How long to block for individual read/write operations (in ms).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
 DECL|method|socketTimeout ( String socketTimeout)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|socketTimeout
@@ -1085,8 +1041,7 @@ name|this
 return|;
 block|}
 comment|/**          * Request that the server modify the response using the _summary param.          * The option is a<code>ca.uhn.fhir.rest.api.SummaryEnum</code> type.          * @group advanced          */
-DECL|method|summary ( SummaryEnum summary)
-specifier|public
+DECL|method|summary (SummaryEnum summary)
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|summary
@@ -1107,8 +1062,7 @@ name|this
 return|;
 block|}
 comment|/**          * Request that the server modify the response using the _summary param.          * The option will be converted to a          *<code>ca.uhn.fhir.rest.api.SummaryEnum</code> type.          * @group advanced          */
-DECL|method|summary ( String summary)
-specifier|public
+DECL|method|summary (String summary)
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|summary
@@ -1130,7 +1084,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|synchronous
@@ -1152,7 +1105,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|synchronous
@@ -1174,7 +1126,6 @@ return|;
 block|}
 comment|/**          * When should Camel validate the FHIR Server's conformance statement.          * The option is a          *<code>ca.uhn.fhir.rest.client.api.ServerValidationModeEnum</code>          * type.          * @group advanced          */
 DECL|method|validationMode ( ServerValidationModeEnum validationMode)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|validationMode
@@ -1196,7 +1147,6 @@ return|;
 block|}
 comment|/**          * When should Camel validate the FHIR Server's conformance statement.          * The option will be converted to a          *<code>ca.uhn.fhir.rest.client.api.ServerValidationModeEnum</code>          * type.          * @group advanced          */
 DECL|method|validationMode ( String validationMode)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointConsumerBuilder
 name|validationMode
@@ -1227,7 +1177,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|advanced
@@ -1242,7 +1191,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.fhir.internal.FhirApiName</code>          * type.          * @group common          */
 DECL|method|apiName (FhirApiName apiName)
-specifier|public
 specifier|default
 name|FhirEndpointProducerBuilder
 name|apiName
@@ -1264,7 +1212,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.fhir.internal.FhirApiName</code>          * type.          * @group common          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|FhirEndpointProducerBuilder
 name|apiName
@@ -1286,7 +1233,6 @@ return|;
 block|}
 comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|methodName (String methodName)
-specifier|public
 specifier|default
 name|FhirEndpointProducerBuilder
 name|methodName
@@ -1307,8 +1253,7 @@ name|this
 return|;
 block|}
 comment|/**          * Encoding to use for all request.          * The option is a<code>ca.uhn.fhir.rest.api.EncodingEnum</code> type.          * @group common          */
-DECL|method|encoding ( EncodingEnum encoding)
-specifier|public
+DECL|method|encoding (EncodingEnum encoding)
 specifier|default
 name|FhirEndpointProducerBuilder
 name|encoding
@@ -1330,7 +1275,6 @@ return|;
 block|}
 comment|/**          * Encoding to use for all request.          * The option will be converted to a          *<code>ca.uhn.fhir.rest.api.EncodingEnum</code> type.          * @group common          */
 DECL|method|encoding (String encoding)
-specifier|public
 specifier|default
 name|FhirEndpointProducerBuilder
 name|encoding
@@ -1352,7 +1296,6 @@ return|;
 block|}
 comment|/**          * The FHIR Version to use.          * The option is a<code>ca.uhn.fhir.context.FhirVersionEnum</code>          * type.          * @group common          */
 DECL|method|fhirVersion ( FhirVersionEnum fhirVersion)
-specifier|public
 specifier|default
 name|FhirEndpointProducerBuilder
 name|fhirVersion
@@ -1373,8 +1316,7 @@ name|this
 return|;
 block|}
 comment|/**          * The FHIR Version to use.          * The option will be converted to a          *<code>ca.uhn.fhir.context.FhirVersionEnum</code> type.          * @group common          */
-DECL|method|fhirVersion ( String fhirVersion)
-specifier|public
+DECL|method|fhirVersion (String fhirVersion)
 specifier|default
 name|FhirEndpointProducerBuilder
 name|fhirVersion
@@ -1396,7 +1338,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|FhirEndpointProducerBuilder
 name|inBody
@@ -1418,7 +1359,6 @@ return|;
 block|}
 comment|/**          * Will log every requests and responses.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|log (boolean log)
-specifier|public
 specifier|default
 name|FhirEndpointProducerBuilder
 name|log
@@ -1440,7 +1380,6 @@ return|;
 block|}
 comment|/**          * Will log every requests and responses.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|log (String log)
-specifier|public
 specifier|default
 name|FhirEndpointProducerBuilder
 name|log
@@ -1461,8 +1400,7 @@ name|this
 return|;
 block|}
 comment|/**          * Pretty print all request.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|prettyPrint ( boolean prettyPrint)
-specifier|public
+DECL|method|prettyPrint (boolean prettyPrint)
 specifier|default
 name|FhirEndpointProducerBuilder
 name|prettyPrint
@@ -1483,8 +1421,7 @@ name|this
 return|;
 block|}
 comment|/**          * Pretty print all request.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|prettyPrint ( String prettyPrint)
-specifier|public
+DECL|method|prettyPrint (String prettyPrint)
 specifier|default
 name|FhirEndpointProducerBuilder
 name|prettyPrint
@@ -1506,7 +1443,6 @@ return|;
 block|}
 comment|/**          * The FHIR server base URL.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|serverUrl (String serverUrl)
-specifier|public
 specifier|default
 name|FhirEndpointProducerBuilder
 name|serverUrl
@@ -1528,7 +1464,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|FhirEndpointProducerBuilder
 name|lazyStartProducer
@@ -1550,7 +1485,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|FhirEndpointProducerBuilder
 name|lazyStartProducer
@@ -1572,7 +1506,6 @@ return|;
 block|}
 comment|/**          * The proxy host.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|proxyHost (String proxyHost)
-specifier|public
 specifier|default
 name|FhirEndpointProducerBuilder
 name|proxyHost
@@ -1593,8 +1526,7 @@ name|this
 return|;
 block|}
 comment|/**          * The proxy password.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
-DECL|method|proxyPassword ( String proxyPassword)
-specifier|public
+DECL|method|proxyPassword (String proxyPassword)
 specifier|default
 name|FhirEndpointProducerBuilder
 name|proxyPassword
@@ -1616,7 +1548,6 @@ return|;
 block|}
 comment|/**          * The proxy port.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
 DECL|method|proxyPort (Integer proxyPort)
-specifier|public
 specifier|default
 name|FhirEndpointProducerBuilder
 name|proxyPort
@@ -1638,7 +1569,6 @@ return|;
 block|}
 comment|/**          * The proxy port.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
 DECL|method|proxyPort (String proxyPort)
-specifier|public
 specifier|default
 name|FhirEndpointProducerBuilder
 name|proxyPort
@@ -1660,7 +1590,6 @@ return|;
 block|}
 comment|/**          * The proxy username.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|proxyUser (String proxyUser)
-specifier|public
 specifier|default
 name|FhirEndpointProducerBuilder
 name|proxyUser
@@ -1681,8 +1610,7 @@ name|this
 return|;
 block|}
 comment|/**          * OAuth access token.          * The option is a<code>java.lang.String</code> type.          * @group security          */
-DECL|method|accessToken ( String accessToken)
-specifier|public
+DECL|method|accessToken (String accessToken)
 specifier|default
 name|FhirEndpointProducerBuilder
 name|accessToken
@@ -1704,7 +1632,6 @@ return|;
 block|}
 comment|/**          * Username to use for basic authentication.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|FhirEndpointProducerBuilder
 name|password
@@ -1726,7 +1653,6 @@ return|;
 block|}
 comment|/**          * Username to use for basic authentication.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|FhirEndpointProducerBuilder
 name|username
@@ -1756,7 +1682,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|FhirEndpointProducerBuilder
 name|basic
@@ -1771,7 +1696,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1793,7 +1717,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1814,8 +1737,7 @@ name|this
 return|;
 block|}
 comment|/**          * Compresses outgoing (POST/PUT) contents to the GZIP format.          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|compress ( boolean compress)
-specifier|public
+DECL|method|compress (boolean compress)
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|compress
@@ -1836,8 +1758,7 @@ name|this
 return|;
 block|}
 comment|/**          * Compresses outgoing (POST/PUT) contents to the GZIP format.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|compress ( String compress)
-specifier|public
+DECL|method|compress (String compress)
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|compress
@@ -1859,7 +1780,6 @@ return|;
 block|}
 comment|/**          * How long to try and establish the initial TCP connection (in ms).          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
 DECL|method|connectionTimeout ( Integer connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|connectionTimeout
@@ -1881,7 +1801,6 @@ return|;
 block|}
 comment|/**          * How long to try and establish the initial TCP connection (in ms).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
 DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|connectionTimeout
@@ -1903,7 +1822,6 @@ return|;
 block|}
 comment|/**          * When this option is set, model classes will not be scanned for          * children until the child list for the given type is actually          * accessed.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|deferModelScanning ( boolean deferModelScanning)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|deferModelScanning
@@ -1925,7 +1843,6 @@ return|;
 block|}
 comment|/**          * When this option is set, model classes will not be scanned for          * children until the child list for the given type is actually          * accessed.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|deferModelScanning ( String deferModelScanning)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|deferModelScanning
@@ -1947,7 +1864,6 @@ return|;
 block|}
 comment|/**          * FhirContext is an expensive object to create. To avoid creating          * multiple instances, it can be set directly.          * The option is a<code>ca.uhn.fhir.context.FhirContext</code> type.          * @group advanced          */
 DECL|method|fhirContext ( Object fhirContext)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|fhirContext
@@ -1969,7 +1885,6 @@ return|;
 block|}
 comment|/**          * FhirContext is an expensive object to create. To avoid creating          * multiple instances, it can be set directly.          * The option will be converted to a          *<code>ca.uhn.fhir.context.FhirContext</code> type.          * @group advanced          */
 DECL|method|fhirContext ( String fhirContext)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|fhirContext
@@ -1991,7 +1906,6 @@ return|;
 block|}
 comment|/**          * Force conformance check.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|forceConformanceCheck ( boolean forceConformanceCheck)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|forceConformanceCheck
@@ -2013,7 +1927,6 @@ return|;
 block|}
 comment|/**          * Force conformance check.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|forceConformanceCheck ( String forceConformanceCheck)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|forceConformanceCheck
@@ -2035,7 +1948,6 @@ return|;
 block|}
 comment|/**          * HTTP session cookie to add to every request.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
 DECL|method|sessionCookie ( String sessionCookie)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|sessionCookie
@@ -2057,7 +1969,6 @@ return|;
 block|}
 comment|/**          * How long to block for individual read/write operations (in ms).          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
 DECL|method|socketTimeout ( Integer socketTimeout)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|socketTimeout
@@ -2079,7 +1990,6 @@ return|;
 block|}
 comment|/**          * How long to block for individual read/write operations (in ms).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
 DECL|method|socketTimeout ( String socketTimeout)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|socketTimeout
@@ -2100,8 +2010,7 @@ name|this
 return|;
 block|}
 comment|/**          * Request that the server modify the response using the _summary param.          * The option is a<code>ca.uhn.fhir.rest.api.SummaryEnum</code> type.          * @group advanced          */
-DECL|method|summary ( SummaryEnum summary)
-specifier|public
+DECL|method|summary (SummaryEnum summary)
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|summary
@@ -2122,8 +2031,7 @@ name|this
 return|;
 block|}
 comment|/**          * Request that the server modify the response using the _summary param.          * The option will be converted to a          *<code>ca.uhn.fhir.rest.api.SummaryEnum</code> type.          * @group advanced          */
-DECL|method|summary ( String summary)
-specifier|public
+DECL|method|summary (String summary)
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|summary
@@ -2145,7 +2053,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|synchronous
@@ -2167,7 +2074,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|synchronous
@@ -2189,7 +2095,6 @@ return|;
 block|}
 comment|/**          * When should Camel validate the FHIR Server's conformance statement.          * The option is a          *<code>ca.uhn.fhir.rest.client.api.ServerValidationModeEnum</code>          * type.          * @group advanced          */
 DECL|method|validationMode ( ServerValidationModeEnum validationMode)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|validationMode
@@ -2211,7 +2116,6 @@ return|;
 block|}
 comment|/**          * When should Camel validate the FHIR Server's conformance statement.          * The option will be converted to a          *<code>ca.uhn.fhir.rest.client.api.ServerValidationModeEnum</code>          * type.          * @group advanced          */
 DECL|method|validationMode ( String validationMode)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointProducerBuilder
 name|validationMode
@@ -2244,7 +2148,6 @@ extends|,
 name|FhirEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|advanced
@@ -2259,7 +2162,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.fhir.internal.FhirApiName</code>          * type.          * @group common          */
 DECL|method|apiName (FhirApiName apiName)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|apiName
@@ -2281,7 +2183,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.fhir.internal.FhirApiName</code>          * type.          * @group common          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|apiName
@@ -2303,7 +2204,6 @@ return|;
 block|}
 comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|methodName (String methodName)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|methodName
@@ -2325,7 +2225,6 @@ return|;
 block|}
 comment|/**          * Encoding to use for all request.          * The option is a<code>ca.uhn.fhir.rest.api.EncodingEnum</code> type.          * @group common          */
 DECL|method|encoding (EncodingEnum encoding)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|encoding
@@ -2347,7 +2246,6 @@ return|;
 block|}
 comment|/**          * Encoding to use for all request.          * The option will be converted to a          *<code>ca.uhn.fhir.rest.api.EncodingEnum</code> type.          * @group common          */
 DECL|method|encoding (String encoding)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|encoding
@@ -2368,8 +2266,7 @@ name|this
 return|;
 block|}
 comment|/**          * The FHIR Version to use.          * The option is a<code>ca.uhn.fhir.context.FhirVersionEnum</code>          * type.          * @group common          */
-DECL|method|fhirVersion ( FhirVersionEnum fhirVersion)
-specifier|public
+DECL|method|fhirVersion (FhirVersionEnum fhirVersion)
 specifier|default
 name|FhirEndpointBuilder
 name|fhirVersion
@@ -2391,7 +2288,6 @@ return|;
 block|}
 comment|/**          * The FHIR Version to use.          * The option will be converted to a          *<code>ca.uhn.fhir.context.FhirVersionEnum</code> type.          * @group common          */
 DECL|method|fhirVersion (String fhirVersion)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|fhirVersion
@@ -2413,7 +2309,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|inBody
@@ -2435,7 +2330,6 @@ return|;
 block|}
 comment|/**          * Will log every requests and responses.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|log (boolean log)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|log
@@ -2457,7 +2351,6 @@ return|;
 block|}
 comment|/**          * Will log every requests and responses.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|log (String log)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|log
@@ -2479,7 +2372,6 @@ return|;
 block|}
 comment|/**          * Pretty print all request.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|prettyPrint (boolean prettyPrint)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|prettyPrint
@@ -2501,7 +2393,6 @@ return|;
 block|}
 comment|/**          * Pretty print all request.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|prettyPrint (String prettyPrint)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|prettyPrint
@@ -2523,7 +2414,6 @@ return|;
 block|}
 comment|/**          * The FHIR server base URL.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|serverUrl (String serverUrl)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|serverUrl
@@ -2545,7 +2435,6 @@ return|;
 block|}
 comment|/**          * The proxy host.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|proxyHost (String proxyHost)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|proxyHost
@@ -2567,7 +2456,6 @@ return|;
 block|}
 comment|/**          * The proxy password.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|proxyPassword (String proxyPassword)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|proxyPassword
@@ -2589,7 +2477,6 @@ return|;
 block|}
 comment|/**          * The proxy port.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
 DECL|method|proxyPort (Integer proxyPort)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|proxyPort
@@ -2611,7 +2498,6 @@ return|;
 block|}
 comment|/**          * The proxy port.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
 DECL|method|proxyPort (String proxyPort)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|proxyPort
@@ -2633,7 +2519,6 @@ return|;
 block|}
 comment|/**          * The proxy username.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
 DECL|method|proxyUser (String proxyUser)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|proxyUser
@@ -2655,7 +2540,6 @@ return|;
 block|}
 comment|/**          * OAuth access token.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessToken (String accessToken)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|accessToken
@@ -2677,7 +2561,6 @@ return|;
 block|}
 comment|/**          * Username to use for basic authentication.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|password
@@ -2699,7 +2582,6 @@ return|;
 block|}
 comment|/**          * Username to use for basic authentication.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|username
@@ -2732,7 +2614,6 @@ extends|,
 name|AdvancedFhirEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|basic
@@ -2747,7 +2628,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|basicPropertyBinding
@@ -2769,7 +2649,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|basicPropertyBinding
@@ -2791,7 +2670,6 @@ return|;
 block|}
 comment|/**          * Compresses outgoing (POST/PUT) contents to the GZIP format.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|compress (boolean compress)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|compress
@@ -2813,7 +2691,6 @@ return|;
 block|}
 comment|/**          * Compresses outgoing (POST/PUT) contents to the GZIP format.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|compress (String compress)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|compress
@@ -2835,7 +2712,6 @@ return|;
 block|}
 comment|/**          * How long to try and establish the initial TCP connection (in ms).          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
 DECL|method|connectionTimeout ( Integer connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|connectionTimeout
@@ -2857,7 +2733,6 @@ return|;
 block|}
 comment|/**          * How long to try and establish the initial TCP connection (in ms).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
 DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|connectionTimeout
@@ -2879,7 +2754,6 @@ return|;
 block|}
 comment|/**          * When this option is set, model classes will not be scanned for          * children until the child list for the given type is actually          * accessed.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|deferModelScanning ( boolean deferModelScanning)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|deferModelScanning
@@ -2901,7 +2775,6 @@ return|;
 block|}
 comment|/**          * When this option is set, model classes will not be scanned for          * children until the child list for the given type is actually          * accessed.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|deferModelScanning ( String deferModelScanning)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|deferModelScanning
@@ -2922,8 +2795,7 @@ name|this
 return|;
 block|}
 comment|/**          * FhirContext is an expensive object to create. To avoid creating          * multiple instances, it can be set directly.          * The option is a<code>ca.uhn.fhir.context.FhirContext</code> type.          * @group advanced          */
-DECL|method|fhirContext ( Object fhirContext)
-specifier|public
+DECL|method|fhirContext (Object fhirContext)
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|fhirContext
@@ -2944,8 +2816,7 @@ name|this
 return|;
 block|}
 comment|/**          * FhirContext is an expensive object to create. To avoid creating          * multiple instances, it can be set directly.          * The option will be converted to a          *<code>ca.uhn.fhir.context.FhirContext</code> type.          * @group advanced          */
-DECL|method|fhirContext ( String fhirContext)
-specifier|public
+DECL|method|fhirContext (String fhirContext)
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|fhirContext
@@ -2967,7 +2838,6 @@ return|;
 block|}
 comment|/**          * Force conformance check.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|forceConformanceCheck ( boolean forceConformanceCheck)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|forceConformanceCheck
@@ -2989,7 +2859,6 @@ return|;
 block|}
 comment|/**          * Force conformance check.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|forceConformanceCheck ( String forceConformanceCheck)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|forceConformanceCheck
@@ -3010,8 +2879,7 @@ name|this
 return|;
 block|}
 comment|/**          * HTTP session cookie to add to every request.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
-DECL|method|sessionCookie ( String sessionCookie)
-specifier|public
+DECL|method|sessionCookie (String sessionCookie)
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|sessionCookie
@@ -3032,8 +2900,7 @@ name|this
 return|;
 block|}
 comment|/**          * How long to block for individual read/write operations (in ms).          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
-DECL|method|socketTimeout ( Integer socketTimeout)
-specifier|public
+DECL|method|socketTimeout (Integer socketTimeout)
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|socketTimeout
@@ -3054,8 +2921,7 @@ name|this
 return|;
 block|}
 comment|/**          * How long to block for individual read/write operations (in ms).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
-DECL|method|socketTimeout ( String socketTimeout)
-specifier|public
+DECL|method|socketTimeout (String socketTimeout)
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|socketTimeout
@@ -3077,7 +2943,6 @@ return|;
 block|}
 comment|/**          * Request that the server modify the response using the _summary param.          * The option is a<code>ca.uhn.fhir.rest.api.SummaryEnum</code> type.          * @group advanced          */
 DECL|method|summary (SummaryEnum summary)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|summary
@@ -3099,7 +2964,6 @@ return|;
 block|}
 comment|/**          * Request that the server modify the response using the _summary param.          * The option will be converted to a          *<code>ca.uhn.fhir.rest.api.SummaryEnum</code> type.          * @group advanced          */
 DECL|method|summary (String summary)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|summary
@@ -3120,8 +2984,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|synchronous
@@ -3142,8 +3005,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|synchronous
@@ -3165,7 +3027,6 @@ return|;
 block|}
 comment|/**          * When should Camel validate the FHIR Server's conformance statement.          * The option is a          *<code>ca.uhn.fhir.rest.client.api.ServerValidationModeEnum</code>          * type.          * @group advanced          */
 DECL|method|validationMode ( ServerValidationModeEnum validationMode)
-specifier|public
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|validationMode
@@ -3186,8 +3047,7 @@ name|this
 return|;
 block|}
 comment|/**          * When should Camel validate the FHIR Server's conformance statement.          * The option will be converted to a          *<code>ca.uhn.fhir.rest.client.api.ServerValidationModeEnum</code>          * type.          * @group advanced          */
-DECL|method|validationMode ( String validationMode)
-specifier|public
+DECL|method|validationMode (String validationMode)
 specifier|default
 name|AdvancedFhirEndpointBuilder
 name|validationMode
@@ -3326,7 +3186,6 @@ name|ONCE
 block|;     }
 comment|/**      * The fhir component is used for working with the FHIR protocol (health      * care). Creates a builder to build endpoints for the FHIR component.      */
 DECL|method|fhir (String path)
-specifier|public
 specifier|default
 name|FhirEndpointBuilder
 name|fhir

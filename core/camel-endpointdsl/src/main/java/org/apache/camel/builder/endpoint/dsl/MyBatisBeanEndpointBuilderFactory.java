@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedMyBatisBeanEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Name of the bean with the MyBatis annotations. This can either by a          * type alias or a FQN class name.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|beanName (String beanName)
-specifier|public
 specifier|default
 name|MyBatisBeanEndpointBuilder
 name|beanName
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Name of the method on the bean that has the SQL query to be executed.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|methodName (String methodName)
-specifier|public
 specifier|default
 name|MyBatisBeanEndpointBuilder
 name|methodName
@@ -167,7 +164,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|MyBatisBeanEndpointBuilder
 name|basic
@@ -182,7 +178,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMyBatisBeanEndpointBuilder
 name|basicPropertyBinding
@@ -204,7 +199,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMyBatisBeanEndpointBuilder
 name|basicPropertyBinding
@@ -226,7 +220,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedMyBatisBeanEndpointBuilder
 name|synchronous
@@ -248,7 +241,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedMyBatisBeanEndpointBuilder
 name|synchronous
@@ -287,7 +279,6 @@ name|BATCH
 block|;     }
 comment|/**      * Performs a query, insert, update or delete in a relational database using      * MyBatis. Creates a builder to build endpoints for the MyBatis Bean      * component.      */
 DECL|method|myBatisBean (String path)
-specifier|public
 specifier|default
 name|MyBatisBeanEndpointBuilder
 name|myBatisBean

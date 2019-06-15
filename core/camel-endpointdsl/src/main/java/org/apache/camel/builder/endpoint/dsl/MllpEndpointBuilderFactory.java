@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * Hostname or IP for connection for the TCP connection. The default          * value is null, which means any local IP address.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|hostname (String hostname)
-specifier|public
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|hostname
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * Port number for the TCP connection.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|port
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * Port number for the TCP connection.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|port
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable the automatic generation of a MLLP Acknowledgement          * MLLP Consumers only.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|autoAck (boolean autoAck)
-specifier|public
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|autoAck
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable the automatic generation of a MLLP Acknowledgement          * MLLP Consumers only.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|autoAck (String autoAck)
-specifier|public
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|autoAck
@@ -250,8 +244,7 @@ block|}
 comment|/**          * Enable/Disable the buffering of HL7 payloads before writing to the          * socket.          * The option is a<code>boolean</code> type.          * @group common          */
 annotation|@
 name|Deprecated
-DECL|method|bufferWrites ( boolean bufferWrites)
-specifier|public
+DECL|method|bufferWrites (boolean bufferWrites)
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|bufferWrites
@@ -274,8 +267,7 @@ block|}
 comment|/**          * Enable/Disable the buffering of HL7 payloads before writing to the          * socket.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 annotation|@
 name|Deprecated
-DECL|method|bufferWrites ( String bufferWrites)
-specifier|public
+DECL|method|bufferWrites (String bufferWrites)
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|bufferWrites
@@ -297,7 +289,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable the automatic generation of message headers from the          * HL7 Message MLLP Consumers only.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|hl7Headers (boolean hl7Headers)
-specifier|public
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|hl7Headers
@@ -319,7 +310,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable the automatic generation of message headers from the          * HL7 Message MLLP Consumers only.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|hl7Headers (String hl7Headers)
-specifier|public
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|hl7Headers
@@ -341,7 +331,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable strict compliance to the MLLP standard. The MLLP          * standard specifies START_OF_BLOCKhl7 payloadEND_OF_BLOCKEND_OF_DATA,          * however, some systems do not send the final END_OF_DATA byte. This          * setting controls whether or not the final END_OF_DATA byte is          * required or optional.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|requireEndOfData ( boolean requireEndOfData)
-specifier|public
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|requireEndOfData
@@ -363,7 +352,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable strict compliance to the MLLP standard. The MLLP          * standard specifies START_OF_BLOCKhl7 payloadEND_OF_BLOCKEND_OF_DATA,          * however, some systems do not send the final END_OF_DATA byte. This          * setting controls whether or not the final END_OF_DATA byte is          * required or optional.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|requireEndOfData ( String requireEndOfData)
-specifier|public
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|requireEndOfData
@@ -384,8 +372,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enable/Disable converting the payload to a String. If enabled, HL7          * Payloads received from external systems will be validated converted          * to a String. If the charsetName property is set, that character set          * will be used for the conversion. If the charsetName property is not          * set, the value of MSH-18 will be used to determine th appropriate          * character set. If MSH-18 is not set, then the default ISO-8859-1          * character set will be use.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|stringPayload ( boolean stringPayload)
-specifier|public
+DECL|method|stringPayload (boolean stringPayload)
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|stringPayload
@@ -406,8 +393,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enable/Disable converting the payload to a String. If enabled, HL7          * Payloads received from external systems will be validated converted          * to a String. If the charsetName property is set, that character set          * will be used for the conversion. If the charsetName property is not          * set, the value of MSH-18 will be used to determine th appropriate          * character set. If MSH-18 is not set, then the default ISO-8859-1          * character set will be use.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|stringPayload ( String stringPayload)
-specifier|public
+DECL|method|stringPayload (String stringPayload)
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|stringPayload
@@ -429,7 +415,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable the validation of HL7 Payloads If enabled, HL7          * Payloads received from external systems will be validated (see          * Hl7Util.generateInvalidPayloadExceptionMessage for details on the          * validation). If and invalid payload is detected, a          * MllpInvalidMessageException (for consumers) or a          * MllpInvalidAcknowledgementException will be thrown.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|validatePayload ( boolean validatePayload)
-specifier|public
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|validatePayload
@@ -451,7 +436,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable the validation of HL7 Payloads If enabled, HL7          * Payloads received from external systems will be validated (see          * Hl7Util.generateInvalidPayloadExceptionMessage for details on the          * validation). If and invalid payload is detected, a          * MllpInvalidMessageException (for consumers) or a          * MllpInvalidAcknowledgementException will be thrown.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|validatePayload ( String validatePayload)
-specifier|public
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|validatePayload
@@ -473,7 +457,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * receive incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. If disabled, the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions by logging them at WARN or ERROR level and ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -495,7 +478,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * receive incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. If disabled, the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions by logging them at WARN or ERROR level and ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -516,8 +498,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the CamelCharsetName property on the exchange.          * The option is a<code>java.lang.String</code> type.          * @group codec          */
-DECL|method|charsetName ( String charsetName)
-specifier|public
+DECL|method|charsetName (String charsetName)
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|charsetName
@@ -547,7 +528,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|MllpEndpointConsumerBuilder
 name|basic
@@ -562,7 +542,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|exceptionHandler
@@ -584,7 +563,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|exceptionHandler
@@ -606,7 +584,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|exchangePattern
@@ -628,7 +605,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|exchangePattern
@@ -650,7 +626,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -672,7 +647,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -694,7 +668,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used (this          * component only supports synchronous operations).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|synchronous
@@ -716,7 +689,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used (this          * component only supports synchronous operations).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|synchronous
@@ -737,8 +709,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximum queue length for incoming connection indications (a          * request to connect) is set to the backlog parameter. If a connection          * indication arrives when the queue is full, the connection is refused.          * The option is a<code>java.lang.Integer</code> type.          * @group tcp          */
-DECL|method|backlog ( Integer backlog)
-specifier|public
+DECL|method|backlog (Integer backlog)
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|backlog
@@ -759,8 +730,7 @@ name|this
 return|;
 block|}
 comment|/**          * The maximum queue length for incoming connection indications (a          * request to connect) is set to the backlog parameter. If a connection          * indication arrives when the queue is full, the connection is refused.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group tcp          */
-DECL|method|backlog ( String backlog)
-specifier|public
+DECL|method|backlog (String backlog)
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|backlog
@@ -782,7 +752,6 @@ return|;
 block|}
 comment|/**          * TCP Server Only - Allow the endpoint to start before the TCP          * ServerSocket is bound. In some environments, it may be desirable to          * allow the endpoint to start before the TCP ServerSocket is bound.          * The option is a<code>boolean</code> type.          * @group tcp          */
 DECL|method|lenientBind ( boolean lenientBind)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|lenientBind
@@ -804,7 +773,6 @@ return|;
 block|}
 comment|/**          * TCP Server Only - Allow the endpoint to start before the TCP          * ServerSocket is bound. In some environments, it may be desirable to          * allow the endpoint to start before the TCP ServerSocket is bound.          * The option will be converted to a<code>boolean</code> type.          * @group tcp          */
 DECL|method|lenientBind ( String lenientBind)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|lenientBind
@@ -826,7 +794,6 @@ return|;
 block|}
 comment|/**          * The maximum number of concurrent MLLP Consumer connections that will          * be allowed. If a new connection is received and the maximum is number          * are already established, the new connection will be reset          * immediately.          * The option is a<code>int</code> type.          * @group tcp          */
 DECL|method|maxConcurrentConsumers ( int maxConcurrentConsumers)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|maxConcurrentConsumers
@@ -848,7 +815,6 @@ return|;
 block|}
 comment|/**          * The maximum number of concurrent MLLP Consumer connections that will          * be allowed. If a new connection is received and the maximum is number          * are already established, the new connection will be reset          * immediately.          * The option will be converted to a<code>int</code> type.          * @group tcp          */
 DECL|method|maxConcurrentConsumers ( String maxConcurrentConsumers)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|maxConcurrentConsumers
@@ -870,7 +836,6 @@ return|;
 block|}
 comment|/**          * Enable/disable the SO_REUSEADDR socket option.          * The option is a<code>java.lang.Boolean</code> type.          * @group tcp          */
 DECL|method|reuseAddress ( Boolean reuseAddress)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|reuseAddress
@@ -892,7 +857,6 @@ return|;
 block|}
 comment|/**          * Enable/disable the SO_REUSEADDR socket option.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group tcp          */
 DECL|method|reuseAddress ( String reuseAddress)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|reuseAddress
@@ -914,7 +878,6 @@ return|;
 block|}
 comment|/**          * Timeout (in milliseconds) while waiting for a TCP connection TCP          * Server Only.          * The option is a<code>int</code> type.          * @group timeout          */
 DECL|method|acceptTimeout ( int acceptTimeout)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|acceptTimeout
@@ -936,7 +899,6 @@ return|;
 block|}
 comment|/**          * Timeout (in milliseconds) while waiting for a TCP connection TCP          * Server Only.          * The option will be converted to a<code>int</code> type.          * @group timeout          */
 DECL|method|acceptTimeout ( String acceptTimeout)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|acceptTimeout
@@ -958,7 +920,6 @@ return|;
 block|}
 comment|/**          * TCP Server Only - The number of milliseconds to wait between bind          * attempts.          * The option is a<code>int</code> type.          * @group timeout          */
 DECL|method|bindRetryInterval ( int bindRetryInterval)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|bindRetryInterval
@@ -980,7 +941,6 @@ return|;
 block|}
 comment|/**          * TCP Server Only - The number of milliseconds to wait between bind          * attempts.          * The option will be converted to a<code>int</code> type.          * @group timeout          */
 DECL|method|bindRetryInterval ( String bindRetryInterval)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|bindRetryInterval
@@ -1001,8 +961,7 @@ name|this
 return|;
 block|}
 comment|/**          * TCP Server Only - The number of milliseconds to retry binding to a          * server port.          * The option is a<code>int</code> type.          * @group timeout          */
-DECL|method|bindTimeout ( int bindTimeout)
-specifier|public
+DECL|method|bindTimeout (int bindTimeout)
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|bindTimeout
@@ -1024,7 +983,6 @@ return|;
 block|}
 comment|/**          * TCP Server Only - The number of milliseconds to retry binding to a          * server port.          * The option will be converted to a<code>int</code> type.          * @group timeout          */
 DECL|method|bindTimeout ( String bindTimeout)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|bindTimeout
@@ -1046,7 +1004,6 @@ return|;
 block|}
 comment|/**          * The approximate idle time allowed before the Client TCP Connection          * will be reset. A null value or a value less than or equal to zero          * will disable the idle timeout.          * The option is a<code>java.lang.Integer</code> type.          * @group timeout          */
 DECL|method|idleTimeout ( Integer idleTimeout)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|idleTimeout
@@ -1068,7 +1025,6 @@ return|;
 block|}
 comment|/**          * The approximate idle time allowed before the Client TCP Connection          * will be reset. A null value or a value less than or equal to zero          * will disable the idle timeout.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group timeout          */
 DECL|method|idleTimeout ( String idleTimeout)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|idleTimeout
@@ -1092,7 +1048,6 @@ comment|/**          * The maximum number of timeouts (specified by receiveTimeo
 annotation|@
 name|Deprecated
 DECL|method|maxReceiveTimeouts ( Integer maxReceiveTimeouts)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|maxReceiveTimeouts
@@ -1116,7 +1071,6 @@ comment|/**          * The maximum number of timeouts (specified by receiveTimeo
 annotation|@
 name|Deprecated
 DECL|method|maxReceiveTimeouts ( String maxReceiveTimeouts)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|maxReceiveTimeouts
@@ -1138,7 +1092,6 @@ return|;
 block|}
 comment|/**          * Sets the SO_RCVBUF option to the specified value (in bytes).          * The option is a<code>java.lang.Integer</code> type.          * @group tcp          */
 DECL|method|receiveBufferSize ( Integer receiveBufferSize)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|receiveBufferSize
@@ -1160,7 +1113,6 @@ return|;
 block|}
 comment|/**          * Sets the SO_RCVBUF option to the specified value (in bytes).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group tcp          */
 DECL|method|receiveBufferSize ( String receiveBufferSize)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|receiveBufferSize
@@ -1182,7 +1134,6 @@ return|;
 block|}
 comment|/**          * Sets the SO_SNDBUF option to the specified value (in bytes).          * The option is a<code>java.lang.Integer</code> type.          * @group tcp          */
 DECL|method|sendBufferSize ( Integer sendBufferSize)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|sendBufferSize
@@ -1204,7 +1155,6 @@ return|;
 block|}
 comment|/**          * Sets the SO_SNDBUF option to the specified value (in bytes).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group tcp          */
 DECL|method|sendBufferSize ( String sendBufferSize)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|sendBufferSize
@@ -1225,8 +1175,7 @@ name|this
 return|;
 block|}
 comment|/**          * The SO_TIMEOUT value (in milliseconds) used after the start of an          * MLLP frame has been received.          * The option is a<code>int</code> type.          * @group timeout          */
-DECL|method|readTimeout ( int readTimeout)
-specifier|public
+DECL|method|readTimeout (int readTimeout)
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|readTimeout
@@ -1248,7 +1197,6 @@ return|;
 block|}
 comment|/**          * The SO_TIMEOUT value (in milliseconds) used after the start of an          * MLLP frame has been received.          * The option will be converted to a<code>int</code> type.          * @group timeout          */
 DECL|method|readTimeout ( String readTimeout)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|readTimeout
@@ -1270,7 +1218,6 @@ return|;
 block|}
 comment|/**          * The SO_TIMEOUT value (in milliseconds) used when waiting for the          * start of an MLLP frame.          * The option is a<code>int</code> type.          * @group timeout          */
 DECL|method|receiveTimeout ( int receiveTimeout)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|receiveTimeout
@@ -1292,7 +1239,6 @@ return|;
 block|}
 comment|/**          * The SO_TIMEOUT value (in milliseconds) used when waiting for the          * start of an MLLP frame.          * The option will be converted to a<code>int</code> type.          * @group timeout          */
 DECL|method|receiveTimeout ( String receiveTimeout)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointConsumerBuilder
 name|receiveTimeout
@@ -1323,7 +1269,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|advanced
@@ -1338,7 +1283,6 @@ return|;
 block|}
 comment|/**          * Hostname or IP for connection for the TCP connection. The default          * value is null, which means any local IP address.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|hostname (String hostname)
-specifier|public
 specifier|default
 name|MllpEndpointProducerBuilder
 name|hostname
@@ -1360,7 +1304,6 @@ return|;
 block|}
 comment|/**          * Port number for the TCP connection.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|MllpEndpointProducerBuilder
 name|port
@@ -1382,7 +1325,6 @@ return|;
 block|}
 comment|/**          * Port number for the TCP connection.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|MllpEndpointProducerBuilder
 name|port
@@ -1404,7 +1346,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable the automatic generation of a MLLP Acknowledgement          * MLLP Consumers only.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|autoAck (boolean autoAck)
-specifier|public
 specifier|default
 name|MllpEndpointProducerBuilder
 name|autoAck
@@ -1426,7 +1367,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable the automatic generation of a MLLP Acknowledgement          * MLLP Consumers only.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|autoAck (String autoAck)
-specifier|public
 specifier|default
 name|MllpEndpointProducerBuilder
 name|autoAck
@@ -1449,8 +1389,7 @@ block|}
 comment|/**          * Enable/Disable the buffering of HL7 payloads before writing to the          * socket.          * The option is a<code>boolean</code> type.          * @group common          */
 annotation|@
 name|Deprecated
-DECL|method|bufferWrites ( boolean bufferWrites)
-specifier|public
+DECL|method|bufferWrites (boolean bufferWrites)
 specifier|default
 name|MllpEndpointProducerBuilder
 name|bufferWrites
@@ -1473,8 +1412,7 @@ block|}
 comment|/**          * Enable/Disable the buffering of HL7 payloads before writing to the          * socket.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 annotation|@
 name|Deprecated
-DECL|method|bufferWrites ( String bufferWrites)
-specifier|public
+DECL|method|bufferWrites (String bufferWrites)
 specifier|default
 name|MllpEndpointProducerBuilder
 name|bufferWrites
@@ -1496,7 +1434,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable the automatic generation of message headers from the          * HL7 Message MLLP Consumers only.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|hl7Headers (boolean hl7Headers)
-specifier|public
 specifier|default
 name|MllpEndpointProducerBuilder
 name|hl7Headers
@@ -1518,7 +1455,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable the automatic generation of message headers from the          * HL7 Message MLLP Consumers only.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|hl7Headers (String hl7Headers)
-specifier|public
 specifier|default
 name|MllpEndpointProducerBuilder
 name|hl7Headers
@@ -1540,7 +1476,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable strict compliance to the MLLP standard. The MLLP          * standard specifies START_OF_BLOCKhl7 payloadEND_OF_BLOCKEND_OF_DATA,          * however, some systems do not send the final END_OF_DATA byte. This          * setting controls whether or not the final END_OF_DATA byte is          * required or optional.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|requireEndOfData ( boolean requireEndOfData)
-specifier|public
 specifier|default
 name|MllpEndpointProducerBuilder
 name|requireEndOfData
@@ -1562,7 +1497,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable strict compliance to the MLLP standard. The MLLP          * standard specifies START_OF_BLOCKhl7 payloadEND_OF_BLOCKEND_OF_DATA,          * however, some systems do not send the final END_OF_DATA byte. This          * setting controls whether or not the final END_OF_DATA byte is          * required or optional.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|requireEndOfData ( String requireEndOfData)
-specifier|public
 specifier|default
 name|MllpEndpointProducerBuilder
 name|requireEndOfData
@@ -1583,8 +1517,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enable/Disable converting the payload to a String. If enabled, HL7          * Payloads received from external systems will be validated converted          * to a String. If the charsetName property is set, that character set          * will be used for the conversion. If the charsetName property is not          * set, the value of MSH-18 will be used to determine th appropriate          * character set. If MSH-18 is not set, then the default ISO-8859-1          * character set will be use.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|stringPayload ( boolean stringPayload)
-specifier|public
+DECL|method|stringPayload (boolean stringPayload)
 specifier|default
 name|MllpEndpointProducerBuilder
 name|stringPayload
@@ -1605,8 +1538,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enable/Disable converting the payload to a String. If enabled, HL7          * Payloads received from external systems will be validated converted          * to a String. If the charsetName property is set, that character set          * will be used for the conversion. If the charsetName property is not          * set, the value of MSH-18 will be used to determine th appropriate          * character set. If MSH-18 is not set, then the default ISO-8859-1          * character set will be use.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|stringPayload ( String stringPayload)
-specifier|public
+DECL|method|stringPayload (String stringPayload)
 specifier|default
 name|MllpEndpointProducerBuilder
 name|stringPayload
@@ -1628,7 +1560,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable the validation of HL7 Payloads If enabled, HL7          * Payloads received from external systems will be validated (see          * Hl7Util.generateInvalidPayloadExceptionMessage for details on the          * validation). If and invalid payload is detected, a          * MllpInvalidMessageException (for consumers) or a          * MllpInvalidAcknowledgementException will be thrown.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|validatePayload ( boolean validatePayload)
-specifier|public
 specifier|default
 name|MllpEndpointProducerBuilder
 name|validatePayload
@@ -1650,7 +1581,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable the validation of HL7 Payloads If enabled, HL7          * Payloads received from external systems will be validated (see          * Hl7Util.generateInvalidPayloadExceptionMessage for details on the          * validation). If and invalid payload is detected, a          * MllpInvalidMessageException (for consumers) or a          * MllpInvalidAcknowledgementException will be thrown.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|validatePayload ( String validatePayload)
-specifier|public
 specifier|default
 name|MllpEndpointProducerBuilder
 name|validatePayload
@@ -1672,7 +1602,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|MllpEndpointProducerBuilder
 name|lazyStartProducer
@@ -1694,7 +1623,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|MllpEndpointProducerBuilder
 name|lazyStartProducer
@@ -1715,8 +1643,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the CamelCharsetName property on the exchange.          * The option is a<code>java.lang.String</code> type.          * @group codec          */
-DECL|method|charsetName ( String charsetName)
-specifier|public
+DECL|method|charsetName (String charsetName)
 specifier|default
 name|MllpEndpointProducerBuilder
 name|charsetName
@@ -1746,7 +1673,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|MllpEndpointProducerBuilder
 name|basic
@@ -1761,7 +1687,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1783,7 +1708,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1805,7 +1729,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used (this          * component only supports synchronous operations).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|synchronous
@@ -1827,7 +1750,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used (this          * component only supports synchronous operations).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|synchronous
@@ -1849,7 +1771,6 @@ return|;
 block|}
 comment|/**          * Timeout (in milliseconds) for establishing for a TCP connection TCP          * Client only.          * The option is a<code>int</code> type.          * @group timeout          */
 DECL|method|connectTimeout ( int connectTimeout)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|connectTimeout
@@ -1871,7 +1792,6 @@ return|;
 block|}
 comment|/**          * Timeout (in milliseconds) for establishing for a TCP connection TCP          * Client only.          * The option will be converted to a<code>int</code> type.          * @group timeout          */
 DECL|method|connectTimeout ( String connectTimeout)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|connectTimeout
@@ -1893,7 +1813,6 @@ return|;
 block|}
 comment|/**          * The approximate idle time allowed before the Client TCP Connection          * will be reset. A null value or a value less than or equal to zero          * will disable the idle timeout.          * The option is a<code>java.lang.Integer</code> type.          * @group timeout          */
 DECL|method|idleTimeout ( Integer idleTimeout)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|idleTimeout
@@ -1915,7 +1834,6 @@ return|;
 block|}
 comment|/**          * The approximate idle time allowed before the Client TCP Connection          * will be reset. A null value or a value less than or equal to zero          * will disable the idle timeout.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group timeout          */
 DECL|method|idleTimeout ( String idleTimeout)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|idleTimeout
@@ -1936,8 +1854,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enable/disable the SO_KEEPALIVE socket option.          * The option is a<code>java.lang.Boolean</code> type.          * @group tcp          */
-DECL|method|keepAlive ( Boolean keepAlive)
-specifier|public
+DECL|method|keepAlive (Boolean keepAlive)
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|keepAlive
@@ -1958,8 +1875,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enable/disable the SO_KEEPALIVE socket option.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group tcp          */
-DECL|method|keepAlive ( String keepAlive)
-specifier|public
+DECL|method|keepAlive (String keepAlive)
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|keepAlive
@@ -1981,7 +1897,6 @@ return|;
 block|}
 comment|/**          * Sets the SO_RCVBUF option to the specified value (in bytes).          * The option is a<code>java.lang.Integer</code> type.          * @group tcp          */
 DECL|method|receiveBufferSize ( Integer receiveBufferSize)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|receiveBufferSize
@@ -2003,7 +1918,6 @@ return|;
 block|}
 comment|/**          * Sets the SO_RCVBUF option to the specified value (in bytes).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group tcp          */
 DECL|method|receiveBufferSize ( String receiveBufferSize)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|receiveBufferSize
@@ -2025,7 +1939,6 @@ return|;
 block|}
 comment|/**          * Sets the SO_SNDBUF option to the specified value (in bytes).          * The option is a<code>java.lang.Integer</code> type.          * @group tcp          */
 DECL|method|sendBufferSize ( Integer sendBufferSize)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|sendBufferSize
@@ -2047,7 +1960,6 @@ return|;
 block|}
 comment|/**          * Sets the SO_SNDBUF option to the specified value (in bytes).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group tcp          */
 DECL|method|sendBufferSize ( String sendBufferSize)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|sendBufferSize
@@ -2069,7 +1981,6 @@ return|;
 block|}
 comment|/**          * Enable/disable the TCP_NODELAY socket option.          * The option is a<code>java.lang.Boolean</code> type.          * @group tcp          */
 DECL|method|tcpNoDelay ( Boolean tcpNoDelay)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|tcpNoDelay
@@ -2090,8 +2001,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enable/disable the TCP_NODELAY socket option.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group tcp          */
-DECL|method|tcpNoDelay ( String tcpNoDelay)
-specifier|public
+DECL|method|tcpNoDelay (String tcpNoDelay)
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|tcpNoDelay
@@ -2112,8 +2022,7 @@ name|this
 return|;
 block|}
 comment|/**          * The SO_TIMEOUT value (in milliseconds) used after the start of an          * MLLP frame has been received.          * The option is a<code>int</code> type.          * @group timeout          */
-DECL|method|readTimeout ( int readTimeout)
-specifier|public
+DECL|method|readTimeout (int readTimeout)
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|readTimeout
@@ -2135,7 +2044,6 @@ return|;
 block|}
 comment|/**          * The SO_TIMEOUT value (in milliseconds) used after the start of an          * MLLP frame has been received.          * The option will be converted to a<code>int</code> type.          * @group timeout          */
 DECL|method|readTimeout ( String readTimeout)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|readTimeout
@@ -2157,7 +2065,6 @@ return|;
 block|}
 comment|/**          * The SO_TIMEOUT value (in milliseconds) used when waiting for the          * start of an MLLP frame.          * The option is a<code>int</code> type.          * @group timeout          */
 DECL|method|receiveTimeout ( int receiveTimeout)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|receiveTimeout
@@ -2179,7 +2086,6 @@ return|;
 block|}
 comment|/**          * The SO_TIMEOUT value (in milliseconds) used when waiting for the          * start of an MLLP frame.          * The option will be converted to a<code>int</code> type.          * @group timeout          */
 DECL|method|receiveTimeout ( String receiveTimeout)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointProducerBuilder
 name|receiveTimeout
@@ -2212,7 +2118,6 @@ extends|,
 name|MllpEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointBuilder
 name|advanced
@@ -2227,7 +2132,6 @@ return|;
 block|}
 comment|/**          * Hostname or IP for connection for the TCP connection. The default          * value is null, which means any local IP address.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|hostname (String hostname)
-specifier|public
 specifier|default
 name|MllpEndpointBuilder
 name|hostname
@@ -2249,7 +2153,6 @@ return|;
 block|}
 comment|/**          * Port number for the TCP connection.          * The option is a<code>int</code> type.          * @group common          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|MllpEndpointBuilder
 name|port
@@ -2271,7 +2174,6 @@ return|;
 block|}
 comment|/**          * Port number for the TCP connection.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|MllpEndpointBuilder
 name|port
@@ -2293,7 +2195,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable the automatic generation of a MLLP Acknowledgement          * MLLP Consumers only.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|autoAck (boolean autoAck)
-specifier|public
 specifier|default
 name|MllpEndpointBuilder
 name|autoAck
@@ -2315,7 +2216,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable the automatic generation of a MLLP Acknowledgement          * MLLP Consumers only.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|autoAck (String autoAck)
-specifier|public
 specifier|default
 name|MllpEndpointBuilder
 name|autoAck
@@ -2339,7 +2239,6 @@ comment|/**          * Enable/Disable the buffering of HL7 payloads before writi
 annotation|@
 name|Deprecated
 DECL|method|bufferWrites (boolean bufferWrites)
-specifier|public
 specifier|default
 name|MllpEndpointBuilder
 name|bufferWrites
@@ -2363,7 +2262,6 @@ comment|/**          * Enable/Disable the buffering of HL7 payloads before writi
 annotation|@
 name|Deprecated
 DECL|method|bufferWrites (String bufferWrites)
-specifier|public
 specifier|default
 name|MllpEndpointBuilder
 name|bufferWrites
@@ -2385,7 +2283,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable the automatic generation of message headers from the          * HL7 Message MLLP Consumers only.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|hl7Headers (boolean hl7Headers)
-specifier|public
 specifier|default
 name|MllpEndpointBuilder
 name|hl7Headers
@@ -2407,7 +2304,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable the automatic generation of message headers from the          * HL7 Message MLLP Consumers only.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|hl7Headers (String hl7Headers)
-specifier|public
 specifier|default
 name|MllpEndpointBuilder
 name|hl7Headers
@@ -2428,8 +2324,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enable/Disable strict compliance to the MLLP standard. The MLLP          * standard specifies START_OF_BLOCKhl7 payloadEND_OF_BLOCKEND_OF_DATA,          * however, some systems do not send the final END_OF_DATA byte. This          * setting controls whether or not the final END_OF_DATA byte is          * required or optional.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|requireEndOfData ( boolean requireEndOfData)
-specifier|public
+DECL|method|requireEndOfData (boolean requireEndOfData)
 specifier|default
 name|MllpEndpointBuilder
 name|requireEndOfData
@@ -2450,8 +2345,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enable/Disable strict compliance to the MLLP standard. The MLLP          * standard specifies START_OF_BLOCKhl7 payloadEND_OF_BLOCKEND_OF_DATA,          * however, some systems do not send the final END_OF_DATA byte. This          * setting controls whether or not the final END_OF_DATA byte is          * required or optional.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|requireEndOfData ( String requireEndOfData)
-specifier|public
+DECL|method|requireEndOfData (String requireEndOfData)
 specifier|default
 name|MllpEndpointBuilder
 name|requireEndOfData
@@ -2473,7 +2367,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable converting the payload to a String. If enabled, HL7          * Payloads received from external systems will be validated converted          * to a String. If the charsetName property is set, that character set          * will be used for the conversion. If the charsetName property is not          * set, the value of MSH-18 will be used to determine th appropriate          * character set. If MSH-18 is not set, then the default ISO-8859-1          * character set will be use.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|stringPayload (boolean stringPayload)
-specifier|public
 specifier|default
 name|MllpEndpointBuilder
 name|stringPayload
@@ -2495,7 +2388,6 @@ return|;
 block|}
 comment|/**          * Enable/Disable converting the payload to a String. If enabled, HL7          * Payloads received from external systems will be validated converted          * to a String. If the charsetName property is set, that character set          * will be used for the conversion. If the charsetName property is not          * set, the value of MSH-18 will be used to determine th appropriate          * character set. If MSH-18 is not set, then the default ISO-8859-1          * character set will be use.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|stringPayload (String stringPayload)
-specifier|public
 specifier|default
 name|MllpEndpointBuilder
 name|stringPayload
@@ -2516,8 +2408,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enable/Disable the validation of HL7 Payloads If enabled, HL7          * Payloads received from external systems will be validated (see          * Hl7Util.generateInvalidPayloadExceptionMessage for details on the          * validation). If and invalid payload is detected, a          * MllpInvalidMessageException (for consumers) or a          * MllpInvalidAcknowledgementException will be thrown.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|validatePayload ( boolean validatePayload)
-specifier|public
+DECL|method|validatePayload (boolean validatePayload)
 specifier|default
 name|MllpEndpointBuilder
 name|validatePayload
@@ -2538,8 +2429,7 @@ name|this
 return|;
 block|}
 comment|/**          * Enable/Disable the validation of HL7 Payloads If enabled, HL7          * Payloads received from external systems will be validated (see          * Hl7Util.generateInvalidPayloadExceptionMessage for details on the          * validation). If and invalid payload is detected, a          * MllpInvalidMessageException (for consumers) or a          * MllpInvalidAcknowledgementException will be thrown.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|validatePayload ( String validatePayload)
-specifier|public
+DECL|method|validatePayload (String validatePayload)
 specifier|default
 name|MllpEndpointBuilder
 name|validatePayload
@@ -2561,7 +2451,6 @@ return|;
 block|}
 comment|/**          * Set the CamelCharsetName property on the exchange.          * The option is a<code>java.lang.String</code> type.          * @group codec          */
 DECL|method|charsetName (String charsetName)
-specifier|public
 specifier|default
 name|MllpEndpointBuilder
 name|charsetName
@@ -2594,7 +2483,6 @@ extends|,
 name|AdvancedMllpEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|MllpEndpointBuilder
 name|basic
@@ -2609,7 +2497,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointBuilder
 name|basicPropertyBinding
@@ -2631,7 +2518,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointBuilder
 name|basicPropertyBinding
@@ -2652,8 +2538,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used (this          * component only supports synchronous operations).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedMllpEndpointBuilder
 name|synchronous
@@ -2674,8 +2559,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used (this          * component only supports synchronous operations).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedMllpEndpointBuilder
 name|synchronous
@@ -2696,8 +2580,7 @@ name|this
 return|;
 block|}
 comment|/**          * The approximate idle time allowed before the Client TCP Connection          * will be reset. A null value or a value less than or equal to zero          * will disable the idle timeout.          * The option is a<code>java.lang.Integer</code> type.          * @group timeout          */
-DECL|method|idleTimeout ( Integer idleTimeout)
-specifier|public
+DECL|method|idleTimeout (Integer idleTimeout)
 specifier|default
 name|AdvancedMllpEndpointBuilder
 name|idleTimeout
@@ -2718,8 +2601,7 @@ name|this
 return|;
 block|}
 comment|/**          * The approximate idle time allowed before the Client TCP Connection          * will be reset. A null value or a value less than or equal to zero          * will disable the idle timeout.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group timeout          */
-DECL|method|idleTimeout ( String idleTimeout)
-specifier|public
+DECL|method|idleTimeout (String idleTimeout)
 specifier|default
 name|AdvancedMllpEndpointBuilder
 name|idleTimeout
@@ -2741,7 +2623,6 @@ return|;
 block|}
 comment|/**          * Sets the SO_RCVBUF option to the specified value (in bytes).          * The option is a<code>java.lang.Integer</code> type.          * @group tcp          */
 DECL|method|receiveBufferSize ( Integer receiveBufferSize)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointBuilder
 name|receiveBufferSize
@@ -2763,7 +2644,6 @@ return|;
 block|}
 comment|/**          * Sets the SO_RCVBUF option to the specified value (in bytes).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group tcp          */
 DECL|method|receiveBufferSize ( String receiveBufferSize)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointBuilder
 name|receiveBufferSize
@@ -2785,7 +2665,6 @@ return|;
 block|}
 comment|/**          * Sets the SO_SNDBUF option to the specified value (in bytes).          * The option is a<code>java.lang.Integer</code> type.          * @group tcp          */
 DECL|method|sendBufferSize ( Integer sendBufferSize)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointBuilder
 name|sendBufferSize
@@ -2806,8 +2685,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the SO_SNDBUF option to the specified value (in bytes).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group tcp          */
-DECL|method|sendBufferSize ( String sendBufferSize)
-specifier|public
+DECL|method|sendBufferSize (String sendBufferSize)
 specifier|default
 name|AdvancedMllpEndpointBuilder
 name|sendBufferSize
@@ -2829,7 +2707,6 @@ return|;
 block|}
 comment|/**          * The SO_TIMEOUT value (in milliseconds) used after the start of an          * MLLP frame has been received.          * The option is a<code>int</code> type.          * @group timeout          */
 DECL|method|readTimeout (int readTimeout)
-specifier|public
 specifier|default
 name|AdvancedMllpEndpointBuilder
 name|readTimeout
@@ -2850,8 +2727,7 @@ name|this
 return|;
 block|}
 comment|/**          * The SO_TIMEOUT value (in milliseconds) used after the start of an          * MLLP frame has been received.          * The option will be converted to a<code>int</code> type.          * @group timeout          */
-DECL|method|readTimeout ( String readTimeout)
-specifier|public
+DECL|method|readTimeout (String readTimeout)
 specifier|default
 name|AdvancedMllpEndpointBuilder
 name|readTimeout
@@ -2872,8 +2748,7 @@ name|this
 return|;
 block|}
 comment|/**          * The SO_TIMEOUT value (in milliseconds) used when waiting for the          * start of an MLLP frame.          * The option is a<code>int</code> type.          * @group timeout          */
-DECL|method|receiveTimeout ( int receiveTimeout)
-specifier|public
+DECL|method|receiveTimeout (int receiveTimeout)
 specifier|default
 name|AdvancedMllpEndpointBuilder
 name|receiveTimeout
@@ -2894,8 +2769,7 @@ name|this
 return|;
 block|}
 comment|/**          * The SO_TIMEOUT value (in milliseconds) used when waiting for the          * start of an MLLP frame.          * The option will be converted to a<code>int</code> type.          * @group timeout          */
-DECL|method|receiveTimeout ( String receiveTimeout)
-specifier|public
+DECL|method|receiveTimeout (String receiveTimeout)
 specifier|default
 name|AdvancedMllpEndpointBuilder
 name|receiveTimeout
@@ -2918,7 +2792,6 @@ block|}
 block|}
 comment|/**      * Provides functionality required by Healthcare providers to communicate      * with other systems using the MLLP protocol. Creates a builder to build      * endpoints for the MLLP component.      */
 DECL|method|mllp (String path)
-specifier|public
 specifier|default
 name|MllpEndpointBuilder
 name|mllp

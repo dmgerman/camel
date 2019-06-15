@@ -99,7 +99,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedLumberjackEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * Network interface on which to listen for Lumberjack.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|LumberjackEndpointBuilder
 name|host
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Network port on which to listen for Lumberjack.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|port (int port)
-specifier|public
 specifier|default
 name|LumberjackEndpointBuilder
 name|port
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Network port on which to listen for Lumberjack.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|port (String port)
-specifier|public
 specifier|default
 name|LumberjackEndpointBuilder
 name|port
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * SSL configuration.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group consumer          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
-specifier|public
 specifier|default
 name|LumberjackEndpointBuilder
 name|sslContextParameters
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * SSL configuration.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group consumer          */
 DECL|method|sslContextParameters ( String sslContextParameters)
-specifier|public
 specifier|default
 name|LumberjackEndpointBuilder
 name|sslContextParameters
@@ -233,7 +227,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|LumberjackEndpointBuilder
 name|basic
@@ -248,7 +241,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedLumberjackEndpointBuilder
 name|basicPropertyBinding
@@ -270,7 +262,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedLumberjackEndpointBuilder
 name|basicPropertyBinding
@@ -292,7 +283,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedLumberjackEndpointBuilder
 name|synchronous
@@ -313,8 +303,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedLumberjackEndpointBuilder
 name|synchronous
@@ -337,7 +326,6 @@ block|}
 block|}
 comment|/**      * The lumberjack retrieves logs sent over the network using the Lumberjack      * protocol. Creates a builder to build endpoints for the Lumberjack      * component.      */
 DECL|method|lumberjack (String path)
-specifier|public
 specifier|default
 name|LumberjackEndpointBuilder
 name|lumberjack

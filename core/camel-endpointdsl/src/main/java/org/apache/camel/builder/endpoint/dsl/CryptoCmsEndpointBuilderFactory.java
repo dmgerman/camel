@@ -119,7 +119,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedCryptoCmsEndpointBuilder
 name|advanced
@@ -134,7 +133,6 @@ return|;
 block|}
 comment|/**          * Set the Crypto operation from that supplied after the crypto scheme          * in the endpoint uri e.g. crypto-cms:sign sets sign as the operation.          * Possible values: sign, verify, encrypt, or decrypt.          * The option is a          *<code>org.apache.camel.component.crypto.cms.CryptoOperation</code>          * type.          * @group producer          */
 DECL|method|cryptoOperation ( CryptoOperation cryptoOperation)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|cryptoOperation
@@ -155,8 +153,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the Crypto operation from that supplied after the crypto scheme          * in the endpoint uri e.g. crypto-cms:sign sets sign as the operation.          * Possible values: sign, verify, encrypt, or decrypt.          * The option will be converted to a          *<code>org.apache.camel.component.crypto.cms.CryptoOperation</code>          * type.          * @group producer          */
-DECL|method|cryptoOperation ( String cryptoOperation)
-specifier|public
+DECL|method|cryptoOperation (String cryptoOperation)
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|cryptoOperation
@@ -178,7 +175,6 @@ return|;
 block|}
 comment|/**          * The name part in the URI can be chosen by the user to distinguish          * between different signer/verifier/encryptor/decryptor endpoints          * within the camel context.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|name (String name)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|name
@@ -200,7 +196,6 @@ return|;
 block|}
 comment|/**          * Keystore which contains signer private keys, verifier public keys,          * encryptor public keys, decryptor private keys depending on the          * operation. Use either this parameter or the parameter          * 'keyStoreParameters'.          * The option is a<code>java.security.KeyStore</code> type.          * @group common          */
 DECL|method|keyStore (KeyStore keyStore)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|keyStore
@@ -222,7 +217,6 @@ return|;
 block|}
 comment|/**          * Keystore which contains signer private keys, verifier public keys,          * encryptor public keys, decryptor private keys depending on the          * operation. Use either this parameter or the parameter          * 'keyStoreParameters'.          * The option will be converted to a<code>java.security.KeyStore</code>          * type.          * @group common          */
 DECL|method|keyStore (String keyStore)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|keyStore
@@ -244,7 +238,6 @@ return|;
 block|}
 comment|/**          * Keystore containing signer private keys, verifier public keys,          * encryptor public keys, decryptor private keys depending on the          * operation. Use either this parameter or the parameter 'keystore'.          * The option is a          *<code>org.apache.camel.support.jsse.KeyStoreParameters</code> type.          * @group common          */
 DECL|method|keyStoreParameters ( Object keyStoreParameters)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|keyStoreParameters
@@ -266,7 +259,6 @@ return|;
 block|}
 comment|/**          * Keystore containing signer private keys, verifier public keys,          * encryptor public keys, decryptor private keys depending on the          * operation. Use either this parameter or the parameter 'keystore'.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.KeyStoreParameters</code> type.          * @group common          */
 DECL|method|keyStoreParameters ( String keyStoreParameters)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|keyStoreParameters
@@ -288,7 +280,6 @@ return|;
 block|}
 comment|/**          * Sets the password of the private keys. It is assumed that all private          * keys in the keystore have the same password. If not set then it is          * assumed that the password of the private keys is given by the          * keystore password given in the KeyStoreParameters.          * The option is a<code>char[]</code> type.          * @group decrypt          */
 DECL|method|password (Character[] password)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|password
@@ -311,7 +302,6 @@ return|;
 block|}
 comment|/**          * Sets the password of the private keys. It is assumed that all private          * keys in the keystore have the same password. If not set then it is          * assumed that the password of the private keys is given by the          * keystore password given in the KeyStoreParameters.          * The option will be converted to a<code>char[]</code> type.          * @group decrypt          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|password
@@ -333,7 +323,6 @@ return|;
 block|}
 comment|/**          * If true then the CMS message is base 64 encoded and must be decoded          * during the processing. Default value is false.          * The option is a<code>java.lang.Boolean</code> type.          * @group decrypt_verify          */
 DECL|method|fromBase64 (Boolean fromBase64)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|fromBase64
@@ -355,7 +344,6 @@ return|;
 block|}
 comment|/**          * If true then the CMS message is base 64 encoded and must be decoded          * during the processing. Default value is false.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group decrypt_verify          */
 DECL|method|fromBase64 (String fromBase64)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|fromBase64
@@ -377,7 +365,6 @@ return|;
 block|}
 comment|/**          * Encryption algorithm, for example DESede/CBC/PKCS5Padding. Further          * possible values: DESede/CBC/PKCS5Padding, AES/CBC/PKCS5Padding,          * Camellia/CBC/PKCS5Padding, CAST5/CBC/PKCS5Padding.          * The option is a<code>java.lang.String</code> type.          * @group encrypt          */
 DECL|method|contentEncryptionAlgorithm ( String contentEncryptionAlgorithm)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|contentEncryptionAlgorithm
@@ -399,7 +386,6 @@ return|;
 block|}
 comment|/**          * Provider for the originator info. See          * https://tools.ietf.org/html/rfc5652#section-6.1. The default value is          * null.          * The option is a          *<code>org.apache.camel.component.crypto.cms.common.OriginatorInformationProvider</code> type.          * @group encrypt          */
 DECL|method|originatorInformationProvider ( Object originatorInformationProvider)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|originatorInformationProvider
@@ -421,7 +407,6 @@ return|;
 block|}
 comment|/**          * Provider for the originator info. See          * https://tools.ietf.org/html/rfc5652#section-6.1. The default value is          * null.          * The option will be converted to a          *<code>org.apache.camel.component.crypto.cms.common.OriginatorInformationProvider</code> type.          * @group encrypt          */
 DECL|method|originatorInformationProvider ( String originatorInformationProvider)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|originatorInformationProvider
@@ -443,7 +428,6 @@ return|;
 block|}
 comment|/**          * Recipient Info: reference to a bean which implements the interface          * org.apache.camel.component.crypto.cms.api.TransRecipientInfo.          * The option is a          *<code>java.util.List&lt;org.apache.camel.component.crypto.cms.crypt.RecipientInfo&gt;</code> type.          * @group encrypt          */
 DECL|method|recipient (List<Object> recipient)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|recipient
@@ -468,7 +452,6 @@ return|;
 block|}
 comment|/**          * Recipient Info: reference to a bean which implements the interface          * org.apache.camel.component.crypto.cms.api.TransRecipientInfo.          * The option will be converted to a          *<code>java.util.List&lt;org.apache.camel.component.crypto.cms.crypt.RecipientInfo&gt;</code> type.          * @group encrypt          */
 DECL|method|recipient (String recipient)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|recipient
@@ -489,8 +472,7 @@ name|this
 return|;
 block|}
 comment|/**          * Key length for the secret symmetric key used for the content          * encryption. Only used if the specified content-encryption algorithm          * allows keys of different sizes. If          * contentEncryptionAlgorithm=AES/CBC/PKCS5Padding or          * Camellia/CBC/PKCS5Padding then 128; if          * contentEncryptionAlgorithm=DESede/CBC/PKCS5Padding then 192, 128; if          * strong encryption is enabled then for AES/CBC/PKCS5Padding and          * Camellia/CBC/PKCS5Padding also the key lengths 192 and 256 are          * possible.          * The option is a<code>int</code> type.          * @group encrypt          */
-DECL|method|secretKeyLength ( int secretKeyLength)
-specifier|public
+DECL|method|secretKeyLength (int secretKeyLength)
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|secretKeyLength
@@ -511,8 +493,7 @@ name|this
 return|;
 block|}
 comment|/**          * Key length for the secret symmetric key used for the content          * encryption. Only used if the specified content-encryption algorithm          * allows keys of different sizes. If          * contentEncryptionAlgorithm=AES/CBC/PKCS5Padding or          * Camellia/CBC/PKCS5Padding then 128; if          * contentEncryptionAlgorithm=DESede/CBC/PKCS5Padding then 192, 128; if          * strong encryption is enabled then for AES/CBC/PKCS5Padding and          * Camellia/CBC/PKCS5Padding also the key lengths 192 and 256 are          * possible.          * The option will be converted to a<code>int</code> type.          * @group encrypt          */
-DECL|method|secretKeyLength ( String secretKeyLength)
-specifier|public
+DECL|method|secretKeyLength (String secretKeyLength)
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|secretKeyLength
@@ -534,7 +515,6 @@ return|;
 block|}
 comment|/**          * Provider of the generator for the unprotected attributes. The default          * value is null which means no unprotected attribute is added to the          * Enveloped Data object. See          * https://tools.ietf.org/html/rfc5652#section-6.1.          * The option is a          *<code>org.apache.camel.component.crypto.cms.common.AttributesGeneratorProvider</code> type.          * @group encrypt          */
 DECL|method|unprotectedAttributesGeneratorProvider ( Object unprotectedAttributesGeneratorProvider)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|unprotectedAttributesGeneratorProvider
@@ -556,7 +536,6 @@ return|;
 block|}
 comment|/**          * Provider of the generator for the unprotected attributes. The default          * value is null which means no unprotected attribute is added to the          * Enveloped Data object. See          * https://tools.ietf.org/html/rfc5652#section-6.1.          * The option will be converted to a          *<code>org.apache.camel.component.crypto.cms.common.AttributesGeneratorProvider</code> type.          * @group encrypt          */
 DECL|method|unprotectedAttributesGeneratorProvider ( String unprotectedAttributesGeneratorProvider)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|unprotectedAttributesGeneratorProvider
@@ -578,7 +557,6 @@ return|;
 block|}
 comment|/**          * Indicates whether the Signed Data or Enveloped Data instance shall be          * base 64 encoded. Default value is false.          * The option is a<code>java.lang.Boolean</code> type.          * @group encrypt_sign          */
 DECL|method|toBase64 (Boolean toBase64)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|toBase64
@@ -600,7 +578,6 @@ return|;
 block|}
 comment|/**          * Indicates whether the Signed Data or Enveloped Data instance shall be          * base 64 encoded. Default value is false.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group encrypt_sign          */
 DECL|method|toBase64 (String toBase64)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|toBase64
@@ -621,8 +598,7 @@ name|this
 return|;
 block|}
 comment|/**          * Indicates whether the signed content should be included into the          * Signed Data instance. If false then a detached Signed Data instance          * is created in the header CamelCryptoCmsSignedData.          * The option is a<code>java.lang.Boolean</code> type.          * @group sign          */
-DECL|method|includeContent ( Boolean includeContent)
-specifier|public
+DECL|method|includeContent (Boolean includeContent)
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|includeContent
@@ -643,8 +619,7 @@ name|this
 return|;
 block|}
 comment|/**          * Indicates whether the signed content should be included into the          * Signed Data instance. If false then a detached Signed Data instance          * is created in the header CamelCryptoCmsSignedData.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group sign          */
-DECL|method|includeContent ( String includeContent)
-specifier|public
+DECL|method|includeContent (String includeContent)
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|includeContent
@@ -666,7 +641,6 @@ return|;
 block|}
 comment|/**          * Signer information: reference to bean(s) which implements          * org.apache.camel.component.crypto.cms.api.SignerInfo. Multiple values          * can be separated by comma.          * The option is a          *<code>java.util.List&lt;org.apache.camel.component.crypto.cms.sig.SignerInfo&gt;</code> type.          * @group sign          */
 DECL|method|signer (List<Object> signer)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|signer
@@ -691,7 +665,6 @@ return|;
 block|}
 comment|/**          * Signer information: reference to bean(s) which implements          * org.apache.camel.component.crypto.cms.api.SignerInfo. Multiple values          * can be separated by comma.          * The option will be converted to a          *<code>java.util.List&lt;org.apache.camel.component.crypto.cms.sig.SignerInfo&gt;</code> type.          * @group sign          */
 DECL|method|signer (String signer)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|signer
@@ -713,7 +686,6 @@ return|;
 block|}
 comment|/**          * Indicates whether the value in the header CamelCryptoCmsSignedData is          * base64 encoded. Default value is false. Only relevant for detached          * signatures. In the detached signature case, the header contains the          * Signed Data object.          * The option is a<code>java.lang.Boolean</code> type.          * @group verify          */
 DECL|method|signedDataHeaderBase64 ( Boolean signedDataHeaderBase64)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|signedDataHeaderBase64
@@ -735,7 +707,6 @@ return|;
 block|}
 comment|/**          * Indicates whether the value in the header CamelCryptoCmsSignedData is          * base64 encoded. Default value is false. Only relevant for detached          * signatures. In the detached signature case, the header contains the          * Signed Data object.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group verify          */
 DECL|method|signedDataHeaderBase64 ( String signedDataHeaderBase64)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|signedDataHeaderBase64
@@ -757,7 +728,6 @@ return|;
 block|}
 comment|/**          * If true then the signatures of all signers contained in the Signed          * Data object are verified. If false then only one signature whose          * signer info matches with one of the specified certificates is          * verified. Default value is true.          * The option is a<code>java.lang.Boolean</code> type.          * @group verify          */
 DECL|method|verifySignaturesOfAllSigners ( Boolean verifySignaturesOfAllSigners)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|verifySignaturesOfAllSigners
@@ -779,7 +749,6 @@ return|;
 block|}
 comment|/**          * If true then the signatures of all signers contained in the Signed          * Data object are verified. If false then only one signature whose          * signer info matches with one of the specified certificates is          * verified. Default value is true.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group verify          */
 DECL|method|verifySignaturesOfAllSigners ( String verifySignaturesOfAllSigners)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|verifySignaturesOfAllSigners
@@ -810,7 +779,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|basic
@@ -825,7 +793,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCryptoCmsEndpointBuilder
 name|basicPropertyBinding
@@ -847,7 +814,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedCryptoCmsEndpointBuilder
 name|basicPropertyBinding
@@ -868,8 +834,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedCryptoCmsEndpointBuilder
 name|synchronous
@@ -890,8 +855,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedCryptoCmsEndpointBuilder
 name|synchronous
@@ -933,7 +897,6 @@ name|decrypt
 block|;     }
 comment|/**      * The crypto cms component is used for encrypting data in CMS Enveloped      * Data format, decrypting CMS Enveloped Data, signing data in CMS Signed      * Data format, and verifying CMS Signed Data. Creates a builder to build      * endpoints for the Crypto CMS component.      */
 DECL|method|cryptoCms (String path)
-specifier|public
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|cryptoCms

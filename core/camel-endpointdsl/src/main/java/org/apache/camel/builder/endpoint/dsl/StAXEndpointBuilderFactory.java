@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedStAXEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * The FQN class name for the ContentHandler implementation to use.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|contentHandlerClass ( String contentHandlerClass)
-specifier|public
 specifier|default
 name|StAXEndpointBuilder
 name|contentHandlerClass
@@ -145,7 +143,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|StAXEndpointBuilder
 name|basic
@@ -160,7 +157,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedStAXEndpointBuilder
 name|basicPropertyBinding
@@ -182,7 +178,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedStAXEndpointBuilder
 name|basicPropertyBinding
@@ -203,8 +198,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedStAXEndpointBuilder
 name|synchronous
@@ -225,8 +219,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedStAXEndpointBuilder
 name|synchronous
@@ -249,7 +242,6 @@ block|}
 block|}
 comment|/**      * The stax component allows messages to be process through a SAX      * ContentHandler. Creates a builder to build endpoints for the StAX      * component.      */
 DECL|method|stAX (String path)
-specifier|public
 specifier|default
 name|StAXEndpointBuilder
 name|stAX

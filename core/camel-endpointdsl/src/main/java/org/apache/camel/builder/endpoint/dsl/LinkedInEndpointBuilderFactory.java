@@ -134,7 +134,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedLinkedInEndpointConsumerBuilder
 name|advanced
@@ -148,8 +147,7 @@ name|this
 return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.linkedin.internal.LinkedInApiName</code> type.          * @group common          */
-DECL|method|apiName ( LinkedInApiName apiName)
-specifier|public
+DECL|method|apiName (LinkedInApiName apiName)
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|apiName
@@ -171,7 +169,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.linkedin.internal.LinkedInApiName</code> type.          * @group common          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|apiName
@@ -192,8 +189,7 @@ name|this
 return|;
 block|}
 comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|methodName ( String methodName)
-specifier|public
+DECL|method|methodName (String methodName)
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|methodName
@@ -214,8 +210,7 @@ name|this
 return|;
 block|}
 comment|/**          * LinkedIn access token to avoid username and password login procedure.          * LinkedIn responds to login forms by using a CAPTCHA. This makes it          * impossible for a standalone, headless process to log in to LinkedIn          * by specifying a username and password. To work around this, obtain a          * LinkedIn access token and provide the token as the setting of the          * accessToken parameter. Obtaining a LinkedIn access token is a          * multi-step procedure. You must configure your LinkedIn application,          * obtain a LinkedIn authorization code, and exchange that code for the          * LinkedIn access token. For details, see:          * https://developer.linkedin.com/docs/oauth2 The default behavior is          * that the access token expires after 60 days. To change this, specify          * a value for the expiryTime paramter. If the access token expires, the          * LinkedIn component tries to log in to LinkedIn by providing a          * username and password, which results in a CAPTCHA so the login fails.          * The LinkedIn component cannot refresh the access token. You must          * manually obtain a new access token each time an access token expires.          * When you update the access token you must restart the application so          * that it uses the new token.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|accessToken ( String accessToken)
-specifier|public
+DECL|method|accessToken (String accessToken)
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|accessToken
@@ -237,7 +232,6 @@ return|;
 block|}
 comment|/**          * LinkedIn application client ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientId (String clientId)
-specifier|public
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|clientId
@@ -258,8 +252,7 @@ name|this
 return|;
 block|}
 comment|/**          * LinkedIn application client secret.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|clientSecret ( String clientSecret)
-specifier|public
+DECL|method|clientSecret (String clientSecret)
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|clientSecret
@@ -280,8 +273,7 @@ name|this
 return|;
 block|}
 comment|/**          * A number of milliseconds since the UNIX Epoch. The default is 60          * days. A LinkedIn access token expires when this amount of time          * elapses after the token is in use.          * The option is a<code>java.lang.Long</code> type.          * @group common          */
-DECL|method|expiryTime ( Long expiryTime)
-specifier|public
+DECL|method|expiryTime (Long expiryTime)
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|expiryTime
@@ -302,8 +294,7 @@ name|this
 return|;
 block|}
 comment|/**          * A number of milliseconds since the UNIX Epoch. The default is 60          * days. A LinkedIn access token expires when this amount of time          * elapses after the token is in use.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group common          */
-DECL|method|expiryTime ( String expiryTime)
-specifier|public
+DECL|method|expiryTime (String expiryTime)
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|expiryTime
@@ -325,7 +316,6 @@ return|;
 block|}
 comment|/**          * Custom HTTP parameters, for example, proxy host and port. Use          * constants from AllClientPNames.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
 DECL|method|httpParams ( Map<String, Object> httpParams)
-specifier|public
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|httpParams
@@ -351,8 +341,7 @@ name|this
 return|;
 block|}
 comment|/**          * Custom HTTP parameters, for example, proxy host and port. Use          * constants from AllClientPNames.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
-DECL|method|httpParams ( String httpParams)
-specifier|public
+DECL|method|httpParams (String httpParams)
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|httpParams
@@ -374,7 +363,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|inBody
@@ -396,7 +384,6 @@ return|;
 block|}
 comment|/**          * Flag to enable/disable lazy OAuth, default is true. When enabled,          * OAuth token retrieval or generation is not done until the first REST          * call.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|lazyAuth (boolean lazyAuth)
-specifier|public
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|lazyAuth
@@ -418,7 +405,6 @@ return|;
 block|}
 comment|/**          * Flag to enable/disable lazy OAuth, default is true. When enabled,          * OAuth token retrieval or generation is not done until the first REST          * call.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|lazyAuth (String lazyAuth)
-specifier|public
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|lazyAuth
@@ -439,8 +425,7 @@ name|this
 return|;
 block|}
 comment|/**          * Application redirect URI, although the component never redirects to          * this page to avoid having to have a functioning redirect server. For          * testing, one could use https://localhost.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|redirectUri ( String redirectUri)
-specifier|public
+DECL|method|redirectUri (String redirectUri)
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|redirectUri
@@ -461,8 +446,7 @@ name|this
 return|;
 block|}
 comment|/**          * List of LinkedIn scopes as specified at          * https://developer.linkedin.com/documents/authentication#granting.          * The option is a          *<code>org.apache.camel.component.linkedin.api.OAuthScope[]</code>          * type.          * @group common          */
-DECL|method|scopes ( OAuthScope[] scopes)
-specifier|public
+DECL|method|scopes (OAuthScope[] scopes)
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|scopes
@@ -485,7 +469,6 @@ return|;
 block|}
 comment|/**          * List of LinkedIn scopes as specified at          * https://developer.linkedin.com/documents/authentication#granting.          * The option will be converted to a          *<code>org.apache.camel.component.linkedin.api.OAuthScope[]</code>          * type.          * @group common          */
 DECL|method|scopes (String scopes)
-specifier|public
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|scopes
@@ -507,7 +490,6 @@ return|;
 block|}
 comment|/**          * Callback interface for providing an OAuth token or to store the token          * generated by the component. The callback should return null on the          * first call and then save the created token in the saveToken()          * callback. If the callback returns null the first time, a userPassword          * MUST be provided.          * The option is a          *<code>org.apache.camel.component.linkedin.api.OAuthSecureStorage</code> type.          * @group common          */
 DECL|method|secureStorage ( Object secureStorage)
-specifier|public
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|secureStorage
@@ -529,7 +511,6 @@ return|;
 block|}
 comment|/**          * Callback interface for providing an OAuth token or to store the token          * generated by the component. The callback should return null on the          * first call and then save the created token in the saveToken()          * callback. If the callback returns null the first time, a userPassword          * MUST be provided.          * The option will be converted to a          *<code>org.apache.camel.component.linkedin.api.OAuthSecureStorage</code> type.          * @group common          */
 DECL|method|secureStorage ( String secureStorage)
-specifier|public
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|secureStorage
@@ -551,7 +532,6 @@ return|;
 block|}
 comment|/**          * LinkedIn user account name, MUST be provided.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userName (String userName)
-specifier|public
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|userName
@@ -572,8 +552,7 @@ name|this
 return|;
 block|}
 comment|/**          * LinkedIn account password.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|userPassword ( String userPassword)
-specifier|public
+DECL|method|userPassword (String userPassword)
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|userPassword
@@ -595,7 +574,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -617,7 +595,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -647,7 +624,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|LinkedInEndpointConsumerBuilder
 name|basic
@@ -662,7 +638,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedLinkedInEndpointConsumerBuilder
 name|exceptionHandler
@@ -684,7 +659,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedLinkedInEndpointConsumerBuilder
 name|exceptionHandler
@@ -706,7 +680,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedLinkedInEndpointConsumerBuilder
 name|exchangePattern
@@ -728,7 +701,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedLinkedInEndpointConsumerBuilder
 name|exchangePattern
@@ -750,7 +722,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedLinkedInEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -772,7 +743,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedLinkedInEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -794,7 +764,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedLinkedInEndpointConsumerBuilder
 name|synchronous
@@ -816,7 +785,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedLinkedInEndpointConsumerBuilder
 name|synchronous
@@ -847,7 +815,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedLinkedInEndpointProducerBuilder
 name|advanced
@@ -861,8 +828,7 @@ name|this
 return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.linkedin.internal.LinkedInApiName</code> type.          * @group common          */
-DECL|method|apiName ( LinkedInApiName apiName)
-specifier|public
+DECL|method|apiName (LinkedInApiName apiName)
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|apiName
@@ -884,7 +850,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.linkedin.internal.LinkedInApiName</code> type.          * @group common          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|apiName
@@ -905,8 +870,7 @@ name|this
 return|;
 block|}
 comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|methodName ( String methodName)
-specifier|public
+DECL|method|methodName (String methodName)
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|methodName
@@ -927,8 +891,7 @@ name|this
 return|;
 block|}
 comment|/**          * LinkedIn access token to avoid username and password login procedure.          * LinkedIn responds to login forms by using a CAPTCHA. This makes it          * impossible for a standalone, headless process to log in to LinkedIn          * by specifying a username and password. To work around this, obtain a          * LinkedIn access token and provide the token as the setting of the          * accessToken parameter. Obtaining a LinkedIn access token is a          * multi-step procedure. You must configure your LinkedIn application,          * obtain a LinkedIn authorization code, and exchange that code for the          * LinkedIn access token. For details, see:          * https://developer.linkedin.com/docs/oauth2 The default behavior is          * that the access token expires after 60 days. To change this, specify          * a value for the expiryTime paramter. If the access token expires, the          * LinkedIn component tries to log in to LinkedIn by providing a          * username and password, which results in a CAPTCHA so the login fails.          * The LinkedIn component cannot refresh the access token. You must          * manually obtain a new access token each time an access token expires.          * When you update the access token you must restart the application so          * that it uses the new token.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|accessToken ( String accessToken)
-specifier|public
+DECL|method|accessToken (String accessToken)
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|accessToken
@@ -950,7 +913,6 @@ return|;
 block|}
 comment|/**          * LinkedIn application client ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientId (String clientId)
-specifier|public
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|clientId
@@ -971,8 +933,7 @@ name|this
 return|;
 block|}
 comment|/**          * LinkedIn application client secret.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|clientSecret ( String clientSecret)
-specifier|public
+DECL|method|clientSecret (String clientSecret)
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|clientSecret
@@ -993,8 +954,7 @@ name|this
 return|;
 block|}
 comment|/**          * A number of milliseconds since the UNIX Epoch. The default is 60          * days. A LinkedIn access token expires when this amount of time          * elapses after the token is in use.          * The option is a<code>java.lang.Long</code> type.          * @group common          */
-DECL|method|expiryTime ( Long expiryTime)
-specifier|public
+DECL|method|expiryTime (Long expiryTime)
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|expiryTime
@@ -1015,8 +975,7 @@ name|this
 return|;
 block|}
 comment|/**          * A number of milliseconds since the UNIX Epoch. The default is 60          * days. A LinkedIn access token expires when this amount of time          * elapses after the token is in use.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group common          */
-DECL|method|expiryTime ( String expiryTime)
-specifier|public
+DECL|method|expiryTime (String expiryTime)
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|expiryTime
@@ -1038,7 +997,6 @@ return|;
 block|}
 comment|/**          * Custom HTTP parameters, for example, proxy host and port. Use          * constants from AllClientPNames.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
 DECL|method|httpParams ( Map<String, Object> httpParams)
-specifier|public
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|httpParams
@@ -1064,8 +1022,7 @@ name|this
 return|;
 block|}
 comment|/**          * Custom HTTP parameters, for example, proxy host and port. Use          * constants from AllClientPNames.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
-DECL|method|httpParams ( String httpParams)
-specifier|public
+DECL|method|httpParams (String httpParams)
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|httpParams
@@ -1087,7 +1044,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|inBody
@@ -1109,7 +1065,6 @@ return|;
 block|}
 comment|/**          * Flag to enable/disable lazy OAuth, default is true. When enabled,          * OAuth token retrieval or generation is not done until the first REST          * call.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|lazyAuth (boolean lazyAuth)
-specifier|public
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|lazyAuth
@@ -1131,7 +1086,6 @@ return|;
 block|}
 comment|/**          * Flag to enable/disable lazy OAuth, default is true. When enabled,          * OAuth token retrieval or generation is not done until the first REST          * call.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|lazyAuth (String lazyAuth)
-specifier|public
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|lazyAuth
@@ -1152,8 +1106,7 @@ name|this
 return|;
 block|}
 comment|/**          * Application redirect URI, although the component never redirects to          * this page to avoid having to have a functioning redirect server. For          * testing, one could use https://localhost.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|redirectUri ( String redirectUri)
-specifier|public
+DECL|method|redirectUri (String redirectUri)
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|redirectUri
@@ -1174,8 +1127,7 @@ name|this
 return|;
 block|}
 comment|/**          * List of LinkedIn scopes as specified at          * https://developer.linkedin.com/documents/authentication#granting.          * The option is a          *<code>org.apache.camel.component.linkedin.api.OAuthScope[]</code>          * type.          * @group common          */
-DECL|method|scopes ( OAuthScope[] scopes)
-specifier|public
+DECL|method|scopes (OAuthScope[] scopes)
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|scopes
@@ -1198,7 +1150,6 @@ return|;
 block|}
 comment|/**          * List of LinkedIn scopes as specified at          * https://developer.linkedin.com/documents/authentication#granting.          * The option will be converted to a          *<code>org.apache.camel.component.linkedin.api.OAuthScope[]</code>          * type.          * @group common          */
 DECL|method|scopes (String scopes)
-specifier|public
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|scopes
@@ -1220,7 +1171,6 @@ return|;
 block|}
 comment|/**          * Callback interface for providing an OAuth token or to store the token          * generated by the component. The callback should return null on the          * first call and then save the created token in the saveToken()          * callback. If the callback returns null the first time, a userPassword          * MUST be provided.          * The option is a          *<code>org.apache.camel.component.linkedin.api.OAuthSecureStorage</code> type.          * @group common          */
 DECL|method|secureStorage ( Object secureStorage)
-specifier|public
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|secureStorage
@@ -1242,7 +1192,6 @@ return|;
 block|}
 comment|/**          * Callback interface for providing an OAuth token or to store the token          * generated by the component. The callback should return null on the          * first call and then save the created token in the saveToken()          * callback. If the callback returns null the first time, a userPassword          * MUST be provided.          * The option will be converted to a          *<code>org.apache.camel.component.linkedin.api.OAuthSecureStorage</code> type.          * @group common          */
 DECL|method|secureStorage ( String secureStorage)
-specifier|public
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|secureStorage
@@ -1264,7 +1213,6 @@ return|;
 block|}
 comment|/**          * LinkedIn user account name, MUST be provided.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userName (String userName)
-specifier|public
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|userName
@@ -1285,8 +1233,7 @@ name|this
 return|;
 block|}
 comment|/**          * LinkedIn account password.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|userPassword ( String userPassword)
-specifier|public
+DECL|method|userPassword (String userPassword)
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|userPassword
@@ -1308,7 +1255,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|lazyStartProducer
@@ -1330,7 +1276,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|lazyStartProducer
@@ -1360,7 +1305,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|LinkedInEndpointProducerBuilder
 name|basic
@@ -1375,7 +1319,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedLinkedInEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1397,7 +1340,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedLinkedInEndpointProducerBuilder
 name|basicPropertyBinding
@@ -1419,7 +1361,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedLinkedInEndpointProducerBuilder
 name|synchronous
@@ -1441,7 +1382,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedLinkedInEndpointProducerBuilder
 name|synchronous
@@ -1474,7 +1414,6 @@ extends|,
 name|LinkedInEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedLinkedInEndpointBuilder
 name|advanced
@@ -1489,7 +1428,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.linkedin.internal.LinkedInApiName</code> type.          * @group common          */
 DECL|method|apiName (LinkedInApiName apiName)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|apiName
@@ -1511,7 +1449,6 @@ return|;
 block|}
 comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.linkedin.internal.LinkedInApiName</code> type.          * @group common          */
 DECL|method|apiName (String apiName)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|apiName
@@ -1533,7 +1470,6 @@ return|;
 block|}
 comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|methodName (String methodName)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|methodName
@@ -1555,7 +1491,6 @@ return|;
 block|}
 comment|/**          * LinkedIn access token to avoid username and password login procedure.          * LinkedIn responds to login forms by using a CAPTCHA. This makes it          * impossible for a standalone, headless process to log in to LinkedIn          * by specifying a username and password. To work around this, obtain a          * LinkedIn access token and provide the token as the setting of the          * accessToken parameter. Obtaining a LinkedIn access token is a          * multi-step procedure. You must configure your LinkedIn application,          * obtain a LinkedIn authorization code, and exchange that code for the          * LinkedIn access token. For details, see:          * https://developer.linkedin.com/docs/oauth2 The default behavior is          * that the access token expires after 60 days. To change this, specify          * a value for the expiryTime paramter. If the access token expires, the          * LinkedIn component tries to log in to LinkedIn by providing a          * username and password, which results in a CAPTCHA so the login fails.          * The LinkedIn component cannot refresh the access token. You must          * manually obtain a new access token each time an access token expires.          * When you update the access token you must restart the application so          * that it uses the new token.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|accessToken (String accessToken)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|accessToken
@@ -1577,7 +1512,6 @@ return|;
 block|}
 comment|/**          * LinkedIn application client ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientId (String clientId)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|clientId
@@ -1599,7 +1533,6 @@ return|;
 block|}
 comment|/**          * LinkedIn application client secret.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clientSecret (String clientSecret)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|clientSecret
@@ -1621,7 +1554,6 @@ return|;
 block|}
 comment|/**          * A number of milliseconds since the UNIX Epoch. The default is 60          * days. A LinkedIn access token expires when this amount of time          * elapses after the token is in use.          * The option is a<code>java.lang.Long</code> type.          * @group common          */
 DECL|method|expiryTime (Long expiryTime)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|expiryTime
@@ -1643,7 +1575,6 @@ return|;
 block|}
 comment|/**          * A number of milliseconds since the UNIX Epoch. The default is 60          * days. A LinkedIn access token expires when this amount of time          * elapses after the token is in use.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group common          */
 DECL|method|expiryTime (String expiryTime)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|expiryTime
@@ -1665,7 +1596,6 @@ return|;
 block|}
 comment|/**          * Custom HTTP parameters, for example, proxy host and port. Use          * constants from AllClientPNames.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
 DECL|method|httpParams ( Map<String, Object> httpParams)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|httpParams
@@ -1692,7 +1622,6 @@ return|;
 block|}
 comment|/**          * Custom HTTP parameters, for example, proxy host and port. Use          * constants from AllClientPNames.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
 DECL|method|httpParams (String httpParams)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|httpParams
@@ -1714,7 +1643,6 @@ return|;
 block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|inBody (String inBody)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|inBody
@@ -1736,7 +1664,6 @@ return|;
 block|}
 comment|/**          * Flag to enable/disable lazy OAuth, default is true. When enabled,          * OAuth token retrieval or generation is not done until the first REST          * call.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|lazyAuth (boolean lazyAuth)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|lazyAuth
@@ -1758,7 +1685,6 @@ return|;
 block|}
 comment|/**          * Flag to enable/disable lazy OAuth, default is true. When enabled,          * OAuth token retrieval or generation is not done until the first REST          * call.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|lazyAuth (String lazyAuth)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|lazyAuth
@@ -1780,7 +1706,6 @@ return|;
 block|}
 comment|/**          * Application redirect URI, although the component never redirects to          * this page to avoid having to have a functioning redirect server. For          * testing, one could use https://localhost.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|redirectUri (String redirectUri)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|redirectUri
@@ -1802,7 +1727,6 @@ return|;
 block|}
 comment|/**          * List of LinkedIn scopes as specified at          * https://developer.linkedin.com/documents/authentication#granting.          * The option is a          *<code>org.apache.camel.component.linkedin.api.OAuthScope[]</code>          * type.          * @group common          */
 DECL|method|scopes (OAuthScope[] scopes)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|scopes
@@ -1825,7 +1749,6 @@ return|;
 block|}
 comment|/**          * List of LinkedIn scopes as specified at          * https://developer.linkedin.com/documents/authentication#granting.          * The option will be converted to a          *<code>org.apache.camel.component.linkedin.api.OAuthScope[]</code>          * type.          * @group common          */
 DECL|method|scopes (String scopes)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|scopes
@@ -1846,8 +1769,7 @@ name|this
 return|;
 block|}
 comment|/**          * Callback interface for providing an OAuth token or to store the token          * generated by the component. The callback should return null on the          * first call and then save the created token in the saveToken()          * callback. If the callback returns null the first time, a userPassword          * MUST be provided.          * The option is a          *<code>org.apache.camel.component.linkedin.api.OAuthSecureStorage</code> type.          * @group common          */
-DECL|method|secureStorage ( Object secureStorage)
-specifier|public
+DECL|method|secureStorage (Object secureStorage)
 specifier|default
 name|LinkedInEndpointBuilder
 name|secureStorage
@@ -1868,8 +1790,7 @@ name|this
 return|;
 block|}
 comment|/**          * Callback interface for providing an OAuth token or to store the token          * generated by the component. The callback should return null on the          * first call and then save the created token in the saveToken()          * callback. If the callback returns null the first time, a userPassword          * MUST be provided.          * The option will be converted to a          *<code>org.apache.camel.component.linkedin.api.OAuthSecureStorage</code> type.          * @group common          */
-DECL|method|secureStorage ( String secureStorage)
-specifier|public
+DECL|method|secureStorage (String secureStorage)
 specifier|default
 name|LinkedInEndpointBuilder
 name|secureStorage
@@ -1891,7 +1812,6 @@ return|;
 block|}
 comment|/**          * LinkedIn user account name, MUST be provided.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userName (String userName)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|userName
@@ -1913,7 +1833,6 @@ return|;
 block|}
 comment|/**          * LinkedIn account password.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|userPassword (String userPassword)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|userPassword
@@ -1946,7 +1865,6 @@ extends|,
 name|AdvancedLinkedInEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|basic
@@ -1961,7 +1879,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedLinkedInEndpointBuilder
 name|basicPropertyBinding
@@ -1983,7 +1900,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedLinkedInEndpointBuilder
 name|basicPropertyBinding
@@ -2004,8 +1920,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedLinkedInEndpointBuilder
 name|synchronous
@@ -2026,8 +1941,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedLinkedInEndpointBuilder
 name|synchronous
@@ -2115,7 +2029,6 @@ name|W_SHARE
 block|;     }
 comment|/**      * The linkedin component is used for retrieving LinkedIn user profiles,      * connections, companies, groups, posts, etc. Creates a builder to build      * endpoints for the Linkedin component.      */
 DECL|method|linkedIn (String path)
-specifier|public
 specifier|default
 name|LinkedInEndpointBuilder
 name|linkedIn

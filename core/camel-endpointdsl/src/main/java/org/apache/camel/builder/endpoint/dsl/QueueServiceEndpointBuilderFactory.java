@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * Container Queue compact Uri.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|containerAndQueueUri ( String containerAndQueueUri)
-specifier|public
 specifier|default
 name|QueueServiceEndpointConsumerBuilder
 name|containerAndQueueUri
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * The queue service client.          * The option is a          *<code>com.microsoft.azure.storage.queue.CloudQueue</code> type.          * @group common          */
 DECL|method|azureQueueClient ( Object azureQueueClient)
-specifier|public
 specifier|default
 name|QueueServiceEndpointConsumerBuilder
 name|azureQueueClient
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * The queue service client.          * The option will be converted to a          *<code>com.microsoft.azure.storage.queue.CloudQueue</code> type.          * @group common          */
 DECL|method|azureQueueClient ( String azureQueueClient)
-specifier|public
 specifier|default
 name|QueueServiceEndpointConsumerBuilder
 name|azureQueueClient
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * Set the storage credentials, required in most cases.          * The option is a          *<code>com.microsoft.azure.storage.StorageCredentials</code> type.          * @group common          */
 DECL|method|credentials ( Object credentials)
-specifier|public
 specifier|default
 name|QueueServiceEndpointConsumerBuilder
 name|credentials
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * Set the storage credentials, required in most cases.          * The option will be converted to a          *<code>com.microsoft.azure.storage.StorageCredentials</code> type.          * @group common          */
 DECL|method|credentials ( String credentials)
-specifier|public
 specifier|default
 name|QueueServiceEndpointConsumerBuilder
 name|credentials
@@ -249,7 +243,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|QueueServiceEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -271,7 +264,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|QueueServiceEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -301,7 +293,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|QueueServiceEndpointConsumerBuilder
 name|basic
@@ -316,7 +307,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointConsumerBuilder
 name|exceptionHandler
@@ -338,7 +328,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointConsumerBuilder
 name|exceptionHandler
@@ -360,7 +349,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointConsumerBuilder
 name|exchangePattern
@@ -382,7 +370,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointConsumerBuilder
 name|exchangePattern
@@ -404,7 +391,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -426,7 +412,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -448,7 +433,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointConsumerBuilder
 name|synchronous
@@ -470,7 +454,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointConsumerBuilder
 name|synchronous
@@ -501,7 +484,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointProducerBuilder
 name|advanced
@@ -516,7 +498,6 @@ return|;
 block|}
 comment|/**          * Container Queue compact Uri.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|containerAndQueueUri ( String containerAndQueueUri)
-specifier|public
 specifier|default
 name|QueueServiceEndpointProducerBuilder
 name|containerAndQueueUri
@@ -538,7 +519,6 @@ return|;
 block|}
 comment|/**          * The queue service client.          * The option is a          *<code>com.microsoft.azure.storage.queue.CloudQueue</code> type.          * @group common          */
 DECL|method|azureQueueClient ( Object azureQueueClient)
-specifier|public
 specifier|default
 name|QueueServiceEndpointProducerBuilder
 name|azureQueueClient
@@ -560,7 +540,6 @@ return|;
 block|}
 comment|/**          * The queue service client.          * The option will be converted to a          *<code>com.microsoft.azure.storage.queue.CloudQueue</code> type.          * @group common          */
 DECL|method|azureQueueClient ( String azureQueueClient)
-specifier|public
 specifier|default
 name|QueueServiceEndpointProducerBuilder
 name|azureQueueClient
@@ -582,7 +561,6 @@ return|;
 block|}
 comment|/**          * Set the storage credentials, required in most cases.          * The option is a          *<code>com.microsoft.azure.storage.StorageCredentials</code> type.          * @group common          */
 DECL|method|credentials ( Object credentials)
-specifier|public
 specifier|default
 name|QueueServiceEndpointProducerBuilder
 name|credentials
@@ -604,7 +582,6 @@ return|;
 block|}
 comment|/**          * Set the storage credentials, required in most cases.          * The option will be converted to a          *<code>com.microsoft.azure.storage.StorageCredentials</code> type.          * @group common          */
 DECL|method|credentials ( String credentials)
-specifier|public
 specifier|default
 name|QueueServiceEndpointProducerBuilder
 name|credentials
@@ -626,7 +603,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|QueueServiceEndpointProducerBuilder
 name|lazyStartProducer
@@ -648,7 +624,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|QueueServiceEndpointProducerBuilder
 name|lazyStartProducer
@@ -670,7 +645,6 @@ return|;
 block|}
 comment|/**          * Message Time To Live in seconds.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|messageTimeToLive ( int messageTimeToLive)
-specifier|public
 specifier|default
 name|QueueServiceEndpointProducerBuilder
 name|messageTimeToLive
@@ -692,7 +666,6 @@ return|;
 block|}
 comment|/**          * Message Time To Live in seconds.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|messageTimeToLive ( String messageTimeToLive)
-specifier|public
 specifier|default
 name|QueueServiceEndpointProducerBuilder
 name|messageTimeToLive
@@ -714,7 +687,6 @@ return|;
 block|}
 comment|/**          * Message Visibility Delay in seconds.          * The option is a<code>int</code> type.          * @group producer          */
 DECL|method|messageVisibilityDelay ( int messageVisibilityDelay)
-specifier|public
 specifier|default
 name|QueueServiceEndpointProducerBuilder
 name|messageVisibilityDelay
@@ -736,7 +708,6 @@ return|;
 block|}
 comment|/**          * Message Visibility Delay in seconds.          * The option will be converted to a<code>int</code> type.          * @group producer          */
 DECL|method|messageVisibilityDelay ( String messageVisibilityDelay)
-specifier|public
 specifier|default
 name|QueueServiceEndpointProducerBuilder
 name|messageVisibilityDelay
@@ -758,7 +729,6 @@ return|;
 block|}
 comment|/**          * Queue service operation hint to the producer.          * The option is a          *<code>org.apache.camel.component.azure.queue.QueueServiceOperations</code> type.          * @group producer          */
 DECL|method|operation ( QueueServiceOperations operation)
-specifier|public
 specifier|default
 name|QueueServiceEndpointProducerBuilder
 name|operation
@@ -779,8 +749,7 @@ name|this
 return|;
 block|}
 comment|/**          * Queue service operation hint to the producer.          * The option will be converted to a          *<code>org.apache.camel.component.azure.queue.QueueServiceOperations</code> type.          * @group producer          */
-DECL|method|operation ( String operation)
-specifier|public
+DECL|method|operation (String operation)
 specifier|default
 name|QueueServiceEndpointProducerBuilder
 name|operation
@@ -802,7 +771,6 @@ return|;
 block|}
 comment|/**          * Set a prefix which can be used for listing the queues.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|queuePrefix ( String queuePrefix)
-specifier|public
 specifier|default
 name|QueueServiceEndpointProducerBuilder
 name|queuePrefix
@@ -832,7 +800,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|QueueServiceEndpointProducerBuilder
 name|basic
@@ -847,7 +814,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointProducerBuilder
 name|basicPropertyBinding
@@ -869,7 +835,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointProducerBuilder
 name|basicPropertyBinding
@@ -891,7 +856,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointProducerBuilder
 name|synchronous
@@ -913,7 +877,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointProducerBuilder
 name|synchronous
@@ -946,7 +909,6 @@ extends|,
 name|QueueServiceEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointBuilder
 name|advanced
@@ -961,7 +923,6 @@ return|;
 block|}
 comment|/**          * Container Queue compact Uri.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|containerAndQueueUri ( String containerAndQueueUri)
-specifier|public
 specifier|default
 name|QueueServiceEndpointBuilder
 name|containerAndQueueUri
@@ -983,7 +944,6 @@ return|;
 block|}
 comment|/**          * The queue service client.          * The option is a          *<code>com.microsoft.azure.storage.queue.CloudQueue</code> type.          * @group common          */
 DECL|method|azureQueueClient ( Object azureQueueClient)
-specifier|public
 specifier|default
 name|QueueServiceEndpointBuilder
 name|azureQueueClient
@@ -1005,7 +965,6 @@ return|;
 block|}
 comment|/**          * The queue service client.          * The option will be converted to a          *<code>com.microsoft.azure.storage.queue.CloudQueue</code> type.          * @group common          */
 DECL|method|azureQueueClient ( String azureQueueClient)
-specifier|public
 specifier|default
 name|QueueServiceEndpointBuilder
 name|azureQueueClient
@@ -1026,8 +985,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the storage credentials, required in most cases.          * The option is a          *<code>com.microsoft.azure.storage.StorageCredentials</code> type.          * @group common          */
-DECL|method|credentials ( Object credentials)
-specifier|public
+DECL|method|credentials (Object credentials)
 specifier|default
 name|QueueServiceEndpointBuilder
 name|credentials
@@ -1048,8 +1006,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the storage credentials, required in most cases.          * The option will be converted to a          *<code>com.microsoft.azure.storage.StorageCredentials</code> type.          * @group common          */
-DECL|method|credentials ( String credentials)
-specifier|public
+DECL|method|credentials (String credentials)
 specifier|default
 name|QueueServiceEndpointBuilder
 name|credentials
@@ -1082,7 +1039,6 @@ extends|,
 name|AdvancedQueueServiceEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|QueueServiceEndpointBuilder
 name|basic
@@ -1097,7 +1053,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointBuilder
 name|basicPropertyBinding
@@ -1119,7 +1074,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointBuilder
 name|basicPropertyBinding
@@ -1141,7 +1095,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointBuilder
 name|synchronous
@@ -1163,7 +1116,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedQueueServiceEndpointBuilder
 name|synchronous
@@ -1217,7 +1169,6 @@ name|deleteMessage
 block|;     }
 comment|/**      * The azure-queue component is used for storing and retrieving messages      * from Azure Storage Queue Service. Creates a builder to build endpoints      * for the Azure Storage Queue Service component.      */
 DECL|method|queueService (String path)
-specifier|public
 specifier|default
 name|QueueServiceEndpointBuilder
 name|queueService

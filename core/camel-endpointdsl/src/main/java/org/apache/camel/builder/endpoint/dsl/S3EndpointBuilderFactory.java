@@ -198,7 +198,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|advanced
@@ -212,8 +211,7 @@ name|this
 return|;
 block|}
 comment|/**          * Bucket name or ARN.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|bucketNameOrArn ( String bucketNameOrArn)
-specifier|public
+DECL|method|bucketNameOrArn (String bucketNameOrArn)
 specifier|default
 name|S3EndpointConsumerBuilder
 name|bucketNameOrArn
@@ -234,8 +232,7 @@ name|this
 return|;
 block|}
 comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * link:registry.htmlRegistry.          * The option is a<code>com.amazonaws.services.s3.AmazonS3</code> type.          * @group common          */
-DECL|method|amazonS3Client ( Object amazonS3Client)
-specifier|public
+DECL|method|amazonS3Client (Object amazonS3Client)
 specifier|default
 name|S3EndpointConsumerBuilder
 name|amazonS3Client
@@ -256,8 +253,7 @@ name|this
 return|;
 block|}
 comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * link:registry.htmlRegistry.          * The option will be converted to a          *<code>com.amazonaws.services.s3.AmazonS3</code> type.          * @group common          */
-DECL|method|amazonS3Client ( String amazonS3Client)
-specifier|public
+DECL|method|amazonS3Client (String amazonS3Client)
 specifier|default
 name|S3EndpointConsumerBuilder
 name|amazonS3Client
@@ -279,7 +275,6 @@ return|;
 block|}
 comment|/**          * Setting the autocreation of the bucket.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|autoCreateBucket ( boolean autoCreateBucket)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|autoCreateBucket
@@ -301,7 +296,6 @@ return|;
 block|}
 comment|/**          * Setting the autocreation of the bucket.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|autoCreateBucket ( String autoCreateBucket)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|autoCreateBucket
@@ -323,7 +317,6 @@ return|;
 block|}
 comment|/**          * Whether or not the S3 client should use path style access.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|pathStyleAccess ( boolean pathStyleAccess)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|pathStyleAccess
@@ -344,8 +337,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether or not the S3 client should use path style access.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|pathStyleAccess ( String pathStyleAccess)
-specifier|public
+DECL|method|pathStyleAccess (String pathStyleAccess)
 specifier|default
 name|S3EndpointConsumerBuilder
 name|pathStyleAccess
@@ -367,7 +359,6 @@ return|;
 block|}
 comment|/**          * The policy for this queue to set in the          * com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|policy (String policy)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|policy
@@ -389,7 +380,6 @@ return|;
 block|}
 comment|/**          * To define a proxy host when instantiating the SQS client.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|proxyHost (String proxyHost)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|proxyHost
@@ -411,7 +401,6 @@ return|;
 block|}
 comment|/**          * Specify a proxy port to be used inside the client definition.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|proxyPort (Integer proxyPort)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|proxyPort
@@ -433,7 +422,6 @@ return|;
 block|}
 comment|/**          * Specify a proxy port to be used inside the client definition.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|proxyPort (String proxyPort)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|proxyPort
@@ -455,7 +443,6 @@ return|;
 block|}
 comment|/**          * The region in which S3 client needs to work.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|region (String region)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|region
@@ -477,7 +464,6 @@ return|;
 block|}
 comment|/**          * Set whether the S3 client should expect to load credentials on an EC2          * instance or to expect static credentials to be passed in.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|useIAMCredentials ( boolean useIAMCredentials)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|useIAMCredentials
@@ -499,7 +485,6 @@ return|;
 block|}
 comment|/**          * Set whether the S3 client should expect to load credentials on an EC2          * instance or to expect static credentials to be passed in.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|useIAMCredentials ( String useIAMCredentials)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|useIAMCredentials
@@ -521,7 +506,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -543,7 +527,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -565,7 +548,6 @@ return|;
 block|}
 comment|/**          * Delete objects from S3 after they have been retrieved. The delete is          * only performed if the Exchange is committed. If a rollback occurs,          * the object is not deleted. If this option is false, then the same          * objects will be retrieve over and over again on the polls. Therefore          * you need to use the Idempotent Consumer EIP in the route to filter          * out duplicates. You can filter using the S3Constants#BUCKET_NAME and          * S3Constants#KEY headers, or only the S3Constants#KEY header.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|deleteAfterRead ( boolean deleteAfterRead)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|deleteAfterRead
@@ -586,8 +568,7 @@ name|this
 return|;
 block|}
 comment|/**          * Delete objects from S3 after they have been retrieved. The delete is          * only performed if the Exchange is committed. If a rollback occurs,          * the object is not deleted. If this option is false, then the same          * objects will be retrieve over and over again on the polls. Therefore          * you need to use the Idempotent Consumer EIP in the route to filter          * out duplicates. You can filter using the S3Constants#BUCKET_NAME and          * S3Constants#KEY headers, or only the S3Constants#KEY header.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
-DECL|method|deleteAfterRead ( String deleteAfterRead)
-specifier|public
+DECL|method|deleteAfterRead (String deleteAfterRead)
 specifier|default
 name|S3EndpointConsumerBuilder
 name|deleteAfterRead
@@ -609,7 +590,6 @@ return|;
 block|}
 comment|/**          * The delimiter which is used in the          * com.amazonaws.services.s3.model.ListObjectsRequest to only consume          * objects we are interested in.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|delimiter (String delimiter)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|delimiter
@@ -631,7 +611,6 @@ return|;
 block|}
 comment|/**          * To get the object from the bucket with the given file name.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|fileName (String fileName)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|fileName
@@ -653,7 +632,6 @@ return|;
 block|}
 comment|/**          * If it is true, the exchange body will be set to a stream to the          * contents of the file. If false, the headers will be set with the S3          * object metadata, but the body will be null. This option is strongly          * related to autocloseBody option. In case of setting includeBody to          * true and autocloseBody to false, it will be up to the caller to close          * the S3Object stream. Setting autocloseBody to true, will close the          * S3Object stream automatically.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|includeBody (boolean includeBody)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|includeBody
@@ -675,7 +653,6 @@ return|;
 block|}
 comment|/**          * If it is true, the exchange body will be set to a stream to the          * contents of the file. If false, the headers will be set with the S3          * object metadata, but the body will be null. This option is strongly          * related to autocloseBody option. In case of setting includeBody to          * true and autocloseBody to false, it will be up to the caller to close          * the S3Object stream. Setting autocloseBody to true, will close the          * S3Object stream automatically.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|includeBody (String includeBody)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|includeBody
@@ -696,8 +673,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the maxConnections parameter in the S3 client configuration.          * The option is a<code>int</code> type.          * @group consumer          */
-DECL|method|maxConnections ( int maxConnections)
-specifier|public
+DECL|method|maxConnections (int maxConnections)
 specifier|default
 name|S3EndpointConsumerBuilder
 name|maxConnections
@@ -718,8 +694,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set the maxConnections parameter in the S3 client configuration.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
-DECL|method|maxConnections ( String maxConnections)
-specifier|public
+DECL|method|maxConnections (String maxConnections)
 specifier|default
 name|S3EndpointConsumerBuilder
 name|maxConnections
@@ -741,7 +716,6 @@ return|;
 block|}
 comment|/**          * Gets the maximum number of messages as a limit to poll at each          * polling. Is default unlimited, but use 0 or negative number to          * disable it as unlimited.          * The option is a<code>int</code> type.          * @group consumer          */
 DECL|method|maxMessagesPerPoll ( int maxMessagesPerPoll)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|maxMessagesPerPoll
@@ -763,7 +737,6 @@ return|;
 block|}
 comment|/**          * Gets the maximum number of messages as a limit to poll at each          * polling. Is default unlimited, but use 0 or negative number to          * disable it as unlimited.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|maxMessagesPerPoll ( String maxMessagesPerPoll)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|maxMessagesPerPoll
@@ -785,7 +758,6 @@ return|;
 block|}
 comment|/**          * The prefix which is used in the          * com.amazonaws.services.s3.model.ListObjectsRequest to only consume          * objects we are interested in.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
 DECL|method|prefix (String prefix)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|prefix
@@ -807,7 +779,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( boolean sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -829,7 +800,6 @@ return|;
 block|}
 comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( String sendEmptyMessageWhenIdle)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|sendEmptyMessageWhenIdle
@@ -851,7 +821,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( int backoffErrorThreshold)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -873,7 +842,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffErrorThreshold ( String backoffErrorThreshold)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|backoffErrorThreshold
@@ -895,7 +863,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( int backoffIdleThreshold)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -917,7 +884,6 @@ return|;
 block|}
 comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffIdleThreshold ( String backoffIdleThreshold)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|backoffIdleThreshold
@@ -939,7 +905,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option is a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( int backoffMultiplier)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|backoffMultiplier
@@ -961,7 +926,6 @@ return|;
 block|}
 comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
 DECL|method|backoffMultiplier ( String backoffMultiplier)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|backoffMultiplier
@@ -983,7 +947,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (long delay)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|delay
@@ -1005,7 +968,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
 DECL|method|delay (String delay)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|delay
@@ -1027,7 +989,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option is a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (boolean greedy)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|greedy
@@ -1049,7 +1010,6 @@ return|;
 block|}
 comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
 DECL|method|greedy (String greedy)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|greedy
@@ -1071,7 +1031,6 @@ return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
 DECL|method|initialDelay (long initialDelay)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|initialDelay
@@ -1092,8 +1051,7 @@ name|this
 return|;
 block|}
 comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
-DECL|method|initialDelay ( String initialDelay)
-specifier|public
+DECL|method|initialDelay (String initialDelay)
 specifier|default
 name|S3EndpointConsumerBuilder
 name|initialDelay
@@ -1115,7 +1073,6 @@ return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
 DECL|method|runLoggingLevel ( LoggingLevel runLoggingLevel)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|runLoggingLevel
@@ -1136,8 +1093,7 @@ name|this
 return|;
 block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
-DECL|method|runLoggingLevel ( String runLoggingLevel)
-specifier|public
+DECL|method|runLoggingLevel (String runLoggingLevel)
 specifier|default
 name|S3EndpointConsumerBuilder
 name|runLoggingLevel
@@ -1159,7 +1115,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option is a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( ScheduledExecutorService scheduledExecutorService)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|scheduledExecutorService
@@ -1181,7 +1136,6 @@ return|;
 block|}
 comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
 DECL|method|scheduledExecutorService ( String scheduledExecutorService)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|scheduledExecutorService
@@ -1203,7 +1157,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option is a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler ( ScheduledPollConsumerScheduler scheduler)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|scheduler
@@ -1225,7 +1178,6 @@ return|;
 block|}
 comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
 DECL|method|scheduler (String scheduler)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|scheduler
@@ -1247,7 +1199,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group scheduler          */
 DECL|method|schedulerProperties ( Map<String, Object> schedulerProperties)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|schedulerProperties
@@ -1274,7 +1225,6 @@ return|;
 block|}
 comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group scheduler          */
 DECL|method|schedulerProperties ( String schedulerProperties)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|schedulerProperties
@@ -1295,8 +1245,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option is a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|startScheduler ( boolean startScheduler)
-specifier|public
+DECL|method|startScheduler (boolean startScheduler)
 specifier|default
 name|S3EndpointConsumerBuilder
 name|startScheduler
@@ -1317,8 +1266,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether the scheduler should be auto started.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|startScheduler ( String startScheduler)
-specifier|public
+DECL|method|startScheduler (String startScheduler)
 specifier|default
 name|S3EndpointConsumerBuilder
 name|startScheduler
@@ -1340,7 +1288,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option is a<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (TimeUnit timeUnit)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|timeUnit
@@ -1362,7 +1309,6 @@ return|;
 block|}
 comment|/**          * Time unit for initialDelay and delay options.          * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
 DECL|method|timeUnit (String timeUnit)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|timeUnit
@@ -1383,8 +1329,7 @@ name|this
 return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option is a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|useFixedDelay ( boolean useFixedDelay)
-specifier|public
+DECL|method|useFixedDelay (boolean useFixedDelay)
 specifier|default
 name|S3EndpointConsumerBuilder
 name|useFixedDelay
@@ -1405,8 +1350,7 @@ name|this
 return|;
 block|}
 comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
-DECL|method|useFixedDelay ( String useFixedDelay)
-specifier|public
+DECL|method|useFixedDelay (String useFixedDelay)
 specifier|default
 name|S3EndpointConsumerBuilder
 name|useFixedDelay
@@ -1428,7 +1372,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessKey (String accessKey)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|accessKey
@@ -1450,7 +1393,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|secretKey
@@ -1480,7 +1422,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|S3EndpointConsumerBuilder
 name|basic
@@ -1495,7 +1436,6 @@ return|;
 block|}
 comment|/**          * The encryption materials to use in case of Symmetric/Asymmetric          * client usage.          * The option is a          *<code>com.amazonaws.services.s3.model.EncryptionMaterials</code>          * type.          * @group common (advanced)          */
 DECL|method|encryptionMaterials ( Object encryptionMaterials)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|encryptionMaterials
@@ -1517,7 +1457,6 @@ return|;
 block|}
 comment|/**          * The encryption materials to use in case of Symmetric/Asymmetric          * client usage.          * The option will be converted to a          *<code>com.amazonaws.services.s3.model.EncryptionMaterials</code>          * type.          * @group common (advanced)          */
 DECL|method|encryptionMaterials ( String encryptionMaterials)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|encryptionMaterials
@@ -1539,7 +1478,6 @@ return|;
 block|}
 comment|/**          * Define if encryption must be used or not.          * The option is a<code>boolean</code> type.          * @group common (advanced)          */
 DECL|method|useEncryption ( boolean useEncryption)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|useEncryption
@@ -1561,7 +1499,6 @@ return|;
 block|}
 comment|/**          * Define if encryption must be used or not.          * The option will be converted to a<code>boolean</code> type.          * @group common (advanced)          */
 DECL|method|useEncryption ( String useEncryption)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|useEncryption
@@ -1583,7 +1520,6 @@ return|;
 block|}
 comment|/**          * If this option is true and includeBody is true, then the          * S3Object.close() method will be called on exchange completion. This          * option is strongly related to includeBody option. In case of setting          * includeBody to true and autocloseBody to false, it will be up to the          * caller to close the S3Object stream. Setting autocloseBody to true,          * will close the S3Object stream automatically.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|autocloseBody ( boolean autocloseBody)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|autocloseBody
@@ -1605,7 +1541,6 @@ return|;
 block|}
 comment|/**          * If this option is true and includeBody is true, then the          * S3Object.close() method will be called on exchange completion. This          * option is strongly related to includeBody option. In case of setting          * includeBody to true and autocloseBody to false, it will be up to the          * caller to close the S3Object stream. Setting autocloseBody to true,          * will close the S3Object stream automatically.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
 DECL|method|autocloseBody ( String autocloseBody)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|autocloseBody
@@ -1627,7 +1562,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|exceptionHandler
@@ -1649,7 +1583,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|exceptionHandler
@@ -1671,7 +1604,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|exchangePattern
@@ -1693,7 +1625,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|exchangePattern
@@ -1715,7 +1646,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option is a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( PollingConsumerPollStrategy pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|pollStrategy
@@ -1737,7 +1667,6 @@ return|;
 block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
 DECL|method|pollStrategy ( String pollStrategy)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|pollStrategy
@@ -1759,7 +1688,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1781,7 +1709,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|basicPropertyBinding
@@ -1803,7 +1730,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|synchronous
@@ -1824,8 +1750,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|synchronous
@@ -1847,7 +1772,6 @@ return|;
 block|}
 comment|/**          * Define if Accelerate Mode enabled is true or false.          * The option is a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|accelerateModeEnabled ( boolean accelerateModeEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|accelerateModeEnabled
@@ -1869,7 +1793,6 @@ return|;
 block|}
 comment|/**          * Define if Accelerate Mode enabled is true or false.          * The option will be converted to a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|accelerateModeEnabled ( String accelerateModeEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|accelerateModeEnabled
@@ -1891,7 +1814,6 @@ return|;
 block|}
 comment|/**          * Define if disabled Chunked Encoding is true or false.          * The option is a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|chunkedEncodingDisabled ( boolean chunkedEncodingDisabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|chunkedEncodingDisabled
@@ -1913,7 +1835,6 @@ return|;
 block|}
 comment|/**          * Define if disabled Chunked Encoding is true or false.          * The option will be converted to a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|chunkedEncodingDisabled ( String chunkedEncodingDisabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|chunkedEncodingDisabled
@@ -1935,7 +1856,6 @@ return|;
 block|}
 comment|/**          * Define if Dualstack enabled is true or false.          * The option is a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|dualstackEnabled ( boolean dualstackEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|dualstackEnabled
@@ -1957,7 +1877,6 @@ return|;
 block|}
 comment|/**          * Define if Dualstack enabled is true or false.          * The option will be converted to a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|dualstackEnabled ( String dualstackEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|dualstackEnabled
@@ -1979,7 +1898,6 @@ return|;
 block|}
 comment|/**          * Define if Force Global Bucket Access enabled is true or false.          * The option is a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|forceGlobalBucketAccessEnabled ( boolean forceGlobalBucketAccessEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|forceGlobalBucketAccessEnabled
@@ -2001,7 +1919,6 @@ return|;
 block|}
 comment|/**          * Define if Force Global Bucket Access enabled is true or false.          * The option will be converted to a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|forceGlobalBucketAccessEnabled ( String forceGlobalBucketAccessEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|forceGlobalBucketAccessEnabled
@@ -2023,7 +1940,6 @@ return|;
 block|}
 comment|/**          * Define if Payload Signing enabled is true or false.          * The option is a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|payloadSigningEnabled ( boolean payloadSigningEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|payloadSigningEnabled
@@ -2045,7 +1961,6 @@ return|;
 block|}
 comment|/**          * Define if Payload Signing enabled is true or false.          * The option will be converted to a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|payloadSigningEnabled ( String payloadSigningEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointConsumerBuilder
 name|payloadSigningEnabled
@@ -2076,7 +1991,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|advanced
@@ -2090,8 +2004,7 @@ name|this
 return|;
 block|}
 comment|/**          * Bucket name or ARN.          * The option is a<code>java.lang.String</code> type.          * @group common          */
-DECL|method|bucketNameOrArn ( String bucketNameOrArn)
-specifier|public
+DECL|method|bucketNameOrArn (String bucketNameOrArn)
 specifier|default
 name|S3EndpointProducerBuilder
 name|bucketNameOrArn
@@ -2112,8 +2025,7 @@ name|this
 return|;
 block|}
 comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * link:registry.htmlRegistry.          * The option is a<code>com.amazonaws.services.s3.AmazonS3</code> type.          * @group common          */
-DECL|method|amazonS3Client ( Object amazonS3Client)
-specifier|public
+DECL|method|amazonS3Client (Object amazonS3Client)
 specifier|default
 name|S3EndpointProducerBuilder
 name|amazonS3Client
@@ -2134,8 +2046,7 @@ name|this
 return|;
 block|}
 comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * link:registry.htmlRegistry.          * The option will be converted to a          *<code>com.amazonaws.services.s3.AmazonS3</code> type.          * @group common          */
-DECL|method|amazonS3Client ( String amazonS3Client)
-specifier|public
+DECL|method|amazonS3Client (String amazonS3Client)
 specifier|default
 name|S3EndpointProducerBuilder
 name|amazonS3Client
@@ -2157,7 +2068,6 @@ return|;
 block|}
 comment|/**          * Setting the autocreation of the bucket.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|autoCreateBucket ( boolean autoCreateBucket)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|autoCreateBucket
@@ -2179,7 +2089,6 @@ return|;
 block|}
 comment|/**          * Setting the autocreation of the bucket.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|autoCreateBucket ( String autoCreateBucket)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|autoCreateBucket
@@ -2201,7 +2110,6 @@ return|;
 block|}
 comment|/**          * Whether or not the S3 client should use path style access.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|pathStyleAccess ( boolean pathStyleAccess)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|pathStyleAccess
@@ -2222,8 +2130,7 @@ name|this
 return|;
 block|}
 comment|/**          * Whether or not the S3 client should use path style access.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|pathStyleAccess ( String pathStyleAccess)
-specifier|public
+DECL|method|pathStyleAccess (String pathStyleAccess)
 specifier|default
 name|S3EndpointProducerBuilder
 name|pathStyleAccess
@@ -2245,7 +2152,6 @@ return|;
 block|}
 comment|/**          * The policy for this queue to set in the          * com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|policy (String policy)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|policy
@@ -2267,7 +2173,6 @@ return|;
 block|}
 comment|/**          * To define a proxy host when instantiating the SQS client.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|proxyHost (String proxyHost)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|proxyHost
@@ -2289,7 +2194,6 @@ return|;
 block|}
 comment|/**          * Specify a proxy port to be used inside the client definition.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|proxyPort (Integer proxyPort)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|proxyPort
@@ -2311,7 +2215,6 @@ return|;
 block|}
 comment|/**          * Specify a proxy port to be used inside the client definition.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|proxyPort (String proxyPort)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|proxyPort
@@ -2333,7 +2236,6 @@ return|;
 block|}
 comment|/**          * The region in which S3 client needs to work.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|region (String region)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|region
@@ -2355,7 +2257,6 @@ return|;
 block|}
 comment|/**          * Set whether the S3 client should expect to load credentials on an EC2          * instance or to expect static credentials to be passed in.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|useIAMCredentials ( boolean useIAMCredentials)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|useIAMCredentials
@@ -2377,7 +2278,6 @@ return|;
 block|}
 comment|/**          * Set whether the S3 client should expect to load credentials on an EC2          * instance or to expect static credentials to be passed in.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|useIAMCredentials ( String useIAMCredentials)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|useIAMCredentials
@@ -2399,7 +2299,6 @@ return|;
 block|}
 comment|/**          * Delete file object after the S3 file has been uploaded.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|deleteAfterWrite ( boolean deleteAfterWrite)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|deleteAfterWrite
@@ -2421,7 +2320,6 @@ return|;
 block|}
 comment|/**          * Delete file object after the S3 file has been uploaded.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|deleteAfterWrite ( String deleteAfterWrite)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|deleteAfterWrite
@@ -2443,7 +2341,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|lazyStartProducer
@@ -2465,7 +2362,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|lazyStartProducer
@@ -2487,7 +2383,6 @@ return|;
 block|}
 comment|/**          * If it is true, camel will upload the file with multi part format, the          * part size is decided by the option of partSize.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|multiPartUpload ( boolean multiPartUpload)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|multiPartUpload
@@ -2508,8 +2403,7 @@ name|this
 return|;
 block|}
 comment|/**          * If it is true, camel will upload the file with multi part format, the          * part size is decided by the option of partSize.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
-DECL|method|multiPartUpload ( String multiPartUpload)
-specifier|public
+DECL|method|multiPartUpload (String multiPartUpload)
 specifier|default
 name|S3EndpointProducerBuilder
 name|multiPartUpload
@@ -2530,8 +2424,7 @@ name|this
 return|;
 block|}
 comment|/**          * The operation to do in case the user don't want to do only an upload.          * The option is a          *<code>org.apache.camel.component.aws.s3.S3Operations</code> type.          * @group producer          */
-DECL|method|operation ( S3Operations operation)
-specifier|public
+DECL|method|operation (S3Operations operation)
 specifier|default
 name|S3EndpointProducerBuilder
 name|operation
@@ -2553,7 +2446,6 @@ return|;
 block|}
 comment|/**          * The operation to do in case the user don't want to do only an upload.          * The option will be converted to a          *<code>org.apache.camel.component.aws.s3.S3Operations</code> type.          * @group producer          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|operation
@@ -2575,7 +2467,6 @@ return|;
 block|}
 comment|/**          * Setup the partSize which is used in multi part upload, the default          * size is 25M.          * The option is a<code>long</code> type.          * @group producer          */
 DECL|method|partSize (long partSize)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|partSize
@@ -2597,7 +2488,6 @@ return|;
 block|}
 comment|/**          * Setup the partSize which is used in multi part upload, the default          * size is 25M.          * The option will be converted to a<code>long</code> type.          * @group producer          */
 DECL|method|partSize (String partSize)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|partSize
@@ -2619,7 +2509,6 @@ return|;
 block|}
 comment|/**          * Sets the server-side encryption algorithm when encrypting the object          * using AWS-managed keys. For example use AES256.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|serverSideEncryption ( String serverSideEncryption)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|serverSideEncryption
@@ -2640,8 +2529,7 @@ name|this
 return|;
 block|}
 comment|/**          * The storage class to set in the          * com.amazonaws.services.s3.model.PutObjectRequest request.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|storageClass ( String storageClass)
-specifier|public
+DECL|method|storageClass (String storageClass)
 specifier|default
 name|S3EndpointProducerBuilder
 name|storageClass
@@ -2663,7 +2551,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessKey (String accessKey)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|accessKey
@@ -2685,7 +2572,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|secretKey
@@ -2715,7 +2601,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|S3EndpointProducerBuilder
 name|basic
@@ -2730,7 +2615,6 @@ return|;
 block|}
 comment|/**          * The encryption materials to use in case of Symmetric/Asymmetric          * client usage.          * The option is a          *<code>com.amazonaws.services.s3.model.EncryptionMaterials</code>          * type.          * @group common (advanced)          */
 DECL|method|encryptionMaterials ( Object encryptionMaterials)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|encryptionMaterials
@@ -2752,7 +2636,6 @@ return|;
 block|}
 comment|/**          * The encryption materials to use in case of Symmetric/Asymmetric          * client usage.          * The option will be converted to a          *<code>com.amazonaws.services.s3.model.EncryptionMaterials</code>          * type.          * @group common (advanced)          */
 DECL|method|encryptionMaterials ( String encryptionMaterials)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|encryptionMaterials
@@ -2774,7 +2657,6 @@ return|;
 block|}
 comment|/**          * Define if encryption must be used or not.          * The option is a<code>boolean</code> type.          * @group common (advanced)          */
 DECL|method|useEncryption ( boolean useEncryption)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|useEncryption
@@ -2796,7 +2678,6 @@ return|;
 block|}
 comment|/**          * Define if encryption must be used or not.          * The option will be converted to a<code>boolean</code> type.          * @group common (advanced)          */
 DECL|method|useEncryption ( String useEncryption)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|useEncryption
@@ -2817,8 +2698,7 @@ name|this
 return|;
 block|}
 comment|/**          * Define the id of KMS key to use in case KMS is enabled.          * The option is a<code>java.lang.String</code> type.          * @group producer (advanced)          */
-DECL|method|awsKMSKeyId ( String awsKMSKeyId)
-specifier|public
+DECL|method|awsKMSKeyId (String awsKMSKeyId)
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|awsKMSKeyId
@@ -2839,8 +2719,7 @@ name|this
 return|;
 block|}
 comment|/**          * Define if KMS must be used or not.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
-DECL|method|useAwsKMS ( boolean useAwsKMS)
-specifier|public
+DECL|method|useAwsKMS (boolean useAwsKMS)
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|useAwsKMS
@@ -2861,8 +2740,7 @@ name|this
 return|;
 block|}
 comment|/**          * Define if KMS must be used or not.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
-DECL|method|useAwsKMS ( String useAwsKMS)
-specifier|public
+DECL|method|useAwsKMS (String useAwsKMS)
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|useAwsKMS
@@ -2884,7 +2762,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|basicPropertyBinding
@@ -2906,7 +2783,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|basicPropertyBinding
@@ -2928,7 +2804,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|synchronous
@@ -2949,8 +2824,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|synchronous
@@ -2972,7 +2846,6 @@ return|;
 block|}
 comment|/**          * Define if Accelerate Mode enabled is true or false.          * The option is a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|accelerateModeEnabled ( boolean accelerateModeEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|accelerateModeEnabled
@@ -2994,7 +2867,6 @@ return|;
 block|}
 comment|/**          * Define if Accelerate Mode enabled is true or false.          * The option will be converted to a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|accelerateModeEnabled ( String accelerateModeEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|accelerateModeEnabled
@@ -3016,7 +2888,6 @@ return|;
 block|}
 comment|/**          * Define if disabled Chunked Encoding is true or false.          * The option is a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|chunkedEncodingDisabled ( boolean chunkedEncodingDisabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|chunkedEncodingDisabled
@@ -3038,7 +2909,6 @@ return|;
 block|}
 comment|/**          * Define if disabled Chunked Encoding is true or false.          * The option will be converted to a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|chunkedEncodingDisabled ( String chunkedEncodingDisabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|chunkedEncodingDisabled
@@ -3060,7 +2930,6 @@ return|;
 block|}
 comment|/**          * Define if Dualstack enabled is true or false.          * The option is a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|dualstackEnabled ( boolean dualstackEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|dualstackEnabled
@@ -3082,7 +2951,6 @@ return|;
 block|}
 comment|/**          * Define if Dualstack enabled is true or false.          * The option will be converted to a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|dualstackEnabled ( String dualstackEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|dualstackEnabled
@@ -3104,7 +2972,6 @@ return|;
 block|}
 comment|/**          * Define if Force Global Bucket Access enabled is true or false.          * The option is a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|forceGlobalBucketAccessEnabled ( boolean forceGlobalBucketAccessEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|forceGlobalBucketAccessEnabled
@@ -3126,7 +2993,6 @@ return|;
 block|}
 comment|/**          * Define if Force Global Bucket Access enabled is true or false.          * The option will be converted to a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|forceGlobalBucketAccessEnabled ( String forceGlobalBucketAccessEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|forceGlobalBucketAccessEnabled
@@ -3148,7 +3014,6 @@ return|;
 block|}
 comment|/**          * Define if Payload Signing enabled is true or false.          * The option is a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|payloadSigningEnabled ( boolean payloadSigningEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|payloadSigningEnabled
@@ -3170,7 +3035,6 @@ return|;
 block|}
 comment|/**          * Define if Payload Signing enabled is true or false.          * The option will be converted to a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|payloadSigningEnabled ( String payloadSigningEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointProducerBuilder
 name|payloadSigningEnabled
@@ -3203,7 +3067,6 @@ extends|,
 name|S3EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|advanced
@@ -3218,7 +3081,6 @@ return|;
 block|}
 comment|/**          * Bucket name or ARN.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|bucketNameOrArn (String bucketNameOrArn)
-specifier|public
 specifier|default
 name|S3EndpointBuilder
 name|bucketNameOrArn
@@ -3240,7 +3102,6 @@ return|;
 block|}
 comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * link:registry.htmlRegistry.          * The option is a<code>com.amazonaws.services.s3.AmazonS3</code> type.          * @group common          */
 DECL|method|amazonS3Client (Object amazonS3Client)
-specifier|public
 specifier|default
 name|S3EndpointBuilder
 name|amazonS3Client
@@ -3262,7 +3123,6 @@ return|;
 block|}
 comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * link:registry.htmlRegistry.          * The option will be converted to a          *<code>com.amazonaws.services.s3.AmazonS3</code> type.          * @group common          */
 DECL|method|amazonS3Client (String amazonS3Client)
-specifier|public
 specifier|default
 name|S3EndpointBuilder
 name|amazonS3Client
@@ -3283,8 +3143,7 @@ name|this
 return|;
 block|}
 comment|/**          * Setting the autocreation of the bucket.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|autoCreateBucket ( boolean autoCreateBucket)
-specifier|public
+DECL|method|autoCreateBucket (boolean autoCreateBucket)
 specifier|default
 name|S3EndpointBuilder
 name|autoCreateBucket
@@ -3305,8 +3164,7 @@ name|this
 return|;
 block|}
 comment|/**          * Setting the autocreation of the bucket.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|autoCreateBucket ( String autoCreateBucket)
-specifier|public
+DECL|method|autoCreateBucket (String autoCreateBucket)
 specifier|default
 name|S3EndpointBuilder
 name|autoCreateBucket
@@ -3328,7 +3186,6 @@ return|;
 block|}
 comment|/**          * Whether or not the S3 client should use path style access.          * The option is a<code>boolean</code> type.          * @group common          */
 DECL|method|pathStyleAccess (boolean pathStyleAccess)
-specifier|public
 specifier|default
 name|S3EndpointBuilder
 name|pathStyleAccess
@@ -3350,7 +3207,6 @@ return|;
 block|}
 comment|/**          * Whether or not the S3 client should use path style access.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
 DECL|method|pathStyleAccess (String pathStyleAccess)
-specifier|public
 specifier|default
 name|S3EndpointBuilder
 name|pathStyleAccess
@@ -3372,7 +3228,6 @@ return|;
 block|}
 comment|/**          * The policy for this queue to set in the          * com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|policy (String policy)
-specifier|public
 specifier|default
 name|S3EndpointBuilder
 name|policy
@@ -3394,7 +3249,6 @@ return|;
 block|}
 comment|/**          * To define a proxy host when instantiating the SQS client.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|proxyHost (String proxyHost)
-specifier|public
 specifier|default
 name|S3EndpointBuilder
 name|proxyHost
@@ -3416,7 +3270,6 @@ return|;
 block|}
 comment|/**          * Specify a proxy port to be used inside the client definition.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
 DECL|method|proxyPort (Integer proxyPort)
-specifier|public
 specifier|default
 name|S3EndpointBuilder
 name|proxyPort
@@ -3438,7 +3291,6 @@ return|;
 block|}
 comment|/**          * Specify a proxy port to be used inside the client definition.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
 DECL|method|proxyPort (String proxyPort)
-specifier|public
 specifier|default
 name|S3EndpointBuilder
 name|proxyPort
@@ -3460,7 +3312,6 @@ return|;
 block|}
 comment|/**          * The region in which S3 client needs to work.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|region (String region)
-specifier|public
 specifier|default
 name|S3EndpointBuilder
 name|region
@@ -3481,8 +3332,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set whether the S3 client should expect to load credentials on an EC2          * instance or to expect static credentials to be passed in.          * The option is a<code>boolean</code> type.          * @group common          */
-DECL|method|useIAMCredentials ( boolean useIAMCredentials)
-specifier|public
+DECL|method|useIAMCredentials (boolean useIAMCredentials)
 specifier|default
 name|S3EndpointBuilder
 name|useIAMCredentials
@@ -3503,8 +3353,7 @@ name|this
 return|;
 block|}
 comment|/**          * Set whether the S3 client should expect to load credentials on an EC2          * instance or to expect static credentials to be passed in.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
-DECL|method|useIAMCredentials ( String useIAMCredentials)
-specifier|public
+DECL|method|useIAMCredentials (String useIAMCredentials)
 specifier|default
 name|S3EndpointBuilder
 name|useIAMCredentials
@@ -3526,7 +3375,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessKey (String accessKey)
-specifier|public
 specifier|default
 name|S3EndpointBuilder
 name|accessKey
@@ -3548,7 +3396,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|S3EndpointBuilder
 name|secretKey
@@ -3581,7 +3428,6 @@ extends|,
 name|AdvancedS3EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|S3EndpointBuilder
 name|basic
@@ -3596,7 +3442,6 @@ return|;
 block|}
 comment|/**          * The encryption materials to use in case of Symmetric/Asymmetric          * client usage.          * The option is a          *<code>com.amazonaws.services.s3.model.EncryptionMaterials</code>          * type.          * @group common (advanced)          */
 DECL|method|encryptionMaterials ( Object encryptionMaterials)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|encryptionMaterials
@@ -3618,7 +3463,6 @@ return|;
 block|}
 comment|/**          * The encryption materials to use in case of Symmetric/Asymmetric          * client usage.          * The option will be converted to a          *<code>com.amazonaws.services.s3.model.EncryptionMaterials</code>          * type.          * @group common (advanced)          */
 DECL|method|encryptionMaterials ( String encryptionMaterials)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|encryptionMaterials
@@ -3639,8 +3483,7 @@ name|this
 return|;
 block|}
 comment|/**          * Define if encryption must be used or not.          * The option is a<code>boolean</code> type.          * @group common (advanced)          */
-DECL|method|useEncryption ( boolean useEncryption)
-specifier|public
+DECL|method|useEncryption (boolean useEncryption)
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|useEncryption
@@ -3661,8 +3504,7 @@ name|this
 return|;
 block|}
 comment|/**          * Define if encryption must be used or not.          * The option will be converted to a<code>boolean</code> type.          * @group common (advanced)          */
-DECL|method|useEncryption ( String useEncryption)
-specifier|public
+DECL|method|useEncryption (String useEncryption)
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|useEncryption
@@ -3684,7 +3526,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|basicPropertyBinding
@@ -3706,7 +3547,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|basicPropertyBinding
@@ -3728,7 +3568,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous (boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|synchronous
@@ -3750,7 +3589,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous (String synchronous)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|synchronous
@@ -3772,7 +3610,6 @@ return|;
 block|}
 comment|/**          * Define if Accelerate Mode enabled is true or false.          * The option is a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|accelerateModeEnabled ( boolean accelerateModeEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|accelerateModeEnabled
@@ -3794,7 +3631,6 @@ return|;
 block|}
 comment|/**          * Define if Accelerate Mode enabled is true or false.          * The option will be converted to a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|accelerateModeEnabled ( String accelerateModeEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|accelerateModeEnabled
@@ -3816,7 +3652,6 @@ return|;
 block|}
 comment|/**          * Define if disabled Chunked Encoding is true or false.          * The option is a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|chunkedEncodingDisabled ( boolean chunkedEncodingDisabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|chunkedEncodingDisabled
@@ -3838,7 +3673,6 @@ return|;
 block|}
 comment|/**          * Define if disabled Chunked Encoding is true or false.          * The option will be converted to a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|chunkedEncodingDisabled ( String chunkedEncodingDisabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|chunkedEncodingDisabled
@@ -3860,7 +3694,6 @@ return|;
 block|}
 comment|/**          * Define if Dualstack enabled is true or false.          * The option is a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|dualstackEnabled ( boolean dualstackEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|dualstackEnabled
@@ -3882,7 +3715,6 @@ return|;
 block|}
 comment|/**          * Define if Dualstack enabled is true or false.          * The option will be converted to a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|dualstackEnabled ( String dualstackEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|dualstackEnabled
@@ -3904,7 +3736,6 @@ return|;
 block|}
 comment|/**          * Define if Force Global Bucket Access enabled is true or false.          * The option is a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|forceGlobalBucketAccessEnabled ( boolean forceGlobalBucketAccessEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|forceGlobalBucketAccessEnabled
@@ -3926,7 +3757,6 @@ return|;
 block|}
 comment|/**          * Define if Force Global Bucket Access enabled is true or false.          * The option will be converted to a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|forceGlobalBucketAccessEnabled ( String forceGlobalBucketAccessEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|forceGlobalBucketAccessEnabled
@@ -3948,7 +3778,6 @@ return|;
 block|}
 comment|/**          * Define if Payload Signing enabled is true or false.          * The option is a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|payloadSigningEnabled ( boolean payloadSigningEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|payloadSigningEnabled
@@ -3970,7 +3799,6 @@ return|;
 block|}
 comment|/**          * Define if Payload Signing enabled is true or false.          * The option will be converted to a<code>boolean</code> type.          * @group  advanced          */
 DECL|method|payloadSigningEnabled ( String payloadSigningEnabled)
-specifier|public
 specifier|default
 name|AdvancedS3EndpointBuilder
 name|payloadSigningEnabled
@@ -4021,7 +3849,6 @@ name|getObject
 block|;     }
 comment|/**      * The aws-s3 component is used for storing and retrieving objecct from      * Amazon S3 Storage Service. Creates a builder to build endpoints for the      * AWS S3 Storage Service component.      */
 DECL|method|s3 (String path)
-specifier|public
 specifier|default
 name|S3EndpointBuilder
 name|s3

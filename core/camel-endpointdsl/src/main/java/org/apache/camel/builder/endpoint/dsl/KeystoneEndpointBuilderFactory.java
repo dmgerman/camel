@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedKeystoneEndpointBuilder
 name|advanced
@@ -114,7 +113,6 @@ return|;
 block|}
 comment|/**          * OpenStack host url.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|host (String host)
-specifier|public
 specifier|default
 name|KeystoneEndpointBuilder
 name|host
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * OpenStack configuration.          * The option is a<code>org.openstack4j.core.transport.Config</code>          * type.          * @group producer          */
 DECL|method|config (Object config)
-specifier|public
 specifier|default
 name|KeystoneEndpointBuilder
 name|config
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * OpenStack configuration.          * The option will be converted to a          *<code>org.openstack4j.core.transport.Config</code> type.          * @group producer          */
 DECL|method|config (String config)
-specifier|public
 specifier|default
 name|KeystoneEndpointBuilder
 name|config
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * Authentication domain.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|domain (String domain)
-specifier|public
 specifier|default
 name|KeystoneEndpointBuilder
 name|domain
@@ -202,7 +197,6 @@ return|;
 block|}
 comment|/**          * The operation to do.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|operation (String operation)
-specifier|public
 specifier|default
 name|KeystoneEndpointBuilder
 name|operation
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * OpenStack password.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|password (String password)
-specifier|public
 specifier|default
 name|KeystoneEndpointBuilder
 name|password
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * The project ID.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|project (String project)
-specifier|public
 specifier|default
 name|KeystoneEndpointBuilder
 name|project
@@ -268,7 +260,6 @@ return|;
 block|}
 comment|/**          * OpenStack Keystone subsystem.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|subsystem (String subsystem)
-specifier|public
 specifier|default
 name|KeystoneEndpointBuilder
 name|subsystem
@@ -290,7 +281,6 @@ return|;
 block|}
 comment|/**          * OpenStack username.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|username (String username)
-specifier|public
 specifier|default
 name|KeystoneEndpointBuilder
 name|username
@@ -321,7 +311,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|KeystoneEndpointBuilder
 name|basic
@@ -336,7 +325,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedKeystoneEndpointBuilder
 name|basicPropertyBinding
@@ -358,7 +346,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedKeystoneEndpointBuilder
 name|basicPropertyBinding
@@ -379,8 +366,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( boolean synchronous)
-specifier|public
+DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedKeystoneEndpointBuilder
 name|synchronous
@@ -401,8 +387,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
-DECL|method|synchronous ( String synchronous)
-specifier|public
+DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedKeystoneEndpointBuilder
 name|synchronous
@@ -425,7 +410,6 @@ block|}
 block|}
 comment|/**      * The openstack-keystone component allows messages to be sent to an      * OpenStack identity services. Creates a builder to build endpoints for the      * OpenStack Keystone component.      */
 DECL|method|keystone (String path)
-specifier|public
 specifier|default
 name|KeystoneEndpointBuilder
 name|keystone

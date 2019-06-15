@@ -99,7 +99,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedKinesisFirehoseEndpointBuilder
 name|advanced
@@ -113,8 +112,7 @@ name|this
 return|;
 block|}
 comment|/**          * Name of the stream.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|streamName ( String streamName)
-specifier|public
+DECL|method|streamName (String streamName)
 specifier|default
 name|KinesisFirehoseEndpointBuilder
 name|streamName
@@ -136,7 +134,6 @@ return|;
 block|}
 comment|/**          * Amazon Kinesis Firehose client to use for all requests for this          * endpoint.          * The option is a          *<code>com.amazonaws.services.kinesisfirehose.AmazonKinesisFirehose</code> type.          * @group producer          */
 DECL|method|amazonKinesisFirehoseClient ( Object amazonKinesisFirehoseClient)
-specifier|public
 specifier|default
 name|KinesisFirehoseEndpointBuilder
 name|amazonKinesisFirehoseClient
@@ -158,7 +155,6 @@ return|;
 block|}
 comment|/**          * Amazon Kinesis Firehose client to use for all requests for this          * endpoint.          * The option will be converted to a          *<code>com.amazonaws.services.kinesisfirehose.AmazonKinesisFirehose</code> type.          * @group producer          */
 DECL|method|amazonKinesisFirehoseClient ( String amazonKinesisFirehoseClient)
-specifier|public
 specifier|default
 name|KinesisFirehoseEndpointBuilder
 name|amazonKinesisFirehoseClient
@@ -180,7 +176,6 @@ return|;
 block|}
 comment|/**          * To define a proxy host when instantiating the DDBStreams client.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|proxyHost (String proxyHost)
-specifier|public
 specifier|default
 name|KinesisFirehoseEndpointBuilder
 name|proxyHost
@@ -201,8 +196,7 @@ name|this
 return|;
 block|}
 comment|/**          * To define a proxy port when instantiating the DDBStreams client.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
-DECL|method|proxyPort ( Integer proxyPort)
-specifier|public
+DECL|method|proxyPort (Integer proxyPort)
 specifier|default
 name|KinesisFirehoseEndpointBuilder
 name|proxyPort
@@ -224,7 +218,6 @@ return|;
 block|}
 comment|/**          * To define a proxy port when instantiating the DDBStreams client.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
 DECL|method|proxyPort (String proxyPort)
-specifier|public
 specifier|default
 name|KinesisFirehoseEndpointBuilder
 name|proxyPort
@@ -246,7 +239,6 @@ return|;
 block|}
 comment|/**          * The region in which Kinesis client needs to work.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
 DECL|method|region (String region)
-specifier|public
 specifier|default
 name|KinesisFirehoseEndpointBuilder
 name|region
@@ -268,7 +260,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|accessKey (String accessKey)
-specifier|public
 specifier|default
 name|KinesisFirehoseEndpointBuilder
 name|accessKey
@@ -290,7 +281,6 @@ return|;
 block|}
 comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|secretKey (String secretKey)
-specifier|public
 specifier|default
 name|KinesisFirehoseEndpointBuilder
 name|secretKey
@@ -321,7 +311,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|KinesisFirehoseEndpointBuilder
 name|basic
@@ -336,7 +325,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedKinesisFirehoseEndpointBuilder
 name|basicPropertyBinding
@@ -358,7 +346,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedKinesisFirehoseEndpointBuilder
 name|basicPropertyBinding
@@ -380,7 +367,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedKinesisFirehoseEndpointBuilder
 name|synchronous
@@ -402,7 +388,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedKinesisFirehoseEndpointBuilder
 name|synchronous
@@ -425,7 +410,6 @@ block|}
 block|}
 comment|/**      * The aws-kinesis-firehose component is used for producing Amazon's Kinesis      * Firehose streams. Creates a builder to build endpoints for the AWS      * Kinesis Firehose component.      */
 DECL|method|kinesisFirehose (String path)
-specifier|public
 specifier|default
 name|KinesisFirehoseEndpointBuilder
 name|kinesisFirehose

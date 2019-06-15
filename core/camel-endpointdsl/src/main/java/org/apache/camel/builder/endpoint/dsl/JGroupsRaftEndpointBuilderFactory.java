@@ -124,7 +124,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointConsumerBuilder
 name|advanced
@@ -139,7 +138,6 @@ return|;
 block|}
 comment|/**          * The name of the JGroupsraft cluster the component should connect to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clusterName ( String clusterName)
-specifier|public
 specifier|default
 name|JGroupsRaftEndpointConsumerBuilder
 name|clusterName
@@ -161,7 +159,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|public
 specifier|default
 name|JGroupsRaftEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -183,7 +180,6 @@ return|;
 block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|public
 specifier|default
 name|JGroupsRaftEndpointConsumerBuilder
 name|bridgeErrorHandler
@@ -205,7 +201,6 @@ return|;
 block|}
 comment|/**          * If set to true, the consumer endpoint will receive roleChange event          * as well (not just connecting and/or using the state machine). By          * default it is set to false.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|enableRoleChangeEvents ( boolean enableRoleChangeEvents)
-specifier|public
 specifier|default
 name|JGroupsRaftEndpointConsumerBuilder
 name|enableRoleChangeEvents
@@ -227,7 +222,6 @@ return|;
 block|}
 comment|/**          * If set to true, the consumer endpoint will receive roleChange event          * as well (not just connecting and/or using the state machine). By          * default it is set to false.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
 DECL|method|enableRoleChangeEvents ( String enableRoleChangeEvents)
-specifier|public
 specifier|default
 name|JGroupsRaftEndpointConsumerBuilder
 name|enableRoleChangeEvents
@@ -257,7 +251,6 @@ extends|extends
 name|EndpointConsumerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JGroupsRaftEndpointConsumerBuilder
 name|basic
@@ -272,7 +265,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointConsumerBuilder
 name|exceptionHandler
@@ -294,7 +286,6 @@ return|;
 block|}
 comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointConsumerBuilder
 name|exceptionHandler
@@ -316,7 +307,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointConsumerBuilder
 name|exchangePattern
@@ -338,7 +328,6 @@ return|;
 block|}
 comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointConsumerBuilder
 name|exchangePattern
@@ -360,7 +349,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -382,7 +370,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointConsumerBuilder
 name|basicPropertyBinding
@@ -404,7 +391,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointConsumerBuilder
 name|synchronous
@@ -426,7 +412,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointConsumerBuilder
 name|synchronous
@@ -457,7 +442,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointProducerBuilder
 name|advanced
@@ -472,7 +456,6 @@ return|;
 block|}
 comment|/**          * The name of the JGroupsraft cluster the component should connect to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clusterName ( String clusterName)
-specifier|public
 specifier|default
 name|JGroupsRaftEndpointProducerBuilder
 name|clusterName
@@ -494,7 +477,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
-specifier|public
 specifier|default
 name|JGroupsRaftEndpointProducerBuilder
 name|lazyStartProducer
@@ -516,7 +498,6 @@ return|;
 block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
-specifier|public
 specifier|default
 name|JGroupsRaftEndpointProducerBuilder
 name|lazyStartProducer
@@ -546,7 +527,6 @@ extends|extends
 name|EndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JGroupsRaftEndpointProducerBuilder
 name|basic
@@ -561,7 +541,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointProducerBuilder
 name|basicPropertyBinding
@@ -583,7 +562,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointProducerBuilder
 name|basicPropertyBinding
@@ -605,7 +583,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointProducerBuilder
 name|synchronous
@@ -627,7 +604,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointProducerBuilder
 name|synchronous
@@ -660,7 +636,6 @@ extends|,
 name|JGroupsRaftEndpointProducerBuilder
 block|{
 DECL|method|advanced ()
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointBuilder
 name|advanced
@@ -675,7 +650,6 @@ return|;
 block|}
 comment|/**          * The name of the JGroupsraft cluster the component should connect to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
 DECL|method|clusterName (String clusterName)
-specifier|public
 specifier|default
 name|JGroupsRaftEndpointBuilder
 name|clusterName
@@ -708,7 +682,6 @@ extends|,
 name|AdvancedJGroupsRaftEndpointProducerBuilder
 block|{
 DECL|method|basic ()
-specifier|public
 specifier|default
 name|JGroupsRaftEndpointBuilder
 name|basic
@@ -723,7 +696,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointBuilder
 name|basicPropertyBinding
@@ -745,7 +717,6 @@ return|;
 block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointBuilder
 name|basicPropertyBinding
@@ -767,7 +738,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( boolean synchronous)
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointBuilder
 name|synchronous
@@ -789,7 +759,6 @@ return|;
 block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
 DECL|method|synchronous ( String synchronous)
-specifier|public
 specifier|default
 name|AdvancedJGroupsRaftEndpointBuilder
 name|synchronous
@@ -812,7 +781,6 @@ block|}
 block|}
 comment|/**      * The jgroups component provides exchange of messages between Camel and      * JGroups clusters. Creates a builder to build endpoints for the JGroups      * raft component.      */
 DECL|method|jGroupsRaft (String path)
-specifier|public
 specifier|default
 name|JGroupsRaftEndpointBuilder
 name|jGroupsRaft
