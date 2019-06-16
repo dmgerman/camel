@@ -211,7 +211,7 @@ name|Properties
 name|answer
 init|=
 operator|new
-name|Properties
+name|OrderedProperties
 argument_list|()
 decl_stmt|;
 name|Properties
@@ -347,7 +347,7 @@ name|Properties
 name|answer
 init|=
 operator|new
-name|Properties
+name|OrderedProperties
 argument_list|()
 decl_stmt|;
 name|String
@@ -502,7 +502,7 @@ name|Properties
 name|answer
 init|=
 operator|new
-name|Properties
+name|OrderedProperties
 argument_list|()
 decl_stmt|;
 name|String
@@ -731,7 +731,7 @@ decl_stmt|;
 name|answer
 operator|=
 operator|new
-name|Properties
+name|OrderedProperties
 argument_list|()
 expr_stmt|;
 name|answer
@@ -785,7 +785,7 @@ condition|?
 name|answer
 else|:
 operator|new
-name|Properties
+name|OrderedProperties
 argument_list|()
 return|;
 block|}
@@ -803,7 +803,7 @@ name|Properties
 name|answer
 init|=
 operator|new
-name|Properties
+name|OrderedProperties
 argument_list|()
 decl_stmt|;
 for|for

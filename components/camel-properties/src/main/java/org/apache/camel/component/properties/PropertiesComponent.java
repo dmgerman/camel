@@ -1028,7 +1028,7 @@ return|;
 block|}
 return|return
 operator|new
-name|Properties
+name|OrderedProperties
 argument_list|()
 return|;
 block|}
@@ -1048,7 +1048,7 @@ name|Properties
 name|prop
 init|=
 operator|new
-name|Properties
+name|OrderedProperties
 argument_list|()
 decl_stmt|;
 comment|// use initial properties
@@ -1170,7 +1170,7 @@ name|Properties
 name|override
 init|=
 operator|new
-name|Properties
+name|OrderedProperties
 argument_list|()
 decl_stmt|;
 name|override
