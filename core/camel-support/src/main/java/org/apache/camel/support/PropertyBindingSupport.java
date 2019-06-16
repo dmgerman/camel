@@ -1113,6 +1113,8 @@ name|hit
 return|;
 block|}
 comment|/**      * This will discover all the properties on the target which are interfaces, and automatic attempt to bind the properties that are null by      * doing classpath scanning to find if there is a just only one class that implements the interface, and then attempt to create a new instance      * of this class. This is used for convention over configuration to automatic configure resources such as DataSource, Amazon Logins and      * so on.      *      * @param camelContext  the camel context      * @param target        the target object      * @return              true if one ore more properties was auto wired      */
+annotation|@
+name|Deprecated
 DECL|method|autowireInterfacePropertiesFromClasspath (CamelContext camelContext, Object target)
 specifier|public
 specifier|static
