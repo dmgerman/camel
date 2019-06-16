@@ -1179,12 +1179,9 @@ condition|)
 block|{
 name|propVal
 operator|=
-operator|(
-name|String
-operator|)
 name|properties
 operator|.
-name|get
+name|getProperty
 argument_list|(
 name|placeholderName
 argument_list|)

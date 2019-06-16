@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is an ordered {@link Properties} where the key/values are stored in the order they are added or loaded.  *<p/>  * Note: This implementation is only intended as implementation detail for the Camel properties component, and has only  * been designed to provide the needed functionality.  */
+comment|/**  * This class is an ordered {@link Properties} where the key/values are stored in the order they are added or loaded.  *<p/>  * Note: This implementation is only intended as implementation detail for the Camel properties component, and has only  * been designed to provide the needed functionality.  * The complex logic for loading properties has been kept from the JDK {@link Properties} class.  */
 end_comment
 
 begin_class
@@ -171,6 +171,79 @@ name|toString
 argument_list|()
 argument_list|)
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|get (Object key)
+specifier|public
+specifier|synchronized
+name|Object
+name|get
+parameter_list|(
+name|Object
+name|key
+parameter_list|)
+block|{
+return|return
+name|map
+operator|.
+name|get
+argument_list|(
+name|key
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isEmpty ()
+specifier|public
+specifier|synchronized
+name|boolean
+name|isEmpty
+parameter_list|()
+block|{
+return|return
+name|map
+operator|.
+name|isEmpty
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|remove (Object key)
+specifier|public
+specifier|synchronized
+name|Object
+name|remove
+parameter_list|(
+name|Object
+name|key
+parameter_list|)
+block|{
+return|return
+name|map
+operator|.
+name|remove
+argument_list|(
+name|key
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|clear ()
+specifier|public
+specifier|synchronized
+name|void
+name|clear
+parameter_list|()
+block|{
+name|map
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
