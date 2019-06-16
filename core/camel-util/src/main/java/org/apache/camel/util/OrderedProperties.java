@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.properties
+DECL|package|org.apache.camel.util
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|properties
+name|util
 package|;
 end_package
 
@@ -121,7 +119,6 @@ name|OrderedProperties
 extends|extends
 name|Properties
 block|{
-comment|// TODO: Move to camel-util
 DECL|field|map
 specifier|private
 specifier|final

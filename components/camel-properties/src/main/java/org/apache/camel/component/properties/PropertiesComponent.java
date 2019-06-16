@@ -266,6 +266,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|OrderedProperties
+import|;
+end_import
+
 begin_comment
 comment|/**  * The<a href="http://camel.apache.org/properties">Properties Component</a> allows you to use property placeholders when defining Endpoint URIs  */
 end_comment

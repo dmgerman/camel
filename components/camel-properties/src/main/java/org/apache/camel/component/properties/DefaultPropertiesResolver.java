@@ -156,6 +156,20 @@ name|IOHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|OrderedProperties
+import|;
+end_import
+
 begin_comment
 comment|/**  * Default {@link org.apache.camel.component.properties.PropertiesResolver} which can resolve properties  * from file and classpath.  *<p/>  * You can denote<tt>classpath:</tt> or<tt>file:</tt> as prefix in the uri to select whether the file  * is located in the classpath or on the file system.  */
 end_comment
