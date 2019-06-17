@@ -5183,6 +5183,31 @@ argument_list|,
 name|stringValue
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|failIfNotSet
+condition|)
+block|{
+name|PropertyBindingSupport
+operator|.
+name|bindMandatoryProperty
+argument_list|(
+name|context
+argument_list|,
+name|target
+argument_list|,
+name|name
+argument_list|,
+name|stringValue
+argument_list|)
+expr_stmt|;
+name|rc
+operator|=
+literal|true
+expr_stmt|;
+block|}
+else|else
+block|{
 name|boolean
 name|hit
 init|=
@@ -5214,40 +5239,6 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|failIfNotSet
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Cannot configure option ["
-operator|+
-name|name
-operator|+
-literal|"] with value ["
-operator|+
-name|stringValue
-operator|+
-literal|"] as the bean class ["
-operator|+
-name|ObjectHelper
-operator|.
-name|classCanonicalName
-argument_list|(
-name|target
-argument_list|)
-operator|+
-literal|"] has no suitable setter method, or not possible to lookup a bean with the id ["
-operator|+
-name|stringValue
-operator|+
-literal|"] in Camel registry"
-argument_list|)
-throw|;
 block|}
 block|}
 return|return

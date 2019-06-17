@@ -2176,6 +2176,8 @@ name|name
 argument_list|,
 name|value
 argument_list|,
+literal|false
+argument_list|,
 literal|true
 argument_list|,
 literal|true
@@ -2269,6 +2271,8 @@ name|name
 argument_list|,
 name|value
 argument_list|,
+literal|false
+argument_list|,
 name|nesting
 argument_list|,
 name|deepNesting
@@ -2359,6 +2363,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -2398,7 +2404,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|setProperty (CamelContext context, Object target, String name, Object value, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean reference, boolean placeholder)
+DECL|method|setProperty (CamelContext context, Object target, String name, Object value, boolean mandatory, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean reference, boolean placeholder)
 specifier|private
 specifier|static
 name|boolean
@@ -2415,6 +2421,9 @@ name|name
 parameter_list|,
 name|Object
 name|value
+parameter_list|,
+name|boolean
+name|mandatory
 parameter_list|,
 name|boolean
 name|nesting
@@ -2476,6 +2485,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|String
+name|ognlPath
+init|=
+name|name
+decl_stmt|;
 comment|// if name has dot then we need to OGNL walk it
 if|if
 condition|(
@@ -2688,6 +2702,33 @@ operator|.
 name|getClass
 argument_list|()
 expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|mandatory
+condition|)
+block|{
+comment|// there is no getter with this given name, so lets report this as a problem
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot find nested getter method: "
+operator|+
+name|part
+operator|+
+literal|" on bean: "
+operator|+
+name|newClass
+operator|+
+literal|" when binding property: "
+operator|+
+name|ognlPath
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
@@ -3030,7 +3071,9 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-return|return
+name|boolean
+name|hit
+init|=
 name|IntrospectionSupport
 operator|.
 name|setProperty
@@ -3052,6 +3095,36 @@ name|refName
 argument_list|,
 name|fluentBuilder
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|hit
+operator|&&
+name|mandatory
+condition|)
+block|{
+comment|// there is no setter with this given name, so lets report this as a problem
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot find setter method: "
+operator|+
+name|name
+operator|+
+literal|" on bean: "
+operator|+
+name|target
+operator|+
+literal|" when binding property: "
+operator|+
+name|ognlPath
+argument_list|)
+throw|;
+block|}
+return|return
+name|hit
 return|;
 block|}
 DECL|method|getOrElseProperty (Object target, String property, Object defaultValue)
