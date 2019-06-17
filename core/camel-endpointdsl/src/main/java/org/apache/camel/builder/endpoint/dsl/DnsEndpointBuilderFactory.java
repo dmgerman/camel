@@ -261,7 +261,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.camel.component.dns.DnsType</code> enum.      */
 DECL|enum|DnsType
-specifier|static
 enum|enum
 name|DnsType
 block|{

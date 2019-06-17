@@ -1447,7 +1447,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.xmlsecurity.XmlCommand</code> enum.      */
 DECL|enum|XmlCommand
-specifier|static
 enum|enum
 name|XmlCommand
 block|{

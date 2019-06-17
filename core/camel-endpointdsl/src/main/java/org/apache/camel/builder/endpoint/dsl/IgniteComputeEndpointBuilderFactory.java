@@ -324,7 +324,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.ignite.compute.IgniteComputeExecutionType</code> enum.      */
 DECL|enum|IgniteComputeExecutionType
-specifier|static
 enum|enum
 name|IgniteComputeExecutionType
 block|{

@@ -3685,7 +3685,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.aws.sqs.SqsOperations</code> enum.      */
 DECL|enum|SqsOperations
-specifier|static
 enum|enum
 name|SqsOperations
 block|{

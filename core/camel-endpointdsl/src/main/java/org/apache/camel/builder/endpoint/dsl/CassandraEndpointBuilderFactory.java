@@ -2642,7 +2642,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>com.datastax.driver.core.ConsistencyLevel</code>      * enum.      */
 DECL|enum|ConsistencyLevel
-specifier|static
 enum|enum
 name|ConsistencyLevel
 block|{

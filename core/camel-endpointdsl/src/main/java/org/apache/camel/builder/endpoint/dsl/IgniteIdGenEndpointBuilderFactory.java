@@ -324,7 +324,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.ignite.idgen.IgniteIdGenOperation</code>      * enum.      */
 DECL|enum|IgniteIdGenOperation
-specifier|static
 enum|enum
 name|IgniteIdGenOperation
 block|{

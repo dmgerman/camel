@@ -2374,7 +2374,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.docker.DockerOperation</code> enum.      */
 DECL|enum|DockerOperation
-specifier|static
 enum|enum
 name|DockerOperation
 block|{

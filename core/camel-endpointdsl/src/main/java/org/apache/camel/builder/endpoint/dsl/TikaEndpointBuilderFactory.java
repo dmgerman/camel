@@ -387,7 +387,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.camel.component.tika.TikaOperation</code>      * enum.      */
 DECL|enum|TikaOperation
-specifier|static
 enum|enum
 name|TikaOperation
 block|{
@@ -399,7 +398,6 @@ name|detect
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.tika.TikaParseOutputFormat</code> enum.      */
 DECL|enum|TikaParseOutputFormat
-specifier|static
 enum|enum
 name|TikaParseOutputFormat
 block|{

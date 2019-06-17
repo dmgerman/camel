@@ -4734,7 +4734,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.file.GenericFileExist</code> enum.      */
 DECL|enum|GenericFileExist
-specifier|static
 enum|enum
 name|GenericFileExist
 block|{

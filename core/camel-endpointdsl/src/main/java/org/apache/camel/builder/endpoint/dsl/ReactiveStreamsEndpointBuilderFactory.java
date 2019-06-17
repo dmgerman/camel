@@ -988,7 +988,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.reactive.streams.ReactiveStreamsBackpressureStrategy</code> enum.      */
 DECL|enum|ReactiveStreamsBackpressureStrategy
-specifier|static
 enum|enum
 name|ReactiveStreamsBackpressureStrategy
 block|{

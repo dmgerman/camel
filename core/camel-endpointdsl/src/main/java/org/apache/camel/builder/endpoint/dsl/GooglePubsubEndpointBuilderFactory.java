@@ -1366,7 +1366,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.google.pubsub.GooglePubsubConstants$AckMode</code> enum.      */
 DECL|enum|AckMode
-specifier|static
 enum|enum
 name|AckMode
 block|{

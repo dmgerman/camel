@@ -261,7 +261,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.saga.SagaEndpoint$SagaEndpointAction</code> enum.      */
 DECL|enum|SagaEndpointAction
-specifier|static
 enum|enum
 name|SagaEndpointAction
 block|{

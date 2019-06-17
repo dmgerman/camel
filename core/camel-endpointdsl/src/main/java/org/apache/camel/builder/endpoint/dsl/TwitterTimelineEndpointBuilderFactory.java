@@ -2684,7 +2684,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.twitter.data.TimelineType</code> enum.      */
 DECL|enum|TimelineType
-specifier|static
 enum|enum
 name|TimelineType
 block|{
@@ -2708,7 +2707,6 @@ name|UNKNOWN
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.twitter.data.EndpointType</code> enum.      */
 DECL|enum|EndpointType
-specifier|static
 enum|enum
 name|EndpointType
 block|{

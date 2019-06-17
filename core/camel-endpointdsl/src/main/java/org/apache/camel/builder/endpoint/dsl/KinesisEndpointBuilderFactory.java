@@ -2117,7 +2117,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>com.amazonaws.services.kinesis.model.ShardIteratorType</code> enum.      */
 DECL|enum|ShardIteratorType
-specifier|static
 enum|enum
 name|ShardIteratorType
 block|{
@@ -2138,7 +2137,6 @@ name|AT_TIMESTAMP
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.aws.kinesis.KinesisShardClosedStrategyEnum</code> enum.      */
 DECL|enum|KinesisShardClosedStrategyEnum
-specifier|static
 enum|enum
 name|KinesisShardClosedStrategyEnum
 block|{

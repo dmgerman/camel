@@ -3335,7 +3335,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.camel.component.sql.SqlOutputType</code>      * enum.      */
 DECL|enum|SqlOutputType
-specifier|static
 enum|enum
 name|SqlOutputType
 block|{

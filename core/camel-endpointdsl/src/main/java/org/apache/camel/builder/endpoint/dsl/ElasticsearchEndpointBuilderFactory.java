@@ -681,7 +681,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.elasticsearch.ElasticsearchOperation</code> enum.      */
 DECL|enum|ElasticsearchOperation
-specifier|static
 enum|enum
 name|ElasticsearchOperation
 block|{

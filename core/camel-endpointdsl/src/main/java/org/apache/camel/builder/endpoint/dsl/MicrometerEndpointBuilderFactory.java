@@ -411,7 +411,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>io.micrometer.core.instrument.Meter$Type</code>      * enum.      */
 DECL|enum|Type
-specifier|static
 enum|enum
 name|Type
 block|{

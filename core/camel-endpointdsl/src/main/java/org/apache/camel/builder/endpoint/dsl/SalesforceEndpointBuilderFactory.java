@@ -4661,7 +4661,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.salesforce.internal.OperationName</code>      * enum.      */
 DECL|enum|OperationName
-specifier|static
 enum|enum
 name|OperationName
 block|{
@@ -4796,7 +4795,6 @@ name|COMPOSITE
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.salesforce.api.dto.bulk.ContentType</code> enum.      */
 DECL|enum|ContentType
-specifier|static
 enum|enum
 name|ContentType
 block|{
@@ -4820,7 +4818,6 @@ name|ZIP_JSON
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.salesforce.internal.PayloadFormat</code>      * enum.      */
 DECL|enum|PayloadFormat
-specifier|static
 enum|enum
 name|PayloadFormat
 block|{
@@ -4832,7 +4829,6 @@ name|XML
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.salesforce.NotFoundBehaviour</code>      * enum.      */
 DECL|enum|NotFoundBehaviour
-specifier|static
 enum|enum
 name|NotFoundBehaviour
 block|{
@@ -4844,7 +4840,6 @@ name|NULL
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForFieldsEnum</code> enum.      */
 DECL|enum|NotifyForFieldsEnum
-specifier|static
 enum|enum
 name|NotifyForFieldsEnum
 block|{
@@ -4862,7 +4857,6 @@ name|WHERE
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForOperationsEnum</code> enum.      */
 DECL|enum|NotifyForOperationsEnum
-specifier|static
 enum|enum
 name|NotifyForOperationsEnum
 block|{

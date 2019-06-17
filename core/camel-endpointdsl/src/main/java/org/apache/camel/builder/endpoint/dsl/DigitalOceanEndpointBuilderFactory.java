@@ -555,7 +555,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.digitalocean.constants.DigitalOceanOperations</code> enum.      */
 DECL|enum|DigitalOceanOperations
-specifier|static
 enum|enum
 name|DigitalOceanOperations
 block|{
@@ -669,7 +668,6 @@ name|untag
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.digitalocean.constants.DigitalOceanResources</code> enum.      */
 DECL|enum|DigitalOceanResources
-specifier|static
 enum|enum
 name|DigitalOceanResources
 block|{

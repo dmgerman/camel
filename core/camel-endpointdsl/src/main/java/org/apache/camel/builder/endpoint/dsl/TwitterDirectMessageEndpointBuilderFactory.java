@@ -2558,7 +2558,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.twitter.data.EndpointType</code> enum.      */
 DECL|enum|EndpointType
-specifier|static
 enum|enum
 name|EndpointType
 block|{

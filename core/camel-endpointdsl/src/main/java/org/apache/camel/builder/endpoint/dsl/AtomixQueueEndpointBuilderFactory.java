@@ -2200,7 +2200,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.atomix.client.queue.AtomixQueue$Action</code> enum.      */
 DECL|enum|Action
-specifier|static
 enum|enum
 name|Action
 block|{
@@ -2233,7 +2232,6 @@ name|SIZE
 block|;     }
 comment|/**      * Proxy enum for<code>io.atomix.resource.ReadConsistency</code> enum.      */
 DECL|enum|ReadConsistency
-specifier|static
 enum|enum
 name|ReadConsistency
 block|{

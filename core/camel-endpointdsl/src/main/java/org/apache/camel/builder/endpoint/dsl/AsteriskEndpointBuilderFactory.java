@@ -967,7 +967,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.asterisk.AsteriskAction</code> enum.      */
 DECL|enum|AsteriskAction
-specifier|static
 enum|enum
 name|AsteriskAction
 block|{

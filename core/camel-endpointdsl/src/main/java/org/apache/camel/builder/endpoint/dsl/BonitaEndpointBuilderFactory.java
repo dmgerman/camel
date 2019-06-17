@@ -366,7 +366,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.bonita.util.BonitaOperation</code> enum.      */
 DECL|enum|BonitaOperation
-specifier|static
 enum|enum
 name|BonitaOperation
 block|{

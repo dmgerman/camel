@@ -261,7 +261,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.aws.ec2.EC2Operations</code> enum.      */
 DECL|enum|EC2Operations
-specifier|static
 enum|enum
 name|EC2Operations
 block|{

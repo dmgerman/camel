@@ -681,7 +681,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>info.ganglia.gmetric4j.gmetric.GMetric$UDPAddressingMode</code>      * enum.      */
 DECL|enum|UDPAddressingMode
-specifier|static
 enum|enum
 name|UDPAddressingMode
 block|{
@@ -693,7 +692,6 @@ name|UNICAST
 block|;     }
 comment|/**      * Proxy enum for<code>info.ganglia.gmetric4j.gmetric.GMetricSlope</code>      * enum.      */
 DECL|enum|GMetricSlope
-specifier|static
 enum|enum
 name|GMetricSlope
 block|{
@@ -711,7 +709,6 @@ name|BOTH
 block|;     }
 comment|/**      * Proxy enum for<code>info.ganglia.gmetric4j.gmetric.GMetricType</code>      * enum.      */
 DECL|enum|GMetricType
-specifier|static
 enum|enum
 name|GMetricType
 block|{

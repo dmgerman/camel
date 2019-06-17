@@ -534,7 +534,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.aws.sdb.SdbOperations</code> enum.      */
 DECL|enum|SdbOperations
-specifier|static
 enum|enum
 name|SdbOperations
 block|{

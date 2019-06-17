@@ -1471,7 +1471,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.camel.component.redis.Command</code>      * enum.      */
 DECL|enum|Command
-specifier|static
 enum|enum
 name|Command
 block|{

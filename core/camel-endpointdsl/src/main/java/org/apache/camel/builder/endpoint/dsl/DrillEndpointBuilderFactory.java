@@ -366,7 +366,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.drill.DrillConnectionMode</code> enum.      */
 DECL|enum|DrillConnectionMode
-specifier|static
 enum|enum
 name|DrillConnectionMode
 block|{

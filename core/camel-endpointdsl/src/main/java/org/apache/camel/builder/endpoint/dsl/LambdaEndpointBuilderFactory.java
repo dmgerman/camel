@@ -429,7 +429,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.aws.lambda.LambdaOperations</code> enum.      */
 DECL|enum|LambdaOperations
-specifier|static
 enum|enum
 name|LambdaOperations
 block|{

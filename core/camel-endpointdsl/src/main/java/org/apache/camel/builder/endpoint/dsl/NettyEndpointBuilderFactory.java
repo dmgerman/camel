@@ -6778,7 +6778,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.netty4.TextLineDelimiter</code> enum.      */
 DECL|enum|TextLineDelimiter
-specifier|static
 enum|enum
 name|TextLineDelimiter
 block|{

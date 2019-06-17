@@ -324,7 +324,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.camel.component.fop.FopOutputType</code>      * enum.      */
 DECL|enum|FopOutputType
-specifier|static
 enum|enum
 name|FopOutputType
 block|{

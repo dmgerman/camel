@@ -597,7 +597,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.hazelcast.HazelcastOperation</code>      * enum.      */
 DECL|enum|HazelcastOperation
-specifier|static
 enum|enum
 name|HazelcastOperation
 block|{

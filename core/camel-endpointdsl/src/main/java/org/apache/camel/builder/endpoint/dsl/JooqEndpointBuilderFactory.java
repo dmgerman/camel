@@ -1622,7 +1622,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.camel.component.jooq.JooqOperation</code>      * enum.      */
 DECL|enum|JooqOperation
-specifier|static
 enum|enum
 name|JooqOperation
 block|{

@@ -1114,7 +1114,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.ignite.messaging.IgniteMessagingSendMode</code> enum.      */
 DECL|enum|IgniteMessagingSendMode
-specifier|static
 enum|enum
 name|IgniteMessagingSendMode
 block|{

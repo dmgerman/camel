@@ -1429,7 +1429,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.dropbox.util.DropboxOperation</code>      * enum.      */
 DECL|enum|DropboxOperation
-specifier|static
 enum|enum
 name|DropboxOperation
 block|{
@@ -1450,7 +1449,6 @@ name|move
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.dropbox.util.DropboxUploadMode</code>      * enum.      */
 DECL|enum|DropboxUploadMode
-specifier|static
 enum|enum
 name|DropboxUploadMode
 block|{

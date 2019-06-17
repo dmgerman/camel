@@ -408,7 +408,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.xchange.XChangeConfiguration$XChangeMethod</code> enum.      */
 DECL|enum|XChangeMethod
-specifier|static
 enum|enum
 name|XChangeMethod
 block|{
@@ -438,7 +437,6 @@ name|ticker
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.xchange.XChangeConfiguration$XChangeService</code> enum.      */
 DECL|enum|XChangeService
-specifier|static
 enum|enum
 name|XChangeService
 block|{

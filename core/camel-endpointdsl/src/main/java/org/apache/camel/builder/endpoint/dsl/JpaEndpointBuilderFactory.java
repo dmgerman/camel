@@ -3110,7 +3110,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>javax.persistence.LockModeType</code> enum.      */
 DECL|enum|LockModeType
-specifier|static
 enum|enum
 name|LockModeType
 block|{

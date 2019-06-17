@@ -4334,7 +4334,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.fusesource.mqtt.client.QoS</code> enum.      */
 DECL|enum|QoS
-specifier|static
 enum|enum
 name|QoS
 block|{

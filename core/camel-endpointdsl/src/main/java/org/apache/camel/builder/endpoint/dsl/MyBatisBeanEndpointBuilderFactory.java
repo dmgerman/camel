@@ -261,7 +261,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.ibatis.session.ExecutorType</code> enum.      */
 DECL|enum|ExecutorType
-specifier|static
 enum|enum
 name|ExecutorType
 block|{

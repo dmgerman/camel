@@ -408,7 +408,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.jolt.JoltInputOutputType</code> enum.      */
 DECL|enum|JoltInputOutputType
-specifier|static
 enum|enum
 name|JoltInputOutputType
 block|{
@@ -420,7 +419,6 @@ name|JsonString
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.jolt.JoltTransformType</code> enum.      */
 DECL|enum|JoltTransformType
-specifier|static
 enum|enum
 name|JoltTransformType
 block|{

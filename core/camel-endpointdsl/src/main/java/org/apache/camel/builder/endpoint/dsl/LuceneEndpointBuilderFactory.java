@@ -460,7 +460,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.lucene.LuceneOperation</code> enum.      */
 DECL|enum|LuceneOperation
-specifier|static
 enum|enum
 name|LuceneOperation
 block|{

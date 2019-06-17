@@ -1471,7 +1471,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.mongodb.gridfs.QueryStrategy</code>      * enum.      */
 DECL|enum|QueryStrategy
-specifier|static
 enum|enum
 name|QueryStrategy
 block|{

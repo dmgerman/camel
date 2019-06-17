@@ -1345,7 +1345,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.spi.RestConfiguration$RestBindingMode</code> enum.      */
 DECL|enum|RestBindingMode
-specifier|static
 enum|enum
 name|RestBindingMode
 block|{

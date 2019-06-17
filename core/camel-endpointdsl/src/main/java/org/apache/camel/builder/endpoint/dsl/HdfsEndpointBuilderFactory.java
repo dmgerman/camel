@@ -3503,7 +3503,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.hdfs2.HdfsFileSystemType</code> enum.      */
 DECL|enum|HdfsFileSystemType
-specifier|static
 enum|enum
 name|HdfsFileSystemType
 block|{
@@ -3515,7 +3514,6 @@ name|HDFS
 block|;     }
 comment|/**      * Proxy enum for<code>org.apache.camel.component.hdfs2.HdfsFileType</code>      * enum.      */
 DECL|enum|HdfsFileType
-specifier|static
 enum|enum
 name|HdfsFileType
 block|{
@@ -3536,7 +3534,6 @@ name|ARRAY_FILE
 block|;     }
 comment|/**      * Proxy enum for<code>org.apache.camel.component.hdfs2.WritableType</code>      * enum.      */
 DECL|enum|WritableType
-specifier|static
 enum|enum
 name|WritableType
 block|{
@@ -3569,7 +3566,6 @@ name|BYTES
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.hdfs2.HdfsCompressionCodec</code> enum.      */
 DECL|enum|HdfsCompressionCodec
-specifier|static
 enum|enum
 name|HdfsCompressionCodec
 block|{
@@ -3584,7 +3580,6 @@ name|BZIP2
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.hadoop.io.SequenceFile$CompressionType</code> enum.      */
 DECL|enum|CompressionType
-specifier|static
 enum|enum
 name|CompressionType
 block|{

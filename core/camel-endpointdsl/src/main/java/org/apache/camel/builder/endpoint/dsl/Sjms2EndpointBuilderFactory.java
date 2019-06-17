@@ -3303,7 +3303,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.sjms.jms.SessionAcknowledgementType</code> enum.      */
 DECL|enum|SessionAcknowledgementType
-specifier|static
 enum|enum
 name|SessionAcknowledgementType
 block|{

@@ -1649,7 +1649,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.spring.ws.type.EndpointMappingType</code> enum.      */
 DECL|enum|EndpointMappingType
-specifier|static
 enum|enum
 name|EndpointMappingType
 block|{

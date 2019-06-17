@@ -1240,7 +1240,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.google.sheets.internal.GoogleSheetsApiName</code> enum.      */
 DECL|enum|GoogleSheetsApiName
-specifier|static
 enum|enum
 name|GoogleSheetsApiName
 block|{

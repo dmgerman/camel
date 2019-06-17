@@ -2030,7 +2030,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.infinispan.InfinispanOperation</code>      * enum.      */
 DECL|enum|InfinispanOperation
-specifier|static
 enum|enum
 name|InfinispanOperation
 block|{
@@ -2099,7 +2098,6 @@ name|COMPUTEASYNC
 block|;     }
 comment|/**      * Proxy enum for<code>org.infinispan.context.Flag</code> enum.      */
 DECL|enum|Flag
-specifier|static
 enum|enum
 name|Flag
 block|{

@@ -3669,7 +3669,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.weather.WeatherLanguage</code> enum.      */
 DECL|enum|WeatherLanguage
-specifier|static
 enum|enum
 name|WeatherLanguage
 block|{
@@ -3744,7 +3743,6 @@ name|ca
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.weather.WeatherMode</code> enum.      */
 DECL|enum|WeatherMode
-specifier|static
 enum|enum
 name|WeatherMode
 block|{
@@ -3759,7 +3757,6 @@ name|XML
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.weather.WeatherUnits</code> enum.      */
 DECL|enum|WeatherUnits
-specifier|static
 enum|enum
 name|WeatherUnits
 block|{
@@ -3771,7 +3768,6 @@ name|METRIC
 block|;     }
 comment|/**      * Proxy enum for<code>org.apache.camel.component.weather.WeatherApi</code>      * enum.      */
 DECL|enum|WeatherApi
-specifier|static
 enum|enum
 name|WeatherApi
 block|{

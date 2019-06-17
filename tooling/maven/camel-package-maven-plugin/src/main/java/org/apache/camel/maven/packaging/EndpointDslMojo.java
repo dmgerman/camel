@@ -4224,11 +4224,6 @@ operator|.
 name|setPackagePrivate
 argument_list|()
 operator|.
-name|setStatic
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|setName
 argument_list|(
 name|enumClassName

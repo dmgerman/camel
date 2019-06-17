@@ -862,7 +862,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.camel.component.xslt.XsltOutput</code>      * enum.      */
 DECL|enum|XsltOutput
-specifier|static
 enum|enum
 name|XsltOutput
 block|{

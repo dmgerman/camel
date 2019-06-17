@@ -618,7 +618,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.aws.ddb.DdbOperations</code> enum.      */
 DECL|enum|DdbOperations
-specifier|static
 enum|enum
 name|DdbOperations
 block|{

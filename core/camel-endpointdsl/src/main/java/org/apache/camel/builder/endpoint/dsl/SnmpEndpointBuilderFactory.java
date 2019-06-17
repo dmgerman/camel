@@ -723,7 +723,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.snmp.SnmpActionType</code> enum.      */
 DECL|enum|SnmpActionType
-specifier|static
 enum|enum
 name|SnmpActionType
 block|{

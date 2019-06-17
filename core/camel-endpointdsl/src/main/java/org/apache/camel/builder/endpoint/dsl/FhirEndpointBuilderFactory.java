@@ -3067,7 +3067,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.fhir.internal.FhirApiName</code> enum.      */
 DECL|enum|FhirApiName
-specifier|static
 enum|enum
 name|FhirApiName
 block|{
@@ -3112,7 +3111,6 @@ name|VALIDATE
 block|;     }
 comment|/**      * Proxy enum for<code>ca.uhn.fhir.rest.api.EncodingEnum</code> enum.      */
 DECL|enum|EncodingEnum
-specifier|static
 enum|enum
 name|EncodingEnum
 block|{
@@ -3124,7 +3122,6 @@ name|XML
 block|;     }
 comment|/**      * Proxy enum for<code>ca.uhn.fhir.context.FhirVersionEnum</code> enum.      */
 DECL|enum|FhirVersionEnum
-specifier|static
 enum|enum
 name|FhirVersionEnum
 block|{
@@ -3145,7 +3142,6 @@ name|R4
 block|;     }
 comment|/**      * Proxy enum for<code>ca.uhn.fhir.rest.api.SummaryEnum</code> enum.      */
 DECL|enum|SummaryEnum
-specifier|static
 enum|enum
 name|SummaryEnum
 block|{
@@ -3166,7 +3162,6 @@ name|FALSE
 block|;     }
 comment|/**      * Proxy enum for      *<code>ca.uhn.fhir.rest.client.api.ServerValidationModeEnum</code> enum.      */
 DECL|enum|ServerValidationModeEnum
-specifier|static
 enum|enum
 name|ServerValidationModeEnum
 block|{

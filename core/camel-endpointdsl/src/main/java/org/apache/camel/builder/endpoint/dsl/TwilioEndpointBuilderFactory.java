@@ -925,7 +925,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.twilio.internal.TwilioApiName</code>      * enum.      */
 DECL|enum|TwilioApiName
-specifier|static
 enum|enum
 name|TwilioApiName
 block|{

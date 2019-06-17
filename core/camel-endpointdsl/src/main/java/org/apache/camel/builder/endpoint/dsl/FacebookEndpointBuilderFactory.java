@@ -9674,7 +9674,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>facebook4j.PictureSize</code> enum.      */
 DECL|enum|PictureSize
-specifier|static
 enum|enum
 name|PictureSize
 block|{

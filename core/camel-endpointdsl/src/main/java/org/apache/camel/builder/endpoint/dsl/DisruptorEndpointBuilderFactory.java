@@ -1168,7 +1168,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.disruptor.DisruptorWaitStrategy</code>      * enum.      */
 DECL|enum|DisruptorWaitStrategy
-specifier|static
 enum|enum
 name|DisruptorWaitStrategy
 block|{
@@ -1186,7 +1185,6 @@ name|Yielding
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.disruptor.DisruptorProducerType</code>      * enum.      */
 DECL|enum|DisruptorProducerType
-specifier|static
 enum|enum
 name|DisruptorProducerType
 block|{

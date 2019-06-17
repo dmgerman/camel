@@ -1991,7 +1991,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.yammer.YammerFunctionType</code> enum.      */
 DECL|enum|YammerFunctionType
-specifier|static
 enum|enum
 name|YammerFunctionType
 block|{
