@@ -345,7 +345,7 @@ init|=
 operator|new
 name|GenericContainer
 argument_list|(
-literal|"consul:1.0.7"
+literal|"consul:1.5.1"
 argument_list|)
 operator|.
 name|withExposedPorts
