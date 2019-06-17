@@ -18,6 +18,10 @@ name|endpoint
 package|;
 end_package
 
+begin_comment
+comment|// CHECKSTYLE:OFF
+end_comment
+
 begin_import
 import|import
 name|org
