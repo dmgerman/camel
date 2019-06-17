@@ -77,6 +77,16 @@ argument_list|(
 literal|"${body}"
 argument_list|)
 expr_stmt|;
+name|from
+argument_list|(
+literal|"jms:queue:cheese"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:cheese"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
