@@ -1585,7 +1585,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Splunk component.      */
 DECL|interface|SplunkEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SplunkEndpointProducerBuilder
 extends|extends
@@ -2239,7 +2238,6 @@ block|}
 comment|/**      * Builder for endpoint for the Splunk component.      */
 DECL|interface|SplunkEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SplunkEndpointBuilder
 extends|extends
@@ -2579,7 +2577,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Splunk component.      */
 DECL|interface|AdvancedSplunkEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSplunkEndpointBuilder
 extends|extends

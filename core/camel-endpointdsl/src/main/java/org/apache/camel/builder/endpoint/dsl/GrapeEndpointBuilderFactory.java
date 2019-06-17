@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Grape component.      */
 DECL|interface|GrapeEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GrapeEndpointBuilder
 extends|extends
@@ -136,7 +135,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Grape component.      */
 DECL|interface|AdvancedGrapeEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedGrapeEndpointBuilder
 extends|extends

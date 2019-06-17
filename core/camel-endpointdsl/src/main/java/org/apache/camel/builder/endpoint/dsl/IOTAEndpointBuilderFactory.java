@@ -582,7 +582,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the IOTA component.      */
 DECL|interface|IOTAEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|IOTAEndpointProducerBuilder
 extends|extends
@@ -963,7 +962,6 @@ block|}
 comment|/**      * Builder for endpoint for the IOTA component.      */
 DECL|interface|IOTAEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|IOTAEndpointBuilder
 extends|extends
@@ -1198,7 +1196,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the IOTA component.      */
 DECL|interface|AdvancedIOTAEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedIOTAEndpointBuilder
 extends|extends

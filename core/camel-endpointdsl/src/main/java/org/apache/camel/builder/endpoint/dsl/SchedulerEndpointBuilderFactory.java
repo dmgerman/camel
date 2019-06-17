@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Scheduler component.      */
 DECL|interface|SchedulerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SchedulerEndpointBuilder
 extends|extends
@@ -178,7 +177,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Scheduler component.      */
 DECL|interface|AdvancedSchedulerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSchedulerEndpointBuilder
 extends|extends

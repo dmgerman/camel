@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Nagios component.      */
 DECL|interface|NagiosEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|NagiosEndpointBuilder
 extends|extends
@@ -413,7 +412,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Nagios component.      */
 DECL|interface|AdvancedNagiosEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedNagiosEndpointBuilder
 extends|extends

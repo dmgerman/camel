@@ -1168,7 +1168,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the JOOQ component.      */
 DECL|interface|JooqEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JooqEndpointProducerBuilder
 extends|extends
@@ -1447,7 +1446,6 @@ block|}
 comment|/**      * Builder for endpoint for the JOOQ component.      */
 DECL|interface|JooqEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JooqEndpointBuilder
 extends|extends
@@ -1517,7 +1515,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the JOOQ component.      */
 DECL|interface|AdvancedJooqEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedJooqEndpointBuilder
 extends|extends

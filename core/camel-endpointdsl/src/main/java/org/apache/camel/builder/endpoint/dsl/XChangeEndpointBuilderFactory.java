@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the XChange component.      */
 DECL|interface|XChangeEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|XChangeEndpointBuilder
 extends|extends
@@ -304,7 +303,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the XChange component.      */
 DECL|interface|AdvancedXChangeEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedXChangeEndpointBuilder
 extends|extends

@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Kubernetes ConfigMap component.      */
 DECL|interface|KubernetesConfigMapsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KubernetesConfigMapsEndpointBuilder
 extends|extends
@@ -535,7 +534,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Kubernetes ConfigMap component.      */
 DECL|interface|AdvancedKubernetesConfigMapsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedKubernetesConfigMapsEndpointBuilder
 extends|extends

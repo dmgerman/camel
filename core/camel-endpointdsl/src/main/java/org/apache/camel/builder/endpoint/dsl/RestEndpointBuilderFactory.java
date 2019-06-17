@@ -582,7 +582,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the REST component.      */
 DECL|interface|RestEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|RestEndpointProducerBuilder
 extends|extends
@@ -1047,7 +1046,6 @@ block|}
 comment|/**      * Builder for endpoint for the REST component.      */
 DECL|interface|RestEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|RestEndpointBuilder
 extends|extends
@@ -1240,7 +1238,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the REST component.      */
 DECL|interface|AdvancedRestEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedRestEndpointBuilder
 extends|extends

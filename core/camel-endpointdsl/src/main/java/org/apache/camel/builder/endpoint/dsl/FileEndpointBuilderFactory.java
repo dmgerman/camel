@@ -3362,7 +3362,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the File component.      */
 DECL|interface|FileEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|FileEndpointProducerBuilder
 extends|extends
@@ -4310,7 +4309,6 @@ block|}
 comment|/**      * Builder for endpoint for the File component.      */
 DECL|interface|FileEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|FileEndpointBuilder
 extends|extends
@@ -4461,7 +4459,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the File component.      */
 DECL|interface|AdvancedFileEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedFileEndpointBuilder
 extends|extends

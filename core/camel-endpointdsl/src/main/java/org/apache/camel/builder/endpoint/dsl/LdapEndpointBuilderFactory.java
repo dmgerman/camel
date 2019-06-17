@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the LDAP component.      */
 DECL|interface|LdapEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|LdapEndpointBuilder
 extends|extends
@@ -241,7 +240,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the LDAP component.      */
 DECL|interface|AdvancedLdapEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedLdapEndpointBuilder
 extends|extends

@@ -891,7 +891,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Box component.      */
 DECL|interface|BoxEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|BoxEndpointProducerBuilder
 extends|extends
@@ -1571,7 +1570,6 @@ block|}
 comment|/**      * Builder for endpoint for the Box component.      */
 DECL|interface|BoxEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|BoxEndpointBuilder
 extends|extends
@@ -1932,7 +1930,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Box component.      */
 DECL|interface|AdvancedBoxEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedBoxEndpointBuilder
 extends|extends

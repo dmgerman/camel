@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Geocoder component.      */
 DECL|interface|GeoCoderEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GeoCoderEndpointBuilder
 extends|extends
@@ -451,7 +450,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Geocoder component.      */
 DECL|interface|AdvancedGeoCoderEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedGeoCoderEndpointBuilder
 extends|extends

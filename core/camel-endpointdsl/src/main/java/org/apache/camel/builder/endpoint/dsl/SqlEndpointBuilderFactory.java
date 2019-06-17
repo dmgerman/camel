@@ -1928,7 +1928,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the SQL component.      */
 DECL|interface|SqlEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SqlEndpointProducerBuilder
 extends|extends
@@ -2715,7 +2714,6 @@ block|}
 comment|/**      * Builder for endpoint for the SQL component.      */
 DECL|interface|SqlEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SqlEndpointBuilder
 extends|extends
@@ -2994,7 +2992,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the SQL component.      */
 DECL|interface|AdvancedSqlEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSqlEndpointBuilder
 extends|extends

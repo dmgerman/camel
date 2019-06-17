@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the LDIF component.      */
 DECL|interface|LdifEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|LdifEndpointBuilder
 extends|extends
@@ -136,7 +135,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the LDIF component.      */
 DECL|interface|AdvancedLdifEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedLdifEndpointBuilder
 extends|extends

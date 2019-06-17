@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Velocity component.      */
 DECL|interface|VelocityEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|VelocityEndpointBuilder
 extends|extends
@@ -262,7 +261,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Velocity component.      */
 DECL|interface|AdvancedVelocityEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedVelocityEndpointBuilder
 extends|extends

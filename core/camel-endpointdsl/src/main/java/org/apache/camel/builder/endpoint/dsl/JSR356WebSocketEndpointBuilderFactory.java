@@ -456,7 +456,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Javax Websocket component.      */
 DECL|interface|JSR356WebSocketEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JSR356WebSocketEndpointProducerBuilder
 extends|extends
@@ -711,7 +710,6 @@ block|}
 comment|/**      * Builder for endpoint for the Javax Websocket component.      */
 DECL|interface|JSR356WebSocketEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JSR356WebSocketEndpointBuilder
 extends|extends
@@ -820,7 +818,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Javax Websocket component.      */
 DECL|interface|AdvancedJSR356WebSocketEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedJSR356WebSocketEndpointBuilder
 extends|extends

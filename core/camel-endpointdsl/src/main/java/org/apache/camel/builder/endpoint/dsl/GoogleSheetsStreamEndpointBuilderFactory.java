@@ -102,7 +102,6 @@ block|{
 comment|/**      * Builder for endpoint for the Google Sheets Stream component.      */
 DECL|interface|GoogleSheetsStreamEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GoogleSheetsStreamEndpointBuilder
 extends|extends
@@ -506,7 +505,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Google Sheets Stream component.      */
 DECL|interface|AdvancedGoogleSheetsStreamEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedGoogleSheetsStreamEndpointBuilder
 extends|extends

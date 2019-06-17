@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Dozer component.      */
 DECL|interface|DozerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DozerEndpointBuilder
 extends|extends
@@ -283,7 +282,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Dozer component.      */
 DECL|interface|AdvancedDozerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedDozerEndpointBuilder
 extends|extends

@@ -4160,7 +4160,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the FTP component.      */
 DECL|interface|FtpEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|FtpEndpointProducerBuilder
 extends|extends
@@ -6000,7 +5999,6 @@ block|}
 comment|/**      * Builder for endpoint for the FTP component.      */
 DECL|interface|FtpEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|FtpEndpointBuilder
 extends|extends
@@ -6550,7 +6548,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the FTP component.      */
 DECL|interface|AdvancedFtpEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedFtpEndpointBuilder
 extends|extends

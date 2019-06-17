@@ -112,7 +112,6 @@ block|{
 comment|/**      * Builder for endpoint for the Crypto CMS component.      */
 DECL|interface|CryptoCmsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CryptoCmsEndpointBuilder
 extends|extends
@@ -772,7 +771,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Crypto CMS component.      */
 DECL|interface|AdvancedCryptoCmsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedCryptoCmsEndpointBuilder
 extends|extends

@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Ignite ID Generator component.      */
 DECL|interface|IgniteIdGenEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|IgniteIdGenEndpointBuilder
 extends|extends
@@ -220,7 +219,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Ignite ID Generator component.      */
 DECL|interface|AdvancedIgniteIdGenEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedIgniteIdGenEndpointBuilder
 extends|extends

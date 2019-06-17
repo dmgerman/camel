@@ -1879,7 +1879,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Twitter Timeline component.      */
 DECL|interface|TwitterTimelineEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|TwitterTimelineEndpointProducerBuilder
 extends|extends
@@ -2302,7 +2301,6 @@ block|}
 comment|/**      * Builder for endpoint for the Twitter Timeline component.      */
 DECL|interface|TwitterTimelineEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|TwitterTimelineEndpointBuilder
 extends|extends
@@ -2579,7 +2577,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Twitter Timeline component.      */
 DECL|interface|AdvancedTwitterTimelineEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedTwitterTimelineEndpointBuilder
 extends|extends

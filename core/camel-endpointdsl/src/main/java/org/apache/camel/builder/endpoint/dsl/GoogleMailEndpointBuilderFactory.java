@@ -561,7 +561,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Google Mail component.      */
 DECL|interface|GoogleMailEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GoogleMailEndpointProducerBuilder
 extends|extends
@@ -921,7 +920,6 @@ block|}
 comment|/**      * Builder for endpoint for the Google Mail component.      */
 DECL|interface|GoogleMailEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GoogleMailEndpointBuilder
 extends|extends
@@ -1135,7 +1133,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Google Mail component.      */
 DECL|interface|AdvancedGoogleMailEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedGoogleMailEndpointBuilder
 extends|extends

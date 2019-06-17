@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the MVEL component.      */
 DECL|interface|MvelEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MvelEndpointBuilder
 extends|extends
@@ -199,7 +198,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the MVEL component.      */
 DECL|interface|AdvancedMvelEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedMvelEndpointBuilder
 extends|extends

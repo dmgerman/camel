@@ -456,7 +456,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the JGroups component.      */
 DECL|interface|JGroupsEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JGroupsEndpointProducerBuilder
 extends|extends
@@ -669,7 +668,6 @@ block|}
 comment|/**      * Builder for endpoint for the JGroups component.      */
 DECL|interface|JGroupsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JGroupsEndpointBuilder
 extends|extends
@@ -736,7 +734,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the JGroups component.      */
 DECL|interface|AdvancedJGroupsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedJGroupsEndpointBuilder
 extends|extends

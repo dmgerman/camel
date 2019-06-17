@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the AWS ECS component.      */
 DECL|interface|ECSEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ECSEndpointBuilder
 extends|extends
@@ -157,7 +156,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS ECS component.      */
 DECL|interface|AdvancedECSEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedECSEndpointBuilder
 extends|extends

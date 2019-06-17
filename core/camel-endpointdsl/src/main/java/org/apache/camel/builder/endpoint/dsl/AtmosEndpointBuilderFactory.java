@@ -624,7 +624,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Atmos component.      */
 DECL|interface|AtmosEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AtmosEndpointProducerBuilder
 extends|extends
@@ -1047,7 +1046,6 @@ block|}
 comment|/**      * Builder for endpoint for the Atmos component.      */
 DECL|interface|AtmosEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AtmosEndpointBuilder
 extends|extends
@@ -1324,7 +1322,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Atmos component.      */
 DECL|interface|AdvancedAtmosEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedAtmosEndpointBuilder
 extends|extends

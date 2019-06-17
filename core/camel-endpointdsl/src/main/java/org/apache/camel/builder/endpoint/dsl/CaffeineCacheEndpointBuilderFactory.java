@@ -525,7 +525,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Caffeine Cache component.      */
 DECL|interface|CaffeineCacheEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CaffeineCacheEndpointProducerBuilder
 extends|extends
@@ -1332,7 +1331,6 @@ block|}
 comment|/**      * Builder for endpoint for the Caffeine Cache component.      */
 DECL|interface|CaffeineCacheEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CaffeineCacheEndpointBuilder
 extends|extends
@@ -1420,7 +1418,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Caffeine Cache component.      */
 DECL|interface|AdvancedCaffeineCacheEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedCaffeineCacheEndpointBuilder
 extends|extends

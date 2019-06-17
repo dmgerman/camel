@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the StAX component.      */
 DECL|interface|StAXEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|StAXEndpointBuilder
 extends|extends
@@ -136,7 +135,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the StAX component.      */
 DECL|interface|AdvancedStAXEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedStAXEndpointBuilder
 extends|extends

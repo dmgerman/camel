@@ -451,7 +451,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Dataset component.      */
 DECL|interface|DataSetEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DataSetEndpointProducerBuilder
 extends|extends
@@ -1105,7 +1104,6 @@ block|}
 comment|/**      * Builder for endpoint for the Dataset component.      */
 DECL|interface|DataSetEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DataSetEndpointBuilder
 extends|extends
@@ -1193,7 +1191,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Dataset component.      */
 DECL|interface|AdvancedDataSetEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedDataSetEndpointBuilder
 extends|extends

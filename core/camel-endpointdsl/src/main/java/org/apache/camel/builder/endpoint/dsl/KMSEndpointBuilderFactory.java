@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the AWS KMS component.      */
 DECL|interface|KMSEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KMSEndpointBuilder
 extends|extends
@@ -157,7 +156,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS KMS component.      */
 DECL|interface|AdvancedKMSEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedKMSEndpointBuilder
 extends|extends

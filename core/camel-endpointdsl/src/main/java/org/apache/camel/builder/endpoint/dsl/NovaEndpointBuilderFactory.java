@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the OpenStack Nova component.      */
 DECL|interface|NovaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|NovaEndpointBuilder
 extends|extends
@@ -325,7 +324,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the OpenStack Nova component.      */
 DECL|interface|AdvancedNovaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedNovaEndpointBuilder
 extends|extends

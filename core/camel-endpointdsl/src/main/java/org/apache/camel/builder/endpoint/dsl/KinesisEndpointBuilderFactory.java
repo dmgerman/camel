@@ -1438,7 +1438,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the AWS Kinesis component.      */
 DECL|interface|KinesisEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KinesisEndpointProducerBuilder
 extends|extends
@@ -1798,7 +1797,6 @@ block|}
 comment|/**      * Builder for endpoint for the AWS Kinesis component.      */
 DECL|interface|KinesisEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KinesisEndpointBuilder
 extends|extends
@@ -2012,7 +2010,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS Kinesis component.      */
 DECL|interface|AdvancedKinesisEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedKinesisEndpointBuilder
 extends|extends

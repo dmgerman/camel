@@ -760,7 +760,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Azure Storage Blob Service      * component.      */
 DECL|interface|BlobServiceEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|BlobServiceEndpointProducerBuilder
 extends|extends
@@ -1545,7 +1544,6 @@ block|}
 comment|/**      * Builder for endpoint for the Azure Storage Blob Service component.      */
 DECL|interface|BlobServiceEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|BlobServiceEndpointBuilder
 extends|extends
@@ -1948,7 +1946,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Azure Storage Blob Service      * component.      */
 DECL|interface|AdvancedBlobServiceEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedBlobServiceEndpointBuilder
 extends|extends

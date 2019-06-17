@@ -456,7 +456,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Twilio component.      */
 DECL|interface|TwilioEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|TwilioEndpointProducerBuilder
 extends|extends
@@ -711,7 +710,6 @@ block|}
 comment|/**      * Builder for endpoint for the Twilio component.      */
 DECL|interface|TwilioEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|TwilioEndpointBuilder
 extends|extends
@@ -820,7 +818,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Twilio component.      */
 DECL|interface|AdvancedTwilioEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedTwilioEndpointBuilder
 extends|extends

@@ -1270,7 +1270,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Telegram component.      */
 DECL|interface|TelegramEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|TelegramEndpointProducerBuilder
 extends|extends
@@ -1567,7 +1566,6 @@ block|}
 comment|/**      * Builder for endpoint for the Telegram component.      */
 DECL|interface|TelegramEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|TelegramEndpointBuilder
 extends|extends
@@ -1697,7 +1695,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Telegram component.      */
 DECL|interface|AdvancedTelegramEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedTelegramEndpointBuilder
 extends|extends

@@ -106,7 +106,6 @@ block|{
 comment|/**      * Builder for endpoint for the AWS Simple Notification System component.      */
 DECL|interface|SnsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SnsEndpointBuilder
 extends|extends
@@ -633,7 +632,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS Simple Notification System      * component.      */
 DECL|interface|AdvancedSnsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSnsEndpointBuilder
 extends|extends

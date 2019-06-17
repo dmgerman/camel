@@ -102,7 +102,6 @@ block|{
 comment|/**      * Builder for endpoint for the Atom component.      */
 DECL|interface|AtomEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AtomEndpointBuilder
 extends|extends
@@ -440,7 +439,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Atom component.      */
 DECL|interface|AdvancedAtomEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedAtomEndpointBuilder
 extends|extends

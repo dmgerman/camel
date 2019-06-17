@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Webhook component.      */
 DECL|interface|WebhookEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|WebhookEndpointBuilder
 extends|extends
@@ -262,7 +261,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Webhook component.      */
 DECL|interface|AdvancedWebhookEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedWebhookEndpointBuilder
 extends|extends

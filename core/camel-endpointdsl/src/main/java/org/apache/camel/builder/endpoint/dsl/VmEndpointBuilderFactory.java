@@ -711,7 +711,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the VM component.      */
 DECL|interface|VmEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|VmEndpointProducerBuilder
 extends|extends
@@ -1239,7 +1238,6 @@ block|}
 comment|/**      * Builder for endpoint for the VM component.      */
 DECL|interface|VmEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|VmEndpointBuilder
 extends|extends
@@ -1327,7 +1325,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the VM component.      */
 DECL|interface|AdvancedVmEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedVmEndpointBuilder
 extends|extends

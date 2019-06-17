@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the AWS MSK component.      */
 DECL|interface|MSKEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MSKEndpointBuilder
 extends|extends
@@ -157,7 +156,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS MSK component.      */
 DECL|interface|AdvancedMSKEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedMSKEndpointBuilder
 extends|extends

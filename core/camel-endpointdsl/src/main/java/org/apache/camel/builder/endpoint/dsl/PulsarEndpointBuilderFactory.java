@@ -561,7 +561,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Apache Pulsar component.      */
 DECL|interface|PulsarEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|PulsarEndpointProducerBuilder
 extends|extends
@@ -774,7 +773,6 @@ block|}
 comment|/**      * Builder for endpoint for the Apache Pulsar component.      */
 DECL|interface|PulsarEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|PulsarEndpointBuilder
 extends|extends
@@ -799,7 +797,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Apache Pulsar component.      */
 DECL|interface|AdvancedPulsarEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedPulsarEndpointBuilder
 extends|extends

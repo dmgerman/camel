@@ -985,7 +985,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Atomix Map component.      */
 DECL|interface|AtomixMapEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AtomixMapEndpointProducerBuilder
 extends|extends
@@ -1739,7 +1738,6 @@ block|}
 comment|/**      * Builder for endpoint for the Atomix Map component.      */
 DECL|interface|AtomixMapEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AtomixMapEndpointBuilder
 extends|extends
@@ -2085,7 +2083,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Atomix Map component.      */
 DECL|interface|AdvancedAtomixMapEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedAtomixMapEndpointBuilder
 extends|extends

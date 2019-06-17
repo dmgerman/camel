@@ -561,7 +561,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Google Sheets component.      */
 DECL|interface|GoogleSheetsEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GoogleSheetsEndpointProducerBuilder
 extends|extends
@@ -921,7 +920,6 @@ block|}
 comment|/**      * Builder for endpoint for the Google Sheets component.      */
 DECL|interface|GoogleSheetsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GoogleSheetsEndpointBuilder
 extends|extends
@@ -1135,7 +1133,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Google Sheets component.      */
 DECL|interface|AdvancedGoogleSheetsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedGoogleSheetsEndpointBuilder
 extends|extends

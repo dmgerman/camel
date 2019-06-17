@@ -961,7 +961,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Infinispan component.      */
 DECL|interface|InfinispanEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|InfinispanEndpointProducerBuilder
 extends|extends
@@ -1537,7 +1536,6 @@ block|}
 comment|/**      * Builder for endpoint for the Infinispan component.      */
 DECL|interface|InfinispanEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|InfinispanEndpointBuilder
 extends|extends
@@ -1646,7 +1644,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Infinispan component.      */
 DECL|interface|AdvancedInfinispanEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedInfinispanEndpointBuilder
 extends|extends

@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Kubernetes Persistent Volume Claim      * component.      */
 DECL|interface|KubernetesPersistentVolumesClaimsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KubernetesPersistentVolumesClaimsEndpointBuilder
 extends|extends
@@ -535,7 +534,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Kubernetes Persistent Volume Claim      * component.      */
 DECL|interface|AdvancedKubernetesPersistentVolumesClaimsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedKubernetesPersistentVolumesClaimsEndpointBuilder
 extends|extends

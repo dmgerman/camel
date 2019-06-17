@@ -2118,7 +2118,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Kafka component.      */
 DECL|interface|KafkaEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KafkaEndpointProducerBuilder
 extends|extends
@@ -4305,7 +4304,6 @@ block|}
 comment|/**      * Builder for endpoint for the Kafka component.      */
 DECL|interface|KafkaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KafkaEndpointBuilder
 extends|extends
@@ -5002,7 +5000,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Kafka component.      */
 DECL|interface|AdvancedKafkaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedKafkaEndpointBuilder
 extends|extends

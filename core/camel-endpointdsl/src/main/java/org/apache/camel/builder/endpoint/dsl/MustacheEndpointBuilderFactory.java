@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Mustache component.      */
 DECL|interface|MustacheEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MustacheEndpointBuilder
 extends|extends
@@ -241,7 +240,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Mustache component.      */
 DECL|interface|AdvancedMustacheEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedMustacheEndpointBuilder
 extends|extends

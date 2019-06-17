@@ -1044,7 +1044,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Soroush component.      */
 DECL|interface|SoroushBotEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SoroushBotEndpointProducerBuilder
 extends|extends
@@ -1803,7 +1802,6 @@ block|}
 comment|/**      * Builder for endpoint for the Soroush component.      */
 DECL|interface|SoroushBotEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SoroushBotEndpointBuilder
 extends|extends
@@ -2416,7 +2414,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Soroush component.      */
 DECL|interface|AdvancedSoroushBotEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSoroushBotEndpointBuilder
 extends|extends

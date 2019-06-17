@@ -960,7 +960,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Kubernetes Nodes component.      */
 DECL|interface|KubernetesNodesEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KubernetesNodesEndpointProducerBuilder
 extends|extends
@@ -1614,7 +1613,6 @@ block|}
 comment|/**      * Builder for endpoint for the Kubernetes Nodes component.      */
 DECL|interface|KubernetesNodesEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KubernetesNodesEndpointBuilder
 extends|extends
@@ -2059,7 +2057,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Kubernetes Nodes component.      */
 DECL|interface|AdvancedKubernetesNodesEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedKubernetesNodesEndpointBuilder
 extends|extends

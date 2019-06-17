@@ -1170,7 +1170,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Nats component.      */
 DECL|interface|NatsEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|NatsEndpointProducerBuilder
 extends|extends
@@ -2076,7 +2075,6 @@ block|}
 comment|/**      * Builder for endpoint for the Nats component.      */
 DECL|interface|NatsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|NatsEndpointBuilder
 extends|extends
@@ -2815,7 +2813,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Nats component.      */
 DECL|interface|AdvancedNatsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedNatsEndpointBuilder
 extends|extends

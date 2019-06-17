@@ -1837,7 +1837,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Twitter Direct Message component.      */
 DECL|interface|TwitterDirectMessageEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|TwitterDirectMessageEndpointProducerBuilder
 extends|extends
@@ -2218,7 +2217,6 @@ block|}
 comment|/**      * Builder for endpoint for the Twitter Direct Message component.      */
 DECL|interface|TwitterDirectMessageEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|TwitterDirectMessageEndpointBuilder
 extends|extends
@@ -2453,7 +2451,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Twitter Direct Message component.      */
 DECL|interface|AdvancedTwitterDirectMessageEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedTwitterDirectMessageEndpointBuilder
 extends|extends

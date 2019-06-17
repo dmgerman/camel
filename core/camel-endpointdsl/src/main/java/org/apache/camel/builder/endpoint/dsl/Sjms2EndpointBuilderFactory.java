@@ -1469,7 +1469,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Simple JMS2 component.      */
 DECL|interface|Sjms2EndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|Sjms2EndpointProducerBuilder
 extends|extends
@@ -2543,7 +2542,6 @@ block|}
 comment|/**      * Builder for endpoint for the Simple JMS2 component.      */
 DECL|interface|Sjms2EndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|Sjms2EndpointBuilder
 extends|extends
@@ -2694,7 +2692,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Simple JMS2 component.      */
 DECL|interface|AdvancedSjms2EndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSjms2EndpointBuilder
 extends|extends

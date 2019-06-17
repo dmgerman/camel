@@ -1184,7 +1184,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Atmosphere Websocket component.      */
 DECL|interface|AtmosphereWebsocketEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AtmosphereWebsocketEndpointProducerBuilder
 extends|extends
@@ -1754,7 +1753,6 @@ block|}
 comment|/**      * Builder for endpoint for the Atmosphere Websocket component.      */
 DECL|interface|AtmosphereWebsocketEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AtmosphereWebsocketEndpointBuilder
 extends|extends
@@ -2052,7 +2050,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Atmosphere Websocket component.      */
 DECL|interface|AdvancedAtmosphereWebsocketEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedAtmosphereWebsocketEndpointBuilder
 extends|extends

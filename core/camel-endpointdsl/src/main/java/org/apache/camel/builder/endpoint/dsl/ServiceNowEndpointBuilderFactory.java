@@ -102,7 +102,6 @@ block|{
 comment|/**      * Builder for endpoint for the ServiceNow component.      */
 DECL|interface|ServiceNowEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ServiceNowEndpointBuilder
 extends|extends
@@ -1325,7 +1324,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the ServiceNow component.      */
 DECL|interface|AdvancedServiceNowEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedServiceNowEndpointBuilder
 extends|extends

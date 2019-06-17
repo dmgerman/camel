@@ -118,7 +118,6 @@ block|{
 comment|/**      * Builder for endpoint for the Control Bus component.      */
 DECL|interface|ControlBusEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ControlBusEndpointBuilder
 extends|extends
@@ -372,7 +371,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Control Bus component.      */
 DECL|interface|AdvancedControlBusEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedControlBusEndpointBuilder
 extends|extends

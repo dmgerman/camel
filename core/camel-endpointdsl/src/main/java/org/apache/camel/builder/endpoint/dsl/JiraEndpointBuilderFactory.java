@@ -666,7 +666,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Jira component.      */
 DECL|interface|JiraEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JiraEndpointProducerBuilder
 extends|extends
@@ -1068,7 +1067,6 @@ block|}
 comment|/**      * Builder for endpoint for the Jira component.      */
 DECL|interface|JiraEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JiraEndpointBuilder
 extends|extends
@@ -1324,7 +1322,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Jira component.      */
 DECL|interface|AdvancedJiraEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedJiraEndpointBuilder
 extends|extends

@@ -104,7 +104,6 @@ block|{
 comment|/**      * Builder for endpoint for the IPFS component.      */
 DECL|interface|IPFSEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|IPFSEndpointBuilder
 extends|extends
@@ -190,7 +189,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the IPFS component.      */
 DECL|interface|AdvancedIPFSEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedIPFSEndpointBuilder
 extends|extends

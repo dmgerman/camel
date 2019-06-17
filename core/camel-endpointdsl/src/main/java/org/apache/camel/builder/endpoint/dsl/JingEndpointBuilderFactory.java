@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Jing component.      */
 DECL|interface|JingEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JingEndpointBuilder
 extends|extends
@@ -178,7 +177,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Jing component.      */
 DECL|interface|AdvancedJingEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedJingEndpointBuilder
 extends|extends

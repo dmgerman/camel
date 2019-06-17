@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Ignite Sets component.      */
 DECL|interface|IgniteSetEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|IgniteSetEndpointBuilder
 extends|extends
@@ -220,7 +219,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Ignite Sets component.      */
 DECL|interface|AdvancedIgniteSetEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedIgniteSetEndpointBuilder
 extends|extends

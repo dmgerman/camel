@@ -144,7 +144,6 @@ block|{
 comment|/**      * Builder for endpoint for the Crypto (JCE) component.      */
 DECL|interface|DigitalSignatureEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DigitalSignatureEndpointBuilder
 extends|extends
@@ -546,7 +545,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Crypto (JCE) component.      */
 DECL|interface|AdvancedDigitalSignatureEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedDigitalSignatureEndpointBuilder
 extends|extends

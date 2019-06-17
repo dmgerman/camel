@@ -435,7 +435,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the OSGi EventAdmin component.      */
 DECL|interface|EventAdminEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|EventAdminEndpointProducerBuilder
 extends|extends
@@ -669,7 +668,6 @@ block|}
 comment|/**      * Builder for endpoint for the OSGi EventAdmin component.      */
 DECL|interface|EventAdminEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|EventAdminEndpointBuilder
 extends|extends
@@ -757,7 +755,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the OSGi EventAdmin component.      */
 DECL|interface|AdvancedEventAdminEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedEventAdminEndpointBuilder
 extends|extends

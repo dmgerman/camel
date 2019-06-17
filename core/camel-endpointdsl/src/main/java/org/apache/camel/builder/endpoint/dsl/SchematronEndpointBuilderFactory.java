@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Schematron component.      */
 DECL|interface|SchematronEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SchematronEndpointBuilder
 extends|extends
@@ -220,7 +219,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Schematron component.      */
 DECL|interface|AdvancedSchematronEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSchematronEndpointBuilder
 extends|extends

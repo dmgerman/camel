@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the MyBatis Bean component.      */
 DECL|interface|MyBatisBeanEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MyBatisBeanEndpointBuilder
 extends|extends
@@ -157,7 +156,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the MyBatis Bean component.      */
 DECL|interface|AdvancedMyBatisBeanEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedMyBatisBeanEndpointBuilder
 extends|extends

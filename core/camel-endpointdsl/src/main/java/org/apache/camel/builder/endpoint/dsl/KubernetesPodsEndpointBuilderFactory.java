@@ -960,7 +960,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Kubernetes Pods component.      */
 DECL|interface|KubernetesPodsEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KubernetesPodsEndpointProducerBuilder
 extends|extends
@@ -1614,7 +1613,6 @@ block|}
 comment|/**      * Builder for endpoint for the Kubernetes Pods component.      */
 DECL|interface|KubernetesPodsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KubernetesPodsEndpointBuilder
 extends|extends
@@ -2059,7 +2057,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Kubernetes Pods component.      */
 DECL|interface|AdvancedKubernetesPodsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedKubernetesPodsEndpointBuilder
 extends|extends

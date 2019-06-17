@@ -575,7 +575,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Stomp component.      */
 DECL|interface|StompEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|StompEndpointProducerBuilder
 extends|extends
@@ -935,7 +934,6 @@ block|}
 comment|/**      * Builder for endpoint for the Stomp component.      */
 DECL|interface|StompEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|StompEndpointBuilder
 extends|extends
@@ -1107,7 +1105,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Stomp component.      */
 DECL|interface|AdvancedStompEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedStompEndpointBuilder
 extends|extends

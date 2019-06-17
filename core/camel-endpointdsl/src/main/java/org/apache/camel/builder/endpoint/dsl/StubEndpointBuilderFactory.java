@@ -711,7 +711,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Stub component.      */
 DECL|interface|StubEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|StubEndpointProducerBuilder
 extends|extends
@@ -1239,7 +1238,6 @@ block|}
 comment|/**      * Builder for endpoint for the Stub component.      */
 DECL|interface|StubEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|StubEndpointBuilder
 extends|extends
@@ -1327,7 +1325,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Stub component.      */
 DECL|interface|AdvancedStubEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedStubEndpointBuilder
 extends|extends

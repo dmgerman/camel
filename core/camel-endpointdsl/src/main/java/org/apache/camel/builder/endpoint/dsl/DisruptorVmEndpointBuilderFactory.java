@@ -573,7 +573,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Disruptor VM component.      */
 DECL|interface|DisruptorVmEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DisruptorVmEndpointProducerBuilder
 extends|extends
@@ -975,7 +974,6 @@ block|}
 comment|/**      * Builder for endpoint for the Disruptor VM component.      */
 DECL|interface|DisruptorVmEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DisruptorVmEndpointBuilder
 extends|extends
@@ -1063,7 +1061,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Disruptor VM component.      */
 DECL|interface|AdvancedDisruptorVmEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedDisruptorVmEndpointBuilder
 extends|extends

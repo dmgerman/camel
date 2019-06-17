@@ -1359,7 +1359,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the JBPM component.      */
 DECL|interface|JBPMEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JBPMEndpointProducerBuilder
 extends|extends
@@ -2508,7 +2507,6 @@ block|}
 comment|/**      * Builder for endpoint for the JBPM component.      */
 DECL|interface|JBPMEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JBPMEndpointBuilder
 extends|extends
@@ -3355,7 +3353,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the JBPM component.      */
 DECL|interface|AdvancedJBPMEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedJBPMEndpointBuilder
 extends|extends

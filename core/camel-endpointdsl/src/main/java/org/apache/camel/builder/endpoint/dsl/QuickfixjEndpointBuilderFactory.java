@@ -477,7 +477,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the QuickFix component.      */
 DECL|interface|QuickfixjEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|QuickfixjEndpointProducerBuilder
 extends|extends
@@ -753,7 +752,6 @@ block|}
 comment|/**      * Builder for endpoint for the QuickFix component.      */
 DECL|interface|QuickfixjEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|QuickfixjEndpointBuilder
 extends|extends
@@ -883,7 +881,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the QuickFix component.      */
 DECL|interface|AdvancedQuickfixjEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedQuickfixjEndpointBuilder
 extends|extends

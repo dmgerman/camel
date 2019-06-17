@@ -645,7 +645,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the CMIS component.      */
 DECL|interface|CMISEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CMISEndpointProducerBuilder
 extends|extends
@@ -1110,7 +1109,6 @@ block|}
 comment|/**      * Builder for endpoint for the CMIS component.      */
 DECL|interface|CMISEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CMISEndpointBuilder
 extends|extends
@@ -1345,7 +1343,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the CMIS component.      */
 DECL|interface|AdvancedCMISEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedCMISEndpointBuilder
 extends|extends

@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Drill component.      */
 DECL|interface|DrillEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DrillEndpointBuilder
 extends|extends
@@ -262,7 +261,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Drill component.      */
 DECL|interface|AdvancedDrillEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedDrillEndpointBuilder
 extends|extends

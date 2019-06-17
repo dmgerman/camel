@@ -540,7 +540,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the GitHub component.      */
 DECL|interface|GitHubEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GitHubEndpointProducerBuilder
 extends|extends
@@ -921,7 +920,6 @@ block|}
 comment|/**      * Builder for endpoint for the GitHub component.      */
 DECL|interface|GitHubEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GitHubEndpointBuilder
 extends|extends
@@ -1093,7 +1091,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the GitHub component.      */
 DECL|interface|AdvancedGitHubEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedGitHubEndpointBuilder
 extends|extends

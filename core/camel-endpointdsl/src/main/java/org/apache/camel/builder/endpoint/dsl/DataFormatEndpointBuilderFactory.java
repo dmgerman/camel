@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Data Format component.      */
 DECL|interface|DataFormatEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DataFormatEndpointBuilder
 extends|extends
@@ -157,7 +156,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Data Format component.      */
 DECL|interface|AdvancedDataFormatEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedDataFormatEndpointBuilder
 extends|extends

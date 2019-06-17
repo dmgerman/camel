@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the OpenStack Cinder component.      */
 DECL|interface|CinderEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CinderEndpointBuilder
 extends|extends
@@ -325,7 +324,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the OpenStack Cinder component.      */
 DECL|interface|AdvancedCinderEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedCinderEndpointBuilder
 extends|extends

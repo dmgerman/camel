@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Kubernetes Secrets component.      */
 DECL|interface|KubernetesSecretsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KubernetesSecretsEndpointBuilder
 extends|extends
@@ -535,7 +534,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Kubernetes Secrets component.      */
 DECL|interface|AdvancedKubernetesSecretsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedKubernetesSecretsEndpointBuilder
 extends|extends

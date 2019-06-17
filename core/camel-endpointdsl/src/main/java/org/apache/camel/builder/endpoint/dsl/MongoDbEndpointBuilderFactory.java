@@ -897,7 +897,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the MongoDB component.      */
 DECL|interface|MongoDbEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MongoDbEndpointProducerBuilder
 extends|extends
@@ -1572,7 +1571,6 @@ block|}
 comment|/**      * Builder for endpoint for the MongoDB component.      */
 DECL|interface|MongoDbEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MongoDbEndpointBuilder
 extends|extends
@@ -1975,7 +1973,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the MongoDB component.      */
 DECL|interface|AdvancedMongoDbEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedMongoDbEndpointBuilder
 extends|extends

@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the ChatScript component.      */
 DECL|interface|ChatScriptEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ChatScriptEndpointBuilder
 extends|extends
@@ -262,7 +261,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the ChatScript component.      */
 DECL|interface|AdvancedChatScriptEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedChatScriptEndpointBuilder
 extends|extends

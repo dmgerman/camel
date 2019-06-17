@@ -943,7 +943,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Atomix Value component.      */
 DECL|interface|AtomixValueEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AtomixValueEndpointProducerBuilder
 extends|extends
@@ -1655,7 +1654,6 @@ block|}
 comment|/**      * Builder for endpoint for the Atomix Value component.      */
 DECL|interface|AtomixValueEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AtomixValueEndpointBuilder
 extends|extends
@@ -1959,7 +1957,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Atomix Value component.      */
 DECL|interface|AdvancedAtomixValueEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedAtomixValueEndpointBuilder
 extends|extends

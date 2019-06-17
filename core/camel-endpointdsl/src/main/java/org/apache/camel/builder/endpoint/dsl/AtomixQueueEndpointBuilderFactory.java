@@ -901,7 +901,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Atomix Queue component.      */
 DECL|interface|AtomixQueueEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AtomixQueueEndpointProducerBuilder
 extends|extends
@@ -1571,7 +1570,6 @@ block|}
 comment|/**      * Builder for endpoint for the Atomix Queue component.      */
 DECL|interface|AtomixQueueEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AtomixQueueEndpointBuilder
 extends|extends
@@ -1833,7 +1831,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Atomix Queue component.      */
 DECL|interface|AdvancedAtomixQueueEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedAtomixQueueEndpointBuilder
 extends|extends

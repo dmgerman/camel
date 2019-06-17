@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Exec component.      */
 DECL|interface|ExecEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ExecEndpointBuilder
 extends|extends
@@ -367,7 +366,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Exec component.      */
 DECL|interface|AdvancedExecEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedExecEndpointBuilder
 extends|extends

@@ -1002,7 +1002,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Gora component.      */
 DECL|interface|GoraEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GoraEndpointProducerBuilder
 extends|extends
@@ -1341,7 +1340,6 @@ block|}
 comment|/**      * Builder for endpoint for the Gora component.      */
 DECL|interface|GoraEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GoraEndpointBuilder
 extends|extends
@@ -1450,7 +1448,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Gora component.      */
 DECL|interface|AdvancedGoraEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedGoraEndpointBuilder
 extends|extends

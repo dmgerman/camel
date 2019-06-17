@@ -102,7 +102,6 @@ block|{
 comment|/**      * Builder for endpoint for the XSLT component.      */
 DECL|interface|XsltEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|XsltEndpointBuilder
 extends|extends
@@ -440,7 +439,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the XSLT component.      */
 DECL|interface|AdvancedXsltEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedXsltEndpointBuilder
 extends|extends

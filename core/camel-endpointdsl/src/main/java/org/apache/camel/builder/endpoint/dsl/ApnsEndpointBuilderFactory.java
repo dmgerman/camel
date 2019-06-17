@@ -1123,7 +1123,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the APNS component.      */
 DECL|interface|ApnsEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ApnsEndpointProducerBuilder
 extends|extends
@@ -1336,7 +1335,6 @@ block|}
 comment|/**      * Builder for endpoint for the APNS component.      */
 DECL|interface|ApnsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ApnsEndpointBuilder
 extends|extends
@@ -1403,7 +1401,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the APNS component.      */
 DECL|interface|AdvancedApnsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedApnsEndpointBuilder
 extends|extends

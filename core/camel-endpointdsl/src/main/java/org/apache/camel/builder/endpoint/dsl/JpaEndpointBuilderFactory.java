@@ -1811,7 +1811,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the JPA component.      */
 DECL|interface|JpaEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JpaEndpointProducerBuilder
 extends|extends
@@ -2586,7 +2585,6 @@ block|}
 comment|/**      * Builder for endpoint for the JPA component.      */
 DECL|interface|JpaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JpaEndpointBuilder
 extends|extends
@@ -2958,7 +2956,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the JPA component.      */
 DECL|interface|AdvancedJpaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedJpaEndpointBuilder
 extends|extends

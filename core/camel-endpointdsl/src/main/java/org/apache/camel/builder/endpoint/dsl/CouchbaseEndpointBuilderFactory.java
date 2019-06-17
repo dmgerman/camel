@@ -1837,7 +1837,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Couchbase component.      */
 DECL|interface|CouchbaseEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CouchbaseEndpointProducerBuilder
 extends|extends
@@ -2806,7 +2805,6 @@ block|}
 comment|/**      * Builder for endpoint for the Couchbase component.      */
 DECL|interface|CouchbaseEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CouchbaseEndpointBuilder
 extends|extends
@@ -2999,7 +2997,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Couchbase component.      */
 DECL|interface|AdvancedCouchbaseEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedCouchbaseEndpointBuilder
 extends|extends

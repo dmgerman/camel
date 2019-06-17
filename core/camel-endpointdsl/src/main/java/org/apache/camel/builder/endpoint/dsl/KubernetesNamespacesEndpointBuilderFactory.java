@@ -960,7 +960,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Kubernetes Namespaces component.      */
 DECL|interface|KubernetesNamespacesEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KubernetesNamespacesEndpointProducerBuilder
 extends|extends
@@ -1614,7 +1613,6 @@ block|}
 comment|/**      * Builder for endpoint for the Kubernetes Namespaces component.      */
 DECL|interface|KubernetesNamespacesEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KubernetesNamespacesEndpointBuilder
 extends|extends
@@ -2059,7 +2057,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Kubernetes Namespaces component.      */
 DECL|interface|AdvancedKubernetesNamespacesEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedKubernetesNamespacesEndpointBuilder
 extends|extends

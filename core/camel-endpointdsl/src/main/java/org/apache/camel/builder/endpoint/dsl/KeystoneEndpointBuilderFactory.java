@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the OpenStack Keystone component.      */
 DECL|interface|KeystoneEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KeystoneEndpointBuilder
 extends|extends
@@ -304,7 +303,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the OpenStack Keystone component.      */
 DECL|interface|AdvancedKeystoneEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedKeystoneEndpointBuilder
 extends|extends

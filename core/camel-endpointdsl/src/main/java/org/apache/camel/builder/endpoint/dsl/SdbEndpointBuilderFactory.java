@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the AWS SimpleDB component.      */
 DECL|interface|SdbEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SdbEndpointBuilder
 extends|extends
@@ -430,7 +429,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS SimpleDB component.      */
 DECL|interface|AdvancedSdbEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSdbEndpointBuilder
 extends|extends

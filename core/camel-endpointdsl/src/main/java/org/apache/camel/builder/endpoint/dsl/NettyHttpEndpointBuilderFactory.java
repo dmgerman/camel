@@ -3014,7 +3014,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Netty4 HTTP component.      */
 DECL|interface|NettyHttpEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|NettyHttpEndpointProducerBuilder
 extends|extends
@@ -5346,7 +5345,6 @@ block|}
 comment|/**      * Builder for endpoint for the Netty4 HTTP component.      */
 DECL|interface|NettyHttpEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|NettyHttpEndpointBuilder
 extends|extends
@@ -6330,7 +6328,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Netty4 HTTP component.      */
 DECL|interface|AdvancedNettyHttpEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedNettyHttpEndpointBuilder
 extends|extends

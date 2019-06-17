@@ -1279,7 +1279,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the AS2 component.      */
 DECL|interface|AS2EndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AS2EndpointProducerBuilder
 extends|extends
@@ -2335,7 +2334,6 @@ block|}
 comment|/**      * Builder for endpoint for the AS2 component.      */
 DECL|interface|AS2EndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AS2EndpointBuilder
 extends|extends
@@ -3245,7 +3243,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AS2 component.      */
 DECL|interface|AdvancedAS2EndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedAS2EndpointBuilder
 extends|extends

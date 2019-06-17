@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Spring Batch component.      */
 DECL|interface|SpringBatchEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SpringBatchEndpointBuilder
 extends|extends
@@ -262,7 +261,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Spring Batch component.      */
 DECL|interface|AdvancedSpringBatchEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSpringBatchEndpointBuilder
 extends|extends

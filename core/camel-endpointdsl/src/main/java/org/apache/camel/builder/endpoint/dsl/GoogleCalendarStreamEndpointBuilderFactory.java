@@ -102,7 +102,6 @@ block|{
 comment|/**      * Builder for endpoint for the Google Calendar Stream component.      */
 DECL|interface|GoogleCalendarStreamEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GoogleCalendarStreamEndpointBuilder
 extends|extends
@@ -464,7 +463,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Google Calendar Stream component.      */
 DECL|interface|AdvancedGoogleCalendarStreamEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedGoogleCalendarStreamEndpointBuilder
 extends|extends

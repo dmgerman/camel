@@ -729,7 +729,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Ignite Cache component.      */
 DECL|interface|IgniteCacheEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|IgniteCacheEndpointProducerBuilder
 extends|extends
@@ -1173,7 +1172,6 @@ block|}
 comment|/**      * Builder for endpoint for the Ignite Cache component.      */
 DECL|interface|IgniteCacheEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|IgniteCacheEndpointBuilder
 extends|extends
@@ -1303,7 +1301,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Ignite Cache component.      */
 DECL|interface|AdvancedIgniteCacheEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedIgniteCacheEndpointBuilder
 extends|extends

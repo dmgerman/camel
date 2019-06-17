@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Openshift Build Config component.      */
 DECL|interface|OpenshiftBuildConfigsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|OpenshiftBuildConfigsEndpointBuilder
 extends|extends
@@ -535,7 +534,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Openshift Build Config component.      */
 DECL|interface|AdvancedOpenshiftBuildConfigsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedOpenshiftBuildConfigsEndpointBuilder
 extends|extends

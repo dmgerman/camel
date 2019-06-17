@@ -670,7 +670,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the ZooKeeper component.      */
 DECL|interface|ZooKeeperEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ZooKeeperEndpointProducerBuilder
 extends|extends
@@ -1076,7 +1075,6 @@ block|}
 comment|/**      * Builder for endpoint for the ZooKeeper component.      */
 DECL|interface|ZooKeeperEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ZooKeeperEndpointBuilder
 extends|extends
@@ -1273,7 +1271,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the ZooKeeper component.      */
 DECL|interface|AdvancedZooKeeperEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedZooKeeperEndpointBuilder
 extends|extends

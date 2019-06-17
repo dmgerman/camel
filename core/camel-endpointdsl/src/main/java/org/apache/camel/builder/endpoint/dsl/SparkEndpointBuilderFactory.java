@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Spark Rest component.      */
 DECL|interface|SparkEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SparkEndpointBuilder
 extends|extends
@@ -346,7 +345,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Spark Rest component.      */
 DECL|interface|AdvancedSparkEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSparkEndpointBuilder
 extends|extends

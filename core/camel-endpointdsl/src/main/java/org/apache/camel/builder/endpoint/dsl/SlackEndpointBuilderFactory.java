@@ -1165,7 +1165,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Slack component.      */
 DECL|interface|SlackEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SlackEndpointProducerBuilder
 extends|extends
@@ -1441,7 +1440,6 @@ block|}
 comment|/**      * Builder for endpoint for the Slack component.      */
 DECL|interface|SlackEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SlackEndpointBuilder
 extends|extends
@@ -1487,7 +1485,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Slack component.      */
 DECL|interface|AdvancedSlackEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSlackEndpointBuilder
 extends|extends

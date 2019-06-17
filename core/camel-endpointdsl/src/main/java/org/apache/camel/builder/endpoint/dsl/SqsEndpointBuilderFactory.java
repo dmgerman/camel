@@ -2124,7 +2124,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the AWS Simple Queue Service      * component.      */
 DECL|interface|SqsEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SqsEndpointProducerBuilder
 extends|extends
@@ -3009,7 +3008,6 @@ block|}
 comment|/**      * Builder for endpoint for the AWS Simple Queue Service component.      */
 DECL|interface|SqsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SqsEndpointBuilder
 extends|extends
@@ -3517,7 +3515,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS Simple Queue Service component.      */
 DECL|interface|AdvancedSqsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSqsEndpointBuilder
 extends|extends

@@ -801,7 +801,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Restlet component.      */
 DECL|interface|RestletEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|RestletEndpointProducerBuilder
 extends|extends
@@ -1544,7 +1543,6 @@ block|}
 comment|/**      * Builder for endpoint for the Restlet component.      */
 DECL|interface|RestletEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|RestletEndpointBuilder
 extends|extends
@@ -1805,7 +1803,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Restlet component.      */
 DECL|interface|AdvancedRestletEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedRestletEndpointBuilder
 extends|extends

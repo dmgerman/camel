@@ -729,7 +729,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the CouchDB component.      */
 DECL|interface|CouchDbEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CouchDbEndpointProducerBuilder
 extends|extends
@@ -1089,7 +1088,6 @@ block|}
 comment|/**      * Builder for endpoint for the CouchDB component.      */
 DECL|interface|CouchDbEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CouchDbEndpointBuilder
 extends|extends
@@ -1303,7 +1301,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the CouchDB component.      */
 DECL|interface|AdvancedCouchDbEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedCouchDbEndpointBuilder
 extends|extends

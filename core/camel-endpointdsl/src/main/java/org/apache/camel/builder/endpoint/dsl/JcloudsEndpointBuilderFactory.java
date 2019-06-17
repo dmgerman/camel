@@ -477,7 +477,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the JClouds component.      */
 DECL|interface|JcloudsEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JcloudsEndpointProducerBuilder
 extends|extends
@@ -921,7 +920,6 @@ block|}
 comment|/**      * Builder for endpoint for the JClouds component.      */
 DECL|interface|JcloudsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JcloudsEndpointBuilder
 extends|extends
@@ -1030,7 +1028,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the JClouds component.      */
 DECL|interface|AdvancedJcloudsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedJcloudsEndpointBuilder
 extends|extends

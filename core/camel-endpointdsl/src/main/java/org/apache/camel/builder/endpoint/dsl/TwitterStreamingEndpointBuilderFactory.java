@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Twitter Streaming component.      */
 DECL|interface|TwitterStreamingEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|TwitterStreamingEndpointBuilder
 extends|extends
@@ -346,7 +345,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Twitter Streaming component.      */
 DECL|interface|AdvancedTwitterStreamingEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedTwitterStreamingEndpointBuilder
 extends|extends

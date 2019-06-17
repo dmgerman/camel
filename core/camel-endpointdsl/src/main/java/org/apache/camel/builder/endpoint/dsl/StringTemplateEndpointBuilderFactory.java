@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the String Template component.      */
 DECL|interface|StringTemplateEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|StringTemplateEndpointBuilder
 extends|extends
@@ -262,7 +261,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the String Template component.      */
 DECL|interface|AdvancedStringTemplateEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedStringTemplateEndpointBuilder
 extends|extends

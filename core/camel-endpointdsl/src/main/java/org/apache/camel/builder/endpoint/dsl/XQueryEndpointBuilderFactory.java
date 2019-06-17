@@ -1613,7 +1613,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the XQuery component.      */
 DECL|interface|XQueryEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|XQueryEndpointProducerBuilder
 extends|extends
@@ -2306,7 +2305,6 @@ block|}
 comment|/**      * Builder for endpoint for the XQuery component.      */
 DECL|interface|XQueryEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|XQueryEndpointBuilder
 extends|extends
@@ -2591,7 +2589,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the XQuery component.      */
 DECL|interface|AdvancedXQueryEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedXQueryEndpointBuilder
 extends|extends

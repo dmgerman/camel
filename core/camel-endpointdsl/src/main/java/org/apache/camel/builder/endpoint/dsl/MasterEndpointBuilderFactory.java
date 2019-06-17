@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Master component.      */
 DECL|interface|MasterEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MasterEndpointBuilder
 extends|extends
@@ -157,7 +156,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Master component.      */
 DECL|interface|AdvancedMasterEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedMasterEndpointBuilder
 extends|extends

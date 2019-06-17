@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the AWS IAM component.      */
 DECL|interface|IAMEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|IAMEndpointBuilder
 extends|extends
@@ -157,7 +156,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS IAM component.      */
 DECL|interface|AdvancedIAMEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedIAMEndpointBuilder
 extends|extends

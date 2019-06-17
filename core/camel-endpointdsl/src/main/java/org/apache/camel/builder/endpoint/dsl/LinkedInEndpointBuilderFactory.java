@@ -808,7 +808,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Linkedin component.      */
 DECL|interface|LinkedInEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|LinkedInEndpointProducerBuilder
 extends|extends
@@ -1405,7 +1404,6 @@ block|}
 comment|/**      * Builder for endpoint for the Linkedin component.      */
 DECL|interface|LinkedInEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|LinkedInEndpointBuilder
 extends|extends
@@ -1856,7 +1854,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Linkedin component.      */
 DECL|interface|AdvancedLinkedInEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedLinkedInEndpointBuilder
 extends|extends

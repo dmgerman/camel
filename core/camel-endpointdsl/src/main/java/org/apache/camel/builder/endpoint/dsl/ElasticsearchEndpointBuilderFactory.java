@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Elastichsearch Rest component.      */
 DECL|interface|ElasticsearchEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ElasticsearchEndpointBuilder
 extends|extends
@@ -577,7 +576,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Elastichsearch Rest component.      */
 DECL|interface|AdvancedElasticsearchEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedElasticsearchEndpointBuilder
 extends|extends

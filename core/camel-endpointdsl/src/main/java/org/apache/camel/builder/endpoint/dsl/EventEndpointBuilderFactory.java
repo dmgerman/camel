@@ -393,7 +393,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Spring Event component.      */
 DECL|interface|EventEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|EventEndpointProducerBuilder
 extends|extends
@@ -585,7 +584,6 @@ block|}
 comment|/**      * Builder for endpoint for the Spring Event component.      */
 DECL|interface|EventEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|EventEndpointBuilder
 extends|extends
@@ -631,7 +629,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Spring Event component.      */
 DECL|interface|AdvancedEventEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedEventEndpointBuilder
 extends|extends

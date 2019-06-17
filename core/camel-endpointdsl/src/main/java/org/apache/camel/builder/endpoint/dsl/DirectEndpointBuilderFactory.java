@@ -393,7 +393,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Direct component.      */
 DECL|interface|DirectEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DirectEndpointProducerBuilder
 extends|extends
@@ -711,7 +710,6 @@ block|}
 comment|/**      * Builder for endpoint for the Direct component.      */
 DECL|interface|DirectEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DirectEndpointBuilder
 extends|extends
@@ -757,7 +755,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Direct component.      */
 DECL|interface|AdvancedDirectEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedDirectEndpointBuilder
 extends|extends

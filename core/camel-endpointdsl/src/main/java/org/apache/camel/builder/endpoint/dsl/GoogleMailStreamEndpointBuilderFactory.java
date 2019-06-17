@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Google Mail Stream component.      */
 DECL|interface|GoogleMailStreamEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GoogleMailStreamEndpointBuilder
 extends|extends
@@ -367,7 +366,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Google Mail Stream component.      */
 DECL|interface|AdvancedGoogleMailStreamEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedGoogleMailStreamEndpointBuilder
 extends|extends

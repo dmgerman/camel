@@ -681,7 +681,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Wordpress component.      */
 DECL|interface|WordpressEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|WordpressEndpointProducerBuilder
 extends|extends
@@ -1151,7 +1150,6 @@ block|}
 comment|/**      * Builder for endpoint for the Wordpress component.      */
 DECL|interface|WordpressEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|WordpressEndpointBuilder
 extends|extends
@@ -1475,7 +1473,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Wordpress component.      */
 DECL|interface|AdvancedWordpressEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedWordpressEndpointBuilder
 extends|extends

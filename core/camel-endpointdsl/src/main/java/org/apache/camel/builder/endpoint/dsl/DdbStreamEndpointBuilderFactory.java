@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the AWS DynamoDB Streams component.      */
 DECL|interface|DdbStreamEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DdbStreamEndpointBuilder
 extends|extends
@@ -241,7 +240,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS DynamoDB Streams component.      */
 DECL|interface|AdvancedDdbStreamEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedDdbStreamEndpointBuilder
 extends|extends

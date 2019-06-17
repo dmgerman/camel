@@ -876,7 +876,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Hazelcast Replicated Map      * component.      */
 DECL|interface|HazelcastReplicatedmapEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|HazelcastReplicatedmapEndpointProducerBuilder
 extends|extends
@@ -1425,7 +1424,6 @@ block|}
 comment|/**      * Builder for endpoint for the Hazelcast Replicated Map component.      */
 DECL|interface|HazelcastReplicatedmapEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|HazelcastReplicatedmapEndpointBuilder
 extends|extends
@@ -1828,7 +1826,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Hazelcast Replicated Map component.      */
 DECL|interface|AdvancedHazelcastReplicatedmapEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedHazelcastReplicatedmapEndpointBuilder
 extends|extends

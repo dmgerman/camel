@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the REST API component.      */
 DECL|interface|RestApiEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|RestApiEndpointBuilder
 extends|extends
@@ -199,7 +198,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the REST API component.      */
 DECL|interface|AdvancedRestApiEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedRestApiEndpointBuilder
 extends|extends

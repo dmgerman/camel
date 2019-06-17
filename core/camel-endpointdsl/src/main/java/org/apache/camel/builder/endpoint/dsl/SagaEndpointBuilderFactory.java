@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Saga component.      */
 DECL|interface|SagaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SagaEndpointBuilder
 extends|extends
@@ -157,7 +156,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Saga component.      */
 DECL|interface|AdvancedSagaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSagaEndpointBuilder
 extends|extends

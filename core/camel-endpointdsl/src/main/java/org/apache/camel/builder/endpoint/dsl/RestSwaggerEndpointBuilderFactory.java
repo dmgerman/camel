@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the REST Swagger component.      */
 DECL|interface|RestSwaggerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|RestSwaggerEndpointBuilder
 extends|extends
@@ -115,7 +114,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the REST Swagger component.      */
 DECL|interface|AdvancedRestSwaggerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedRestSwaggerEndpointBuilder
 extends|extends

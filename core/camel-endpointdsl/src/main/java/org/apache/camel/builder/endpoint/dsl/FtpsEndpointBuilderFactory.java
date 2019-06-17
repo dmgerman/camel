@@ -4632,7 +4632,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the FTPS component.      */
 DECL|interface|FtpsEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|FtpsEndpointProducerBuilder
 extends|extends
@@ -6776,7 +6775,6 @@ block|}
 comment|/**      * Builder for endpoint for the FTPS component.      */
 DECL|interface|FtpsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|FtpsEndpointBuilder
 extends|extends
@@ -7630,7 +7628,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the FTPS component.      */
 DECL|interface|AdvancedFtpsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedFtpsEndpointBuilder
 extends|extends

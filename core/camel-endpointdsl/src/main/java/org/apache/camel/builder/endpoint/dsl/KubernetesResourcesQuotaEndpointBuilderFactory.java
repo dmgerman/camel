@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Kubernetes Resources Quota component.      */
 DECL|interface|KubernetesResourcesQuotaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KubernetesResourcesQuotaEndpointBuilder
 extends|extends
@@ -535,7 +534,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Kubernetes Resources Quota      * component.      */
 DECL|interface|AdvancedKubernetesResourcesQuotaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedKubernetesResourcesQuotaEndpointBuilder
 extends|extends

@@ -768,7 +768,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the AHC Websocket component.      */
 DECL|interface|WsEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|WsEndpointProducerBuilder
 extends|extends
@@ -1537,7 +1536,6 @@ block|}
 comment|/**      * Builder for endpoint for the AHC Websocket component.      */
 DECL|interface|WsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|WsEndpointBuilder
 extends|extends
@@ -1856,7 +1854,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AHC Websocket component.      */
 DECL|interface|AdvancedWsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedWsEndpointBuilder
 extends|extends

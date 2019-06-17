@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the PDF component.      */
 DECL|interface|PdfEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|PdfEndpointBuilder
 extends|extends
@@ -493,7 +492,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the PDF component.      */
 DECL|interface|AdvancedPdfEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedPdfEndpointBuilder
 extends|extends

@@ -1033,7 +1033,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the IEC 60870 Client component.      */
 DECL|interface|ClientEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ClientEndpointProducerBuilder
 extends|extends
@@ -1855,7 +1854,6 @@ block|}
 comment|/**      * Builder for endpoint for the IEC 60870 Client component.      */
 DECL|interface|ClientEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ClientEndpointBuilder
 extends|extends
@@ -2531,7 +2529,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the IEC 60870 Client component.      */
 DECL|interface|AdvancedClientEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedClientEndpointBuilder
 extends|extends

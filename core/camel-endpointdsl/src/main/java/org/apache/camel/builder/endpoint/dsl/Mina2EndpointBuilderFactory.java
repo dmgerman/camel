@@ -1342,7 +1342,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Mina2 component.      */
 DECL|interface|Mina2EndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|Mina2EndpointProducerBuilder
 extends|extends
@@ -2419,7 +2418,6 @@ block|}
 comment|/**      * Builder for endpoint for the Mina2 component.      */
 DECL|interface|Mina2EndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|Mina2EndpointBuilder
 extends|extends
@@ -3140,7 +3138,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Mina2 component.      */
 DECL|interface|AdvancedMina2EndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedMina2EndpointBuilder
 extends|extends

@@ -1216,7 +1216,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the IRC component.      */
 DECL|interface|IrcEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|IrcEndpointProducerBuilder
 extends|extends
@@ -2231,7 +2230,6 @@ block|}
 comment|/**      * Builder for endpoint for the IRC component.      */
 DECL|interface|IrcEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|IrcEndpointBuilder
 extends|extends
@@ -3058,7 +3056,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the IRC component.      */
 DECL|interface|AdvancedIrcEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedIrcEndpointBuilder
 extends|extends

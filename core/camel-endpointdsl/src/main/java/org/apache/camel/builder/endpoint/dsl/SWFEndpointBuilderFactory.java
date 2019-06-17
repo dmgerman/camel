@@ -964,7 +964,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the AWS Simple Workflow component.      */
 DECL|interface|SWFEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SWFEndpointProducerBuilder
 extends|extends
@@ -1717,7 +1716,6 @@ block|}
 comment|/**      * Builder for endpoint for the AWS Simple Workflow component.      */
 DECL|interface|SWFEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SWFEndpointBuilder
 extends|extends
@@ -1973,7 +1971,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS Simple Workflow component.      */
 DECL|interface|AdvancedSWFEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSWFEndpointBuilder
 extends|extends

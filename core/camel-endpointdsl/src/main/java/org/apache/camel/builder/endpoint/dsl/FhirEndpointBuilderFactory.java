@@ -1170,7 +1170,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the FHIR component.      */
 DECL|interface|FhirEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|FhirEndpointProducerBuilder
 extends|extends
@@ -2139,7 +2138,6 @@ block|}
 comment|/**      * Builder for endpoint for the FHIR component.      */
 DECL|interface|FhirEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|FhirEndpointBuilder
 extends|extends
@@ -2605,7 +2603,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the FHIR component.      */
 DECL|interface|AdvancedFhirEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedFhirEndpointBuilder
 extends|extends

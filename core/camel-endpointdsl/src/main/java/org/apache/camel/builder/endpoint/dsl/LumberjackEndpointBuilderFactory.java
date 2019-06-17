@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Lumberjack component.      */
 DECL|interface|LumberjackEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|LumberjackEndpointBuilder
 extends|extends
@@ -220,7 +219,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Lumberjack component.      */
 DECL|interface|AdvancedLumberjackEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedLumberjackEndpointBuilder
 extends|extends

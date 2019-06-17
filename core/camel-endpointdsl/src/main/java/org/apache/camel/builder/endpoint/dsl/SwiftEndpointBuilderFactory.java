@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the OpenStack Swift component.      */
 DECL|interface|SwiftEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SwiftEndpointBuilder
 extends|extends
@@ -325,7 +324,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the OpenStack Swift component.      */
 DECL|interface|AdvancedSwiftEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSwiftEndpointBuilder
 extends|extends

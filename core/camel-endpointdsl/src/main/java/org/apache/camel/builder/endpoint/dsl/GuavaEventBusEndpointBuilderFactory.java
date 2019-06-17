@@ -483,7 +483,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Guava EventBus component.      */
 DECL|interface|GuavaEventBusEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GuavaEventBusEndpointProducerBuilder
 extends|extends
@@ -765,7 +764,6 @@ block|}
 comment|/**      * Builder for endpoint for the Guava EventBus component.      */
 DECL|interface|GuavaEventBusEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GuavaEventBusEndpointBuilder
 extends|extends
@@ -901,7 +899,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Guava EventBus component.      */
 DECL|interface|AdvancedGuavaEventBusEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedGuavaEventBusEndpointBuilder
 extends|extends

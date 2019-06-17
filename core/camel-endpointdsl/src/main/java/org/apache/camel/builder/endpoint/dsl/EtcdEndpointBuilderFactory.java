@@ -1438,7 +1438,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the etcd component.      */
 DECL|interface|EtcdEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|EtcdEndpointProducerBuilder
 extends|extends
@@ -1924,7 +1923,6 @@ block|}
 comment|/**      * Builder for endpoint for the etcd component.      */
 DECL|interface|EtcdEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|EtcdEndpointBuilder
 extends|extends
@@ -2222,7 +2220,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the etcd component.      */
 DECL|interface|AdvancedEtcdEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedEtcdEndpointBuilder
 extends|extends

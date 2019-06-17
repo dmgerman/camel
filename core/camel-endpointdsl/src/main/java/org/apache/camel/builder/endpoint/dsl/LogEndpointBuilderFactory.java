@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Log component.      */
 DECL|interface|LogEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|LogEndpointBuilder
 extends|extends
@@ -1144,7 +1143,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Log component.      */
 DECL|interface|AdvancedLogEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedLogEndpointBuilder
 extends|extends

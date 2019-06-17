@@ -1774,7 +1774,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the HDFS2 component.      */
 DECL|interface|HdfsEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|HdfsEndpointProducerBuilder
 extends|extends
@@ -2701,7 +2700,6 @@ block|}
 comment|/**      * Builder for endpoint for the HDFS2 component.      */
 DECL|interface|HdfsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|HdfsEndpointBuilder
 extends|extends
@@ -3041,7 +3039,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the HDFS2 component.      */
 DECL|interface|AdvancedHdfsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedHdfsEndpointBuilder
 extends|extends

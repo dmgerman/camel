@@ -658,7 +658,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Google Drive component.      */
 DECL|interface|GoogleDriveEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GoogleDriveEndpointProducerBuilder
 extends|extends
@@ -1105,7 +1104,6 @@ block|}
 comment|/**      * Builder for endpoint for the Google Drive component.      */
 DECL|interface|GoogleDriveEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GoogleDriveEndpointBuilder
 extends|extends
@@ -1406,7 +1404,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Google Drive component.      */
 DECL|interface|AdvancedGoogleDriveEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedGoogleDriveEndpointBuilder
 extends|extends

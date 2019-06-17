@@ -561,7 +561,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the PostgresSQL Event component.      */
 DECL|interface|PgEventEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|PgEventEndpointProducerBuilder
 extends|extends
@@ -921,7 +920,6 @@ block|}
 comment|/**      * Builder for endpoint for the PostgresSQL Event component.      */
 DECL|interface|PgEventEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|PgEventEndpointBuilder
 extends|extends
@@ -1135,7 +1133,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the PostgresSQL Event component.      */
 DECL|interface|AdvancedPgEventEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedPgEventEndpointBuilder
 extends|extends

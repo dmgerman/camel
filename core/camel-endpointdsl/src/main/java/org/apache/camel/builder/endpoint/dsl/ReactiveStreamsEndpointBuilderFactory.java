@@ -603,7 +603,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Reactive Streams component.      */
 DECL|interface|ReactiveStreamsEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ReactiveStreamsEndpointProducerBuilder
 extends|extends
@@ -837,7 +836,6 @@ block|}
 comment|/**      * Builder for endpoint for the Reactive Streams component.      */
 DECL|interface|ReactiveStreamsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ReactiveStreamsEndpointBuilder
 extends|extends
@@ -883,7 +881,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Reactive Streams component.      */
 DECL|interface|AdvancedReactiveStreamsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedReactiveStreamsEndpointBuilder
 extends|extends

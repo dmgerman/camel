@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Validator component.      */
 DECL|interface|ValidatorEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ValidatorEndpointBuilder
 extends|extends
@@ -241,7 +240,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Validator component.      */
 DECL|interface|AdvancedValidatorEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedValidatorEndpointBuilder
 extends|extends

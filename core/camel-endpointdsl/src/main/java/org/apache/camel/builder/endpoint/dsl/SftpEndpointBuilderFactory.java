@@ -4372,7 +4372,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the SFTP component.      */
 DECL|interface|SftpEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SftpEndpointProducerBuilder
 extends|extends
@@ -6372,7 +6371,6 @@ block|}
 comment|/**      * Builder for endpoint for the SFTP component.      */
 DECL|interface|SftpEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SftpEndpointBuilder
 extends|extends
@@ -7071,7 +7069,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the SFTP component.      */
 DECL|interface|AdvancedSftpEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSftpEndpointBuilder
 extends|extends

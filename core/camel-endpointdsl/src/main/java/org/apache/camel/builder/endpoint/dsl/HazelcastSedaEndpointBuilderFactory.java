@@ -876,7 +876,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Hazelcast SEDA component.      */
 DECL|interface|HazelcastSedaEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|HazelcastSedaEndpointProducerBuilder
 extends|extends
@@ -1425,7 +1424,6 @@ block|}
 comment|/**      * Builder for endpoint for the Hazelcast SEDA component.      */
 DECL|interface|HazelcastSedaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|HazelcastSedaEndpointBuilder
 extends|extends
@@ -1828,7 +1826,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Hazelcast SEDA component.      */
 DECL|interface|AdvancedHazelcastSedaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedHazelcastSedaEndpointBuilder
 extends|extends

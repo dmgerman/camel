@@ -102,7 +102,6 @@ block|{
 comment|/**      * Builder for endpoint for the Class component.      */
 DECL|interface|ClassEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ClassEndpointBuilder
 extends|extends
@@ -256,7 +255,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Class component.      */
 DECL|interface|AdvancedClassEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedClassEndpointBuilder
 extends|extends

@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the AWS EC2 component.      */
 DECL|interface|EC2EndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|EC2EndpointBuilder
 extends|extends
@@ -157,7 +156,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS EC2 component.      */
 DECL|interface|AdvancedEC2EndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedEC2EndpointBuilder
 extends|extends

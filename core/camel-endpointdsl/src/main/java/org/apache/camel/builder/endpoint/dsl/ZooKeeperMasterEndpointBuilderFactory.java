@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the ZooKeeper Master component.      */
 DECL|interface|ZooKeeperMasterEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ZooKeeperMasterEndpointBuilder
 extends|extends
@@ -157,7 +156,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the ZooKeeper Master component.      */
 DECL|interface|AdvancedZooKeeperMasterEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedZooKeeperMasterEndpointBuilder
 extends|extends

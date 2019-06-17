@@ -449,7 +449,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Direct VM component.      */
 DECL|interface|DirectVmEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DirectVmEndpointProducerBuilder
 extends|extends
@@ -851,7 +850,6 @@ block|}
 comment|/**      * Builder for endpoint for the Direct VM component.      */
 DECL|interface|DirectVmEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DirectVmEndpointBuilder
 extends|extends
@@ -897,7 +895,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Direct VM component.      */
 DECL|interface|AdvancedDirectVmEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedDirectVmEndpointBuilder
 extends|extends

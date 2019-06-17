@@ -102,7 +102,6 @@ block|{
 comment|/**      * Builder for endpoint for the AWS CloudWatch component.      */
 DECL|interface|CwEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CwEndpointBuilder
 extends|extends
@@ -440,7 +439,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS CloudWatch component.      */
 DECL|interface|AdvancedCwEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedCwEndpointBuilder
 extends|extends

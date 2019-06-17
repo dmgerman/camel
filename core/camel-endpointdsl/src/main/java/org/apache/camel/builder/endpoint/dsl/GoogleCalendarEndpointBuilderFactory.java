@@ -645,7 +645,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Google Calendar component.      */
 DECL|interface|GoogleCalendarEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GoogleCalendarEndpointProducerBuilder
 extends|extends
@@ -1089,7 +1088,6 @@ block|}
 comment|/**      * Builder for endpoint for the Google Calendar component.      */
 DECL|interface|GoogleCalendarEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GoogleCalendarEndpointBuilder
 extends|extends
@@ -1387,7 +1385,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Google Calendar component.      */
 DECL|interface|AdvancedGoogleCalendarEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedGoogleCalendarEndpointBuilder
 extends|extends

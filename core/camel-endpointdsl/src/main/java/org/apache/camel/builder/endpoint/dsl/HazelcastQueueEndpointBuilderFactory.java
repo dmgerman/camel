@@ -876,7 +876,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Hazelcast Queue component.      */
 DECL|interface|HazelcastQueueEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|HazelcastQueueEndpointProducerBuilder
 extends|extends
@@ -1425,7 +1424,6 @@ block|}
 comment|/**      * Builder for endpoint for the Hazelcast Queue component.      */
 DECL|interface|HazelcastQueueEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|HazelcastQueueEndpointBuilder
 extends|extends
@@ -1828,7 +1826,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Hazelcast Queue component.      */
 DECL|interface|AdvancedHazelcastQueueEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedHazelcastQueueEndpointBuilder
 extends|extends

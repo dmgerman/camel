@@ -2569,7 +2569,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the IMAP component.      */
 DECL|interface|MailEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MailEndpointProducerBuilder
 extends|extends
@@ -3601,7 +3600,6 @@ block|}
 comment|/**      * Builder for endpoint for the IMAP component.      */
 DECL|interface|MailEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MailEndpointBuilder
 extends|extends
@@ -3815,7 +3813,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the IMAP component.      */
 DECL|interface|AdvancedMailEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedMailEndpointBuilder
 extends|extends

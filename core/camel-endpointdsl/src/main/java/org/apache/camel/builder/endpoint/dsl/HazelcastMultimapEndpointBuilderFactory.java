@@ -876,7 +876,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Hazelcast Multimap component.      */
 DECL|interface|HazelcastMultimapEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|HazelcastMultimapEndpointProducerBuilder
 extends|extends
@@ -1425,7 +1424,6 @@ block|}
 comment|/**      * Builder for endpoint for the Hazelcast Multimap component.      */
 DECL|interface|HazelcastMultimapEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|HazelcastMultimapEndpointBuilder
 extends|extends
@@ -1828,7 +1826,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Hazelcast Multimap component.      */
 DECL|interface|AdvancedHazelcastMultimapEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedHazelcastMultimapEndpointBuilder
 extends|extends

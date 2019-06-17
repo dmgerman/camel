@@ -868,7 +868,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Ehcache component.      */
 DECL|interface|EhcacheEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|EhcacheEndpointProducerBuilder
 extends|extends
@@ -1449,7 +1448,6 @@ block|}
 comment|/**      * Builder for endpoint for the Ehcache component.      */
 DECL|interface|EhcacheEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|EhcacheEndpointBuilder
 extends|extends
@@ -1642,7 +1640,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Ehcache component.      */
 DECL|interface|AdvancedEhcacheEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedEhcacheEndpointBuilder
 extends|extends

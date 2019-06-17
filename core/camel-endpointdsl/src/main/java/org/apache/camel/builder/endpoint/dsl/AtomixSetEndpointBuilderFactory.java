@@ -943,7 +943,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Atomix Set component.      */
 DECL|interface|AtomixSetEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AtomixSetEndpointProducerBuilder
 extends|extends
@@ -1655,7 +1654,6 @@ block|}
 comment|/**      * Builder for endpoint for the Atomix Set component.      */
 DECL|interface|AtomixSetEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AtomixSetEndpointBuilder
 extends|extends
@@ -1959,7 +1957,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Atomix Set component.      */
 DECL|interface|AdvancedAtomixSetEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedAtomixSetEndpointBuilder
 extends|extends

@@ -106,7 +106,6 @@ block|{
 comment|/**      * Builder for endpoint for the Servlet component.      */
 DECL|interface|ServletEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ServletEndpointBuilder
 extends|extends
@@ -297,7 +296,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Servlet component.      */
 DECL|interface|AdvancedServletEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedServletEndpointBuilder
 extends|extends

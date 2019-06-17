@@ -1151,7 +1151,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the OPC UA Client component.      */
 DECL|interface|MiloClientEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MiloClientEndpointProducerBuilder
 extends|extends
@@ -2081,7 +2080,6 @@ block|}
 comment|/**      * Builder for endpoint for the OPC UA Client component.      */
 DECL|interface|MiloClientEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MiloClientEndpointBuilder
 extends|extends
@@ -2865,7 +2863,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the OPC UA Client component.      */
 DECL|interface|AdvancedMiloClientEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedMiloClientEndpointBuilder
 extends|extends

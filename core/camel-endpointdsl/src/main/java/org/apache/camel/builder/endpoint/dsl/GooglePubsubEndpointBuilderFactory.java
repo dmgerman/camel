@@ -603,7 +603,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Google Pubsub component.      */
 DECL|interface|GooglePubsubEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GooglePubsubEndpointProducerBuilder
 extends|extends
@@ -1005,7 +1004,6 @@ block|}
 comment|/**      * Builder for endpoint for the Google Pubsub component.      */
 DECL|interface|GooglePubsubEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GooglePubsubEndpointBuilder
 extends|extends
@@ -1261,7 +1259,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Google Pubsub component.      */
 DECL|interface|AdvancedGooglePubsubEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedGooglePubsubEndpointBuilder
 extends|extends

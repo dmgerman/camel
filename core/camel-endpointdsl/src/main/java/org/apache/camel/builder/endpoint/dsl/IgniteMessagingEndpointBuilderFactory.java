@@ -477,7 +477,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Ignite Messaging component.      */
 DECL|interface|IgniteMessagingEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|IgniteMessagingEndpointProducerBuilder
 extends|extends
@@ -879,7 +878,6 @@ block|}
 comment|/**      * Builder for endpoint for the Ignite Messaging component.      */
 DECL|interface|IgniteMessagingEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|IgniteMessagingEndpointBuilder
 extends|extends
@@ -1009,7 +1007,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Ignite Messaging component.      */
 DECL|interface|AdvancedIgniteMessagingEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedIgniteMessagingEndpointBuilder
 extends|extends

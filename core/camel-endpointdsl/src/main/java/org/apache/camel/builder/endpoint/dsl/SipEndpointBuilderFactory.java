@@ -1844,7 +1844,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the SIP component.      */
 DECL|interface|SipEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SipEndpointProducerBuilder
 extends|extends
@@ -3383,7 +3382,6 @@ block|}
 comment|/**      * Builder for endpoint for the SIP component.      */
 DECL|interface|SipEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SipEndpointBuilder
 extends|extends
@@ -4017,7 +4015,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the SIP component.      */
 DECL|interface|AdvancedSipEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSipEndpointBuilder
 extends|extends

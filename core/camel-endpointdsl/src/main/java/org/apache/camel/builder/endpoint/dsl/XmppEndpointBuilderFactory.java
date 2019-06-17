@@ -932,7 +932,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the XMPP component.      */
 DECL|interface|XmppEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|XmppEndpointProducerBuilder
 extends|extends
@@ -1565,7 +1564,6 @@ block|}
 comment|/**      * Builder for endpoint for the XMPP component.      */
 DECL|interface|XmppEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|XmppEndpointBuilder
 extends|extends
@@ -1947,7 +1945,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the XMPP component.      */
 DECL|interface|AdvancedXmppEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedXmppEndpointBuilder
 extends|extends

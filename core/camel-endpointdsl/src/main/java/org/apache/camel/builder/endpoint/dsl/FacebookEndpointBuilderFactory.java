@@ -3399,7 +3399,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Facebook component.      */
 DECL|interface|FacebookEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|FacebookEndpointProducerBuilder
 extends|extends
@@ -6557,7 +6556,6 @@ block|}
 comment|/**      * Builder for endpoint for the Facebook component.      */
 DECL|interface|FacebookEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|FacebookEndpointBuilder
 extends|extends
@@ -9569,7 +9567,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Facebook component.      */
 DECL|interface|AdvancedFacebookEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedFacebookEndpointBuilder
 extends|extends

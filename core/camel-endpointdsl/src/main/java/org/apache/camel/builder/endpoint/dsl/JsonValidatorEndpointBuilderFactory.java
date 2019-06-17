@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the JSON Schema Validator component.      */
 DECL|interface|JsonValidatorEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JsonValidatorEndpointBuilder
 extends|extends
@@ -283,7 +282,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the JSON Schema Validator component.      */
 DECL|interface|AdvancedJsonValidatorEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedJsonValidatorEndpointBuilder
 extends|extends

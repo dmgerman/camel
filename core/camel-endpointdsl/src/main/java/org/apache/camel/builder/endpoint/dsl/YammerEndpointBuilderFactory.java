@@ -1396,7 +1396,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Yammer component.      */
 DECL|interface|YammerEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|YammerEndpointProducerBuilder
 extends|extends
@@ -1714,7 +1713,6 @@ block|}
 comment|/**      * Builder for endpoint for the Yammer component.      */
 DECL|interface|YammerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|YammerEndpointBuilder
 extends|extends
@@ -1886,7 +1884,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Yammer component.      */
 DECL|interface|AdvancedYammerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedYammerEndpointBuilder
 extends|extends

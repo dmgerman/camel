@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Freemarker component.      */
 DECL|interface|FreemarkerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|FreemarkerEndpointBuilder
 extends|extends
@@ -283,7 +282,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Freemarker component.      */
 DECL|interface|AdvancedFreemarkerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedFreemarkerEndpointBuilder
 extends|extends

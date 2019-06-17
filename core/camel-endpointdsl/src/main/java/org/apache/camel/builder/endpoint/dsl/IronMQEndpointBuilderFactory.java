@@ -1459,7 +1459,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the IronMQ component.      */
 DECL|interface|IronMQEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|IronMQEndpointProducerBuilder
 extends|extends
@@ -1840,7 +1839,6 @@ block|}
 comment|/**      * Builder for endpoint for the IronMQ component.      */
 DECL|interface|IronMQEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|IronMQEndpointBuilder
 extends|extends
@@ -2033,7 +2031,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the IronMQ component.      */
 DECL|interface|AdvancedIronMQEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedIronMQEndpointBuilder
 extends|extends

@@ -820,7 +820,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the HBase component.      */
 DECL|interface|HBaseEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|HBaseEndpointProducerBuilder
 extends|extends
@@ -1314,7 +1313,6 @@ block|}
 comment|/**      * Builder for endpoint for the HBase component.      */
 DECL|interface|HBaseEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|HBaseEndpointBuilder
 extends|extends
@@ -1620,7 +1618,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the HBase component.      */
 DECL|interface|AdvancedHBaseEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedHBaseEndpointBuilder
 extends|extends

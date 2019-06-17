@@ -525,7 +525,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Caffeine LoadCache component.      */
 DECL|interface|CaffeineLoadCacheEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CaffeineLoadCacheEndpointProducerBuilder
 extends|extends
@@ -1332,7 +1331,6 @@ block|}
 comment|/**      * Builder for endpoint for the Caffeine LoadCache component.      */
 DECL|interface|CaffeineLoadCacheEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CaffeineLoadCacheEndpointBuilder
 extends|extends
@@ -1420,7 +1418,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Caffeine LoadCache component.      */
 DECL|interface|AdvancedCaffeineLoadCacheEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedCaffeineLoadCacheEndpointBuilder
 extends|extends

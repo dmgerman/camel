@@ -954,7 +954,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Stream component.      */
 DECL|interface|StreamEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|StreamEndpointProducerBuilder
 extends|extends
@@ -1466,7 +1465,6 @@ block|}
 comment|/**      * Builder for endpoint for the Stream component.      */
 DECL|interface|StreamEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|StreamEndpointBuilder
 extends|extends
@@ -1575,7 +1573,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Stream component.      */
 DECL|interface|AdvancedStreamEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedStreamEndpointBuilder
 extends|extends

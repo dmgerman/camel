@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Hazelcast Ringbuffer component.      */
 DECL|interface|HazelcastRingbufferEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|HazelcastRingbufferEndpointBuilder
 extends|extends
@@ -493,7 +492,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Hazelcast Ringbuffer component.      */
 DECL|interface|AdvancedHazelcastRingbufferEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedHazelcastRingbufferEndpointBuilder
 extends|extends

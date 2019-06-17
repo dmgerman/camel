@@ -897,7 +897,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Jetty Websocket component.      */
 DECL|interface|WebsocketEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|WebsocketEndpointProducerBuilder
 extends|extends
@@ -1614,7 +1613,6 @@ block|}
 comment|/**      * Builder for endpoint for the Jetty Websocket component.      */
 DECL|interface|WebsocketEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|WebsocketEndpointBuilder
 extends|extends
@@ -1933,7 +1931,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Jetty Websocket component.      */
 DECL|interface|AdvancedWebsocketEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedWebsocketEndpointBuilder
 extends|extends

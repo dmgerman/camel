@@ -114,7 +114,6 @@ block|{
 comment|/**      * Builder for endpoint for the JMX component.      */
 DECL|interface|JMXEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JMXEndpointBuilder
 extends|extends
@@ -683,7 +682,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the JMX component.      */
 DECL|interface|AdvancedJMXEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedJMXEndpointBuilder
 extends|extends

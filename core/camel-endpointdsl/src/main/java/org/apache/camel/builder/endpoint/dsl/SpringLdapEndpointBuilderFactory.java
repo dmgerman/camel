@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Spring LDAP component.      */
 DECL|interface|SpringLdapEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SpringLdapEndpointBuilder
 extends|extends
@@ -199,7 +198,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Spring LDAP component.      */
 DECL|interface|AdvancedSpringLdapEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSpringLdapEndpointBuilder
 extends|extends

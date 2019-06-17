@@ -1307,7 +1307,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the CXF component.      */
 DECL|interface|CxfEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CxfEndpointProducerBuilder
 extends|extends
@@ -2599,7 +2598,6 @@ block|}
 comment|/**      * Builder for endpoint for the CXF component.      */
 DECL|interface|CxfEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CxfEndpointBuilder
 extends|extends
@@ -3068,7 +3066,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the CXF component.      */
 DECL|interface|AdvancedCxfEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedCxfEndpointBuilder
 extends|extends

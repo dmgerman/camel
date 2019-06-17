@@ -855,7 +855,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the CometD component.      */
 DECL|interface|CometdEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CometdEndpointProducerBuilder
 extends|extends
@@ -1509,7 +1508,6 @@ block|}
 comment|/**      * Builder for endpoint for the CometD component.      */
 DECL|interface|CometdEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CometdEndpointBuilder
 extends|extends
@@ -1975,7 +1973,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the CometD component.      */
 DECL|interface|AdvancedCometdEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedCometdEndpointBuilder
 extends|extends

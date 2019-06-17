@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the InfluxDB component.      */
 DECL|interface|InfluxDbEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|InfluxDbEndpointBuilder
 extends|extends
@@ -262,7 +261,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the InfluxDB component.      */
 DECL|interface|AdvancedInfluxDbEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedInfluxDbEndpointBuilder
 extends|extends

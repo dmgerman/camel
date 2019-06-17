@@ -849,7 +849,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Olingo2 component.      */
 DECL|interface|Olingo2EndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|Olingo2EndpointProducerBuilder
 extends|extends
@@ -1487,7 +1486,6 @@ block|}
 comment|/**      * Builder for endpoint for the Olingo2 component.      */
 DECL|interface|Olingo2EndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|Olingo2EndpointBuilder
 extends|extends
@@ -1979,7 +1977,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Olingo2 component.      */
 DECL|interface|AdvancedOlingo2EndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedOlingo2EndpointBuilder
 extends|extends

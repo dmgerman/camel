@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the DigitalOcean component.      */
 DECL|interface|DigitalOceanEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DigitalOceanEndpointBuilder
 extends|extends
@@ -409,7 +408,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the DigitalOcean component.      */
 DECL|interface|AdvancedDigitalOceanEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedDigitalOceanEndpointBuilder
 extends|extends

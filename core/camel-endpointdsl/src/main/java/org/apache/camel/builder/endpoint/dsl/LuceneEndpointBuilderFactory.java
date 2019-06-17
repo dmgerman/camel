@@ -102,7 +102,6 @@ block|{
 comment|/**      * Builder for endpoint for the Lucene component.      */
 DECL|interface|LuceneEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|LuceneEndpointBuilder
 extends|extends
@@ -356,7 +355,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Lucene component.      */
 DECL|interface|AdvancedLuceneEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedLuceneEndpointBuilder
 extends|extends

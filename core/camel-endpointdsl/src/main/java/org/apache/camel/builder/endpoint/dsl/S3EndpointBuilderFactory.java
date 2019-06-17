@@ -1984,7 +1984,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the AWS S3 Storage Service component.      */
 DECL|interface|S3EndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|S3EndpointProducerBuilder
 extends|extends
@@ -3058,7 +3057,6 @@ block|}
 comment|/**      * Builder for endpoint for the AWS S3 Storage Service component.      */
 DECL|interface|S3EndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|S3EndpointBuilder
 extends|extends
@@ -3419,7 +3417,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS S3 Storage Service component.      */
 DECL|interface|AdvancedS3EndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedS3EndpointBuilder
 extends|extends

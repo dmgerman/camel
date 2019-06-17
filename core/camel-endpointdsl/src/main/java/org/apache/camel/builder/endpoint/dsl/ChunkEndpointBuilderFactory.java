@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Chunk component.      */
 DECL|interface|ChunkEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ChunkEndpointBuilder
 extends|extends
@@ -283,7 +282,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Chunk component.      */
 DECL|interface|AdvancedChunkEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedChunkEndpointBuilder
 extends|extends

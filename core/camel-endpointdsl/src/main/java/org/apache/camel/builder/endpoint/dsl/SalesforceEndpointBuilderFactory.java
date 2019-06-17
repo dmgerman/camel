@@ -1736,7 +1736,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Salesforce component.      */
 DECL|interface|SalesforceEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SalesforceEndpointProducerBuilder
 extends|extends
@@ -3240,7 +3239,6 @@ block|}
 comment|/**      * Builder for endpoint for the Salesforce component.      */
 DECL|interface|SalesforceEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SalesforceEndpointBuilder
 extends|extends
@@ -4556,7 +4554,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Salesforce component.      */
 DECL|interface|AdvancedSalesforceEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSalesforceEndpointBuilder
 extends|extends

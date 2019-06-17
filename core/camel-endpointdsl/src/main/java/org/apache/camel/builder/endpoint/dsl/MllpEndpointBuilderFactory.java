@@ -1262,7 +1262,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the MLLP component.      */
 DECL|interface|MllpEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MllpEndpointProducerBuilder
 extends|extends
@@ -2109,7 +2108,6 @@ block|}
 comment|/**      * Builder for endpoint for the MLLP component.      */
 DECL|interface|MllpEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MllpEndpointBuilder
 extends|extends
@@ -2474,7 +2472,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the MLLP component.      */
 DECL|interface|AdvancedMllpEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedMllpEndpointBuilder
 extends|extends

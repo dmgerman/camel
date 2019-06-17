@@ -960,7 +960,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Kubernetes Replication Controller      * component.      */
 DECL|interface|KubernetesReplicationControllersEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KubernetesReplicationControllersEndpointProducerBuilder
 extends|extends
@@ -1614,7 +1613,6 @@ block|}
 comment|/**      * Builder for endpoint for the Kubernetes Replication Controller component.      */
 DECL|interface|KubernetesReplicationControllersEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KubernetesReplicationControllersEndpointBuilder
 extends|extends
@@ -2059,7 +2057,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Kubernetes Replication Controller      * component.      */
 DECL|interface|AdvancedKubernetesReplicationControllersEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedKubernetesReplicationControllersEndpointBuilder
 extends|extends

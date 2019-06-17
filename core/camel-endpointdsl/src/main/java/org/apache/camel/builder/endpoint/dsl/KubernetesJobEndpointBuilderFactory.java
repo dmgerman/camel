@@ -960,7 +960,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Kubernetes Job component.      */
 DECL|interface|KubernetesJobEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KubernetesJobEndpointProducerBuilder
 extends|extends
@@ -1614,7 +1613,6 @@ block|}
 comment|/**      * Builder for endpoint for the Kubernetes Job component.      */
 DECL|interface|KubernetesJobEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KubernetesJobEndpointBuilder
 extends|extends
@@ -2059,7 +2057,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Kubernetes Job component.      */
 DECL|interface|AdvancedKubernetesJobEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedKubernetesJobEndpointBuilder
 extends|extends

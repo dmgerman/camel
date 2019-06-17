@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the AWS EKS component.      */
 DECL|interface|EKSEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|EKSEndpointBuilder
 extends|extends
@@ -157,7 +156,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS EKS component.      */
 DECL|interface|AdvancedEKSEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedEKSEndpointBuilder
 extends|extends

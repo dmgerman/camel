@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the OpenStack Glance component.      */
 DECL|interface|GlanceEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GlanceEndpointBuilder
 extends|extends
@@ -304,7 +303,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the OpenStack Glance component.      */
 DECL|interface|AdvancedGlanceEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedGlanceEndpointBuilder
 extends|extends

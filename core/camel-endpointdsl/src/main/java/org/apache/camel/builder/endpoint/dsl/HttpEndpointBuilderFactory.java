@@ -126,7 +126,6 @@ block|{
 comment|/**      * Builder for endpoint for the HTTP4 component.      */
 DECL|interface|HttpEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|HttpEndpointBuilder
 extends|extends
@@ -443,7 +442,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the HTTP4 component.      */
 DECL|interface|AdvancedHttpEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedHttpEndpointBuilder
 extends|extends

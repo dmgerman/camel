@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Mock component.      */
 DECL|interface|MockEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MockEndpointBuilder
 extends|extends
@@ -136,7 +135,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Mock component.      */
 DECL|interface|AdvancedMockEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedMockEndpointBuilder
 extends|extends

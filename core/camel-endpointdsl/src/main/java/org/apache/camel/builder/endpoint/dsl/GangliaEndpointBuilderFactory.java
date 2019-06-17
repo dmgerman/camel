@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Ganglia component.      */
 DECL|interface|GangliaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GangliaEndpointBuilder
 extends|extends
@@ -577,7 +576,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Ganglia component.      */
 DECL|interface|AdvancedGangliaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedGangliaEndpointBuilder
 extends|extends

@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Ignite Events component.      */
 DECL|interface|IgniteEventsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|IgniteEventsEndpointBuilder
 extends|extends
@@ -220,7 +219,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Ignite Events component.      */
 DECL|interface|AdvancedIgniteEventsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedIgniteEventsEndpointBuilder
 extends|extends

@@ -1396,7 +1396,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Flatpack component.      */
 DECL|interface|FlatpackEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|FlatpackEndpointProducerBuilder
 extends|extends
@@ -1882,7 +1881,6 @@ block|}
 comment|/**      * Builder for endpoint for the Flatpack component.      */
 DECL|interface|FlatpackEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|FlatpackEndpointBuilder
 extends|extends
@@ -2222,7 +2220,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Flatpack component.      */
 DECL|interface|AdvancedFlatpackEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedFlatpackEndpointBuilder
 extends|extends

@@ -1396,7 +1396,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Beanstalk component.      */
 DECL|interface|BeanstalkEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|BeanstalkEndpointProducerBuilder
 extends|extends
@@ -1756,7 +1755,6 @@ block|}
 comment|/**      * Builder for endpoint for the Beanstalk component.      */
 DECL|interface|BeanstalkEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|BeanstalkEndpointBuilder
 extends|extends
@@ -1970,7 +1968,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Beanstalk component.      */
 DECL|interface|AdvancedBeanstalkEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedBeanstalkEndpointBuilder
 extends|extends

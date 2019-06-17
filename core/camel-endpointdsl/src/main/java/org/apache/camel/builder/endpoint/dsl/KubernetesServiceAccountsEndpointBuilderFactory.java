@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Kubernetes Service Account component.      */
 DECL|interface|KubernetesServiceAccountsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KubernetesServiceAccountsEndpointBuilder
 extends|extends
@@ -535,7 +534,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Kubernetes Service Account      * component.      */
 DECL|interface|AdvancedKubernetesServiceAccountsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedKubernetesServiceAccountsEndpointBuilder
 extends|extends

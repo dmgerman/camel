@@ -102,7 +102,6 @@ block|{
 comment|/**      * Builder for endpoint for the Quartz2 component.      */
 DECL|interface|QuartzEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|QuartzEndpointBuilder
 extends|extends
@@ -566,7 +565,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Quartz2 component.      */
 DECL|interface|AdvancedQuartzEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedQuartzEndpointBuilder
 extends|extends

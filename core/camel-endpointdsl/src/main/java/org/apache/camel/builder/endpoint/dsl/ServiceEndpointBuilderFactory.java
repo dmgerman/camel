@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Service component.      */
 DECL|interface|ServiceEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ServiceEndpointBuilder
 extends|extends
@@ -136,7 +135,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Service component.      */
 DECL|interface|AdvancedServiceEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedServiceEndpointBuilder
 extends|extends

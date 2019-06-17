@@ -842,7 +842,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Web3j Ethereum Blockchain      * component.      */
 DECL|interface|Web3jEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|Web3jEndpointProducerBuilder
 extends|extends
@@ -2114,7 +2113,6 @@ block|}
 comment|/**      * Builder for endpoint for the Web3j Ethereum Blockchain component.      */
 DECL|interface|Web3jEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|Web3jEndpointBuilder
 extends|extends
@@ -2589,7 +2587,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Web3j Ethereum Blockchain      * component.      */
 DECL|interface|AdvancedWeb3jEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedWeb3jEndpointBuilder
 extends|extends

@@ -1815,11 +1815,6 @@ operator|.
 name|setPublic
 argument_list|()
 operator|.
-name|setStatic
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|setClass
 argument_list|(
 literal|false
@@ -2011,11 +2006,6 @@ operator|.
 name|setPublic
 argument_list|()
 operator|.
-name|setStatic
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|setClass
 argument_list|(
 literal|false
@@ -2137,11 +2127,6 @@ argument_list|()
 operator|.
 name|setPublic
 argument_list|()
-operator|.
-name|setStatic
-argument_list|(
-literal|true
-argument_list|)
 operator|.
 name|setClass
 argument_list|(

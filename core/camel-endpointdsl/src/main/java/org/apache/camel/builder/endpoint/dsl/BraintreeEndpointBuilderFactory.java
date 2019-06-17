@@ -720,7 +720,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Braintree component.      */
 DECL|interface|BraintreeEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|BraintreeEndpointProducerBuilder
 extends|extends
@@ -1227,7 +1226,6 @@ block|}
 comment|/**      * Builder for endpoint for the Braintree component.      */
 DECL|interface|BraintreeEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|BraintreeEndpointBuilder
 extends|extends
@@ -1483,7 +1481,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Braintree component.      */
 DECL|interface|AdvancedBraintreeEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedBraintreeEndpointBuilder
 extends|extends

@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the JOLT component.      */
 DECL|interface|JoltEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JoltEndpointBuilder
 extends|extends
@@ -304,7 +303,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the JOLT component.      */
 DECL|interface|AdvancedJoltEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedJoltEndpointBuilder
 extends|extends

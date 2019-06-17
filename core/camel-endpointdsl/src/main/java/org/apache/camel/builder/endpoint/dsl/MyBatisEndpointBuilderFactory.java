@@ -1333,7 +1333,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the MyBatis component.      */
 DECL|interface|MyBatisEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MyBatisEndpointProducerBuilder
 extends|extends
@@ -1651,7 +1650,6 @@ block|}
 comment|/**      * Builder for endpoint for the MyBatis component.      */
 DECL|interface|MyBatisEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MyBatisEndpointBuilder
 extends|extends
@@ -1697,7 +1695,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the MyBatis component.      */
 DECL|interface|AdvancedMyBatisEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedMyBatisEndpointBuilder
 extends|extends

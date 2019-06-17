@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the AWS DynamoDB component.      */
 DECL|interface|DdbEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DdbEndpointBuilder
 extends|extends
@@ -514,7 +513,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS DynamoDB component.      */
 DECL|interface|AdvancedDdbEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedDdbEndpointBuilder
 extends|extends

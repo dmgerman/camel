@@ -939,7 +939,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Docker component.      */
 DECL|interface|DockerEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DockerEndpointProducerBuilder
 extends|extends
@@ -1677,7 +1676,6 @@ block|}
 comment|/**      * Builder for endpoint for the Docker component.      */
 DECL|interface|DockerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DockerEndpointBuilder
 extends|extends
@@ -2017,7 +2015,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Docker component.      */
 DECL|interface|AdvancedDockerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedDockerEndpointBuilder
 extends|extends

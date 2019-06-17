@@ -102,7 +102,6 @@ block|{
 comment|/**      * Builder for endpoint for the AWS Simple Email Service component.      */
 DECL|interface|SesEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SesEndpointBuilder
 extends|extends
@@ -446,7 +445,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS Simple Email Service component.      */
 DECL|interface|AdvancedSesEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSesEndpointBuilder
 extends|extends

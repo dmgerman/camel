@@ -771,7 +771,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the MongoDB GridFS component.      */
 DECL|interface|GridFsEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GridFsEndpointProducerBuilder
 extends|extends
@@ -1152,7 +1151,6 @@ block|}
 comment|/**      * Builder for endpoint for the MongoDB GridFS component.      */
 DECL|interface|GridFsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GridFsEndpointBuilder
 extends|extends
@@ -1366,7 +1364,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the MongoDB GridFS component.      */
 DECL|interface|AdvancedGridFsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedGridFsEndpointBuilder
 extends|extends

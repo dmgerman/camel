@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Ignite Compute component.      */
 DECL|interface|IgniteComputeEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|IgniteComputeEndpointBuilder
 extends|extends
@@ -220,7 +219,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Ignite Compute component.      */
 DECL|interface|AdvancedIgniteComputeEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedIgniteComputeEndpointBuilder
 extends|extends

@@ -1593,7 +1593,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the MQTT component.      */
 DECL|interface|MQTTEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MQTTEndpointProducerBuilder
 extends|extends
@@ -3005,7 +3004,6 @@ block|}
 comment|/**      * Builder for endpoint for the MQTT component.      */
 DECL|interface|MQTTEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MQTTEndpointBuilder
 extends|extends
@@ -4229,7 +4227,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the MQTT component.      */
 DECL|interface|AdvancedMQTTEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedMQTTEndpointBuilder
 extends|extends

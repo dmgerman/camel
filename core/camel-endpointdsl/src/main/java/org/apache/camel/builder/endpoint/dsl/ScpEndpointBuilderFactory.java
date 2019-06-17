@@ -104,7 +104,6 @@ block|{
 comment|/**      * Builder for endpoint for the SCP component.      */
 DECL|interface|ScpEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ScpEndpointBuilder
 extends|extends
@@ -548,7 +547,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the SCP component.      */
 DECL|interface|AdvancedScpEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedScpEndpointBuilder
 extends|extends

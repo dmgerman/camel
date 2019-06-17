@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Kubernetes Persistent Volume component.      */
 DECL|interface|KubernetesPersistentVolumesEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KubernetesPersistentVolumesEndpointBuilder
 extends|extends
@@ -535,7 +534,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Kubernetes Persistent Volume      * component.      */
 DECL|interface|AdvancedKubernetesPersistentVolumesEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedKubernetesPersistentVolumesEndpointBuilder
 extends|extends

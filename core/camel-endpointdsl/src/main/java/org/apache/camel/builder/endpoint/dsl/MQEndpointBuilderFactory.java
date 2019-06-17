@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the AWS MQ component.      */
 DECL|interface|MQEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MQEndpointBuilder
 extends|extends
@@ -157,7 +156,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS MQ component.      */
 DECL|interface|AdvancedMQEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedMQEndpointBuilder
 extends|extends

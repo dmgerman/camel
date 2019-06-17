@@ -792,7 +792,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the NSQ component.      */
 DECL|interface|NsqEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|NsqEndpointProducerBuilder
 extends|extends
@@ -1152,7 +1151,6 @@ block|}
 comment|/**      * Builder for endpoint for the NSQ component.      */
 DECL|interface|NsqEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|NsqEndpointBuilder
 extends|extends
@@ -1324,7 +1322,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the NSQ component.      */
 DECL|interface|AdvancedNsqEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedNsqEndpointBuilder
 extends|extends

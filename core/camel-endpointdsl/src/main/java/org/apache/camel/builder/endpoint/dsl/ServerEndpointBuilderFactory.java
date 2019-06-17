@@ -1075,7 +1075,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the IEC 60870 Server component.      */
 DECL|interface|ServerEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ServerEndpointProducerBuilder
 extends|extends
@@ -1939,7 +1938,6 @@ block|}
 comment|/**      * Builder for endpoint for the IEC 60870 Server component.      */
 DECL|interface|ServerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ServerEndpointBuilder
 extends|extends
@@ -2657,7 +2655,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the IEC 60870 Server component.      */
 DECL|interface|AdvancedServerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedServerEndpointBuilder
 extends|extends

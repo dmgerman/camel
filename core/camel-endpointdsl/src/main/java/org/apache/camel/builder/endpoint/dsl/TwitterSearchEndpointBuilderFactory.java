@@ -1837,7 +1837,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Twitter Search component.      */
 DECL|interface|TwitterSearchEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|TwitterSearchEndpointProducerBuilder
 extends|extends
@@ -2218,7 +2217,6 @@ block|}
 comment|/**      * Builder for endpoint for the Twitter Search component.      */
 DECL|interface|TwitterSearchEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|TwitterSearchEndpointBuilder
 extends|extends
@@ -2453,7 +2451,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Twitter Search component.      */
 DECL|interface|AdvancedTwitterSearchEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedTwitterSearchEndpointBuilder
 extends|extends

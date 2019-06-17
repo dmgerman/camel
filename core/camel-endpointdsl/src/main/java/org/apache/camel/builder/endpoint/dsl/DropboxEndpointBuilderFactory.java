@@ -624,7 +624,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Dropbox component.      */
 DECL|interface|DropboxEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DropboxEndpointProducerBuilder
 extends|extends
@@ -1047,7 +1046,6 @@ block|}
 comment|/**      * Builder for endpoint for the Dropbox component.      */
 DECL|interface|DropboxEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|DropboxEndpointBuilder
 extends|extends
@@ -1324,7 +1322,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Dropbox component.      */
 DECL|interface|AdvancedDropboxEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedDropboxEndpointBuilder
 extends|extends

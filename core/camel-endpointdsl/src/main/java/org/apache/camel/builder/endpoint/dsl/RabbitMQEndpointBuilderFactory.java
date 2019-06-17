@@ -2010,7 +2010,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the RabbitMQ component.      */
 DECL|interface|RabbitMQEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|RabbitMQEndpointProducerBuilder
 extends|extends
@@ -3851,7 +3850,6 @@ block|}
 comment|/**      * Builder for endpoint for the RabbitMQ component.      */
 DECL|interface|RabbitMQEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|RabbitMQEndpointBuilder
 extends|extends
@@ -4654,7 +4652,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the RabbitMQ component.      */
 DECL|interface|AdvancedRabbitMQEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedRabbitMQEndpointBuilder
 extends|extends

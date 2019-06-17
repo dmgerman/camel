@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the OSGi PAX Logging component.      */
 DECL|interface|PaxLoggingEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|PaxLoggingEndpointBuilder
 extends|extends
@@ -136,7 +135,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the OSGi PAX Logging component.      */
 DECL|interface|AdvancedPaxLoggingEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedPaxLoggingEndpointBuilder
 extends|extends

@@ -116,7 +116,6 @@ block|{
 comment|/**      * Builder for endpoint for the Jetty component.      */
 DECL|interface|JettyHttpEndpointBuilder9
 specifier|public
-specifier|static
 interface|interface
 name|JettyHttpEndpointBuilder9
 extends|extends
@@ -433,7 +432,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Jetty component.      */
 DECL|interface|AdvancedJettyHttpEndpointBuilder9
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedJettyHttpEndpointBuilder9
 extends|extends

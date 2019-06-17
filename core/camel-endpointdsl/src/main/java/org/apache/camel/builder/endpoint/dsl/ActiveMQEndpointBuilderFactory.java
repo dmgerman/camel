@@ -2918,7 +2918,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the ActiveMQ component.      */
 DECL|interface|ActiveMQEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ActiveMQEndpointProducerBuilder
 extends|extends
@@ -5609,7 +5608,6 @@ block|}
 comment|/**      * Builder for endpoint for the ActiveMQ component.      */
 DECL|interface|ActiveMQEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ActiveMQEndpointBuilder
 extends|extends
@@ -5970,7 +5968,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the ActiveMQ component.      */
 DECL|interface|AdvancedActiveMQEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedActiveMQEndpointBuilder
 extends|extends

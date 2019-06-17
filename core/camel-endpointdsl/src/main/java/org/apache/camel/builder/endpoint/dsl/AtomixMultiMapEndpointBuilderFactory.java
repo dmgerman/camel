@@ -122,7 +122,6 @@ block|{
 comment|/**      * Builder for endpoint for the Atomix MultiMap component.      */
 DECL|interface|AtomixMultiMapEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AtomixMultiMapEndpointBuilder
 extends|extends
@@ -466,7 +465,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Atomix MultiMap component.      */
 DECL|interface|AdvancedAtomixMultiMapEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedAtomixMultiMapEndpointBuilder
 extends|extends

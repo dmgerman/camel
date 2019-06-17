@@ -738,7 +738,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the CoAP component.      */
 DECL|interface|CoAPEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CoAPEndpointProducerBuilder
 extends|extends
@@ -1224,7 +1223,6 @@ block|}
 comment|/**      * Builder for endpoint for the CoAP component.      */
 DECL|interface|CoAPEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CoAPEndpointBuilder
 extends|extends
@@ -1564,7 +1562,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the CoAP component.      */
 DECL|interface|AdvancedCoAPEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedCoAPEndpointBuilder
 extends|extends

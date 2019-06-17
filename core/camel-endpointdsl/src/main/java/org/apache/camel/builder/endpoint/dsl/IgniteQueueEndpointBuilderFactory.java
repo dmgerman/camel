@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Ignite Queues component.      */
 DECL|interface|IgniteQueueEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|IgniteQueueEndpointBuilder
 extends|extends
@@ -220,7 +219,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Ignite Queues component.      */
 DECL|interface|AdvancedIgniteQueueEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedIgniteQueueEndpointBuilder
 extends|extends

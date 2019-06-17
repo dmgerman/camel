@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Hazelcast Instance component.      */
 DECL|interface|HazelcastInstanceEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|HazelcastInstanceEndpointBuilder
 extends|extends
@@ -493,7 +492,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Hazelcast Instance component.      */
 DECL|interface|AdvancedHazelcastInstanceEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedHazelcastInstanceEndpointBuilder
 extends|extends

@@ -393,7 +393,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Ref component.      */
 DECL|interface|RefEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|RefEndpointProducerBuilder
 extends|extends
@@ -585,7 +584,6 @@ block|}
 comment|/**      * Builder for endpoint for the Ref component.      */
 DECL|interface|RefEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|RefEndpointBuilder
 extends|extends
@@ -631,7 +629,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Ref component.      */
 DECL|interface|AdvancedRefEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedRefEndpointBuilder
 extends|extends

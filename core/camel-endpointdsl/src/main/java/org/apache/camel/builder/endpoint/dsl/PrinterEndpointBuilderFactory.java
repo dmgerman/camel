@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Printer component.      */
 DECL|interface|PrinterEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|PrinterEndpointBuilder
 extends|extends
@@ -472,7 +471,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Printer component.      */
 DECL|interface|AdvancedPrinterEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedPrinterEndpointBuilder
 extends|extends

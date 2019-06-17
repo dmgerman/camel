@@ -1480,7 +1480,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the SSH component.      */
 DECL|interface|SshEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SshEndpointProducerBuilder
 extends|extends
@@ -2029,7 +2028,6 @@ block|}
 comment|/**      * Builder for endpoint for the SSH component.      */
 DECL|interface|SshEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SshEndpointBuilder
 extends|extends
@@ -2348,7 +2346,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the SSH component.      */
 DECL|interface|AdvancedSshEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSshEndpointBuilder
 extends|extends

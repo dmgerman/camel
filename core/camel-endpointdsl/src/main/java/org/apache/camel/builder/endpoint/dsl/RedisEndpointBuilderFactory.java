@@ -666,7 +666,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Spring Redis component.      */
 DECL|interface|RedisEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|RedisEndpointProducerBuilder
 extends|extends
@@ -1089,7 +1088,6 @@ block|}
 comment|/**      * Builder for endpoint for the Spring Redis component.      */
 DECL|interface|RedisEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|RedisEndpointBuilder
 extends|extends
@@ -1366,7 +1364,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Spring Redis component.      */
 DECL|interface|AdvancedRedisEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedRedisEndpointBuilder
 extends|extends

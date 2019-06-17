@@ -414,7 +414,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the corda component.      */
 DECL|interface|CordaEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CordaEndpointProducerBuilder
 extends|extends
@@ -627,7 +626,6 @@ block|}
 comment|/**      * Builder for endpoint for the corda component.      */
 DECL|interface|CordaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CordaEndpointBuilder
 extends|extends
@@ -694,7 +692,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the corda component.      */
 DECL|interface|AdvancedCordaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedCordaEndpointBuilder
 extends|extends

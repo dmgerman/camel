@@ -634,7 +634,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Spring WebService component.      */
 DECL|interface|SpringWebserviceEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SpringWebserviceEndpointProducerBuilder
 extends|extends
@@ -1435,7 +1434,6 @@ block|}
 comment|/**      * Builder for endpoint for the Spring WebService component.      */
 DECL|interface|SpringWebserviceEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SpringWebserviceEndpointBuilder
 extends|extends
@@ -1544,7 +1542,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Spring WebService component.      */
 DECL|interface|AdvancedSpringWebserviceEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSpringWebserviceEndpointBuilder
 extends|extends

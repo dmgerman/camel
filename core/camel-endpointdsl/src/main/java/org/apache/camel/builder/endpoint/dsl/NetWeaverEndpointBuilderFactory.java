@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the SAP NetWeaver component.      */
 DECL|interface|NetWeaverEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|NetWeaverEndpointBuilder
 extends|extends
@@ -304,7 +303,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the SAP NetWeaver component.      */
 DECL|interface|AdvancedNetWeaverEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedNetWeaverEndpointBuilder
 extends|extends

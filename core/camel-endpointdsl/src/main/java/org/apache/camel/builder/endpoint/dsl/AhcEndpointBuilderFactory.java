@@ -126,7 +126,6 @@ block|{
 comment|/**      * Builder for endpoint for the AHC component.      */
 DECL|interface|AhcEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AhcEndpointBuilder
 extends|extends
@@ -443,7 +442,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AHC component.      */
 DECL|interface|AdvancedAhcEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedAhcEndpointBuilder
 extends|extends

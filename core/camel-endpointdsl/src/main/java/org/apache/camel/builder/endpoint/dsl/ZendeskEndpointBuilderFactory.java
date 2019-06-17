@@ -519,7 +519,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Zendesk component.      */
 DECL|interface|ZendeskEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ZendeskEndpointProducerBuilder
 extends|extends
@@ -837,7 +836,6 @@ block|}
 comment|/**      * Builder for endpoint for the Zendesk component.      */
 DECL|interface|ZendeskEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ZendeskEndpointBuilder
 extends|extends
@@ -1009,7 +1007,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Zendesk component.      */
 DECL|interface|AdvancedZendeskEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedZendeskEndpointBuilder
 extends|extends

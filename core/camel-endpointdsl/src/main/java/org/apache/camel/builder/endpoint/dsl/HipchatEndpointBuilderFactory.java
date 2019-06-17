@@ -1249,7 +1249,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Hipchat component.      */
 DECL|interface|HipchatEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|HipchatEndpointProducerBuilder
 extends|extends
@@ -1588,7 +1587,6 @@ block|}
 comment|/**      * Builder for endpoint for the Hipchat component.      */
 DECL|interface|HipchatEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|HipchatEndpointBuilder
 extends|extends
@@ -1781,7 +1779,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Hipchat component.      */
 DECL|interface|AdvancedHipchatEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedHipchatEndpointBuilder
 extends|extends

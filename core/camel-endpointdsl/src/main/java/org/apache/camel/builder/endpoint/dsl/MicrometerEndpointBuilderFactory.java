@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Micrometer component.      */
 DECL|interface|MicrometerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MicrometerEndpointBuilder
 extends|extends
@@ -307,7 +306,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Micrometer component.      */
 DECL|interface|AdvancedMicrometerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedMicrometerEndpointBuilder
 extends|extends

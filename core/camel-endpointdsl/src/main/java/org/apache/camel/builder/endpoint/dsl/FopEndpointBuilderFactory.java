@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the FOP component.      */
 DECL|interface|FopEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|FopEndpointBuilder
 extends|extends
@@ -220,7 +219,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the FOP component.      */
 DECL|interface|AdvancedFopEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedFopEndpointBuilder
 extends|extends

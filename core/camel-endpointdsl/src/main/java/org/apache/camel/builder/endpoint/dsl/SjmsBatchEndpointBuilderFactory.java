@@ -142,7 +142,6 @@ block|{
 comment|/**      * Builder for endpoint for the Simple JMS Batch component.      */
 DECL|interface|SjmsBatchEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SjmsBatchEndpointBuilder
 extends|extends
@@ -690,7 +689,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Simple JMS Batch component.      */
 DECL|interface|AdvancedSjmsBatchEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSjmsBatchEndpointBuilder
 extends|extends

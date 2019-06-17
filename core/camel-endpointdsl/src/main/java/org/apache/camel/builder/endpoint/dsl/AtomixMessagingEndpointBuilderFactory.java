@@ -985,7 +985,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Atomix Messaging component.      */
 DECL|interface|AtomixMessagingEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AtomixMessagingEndpointProducerBuilder
 extends|extends
@@ -1739,7 +1738,6 @@ block|}
 comment|/**      * Builder for endpoint for the Atomix Messaging component.      */
 DECL|interface|AtomixMessagingEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AtomixMessagingEndpointBuilder
 extends|extends
@@ -2085,7 +2083,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Atomix Messaging component.      */
 DECL|interface|AdvancedAtomixMessagingEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedAtomixMessagingEndpointBuilder
 extends|extends

@@ -490,7 +490,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Properties component.      */
 DECL|interface|PropertiesEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|PropertiesEndpointProducerBuilder
 extends|extends
@@ -769,7 +768,6 @@ block|}
 comment|/**      * Builder for endpoint for the Properties component.      */
 DECL|interface|PropertiesEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|PropertiesEndpointBuilder
 extends|extends
@@ -902,7 +900,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Properties component.      */
 DECL|interface|AdvancedPropertiesEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedPropertiesEndpointBuilder
 extends|extends

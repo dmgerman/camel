@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the SNMP component.      */
 DECL|interface|SnmpEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SnmpEndpointBuilder
 extends|extends
@@ -619,7 +618,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the SNMP component.      */
 DECL|interface|AdvancedSnmpEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSnmpEndpointBuilder
 extends|extends

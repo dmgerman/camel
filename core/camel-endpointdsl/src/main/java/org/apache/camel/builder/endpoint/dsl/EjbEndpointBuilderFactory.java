@@ -102,7 +102,6 @@ block|{
 comment|/**      * Builder for endpoint for the EJB component.      */
 DECL|interface|EjbEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|EjbEndpointBuilder
 extends|extends
@@ -256,7 +255,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the EJB component.      */
 DECL|interface|AdvancedEjbEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedEjbEndpointBuilder
 extends|extends

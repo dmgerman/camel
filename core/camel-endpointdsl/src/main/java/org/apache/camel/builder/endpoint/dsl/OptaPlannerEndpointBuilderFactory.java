@@ -414,7 +414,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the OptaPlanner component.      */
 DECL|interface|OptaPlannerEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|OptaPlannerEndpointProducerBuilder
 extends|extends
@@ -711,7 +710,6 @@ block|}
 comment|/**      * Builder for endpoint for the OptaPlanner component.      */
 DECL|interface|OptaPlannerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|OptaPlannerEndpointBuilder
 extends|extends
@@ -778,7 +776,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the OptaPlanner component.      */
 DECL|interface|AdvancedOptaPlannerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedOptaPlannerEndpointBuilder
 extends|extends

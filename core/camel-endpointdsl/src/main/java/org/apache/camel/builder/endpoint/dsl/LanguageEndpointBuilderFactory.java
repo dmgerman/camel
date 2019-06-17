@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Language component.      */
 DECL|interface|LanguageEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|LanguageEndpointBuilder
 extends|extends
@@ -346,7 +345,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Language component.      */
 DECL|interface|AdvancedLanguageEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedLanguageEndpointBuilder
 extends|extends

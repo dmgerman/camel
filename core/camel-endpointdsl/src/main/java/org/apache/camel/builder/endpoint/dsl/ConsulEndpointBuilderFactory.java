@@ -393,7 +393,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Consul component.      */
 DECL|interface|ConsulEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ConsulEndpointProducerBuilder
 extends|extends
@@ -585,7 +584,6 @@ block|}
 comment|/**      * Builder for endpoint for the Consul component.      */
 DECL|interface|ConsulEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ConsulEndpointBuilder
 extends|extends
@@ -631,7 +629,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Consul component.      */
 DECL|interface|AdvancedConsulEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedConsulEndpointBuilder
 extends|extends

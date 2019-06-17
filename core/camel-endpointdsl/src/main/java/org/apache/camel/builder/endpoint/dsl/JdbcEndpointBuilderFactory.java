@@ -102,7 +102,6 @@ block|{
 comment|/**      * Builder for endpoint for the JDBC component.      */
 DECL|interface|JdbcEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JdbcEndpointBuilder
 extends|extends
@@ -550,7 +549,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the JDBC component.      */
 DECL|interface|AdvancedJdbcEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedJdbcEndpointBuilder
 extends|extends

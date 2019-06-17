@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Apache Flink component.      */
 DECL|interface|FlinkEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|FlinkEndpointBuilder
 extends|extends
@@ -367,7 +366,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Apache Flink component.      */
 DECL|interface|AdvancedFlinkEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedFlinkEndpointBuilder
 extends|extends

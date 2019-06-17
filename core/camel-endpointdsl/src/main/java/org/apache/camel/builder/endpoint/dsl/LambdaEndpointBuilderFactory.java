@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the AWS Lambda component.      */
 DECL|interface|LambdaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|LambdaEndpointBuilder
 extends|extends
@@ -283,7 +282,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS Lambda component.      */
 DECL|interface|AdvancedLambdaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedLambdaEndpointBuilder
 extends|extends

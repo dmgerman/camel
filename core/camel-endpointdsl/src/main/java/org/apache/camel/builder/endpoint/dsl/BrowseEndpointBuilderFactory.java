@@ -393,7 +393,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Browse component.      */
 DECL|interface|BrowseEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|BrowseEndpointProducerBuilder
 extends|extends
@@ -585,7 +584,6 @@ block|}
 comment|/**      * Builder for endpoint for the Browse component.      */
 DECL|interface|BrowseEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|BrowseEndpointBuilder
 extends|extends
@@ -631,7 +629,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Browse component.      */
 DECL|interface|AdvancedBrowseEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedBrowseEndpointBuilder
 extends|extends

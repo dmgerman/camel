@@ -750,7 +750,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Thrift component.      */
 DECL|interface|ThriftEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ThriftEndpointProducerBuilder
 extends|extends
@@ -1194,7 +1193,6 @@ block|}
 comment|/**      * Builder for endpoint for the Thrift component.      */
 DECL|interface|ThriftEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ThriftEndpointBuilder
 extends|extends
@@ -1471,7 +1469,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Thrift component.      */
 DECL|interface|AdvancedThriftEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedThriftEndpointBuilder
 extends|extends

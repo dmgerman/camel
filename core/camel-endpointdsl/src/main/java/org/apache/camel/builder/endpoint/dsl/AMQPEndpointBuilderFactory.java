@@ -2918,7 +2918,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the AMQP component.      */
 DECL|interface|AMQPEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AMQPEndpointProducerBuilder
 extends|extends
@@ -5609,7 +5608,6 @@ block|}
 comment|/**      * Builder for endpoint for the AMQP component.      */
 DECL|interface|AMQPEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AMQPEndpointBuilder
 extends|extends
@@ -5970,7 +5968,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AMQP component.      */
 DECL|interface|AdvancedAMQPEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedAMQPEndpointBuilder
 extends|extends

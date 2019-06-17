@@ -729,7 +729,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the JCR component.      */
 DECL|interface|JcrEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JcrEndpointProducerBuilder
 extends|extends
@@ -1257,7 +1256,6 @@ block|}
 comment|/**      * Builder for endpoint for the JCR component.      */
 DECL|interface|JcrEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JcrEndpointBuilder
 extends|extends
@@ -1639,7 +1637,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the JCR component.      */
 DECL|interface|AdvancedJcrEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedJcrEndpointBuilder
 extends|extends

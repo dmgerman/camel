@@ -112,7 +112,6 @@ block|{
 comment|/**      * Builder for endpoint for the XML Security component.      */
 DECL|interface|XmlSignatureEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|XmlSignatureEndpointBuilder
 extends|extends
@@ -1301,7 +1300,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the XML Security component.      */
 DECL|interface|AdvancedXmlSignatureEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedXmlSignatureEndpointBuilder
 extends|extends

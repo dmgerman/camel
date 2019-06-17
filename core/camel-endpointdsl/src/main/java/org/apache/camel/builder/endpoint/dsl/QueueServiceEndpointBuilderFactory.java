@@ -477,7 +477,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Azure Storage Queue Service      * component.      */
 DECL|interface|QueueServiceEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|QueueServiceEndpointProducerBuilder
 extends|extends
@@ -900,7 +899,6 @@ block|}
 comment|/**      * Builder for endpoint for the Azure Storage Queue Service component.      */
 DECL|interface|QueueServiceEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|QueueServiceEndpointBuilder
 extends|extends
@@ -1030,7 +1028,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Azure Storage Queue Service      * component.      */
 DECL|interface|AdvancedQueueServiceEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedQueueServiceEndpointBuilder
 extends|extends

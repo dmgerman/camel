@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Bean Validator component.      */
 DECL|interface|BeanValidatorEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|BeanValidatorEndpointBuilder
 extends|extends
@@ -325,7 +324,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Bean Validator component.      */
 DECL|interface|AdvancedBeanValidatorEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedBeanValidatorEndpointBuilder
 extends|extends

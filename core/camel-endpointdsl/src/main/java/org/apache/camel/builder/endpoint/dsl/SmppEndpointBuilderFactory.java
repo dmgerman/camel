@@ -1122,7 +1122,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the SMPP component.      */
 DECL|interface|SmppEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SmppEndpointProducerBuilder
 extends|extends
@@ -2537,7 +2536,6 @@ block|}
 comment|/**      * Builder for endpoint for the SMPP component.      */
 DECL|interface|SmppEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SmppEndpointBuilder
 extends|extends
@@ -3155,7 +3153,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the SMPP component.      */
 DECL|interface|AdvancedSmppEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSmppEndpointBuilder
 extends|extends

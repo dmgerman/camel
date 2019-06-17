@@ -112,7 +112,6 @@ block|{
 comment|/**      * Builder for endpoint for the Timer component.      */
 DECL|interface|TimerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|TimerEndpointBuilder
 extends|extends
@@ -324,7 +323,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Timer component.      */
 DECL|interface|AdvancedTimerEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedTimerEndpointBuilder
 extends|extends

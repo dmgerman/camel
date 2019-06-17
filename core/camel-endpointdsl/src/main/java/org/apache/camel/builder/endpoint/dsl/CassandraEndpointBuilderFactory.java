@@ -1501,7 +1501,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Cassandra CQL component.      */
 DECL|interface|CassandraEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CassandraEndpointProducerBuilder
 extends|extends
@@ -2092,7 +2091,6 @@ block|}
 comment|/**      * Builder for endpoint for the Cassandra CQL component.      */
 DECL|interface|CassandraEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CassandraEndpointBuilder
 extends|extends
@@ -2537,7 +2535,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Cassandra CQL component.      */
 DECL|interface|AdvancedCassandraEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedCassandraEndpointBuilder
 extends|extends

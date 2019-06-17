@@ -645,7 +645,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the PubNub component.      */
 DECL|interface|PubNubEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|PubNubEndpointProducerBuilder
 extends|extends
@@ -1068,7 +1067,6 @@ block|}
 comment|/**      * Builder for endpoint for the PubNub component.      */
 DECL|interface|PubNubEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|PubNubEndpointBuilder
 extends|extends
@@ -1282,7 +1280,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the PubNub component.      */
 DECL|interface|AdvancedPubNubEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedPubNubEndpointBuilder
 extends|extends

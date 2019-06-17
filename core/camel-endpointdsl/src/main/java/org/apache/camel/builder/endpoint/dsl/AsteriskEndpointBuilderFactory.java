@@ -456,7 +456,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Asterisk component.      */
 DECL|interface|AsteriskEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AsteriskEndpointProducerBuilder
 extends|extends
@@ -753,7 +752,6 @@ block|}
 comment|/**      * Builder for endpoint for the Asterisk component.      */
 DECL|interface|AsteriskEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AsteriskEndpointBuilder
 extends|extends
@@ -862,7 +860,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Asterisk component.      */
 DECL|interface|AdvancedAsteriskEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedAsteriskEndpointBuilder
 extends|extends

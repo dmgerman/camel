@@ -1212,7 +1212,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the CXF-RS component.      */
 DECL|interface|CxfRsEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CxfRsEndpointProducerBuilder
 extends|extends
@@ -2385,7 +2384,6 @@ block|}
 comment|/**      * Builder for endpoint for the CXF-RS component.      */
 DECL|interface|CxfRsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|CxfRsEndpointBuilder
 extends|extends
@@ -2782,7 +2780,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the CXF-RS component.      */
 DECL|interface|AdvancedCxfRsEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedCxfRsEndpointBuilder
 extends|extends

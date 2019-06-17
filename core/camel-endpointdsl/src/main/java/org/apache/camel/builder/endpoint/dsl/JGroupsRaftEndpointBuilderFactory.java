@@ -435,7 +435,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the JGroups raft component.      */
 DECL|interface|JGroupsRaftEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JGroupsRaftEndpointProducerBuilder
 extends|extends
@@ -627,7 +626,6 @@ block|}
 comment|/**      * Builder for endpoint for the JGroups raft component.      */
 DECL|interface|JGroupsRaftEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JGroupsRaftEndpointBuilder
 extends|extends
@@ -673,7 +671,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the JGroups raft component.      */
 DECL|interface|AdvancedJGroupsRaftEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedJGroupsRaftEndpointBuilder
 extends|extends

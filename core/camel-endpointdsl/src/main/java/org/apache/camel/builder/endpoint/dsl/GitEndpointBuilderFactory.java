@@ -561,7 +561,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Git component.      */
 DECL|interface|GitEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GitEndpointProducerBuilder
 extends|extends
@@ -942,7 +941,6 @@ block|}
 comment|/**      * Builder for endpoint for the Git component.      */
 DECL|interface|GitEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GitEndpointBuilder
 extends|extends
@@ -1114,7 +1112,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Git component.      */
 DECL|interface|AdvancedGitEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedGitEndpointBuilder
 extends|extends

@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the MSV component.      */
 DECL|interface|MsvEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|MsvEndpointBuilder
 extends|extends
@@ -241,7 +240,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the MSV component.      */
 DECL|interface|AdvancedMsvEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedMsvEndpointBuilder
 extends|extends

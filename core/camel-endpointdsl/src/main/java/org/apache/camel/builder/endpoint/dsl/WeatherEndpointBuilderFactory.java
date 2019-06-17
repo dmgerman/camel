@@ -1850,7 +1850,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Weather component.      */
 DECL|interface|WeatherEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|WeatherEndpointProducerBuilder
 extends|extends
@@ -2780,7 +2779,6 @@ block|}
 comment|/**      * Builder for endpoint for the Weather component.      */
 DECL|interface|WeatherEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|WeatherEndpointBuilder
 extends|extends
@@ -3522,7 +3520,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Weather component.      */
 DECL|interface|AdvancedWeatherEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedWeatherEndpointBuilder
 extends|extends

@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Tika component.      */
 DECL|interface|TikaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|TikaEndpointBuilder
 extends|extends
@@ -283,7 +282,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Tika component.      */
 DECL|interface|AdvancedTikaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedTikaEndpointBuilder
 extends|extends

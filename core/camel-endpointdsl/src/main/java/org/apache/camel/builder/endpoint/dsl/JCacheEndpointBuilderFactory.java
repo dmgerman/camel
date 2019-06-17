@@ -1091,7 +1091,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the JCache component.      */
 DECL|interface|JCacheEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JCacheEndpointProducerBuilder
 extends|extends
@@ -1808,7 +1807,6 @@ block|}
 comment|/**      * Builder for endpoint for the JCache component.      */
 DECL|interface|JCacheEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|JCacheEndpointBuilder
 extends|extends
@@ -2190,7 +2188,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the JCache component.      */
 DECL|interface|AdvancedJCacheEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedJCacheEndpointBuilder
 extends|extends

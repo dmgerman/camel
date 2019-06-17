@@ -456,7 +456,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Spring Integration component.      */
 DECL|interface|SpringIntegrationEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SpringIntegrationEndpointProducerBuilder
 extends|extends
@@ -711,7 +710,6 @@ block|}
 comment|/**      * Builder for endpoint for the Spring Integration component.      */
 DECL|interface|SpringIntegrationEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SpringIntegrationEndpointBuilder
 extends|extends
@@ -799,7 +797,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Spring Integration component.      */
 DECL|interface|AdvancedSpringIntegrationEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSpringIntegrationEndpointBuilder
 extends|extends

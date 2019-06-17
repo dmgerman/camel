@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Hazelcast Atomic Number component.      */
 DECL|interface|HazelcastAtomicnumberEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|HazelcastAtomicnumberEndpointBuilder
 extends|extends
@@ -493,7 +492,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Hazelcast Atomic Number component.      */
 DECL|interface|AdvancedHazelcastAtomicnumberEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedHazelcastAtomicnumberEndpointBuilder
 extends|extends

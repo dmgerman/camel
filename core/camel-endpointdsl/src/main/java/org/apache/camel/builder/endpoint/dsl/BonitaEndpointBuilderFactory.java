@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Bonita component.      */
 DECL|interface|BonitaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|BonitaEndpointBuilder
 extends|extends
@@ -262,7 +261,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Bonita component.      */
 DECL|interface|AdvancedBonitaEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedBonitaEndpointBuilder
 extends|extends

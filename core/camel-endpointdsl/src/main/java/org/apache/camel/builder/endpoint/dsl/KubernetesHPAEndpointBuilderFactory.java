@@ -960,7 +960,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Kubernetes HPA component.      */
 DECL|interface|KubernetesHPAEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KubernetesHPAEndpointProducerBuilder
 extends|extends
@@ -1614,7 +1613,6 @@ block|}
 comment|/**      * Builder for endpoint for the Kubernetes HPA component.      */
 DECL|interface|KubernetesHPAEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KubernetesHPAEndpointBuilder
 extends|extends
@@ -2059,7 +2057,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Kubernetes HPA component.      */
 DECL|interface|AdvancedKubernetesHPAEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedKubernetesHPAEndpointBuilder
 extends|extends

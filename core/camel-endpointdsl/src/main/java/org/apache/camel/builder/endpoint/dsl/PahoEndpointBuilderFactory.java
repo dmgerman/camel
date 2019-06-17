@@ -750,7 +750,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the Paho component.      */
 DECL|interface|PahoEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|PahoEndpointProducerBuilder
 extends|extends
@@ -1299,7 +1298,6 @@ block|}
 comment|/**      * Builder for endpoint for the Paho component.      */
 DECL|interface|PahoEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|PahoEndpointBuilder
 extends|extends
@@ -1702,7 +1700,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Paho component.      */
 DECL|interface|AdvancedPahoEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedPahoEndpointBuilder
 extends|extends

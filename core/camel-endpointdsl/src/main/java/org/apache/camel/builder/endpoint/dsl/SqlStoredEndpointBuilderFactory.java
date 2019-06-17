@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the SQL Stored Procedure component.      */
 DECL|interface|SqlStoredEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SqlStoredEndpointBuilder
 extends|extends
@@ -367,7 +366,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the SQL Stored Procedure component.      */
 DECL|interface|AdvancedSqlStoredEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSqlStoredEndpointBuilder
 extends|extends

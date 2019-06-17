@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the AWS Kinesis Firehose component.      */
 DECL|interface|KinesisFirehoseEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|KinesisFirehoseEndpointBuilder
 extends|extends
@@ -304,7 +303,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the AWS Kinesis Firehose component.      */
 DECL|interface|AdvancedKinesisFirehoseEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedKinesisFirehoseEndpointBuilder
 extends|extends

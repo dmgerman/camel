@@ -1629,7 +1629,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the JT400 component.      */
 DECL|interface|Jt400EndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|Jt400EndpointProducerBuilder
 extends|extends
@@ -2306,7 +2305,6 @@ block|}
 comment|/**      * Builder for endpoint for the JT400 component.      */
 DECL|interface|Jt400EndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|Jt400EndpointBuilder
 extends|extends
@@ -2837,7 +2835,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the JT400 component.      */
 DECL|interface|AdvancedJt400EndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedJt400EndpointBuilder
 extends|extends

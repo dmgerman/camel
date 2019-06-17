@@ -2033,7 +2033,6 @@ block|}
 comment|/**      * Builder for endpoint producers for the ElSQL component.      */
 DECL|interface|ElsqlEndpointProducerBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ElsqlEndpointProducerBuilder
 extends|extends
@@ -2925,7 +2924,6 @@ block|}
 comment|/**      * Builder for endpoint for the ElSQL component.      */
 DECL|interface|ElsqlEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|ElsqlEndpointBuilder
 extends|extends
@@ -3267,7 +3265,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the ElSQL component.      */
 DECL|interface|AdvancedElsqlEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedElsqlEndpointBuilder
 extends|extends

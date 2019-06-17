@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Solr component.      */
 DECL|interface|SolrEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|SolrEndpointBuilder
 extends|extends
@@ -577,7 +576,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Solr component.      */
 DECL|interface|AdvancedSolrEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedSolrEndpointBuilder
 extends|extends

@@ -102,7 +102,6 @@ block|{
 comment|/**      * Builder for endpoint for the Bean component.      */
 DECL|interface|BeanEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|BeanEndpointBuilder
 extends|extends
@@ -256,7 +255,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Bean component.      */
 DECL|interface|AdvancedBeanEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedBeanEndpointBuilder
 extends|extends

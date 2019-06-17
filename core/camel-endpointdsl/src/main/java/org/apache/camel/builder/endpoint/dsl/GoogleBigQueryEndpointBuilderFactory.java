@@ -92,7 +92,6 @@ block|{
 comment|/**      * Builder for endpoint for the Google BigQuery component.      */
 DECL|interface|GoogleBigQueryEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|GoogleBigQueryEndpointBuilder
 extends|extends
@@ -241,7 +240,6 @@ block|}
 comment|/**      * Advanced builder for endpoint for the Google BigQuery component.      */
 DECL|interface|AdvancedGoogleBigQueryEndpointBuilder
 specifier|public
-specifier|static
 interface|interface
 name|AdvancedGoogleBigQueryEndpointBuilder
 extends|extends
