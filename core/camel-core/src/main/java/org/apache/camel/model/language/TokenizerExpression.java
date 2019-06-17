@@ -275,6 +275,21 @@ specifier|public
 name|TokenizerExpression
 parameter_list|()
 block|{     }
+DECL|method|TokenizerExpression (String token)
+specifier|public
+name|TokenizerExpression
+parameter_list|(
+name|String
+name|token
+parameter_list|)
+block|{
+name|this
+operator|.
+name|token
+operator|=
+name|token
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|getLanguage ()
