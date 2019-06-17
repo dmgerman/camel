@@ -638,7 +638,10 @@ name|setConnectionFactory
 argument_list|(
 name|endpoint
 operator|.
-name|getConnectionFactory
+name|getConfiguration
+argument_list|()
+operator|.
+name|getOrCreateConnectionFactory
 argument_list|()
 argument_list|)
 expr_stmt|;

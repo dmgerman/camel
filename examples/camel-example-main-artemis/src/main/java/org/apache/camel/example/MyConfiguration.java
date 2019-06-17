@@ -18,6 +18,52 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|ConnectionFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|activemq
+operator|.
+name|artemis
+operator|.
+name|jms
+operator|.
+name|client
+operator|.
+name|ActiveMQConnectionFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|activemq
+operator|.
+name|artemis
+operator|.
+name|jms
+operator|.
+name|client
+operator|.
+name|ActiveMQJMSConnectionFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -50,41 +96,14 @@ specifier|public
 class|class
 name|MyConfiguration
 block|{
-annotation|@
-name|BindToRegistry
-DECL|method|myBean (@ropertyInjectR) String hi, @PropertyInject(R) String bye)
-specifier|public
-name|MyBean
-name|myBean
-parameter_list|(
-annotation|@
-name|PropertyInject
-argument_list|(
-literal|"hi"
-argument_list|)
-name|String
-name|hi
-parameter_list|,
-annotation|@
-name|PropertyInject
-argument_list|(
-literal|"bye"
-argument_list|)
-name|String
-name|bye
-parameter_list|)
-block|{
-comment|// this will create an instance of this bean with the name of the method (eg myBean)
-return|return
-operator|new
-name|MyBean
-argument_list|(
-name|hi
-argument_list|,
-name|bye
-argument_list|)
-return|;
-block|}
+comment|/**      * Creates the Artemis JMS ConnectionFactory and bind it to the Camel registry      * so we can do autowiring on the Camel JMS component.      * See more details in the application.properties file.      *<p/>      * Note: This autowiring is disabled in this example as we use camel-main-maven-plugin      * to do classpath scanning to detect the Artemis JMS Client and automatic create a autowire.properties      * file with some binding details, and then provide additional configuraions in the application.properties file.      */
+comment|//    @BindToRegistry
+comment|//    public ConnectionFactory myArtemisClient(@PropertyInject("artemisBroker") String brokerUrl) {
+comment|//        ActiveMQConnectionFactory cf = new ActiveMQJMSConnectionFactory(brokerUrl);
+comment|//        cf.setUser("admin");
+comment|//        cf.setPassword("admin");
+comment|//        return cf;
+comment|//    }
 DECL|method|configure ()
 specifier|public
 name|void

@@ -3685,6 +3685,16 @@ name|ConnectionFactory
 name|getConnectionFactory
 parameter_list|()
 block|{
+return|return
+name|connectionFactory
+return|;
+block|}
+DECL|method|getOrCreateConnectionFactory ()
+specifier|public
+name|ConnectionFactory
+name|getOrCreateConnectionFactory
+parameter_list|()
+block|{
 if|if
 condition|(
 name|connectionFactory
@@ -6077,7 +6087,7 @@ name|answer
 operator|.
 name|setConnectionFactory
 argument_list|(
-name|getConnectionFactory
+name|getOrCreateConnectionFactory
 argument_list|()
 argument_list|)
 expr_stmt|;

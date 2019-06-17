@@ -4285,7 +4285,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|getConnectionFactory
+name|getOrCreateConnectionFactory
 argument_list|()
 expr_stmt|;
 name|ObjectHelper

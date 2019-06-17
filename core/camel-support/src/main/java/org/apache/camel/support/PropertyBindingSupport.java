@@ -2832,30 +2832,8 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"java"
+literal|"java."
 argument_list|)
-return|;
-block|}
-DECL|method|isInterface (Class type)
-specifier|private
-specifier|static
-name|boolean
-name|isInterface
-parameter_list|(
-name|Class
-name|type
-parameter_list|)
-block|{
-comment|// lets consider all non java, as complex types
-return|return
-name|type
-operator|!=
-literal|null
-operator|&&
-name|type
-operator|.
-name|isInterface
-argument_list|()
 return|;
 block|}
 DECL|method|setReferenceProperties (CamelContext context, Object target, Map<String, Object> parameters)
