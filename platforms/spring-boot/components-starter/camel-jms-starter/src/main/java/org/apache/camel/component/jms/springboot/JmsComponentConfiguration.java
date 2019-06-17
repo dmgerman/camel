@@ -154,22 +154,6 @@ name|component
 operator|.
 name|jms
 operator|.
-name|JmsProviderMetadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jms
-operator|.
 name|MessageCreatedStrategy
 import|;
 end_import
@@ -3479,18 +3463,6 @@ specifier|private
 name|DestinationResolver
 name|destinationResolver
 decl_stmt|;
-comment|/**          * Allows the provider metadata to be explicitly configured. Typically          * this is not required and Camel will auto-detect the provider metadata          * from the underlying provider.          */
-DECL|field|providerMetadata
-specifier|private
-name|JmsProviderMetadata
-name|providerMetadata
-decl_stmt|;
-comment|/**          * Sets the {@link JmsOperations} used to deduce the {@link          * JmsProviderMetadata} details which if none is customized one is          * lazily created on demand          */
-DECL|field|metadataJmsOperations
-specifier|private
-name|JmsOperations
-name|metadataJmsOperations
-decl_stmt|;
 comment|/**          * If true, Camel will always make a JMS message copy of the message          * when it is passed to the producer for sending. Copying the message is          * needed in some situations, such as when a          * replyToDestinationSelectorName is set (incidentally, Camel will set          * the alwaysCopyMessage option to true, if a          * replyToDestinationSelectorName is set)          */
 DECL|field|alwaysCopyMessage
 specifier|private
@@ -5153,58 +5125,6 @@ operator|.
 name|destinationResolver
 operator|=
 name|destinationResolver
-expr_stmt|;
-block|}
-DECL|method|getProviderMetadata ()
-specifier|public
-name|JmsProviderMetadata
-name|getProviderMetadata
-parameter_list|()
-block|{
-return|return
-name|providerMetadata
-return|;
-block|}
-DECL|method|setProviderMetadata (JmsProviderMetadata providerMetadata)
-specifier|public
-name|void
-name|setProviderMetadata
-parameter_list|(
-name|JmsProviderMetadata
-name|providerMetadata
-parameter_list|)
-block|{
-name|this
-operator|.
-name|providerMetadata
-operator|=
-name|providerMetadata
-expr_stmt|;
-block|}
-DECL|method|getMetadataJmsOperations ()
-specifier|public
-name|JmsOperations
-name|getMetadataJmsOperations
-parameter_list|()
-block|{
-return|return
-name|metadataJmsOperations
-return|;
-block|}
-DECL|method|setMetadataJmsOperations (JmsOperations metadataJmsOperations)
-specifier|public
-name|void
-name|setMetadataJmsOperations
-parameter_list|(
-name|JmsOperations
-name|metadataJmsOperations
-parameter_list|)
-block|{
-name|this
-operator|.
-name|metadataJmsOperations
-operator|=
-name|metadataJmsOperations
 expr_stmt|;
 block|}
 DECL|method|getAlwaysCopyMessage ()
