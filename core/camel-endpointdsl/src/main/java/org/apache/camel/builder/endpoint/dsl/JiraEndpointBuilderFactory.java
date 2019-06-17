@@ -1429,7 +1429,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.camel.component.jira.JiraType</code>      * enum.      */
 DECL|enum|JiraType
-specifier|public
 specifier|static
 enum|enum
 name|JiraType

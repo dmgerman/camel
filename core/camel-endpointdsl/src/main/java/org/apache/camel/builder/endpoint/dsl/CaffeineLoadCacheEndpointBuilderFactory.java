@@ -1615,7 +1615,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.caffeine.EvictionType</code> enum.      */
 DECL|enum|EvictionType
-specifier|public
 specifier|static
 enum|enum
 name|EvictionType

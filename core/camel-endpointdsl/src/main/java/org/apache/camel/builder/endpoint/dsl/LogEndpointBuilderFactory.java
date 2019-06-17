@@ -1248,7 +1248,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.support.processor.DefaultExchangeFormatter$OutputStyle</code> enum.      */
 DECL|enum|OutputStyle
-specifier|public
 specifier|static
 enum|enum
 name|OutputStyle

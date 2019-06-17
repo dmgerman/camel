@@ -2521,7 +2521,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.soroushbot.models.Endpoint</code> enum.      */
 DECL|enum|Endpoint
-specifier|public
 specifier|static
 enum|enum
 name|Endpoint

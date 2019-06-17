@@ -1198,7 +1198,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.camel.component.github.GitHubType</code>      * enum.      */
 DECL|enum|GitHubType
-specifier|public
 specifier|static
 enum|enum
 name|GitHubType

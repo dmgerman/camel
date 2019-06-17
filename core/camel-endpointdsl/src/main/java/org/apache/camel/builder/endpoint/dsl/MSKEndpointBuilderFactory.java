@@ -261,7 +261,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.aws.msk.MSKOperations</code> enum.      */
 DECL|enum|MSKOperations
-specifier|public
 specifier|static
 enum|enum
 name|MSKOperations

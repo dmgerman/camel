@@ -2084,7 +2084,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code>      * enum.      */
 DECL|enum|Olingo2ApiName
-specifier|public
 specifier|static
 enum|enum
 name|Olingo2ApiName

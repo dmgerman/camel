@@ -597,7 +597,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.camel.component.pdf.PdfOperation</code>      * enum.      */
 DECL|enum|PdfOperation
-specifier|public
 specifier|static
 enum|enum
 name|PdfOperation
@@ -613,7 +612,6 @@ name|extractText
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.pdf.TextProcessingFactory</code> enum.      */
 DECL|enum|TextProcessingFactory
-specifier|public
 specifier|static
 enum|enum
 name|TextProcessingFactory

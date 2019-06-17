@@ -2332,7 +2332,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.grpc.GrpcConsumerStrategy</code> enum.      */
 DECL|enum|GrpcConsumerStrategy
-specifier|public
 specifier|static
 enum|enum
 name|GrpcConsumerStrategy
@@ -2345,7 +2344,6 @@ name|PROPAGATION
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.grpc.GrpcProducerStrategy</code> enum.      */
 DECL|enum|GrpcProducerStrategy
-specifier|public
 specifier|static
 enum|enum
 name|GrpcProducerStrategy
@@ -2358,7 +2356,6 @@ name|STREAMING
 block|;     }
 comment|/**      * Proxy enum for<code>org.apache.camel.component.grpc.GrpcAuthType</code>      * enum.      */
 DECL|enum|GrpcAuthType
-specifier|public
 specifier|static
 enum|enum
 name|GrpcAuthType
@@ -2374,7 +2371,6 @@ name|JWT
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.grpc.auth.jwt.JwtAlgorithm</code> enum.      */
 DECL|enum|JwtAlgorithm
-specifier|public
 specifier|static
 enum|enum
 name|JwtAlgorithm
@@ -2390,7 +2386,6 @@ name|HMAC512
 block|;     }
 comment|/**      * Proxy enum for<code>io.grpc.netty.NegotiationType</code> enum.      */
 DECL|enum|NegotiationType
-specifier|public
 specifier|static
 enum|enum
 name|NegotiationType

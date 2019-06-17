@@ -1219,7 +1219,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.git.consumer.GitType</code> enum.      */
 DECL|enum|GitType
-specifier|public
 specifier|static
 enum|enum
 name|GitType

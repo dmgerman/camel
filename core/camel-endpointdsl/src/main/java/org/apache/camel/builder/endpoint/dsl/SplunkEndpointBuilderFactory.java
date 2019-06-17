@@ -2684,7 +2684,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>com.splunk.SSLSecurityProtocol</code> enum.      */
 DECL|enum|SSLSecurityProtocol
-specifier|public
 specifier|static
 enum|enum
 name|SSLSecurityProtocol

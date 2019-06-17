@@ -1240,7 +1240,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.google.mail.internal.GoogleMailApiName</code> enum.      */
 DECL|enum|GoogleMailApiName
-specifier|public
 specifier|static
 enum|enum
 name|GoogleMailApiName

@@ -2958,7 +2958,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.xquery.ResultFormat</code> enum.      */
 DECL|enum|ResultFormat
-specifier|public
 specifier|static
 enum|enum
 name|ResultFormat

@@ -3818,7 +3818,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.aws.s3.S3Operations</code> enum.      */
 DECL|enum|S3Operations
-specifier|public
 specifier|static
 enum|enum
 name|S3Operations

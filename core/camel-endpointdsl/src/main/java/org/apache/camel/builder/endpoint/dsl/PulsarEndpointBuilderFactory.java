@@ -904,7 +904,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.pulsar.utils.consumers.SubscriptionType</code> enum.      */
 DECL|enum|SubscriptionType
-specifier|public
 specifier|static
 enum|enum
 name|SubscriptionType

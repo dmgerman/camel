@@ -2942,7 +2942,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.camel.component.jt400.Jt400Type</code>      * enum.      */
 DECL|enum|Jt400Type
-specifier|public
 specifier|static
 enum|enum
 name|Jt400Type
@@ -2958,7 +2957,6 @@ name|SRVPGM
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.jt400.Jt400Configuration$Format</code>      * enum.      */
 DECL|enum|Format
-specifier|public
 specifier|static
 enum|enum
 name|Format
@@ -2971,7 +2969,6 @@ name|binary
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.jt400.Jt400Configuration$SearchType</code> enum.      */
 DECL|enum|SearchType
-specifier|public
 specifier|static
 enum|enum
 name|SearchType

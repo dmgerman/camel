@@ -2452,7 +2452,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.atomix.client.messaging.AtomixMessaging$BroadcastType</code> enum.      */
 DECL|enum|BroadcastType
-specifier|public
 specifier|static
 enum|enum
 name|BroadcastType
@@ -2465,7 +2464,6 @@ name|RANDOM
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.atomix.client.messaging.AtomixMessaging$Action</code> enum.      */
 DECL|enum|Action
-specifier|public
 specifier|static
 enum|enum
 name|Action
@@ -2478,7 +2476,6 @@ name|BROADCAST
 block|;     }
 comment|/**      * Proxy enum for<code>io.atomix.resource.ReadConsistency</code> enum.      */
 DECL|enum|ReadConsistency
-specifier|public
 specifier|static
 enum|enum
 name|ReadConsistency

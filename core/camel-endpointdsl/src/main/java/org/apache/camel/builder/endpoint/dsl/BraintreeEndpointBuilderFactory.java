@@ -1693,7 +1693,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.braintree.internal.BraintreeApiName</code> enum.      */
 DECL|enum|BraintreeApiName
-specifier|public
 specifier|static
 enum|enum
 name|BraintreeApiName

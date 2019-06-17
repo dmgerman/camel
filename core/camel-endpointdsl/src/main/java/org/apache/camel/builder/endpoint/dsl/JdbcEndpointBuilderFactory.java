@@ -738,7 +738,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.jdbc.JdbcOutputType</code> enum.      */
 DECL|enum|JdbcOutputType
-specifier|public
 specifier|static
 enum|enum
 name|JdbcOutputType

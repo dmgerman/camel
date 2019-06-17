@@ -2463,7 +2463,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>javax.cache.event.EventType</code> enum.      */
 DECL|enum|EventType
-specifier|public
 specifier|static
 enum|enum
 name|EventType

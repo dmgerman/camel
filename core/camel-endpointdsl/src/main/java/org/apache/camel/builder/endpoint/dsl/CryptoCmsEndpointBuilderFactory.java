@@ -876,7 +876,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.crypto.cms.CryptoOperation</code> enum.      */
 DECL|enum|CryptoOperation
-specifier|public
 specifier|static
 enum|enum
 name|CryptoOperation

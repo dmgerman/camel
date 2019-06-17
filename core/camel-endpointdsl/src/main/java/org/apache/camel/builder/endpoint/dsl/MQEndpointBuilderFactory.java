@@ -261,7 +261,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.aws.mq.MQOperations</code> enum.      */
 DECL|enum|MQOperations
-specifier|public
 specifier|static
 enum|enum
 name|MQOperations

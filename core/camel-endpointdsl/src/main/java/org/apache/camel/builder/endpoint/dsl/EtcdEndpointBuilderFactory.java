@@ -2327,7 +2327,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.camel.component.etcd.EtcdNamespace</code>      * enum.      */
 DECL|enum|EtcdNamespace
-specifier|public
 specifier|static
 enum|enum
 name|EtcdNamespace

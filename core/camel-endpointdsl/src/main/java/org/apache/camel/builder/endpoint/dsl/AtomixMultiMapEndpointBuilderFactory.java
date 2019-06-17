@@ -832,7 +832,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.atomix.client.multimap.AtomixMultiMap$Action</code> enum.      */
 DECL|enum|Action
-specifier|public
 specifier|static
 enum|enum
 name|Action
@@ -863,7 +862,6 @@ name|REMOVE_VALUE
 block|;     }
 comment|/**      * Proxy enum for<code>io.atomix.resource.ReadConsistency</code> enum.      */
 DECL|enum|ReadConsistency
-specifier|public
 specifier|static
 enum|enum
 name|ReadConsistency

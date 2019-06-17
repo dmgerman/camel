@@ -1408,7 +1408,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.ignite.cache.CachePeekMode</code> enum.      */
 DECL|enum|CachePeekMode
-specifier|public
 specifier|static
 enum|enum
 name|CachePeekMode
@@ -1433,7 +1432,6 @@ name|OFFHEAP
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.ignite.cache.IgniteCacheOperation</code>      * enum.      */
 DECL|enum|IgniteCacheOperation
-specifier|public
 specifier|static
 enum|enum
 name|IgniteCacheOperation

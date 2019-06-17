@@ -345,7 +345,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>com.amazonaws.services.dynamodbv2.model.ShardIteratorType</code>      * enum.      */
 DECL|enum|ShardIteratorType
-specifier|public
 specifier|static
 enum|enum
 name|ShardIteratorType

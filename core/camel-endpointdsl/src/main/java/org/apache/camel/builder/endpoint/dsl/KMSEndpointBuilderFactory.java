@@ -261,7 +261,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.aws.kms.KMSOperations</code> enum.      */
 DECL|enum|KMSOperations
-specifier|public
 specifier|static
 enum|enum
 name|KMSOperations

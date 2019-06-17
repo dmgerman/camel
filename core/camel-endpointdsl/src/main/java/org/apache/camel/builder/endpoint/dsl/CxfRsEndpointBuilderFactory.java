@@ -3223,7 +3223,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.cxf.jaxrs.BindingStyle</code> enum.      */
 DECL|enum|BindingStyle
-specifier|public
 specifier|static
 enum|enum
 name|BindingStyle

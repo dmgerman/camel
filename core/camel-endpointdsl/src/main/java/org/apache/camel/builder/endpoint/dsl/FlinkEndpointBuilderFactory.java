@@ -471,7 +471,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.camel.component.flink.EndpointType</code>      * enum.      */
 DECL|enum|EndpointType
-specifier|public
 specifier|static
 enum|enum
 name|EndpointType

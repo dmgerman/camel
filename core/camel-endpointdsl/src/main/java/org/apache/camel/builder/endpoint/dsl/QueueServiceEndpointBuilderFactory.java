@@ -1135,7 +1135,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.azure.queue.QueueServiceOperations</code> enum.      */
 DECL|enum|QueueServiceOperations
-specifier|public
 specifier|static
 enum|enum
 name|QueueServiceOperations

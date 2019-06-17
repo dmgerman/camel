@@ -2075,7 +2075,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.beanstalk.BeanstalkCommand</code> enum.      */
 DECL|enum|BeanstalkCommand
-specifier|public
 specifier|static
 enum|enum
 name|BeanstalkCommand

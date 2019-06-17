@@ -2206,7 +2206,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code> enum.      */
 DECL|enum|MongoDbOperation
-specifier|public
 specifier|static
 enum|enum
 name|MongoDbOperation
@@ -2255,7 +2254,6 @@ name|command
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code> enum.      */
 DECL|enum|MongoDbOutputType
-specifier|public
 specifier|static
 enum|enum
 name|MongoDbOutputType

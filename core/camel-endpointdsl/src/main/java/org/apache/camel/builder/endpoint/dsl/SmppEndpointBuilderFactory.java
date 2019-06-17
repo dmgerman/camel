@@ -3386,7 +3386,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.smpp.SmppSplittingPolicy</code> enum.      */
 DECL|enum|SmppSplittingPolicy
-specifier|public
 specifier|static
 enum|enum
 name|SmppSplittingPolicy

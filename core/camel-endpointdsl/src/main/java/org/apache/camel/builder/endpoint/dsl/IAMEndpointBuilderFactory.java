@@ -261,7 +261,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.aws.iam.IAMOperations</code> enum.      */
 DECL|enum|IAMOperations
-specifier|public
 specifier|static
 enum|enum
 name|IAMOperations

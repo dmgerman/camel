@@ -3350,7 +3350,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> enum.      */
 DECL|enum|AS2ApiName
-specifier|public
 specifier|static
 enum|enum
 name|AS2ApiName
@@ -3363,7 +3362,6 @@ name|SERVER
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.as2.api.AS2MessageStructure</code> enum.      */
 DECL|enum|AS2MessageStructure
-specifier|public
 specifier|static
 enum|enum
 name|AS2MessageStructure
@@ -3394,7 +3392,6 @@ name|ENCRYPTED_COMPRESSED_SIGNED
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.as2.api.AS2CompressionAlgorithm</code>      * enum.      */
 DECL|enum|AS2CompressionAlgorithm
-specifier|public
 specifier|static
 enum|enum
 name|AS2CompressionAlgorithm
@@ -3404,7 +3401,6 @@ name|ZLIB
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.as2.api.AS2EncryptionAlgorithm</code>      * enum.      */
 DECL|enum|AS2EncryptionAlgorithm
-specifier|public
 specifier|static
 enum|enum
 name|AS2EncryptionAlgorithm
@@ -3471,7 +3467,6 @@ name|SEED_CBC
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.as2.api.AS2SignatureAlgorithm</code>      * enum.      */
 DECL|enum|AS2SignatureAlgorithm
-specifier|public
 specifier|static
 enum|enum
 name|AS2SignatureAlgorithm

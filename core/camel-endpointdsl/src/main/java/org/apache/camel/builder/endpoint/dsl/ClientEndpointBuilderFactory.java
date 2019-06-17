@@ -2636,7 +2636,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.eclipse.neoscada.protocol.iec60870.ASDUAddressType</code> enum.      */
 DECL|enum|ASDUAddressType
-specifier|public
 specifier|static
 enum|enum
 name|ASDUAddressType
@@ -2649,7 +2648,6 @@ name|SIZE_2
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.eclipse.neoscada.protocol.iec60870.CauseOfTransmissionType</code> enum.      */
 DECL|enum|CauseOfTransmissionType
-specifier|public
 specifier|static
 enum|enum
 name|CauseOfTransmissionType
@@ -2662,7 +2660,6 @@ name|SIZE_2
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.eclipse.neoscada.protocol.iec60870.InformationObjectAddressType</code> enum.      */
 DECL|enum|InformationObjectAddressType
-specifier|public
 specifier|static
 enum|enum
 name|InformationObjectAddressType

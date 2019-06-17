@@ -1135,7 +1135,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.jclouds.JcloudsCommand</code> enum.      */
 DECL|enum|JcloudsCommand
-specifier|public
 specifier|static
 enum|enum
 name|JcloudsCommand

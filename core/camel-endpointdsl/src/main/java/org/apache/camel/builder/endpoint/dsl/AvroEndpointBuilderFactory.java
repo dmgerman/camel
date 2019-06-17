@@ -1618,7 +1618,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.camel.component.avro.AvroTransport</code>      * enum.      */
 DECL|enum|AvroTransport
-specifier|public
 specifier|static
 enum|enum
 name|AvroTransport

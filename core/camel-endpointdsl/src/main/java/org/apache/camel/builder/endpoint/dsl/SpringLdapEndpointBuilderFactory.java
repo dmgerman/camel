@@ -303,7 +303,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.springldap.LdapOperation</code> enum.      */
 DECL|enum|LdapOperation
-specifier|public
 specifier|static
 enum|enum
 name|LdapOperation

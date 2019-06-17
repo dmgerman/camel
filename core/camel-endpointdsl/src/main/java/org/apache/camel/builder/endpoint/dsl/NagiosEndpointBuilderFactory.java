@@ -517,7 +517,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>com.googlecode.jsendnsca.encryption.Encryption</code> enum.      */
 DECL|enum|Encryption
-specifier|public
 specifier|static
 enum|enum
 name|Encryption
@@ -545,7 +544,6 @@ name|BLOWFISH
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.nagios.NagiosEncryptionMethod</code>      * enum.      */
 DECL|enum|NagiosEncryptionMethod
-specifier|public
 specifier|static
 enum|enum
 name|NagiosEncryptionMethod

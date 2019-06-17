@@ -1681,7 +1681,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.servicenow.ServiceNowRelease</code>      * enum.      */
 DECL|enum|ServiceNowRelease
-specifier|public
 specifier|static
 enum|enum
 name|ServiceNowRelease

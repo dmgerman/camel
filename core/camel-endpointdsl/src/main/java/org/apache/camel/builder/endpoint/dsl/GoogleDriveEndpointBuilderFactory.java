@@ -1511,7 +1511,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.google.drive.internal.GoogleDriveApiName</code> enum.      */
 DECL|enum|GoogleDriveApiName
-specifier|public
 specifier|static
 enum|enum
 name|GoogleDriveApiName

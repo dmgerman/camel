@@ -450,7 +450,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.twitter.data.StreamingType</code> enum.      */
 DECL|enum|StreamingType
-specifier|public
 specifier|static
 enum|enum
 name|StreamingType
@@ -469,7 +468,6 @@ name|UNKNOWN
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.twitter.data.EndpointType</code> enum.      */
 DECL|enum|EndpointType
-specifier|public
 specifier|static
 enum|enum
 name|EndpointType

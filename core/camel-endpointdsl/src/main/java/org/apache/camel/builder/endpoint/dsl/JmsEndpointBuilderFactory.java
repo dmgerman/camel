@@ -7398,7 +7398,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.camel.component.jms.JmsMessageType</code>      * enum.      */
 DECL|enum|JmsMessageType
-specifier|public
 specifier|static
 enum|enum
 name|JmsMessageType
@@ -7423,7 +7422,6 @@ name|Blob
 block|;     }
 comment|/**      * Proxy enum for<code>org.apache.camel.component.jms.ConsumerType</code>      * enum.      */
 DECL|enum|ConsumerType
-specifier|public
 specifier|static
 enum|enum
 name|ConsumerType
@@ -7439,7 +7437,6 @@ name|Custom
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.jms.DefaultTaskExecutorType</code> enum.      */
 DECL|enum|DefaultTaskExecutorType
-specifier|public
 specifier|static
 enum|enum
 name|DefaultTaskExecutorType
@@ -7452,7 +7449,6 @@ name|SimpleAsync
 block|;     }
 comment|/**      * Proxy enum for<code>org.apache.camel.component.jms.ReplyToType</code>      * enum.      */
 DECL|enum|ReplyToType
-specifier|public
 specifier|static
 enum|enum
 name|ReplyToType

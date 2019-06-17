@@ -1098,7 +1098,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.camel.http.common.HttpMethods</code>      * enum.      */
 DECL|enum|HttpMethods
-specifier|public
 specifier|static
 enum|enum
 name|HttpMethods

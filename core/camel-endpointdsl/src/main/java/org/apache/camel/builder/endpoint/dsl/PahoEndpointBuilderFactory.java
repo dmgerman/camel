@@ -1807,7 +1807,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.paho.PahoPersistence</code> enum.      */
 DECL|enum|PahoPersistence
-specifier|public
 specifier|static
 enum|enum
 name|PahoPersistence

@@ -3650,7 +3650,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.elsql.ElSqlDatabaseVendor</code> enum.      */
 DECL|enum|ElSqlDatabaseVendor
-specifier|public
 specifier|static
 enum|enum
 name|ElSqlDatabaseVendor
@@ -3678,7 +3677,6 @@ name|Veritca
 block|;     }
 comment|/**      * Proxy enum for<code>org.apache.camel.component.sql.SqlOutputType</code>      * enum.      */
 DECL|enum|SqlOutputType
-specifier|public
 specifier|static
 enum|enum
 name|SqlOutputType

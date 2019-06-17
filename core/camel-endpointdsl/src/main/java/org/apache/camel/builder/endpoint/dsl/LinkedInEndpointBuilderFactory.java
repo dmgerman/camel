@@ -1961,7 +1961,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.linkedin.internal.LinkedInApiName</code>      * enum.      */
 DECL|enum|LinkedInApiName
-specifier|public
 specifier|static
 enum|enum
 name|LinkedInApiName
@@ -1989,7 +1988,6 @@ name|SEARCH
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.linkedin.api.OAuthScope</code> enum.      */
 DECL|enum|OAuthScope
-specifier|public
 specifier|static
 enum|enum
 name|OAuthScope

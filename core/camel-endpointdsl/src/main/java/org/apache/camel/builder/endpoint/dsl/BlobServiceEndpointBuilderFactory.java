@@ -2053,7 +2053,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.azure.blob.BlobType</code> enum.      */
 DECL|enum|BlobType
-specifier|public
 specifier|static
 enum|enum
 name|BlobType
@@ -2069,7 +2068,6 @@ name|pageblob
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.azure.blob.BlobServiceOperations</code>      * enum.      */
 DECL|enum|BlobServiceOperations
-specifier|public
 specifier|static
 enum|enum
 name|BlobServiceOperations

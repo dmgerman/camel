@@ -1802,7 +1802,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.ibatis.session.ExecutorType</code> enum.      */
 DECL|enum|ExecutorType
-specifier|public
 specifier|static
 enum|enum
 name|ExecutorType
@@ -1818,7 +1817,6 @@ name|BATCH
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.mybatis.StatementType</code> enum.      */
 DECL|enum|StatementType
-specifier|public
 specifier|static
 enum|enum
 name|StatementType

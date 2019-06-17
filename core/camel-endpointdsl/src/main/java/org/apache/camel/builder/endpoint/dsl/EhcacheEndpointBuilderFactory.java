@@ -1926,7 +1926,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.ehcache.event.EventFiring</code> enum.      */
 DECL|enum|EventFiring
-specifier|public
 specifier|static
 enum|enum
 name|EventFiring
@@ -1939,7 +1938,6 @@ name|SYNCHRONOUS
 block|;     }
 comment|/**      * Proxy enum for<code>org.ehcache.event.EventOrdering</code> enum.      */
 DECL|enum|EventOrdering
-specifier|public
 specifier|static
 enum|enum
 name|EventOrdering
@@ -1952,7 +1950,6 @@ name|ORDERED
 block|;     }
 comment|/**      * Proxy enum for<code>org.ehcache.event.EventType</code> enum.      */
 DECL|enum|EventType
-specifier|public
 specifier|static
 enum|enum
 name|EventType

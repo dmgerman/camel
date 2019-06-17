@@ -534,7 +534,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.metrics.MetricsType</code> enum.      */
 DECL|enum|MetricsType
-specifier|public
 specifier|static
 enum|enum
 name|MetricsType
@@ -556,7 +555,6 @@ name|timer
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.metrics.MetricsTimerAction</code> enum.      */
 DECL|enum|MetricsTimerAction
-specifier|public
 specifier|static
 enum|enum
 name|MetricsTimerAction

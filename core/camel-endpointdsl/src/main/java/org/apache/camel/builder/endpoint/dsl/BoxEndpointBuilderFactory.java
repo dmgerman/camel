@@ -2210,7 +2210,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.box.internal.BoxApiName</code> enum.      */
 DECL|enum|BoxApiName
-specifier|public
 specifier|static
 enum|enum
 name|BoxApiName
@@ -2247,7 +2246,6 @@ name|USERS
 block|;     }
 comment|/**      * Proxy enum for<code>com.box.sdk.EncryptionAlgorithm</code> enum.      */
 DECL|enum|EncryptionAlgorithm
-specifier|public
 specifier|static
 enum|enum
 name|EncryptionAlgorithm

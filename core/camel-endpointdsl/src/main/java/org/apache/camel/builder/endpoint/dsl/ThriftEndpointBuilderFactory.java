@@ -1576,7 +1576,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.thrift.ThriftCompressionType</code>      * enum.      */
 DECL|enum|ThriftCompressionType
-specifier|public
 specifier|static
 enum|enum
 name|ThriftCompressionType
@@ -1589,7 +1588,6 @@ name|ZLIB
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.thrift.ThriftExchangeProtocol</code>      * enum.      */
 DECL|enum|ThriftExchangeProtocol
-specifier|public
 specifier|static
 enum|enum
 name|ThriftExchangeProtocol
@@ -1608,7 +1606,6 @@ name|COMPACT
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.thrift.ThriftNegotiationType</code>      * enum.      */
 DECL|enum|ThriftNegotiationType
-specifier|public
 specifier|static
 enum|enum
 name|ThriftNegotiationType

@@ -597,7 +597,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.hazelcast.HazelcastOperation</code>      * enum.      */
 DECL|enum|HazelcastOperation
-specifier|public
 specifier|static
 enum|enum
 name|HazelcastOperation
@@ -712,7 +711,6 @@ name|capacity
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.hazelcast.queue.HazelcastQueueConsumerMode</code> enum.      */
 DECL|enum|HazelcastQueueConsumerMode
-specifier|public
 specifier|static
 enum|enum
 name|HazelcastQueueConsumerMode

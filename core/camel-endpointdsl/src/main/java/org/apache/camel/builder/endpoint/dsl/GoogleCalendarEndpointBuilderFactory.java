@@ -1492,7 +1492,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> enum.      */
 DECL|enum|GoogleCalendarApiName
-specifier|public
 specifier|static
 enum|enum
 name|GoogleCalendarApiName

@@ -8375,7 +8375,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.file.remote.RemoteFileConfiguration$PathSeparator</code> enum.      */
 DECL|enum|PathSeparator
-specifier|public
 specifier|static
 enum|enum
 name|PathSeparator
@@ -8391,7 +8390,6 @@ name|Auto
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.file.GenericFileExist</code> enum.      */
 DECL|enum|GenericFileExist
-specifier|public
 specifier|static
 enum|enum
 name|GenericFileExist

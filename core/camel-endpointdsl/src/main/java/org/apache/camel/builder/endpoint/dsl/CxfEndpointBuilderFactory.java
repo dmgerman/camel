@@ -3640,7 +3640,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for<code>org.apache.camel.component.cxf.DataFormat</code>      * enum.      */
 DECL|enum|DataFormat
-specifier|public
 specifier|static
 enum|enum
 name|DataFormat

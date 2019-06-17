@@ -3371,7 +3371,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.mina2.Mina2TextLineDelimiter</code>      * enum.      */
 DECL|enum|Mina2TextLineDelimiter
-specifier|public
 specifier|static
 enum|enum
 name|Mina2TextLineDelimiter

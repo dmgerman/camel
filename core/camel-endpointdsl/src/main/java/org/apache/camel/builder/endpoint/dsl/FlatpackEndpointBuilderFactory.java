@@ -2327,7 +2327,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.flatpack.FlatpackType</code> enum.      */
 DECL|enum|FlatpackType
-specifier|public
 specifier|static
 enum|enum
 name|FlatpackType

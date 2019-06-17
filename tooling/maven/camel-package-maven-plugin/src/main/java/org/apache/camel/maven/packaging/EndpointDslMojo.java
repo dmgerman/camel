@@ -4221,7 +4221,7 @@ operator|.
 name|addNestedType
 argument_list|()
 operator|.
-name|setPublic
+name|setPackagePrivate
 argument_list|()
 operator|.
 name|setStatic

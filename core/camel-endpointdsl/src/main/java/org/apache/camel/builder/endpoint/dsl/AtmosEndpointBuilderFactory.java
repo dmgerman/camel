@@ -1429,7 +1429,6 @@ block|}
 block|}
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.atmos.util.AtmosOperation</code> enum.      */
 DECL|enum|AtmosOperation
-specifier|public
 specifier|static
 enum|enum
 name|AtmosOperation
