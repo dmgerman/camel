@@ -2716,7 +2716,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Cannot find nested getter method: "
+literal|"Cannot find getter method: "
 operator|+
 name|part
 operator|+
@@ -3826,15 +3826,6 @@ range|:
 name|parts
 control|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|p
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|p

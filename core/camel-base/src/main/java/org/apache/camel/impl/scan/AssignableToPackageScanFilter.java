@@ -81,11 +81,6 @@ name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|field|includeInterfaces
-specifier|private
-name|boolean
-name|includeInterfaces
-decl_stmt|;
 DECL|method|AssignableToPackageScanFilter ()
 specifier|public
 name|AssignableToPackageScanFilter
@@ -134,32 +129,6 @@ name|parents
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|isIncludeInterfaces ()
-specifier|public
-name|boolean
-name|isIncludeInterfaces
-parameter_list|()
-block|{
-return|return
-name|includeInterfaces
-return|;
-block|}
-DECL|method|setIncludeInterfaces (boolean includeInterfaces)
-specifier|public
-name|void
-name|setIncludeInterfaces
-parameter_list|(
-name|boolean
-name|includeInterfaces
-parameter_list|)
-block|{
-name|this
-operator|.
-name|includeInterfaces
-operator|=
-name|includeInterfaces
-expr_stmt|;
-block|}
 DECL|method|addParentType (Class<?> parentType)
 specifier|public
 name|void
@@ -195,6 +164,10 @@ block|{
 if|if
 condition|(
 name|parents
+operator|!=
+literal|null
+operator|&&
+name|parents
 operator|.
 name|size
 argument_list|()
@@ -213,19 +186,6 @@ range|:
 name|parents
 control|)
 block|{
-if|if
-condition|(
-operator|!
-name|includeInterfaces
-operator|&&
-name|parent
-operator|.
-name|isInterface
-argument_list|()
-condition|)
-block|{
-continue|continue;
-block|}
 if|if
 condition|(
 name|parent
