@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|NoSuchEndpointException
 import|;
 end_import
@@ -83,6 +95,11 @@ parameter_list|,
 name|Object
 name|value
 parameter_list|)
+function_decl|;
+DECL|method|expr ()
+name|Expression
+name|expr
+parameter_list|()
 function_decl|;
 block|}
 end_interface

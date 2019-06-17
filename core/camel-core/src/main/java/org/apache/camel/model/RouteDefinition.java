@@ -754,6 +754,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Creates an input to the route      *      * @param endpoint the from endpoint      * @return the builder      */
 DECL|method|from (EndpointConsumerBuilder endpoint)
 specifier|public
 name|RouteDefinition

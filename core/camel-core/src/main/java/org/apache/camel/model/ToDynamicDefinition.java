@@ -74,6 +74,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlTransient
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -81,6 +95,20 @@ operator|.
 name|camel
 operator|.
 name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|EndpointProducerBuilder
 import|;
 end_import
 
@@ -147,6 +175,13 @@ DECL|field|uri
 specifier|private
 name|String
 name|uri
+decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|endpointProducerBuilder
+specifier|protected
+name|EndpointProducerBuilder
+name|endpointProducerBuilder
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -334,6 +369,32 @@ operator|.
 name|uri
 operator|=
 name|uri
+expr_stmt|;
+block|}
+DECL|method|getEndpointProducerBuilder ()
+specifier|public
+name|EndpointProducerBuilder
+name|getEndpointProducerBuilder
+parameter_list|()
+block|{
+return|return
+name|endpointProducerBuilder
+return|;
+block|}
+DECL|method|setEndpointProducerBuilder (EndpointProducerBuilder endpointProducerBuilder)
+specifier|public
+name|void
+name|setEndpointProducerBuilder
+parameter_list|(
+name|EndpointProducerBuilder
+name|endpointProducerBuilder
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpointProducerBuilder
+operator|=
+name|endpointProducerBuilder
 expr_stmt|;
 block|}
 DECL|method|getPattern ()

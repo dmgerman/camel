@@ -260,6 +260,29 @@ operator|=
 name|pattern
 expr_stmt|;
 block|}
+DECL|method|ToDefinition (EndpointProducerBuilder endpoint, ExchangePattern pattern)
+specifier|public
+name|ToDefinition
+parameter_list|(
+name|EndpointProducerBuilder
+name|endpoint
+parameter_list|,
+name|ExchangePattern
+name|pattern
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|pattern
+operator|=
+name|pattern
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|getShortName ()

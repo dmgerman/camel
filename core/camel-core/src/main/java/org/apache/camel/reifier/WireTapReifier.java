@@ -571,13 +571,16 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createExpression (RouteContext routeContext)
+DECL|method|createExpression (RouteContext routeContext, String uri)
 specifier|protected
 name|Expression
 name|createExpression
 parameter_list|(
 name|RouteContext
 name|routeContext
+parameter_list|,
+name|String
+name|uri
 parameter_list|)
 block|{
 comment|// whether to use dynamic or static uri
@@ -595,6 +598,8 @@ operator|.
 name|createExpression
 argument_list|(
 name|routeContext
+argument_list|,
+name|uri
 argument_list|)
 return|;
 block|}
@@ -605,10 +610,7 @@ name|ExpressionBuilder
 operator|.
 name|constantExpression
 argument_list|(
-name|definition
-operator|.
-name|getUri
-argument_list|()
+name|uri
 argument_list|)
 return|;
 block|}
