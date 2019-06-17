@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements. See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License. You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied. See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -102,6 +102,10 @@ name|Arrays
 import|;
 end_import
 
+begin_comment
+comment|// CHECKSTYLE:OFF
+end_comment
+
 begin_class
 DECL|class|OwbTypeVariableImpl
 specifier|public
@@ -131,7 +135,7 @@ operator|.
 name|class
 block|}
 empty_stmt|;
-comment|/**      * Java TypeVariable is different in various JDK versions. Thus it is not possible to e.g.      * write a custom TypeVariable which works in either Java7 and Java8 as they introduced      * new methods in Java8 which have return generics which only exist in Java8 :(      *      * As workaround we dynamically crate a proxy to wrap this and do the delegation manually.      * This is of course slower, but as we do not use it often it might not have much impact.      *      * @param typeVariable      * @param bounds      * @return the typeVariable with the defined bounds.      */
+comment|/**      * Java TypeVariable is different in various JDK versions. Thus it is not      * possible to e.g. write a custom TypeVariable which works in either Java7      * and Java8 as they introduced new methods in Java8 which have return      * generics which only exist in Java8 :( As workaround we dynamically crate      * a proxy to wrap this and do the delegation manually. This is of course      * slower, but as we do not use it often it might not have much impact.      *      * @param typeVariable      * @param bounds      * @return the typeVariable with the defined bounds.      */
 DECL|method|createTypeVariable (TypeVariable typeVariable, Type... bounds)
 specifier|public
 specifier|static

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements. See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License. You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied. See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -213,6 +213,12 @@ specifier|final
 class|class
 name|GenericsUtil
 block|{
+comment|/*      * Private constructor      */
+DECL|method|GenericsUtil ()
+specifier|private
+name|GenericsUtil
+parameter_list|()
+block|{     }
 DECL|method|satisfiesDependency (boolean isDelegateOrEvent, boolean isProducer, Type injectionPointType, Type beanType)
 specifier|public
 specifier|static
@@ -950,7 +956,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * CDI Spec. 5.2.4: "A parameterized bean type is considered assignable to a raw required type      * if the raw generics are identical and all type parameters of the bean type are either unbounded type variables or java.lang.Object."      */
+comment|/**      * CDI Spec. 5.2.4: "A parameterized bean type is considered assignable to a      * raw required type if the raw generics are identical and all type      * parameters of the bean type are either unbounded type variables or      * java.lang.Object."      */
 DECL|method|isAssignableFrom (boolean isDelegateOrEvent, Class<?> injectionPointType, ParameterizedType beanType)
 specifier|private
 specifier|static
@@ -983,7 +989,7 @@ block|{
 return|return
 literal|false
 return|;
-comment|//raw generics don't match
+comment|// raw generics don't match
 block|}
 if|if
 condition|(
@@ -991,7 +997,8 @@ name|isDelegateOrEvent
 condition|)
 block|{
 comment|// for delegate and events we match 'in reverse' kind off
-comment|// @Observes ProcessInjectionPoint<?, Instance> does also match Instance<SomeBean>
+comment|// @Observes ProcessInjectionPoint<?, Instance> does also match
+comment|// Instance<SomeBean>
 return|return
 name|isAssignableFrom
 argument_list|(
@@ -1041,7 +1048,7 @@ block|{
 return|return
 literal|false
 return|;
-comment|//neither object nor type variable
+comment|// neither object nor type variable
 block|}
 name|TypeVariable
 argument_list|<
@@ -1080,7 +1087,7 @@ block|{
 return|return
 literal|false
 return|;
-comment|//bound type variable
+comment|// bound type variable
 block|}
 block|}
 block|}
@@ -1717,8 +1724,10 @@ index|[
 name|i
 index|]
 decl_stmt|;
-comment|// for this special case it's actually an 'assignable to', thus we swap the params, see CDI-389
-comment|// but this special rule does not apply to Delegate injection points...
+comment|// for this special case it's actually an 'assignable to', thus we
+comment|// swap the params, see CDI-389
+comment|// but this special rule does not apply to Delegate injection
+comment|// points...
 if|if
 condition|(
 name|swapParams
@@ -1830,7 +1839,8 @@ operator|instanceof
 name|Class
 condition|)
 block|{
-comment|// if no wildcard type was given then we require a real exact match.
+comment|// if no wildcard type was given then we require a real exact
+comment|// match.
 return|return
 name|injectionPointTypeArgument
 operator|.
@@ -1960,7 +1970,8 @@ return|return
 literal|true
 return|;
 block|}
-comment|// rules are a bit different when in an array so we handle ParameterizedType manually (not reusing isAssignableFrom)
+comment|// rules are a bit different when in an array so we handle ParameterizedType
+comment|// manually (not reusing isAssignableFrom)
 DECL|method|isAssignableFrom (boolean isDelegateOrEvent, GenericArrayType injectionPointType, Type beanType)
 specifier|private
 specifier|static
@@ -2376,7 +2387,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * @return<tt>true</tt>, if the specified type declaration contains an unresolved type variable.      */
+comment|/**      * @return<tt>true</tt>, if the specified type declaration contains an      *         unresolved type variable.      */
 DECL|method|containsTypeVariable (Type type)
 specifier|public
 specifier|static
@@ -2585,7 +2596,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * @param type to check      * @return {@code true} if the given type contains a {@link WildcardType}      * {@code false} otherwise      */
+comment|/**      * @param type to check      * @return {@code true} if the given type contains a {@link WildcardType}      *         {@code false} otherwise      */
 DECL|method|containsWildcardType (Type type)
 specifier|public
 specifier|static
@@ -2669,7 +2680,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Resolves the actual type of the specified field for the type hierarchy specified by the given subclass      */
+comment|/**      * Resolves the actual type of the specified field for the type hierarchy      * specified by the given subclass      */
 DECL|method|resolveType (Class<?> subclass, Field field)
 specifier|public
 specifier|static
@@ -2701,7 +2712,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves the actual return type of the specified method for the type hierarchy specified by the given subclass      */
+comment|/**      * Resolves the actual return type of the specified method for the type      * hierarchy specified by the given subclass      */
 DECL|method|resolveReturnType (Class<?> subclass, Method method)
 specifier|public
 specifier|static
@@ -2733,7 +2744,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves the actual parameter generics of the specified constructor for the type hierarchy specified by the given subclass      */
+comment|/**      * Resolves the actual parameter generics of the specified constructor for      * the type hierarchy specified by the given subclass      */
 DECL|method|resolveParameterTypes (Class<?> subclass, Constructor<?> constructor)
 specifier|public
 specifier|static
@@ -2766,7 +2777,7 @@ name|subclass
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves the actual parameter generics of the specified method for the type hierarchy specified by the given subclass      */
+comment|/**      * Resolves the actual parameter generics of the specified method for the      * type hierarchy specified by the given subclass      */
 DECL|method|resolveParameterTypes (Class<?> subclass, Method method)
 specifier|public
 specifier|static
@@ -2796,7 +2807,7 @@ name|subclass
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves the actual type of the specified type for the type hierarchy specified by the given subclass      */
+comment|/**      * Resolves the actual type of the specified type for the type hierarchy      * specified by the given subclass      */
 DECL|method|resolveType (Type type, Class<?> subclass, Member member)
 specifier|public
 specifier|static
@@ -2935,7 +2946,8 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// Enums derive from themselves, which would create an infinite loop
+comment|// Enums derive from themselves, which would create an infinite
+comment|// loop
 comment|// we directly escape the loop if we detect this.
 name|resolvedTypeArguments
 operator|=
@@ -3215,8 +3227,9 @@ name|type
 operator|!=
 literal|null
 condition|)
-comment|// means a stackoverflow was avoided, just keep what we have
 block|{
+comment|// means a stackoverflow was avoided, just keep
+comment|// what we have
 name|resolvedTypeArguments
 index|[
 name|i
@@ -3344,7 +3357,7 @@ name|actualType
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the type closure for the specified parameters.      *<h3>Example 1:</h3>      *<p>      * Take the following classes:      *</p>      *<code>      * public class Foo<T> {      * private T t;      * }      * public class Bar extends Foo<Number> {      * }      *</code>      *<p>      * To get the type closure of T in the context of Bar (which is {Number.class, Object.class}), you have to call this method like      *</p>      *<code>      * GenericUtil.getTypeClosure(Foo.class.getDeclaredField("t").getType(), Bar.class, Foo.class);      *</code>      *<h3>Example 2:</h3>      *<p>      * Take the following classes:      *</p>      *<code>      * public class Foo<T> {      * private T t;      * }      * public class Bar<T> extends Foo<T> {      * }      *</code>      *<p>      * To get the type closure of Bar<T> in the context of Foo<Number> (which are besides Object.class the<tt>ParameterizedType</tt>s Bar<Number> and Foo<Number>),      * you have to call this method like      *</p>      *<code>      * GenericUtil.getTypeClosure(Foo.class, new TypeLiteral<Foo<Number>>() {}.getType(), Bar.class);      *</code>      *      * @param type       the type to get the closure for      * @param actualType the context to bind type variables      * @return the type closure      */
+comment|/**      * Returns the type closure for the specified parameters.      *<h3>Example 1:</h3>      *<p>      * Take the following classes:      *</p>      *<code>      * public class Foo<T> {      * private T t;      * }      * public class Bar extends Foo<Number> {      * }      *</code>      *<p>      * To get the type closure of T in the context of Bar (which is      * {Number.class, Object.class}), you have to call this method like      *</p>      *<code>      * GenericUtil.getTypeClosure(Foo.class.getDeclaredField("t").getType(), Bar.class, Foo.class);      *</code>      *<h3>Example 2:</h3>      *<p>      * Take the following classes:      *</p>      *<code>      * public class Foo<T> {      * private T t;      * }      * public class Bar<T> extends Foo<T> {      * }      *</code>      *<p>      * To get the type closure of Bar<T> in the context of Foo<Number> (which      * are besides Object.class the<tt>ParameterizedType</tt>s Bar<Number> and      * Foo<Number>), you have to call this method like      *</p>      *<code>      * GenericUtil.getTypeClosure(Foo.class, new TypeLiteral<Foo<Number>>() {}.getType(), Bar.class);      *</code>      *      * @param type the type to get the closure for      * @param actualType the context to bind type variables      * @return the type closure      */
 DECL|method|getTypeClosure (Type type, Type actualType)
 specifier|public
 specifier|static
@@ -4405,8 +4418,8 @@ argument_list|)
 return|;
 block|}
 else|else
-comment|// if (declaringClass.isAssignableFrom(actualClass))
 block|{
+comment|// if (declaringClass.isAssignableFrom(actualClass))
 name|Type
 name|genericSuperclass
 init|=

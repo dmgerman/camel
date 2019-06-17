@@ -1308,7 +1308,8 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|// They should be equivalent
+comment|// They should be
+comment|// equivalent
 name|List
 argument_list|<
 name|String
