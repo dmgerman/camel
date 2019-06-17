@@ -538,18 +538,18 @@ enum|enum
 name|MetricsType
 block|{
 DECL|enumConstant|gauge
-DECL|enumConstant|counter
-DECL|enumConstant|histogram
-DECL|enumConstant|meter
-DECL|enumConstant|timer
 name|gauge
 block|,
+DECL|enumConstant|counter
 name|counter
 block|,
+DECL|enumConstant|histogram
 name|histogram
 block|,
+DECL|enumConstant|meter
 name|meter
 block|,
+DECL|enumConstant|timer
 name|timer
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.metrics.MetricsTimerAction</code> enum.      */
@@ -558,9 +558,9 @@ enum|enum
 name|MetricsTimerAction
 block|{
 DECL|enumConstant|start
-DECL|enumConstant|stop
 name|start
 block|,
+DECL|enumConstant|stop
 name|stop
 block|;     }
 comment|/**      * To collect various metrics directly from Camel routes using the      * DropWizard metrics library. Creates a builder to build endpoints for the      * Metrics component.      */

@@ -3390,12 +3390,12 @@ enum|enum
 name|SmppSplittingPolicy
 block|{
 DECL|enumConstant|ALLOW
-DECL|enumConstant|REJECT
-DECL|enumConstant|TRUNCATE
 name|ALLOW
 block|,
+DECL|enumConstant|REJECT
 name|REJECT
 block|,
+DECL|enumConstant|TRUNCATE
 name|TRUNCATE
 block|;     }
 comment|/**      * To send and receive SMS using a SMSC (Short Message Service Center).      * Creates a builder to build endpoints for the SMPP component.      */

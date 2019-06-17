@@ -454,15 +454,15 @@ enum|enum
 name|StreamingType
 block|{
 DECL|enumConstant|SAMPLE
-DECL|enumConstant|FILTER
-DECL|enumConstant|USER
-DECL|enumConstant|UNKNOWN
 name|SAMPLE
 block|,
+DECL|enumConstant|FILTER
 name|FILTER
 block|,
+DECL|enumConstant|USER
 name|USER
 block|,
+DECL|enumConstant|UNKNOWN
 name|UNKNOWN
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.twitter.data.EndpointType</code> enum.      */
@@ -471,12 +471,12 @@ enum|enum
 name|EndpointType
 block|{
 DECL|enumConstant|POLLING
-DECL|enumConstant|DIRECT
-DECL|enumConstant|EVENT
 name|POLLING
 block|,
+DECL|enumConstant|DIRECT
 name|DIRECT
 block|,
+DECL|enumConstant|EVENT
 name|EVENT
 block|;     }
 comment|/**      * The Twitter Streaming component consumes twitter statuses using Streaming      * API. Creates a builder to build endpoints for the Twitter Streaming      * component.      */

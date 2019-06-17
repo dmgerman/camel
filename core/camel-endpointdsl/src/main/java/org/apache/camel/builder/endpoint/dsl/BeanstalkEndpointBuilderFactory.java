@@ -2079,21 +2079,21 @@ enum|enum
 name|BeanstalkCommand
 block|{
 DECL|enumConstant|bury
-DECL|enumConstant|release
-DECL|enumConstant|put
-DECL|enumConstant|touch
-DECL|enumConstant|delete
-DECL|enumConstant|kick
 name|bury
 block|,
+DECL|enumConstant|release
 name|release
 block|,
+DECL|enumConstant|put
 name|put
 block|,
+DECL|enumConstant|touch
 name|touch
 block|,
+DECL|enumConstant|delete
 name|delete
 block|,
+DECL|enumConstant|kick
 name|kick
 block|;     }
 comment|/**      * The beanstalk component is used for job retrieval and post-processing of      * Beanstalk jobs. Creates a builder to build endpoints for the Beanstalk      * component.      */

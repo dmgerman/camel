@@ -1118,9 +1118,9 @@ enum|enum
 name|IgniteMessagingSendMode
 block|{
 DECL|enumConstant|ORDERED
-DECL|enumConstant|UNORDERED
 name|ORDERED
 block|,
+DECL|enumConstant|UNORDERED
 name|UNORDERED
 block|;     }
 comment|/**      * The Ignite Messaging endpoint is one of camel-ignite endpoints which      * allows you to send and consume messages from an Ignite topic. Creates a      * builder to build endpoints for the Ignite Messaging component.      */

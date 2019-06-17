@@ -1102,27 +1102,27 @@ enum|enum
 name|HttpMethods
 block|{
 DECL|enumConstant|GET
-DECL|enumConstant|POST
-DECL|enumConstant|PUT
-DECL|enumConstant|DELETE
-DECL|enumConstant|HEAD
-DECL|enumConstant|OPTIONS
-DECL|enumConstant|TRACE
-DECL|enumConstant|PATCH
 name|GET
 block|,
+DECL|enumConstant|POST
 name|POST
 block|,
+DECL|enumConstant|PUT
 name|PUT
 block|,
+DECL|enumConstant|DELETE
 name|DELETE
 block|,
+DECL|enumConstant|HEAD
 name|HEAD
 block|,
+DECL|enumConstant|OPTIONS
 name|OPTIONS
 block|,
+DECL|enumConstant|TRACE
 name|TRACE
 block|,
+DECL|enumConstant|PATCH
 name|PATCH
 block|;     }
 comment|/**      * For calling out to external HTTP servers using Apache HTTP Client 4.x.      * Creates a builder to build endpoints for the HTTP4 component.      */

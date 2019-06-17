@@ -992,12 +992,12 @@ enum|enum
 name|ReactiveStreamsBackpressureStrategy
 block|{
 DECL|enumConstant|BUFFER
-DECL|enumConstant|OLDEST
-DECL|enumConstant|LATEST
 name|BUFFER
 block|,
+DECL|enumConstant|OLDEST
 name|OLDEST
 block|,
+DECL|enumConstant|LATEST
 name|LATEST
 block|;     }
 comment|/**      * Reactive Camel using reactive streams Creates a builder to build      * endpoints for the Reactive Streams component.      */

@@ -1451,9 +1451,9 @@ enum|enum
 name|XmlCommand
 block|{
 DECL|enumConstant|sign
-DECL|enumConstant|verify
 name|sign
 block|,
+DECL|enumConstant|verify
 name|verify
 block|;     }
 comment|/**      * Used to sign and verify exchanges using the XML signature specification.      * Creates a builder to build endpoints for the XML Security component.      */

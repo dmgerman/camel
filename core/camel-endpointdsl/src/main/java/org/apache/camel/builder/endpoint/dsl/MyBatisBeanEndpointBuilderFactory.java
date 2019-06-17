@@ -265,12 +265,12 @@ enum|enum
 name|ExecutorType
 block|{
 DECL|enumConstant|SIMPLE
-DECL|enumConstant|REUSE
-DECL|enumConstant|BATCH
 name|SIMPLE
 block|,
+DECL|enumConstant|REUSE
 name|REUSE
 block|,
+DECL|enumConstant|BATCH
 name|BATCH
 block|;     }
 comment|/**      * Performs a query, insert, update or delete in a relational database using      * MyBatis. Creates a builder to build endpoints for the MyBatis Bean      * component.      */

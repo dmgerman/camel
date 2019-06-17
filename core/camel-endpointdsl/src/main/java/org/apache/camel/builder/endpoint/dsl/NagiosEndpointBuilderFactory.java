@@ -521,24 +521,24 @@ enum|enum
 name|Encryption
 block|{
 DECL|enumConstant|NONE
-DECL|enumConstant|TRIPLE_DES
-DECL|enumConstant|XOR
-DECL|enumConstant|RIJNDAEL128
-DECL|enumConstant|RIJNDAEL192
-DECL|enumConstant|RIJNDAEL256
-DECL|enumConstant|BLOWFISH
 name|NONE
 block|,
+DECL|enumConstant|TRIPLE_DES
 name|TRIPLE_DES
 block|,
+DECL|enumConstant|XOR
 name|XOR
 block|,
+DECL|enumConstant|RIJNDAEL128
 name|RIJNDAEL128
 block|,
+DECL|enumConstant|RIJNDAEL192
 name|RIJNDAEL192
 block|,
+DECL|enumConstant|RIJNDAEL256
 name|RIJNDAEL256
 block|,
+DECL|enumConstant|BLOWFISH
 name|BLOWFISH
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.nagios.NagiosEncryptionMethod</code>      * enum.      */
@@ -547,12 +547,12 @@ enum|enum
 name|NagiosEncryptionMethod
 block|{
 DECL|enumConstant|No
-DECL|enumConstant|Xor
-DECL|enumConstant|TripleDes
 name|No
 block|,
+DECL|enumConstant|Xor
 name|Xor
 block|,
+DECL|enumConstant|TripleDes
 name|TripleDes
 block|;     }
 comment|/**      * To send passive checks to Nagios using JSendNSCA. Creates a builder to      * build endpoints for the Nagios component.      */

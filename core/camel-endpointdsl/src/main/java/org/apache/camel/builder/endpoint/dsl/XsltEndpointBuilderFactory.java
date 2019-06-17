@@ -866,15 +866,15 @@ enum|enum
 name|XsltOutput
 block|{
 DECL|enumConstant|string
-DECL|enumConstant|bytes
-DECL|enumConstant|DOM
-DECL|enumConstant|file
 name|string
 block|,
+DECL|enumConstant|bytes
 name|bytes
 block|,
+DECL|enumConstant|DOM
 name|DOM
 block|,
+DECL|enumConstant|file
 name|file
 block|;     }
 comment|/**      * Transforms the message using a XSLT template. Creates a builder to build      * endpoints for the XSLT component.      */

@@ -1580,9 +1580,9 @@ enum|enum
 name|ThriftCompressionType
 block|{
 DECL|enumConstant|NONE
-DECL|enumConstant|ZLIB
 name|NONE
 block|,
+DECL|enumConstant|ZLIB
 name|ZLIB
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.thrift.ThriftExchangeProtocol</code>      * enum.      */
@@ -1591,15 +1591,15 @@ enum|enum
 name|ThriftExchangeProtocol
 block|{
 DECL|enumConstant|BINARY
-DECL|enumConstant|JSON
-DECL|enumConstant|SJSON
-DECL|enumConstant|COMPACT
 name|BINARY
 block|,
+DECL|enumConstant|JSON
 name|JSON
 block|,
+DECL|enumConstant|SJSON
 name|SJSON
 block|,
+DECL|enumConstant|COMPACT
 name|COMPACT
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.thrift.ThriftNegotiationType</code>      * enum.      */
@@ -1608,12 +1608,12 @@ enum|enum
 name|ThriftNegotiationType
 block|{
 DECL|enumConstant|PLAINTEXT
-DECL|enumConstant|SSL
-DECL|enumConstant|SASL
 name|PLAINTEXT
 block|,
+DECL|enumConstant|SSL
 name|SSL
 block|,
+DECL|enumConstant|SASL
 name|SASL
 block|;     }
 comment|/**      * The Thrift component allows to call and expose remote procedures (RPC)      * with Apache Thrift data format and serialization mechanism Creates a      * builder to build endpoints for the Thrift component.      */

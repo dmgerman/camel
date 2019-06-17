@@ -3507,9 +3507,9 @@ enum|enum
 name|HdfsFileSystemType
 block|{
 DECL|enumConstant|LOCAL
-DECL|enumConstant|HDFS
 name|LOCAL
 block|,
+DECL|enumConstant|HDFS
 name|HDFS
 block|;     }
 comment|/**      * Proxy enum for<code>org.apache.camel.component.hdfs2.HdfsFileType</code>      * enum.      */
@@ -3518,18 +3518,18 @@ enum|enum
 name|HdfsFileType
 block|{
 DECL|enumConstant|NORMAL_FILE
-DECL|enumConstant|SEQUENCE_FILE
-DECL|enumConstant|MAP_FILE
-DECL|enumConstant|BLOOMMAP_FILE
-DECL|enumConstant|ARRAY_FILE
 name|NORMAL_FILE
 block|,
+DECL|enumConstant|SEQUENCE_FILE
 name|SEQUENCE_FILE
 block|,
+DECL|enumConstant|MAP_FILE
 name|MAP_FILE
 block|,
+DECL|enumConstant|BLOOMMAP_FILE
 name|BLOOMMAP_FILE
 block|,
+DECL|enumConstant|ARRAY_FILE
 name|ARRAY_FILE
 block|;     }
 comment|/**      * Proxy enum for<code>org.apache.camel.component.hdfs2.WritableType</code>      * enum.      */
@@ -3538,30 +3538,30 @@ enum|enum
 name|WritableType
 block|{
 DECL|enumConstant|NULL
-DECL|enumConstant|BOOLEAN
-DECL|enumConstant|BYTE
-DECL|enumConstant|INT
-DECL|enumConstant|FLOAT
-DECL|enumConstant|LONG
-DECL|enumConstant|DOUBLE
-DECL|enumConstant|TEXT
-DECL|enumConstant|BYTES
 name|NULL
 block|,
+DECL|enumConstant|BOOLEAN
 name|BOOLEAN
 block|,
+DECL|enumConstant|BYTE
 name|BYTE
 block|,
+DECL|enumConstant|INT
 name|INT
 block|,
+DECL|enumConstant|FLOAT
 name|FLOAT
 block|,
+DECL|enumConstant|LONG
 name|LONG
 block|,
+DECL|enumConstant|DOUBLE
 name|DOUBLE
 block|,
+DECL|enumConstant|TEXT
 name|TEXT
 block|,
+DECL|enumConstant|BYTES
 name|BYTES
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.hdfs2.HdfsCompressionCodec</code> enum.      */
@@ -3570,12 +3570,12 @@ enum|enum
 name|HdfsCompressionCodec
 block|{
 DECL|enumConstant|DEFAULT
-DECL|enumConstant|GZIP
-DECL|enumConstant|BZIP2
 name|DEFAULT
 block|,
+DECL|enumConstant|GZIP
 name|GZIP
 block|,
+DECL|enumConstant|BZIP2
 name|BZIP2
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.hadoop.io.SequenceFile$CompressionType</code> enum.      */
@@ -3584,12 +3584,12 @@ enum|enum
 name|CompressionType
 block|{
 DECL|enumConstant|NONE
-DECL|enumConstant|RECORD
-DECL|enumConstant|BLOCK
 name|NONE
 block|,
+DECL|enumConstant|RECORD
 name|RECORD
 block|,
+DECL|enumConstant|BLOCK
 name|BLOCK
 block|;     }
 comment|/**      * For reading/writing from/to an HDFS filesystem using Hadoop 2.x. Creates      * a builder to build endpoints for the HDFS2 component.      */

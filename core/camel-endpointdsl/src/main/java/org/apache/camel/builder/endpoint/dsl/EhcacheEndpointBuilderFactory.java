@@ -1930,9 +1930,9 @@ enum|enum
 name|EventFiring
 block|{
 DECL|enumConstant|ASYNCHRONOUS
-DECL|enumConstant|SYNCHRONOUS
 name|ASYNCHRONOUS
 block|,
+DECL|enumConstant|SYNCHRONOUS
 name|SYNCHRONOUS
 block|;     }
 comment|/**      * Proxy enum for<code>org.ehcache.event.EventOrdering</code> enum.      */
@@ -1941,9 +1941,9 @@ enum|enum
 name|EventOrdering
 block|{
 DECL|enumConstant|UNORDERED
-DECL|enumConstant|ORDERED
 name|UNORDERED
 block|,
+DECL|enumConstant|ORDERED
 name|ORDERED
 block|;     }
 comment|/**      * Proxy enum for<code>org.ehcache.event.EventType</code> enum.      */
@@ -1952,18 +1952,18 @@ enum|enum
 name|EventType
 block|{
 DECL|enumConstant|EVICTED
-DECL|enumConstant|EXPIRED
-DECL|enumConstant|REMOVED
-DECL|enumConstant|CREATED
-DECL|enumConstant|UPDATED
 name|EVICTED
 block|,
+DECL|enumConstant|EXPIRED
 name|EXPIRED
 block|,
+DECL|enumConstant|REMOVED
 name|REMOVED
 block|,
+DECL|enumConstant|CREATED
 name|CREATED
 block|,
+DECL|enumConstant|UPDATED
 name|UPDATED
 block|;     }
 comment|/**      * The ehcache component enables you to perform caching operations using      * Ehcache as cache implementation. Creates a builder to build endpoints for      * the Ehcache component.      */

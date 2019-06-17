@@ -3339,12 +3339,12 @@ enum|enum
 name|SqlOutputType
 block|{
 DECL|enumConstant|SelectOne
-DECL|enumConstant|SelectList
-DECL|enumConstant|StreamList
 name|SelectOne
 block|,
+DECL|enumConstant|SelectList
 name|SelectList
 block|,
+DECL|enumConstant|StreamList
 name|StreamList
 block|;     }
 comment|/**      * The sql component allows you to work with databases using JDBC SQL      * queries. Creates a builder to build endpoints for the SQL component.      */

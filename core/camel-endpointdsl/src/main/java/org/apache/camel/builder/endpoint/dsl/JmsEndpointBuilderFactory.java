@@ -7402,21 +7402,21 @@ enum|enum
 name|JmsMessageType
 block|{
 DECL|enumConstant|Bytes
-DECL|enumConstant|Map
-DECL|enumConstant|Object
-DECL|enumConstant|Stream
-DECL|enumConstant|Text
-DECL|enumConstant|Blob
 name|Bytes
 block|,
+DECL|enumConstant|Map
 name|Map
 block|,
+DECL|enumConstant|Object
 name|Object
 block|,
+DECL|enumConstant|Stream
 name|Stream
 block|,
+DECL|enumConstant|Text
 name|Text
 block|,
+DECL|enumConstant|Blob
 name|Blob
 block|;     }
 comment|/**      * Proxy enum for<code>org.apache.camel.component.jms.ConsumerType</code>      * enum.      */
@@ -7425,12 +7425,12 @@ enum|enum
 name|ConsumerType
 block|{
 DECL|enumConstant|Simple
-DECL|enumConstant|Default
-DECL|enumConstant|Custom
 name|Simple
 block|,
+DECL|enumConstant|Default
 name|Default
 block|,
+DECL|enumConstant|Custom
 name|Custom
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.jms.DefaultTaskExecutorType</code> enum.      */
@@ -7439,9 +7439,9 @@ enum|enum
 name|DefaultTaskExecutorType
 block|{
 DECL|enumConstant|ThreadPool
-DECL|enumConstant|SimpleAsync
 name|ThreadPool
 block|,
+DECL|enumConstant|SimpleAsync
 name|SimpleAsync
 block|;     }
 comment|/**      * Proxy enum for<code>org.apache.camel.component.jms.ReplyToType</code>      * enum.      */
@@ -7450,12 +7450,12 @@ enum|enum
 name|ReplyToType
 block|{
 DECL|enumConstant|Temporary
-DECL|enumConstant|Shared
-DECL|enumConstant|Exclusive
 name|Temporary
 block|,
+DECL|enumConstant|Shared
 name|Shared
 block|,
+DECL|enumConstant|Exclusive
 name|Exclusive
 block|;     }
 comment|/**      * The jms component allows messages to be sent to (or consumed from) a JMS      * Queue or Topic. Creates a builder to build endpoints for the JMS      * component.      */

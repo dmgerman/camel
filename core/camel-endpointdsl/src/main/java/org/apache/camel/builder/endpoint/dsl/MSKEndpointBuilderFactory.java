@@ -265,15 +265,15 @@ enum|enum
 name|MSKOperations
 block|{
 DECL|enumConstant|listClusters
-DECL|enumConstant|createCluster
-DECL|enumConstant|deleteCluster
-DECL|enumConstant|describeCluster
 name|listClusters
 block|,
+DECL|enumConstant|createCluster
 name|createCluster
 block|,
+DECL|enumConstant|deleteCluster
 name|deleteCluster
 block|,
+DECL|enumConstant|describeCluster
 name|describeCluster
 block|;     }
 comment|/**      * The aws-kms is used for managing Amazon KMS Creates a builder to build      * endpoints for the AWS MSK component.      */

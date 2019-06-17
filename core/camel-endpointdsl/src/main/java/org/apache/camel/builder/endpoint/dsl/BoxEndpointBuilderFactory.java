@@ -2214,33 +2214,33 @@ enum|enum
 name|BoxApiName
 block|{
 DECL|enumConstant|COLLABORATIONS
-DECL|enumConstant|COMMENTS
-DECL|enumConstant|EVENT_LOGS
-DECL|enumConstant|FILES
-DECL|enumConstant|FOLDERS
-DECL|enumConstant|GROUPS
-DECL|enumConstant|EVENTS
-DECL|enumConstant|SEARCH
-DECL|enumConstant|TASKS
-DECL|enumConstant|USERS
 name|COLLABORATIONS
 block|,
+DECL|enumConstant|COMMENTS
 name|COMMENTS
 block|,
+DECL|enumConstant|EVENT_LOGS
 name|EVENT_LOGS
 block|,
+DECL|enumConstant|FILES
 name|FILES
 block|,
+DECL|enumConstant|FOLDERS
 name|FOLDERS
 block|,
+DECL|enumConstant|GROUPS
 name|GROUPS
 block|,
+DECL|enumConstant|EVENTS
 name|EVENTS
 block|,
+DECL|enumConstant|SEARCH
 name|SEARCH
 block|,
+DECL|enumConstant|TASKS
 name|TASKS
 block|,
+DECL|enumConstant|USERS
 name|USERS
 block|;     }
 comment|/**      * Proxy enum for<code>com.box.sdk.EncryptionAlgorithm</code> enum.      */
@@ -2249,12 +2249,12 @@ enum|enum
 name|EncryptionAlgorithm
 block|{
 DECL|enumConstant|RSA_SHA_256
-DECL|enumConstant|RSA_SHA_384
-DECL|enumConstant|RSA_SHA_512
 name|RSA_SHA_256
 block|,
+DECL|enumConstant|RSA_SHA_384
 name|RSA_SHA_384
 block|,
+DECL|enumConstant|RSA_SHA_512
 name|RSA_SHA_512
 block|;     }
 comment|/**      * For uploading downloading and managing files folders groups      * collaborations etc on box DOT com. Creates a builder to build endpoints      * for the Box component.      */

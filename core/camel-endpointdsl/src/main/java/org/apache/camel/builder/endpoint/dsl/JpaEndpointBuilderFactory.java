@@ -3114,27 +3114,27 @@ enum|enum
 name|LockModeType
 block|{
 DECL|enumConstant|READ
-DECL|enumConstant|WRITE
-DECL|enumConstant|OPTIMISTIC
-DECL|enumConstant|OPTIMISTIC_FORCE_INCREMENT
-DECL|enumConstant|PESSIMISTIC_READ
-DECL|enumConstant|PESSIMISTIC_WRITE
-DECL|enumConstant|PESSIMISTIC_FORCE_INCREMENT
-DECL|enumConstant|NONE
 name|READ
 block|,
+DECL|enumConstant|WRITE
 name|WRITE
 block|,
+DECL|enumConstant|OPTIMISTIC
 name|OPTIMISTIC
 block|,
+DECL|enumConstant|OPTIMISTIC_FORCE_INCREMENT
 name|OPTIMISTIC_FORCE_INCREMENT
 block|,
+DECL|enumConstant|PESSIMISTIC_READ
 name|PESSIMISTIC_READ
 block|,
+DECL|enumConstant|PESSIMISTIC_WRITE
 name|PESSIMISTIC_WRITE
 block|,
+DECL|enumConstant|PESSIMISTIC_FORCE_INCREMENT
 name|PESSIMISTIC_FORCE_INCREMENT
 block|,
+DECL|enumConstant|NONE
 name|NONE
 block|;     }
 comment|/**      * The jpa component enables you to store and retrieve Java objects from      * databases using JPA. Creates a builder to build endpoints for the JPA      * component.      */

@@ -265,21 +265,21 @@ enum|enum
 name|KMSOperations
 block|{
 DECL|enumConstant|listKeys
-DECL|enumConstant|createKey
-DECL|enumConstant|disableKey
-DECL|enumConstant|scheduleKeyDeletion
-DECL|enumConstant|describeKey
-DECL|enumConstant|enableKey
 name|listKeys
 block|,
+DECL|enumConstant|createKey
 name|createKey
 block|,
+DECL|enumConstant|disableKey
 name|disableKey
 block|,
+DECL|enumConstant|scheduleKeyDeletion
 name|scheduleKeyDeletion
 block|,
+DECL|enumConstant|describeKey
 name|describeKey
 block|,
+DECL|enumConstant|enableKey
 name|enableKey
 block|;     }
 comment|/**      * The aws-kms is used for managing Amazon KMS Creates a builder to build      * endpoints for the AWS KMS component.      */

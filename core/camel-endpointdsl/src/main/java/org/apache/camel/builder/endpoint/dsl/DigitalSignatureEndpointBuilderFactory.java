@@ -906,9 +906,9 @@ enum|enum
 name|CryptoOperation
 block|{
 DECL|enumConstant|sign
-DECL|enumConstant|verify
 name|sign
 block|,
+DECL|enumConstant|verify
 name|verify
 block|;     }
 comment|/**      * The crypto component is used for signing and verifying exchanges using      * the Signature Service of the Java Cryptographic Extension (JCE). Creates      * a builder to build endpoints for the Crypto (JCE) component.      */

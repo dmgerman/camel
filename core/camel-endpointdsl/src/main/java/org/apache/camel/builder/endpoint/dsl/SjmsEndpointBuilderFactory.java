@@ -3202,15 +3202,15 @@ enum|enum
 name|SessionAcknowledgementType
 block|{
 DECL|enumConstant|AUTO_ACKNOWLEDGE
-DECL|enumConstant|CLIENT_ACKNOWLEDGE
-DECL|enumConstant|DUPS_OK_ACKNOWLEDGE
-DECL|enumConstant|SESSION_TRANSACTED
 name|AUTO_ACKNOWLEDGE
 block|,
+DECL|enumConstant|CLIENT_ACKNOWLEDGE
 name|CLIENT_ACKNOWLEDGE
 block|,
+DECL|enumConstant|DUPS_OK_ACKNOWLEDGE
 name|DUPS_OK_ACKNOWLEDGE
 block|,
+DECL|enumConstant|SESSION_TRANSACTED
 name|SESSION_TRANSACTED
 block|;     }
 comment|/**      * The sjms component (simple jms) allows messages to be sent to (or      * consumed from) a JMS Queue or Topic (uses JMS 1.x API). Creates a builder      * to build endpoints for the Simple JMS component.      */

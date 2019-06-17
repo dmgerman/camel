@@ -2331,9 +2331,9 @@ enum|enum
 name|FlatpackType
 block|{
 DECL|enumConstant|fixed
-DECL|enumConstant|delim
 name|fixed
 block|,
+DECL|enumConstant|delim
 name|delim
 block|;     }
 comment|/**      * The flatpack component supports fixed width and delimited file parsing      * via the FlatPack library. Creates a builder to build endpoints for the      * Flatpack component.      */

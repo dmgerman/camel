@@ -1433,18 +1433,18 @@ enum|enum
 name|DropboxOperation
 block|{
 DECL|enumConstant|put
-DECL|enumConstant|del
-DECL|enumConstant|search
-DECL|enumConstant|get
-DECL|enumConstant|move
 name|put
 block|,
+DECL|enumConstant|del
 name|del
 block|,
+DECL|enumConstant|search
 name|search
 block|,
+DECL|enumConstant|get
 name|get
 block|,
+DECL|enumConstant|move
 name|move
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.dropbox.util.DropboxUploadMode</code>      * enum.      */
@@ -1453,9 +1453,9 @@ enum|enum
 name|DropboxUploadMode
 block|{
 DECL|enumConstant|add
-DECL|enumConstant|force
 name|add
 block|,
+DECL|enumConstant|force
 name|force
 block|;     }
 comment|/**      * For uploading, downloading and managing files, folders, groups,      * collaborations, etc on dropbox DOT com. Creates a builder to build      * endpoints for the Dropbox component.      */

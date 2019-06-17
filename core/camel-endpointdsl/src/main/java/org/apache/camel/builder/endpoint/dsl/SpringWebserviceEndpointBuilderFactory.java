@@ -1653,27 +1653,27 @@ enum|enum
 name|EndpointMappingType
 block|{
 DECL|enumConstant|ROOT_QNAME
-DECL|enumConstant|ACTION
-DECL|enumConstant|TO
-DECL|enumConstant|SOAP_ACTION
-DECL|enumConstant|XPATHRESULT
-DECL|enumConstant|URI
-DECL|enumConstant|URI_PATH
-DECL|enumConstant|BEANNAME
 name|ROOT_QNAME
 block|,
+DECL|enumConstant|ACTION
 name|ACTION
 block|,
+DECL|enumConstant|TO
 name|TO
 block|,
+DECL|enumConstant|SOAP_ACTION
 name|SOAP_ACTION
 block|,
+DECL|enumConstant|XPATHRESULT
 name|XPATHRESULT
 block|,
+DECL|enumConstant|URI
 name|URI
 block|,
+DECL|enumConstant|URI_PATH
 name|URI_PATH
 block|,
+DECL|enumConstant|BEANNAME
 name|BEANNAME
 block|;     }
 comment|/**      * The spring-ws component is used for SOAP WebServices using Spring      * WebServices. Creates a builder to build endpoints for the Spring      * WebService component.      */

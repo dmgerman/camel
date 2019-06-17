@@ -1139,9 +1139,9 @@ enum|enum
 name|JcloudsCommand
 block|{
 DECL|enumConstant|blobstore
-DECL|enumConstant|compute
 name|blobstore
 block|,
+DECL|enumConstant|compute
 name|compute
 block|;     }
 comment|/**      * For interacting with cloud compute& blobstore service via jclouds.      * Creates a builder to build endpoints for the JClouds component.      */

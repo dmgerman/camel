@@ -1252,12 +1252,12 @@ enum|enum
 name|OutputStyle
 block|{
 DECL|enumConstant|Default
-DECL|enumConstant|Tab
-DECL|enumConstant|Fixed
 name|Default
 block|,
+DECL|enumConstant|Tab
 name|Tab
 block|,
+DECL|enumConstant|Fixed
 name|Fixed
 block|;     }
 comment|/**      * The log component logs message exchanges to the underlying logging      * mechanism. Creates a builder to build endpoints for the Log component.      */

@@ -1139,27 +1139,27 @@ enum|enum
 name|QueueServiceOperations
 block|{
 DECL|enumConstant|listQueues
-DECL|enumConstant|createQueue
-DECL|enumConstant|deleteQueue
-DECL|enumConstant|addMessage
-DECL|enumConstant|retrieveMessage
-DECL|enumConstant|peekMessage
-DECL|enumConstant|updateMessage
-DECL|enumConstant|deleteMessage
 name|listQueues
 block|,
+DECL|enumConstant|createQueue
 name|createQueue
 block|,
+DECL|enumConstant|deleteQueue
 name|deleteQueue
 block|,
+DECL|enumConstant|addMessage
 name|addMessage
 block|,
+DECL|enumConstant|retrieveMessage
 name|retrieveMessage
 block|,
+DECL|enumConstant|peekMessage
 name|peekMessage
 block|,
+DECL|enumConstant|updateMessage
 name|updateMessage
 block|,
+DECL|enumConstant|deleteMessage
 name|deleteMessage
 block|;     }
 comment|/**      * The azure-queue component is used for storing and retrieving messages      * from Azure Storage Queue Service. Creates a builder to build endpoints      * for the Azure Storage Queue Service component.      */

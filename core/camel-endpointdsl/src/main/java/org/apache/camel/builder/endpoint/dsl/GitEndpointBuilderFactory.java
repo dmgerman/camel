@@ -1223,12 +1223,12 @@ enum|enum
 name|GitType
 block|{
 DECL|enumConstant|COMMIT
-DECL|enumConstant|TAG
-DECL|enumConstant|BRANCH
 name|COMMIT
 block|,
+DECL|enumConstant|TAG
 name|TAG
 block|,
+DECL|enumConstant|BRANCH
 name|BRANCH
 block|;     }
 comment|/**      * The git component is used for working with git repositories. Creates a      * builder to build endpoints for the Git component.      */

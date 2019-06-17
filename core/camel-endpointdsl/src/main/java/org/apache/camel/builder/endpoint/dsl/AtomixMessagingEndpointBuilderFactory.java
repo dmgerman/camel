@@ -2456,9 +2456,9 @@ enum|enum
 name|BroadcastType
 block|{
 DECL|enumConstant|ALL
-DECL|enumConstant|RANDOM
 name|ALL
 block|,
+DECL|enumConstant|RANDOM
 name|RANDOM
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.atomix.client.messaging.AtomixMessaging$Action</code> enum.      */
@@ -2467,9 +2467,9 @@ enum|enum
 name|Action
 block|{
 DECL|enumConstant|DIRECT
-DECL|enumConstant|BROADCAST
 name|DIRECT
 block|,
+DECL|enumConstant|BROADCAST
 name|BROADCAST
 block|;     }
 comment|/**      * Proxy enum for<code>io.atomix.resource.ReadConsistency</code> enum.      */
@@ -2478,15 +2478,15 @@ enum|enum
 name|ReadConsistency
 block|{
 DECL|enumConstant|ATOMIC
-DECL|enumConstant|ATOMIC_LEASE
-DECL|enumConstant|SEQUENTIAL
-DECL|enumConstant|LOCAL
 name|ATOMIC
 block|,
+DECL|enumConstant|ATOMIC_LEASE
 name|ATOMIC_LEASE
 block|,
+DECL|enumConstant|SEQUENTIAL
 name|SEQUENTIAL
 block|,
+DECL|enumConstant|LOCAL
 name|LOCAL
 block|;     }
 comment|/**      * The atomix-messaging component is used to access Atomix's group      * messaging. Creates a builder to build endpoints for the Atomix Messaging      * component.      */

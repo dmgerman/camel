@@ -2946,12 +2946,12 @@ enum|enum
 name|Jt400Type
 block|{
 DECL|enumConstant|DTAQ
-DECL|enumConstant|PGM
-DECL|enumConstant|SRVPGM
 name|DTAQ
 block|,
+DECL|enumConstant|PGM
 name|PGM
 block|,
+DECL|enumConstant|SRVPGM
 name|SRVPGM
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.jt400.Jt400Configuration$Format</code>      * enum.      */
@@ -2960,9 +2960,9 @@ enum|enum
 name|Format
 block|{
 DECL|enumConstant|text
-DECL|enumConstant|binary
 name|text
 block|,
+DECL|enumConstant|binary
 name|binary
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.jt400.Jt400Configuration$SearchType</code> enum.      */
@@ -2971,21 +2971,21 @@ enum|enum
 name|SearchType
 block|{
 DECL|enumConstant|EQ
-DECL|enumConstant|NE
-DECL|enumConstant|LT
-DECL|enumConstant|LE
-DECL|enumConstant|GT
-DECL|enumConstant|GE
 name|EQ
 block|,
+DECL|enumConstant|NE
 name|NE
 block|,
+DECL|enumConstant|LT
 name|LT
 block|,
+DECL|enumConstant|LE
 name|LE
 block|,
+DECL|enumConstant|GT
 name|GT
 block|,
+DECL|enumConstant|GE
 name|GE
 block|;     }
 comment|/**      * The jt400 component allows you to exchanges messages with an AS/400      * system using data queues or program call. Creates a builder to build      * endpoints for the JT400 component.      */

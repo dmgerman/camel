@@ -1811,9 +1811,9 @@ enum|enum
 name|PahoPersistence
 block|{
 DECL|enumConstant|FILE
-DECL|enumConstant|MEMORY
 name|FILE
 block|,
+DECL|enumConstant|MEMORY
 name|MEMORY
 block|;     }
 comment|/**      * Component for communicating with MQTT M2M message brokers using Eclipse      * Paho MQTT Client. Creates a builder to build endpoints for the Paho      * component.      */

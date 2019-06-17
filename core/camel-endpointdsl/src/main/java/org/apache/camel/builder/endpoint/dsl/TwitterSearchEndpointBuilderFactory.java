@@ -2562,12 +2562,12 @@ enum|enum
 name|EndpointType
 block|{
 DECL|enumConstant|POLLING
-DECL|enumConstant|DIRECT
-DECL|enumConstant|EVENT
 name|POLLING
 block|,
+DECL|enumConstant|DIRECT
 name|DIRECT
 block|,
+DECL|enumConstant|EVENT
 name|EVENT
 block|;     }
 comment|/**      * The Twitter Search component consumes search results. Creates a builder      * to build endpoints for the Twitter Search component.      */

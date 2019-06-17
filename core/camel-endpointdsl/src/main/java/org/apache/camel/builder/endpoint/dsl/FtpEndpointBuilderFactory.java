@@ -7299,12 +7299,12 @@ enum|enum
 name|PathSeparator
 block|{
 DECL|enumConstant|UNIX
-DECL|enumConstant|Windows
-DECL|enumConstant|Auto
 name|UNIX
 block|,
+DECL|enumConstant|Windows
 name|Windows
 block|,
+DECL|enumConstant|Auto
 name|Auto
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.file.GenericFileExist</code> enum.      */
@@ -7313,21 +7313,21 @@ enum|enum
 name|GenericFileExist
 block|{
 DECL|enumConstant|Override
-DECL|enumConstant|Append
-DECL|enumConstant|Fail
-DECL|enumConstant|Ignore
-DECL|enumConstant|Move
-DECL|enumConstant|TryRename
 name|Override
 block|,
+DECL|enumConstant|Append
 name|Append
 block|,
+DECL|enumConstant|Fail
 name|Fail
 block|,
+DECL|enumConstant|Ignore
 name|Ignore
 block|,
+DECL|enumConstant|Move
 name|Move
 block|,
+DECL|enumConstant|TryRename
 name|TryRename
 block|;     }
 comment|/**      * The ftp component is used for uploading or downloading files from FTP      * servers. Creates a builder to build endpoints for the FTP component.      */

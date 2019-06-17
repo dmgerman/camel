@@ -4738,21 +4738,21 @@ enum|enum
 name|GenericFileExist
 block|{
 DECL|enumConstant|Override
-DECL|enumConstant|Append
-DECL|enumConstant|Fail
-DECL|enumConstant|Ignore
-DECL|enumConstant|Move
-DECL|enumConstant|TryRename
 name|Override
 block|,
+DECL|enumConstant|Append
 name|Append
 block|,
+DECL|enumConstant|Fail
 name|Fail
 block|,
+DECL|enumConstant|Ignore
 name|Ignore
 block|,
+DECL|enumConstant|Move
 name|Move
 block|,
+DECL|enumConstant|TryRename
 name|TryRename
 block|;     }
 comment|/**      * The file component is used for reading or writing files. Creates a      * builder to build endpoints for the File component.      */

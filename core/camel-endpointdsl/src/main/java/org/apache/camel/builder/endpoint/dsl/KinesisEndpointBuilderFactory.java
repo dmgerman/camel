@@ -2121,18 +2121,18 @@ enum|enum
 name|ShardIteratorType
 block|{
 DECL|enumConstant|AT_SEQUENCE_NUMBER
-DECL|enumConstant|AFTER_SEQUENCE_NUMBER
-DECL|enumConstant|TRIM_HORIZON
-DECL|enumConstant|LATEST
-DECL|enumConstant|AT_TIMESTAMP
 name|AT_SEQUENCE_NUMBER
 block|,
+DECL|enumConstant|AFTER_SEQUENCE_NUMBER
 name|AFTER_SEQUENCE_NUMBER
 block|,
+DECL|enumConstant|TRIM_HORIZON
 name|TRIM_HORIZON
 block|,
+DECL|enumConstant|LATEST
 name|LATEST
 block|,
+DECL|enumConstant|AT_TIMESTAMP
 name|AT_TIMESTAMP
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.aws.kinesis.KinesisShardClosedStrategyEnum</code> enum.      */
@@ -2141,12 +2141,12 @@ enum|enum
 name|KinesisShardClosedStrategyEnum
 block|{
 DECL|enumConstant|ignore
-DECL|enumConstant|fail
-DECL|enumConstant|silent
 name|ignore
 block|,
+DECL|enumConstant|fail
 name|fail
 block|,
+DECL|enumConstant|silent
 name|silent
 block|;     }
 comment|/**      * The aws-kinesis component is for consuming and producing records from      * Amazon Kinesis Streams. Creates a builder to build endpoints for the AWS      * Kinesis component.      */

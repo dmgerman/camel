@@ -971,12 +971,12 @@ enum|enum
 name|AsteriskAction
 block|{
 DECL|enumConstant|QUEUE_STATUS
-DECL|enumConstant|SIP_PEERS
-DECL|enumConstant|EXTENSION_STATE
 name|QUEUE_STATUS
 block|,
+DECL|enumConstant|SIP_PEERS
 name|SIP_PEERS
 block|,
+DECL|enumConstant|EXTENSION_STATE
 name|EXTENSION_STATE
 block|;     }
 comment|/**      * The asterisk component is used to interact with Asterisk PBX Server.      * Creates a builder to build endpoints for the Asterisk component.      */

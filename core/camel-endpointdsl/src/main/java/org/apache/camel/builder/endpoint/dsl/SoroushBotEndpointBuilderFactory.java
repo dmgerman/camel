@@ -2525,15 +2525,15 @@ enum|enum
 name|Endpoint
 block|{
 DECL|enumConstant|sendMessage
-DECL|enumConstant|getMessage
-DECL|enumConstant|uploadFile
-DECL|enumConstant|downloadFile
 name|sendMessage
 block|,
+DECL|enumConstant|getMessage
 name|getMessage
 block|,
+DECL|enumConstant|uploadFile
 name|uploadFile
 block|,
+DECL|enumConstant|downloadFile
 name|downloadFile
 block|;     }
 comment|/**      * To integrate with the Soroush chat bot. Creates a builder to build      * endpoints for the Soroush component.      */

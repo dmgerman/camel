@@ -2562,12 +2562,12 @@ enum|enum
 name|EndpointType
 block|{
 DECL|enumConstant|POLLING
-DECL|enumConstant|DIRECT
-DECL|enumConstant|EVENT
 name|POLLING
 block|,
+DECL|enumConstant|DIRECT
 name|DIRECT
 block|,
+DECL|enumConstant|EVENT
 name|EVENT
 block|;     }
 comment|/**      * The Twitter Direct Message Component consumes/produces user's direct      * messages. Creates a builder to build endpoints for the Twitter Direct      * Message component.      */

@@ -4338,12 +4338,12 @@ enum|enum
 name|QoS
 block|{
 DECL|enumConstant|AT_MOST_ONCE
-DECL|enumConstant|AT_LEAST_ONCE
-DECL|enumConstant|EXACTLY_ONCE
 name|AT_MOST_ONCE
 block|,
+DECL|enumConstant|AT_LEAST_ONCE
 name|AT_LEAST_ONCE
 block|,
+DECL|enumConstant|EXACTLY_ONCE
 name|EXACTLY_ONCE
 block|;     }
 comment|/**      * Component for communicating with MQTT M2M message brokers using      * FuseSource MQTT Client. Creates a builder to build endpoints for the MQTT      * component.      */

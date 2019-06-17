@@ -1433,18 +1433,18 @@ enum|enum
 name|AtmosOperation
 block|{
 DECL|enumConstant|put
-DECL|enumConstant|del
-DECL|enumConstant|search
-DECL|enumConstant|get
-DECL|enumConstant|move
 name|put
 block|,
+DECL|enumConstant|del
 name|del
 block|,
+DECL|enumConstant|search
 name|search
 block|,
+DECL|enumConstant|get
 name|get
 block|,
+DECL|enumConstant|move
 name|move
 block|;     }
 comment|/**      * The atmos component is used for integrating with EMC's Atomos Storage.      * Creates a builder to build endpoints for the Atmos component.      */

@@ -349,15 +349,15 @@ enum|enum
 name|ShardIteratorType
 block|{
 DECL|enumConstant|TRIM_HORIZON
-DECL|enumConstant|LATEST
-DECL|enumConstant|AT_SEQUENCE_NUMBER
-DECL|enumConstant|AFTER_SEQUENCE_NUMBER
 name|TRIM_HORIZON
 block|,
+DECL|enumConstant|LATEST
 name|LATEST
 block|,
+DECL|enumConstant|AT_SEQUENCE_NUMBER
 name|AT_SEQUENCE_NUMBER
 block|,
+DECL|enumConstant|AFTER_SEQUENCE_NUMBER
 name|AFTER_SEQUENCE_NUMBER
 block|;     }
 comment|/**      * The aws-ddbstream component is used for working with Amazon DynamoDB      * Streams. Creates a builder to build endpoints for the AWS DynamoDB      * Streams component.      */

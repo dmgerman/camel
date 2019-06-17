@@ -3071,42 +3071,42 @@ enum|enum
 name|FhirApiName
 block|{
 DECL|enumConstant|CAPABILITIES
-DECL|enumConstant|CREATE
-DECL|enumConstant|DELETE
-DECL|enumConstant|HISTORY
-DECL|enumConstant|LOAD_PAGE
-DECL|enumConstant|META
-DECL|enumConstant|OPERATION
-DECL|enumConstant|PATCH
-DECL|enumConstant|READ
-DECL|enumConstant|SEARCH
-DECL|enumConstant|TRANSACTION
-DECL|enumConstant|UPDATE
-DECL|enumConstant|VALIDATE
 name|CAPABILITIES
 block|,
+DECL|enumConstant|CREATE
 name|CREATE
 block|,
+DECL|enumConstant|DELETE
 name|DELETE
 block|,
+DECL|enumConstant|HISTORY
 name|HISTORY
 block|,
+DECL|enumConstant|LOAD_PAGE
 name|LOAD_PAGE
 block|,
+DECL|enumConstant|META
 name|META
 block|,
+DECL|enumConstant|OPERATION
 name|OPERATION
 block|,
+DECL|enumConstant|PATCH
 name|PATCH
 block|,
+DECL|enumConstant|READ
 name|READ
 block|,
+DECL|enumConstant|SEARCH
 name|SEARCH
 block|,
+DECL|enumConstant|TRANSACTION
 name|TRANSACTION
 block|,
+DECL|enumConstant|UPDATE
 name|UPDATE
 block|,
+DECL|enumConstant|VALIDATE
 name|VALIDATE
 block|;     }
 comment|/**      * Proxy enum for<code>ca.uhn.fhir.rest.api.EncodingEnum</code> enum.      */
@@ -3115,9 +3115,9 @@ enum|enum
 name|EncodingEnum
 block|{
 DECL|enumConstant|JSON
-DECL|enumConstant|XML
 name|JSON
 block|,
+DECL|enumConstant|XML
 name|XML
 block|;     }
 comment|/**      * Proxy enum for<code>ca.uhn.fhir.context.FhirVersionEnum</code> enum.      */
@@ -3126,18 +3126,18 @@ enum|enum
 name|FhirVersionEnum
 block|{
 DECL|enumConstant|DSTU2
-DECL|enumConstant|DSTU2_HL7ORG
-DECL|enumConstant|DSTU2_1
-DECL|enumConstant|DSTU3
-DECL|enumConstant|R4
 name|DSTU2
 block|,
+DECL|enumConstant|DSTU2_HL7ORG
 name|DSTU2_HL7ORG
 block|,
+DECL|enumConstant|DSTU2_1
 name|DSTU2_1
 block|,
+DECL|enumConstant|DSTU3
 name|DSTU3
 block|,
+DECL|enumConstant|R4
 name|R4
 block|;     }
 comment|/**      * Proxy enum for<code>ca.uhn.fhir.rest.api.SummaryEnum</code> enum.      */
@@ -3146,18 +3146,18 @@ enum|enum
 name|SummaryEnum
 block|{
 DECL|enumConstant|COUNT
-DECL|enumConstant|TEXT
-DECL|enumConstant|DATA
-DECL|enumConstant|TRUE
-DECL|enumConstant|FALSE
 name|COUNT
 block|,
+DECL|enumConstant|TEXT
 name|TEXT
 block|,
+DECL|enumConstant|DATA
 name|DATA
 block|,
+DECL|enumConstant|TRUE
 name|TRUE
 block|,
+DECL|enumConstant|FALSE
 name|FALSE
 block|;     }
 comment|/**      * Proxy enum for      *<code>ca.uhn.fhir.rest.client.api.ServerValidationModeEnum</code> enum.      */
@@ -3166,9 +3166,9 @@ enum|enum
 name|ServerValidationModeEnum
 block|{
 DECL|enumConstant|NEVER
-DECL|enumConstant|ONCE
 name|NEVER
 block|,
+DECL|enumConstant|ONCE
 name|ONCE
 block|;     }
 comment|/**      * The fhir component is used for working with the FHIR protocol (health      * care). Creates a builder to build endpoints for the FHIR component.      */

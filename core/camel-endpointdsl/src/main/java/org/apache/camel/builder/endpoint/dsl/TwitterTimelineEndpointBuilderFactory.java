@@ -2688,21 +2688,21 @@ enum|enum
 name|TimelineType
 block|{
 DECL|enumConstant|PUBLIC
-DECL|enumConstant|HOME
-DECL|enumConstant|USER
-DECL|enumConstant|MENTIONS
-DECL|enumConstant|RETWEETSOFME
-DECL|enumConstant|UNKNOWN
 name|PUBLIC
 block|,
+DECL|enumConstant|HOME
 name|HOME
 block|,
+DECL|enumConstant|USER
 name|USER
 block|,
+DECL|enumConstant|MENTIONS
 name|MENTIONS
 block|,
+DECL|enumConstant|RETWEETSOFME
 name|RETWEETSOFME
 block|,
+DECL|enumConstant|UNKNOWN
 name|UNKNOWN
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.twitter.data.EndpointType</code> enum.      */
@@ -2711,12 +2711,12 @@ enum|enum
 name|EndpointType
 block|{
 DECL|enumConstant|POLLING
-DECL|enumConstant|DIRECT
-DECL|enumConstant|EVENT
 name|POLLING
 block|,
+DECL|enumConstant|DIRECT
 name|DIRECT
 block|,
+DECL|enumConstant|EVENT
 name|EVENT
 block|;     }
 comment|/**      * The Twitter Timeline component consumes twitter timeline or update the      * status of specific user. Creates a builder to build endpoints for the      * Twitter Timeline component.      */

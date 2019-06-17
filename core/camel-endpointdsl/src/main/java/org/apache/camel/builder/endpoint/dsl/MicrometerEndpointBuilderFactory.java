@@ -415,21 +415,21 @@ enum|enum
 name|Type
 block|{
 DECL|enumConstant|COUNTER
-DECL|enumConstant|GAUGE
-DECL|enumConstant|LONG_TASK_TIMER
-DECL|enumConstant|TIMER
-DECL|enumConstant|DISTRIBUTION_SUMMARY
-DECL|enumConstant|OTHER
 name|COUNTER
 block|,
+DECL|enumConstant|GAUGE
 name|GAUGE
 block|,
+DECL|enumConstant|LONG_TASK_TIMER
 name|LONG_TASK_TIMER
 block|,
+DECL|enumConstant|TIMER
 name|TIMER
 block|,
+DECL|enumConstant|DISTRIBUTION_SUMMARY
 name|DISTRIBUTION_SUMMARY
 block|,
+DECL|enumConstant|OTHER
 name|OTHER
 block|;     }
 comment|/**      * To collect various metrics directly from Camel routes using the      * Micrometer library. Creates a builder to build endpoints for the      * Micrometer component.      */

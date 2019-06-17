@@ -3822,24 +3822,24 @@ enum|enum
 name|S3Operations
 block|{
 DECL|enumConstant|copyObject
-DECL|enumConstant|listObjects
-DECL|enumConstant|deleteObject
-DECL|enumConstant|deleteBucket
-DECL|enumConstant|listBuckets
-DECL|enumConstant|downloadLink
-DECL|enumConstant|getObject
 name|copyObject
 block|,
+DECL|enumConstant|listObjects
 name|listObjects
 block|,
+DECL|enumConstant|deleteObject
 name|deleteObject
 block|,
+DECL|enumConstant|deleteBucket
 name|deleteBucket
 block|,
+DECL|enumConstant|listBuckets
 name|listBuckets
 block|,
+DECL|enumConstant|downloadLink
 name|downloadLink
 block|,
+DECL|enumConstant|getObject
 name|getObject
 block|;     }
 comment|/**      * The aws-s3 component is used for storing and retrieving objecct from      * Amazon S3 Storage Service. Creates a builder to build endpoints for the      * AWS S3 Storage Service component.      */

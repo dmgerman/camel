@@ -3689,12 +3689,12 @@ enum|enum
 name|SqsOperations
 block|{
 DECL|enumConstant|sendBatchMessage
-DECL|enumConstant|deleteMessage
-DECL|enumConstant|listQueues
 name|sendBatchMessage
 block|,
+DECL|enumConstant|deleteMessage
 name|deleteMessage
 block|,
+DECL|enumConstant|listQueues
 name|listQueues
 block|;     }
 comment|/**      * The aws-sqs component is used for sending and receiving messages to      * Amazon's SQS service. Creates a builder to build endpoints for the AWS      * Simple Queue Service component.      */

@@ -1244,24 +1244,24 @@ enum|enum
 name|GoogleMailApiName
 block|{
 DECL|enumConstant|THREADS
-DECL|enumConstant|MESSAGES
-DECL|enumConstant|ATTACHMENTS
-DECL|enumConstant|LABELS
-DECL|enumConstant|HISTORY
-DECL|enumConstant|DRAFTS
-DECL|enumConstant|USERS
 name|THREADS
 block|,
+DECL|enumConstant|MESSAGES
 name|MESSAGES
 block|,
+DECL|enumConstant|ATTACHMENTS
 name|ATTACHMENTS
 block|,
+DECL|enumConstant|LABELS
 name|LABELS
 block|,
+DECL|enumConstant|HISTORY
 name|HISTORY
 block|,
+DECL|enumConstant|DRAFTS
 name|DRAFTS
 block|,
+DECL|enumConstant|USERS
 name|USERS
 block|;     }
 comment|/**      * The google-mail component provides access to Google Mail. Creates a      * builder to build endpoints for the Google Mail component.      */

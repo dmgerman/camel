@@ -2766,9 +2766,9 @@ enum|enum
 name|ASDUAddressType
 block|{
 DECL|enumConstant|SIZE_1
-DECL|enumConstant|SIZE_2
 name|SIZE_1
 block|,
+DECL|enumConstant|SIZE_2
 name|SIZE_2
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.eclipse.neoscada.protocol.iec60870.CauseOfTransmissionType</code> enum.      */
@@ -2777,9 +2777,9 @@ enum|enum
 name|CauseOfTransmissionType
 block|{
 DECL|enumConstant|SIZE_1
-DECL|enumConstant|SIZE_2
 name|SIZE_1
 block|,
+DECL|enumConstant|SIZE_2
 name|SIZE_2
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.eclipse.neoscada.protocol.iec60870.InformationObjectAddressType</code> enum.      */
@@ -2788,12 +2788,12 @@ enum|enum
 name|InformationObjectAddressType
 block|{
 DECL|enumConstant|SIZE_1
-DECL|enumConstant|SIZE_2
-DECL|enumConstant|SIZE_3
 name|SIZE_1
 block|,
+DECL|enumConstant|SIZE_2
 name|SIZE_2
 block|,
+DECL|enumConstant|SIZE_3
 name|SIZE_3
 block|;     }
 comment|/**      * IEC 60870 component used for telecontrol (supervisory control and data      * acquisition) such as controlling electric power transmission grids and      * other geographically widespread control systems. Creates a builder to      * build endpoints for the IEC 60870 Server component.      */

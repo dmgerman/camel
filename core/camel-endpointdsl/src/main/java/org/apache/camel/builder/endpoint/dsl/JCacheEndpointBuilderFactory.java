@@ -2467,15 +2467,15 @@ enum|enum
 name|EventType
 block|{
 DECL|enumConstant|CREATED
-DECL|enumConstant|UPDATED
-DECL|enumConstant|REMOVED
-DECL|enumConstant|EXPIRED
 name|CREATED
 block|,
+DECL|enumConstant|UPDATED
 name|UPDATED
 block|,
+DECL|enumConstant|REMOVED
 name|REMOVED
 block|,
+DECL|enumConstant|EXPIRED
 name|EXPIRED
 block|;     }
 comment|/**      * The jcache component enables you to perform caching operations using      * JSR107/JCache as cache implementation. Creates a builder to build      * endpoints for the JCache component.      */

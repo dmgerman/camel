@@ -307,21 +307,21 @@ enum|enum
 name|LdapOperation
 block|{
 DECL|enumConstant|SEARCH
-DECL|enumConstant|BIND
-DECL|enumConstant|UNBIND
-DECL|enumConstant|AUTHENTICATE
-DECL|enumConstant|MODIFY_ATTRIBUTES
-DECL|enumConstant|FUNCTION_DRIVEN
 name|SEARCH
 block|,
+DECL|enumConstant|BIND
 name|BIND
 block|,
+DECL|enumConstant|UNBIND
 name|UNBIND
 block|,
+DECL|enumConstant|AUTHENTICATE
 name|AUTHENTICATE
 block|,
+DECL|enumConstant|MODIFY_ATTRIBUTES
 name|MODIFY_ATTRIBUTES
 block|,
+DECL|enumConstant|FUNCTION_DRIVEN
 name|FUNCTION_DRIVEN
 block|;     }
 comment|/**      * The spring-ldap component allows you to perform searches in LDAP servers      * using filters as the message payload. Creates a builder to build      * endpoints for the Spring LDAP component.      */

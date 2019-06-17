@@ -265,15 +265,15 @@ enum|enum
 name|DnsType
 block|{
 DECL|enumConstant|dig
-DECL|enumConstant|ip
-DECL|enumConstant|lookup
-DECL|enumConstant|wikipedia
 name|dig
 block|,
+DECL|enumConstant|ip
 name|ip
 block|,
+DECL|enumConstant|lookup
 name|lookup
 block|,
+DECL|enumConstant|wikipedia
 name|wikipedia
 block|;     }
 comment|/**      * To lookup domain information and run DNS queries using DNSJava. Creates a      * builder to build endpoints for the DNS component.      */

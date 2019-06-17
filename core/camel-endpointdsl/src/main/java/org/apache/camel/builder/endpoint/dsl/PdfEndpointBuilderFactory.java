@@ -601,12 +601,12 @@ enum|enum
 name|PdfOperation
 block|{
 DECL|enumConstant|create
-DECL|enumConstant|append
-DECL|enumConstant|extractText
 name|create
 block|,
+DECL|enumConstant|append
 name|append
 block|,
+DECL|enumConstant|extractText
 name|extractText
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.pdf.TextProcessingFactory</code> enum.      */
@@ -615,9 +615,9 @@ enum|enum
 name|TextProcessingFactory
 block|{
 DECL|enumConstant|autoFormatting
-DECL|enumConstant|lineTermination
 name|autoFormatting
 block|,
+DECL|enumConstant|lineTermination
 name|lineTermination
 block|;     }
 comment|/**      * The pdf components provides the ability to create, modify or extract      * content from PDF documents. Creates a builder to build endpoints for the      * PDF component.      */

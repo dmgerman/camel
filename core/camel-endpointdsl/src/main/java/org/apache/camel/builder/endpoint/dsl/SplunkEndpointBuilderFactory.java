@@ -2688,15 +2688,15 @@ enum|enum
 name|SSLSecurityProtocol
 block|{
 DECL|enumConstant|TLSv1_2
-DECL|enumConstant|TLSv1_1
-DECL|enumConstant|TLSv1
-DECL|enumConstant|SSLv3
 name|TLSv1_2
 block|,
+DECL|enumConstant|TLSv1_1
 name|TLSv1_1
 block|,
+DECL|enumConstant|TLSv1
 name|TLSv1
 block|,
+DECL|enumConstant|SSLv3
 name|SSLv3
 block|;     }
 comment|/**      * The splunk component allows to publish or search for events in Splunk.      * Creates a builder to build endpoints for the Splunk component.      */

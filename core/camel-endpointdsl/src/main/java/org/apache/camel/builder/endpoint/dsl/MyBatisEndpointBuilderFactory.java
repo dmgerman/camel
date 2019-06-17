@@ -1806,12 +1806,12 @@ enum|enum
 name|ExecutorType
 block|{
 DECL|enumConstant|SIMPLE
-DECL|enumConstant|REUSE
-DECL|enumConstant|BATCH
 name|SIMPLE
 block|,
+DECL|enumConstant|REUSE
 name|REUSE
 block|,
+DECL|enumConstant|BATCH
 name|BATCH
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.mybatis.StatementType</code> enum.      */
@@ -1820,27 +1820,27 @@ enum|enum
 name|StatementType
 block|{
 DECL|enumConstant|SelectOne
-DECL|enumConstant|SelectList
-DECL|enumConstant|Insert
-DECL|enumConstant|InsertList
-DECL|enumConstant|Update
-DECL|enumConstant|UpdateList
-DECL|enumConstant|Delete
-DECL|enumConstant|DeleteList
 name|SelectOne
 block|,
+DECL|enumConstant|SelectList
 name|SelectList
 block|,
+DECL|enumConstant|Insert
 name|Insert
 block|,
+DECL|enumConstant|InsertList
 name|InsertList
 block|,
+DECL|enumConstant|Update
 name|Update
 block|,
+DECL|enumConstant|UpdateList
 name|UpdateList
 block|,
+DECL|enumConstant|Delete
 name|Delete
 block|,
+DECL|enumConstant|DeleteList
 name|DeleteList
 block|;     }
 comment|/**      * Performs a query, poll, insert, update or delete in a relational database      * using MyBatis. Creates a builder to build endpoints for the MyBatis      * component.      */

@@ -3375,18 +3375,18 @@ enum|enum
 name|Mina2TextLineDelimiter
 block|{
 DECL|enumConstant|DEFAULT
-DECL|enumConstant|AUTO
-DECL|enumConstant|UNIX
-DECL|enumConstant|WINDOWS
-DECL|enumConstant|MAC
 name|DEFAULT
 block|,
+DECL|enumConstant|AUTO
 name|AUTO
 block|,
+DECL|enumConstant|UNIX
 name|UNIX
 block|,
+DECL|enumConstant|WINDOWS
 name|WINDOWS
 block|,
+DECL|enumConstant|MAC
 name|MAC
 block|;     }
 comment|/**      * Socket level networking using TCP or UDP with the Apache Mina 2.x      * library. Creates a builder to build endpoints for the Mina2 component.      */

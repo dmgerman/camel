@@ -412,27 +412,27 @@ enum|enum
 name|XChangeMethod
 block|{
 DECL|enumConstant|balances
-DECL|enumConstant|fundingHistory
-DECL|enumConstant|wallets
-DECL|enumConstant|currencies
-DECL|enumConstant|currencyMetaData
-DECL|enumConstant|currencyPairs
-DECL|enumConstant|currencyPairMetaData
-DECL|enumConstant|ticker
 name|balances
 block|,
+DECL|enumConstant|fundingHistory
 name|fundingHistory
 block|,
+DECL|enumConstant|wallets
 name|wallets
 block|,
+DECL|enumConstant|currencies
 name|currencies
 block|,
+DECL|enumConstant|currencyMetaData
 name|currencyMetaData
 block|,
+DECL|enumConstant|currencyPairs
 name|currencyPairs
 block|,
+DECL|enumConstant|currencyPairMetaData
 name|currencyPairMetaData
 block|,
+DECL|enumConstant|ticker
 name|ticker
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.xchange.XChangeConfiguration$XChangeService</code> enum.      */
@@ -441,12 +441,12 @@ enum|enum
 name|XChangeService
 block|{
 DECL|enumConstant|marketdata
-DECL|enumConstant|metadata
-DECL|enumConstant|account
 name|marketdata
 block|,
+DECL|enumConstant|metadata
 name|metadata
 block|,
+DECL|enumConstant|account
 name|account
 block|;     }
 comment|/**      * The camel-xchange component provide access to many bitcoin and altcoin      * exchanges for trading and accessing market data. Creates a builder to      * build endpoints for the XChange component.      */

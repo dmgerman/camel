@@ -2336,9 +2336,9 @@ enum|enum
 name|GrpcConsumerStrategy
 block|{
 DECL|enumConstant|AGGREGATION
-DECL|enumConstant|PROPAGATION
 name|AGGREGATION
 block|,
+DECL|enumConstant|PROPAGATION
 name|PROPAGATION
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.grpc.GrpcProducerStrategy</code> enum.      */
@@ -2347,9 +2347,9 @@ enum|enum
 name|GrpcProducerStrategy
 block|{
 DECL|enumConstant|SIMPLE
-DECL|enumConstant|STREAMING
 name|SIMPLE
 block|,
+DECL|enumConstant|STREAMING
 name|STREAMING
 block|;     }
 comment|/**      * Proxy enum for<code>org.apache.camel.component.grpc.GrpcAuthType</code>      * enum.      */
@@ -2358,12 +2358,12 @@ enum|enum
 name|GrpcAuthType
 block|{
 DECL|enumConstant|NONE
-DECL|enumConstant|GOOGLE
-DECL|enumConstant|JWT
 name|NONE
 block|,
+DECL|enumConstant|GOOGLE
 name|GOOGLE
 block|,
+DECL|enumConstant|JWT
 name|JWT
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.grpc.auth.jwt.JwtAlgorithm</code> enum.      */
@@ -2372,12 +2372,12 @@ enum|enum
 name|JwtAlgorithm
 block|{
 DECL|enumConstant|HMAC256
-DECL|enumConstant|HMAC384
-DECL|enumConstant|HMAC512
 name|HMAC256
 block|,
+DECL|enumConstant|HMAC384
 name|HMAC384
 block|,
+DECL|enumConstant|HMAC512
 name|HMAC512
 block|;     }
 comment|/**      * Proxy enum for<code>io.grpc.netty.NegotiationType</code> enum.      */
@@ -2386,12 +2386,12 @@ enum|enum
 name|NegotiationType
 block|{
 DECL|enumConstant|TLS
-DECL|enumConstant|PLAINTEXT_UPGRADE
-DECL|enumConstant|PLAINTEXT
 name|TLS
 block|,
+DECL|enumConstant|PLAINTEXT_UPGRADE
 name|PLAINTEXT_UPGRADE
 block|,
+DECL|enumConstant|PLAINTEXT
 name|PLAINTEXT
 block|;     }
 comment|/**      * The gRPC component allows to call and expose remote procedures via HTTP/2      * with protobuf dataformat Creates a builder to build endpoints for the      * gRPC component.      */

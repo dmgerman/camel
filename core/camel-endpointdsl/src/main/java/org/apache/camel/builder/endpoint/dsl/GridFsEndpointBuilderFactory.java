@@ -1475,18 +1475,18 @@ enum|enum
 name|QueryStrategy
 block|{
 DECL|enumConstant|TimeStamp
-DECL|enumConstant|PersistentTimestamp
-DECL|enumConstant|FileAttribute
-DECL|enumConstant|TimeStampAndFileAttribute
-DECL|enumConstant|PersistentTimestampAndFileAttribute
 name|TimeStamp
 block|,
+DECL|enumConstant|PersistentTimestamp
 name|PersistentTimestamp
 block|,
+DECL|enumConstant|FileAttribute
 name|FileAttribute
 block|,
+DECL|enumConstant|TimeStampAndFileAttribute
 name|TimeStampAndFileAttribute
 block|,
+DECL|enumConstant|PersistentTimestampAndFileAttribute
 name|PersistentTimestampAndFileAttribute
 block|;     }
 comment|/**      * Component for working with MongoDB GridFS. Creates a builder to build      * endpoints for the MongoDB GridFS component.      */

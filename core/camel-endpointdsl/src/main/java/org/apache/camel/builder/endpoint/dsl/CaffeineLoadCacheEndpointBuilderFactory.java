@@ -1619,9 +1619,9 @@ enum|enum
 name|EvictionType
 block|{
 DECL|enumConstant|size_based
-DECL|enumConstant|time_based
 name|size_based
 block|,
+DECL|enumConstant|time_based
 name|time_based
 block|;     }
 comment|/**      * The caffeine-loadcache component is used for integration with Caffeine      * Load Cache. Creates a builder to build endpoints for the Caffeine      * LoadCache component.      */

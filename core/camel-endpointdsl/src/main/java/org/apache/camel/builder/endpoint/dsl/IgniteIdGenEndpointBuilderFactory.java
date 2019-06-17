@@ -328,18 +328,18 @@ enum|enum
 name|IgniteIdGenOperation
 block|{
 DECL|enumConstant|ADD_AND_GET
-DECL|enumConstant|GET
-DECL|enumConstant|GET_AND_ADD
-DECL|enumConstant|GET_AND_INCREMENT
-DECL|enumConstant|INCREMENT_AND_GET
 name|ADD_AND_GET
 block|,
+DECL|enumConstant|GET
 name|GET
 block|,
+DECL|enumConstant|GET_AND_ADD
 name|GET_AND_ADD
 block|,
+DECL|enumConstant|GET_AND_INCREMENT
 name|GET_AND_INCREMENT
 block|,
+DECL|enumConstant|INCREMENT_AND_GET
 name|INCREMENT_AND_GET
 block|;     }
 comment|/**      * The Ignite ID Generator endpoint is one of camel-ignite endpoints which      * allows you to interact with Ignite Atomic Sequences and ID Generators.      * Creates a builder to build endpoints for the Ignite ID Generator      * component.      */

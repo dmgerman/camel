@@ -265,21 +265,21 @@ enum|enum
 name|MQOperations
 block|{
 DECL|enumConstant|listBrokers
-DECL|enumConstant|createBroker
-DECL|enumConstant|deleteBroker
-DECL|enumConstant|rebootBroker
-DECL|enumConstant|updateBroker
-DECL|enumConstant|describeBroker
 name|listBrokers
 block|,
+DECL|enumConstant|createBroker
 name|createBroker
 block|,
+DECL|enumConstant|deleteBroker
 name|deleteBroker
 block|,
+DECL|enumConstant|rebootBroker
 name|rebootBroker
 block|,
+DECL|enumConstant|updateBroker
 name|updateBroker
 block|,
+DECL|enumConstant|describeBroker
 name|describeBroker
 block|;     }
 comment|/**      * The aws-mq is used for managing Amazon MQ instances. Creates a builder to      * build endpoints for the AWS MQ component.      */

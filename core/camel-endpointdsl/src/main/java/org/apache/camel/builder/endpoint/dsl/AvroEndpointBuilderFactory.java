@@ -1622,9 +1622,9 @@ enum|enum
 name|AvroTransport
 block|{
 DECL|enumConstant|http
-DECL|enumConstant|netty
 name|http
 block|,
+DECL|enumConstant|netty
 name|netty
 block|;     }
 comment|/**      * Working with Apache Avro for data serialization. Creates a builder to      * build endpoints for the Avro component.      */

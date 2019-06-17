@@ -1365,7 +1365,7 @@ name|join
 argument_list|(
 name|values
 argument_list|,
-literal|", "
+literal|",\n"
 argument_list|)
 argument_list|)
 operator|.

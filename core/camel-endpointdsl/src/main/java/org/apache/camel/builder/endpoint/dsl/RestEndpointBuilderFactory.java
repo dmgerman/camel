@@ -1349,18 +1349,18 @@ enum|enum
 name|RestBindingMode
 block|{
 DECL|enumConstant|auto
-DECL|enumConstant|off
-DECL|enumConstant|json
-DECL|enumConstant|xml
-DECL|enumConstant|json_xml
 name|auto
 block|,
+DECL|enumConstant|off
 name|off
 block|,
+DECL|enumConstant|json
 name|json
 block|,
+DECL|enumConstant|xml
 name|xml
 block|,
+DECL|enumConstant|json_xml
 name|json_xml
 block|;     }
 comment|/**      * The rest component is used for either hosting REST services (consumer) or      * calling external REST services (producer). Creates a builder to build      * endpoints for the REST component.      */

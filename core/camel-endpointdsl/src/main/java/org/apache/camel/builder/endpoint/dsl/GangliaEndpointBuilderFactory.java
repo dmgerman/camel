@@ -685,9 +685,9 @@ enum|enum
 name|UDPAddressingMode
 block|{
 DECL|enumConstant|MULTICAST
-DECL|enumConstant|UNICAST
 name|MULTICAST
 block|,
+DECL|enumConstant|UNICAST
 name|UNICAST
 block|;     }
 comment|/**      * Proxy enum for<code>info.ganglia.gmetric4j.gmetric.GMetricSlope</code>      * enum.      */
@@ -696,15 +696,15 @@ enum|enum
 name|GMetricSlope
 block|{
 DECL|enumConstant|ZERO
-DECL|enumConstant|POSITIVE
-DECL|enumConstant|NEGATIVE
-DECL|enumConstant|BOTH
 name|ZERO
 block|,
+DECL|enumConstant|POSITIVE
 name|POSITIVE
 block|,
+DECL|enumConstant|NEGATIVE
 name|NEGATIVE
 block|,
+DECL|enumConstant|BOTH
 name|BOTH
 block|;     }
 comment|/**      * Proxy enum for<code>info.ganglia.gmetric4j.gmetric.GMetricType</code>      * enum.      */
@@ -713,30 +713,30 @@ enum|enum
 name|GMetricType
 block|{
 DECL|enumConstant|STRING
-DECL|enumConstant|INT8
-DECL|enumConstant|UINT8
-DECL|enumConstant|INT16
-DECL|enumConstant|UINT16
-DECL|enumConstant|INT32
-DECL|enumConstant|UINT32
-DECL|enumConstant|FLOAT
-DECL|enumConstant|DOUBLE
 name|STRING
 block|,
+DECL|enumConstant|INT8
 name|INT8
 block|,
+DECL|enumConstant|UINT8
 name|UINT8
 block|,
+DECL|enumConstant|INT16
 name|INT16
 block|,
+DECL|enumConstant|UINT16
 name|UINT16
 block|,
+DECL|enumConstant|INT32
 name|INT32
 block|,
+DECL|enumConstant|UINT32
 name|UINT32
 block|,
+DECL|enumConstant|FLOAT
 name|FLOAT
 block|,
+DECL|enumConstant|DOUBLE
 name|DOUBLE
 block|;     }
 comment|/**      * The ganglia component is used for sending metrics to the Ganglia      * monitoring system. Creates a builder to build endpoints for the Ganglia      * component.      */

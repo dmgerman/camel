@@ -908,12 +908,12 @@ enum|enum
 name|SubscriptionType
 block|{
 DECL|enumConstant|EXCLUSIVE
-DECL|enumConstant|SHARED
-DECL|enumConstant|FAILOVER
 name|EXCLUSIVE
 block|,
+DECL|enumConstant|SHARED
 name|SHARED
 block|,
+DECL|enumConstant|FAILOVER
 name|FAILOVER
 block|;     }
 comment|/**      * Camel Apache Pulsar Component Creates a builder to build endpoints for      * the Apache Pulsar component.      */

@@ -1412,21 +1412,21 @@ enum|enum
 name|CachePeekMode
 block|{
 DECL|enumConstant|ALL
-DECL|enumConstant|NEAR
-DECL|enumConstant|PRIMARY
-DECL|enumConstant|BACKUP
-DECL|enumConstant|ONHEAP
-DECL|enumConstant|OFFHEAP
 name|ALL
 block|,
+DECL|enumConstant|NEAR
 name|NEAR
 block|,
+DECL|enumConstant|PRIMARY
 name|PRIMARY
 block|,
+DECL|enumConstant|BACKUP
 name|BACKUP
 block|,
+DECL|enumConstant|ONHEAP
 name|ONHEAP
 block|,
+DECL|enumConstant|OFFHEAP
 name|OFFHEAP
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.ignite.cache.IgniteCacheOperation</code>      * enum.      */
@@ -1435,24 +1435,24 @@ enum|enum
 name|IgniteCacheOperation
 block|{
 DECL|enumConstant|GET
-DECL|enumConstant|PUT
-DECL|enumConstant|REMOVE
-DECL|enumConstant|SIZE
-DECL|enumConstant|REBALANCE
-DECL|enumConstant|QUERY
-DECL|enumConstant|CLEAR
 name|GET
 block|,
+DECL|enumConstant|PUT
 name|PUT
 block|,
+DECL|enumConstant|REMOVE
 name|REMOVE
 block|,
+DECL|enumConstant|SIZE
 name|SIZE
 block|,
+DECL|enumConstant|REBALANCE
 name|REBALANCE
 block|,
+DECL|enumConstant|QUERY
 name|QUERY
 block|,
+DECL|enumConstant|CLEAR
 name|CLEAR
 block|;     }
 comment|/**      * The Ignite Cache endpoint is one of camel-ignite endpoints which allows      * you to interact with an Ignite Cache. Creates a builder to build      * endpoints for the Ignite Cache component.      */

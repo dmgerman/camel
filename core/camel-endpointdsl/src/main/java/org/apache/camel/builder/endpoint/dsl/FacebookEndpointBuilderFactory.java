@@ -9678,21 +9678,21 @@ enum|enum
 name|PictureSize
 block|{
 DECL|enumConstant|square
-DECL|enumConstant|small
-DECL|enumConstant|normal
-DECL|enumConstant|large
-DECL|enumConstant|thumbnail
-DECL|enumConstant|album
 name|square
 block|,
+DECL|enumConstant|small
 name|small
 block|,
+DECL|enumConstant|normal
 name|normal
 block|,
+DECL|enumConstant|large
 name|large
 block|,
+DECL|enumConstant|thumbnail
 name|thumbnail
 block|,
+DECL|enumConstant|album
 name|album
 block|;     }
 comment|/**      * The Facebook component provides access to all of the Facebook APIs      * accessible using Facebook4J. Creates a builder to build endpoints for the      * Facebook component.      */

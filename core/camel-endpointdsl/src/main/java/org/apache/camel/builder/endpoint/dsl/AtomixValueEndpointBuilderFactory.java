@@ -2330,15 +2330,15 @@ enum|enum
 name|Action
 block|{
 DECL|enumConstant|SET
-DECL|enumConstant|GET
-DECL|enumConstant|GET_AND_SET
-DECL|enumConstant|COMPARE_AND_SET
 name|SET
 block|,
+DECL|enumConstant|GET
 name|GET
 block|,
+DECL|enumConstant|GET_AND_SET
 name|GET_AND_SET
 block|,
+DECL|enumConstant|COMPARE_AND_SET
 name|COMPARE_AND_SET
 block|;     }
 comment|/**      * Proxy enum for<code>io.atomix.resource.ReadConsistency</code> enum.      */
@@ -2347,15 +2347,15 @@ enum|enum
 name|ReadConsistency
 block|{
 DECL|enumConstant|ATOMIC
-DECL|enumConstant|ATOMIC_LEASE
-DECL|enumConstant|SEQUENTIAL
-DECL|enumConstant|LOCAL
 name|ATOMIC
 block|,
+DECL|enumConstant|ATOMIC_LEASE
 name|ATOMIC_LEASE
 block|,
+DECL|enumConstant|SEQUENTIAL
 name|SEQUENTIAL
 block|,
+DECL|enumConstant|LOCAL
 name|LOCAL
 block|;     }
 comment|/**      * The atomix-value component is used to access Atomix's distributed value.      * Creates a builder to build endpoints for the Atomix Value component.      */

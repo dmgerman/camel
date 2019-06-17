@@ -2331,12 +2331,12 @@ enum|enum
 name|EtcdNamespace
 block|{
 DECL|enumConstant|stats
-DECL|enumConstant|watch
-DECL|enumConstant|keys
 name|stats
 block|,
+DECL|enumConstant|watch
 name|watch
 block|,
+DECL|enumConstant|keys
 name|keys
 block|;     }
 comment|/**      * The camel etcd component allows you to work with Etcd, a distributed      * reliable key-value store. Creates a builder to build endpoints for the      * etcd component.      */

@@ -1244,9 +1244,9 @@ enum|enum
 name|GoogleSheetsApiName
 block|{
 DECL|enumConstant|SPREADSHEETS
-DECL|enumConstant|DATA
 name|SPREADSHEETS
 block|,
+DECL|enumConstant|DATA
 name|DATA
 block|;     }
 comment|/**      * The google-sheets component provides access to Google Sheets. Creates a      * builder to build endpoints for the Google Sheets component.      */

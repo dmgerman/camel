@@ -1370,9 +1370,9 @@ enum|enum
 name|AckMode
 block|{
 DECL|enumConstant|AUTO
-DECL|enumConstant|NONE
 name|AUTO
 block|,
+DECL|enumConstant|NONE
 name|NONE
 block|;     }
 comment|/**      * Messaging client for Google Cloud Platform PubSub Service Creates a      * builder to build endpoints for the Google Pubsub component.      */

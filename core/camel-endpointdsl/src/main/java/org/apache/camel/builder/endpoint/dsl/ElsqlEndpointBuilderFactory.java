@@ -3654,24 +3654,24 @@ enum|enum
 name|ElSqlDatabaseVendor
 block|{
 DECL|enumConstant|Default
-DECL|enumConstant|Postgres
-DECL|enumConstant|HSql
-DECL|enumConstant|MySql
-DECL|enumConstant|Oracle
-DECL|enumConstant|SqlServer2008
-DECL|enumConstant|Veritca
 name|Default
 block|,
+DECL|enumConstant|Postgres
 name|Postgres
 block|,
+DECL|enumConstant|HSql
 name|HSql
 block|,
+DECL|enumConstant|MySql
 name|MySql
 block|,
+DECL|enumConstant|Oracle
 name|Oracle
 block|,
+DECL|enumConstant|SqlServer2008
 name|SqlServer2008
 block|,
+DECL|enumConstant|Veritca
 name|Veritca
 block|;     }
 comment|/**      * Proxy enum for<code>org.apache.camel.component.sql.SqlOutputType</code>      * enum.      */
@@ -3680,12 +3680,12 @@ enum|enum
 name|SqlOutputType
 block|{
 DECL|enumConstant|SelectOne
-DECL|enumConstant|SelectList
-DECL|enumConstant|StreamList
 name|SelectOne
 block|,
+DECL|enumConstant|SelectList
 name|SelectList
 block|,
+DECL|enumConstant|StreamList
 name|StreamList
 block|;     }
 comment|/**      * The elsql component is an extension to the existing SQL Component that      * uses ElSql to define the SQL queries. Creates a builder to build      * endpoints for the ElSQL component.      */

@@ -742,12 +742,12 @@ enum|enum
 name|JdbcOutputType
 block|{
 DECL|enumConstant|SelectOne
-DECL|enumConstant|SelectList
-DECL|enumConstant|StreamList
 name|SelectOne
 block|,
+DECL|enumConstant|SelectList
 name|SelectList
 block|,
+DECL|enumConstant|StreamList
 name|StreamList
 block|;     }
 comment|/**      * The jdbc component enables you to access databases through JDBC, where      * SQL queries are sent in the message body. Creates a builder to build      * endpoints for the JDBC component.      */

@@ -6782,9 +6782,9 @@ enum|enum
 name|TextLineDelimiter
 block|{
 DECL|enumConstant|LINE
-DECL|enumConstant|NULL
 name|LINE
 block|,
+DECL|enumConstant|NULL
 name|NULL
 block|;     }
 comment|/**      * Socket level networking using TCP or UDP with the Netty 4.x library.      * Creates a builder to build endpoints for the Netty4 component.      */

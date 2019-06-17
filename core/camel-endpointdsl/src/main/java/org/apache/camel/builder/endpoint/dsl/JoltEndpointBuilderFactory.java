@@ -412,9 +412,9 @@ enum|enum
 name|JoltInputOutputType
 block|{
 DECL|enumConstant|Hydrated
-DECL|enumConstant|JsonString
 name|Hydrated
 block|,
+DECL|enumConstant|JsonString
 name|JsonString
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.jolt.JoltTransformType</code> enum.      */
@@ -423,18 +423,18 @@ enum|enum
 name|JoltTransformType
 block|{
 DECL|enumConstant|Chainr
-DECL|enumConstant|Shiftr
-DECL|enumConstant|Defaultr
-DECL|enumConstant|Removr
-DECL|enumConstant|Sortr
 name|Chainr
 block|,
+DECL|enumConstant|Shiftr
 name|Shiftr
 block|,
+DECL|enumConstant|Defaultr
 name|Defaultr
 block|,
+DECL|enumConstant|Removr
 name|Removr
 block|,
+DECL|enumConstant|Sortr
 name|Sortr
 block|;     }
 comment|/**      * The jolt component allows you to process a JSON messages using an JOLT      * specification (such as JSON-JSON transformation). Creates a builder to      * build endpoints for the JOLT component.      */

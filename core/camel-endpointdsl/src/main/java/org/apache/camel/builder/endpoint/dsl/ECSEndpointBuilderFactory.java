@@ -265,15 +265,15 @@ enum|enum
 name|ECSOperations
 block|{
 DECL|enumConstant|listClusters
-DECL|enumConstant|describeCluster
-DECL|enumConstant|createCluster
-DECL|enumConstant|deleteCluster
 name|listClusters
 block|,
+DECL|enumConstant|describeCluster
 name|describeCluster
 block|,
+DECL|enumConstant|createCluster
 name|createCluster
 block|,
+DECL|enumConstant|deleteCluster
 name|deleteCluster
 block|;     }
 comment|/**      * The aws-kms is used for managing Amazon ECS Creates a builder to build      * endpoints for the AWS ECS component.      */

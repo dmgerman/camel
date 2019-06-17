@@ -464,9 +464,9 @@ enum|enum
 name|LuceneOperation
 block|{
 DECL|enumConstant|insert
-DECL|enumConstant|query
 name|insert
 block|,
+DECL|enumConstant|query
 name|query
 block|;     }
 comment|/**      * To insert or query from Apache Lucene databases. Creates a builder to      * build endpoints for the Lucene component.      */

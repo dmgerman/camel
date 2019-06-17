@@ -328,24 +328,24 @@ enum|enum
 name|IgniteComputeExecutionType
 block|{
 DECL|enumConstant|CALL
-DECL|enumConstant|BROADCAST
-DECL|enumConstant|APPLY
-DECL|enumConstant|EXECUTE
-DECL|enumConstant|RUN
-DECL|enumConstant|AFFINITY_CALL
-DECL|enumConstant|AFFINITY_RUN
 name|CALL
 block|,
+DECL|enumConstant|BROADCAST
 name|BROADCAST
 block|,
+DECL|enumConstant|APPLY
 name|APPLY
 block|,
+DECL|enumConstant|EXECUTE
 name|EXECUTE
 block|,
+DECL|enumConstant|RUN
 name|RUN
 block|,
+DECL|enumConstant|AFFINITY_CALL
 name|AFFINITY_CALL
 block|,
+DECL|enumConstant|AFFINITY_RUN
 name|AFFINITY_RUN
 block|;     }
 comment|/**      * The Ignite Compute endpoint is one of camel-ignite endpoints which allows      * you to run compute operations on the cluster by passing in an      * IgniteCallable, an IgniteRunnable, an IgniteClosure, or collections of      * them, along with their parameters if necessary. Creates a builder to      * build endpoints for the Ignite Compute component.      */

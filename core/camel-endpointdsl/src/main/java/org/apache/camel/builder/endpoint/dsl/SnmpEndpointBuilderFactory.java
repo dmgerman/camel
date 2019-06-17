@@ -727,12 +727,12 @@ enum|enum
 name|SnmpActionType
 block|{
 DECL|enumConstant|TRAP
-DECL|enumConstant|POLL
-DECL|enumConstant|GET_NEXT
 name|TRAP
 block|,
+DECL|enumConstant|POLL
 name|POLL
 block|,
+DECL|enumConstant|GET_NEXT
 name|GET_NEXT
 block|;     }
 comment|/**      * The snmp component gives you the ability to poll SNMP capable devices or      * receiving traps. Creates a builder to build endpoints for the SNMP      * component.      */

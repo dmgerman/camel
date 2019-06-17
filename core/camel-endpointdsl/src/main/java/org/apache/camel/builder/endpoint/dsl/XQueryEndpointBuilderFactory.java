@@ -2962,24 +2962,24 @@ enum|enum
 name|ResultFormat
 block|{
 DECL|enumConstant|Bytes
-DECL|enumConstant|BytesSource
-DECL|enumConstant|DOM
-DECL|enumConstant|DOMSource
-DECL|enumConstant|List
-DECL|enumConstant|String
-DECL|enumConstant|StringSource
 name|Bytes
 block|,
+DECL|enumConstant|BytesSource
 name|BytesSource
 block|,
+DECL|enumConstant|DOM
 name|DOM
 block|,
+DECL|enumConstant|DOMSource
 name|DOMSource
 block|,
+DECL|enumConstant|List
 name|List
 block|,
+DECL|enumConstant|String
 name|String
 block|,
+DECL|enumConstant|StringSource
 name|StringSource
 block|;     }
 comment|/**      * Transforms the message using a XQuery template using Saxon. Creates a      * builder to build endpoints for the XQuery component.      */

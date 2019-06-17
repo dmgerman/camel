@@ -265,9 +265,9 @@ enum|enum
 name|SagaEndpointAction
 block|{
 DECL|enumConstant|COMPLETE
-DECL|enumConstant|COMPENSATE
 name|COMPLETE
 block|,
+DECL|enumConstant|COMPENSATE
 name|COMPENSATE
 block|;     }
 comment|/**      * The saga component provides access to advanced options for managing the      * flow in the Saga EIP. Creates a builder to build endpoints for the Saga      * component.      */

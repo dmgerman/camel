@@ -1496,27 +1496,27 @@ enum|enum
 name|GoogleCalendarApiName
 block|{
 DECL|enumConstant|ACL
-DECL|enumConstant|LIST
-DECL|enumConstant|CALENDARS
-DECL|enumConstant|CHANNELS
-DECL|enumConstant|COLORS
-DECL|enumConstant|FREEBUSY
-DECL|enumConstant|EVENTS
-DECL|enumConstant|SETTINGS
 name|ACL
 block|,
+DECL|enumConstant|LIST
 name|LIST
 block|,
+DECL|enumConstant|CALENDARS
 name|CALENDARS
 block|,
+DECL|enumConstant|CHANNELS
 name|CHANNELS
 block|,
+DECL|enumConstant|COLORS
 name|COLORS
 block|,
+DECL|enumConstant|FREEBUSY
 name|FREEBUSY
 block|,
+DECL|enumConstant|EVENTS
 name|EVENTS
 block|,
+DECL|enumConstant|SETTINGS
 name|SETTINGS
 block|;     }
 comment|/**      * The google-calendar component provides access to Google Calendar. Creates      * a builder to build endpoints for the Google Calendar component.      */

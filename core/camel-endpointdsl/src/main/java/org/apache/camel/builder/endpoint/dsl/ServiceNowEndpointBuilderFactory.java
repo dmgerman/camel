@@ -1685,12 +1685,12 @@ enum|enum
 name|ServiceNowRelease
 block|{
 DECL|enumConstant|FUJI
-DECL|enumConstant|GENEVA
-DECL|enumConstant|HELSINKI
 name|FUJI
 block|,
+DECL|enumConstant|GENEVA
 name|GENEVA
 block|,
+DECL|enumConstant|HELSINKI
 name|HELSINKI
 block|;     }
 comment|/**      * The servicenow component is used to integrate Camel with ServiceNow cloud      * services. Creates a builder to build endpoints for the ServiceNow      * component.      */

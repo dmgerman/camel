@@ -3644,18 +3644,18 @@ enum|enum
 name|DataFormat
 block|{
 DECL|enumConstant|PAYLOAD
-DECL|enumConstant|RAW
-DECL|enumConstant|MESSAGE
-DECL|enumConstant|CXF_MESSAGE
-DECL|enumConstant|POJO
 name|PAYLOAD
 block|,
+DECL|enumConstant|RAW
 name|RAW
 block|,
+DECL|enumConstant|MESSAGE
 name|MESSAGE
 block|,
+DECL|enumConstant|CXF_MESSAGE
 name|CXF_MESSAGE
 block|,
+DECL|enumConstant|POJO
 name|POJO
 block|;     }
 comment|/**      * The cxf component is used for SOAP WebServices using Apache CXF. Creates      * a builder to build endpoints for the CXF component.      */

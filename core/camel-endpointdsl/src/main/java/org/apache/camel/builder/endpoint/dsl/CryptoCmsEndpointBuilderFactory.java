@@ -880,15 +880,15 @@ enum|enum
 name|CryptoOperation
 block|{
 DECL|enumConstant|sign
-DECL|enumConstant|verify
-DECL|enumConstant|encrypt
-DECL|enumConstant|decrypt
 name|sign
 block|,
+DECL|enumConstant|verify
 name|verify
 block|,
+DECL|enumConstant|encrypt
 name|encrypt
 block|,
+DECL|enumConstant|decrypt
 name|decrypt
 block|;     }
 comment|/**      * The crypto cms component is used for encrypting data in CMS Enveloped      * Data format, decrypting CMS Enveloped Data, signing data in CMS Signed      * Data format, and verifying CMS Signed Data. Creates a builder to build      * endpoints for the Crypto CMS component.      */

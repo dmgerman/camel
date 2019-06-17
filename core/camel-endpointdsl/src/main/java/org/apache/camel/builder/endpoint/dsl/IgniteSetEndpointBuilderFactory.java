@@ -328,27 +328,27 @@ enum|enum
 name|IgniteSetOperation
 block|{
 DECL|enumConstant|CONTAINS
-DECL|enumConstant|ADD
-DECL|enumConstant|SIZE
-DECL|enumConstant|REMOVE
-DECL|enumConstant|ITERATOR
-DECL|enumConstant|CLEAR
-DECL|enumConstant|RETAIN_ALL
-DECL|enumConstant|ARRAY
 name|CONTAINS
 block|,
+DECL|enumConstant|ADD
 name|ADD
 block|,
+DECL|enumConstant|SIZE
 name|SIZE
 block|,
+DECL|enumConstant|REMOVE
 name|REMOVE
 block|,
+DECL|enumConstant|ITERATOR
 name|ITERATOR
 block|,
+DECL|enumConstant|CLEAR
 name|CLEAR
 block|,
+DECL|enumConstant|RETAIN_ALL
 name|RETAIN_ALL
 block|,
+DECL|enumConstant|ARRAY
 name|ARRAY
 block|;     }
 comment|/**      * The Ignite Sets endpoint is one of camel-ignite endpoints which allows      * you to interact with Ignite Set data structures. Creates a builder to      * build endpoints for the Ignite Sets component.      */

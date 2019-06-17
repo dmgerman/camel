@@ -475,9 +475,9 @@ enum|enum
 name|EndpointType
 block|{
 DECL|enumConstant|dataset
-DECL|enumConstant|datastream
 name|dataset
 block|,
+DECL|enumConstant|datastream
 name|datastream
 block|;     }
 comment|/**      * The flink component can be used to send DataSet jobs to Apache Flink      * cluster. Creates a builder to build endpoints for the Apache Flink      * component.      */

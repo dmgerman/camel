@@ -1172,15 +1172,15 @@ enum|enum
 name|DisruptorWaitStrategy
 block|{
 DECL|enumConstant|Blocking
-DECL|enumConstant|Sleeping
-DECL|enumConstant|BusySpin
-DECL|enumConstant|Yielding
 name|Blocking
 block|,
+DECL|enumConstant|Sleeping
 name|Sleeping
 block|,
+DECL|enumConstant|BusySpin
 name|BusySpin
 block|,
+DECL|enumConstant|Yielding
 name|Yielding
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.disruptor.DisruptorProducerType</code>      * enum.      */
@@ -1189,9 +1189,9 @@ enum|enum
 name|DisruptorProducerType
 block|{
 DECL|enumConstant|Single
-DECL|enumConstant|Multi
 name|Single
 block|,
+DECL|enumConstant|Multi
 name|Multi
 block|;     }
 comment|/**      * The disruptor component provides asynchronous SEDA behavior using LMAX      * Disruptor. Creates a builder to build endpoints for the Disruptor      * component.      */

@@ -1626,12 +1626,12 @@ enum|enum
 name|JooqOperation
 block|{
 DECL|enumConstant|EXECUTE
-DECL|enumConstant|FETCH
-DECL|enumConstant|NONE
 name|EXECUTE
 block|,
+DECL|enumConstant|FETCH
 name|FETCH
 block|,
+DECL|enumConstant|NONE
 name|NONE
 block|;     }
 comment|/**      * The jooq component enables you to store and retrieve entities from      * databases using JOOQ Creates a builder to build endpoints for the JOOQ      * component.      */

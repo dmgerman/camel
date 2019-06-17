@@ -836,27 +836,27 @@ enum|enum
 name|Action
 block|{
 DECL|enumConstant|PUT
-DECL|enumConstant|GET
-DECL|enumConstant|CLEAR
-DECL|enumConstant|SIZE
-DECL|enumConstant|CONTAINS_KEY
-DECL|enumConstant|IS_EMPTY
-DECL|enumConstant|REMOVE
-DECL|enumConstant|REMOVE_VALUE
 name|PUT
 block|,
+DECL|enumConstant|GET
 name|GET
 block|,
+DECL|enumConstant|CLEAR
 name|CLEAR
 block|,
+DECL|enumConstant|SIZE
 name|SIZE
 block|,
+DECL|enumConstant|CONTAINS_KEY
 name|CONTAINS_KEY
 block|,
+DECL|enumConstant|IS_EMPTY
 name|IS_EMPTY
 block|,
+DECL|enumConstant|REMOVE
 name|REMOVE
 block|,
+DECL|enumConstant|REMOVE_VALUE
 name|REMOVE_VALUE
 block|;     }
 comment|/**      * Proxy enum for<code>io.atomix.resource.ReadConsistency</code> enum.      */
@@ -865,15 +865,15 @@ enum|enum
 name|ReadConsistency
 block|{
 DECL|enumConstant|ATOMIC
-DECL|enumConstant|ATOMIC_LEASE
-DECL|enumConstant|SEQUENTIAL
-DECL|enumConstant|LOCAL
 name|ATOMIC
 block|,
+DECL|enumConstant|ATOMIC_LEASE
 name|ATOMIC_LEASE
 block|,
+DECL|enumConstant|SEQUENTIAL
 name|SEQUENTIAL
 block|,
+DECL|enumConstant|LOCAL
 name|LOCAL
 block|;     }
 comment|/**      * The atomix-multimap component is used to access Atomix's distributed      * multi map. Creates a builder to build endpoints for the Atomix MultiMap      * component.      */

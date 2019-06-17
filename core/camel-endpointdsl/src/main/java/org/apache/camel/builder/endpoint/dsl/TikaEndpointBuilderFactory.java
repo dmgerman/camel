@@ -391,9 +391,9 @@ enum|enum
 name|TikaOperation
 block|{
 DECL|enumConstant|parse
-DECL|enumConstant|detect
 name|parse
 block|,
+DECL|enumConstant|detect
 name|detect
 block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.tika.TikaParseOutputFormat</code> enum.      */
@@ -402,15 +402,15 @@ enum|enum
 name|TikaParseOutputFormat
 block|{
 DECL|enumConstant|xml
-DECL|enumConstant|html
-DECL|enumConstant|text
-DECL|enumConstant|textMain
 name|xml
 block|,
+DECL|enumConstant|html
 name|html
 block|,
+DECL|enumConstant|text
 name|text
 block|,
+DECL|enumConstant|textMain
 name|textMain
 block|;     }
 comment|/**      * This component integrates with Apache Tika to extract content and      * metadata from thousands of file types. Creates a builder to build      * endpoints for the Tika component.      */

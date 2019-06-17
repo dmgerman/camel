@@ -2204,30 +2204,30 @@ enum|enum
 name|Action
 block|{
 DECL|enumConstant|ADD
-DECL|enumConstant|OFFER
-DECL|enumConstant|PEEK
-DECL|enumConstant|POLL
-DECL|enumConstant|CLEAR
-DECL|enumConstant|CONTAINS
-DECL|enumConstant|IS_EMPTY
-DECL|enumConstant|REMOVE
-DECL|enumConstant|SIZE
 name|ADD
 block|,
+DECL|enumConstant|OFFER
 name|OFFER
 block|,
+DECL|enumConstant|PEEK
 name|PEEK
 block|,
+DECL|enumConstant|POLL
 name|POLL
 block|,
+DECL|enumConstant|CLEAR
 name|CLEAR
 block|,
+DECL|enumConstant|CONTAINS
 name|CONTAINS
 block|,
+DECL|enumConstant|IS_EMPTY
 name|IS_EMPTY
 block|,
+DECL|enumConstant|REMOVE
 name|REMOVE
 block|,
+DECL|enumConstant|SIZE
 name|SIZE
 block|;     }
 comment|/**      * Proxy enum for<code>io.atomix.resource.ReadConsistency</code> enum.      */
@@ -2236,15 +2236,15 @@ enum|enum
 name|ReadConsistency
 block|{
 DECL|enumConstant|ATOMIC
-DECL|enumConstant|ATOMIC_LEASE
-DECL|enumConstant|SEQUENTIAL
-DECL|enumConstant|LOCAL
 name|ATOMIC
 block|,
+DECL|enumConstant|ATOMIC_LEASE
 name|ATOMIC_LEASE
 block|,
+DECL|enumConstant|SEQUENTIAL
 name|SEQUENTIAL
 block|,
+DECL|enumConstant|LOCAL
 name|LOCAL
 block|;     }
 comment|/**      * The atomix-queue component is used to access Atomix's distributed queue.      * Creates a builder to build endpoints for the Atomix Queue component.      */

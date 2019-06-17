@@ -370,9 +370,9 @@ enum|enum
 name|DrillConnectionMode
 block|{
 DECL|enumConstant|ZK
-DECL|enumConstant|DRILLBIT
 name|ZK
 block|,
+DECL|enumConstant|DRILLBIT
 name|DRILLBIT
 block|;     }
 comment|/**      * The drill component gives you the ability to quering into apache drill      * cluster. Creates a builder to build endpoints for the Drill component.      */

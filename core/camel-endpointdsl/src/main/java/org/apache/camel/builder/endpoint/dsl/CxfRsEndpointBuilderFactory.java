@@ -3227,12 +3227,12 @@ enum|enum
 name|BindingStyle
 block|{
 DECL|enumConstant|SimpleConsumer
-DECL|enumConstant|Default
-DECL|enumConstant|Custom
 name|SimpleConsumer
 block|,
+DECL|enumConstant|Default
 name|Default
 block|,
+DECL|enumConstant|Custom
 name|Custom
 block|;     }
 comment|/**      * The cxfrs component is used for JAX-RS REST services using Apache CXF.      * Creates a builder to build endpoints for the CXF-RS component.      */
