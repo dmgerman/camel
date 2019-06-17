@@ -1287,6 +1287,21 @@ name|concurrentConsumers
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Gets the connection factory to be used.      */
+DECL|method|getConnectionFactory ()
+specifier|public
+name|ConnectionFactory
+name|getConnectionFactory
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getConnectionFactory
+argument_list|()
+return|;
+block|}
 comment|/**      * The connection factory to be use. A connection factory must be configured either on the component or endpoint.      */
 annotation|@
 name|Metadata
