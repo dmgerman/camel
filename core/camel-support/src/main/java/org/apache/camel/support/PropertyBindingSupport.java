@@ -269,7 +269,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A convenient support class for binding String valued properties to an instance which  * uses a set of conventions:  *<ul>  *<li>property placeholders - Keys and values using Camels property placeholder will be resolved</li>  *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>  *<li>map</li> - Properties can lookup in Map's using map syntax, eg foo[bar] where foo is the name of the property that is a Map instance, and bar is the name of the key.</li>  *<li>list</li> - Properties can refer or add to in List's using list syntax, eg foo[0] where foo is the name of the property that is a  *                     List instance, and 0 is the index. To refer to the last element, then use last as key.</li>  *<li>reference by bean id - Values can refer to other beans in the registry by prefixing with with # or #bean: eg #myBean or #bean:myBean</li>  *<li>reference by type - Values can refer to singleton beans by their type in the registry by prefixing with #type: syntax, eg #type:com.foo.MyClassType</li>  *<li>autowire by type - Values can refer to singleton beans by auto wiring by setting the value to #autowired</li>  *<li>reference new class - Values can refer to creating new beans by their class name by prefixing with #class, eg #class:com.foo.MyClassType</li>  *</ul>  * This implementations reuses parts of {@link IntrospectionSupport}.  */
+comment|/**  * A convenient support class for binding String valued properties to an instance which  * uses a set of conventions:  *<ul>  *<li>property placeholders - Keys and values using Camels property placeholder will be resolved</li>  *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>  *<li>map</li> - Properties can lookup in Map's using map syntax, eg foo[bar] where foo is the name of the property that is a Map instance, and bar is the name of the key.</li>  *<li>list</li> - Properties can refer or add to in List's using list syntax, eg foo[0] where foo is the name of the property that is a  *                     List instance, and 0 is the index. To refer to the last element, then use last as key.</li>  *<li>reference by bean id - Values can refer to other beans in the registry by prefixing with with # or #bean: eg #myBean or #bean:myBean</li>  *<li>reference by type - Values can refer to singleton beans by their type in the registry by prefixing with #type: syntax, eg #type:com.foo.MyClassType</li>  *<li>autowire by type - Values can refer to singleton beans by auto wiring by setting the value to #autowired</li>  *<li>reference new class - Values can refer to creating new beans by their class name by prefixing with #class, eg #class:com.foo.MyClassType</li>  *</ul>  * When setting the property then by default only public setter methods is supported, however you can  * prefix the name with #private# to allow using private/protected setters, eg to use the private setBrokerURL setter method:  * camel.component.jms.configuration.connectionFactory.#private#brokerURL=tcp://localhost:61616.  *<p/>  * This implementations reuses parts of {@link IntrospectionSupport}.  */
 end_comment
 
 begin_class
@@ -2095,13 +2095,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|entry
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
 name|bindProperty
 argument_list|(
 name|camelContext
@@ -2133,7 +2126,6 @@ name|rc
 operator|=
 literal|true
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return
@@ -3703,27 +3695,8 @@ argument_list|)
 return|;
 block|}
 comment|// TODO: move this to some util class
-DECL|method|main (String[] args)
-specifier|public
-specifier|static
-name|void
-name|main
-parameter_list|(
-name|String
-index|[]
-name|args
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|PropertyBindingSupport
-operator|.
-name|findAllPackageNames
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
+annotation|@
+name|Deprecated
 DECL|method|findAllPackageNames (ClassLoader loader)
 specifier|public
 specifier|static
@@ -3761,7 +3734,6 @@ argument_list|(
 literal|"java.class.path"
 argument_list|)
 decl_stmt|;
-comment|//        System.out.println(cp);
 name|String
 index|[]
 name|parts
@@ -3923,37 +3895,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"There are "
-operator|+
-name|answer
-operator|.
-name|size
-argument_list|()
-operator|+
-literal|" packages"
-argument_list|)
-expr_stmt|;
-name|answer
-operator|.
-name|forEach
-argument_list|(
-name|System
-operator|.
-name|out
-operator|::
-name|println
-argument_list|)
-expr_stmt|;
 return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|validName (String name)
 specifier|public
 specifier|static
@@ -4042,6 +3989,8 @@ operator|!
 name|invalid
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|validPackageForClassloader (String packageName, ClassLoader loader)
 specifier|public
 specifier|static
@@ -4068,6 +4017,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|gatherAllDirectories (File path, String root, Set<String> dirs)
 specifier|public
 specifier|static
