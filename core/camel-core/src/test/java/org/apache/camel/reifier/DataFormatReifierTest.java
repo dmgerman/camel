@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.refier
+DECL|package|org.apache.camel.reifier
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|refier
+name|reifier
 package|;
 end_package
 
@@ -70,11 +70,52 @@ name|org
 operator|.
 name|junit
 operator|.
+name|FixMethodOrder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|runners
+operator|.
+name|MethodSorters
+import|;
+end_import
+
+begin_import
+import|import static
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+operator|.
+name|fail
+import|;
+end_import
+
 begin_class
+annotation|@
+name|FixMethodOrder
+argument_list|(
+name|MethodSorters
+operator|.
+name|NAME_ASCENDING
+argument_list|)
 DECL|class|DataFormatReifierTest
 specifier|public
 class|class
@@ -82,18 +123,13 @@ name|DataFormatReifierTest
 block|{
 annotation|@
 name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalStateException
-operator|.
-name|class
-argument_list|)
-DECL|method|shouldNotHandleCustomDataFormat ()
+DECL|method|testHandleCustomDataFormat ()
 specifier|public
 name|void
-name|shouldNotHandleCustomDataFormat
+name|testHandleCustomDataFormat
 parameter_list|()
+block|{
+try|try
 block|{
 name|DataFormatReifier
 operator|.
@@ -104,15 +140,18 @@ name|MyDataFormat
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should throw IllegalStateException instead"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|shouldHandleCustomDataFormat ()
-specifier|public
-name|void
-name|shouldHandleCustomDataFormat
-parameter_list|()
-block|{
+catch|catch
+parameter_list|(
+name|IllegalStateException
+name|e
+parameter_list|)
+block|{         }
 name|DataFormatReifier
 operator|.
 name|registerReifier
