@@ -50,6 +50,13 @@ specifier|private
 name|boolean
 name|autowireComponentPropertiesDeep
 decl_stmt|;
+DECL|field|autowireComponentPropertiesAllowPrivateSetter
+specifier|private
+name|boolean
+name|autowireComponentPropertiesAllowPrivateSetter
+init|=
+literal|true
+decl_stmt|;
 DECL|field|duration
 specifier|private
 name|long
@@ -202,6 +209,33 @@ operator|=
 name|autowireComponentPropertiesDeep
 expr_stmt|;
 block|}
+DECL|method|isAutowireComponentPropertiesAllowPrivateSetter ()
+specifier|public
+name|boolean
+name|isAutowireComponentPropertiesAllowPrivateSetter
+parameter_list|()
+block|{
+return|return
+name|autowireComponentPropertiesAllowPrivateSetter
+return|;
+block|}
+comment|/**      * Whether autowiring components allows to use private setter method when setting the value. This may be needed      * in some rare situations when some configuration classes may configure via constructors over setters. But      * constructor configuration is more cumbersome to use via .properties files etc.      */
+DECL|method|setAutowireComponentPropertiesAllowPrivateSetter (boolean autowireComponentPropertiesAllowPrivateSetter)
+specifier|public
+name|void
+name|setAutowireComponentPropertiesAllowPrivateSetter
+parameter_list|(
+name|boolean
+name|autowireComponentPropertiesAllowPrivateSetter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autowireComponentPropertiesAllowPrivateSetter
+operator|=
+name|autowireComponentPropertiesAllowPrivateSetter
+expr_stmt|;
+block|}
 DECL|method|getDuration ()
 specifier|public
 name|long
@@ -340,6 +374,26 @@ operator|.
 name|autowireComponentPropertiesDeep
 operator|=
 name|autowireComponentPropertiesDeep
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Whether autowiring components (with deep nesting by attempting to walk as deep down the object graph by creating new empty objects on the way if needed)      * with properties that are of same type, which has been added to the Camel registry, as a singleton instance.      * This is used for convention over configuration to inject DataSource, AmazonLogin instances to the components.      *<p/>      * This option is default enabled.      */
+DECL|method|withAutowireComponentPropertiesAllowPrivateSetter (boolean autowireComponentPropertiesAllowPrivateSetter)
+specifier|public
+name|MainConfigurationProperties
+name|withAutowireComponentPropertiesAllowPrivateSetter
+parameter_list|(
+name|boolean
+name|autowireComponentPropertiesAllowPrivateSetter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autowireComponentPropertiesAllowPrivateSetter
+operator|=
+name|autowireComponentPropertiesAllowPrivateSetter
 expr_stmt|;
 return|return
 name|this

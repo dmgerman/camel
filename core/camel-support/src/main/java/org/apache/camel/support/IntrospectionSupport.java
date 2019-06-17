@@ -3067,6 +3067,61 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+return|return
+name|setProperty
+argument_list|(
+name|context
+argument_list|,
+name|typeConverter
+argument_list|,
+name|target
+argument_list|,
+name|name
+argument_list|,
+name|value
+argument_list|,
+name|refName
+argument_list|,
+name|allowBuilderPattern
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+comment|/**      * This method supports three modes to set a property:      *      * 1. Setting a Map property where the property name refers to a map via name[aKey] where aKey is the map key to use.      *      * 2. Setting a property that has already been resolved, this is the case when {@code context} and {@code refName} are      * NULL and {@code value} is non-NULL.      *      * 3. Setting a property that has not yet been resolved, the property will be resolved based on the suitable methods      * found matching the property name on the {@code target} bean. For this mode to be triggered the parameters      * {@code context} and {@code refName} must NOT be NULL, and {@code value} MUST be NULL.      */
+DECL|method|setProperty (CamelContext context, TypeConverter typeConverter, Object target, String name, Object value, String refName, boolean allowBuilderPattern, boolean allowPrivateSetter)
+specifier|public
+specifier|static
+name|boolean
+name|setProperty
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|TypeConverter
+name|typeConverter
+parameter_list|,
+name|Object
+name|target
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|Object
+name|value
+parameter_list|,
+name|String
+name|refName
+parameter_list|,
+name|boolean
+name|allowBuilderPattern
+parameter_list|,
+name|boolean
+name|allowPrivateSetter
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 comment|// does the property name include a lookup key, then we need to set the property as a map or list
 if|if
 condition|(
@@ -3498,6 +3553,8 @@ argument_list|,
 name|name
 argument_list|,
 name|allowBuilderPattern
+argument_list|,
+name|allowPrivateSetter
 argument_list|)
 expr_stmt|;
 block|}
@@ -3515,6 +3572,8 @@ argument_list|,
 name|value
 argument_list|,
 name|allowBuilderPattern
+argument_list|,
+name|allowPrivateSetter
 argument_list|)
 expr_stmt|;
 block|}
@@ -4190,6 +4249,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -4234,6 +4295,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -4275,6 +4338,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -4317,6 +4382,8 @@ argument_list|,
 literal|null
 argument_list|,
 name|allowBuilderPattern
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -4354,7 +4421,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-DECL|method|findSetterMethods (Class<?> clazz, String name, boolean allowBuilderPattern)
+DECL|method|findSetterMethods (Class<?> clazz, String name, boolean allowBuilderPattern, boolean allowPrivateSetter)
 specifier|public
 specifier|static
 name|Set
@@ -4374,6 +4441,9 @@ name|name
 parameter_list|,
 name|boolean
 name|allowBuilderPattern
+parameter_list|,
+name|boolean
+name|allowPrivateSetter
 parameter_list|)
 block|{
 name|Set
@@ -4387,31 +4457,6 @@ name|LinkedHashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|boolean
-name|allowPrivate
-init|=
-name|name
-operator|.
-name|startsWith
-argument_list|(
-literal|"#private#"
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|allowPrivate
-condition|)
-block|{
-name|name
-operator|=
-name|name
-operator|.
-name|substring
-argument_list|(
-literal|9
-argument_list|)
-expr_stmt|;
-block|}
 comment|// Build the method name
 name|String
 name|builderName
@@ -4494,7 +4539,7 @@ name|Method
 index|[]
 name|methods
 init|=
-name|allowPrivate
+name|allowPrivateSetter
 condition|?
 name|clazz
 operator|.
@@ -4638,7 +4683,7 @@ return|return
 name|candidates
 return|;
 block|}
-DECL|method|findSetterMethods (Class<?> clazz, String name, Object value, boolean allowBuilderPattern)
+DECL|method|findSetterMethods (Class<?> clazz, String name, Object value, boolean allowBuilderPattern, boolean allowPrivateSetter)
 specifier|static
 name|Set
 argument_list|<
@@ -4660,6 +4705,9 @@ name|value
 parameter_list|,
 name|boolean
 name|allowBuilderPattern
+parameter_list|,
+name|boolean
+name|allowPrivateSetter
 parameter_list|)
 block|{
 name|Set
@@ -4675,6 +4723,8 @@ argument_list|,
 name|name
 argument_list|,
 name|allowBuilderPattern
+argument_list|,
+name|allowPrivateSetter
 argument_list|)
 decl_stmt|;
 if|if
@@ -4780,7 +4830,7 @@ name|candidates
 return|;
 block|}
 block|}
-DECL|method|findSetterMethodsOrderedByParameterType (Class<?> target, String propertyName, boolean allowBuilderPattern)
+DECL|method|findSetterMethodsOrderedByParameterType (Class<?> target, String propertyName, boolean allowBuilderPattern, boolean allowPrivateSetter)
 specifier|static
 name|List
 argument_list|<
@@ -4799,6 +4849,9 @@ name|propertyName
 parameter_list|,
 name|boolean
 name|allowBuilderPattern
+parameter_list|,
+name|boolean
+name|allowPrivateSetter
 parameter_list|)
 block|{
 name|List
@@ -4836,6 +4889,8 @@ argument_list|,
 name|propertyName
 argument_list|,
 name|allowBuilderPattern
+argument_list|,
+name|allowPrivateSetter
 argument_list|)
 decl_stmt|;
 for|for

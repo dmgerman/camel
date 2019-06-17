@@ -52,40 +52,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|JarURLConnection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Path
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Paths
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|HashSet
@@ -109,16 +75,6 @@ operator|.
 name|util
 operator|.
 name|LinkedHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|LinkedHashSet
 import|;
 end_import
 
@@ -159,18 +115,6 @@ operator|.
 name|util
 operator|.
 name|TreeSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|jar
-operator|.
-name|JarEntry
 import|;
 end_import
 
@@ -269,7 +213,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A convenient support class for binding String valued properties to an instance which  * uses a set of conventions:  *<ul>  *<li>property placeholders - Keys and values using Camels property placeholder will be resolved</li>  *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>  *<li>map</li> - Properties can lookup in Map's using map syntax, eg foo[bar] where foo is the name of the property that is a Map instance, and bar is the name of the key.</li>  *<li>list</li> - Properties can refer or add to in List's using list syntax, eg foo[0] where foo is the name of the property that is a  *                     List instance, and 0 is the index. To refer to the last element, then use last as key.</li>  *<li>reference by bean id - Values can refer to other beans in the registry by prefixing with with # or #bean: eg #myBean or #bean:myBean</li>  *<li>reference by type - Values can refer to singleton beans by their type in the registry by prefixing with #type: syntax, eg #type:com.foo.MyClassType</li>  *<li>autowire by type - Values can refer to singleton beans by auto wiring by setting the value to #autowired</li>  *<li>reference new class - Values can refer to creating new beans by their class name by prefixing with #class, eg #class:com.foo.MyClassType</li>  *</ul>  * When setting the property then by default only public setter methods is supported, however you can  * prefix the name with #private# to allow using private/protected setters, eg to use the private setBrokerURL setter method:  * camel.component.jms.configuration.connectionFactory.#private#brokerURL=tcp://localhost:61616.  *<p/>  * This implementations reuses parts of {@link IntrospectionSupport}.  */
+comment|/**  * A convenient support class for binding String valued properties to an instance which  * uses a set of conventions:  *<ul>  *<li>property placeholders - Keys and values using Camels property placeholder will be resolved</li>  *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>  *<li>map</li> - Properties can lookup in Map's using map syntax, eg foo[bar] where foo is the name of the property that is a Map instance, and bar is the name of the key.</li>  *<li>list</li> - Properties can refer or add to in List's using list syntax, eg foo[0] where foo is the name of the property that is a  *                     List instance, and 0 is the index. To refer to the last element, then use last as key.</li>  *<li>reference by bean id - Values can refer to other beans in the registry by prefixing with with # or #bean: eg #myBean or #bean:myBean</li>  *<li>reference by type - Values can refer to singleton beans by their type in the registry by prefixing with #type: syntax, eg #type:com.foo.MyClassType</li>  *<li>autowire by type - Values can refer to singleton beans by auto wiring by setting the value to #autowired</li>  *<li>reference new class - Values can refer to creating new beans by their class name by prefixing with #class, eg #class:com.foo.MyClassType</li>  *</ul>  *<p/>  * This implementations reuses parts of {@link IntrospectionSupport}.  */
 end_comment
 
 begin_class
@@ -318,6 +262,13 @@ DECL|field|fluentBuilder
 specifier|private
 name|boolean
 name|fluentBuilder
+init|=
+literal|true
+decl_stmt|;
+DECL|field|allowPrivateSetter
+specifier|private
+name|boolean
+name|allowPrivateSetter
 init|=
 literal|true
 decl_stmt|;
@@ -446,6 +397,26 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Whether properties should be filtered by prefix.         *          * Note that the prefix is removed from the key before the property is bound.          */
+DECL|method|withAllowPrivateSetter (boolean allowPrivateSetter)
+specifier|public
+name|Builder
+name|withAllowPrivateSetter
+parameter_list|(
+name|boolean
+name|allowPrivateSetter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowPrivateSetter
+operator|=
+name|allowPrivateSetter
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Binds the properties to the target object, and removes the property that was bound from properties.          *          * @param camelContext  the camel context          * @param target        the target object          * @param properties    the properties where the bound properties will be removed from          * @return              true if one or more properties was bound          */
 DECL|method|bind (CamelContext camelContext, Object target, Map<String, Object> properties)
 specifier|public
@@ -534,6 +505,8 @@ argument_list|,
 name|deepNesting
 argument_list|,
 name|fluentBuilder
+argument_list|,
+name|allowPrivateSetter
 argument_list|,
 name|reference
 argument_list|,
@@ -947,6 +920,8 @@ name|getClass
 argument_list|()
 argument_list|,
 name|key
+argument_list|,
+literal|true
 argument_list|,
 literal|true
 argument_list|)
@@ -1586,6 +1561,8 @@ argument_list|,
 name|key
 argument_list|,
 literal|true
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -1829,11 +1806,13 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Binds the properties with the given prefix to the target object, and removes the property that was bound from properties.      *      * @param camelContext  the camel context      * @param target        the target object      * @param properties    the properties where the bound properties will be removed from      * @param nesting       whether nesting is in use      * @param deepNesting   whether deep nesting is in use, where Camel will attempt to walk as deep as possible by creating new objects in the OGNL graph if      *                      a property has a setter and the object can be created from a default no-arg constructor.      * @param fluentBuilder whether fluent builder is allowed as a valid getter/setter      * @param reference     whether reference parameter (syntax starts with #) is in use      * @param placeholder   whether to use Camels property placeholder to resolve placeholders on keys and values      * @return              true if one or more properties was bound      */
-DECL|method|bindProperties (CamelContext camelContext, Object target, Map<String, Object> properties, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean reference, boolean placeholder)
+comment|/**      * Binds the properties with the given prefix to the target object, and removes the property that was bound from properties.      *      * @param camelContext        the camel context      * @param target              the target object      * @param properties          the properties where the bound properties will be removed from      * @param nesting             whether nesting is in use      * @param deepNesting         whether deep nesting is in use, where Camel will attempt to walk as deep as possible by creating new objects in the OGNL graph if      *                            a property has a setter and the object can be created from a default no-arg constructor.      * @param fluentBuilder       whether fluent builder is allowed as a valid getter/setter      * @param allowPrivateSetter  whether autowiring components allows to use private setter method when setting the value      * @param reference           whether reference parameter (syntax starts with #) is in use      * @param placeholder         whether to use Camels property placeholder to resolve placeholders on keys and values      * @return                    true if one or more properties was bound      */
+DECL|method|bindProperties (CamelContext camelContext, Object target, Map<String, Object> properties, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean allowPrivateSetter, boolean reference, boolean placeholder)
 specifier|public
 specifier|static
 name|boolean
@@ -1863,6 +1842,9 @@ name|boolean
 name|fluentBuilder
 parameter_list|,
 name|boolean
+name|allowPrivateSetter
+parameter_list|,
+name|boolean
 name|reference
 parameter_list|,
 name|boolean
@@ -1886,14 +1868,16 @@ name|deepNesting
 argument_list|,
 name|fluentBuilder
 argument_list|,
+name|allowPrivateSetter
+argument_list|,
 name|reference
 argument_list|,
 name|placeholder
 argument_list|)
 return|;
 block|}
-comment|/**      * Binds the properties with the given prefix to the target object, and removes the property that was bound from properties.      * Note that the prefix is removed from the key before the property is bound.      *      * @param camelContext  the camel context      * @param target        the target object      * @param properties    the properties where the bound properties will be removed from      * @param optionPrefix  the prefix used to filter properties      * @param nesting       whether nesting is in use      * @param deepNesting   whether deep nesting is in use, where Camel will attempt to walk as deep as possible by creating new objects in the OGNL graph if      *                      a property has a setter and the object can be created from a default no-arg constructor.      * @param fluentBuilder whether fluent builder is allowed as a valid getter/setter      * @param reference     whether reference parameter (syntax starts with #) is in use      * @param placeholder   whether to use Camels property placeholder to resolve placeholders on keys and values      * @return              true if one or more properties was bound      */
-DECL|method|bindProperties (CamelContext camelContext, Object target, Map<String, Object> properties, String optionPrefix, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean reference, boolean placeholder)
+comment|/**      * Binds the properties with the given prefix to the target object, and removes the property that was bound from properties.      * Note that the prefix is removed from the key before the property is bound.      *      * @param camelContext        the camel context      * @param target              the target object      * @param properties          the properties where the bound properties will be removed from      * @param optionPrefix        the prefix used to filter properties      * @param nesting             whether nesting is in use      * @param deepNesting         whether deep nesting is in use, where Camel will attempt to walk as deep as possible by creating new objects in the OGNL graph if      *                            a property has a setter and the object can be created from a default no-arg constructor.      * @param fluentBuilder       whether fluent builder is allowed as a valid getter/setter      * @param allowPrivateSetter  whether autowiring components allows to use private setter method when setting the value      * @param reference           whether reference parameter (syntax starts with #) is in use      * @param placeholder         whether to use Camels property placeholder to resolve placeholders on keys and values      * @return                    true if one or more properties was bound      */
+DECL|method|bindProperties (CamelContext camelContext, Object target, Map<String, Object> properties, String optionPrefix, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean allowPrivateSetter, boolean reference, boolean placeholder)
 specifier|public
 specifier|static
 name|boolean
@@ -1924,6 +1908,9 @@ name|deepNesting
 parameter_list|,
 name|boolean
 name|fluentBuilder
+parameter_list|,
+name|boolean
+name|allowPrivateSetter
 parameter_list|,
 name|boolean
 name|reference
@@ -2111,6 +2098,8 @@ name|deepNesting
 argument_list|,
 name|fluentBuilder
 argument_list|,
+name|allowPrivateSetter
+argument_list|,
 name|reference
 argument_list|,
 name|placeholder
@@ -2187,6 +2176,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
@@ -2213,7 +2204,7 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|bindProperty (CamelContext camelContext, Object target, String name, Object value, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean reference, boolean placeholder)
+DECL|method|bindProperty (CamelContext camelContext, Object target, String name, Object value, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean allowPrivateSetter, boolean reference, boolean placeholder)
 specifier|private
 specifier|static
 name|boolean
@@ -2239,6 +2230,9 @@ name|deepNesting
 parameter_list|,
 name|boolean
 name|fluentBuilder
+parameter_list|,
+name|boolean
+name|allowPrivateSetter
 parameter_list|,
 name|boolean
 name|reference
@@ -2278,6 +2272,8 @@ argument_list|,
 name|deepNesting
 argument_list|,
 name|fluentBuilder
+argument_list|,
+name|allowPrivateSetter
 argument_list|,
 name|reference
 argument_list|,
@@ -2365,6 +2361,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -2404,7 +2402,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|setProperty (CamelContext context, Object target, String name, Object value, boolean mandatory, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean reference, boolean placeholder)
+DECL|method|setProperty (CamelContext context, Object target, String name, Object value, boolean mandatory, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean allowPrivateSetter, boolean reference, boolean placeholder)
 specifier|private
 specifier|static
 name|boolean
@@ -2433,6 +2431,9 @@ name|deepNesting
 parameter_list|,
 name|boolean
 name|fluentBuilder
+parameter_list|,
+name|boolean
+name|allowPrivateSetter
 parameter_list|,
 name|boolean
 name|reference
@@ -2602,6 +2603,8 @@ argument_list|,
 name|part
 argument_list|,
 name|fluentBuilder
+argument_list|,
+name|allowPrivateSetter
 argument_list|)
 decl_stmt|;
 if|if
@@ -2964,6 +2967,8 @@ argument_list|,
 name|name
 argument_list|,
 name|fluentBuilder
+argument_list|,
+name|allowPrivateSetter
 argument_list|)
 decl_stmt|;
 if|if
@@ -3094,6 +3099,8 @@ argument_list|,
 name|refName
 argument_list|,
 name|fluentBuilder
+argument_list|,
+name|allowPrivateSetter
 argument_list|)
 decl_stmt|;
 if|if
@@ -3344,7 +3351,7 @@ else|:
 name|defaultValue
 return|;
 block|}
-DECL|method|findBestSetterMethod (Class clazz, String name, boolean fluentBuilder)
+DECL|method|findBestSetterMethod (Class clazz, String name, boolean fluentBuilder, boolean allowPrivateSetter)
 specifier|private
 specifier|static
 name|Method
@@ -3358,6 +3365,9 @@ name|name
 parameter_list|,
 name|boolean
 name|fluentBuilder
+parameter_list|,
+name|boolean
+name|allowPrivateSetter
 parameter_list|)
 block|{
 comment|// is there a direct setter?
@@ -3373,7 +3383,9 @@ name|clazz
 argument_list|,
 name|name
 argument_list|,
-literal|false
+name|fluentBuilder
+argument_list|,
+name|allowPrivateSetter
 argument_list|)
 decl_stmt|;
 if|if
@@ -3410,7 +3422,9 @@ name|clazz
 argument_list|,
 name|name
 argument_list|,
-literal|true
+name|fluentBuilder
+argument_list|,
+name|allowPrivateSetter
 argument_list|)
 expr_stmt|;
 if|if
