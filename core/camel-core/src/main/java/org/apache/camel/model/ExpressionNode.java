@@ -563,6 +563,16 @@ name|String
 name|id
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+operator|(
+name|this
+operator|instanceof
+name|OutputNode
+operator|)
+condition|)
+block|{
 comment|// let parent handle assigning the id, as we do not support outputs
 name|getParent
 argument_list|()
@@ -575,6 +585,18 @@ expr_stmt|;
 return|return
 name|this
 return|;
+block|}
+else|else
+block|{
+return|return
+name|super
+operator|.
+name|id
+argument_list|(
+name|id
+argument_list|)
+return|;
+block|}
 block|}
 block|}
 end_class
