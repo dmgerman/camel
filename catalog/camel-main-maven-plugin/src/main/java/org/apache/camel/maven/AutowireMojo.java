@@ -873,8 +873,6 @@ specifier|transient
 name|ClassLoader
 name|classLoader
 decl_stmt|;
-comment|// TODO: Allow to configure known types in xml config, or refer to external file
-comment|// CHECKSTYLE:OFF
 annotation|@
 name|Override
 DECL|method|execute ()
