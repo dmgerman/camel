@@ -56,13 +56,15 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|xml
+name|ctc
 operator|.
-name|sax
+name|wstx
 operator|.
-name|XMLReader
+name|sr
+operator|.
+name|ValidatingStreamReader
 import|;
 end_import
 
@@ -101,20 +103,6 @@ operator|.
 name|support
 operator|.
 name|ExchangeHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|ctc
-operator|.
-name|wstx
-operator|.
-name|sr
-operator|.
-name|ValidatingStreamReader
 import|;
 end_import
 
@@ -247,9 +235,6 @@ condition|)
 block|{
 name|handler
 operator|=
-operator|(
-name|ContentHandler
-operator|)
 name|this
 operator|.
 name|contentHandlerClass
