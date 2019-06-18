@@ -240,8 +240,9 @@ name|distributionRatioList
 operator|.
 name|add
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|parseInt
 argument_list|(
 name|ratio
 operator|.
