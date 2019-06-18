@@ -326,20 +326,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|OrderedProperties
 import|;
 end_import
@@ -1767,7 +1753,7 @@ argument_list|(
 name|clazz
 argument_list|)
 decl_stmt|;
-comment|// filter classes (must not be interfaces, must not be abstract, must be top level) and also a valid autowire class
+comment|// filter classes (must not be interfaces, must be public, must not be abstract, must be top level) and also a valid autowire class
 name|classes
 operator|=
 name|classes
@@ -1784,6 +1770,16 @@ name|c
 operator|.
 name|isInterface
 argument_list|()
+operator|&&
+name|Modifier
+operator|.
+name|isPublic
+argument_list|(
+name|c
+operator|.
+name|getModifiers
+argument_list|()
+argument_list|)
 operator|&&
 operator|!
 name|Modifier
@@ -2125,7 +2121,7 @@ argument_list|()
 operator|.
 name|info
 argument_list|(
-literal|"    Class: "
+literal|"\t\t"
 operator|+
 name|c
 operator|.
@@ -2173,12 +2169,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|ObjectHelper
-operator|.
-name|isNotEmpty
-argument_list|(
 name|exclude
-argument_list|)
+operator|!=
+literal|null
+operator|&&
+name|exclude
+operator|.
+name|length
+operator|>
+literal|0
 condition|)
 block|{
 comment|// works on components too
@@ -2253,12 +2252,15 @@ block|}
 block|}
 if|if
 condition|(
-name|ObjectHelper
-operator|.
-name|isNotEmpty
-argument_list|(
 name|include
-argument_list|)
+operator|!=
+literal|null
+operator|&&
+name|include
+operator|.
+name|length
+operator|>
+literal|0
 condition|)
 block|{
 for|for
