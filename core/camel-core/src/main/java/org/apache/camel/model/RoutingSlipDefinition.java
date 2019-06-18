@@ -189,7 +189,7 @@ name|Type
 parameter_list|>
 parameter_list|>
 extends|extends
-name|NoOutputExpressionNode
+name|ExpressionNode
 block|{
 DECL|field|DEFAULT_DELIMITER
 specifier|public

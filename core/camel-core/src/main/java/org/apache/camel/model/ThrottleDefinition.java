@@ -226,7 +226,7 @@ specifier|public
 class|class
 name|ThrottleDefinition
 extends|extends
-name|NoOutputExpressionNode
+name|ExpressionNode
 implements|implements
 name|ExecutorServiceAwareDefinition
 argument_list|<

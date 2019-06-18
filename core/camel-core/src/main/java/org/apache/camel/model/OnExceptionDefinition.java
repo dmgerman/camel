@@ -315,6 +315,8 @@ name|ProcessorDefinition
 argument_list|<
 name|OnExceptionDefinition
 argument_list|>
+implements|implements
+name|OutputNode
 block|{
 annotation|@
 name|XmlElement
@@ -2032,16 +2034,6 @@ name|outputs
 operator|=
 name|outputs
 expr_stmt|;
-block|}
-DECL|method|isOutputSupported ()
-specifier|public
-name|boolean
-name|isOutputSupported
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
 block|}
 DECL|method|getExceptions ()
 specifier|public

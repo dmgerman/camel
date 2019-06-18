@@ -333,6 +333,8 @@ name|ProcessorDefinition
 argument_list|<
 name|LoadBalanceDefinition
 argument_list|>
+implements|implements
+name|OutputNode
 block|{
 annotation|@
 name|XmlElements
@@ -557,16 +559,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-DECL|method|isOutputSupported ()
-specifier|public
-name|boolean
-name|isOutputSupported
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
 block|}
 DECL|method|getLoadBalancerType ()
 specifier|public

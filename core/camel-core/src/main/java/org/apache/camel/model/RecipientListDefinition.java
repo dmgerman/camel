@@ -217,7 +217,7 @@ name|Type
 parameter_list|>
 parameter_list|>
 extends|extends
-name|NoOutputExpressionNode
+name|ExpressionNode
 implements|implements
 name|ExecutorServiceAwareDefinition
 argument_list|<

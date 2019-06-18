@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|Collections
 import|;
 end_import
 
@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for nodes which contain an expression and a number of outputs  */
+comment|/**  * A base {@link ExpressionNode} which does<b>not</b> support any outputs.  *<p/>  * This node is to be extended by definitions which need to support an expression but the definition should not  * contain any outputs, such as {@link org.apache.camel.model.TransformDefinition}.  */
 end_comment
 
 begin_class
@@ -189,24 +189,6 @@ DECL|field|expression
 specifier|private
 name|ExpressionDefinition
 name|expression
-decl_stmt|;
-annotation|@
-name|XmlElementRef
-DECL|field|outputs
-specifier|private
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
-name|outputs
-init|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|()
 decl_stmt|;
 DECL|method|ExpressionNode ()
 specifier|public
@@ -327,58 +309,6 @@ name|expression
 operator|=
 name|expression
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|getOutputs ()
-specifier|public
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
-name|getOutputs
-parameter_list|()
-block|{
-return|return
-name|outputs
-return|;
-block|}
-DECL|method|setOutputs (List<ProcessorDefinition<?>> outputs)
-specifier|public
-name|void
-name|setOutputs
-parameter_list|(
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
-name|outputs
-parameter_list|)
-block|{
-name|this
-operator|.
-name|outputs
-operator|=
-name|outputs
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|isOutputSupported ()
-specifier|public
-name|boolean
-name|isOutputSupported
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
 block|}
 annotation|@
 name|Override
@@ -600,6 +530,51 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getOutputs ()
+specifier|public
+name|List
+argument_list|<
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|getOutputs
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|id (String id)
+specifier|public
+name|ExpressionNode
+name|id
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+comment|// let parent handle assigning the id, as we do not support outputs
+name|getParent
+argument_list|()
+operator|.
+name|id
+argument_list|(
+name|id
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 block|}
 end_class

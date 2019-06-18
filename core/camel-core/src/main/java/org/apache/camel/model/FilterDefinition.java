@@ -147,7 +147,7 @@ specifier|public
 class|class
 name|FilterDefinition
 extends|extends
-name|ExpressionNode
+name|OutputExpressionNode
 block|{
 DECL|method|FilterDefinition ()
 specifier|public

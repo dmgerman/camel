@@ -172,7 +172,7 @@ parameter_list|<
 name|T
 parameter_list|>
 extends|extends
-name|NoOutputExpressionNode
+name|ExpressionNode
 block|{
 annotation|@
 name|XmlTransient

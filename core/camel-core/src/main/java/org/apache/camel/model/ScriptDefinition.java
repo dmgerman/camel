@@ -131,7 +131,7 @@ specifier|public
 class|class
 name|ScriptDefinition
 extends|extends
-name|NoOutputExpressionNode
+name|ExpressionNode
 block|{
 DECL|method|ScriptDefinition ()
 specifier|public

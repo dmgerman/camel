@@ -275,6 +275,8 @@ name|ProcessorDefinition
 argument_list|<
 name|ResequenceDefinition
 argument_list|>
+implements|implements
+name|OutputNode
 block|{
 annotation|@
 name|Metadata
@@ -436,18 +438,6 @@ name|outputs
 operator|=
 name|outputs
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|isOutputSupported ()
-specifier|public
-name|boolean
-name|isOutputSupported
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------

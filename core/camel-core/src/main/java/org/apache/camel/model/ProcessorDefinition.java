@@ -853,13 +853,6 @@ argument_list|>
 name|getOutputs
 parameter_list|()
 function_decl|;
-DECL|method|isOutputSupported ()
-specifier|public
-specifier|abstract
-name|boolean
-name|isOutputSupported
-parameter_list|()
-function_decl|;
 comment|/**      * Whether this definition can only be added as top-level directly on the route itself (such as onException,onCompletion,intercept, etc.)      *<p/>      * If trying to add a top-level only definition to a nested output would fail in the {@link #addOutput(ProcessorDefinition)}      * method.      */
 DECL|method|isTopLevelOnly ()
 specifier|public
@@ -910,8 +903,11 @@ block|{
 if|if
 condition|(
 operator|!
-name|isOutputSupported
-argument_list|()
+operator|(
+name|this
+operator|instanceof
+name|OutputNode
+operator|)
 condition|)
 block|{
 name|getParent
@@ -2263,8 +2259,9 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|isOutputSupported
-argument_list|()
+name|this
+operator|instanceof
+name|OutputNode
 operator|&&
 name|getOutputs
 argument_list|()

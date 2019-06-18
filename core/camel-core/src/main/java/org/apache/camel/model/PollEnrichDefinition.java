@@ -159,7 +159,7 @@ specifier|public
 class|class
 name|PollEnrichDefinition
 extends|extends
-name|NoOutputExpressionNode
+name|ExpressionNode
 block|{
 annotation|@
 name|XmlAttribute

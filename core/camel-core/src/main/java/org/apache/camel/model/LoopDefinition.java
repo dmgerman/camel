@@ -157,7 +157,7 @@ specifier|public
 class|class
 name|LoopDefinition
 extends|extends
-name|ExpressionNode
+name|OutputExpressionNode
 block|{
 annotation|@
 name|XmlAttribute

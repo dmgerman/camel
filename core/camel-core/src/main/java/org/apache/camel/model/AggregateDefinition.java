@@ -374,6 +374,8 @@ argument_list|<
 name|AggregateDefinition
 argument_list|>
 implements|implements
+name|OutputNode
+implements|,
 name|ExecutorServiceAwareDefinition
 argument_list|<
 name|AggregateDefinition
@@ -2649,16 +2651,6 @@ parameter_list|()
 block|{
 return|return
 name|outputs
-return|;
-block|}
-DECL|method|isOutputSupported ()
-specifier|public
-name|boolean
-name|isOutputSupported
-parameter_list|()
-block|{
-return|return
-literal|true
 return|;
 block|}
 DECL|method|setOutputs (List<ProcessorDefinition<?>> outputs)

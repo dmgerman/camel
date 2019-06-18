@@ -18,69 +18,31 @@ end_package
 
 begin_import
 import|import
-name|java
+name|javax
 operator|.
-name|util
+name|xml
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|bind
 operator|.
-name|util
+name|annotation
 operator|.
-name|List
+name|XmlTransient
 import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for definitions which does not support outputs.  */
+comment|/**  * Marker interface to mark a {@link ProcessorDefinition} that supports outputs  */
 end_comment
 
-begin_class
-DECL|class|NoOutputDefinition
+begin_interface
+annotation|@
+name|XmlTransient
+DECL|interface|OutputNode
 specifier|public
-specifier|abstract
-class|class
-name|NoOutputDefinition
-parameter_list|<
-name|Type
-extends|extends
-name|ProcessorDefinition
-parameter_list|<
-name|Type
-parameter_list|>
-parameter_list|>
-extends|extends
-name|ProcessorDefinition
-argument_list|<
-name|Type
-argument_list|>
-block|{
-DECL|method|getOutputs ()
-specifier|public
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
-name|getOutputs
-parameter_list|()
-block|{
-return|return
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
-return|;
-block|}
-block|}
-end_class
+interface|interface
+name|OutputNode
+block|{ }
+end_interface
 
 end_unit
 

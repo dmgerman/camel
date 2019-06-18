@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
+name|ArrayList
 import|;
 end_import
 
@@ -61,6 +61,20 @@ operator|.
 name|annotation
 operator|.
 name|XmlAccessorType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlElementRef
 import|;
 end_import
 
@@ -119,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An {@link org.apache.camel.model.ExpressionNode} which does<b>not</b> support any outputs.  *<p/>  * This node is to be extended by definitions which need to support an expression but the definition should not  * contain any outputs, such as {@link org.apache.camel.model.TransformDefinition}.  */
+comment|/**  * A base class for nodes which contain an expression and a number of outputs.  */
 end_comment
 
 begin_class
@@ -132,22 +146,42 @@ name|FIELD
 argument_list|)
 annotation|@
 name|XmlTransient
-DECL|class|NoOutputExpressionNode
+DECL|class|OutputExpressionNode
 specifier|public
 specifier|abstract
 class|class
-name|NoOutputExpressionNode
+name|OutputExpressionNode
 extends|extends
 name|ExpressionNode
+implements|implements
+name|OutputNode
 block|{
-DECL|method|NoOutputExpressionNode ()
+annotation|@
+name|XmlElementRef
+DECL|field|outputs
+specifier|private
+name|List
+argument_list|<
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|outputs
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+decl_stmt|;
+DECL|method|OutputExpressionNode ()
 specifier|public
-name|NoOutputExpressionNode
+name|OutputExpressionNode
 parameter_list|()
 block|{     }
-DECL|method|NoOutputExpressionNode (ExpressionDefinition expression)
+DECL|method|OutputExpressionNode (ExpressionDefinition expression)
 specifier|public
-name|NoOutputExpressionNode
+name|OutputExpressionNode
 parameter_list|(
 name|ExpressionDefinition
 name|expression
@@ -159,9 +193,9 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|NoOutputExpressionNode (Expression expression)
+DECL|method|OutputExpressionNode (Expression expression)
 specifier|public
-name|NoOutputExpressionNode
+name|OutputExpressionNode
 parameter_list|(
 name|Expression
 name|expression
@@ -173,9 +207,9 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|NoOutputExpressionNode (Predicate predicate)
+DECL|method|OutputExpressionNode (Predicate predicate)
 specifier|public
-name|NoOutputExpressionNode
+name|OutputExpressionNode
 parameter_list|(
 name|Predicate
 name|predicate
@@ -202,47 +236,30 @@ name|getOutputs
 parameter_list|()
 block|{
 return|return
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
+name|outputs
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|isOutputSupported ()
+DECL|method|setOutputs (List<ProcessorDefinition<?>> outputs)
 specifier|public
-name|boolean
-name|isOutputSupported
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|id (String id)
-specifier|public
-name|ExpressionNode
-name|id
+name|void
+name|setOutputs
 parameter_list|(
-name|String
-name|id
+name|List
+argument_list|<
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|outputs
 parameter_list|)
 block|{
-comment|// let parent handle assigning the id, as we do not support outputs
-name|getParent
-argument_list|()
-operator|.
-name|id
-argument_list|(
-name|id
-argument_list|)
-expr_stmt|;
-return|return
 name|this
-return|;
+operator|.
+name|outputs
+operator|=
+name|outputs
+expr_stmt|;
 block|}
 block|}
 end_class

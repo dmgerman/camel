@@ -112,7 +112,7 @@ specifier|public
 class|class
 name|WhenDefinition
 extends|extends
-name|ExpressionNode
+name|OutputExpressionNode
 block|{
 DECL|method|WhenDefinition ()
 specifier|public

@@ -131,7 +131,7 @@ specifier|public
 class|class
 name|SetFaultBodyDefinition
 extends|extends
-name|NoOutputExpressionNode
+name|ExpressionNode
 block|{
 DECL|method|SetFaultBodyDefinition ()
 specifier|public

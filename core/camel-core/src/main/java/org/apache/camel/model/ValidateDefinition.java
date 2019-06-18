@@ -159,7 +159,7 @@ specifier|public
 class|class
 name|ValidateDefinition
 extends|extends
-name|NoOutputExpressionNode
+name|ExpressionNode
 block|{
 DECL|method|ValidateDefinition ()
 specifier|public

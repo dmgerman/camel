@@ -185,7 +185,7 @@ specifier|public
 class|class
 name|DelayDefinition
 extends|extends
-name|NoOutputExpressionNode
+name|ExpressionNode
 implements|implements
 name|ExecutorServiceAwareDefinition
 argument_list|<

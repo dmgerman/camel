@@ -261,6 +261,8 @@ name|ProcessorDefinition
 argument_list|<
 name|ChoiceDefinition
 argument_list|>
+implements|implements
+name|OutputNode
 block|{
 annotation|@
 name|XmlElementRef
@@ -668,18 +670,6 @@ throw|;
 block|}
 block|}
 empty_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|isOutputSupported ()
-specifier|public
-name|boolean
-name|isOutputSupported
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
 block|}
 annotation|@
 name|Override
