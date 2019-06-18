@@ -40,6 +40,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -193,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple example router from Cafe Demo  */
+comment|/**  * A simple example router from Cafe Demo.  *  * Notice how this RouteBuilder extends {@link EndpointRouteBuilder} which provides the support  * for Camel Endpoint DSL.  */
 end_comment
 
 begin_class
@@ -306,7 +318,7 @@ throws|throws
 name|Exception
 block|{
 comment|// create CamelContext
-name|DefaultCamelContext
+name|CamelContext
 name|camelContext
 init|=
 operator|new
@@ -330,6 +342,8 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+comment|// add additional routes using inlined RouteBuilder
+comment|// where we can access the Camel Endpoint DSL from this class
 name|RouteBuilder
 operator|.
 name|addRoutes
