@@ -182,7 +182,7 @@ argument_list|()
 expr_stmt|;
 name|oneExchangeDone
 operator|.
-name|matchesMockWaitTime
+name|matchesWaitTime
 argument_list|()
 expr_stmt|;
 comment|// file should not exists

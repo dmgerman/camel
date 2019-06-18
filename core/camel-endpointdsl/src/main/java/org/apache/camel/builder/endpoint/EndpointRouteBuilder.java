@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A route builder which gives access to the endpoint DSL  */
+comment|/**  * A {@link RouteBuilder} which gives access to the endpoint DSL.  */
 end_comment
 
 begin_class
@@ -94,7 +94,7 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add routes to a context using a lambda expression.      * It can be used as following:      *<pre>      * RouteBuilder.addRoutes(context, rb ->      *     rb.from("direct:inbound").bean(ProduceTemplateBean.class)));      *</pre>      *      * @param context the camel context to add routes      * @param rbc a lambda expression receiving the {@code RouteBuilder} to use to create routes      * @throws Exception if an error occurs      */
+comment|/**      * Add routes to a context using a lambda expression.      * It can be used as following:      *<pre>      * RouteBuilder.addRoutes(context, rb ->      *     rb.from("direct:inbound").bean(ProduceTemplateBean.class)));      *</pre>      *      * @param context the camel context to add routes      * @param rbc a lambda expression receiving the {@code RouteBuilder} to use for creating routes      * @throws Exception if an error occurs      */
 DECL|method|addEndpointRoutes (CamelContext context, ThrowingConsumer<EndpointRouteBuilder, Exception> rbc)
 specifier|public
 specifier|static
