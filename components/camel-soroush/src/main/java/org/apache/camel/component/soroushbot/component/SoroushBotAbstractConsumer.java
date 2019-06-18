@@ -148,7 +148,7 @@ name|soroushbot
 operator|.
 name|models
 operator|.
-name|Endpoint
+name|SoroushAction
 import|;
 end_import
 
@@ -399,9 +399,10 @@ name|generateUrl
 argument_list|(
 name|endpoint
 operator|.
-name|authorizationToken
+name|getAuthorizationToken
+argument_list|()
 argument_list|,
-name|Endpoint
+name|SoroushAction
 operator|.
 name|getMessage
 argument_list|,
@@ -425,7 +426,8 @@ name|connectTimeout
 argument_list|(
 name|endpoint
 operator|.
-name|connectionTimeout
+name|getConnectionTimeout
+argument_list|()
 argument_list|,
 name|TimeUnit
 operator|.
@@ -464,7 +466,8 @@ name|request
 argument_list|,
 name|endpoint
 operator|.
-name|maxConnectionRetry
+name|getMaxConnectionRetry
+argument_list|()
 argument_list|)
 block|{
 annotation|@
@@ -760,7 +763,8 @@ if|if
 condition|(
 name|endpoint
 operator|.
-name|autoDownload
+name|isAutoDownload
+argument_list|()
 condition|)
 block|{
 name|endpoint

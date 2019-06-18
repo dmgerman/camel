@@ -124,7 +124,7 @@ name|soroushbot
 operator|.
 name|models
 operator|.
-name|Endpoint
+name|SoroushAction
 import|;
 end_import
 
@@ -255,7 +255,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * this Producer is responsible for URIs of type {@link Endpoint#sendMessage}  * to send message to SoroushAPI.  * it will be instantiated for URIs like "soroush:sendMessage/[token]  */
+comment|/**  * this Producer is responsible for URIs of type {@link SoroushAction#sendMessage}  * to send message to SoroushAPI.  * it will be instantiated for URIs like "soroush:sendMessage/[token]  */
 end_comment
 
 begin_class
@@ -346,7 +346,8 @@ if|if
 condition|(
 name|endpoint
 operator|.
-name|autoUploadFile
+name|isAutoDownload
+argument_list|()
 condition|)
 block|{
 name|endpoint
@@ -363,7 +364,7 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @throws MaximumConnectionRetryReachedException if can not connect to soroush after retry {@link SoroushBotEndpoint#maxConnectionRetry} times      * @throws SoroushException                       if soroush response code wasn't 200      */
+comment|/**      * @throws MaximumConnectionRetryReachedException if can not connect to soroush after retry {@link SoroushBotEndpoint#getMaxConnectionRetry()} times      * @throws SoroushException                       if soroush response code wasn't 200      */
 DECL|method|sendMessage (SoroushMessage message)
 specifier|private
 name|void
@@ -394,7 +395,8 @@ name|count
 operator|<=
 name|endpoint
 operator|.
-name|maxConnectionRetry
+name|getMaxConnectionRetry
+argument_list|()
 condition|;
 name|count
 operator|++
@@ -497,7 +499,8 @@ name|count
 operator|==
 name|endpoint
 operator|.
-name|maxConnectionRetry
+name|getMaxConnectionRetry
+argument_list|()
 condition|)
 block|{
 throw|throw

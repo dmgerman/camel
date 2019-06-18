@@ -86,7 +86,7 @@ name|soroushbot
 operator|.
 name|models
 operator|.
-name|Endpoint
+name|SoroushAction
 import|;
 end_import
 
@@ -262,7 +262,7 @@ return|;
 block|}
 block|}
 comment|/**      * create fully qualified URL, given the token, endpoint and fileId if needed.      *      * @param token      * @param type      * @param fileId      * @return      */
-DECL|method|generateUrl (String token, Endpoint type, String fileId)
+DECL|method|generateUrl (String token, SoroushAction type, String fileId)
 specifier|public
 name|String
 name|generateUrl
@@ -270,7 +270,7 @@ parameter_list|(
 name|String
 name|token
 parameter_list|,
-name|Endpoint
+name|SoroushAction
 name|type
 parameter_list|,
 name|String
@@ -370,7 +370,7 @@ name|generateUrl
 argument_list|(
 name|token
 argument_list|,
-name|Endpoint
+name|SoroushAction
 operator|.
 name|uploadFile
 argument_list|,
@@ -416,7 +416,7 @@ name|generateUrl
 argument_list|(
 name|token
 argument_list|,
-name|Endpoint
+name|SoroushAction
 operator|.
 name|sendMessage
 argument_list|,
@@ -465,7 +465,7 @@ name|generateUrl
 argument_list|(
 name|token
 argument_list|,
-name|Endpoint
+name|SoroushAction
 operator|.
 name|downloadFile
 argument_list|,

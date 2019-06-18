@@ -164,7 +164,7 @@ name|soroushbot
 operator|.
 name|models
 operator|.
-name|Endpoint
+name|SoroushAction
 import|;
 end_import
 
@@ -519,7 +519,7 @@ name|generateUrl
 argument_list|(
 name|authorizationToken
 argument_list|,
-name|Endpoint
+name|SoroushAction
 operator|.
 name|getMessage
 argument_list|,
@@ -614,7 +614,7 @@ literal|"bad_string"
 operator|+
 name|authorizationToken
 argument_list|,
-name|Endpoint
+name|SoroushAction
 operator|.
 name|getMessage
 argument_list|,

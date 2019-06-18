@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * create a thread pool and process each message using one of threads,  * it is guaranteed that all message from a same person will processed by the same thread.  * thread pool size could be configured using {@link SoroushBotEndpoint#concurrentConsumers}  * this consumer support both Sync and Async processors.  */
+comment|/**  * create a thread pool and process each message using one of threads,  * it is guaranteed that all message from a same person will processed by the same thread.  * thread pool size could be configured using {@link SoroushBotEndpoint#getConcurrentConsumers()}  * this consumer support both Sync and Async processors.  */
 end_comment
 
 begin_class
@@ -140,11 +140,13 @@ name|MultiQueueWithTopicThreadPool
 argument_list|(
 name|endpoint
 operator|.
-name|concurrentConsumers
+name|getConcurrentConsumers
+argument_list|()
 argument_list|,
 name|endpoint
 operator|.
-name|queueCapacityPerThread
+name|getQueueCapacityPerThread
+argument_list|()
 argument_list|,
 literal|"Soroush Thread"
 argument_list|)

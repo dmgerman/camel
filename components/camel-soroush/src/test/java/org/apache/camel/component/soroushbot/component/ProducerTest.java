@@ -88,7 +88,7 @@ name|soroushbot
 operator|.
 name|models
 operator|.
-name|Endpoint
+name|SoroushAction
 import|;
 end_import
 
@@ -273,7 +273,7 @@ name|to
 argument_list|(
 literal|"soroush://"
 operator|+
-name|Endpoint
+name|SoroushAction
 operator|.
 name|sendMessage
 operator|+

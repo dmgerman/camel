@@ -136,42 +136,126 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The endpoint type. Support getMessage as consumer and          * sendMessage,uploadFile,downloadFile as producer.          * The option is a          *<code>org.apache.camel.component.soroushbot.models.Endpoint</code>          * type.          * @group common          */
-DECL|method|endpoint (Endpoint endpoint)
+comment|/**          * The action to do.          * The option is a          *<code>org.apache.camel.component.soroushbot.models.SoroushAction</code> type.          * @group common          */
+DECL|method|action (SoroushAction action)
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
-name|endpoint
+name|action
 parameter_list|(
-name|Endpoint
-name|endpoint
+name|SoroushAction
+name|action
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"endpoint"
+literal|"action"
 argument_list|,
-name|endpoint
+name|action
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**          * The endpoint type. Support getMessage as consumer and          * sendMessage,uploadFile,downloadFile as producer.          * The option will be converted to a          *<code>org.apache.camel.component.soroushbot.models.Endpoint</code>          * type.          * @group common          */
-DECL|method|endpoint (String endpoint)
+comment|/**          * The action to do.          * The option will be converted to a          *<code>org.apache.camel.component.soroushbot.models.SoroushAction</code> type.          * @group common          */
+DECL|method|action (String action)
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
-name|endpoint
+name|action
 parameter_list|(
 name|String
-name|endpoint
+name|action
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"endpoint"
+literal|"action"
 argument_list|,
-name|endpoint
+name|action
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Connection timeout in ms when connecting to soroush API.          * The option is a<code>int</code> type.          * @group common          */
+DECL|method|connectionTimeout ( int connectionTimeout)
+specifier|default
+name|SoroushBotEndpointConsumerBuilder
+name|connectionTimeout
+parameter_list|(
+name|int
+name|connectionTimeout
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"connectionTimeout"
+argument_list|,
+name|connectionTimeout
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Connection timeout in ms when connecting to soroush API.          * The option will be converted to a<code>int</code> type.          * @group common          */
+DECL|method|connectionTimeout ( String connectionTimeout)
+specifier|default
+name|SoroushBotEndpointConsumerBuilder
+name|connectionTimeout
+parameter_list|(
+name|String
+name|connectionTimeout
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"connectionTimeout"
+argument_list|,
+name|connectionTimeout
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Maximum connection retry when fail to connect to soroush API, if the          * quota is reached, MaximumConnectionRetryReachedException is thrown          * for that message.          * The option is a<code>int</code> type.          * @group common          */
+DECL|method|maxConnectionRetry ( int maxConnectionRetry)
+specifier|default
+name|SoroushBotEndpointConsumerBuilder
+name|maxConnectionRetry
+parameter_list|(
+name|int
+name|maxConnectionRetry
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"maxConnectionRetry"
+argument_list|,
+name|maxConnectionRetry
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Maximum connection retry when fail to connect to soroush API, if the          * quota is reached, MaximumConnectionRetryReachedException is thrown          * for that message.          * The option will be converted to a<code>int</code> type.          * @group common          */
+DECL|method|maxConnectionRetry ( String maxConnectionRetry)
+specifier|default
+name|SoroushBotEndpointConsumerBuilder
+name|maxConnectionRetry
+parameter_list|(
+name|String
+name|maxConnectionRetry
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"maxConnectionRetry"
+argument_list|,
+name|maxConnectionRetry
 argument_list|)
 expr_stmt|;
 return|return
@@ -220,13 +304,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of Thread created by consumer in the route. if you use this          * method for parallelism, it is guaranteed that messages from same user          * always execute in the same thread and therefore messages from the          * same user are processed sequentially. Default value notice: using          * SoroushBotSingleThreadConsumer.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
-DECL|method|concurrentConsumers ( Integer concurrentConsumers)
+comment|/**          * Number of Thread created by consumer in the route. if you use this          * method for parallelism, it is guaranteed that messages from same user          * always execute in the same thread and therefore messages from the          * same user are processed sequentially. Default value notice: using          * SoroushBotSingleThreadConsumer.          * The option is a<code>int</code> type.          * @group consumer          */
+DECL|method|concurrentConsumers ( int concurrentConsumers)
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|concurrentConsumers
 parameter_list|(
-name|Integer
+name|int
 name|concurrentConsumers
 parameter_list|)
 block|{
@@ -241,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of Thread created by consumer in the route. if you use this          * method for parallelism, it is guaranteed that messages from same user          * always execute in the same thread and therefore messages from the          * same user are processed sequentially. Default value notice: using          * SoroushBotSingleThreadConsumer.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
+comment|/**          * Number of Thread created by consumer in the route. if you use this          * method for parallelism, it is guaranteed that messages from same user          * always execute in the same thread and therefore messages from the          * same user are processed sequentially. Default value notice: using          * SoroushBotSingleThreadConsumer.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|concurrentConsumers ( String concurrentConsumers)
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
@@ -262,13 +346,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum capacity of each queue when concurrentConsumers is greater          * than 1. if a queue become full, every message that should go to that          * queue will be dropped. If bridgeErrorHandler is set to true, an          * exchange with CongestionException is directed to ErrorHandler. You          * can then processed the error using          * onException(CongestionException.class) route. Default value notice:          * infinite capacity.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
-DECL|method|queueCapacityPerThread ( Integer queueCapacityPerThread)
+comment|/**          * Maximum capacity of each queue when concurrentConsumers is greater          * than 1. if a queue become full, every message that should go to that          * queue will be dropped. If bridgeErrorHandler is set to true, an          * exchange with CongestionException is directed to ErrorHandler. You          * can then processed the error using          * onException(CongestionException.class) route. Default value notice:          * infinite capacity.          * The option is a<code>int</code> type.          * @group consumer          */
+DECL|method|queueCapacityPerThread ( int queueCapacityPerThread)
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
 name|queueCapacityPerThread
 parameter_list|(
-name|Integer
+name|int
 name|queueCapacityPerThread
 parameter_list|)
 block|{
@@ -283,7 +367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum capacity of each queue when concurrentConsumers is greater          * than 1. if a queue become full, every message that should go to that          * queue will be dropped. If bridgeErrorHandler is set to true, an          * exchange with CongestionException is directed to ErrorHandler. You          * can then processed the error using          * onException(CongestionException.class) route. Default value notice:          * infinite capacity.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
+comment|/**          * Maximum capacity of each queue when concurrentConsumers is greater          * than 1. if a queue become full, every message that should go to that          * queue will be dropped. If bridgeErrorHandler is set to true, an          * exchange with CongestionException is directed to ErrorHandler. You          * can then processed the error using          * onException(CongestionException.class) route. Default value notice:          * infinite capacity.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
 DECL|method|queueCapacityPerThread ( String queueCapacityPerThread)
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
@@ -298,447 +382,6 @@ argument_list|(
 literal|"queueCapacityPerThread"
 argument_list|,
 name|queueCapacityPerThread
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Automatically download SoroushMessage.fileUrl and          * SoroushMessage.thumbnailUrl if exists for the message and store them          * in SoroushMessage.file and SoroushMessage.thumbnail field.          * The option is a<code>java.lang.Boolean</code> type.          * @group getMessage          */
-DECL|method|autoDownload ( Boolean autoDownload)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|autoDownload
-parameter_list|(
-name|Boolean
-name|autoDownload
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"autoDownload"
-argument_list|,
-name|autoDownload
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Automatically download SoroushMessage.fileUrl and          * SoroushMessage.thumbnailUrl if exists for the message and store them          * in SoroushMessage.file and SoroushMessage.thumbnail field.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group getMessage          */
-DECL|method|autoDownload ( String autoDownload)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|autoDownload
-parameter_list|(
-name|String
-name|autoDownload
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"autoDownload"
-argument_list|,
-name|autoDownload
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The timeout in millisecond to reconnect the existing getMessage          * connection to ensure that the connection is always live and does not          * dead without notifying the bot. this value should not be changed.          * The option is a<code>long</code> type.          * @group getMessage          */
-DECL|method|reconnectIdleConnectionTimeout ( long reconnectIdleConnectionTimeout)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|reconnectIdleConnectionTimeout
-parameter_list|(
-name|long
-name|reconnectIdleConnectionTimeout
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"reconnectIdleConnectionTimeout"
-argument_list|,
-name|reconnectIdleConnectionTimeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The timeout in millisecond to reconnect the existing getMessage          * connection to ensure that the connection is always live and does not          * dead without notifying the bot. this value should not be changed.          * The option will be converted to a<code>long</code> type.          * @group getMessage          */
-DECL|method|reconnectIdleConnectionTimeout ( String reconnectIdleConnectionTimeout)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|reconnectIdleConnectionTimeout
-parameter_list|(
-name|String
-name|reconnectIdleConnectionTimeout
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"reconnectIdleConnectionTimeout"
-argument_list|,
-name|reconnectIdleConnectionTimeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * If true, when downloading an attached file, thumbnail will be          * downloaded if provided in the message. Otherwise, only the file will          * be downloaded.          * The option is a<code>java.lang.Boolean</code> type.          * @group downloadFile          */
-DECL|method|downloadThumbnail ( Boolean downloadThumbnail)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|downloadThumbnail
-parameter_list|(
-name|Boolean
-name|downloadThumbnail
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"downloadThumbnail"
-argument_list|,
-name|downloadThumbnail
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * If true, when downloading an attached file, thumbnail will be          * downloaded if provided in the message. Otherwise, only the file will          * be downloaded.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group downloadFile          */
-DECL|method|downloadThumbnail ( String downloadThumbnail)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|downloadThumbnail
-parameter_list|(
-name|String
-name|downloadThumbnail
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"downloadThumbnail"
-argument_list|,
-name|downloadThumbnail
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Force to download SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl)          * if exists, even if the SoroushMessage.file(SoroushMessage.thumbnail)          * was not null in that message.          * The option is a<code>java.lang.Boolean</code> type.          * @group downloadFile          */
-DECL|method|forceDownload ( Boolean forceDownload)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|forceDownload
-parameter_list|(
-name|Boolean
-name|forceDownload
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"forceDownload"
-argument_list|,
-name|forceDownload
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Force to download SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl)          * if exists, even if the SoroushMessage.file(SoroushMessage.thumbnail)          * was not null in that message.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group downloadFile          */
-DECL|method|forceDownload ( String forceDownload)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|forceDownload
-parameter_list|(
-name|String
-name|forceDownload
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"forceDownload"
-argument_list|,
-name|forceDownload
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The strategy to backoff in case of connection failure. Currently 3          * strategies are supported: 1. Exponential (default): It multiply          * retryWaitingTime by retryExponentialCoefficient after each connection          * failure. 2. Linear: It increase retryWaitingTime by          * retryLinearIncrement after each connection failure. 3. Fixed: Always          * use retryWaitingTime as the time between retries.          * The option is a<code>java.lang.String</code> type.          * @group global          */
-DECL|method|backOffStrategy ( String backOffStrategy)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|backOffStrategy
-parameter_list|(
-name|String
-name|backOffStrategy
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"backOffStrategy"
-argument_list|,
-name|backOffStrategy
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Connection timeout in ms when connecting to soroush API.          * The option is a<code>java.lang.Integer</code> type.          * @group global          */
-DECL|method|connectionTimeout ( Integer connectionTimeout)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|connectionTimeout
-parameter_list|(
-name|Integer
-name|connectionTimeout
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionTimeout"
-argument_list|,
-name|connectionTimeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Connection timeout in ms when connecting to soroush API.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group global          */
-DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|connectionTimeout
-parameter_list|(
-name|String
-name|connectionTimeout
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionTimeout"
-argument_list|,
-name|connectionTimeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Maximum connection retry when fail to connect to soroush API, if the          * quota is reached, MaximumConnectionRetryReachedException is thrown          * for that message.          * The option is a<code>java.lang.Integer</code> type.          * @group global          */
-DECL|method|maxConnectionRetry ( Integer maxConnectionRetry)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|maxConnectionRetry
-parameter_list|(
-name|Integer
-name|maxConnectionRetry
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"maxConnectionRetry"
-argument_list|,
-name|maxConnectionRetry
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Maximum connection retry when fail to connect to soroush API, if the          * quota is reached, MaximumConnectionRetryReachedException is thrown          * for that message.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group global          */
-DECL|method|maxConnectionRetry ( String maxConnectionRetry)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|maxConnectionRetry
-parameter_list|(
-name|String
-name|maxConnectionRetry
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"maxConnectionRetry"
-argument_list|,
-name|maxConnectionRetry
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Maximum amount of time (in millisecond) a thread wait before retrying          * failed request.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|maxRetryWaitingTime ( Long maxRetryWaitingTime)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|maxRetryWaitingTime
-parameter_list|(
-name|Long
-name|maxRetryWaitingTime
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"maxRetryWaitingTime"
-argument_list|,
-name|maxRetryWaitingTime
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Maximum amount of time (in millisecond) a thread wait before retrying          * failed request.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|maxRetryWaitingTime ( String maxRetryWaitingTime)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|maxRetryWaitingTime
-parameter_list|(
-name|String
-name|maxRetryWaitingTime
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"maxRetryWaitingTime"
-argument_list|,
-name|maxRetryWaitingTime
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Coefficient to compute back off time when using Exponential Back Off          * strategy.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryExponentialCoefficient ( Long retryExponentialCoefficient)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|retryExponentialCoefficient
-parameter_list|(
-name|Long
-name|retryExponentialCoefficient
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"retryExponentialCoefficient"
-argument_list|,
-name|retryExponentialCoefficient
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Coefficient to compute back off time when using Exponential Back Off          * strategy.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryExponentialCoefficient ( String retryExponentialCoefficient)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|retryExponentialCoefficient
-parameter_list|(
-name|String
-name|retryExponentialCoefficient
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"retryExponentialCoefficient"
-argument_list|,
-name|retryExponentialCoefficient
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The amount of time (in millisecond) which adds to waiting time when          * using Linear back off strategy.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryLinearIncrement ( Long retryLinearIncrement)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|retryLinearIncrement
-parameter_list|(
-name|Long
-name|retryLinearIncrement
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"retryLinearIncrement"
-argument_list|,
-name|retryLinearIncrement
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The amount of time (in millisecond) which adds to waiting time when          * using Linear back off strategy.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryLinearIncrement ( String retryLinearIncrement)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|retryLinearIncrement
-parameter_list|(
-name|String
-name|retryLinearIncrement
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"retryLinearIncrement"
-argument_list|,
-name|retryLinearIncrement
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Waiting time before retry failed request (Millisecond). If          * backOffStrategy is not Fixed this is the based value for computing          * back off waiting time. the first retry is always happen immediately          * after failure and retryWaitingTime do not apply to the first retry.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryWaitingTime ( Long retryWaitingTime)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|retryWaitingTime
-parameter_list|(
-name|Long
-name|retryWaitingTime
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"retryWaitingTime"
-argument_list|,
-name|retryWaitingTime
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Waiting time before retry failed request (Millisecond). If          * backOffStrategy is not Fixed this is the based value for computing          * back off waiting time. the first retry is always happen immediately          * after failure and retryWaitingTime do not apply to the first retry.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryWaitingTime ( String retryWaitingTime)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|retryWaitingTime
-parameter_list|(
-name|String
-name|retryWaitingTime
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"retryWaitingTime"
-argument_list|,
-name|retryWaitingTime
 argument_list|)
 expr_stmt|;
 return|return
@@ -766,84 +409,231 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Automatically upload attachments when a message goes to the          * sendMessage endpoint and the SoroushMessage.file          * (SoroushMessage.thumbnail) has been set and          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is null.          * The option is a<code>java.lang.Boolean</code> type.          * @group sendMessage          */
-DECL|method|autoUploadFile ( Boolean autoUploadFile)
+comment|/**          * The strategy to backoff in case of connection failure. Currently 3          * strategies are supported: 1. Exponential (default): It multiply          * retryWaitingTime by retryExponentialCoefficient after each connection          * failure. 2. Linear: It increase retryWaitingTime by          * retryLinearIncrement after each connection failure. 3. Fixed: Always          * use retryWaitingTime as the time between retries.          * The option is a<code>java.lang.String</code> type.          * @group scheduling          */
+DECL|method|backOffStrategy ( String backOffStrategy)
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
-name|autoUploadFile
-parameter_list|(
-name|Boolean
-name|autoUploadFile
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"autoUploadFile"
-argument_list|,
-name|autoUploadFile
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Automatically upload attachments when a message goes to the          * sendMessage endpoint and the SoroushMessage.file          * (SoroushMessage.thumbnail) has been set and          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is null.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group sendMessage          */
-DECL|method|autoUploadFile ( String autoUploadFile)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|autoUploadFile
+name|backOffStrategy
 parameter_list|(
 name|String
-name|autoUploadFile
+name|backOffStrategy
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"autoUploadFile"
+literal|"backOffStrategy"
 argument_list|,
-name|autoUploadFile
+name|backOffStrategy
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**          * Force to upload SoroushMessage.file(SoroushMessage.thumbnail) if          * exists, even if the          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is not null in          * the message.          * The option is a<code>java.lang.Boolean</code> type.          * @group uploadFile          */
-DECL|method|forceUpload ( Boolean forceUpload)
+comment|/**          * Maximum amount of time (in millisecond) a thread wait before retrying          * failed request.          * The option is a<code>long</code> type.          * @group scheduling          */
+DECL|method|maxRetryWaitingTime ( long maxRetryWaitingTime)
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
-name|forceUpload
+name|maxRetryWaitingTime
 parameter_list|(
-name|Boolean
-name|forceUpload
+name|long
+name|maxRetryWaitingTime
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"forceUpload"
+literal|"maxRetryWaitingTime"
 argument_list|,
-name|forceUpload
+name|maxRetryWaitingTime
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**          * Force to upload SoroushMessage.file(SoroushMessage.thumbnail) if          * exists, even if the          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is not null in          * the message.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group uploadFile          */
-DECL|method|forceUpload (String forceUpload)
+comment|/**          * Maximum amount of time (in millisecond) a thread wait before retrying          * failed request.          * The option will be converted to a<code>long</code> type.          * @group scheduling          */
+DECL|method|maxRetryWaitingTime ( String maxRetryWaitingTime)
 specifier|default
 name|SoroushBotEndpointConsumerBuilder
-name|forceUpload
+name|maxRetryWaitingTime
 parameter_list|(
 name|String
-name|forceUpload
+name|maxRetryWaitingTime
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"forceUpload"
+literal|"maxRetryWaitingTime"
 argument_list|,
-name|forceUpload
+name|maxRetryWaitingTime
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The timeout in millisecond to reconnect the existing getMessage          * connection to ensure that the connection is always live and does not          * dead without notifying the bot. this value should not be changed.          * The option is a<code>long</code> type.          * @group scheduling          */
+DECL|method|reconnectIdleConnectionTimeout ( long reconnectIdleConnectionTimeout)
+specifier|default
+name|SoroushBotEndpointConsumerBuilder
+name|reconnectIdleConnectionTimeout
+parameter_list|(
+name|long
+name|reconnectIdleConnectionTimeout
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"reconnectIdleConnectionTimeout"
+argument_list|,
+name|reconnectIdleConnectionTimeout
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The timeout in millisecond to reconnect the existing getMessage          * connection to ensure that the connection is always live and does not          * dead without notifying the bot. this value should not be changed.          * The option will be converted to a<code>long</code> type.          * @group scheduling          */
+DECL|method|reconnectIdleConnectionTimeout ( String reconnectIdleConnectionTimeout)
+specifier|default
+name|SoroushBotEndpointConsumerBuilder
+name|reconnectIdleConnectionTimeout
+parameter_list|(
+name|String
+name|reconnectIdleConnectionTimeout
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"reconnectIdleConnectionTimeout"
+argument_list|,
+name|reconnectIdleConnectionTimeout
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Coefficient to compute back off time when using Exponential Back Off          * strategy.          * The option is a<code>long</code> type.          * @group scheduling          */
+DECL|method|retryExponentialCoefficient ( long retryExponentialCoefficient)
+specifier|default
+name|SoroushBotEndpointConsumerBuilder
+name|retryExponentialCoefficient
+parameter_list|(
+name|long
+name|retryExponentialCoefficient
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"retryExponentialCoefficient"
+argument_list|,
+name|retryExponentialCoefficient
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Coefficient to compute back off time when using Exponential Back Off          * strategy.          * The option will be converted to a<code>long</code> type.          * @group scheduling          */
+DECL|method|retryExponentialCoefficient ( String retryExponentialCoefficient)
+specifier|default
+name|SoroushBotEndpointConsumerBuilder
+name|retryExponentialCoefficient
+parameter_list|(
+name|String
+name|retryExponentialCoefficient
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"retryExponentialCoefficient"
+argument_list|,
+name|retryExponentialCoefficient
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The amount of time (in millisecond) which adds to waiting time when          * using Linear back off strategy.          * The option is a<code>long</code> type.          * @group scheduling          */
+DECL|method|retryLinearIncrement ( long retryLinearIncrement)
+specifier|default
+name|SoroushBotEndpointConsumerBuilder
+name|retryLinearIncrement
+parameter_list|(
+name|long
+name|retryLinearIncrement
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"retryLinearIncrement"
+argument_list|,
+name|retryLinearIncrement
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The amount of time (in millisecond) which adds to waiting time when          * using Linear back off strategy.          * The option will be converted to a<code>long</code> type.          * @group scheduling          */
+DECL|method|retryLinearIncrement ( String retryLinearIncrement)
+specifier|default
+name|SoroushBotEndpointConsumerBuilder
+name|retryLinearIncrement
+parameter_list|(
+name|String
+name|retryLinearIncrement
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"retryLinearIncrement"
+argument_list|,
+name|retryLinearIncrement
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Waiting time before retry failed request (Millisecond). If          * backOffStrategy is not Fixed this is the based value for computing          * back off waiting time. the first retry is always happen immediately          * after failure and retryWaitingTime do not apply to the first retry.          * The option is a<code>long</code> type.          * @group scheduling          */
+DECL|method|retryWaitingTime ( long retryWaitingTime)
+specifier|default
+name|SoroushBotEndpointConsumerBuilder
+name|retryWaitingTime
+parameter_list|(
+name|long
+name|retryWaitingTime
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"retryWaitingTime"
+argument_list|,
+name|retryWaitingTime
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Waiting time before retry failed request (Millisecond). If          * backOffStrategy is not Fixed this is the based value for computing          * back off waiting time. the first retry is always happen immediately          * after failure and retryWaitingTime do not apply to the first retry.          * The option will be converted to a<code>long</code> type.          * @group scheduling          */
+DECL|method|retryWaitingTime ( String retryWaitingTime)
+specifier|default
+name|SoroushBotEndpointConsumerBuilder
+name|retryWaitingTime
+parameter_list|(
+name|String
+name|retryWaitingTime
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"retryWaitingTime"
+argument_list|,
+name|retryWaitingTime
 argument_list|)
 expr_stmt|;
 return|return
@@ -1062,42 +852,336 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The endpoint type. Support getMessage as consumer and          * sendMessage,uploadFile,downloadFile as producer.          * The option is a          *<code>org.apache.camel.component.soroushbot.models.Endpoint</code>          * type.          * @group common          */
-DECL|method|endpoint (Endpoint endpoint)
+comment|/**          * The action to do.          * The option is a          *<code>org.apache.camel.component.soroushbot.models.SoroushAction</code> type.          * @group common          */
+DECL|method|action (SoroushAction action)
 specifier|default
 name|SoroushBotEndpointProducerBuilder
-name|endpoint
+name|action
 parameter_list|(
-name|Endpoint
-name|endpoint
+name|SoroushAction
+name|action
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"endpoint"
+literal|"action"
 argument_list|,
-name|endpoint
+name|action
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**          * The endpoint type. Support getMessage as consumer and          * sendMessage,uploadFile,downloadFile as producer.          * The option will be converted to a          *<code>org.apache.camel.component.soroushbot.models.Endpoint</code>          * type.          * @group common          */
-DECL|method|endpoint (String endpoint)
+comment|/**          * The action to do.          * The option will be converted to a          *<code>org.apache.camel.component.soroushbot.models.SoroushAction</code> type.          * @group common          */
+DECL|method|action (String action)
 specifier|default
 name|SoroushBotEndpointProducerBuilder
-name|endpoint
+name|action
 parameter_list|(
 name|String
-name|endpoint
+name|action
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"endpoint"
+literal|"action"
 argument_list|,
-name|endpoint
+name|action
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Connection timeout in ms when connecting to soroush API.          * The option is a<code>int</code> type.          * @group common          */
+DECL|method|connectionTimeout ( int connectionTimeout)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|connectionTimeout
+parameter_list|(
+name|int
+name|connectionTimeout
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"connectionTimeout"
+argument_list|,
+name|connectionTimeout
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Connection timeout in ms when connecting to soroush API.          * The option will be converted to a<code>int</code> type.          * @group common          */
+DECL|method|connectionTimeout ( String connectionTimeout)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|connectionTimeout
+parameter_list|(
+name|String
+name|connectionTimeout
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"connectionTimeout"
+argument_list|,
+name|connectionTimeout
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Maximum connection retry when fail to connect to soroush API, if the          * quota is reached, MaximumConnectionRetryReachedException is thrown          * for that message.          * The option is a<code>int</code> type.          * @group common          */
+DECL|method|maxConnectionRetry ( int maxConnectionRetry)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|maxConnectionRetry
+parameter_list|(
+name|int
+name|maxConnectionRetry
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"maxConnectionRetry"
+argument_list|,
+name|maxConnectionRetry
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Maximum connection retry when fail to connect to soroush API, if the          * quota is reached, MaximumConnectionRetryReachedException is thrown          * for that message.          * The option will be converted to a<code>int</code> type.          * @group common          */
+DECL|method|maxConnectionRetry ( String maxConnectionRetry)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|maxConnectionRetry
+parameter_list|(
+name|String
+name|maxConnectionRetry
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"maxConnectionRetry"
+argument_list|,
+name|maxConnectionRetry
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Automatically download SoroushMessage.fileUrl and          * SoroushMessage.thumbnailUrl if exists for the message and store them          * in SoroushMessage.file and SoroushMessage.thumbnail field.          * The option is a<code>boolean</code> type.          * @group producer          */
+DECL|method|autoDownload ( boolean autoDownload)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|autoDownload
+parameter_list|(
+name|boolean
+name|autoDownload
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"autoDownload"
+argument_list|,
+name|autoDownload
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Automatically download SoroushMessage.fileUrl and          * SoroushMessage.thumbnailUrl if exists for the message and store them          * in SoroushMessage.file and SoroushMessage.thumbnail field.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+DECL|method|autoDownload ( String autoDownload)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|autoDownload
+parameter_list|(
+name|String
+name|autoDownload
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"autoDownload"
+argument_list|,
+name|autoDownload
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Automatically upload attachments when a message goes to the          * sendMessage endpoint and the SoroushMessage.file          * (SoroushMessage.thumbnail) has been set and          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is null.          * The option is a<code>boolean</code> type.          * @group producer          */
+DECL|method|autoUploadFile ( boolean autoUploadFile)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|autoUploadFile
+parameter_list|(
+name|boolean
+name|autoUploadFile
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"autoUploadFile"
+argument_list|,
+name|autoUploadFile
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Automatically upload attachments when a message goes to the          * sendMessage endpoint and the SoroushMessage.file          * (SoroushMessage.thumbnail) has been set and          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is null.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+DECL|method|autoUploadFile ( String autoUploadFile)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|autoUploadFile
+parameter_list|(
+name|String
+name|autoUploadFile
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"autoUploadFile"
+argument_list|,
+name|autoUploadFile
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * If true, when downloading an attached file, thumbnail will be          * downloaded if provided in the message. Otherwise, only the file will          * be downloaded.          * The option is a<code>boolean</code> type.          * @group producer          */
+DECL|method|downloadThumbnail ( boolean downloadThumbnail)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|downloadThumbnail
+parameter_list|(
+name|boolean
+name|downloadThumbnail
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"downloadThumbnail"
+argument_list|,
+name|downloadThumbnail
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * If true, when downloading an attached file, thumbnail will be          * downloaded if provided in the message. Otherwise, only the file will          * be downloaded.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+DECL|method|downloadThumbnail ( String downloadThumbnail)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|downloadThumbnail
+parameter_list|(
+name|String
+name|downloadThumbnail
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"downloadThumbnail"
+argument_list|,
+name|downloadThumbnail
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Force to download SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl)          * if exists, even if the SoroushMessage.file(SoroushMessage.thumbnail)          * was not null in that message.          * The option is a<code>boolean</code> type.          * @group producer          */
+DECL|method|forceDownload ( boolean forceDownload)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|forceDownload
+parameter_list|(
+name|boolean
+name|forceDownload
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"forceDownload"
+argument_list|,
+name|forceDownload
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Force to download SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl)          * if exists, even if the SoroushMessage.file(SoroushMessage.thumbnail)          * was not null in that message.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+DECL|method|forceDownload ( String forceDownload)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|forceDownload
+parameter_list|(
+name|String
+name|forceDownload
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"forceDownload"
+argument_list|,
+name|forceDownload
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Force to upload SoroushMessage.file(SoroushMessage.thumbnail) if          * exists, even if the          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is not null in          * the message.          * The option is a<code>boolean</code> type.          * @group producer          */
+DECL|method|forceUpload ( boolean forceUpload)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|forceUpload
+parameter_list|(
+name|boolean
+name|forceUpload
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"forceUpload"
+argument_list|,
+name|forceUpload
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Force to upload SoroushMessage.file(SoroushMessage.thumbnail) if          * exists, even if the          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is not null in          * the message.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+DECL|method|forceUpload (String forceUpload)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|forceUpload
+parameter_list|(
+name|String
+name|forceUpload
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"forceUpload"
+argument_list|,
+name|forceUpload
 argument_list|)
 expr_stmt|;
 return|return
@@ -1146,447 +1230,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Automatically download SoroushMessage.fileUrl and          * SoroushMessage.thumbnailUrl if exists for the message and store them          * in SoroushMessage.file and SoroushMessage.thumbnail field.          * The option is a<code>java.lang.Boolean</code> type.          * @group getMessage          */
-DECL|method|autoDownload ( Boolean autoDownload)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|autoDownload
-parameter_list|(
-name|Boolean
-name|autoDownload
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"autoDownload"
-argument_list|,
-name|autoDownload
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Automatically download SoroushMessage.fileUrl and          * SoroushMessage.thumbnailUrl if exists for the message and store them          * in SoroushMessage.file and SoroushMessage.thumbnail field.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group getMessage          */
-DECL|method|autoDownload ( String autoDownload)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|autoDownload
-parameter_list|(
-name|String
-name|autoDownload
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"autoDownload"
-argument_list|,
-name|autoDownload
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The timeout in millisecond to reconnect the existing getMessage          * connection to ensure that the connection is always live and does not          * dead without notifying the bot. this value should not be changed.          * The option is a<code>long</code> type.          * @group getMessage          */
-DECL|method|reconnectIdleConnectionTimeout ( long reconnectIdleConnectionTimeout)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|reconnectIdleConnectionTimeout
-parameter_list|(
-name|long
-name|reconnectIdleConnectionTimeout
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"reconnectIdleConnectionTimeout"
-argument_list|,
-name|reconnectIdleConnectionTimeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The timeout in millisecond to reconnect the existing getMessage          * connection to ensure that the connection is always live and does not          * dead without notifying the bot. this value should not be changed.          * The option will be converted to a<code>long</code> type.          * @group getMessage          */
-DECL|method|reconnectIdleConnectionTimeout ( String reconnectIdleConnectionTimeout)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|reconnectIdleConnectionTimeout
-parameter_list|(
-name|String
-name|reconnectIdleConnectionTimeout
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"reconnectIdleConnectionTimeout"
-argument_list|,
-name|reconnectIdleConnectionTimeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * If true, when downloading an attached file, thumbnail will be          * downloaded if provided in the message. Otherwise, only the file will          * be downloaded.          * The option is a<code>java.lang.Boolean</code> type.          * @group downloadFile          */
-DECL|method|downloadThumbnail ( Boolean downloadThumbnail)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|downloadThumbnail
-parameter_list|(
-name|Boolean
-name|downloadThumbnail
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"downloadThumbnail"
-argument_list|,
-name|downloadThumbnail
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * If true, when downloading an attached file, thumbnail will be          * downloaded if provided in the message. Otherwise, only the file will          * be downloaded.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group downloadFile          */
-DECL|method|downloadThumbnail ( String downloadThumbnail)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|downloadThumbnail
-parameter_list|(
-name|String
-name|downloadThumbnail
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"downloadThumbnail"
-argument_list|,
-name|downloadThumbnail
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Force to download SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl)          * if exists, even if the SoroushMessage.file(SoroushMessage.thumbnail)          * was not null in that message.          * The option is a<code>java.lang.Boolean</code> type.          * @group downloadFile          */
-DECL|method|forceDownload ( Boolean forceDownload)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|forceDownload
-parameter_list|(
-name|Boolean
-name|forceDownload
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"forceDownload"
-argument_list|,
-name|forceDownload
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Force to download SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl)          * if exists, even if the SoroushMessage.file(SoroushMessage.thumbnail)          * was not null in that message.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group downloadFile          */
-DECL|method|forceDownload ( String forceDownload)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|forceDownload
-parameter_list|(
-name|String
-name|forceDownload
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"forceDownload"
-argument_list|,
-name|forceDownload
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The strategy to backoff in case of connection failure. Currently 3          * strategies are supported: 1. Exponential (default): It multiply          * retryWaitingTime by retryExponentialCoefficient after each connection          * failure. 2. Linear: It increase retryWaitingTime by          * retryLinearIncrement after each connection failure. 3. Fixed: Always          * use retryWaitingTime as the time between retries.          * The option is a<code>java.lang.String</code> type.          * @group global          */
-DECL|method|backOffStrategy ( String backOffStrategy)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|backOffStrategy
-parameter_list|(
-name|String
-name|backOffStrategy
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"backOffStrategy"
-argument_list|,
-name|backOffStrategy
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Connection timeout in ms when connecting to soroush API.          * The option is a<code>java.lang.Integer</code> type.          * @group global          */
-DECL|method|connectionTimeout ( Integer connectionTimeout)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|connectionTimeout
-parameter_list|(
-name|Integer
-name|connectionTimeout
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionTimeout"
-argument_list|,
-name|connectionTimeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Connection timeout in ms when connecting to soroush API.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group global          */
-DECL|method|connectionTimeout ( String connectionTimeout)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|connectionTimeout
-parameter_list|(
-name|String
-name|connectionTimeout
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionTimeout"
-argument_list|,
-name|connectionTimeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Maximum connection retry when fail to connect to soroush API, if the          * quota is reached, MaximumConnectionRetryReachedException is thrown          * for that message.          * The option is a<code>java.lang.Integer</code> type.          * @group global          */
-DECL|method|maxConnectionRetry ( Integer maxConnectionRetry)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|maxConnectionRetry
-parameter_list|(
-name|Integer
-name|maxConnectionRetry
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"maxConnectionRetry"
-argument_list|,
-name|maxConnectionRetry
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Maximum connection retry when fail to connect to soroush API, if the          * quota is reached, MaximumConnectionRetryReachedException is thrown          * for that message.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group global          */
-DECL|method|maxConnectionRetry ( String maxConnectionRetry)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|maxConnectionRetry
-parameter_list|(
-name|String
-name|maxConnectionRetry
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"maxConnectionRetry"
-argument_list|,
-name|maxConnectionRetry
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Maximum amount of time (in millisecond) a thread wait before retrying          * failed request.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|maxRetryWaitingTime ( Long maxRetryWaitingTime)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|maxRetryWaitingTime
-parameter_list|(
-name|Long
-name|maxRetryWaitingTime
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"maxRetryWaitingTime"
-argument_list|,
-name|maxRetryWaitingTime
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Maximum amount of time (in millisecond) a thread wait before retrying          * failed request.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|maxRetryWaitingTime ( String maxRetryWaitingTime)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|maxRetryWaitingTime
-parameter_list|(
-name|String
-name|maxRetryWaitingTime
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"maxRetryWaitingTime"
-argument_list|,
-name|maxRetryWaitingTime
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Coefficient to compute back off time when using Exponential Back Off          * strategy.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryExponentialCoefficient ( Long retryExponentialCoefficient)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|retryExponentialCoefficient
-parameter_list|(
-name|Long
-name|retryExponentialCoefficient
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"retryExponentialCoefficient"
-argument_list|,
-name|retryExponentialCoefficient
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Coefficient to compute back off time when using Exponential Back Off          * strategy.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryExponentialCoefficient ( String retryExponentialCoefficient)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|retryExponentialCoefficient
-parameter_list|(
-name|String
-name|retryExponentialCoefficient
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"retryExponentialCoefficient"
-argument_list|,
-name|retryExponentialCoefficient
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The amount of time (in millisecond) which adds to waiting time when          * using Linear back off strategy.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryLinearIncrement ( Long retryLinearIncrement)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|retryLinearIncrement
-parameter_list|(
-name|Long
-name|retryLinearIncrement
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"retryLinearIncrement"
-argument_list|,
-name|retryLinearIncrement
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The amount of time (in millisecond) which adds to waiting time when          * using Linear back off strategy.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryLinearIncrement ( String retryLinearIncrement)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|retryLinearIncrement
-parameter_list|(
-name|String
-name|retryLinearIncrement
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"retryLinearIncrement"
-argument_list|,
-name|retryLinearIncrement
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Waiting time before retry failed request (Millisecond). If          * backOffStrategy is not Fixed this is the based value for computing          * back off waiting time. the first retry is always happen immediately          * after failure and retryWaitingTime do not apply to the first retry.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryWaitingTime ( Long retryWaitingTime)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|retryWaitingTime
-parameter_list|(
-name|Long
-name|retryWaitingTime
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"retryWaitingTime"
-argument_list|,
-name|retryWaitingTime
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Waiting time before retry failed request (Millisecond). If          * backOffStrategy is not Fixed this is the based value for computing          * back off waiting time. the first retry is always happen immediately          * after failure and retryWaitingTime do not apply to the first retry.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryWaitingTime ( String retryWaitingTime)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|retryWaitingTime
-parameter_list|(
-name|String
-name|retryWaitingTime
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"retryWaitingTime"
-argument_list|,
-name|retryWaitingTime
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The authorization token for using the bot. if uri path does not          * contain authorization token, this token will be used.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|authorizationToken ( String authorizationToken)
 specifier|default
@@ -1608,84 +1251,231 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Automatically upload attachments when a message goes to the          * sendMessage endpoint and the SoroushMessage.file          * (SoroushMessage.thumbnail) has been set and          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is null.          * The option is a<code>java.lang.Boolean</code> type.          * @group sendMessage          */
-DECL|method|autoUploadFile ( Boolean autoUploadFile)
+comment|/**          * The strategy to backoff in case of connection failure. Currently 3          * strategies are supported: 1. Exponential (default): It multiply          * retryWaitingTime by retryExponentialCoefficient after each connection          * failure. 2. Linear: It increase retryWaitingTime by          * retryLinearIncrement after each connection failure. 3. Fixed: Always          * use retryWaitingTime as the time between retries.          * The option is a<code>java.lang.String</code> type.          * @group scheduling          */
+DECL|method|backOffStrategy ( String backOffStrategy)
 specifier|default
 name|SoroushBotEndpointProducerBuilder
-name|autoUploadFile
-parameter_list|(
-name|Boolean
-name|autoUploadFile
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"autoUploadFile"
-argument_list|,
-name|autoUploadFile
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Automatically upload attachments when a message goes to the          * sendMessage endpoint and the SoroushMessage.file          * (SoroushMessage.thumbnail) has been set and          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is null.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group sendMessage          */
-DECL|method|autoUploadFile ( String autoUploadFile)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|autoUploadFile
+name|backOffStrategy
 parameter_list|(
 name|String
-name|autoUploadFile
+name|backOffStrategy
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"autoUploadFile"
+literal|"backOffStrategy"
 argument_list|,
-name|autoUploadFile
+name|backOffStrategy
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**          * Force to upload SoroushMessage.file(SoroushMessage.thumbnail) if          * exists, even if the          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is not null in          * the message.          * The option is a<code>java.lang.Boolean</code> type.          * @group uploadFile          */
-DECL|method|forceUpload ( Boolean forceUpload)
+comment|/**          * Maximum amount of time (in millisecond) a thread wait before retrying          * failed request.          * The option is a<code>long</code> type.          * @group scheduling          */
+DECL|method|maxRetryWaitingTime ( long maxRetryWaitingTime)
 specifier|default
 name|SoroushBotEndpointProducerBuilder
-name|forceUpload
+name|maxRetryWaitingTime
 parameter_list|(
-name|Boolean
-name|forceUpload
+name|long
+name|maxRetryWaitingTime
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"forceUpload"
+literal|"maxRetryWaitingTime"
 argument_list|,
-name|forceUpload
+name|maxRetryWaitingTime
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**          * Force to upload SoroushMessage.file(SoroushMessage.thumbnail) if          * exists, even if the          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is not null in          * the message.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group uploadFile          */
-DECL|method|forceUpload (String forceUpload)
+comment|/**          * Maximum amount of time (in millisecond) a thread wait before retrying          * failed request.          * The option will be converted to a<code>long</code> type.          * @group scheduling          */
+DECL|method|maxRetryWaitingTime ( String maxRetryWaitingTime)
 specifier|default
 name|SoroushBotEndpointProducerBuilder
-name|forceUpload
+name|maxRetryWaitingTime
 parameter_list|(
 name|String
-name|forceUpload
+name|maxRetryWaitingTime
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"forceUpload"
+literal|"maxRetryWaitingTime"
 argument_list|,
-name|forceUpload
+name|maxRetryWaitingTime
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The timeout in millisecond to reconnect the existing getMessage          * connection to ensure that the connection is always live and does not          * dead without notifying the bot. this value should not be changed.          * The option is a<code>long</code> type.          * @group scheduling          */
+DECL|method|reconnectIdleConnectionTimeout ( long reconnectIdleConnectionTimeout)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|reconnectIdleConnectionTimeout
+parameter_list|(
+name|long
+name|reconnectIdleConnectionTimeout
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"reconnectIdleConnectionTimeout"
+argument_list|,
+name|reconnectIdleConnectionTimeout
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The timeout in millisecond to reconnect the existing getMessage          * connection to ensure that the connection is always live and does not          * dead without notifying the bot. this value should not be changed.          * The option will be converted to a<code>long</code> type.          * @group scheduling          */
+DECL|method|reconnectIdleConnectionTimeout ( String reconnectIdleConnectionTimeout)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|reconnectIdleConnectionTimeout
+parameter_list|(
+name|String
+name|reconnectIdleConnectionTimeout
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"reconnectIdleConnectionTimeout"
+argument_list|,
+name|reconnectIdleConnectionTimeout
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Coefficient to compute back off time when using Exponential Back Off          * strategy.          * The option is a<code>long</code> type.          * @group scheduling          */
+DECL|method|retryExponentialCoefficient ( long retryExponentialCoefficient)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|retryExponentialCoefficient
+parameter_list|(
+name|long
+name|retryExponentialCoefficient
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"retryExponentialCoefficient"
+argument_list|,
+name|retryExponentialCoefficient
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Coefficient to compute back off time when using Exponential Back Off          * strategy.          * The option will be converted to a<code>long</code> type.          * @group scheduling          */
+DECL|method|retryExponentialCoefficient ( String retryExponentialCoefficient)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|retryExponentialCoefficient
+parameter_list|(
+name|String
+name|retryExponentialCoefficient
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"retryExponentialCoefficient"
+argument_list|,
+name|retryExponentialCoefficient
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The amount of time (in millisecond) which adds to waiting time when          * using Linear back off strategy.          * The option is a<code>long</code> type.          * @group scheduling          */
+DECL|method|retryLinearIncrement ( long retryLinearIncrement)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|retryLinearIncrement
+parameter_list|(
+name|long
+name|retryLinearIncrement
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"retryLinearIncrement"
+argument_list|,
+name|retryLinearIncrement
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The amount of time (in millisecond) which adds to waiting time when          * using Linear back off strategy.          * The option will be converted to a<code>long</code> type.          * @group scheduling          */
+DECL|method|retryLinearIncrement ( String retryLinearIncrement)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|retryLinearIncrement
+parameter_list|(
+name|String
+name|retryLinearIncrement
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"retryLinearIncrement"
+argument_list|,
+name|retryLinearIncrement
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Waiting time before retry failed request (Millisecond). If          * backOffStrategy is not Fixed this is the based value for computing          * back off waiting time. the first retry is always happen immediately          * after failure and retryWaitingTime do not apply to the first retry.          * The option is a<code>long</code> type.          * @group scheduling          */
+DECL|method|retryWaitingTime ( long retryWaitingTime)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|retryWaitingTime
+parameter_list|(
+name|long
+name|retryWaitingTime
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"retryWaitingTime"
+argument_list|,
+name|retryWaitingTime
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Waiting time before retry failed request (Millisecond). If          * backOffStrategy is not Fixed this is the based value for computing          * back off waiting time. the first retry is always happen immediately          * after failure and retryWaitingTime do not apply to the first retry.          * The option will be converted to a<code>long</code> type.          * @group scheduling          */
+DECL|method|retryWaitingTime ( String retryWaitingTime)
+specifier|default
+name|SoroushBotEndpointProducerBuilder
+name|retryWaitingTime
+parameter_list|(
+name|String
+name|retryWaitingTime
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"retryWaitingTime"
+argument_list|,
+name|retryWaitingTime
 argument_list|)
 expr_stmt|;
 return|return
@@ -1822,244 +1612,55 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The endpoint type. Support getMessage as consumer and          * sendMessage,uploadFile,downloadFile as producer.          * The option is a          *<code>org.apache.camel.component.soroushbot.models.Endpoint</code>          * type.          * @group common          */
-DECL|method|endpoint (Endpoint endpoint)
+comment|/**          * The action to do.          * The option is a          *<code>org.apache.camel.component.soroushbot.models.SoroushAction</code> type.          * @group common          */
+DECL|method|action (SoroushAction action)
 specifier|default
 name|SoroushBotEndpointBuilder
-name|endpoint
+name|action
 parameter_list|(
-name|Endpoint
-name|endpoint
+name|SoroushAction
+name|action
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"endpoint"
+literal|"action"
 argument_list|,
-name|endpoint
+name|action
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**          * The endpoint type. Support getMessage as consumer and          * sendMessage,uploadFile,downloadFile as producer.          * The option will be converted to a          *<code>org.apache.camel.component.soroushbot.models.Endpoint</code>          * type.          * @group common          */
-DECL|method|endpoint (String endpoint)
+comment|/**          * The action to do.          * The option will be converted to a          *<code>org.apache.camel.component.soroushbot.models.SoroushAction</code> type.          * @group common          */
+DECL|method|action (String action)
 specifier|default
 name|SoroushBotEndpointBuilder
-name|endpoint
-parameter_list|(
-name|String
-name|endpoint
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"endpoint"
-argument_list|,
-name|endpoint
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Automatically download SoroushMessage.fileUrl and          * SoroushMessage.thumbnailUrl if exists for the message and store them          * in SoroushMessage.file and SoroushMessage.thumbnail field.          * The option is a<code>java.lang.Boolean</code> type.          * @group getMessage          */
-DECL|method|autoDownload (Boolean autoDownload)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|autoDownload
-parameter_list|(
-name|Boolean
-name|autoDownload
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"autoDownload"
-argument_list|,
-name|autoDownload
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Automatically download SoroushMessage.fileUrl and          * SoroushMessage.thumbnailUrl if exists for the message and store them          * in SoroushMessage.file and SoroushMessage.thumbnail field.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group getMessage          */
-DECL|method|autoDownload (String autoDownload)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|autoDownload
+name|action
 parameter_list|(
 name|String
-name|autoDownload
+name|action
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"autoDownload"
+literal|"action"
 argument_list|,
-name|autoDownload
+name|action
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**          * The timeout in millisecond to reconnect the existing getMessage          * connection to ensure that the connection is always live and does not          * dead without notifying the bot. this value should not be changed.          * The option is a<code>long</code> type.          * @group getMessage          */
-DECL|method|reconnectIdleConnectionTimeout ( long reconnectIdleConnectionTimeout)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|reconnectIdleConnectionTimeout
-parameter_list|(
-name|long
-name|reconnectIdleConnectionTimeout
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"reconnectIdleConnectionTimeout"
-argument_list|,
-name|reconnectIdleConnectionTimeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The timeout in millisecond to reconnect the existing getMessage          * connection to ensure that the connection is always live and does not          * dead without notifying the bot. this value should not be changed.          * The option will be converted to a<code>long</code> type.          * @group getMessage          */
-DECL|method|reconnectIdleConnectionTimeout ( String reconnectIdleConnectionTimeout)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|reconnectIdleConnectionTimeout
-parameter_list|(
-name|String
-name|reconnectIdleConnectionTimeout
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"reconnectIdleConnectionTimeout"
-argument_list|,
-name|reconnectIdleConnectionTimeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * If true, when downloading an attached file, thumbnail will be          * downloaded if provided in the message. Otherwise, only the file will          * be downloaded.          * The option is a<code>java.lang.Boolean</code> type.          * @group downloadFile          */
-DECL|method|downloadThumbnail ( Boolean downloadThumbnail)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|downloadThumbnail
-parameter_list|(
-name|Boolean
-name|downloadThumbnail
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"downloadThumbnail"
-argument_list|,
-name|downloadThumbnail
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * If true, when downloading an attached file, thumbnail will be          * downloaded if provided in the message. Otherwise, only the file will          * be downloaded.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group downloadFile          */
-DECL|method|downloadThumbnail ( String downloadThumbnail)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|downloadThumbnail
-parameter_list|(
-name|String
-name|downloadThumbnail
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"downloadThumbnail"
-argument_list|,
-name|downloadThumbnail
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Force to download SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl)          * if exists, even if the SoroushMessage.file(SoroushMessage.thumbnail)          * was not null in that message.          * The option is a<code>java.lang.Boolean</code> type.          * @group downloadFile          */
-DECL|method|forceDownload (Boolean forceDownload)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|forceDownload
-parameter_list|(
-name|Boolean
-name|forceDownload
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"forceDownload"
-argument_list|,
-name|forceDownload
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Force to download SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl)          * if exists, even if the SoroushMessage.file(SoroushMessage.thumbnail)          * was not null in that message.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group downloadFile          */
-DECL|method|forceDownload (String forceDownload)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|forceDownload
-parameter_list|(
-name|String
-name|forceDownload
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"forceDownload"
-argument_list|,
-name|forceDownload
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The strategy to backoff in case of connection failure. Currently 3          * strategies are supported: 1. Exponential (default): It multiply          * retryWaitingTime by retryExponentialCoefficient after each connection          * failure. 2. Linear: It increase retryWaitingTime by          * retryLinearIncrement after each connection failure. 3. Fixed: Always          * use retryWaitingTime as the time between retries.          * The option is a<code>java.lang.String</code> type.          * @group global          */
-DECL|method|backOffStrategy (String backOffStrategy)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|backOffStrategy
-parameter_list|(
-name|String
-name|backOffStrategy
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"backOffStrategy"
-argument_list|,
-name|backOffStrategy
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Connection timeout in ms when connecting to soroush API.          * The option is a<code>java.lang.Integer</code> type.          * @group global          */
-DECL|method|connectionTimeout ( Integer connectionTimeout)
+comment|/**          * Connection timeout in ms when connecting to soroush API.          * The option is a<code>int</code> type.          * @group common          */
+DECL|method|connectionTimeout ( int connectionTimeout)
 specifier|default
 name|SoroushBotEndpointBuilder
 name|connectionTimeout
 parameter_list|(
-name|Integer
+name|int
 name|connectionTimeout
 parameter_list|)
 block|{
@@ -2074,7 +1675,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Connection timeout in ms when connecting to soroush API.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group global          */
+comment|/**          * Connection timeout in ms when connecting to soroush API.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|connectionTimeout ( String connectionTimeout)
 specifier|default
 name|SoroushBotEndpointBuilder
@@ -2095,13 +1696,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum connection retry when fail to connect to soroush API, if the          * quota is reached, MaximumConnectionRetryReachedException is thrown          * for that message.          * The option is a<code>java.lang.Integer</code> type.          * @group global          */
-DECL|method|maxConnectionRetry ( Integer maxConnectionRetry)
+comment|/**          * Maximum connection retry when fail to connect to soroush API, if the          * quota is reached, MaximumConnectionRetryReachedException is thrown          * for that message.          * The option is a<code>int</code> type.          * @group common          */
+DECL|method|maxConnectionRetry ( int maxConnectionRetry)
 specifier|default
 name|SoroushBotEndpointBuilder
 name|maxConnectionRetry
 parameter_list|(
-name|Integer
+name|int
 name|maxConnectionRetry
 parameter_list|)
 block|{
@@ -2116,7 +1717,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum connection retry when fail to connect to soroush API, if the          * quota is reached, MaximumConnectionRetryReachedException is thrown          * for that message.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group global          */
+comment|/**          * Maximum connection retry when fail to connect to soroush API, if the          * quota is reached, MaximumConnectionRetryReachedException is thrown          * for that message.          * The option will be converted to a<code>int</code> type.          * @group common          */
 DECL|method|maxConnectionRetry ( String maxConnectionRetry)
 specifier|default
 name|SoroushBotEndpointBuilder
@@ -2131,174 +1732,6 @@ argument_list|(
 literal|"maxConnectionRetry"
 argument_list|,
 name|maxConnectionRetry
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Maximum amount of time (in millisecond) a thread wait before retrying          * failed request.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|maxRetryWaitingTime ( Long maxRetryWaitingTime)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|maxRetryWaitingTime
-parameter_list|(
-name|Long
-name|maxRetryWaitingTime
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"maxRetryWaitingTime"
-argument_list|,
-name|maxRetryWaitingTime
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Maximum amount of time (in millisecond) a thread wait before retrying          * failed request.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|maxRetryWaitingTime ( String maxRetryWaitingTime)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|maxRetryWaitingTime
-parameter_list|(
-name|String
-name|maxRetryWaitingTime
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"maxRetryWaitingTime"
-argument_list|,
-name|maxRetryWaitingTime
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Coefficient to compute back off time when using Exponential Back Off          * strategy.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryExponentialCoefficient ( Long retryExponentialCoefficient)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|retryExponentialCoefficient
-parameter_list|(
-name|Long
-name|retryExponentialCoefficient
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"retryExponentialCoefficient"
-argument_list|,
-name|retryExponentialCoefficient
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Coefficient to compute back off time when using Exponential Back Off          * strategy.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryExponentialCoefficient ( String retryExponentialCoefficient)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|retryExponentialCoefficient
-parameter_list|(
-name|String
-name|retryExponentialCoefficient
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"retryExponentialCoefficient"
-argument_list|,
-name|retryExponentialCoefficient
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The amount of time (in millisecond) which adds to waiting time when          * using Linear back off strategy.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryLinearIncrement ( Long retryLinearIncrement)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|retryLinearIncrement
-parameter_list|(
-name|Long
-name|retryLinearIncrement
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"retryLinearIncrement"
-argument_list|,
-name|retryLinearIncrement
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The amount of time (in millisecond) which adds to waiting time when          * using Linear back off strategy.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryLinearIncrement ( String retryLinearIncrement)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|retryLinearIncrement
-parameter_list|(
-name|String
-name|retryLinearIncrement
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"retryLinearIncrement"
-argument_list|,
-name|retryLinearIncrement
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Waiting time before retry failed request (Millisecond). If          * backOffStrategy is not Fixed this is the based value for computing          * back off waiting time. the first retry is always happen immediately          * after failure and retryWaitingTime do not apply to the first retry.          * The option is a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryWaitingTime (Long retryWaitingTime)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|retryWaitingTime
-parameter_list|(
-name|Long
-name|retryWaitingTime
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"retryWaitingTime"
-argument_list|,
-name|retryWaitingTime
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Waiting time before retry failed request (Millisecond). If          * backOffStrategy is not Fixed this is the based value for computing          * back off waiting time. the first retry is always happen immediately          * after failure and retryWaitingTime do not apply to the first retry.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group global          */
-DECL|method|retryWaitingTime ( String retryWaitingTime)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|retryWaitingTime
-parameter_list|(
-name|String
-name|retryWaitingTime
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"retryWaitingTime"
-argument_list|,
-name|retryWaitingTime
 argument_list|)
 expr_stmt|;
 return|return
@@ -2326,84 +1759,231 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Automatically upload attachments when a message goes to the          * sendMessage endpoint and the SoroushMessage.file          * (SoroushMessage.thumbnail) has been set and          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is null.          * The option is a<code>java.lang.Boolean</code> type.          * @group sendMessage          */
-DECL|method|autoUploadFile (Boolean autoUploadFile)
+comment|/**          * The strategy to backoff in case of connection failure. Currently 3          * strategies are supported: 1. Exponential (default): It multiply          * retryWaitingTime by retryExponentialCoefficient after each connection          * failure. 2. Linear: It increase retryWaitingTime by          * retryLinearIncrement after each connection failure. 3. Fixed: Always          * use retryWaitingTime as the time between retries.          * The option is a<code>java.lang.String</code> type.          * @group scheduling          */
+DECL|method|backOffStrategy (String backOffStrategy)
 specifier|default
 name|SoroushBotEndpointBuilder
-name|autoUploadFile
-parameter_list|(
-name|Boolean
-name|autoUploadFile
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"autoUploadFile"
-argument_list|,
-name|autoUploadFile
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Automatically upload attachments when a message goes to the          * sendMessage endpoint and the SoroushMessage.file          * (SoroushMessage.thumbnail) has been set and          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is null.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group sendMessage          */
-DECL|method|autoUploadFile (String autoUploadFile)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|autoUploadFile
+name|backOffStrategy
 parameter_list|(
 name|String
-name|autoUploadFile
+name|backOffStrategy
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"autoUploadFile"
+literal|"backOffStrategy"
 argument_list|,
-name|autoUploadFile
+name|backOffStrategy
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**          * Force to upload SoroushMessage.file(SoroushMessage.thumbnail) if          * exists, even if the          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is not null in          * the message.          * The option is a<code>java.lang.Boolean</code> type.          * @group uploadFile          */
-DECL|method|forceUpload (Boolean forceUpload)
+comment|/**          * Maximum amount of time (in millisecond) a thread wait before retrying          * failed request.          * The option is a<code>long</code> type.          * @group scheduling          */
+DECL|method|maxRetryWaitingTime ( long maxRetryWaitingTime)
 specifier|default
 name|SoroushBotEndpointBuilder
-name|forceUpload
+name|maxRetryWaitingTime
 parameter_list|(
-name|Boolean
-name|forceUpload
+name|long
+name|maxRetryWaitingTime
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"forceUpload"
+literal|"maxRetryWaitingTime"
 argument_list|,
-name|forceUpload
+name|maxRetryWaitingTime
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**          * Force to upload SoroushMessage.file(SoroushMessage.thumbnail) if          * exists, even if the          * SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is not null in          * the message.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group uploadFile          */
-DECL|method|forceUpload (String forceUpload)
+comment|/**          * Maximum amount of time (in millisecond) a thread wait before retrying          * failed request.          * The option will be converted to a<code>long</code> type.          * @group scheduling          */
+DECL|method|maxRetryWaitingTime ( String maxRetryWaitingTime)
 specifier|default
 name|SoroushBotEndpointBuilder
-name|forceUpload
+name|maxRetryWaitingTime
 parameter_list|(
 name|String
-name|forceUpload
+name|maxRetryWaitingTime
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"forceUpload"
+literal|"maxRetryWaitingTime"
 argument_list|,
-name|forceUpload
+name|maxRetryWaitingTime
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The timeout in millisecond to reconnect the existing getMessage          * connection to ensure that the connection is always live and does not          * dead without notifying the bot. this value should not be changed.          * The option is a<code>long</code> type.          * @group scheduling          */
+DECL|method|reconnectIdleConnectionTimeout ( long reconnectIdleConnectionTimeout)
+specifier|default
+name|SoroushBotEndpointBuilder
+name|reconnectIdleConnectionTimeout
+parameter_list|(
+name|long
+name|reconnectIdleConnectionTimeout
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"reconnectIdleConnectionTimeout"
+argument_list|,
+name|reconnectIdleConnectionTimeout
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The timeout in millisecond to reconnect the existing getMessage          * connection to ensure that the connection is always live and does not          * dead without notifying the bot. this value should not be changed.          * The option will be converted to a<code>long</code> type.          * @group scheduling          */
+DECL|method|reconnectIdleConnectionTimeout ( String reconnectIdleConnectionTimeout)
+specifier|default
+name|SoroushBotEndpointBuilder
+name|reconnectIdleConnectionTimeout
+parameter_list|(
+name|String
+name|reconnectIdleConnectionTimeout
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"reconnectIdleConnectionTimeout"
+argument_list|,
+name|reconnectIdleConnectionTimeout
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Coefficient to compute back off time when using Exponential Back Off          * strategy.          * The option is a<code>long</code> type.          * @group scheduling          */
+DECL|method|retryExponentialCoefficient ( long retryExponentialCoefficient)
+specifier|default
+name|SoroushBotEndpointBuilder
+name|retryExponentialCoefficient
+parameter_list|(
+name|long
+name|retryExponentialCoefficient
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"retryExponentialCoefficient"
+argument_list|,
+name|retryExponentialCoefficient
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Coefficient to compute back off time when using Exponential Back Off          * strategy.          * The option will be converted to a<code>long</code> type.          * @group scheduling          */
+DECL|method|retryExponentialCoefficient ( String retryExponentialCoefficient)
+specifier|default
+name|SoroushBotEndpointBuilder
+name|retryExponentialCoefficient
+parameter_list|(
+name|String
+name|retryExponentialCoefficient
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"retryExponentialCoefficient"
+argument_list|,
+name|retryExponentialCoefficient
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The amount of time (in millisecond) which adds to waiting time when          * using Linear back off strategy.          * The option is a<code>long</code> type.          * @group scheduling          */
+DECL|method|retryLinearIncrement ( long retryLinearIncrement)
+specifier|default
+name|SoroushBotEndpointBuilder
+name|retryLinearIncrement
+parameter_list|(
+name|long
+name|retryLinearIncrement
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"retryLinearIncrement"
+argument_list|,
+name|retryLinearIncrement
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The amount of time (in millisecond) which adds to waiting time when          * using Linear back off strategy.          * The option will be converted to a<code>long</code> type.          * @group scheduling          */
+DECL|method|retryLinearIncrement ( String retryLinearIncrement)
+specifier|default
+name|SoroushBotEndpointBuilder
+name|retryLinearIncrement
+parameter_list|(
+name|String
+name|retryLinearIncrement
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"retryLinearIncrement"
+argument_list|,
+name|retryLinearIncrement
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Waiting time before retry failed request (Millisecond). If          * backOffStrategy is not Fixed this is the based value for computing          * back off waiting time. the first retry is always happen immediately          * after failure and retryWaitingTime do not apply to the first retry.          * The option is a<code>long</code> type.          * @group scheduling          */
+DECL|method|retryWaitingTime (long retryWaitingTime)
+specifier|default
+name|SoroushBotEndpointBuilder
+name|retryWaitingTime
+parameter_list|(
+name|long
+name|retryWaitingTime
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"retryWaitingTime"
+argument_list|,
+name|retryWaitingTime
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Waiting time before retry failed request (Millisecond). If          * backOffStrategy is not Fixed this is the based value for computing          * back off waiting time. the first retry is always happen immediately          * after failure and retryWaitingTime do not apply to the first retry.          * The option will be converted to a<code>long</code> type.          * @group scheduling          */
+DECL|method|retryWaitingTime ( String retryWaitingTime)
+specifier|default
+name|SoroushBotEndpointBuilder
+name|retryWaitingTime
+parameter_list|(
+name|String
+name|retryWaitingTime
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"retryWaitingTime"
+argument_list|,
+name|retryWaitingTime
 argument_list|)
 expr_stmt|;
 return|return
@@ -2519,10 +2099,10 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.soroushbot.models.Endpoint</code> enum.      */
-DECL|enum|Endpoint
+comment|/**      * Proxy enum for      *<code>org.apache.camel.component.soroushbot.models.SoroushAction</code>      * enum.      */
+DECL|enum|SoroushAction
 enum|enum
-name|Endpoint
+name|SoroushAction
 block|{
 DECL|enumConstant|sendMessage
 name|sendMessage

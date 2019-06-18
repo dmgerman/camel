@@ -46,7 +46,7 @@ name|soroushbot
 operator|.
 name|models
 operator|.
-name|Endpoint
+name|SoroushAction
 import|;
 end_import
 
@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * this Producer is responsible for URIs of type {@link Endpoint#uploadFile}  * to upload messages file(thumbnail) to SoroushAPI.  * it will be instantiated for URIs like "soroush:uploadFile/[token]  */
+comment|/**  * this Producer is responsible for URIs of type {@link SoroushAction#uploadFile}  * to upload messages file(thumbnail) to SoroushAPI.  * it will be instantiated for URIs like "soroush:uploadFile/[token]  */
 end_comment
 
 begin_class

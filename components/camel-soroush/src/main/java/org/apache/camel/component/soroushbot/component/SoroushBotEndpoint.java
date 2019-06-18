@@ -190,7 +190,7 @@ name|soroushbot
 operator|.
 name|models
 operator|.
-name|Endpoint
+name|SoroushAction
 import|;
 end_import
 
@@ -522,7 +522,7 @@ literal|"Soroush"
 argument_list|,
 name|syntax
 operator|=
-literal|"soroush:endpoint/authorizationToken"
+literal|"soroush:action/authorizationToken"
 argument_list|,
 name|label
 operator|=
@@ -556,11 +556,11 @@ name|UriPath
 argument_list|(
 name|name
 operator|=
-literal|"endpoint"
+literal|"action"
 argument_list|,
 name|description
 operator|=
-literal|"The endpoint type. Support `getMessage` as consumer and `sendMessage`,`uploadFile`,`downloadFile` as producer"
+literal|"The action to do."
 argument_list|)
 annotation|@
 name|Metadata
@@ -569,16 +569,17 @@ name|required
 operator|=
 literal|true
 argument_list|)
-DECL|field|type
-name|Endpoint
-name|type
+DECL|field|action
+specifier|private
+name|SoroushAction
+name|action
 decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"global,security"
+literal|"common,security"
 argument_list|,
 name|description
 operator|=
@@ -591,6 +592,7 @@ operator|=
 literal|true
 argument_list|)
 DECL|field|authorizationToken
+specifier|private
 name|String
 name|authorizationToken
 decl_stmt|;
@@ -599,7 +601,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"global"
+literal|"common"
 argument_list|,
 name|description
 operator|=
@@ -610,7 +612,8 @@ operator|=
 literal|"30000"
 argument_list|)
 DECL|field|connectionTimeout
-name|Integer
+specifier|private
+name|int
 name|connectionTimeout
 init|=
 literal|30000
@@ -620,7 +623,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"global"
+literal|"common"
 argument_list|,
 name|description
 operator|=
@@ -633,7 +636,8 @@ operator|=
 literal|"4"
 argument_list|)
 DECL|field|maxConnectionRetry
-name|Integer
+specifier|private
+name|int
 name|maxConnectionRetry
 init|=
 literal|4
@@ -643,7 +647,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"getMessage,consumer"
+literal|"consumer"
 argument_list|,
 name|description
 operator|=
@@ -662,7 +666,8 @@ operator|=
 literal|"using SoroushBotSingleThreadConsumer"
 argument_list|)
 DECL|field|concurrentConsumers
-name|Integer
+specifier|private
+name|int
 name|concurrentConsumers
 init|=
 literal|1
@@ -672,7 +677,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"getMessage,consumer"
+literal|"consumer"
 argument_list|,
 name|description
 operator|=
@@ -693,17 +698,16 @@ operator|=
 literal|"infinite capacity"
 argument_list|)
 DECL|field|queueCapacityPerThread
-name|Integer
+specifier|private
+name|int
 name|queueCapacityPerThread
-init|=
-literal|0
 decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"sendMessage"
+literal|"producer"
 argument_list|,
 name|description
 operator|=
@@ -716,7 +720,8 @@ operator|=
 literal|"true"
 argument_list|)
 DECL|field|autoUploadFile
-name|Boolean
+specifier|private
+name|boolean
 name|autoUploadFile
 init|=
 literal|true
@@ -726,7 +731,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"sendMessage,uploadFile"
+literal|"producer"
 argument_list|,
 name|description
 operator|=
@@ -739,17 +744,16 @@ operator|=
 literal|"false"
 argument_list|)
 DECL|field|forceUpload
-name|Boolean
+specifier|private
+name|boolean
 name|forceUpload
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"getMessage,downloadFile"
+literal|"producer"
 argument_list|,
 name|description
 operator|=
@@ -762,7 +766,8 @@ operator|=
 literal|"true"
 argument_list|)
 DECL|field|downloadThumbnail
-name|Boolean
+specifier|private
+name|boolean
 name|downloadThumbnail
 init|=
 literal|true
@@ -772,7 +777,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"downloadFile"
+literal|"producer"
 argument_list|,
 name|description
 operator|=
@@ -785,17 +790,16 @@ operator|=
 literal|"false"
 argument_list|)
 DECL|field|forceDownload
-name|Boolean
+specifier|private
+name|boolean
 name|forceDownload
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"getMessage"
+literal|"producer"
 argument_list|,
 name|description
 operator|=
@@ -808,17 +812,16 @@ operator|=
 literal|"false"
 argument_list|)
 DECL|field|autoDownload
-name|Boolean
+specifier|private
+name|boolean
 name|autoDownload
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"global"
+literal|"scheduling"
 argument_list|,
 name|description
 operator|=
@@ -833,7 +836,8 @@ operator|=
 literal|"1000"
 argument_list|)
 DECL|field|retryWaitingTime
-name|Long
+specifier|private
+name|long
 name|retryWaitingTime
 init|=
 literal|1000L
@@ -843,7 +847,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"global"
+literal|"scheduling"
 argument_list|,
 name|description
 operator|=
@@ -860,6 +864,7 @@ operator|=
 literal|"Exponential"
 argument_list|)
 DECL|field|backOffStrategy
+specifier|private
 name|String
 name|backOffStrategy
 init|=
@@ -870,7 +875,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"global"
+literal|"scheduling"
 argument_list|,
 name|description
 operator|=
@@ -881,7 +886,8 @@ operator|=
 literal|"2"
 argument_list|)
 DECL|field|retryExponentialCoefficient
-name|Long
+specifier|private
+name|long
 name|retryExponentialCoefficient
 init|=
 literal|2L
@@ -891,7 +897,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"global"
+literal|"scheduling"
 argument_list|,
 name|description
 operator|=
@@ -902,7 +908,8 @@ operator|=
 literal|"10000"
 argument_list|)
 DECL|field|retryLinearIncrement
-name|Long
+specifier|private
+name|long
 name|retryLinearIncrement
 init|=
 literal|10000L
@@ -912,7 +919,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"global"
+literal|"scheduling"
 argument_list|,
 name|description
 operator|=
@@ -923,7 +930,8 @@ operator|=
 literal|"3600000"
 argument_list|)
 DECL|field|maxRetryWaitingTime
-name|Long
+specifier|private
+name|long
 name|maxRetryWaitingTime
 init|=
 literal|3600000L
@@ -933,7 +941,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"getMessage"
+literal|"scheduling"
 argument_list|,
 name|description
 operator|=
@@ -1016,7 +1024,7 @@ argument_list|()
 operator|.
 name|map
 argument_list|(
-name|Endpoint
+name|SoroushAction
 operator|::
 name|value
 argument_list|)
@@ -1038,7 +1046,7 @@ DECL|method|getSupportedEndpoint ()
 specifier|private
 name|List
 argument_list|<
-name|Endpoint
+name|SoroushAction
 argument_list|>
 name|getSupportedEndpoint
 parameter_list|()
@@ -1048,7 +1056,7 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-name|Endpoint
+name|SoroushAction
 operator|.
 name|values
 argument_list|()
@@ -1191,7 +1199,7 @@ throw|;
 block|}
 for|for
 control|(
-name|Endpoint
+name|SoroushAction
 name|supported
 range|:
 name|getSupportedEndpoint
@@ -1216,7 +1224,7 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-name|type
+name|action
 operator|=
 name|supported
 expr_stmt|;
@@ -1224,7 +1232,7 @@ block|}
 block|}
 if|if
 condition|(
-name|type
+name|action
 operator|==
 literal|null
 condition|)
@@ -1315,30 +1323,6 @@ name|void
 name|normalizeConfiguration
 parameter_list|()
 block|{
-if|if
-condition|(
-name|connectionTimeout
-operator|==
-literal|null
-condition|)
-block|{
-name|connectionTimeout
-operator|=
-literal|0
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|maxConnectionRetry
-operator|==
-literal|null
-condition|)
-block|{
-name|maxConnectionRetry
-operator|=
-literal|0
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|reconnectIdleConnectionTimeout
@@ -1460,7 +1444,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * create producer based on uri {@link Endpoint}      *      * @return created producer      */
+comment|/**      * create producer based on uri {@link SoroushAction}      *      * @return created producer      */
 annotation|@
 name|Override
 DECL|method|createProducer ()
@@ -1471,9 +1455,9 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|type
+name|action
 operator|==
-name|Endpoint
+name|SoroushAction
 operator|.
 name|sendMessage
 condition|)
@@ -1488,9 +1472,9 @@ return|;
 block|}
 if|if
 condition|(
-name|type
+name|action
 operator|==
-name|Endpoint
+name|SoroushAction
 operator|.
 name|uploadFile
 condition|)
@@ -1505,9 +1489,9 @@ return|;
 block|}
 if|if
 condition|(
-name|type
+name|action
 operator|==
-name|Endpoint
+name|SoroushAction
 operator|.
 name|downloadFile
 condition|)
@@ -1528,19 +1512,19 @@ name|IllegalArgumentException
 argument_list|(
 literal|"only ["
 operator|+
-name|Endpoint
+name|SoroushAction
 operator|.
 name|sendMessage
 operator|+
 literal|", "
 operator|+
-name|Endpoint
+name|SoroushAction
 operator|.
 name|downloadFile
 operator|+
 literal|", "
 operator|+
-name|Endpoint
+name|SoroushAction
 operator|.
 name|uploadFile
 operator|+
@@ -1568,9 +1552,9 @@ name|consumer
 decl_stmt|;
 if|if
 condition|(
-name|type
+name|action
 operator|!=
-name|Endpoint
+name|SoroushAction
 operator|.
 name|getMessage
 condition|)
@@ -1581,7 +1565,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"only "
 operator|+
-name|Endpoint
+name|SoroushAction
 operator|.
 name|getMessage
 operator|+
@@ -1764,30 +1748,30 @@ return|return
 name|sendMessageTarget
 return|;
 block|}
-DECL|method|getType ()
+DECL|method|getAction ()
 specifier|public
-name|Endpoint
-name|getType
+name|SoroushAction
+name|getAction
 parameter_list|()
 block|{
 return|return
-name|type
+name|action
 return|;
 block|}
-DECL|method|setType (Endpoint type)
+DECL|method|setAction (SoroushAction action)
 specifier|public
 name|void
-name|setType
+name|setAction
 parameter_list|(
-name|Endpoint
-name|type
+name|SoroushAction
+name|action
 parameter_list|)
 block|{
 name|this
 operator|.
-name|type
+name|action
 operator|=
-name|type
+name|action
 expr_stmt|;
 block|}
 DECL|method|getAuthorizationToken ()
@@ -1818,7 +1802,7 @@ expr_stmt|;
 block|}
 DECL|method|getConnectionTimeout ()
 specifier|public
-name|Integer
+name|int
 name|getConnectionTimeout
 parameter_list|()
 block|{
@@ -1826,12 +1810,12 @@ return|return
 name|connectionTimeout
 return|;
 block|}
-DECL|method|setConnectionTimeout (Integer connectionTimeout)
+DECL|method|setConnectionTimeout (int connectionTimeout)
 specifier|public
 name|void
 name|setConnectionTimeout
 parameter_list|(
-name|Integer
+name|int
 name|connectionTimeout
 parameter_list|)
 block|{
@@ -1844,7 +1828,7 @@ expr_stmt|;
 block|}
 DECL|method|getMaxConnectionRetry ()
 specifier|public
-name|Integer
+name|int
 name|getMaxConnectionRetry
 parameter_list|()
 block|{
@@ -1852,12 +1836,12 @@ return|return
 name|maxConnectionRetry
 return|;
 block|}
-DECL|method|setMaxConnectionRetry (Integer maxConnectionRetry)
+DECL|method|setMaxConnectionRetry (int maxConnectionRetry)
 specifier|public
 name|void
 name|setMaxConnectionRetry
 parameter_list|(
-name|Integer
+name|int
 name|maxConnectionRetry
 parameter_list|)
 block|{
@@ -1870,7 +1854,7 @@ expr_stmt|;
 block|}
 DECL|method|getConcurrentConsumers ()
 specifier|public
-name|Integer
+name|int
 name|getConcurrentConsumers
 parameter_list|()
 block|{
@@ -1878,12 +1862,12 @@ return|return
 name|concurrentConsumers
 return|;
 block|}
-DECL|method|setConcurrentConsumers (Integer concurrentConsumers)
+DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
 name|void
 name|setConcurrentConsumers
 parameter_list|(
-name|Integer
+name|int
 name|concurrentConsumers
 parameter_list|)
 block|{
@@ -1896,7 +1880,7 @@ expr_stmt|;
 block|}
 DECL|method|getQueueCapacityPerThread ()
 specifier|public
-name|Integer
+name|int
 name|getQueueCapacityPerThread
 parameter_list|()
 block|{
@@ -1904,12 +1888,12 @@ return|return
 name|queueCapacityPerThread
 return|;
 block|}
-DECL|method|setQueueCapacityPerThread (Integer queueCapacityPerThread)
+DECL|method|setQueueCapacityPerThread (int queueCapacityPerThread)
 specifier|public
 name|void
 name|setQueueCapacityPerThread
 parameter_list|(
-name|Integer
+name|int
 name|queueCapacityPerThread
 parameter_list|)
 block|{
@@ -1920,22 +1904,22 @@ operator|=
 name|queueCapacityPerThread
 expr_stmt|;
 block|}
-DECL|method|getAutoUploadFile ()
+DECL|method|isAutoUploadFile ()
 specifier|public
-name|Boolean
-name|getAutoUploadFile
+name|boolean
+name|isAutoUploadFile
 parameter_list|()
 block|{
 return|return
 name|autoUploadFile
 return|;
 block|}
-DECL|method|setAutoUploadFile (Boolean autoUploadFile)
+DECL|method|setAutoUploadFile (boolean autoUploadFile)
 specifier|public
 name|void
 name|setAutoUploadFile
 parameter_list|(
-name|Boolean
+name|boolean
 name|autoUploadFile
 parameter_list|)
 block|{
@@ -1946,22 +1930,22 @@ operator|=
 name|autoUploadFile
 expr_stmt|;
 block|}
-DECL|method|getForceUpload ()
+DECL|method|isForceUpload ()
 specifier|public
-name|Boolean
-name|getForceUpload
+name|boolean
+name|isForceUpload
 parameter_list|()
 block|{
 return|return
 name|forceUpload
 return|;
 block|}
-DECL|method|setForceUpload (Boolean forceUpload)
+DECL|method|setForceUpload (boolean forceUpload)
 specifier|public
 name|void
 name|setForceUpload
 parameter_list|(
-name|Boolean
+name|boolean
 name|forceUpload
 parameter_list|)
 block|{
@@ -1972,22 +1956,22 @@ operator|=
 name|forceUpload
 expr_stmt|;
 block|}
-DECL|method|getDownloadThumbnail ()
+DECL|method|isDownloadThumbnail ()
 specifier|public
-name|Boolean
-name|getDownloadThumbnail
+name|boolean
+name|isDownloadThumbnail
 parameter_list|()
 block|{
 return|return
 name|downloadThumbnail
 return|;
 block|}
-DECL|method|setDownloadThumbnail (Boolean downloadThumbnail)
+DECL|method|setDownloadThumbnail (boolean downloadThumbnail)
 specifier|public
 name|void
 name|setDownloadThumbnail
 parameter_list|(
-name|Boolean
+name|boolean
 name|downloadThumbnail
 parameter_list|)
 block|{
@@ -1998,9 +1982,61 @@ operator|=
 name|downloadThumbnail
 expr_stmt|;
 block|}
+DECL|method|isForceDownload ()
+specifier|public
+name|boolean
+name|isForceDownload
+parameter_list|()
+block|{
+return|return
+name|forceDownload
+return|;
+block|}
+DECL|method|setForceDownload (boolean forceDownload)
+specifier|public
+name|void
+name|setForceDownload
+parameter_list|(
+name|boolean
+name|forceDownload
+parameter_list|)
+block|{
+name|this
+operator|.
+name|forceDownload
+operator|=
+name|forceDownload
+expr_stmt|;
+block|}
+DECL|method|isAutoDownload ()
+specifier|public
+name|boolean
+name|isAutoDownload
+parameter_list|()
+block|{
+return|return
+name|autoDownload
+return|;
+block|}
+DECL|method|setAutoDownload (boolean autoDownload)
+specifier|public
+name|void
+name|setAutoDownload
+parameter_list|(
+name|boolean
+name|autoDownload
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoDownload
+operator|=
+name|autoDownload
+expr_stmt|;
+block|}
 DECL|method|getRetryWaitingTime ()
 specifier|public
-name|Long
+name|long
 name|getRetryWaitingTime
 parameter_list|()
 block|{
@@ -2008,12 +2044,12 @@ return|return
 name|retryWaitingTime
 return|;
 block|}
-DECL|method|setRetryWaitingTime (Long retryWaitingTime)
+DECL|method|setRetryWaitingTime (long retryWaitingTime)
 specifier|public
 name|void
 name|setRetryWaitingTime
 parameter_list|(
-name|Long
+name|long
 name|retryWaitingTime
 parameter_list|)
 block|{
@@ -2052,7 +2088,7 @@ expr_stmt|;
 block|}
 DECL|method|getRetryExponentialCoefficient ()
 specifier|public
-name|Long
+name|long
 name|getRetryExponentialCoefficient
 parameter_list|()
 block|{
@@ -2060,38 +2096,12 @@ return|return
 name|retryExponentialCoefficient
 return|;
 block|}
-DECL|method|getReconnectIdleConnectionTimeout ()
-specifier|public
-name|Long
-name|getReconnectIdleConnectionTimeout
-parameter_list|()
-block|{
-return|return
-name|reconnectIdleConnectionTimeout
-return|;
-block|}
-DECL|method|setReconnectIdleConnectionTimeout (Long reconnectIdleConnectionTimeout)
-specifier|public
-name|void
-name|setReconnectIdleConnectionTimeout
-parameter_list|(
-name|Long
-name|reconnectIdleConnectionTimeout
-parameter_list|)
-block|{
-name|this
-operator|.
-name|reconnectIdleConnectionTimeout
-operator|=
-name|reconnectIdleConnectionTimeout
-expr_stmt|;
-block|}
-DECL|method|setRetryExponentialCoefficient (Long retryExponentialCoefficient)
+DECL|method|setRetryExponentialCoefficient (long retryExponentialCoefficient)
 specifier|public
 name|void
 name|setRetryExponentialCoefficient
 parameter_list|(
-name|Long
+name|long
 name|retryExponentialCoefficient
 parameter_list|)
 block|{
@@ -2104,7 +2114,7 @@ expr_stmt|;
 block|}
 DECL|method|getRetryLinearIncrement ()
 specifier|public
-name|Long
+name|long
 name|getRetryLinearIncrement
 parameter_list|()
 block|{
@@ -2112,12 +2122,12 @@ return|return
 name|retryLinearIncrement
 return|;
 block|}
-DECL|method|setRetryLinearIncrement (Long retryLinearIncrement)
+DECL|method|setRetryLinearIncrement (long retryLinearIncrement)
 specifier|public
 name|void
 name|setRetryLinearIncrement
 parameter_list|(
-name|Long
+name|long
 name|retryLinearIncrement
 parameter_list|)
 block|{
@@ -2130,7 +2140,7 @@ expr_stmt|;
 block|}
 DECL|method|getMaxRetryWaitingTime ()
 specifier|public
-name|Long
+name|long
 name|getMaxRetryWaitingTime
 parameter_list|()
 block|{
@@ -2138,12 +2148,12 @@ return|return
 name|maxRetryWaitingTime
 return|;
 block|}
-DECL|method|setMaxRetryWaitingTime (Long maxRetryWaitingTime)
+DECL|method|setMaxRetryWaitingTime (long maxRetryWaitingTime)
 specifier|public
 name|void
 name|setMaxRetryWaitingTime
 parameter_list|(
-name|Long
+name|long
 name|maxRetryWaitingTime
 parameter_list|)
 block|{
@@ -2154,56 +2164,88 @@ operator|=
 name|maxRetryWaitingTime
 expr_stmt|;
 block|}
-DECL|method|getForceDownload ()
+DECL|method|getReconnectIdleConnectionTimeout ()
 specifier|public
-name|Boolean
-name|getForceDownload
+name|long
+name|getReconnectIdleConnectionTimeout
 parameter_list|()
 block|{
 return|return
-name|forceDownload
+name|reconnectIdleConnectionTimeout
 return|;
 block|}
-DECL|method|setForceDownload (Boolean forceDownload)
+DECL|method|setReconnectIdleConnectionTimeout (long reconnectIdleConnectionTimeout)
 specifier|public
 name|void
-name|setForceDownload
+name|setReconnectIdleConnectionTimeout
 parameter_list|(
-name|Boolean
-name|forceDownload
+name|long
+name|reconnectIdleConnectionTimeout
 parameter_list|)
 block|{
 name|this
 operator|.
-name|forceDownload
+name|reconnectIdleConnectionTimeout
 operator|=
-name|forceDownload
+name|reconnectIdleConnectionTimeout
 expr_stmt|;
 block|}
-DECL|method|getAutoDownload ()
-specifier|public
-name|Boolean
-name|getAutoDownload
-parameter_list|()
-block|{
-return|return
-name|autoDownload
-return|;
-block|}
-DECL|method|setAutoDownload (Boolean autoDownload)
+DECL|method|setUploadFileTarget (WebTarget uploadFileTarget)
 specifier|public
 name|void
-name|setAutoDownload
+name|setUploadFileTarget
 parameter_list|(
-name|Boolean
-name|autoDownload
+name|WebTarget
+name|uploadFileTarget
 parameter_list|)
 block|{
 name|this
 operator|.
-name|autoDownload
+name|uploadFileTarget
 operator|=
-name|autoDownload
+name|uploadFileTarget
+expr_stmt|;
+block|}
+DECL|method|setSendMessageTarget (WebTarget sendMessageTarget)
+specifier|public
+name|void
+name|setSendMessageTarget
+parameter_list|(
+name|WebTarget
+name|sendMessageTarget
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sendMessageTarget
+operator|=
+name|sendMessageTarget
+expr_stmt|;
+block|}
+DECL|method|getBackOffStrategyHelper ()
+specifier|public
+name|BackOffStrategy
+name|getBackOffStrategyHelper
+parameter_list|()
+block|{
+return|return
+name|backOffStrategyHelper
+return|;
+block|}
+DECL|method|setBackOffStrategyHelper (BackOffStrategy backOffStrategyHelper)
+specifier|public
+name|void
+name|setBackOffStrategyHelper
+parameter_list|(
+name|BackOffStrategy
+name|backOffStrategyHelper
+parameter_list|)
+block|{
+name|this
+operator|.
+name|backOffStrategyHelper
+operator|=
+name|backOffStrategyHelper
 expr_stmt|;
 block|}
 comment|/**      * try to upload an inputStream to server      */

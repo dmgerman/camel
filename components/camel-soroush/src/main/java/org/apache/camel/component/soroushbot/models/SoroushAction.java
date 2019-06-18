@@ -21,10 +21,10 @@ package|;
 end_package
 
 begin_enum
-DECL|enum|Endpoint
+DECL|enum|SoroushAction
 specifier|public
 enum|enum
-name|Endpoint
+name|SoroushAction
 block|{
 DECL|enumConstant|sendMessage
 name|sendMessage
@@ -56,8 +56,8 @@ specifier|final
 name|String
 name|value
 decl_stmt|;
-DECL|method|Endpoint (String value)
-name|Endpoint
+DECL|method|SoroushAction (String value)
+name|SoroushAction
 parameter_list|(
 name|String
 name|value

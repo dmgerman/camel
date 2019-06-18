@@ -46,7 +46,7 @@ name|soroushbot
 operator|.
 name|models
 operator|.
-name|Endpoint
+name|SoroushAction
 import|;
 end_import
 
@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * this producer is responsible for uri of type {@link Endpoint#downloadFile}  * e.g. "soroush:downloadFile/[token]"  * if you pass a message to this endpoint, it tries to download the resource  * ({@link SoroushMessage#fileUrl} and {@link SoroushMessage#thumbnailUrl})  * if provided and store them in  * {@link SoroushMessage#file} or {@link SoroushMessage#thumbnail}.  */
+comment|/**  * this producer is responsible for uri of type {@link SoroushAction#downloadFile}  * e.g. "soroush:downloadFile/[token]"  * if you pass a message to this endpoint, it tries to download the resource  * ({@link SoroushMessage#fileUrl} and {@link SoroushMessage#thumbnailUrl})  * if provided and store them in  * {@link SoroushMessage#file} or {@link SoroushMessage#thumbnail}.  */
 end_comment
 
 begin_class
