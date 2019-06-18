@@ -470,6 +470,24 @@ name|apt
 operator|.
 name|AnnotationProcessorHelper
 operator|.
+name|implementsInterface
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|tools
+operator|.
+name|apt
+operator|.
+name|AnnotationProcessorHelper
+operator|.
 name|processFile
 import|;
 end_import
@@ -611,7 +629,7 @@ literal|"org.apache.camel.model.VerbDefinition"
 block|}
 decl_stmt|;
 comment|// special for outputs (these classes have sub classes, so we use this to
-comment|// find all classes)
+comment|// find all classes - and not in particular if they support outputs or not)
 DECL|field|ONE_OF_OUTPUTS
 specifier|private
 specifier|static
@@ -630,7 +648,7 @@ literal|"org.apache.camel.model.NoOutputDefinition"
 block|,
 literal|"org.apache.camel.model.OutputDefinition"
 block|,
-literal|"org.apache.camel.model.ExpressionNode"
+literal|"org.apache.camel.model.OutputExpressionNode"
 block|,
 literal|"org.apache.camel.model.NoOutputExpressionNode"
 block|,
@@ -5620,6 +5638,10 @@ argument_list|)
 operator|&&
 name|supportOutputs
 argument_list|(
+name|processingEnv
+argument_list|,
+name|roundEnv
+argument_list|,
 name|originalClassType
 argument_list|)
 condition|)
@@ -5938,6 +5960,10 @@ argument_list|)
 operator|&&
 name|supportOutputs
 argument_list|(
+name|processingEnv
+argument_list|,
+name|roundEnv
+argument_list|,
 name|originalClassType
 argument_list|)
 condition|)
@@ -6893,36 +6919,31 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Whether the class supports outputs.      *<p/>      * There are some classes which does not support outputs, even though they      * have a outputs element.      */
-DECL|method|supportOutputs (TypeElement classElement)
+DECL|method|supportOutputs (ProcessingEnvironment processingEnv, RoundEnvironment roundEnv, TypeElement classElement)
 specifier|private
 name|boolean
 name|supportOutputs
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
+name|RoundEnvironment
+name|roundEnv
+parameter_list|,
 name|TypeElement
 name|classElement
 parameter_list|)
 block|{
-name|String
-name|superclass
-init|=
-name|canonicalClassName
-argument_list|(
-name|classElement
-operator|.
-name|getSuperclass
-argument_list|()
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-decl_stmt|;
 return|return
-operator|!
-literal|"org.apache.camel.model.NoOutputExpressionNode"
-operator|.
-name|equals
+name|implementsInterface
 argument_list|(
-name|superclass
+name|processingEnv
+argument_list|,
+name|roundEnv
+argument_list|,
+name|classElement
+argument_list|,
+literal|"org.apache.camel.model.OutputNode"
 argument_list|)
 return|;
 block|}

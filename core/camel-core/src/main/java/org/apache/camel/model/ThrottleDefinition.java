@@ -217,8 +217,6 @@ block|{
 literal|"expression"
 block|,
 literal|"correlationExpression"
-block|,
-literal|"outputs"
 block|}
 argument_list|)
 DECL|class|ThrottleDefinition
