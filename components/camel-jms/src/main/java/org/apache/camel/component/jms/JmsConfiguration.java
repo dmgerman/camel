@@ -6053,7 +6053,7 @@ name|createListenerConnectionFactory
 parameter_list|()
 block|{
 return|return
-name|getConnectionFactory
+name|getOrCreateConnectionFactory
 argument_list|()
 return|;
 block|}
@@ -6065,7 +6065,7 @@ name|createTemplateConnectionFactory
 parameter_list|()
 block|{
 return|return
-name|getConnectionFactory
+name|getOrCreateConnectionFactory
 argument_list|()
 return|;
 block|}
