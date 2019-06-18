@@ -723,23 +723,6 @@ name|AutowireMojo
 extends|extends
 name|AbstractExecMojo
 block|{
-comment|/**      * Whether to allow downloading Camel catalog version from the internet. This is needed if the project      * uses a different Camel version than this plugin is using by default.      */
-annotation|@
-name|Parameter
-argument_list|(
-name|property
-operator|=
-literal|"camel.downloadVersion"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|downloadVersion
-specifier|private
-name|boolean
-name|downloadVersion
-decl_stmt|;
 comment|/**      * Whether to log the classpath when starting      */
 annotation|@
 name|Parameter
@@ -828,6 +811,23 @@ DECL|field|mappingsFile
 specifier|protected
 name|File
 name|mappingsFile
+decl_stmt|;
+comment|/**      * Whether to allow downloading Camel catalog version from the internet. This is needed if the project      * uses a different Camel version than this plugin is using by default.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.downloadVersion"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|downloadVersion
+specifier|private
+name|boolean
+name|downloadVersion
 decl_stmt|;
 annotation|@
 name|Component
