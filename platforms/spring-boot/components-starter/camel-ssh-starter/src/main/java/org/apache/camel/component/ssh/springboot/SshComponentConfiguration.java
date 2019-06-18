@@ -178,14 +178,6 @@ specifier|private
 name|Long
 name|timeout
 decl_stmt|;
-comment|/**      * Sets the resource path of the certificate to use for Authentication.      */
-annotation|@
-name|Deprecated
-DECL|field|certFilename
-specifier|private
-name|String
-name|certFilename
-decl_stmt|;
 comment|/**      * Sets the resource path of the certificate to use for Authentication. Will      * use ResourceHelperKeyPairProvider to resolve file based certificate, and      * depends on keyType setting.      */
 DECL|field|certResource
 specifier|private
@@ -460,38 +452,6 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
-annotation|@
-name|Deprecated
-annotation|@
-name|DeprecatedConfigurationProperty
-DECL|method|getCertFilename ()
-specifier|public
-name|String
-name|getCertFilename
-parameter_list|()
-block|{
-return|return
-name|certFilename
-return|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|setCertFilename (String certFilename)
-specifier|public
-name|void
-name|setCertFilename
-parameter_list|(
-name|String
-name|certFilename
-parameter_list|)
-block|{
-name|this
-operator|.
-name|certFilename
-operator|=
-name|certFilename
-expr_stmt|;
-block|}
 DECL|method|getCertResource ()
 specifier|public
 name|String
@@ -729,7 +689,6 @@ name|timeout
 init|=
 literal|30000L
 decl_stmt|;
-comment|/**          * @deprecated As of version 2.11, replaced by certResource.          */
 annotation|@
 name|Deprecated
 DECL|field|certFilename

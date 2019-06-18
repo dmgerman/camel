@@ -550,55 +550,6 @@ name|timeout
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @deprecated As of version 2.11, replaced by {@link #getCertResource()}      */
-annotation|@
-name|Deprecated
-DECL|method|getCertFilename ()
-specifier|public
-name|String
-name|getCertFilename
-parameter_list|()
-block|{
-return|return
-name|getConfiguration
-argument_list|()
-operator|.
-name|getCertFilename
-argument_list|()
-return|;
-block|}
-comment|/**      * Sets the resource path of the certificate to use for Authentication.      *      * @deprecated As of version 2.11, replaced by {@link #setCertResource(String)}      */
-annotation|@
-name|Deprecated
-annotation|@
-name|Metadata
-argument_list|(
-name|label
-operator|=
-literal|"security"
-argument_list|,
-name|deprecationNote
-operator|=
-literal|"As of version 2.11, replaced by certResource."
-argument_list|)
-DECL|method|setCertFilename (String certFilename)
-specifier|public
-name|void
-name|setCertFilename
-parameter_list|(
-name|String
-name|certFilename
-parameter_list|)
-block|{
-name|getConfiguration
-argument_list|()
-operator|.
-name|setCertFilename
-argument_list|(
-name|certFilename
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getCertResource ()
 specifier|public
 name|String
