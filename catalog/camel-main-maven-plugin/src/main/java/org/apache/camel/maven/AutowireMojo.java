@@ -70,6 +70,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Modifier
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|MalformedURLException
@@ -301,6 +313,20 @@ operator|.
 name|util
 operator|.
 name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
@@ -655,6 +681,23 @@ DECL|field|logClasspath
 specifier|protected
 name|boolean
 name|logClasspath
+decl_stmt|;
+comment|/**      * When autowiring has detected multiple implementations (2 or more) of a given interface, which      * cannot be mapped, should they be logged so you can see and add manual mapping if needed.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camel.logUnmapped"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|logUnmapped
+specifier|protected
+name|boolean
+name|logUnmapped
 decl_stmt|;
 comment|/**      * The output directory for generated autowire file      */
 annotation|@
@@ -1724,7 +1767,7 @@ argument_list|(
 name|clazz
 argument_list|)
 decl_stmt|;
-comment|// filter classes to not be interfaces or not a top level class
+comment|// filter classes (must not be interfaces, must not be abstract, must be top level) and also a valid autowire class
 name|classes
 operator|=
 name|classes
@@ -1742,12 +1785,28 @@ operator|.
 name|isInterface
 argument_list|()
 operator|&&
+operator|!
+name|Modifier
+operator|.
+name|isAbstract
+argument_list|(
+name|c
+operator|.
+name|getModifiers
+argument_list|()
+argument_list|)
+operator|&&
 name|c
 operator|.
 name|getEnclosingClass
 argument_list|()
 operator|==
 literal|null
+operator|&&
+name|isValidAutowireClass
+argument_list|(
+name|c
+argument_list|)
 argument_list|)
 operator|.
 name|collect
@@ -1763,6 +1822,10 @@ name|best
 init|=
 name|chooseBestKnownType
 argument_list|(
+name|componentName
+argument_list|,
+name|name
+argument_list|,
 name|clazz
 argument_list|,
 name|classes
@@ -1772,10 +1835,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|isValidAutowireClass
-argument_list|(
 name|best
-argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 name|String
@@ -1841,11 +1903,17 @@ return|return
 name|autowires
 return|;
 block|}
-DECL|method|chooseBestKnownType (Class type, Set<Class<?>> candidates, Properties knownTypes)
+DECL|method|chooseBestKnownType (String componentName, String optionName, Class type, Set<Class<?>> candidates, Properties knownTypes)
 specifier|protected
 name|Class
 name|chooseBestKnownType
 parameter_list|(
+name|String
+name|componentName
+parameter_list|,
+name|String
+name|optionName
+parameter_list|,
 name|Class
 name|type
 parameter_list|,
@@ -1985,6 +2053,11 @@ operator|>
 literal|1
 condition|)
 block|{
+if|if
+condition|(
+name|logUnmapped
+condition|)
+block|{
 name|getLog
 argument_list|()
 operator|.
@@ -2009,6 +2082,59 @@ operator|+
 name|candidates
 argument_list|)
 expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Cannot autowire option camel.component."
+operator|+
+name|componentName
+operator|+
+literal|"."
+operator|+
+name|optionName
+operator|+
+literal|" as the interface: "
+operator|+
+name|type
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" has "
+operator|+
+name|candidates
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" implementations in the classpath:"
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|Class
+name|c
+range|:
+name|candidates
+control|)
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"    Class: "
+operator|+
+name|c
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 return|return
 literal|null
@@ -2047,9 +2173,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
 name|exclude
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 comment|// works on components too
@@ -2061,6 +2190,13 @@ range|:
 name|exclude
 control|)
 block|{
+name|pattern
+operator|=
+name|pattern
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
 name|pattern
 operator|=
 name|StringHelper
@@ -2117,9 +2253,12 @@ block|}
 block|}
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
 name|include
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 for|for
@@ -2130,6 +2269,13 @@ range|:
 name|include
 control|)
 block|{
+name|pattern
+operator|=
+name|pattern
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
 name|pattern
 operator|=
 name|StringHelper
