@@ -163,6 +163,13 @@ name|ToDynamicDefinition
 argument_list|>
 block|{
 annotation|@
+name|XmlTransient
+DECL|field|endpointProducerBuilder
+specifier|protected
+name|EndpointProducerBuilder
+name|endpointProducerBuilder
+decl_stmt|;
+annotation|@
 name|XmlAttribute
 annotation|@
 name|Metadata
@@ -175,13 +182,6 @@ DECL|field|uri
 specifier|private
 name|String
 name|uri
-decl_stmt|;
-annotation|@
-name|XmlTransient
-DECL|field|endpointProducerBuilder
-specifier|protected
-name|EndpointProducerBuilder
-name|endpointProducerBuilder
 decl_stmt|;
 annotation|@
 name|XmlAttribute
