@@ -773,7 +773,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// use OriginalDestinationPropagateStrategy by default if no custom
-comment|// stategy has been set
+comment|// strategy has been set
 if|if
 condition|(
 name|getMessageCreatedStrategy
@@ -819,7 +819,7 @@ init|=
 name|getConfiguration
 argument_list|()
 operator|.
-name|getConnectionFactory
+name|getOrCreateConnectionFactory
 argument_list|()
 operator|.
 name|createConnection

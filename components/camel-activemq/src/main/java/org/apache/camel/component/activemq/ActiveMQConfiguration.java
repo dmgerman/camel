@@ -339,7 +339,7 @@ init|=
 operator|new
 name|JmsTransactionManager
 argument_list|(
-name|getConnectionFactory
+name|getOrCreateConnectionFactory
 argument_list|()
 argument_list|)
 decl_stmt|;

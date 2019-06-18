@@ -7458,7 +7458,7 @@ block|,
 DECL|enumConstant|Exclusive
 name|Exclusive
 block|;     }
-comment|/**      * The activemq component allows messages to be sent to (or consumed from)      * Apache ActiveMQ. This component extends the Camel JMS component.      * Maven coordinates: org.apache.camel:camel-activemq      */
+comment|/**      * The activemq component allows messages to be sent to (or consumed from)      * Apache ActiveMQ. This component extends the Camel JMS component. Creates      * a builder to build endpoints for the ActiveMQ component.      */
 DECL|method|activeMQ (String path)
 specifier|default
 name|ActiveMQEndpointBuilder
