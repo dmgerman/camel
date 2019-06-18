@@ -66,9 +66,7 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|endpoint
-operator|.
-name|EndpointRouteBuilder
+name|RouteBuilder
 import|;
 end_import
 
@@ -82,7 +80,9 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|RouteBuilder
+name|endpoint
+operator|.
+name|EndpointRouteBuilder
 import|;
 end_import
 
@@ -216,6 +216,15 @@ name|CafeRouteBuilder
 extends|extends
 name|EndpointRouteBuilder
 block|{
+DECL|field|orderId
+specifier|protected
+name|AtomicInteger
+name|orderId
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
+decl_stmt|;
 DECL|method|main (String[] args)
 specifier|public
 specifier|static
@@ -434,15 +443,6 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
-DECL|field|orderId
-specifier|protected
-name|AtomicInteger
-name|orderId
-init|=
-operator|new
-name|AtomicInteger
-argument_list|()
-decl_stmt|;
 DECL|method|newOrder (Exchange exchange)
 specifier|protected
 name|void
