@@ -888,7 +888,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Provides a scheduled delivery of messages using the Quartz 2.x scheduler.      * Creates a builder to build endpoints for the Quartz2 component.      */
+comment|/**      * Provides a scheduled delivery of messages using the Quartz 2.x scheduler.      *       * Maven coordinates: org.apache.camel:camel-quartz2      */
 DECL|method|quartz (String path)
 specifier|default
 name|QuartzEndpointBuilder

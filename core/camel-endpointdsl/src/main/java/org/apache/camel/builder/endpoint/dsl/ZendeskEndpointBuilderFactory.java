@@ -1112,7 +1112,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Allows producing messages to manage Zendesk ticket, user, organization,      * etc. Creates a builder to build endpoints for the Zendesk component.      */
+comment|/**      * Allows producing messages to manage Zendesk ticket, user, organization,      * etc.      * Maven coordinates: org.apache.camel:camel-zendesk      */
 DECL|method|zendesk (String path)
 specifier|default
 name|ZendeskEndpointBuilder

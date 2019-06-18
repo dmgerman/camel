@@ -734,7 +734,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Make telemetry data available as an OPC UA server Creates a builder to      * build endpoints for the OPC UA Server component.      */
+comment|/**      * Make telemetry data available as an OPC UA server      * Maven coordinates: org.apache.camel:camel-milo      */
 DECL|method|miloServer (String path)
 specifier|default
 name|MiloServerEndpointBuilder

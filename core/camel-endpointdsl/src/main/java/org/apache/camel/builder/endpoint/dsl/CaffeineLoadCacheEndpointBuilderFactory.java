@@ -1624,7 +1624,7 @@ block|,
 DECL|enumConstant|time_based
 name|time_based
 block|;     }
-comment|/**      * The caffeine-loadcache component is used for integration with Caffeine      * Load Cache. Creates a builder to build endpoints for the Caffeine      * LoadCache component.      */
+comment|/**      * The caffeine-loadcache component is used for integration with Caffeine      * Load Cache.      * Maven coordinates: org.apache.camel:camel-caffeine      */
 DECL|method|caffeineLoadCache (String path)
 specifier|default
 name|CaffeineLoadCacheEndpointBuilder

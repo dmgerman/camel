@@ -2204,7 +2204,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The Kubernetes Namespaces component provides a producer to execute      * kubernetes namespace operations and a consumer to consume namespace      * events. Creates a builder to build endpoints for the Kubernetes      * Namespaces component.      */
+comment|/**      * The Kubernetes Namespaces component provides a producer to execute      * kubernetes namespace operations and a consumer to consume namespace      * events.      * Maven coordinates: org.apache.camel:camel-kubernetes      */
 DECL|method|kubernetesNamespaces (String path)
 specifier|default
 name|KubernetesNamespacesEndpointBuilder

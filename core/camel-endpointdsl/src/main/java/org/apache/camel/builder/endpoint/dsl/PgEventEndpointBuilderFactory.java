@@ -1238,7 +1238,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The pgevent component allows for producing/consuming PostgreSQL events      * related to the listen/notify commands. Creates a builder to build      * endpoints for the PostgresSQL Event component.      */
+comment|/**      * The pgevent component allows for producing/consuming PostgreSQL events      * related to the listen/notify commands.      * Maven coordinates: org.apache.camel:camel-pgevent      */
 DECL|method|pgEvent (String path)
 specifier|default
 name|PgEventEndpointBuilder

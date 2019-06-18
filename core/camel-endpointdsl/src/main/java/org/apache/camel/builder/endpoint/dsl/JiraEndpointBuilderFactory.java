@@ -1459,7 +1459,7 @@ block|,
 DECL|enumConstant|WATCHERS
 name|WATCHERS
 block|;     }
-comment|/**      * The jira component interacts with the JIRA issue tracker. Creates a      * builder to build endpoints for the Jira component.      */
+comment|/**      * The jira component interacts with the JIRA issue tracker.      * Maven coordinates: org.apache.camel:camel-jira      */
 DECL|method|jira (String path)
 specifier|default
 name|JiraEndpointBuilder

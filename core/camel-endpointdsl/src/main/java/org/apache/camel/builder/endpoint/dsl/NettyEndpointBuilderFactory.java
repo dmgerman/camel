@@ -6787,7 +6787,7 @@ block|,
 DECL|enumConstant|NULL
 name|NULL
 block|;     }
-comment|/**      * Socket level networking using TCP or UDP with the Netty 4.x library.      * Creates a builder to build endpoints for the Netty4 component.      */
+comment|/**      * Socket level networking using TCP or UDP with the Netty 4.x library.      * Maven coordinates: org.apache.camel:camel-netty4      */
 DECL|method|netty (String path)
 specifier|default
 name|NettyEndpointBuilder

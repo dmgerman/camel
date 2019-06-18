@@ -437,7 +437,7 @@ block|,
 DECL|enumConstant|Sortr
 name|Sortr
 block|;     }
-comment|/**      * The jolt component allows you to process a JSON messages using an JOLT      * specification (such as JSON-JSON transformation). Creates a builder to      * build endpoints for the JOLT component.      */
+comment|/**      * The jolt component allows you to process a JSON messages using an JOLT      * specification (such as JSON-JSON transformation).      * Maven coordinates: org.apache.camel:camel-jolt      */
 DECL|method|jolt (String path)
 specifier|default
 name|JoltEndpointBuilder

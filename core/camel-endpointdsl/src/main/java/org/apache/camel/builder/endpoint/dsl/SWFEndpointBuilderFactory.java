@@ -2217,7 +2217,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The aws-swf component is used for managing workflows from Amazon Simple      * Workflow. Creates a builder to build endpoints for the AWS Simple      * Workflow component.      */
+comment|/**      * The aws-swf component is used for managing workflows from Amazon Simple      * Workflow.      * Maven coordinates: org.apache.camel:camel-aws-swf      */
 DECL|method|sWF (String path)
 specifier|default
 name|SWFEndpointBuilder

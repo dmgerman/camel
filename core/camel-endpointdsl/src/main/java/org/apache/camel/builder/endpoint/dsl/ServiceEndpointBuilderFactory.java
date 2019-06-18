@@ -238,7 +238,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Represents an endpoint which is registered to a Service Registry such as      * Consul, Etcd. Creates a builder to build endpoints for the Service      * component.      */
+comment|/**      * Represents an endpoint which is registered to a Service Registry such as      * Consul, Etcd.      * Maven coordinates: org.apache.camel:camel-service      */
 DECL|method|service (String path)
 specifier|default
 name|ServiceEndpointBuilder

@@ -1489,7 +1489,7 @@ block|,
 DECL|enumConstant|PersistentTimestampAndFileAttribute
 name|PersistentTimestampAndFileAttribute
 block|;     }
-comment|/**      * Component for working with MongoDB GridFS. Creates a builder to build      * endpoints for the MongoDB GridFS component.      */
+comment|/**      * Component for working with MongoDB GridFS.      * Maven coordinates: org.apache.camel:camel-mongodb-gridfs      */
 DECL|method|gridFs (String path)
 specifier|default
 name|GridFsEndpointBuilder

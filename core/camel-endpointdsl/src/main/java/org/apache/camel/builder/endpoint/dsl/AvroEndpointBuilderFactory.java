@@ -1627,7 +1627,7 @@ block|,
 DECL|enumConstant|netty
 name|netty
 block|;     }
-comment|/**      * Working with Apache Avro for data serialization. Creates a builder to      * build endpoints for the Avro component.      */
+comment|/**      * Working with Apache Avro for data serialization.      * Maven coordinates: org.apache.camel:camel-avro      */
 DECL|method|avro (String path)
 specifier|default
 name|AvroEndpointBuilder

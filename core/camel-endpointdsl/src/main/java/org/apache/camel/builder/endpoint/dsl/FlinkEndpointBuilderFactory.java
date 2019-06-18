@@ -480,7 +480,7 @@ block|,
 DECL|enumConstant|datastream
 name|datastream
 block|;     }
-comment|/**      * The flink component can be used to send DataSet jobs to Apache Flink      * cluster. Creates a builder to build endpoints for the Apache Flink      * component.      */
+comment|/**      * The flink component can be used to send DataSet jobs to Apache Flink      * cluster.      * Maven coordinates: org.apache.camel:camel-flink      */
 DECL|method|flink (String path)
 specifier|default
 name|FlinkEndpointBuilder

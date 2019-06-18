@@ -406,7 +406,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The openstack-keystone component allows messages to be sent to an      * OpenStack identity services. Creates a builder to build endpoints for the      * OpenStack Keystone component.      */
+comment|/**      * The openstack-keystone component allows messages to be sent to an      * OpenStack identity services.      * Maven coordinates: org.apache.camel:camel-openstack      */
 DECL|method|keystone (String path)
 specifier|default
 name|KeystoneEndpointBuilder

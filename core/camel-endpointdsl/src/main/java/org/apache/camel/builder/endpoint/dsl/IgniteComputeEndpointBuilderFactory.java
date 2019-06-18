@@ -348,7 +348,7 @@ block|,
 DECL|enumConstant|AFFINITY_RUN
 name|AFFINITY_RUN
 block|;     }
-comment|/**      * The Ignite Compute endpoint is one of camel-ignite endpoints which allows      * you to run compute operations on the cluster by passing in an      * IgniteCallable, an IgniteRunnable, an IgniteClosure, or collections of      * them, along with their parameters if necessary. Creates a builder to      * build endpoints for the Ignite Compute component.      */
+comment|/**      * The Ignite Compute endpoint is one of camel-ignite endpoints which allows      * you to run compute operations on the cluster by passing in an      * IgniteCallable, an IgniteRunnable, an IgniteClosure, or collections of      * them, along with their parameters if necessary.      * Maven coordinates: org.apache.camel:camel-ignite      */
 DECL|method|igniteCompute (String path)
 specifier|default
 name|IgniteComputeEndpointBuilder

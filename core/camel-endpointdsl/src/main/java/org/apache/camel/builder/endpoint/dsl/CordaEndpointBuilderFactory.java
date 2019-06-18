@@ -797,7 +797,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The corda component uses the corda-rpc to interact with corda nodes.      * Creates a builder to build endpoints for the corda component.      */
+comment|/**      * The corda component uses the corda-rpc to interact with corda nodes.      * Maven coordinates: org.apache.camel:camel-corda      */
 DECL|method|corda (String path)
 specifier|default
 name|CordaEndpointBuilder

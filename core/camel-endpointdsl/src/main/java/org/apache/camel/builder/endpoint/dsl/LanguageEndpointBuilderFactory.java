@@ -448,7 +448,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The language component allows you to send a message to an endpoint which      * executes a script by any of the supported Languages in Camel. Creates a      * builder to build endpoints for the Language component.      */
+comment|/**      * The language component allows you to send a message to an endpoint which      * executes a script by any of the supported Languages in Camel.      * Maven coordinates: org.apache.camel:camel-language      */
 DECL|method|language (String path)
 specifier|default
 name|LanguageEndpointBuilder

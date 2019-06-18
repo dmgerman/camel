@@ -1005,7 +1005,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The properties component is used for using property placeholders in      * endpoint uris. Creates a builder to build endpoints for the Properties      * component.      */
+comment|/**      * The properties component is used for using property placeholders in      * endpoint uris.      * Maven coordinates: org.apache.camel:camel-properties      */
 DECL|method|properties (String path)
 specifier|default
 name|PropertiesEndpointBuilder

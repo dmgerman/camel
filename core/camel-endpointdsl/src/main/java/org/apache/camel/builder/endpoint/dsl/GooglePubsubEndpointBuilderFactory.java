@@ -1375,7 +1375,7 @@ block|,
 DECL|enumConstant|NONE
 name|NONE
 block|;     }
-comment|/**      * Messaging client for Google Cloud Platform PubSub Service Creates a      * builder to build endpoints for the Google Pubsub component.      */
+comment|/**      * Messaging client for Google Cloud Platform PubSub Service      * Maven coordinates: org.apache.camel:camel-google-pubsub      */
 DECL|method|googlePubsub (String path)
 specifier|default
 name|GooglePubsubEndpointBuilder

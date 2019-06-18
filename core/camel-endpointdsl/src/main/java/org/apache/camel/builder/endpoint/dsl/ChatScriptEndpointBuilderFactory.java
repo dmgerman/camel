@@ -364,7 +364,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Represents a ChatScript endpoint. Creates a builder to build endpoints      * for the ChatScript component.      */
+comment|/**      * Represents a ChatScript endpoint.      * Maven coordinates: org.apache.camel:camel-chatscript      */
 DECL|method|chatScript (String path)
 specifier|default
 name|ChatScriptEndpointBuilder

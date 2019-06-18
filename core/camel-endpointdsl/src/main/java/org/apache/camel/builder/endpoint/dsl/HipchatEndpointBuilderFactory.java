@@ -1884,7 +1884,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The hipchat component supports producing and consuming messages from/to      * Hipchat service. Creates a builder to build endpoints for the Hipchat      * component.      */
+comment|/**      * The hipchat component supports producing and consuming messages from/to      * Hipchat service.      * Maven coordinates: org.apache.camel:camel-hipchat      */
 DECL|method|hipchat (String path)
 specifier|default
 name|HipchatEndpointBuilder

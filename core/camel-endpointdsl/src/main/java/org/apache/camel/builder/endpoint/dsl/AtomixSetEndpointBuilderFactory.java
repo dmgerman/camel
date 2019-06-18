@@ -2364,7 +2364,7 @@ block|,
 DECL|enumConstant|LOCAL
 name|LOCAL
 block|;     }
-comment|/**      * The atomix-set component is used to access Atomix's distributed set.      * Creates a builder to build endpoints for the Atomix Set component.      */
+comment|/**      * The atomix-set component is used to access Atomix's distributed set.      * Maven coordinates: org.apache.camel:camel-atomix      */
 DECL|method|atomixSet (String path)
 specifier|default
 name|AtomixSetEndpointBuilder

@@ -474,7 +474,7 @@ block|,
 DECL|enumConstant|listVersions
 name|listVersions
 block|;     }
-comment|/**      * The aws-lambda is used for managing and invoking functions from Amazon      * Lambda. Creates a builder to build endpoints for the AWS Lambda      * component.      */
+comment|/**      * The aws-lambda is used for managing and invoking functions from Amazon      * Lambda.      * Maven coordinates: org.apache.camel:camel-aws-lambda      */
 DECL|method|lambda (String path)
 specifier|default
 name|LambdaEndpointBuilder

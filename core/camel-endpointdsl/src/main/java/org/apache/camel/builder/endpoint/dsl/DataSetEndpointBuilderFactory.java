@@ -1296,7 +1296,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The dataset component provides a mechanism to easily perform load& soak      * testing of your system. Creates a builder to build endpoints for the      * Dataset component.      */
+comment|/**      * The dataset component provides a mechanism to easily perform load& soak      * testing of your system.      * Maven coordinates: org.apache.camel:camel-dataset      */
 DECL|method|dataSet (String path)
 specifier|default
 name|DataSetEndpointBuilder

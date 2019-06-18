@@ -2090,7 +2090,7 @@ block|{
 DECL|enumConstant|DEFAULT
 name|DEFAULT
 block|;     }
-comment|/**      * Communicates with OData 4.0 services using Apache Olingo OData API.      * Creates a builder to build endpoints for the Olingo4 component.      */
+comment|/**      * Communicates with OData 4.0 services using Apache Olingo OData API.      * Maven coordinates: org.apache.camel:camel-olingo4      */
 DECL|method|olingo4 (String path)
 specifier|default
 name|Olingo4EndpointBuilder

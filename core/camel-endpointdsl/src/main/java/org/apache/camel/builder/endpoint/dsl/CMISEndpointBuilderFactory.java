@@ -1490,7 +1490,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The cmis component uses the Apache Chemistry client API and allows you to      * add/read nodes to/from a CMIS compliant content repositories. Creates a      * builder to build endpoints for the CMIS component.      */
+comment|/**      * The cmis component uses the Apache Chemistry client API and allows you to      * add/read nodes to/from a CMIS compliant content repositories.      * Maven coordinates: org.apache.camel:camel-cmis      */
 DECL|method|cMIS (String path)
 specifier|default
 name|CMISEndpointBuilder

@@ -2021,7 +2021,7 @@ block|,
 DECL|enumConstant|CURRENT
 name|CURRENT
 block|;     }
-comment|/**      * The yammer component allows you to interact with the Yammer enterprise      * social network. Creates a builder to build endpoints for the Yammer      * component.      */
+comment|/**      * The yammer component allows you to interact with the Yammer enterprise      * social network.      * Maven coordinates: org.apache.camel:camel-yammer      */
 DECL|method|yammer (String path)
 specifier|default
 name|YammerEndpointBuilder

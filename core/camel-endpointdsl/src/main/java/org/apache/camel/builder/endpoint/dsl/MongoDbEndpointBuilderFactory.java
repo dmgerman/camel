@@ -2265,7 +2265,7 @@ block|,
 DECL|enumConstant|MongoIterable
 name|MongoIterable
 block|;     }
-comment|/**      * Component for working with documents stored in MongoDB database. Creates      * a builder to build endpoints for the MongoDB component.      */
+comment|/**      * Component for working with documents stored in MongoDB database.      * Maven coordinates: org.apache.camel:camel-mongodb3      */
 DECL|method|mongoDb (String path)
 specifier|default
 name|MongoDbEndpointBuilder

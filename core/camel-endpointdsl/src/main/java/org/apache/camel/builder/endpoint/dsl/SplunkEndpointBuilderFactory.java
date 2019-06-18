@@ -2699,7 +2699,7 @@ block|,
 DECL|enumConstant|SSLv3
 name|SSLv3
 block|;     }
-comment|/**      * The splunk component allows to publish or search for events in Splunk.      * Creates a builder to build endpoints for the Splunk component.      */
+comment|/**      * The splunk component allows to publish or search for events in Splunk.      * Maven coordinates: org.apache.camel:camel-splunk      */
 DECL|method|splunk (String path)
 specifier|default
 name|SplunkEndpointBuilder

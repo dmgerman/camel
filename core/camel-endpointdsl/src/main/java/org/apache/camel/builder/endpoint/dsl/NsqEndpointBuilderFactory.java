@@ -1427,7 +1427,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Represents a nsq endpoint. Creates a builder to build endpoints for the      * NSQ component.      */
+comment|/**      * Represents a nsq endpoint.      * Maven coordinates: org.apache.camel:camel-nsq      */
 DECL|method|nsq (String path)
 specifier|default
 name|NsqEndpointBuilder

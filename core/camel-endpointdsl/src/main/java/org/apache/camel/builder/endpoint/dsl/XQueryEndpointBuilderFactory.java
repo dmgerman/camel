@@ -2982,7 +2982,7 @@ block|,
 DECL|enumConstant|StringSource
 name|StringSource
 block|;     }
-comment|/**      * Transforms the message using a XQuery template using Saxon. Creates a      * builder to build endpoints for the XQuery component.      */
+comment|/**      * Transforms the message using a XQuery template using Saxon.      * Maven coordinates: org.apache.camel:camel-saxon      */
 DECL|method|xQuery (String path)
 specifier|default
 name|XQueryEndpointBuilder

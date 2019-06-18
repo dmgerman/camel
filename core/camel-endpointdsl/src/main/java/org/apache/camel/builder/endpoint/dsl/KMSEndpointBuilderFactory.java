@@ -282,7 +282,7 @@ block|,
 DECL|enumConstant|enableKey
 name|enableKey
 block|;     }
-comment|/**      * The aws-kms is used for managing Amazon KMS Creates a builder to build      * endpoints for the AWS KMS component.      */
+comment|/**      * The aws-kms is used for managing Amazon KMS      * Maven coordinates: org.apache.camel:camel-aws-kms      */
 DECL|method|kMS (String path)
 specifier|default
 name|KMSEndpointBuilder

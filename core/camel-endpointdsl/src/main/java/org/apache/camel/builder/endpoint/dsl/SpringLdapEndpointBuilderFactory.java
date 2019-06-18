@@ -324,7 +324,7 @@ block|,
 DECL|enumConstant|FUNCTION_DRIVEN
 name|FUNCTION_DRIVEN
 block|;     }
-comment|/**      * The spring-ldap component allows you to perform searches in LDAP servers      * using filters as the message payload. Creates a builder to build      * endpoints for the Spring LDAP component.      */
+comment|/**      * The spring-ldap component allows you to perform searches in LDAP servers      * using filters as the message payload.      * Maven coordinates: org.apache.camel:camel-spring-ldap      */
 DECL|method|springLdap (String path)
 specifier|default
 name|SpringLdapEndpointBuilder

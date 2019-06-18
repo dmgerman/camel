@@ -734,7 +734,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The spring-event component allows to listen for Spring Application      * Events. Creates a builder to build endpoints for the Spring Event      * component.      */
+comment|/**      * The spring-event component allows to listen for Spring Application      * Events.      * Maven coordinates: org.apache.camel:camel-spring      */
 DECL|method|event (String path)
 specifier|default
 name|EventEndpointBuilder

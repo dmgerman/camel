@@ -3842,7 +3842,7 @@ block|,
 DECL|enumConstant|getObject
 name|getObject
 block|;     }
-comment|/**      * The aws-s3 component is used for storing and retrieving objecct from      * Amazon S3 Storage Service. Creates a builder to build endpoints for the      * AWS S3 Storage Service component.      */
+comment|/**      * The aws-s3 component is used for storing and retrieving objecct from      * Amazon S3 Storage Service.      * Maven coordinates: org.apache.camel:camel-aws-s3      */
 DECL|method|s3 (String path)
 specifier|default
 name|S3EndpointBuilder

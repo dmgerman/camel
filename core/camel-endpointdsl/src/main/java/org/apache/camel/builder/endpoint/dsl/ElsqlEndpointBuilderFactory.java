@@ -3688,7 +3688,7 @@ block|,
 DECL|enumConstant|StreamList
 name|StreamList
 block|;     }
-comment|/**      * The elsql component is an extension to the existing SQL Component that      * uses ElSql to define the SQL queries. Creates a builder to build      * endpoints for the ElSQL component.      */
+comment|/**      * The elsql component is an extension to the existing SQL Component that      * uses ElSql to define the SQL queries.      * Maven coordinates: org.apache.camel:camel-elsql      */
 DECL|method|elsql (String path)
 specifier|default
 name|ElsqlEndpointBuilder

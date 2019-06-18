@@ -1406,7 +1406,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The couchdb component is used for integrate with CouchDB databases.      * Creates a builder to build endpoints for the CouchDB component.      */
+comment|/**      * The couchdb component is used for integrate with CouchDB databases.      * Maven coordinates: org.apache.camel:camel-couchdb      */
 DECL|method|couchDb (String path)
 specifier|default
 name|CouchDbEndpointBuilder

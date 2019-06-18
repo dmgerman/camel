@@ -3592,7 +3592,7 @@ block|,
 DECL|enumConstant|BLOCK
 name|BLOCK
 block|;     }
-comment|/**      * For reading/writing from/to an HDFS filesystem using Hadoop 2.x. Creates      * a builder to build endpoints for the HDFS2 component.      */
+comment|/**      * For reading/writing from/to an HDFS filesystem using Hadoop 2.x.      * Maven coordinates: org.apache.camel:camel-hdfs2      */
 DECL|method|hdfs (String path)
 specifier|default
 name|HdfsEndpointBuilder

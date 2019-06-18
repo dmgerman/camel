@@ -3658,7 +3658,7 @@ block|,
 DECL|enumConstant|POJO
 name|POJO
 block|;     }
-comment|/**      * The cxf component is used for SOAP WebServices using Apache CXF. Creates      * a builder to build endpoints for the CXF component.      */
+comment|/**      * The cxf component is used for SOAP WebServices using Apache CXF.      * Maven coordinates: org.apache.camel:camel-cxf      */
 DECL|method|cxf (String path)
 specifier|default
 name|CxfEndpointBuilder

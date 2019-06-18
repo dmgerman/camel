@@ -358,7 +358,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The class component is for invoking Java classes (Java beans) from Camel.      * Creates a builder to build endpoints for the Class component.      */
+comment|/**      * The class component is for invoking Java classes (Java beans) from Camel.      *       * Maven coordinates: org.apache.camel:camel-bean      */
 DECL|method|classEndpoint (String path)
 specifier|default
 name|ClassEndpointBuilder

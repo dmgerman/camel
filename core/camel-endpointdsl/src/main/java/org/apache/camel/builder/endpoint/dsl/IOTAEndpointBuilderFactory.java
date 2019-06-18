@@ -1301,7 +1301,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Component for integrate IOTA DLT Creates a builder to build endpoints for      * the IOTA component.      */
+comment|/**      * Component for integrate IOTA DLT      * Maven coordinates: org.apache.camel:camel-iota      */
 DECL|method|iOTA (String path)
 specifier|default
 name|IOTAEndpointBuilder

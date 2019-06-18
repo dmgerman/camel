@@ -2149,7 +2149,7 @@ block|,
 DECL|enumConstant|silent
 name|silent
 block|;     }
-comment|/**      * The aws-kinesis component is for consuming and producing records from      * Amazon Kinesis Streams. Creates a builder to build endpoints for the AWS      * Kinesis component.      */
+comment|/**      * The aws-kinesis component is for consuming and producing records from      * Amazon Kinesis Streams.      * Maven coordinates: org.apache.camel:camel-aws-kinesis      */
 DECL|method|kinesis (String path)
 specifier|default
 name|KinesisEndpointBuilder

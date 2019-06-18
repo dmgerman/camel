@@ -2489,7 +2489,7 @@ block|,
 DECL|enumConstant|LOCAL
 name|LOCAL
 block|;     }
-comment|/**      * The atomix-messaging component is used to access Atomix's group      * messaging. Creates a builder to build endpoints for the Atomix Messaging      * component.      */
+comment|/**      * The atomix-messaging component is used to access Atomix's group      * messaging.      * Maven coordinates: org.apache.camel:camel-atomix      */
 DECL|method|atomixMessaging (String path)
 specifier|default
 name|AtomixMessagingEndpointBuilder

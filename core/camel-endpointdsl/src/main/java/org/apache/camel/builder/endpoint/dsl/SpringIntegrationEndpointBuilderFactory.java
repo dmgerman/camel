@@ -902,7 +902,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Bridges Camel with Spring Integration. Creates a builder to build      * endpoints for the Spring Integration component.      */
+comment|/**      * Bridges Camel with Spring Integration.      * Maven coordinates: org.apache.camel:camel-spring-integration      */
 DECL|method|springIntegration (String path)
 specifier|default
 name|SpringIntegrationEndpointBuilder

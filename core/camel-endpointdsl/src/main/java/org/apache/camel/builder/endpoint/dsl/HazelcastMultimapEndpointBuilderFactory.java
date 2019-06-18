@@ -2055,7 +2055,7 @@ block|,
 DECL|enumConstant|poll
 name|poll
 block|;     }
-comment|/**      * The hazelcast-multimap component is used to to access Hazelcast      * distributed multimap. Creates a builder to build endpoints for the      * Hazelcast Multimap component.      */
+comment|/**      * The hazelcast-multimap component is used to to access Hazelcast      * distributed multimap.      * Maven coordinates: org.apache.camel:camel-hazelcast      */
 DECL|method|hazelcastMultimap (String path)
 specifier|default
 name|HazelcastMultimapEndpointBuilder

@@ -364,7 +364,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Transforms the message using a String template. Creates a builder to      * build endpoints for the String Template component.      */
+comment|/**      * Transforms the message using a String template.      * Maven coordinates: org.apache.camel:camel-stringtemplate      */
 DECL|method|stringTemplate (String path)
 specifier|default
 name|StringTemplateEndpointBuilder

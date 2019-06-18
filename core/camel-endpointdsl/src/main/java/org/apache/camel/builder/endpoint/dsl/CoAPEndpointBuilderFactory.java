@@ -1667,7 +1667,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The coap component is used for sending and receiving messages from COAP      * capable devices. Creates a builder to build endpoints for the CoAP      * component.      */
+comment|/**      * The coap component is used for sending and receiving messages from COAP      * capable devices.      * Maven coordinates: org.apache.camel:camel-coap      */
 DECL|method|coAP (String path)
 specifier|default
 name|CoAPEndpointBuilder

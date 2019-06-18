@@ -1456,7 +1456,7 @@ block|,
 DECL|enumConstant|verify
 name|verify
 block|;     }
-comment|/**      * Used to sign and verify exchanges using the XML signature specification.      * Creates a builder to build endpoints for the XML Security component.      */
+comment|/**      * Used to sign and verify exchanges using the XML signature specification.      * Maven coordinates: org.apache.camel:camel-xmlsecurity      */
 DECL|method|xmlSignature (String path)
 specifier|default
 name|XmlSignatureEndpointBuilder

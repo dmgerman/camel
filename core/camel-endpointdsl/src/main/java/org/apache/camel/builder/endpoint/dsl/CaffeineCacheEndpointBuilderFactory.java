@@ -1624,7 +1624,7 @@ block|,
 DECL|enumConstant|time_based
 name|time_based
 block|;     }
-comment|/**      * The caffeine-cache component is used for integration with Caffeine Cache.      * Creates a builder to build endpoints for the Caffeine Cache component.      */
+comment|/**      * The caffeine-cache component is used for integration with Caffeine Cache.      *       * Maven coordinates: org.apache.camel:camel-caffeine      */
 DECL|method|caffeineCache (String path)
 specifier|default
 name|CaffeineCacheEndpointBuilder

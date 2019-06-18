@@ -1553,7 +1553,7 @@ block|,
 DECL|enumConstant|DRIVE_REVISIONS
 name|DRIVE_REVISIONS
 block|;     }
-comment|/**      * The google-drive component provides access to Google Drive file storage      * service. Creates a builder to build endpoints for the Google Drive      * component.      */
+comment|/**      * The google-drive component provides access to Google Drive file storage      * service.      * Maven coordinates: org.apache.camel:camel-google-drive      */
 DECL|method|googleDrive (String path)
 specifier|default
 name|GoogleDriveEndpointBuilder

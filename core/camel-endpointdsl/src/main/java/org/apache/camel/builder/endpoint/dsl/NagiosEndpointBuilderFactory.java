@@ -555,7 +555,7 @@ block|,
 DECL|enumConstant|TripleDes
 name|TripleDes
 block|;     }
-comment|/**      * To send passive checks to Nagios using JSendNSCA. Creates a builder to      * build endpoints for the Nagios component.      */
+comment|/**      * To send passive checks to Nagios using JSendNSCA.      * Maven coordinates: org.apache.camel:camel-nagios      */
 DECL|method|nagios (String path)
 specifier|default
 name|NagiosEndpointBuilder

@@ -3203,7 +3203,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The irc component implements an IRC (Internet Relay Chat) transport.      * Creates a builder to build endpoints for the IRC component.      */
+comment|/**      * The irc component implements an IRC (Internet Relay Chat) transport.      * Maven coordinates: org.apache.camel:camel-irc      */
 DECL|method|irc (String path)
 specifier|default
 name|IrcEndpointBuilder

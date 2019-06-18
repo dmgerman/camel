@@ -704,7 +704,7 @@ block|,
 DECL|enumConstant|tags
 name|tags
 block|;     }
-comment|/**      * The DigitalOcean component allows you to manage Droplets and resources      * within the DigitalOcean cloud. Creates a builder to build endpoints for      * the DigitalOcean component.      */
+comment|/**      * The DigitalOcean component allows you to manage Droplets and resources      * within the DigitalOcean cloud.      * Maven coordinates: org.apache.camel:camel-digitalocean      */
 DECL|method|digitalOcean (String path)
 specifier|default
 name|DigitalOceanEndpointBuilder

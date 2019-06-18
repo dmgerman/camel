@@ -297,7 +297,7 @@ block|,
 DECL|enumConstant|deleteTags
 name|deleteTags
 block|;     }
-comment|/**      * The aws-ec2 is used for managing Amazon EC2 instances. Creates a builder      * to build endpoints for the AWS EC2 component.      */
+comment|/**      * The aws-ec2 is used for managing Amazon EC2 instances.      * Maven coordinates: org.apache.camel:camel-aws-ec2      */
 DECL|method|eC2 (String path)
 specifier|default
 name|EC2EndpointBuilder

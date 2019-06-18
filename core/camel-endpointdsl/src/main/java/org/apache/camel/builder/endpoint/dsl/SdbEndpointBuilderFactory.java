@@ -564,7 +564,7 @@ block|,
 DECL|enumConstant|Select
 name|Select
 block|;     }
-comment|/**      * The aws-sdb component is for storing and retrieving data from/to Amazon's      * SDB service. Creates a builder to build endpoints for the AWS SimpleDB      * component.      */
+comment|/**      * The aws-sdb component is for storing and retrieving data from/to Amazon's      * SDB service.      * Maven coordinates: org.apache.camel:camel-aws-sdb      */
 DECL|method|sdb (String path)
 specifier|default
 name|SdbEndpointBuilder

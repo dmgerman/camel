@@ -375,7 +375,7 @@ block|,
 DECL|enumConstant|DRILLBIT
 name|DRILLBIT
 block|;     }
-comment|/**      * The drill component gives you the ability to quering into apache drill      * cluster. Creates a builder to build endpoints for the Drill component.      */
+comment|/**      * The drill component gives you the ability to quering into apache drill      * cluster.      * Maven coordinates: org.apache.camel:camel-drill      */
 DECL|method|drill (String path)
 specifier|default
 name|DrillEndpointBuilder

@@ -679,7 +679,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The Openshift Builds component provides a producer to execute openshift      * build operations. Creates a builder to build endpoints for the Openshift      * Builds component.      */
+comment|/**      * The Openshift Builds component provides a producer to execute openshift      * build operations.      * Maven coordinates: org.apache.camel:camel-kubernetes      */
 DECL|method|openshiftBuilds (String path)
 specifier|default
 name|OpenshiftBuildsEndpointBuilder

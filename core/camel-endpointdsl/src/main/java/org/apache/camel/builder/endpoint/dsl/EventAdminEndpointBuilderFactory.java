@@ -860,7 +860,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The eventadmin component can be used in an OSGi environment to receive      * OSGi EventAdmin events and process them. Creates a builder to build      * endpoints for the OSGi EventAdmin component.      */
+comment|/**      * The eventadmin component can be used in an OSGi environment to receive      * OSGi EventAdmin events and process them.      * Maven coordinates: org.apache.camel:camel-eventadmin      */
 DECL|method|eventAdmin (String path)
 specifier|default
 name|EventAdminEndpointBuilder

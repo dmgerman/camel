@@ -322,7 +322,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The Ignite Events endpoint is one of camel-ignite endpoints which allows      * you to receive events from the Ignite cluster by creating a local event      * listener. Creates a builder to build endpoints for the Ignite Events      * component.      */
+comment|/**      * The Ignite Events endpoint is one of camel-ignite endpoints which allows      * you to receive events from the Ignite cluster by creating a local event      * listener.      * Maven coordinates: org.apache.camel:camel-ignite      */
 DECL|method|igniteEvents (String path)
 specifier|default
 name|IgniteEventsEndpointBuilder

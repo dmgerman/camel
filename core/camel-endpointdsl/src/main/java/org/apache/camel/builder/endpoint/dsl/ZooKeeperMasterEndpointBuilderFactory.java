@@ -259,7 +259,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Represents an endpoint which only becomes active when it obtains the      * master lock Creates a builder to build endpoints for the ZooKeeper Master      * component.      */
+comment|/**      * Represents an endpoint which only becomes active when it obtains the      * master lock      * Maven coordinates: org.apache.camel:camel-zookeeper-master      */
 DECL|method|zooKeeperMaster (String path)
 specifier|default
 name|ZooKeeperMasterEndpointBuilder

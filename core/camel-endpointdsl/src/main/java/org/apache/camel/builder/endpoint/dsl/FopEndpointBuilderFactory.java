@@ -357,7 +357,7 @@ block|,
 DECL|enumConstant|txt
 name|txt
 block|;     }
-comment|/**      * The fop component allows you to render a message into different output      * formats using Apache FOP. Creates a builder to build endpoints for the      * FOP component.      */
+comment|/**      * The fop component allows you to render a message into different output      * formats using Apache FOP.      * Maven coordinates: org.apache.camel:camel-fop      */
 DECL|method|fop (String path)
 specifier|default
 name|FopEndpointBuilder

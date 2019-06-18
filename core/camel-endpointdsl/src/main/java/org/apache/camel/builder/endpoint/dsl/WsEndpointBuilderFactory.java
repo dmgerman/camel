@@ -2137,7 +2137,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * To exchange data with external Websocket servers using Async Http Client.      * Creates a builder to build endpoints for the AHC Websocket component.      */
+comment|/**      * To exchange data with external Websocket servers using Async Http Client.      *       * Maven coordinates: org.apache.camel:camel-ahc-ws      */
 DECL|method|ws (String path)
 specifier|default
 name|WsEndpointBuilder

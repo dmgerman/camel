@@ -301,7 +301,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Google BigQuery data warehouse for analytics (using SQL queries). Creates      * a builder to build endpoints for the Google BigQuery Standard SQL      * component.      */
+comment|/**      * Google BigQuery data warehouse for analytics (using SQL queries).      * Maven coordinates: org.apache.camel:camel-google-bigquery      */
 DECL|method|googleBigQuerySQL (String path)
 specifier|default
 name|GoogleBigQuerySQLEndpointBuilder

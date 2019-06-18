@@ -679,7 +679,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The Kubernetes Persistent Volumes Claims component provides a producer to      * execute kubernetes persistent volume claim operations. Creates a builder      * to build endpoints for the Kubernetes Persistent Volume Claim component.      */
+comment|/**      * The Kubernetes Persistent Volumes Claims component provides a producer to      * execute kubernetes persistent volume claim operations.      * Maven coordinates: org.apache.camel:camel-kubernetes      */
 DECL|method|kubernetesPersistentVolumesClaims ( String path)
 specifier|default
 name|KubernetesPersistentVolumesClaimsEndpointBuilder

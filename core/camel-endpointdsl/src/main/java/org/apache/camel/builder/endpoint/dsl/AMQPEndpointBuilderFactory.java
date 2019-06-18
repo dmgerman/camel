@@ -7458,7 +7458,7 @@ block|,
 DECL|enumConstant|Exclusive
 name|Exclusive
 block|;     }
-comment|/**      * Messaging with AMQP protocol using Apache QPid Client. Creates a builder      * to build endpoints for the AMQP component.      */
+comment|/**      * Messaging with AMQP protocol using Apache QPid Client.      * Maven coordinates: org.apache.camel:camel-amqp      */
 DECL|method|aMQP (String path)
 specifier|default
 name|AMQPEndpointBuilder

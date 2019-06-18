@@ -406,7 +406,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The openstack-glance component allows messages to be sent to an OpenStack      * image services. Creates a builder to build endpoints for the OpenStack      * Glance component.      */
+comment|/**      * The openstack-glance component allows messages to be sent to an OpenStack      * image services.      * Maven coordinates: org.apache.camel:camel-openstack      */
 DECL|method|glance (String path)
 specifier|default
 name|GlanceEndpointBuilder

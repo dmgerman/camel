@@ -469,7 +469,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The google-mail component provides access to Google Mail. Creates a      * builder to build endpoints for the Google Mail Stream component.      */
+comment|/**      * The google-mail component provides access to Google Mail.      * Maven coordinates: org.apache.camel:camel-google-mail      */
 DECL|method|googleMailStream (String path)
 specifier|default
 name|GoogleMailStreamEndpointBuilder

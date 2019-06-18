@@ -8410,7 +8410,7 @@ block|,
 DECL|enumConstant|TryRename
 name|TryRename
 block|;     }
-comment|/**      * The ftps (FTP secure SSL/TLS) component is used for uploading or      * downloading files from FTP servers. Creates a builder to build endpoints      * for the FTPS component.      */
+comment|/**      * The ftps (FTP secure SSL/TLS) component is used for uploading or      * downloading files from FTP servers.      * Maven coordinates: org.apache.camel:camel-ftp      */
 DECL|method|ftps (String path)
 specifier|default
 name|FtpsEndpointBuilder

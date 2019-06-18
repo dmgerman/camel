@@ -2090,7 +2090,7 @@ block|{
 DECL|enumConstant|DEFAULT
 name|DEFAULT
 block|;     }
-comment|/**      * Communicates with OData 2.0 services using Apache Olingo. Creates a      * builder to build endpoints for the Olingo2 component.      */
+comment|/**      * Communicates with OData 2.0 services using Apache Olingo.      * Maven coordinates: org.apache.camel:camel-olingo2      */
 DECL|method|olingo2 (String path)
 specifier|default
 name|Olingo2EndpointBuilder

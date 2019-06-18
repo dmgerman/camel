@@ -364,7 +364,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The cm-sms component allows to integrate with CM SMS Gateway. Creates a      * builder to build endpoints for the CM SMS Gateway component.      */
+comment|/**      * The cm-sms component allows to integrate with CM SMS Gateway.      * Maven coordinates: org.apache.camel:camel-cm-sms      */
 DECL|method|cM (String path)
 specifier|default
 name|CMEndpointBuilder

@@ -2336,7 +2336,7 @@ block|,
 DECL|enumConstant|delim
 name|delim
 block|;     }
-comment|/**      * The flatpack component supports fixed width and delimited file parsing      * via the FlatPack library. Creates a builder to build endpoints for the      * Flatpack component.      */
+comment|/**      * The flatpack component supports fixed width and delimited file parsing      * via the FlatPack library.      * Maven coordinates: org.apache.camel:camel-flatpack      */
 DECL|method|flatpack (String path)
 specifier|default
 name|FlatpackEndpointBuilder

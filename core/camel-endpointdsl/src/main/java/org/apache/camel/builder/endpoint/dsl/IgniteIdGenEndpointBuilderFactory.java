@@ -342,7 +342,7 @@ block|,
 DECL|enumConstant|INCREMENT_AND_GET
 name|INCREMENT_AND_GET
 block|;     }
-comment|/**      * The Ignite ID Generator endpoint is one of camel-ignite endpoints which      * allows you to interact with Ignite Atomic Sequences and ID Generators.      * Creates a builder to build endpoints for the Ignite ID Generator      * component.      */
+comment|/**      * The Ignite ID Generator endpoint is one of camel-ignite endpoints which      * allows you to interact with Ignite Atomic Sequences and ID Generators.      * Maven coordinates: org.apache.camel:camel-ignite      */
 DECL|method|igniteIdGen (String path)
 specifier|default
 name|IgniteIdGenEndpointBuilder

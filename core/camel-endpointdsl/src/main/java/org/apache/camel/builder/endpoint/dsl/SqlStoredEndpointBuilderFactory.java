@@ -469,7 +469,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The sql component allows you to work with databases using JDBC Stored      * Procedure queries. Creates a builder to build endpoints for the SQL      * Stored Procedure component.      */
+comment|/**      * The sql component allows you to work with databases using JDBC Stored      * Procedure queries.      * Maven coordinates: org.apache.camel:camel-sql      */
 DECL|method|sqlStored (String path)
 specifier|default
 name|SqlStoredEndpointBuilder

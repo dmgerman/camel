@@ -2096,7 +2096,7 @@ block|,
 DECL|enumConstant|kick
 name|kick
 block|;     }
-comment|/**      * The beanstalk component is used for job retrieval and post-processing of      * Beanstalk jobs. Creates a builder to build endpoints for the Beanstalk      * component.      */
+comment|/**      * The beanstalk component is used for job retrieval and post-processing of      * Beanstalk jobs.      * Maven coordinates: org.apache.camel:camel-beanstalk      */
 DECL|method|beanstalk (String path)
 specifier|default
 name|BeanstalkEndpointBuilder

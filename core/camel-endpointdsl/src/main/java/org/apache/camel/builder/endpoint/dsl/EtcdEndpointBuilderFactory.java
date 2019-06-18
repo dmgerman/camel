@@ -2339,7 +2339,7 @@ block|,
 DECL|enumConstant|keys
 name|keys
 block|;     }
-comment|/**      * The camel etcd component allows you to work with Etcd, a distributed      * reliable key-value store. Creates a builder to build endpoints for the      * etcd component.      */
+comment|/**      * The camel etcd component allows you to work with Etcd, a distributed      * reliable key-value store.      * Maven coordinates: org.apache.camel:camel-etcd      */
 DECL|method|etcd (String path)
 specifier|default
 name|EtcdEndpointBuilder

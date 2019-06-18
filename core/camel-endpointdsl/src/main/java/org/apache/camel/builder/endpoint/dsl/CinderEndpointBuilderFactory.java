@@ -427,7 +427,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The openstack-cinder component allows messages to be sent to an OpenStack      * block storage services. Creates a builder to build endpoints for the      * OpenStack Cinder component.      */
+comment|/**      * The openstack-cinder component allows messages to be sent to an OpenStack      * block storage services.      * Maven coordinates: org.apache.camel:camel-openstack      */
 DECL|method|cinder (String path)
 specifier|default
 name|CinderEndpointBuilder

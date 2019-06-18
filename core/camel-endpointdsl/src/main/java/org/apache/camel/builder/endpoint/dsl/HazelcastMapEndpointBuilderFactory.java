@@ -2055,7 +2055,7 @@ block|,
 DECL|enumConstant|poll
 name|poll
 block|;     }
-comment|/**      * The hazelcast-map component is used to access Hazelcast distributed map.      * Creates a builder to build endpoints for the Hazelcast Map component.      */
+comment|/**      * The hazelcast-map component is used to access Hazelcast distributed map.      * Maven coordinates: org.apache.camel:camel-hazelcast      */
 DECL|method|hazelcastMap (String path)
 specifier|default
 name|HazelcastMapEndpointBuilder

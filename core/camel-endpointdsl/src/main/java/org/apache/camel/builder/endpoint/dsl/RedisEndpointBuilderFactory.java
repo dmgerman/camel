@@ -1861,7 +1861,7 @@ block|,
 DECL|enumConstant|GEORADIUSBYMEMBER
 name|GEORADIUSBYMEMBER
 block|;     }
-comment|/**      * The spring-redis component allows sending and receiving messages from      * Redis. Creates a builder to build endpoints for the Spring Redis      * component.      */
+comment|/**      * The spring-redis component allows sending and receiving messages from      * Redis.      * Maven coordinates: org.apache.camel:camel-spring-redis      */
 DECL|method|redis (String path)
 specifier|default
 name|RedisEndpointBuilder

@@ -608,7 +608,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The google-sheets component provides access to Google Sheets. Creates a      * builder to build endpoints for the Google Sheets Stream component.      */
+comment|/**      * The google-sheets component provides access to Google Sheets.      * Maven coordinates: org.apache.camel:camel-google-sheets      */
 DECL|method|googleSheetsStream (String path)
 specifier|default
 name|GoogleSheetsStreamEndpointBuilder

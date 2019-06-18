@@ -2719,7 +2719,7 @@ block|,
 DECL|enumConstant|EVENT
 name|EVENT
 block|;     }
-comment|/**      * The Twitter Timeline component consumes twitter timeline or update the      * status of specific user. Creates a builder to build endpoints for the      * Twitter Timeline component.      */
+comment|/**      * The Twitter Timeline component consumes twitter timeline or update the      * status of specific user.      * Maven coordinates: org.apache.camel:camel-twitter      */
 DECL|method|twitterTimeline (String path)
 specifier|default
 name|TwitterTimelineEndpointBuilder

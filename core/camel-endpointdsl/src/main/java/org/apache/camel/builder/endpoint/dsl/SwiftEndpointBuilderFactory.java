@@ -427,7 +427,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The openstack-swift component allows messages to be sent to an OpenStack      * object storage services. Creates a builder to build endpoints for the      * OpenStack Swift component.      */
+comment|/**      * The openstack-swift component allows messages to be sent to an OpenStack      * object storage services.      * Maven coordinates: org.apache.camel:camel-openstack      */
 DECL|method|swift (String path)
 specifier|default
 name|SwiftEndpointBuilder

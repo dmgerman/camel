@@ -2323,7 +2323,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * To exchange data with external Websocket clients using Atmosphere.      * Creates a builder to build endpoints for the Atmosphere Websocket      * component.      */
+comment|/**      * To exchange data with external Websocket clients using Atmosphere.      * Maven coordinates: org.apache.camel:camel-atmosphere-websocket      */
 DECL|method|atmosphereWebsocket (String path)
 specifier|default
 name|AtmosphereWebsocketEndpointBuilder

@@ -877,7 +877,7 @@ block|,
 DECL|enumConstant|file
 name|file
 block|;     }
-comment|/**      * Transforms the message using a XSLT template. Creates a builder to build      * endpoints for the XSLT component.      */
+comment|/**      * Transforms the message using a XSLT template.      * Maven coordinates: org.apache.camel:camel-xslt      */
 DECL|method|xslt (String path)
 specifier|default
 name|XsltEndpointBuilder

@@ -916,7 +916,7 @@ block|,
 DECL|enumConstant|FAILOVER
 name|FAILOVER
 block|;     }
-comment|/**      * Camel Apache Pulsar Component Creates a builder to build endpoints for      * the Apache Pulsar component.      */
+comment|/**      * Camel Apache Pulsar Component      * Maven coordinates: org.apache.camel:camel-pulsar      */
 DECL|method|pulsar (String path)
 specifier|default
 name|PulsarEndpointBuilder

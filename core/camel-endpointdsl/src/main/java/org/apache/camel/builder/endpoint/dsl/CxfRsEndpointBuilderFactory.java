@@ -3235,7 +3235,7 @@ block|,
 DECL|enumConstant|Custom
 name|Custom
 block|;     }
-comment|/**      * The cxfrs component is used for JAX-RS REST services using Apache CXF.      * Creates a builder to build endpoints for the CXF-RS component.      */
+comment|/**      * The cxfrs component is used for JAX-RS REST services using Apache CXF.      * Maven coordinates: org.apache.camel:camel-cxf      */
 DECL|method|cxfRs (String path)
 specifier|default
 name|CxfRsEndpointBuilder

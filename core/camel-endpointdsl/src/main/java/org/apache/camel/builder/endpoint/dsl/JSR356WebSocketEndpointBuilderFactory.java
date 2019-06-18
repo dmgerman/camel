@@ -923,7 +923,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Camel WebSocket using JSR356 (javax) Creates a builder to build endpoints      * for the Javax Websocket component.      */
+comment|/**      * Camel WebSocket using JSR356 (javax)      * Maven coordinates: org.apache.camel:camel-websocket-jsr356      */
 DECL|method|jSR356WebSocket (String path)
 specifier|default
 name|JSR356WebSocketEndpointBuilder

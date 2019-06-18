@@ -372,7 +372,7 @@ block|,
 DECL|enumConstant|PUT
 name|PUT
 block|;     }
-comment|/**      * The Ignite Queue endpoint is one of camel-ignite endpoints which allows      * you to interact with Ignite Queue data structures. Creates a builder to      * build endpoints for the Ignite Queues component.      */
+comment|/**      * The Ignite Queue endpoint is one of camel-ignite endpoints which allows      * you to interact with Ignite Queue data structures.      * Maven coordinates: org.apache.camel:camel-ignite      */
 DECL|method|igniteQueue (String path)
 specifier|default
 name|IgniteQueueEndpointBuilder

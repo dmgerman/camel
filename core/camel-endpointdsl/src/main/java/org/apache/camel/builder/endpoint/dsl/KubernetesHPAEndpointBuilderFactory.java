@@ -2204,7 +2204,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The Kubernetes HPA component provides a producer to execute kubernetes      * hpa operations and a consumer to consume HPA events. Creates a builder to      * build endpoints for the Kubernetes HPA component.      */
+comment|/**      * The Kubernetes HPA component provides a producer to execute kubernetes      * hpa operations and a consumer to consume HPA events.      * Maven coordinates: org.apache.camel:camel-kubernetes      */
 DECL|method|kubernetesHPA (String path)
 specifier|default
 name|KubernetesHPAEndpointBuilder

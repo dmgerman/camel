@@ -679,7 +679,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The Kubernetes Resources Quota component provides a producer to execute      * kubernetes resources quota operations. Creates a builder to build      * endpoints for the Kubernetes Resources Quota component.      */
+comment|/**      * The Kubernetes Resources Quota component provides a producer to execute      * kubernetes resources quota operations.      * Maven coordinates: org.apache.camel:camel-kubernetes      */
 DECL|method|kubernetesResourcesQuota ( String path)
 specifier|default
 name|KubernetesResourcesQuotaEndpointBuilder

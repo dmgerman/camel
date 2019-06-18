@@ -1260,7 +1260,7 @@ block|,
 DECL|enumConstant|Fixed
 name|Fixed
 block|;     }
-comment|/**      * The log component logs message exchanges to the underlying logging      * mechanism. Creates a builder to build endpoints for the Log component.      */
+comment|/**      * The log component logs message exchanges to the underlying logging      * mechanism.      * Maven coordinates: org.apache.camel:camel-log      */
 DECL|method|log (String path)
 specifier|default
 name|LogEndpointBuilder

@@ -2670,7 +2670,7 @@ block|,
 DECL|enumConstant|SIZE_3
 name|SIZE_3
 block|;     }
-comment|/**      * IEC 60870 component used for telecontrol (supervisory control and data      * acquisition) such as controlling electric power transmission grids and      * other geographically widespread control systems. Creates a builder to      * build endpoints for the IEC 60870 Client component.      */
+comment|/**      * IEC 60870 component used for telecontrol (supervisory control and data      * acquisition) such as controlling electric power transmission grids and      * other geographically widespread control systems.      * Maven coordinates: org.apache.camel:camel-iec60870      */
 DECL|method|client (String path)
 specifier|default
 name|ClientEndpointBuilder

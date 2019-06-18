@@ -860,7 +860,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The vertx component is used for sending and receive messages from a vertx      * event bus. Creates a builder to build endpoints for the Vert.x component.      */
+comment|/**      * The vertx component is used for sending and receive messages from a vertx      * event bus.      * Maven coordinates: org.apache.camel:camel-vertx      */
 DECL|method|vertx (String path)
 specifier|default
 name|VertxEndpointBuilder

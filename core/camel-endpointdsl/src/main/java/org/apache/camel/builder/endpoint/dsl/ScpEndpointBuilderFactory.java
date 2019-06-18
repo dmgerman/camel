@@ -797,7 +797,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * To copy files using the secure copy protocol (SCP). Creates a builder to      * build endpoints for the SCP component.      */
+comment|/**      * To copy files using the secure copy protocol (SCP).      * Maven coordinates: org.apache.camel:camel-jsch      */
 DECL|method|scp (String path)
 specifier|default
 name|ScpEndpointBuilder

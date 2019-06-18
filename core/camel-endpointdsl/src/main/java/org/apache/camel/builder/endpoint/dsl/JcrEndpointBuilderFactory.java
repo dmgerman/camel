@@ -1742,7 +1742,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The jcr component allows you to add/read nodes to/from a JCR compliant      * content repository. Creates a builder to build endpoints for the JCR      * component.      */
+comment|/**      * The jcr component allows you to add/read nodes to/from a JCR compliant      * content repository.      * Maven coordinates: org.apache.camel:camel-jcr      */
 DECL|method|jcr (String path)
 specifier|default
 name|JcrEndpointBuilder

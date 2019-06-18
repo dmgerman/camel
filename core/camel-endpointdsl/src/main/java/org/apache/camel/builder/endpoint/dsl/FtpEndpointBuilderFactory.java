@@ -7330,7 +7330,7 @@ block|,
 DECL|enumConstant|TryRename
 name|TryRename
 block|;     }
-comment|/**      * The ftp component is used for uploading or downloading files from FTP      * servers. Creates a builder to build endpoints for the FTP component.      */
+comment|/**      * The ftp component is used for uploading or downloading files from FTP      * servers.      * Maven coordinates: org.apache.camel:camel-ftp      */
 DECL|method|ftp (String path)
 specifier|default
 name|FtpEndpointBuilder

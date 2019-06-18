@@ -343,7 +343,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The ldap component allows you to perform searches in LDAP servers using      * filters as the message payload. Creates a builder to build endpoints for      * the LDAP component.      */
+comment|/**      * The ldap component allows you to perform searches in LDAP servers using      * filters as the message payload.      * Maven coordinates: org.apache.camel:camel-ldap      */
 DECL|method|ldap (String path)
 specifier|default
 name|LdapEndpointBuilder

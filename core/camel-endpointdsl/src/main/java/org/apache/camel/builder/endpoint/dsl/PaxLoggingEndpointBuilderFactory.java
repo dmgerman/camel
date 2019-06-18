@@ -238,7 +238,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The paxlogging component can be used in an OSGi environment to receive      * PaxLogging events and process them. Creates a builder to build endpoints      * for the OSGi PAX Logging component.      */
+comment|/**      * The paxlogging component can be used in an OSGi environment to receive      * PaxLogging events and process them.      * Maven coordinates: org.apache.camel:camel-paxlogging      */
 DECL|method|paxLogging (String path)
 specifier|default
 name|PaxLoggingEndpointBuilder

@@ -2968,7 +2968,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Connect to OPC UA servers using the binary protocol for acquiring      * telemetry data Creates a builder to build endpoints for the OPC UA Client      * component.      */
+comment|/**      * Connect to OPC UA servers using the binary protocol for acquiring      * telemetry data      * Maven coordinates: org.apache.camel:camel-milo      */
 DECL|method|miloClient (String path)
 specifier|default
 name|MiloClientEndpointBuilder

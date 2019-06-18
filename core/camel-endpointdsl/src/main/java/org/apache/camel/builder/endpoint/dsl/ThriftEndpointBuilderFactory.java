@@ -1616,7 +1616,7 @@ block|,
 DECL|enumConstant|SASL
 name|SASL
 block|;     }
-comment|/**      * The Thrift component allows to call and expose remote procedures (RPC)      * with Apache Thrift data format and serialization mechanism Creates a      * builder to build endpoints for the Thrift component.      */
+comment|/**      * The Thrift component allows to call and expose remote procedures (RPC)      * with Apache Thrift data format and serialization mechanism      * Maven coordinates: org.apache.camel:camel-thrift      */
 DECL|method|thrift (String path)
 specifier|default
 name|ThriftEndpointBuilder

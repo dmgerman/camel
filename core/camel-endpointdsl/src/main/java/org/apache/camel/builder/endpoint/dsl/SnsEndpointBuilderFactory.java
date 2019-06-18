@@ -735,7 +735,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The aws-sns component is used for sending messages to an Amazon Simple      * Notification Topic. Creates a builder to build endpoints for the AWS      * Simple Notification System component.      */
+comment|/**      * The aws-sns component is used for sending messages to an Amazon Simple      * Notification Topic.      * Maven coordinates: org.apache.camel:camel-aws-sns      */
 DECL|method|sns (String path)
 specifier|default
 name|SnsEndpointBuilder

@@ -1144,7 +1144,7 @@ block|,
 DECL|enumConstant|compute
 name|compute
 block|;     }
-comment|/**      * For interacting with cloud compute& blobstore service via jclouds.      * Creates a builder to build endpoints for the JClouds component.      */
+comment|/**      * For interacting with cloud compute& blobstore service via jclouds.      * Maven coordinates: org.apache.camel:camel-jclouds      */
 DECL|method|jclouds (String path)
 specifier|default
 name|JcloudsEndpointBuilder

@@ -734,7 +734,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The browse component is used for viewing the messages received on      * endpoints that supports BrowsableEndpoint. Creates a builder to build      * endpoints for the Browse component.      */
+comment|/**      * The browse component is used for viewing the messages received on      * endpoints that supports BrowsableEndpoint.      * Maven coordinates: org.apache.camel:camel-browse      */
 DECL|method|browse (String path)
 specifier|default
 name|BrowseEndpointBuilder

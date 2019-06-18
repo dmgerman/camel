@@ -1125,7 +1125,7 @@ block|,
 DECL|enumConstant|PATCH
 name|PATCH
 block|;     }
-comment|/**      * For calling out to external HTTP servers using Apache HTTP Client 4.x.      * Creates a builder to build endpoints for the HTTP4 component.      */
+comment|/**      * For calling out to external HTTP servers using Apache HTTP Client 4.x.      * Maven coordinates: org.apache.camel:camel-http4      */
 DECL|method|http (String path)
 specifier|default
 name|HttpEndpointBuilder

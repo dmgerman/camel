@@ -351,7 +351,7 @@ block|,
 DECL|enumConstant|ARRAY
 name|ARRAY
 block|;     }
-comment|/**      * The Ignite Sets endpoint is one of camel-ignite endpoints which allows      * you to interact with Ignite Set data structures. Creates a builder to      * build endpoints for the Ignite Sets component.      */
+comment|/**      * The Ignite Sets endpoint is one of camel-ignite endpoints which allows      * you to interact with Ignite Set data structures.      * Maven coordinates: org.apache.camel:camel-ignite      */
 DECL|method|igniteSet (String path)
 specifier|default
 name|IgniteSetEndpointBuilder

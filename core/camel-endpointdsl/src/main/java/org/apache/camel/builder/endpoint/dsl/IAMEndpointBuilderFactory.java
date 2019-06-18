@@ -303,7 +303,7 @@ block|,
 DECL|enumConstant|removeUserFromGroup
 name|removeUserFromGroup
 block|;     }
-comment|/**      * The aws-iam is used for managing Amazon IAM Creates a builder to build      * endpoints for the AWS IAM component.      */
+comment|/**      * The aws-iam is used for managing Amazon IAM      * Maven coordinates: org.apache.camel:camel-aws-iam      */
 DECL|method|iAM (String path)
 specifier|default
 name|IAMEndpointBuilder

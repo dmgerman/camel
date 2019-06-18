@@ -2204,7 +2204,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The Kubernetes Nodes component provides a producer to execute kubernetes      * node operations and a consumer to consume node events. Creates a builder      * to build endpoints for the Kubernetes Deployments component.      */
+comment|/**      * The Kubernetes Nodes component provides a producer to execute kubernetes      * node operations and a consumer to consume node events.      * Maven coordinates: org.apache.camel:camel-kubernetes      */
 DECL|method|kubernetesDeployments ( String path)
 specifier|default
 name|KubernetesDeploymentsEndpointBuilder

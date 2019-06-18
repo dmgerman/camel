@@ -372,7 +372,7 @@ block|{
 DECL|enumConstant|startCase
 name|startCase
 block|;     }
-comment|/**      * Used for communicating with a remote Bonita BPM process engine. Creates a      * builder to build endpoints for the Bonita component.      */
+comment|/**      * Used for communicating with a remote Bonita BPM process engine.      * Maven coordinates: org.apache.camel:camel-bonita      */
 DECL|method|bonita (String path)
 specifier|default
 name|BonitaEndpointBuilder

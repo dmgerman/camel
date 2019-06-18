@@ -385,7 +385,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The dozer component provides the ability to map between Java beans using      * the Dozer mapping library. Creates a builder to build endpoints for the      * Dozer component.      */
+comment|/**      * The dozer component provides the ability to map between Java beans using      * the Dozer mapping library.      * Maven coordinates: org.apache.camel:camel-dozer      */
 DECL|method|dozer (String path)
 specifier|default
 name|DozerEndpointBuilder

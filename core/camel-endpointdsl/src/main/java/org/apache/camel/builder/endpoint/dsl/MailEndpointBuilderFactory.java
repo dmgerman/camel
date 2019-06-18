@@ -4422,7 +4422,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * To send or receive emails using imap/pop3 or smtp protocols. Creates a      * builder to build endpoints for the IMAP component.      */
+comment|/**      * To send or receive emails using imap/pop3 or smtp protocols.      * Maven coordinates: org.apache.camel:camel-mail      */
 DECL|method|mail (String path)
 specifier|default
 name|MailEndpointBuilder

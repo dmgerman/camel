@@ -719,7 +719,7 @@ block|,
 DECL|enumConstant|poll
 name|poll
 block|;     }
-comment|/**      * The hazelcast-instance component is used to consume join/leave events of      * the cache instance in the cluster. Creates a builder to build endpoints      * for the Hazelcast Instance component.      */
+comment|/**      * The hazelcast-instance component is used to consume join/leave events of      * the cache instance in the cluster.      * Maven coordinates: org.apache.camel:camel-hazelcast      */
 DECL|method|hazelcastInstance (String path)
 specifier|default
 name|HazelcastInstanceEndpointBuilder

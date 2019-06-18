@@ -723,7 +723,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * To call external HTTP services using Async Http Client. Creates a builder      * to build endpoints for the AHC component.      */
+comment|/**      * To call external HTTP services using Async Http Client.      * Maven coordinates: org.apache.camel:camel-ahc      */
 DECL|method|ahc (String path)
 specifier|default
 name|AhcEndpointBuilder

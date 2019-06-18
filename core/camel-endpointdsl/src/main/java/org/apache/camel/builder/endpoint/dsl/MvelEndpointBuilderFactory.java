@@ -301,7 +301,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Transforms the message using a MVEL template. Creates a builder to build      * endpoints for the MVEL component.      */
+comment|/**      * Transforms the message using a MVEL template.      * Maven coordinates: org.apache.camel:camel-mvel      */
 DECL|method|mvel (String path)
 specifier|default
 name|MvelEndpointBuilder

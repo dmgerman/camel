@@ -1800,7 +1800,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The telegram component provides access to the Telegram Bot API. Creates a      * builder to build endpoints for the Telegram component.      */
+comment|/**      * The telegram component provides access to the Telegram Bot API.      * Maven coordinates: org.apache.camel:camel-telegram      */
 DECL|method|telegram (String path)
 specifier|default
 name|TelegramEndpointBuilder

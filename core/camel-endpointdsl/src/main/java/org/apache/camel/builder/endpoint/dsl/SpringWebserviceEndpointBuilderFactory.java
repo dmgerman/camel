@@ -1676,7 +1676,7 @@ block|,
 DECL|enumConstant|BEANNAME
 name|BEANNAME
 block|;     }
-comment|/**      * The spring-ws component is used for SOAP WebServices using Spring      * WebServices. Creates a builder to build endpoints for the Spring      * WebService component.      */
+comment|/**      * The spring-ws component is used for SOAP WebServices using Spring      * WebServices.      * Maven coordinates: org.apache.camel:camel-spring-ws      */
 DECL|method|springWebservice (String path)
 specifier|default
 name|SpringWebserviceEndpointBuilder

@@ -322,7 +322,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The lumberjack retrieves logs sent over the network using the Lumberjack      * protocol. Creates a builder to build endpoints for the Lumberjack      * component.      */
+comment|/**      * The lumberjack retrieves logs sent over the network using the Lumberjack      * protocol.      * Maven coordinates: org.apache.camel:camel-lumberjack      */
 DECL|method|lumberjack (String path)
 specifier|default
 name|LumberjackEndpointBuilder

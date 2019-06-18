@@ -469,7 +469,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The exec component can be used to execute OS system commands. Creates a      * builder to build endpoints for the Exec component.      */
+comment|/**      * The exec component can be used to execute OS system commands.      * Maven coordinates: org.apache.camel:camel-exec      */
 DECL|method|exec (String path)
 specifier|default
 name|ExecEndpointBuilder

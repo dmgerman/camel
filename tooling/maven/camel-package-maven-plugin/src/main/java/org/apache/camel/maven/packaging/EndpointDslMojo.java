@@ -3138,14 +3138,19 @@ operator|+
 literal|" "
 operator|)
 operator|+
-literal|"Creates a builder to build endpoints for the "
+literal|"\nMaven coordinates: "
 operator|+
-name|model
+name|project
 operator|.
-name|getTitle
+name|getGroupId
 argument_list|()
 operator|+
-literal|" component."
+literal|":"
+operator|+
+name|project
+operator|.
+name|getArtifactId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|String

@@ -9695,7 +9695,7 @@ block|,
 DECL|enumConstant|album
 name|album
 block|;     }
-comment|/**      * The Facebook component provides access to all of the Facebook APIs      * accessible using Facebook4J. Creates a builder to build endpoints for the      * Facebook component.      */
+comment|/**      * The Facebook component provides access to all of the Facebook APIs      * accessible using Facebook4J.      * Maven coordinates: org.apache.camel:camel-facebook      */
 DECL|method|facebook (String path)
 specifier|default
 name|FacebookEndpointBuilder

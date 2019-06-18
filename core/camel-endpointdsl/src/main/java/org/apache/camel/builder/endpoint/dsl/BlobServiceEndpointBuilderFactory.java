@@ -2112,7 +2112,7 @@ block|,
 DECL|enumConstant|getPageBlobRanges
 name|getPageBlobRanges
 block|;     }
-comment|/**      * The azure-blob component is used for storing and retrieving blobs from      * Azure Storage Blob Service. Creates a builder to build endpoints for the      * Azure Storage Blob Service component.      */
+comment|/**      * The azure-blob component is used for storing and retrieving blobs from      * Azure Storage Blob Service.      * Maven coordinates: org.apache.camel:camel-azure      */
 DECL|method|blobService (String path)
 specifier|default
 name|BlobServiceEndpointBuilder

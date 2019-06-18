@@ -573,7 +573,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The timer component is used for generating message exchanges when a timer      * fires. Creates a builder to build endpoints for the Timer component.      */
+comment|/**      * The timer component is used for generating message exchanges when a timer      * fires.      * Maven coordinates: org.apache.camel:camel-timer      */
 DECL|method|timer (String path)
 specifier|default
 name|TimerEndpointBuilder

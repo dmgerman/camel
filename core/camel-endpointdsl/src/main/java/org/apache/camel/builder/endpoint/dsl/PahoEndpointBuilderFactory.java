@@ -1816,7 +1816,7 @@ block|,
 DECL|enumConstant|MEMORY
 name|MEMORY
 block|;     }
-comment|/**      * Component for communicating with MQTT M2M message brokers using Eclipse      * Paho MQTT Client. Creates a builder to build endpoints for the Paho      * component.      */
+comment|/**      * Component for communicating with MQTT M2M message brokers using Eclipse      * Paho MQTT Client.      * Maven coordinates: org.apache.camel:camel-paho      */
 DECL|method|paho (String path)
 specifier|default
 name|PahoEndpointBuilder

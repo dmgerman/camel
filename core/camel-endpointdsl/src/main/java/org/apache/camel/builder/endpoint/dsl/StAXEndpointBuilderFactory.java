@@ -238,7 +238,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The stax component allows messages to be process through a SAX      * ContentHandler. Creates a builder to build endpoints for the StAX      * component.      */
+comment|/**      * The stax component allows messages to be process through a SAX      * ContentHandler.      * Maven coordinates: org.apache.camel:camel-stax      */
 DECL|method|stAX (String path)
 specifier|default
 name|StAXEndpointBuilder

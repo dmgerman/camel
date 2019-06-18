@@ -449,7 +449,7 @@ block|,
 DECL|enumConstant|account
 name|account
 block|;     }
-comment|/**      * The camel-xchange component provide access to many bitcoin and altcoin      * exchanges for trading and accessing market data. Creates a builder to      * build endpoints for the XChange component.      */
+comment|/**      * The camel-xchange component provide access to many bitcoin and altcoin      * exchanges for trading and accessing market data.      * Maven coordinates: org.apache.camel:camel-xchange      */
 DECL|method|xChange (String path)
 specifier|default
 name|XChangeEndpointBuilder

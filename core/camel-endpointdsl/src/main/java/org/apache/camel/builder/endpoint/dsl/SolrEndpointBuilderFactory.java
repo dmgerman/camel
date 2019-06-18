@@ -679,7 +679,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The solr component allows you to interface with an Apache Lucene Solr      * server. Creates a builder to build endpoints for the Solr component.      */
+comment|/**      * The solr component allows you to interface with an Apache Lucene Solr      * server.      * Maven coordinates: org.apache.camel:camel-solr      */
 DECL|method|solr (String path)
 specifier|default
 name|SolrEndpointBuilder

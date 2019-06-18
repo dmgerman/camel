@@ -3607,7 +3607,7 @@ block|,
 DECL|enumConstant|SHA3_512WITHRSAANDMGF1
 name|SHA3_512WITHRSAANDMGF1
 block|;     }
-comment|/**      * Component used for transferring data secure and reliable over the      * internet using the AS2 protocol. Creates a builder to build endpoints for      * the AS2 component.      */
+comment|/**      * Component used for transferring data secure and reliable over the      * internet using the AS2 protocol.      * Maven coordinates: org.apache.camel:camel-as2      */
 DECL|method|aS2 (String path)
 specifier|default
 name|AS2EndpointBuilder

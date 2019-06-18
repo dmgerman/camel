@@ -1843,7 +1843,7 @@ block|,
 DECL|enumConstant|DeleteList
 name|DeleteList
 block|;     }
-comment|/**      * Performs a query, poll, insert, update or delete in a relational database      * using MyBatis. Creates a builder to build endpoints for the MyBatis      * component.      */
+comment|/**      * Performs a query, poll, insert, update or delete in a relational database      * using MyBatis.      * Maven coordinates: org.apache.camel:camel-mybatis      */
 DECL|method|myBatis (String path)
 specifier|default
 name|MyBatisEndpointBuilder

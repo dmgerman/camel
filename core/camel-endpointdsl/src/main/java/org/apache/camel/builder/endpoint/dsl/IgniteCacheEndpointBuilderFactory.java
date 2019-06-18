@@ -1455,7 +1455,7 @@ block|,
 DECL|enumConstant|CLEAR
 name|CLEAR
 block|;     }
-comment|/**      * The Ignite Cache endpoint is one of camel-ignite endpoints which allows      * you to interact with an Ignite Cache. Creates a builder to build      * endpoints for the Ignite Cache component.      */
+comment|/**      * The Ignite Cache endpoint is one of camel-ignite endpoints which allows      * you to interact with an Ignite Cache.      * Maven coordinates: org.apache.camel:camel-ignite      */
 DECL|method|igniteCache (String path)
 specifier|default
 name|IgniteCacheEndpointBuilder

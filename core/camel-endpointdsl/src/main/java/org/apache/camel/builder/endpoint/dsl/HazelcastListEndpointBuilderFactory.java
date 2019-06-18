@@ -2055,7 +2055,7 @@ block|,
 DECL|enumConstant|poll
 name|poll
 block|;     }
-comment|/**      * The hazelcast-list component is used to access Hazelcast distributed      * list. Creates a builder to build endpoints for the Hazelcast List      * component.      */
+comment|/**      * The hazelcast-list component is used to access Hazelcast distributed      * list.      * Maven coordinates: org.apache.camel:camel-hazelcast      */
 DECL|method|hazelcastList (String path)
 specifier|default
 name|HazelcastListEndpointBuilder

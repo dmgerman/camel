@@ -1949,7 +1949,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The undertow component provides HTTP and WebSocket based endpoints for      * consuming and producing HTTP/WebSocket requests. Creates a builder to      * build endpoints for the Undertow component.      */
+comment|/**      * The undertow component provides HTTP and WebSocket based endpoints for      * consuming and producing HTTP/WebSocket requests.      * Maven coordinates: org.apache.camel:camel-undertow      */
 DECL|method|undertow (String path)
 specifier|default
 name|UndertowEndpointBuilder

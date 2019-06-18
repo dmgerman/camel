@@ -1747,7 +1747,7 @@ block|,
 DECL|enumConstant|WEBHOOKNOTIFICATION
 name|WEBHOOKNOTIFICATION
 block|;     }
-comment|/**      * The braintree component is used for integrating with the Braintree      * Payment System. Creates a builder to build endpoints for the Braintree      * component.      */
+comment|/**      * The braintree component is used for integrating with the Braintree      * Payment System.      * Maven coordinates: org.apache.camel:camel-braintree      */
 DECL|method|braintree (String path)
 specifier|default
 name|BraintreeEndpointBuilder

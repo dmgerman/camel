@@ -280,7 +280,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Validates the payload of a message using RelaxNG Syntax using Jing      * library. Creates a builder to build endpoints for the Jing component.      */
+comment|/**      * Validates the payload of a message using RelaxNG Syntax using Jing      * library.      * Maven coordinates: org.apache.camel:camel-jing      */
 DECL|method|jing (String path)
 specifier|default
 name|JingEndpointBuilder

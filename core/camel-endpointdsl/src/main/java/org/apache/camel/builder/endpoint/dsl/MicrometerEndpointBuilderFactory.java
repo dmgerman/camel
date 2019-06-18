@@ -432,7 +432,7 @@ block|,
 DECL|enumConstant|OTHER
 name|OTHER
 block|;     }
-comment|/**      * To collect various metrics directly from Camel routes using the      * Micrometer library. Creates a builder to build endpoints for the      * Micrometer component.      */
+comment|/**      * To collect various metrics directly from Camel routes using the      * Micrometer library.      * Maven coordinates: org.apache.camel:camel-micrometer      */
 DECL|method|micrometer (String path)
 specifier|default
 name|MicrometerEndpointBuilder

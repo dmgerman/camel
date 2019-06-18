@@ -276,7 +276,7 @@ block|,
 DECL|enumConstant|deleteCluster
 name|deleteCluster
 block|;     }
-comment|/**      * The aws-kms is used for managing Amazon ECS Creates a builder to build      * endpoints for the AWS ECS component.      */
+comment|/**      * The aws-kms is used for managing Amazon ECS      * Maven coordinates: org.apache.camel:camel-aws-ecs      */
 DECL|method|eCS (String path)
 specifier|default
 name|ECSEndpointBuilder

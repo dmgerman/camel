@@ -708,7 +708,7 @@ block|,
 DECL|enumConstant|capacity
 name|capacity
 block|;     }
-comment|/**      * The hazelcast-ringbuffer component is used to access Hazelcast      * distributed ringbuffer. Creates a builder to build endpoints for the      * Hazelcast Ringbuffer component.      */
+comment|/**      * The hazelcast-ringbuffer component is used to access Hazelcast      * distributed ringbuffer.      * Maven coordinates: org.apache.camel:camel-hazelcast      */
 DECL|method|hazelcastRingbuffer (String path)
 specifier|default
 name|HazelcastRingbufferEndpointBuilder

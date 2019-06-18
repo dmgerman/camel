@@ -343,7 +343,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Transforms the message using a Mustache template. Creates a builder to      * build endpoints for the Mustache component.      */
+comment|/**      * Transforms the message using a Mustache template.      * Maven coordinates: org.apache.camel:camel-mustache      */
 DECL|method|mustache (String path)
 specifier|default
 name|MustacheEndpointBuilder

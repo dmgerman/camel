@@ -2787,7 +2787,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Provides functionality required by Healthcare providers to communicate      * with other systems using the MLLP protocol. Creates a builder to build      * endpoints for the MLLP component.      */
+comment|/**      * Provides functionality required by Healthcare providers to communicate      * with other systems using the MLLP protocol.      * Maven coordinates: org.apache.camel:camel-mllp      */
 DECL|method|mllp (String path)
 specifier|default
 name|MllpEndpointBuilder

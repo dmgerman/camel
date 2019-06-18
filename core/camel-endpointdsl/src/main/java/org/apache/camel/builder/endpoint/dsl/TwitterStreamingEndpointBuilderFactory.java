@@ -479,7 +479,7 @@ block|,
 DECL|enumConstant|EVENT
 name|EVENT
 block|;     }
-comment|/**      * The Twitter Streaming component consumes twitter statuses using Streaming      * API. Creates a builder to build endpoints for the Twitter Streaming      * component.      */
+comment|/**      * The Twitter Streaming component consumes twitter statuses using Streaming      * API.      * Maven coordinates: org.apache.camel:camel-twitter      */
 DECL|method|twitterStreaming (String path)
 specifier|default
 name|TwitterStreamingEndpointBuilder

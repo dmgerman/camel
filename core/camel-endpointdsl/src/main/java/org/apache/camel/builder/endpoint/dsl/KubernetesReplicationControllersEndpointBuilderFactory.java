@@ -2204,7 +2204,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The Kubernetes Replication Controllers component provides a producer to      * execute kubernetes replication controller operations and a consumer to      * consume replication controller events. Creates a builder to build      * endpoints for the Kubernetes Replication Controller component.      */
+comment|/**      * The Kubernetes Replication Controllers component provides a producer to      * execute kubernetes replication controller operations and a consumer to      * consume replication controller events.      * Maven coordinates: org.apache.camel:camel-kubernetes      */
 DECL|method|kubernetesReplicationControllers ( String path)
 specifier|default
 name|KubernetesReplicationControllersEndpointBuilder

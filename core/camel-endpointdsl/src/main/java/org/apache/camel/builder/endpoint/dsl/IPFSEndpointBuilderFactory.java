@@ -292,7 +292,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The camel-ipfs component provides access to the Interplanetary File      * System (IPFS). Creates a builder to build endpoints for the IPFS      * component.      */
+comment|/**      * The camel-ipfs component provides access to the Interplanetary File      * System (IPFS).      * Maven coordinates: org.apache.camel:camel-ipfs      */
 DECL|method|iPFS (String path)
 specifier|default
 name|IPFSEndpointBuilder

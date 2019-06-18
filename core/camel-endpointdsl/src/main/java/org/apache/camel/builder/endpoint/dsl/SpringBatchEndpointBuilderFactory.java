@@ -364,7 +364,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The spring-batch component allows to send messages to Spring Batch for      * further processing. Creates a builder to build endpoints for the Spring      * Batch component.      */
+comment|/**      * The spring-batch component allows to send messages to Spring Batch for      * further processing.      * Maven coordinates: org.apache.camel:camel-spring-batch      */
 DECL|method|springBatch (String path)
 specifier|default
 name|SpringBatchEndpointBuilder

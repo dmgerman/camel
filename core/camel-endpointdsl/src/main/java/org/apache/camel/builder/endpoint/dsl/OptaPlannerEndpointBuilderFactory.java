@@ -881,7 +881,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Solves the planning problem contained in a message with OptaPlanner.      * Creates a builder to build endpoints for the OptaPlanner component.      */
+comment|/**      * Solves the planning problem contained in a message with OptaPlanner.      * Maven coordinates: org.apache.camel:camel-optaplanner      */
 DECL|method|optaPlanner (String path)
 specifier|default
 name|OptaPlannerEndpointBuilder

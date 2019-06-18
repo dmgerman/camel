@@ -2116,7 +2116,7 @@ block|,
 DECL|enumConstant|downloadFile
 name|downloadFile
 block|;     }
-comment|/**      * To integrate with the Soroush chat bot. Creates a builder to build      * endpoints for the Soroush component.      */
+comment|/**      * To integrate with the Soroush chat bot.      * Maven coordinates: org.apache.camel:camel-soroush      */
 DECL|method|soroushBot (String path)
 specifier|default
 name|SoroushBotEndpointBuilder

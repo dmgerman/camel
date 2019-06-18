@@ -2678,7 +2678,7 @@ block|,
 DECL|enumConstant|LOCAL_ONE
 name|LOCAL_ONE
 block|;     }
-comment|/**      * The cql component aims at integrating Cassandra 2.0 using the CQL3 API      * (not the Thrift API). Creates a builder to build endpoints for the      * Cassandra CQL component.      */
+comment|/**      * The cql component aims at integrating Cassandra 2.0 using the CQL3 API      * (not the Thrift API).      * Maven coordinates: org.apache.camel:camel-cassandraql      */
 DECL|method|cassandra (String path)
 specifier|default
 name|CassandraEndpointBuilder

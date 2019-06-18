@@ -723,7 +723,7 @@ block|,
 DECL|enumConstant|Info
 name|Info
 block|;     }
-comment|/**      * The elasticsearch component is used for interfacing with ElasticSearch      * server using REST API. Creates a builder to build endpoints for the      * Elastichsearch Rest component.      */
+comment|/**      * The elasticsearch component is used for interfacing with ElasticSearch      * server using REST API.      * Maven coordinates: org.apache.camel:camel-elasticsearch-rest      */
 DECL|method|elasticsearch (String path)
 specifier|default
 name|ElasticsearchEndpointBuilder

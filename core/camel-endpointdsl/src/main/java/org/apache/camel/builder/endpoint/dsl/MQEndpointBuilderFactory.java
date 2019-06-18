@@ -282,7 +282,7 @@ block|,
 DECL|enumConstant|describeBroker
 name|describeBroker
 block|;     }
-comment|/**      * The aws-mq is used for managing Amazon MQ instances. Creates a builder to      * build endpoints for the AWS MQ component.      */
+comment|/**      * The aws-mq is used for managing Amazon MQ instances.      * Maven coordinates: org.apache.camel:camel-aws-mq      */
 DECL|method|mQ (String path)
 specifier|default
 name|MQEndpointBuilder

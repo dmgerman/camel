@@ -2570,7 +2570,7 @@ block|,
 DECL|enumConstant|EVENT
 name|EVENT
 block|;     }
-comment|/**      * The Twitter Search component consumes search results. Creates a builder      * to build endpoints for the Twitter Search component.      */
+comment|/**      * The Twitter Search component consumes search results.      * Maven coordinates: org.apache.camel:camel-twitter      */
 DECL|method|twitterSearch (String path)
 specifier|default
 name|TwitterSearchEndpointBuilder

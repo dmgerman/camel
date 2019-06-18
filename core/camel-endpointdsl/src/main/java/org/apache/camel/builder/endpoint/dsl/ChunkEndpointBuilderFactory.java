@@ -385,7 +385,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Transforms the message using a Chunk template. Creates a builder to build      * endpoints for the Chunk component.      */
+comment|/**      * Transforms the message using a Chunk template.      * Maven coordinates: org.apache.camel:camel-chunk      */
 DECL|method|chunk (String path)
 specifier|default
 name|ChunkEndpointBuilder

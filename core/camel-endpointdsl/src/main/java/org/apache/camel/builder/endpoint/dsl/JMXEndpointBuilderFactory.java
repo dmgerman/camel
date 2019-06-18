@@ -1084,7 +1084,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The jmx component allows to receive JMX notifications. Creates a builder      * to build endpoints for the JMX component.      */
+comment|/**      * The jmx component allows to receive JMX notifications.      * Maven coordinates: org.apache.camel:camel-jmx      */
 DECL|method|jMX (String path)
 specifier|default
 name|JMXEndpointBuilder

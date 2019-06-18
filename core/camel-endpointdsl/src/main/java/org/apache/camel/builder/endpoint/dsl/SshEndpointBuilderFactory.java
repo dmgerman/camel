@@ -2535,7 +2535,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The ssh component enables access to SSH servers such that you can send an      * SSH command, and process the response. Creates a builder to build      * endpoints for the SSH component.      */
+comment|/**      * The ssh component enables access to SSH servers such that you can send an      * SSH command, and process the response.      * Maven coordinates: org.apache.camel:camel-ssh      */
 DECL|method|ssh (String path)
 specifier|default
 name|SshEndpointBuilder

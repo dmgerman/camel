@@ -276,7 +276,7 @@ block|,
 DECL|enumConstant|wikipedia
 name|wikipedia
 block|;     }
-comment|/**      * To lookup domain information and run DNS queries using DNSJava. Creates a      * builder to build endpoints for the DNS component.      */
+comment|/**      * To lookup domain information and run DNS queries using DNSJava.      * Maven coordinates: org.apache.camel:camel-dns      */
 DECL|method|dns (String path)
 specifier|default
 name|DnsEndpointBuilder

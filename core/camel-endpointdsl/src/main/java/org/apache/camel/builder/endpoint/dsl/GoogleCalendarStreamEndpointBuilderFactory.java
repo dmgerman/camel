@@ -566,7 +566,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The google-calendar component provides access to Google Calendar in a      * streaming mode. Creates a builder to build endpoints for the Google      * Calendar Stream component.      */
+comment|/**      * The google-calendar component provides access to Google Calendar in a      * streaming mode.      * Maven coordinates: org.apache.camel:camel-google-calendar      */
 DECL|method|googleCalendarStream (String path)
 specifier|default
 name|GoogleCalendarStreamEndpointBuilder

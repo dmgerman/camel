@@ -2136,7 +2136,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The ironmq provides integration with IronMQ an elastic and durable hosted      * message queue as a service. Creates a builder to build endpoints for the      * IronMQ component.      */
+comment|/**      * The ironmq provides integration with IronMQ an elastic and durable hosted      * message queue as a service.      * Maven coordinates: org.apache.camel:camel-ironmq      */
 DECL|method|ironMQ (String path)
 specifier|default
 name|IronMQEndpointBuilder

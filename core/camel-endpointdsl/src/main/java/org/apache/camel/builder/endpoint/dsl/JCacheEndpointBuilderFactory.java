@@ -2478,7 +2478,7 @@ block|,
 DECL|enumConstant|EXPIRED
 name|EXPIRED
 block|;     }
-comment|/**      * The jcache component enables you to perform caching operations using      * JSR107/JCache as cache implementation. Creates a builder to build      * endpoints for the JCache component.      */
+comment|/**      * The jcache component enables you to perform caching operations using      * JSR107/JCache as cache implementation.      * Maven coordinates: org.apache.camel:camel-jcache      */
 DECL|method|jCache (String path)
 specifier|default
 name|JCacheEndpointBuilder

@@ -469,7 +469,7 @@ block|,
 DECL|enumConstant|query
 name|query
 block|;     }
-comment|/**      * To insert or query from Apache Lucene databases. Creates a builder to      * build endpoints for the Lucene component.      */
+comment|/**      * To insert or query from Apache Lucene databases.      * Maven coordinates: org.apache.camel:camel-lucene      */
 DECL|method|lucene (String path)
 specifier|default
 name|LuceneEndpointBuilder

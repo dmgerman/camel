@@ -1595,7 +1595,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The gora component allows you to work with NoSQL databases using the      * Apache Gora framework. Creates a builder to build endpoints for the Gora      * component.      */
+comment|/**      * The gora component allows you to work with NoSQL databases using the      * Apache Gora framework.      * Maven coordinates: org.apache.camel:camel-gora      */
 DECL|method|gora (String path)
 specifier|default
 name|GoraEndpointBuilder

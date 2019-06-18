@@ -3347,7 +3347,7 @@ block|,
 DECL|enumConstant|StreamList
 name|StreamList
 block|;     }
-comment|/**      * The sql component allows you to work with databases using JDBC SQL      * queries. Creates a builder to build endpoints for the SQL component.      */
+comment|/**      * The sql component allows you to work with databases using JDBC SQL      * queries.      * Maven coordinates: org.apache.camel:camel-sql      */
 DECL|method|sql (String path)
 specifier|default
 name|SqlEndpointBuilder

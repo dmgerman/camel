@@ -238,7 +238,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The grape component allows you to fetch, load and manage additional jars      * when CamelContext is running. Creates a builder to build endpoints for      * the Grape component.      */
+comment|/**      * The grape component allows you to fetch, load and manage additional jars      * when CamelContext is running.      * Maven coordinates: org.apache.camel:camel-grape      */
 DECL|method|grape (String path)
 specifier|default
 name|GrapeEndpointBuilder

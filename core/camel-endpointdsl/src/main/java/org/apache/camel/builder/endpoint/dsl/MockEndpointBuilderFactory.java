@@ -238,7 +238,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The mock component is used for testing routes and mediation rules using      * mocks. Creates a builder to build endpoints for the Mock component.      */
+comment|/**      * The mock component is used for testing routes and mediation rules using      * mocks.      * Maven coordinates: org.apache.camel:camel-mock      */
 DECL|method|mock (String path)
 specifier|default
 name|MockEndpointBuilder

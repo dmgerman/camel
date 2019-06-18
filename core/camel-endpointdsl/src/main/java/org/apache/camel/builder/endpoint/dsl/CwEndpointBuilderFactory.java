@@ -542,7 +542,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The aws-cw component is used for sending metrics to an Amazon CloudWatch.      * Creates a builder to build endpoints for the AWS CloudWatch component.      */
+comment|/**      * The aws-cw component is used for sending metrics to an Amazon CloudWatch.      *       * Maven coordinates: org.apache.camel:camel-aws-cw      */
 DECL|method|cw (String path)
 specifier|default
 name|CwEndpointBuilder

@@ -1427,7 +1427,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * To send and receive messages to PubNub data stream network for connected      * devices. Creates a builder to build endpoints for the PubNub component.      */
+comment|/**      * To send and receive messages to PubNub data stream network for connected      * devices.      * Maven coordinates: org.apache.camel:camel-pubnub      */
 DECL|method|pubNub (String path)
 specifier|default
 name|PubNubEndpointBuilder

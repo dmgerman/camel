@@ -1000,7 +1000,7 @@ block|,
 DECL|enumConstant|LATEST
 name|LATEST
 block|;     }
-comment|/**      * Reactive Camel using reactive streams Creates a builder to build      * endpoints for the Reactive Streams component.      */
+comment|/**      * Reactive Camel using reactive streams      * Maven coordinates: org.apache.camel:camel-reactive-streams      */
 DECL|method|reactiveStreams (String path)
 specifier|default
 name|ReactiveStreamsEndpointBuilder

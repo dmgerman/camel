@@ -542,7 +542,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The atom component is used for consuming Atom RSS feeds. Creates a      * builder to build endpoints for the Atom component.      */
+comment|/**      * The atom component is used for consuming Atom RSS feeds.      * Maven coordinates: org.apache.camel:camel-atom      */
 DECL|method|atom (String path)
 specifier|default
 name|AtomEndpointBuilder

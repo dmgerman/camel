@@ -679,7 +679,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The Kubernetes Configmaps component provides a producer to execute      * kubernetes configmap operations. Creates a builder to build endpoints for      * the Kubernetes ConfigMap component.      */
+comment|/**      * The Kubernetes Configmaps component provides a producer to execute      * kubernetes configmap operations.      * Maven coordinates: org.apache.camel:camel-kubernetes      */
 DECL|method|kubernetesConfigMaps (String path)
 specifier|default
 name|KubernetesConfigMapsEndpointBuilder

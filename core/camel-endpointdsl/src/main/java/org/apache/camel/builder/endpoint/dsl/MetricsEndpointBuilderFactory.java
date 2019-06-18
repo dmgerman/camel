@@ -563,7 +563,7 @@ block|,
 DECL|enumConstant|stop
 name|stop
 block|;     }
-comment|/**      * To collect various metrics directly from Camel routes using the      * DropWizard metrics library. Creates a builder to build endpoints for the      * Metrics component.      */
+comment|/**      * To collect various metrics directly from Camel routes using the      * DropWizard metrics library.      * Maven coordinates: org.apache.camel:camel-metrics      */
 DECL|method|metrics (String path)
 specifier|default
 name|MetricsEndpointBuilder

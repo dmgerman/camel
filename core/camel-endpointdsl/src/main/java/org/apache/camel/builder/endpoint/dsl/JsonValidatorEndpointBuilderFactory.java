@@ -469,7 +469,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Validates the payload of a message using NetworkNT JSON Schema library.      * Creates a builder to build endpoints for the JSON Schema Validator      * component.      */
+comment|/**      * Validates the payload of a message using NetworkNT JSON Schema library.      * Maven coordinates: org.apache.camel:camel-json-validator      */
 DECL|method|jsonValidator (String path)
 specifier|default
 name|JsonValidatorEndpointBuilder

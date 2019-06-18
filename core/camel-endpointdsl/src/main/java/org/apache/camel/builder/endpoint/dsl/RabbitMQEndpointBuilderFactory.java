@@ -5271,7 +5271,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The rabbitmq component allows you produce and consume messages from      * RabbitMQ instances. Creates a builder to build endpoints for the RabbitMQ      * component.      */
+comment|/**      * The rabbitmq component allows you produce and consume messages from      * RabbitMQ instances.      * Maven coordinates: org.apache.camel:camel-rabbitmq      */
 DECL|method|rabbitMQ (String path)
 specifier|default
 name|RabbitMQEndpointBuilder

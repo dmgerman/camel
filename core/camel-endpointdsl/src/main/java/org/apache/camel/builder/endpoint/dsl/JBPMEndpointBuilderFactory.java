@@ -3593,7 +3593,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The jbpm component provides integration with jBPM (Business Process      * Management). Creates a builder to build endpoints for the JBPM component.      */
+comment|/**      * The jbpm component provides integration with jBPM (Business Process      * Management).      * Maven coordinates: org.apache.camel:camel-jbpm      */
 DECL|method|jBPM (String path)
 specifier|default
 name|JBPMEndpointBuilder

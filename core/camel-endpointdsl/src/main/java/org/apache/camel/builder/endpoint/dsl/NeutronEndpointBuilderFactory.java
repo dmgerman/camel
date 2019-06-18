@@ -427,7 +427,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The openstack-neutron component allows messages to be sent to an      * OpenStack network services. Creates a builder to build endpoints for the      * OpenStack Neutron component.      */
+comment|/**      * The openstack-neutron component allows messages to be sent to an      * OpenStack network services.      * Maven coordinates: org.apache.camel:camel-openstack      */
 DECL|method|neutron (String path)
 specifier|default
 name|NeutronEndpointBuilder

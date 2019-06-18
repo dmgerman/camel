@@ -3459,7 +3459,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Represents a Couchbase endpoint that can query Views with a Poll strategy      * and/or produce various type of operations. Creates a builder to build      * endpoints for the Couchbase component.      */
+comment|/**      * Represents a Couchbase endpoint that can query Views with a Poll strategy      * and/or produce various type of operations.      * Maven coordinates: org.apache.camel:camel-couchbase      */
 DECL|method|couchbase (String path)
 specifier|default
 name|CouchbaseEndpointBuilder

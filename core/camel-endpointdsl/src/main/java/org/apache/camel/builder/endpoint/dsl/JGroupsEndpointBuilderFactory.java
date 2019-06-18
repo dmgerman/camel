@@ -839,7 +839,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The jgroups component provides exchange of messages between Camel and      * JGroups clusters. Creates a builder to build endpoints for the JGroups      * component.      */
+comment|/**      * The jgroups component provides exchange of messages between Camel and      * JGroups clusters.      * Maven coordinates: org.apache.camel:camel-jgroups      */
 DECL|method|jGroups (String path)
 specifier|default
 name|JGroupsEndpointBuilder

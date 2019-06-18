@@ -3398,7 +3398,7 @@ block|,
 DECL|enumConstant|TRUNCATE
 name|TRUNCATE
 block|;     }
-comment|/**      * To send and receive SMS using a SMSC (Short Message Service Center).      * Creates a builder to build endpoints for the SMPP component.      */
+comment|/**      * To send and receive SMS using a SMSC (Short Message Service Center).      * Maven coordinates: org.apache.camel:camel-smpp      */
 DECL|method|smpp (String path)
 specifier|default
 name|SmppEndpointBuilder

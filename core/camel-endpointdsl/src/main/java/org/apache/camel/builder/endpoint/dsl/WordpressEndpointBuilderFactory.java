@@ -1578,7 +1578,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Integrates Camel with Wordpress. Creates a builder to build endpoints for      * the Wordpress component.      */
+comment|/**      * Integrates Camel with Wordpress.      * Maven coordinates: org.apache.camel:camel-wordpress      */
 DECL|method|wordpress (String path)
 specifier|default
 name|WordpressEndpointBuilder

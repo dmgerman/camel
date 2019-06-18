@@ -2204,7 +2204,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The websocket component provides websocket endpoints with Jetty for      * communicating with clients using websocket. Creates a builder to build      * endpoints for the Jetty Websocket component.      */
+comment|/**      * The websocket component provides websocket endpoints with Jetty for      * communicating with clients using websocket.      * Maven coordinates: org.apache.camel:camel-websocket      */
 DECL|method|websocket (String path)
 specifier|default
 name|WebsocketEndpointBuilder

@@ -574,7 +574,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Validates the payload of a message using the MSV Library. Creates a      * builder to build endpoints for the MSV component.      */
+comment|/**      * Validates the payload of a message using the MSV Library.      * Maven coordinates: org.apache.camel:camel-msv      */
 DECL|method|msv (String path)
 specifier|default
 name|MsvEndpointBuilder

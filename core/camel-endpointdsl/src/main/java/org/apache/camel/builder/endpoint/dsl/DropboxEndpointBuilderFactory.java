@@ -1458,7 +1458,7 @@ block|,
 DECL|enumConstant|force
 name|force
 block|;     }
-comment|/**      * For uploading, downloading and managing files, folders, groups,      * collaborations, etc on dropbox DOT com. Creates a builder to build      * endpoints for the Dropbox component.      */
+comment|/**      * For uploading, downloading and managing files, folders, groups,      * collaborations, etc on dropbox DOT com.      * Maven coordinates: org.apache.camel:camel-dropbox      */
 DECL|method|dropbox (String path)
 specifier|default
 name|DropboxEndpointBuilder

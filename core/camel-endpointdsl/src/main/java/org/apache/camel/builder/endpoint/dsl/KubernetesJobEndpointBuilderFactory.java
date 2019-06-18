@@ -2204,7 +2204,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The Kubernetes Jobs component provides a producer to execute kubernetes      * job operations Creates a builder to build endpoints for the Kubernetes      * Job component.      */
+comment|/**      * The Kubernetes Jobs component provides a producer to execute kubernetes      * job operations      * Maven coordinates: org.apache.camel:camel-kubernetes      */
 DECL|method|kubernetesJob (String path)
 specifier|default
 name|KubernetesJobEndpointBuilder

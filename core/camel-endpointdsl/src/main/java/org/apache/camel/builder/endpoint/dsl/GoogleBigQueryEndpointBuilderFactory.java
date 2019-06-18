@@ -343,7 +343,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Google BigQuery data warehouse for analytics. Creates a builder to build      * endpoints for the Google BigQuery component.      */
+comment|/**      * Google BigQuery data warehouse for analytics.      * Maven coordinates: org.apache.camel:camel-google-bigquery      */
 DECL|method|googleBigQuery (String path)
 specifier|default
 name|GoogleBigQueryEndpointBuilder

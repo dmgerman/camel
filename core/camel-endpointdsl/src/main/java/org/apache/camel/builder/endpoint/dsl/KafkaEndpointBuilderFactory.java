@@ -5105,7 +5105,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The kafka component allows messages to be sent to (or consumed from)      * Apache Kafka brokers. Creates a builder to build endpoints for the Kafka      * component.      */
+comment|/**      * The kafka component allows messages to be sent to (or consumed from)      * Apache Kafka brokers.      * Maven coordinates: org.apache.camel:camel-kafka      */
 DECL|method|kafka (String path)
 specifier|default
 name|KafkaEndpointBuilder

@@ -4346,7 +4346,7 @@ block|,
 DECL|enumConstant|EXACTLY_ONCE
 name|EXACTLY_ONCE
 block|;     }
-comment|/**      * Component for communicating with MQTT M2M message brokers using      * FuseSource MQTT Client. Creates a builder to build endpoints for the MQTT      * component.      */
+comment|/**      * Component for communicating with MQTT M2M message brokers using      * FuseSource MQTT Client.      * Maven coordinates: org.apache.camel:camel-mqtt      */
 DECL|method|mQTT (String path)
 specifier|default
 name|MQTTEndpointBuilder

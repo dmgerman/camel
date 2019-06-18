@@ -406,7 +406,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The sap-netweaver component integrates with the SAP NetWeaver Gateway      * using HTTP transports. Creates a builder to build endpoints for the SAP      * NetWeaver component.      */
+comment|/**      * The sap-netweaver component integrates with the SAP NetWeaver Gateway      * using HTTP transports.      * Maven coordinates: org.apache.camel:camel-sap-netweaver      */
 DECL|method|netWeaver (String path)
 specifier|default
 name|NetWeaverEndpointBuilder

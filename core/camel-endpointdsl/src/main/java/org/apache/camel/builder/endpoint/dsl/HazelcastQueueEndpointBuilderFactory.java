@@ -2055,7 +2055,7 @@ block|,
 DECL|enumConstant|poll
 name|poll
 block|;     }
-comment|/**      * The hazelcast-queue component is used to access Hazelcast distributed      * queue. Creates a builder to build endpoints for the Hazelcast Queue      * component.      */
+comment|/**      * The hazelcast-queue component is used to access Hazelcast distributed      * queue.      * Maven coordinates: org.apache.camel:camel-hazelcast      */
 DECL|method|hazelcastQueue (String path)
 specifier|default
 name|HazelcastQueueEndpointBuilder

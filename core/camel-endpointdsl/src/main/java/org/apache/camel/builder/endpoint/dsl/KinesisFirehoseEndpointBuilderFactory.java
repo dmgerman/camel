@@ -406,7 +406,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The aws-kinesis-firehose component is used for producing Amazon's Kinesis      * Firehose streams. Creates a builder to build endpoints for the AWS      * Kinesis Firehose component.      */
+comment|/**      * The aws-kinesis-firehose component is used for producing Amazon's Kinesis      * Firehose streams.      * Maven coordinates: org.apache.camel:camel-aws-kinesis      */
 DECL|method|kinesisFirehose (String path)
 specifier|default
 name|KinesisFirehoseEndpointBuilder

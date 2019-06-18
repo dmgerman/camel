@@ -2020,7 +2020,7 @@ block|,
 DECL|enumConstant|W_SHARE
 name|W_SHARE
 block|;     }
-comment|/**      * The linkedin component is used for retrieving LinkedIn user profiles,      * connections, companies, groups, posts, etc. Creates a builder to build      * endpoints for the Linkedin component.      */
+comment|/**      * The linkedin component is used for retrieving LinkedIn user profiles,      * connections, companies, groups, posts, etc.      * Maven coordinates: org.apache.camel:camel-linkedin      */
 DECL|method|linkedIn (String path)
 specifier|default
 name|LinkedInEndpointBuilder

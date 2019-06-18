@@ -7458,7 +7458,7 @@ block|,
 DECL|enumConstant|Exclusive
 name|Exclusive
 block|;     }
-comment|/**      * The jms component allows messages to be sent to (or consumed from) a JMS      * Queue or Topic. Creates a builder to build endpoints for the JMS      * component.      */
+comment|/**      * The jms component allows messages to be sent to (or consumed from) a JMS      * Queue or Topic.      * Maven coordinates: org.apache.camel:camel-jms      */
 DECL|method|jms (String path)
 specifier|default
 name|JmsEndpointBuilder

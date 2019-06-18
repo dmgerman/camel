@@ -891,7 +891,7 @@ block|,
 DECL|enumConstant|decrypt
 name|decrypt
 block|;     }
-comment|/**      * The crypto cms component is used for encrypting data in CMS Enveloped      * Data format, decrypting CMS Enveloped Data, signing data in CMS Signed      * Data format, and verifying CMS Signed Data. Creates a builder to build      * endpoints for the Crypto CMS component.      */
+comment|/**      * The crypto cms component is used for encrypting data in CMS Enveloped      * Data format, decrypting CMS Enveloped Data, signing data in CMS Signed      * Data format, and verifying CMS Signed Data.      * Maven coordinates: org.apache.camel:camel-crypto-cms      */
 DECL|method|cryptoCms (String path)
 specifier|default
 name|CryptoCmsEndpointBuilder

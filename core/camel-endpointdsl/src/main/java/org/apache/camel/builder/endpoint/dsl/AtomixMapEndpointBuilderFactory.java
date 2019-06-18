@@ -2508,7 +2508,7 @@ block|,
 DECL|enumConstant|LOCAL
 name|LOCAL
 block|;     }
-comment|/**      * The atomix-map component is used to access Atomix's distributed map.      * Creates a builder to build endpoints for the Atomix Map component.      */
+comment|/**      * The atomix-map component is used to access Atomix's distributed map.      * Maven coordinates: org.apache.camel:camel-atomix      */
 DECL|method|atomixMap (String path)
 specifier|default
 name|AtomixMapEndpointBuilder

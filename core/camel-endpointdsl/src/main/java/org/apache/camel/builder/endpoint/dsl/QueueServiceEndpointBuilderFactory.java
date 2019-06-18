@@ -1162,7 +1162,7 @@ block|,
 DECL|enumConstant|deleteMessage
 name|deleteMessage
 block|;     }
-comment|/**      * The azure-queue component is used for storing and retrieving messages      * from Azure Storage Queue Service. Creates a builder to build endpoints      * for the Azure Storage Queue Service component.      */
+comment|/**      * The azure-queue component is used for storing and retrieving messages      * from Azure Storage Queue Service.      * Maven coordinates: org.apache.camel:camel-azure      */
 DECL|method|queueService (String path)
 specifier|default
 name|QueueServiceEndpointBuilder

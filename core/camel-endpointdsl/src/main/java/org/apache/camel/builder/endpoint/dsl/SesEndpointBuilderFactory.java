@@ -548,7 +548,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The aws-ses component is used for sending emails with Amazon's SES      * service. Creates a builder to build endpoints for the AWS Simple Email      * Service component.      */
+comment|/**      * The aws-ses component is used for sending emails with Amazon's SES      * service.      * Maven coordinates: org.apache.camel:camel-aws-ses      */
 DECL|method|ses (String path)
 specifier|default
 name|SesEndpointBuilder

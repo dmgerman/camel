@@ -3171,7 +3171,7 @@ block|,
 DECL|enumConstant|ONCE
 name|ONCE
 block|;     }
-comment|/**      * The fhir component is used for working with the FHIR protocol (health      * care). Creates a builder to build endpoints for the FHIR component.      */
+comment|/**      * The fhir component is used for working with the FHIR protocol (health      * care).      * Maven coordinates: org.apache.camel:camel-fhir      */
 DECL|method|fhir (String path)
 specifier|default
 name|FhirEndpointBuilder

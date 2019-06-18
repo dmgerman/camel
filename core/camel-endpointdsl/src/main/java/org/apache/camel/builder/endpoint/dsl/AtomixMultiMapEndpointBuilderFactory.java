@@ -876,7 +876,7 @@ block|,
 DECL|enumConstant|LOCAL
 name|LOCAL
 block|;     }
-comment|/**      * The atomix-multimap component is used to access Atomix's distributed      * multi map. Creates a builder to build endpoints for the Atomix MultiMap      * component.      */
+comment|/**      * The atomix-multimap component is used to access Atomix's distributed      * multi map.      * Maven coordinates: org.apache.camel:camel-atomix      */
 DECL|method|atomixMultiMap (String path)
 specifier|default
 name|AtomixMultiMapEndpointBuilder

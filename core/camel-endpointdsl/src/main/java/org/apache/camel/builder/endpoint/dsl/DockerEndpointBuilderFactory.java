@@ -2488,7 +2488,7 @@ block|,
 DECL|enumConstant|execstart
 name|execstart
 block|;     }
-comment|/**      * The docker component is used for managing Docker containers. Creates a      * builder to build endpoints for the Docker component.      */
+comment|/**      * The docker component is used for managing Docker containers.      * Maven coordinates: org.apache.camel:camel-docker      */
 DECL|method|docker (String path)
 specifier|default
 name|DockerEndpointBuilder

@@ -1723,7 +1723,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * For reading/writing from/to an HBase store (Hadoop database). Creates a      * builder to build endpoints for the HBase component.      */
+comment|/**      * For reading/writing from/to an HBase store (Hadoop database).      * Maven coordinates: org.apache.camel:camel-hbase      */
 DECL|method|hBase (String path)
 specifier|default
 name|HBaseEndpointBuilder

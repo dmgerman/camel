@@ -2055,7 +2055,7 @@ block|,
 DECL|enumConstant|poll
 name|poll
 block|;     }
-comment|/**      * The hazelcast-seda component is used to access Hazelcast BlockingQueue.      * Creates a builder to build endpoints for the Hazelcast SEDA component.      */
+comment|/**      * The hazelcast-seda component is used to access Hazelcast BlockingQueue.      * Maven coordinates: org.apache.camel:camel-hazelcast      */
 DECL|method|hazelcastSeda (String path)
 specifier|default
 name|HazelcastSedaEndpointBuilder

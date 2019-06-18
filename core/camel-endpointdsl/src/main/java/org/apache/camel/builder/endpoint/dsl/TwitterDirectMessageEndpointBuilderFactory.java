@@ -2570,7 +2570,7 @@ block|,
 DECL|enumConstant|EVENT
 name|EVENT
 block|;     }
-comment|/**      * The Twitter Direct Message Component consumes/produces user's direct      * messages. Creates a builder to build endpoints for the Twitter Direct      * Message component.      */
+comment|/**      * The Twitter Direct Message Component consumes/produces user's direct      * messages.      * Maven coordinates: org.apache.camel:camel-twitter      */
 DECL|method|twitterDirectMessage (String path)
 specifier|default
 name|TwitterDirectMessageEndpointBuilder

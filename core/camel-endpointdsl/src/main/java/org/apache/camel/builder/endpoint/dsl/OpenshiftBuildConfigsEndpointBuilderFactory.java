@@ -679,7 +679,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The Kubernetes Build Config component provides a producer to execute      * kubernetes build config operations. Creates a builder to build endpoints      * for the Openshift Build Config component.      */
+comment|/**      * The Kubernetes Build Config component provides a producer to execute      * kubernetes build config operations.      * Maven coordinates: org.apache.camel:camel-kubernetes      */
 DECL|method|openshiftBuildConfigs ( String path)
 specifier|default
 name|OpenshiftBuildConfigsEndpointBuilder

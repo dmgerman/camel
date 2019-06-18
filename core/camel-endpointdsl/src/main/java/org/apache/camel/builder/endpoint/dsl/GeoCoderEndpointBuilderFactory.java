@@ -553,7 +553,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The geocoder component is used for looking up geocodes (latitude and      * longitude) for a given address, or reverse lookup. Creates a builder to      * build endpoints for the Geocoder component.      */
+comment|/**      * The geocoder component is used for looking up geocodes (latitude and      * longitude) for a given address, or reverse lookup.      * Maven coordinates: org.apache.camel:camel-geocoder      */
 DECL|method|geoCoder (String path)
 specifier|default
 name|GeoCoderEndpointBuilder

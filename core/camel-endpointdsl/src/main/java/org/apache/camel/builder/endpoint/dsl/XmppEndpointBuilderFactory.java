@@ -2155,7 +2155,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * To send and receive messages from a XMPP (chat) server. Creates a builder      * to build endpoints for the XMPP component.      */
+comment|/**      * To send and receive messages from a XMPP (chat) server.      * Maven coordinates: org.apache.camel:camel-xmpp      */
 DECL|method|xmpp (String path)
 specifier|default
 name|XmppEndpointBuilder

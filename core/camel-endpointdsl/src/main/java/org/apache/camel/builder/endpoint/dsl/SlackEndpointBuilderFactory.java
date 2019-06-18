@@ -1590,7 +1590,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The slack component allows you to send messages to Slack. Creates a      * builder to build endpoints for the Slack component.      */
+comment|/**      * The slack component allows you to send messages to Slack.      * Maven coordinates: org.apache.camel:camel-slack      */
 DECL|method|slack (String path)
 specifier|default
 name|SlackEndpointBuilder

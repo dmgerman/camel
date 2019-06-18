@@ -385,7 +385,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Transforms the message using a FreeMarker template. Creates a builder to      * build endpoints for the Freemarker component.      */
+comment|/**      * Transforms the message using a FreeMarker template.      * Maven coordinates: org.apache.camel:camel-freemarker      */
 DECL|method|freemarker (String path)
 specifier|default
 name|FreemarkerEndpointBuilder

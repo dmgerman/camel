@@ -2358,7 +2358,7 @@ block|,
 DECL|enumConstant|LOCAL
 name|LOCAL
 block|;     }
-comment|/**      * The atomix-value component is used to access Atomix's distributed value.      * Creates a builder to build endpoints for the Atomix Value component.      */
+comment|/**      * The atomix-value component is used to access Atomix's distributed value.      * Maven coordinates: org.apache.camel:camel-atomix      */
 DECL|method|atomixValue (String path)
 specifier|default
 name|AtomixValueEndpointBuilder

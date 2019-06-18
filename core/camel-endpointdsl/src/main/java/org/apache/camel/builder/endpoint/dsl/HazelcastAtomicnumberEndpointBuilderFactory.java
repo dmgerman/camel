@@ -708,7 +708,7 @@ block|,
 DECL|enumConstant|capacity
 name|capacity
 block|;     }
-comment|/**      * The hazelcast-atomicvalue component is used to access Hazelcast atomic      * number, which is an object that simply provides a grid wide number      * (long). Creates a builder to build endpoints for the Hazelcast Atomic      * Number component.      */
+comment|/**      * The hazelcast-atomicvalue component is used to access Hazelcast atomic      * number, which is an object that simply provides a grid wide number      * (long).      * Maven coordinates: org.apache.camel:camel-hazelcast      */
 DECL|method|hazelcastAtomicnumber ( String path)
 specifier|default
 name|HazelcastAtomicnumberEndpointBuilder

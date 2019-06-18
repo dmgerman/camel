@@ -2055,7 +2055,7 @@ block|,
 DECL|enumConstant|poll
 name|poll
 block|;     }
-comment|/**      * The hazelcast-topic component is used to access Hazelcast distributed      * topic. Creates a builder to build endpoints for the Hazelcast Topic      * component.      */
+comment|/**      * The hazelcast-topic component is used to access Hazelcast distributed      * topic.      * Maven coordinates: org.apache.camel:camel-hazelcast      */
 DECL|method|hazelcastTopic (String path)
 specifier|default
 name|HazelcastTopicEndpointBuilder

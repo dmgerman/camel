@@ -620,7 +620,7 @@ block|,
 DECL|enumConstant|lineTermination
 name|lineTermination
 block|;     }
-comment|/**      * The pdf components provides the ability to create, modify or extract      * content from PDF documents. Creates a builder to build endpoints for the      * PDF component.      */
+comment|/**      * The pdf components provides the ability to create, modify or extract      * content from PDF documents.      * Maven coordinates: org.apache.camel:camel-pdf      */
 DECL|method|pdf (String path)
 specifier|default
 name|PdfEndpointBuilder

@@ -567,7 +567,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * To use a HTTP Servlet as entry for Camel routes when running in a servlet      * container. Creates a builder to build endpoints for the Servlet      * component.      */
+comment|/**      * To use a HTTP Servlet as entry for Camel routes when running in a servlet      * container.      * Maven coordinates: org.apache.camel:camel-servlet      */
 DECL|method|servlet (String path)
 specifier|default
 name|ServletEndpointBuilder

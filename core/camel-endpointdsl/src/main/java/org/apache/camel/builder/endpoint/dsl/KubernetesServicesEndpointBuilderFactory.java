@@ -2204,7 +2204,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The Kubernetes Service Accounts component provides a producer to execute      * service operations and a consumer to consume service events. Creates a      * builder to build endpoints for the Kubernetes Services component.      */
+comment|/**      * The Kubernetes Service Accounts component provides a producer to execute      * service operations and a consumer to consume service events.      * Maven coordinates: org.apache.camel:camel-kubernetes      */
 DECL|method|kubernetesServices (String path)
 specifier|default
 name|KubernetesServicesEndpointBuilder

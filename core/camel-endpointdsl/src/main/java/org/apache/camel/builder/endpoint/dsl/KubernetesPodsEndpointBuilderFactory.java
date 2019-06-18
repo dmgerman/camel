@@ -2204,7 +2204,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The Kubernetes Pods component provides a producer to execute kubernetes      * pod operations and a consumer to consume pod events. Creates a builder to      * build endpoints for the Kubernetes Pods component.      */
+comment|/**      * The Kubernetes Pods component provides a producer to execute kubernetes      * pod operations and a consumer to consume pod events.      * Maven coordinates: org.apache.camel:camel-kubernetes      */
 DECL|method|kubernetesPods (String path)
 specifier|default
 name|KubernetesPodsEndpointBuilder

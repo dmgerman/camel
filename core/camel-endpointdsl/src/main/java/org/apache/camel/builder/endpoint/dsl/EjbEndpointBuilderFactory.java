@@ -358,7 +358,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The ejb component is for invoking EJB Java beans from Camel. Creates a      * builder to build endpoints for the EJB component.      */
+comment|/**      * The ejb component is for invoking EJB Java beans from Camel.      * Maven coordinates: org.apache.camel:camel-ejb      */
 DECL|method|ejb (String path)
 specifier|default
 name|EjbEndpointBuilder

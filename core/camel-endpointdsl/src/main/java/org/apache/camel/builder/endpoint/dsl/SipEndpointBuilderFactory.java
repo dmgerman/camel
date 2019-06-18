@@ -4879,7 +4879,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * To send and receive messages using the SIP protocol (used in telco and      * mobile). Creates a builder to build endpoints for the SIP component.      */
+comment|/**      * To send and receive messages using the SIP protocol (used in telco and      * mobile).      * Maven coordinates: org.apache.camel:camel-sip      */
 DECL|method|sip (String path)
 specifier|default
 name|SipEndpointBuilder

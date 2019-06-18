@@ -276,7 +276,7 @@ block|,
 DECL|enumConstant|deleteCluster
 name|deleteCluster
 block|;     }
-comment|/**      * The aws-kms is used for managing Amazon EKS Creates a builder to build      * endpoints for the AWS EKS component.      */
+comment|/**      * The aws-kms is used for managing Amazon EKS      * Maven coordinates: org.apache.camel:camel-aws-eks      */
 DECL|method|eKS (String path)
 specifier|default
 name|EKSEndpointBuilder

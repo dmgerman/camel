@@ -259,7 +259,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The dataformat component is used for working with Data Formats as if it      * was a regular Component supporting Endpoints and URIs. Creates a builder      * to build endpoints for the Data Format component.      */
+comment|/**      * The dataformat component is used for working with Data Formats as if it      * was a regular Component supporting Endpoints and URIs.      * Maven coordinates: org.apache.camel:camel-dataformat      */
 DECL|method|dataFormat (String path)
 specifier|default
 name|DataFormatEndpointBuilder

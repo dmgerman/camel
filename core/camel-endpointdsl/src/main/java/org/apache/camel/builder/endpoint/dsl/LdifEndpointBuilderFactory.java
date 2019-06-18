@@ -238,7 +238,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The ldif component allows you to do updates on an LDAP server from a LDIF      * body content. Creates a builder to build endpoints for the LDIF      * component.      */
+comment|/**      * The ldif component allows you to do updates on an LDAP server from a LDIF      * body content.      * Maven coordinates: org.apache.camel:camel-ldif      */
 DECL|method|ldif (String path)
 specifier|default
 name|LdifEndpointBuilder

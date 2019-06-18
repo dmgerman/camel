@@ -1231,7 +1231,7 @@ block|,
 DECL|enumConstant|BRANCH
 name|BRANCH
 block|;     }
-comment|/**      * The git component is used for working with git repositories. Creates a      * builder to build endpoints for the Git component.      */
+comment|/**      * The git component is used for working with git repositories.      * Maven coordinates: org.apache.camel:camel-git      */
 DECL|method|git (String path)
 specifier|default
 name|GitEndpointBuilder

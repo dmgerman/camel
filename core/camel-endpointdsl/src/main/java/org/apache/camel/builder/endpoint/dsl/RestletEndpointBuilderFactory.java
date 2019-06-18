@@ -1992,7 +1992,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Component for consuming and producing Restful resources using Restlet.      * Creates a builder to build endpoints for the Restlet component.      */
+comment|/**      * Component for consuming and producing Restful resources using Restlet.      * Maven coordinates: org.apache.camel:camel-restlet      */
 DECL|method|restlet (String path)
 specifier|default
 name|RestletEndpointBuilder

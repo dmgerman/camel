@@ -1472,7 +1472,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The vm component provides asynchronous call to another endpoint from the      * same CamelContext. Creates a builder to build endpoints for the VM      * component.      */
+comment|/**      * The vm component provides asynchronous call to another endpoint from the      * same CamelContext.      * Maven coordinates: org.apache.camel:camel-vm      */
 DECL|method|vm (String path)
 specifier|default
 name|VmEndpointBuilder

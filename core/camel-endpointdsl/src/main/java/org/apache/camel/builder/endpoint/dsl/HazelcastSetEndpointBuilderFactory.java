@@ -2055,7 +2055,7 @@ block|,
 DECL|enumConstant|poll
 name|poll
 block|;     }
-comment|/**      * The camel Endpoint to access Hazelcast distributed set. Creates a builder      * to build endpoints for the Hazelcast Set component.      */
+comment|/**      * The camel Endpoint to access Hazelcast distributed set.      * Maven coordinates: org.apache.camel:camel-hazelcast      */
 DECL|method|hazelcastSet (String path)
 specifier|default
 name|HazelcastSetEndpointBuilder

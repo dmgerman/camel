@@ -1966,7 +1966,7 @@ block|,
 DECL|enumConstant|UPDATED
 name|UPDATED
 block|;     }
-comment|/**      * The ehcache component enables you to perform caching operations using      * Ehcache as cache implementation. Creates a builder to build endpoints for      * the Ehcache component.      */
+comment|/**      * The ehcache component enables you to perform caching operations using      * Ehcache as cache implementation.      * Maven coordinates: org.apache.camel:camel-ehcache      */
 DECL|method|ehcache (String path)
 specifier|default
 name|EhcacheEndpointBuilder

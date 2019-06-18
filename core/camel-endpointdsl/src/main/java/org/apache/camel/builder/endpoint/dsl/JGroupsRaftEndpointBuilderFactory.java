@@ -776,7 +776,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The jgroups component provides exchange of messages between Camel and      * JGroups clusters. Creates a builder to build endpoints for the JGroups      * raft component.      */
+comment|/**      * The jgroups component provides exchange of messages between Camel and      * JGroups clusters.      * Maven coordinates: org.apache.camel:camel-jgroups-raft      */
 DECL|method|jGroupsRaft (String path)
 specifier|default
 name|JGroupsRaftEndpointBuilder

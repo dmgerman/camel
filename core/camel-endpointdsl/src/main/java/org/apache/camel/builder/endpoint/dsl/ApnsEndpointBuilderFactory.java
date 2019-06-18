@@ -1506,7 +1506,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * For sending notifications to Apple iOS devices. Creates a builder to      * build endpoints for the APNS component.      */
+comment|/**      * For sending notifications to Apple iOS devices.      * Maven coordinates: org.apache.camel:camel-apns      */
 DECL|method|apns (String path)
 specifier|default
 name|ApnsEndpointBuilder
