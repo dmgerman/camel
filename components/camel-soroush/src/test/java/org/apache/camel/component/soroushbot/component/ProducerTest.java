@@ -88,7 +88,7 @@ name|soroushbot
 operator|.
 name|models
 operator|.
-name|SoroushAction
+name|MinorType
 import|;
 end_import
 
@@ -106,7 +106,7 @@ name|soroushbot
 operator|.
 name|models
 operator|.
-name|MinorType
+name|SoroushAction
 import|;
 end_import
 
