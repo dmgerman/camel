@@ -262,6 +262,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets the Mongo instance that represents the backing connection.          * The option is a<code>com.mongodb.MongoClient</code> type.          * @group common          */
+DECL|method|mongoConnection ( Object mongoConnection)
+specifier|default
+name|MongoDbEndpointConsumerBuilder
+name|mongoConnection
+parameter_list|(
+name|Object
+name|mongoConnection
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"mongoConnection"
+argument_list|,
+name|mongoConnection
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the Mongo instance that represents the backing connection.          * The option will be converted to a          *<code>com.mongodb.MongoClient</code> type.          * @group common          */
+DECL|method|mongoConnection ( String mongoConnection)
+specifier|default
+name|MongoDbEndpointConsumerBuilder
+name|mongoConnection
+parameter_list|(
+name|String
+name|mongoConnection
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"mongoConnection"
+argument_list|,
+name|mongoConnection
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          * The option is a          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          * @group common          */
 DECL|method|operation ( MongoDbOperation operation)
 specifier|default
@@ -1041,6 +1083,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets the Mongo instance that represents the backing connection.          * The option is a<code>com.mongodb.MongoClient</code> type.          * @group common          */
+DECL|method|mongoConnection ( Object mongoConnection)
+specifier|default
+name|MongoDbEndpointProducerBuilder
+name|mongoConnection
+parameter_list|(
+name|Object
+name|mongoConnection
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"mongoConnection"
+argument_list|,
+name|mongoConnection
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the Mongo instance that represents the backing connection.          * The option will be converted to a          *<code>com.mongodb.MongoClient</code> type.          * @group common          */
+DECL|method|mongoConnection ( String mongoConnection)
+specifier|default
+name|MongoDbEndpointProducerBuilder
+name|mongoConnection
+parameter_list|(
+name|String
+name|mongoConnection
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"mongoConnection"
+argument_list|,
+name|mongoConnection
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          * The option is a          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          * @group common          */
 DECL|method|operation ( MongoDbOperation operation)
 specifier|default
@@ -1711,6 +1795,48 @@ argument_list|(
 literal|"database"
 argument_list|,
 name|database
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the Mongo instance that represents the backing connection.          * The option is a<code>com.mongodb.MongoClient</code> type.          * @group common          */
+DECL|method|mongoConnection (Object mongoConnection)
+specifier|default
+name|MongoDbEndpointBuilder
+name|mongoConnection
+parameter_list|(
+name|Object
+name|mongoConnection
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"mongoConnection"
+argument_list|,
+name|mongoConnection
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the Mongo instance that represents the backing connection.          * The option will be converted to a          *<code>com.mongodb.MongoClient</code> type.          * @group common          */
+DECL|method|mongoConnection (String mongoConnection)
+specifier|default
+name|MongoDbEndpointBuilder
+name|mongoConnection
+parameter_list|(
+name|String
+name|mongoConnection
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"mongoConnection"
+argument_list|,
+name|mongoConnection
 argument_list|)
 expr_stmt|;
 return|return

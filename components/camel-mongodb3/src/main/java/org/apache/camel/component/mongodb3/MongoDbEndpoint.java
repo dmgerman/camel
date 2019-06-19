@@ -513,6 +513,13 @@ name|MongoDbEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"Sets the connection bean used as a client for connecting to a database."
+argument_list|)
 DECL|field|mongoConnection
 specifier|private
 name|MongoClient
@@ -520,6 +527,11 @@ name|mongoConnection
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Sets the connection bean reference used to lookup a client for connecting to a database."
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -1675,6 +1687,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|mongoConnection
+operator|==
+literal|null
+condition|)
+block|{
 name|mongoConnection
 operator|=
 name|CamelContextHelper
@@ -1695,13 +1714,26 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Resolved the connection with the name {} as {}"
+literal|"Resolved the connection provided by {} context reference as {}"
 argument_list|,
 name|connectionBean
 argument_list|,
 name|mongoConnection
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Resolved the connection provided by mongoConnection property parameter as {}"
+argument_list|,
+name|mongoConnection
+argument_list|)
+expr_stmt|;
+block|}
 name|super
 operator|.
 name|doStart
