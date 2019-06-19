@@ -246,6 +246,23 @@ specifier|protected
 name|File
 name|outFolder
 decl_stmt|;
+comment|/**      * The build directory      */
+annotation|@
+name|Parameter
+argument_list|(
+name|readonly
+operator|=
+literal|true
+argument_list|,
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/"
+argument_list|)
+DECL|field|buildDir
+specifier|protected
+name|File
+name|buildDir
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|execute ()
@@ -285,7 +302,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"src/main/java/org/apache/camel/main"
+name|buildDir
+argument_list|,
+literal|"../src/main/java/org/apache/camel/main"
 argument_list|)
 operator|.
 name|listFiles
