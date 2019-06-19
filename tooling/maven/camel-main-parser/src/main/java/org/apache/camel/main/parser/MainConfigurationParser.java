@@ -159,6 +159,32 @@ parameter_list|)
 throws|throws
 name|FileNotFoundException
 block|{
+return|return
+name|parseConfigurationSource
+argument_list|(
+operator|new
+name|File
+argument_list|(
+name|fileName
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Parses the Camel Main configuration java source file.      */
+DECL|method|parseConfigurationSource (File file)
+specifier|public
+name|List
+argument_list|<
+name|ConfigurationModel
+argument_list|>
+name|parseConfigurationSource
+parameter_list|(
+name|File
+name|file
+parameter_list|)
+throws|throws
+name|FileNotFoundException
+block|{
 specifier|final
 name|List
 argument_list|<
@@ -181,11 +207,7 @@ name|Roaster
 operator|.
 name|parse
 argument_list|(
-operator|new
-name|File
-argument_list|(
-name|fileName
-argument_list|)
+name|file
 argument_list|)
 decl_stmt|;
 name|List

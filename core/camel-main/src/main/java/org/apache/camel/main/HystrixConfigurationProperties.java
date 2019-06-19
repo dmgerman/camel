@@ -1002,7 +1002,7 @@ return|return
 name|queueSizeRejectionThreshold
 return|;
 block|}
-comment|/**      * Queue size rejection threshold is an artificial "max" size at which rejections will occur even      * if {@link #maxQueueSize} has not been reached. This is done because the {@link #maxQueueSize}      * of a {@link BlockingQueue} can not be dynamically changed and we want to support dynamically      * changing the queue size that affects rejections.      *<p>      * This is used by HystrixCommand when queuing a thread for execution.      */
+comment|/**      * Queue size rejection threshold is an artificial max size at which rejections will occur even      * if {@link #maxQueueSize} has not been reached. This is done because the {@link #maxQueueSize}      * of a {@link BlockingQueue} can not be dynamically changed and we want to support dynamically      * changing the queue size that affects rejections.      *<p>      * This is used by HystrixCommand when queuing a thread for execution.      */
 DECL|method|setQueueSizeRejectionThreshold (Integer queueSizeRejectionThreshold)
 specifier|public
 name|void
@@ -1642,7 +1642,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Queue size rejection threshold is an artificial "max" size at which rejections will occur even      * if {@link #maxQueueSize} has not been reached. This is done because the {@link #maxQueueSize}      * of a {@link BlockingQueue} can not be dynamically changed and we want to support dynamically      * changing the queue size that affects rejections.      *<p>      * This is used by HystrixCommand when queuing a thread for execution.      */
+comment|/**      * Queue size rejection threshold is an artificial max size at which rejections will occur even      * if {@link #maxQueueSize} has not been reached. This is done because the {@link #maxQueueSize}      * of a {@link BlockingQueue} can not be dynamically changed and we want to support dynamically      * changing the queue size that affects rejections.      *<p>      * This is used by HystrixCommand when queuing a thread for execution.      */
 DECL|method|withQueueSizeRejectionThreshold (Integer queueSizeRejectionThreshold)
 specifier|public
 name|HystrixConfigurationProperties
