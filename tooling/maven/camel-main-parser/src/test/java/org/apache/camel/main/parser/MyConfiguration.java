@@ -18,32 +18,6 @@ name|parser
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ManagementStatisticsLevel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|PatternHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Common set of configuration options used by Camel Main, Camel Spring Boot and other runtimes.  */
 end_comment
@@ -250,15 +224,6 @@ DECL|field|useBreadcrumb
 specifier|private
 name|boolean
 name|useBreadcrumb
-decl_stmt|;
-DECL|field|jmxManagementStatisticsLevel
-specifier|private
-name|ManagementStatisticsLevel
-name|jmxManagementStatisticsLevel
-init|=
-name|ManagementStatisticsLevel
-operator|.
-name|Default
 decl_stmt|;
 DECL|field|jmxManagementNamePattern
 specifier|private
@@ -1239,33 +1204,6 @@ operator|=
 name|useBreadcrumb
 expr_stmt|;
 block|}
-DECL|method|getJmxManagementStatisticsLevel ()
-specifier|public
-name|ManagementStatisticsLevel
-name|getJmxManagementStatisticsLevel
-parameter_list|()
-block|{
-return|return
-name|jmxManagementStatisticsLevel
-return|;
-block|}
-comment|/**      * Sets the JMX statistics level      * The level can be set to Extended to gather additional information      *      * The default value is Default.      */
-DECL|method|setJmxManagementStatisticsLevel (ManagementStatisticsLevel jmxManagementStatisticsLevel)
-specifier|public
-name|void
-name|setJmxManagementStatisticsLevel
-parameter_list|(
-name|ManagementStatisticsLevel
-name|jmxManagementStatisticsLevel
-parameter_list|)
-block|{
-name|this
-operator|.
-name|jmxManagementStatisticsLevel
-operator|=
-name|jmxManagementStatisticsLevel
-expr_stmt|;
-block|}
 DECL|method|getJmxManagementNamePattern ()
 specifier|public
 name|String
@@ -1384,7 +1322,7 @@ return|return
 name|routeFilterIncludePattern
 return|;
 block|}
-comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression as documented by {@link PatternHelper#matchPattern(String, String)}.      *      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *      * Exclude takes precedence over include.      */
+comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression as documented by PatternHelper#matchPattern(String, String).      *      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *      * Exclude takes precedence over include.      */
 DECL|method|setRouteFilterIncludePattern (String include)
 specifier|public
 name|void
@@ -1411,7 +1349,7 @@ return|return
 name|routeFilterExcludePattern
 return|;
 block|}
-comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression as documented by {@link PatternHelper#matchPattern(String, String)}.      *      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *      * Exclude takes precedence over include.      */
+comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression as documented by PatternHelper#matchPattern(String, String).      *      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *      * Exclude takes precedence over include.      */
 DECL|method|setRouteFilterExcludePattern (String exclude)
 specifier|public
 name|void
