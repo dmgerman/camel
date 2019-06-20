@@ -202,7 +202,7 @@ specifier|public
 class|class
 name|JGroupsRaftMasterTest
 extends|extends
-name|JGroupsRaftClusterAbastractTest
+name|JGroupsRaftClusterAbstractTest
 block|{
 DECL|field|LOG
 specifier|private

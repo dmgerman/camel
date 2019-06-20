@@ -47,11 +47,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|JGroupsRaftClusterAbastractTest
+DECL|class|JGroupsRaftClusterAbstractTest
 specifier|public
 specifier|abstract
 class|class
-name|JGroupsRaftClusterAbastractTest
+name|JGroupsRaftClusterAbstractTest
 block|{
 DECL|method|waitForLeader (int attempts, RaftHandle rh, RaftHandle rh2, RaftHandle rh3)
 specifier|protected
