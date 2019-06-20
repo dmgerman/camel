@@ -86,6 +86,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|zip
@@ -901,7 +913,7 @@ block|{
 name|File
 name|tmpZip
 init|=
-name|File
+name|Files
 operator|.
 name|createTempFile
 argument_list|(
@@ -912,6 +924,9 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 name|tmpZip
 operator|.
@@ -1187,7 +1202,7 @@ block|{
 name|File
 name|tmpZip
 init|=
-name|File
+name|Files
 operator|.
 name|createTempFile
 argument_list|(
@@ -1198,6 +1213,9 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 name|tmpZip
 operator|.
