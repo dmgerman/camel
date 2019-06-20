@@ -178,6 +178,20 @@ name|camel
 operator|.
 name|support
 operator|.
+name|IntrospectionSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
 name|PatternHelper
 import|;
 end_import
@@ -1238,6 +1252,9 @@ argument_list|(
 name|line
 argument_list|)
 expr_stmt|;
+comment|// TODO: get options from best class (getter/setter pairs)
+comment|// we dont have documentation
+comment|// add as spring boot options
 block|}
 block|}
 block|}
