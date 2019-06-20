@@ -346,7 +346,7 @@ block|}
 argument_list|,
 name|res
 lambda|->
-block|{}
+block|{ }
 argument_list|)
 expr_stmt|;
 block|}
