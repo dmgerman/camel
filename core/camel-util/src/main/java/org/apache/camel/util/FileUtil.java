@@ -407,16 +407,22 @@ name|mkdirs
 argument_list|()
 expr_stmt|;
 return|return
-name|File
+name|Files
 operator|.
 name|createTempFile
 argument_list|(
+name|parentDir
+operator|.
+name|toPath
+argument_list|()
+argument_list|,
 name|prefix
 argument_list|,
 name|suffix
-argument_list|,
-name|parentDir
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 return|;
 block|}
 comment|/**      * Strip any leading separators      */

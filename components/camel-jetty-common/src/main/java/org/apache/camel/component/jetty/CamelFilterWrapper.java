@@ -40,6 +40,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|servlet
@@ -239,7 +251,7 @@ block|{
 name|File
 name|file
 init|=
-name|File
+name|Files
 operator|.
 name|createTempFile
 argument_list|(
@@ -247,6 +259,9 @@ literal|"camel"
 argument_list|,
 literal|""
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 name|file
 operator|.

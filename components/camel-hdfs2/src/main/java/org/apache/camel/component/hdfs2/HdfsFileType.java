@@ -112,6 +112,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
@@ -1002,7 +1014,7 @@ decl_stmt|;
 name|File
 name|outputDest
 init|=
-name|File
+name|Files
 operator|.
 name|createTempFile
 argument_list|(
@@ -1010,6 +1022,9 @@ name|fname
 argument_list|,
 literal|".hdfs"
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
