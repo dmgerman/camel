@@ -1309,6 +1309,19 @@ literal|"\\foo\\bar\\baz"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Test that multiple back-slashes at the beginning are preserved, this is necessary for network UNC paths.
+name|assertEquals
+argument_list|(
+literal|"\\\\foo\\bar\\baz"
+argument_list|,
+name|FileUtil
+operator|.
+name|compactPath
+argument_list|(
+literal|"\\\\foo\\bar\\baz"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"\\"
@@ -1529,6 +1542,19 @@ operator|.
 name|compactPath
 argument_list|(
 literal|"/foo/bar/baz"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Do not preserve multiple slashes at the beginning if not on Windows.
+name|assertEquals
+argument_list|(
+literal|"/foo/bar/baz"
+argument_list|,
+name|FileUtil
+operator|.
+name|compactPath
+argument_list|(
+literal|"//foo/bar/baz"
 argument_list|)
 argument_list|)
 expr_stmt|;
