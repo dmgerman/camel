@@ -1058,7 +1058,9 @@ argument_list|)
 operator|.
 name|set
 argument_list|(
-literal|"DynamicImport-Package"
+name|Constants
+operator|.
+name|DYNAMICIMPORT_PACKAGE
 argument_list|,
 literal|"*"
 argument_list|)
