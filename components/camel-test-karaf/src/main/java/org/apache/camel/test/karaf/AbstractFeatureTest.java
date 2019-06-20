@@ -1055,6 +1055,13 @@ literal|"Bundle-Version"
 argument_list|,
 literal|"1.0.0"
 argument_list|)
+operator|.
+name|set
+argument_list|(
+literal|"DynamicImport-Package"
+argument_list|,
+literal|"*"
+argument_list|)
 expr_stmt|;
 name|consumer
 operator|.
