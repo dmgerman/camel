@@ -26,9 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|BindToRegistry
 import|;
 end_import
 
@@ -40,9 +38,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|builder
 operator|.
-name|JndiRegistry
+name|RouteBuilder
 import|;
 end_import
 
@@ -148,6 +146,18 @@ extends|extends
 name|CamelTestSupport
 block|{
 annotation|@
+name|BindToRegistry
+argument_list|(
+literal|"ssl"
+argument_list|)
+DECL|field|ssl
+name|SSLContextParameters
+name|ssl
+init|=
+name|createSSLContextParameters
+argument_list|()
+decl_stmt|;
+annotation|@
 name|Test
 DECL|method|sendTest ()
 specifier|public
@@ -166,38 +176,6 @@ argument_list|,
 literal|"pippo"
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|createRegistry ()
-specifier|protected
-name|JndiRegistry
-name|createRegistry
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|JndiRegistry
-name|registry
-init|=
-name|super
-operator|.
-name|createRegistry
-argument_list|()
-decl_stmt|;
-name|registry
-operator|.
-name|bind
-argument_list|(
-literal|"ssl"
-argument_list|,
-name|createSSLContextParameters
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|registry
-return|;
 block|}
 DECL|method|createSSLContextParameters ()
 specifier|private
