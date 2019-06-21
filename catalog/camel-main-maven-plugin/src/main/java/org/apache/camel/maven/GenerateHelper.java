@@ -59,6 +59,9 @@ literal|null
 operator|||
 name|javadoc
 operator|.
+name|trim
+argument_list|()
+operator|.
 name|isEmpty
 argument_list|()
 condition|)

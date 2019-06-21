@@ -1350,11 +1350,6 @@ condition|(
 name|desc
 operator|==
 literal|null
-operator|||
-name|desc
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 block|{
 name|desc
@@ -1364,10 +1359,28 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|desc
+operator|.
+name|endsWith
+argument_list|(
+literal|"."
+argument_list|)
+condition|)
+block|{
+name|desc
+operator|+=
+literal|" "
+expr_stmt|;
+block|}
+else|else
+block|{
 name|desc
 operator|+=
 literal|". "
 expr_stmt|;
+block|}
 block|}
 name|desc
 operator|+=
