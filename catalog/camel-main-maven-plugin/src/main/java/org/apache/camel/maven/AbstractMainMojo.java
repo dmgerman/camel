@@ -178,18 +178,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Function
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -243,38 +231,6 @@ operator|.
 name|maven
 operator|.
 name|MavenVersionManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|maven
-operator|.
-name|model
-operator|.
-name|AutowireData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|maven
-operator|.
-name|model
-operator|.
-name|SpringBootData
 import|;
 end_import
 
@@ -1724,7 +1680,7 @@ name|artifacts
 return|;
 block|}
 DECL|method|safeJavaType (String javaType)
-specifier|protected
+specifier|static
 name|String
 name|safeJavaType
 parameter_list|(

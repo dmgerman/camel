@@ -232,6 +232,8 @@ name|ResolutionScope
 operator|.
 name|COMPILE
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|class|SpringBootToolingMojo
 specifier|public
 class|class
