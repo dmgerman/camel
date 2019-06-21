@@ -380,7 +380,7 @@ comment|// compute prefix for name
 name|String
 name|prefix
 init|=
-literal|"camel.main."
+literal|"camel."
 decl_stmt|;
 if|if
 condition|(
@@ -417,6 +417,13 @@ block|{
 name|prefix
 operator|+=
 literal|"rest."
+expr_stmt|;
+block|}
+else|else
+block|{
+name|prefix
+operator|+=
+literal|"main."
 expr_stmt|;
 block|}
 specifier|final
