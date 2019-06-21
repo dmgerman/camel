@@ -40,12 +40,17 @@ specifier|private
 name|String
 name|description
 decl_stmt|;
+DECL|field|sourceType
+specifier|private
+name|String
+name|sourceType
+decl_stmt|;
 DECL|field|defaultValue
 specifier|private
 name|String
 name|defaultValue
 decl_stmt|;
-DECL|method|SpringBootData (String name, String javaType, String description, String defaultValue)
+DECL|method|SpringBootData (String name, String javaType, String description, String sourceType, String defaultValue)
 specifier|public
 name|SpringBootData
 parameter_list|(
@@ -57,6 +62,9 @@ name|javaType
 parameter_list|,
 name|String
 name|description
+parameter_list|,
+name|String
+name|sourceType
 parameter_list|,
 name|String
 name|defaultValue
@@ -79,6 +87,12 @@ operator|.
 name|description
 operator|=
 name|description
+expr_stmt|;
+name|this
+operator|.
+name|sourceType
+operator|=
+name|sourceType
 expr_stmt|;
 name|this
 operator|.
@@ -163,6 +177,32 @@ operator|.
 name|description
 operator|=
 name|description
+expr_stmt|;
+block|}
+DECL|method|getSourceType ()
+specifier|public
+name|String
+name|getSourceType
+parameter_list|()
+block|{
+return|return
+name|sourceType
+return|;
+block|}
+DECL|method|setSourceType (String sourceType)
+specifier|public
+name|void
+name|setSourceType
+parameter_list|(
+name|String
+name|sourceType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sourceType
+operator|=
+name|sourceType
 expr_stmt|;
 block|}
 DECL|method|getDefaultValue ()

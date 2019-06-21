@@ -34,15 +34,20 @@ specifier|private
 name|String
 name|javaType
 decl_stmt|;
-DECL|field|defaultValue
+DECL|field|sourceType
 specifier|private
 name|String
-name|defaultValue
+name|sourceType
 decl_stmt|;
 DECL|field|description
 specifier|private
 name|String
 name|description
+decl_stmt|;
+DECL|field|defaultValue
+specifier|private
+name|String
+name|defaultValue
 decl_stmt|;
 DECL|method|getName ()
 specifier|public
@@ -96,30 +101,30 @@ operator|=
 name|javaType
 expr_stmt|;
 block|}
-DECL|method|getDefaultValue ()
+DECL|method|getSourceType ()
 specifier|public
 name|String
-name|getDefaultValue
+name|getSourceType
 parameter_list|()
 block|{
 return|return
-name|defaultValue
+name|sourceType
 return|;
 block|}
-DECL|method|setDefaultValue (String defaultValue)
+DECL|method|setSourceType (String sourceType)
 specifier|public
 name|void
-name|setDefaultValue
+name|setSourceType
 parameter_list|(
 name|String
-name|defaultValue
+name|sourceType
 parameter_list|)
 block|{
 name|this
 operator|.
-name|defaultValue
+name|sourceType
 operator|=
-name|defaultValue
+name|sourceType
 expr_stmt|;
 block|}
 DECL|method|getDescription ()
@@ -146,6 +151,32 @@ operator|.
 name|description
 operator|=
 name|description
+expr_stmt|;
+block|}
+DECL|method|getDefaultValue ()
+specifier|public
+name|String
+name|getDefaultValue
+parameter_list|()
+block|{
+return|return
+name|defaultValue
+return|;
+block|}
+DECL|method|setDefaultValue (String defaultValue)
+specifier|public
+name|void
+name|setDefaultValue
+parameter_list|(
+name|String
+name|defaultValue
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultValue
+operator|=
+name|defaultValue
 expr_stmt|;
 block|}
 block|}

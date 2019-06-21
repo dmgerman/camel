@@ -595,6 +595,14 @@ name|getDescription
 argument_list|()
 decl_stmt|;
 name|String
+name|sourceType
+init|=
+name|row
+operator|.
+name|getSourceType
+argument_list|()
+decl_stmt|;
+name|String
 name|defaultValue
 init|=
 name|row
@@ -627,6 +635,17 @@ argument_list|(
 literal|"      \"type\": \""
 operator|+
 name|javaType
+operator|+
+literal|"\",\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"      \"sourceType\": \""
+operator|+
+name|sourceType
 operator|+
 literal|"\",\n"
 argument_list|)
