@@ -517,7 +517,9 @@ expr_stmt|;
 try|try
 block|{
 name|preWriteCheck
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 expr_stmt|;
 comment|// should we write to a temporary name and then afterwards rename to real target
 name|boolean
@@ -1311,11 +1313,14 @@ name|exception
 throw|;
 block|}
 comment|/**      * Perform any actions that need to occur before we write such as connecting to an FTP server etc.      */
-DECL|method|preWriteCheck ()
+DECL|method|preWriteCheck (Exchange exchange)
 specifier|public
 name|void
 name|preWriteCheck
-parameter_list|()
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 throws|throws
 name|Exception
 block|{
