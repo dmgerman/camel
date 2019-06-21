@@ -26,7 +26,21 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Component
+import|;
+end_import
+
 begin_class
+annotation|@
+name|Component
 DECL|class|Service2Route
 specifier|public
 class|class
