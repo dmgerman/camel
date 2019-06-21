@@ -657,11 +657,6 @@ operator|+
 name|id
 argument_list|)
 operator|.
-name|autoStartup
-argument_list|(
-literal|false
-argument_list|)
-operator|.
 name|routePolicy
 argument_list|(
 name|ClusteredRoutePolicy
