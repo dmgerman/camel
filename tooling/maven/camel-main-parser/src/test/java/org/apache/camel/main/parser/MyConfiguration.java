@@ -945,6 +945,8 @@ name|tracing
 return|;
 block|}
 comment|/**      * Sets whether tracing is enabled or not.      *      * Default is false.      */
+annotation|@
+name|Deprecated
 DECL|method|setTracing (boolean tracing)
 specifier|public
 name|void

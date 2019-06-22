@@ -49,6 +49,11 @@ specifier|private
 name|String
 name|defaultValue
 decl_stmt|;
+DECL|field|deprecated
+specifier|private
+name|boolean
+name|deprecated
+decl_stmt|;
 DECL|method|getName ()
 specifier|public
 name|String
@@ -177,6 +182,32 @@ operator|.
 name|defaultValue
 operator|=
 name|defaultValue
+expr_stmt|;
+block|}
+DECL|method|isDeprecated ()
+specifier|public
+name|boolean
+name|isDeprecated
+parameter_list|()
+block|{
+return|return
+name|deprecated
+return|;
+block|}
+DECL|method|setDeprecated (boolean deprecated)
+specifier|public
+name|void
+name|setDeprecated
+parameter_list|(
+name|boolean
+name|deprecated
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deprecated
+operator|=
+name|deprecated
 expr_stmt|;
 block|}
 block|}
