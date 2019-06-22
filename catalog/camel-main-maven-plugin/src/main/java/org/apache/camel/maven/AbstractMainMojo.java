@@ -613,7 +613,7 @@ specifier|protected
 interface|interface
 name|ComponentCallback
 block|{
-DECL|method|onOption (String componentName, String componentJavaType, String name, String type, String javaType, String description, String defaultValue)
+DECL|method|onOption (String componentName, String componentJavaType, String name, String type, String javaType, String description, String defaultValue, boolean deprecated)
 name|void
 name|onOption
 parameter_list|(
@@ -637,6 +637,9 @@ name|description
 parameter_list|,
 name|String
 name|defaultValue
+parameter_list|,
+name|boolean
+name|deprecated
 parameter_list|)
 function_decl|;
 block|}
@@ -1080,6 +1083,23 @@ argument_list|(
 literal|"defaultValue"
 argument_list|)
 decl_stmt|;
+name|boolean
+name|deprecated
+init|=
+literal|"true"
+operator|.
+name|equals
+argument_list|(
+name|row
+operator|.
+name|getOrDefault
+argument_list|(
+literal|"deprecated"
+argument_list|,
+literal|"false"
+argument_list|)
+argument_list|)
+decl_stmt|;
 name|callback
 operator|.
 name|onOption
@@ -1097,6 +1117,8 @@ argument_list|,
 name|desc
 argument_list|,
 name|defaultValue
+argument_list|,
+name|deprecated
 argument_list|)
 expr_stmt|;
 block|}

@@ -50,7 +50,12 @@ specifier|private
 name|String
 name|defaultValue
 decl_stmt|;
-DECL|method|SpringBootData (String name, String javaType, String description, String sourceType, String defaultValue)
+DECL|field|deprecated
+specifier|private
+name|boolean
+name|deprecated
+decl_stmt|;
+DECL|method|SpringBootData (String name, String javaType, String description, String sourceType, String defaultValue, boolean deprecated)
 specifier|public
 name|SpringBootData
 parameter_list|(
@@ -68,6 +73,9 @@ name|sourceType
 parameter_list|,
 name|String
 name|defaultValue
+parameter_list|,
+name|boolean
+name|deprecated
 parameter_list|)
 block|{
 name|this
@@ -99,6 +107,12 @@ operator|.
 name|defaultValue
 operator|=
 name|defaultValue
+expr_stmt|;
+name|this
+operator|.
+name|deprecated
+operator|=
+name|deprecated
 expr_stmt|;
 block|}
 DECL|method|getName ()
@@ -229,6 +243,32 @@ operator|.
 name|defaultValue
 operator|=
 name|defaultValue
+expr_stmt|;
+block|}
+DECL|method|isDeprecated ()
+specifier|public
+name|boolean
+name|isDeprecated
+parameter_list|()
+block|{
+return|return
+name|deprecated
+return|;
+block|}
+DECL|method|setDeprecated (boolean deprecated)
+specifier|public
+name|void
+name|setDeprecated
+parameter_list|(
+name|boolean
+name|deprecated
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deprecated
+operator|=
+name|deprecated
 expr_stmt|;
 block|}
 block|}
