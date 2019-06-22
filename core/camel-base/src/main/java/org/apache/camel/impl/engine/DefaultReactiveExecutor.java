@@ -832,8 +832,6 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-comment|//                Thread thread = Thread.currentThread();
-comment|//                String name = thread.getName();
 try|try
 block|{
 for|for
@@ -894,7 +892,6 @@ operator|.
 name|decrementAndGet
 argument_list|()
 expr_stmt|;
-comment|//                            thread.setName(name + " - " + polled.toString());
 if|if
 condition|(
 name|LOG
@@ -946,7 +943,6 @@ block|}
 block|}
 finally|finally
 block|{
-comment|//                    thread.setName(name);
 name|running
 operator|=
 literal|false
@@ -962,6 +958,14 @@ block|}
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -971,6 +975,7 @@ argument_list|,
 name|runnable
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|executeFromQueue ()
@@ -1004,22 +1009,6 @@ return|return
 literal|false
 return|;
 block|}
-name|Thread
-name|thread
-init|=
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-decl_stmt|;
-name|String
-name|name
-init|=
-name|thread
-operator|.
-name|getName
-argument_list|()
-decl_stmt|;
 try|try
 block|{
 name|executor
@@ -1028,20 +1017,6 @@ name|pendingTasks
 operator|.
 name|decrementAndGet
 argument_list|()
-expr_stmt|;
-name|thread
-operator|.
-name|setName
-argument_list|(
-name|name
-operator|+
-literal|" - "
-operator|+
-name|polled
-operator|.
-name|toString
-argument_list|()
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1088,16 +1063,6 @@ operator|+
 literal|". This exception is ignored."
 argument_list|,
 name|t
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|thread
-operator|.
-name|setName
-argument_list|(
-name|name
 argument_list|)
 expr_stmt|;
 block|}
