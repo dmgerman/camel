@@ -11116,6 +11116,62 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+DECL|method|testBodyAsOneLine ()
+specifier|public
+name|void
+name|testBodyAsOneLine
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"Hello"
+operator|+
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
+operator|+
+literal|"Great"
+operator|+
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
+operator|+
+literal|"World"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${bodyOneLine}"
+argument_list|,
+literal|"HelloGreatWorld"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"Hi ${bodyOneLine}"
+argument_list|,
+literal|"Hi HelloGreatWorld"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"Hi ${bodyOneLine} Again"
+argument_list|,
+literal|"Hi HelloGreatWorld Again"
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
 DECL|method|testNestedTypeFunction ()
 specifier|public
 name|void
