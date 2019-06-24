@@ -4452,6 +4452,13 @@ argument_list|(
 literal|"/META-INF/services/org/apache/camel/autowire.properties"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|is
+operator|!=
+literal|null
+condition|)
+block|{
 name|prop
 operator|.
 name|load
@@ -4532,6 +4539,7 @@ argument_list|(
 name|is
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
