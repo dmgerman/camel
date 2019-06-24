@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|DataFormatDefinition
@@ -114,7 +102,6 @@ name|definition
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* @Override     protected DataFormat doCreateDataFormat(CamelContext camelContext) {         if (definition.getDataObjectType() == null&& definition.getDataObjectTypeName() != null) {             try {                 definition.setDataObjectType(camelContext.getClassResolver().resolveMandatoryClass(definition.getDataObjectTypeName()));             } catch (ClassNotFoundException e) {                 throw RuntimeCamelException.wrapRuntimeCamelException(e);             }         }          return super.doCreateDataFormat(camelContext);     }*/
 annotation|@
 name|Override
 DECL|method|configureDataFormat (DataFormat dataFormat, CamelContext camelContext)
@@ -129,7 +116,12 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
-comment|/*if (definition.getDataObjectType() != null) {             setProperty(camelContext, dataFormat, "dataObjectType", definition.getDataObjectType());         }         if (definition.getOmitXmlDeclaration() != null) {             setProperty(camelContext, dataFormat, "omitXmlDeclaration", definition.getOmitXmlDeclaration());         }*/
+comment|//    if (definition.getDataObjectType() != null) {
+comment|//      setProperty(camelContext, dataFormat, "dataObjectType", definition.getDataObjectType());
+comment|//    }
+comment|//    if (definition.getOmitXmlDeclaration() != null) {
+comment|//      setProperty(camelContext, dataFormat, "omitXmlDeclaration", definition.getOmitXmlDeclaration());
+comment|//    }
 block|}
 block|}
 end_class

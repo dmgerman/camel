@@ -87,7 +87,7 @@ return|return
 name|triplehandler
 return|;
 block|}
-DECL|method|setTripleHandlerOutput (TripleHandler triplehandler )
+DECL|method|setTripleHandlerOutput (TripleHandler triplehandler)
 specifier|public
 name|void
 name|setTripleHandlerOutput
