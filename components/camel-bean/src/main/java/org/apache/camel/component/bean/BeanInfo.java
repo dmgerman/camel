@@ -3074,6 +3074,22 @@ index|[]
 name|a
 parameter_list|)
 block|{
+comment|// because we are only looking for camel annotations then skip all stuff from JDKs
+if|if
+condition|(
+name|c
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"java"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 try|try
 block|{
 name|Annotation
@@ -3142,7 +3158,7 @@ name|NoSuchMethodException
 name|e
 parameter_list|)
 block|{
-comment|// no method with signature of m declared on c
+comment|// ignore no method with signature of m declared on c
 block|}
 for|for
 control|(
