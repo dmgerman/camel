@@ -34,27 +34,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
 import|;
 end_import
 
@@ -845,7 +825,7 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -859,7 +839,7 @@ name|getMaximumRedeliveries
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -873,7 +853,7 @@ name|getRedeliveryDelay
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -887,7 +867,7 @@ name|getAsyncDelayedRedelivery
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -901,7 +881,7 @@ name|getBackOffMultiplier
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -915,7 +895,7 @@ name|getUseExponentialBackOff
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -929,7 +909,7 @@ name|getCollisionAvoidanceFactor
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -943,7 +923,7 @@ name|getUseCollisionAvoidance
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -957,7 +937,7 @@ name|getMaximumRedeliveryDelay
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -971,7 +951,7 @@ name|getRetriesExhaustedLogLevel
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -985,7 +965,7 @@ name|getRetryAttemptedLogLevel
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -999,7 +979,7 @@ name|getRetryAttemptedLogInterval
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -1013,7 +993,7 @@ name|getLogRetryAttempted
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -1027,7 +1007,7 @@ name|getLogStackTrace
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -1041,7 +1021,7 @@ name|getLogRetryStackTrace
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -1055,7 +1035,7 @@ name|getLogHandled
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -1069,7 +1049,7 @@ name|getLogNewException
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -1083,7 +1063,7 @@ name|getLogContinued
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -1097,7 +1077,7 @@ name|getLogExhausted
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -1111,7 +1091,7 @@ name|getLogExhaustedMessageHistory
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -1125,7 +1105,7 @@ name|getLogExhaustedMessageBody
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -1139,7 +1119,7 @@ name|getDisableRedelivery
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -1153,7 +1133,7 @@ name|getDelayPattern
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -1167,7 +1147,7 @@ name|getAllowRedeliveryWhileStopping
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setoption
+name|setOption
 argument_list|(
 name|policy
 argument_list|,
@@ -1185,11 +1165,11 @@ return|return
 name|policy
 return|;
 block|}
-DECL|method|setoption (Map<RedeliveryOption, String> policy, RedeliveryOption option, Object value)
+DECL|method|setOption (Map<RedeliveryOption, String> policy, RedeliveryOption option, Object value)
 specifier|private
 specifier|static
 name|void
-name|setoption
+name|setOption
 parameter_list|(
 name|Map
 argument_list|<
@@ -1693,6 +1673,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/**      * Note: Not for end users - this method is used internally by camel-blueprint      */
 DECL|method|createRedeliveryPolicy (RedeliveryPolicyDefinition definition, CamelContext context, RedeliveryPolicy parentPolicy)
 specifier|public
 specifier|static
