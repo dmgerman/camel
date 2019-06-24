@@ -3182,6 +3182,15 @@ name|getSuperclass
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+name|c
+operator|.
+name|getSuperclass
+argument_list|()
+operator|!=
+name|Object
+operator|.
+name|class
 condition|)
 block|{
 name|collectParameterAnnotations
