@@ -19,11 +19,11 @@ package|;
 end_package
 
 begin_class
-DECL|class|SpringBootData
+DECL|class|SpringBootPropertyData
 specifier|public
 specifier|final
 class|class
-name|SpringBootData
+name|SpringBootPropertyData
 block|{
 DECL|field|name
 specifier|private
@@ -55,9 +55,9 @@ specifier|private
 name|boolean
 name|deprecated
 decl_stmt|;
-DECL|method|SpringBootData (String name, String javaType, String description, String sourceType, String defaultValue, boolean deprecated)
+DECL|method|SpringBootPropertyData (String name, String javaType, String description, String sourceType, String defaultValue, boolean deprecated)
 specifier|public
-name|SpringBootData
+name|SpringBootPropertyData
 parameter_list|(
 name|String
 name|name
