@@ -986,13 +986,16 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|connect (RemoteFileConfiguration configuration)
+DECL|method|connect (RemoteFileConfiguration configuration, Exchange exchange)
 specifier|public
 name|boolean
 name|connect
 parameter_list|(
 name|RemoteFileConfiguration
 name|configuration
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException

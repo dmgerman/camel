@@ -28,6 +28,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|file
@@ -70,13 +82,16 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-comment|/**      * Connects to the remote server      *      * @param configuration configuration      * @return<tt>true</tt> if connected      * @throws GenericFileOperationFailedException can be thrown      */
-DECL|method|connect (RemoteFileConfiguration configuration)
+comment|/**      * Connects to the remote server      *      * @param configuration configuration      * @param exchange the exchange that trigger the connect (if any)      * @return<tt>true</tt> if connected      * @throws GenericFileOperationFailedException can be thrown      */
+DECL|method|connect (RemoteFileConfiguration configuration, Exchange exchange)
 name|boolean
 name|connect
 parameter_list|(
 name|RemoteFileConfiguration
 name|configuration
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException

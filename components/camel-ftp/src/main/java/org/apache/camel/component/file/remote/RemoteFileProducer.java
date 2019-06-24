@@ -421,11 +421,14 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|preWriteCheck ()
+DECL|method|preWriteCheck (Exchange exchange)
 specifier|public
 name|void
 name|preWriteCheck
-parameter_list|()
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -516,7 +519,9 @@ block|{
 try|try
 block|{
 name|connectIfNecessary
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -713,11 +718,14 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|connectIfNecessary ()
+DECL|method|connectIfNecessary (Exchange exchange)
 specifier|protected
 name|void
 name|connectIfNecessary
-parameter_list|()
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
@@ -761,6 +769,8 @@ operator|.
 name|connect
 argument_list|(
 name|config
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 if|if

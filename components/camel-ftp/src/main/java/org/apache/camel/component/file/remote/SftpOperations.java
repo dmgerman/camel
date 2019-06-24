@@ -731,7 +731,7 @@ operator|)
 name|endpoint
 expr_stmt|;
 block|}
-DECL|method|connect (RemoteFileConfiguration configuration)
+DECL|method|connect (RemoteFileConfiguration configuration, Exchange exchange)
 specifier|public
 specifier|synchronized
 name|boolean
@@ -739,6 +739,9 @@ name|connect
 parameter_list|(
 name|RemoteFileConfiguration
 name|configuration
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
@@ -2785,11 +2788,14 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-DECL|method|reconnectIfNecessary ()
+DECL|method|reconnectIfNecessary (Exchange exchange)
 specifier|private
 name|void
 name|reconnectIfNecessary
-parameter_list|()
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -2804,6 +2810,8 @@ name|endpoint
 operator|.
 name|getConfiguration
 argument_list|()
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
@@ -2832,7 +2840,9 @@ expr_stmt|;
 try|try
 block|{
 name|reconnectIfNecessary
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 name|channel
 operator|.
@@ -2904,7 +2914,9 @@ expr_stmt|;
 try|try
 block|{
 name|reconnectIfNecessary
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 comment|// make use of the '/' separator because JSch expects this
 comment|// as the file separator even on Windows
