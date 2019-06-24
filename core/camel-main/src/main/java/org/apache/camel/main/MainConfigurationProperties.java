@@ -57,14 +57,6 @@ name|autowireComponentPropertiesAllowPrivateSetter
 init|=
 literal|true
 decl_stmt|;
-DECL|field|duration
-specifier|private
-name|long
-name|duration
-init|=
-operator|-
-literal|1
-decl_stmt|;
 DECL|field|durationHitExitCode
 specifier|private
 name|int
@@ -236,33 +228,6 @@ operator|=
 name|autowireComponentPropertiesAllowPrivateSetter
 expr_stmt|;
 block|}
-DECL|method|getDuration ()
-specifier|public
-name|long
-name|getDuration
-parameter_list|()
-block|{
-return|return
-name|duration
-return|;
-block|}
-comment|/**      * Sets the duration (in seconds) to run the application until it      * should be terminated. Defaults to -1. Any value<= 0 will run forever.      */
-DECL|method|setDuration (long duration)
-specifier|public
-name|void
-name|setDuration
-parameter_list|(
-name|long
-name|duration
-parameter_list|)
-block|{
-name|this
-operator|.
-name|duration
-operator|=
-name|duration
-expr_stmt|;
-block|}
 DECL|method|isHangupInterceptorEnabled ()
 specifier|public
 name|boolean
@@ -394,26 +359,6 @@ operator|.
 name|autowireComponentPropertiesAllowPrivateSetter
 operator|=
 name|autowireComponentPropertiesAllowPrivateSetter
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets the duration (in seconds) to run the application until it      * should be terminated. Defaults to -1. Any value<= 0 will run forever.      */
-DECL|method|withDuration (long duration)
-specifier|public
-name|MainConfigurationProperties
-name|withDuration
-parameter_list|(
-name|long
-name|duration
-parameter_list|)
-block|{
-name|this
-operator|.
-name|duration
-operator|=
-name|duration
 expr_stmt|;
 return|return
 name|this

@@ -1030,7 +1030,7 @@ block|}
 name|configure
 argument_list|()
 operator|.
-name|setDuration
+name|setDurationMaxSeconds
 argument_list|(
 name|Integer
 operator|.
@@ -1864,32 +1864,32 @@ annotation|@
 name|Deprecated
 DECL|method|getDuration ()
 specifier|public
-name|long
+name|int
 name|getDuration
 parameter_list|()
 block|{
 return|return
 name|mainConfigurationProperties
 operator|.
-name|getDuration
+name|getDurationMaxSeconds
 argument_list|()
 return|;
 block|}
 comment|/**      * Sets the duration (in seconds) to run the application until it      * should be terminated. Defaults to -1. Any value<= 0 will run forever.      * @deprecated use {@link #configure()}      */
 annotation|@
 name|Deprecated
-DECL|method|setDuration (long duration)
+DECL|method|setDuration (int duration)
 specifier|public
 name|void
 name|setDuration
 parameter_list|(
-name|long
+name|int
 name|duration
 parameter_list|)
 block|{
 name|mainConfigurationProperties
 operator|.
-name|setDuration
+name|setDurationMaxSeconds
 argument_list|(
 name|duration
 argument_list|)
@@ -2354,12 +2354,17 @@ operator|.
 name|getDurationMaxMessages
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
+name|long
+name|sec
+init|=
 name|mainConfigurationProperties
 operator|.
-name|getDuration
+name|getDurationMaxSeconds
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|sec
 operator|>
 literal|0
 condition|)
@@ -2370,20 +2375,14 @@ name|info
 argument_list|(
 literal|"Waiting for: {} seconds"
 argument_list|,
-name|mainConfigurationProperties
-operator|.
-name|getDuration
-argument_list|()
+name|sec
 argument_list|)
 expr_stmt|;
 name|latch
 operator|.
 name|await
 argument_list|(
-name|mainConfigurationProperties
-operator|.
-name|getDuration
-argument_list|()
+name|sec
 argument_list|,
 name|TimeUnit
 operator|.
