@@ -2090,7 +2090,27 @@ argument_list|(
 name|bundleTypeConverterLoader
 argument_list|)
 expr_stmt|;
+name|BundleTypeConverterLoader
+name|fallBackBundleTypeConverterLoader
+init|=
+operator|new
+name|BundleTypeConverterLoader
+argument_list|(
+name|bundle
+argument_list|,
+name|url3
+operator|!=
+literal|null
+argument_list|)
+decl_stmt|;
 comment|// the class could be found and loaded so continue to next
+name|resolvers
+operator|.
+name|add
+argument_list|(
+name|fallBackBundleTypeConverterLoader
+argument_list|)
+expr_stmt|;
 continue|continue;
 block|}
 catch|catch
