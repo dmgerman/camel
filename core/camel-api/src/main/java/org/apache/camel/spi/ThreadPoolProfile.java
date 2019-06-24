@@ -80,7 +80,6 @@ name|Serializable
 implements|,
 name|Cloneable
 block|{
-comment|// TODO: Camel 3.0 consider moving to org.apache.camel
 DECL|field|serialVersionUID
 specifier|private
 specifier|static
