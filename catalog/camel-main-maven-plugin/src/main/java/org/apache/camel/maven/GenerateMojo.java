@@ -939,10 +939,10 @@ name|deprecated
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|groupData
-operator|.
-name|add
-argument_list|(
+comment|// avoid duplicate groups (it has equal/hashCode contract on name only)
+name|SpringBootGroupData
+name|group
+init|=
 operator|new
 name|SpringBootGroupData
 argument_list|(
@@ -954,8 +954,26 @@ name|componentDescription
 argument_list|,
 name|componentJavaType
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|groupData
+operator|.
+name|contains
+argument_list|(
+name|group
+argument_list|)
+condition|)
+block|{
+name|groupData
+operator|.
+name|add
+argument_list|(
+name|group
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// check if we can do automatic autowire to complex singleton objects from classes in the classpath
 if|if
