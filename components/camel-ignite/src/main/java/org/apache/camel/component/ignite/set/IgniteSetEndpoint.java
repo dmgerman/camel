@@ -148,7 +148,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|EndpointHelper
+name|IntrospectionSupport
 import|;
 end_import
 
@@ -162,7 +162,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|IntrospectionSupport
+name|PropertyBindingSupport
 import|;
 end_import
 
@@ -348,23 +348,9 @@ argument_list|,
 literal|"config."
 argument_list|)
 decl_stmt|;
-name|EndpointHelper
+name|PropertyBindingSupport
 operator|.
-name|setReferenceProperties
-argument_list|(
-name|this
-operator|.
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|configProps
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-name|EndpointHelper
-operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
 name|this
 operator|.
