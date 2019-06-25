@@ -60,6 +60,18 @@ name|Message
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Service
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a  *<a href="http://camel.apache.org/data-format.html">data format</a>  * used to marshal objects to and from streams  * such as Java Serialization or using JAXB2 to encode/decode objects using XML  * or using SOAP encoding.  */
 end_comment
@@ -69,8 +81,9 @@ DECL|interface|DataFormat
 specifier|public
 interface|interface
 name|DataFormat
+extends|extends
+name|Service
 block|{
-comment|// TODO: DataFormats should extends Service like the others
 comment|/**      * Marshals the object to the given Stream.      *      * @param exchange  the current exchange      * @param graph     the object to be marshalled      * @param stream    the output stream to write the marshalled result to      * @throws Exception can be thrown      */
 DECL|method|marshal (Exchange exchange, Object graph, OutputStream stream)
 name|void
