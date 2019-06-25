@@ -1228,6 +1228,15 @@ name|Injector
 name|getInjector
 parameter_list|()
 function_decl|;
+comment|/**      * Sets the injector to use      */
+DECL|method|setInjector (Injector injector)
+name|void
+name|setInjector
+parameter_list|(
+name|Injector
+name|injector
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the lifecycle strategies used to handle lifecycle notifications      *      * @return the lifecycle strategies      */
 DECL|method|getLifecycleStrategies ()
 name|List

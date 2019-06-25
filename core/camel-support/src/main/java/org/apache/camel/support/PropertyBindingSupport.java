@@ -2102,7 +2102,7 @@ argument_list|()
 operator|.
 name|substring
 argument_list|(
-literal|6
+literal|7
 argument_list|)
 decl_stmt|;
 name|Class
@@ -2140,6 +2140,23 @@ argument_list|(
 name|type
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot create instance of class: "
+operator|+
+name|className
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 elseif|else
