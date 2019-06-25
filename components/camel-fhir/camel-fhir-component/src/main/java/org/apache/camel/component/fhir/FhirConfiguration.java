@@ -234,13 +234,14 @@ name|FhirConfiguration
 block|{
 annotation|@
 name|UriPath
-annotation|@
-name|Metadata
 argument_list|(
 name|enums
 operator|=
-literal|"capabilities, create, delete, history, load-page, meta, patch, read, search, transaction, update, validate"
-argument_list|,
+literal|"capabilities,create,delete,history,load-page,meta,patch,read,search,transaction,update,validate"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
 name|required
 operator|=
 literal|true
@@ -282,10 +283,6 @@ argument_list|(
 name|description
 operator|=
 literal|"The FHIR Version to use"
-argument_list|,
-name|enums
-operator|=
-literal|"DSTU2, DSTU2_HL7ORG, DSTU2_1, DSTU3, R4"
 argument_list|,
 name|defaultValue
 operator|=
@@ -431,10 +428,6 @@ name|description
 operator|=
 literal|"Request that the server modify the response using the<code>_summary</code> param"
 argument_list|,
-name|enums
-operator|=
-literal|"TRUE, FALSE, TEXT, DATA, COUNT"
-argument_list|,
 name|label
 operator|=
 literal|"advanced"
@@ -504,10 +497,6 @@ argument_list|(
 name|description
 operator|=
 literal|"When should Camel validate the FHIR Server's conformance statement"
-argument_list|,
-name|enums
-operator|=
-literal|"NEVER, ONCE"
 argument_list|,
 name|defaultValue
 operator|=
@@ -653,7 +642,7 @@ name|String
 name|proxyPassword
 decl_stmt|;
 annotation|@
-name|Metadata
+name|UriParam
 argument_list|(
 name|label
 operator|=
@@ -669,7 +658,7 @@ name|IGenericClient
 name|client
 decl_stmt|;
 annotation|@
-name|Metadata
+name|UriParam
 argument_list|(
 name|label
 operator|=

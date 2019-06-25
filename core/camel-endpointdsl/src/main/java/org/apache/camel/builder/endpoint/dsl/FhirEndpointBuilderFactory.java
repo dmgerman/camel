@@ -767,6 +767,90 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To use the custom client.          * The option is a          *<code>ca.uhn.fhir.rest.client.api.IGenericClient</code> type.          * @group advanced          */
+DECL|method|client (Object client)
+specifier|default
+name|AdvancedFhirEndpointConsumerBuilder
+name|client
+parameter_list|(
+name|Object
+name|client
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"client"
+argument_list|,
+name|client
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use the custom client.          * The option will be converted to a          *<code>ca.uhn.fhir.rest.client.api.IGenericClient</code> type.          * @group advanced          */
+DECL|method|client (String client)
+specifier|default
+name|AdvancedFhirEndpointConsumerBuilder
+name|client
+parameter_list|(
+name|String
+name|client
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"client"
+argument_list|,
+name|client
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use the custom client factory.          * The option is a          *<code>ca.uhn.fhir.rest.client.api.IRestfulClientFactory</code> type.          * @group advanced          */
+DECL|method|clientFactory ( Object clientFactory)
+specifier|default
+name|AdvancedFhirEndpointConsumerBuilder
+name|clientFactory
+parameter_list|(
+name|Object
+name|clientFactory
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"clientFactory"
+argument_list|,
+name|clientFactory
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use the custom client factory.          * The option will be converted to a          *<code>ca.uhn.fhir.rest.client.api.IRestfulClientFactory</code> type.          * @group advanced          */
+DECL|method|clientFactory ( String clientFactory)
+specifier|default
+name|AdvancedFhirEndpointConsumerBuilder
+name|clientFactory
+parameter_list|(
+name|String
+name|clientFactory
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"clientFactory"
+argument_list|,
+name|clientFactory
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Compresses outgoing (POST/PUT) contents to the GZIP format.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|compress (boolean compress)
 specifier|default
@@ -1735,6 +1819,90 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To use the custom client.          * The option is a          *<code>ca.uhn.fhir.rest.client.api.IGenericClient</code> type.          * @group advanced          */
+DECL|method|client (Object client)
+specifier|default
+name|AdvancedFhirEndpointProducerBuilder
+name|client
+parameter_list|(
+name|Object
+name|client
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"client"
+argument_list|,
+name|client
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use the custom client.          * The option will be converted to a          *<code>ca.uhn.fhir.rest.client.api.IGenericClient</code> type.          * @group advanced          */
+DECL|method|client (String client)
+specifier|default
+name|AdvancedFhirEndpointProducerBuilder
+name|client
+parameter_list|(
+name|String
+name|client
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"client"
+argument_list|,
+name|client
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use the custom client factory.          * The option is a          *<code>ca.uhn.fhir.rest.client.api.IRestfulClientFactory</code> type.          * @group advanced          */
+DECL|method|clientFactory ( Object clientFactory)
+specifier|default
+name|AdvancedFhirEndpointProducerBuilder
+name|clientFactory
+parameter_list|(
+name|Object
+name|clientFactory
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"clientFactory"
+argument_list|,
+name|clientFactory
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use the custom client factory.          * The option will be converted to a          *<code>ca.uhn.fhir.rest.client.api.IRestfulClientFactory</code> type.          * @group advanced          */
+DECL|method|clientFactory ( String clientFactory)
+specifier|default
+name|AdvancedFhirEndpointProducerBuilder
+name|clientFactory
+parameter_list|(
+name|String
+name|clientFactory
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"clientFactory"
+argument_list|,
+name|clientFactory
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Compresses outgoing (POST/PUT) contents to the GZIP format.          * The option is a<code>boolean</code> type.          * @group advanced          */
 DECL|method|compress (boolean compress)
 specifier|default
@@ -2659,6 +2827,90 @@ argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
 name|basicPropertyBinding
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use the custom client.          * The option is a          *<code>ca.uhn.fhir.rest.client.api.IGenericClient</code> type.          * @group advanced          */
+DECL|method|client (Object client)
+specifier|default
+name|AdvancedFhirEndpointBuilder
+name|client
+parameter_list|(
+name|Object
+name|client
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"client"
+argument_list|,
+name|client
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use the custom client.          * The option will be converted to a          *<code>ca.uhn.fhir.rest.client.api.IGenericClient</code> type.          * @group advanced          */
+DECL|method|client (String client)
+specifier|default
+name|AdvancedFhirEndpointBuilder
+name|client
+parameter_list|(
+name|String
+name|client
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"client"
+argument_list|,
+name|client
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use the custom client factory.          * The option is a          *<code>ca.uhn.fhir.rest.client.api.IRestfulClientFactory</code> type.          * @group advanced          */
+DECL|method|clientFactory (Object clientFactory)
+specifier|default
+name|AdvancedFhirEndpointBuilder
+name|clientFactory
+parameter_list|(
+name|Object
+name|clientFactory
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"clientFactory"
+argument_list|,
+name|clientFactory
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use the custom client factory.          * The option will be converted to a          *<code>ca.uhn.fhir.rest.client.api.IRestfulClientFactory</code> type.          * @group advanced          */
+DECL|method|clientFactory (String clientFactory)
+specifier|default
+name|AdvancedFhirEndpointBuilder
+name|clientFactory
+parameter_list|(
+name|String
+name|clientFactory
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"clientFactory"
+argument_list|,
+name|clientFactory
 argument_list|)
 expr_stmt|;
 return|return
