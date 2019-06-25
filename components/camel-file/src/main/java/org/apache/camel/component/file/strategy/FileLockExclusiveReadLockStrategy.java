@@ -220,6 +220,24 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|GenericFileHelper
+operator|.
+name|asExclusiveReadLockKey
+import|;
+end_import
+
 begin_comment
 comment|/**  * Acquires exclusive read lock to the given file. Will wait until the lock is granted.  * After granting the read lock it is released, we just want to make sure that when we start  * consuming the file its not currently in progress of being written by third party.  */
 end_comment
@@ -654,7 +672,7 @@ name|exchange
 operator|.
 name|setProperty
 argument_list|(
-name|asReadLockKey
+name|asExclusiveReadLockKey
 argument_list|(
 name|file
 argument_list|,
@@ -670,7 +688,7 @@ name|exchange
 operator|.
 name|setProperty
 argument_list|(
-name|asReadLockKey
+name|asExclusiveReadLockKey
 argument_list|(
 name|file
 argument_list|,
@@ -680,6 +698,22 @@ name|FILE_LOCK_RANDOM_ACCESS_FILE
 argument_list|)
 argument_list|,
 name|randomAccessFile
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|asExclusiveReadLockKey
+argument_list|(
+name|file
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_LOCK_CHANNEL_FILE
+argument_list|)
+argument_list|,
+name|channel
 argument_list|)
 expr_stmt|;
 comment|// we grabbed the lock
@@ -731,7 +765,7 @@ name|exchange
 operator|.
 name|getProperty
 argument_list|(
-name|asReadLockKey
+name|asExclusiveReadLockKey
 argument_list|(
 name|file
 argument_list|,
@@ -752,7 +786,7 @@ name|exchange
 operator|.
 name|getProperty
 argument_list|(
-name|asReadLockKey
+name|asExclusiveReadLockKey
 argument_list|(
 name|file
 argument_list|,
@@ -762,6 +796,27 @@ name|FILE_LOCK_EXCLUSIVE_LOCK
 argument_list|)
 argument_list|,
 name|RandomAccessFile
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|Channel
+name|channel
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|asExclusiveReadLockKey
+argument_list|(
+name|file
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_LOCK_CHANNEL_FILE
+argument_list|)
+argument_list|,
+name|FileChannel
 operator|.
 name|class
 argument_list|)
@@ -781,17 +836,32 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Channel
 name|channel
-init|=
+operator|=
 name|lock
 operator|.
 name|acquiredBy
 argument_list|()
-decl_stmt|;
-try|try
-block|{
+operator|!=
+literal|null
+condition|?
 name|lock
+operator|.
+name|acquiredBy
+argument_list|()
+else|:
+name|channel
+expr_stmt|;
+try|try
+init|(
+name|FileLock
+name|fileLock
+init|=
+name|lock
+init|)
+block|{
+comment|// use try-with-resource to auto-close lock
+name|fileLock
 operator|.
 name|release
 argument_list|()
@@ -799,7 +869,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// close channel as well
+comment|// close channel and rac as well
 name|IOHelper
 operator|.
 name|close
@@ -938,50 +1008,6 @@ name|readLockLoggingLevel
 operator|=
 name|readLockLoggingLevel
 expr_stmt|;
-block|}
-DECL|method|asReadLockKey (GenericFile file, String key)
-specifier|private
-specifier|static
-name|String
-name|asReadLockKey
-parameter_list|(
-name|GenericFile
-name|file
-parameter_list|,
-name|String
-name|key
-parameter_list|)
-block|{
-comment|// use the copy from absolute path as that was the original path of the file when the lock was acquired
-comment|// for example if the file consumer uses preMove then the file is moved and therefore has another name
-comment|// that would no longer match
-name|String
-name|path
-init|=
-name|file
-operator|.
-name|getCopyFromAbsoluteFilePath
-argument_list|()
-operator|!=
-literal|null
-condition|?
-name|file
-operator|.
-name|getCopyFromAbsoluteFilePath
-argument_list|()
-else|:
-name|file
-operator|.
-name|getAbsoluteFilePath
-argument_list|()
-decl_stmt|;
-return|return
-name|path
-operator|+
-literal|"-"
-operator|+
-name|key
-return|;
 block|}
 block|}
 end_class

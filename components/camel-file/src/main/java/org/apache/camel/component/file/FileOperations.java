@@ -34,6 +34,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|FileOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -85,6 +95,18 @@ operator|.
 name|nio
 operator|.
 name|ByteBuffer
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|channels
+operator|.
+name|FileChannel
 import|;
 end_import
 
@@ -315,6 +337,24 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|GenericFileHelper
+operator|.
+name|asExclusiveReadLockKey
 import|;
 end_import
 
@@ -1594,6 +1634,8 @@ argument_list|(
 name|source
 argument_list|,
 name|file
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 comment|// try to keep last modified timestamp if configured to do so
@@ -2057,7 +2099,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using local work file being renamed from: {} to: {}"
+literal|"writeFileByFile using local work file being renamed from: {} to: {}"
 argument_list|,
 name|source
 argument_list|,
@@ -2080,7 +2122,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|writeFileByFile (File source, File target)
+DECL|method|writeFileByFile (File source, File target, Exchange exchange)
 specifier|private
 name|void
 name|writeFileByFile
@@ -2090,10 +2132,106 @@ name|source
 parameter_list|,
 name|File
 name|target
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// in case we are using file locks as read-locks then we need to use file channels for copying to support this
+name|String
+name|path
+init|=
+name|source
+operator|.
+name|getAbsolutePath
+argument_list|()
+decl_stmt|;
+name|FileChannel
+name|channel
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|asExclusiveReadLockKey
+argument_list|(
+name|path
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_LOCK_CHANNEL_FILE
+argument_list|)
+argument_list|,
+name|FileChannel
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|channel
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+init|(
+name|FileChannel
+name|out
+init|=
+operator|new
+name|FileOutputStream
+argument_list|(
+name|target
+argument_list|)
+operator|.
+name|getChannel
+argument_list|()
+init|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"writeFileByFile using FileChannel: {} -> {}"
+argument_list|,
+name|source
+argument_list|,
+name|target
+argument_list|)
+expr_stmt|;
+name|channel
+operator|.
+name|transferTo
+argument_list|(
+literal|0
+argument_list|,
+name|channel
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// use regular file copy
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"writeFileByFile using Files.copy: {} -> {}"
+argument_list|,
+name|source
+argument_list|,
+name|target
+argument_list|)
+expr_stmt|;
 name|Files
 operator|.
 name|copy
@@ -2113,6 +2251,7 @@ operator|.
 name|REPLACE_EXISTING
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|writeFileByStream (InputStream in, File target)
 specifier|private

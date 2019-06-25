@@ -434,6 +434,12 @@ name|FILE_LOCK_RANDOM_ACCESS_FILE
 init|=
 literal|"CamelFileLockRandomAccessFile"
 decl_stmt|;
+DECL|field|FILE_LOCK_CHANNEL_FILE
+name|String
+name|FILE_LOCK_CHANNEL_FILE
+init|=
+literal|"CamelFileLockChannelFile"
+decl_stmt|;
 DECL|field|FILTER_MATCHED
 name|String
 name|FILTER_MATCHED
