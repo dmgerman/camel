@@ -96,6 +96,22 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+operator|.
+name|lookupEnvironmentVariable
+import|;
+end_import
+
 begin_comment
 comment|/**  * A parser to parse a string which contains property placeholders.  */
 end_comment
@@ -1688,70 +1704,6 @@ name|properties
 argument_list|)
 return|;
 block|}
-block|}
-comment|/**      * Lookup the OS environment variable in a safe manner by      * using upper case keys and underscore instead of dash.      */
-DECL|method|lookupEnvironmentVariable (String key)
-specifier|private
-specifier|static
-name|String
-name|lookupEnvironmentVariable
-parameter_list|(
-name|String
-name|key
-parameter_list|)
-block|{
-comment|// lookup OS env with upper case key
-name|String
-name|upperKey
-init|=
-name|key
-operator|.
-name|toUpperCase
-argument_list|()
-decl_stmt|;
-name|String
-name|value
-init|=
-name|System
-operator|.
-name|getenv
-argument_list|(
-name|upperKey
-argument_list|)
-decl_stmt|;
-comment|// some OS do not support dashes in keys, so replace with underscore
-if|if
-condition|(
-name|value
-operator|==
-literal|null
-condition|)
-block|{
-name|String
-name|noDashKey
-init|=
-name|upperKey
-operator|.
-name|replace
-argument_list|(
-literal|'-'
-argument_list|,
-literal|'_'
-argument_list|)
-decl_stmt|;
-name|value
-operator|=
-name|System
-operator|.
-name|getenv
-argument_list|(
-name|noDashKey
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|value
-return|;
 block|}
 comment|/**      * This inner class is the definition of a property used in a string      */
 DECL|class|Property
