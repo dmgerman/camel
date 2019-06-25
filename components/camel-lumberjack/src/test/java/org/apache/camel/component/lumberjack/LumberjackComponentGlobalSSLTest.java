@@ -330,15 +330,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// cannot test on java 1.9
-if|if
-condition|(
-name|isJava19
-argument_list|()
-condition|)
-block|{
-return|return;
-block|}
 comment|// We're expecting 25 messages with Maps
 name|MockEndpoint
 name|mock

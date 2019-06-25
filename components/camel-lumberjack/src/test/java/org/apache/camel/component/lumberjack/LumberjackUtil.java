@@ -510,7 +510,7 @@ name|MILLISECONDS
 operator|.
 name|sleep
 argument_list|(
-literal|100
+literal|500
 argument_list|)
 expr_stmt|;
 name|channel
@@ -529,7 +529,7 @@ name|MILLISECONDS
 operator|.
 name|sleep
 argument_list|(
-literal|100
+literal|500
 argument_list|)
 expr_stmt|;
 name|channel
@@ -548,7 +548,7 @@ name|MILLISECONDS
 operator|.
 name|sleep
 argument_list|(
-literal|100
+literal|500
 argument_list|)
 expr_stmt|;
 name|channel
