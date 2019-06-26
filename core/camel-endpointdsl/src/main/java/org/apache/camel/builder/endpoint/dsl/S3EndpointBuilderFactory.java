@@ -231,7 +231,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * link:registry.htmlRegistry.          * The option is a<code>com.amazonaws.services.s3.AmazonS3</code> type.          * @group common          */
+comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * xref:registry.adocRegistry.          * The option is a<code>com.amazonaws.services.s3.AmazonS3</code> type.          * @group common          */
 DECL|method|amazonS3Client (Object amazonS3Client)
 specifier|default
 name|S3EndpointConsumerBuilder
@@ -252,7 +252,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * link:registry.htmlRegistry.          * The option will be converted to a          *<code>com.amazonaws.services.s3.AmazonS3</code> type.          * @group common          */
+comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * xref:registry.adocRegistry.          * The option will be converted to a          *<code>com.amazonaws.services.s3.AmazonS3</code> type.          * @group common          */
 DECL|method|amazonS3Client (String amazonS3Client)
 specifier|default
 name|S3EndpointConsumerBuilder
@@ -2023,7 +2023,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * link:registry.htmlRegistry.          * The option is a<code>com.amazonaws.services.s3.AmazonS3</code> type.          * @group common          */
+comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * xref:registry.adocRegistry.          * The option is a<code>com.amazonaws.services.s3.AmazonS3</code> type.          * @group common          */
 DECL|method|amazonS3Client (Object amazonS3Client)
 specifier|default
 name|S3EndpointProducerBuilder
@@ -2044,7 +2044,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * link:registry.htmlRegistry.          * The option will be converted to a          *<code>com.amazonaws.services.s3.AmazonS3</code> type.          * @group common          */
+comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * xref:registry.adocRegistry.          * The option will be converted to a          *<code>com.amazonaws.services.s3.AmazonS3</code> type.          * @group common          */
 DECL|method|amazonS3Client (String amazonS3Client)
 specifier|default
 name|S3EndpointProducerBuilder
@@ -3098,7 +3098,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * link:registry.htmlRegistry.          * The option is a<code>com.amazonaws.services.s3.AmazonS3</code> type.          * @group common          */
+comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * xref:registry.adocRegistry.          * The option is a<code>com.amazonaws.services.s3.AmazonS3</code> type.          * @group common          */
 DECL|method|amazonS3Client (Object amazonS3Client)
 specifier|default
 name|S3EndpointBuilder
@@ -3119,7 +3119,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * link:registry.htmlRegistry.          * The option will be converted to a          *<code>com.amazonaws.services.s3.AmazonS3</code> type.          * @group common          */
+comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the          * xref:registry.adocRegistry.          * The option will be converted to a          *<code>com.amazonaws.services.s3.AmazonS3</code> type.          * @group common          */
 DECL|method|amazonS3Client (String amazonS3Client)
 specifier|default
 name|S3EndpointBuilder
