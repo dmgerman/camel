@@ -1029,7 +1029,7 @@ block|{
 return|return
 name|resultSet
 operator|.
-name|getString
+name|getBlob
 argument_list|(
 name|columnNumber
 argument_list|)
