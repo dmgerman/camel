@@ -162,7 +162,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/data/keep?noop=true?initialDelay=0&delay=10"
+literal|"file://target/data/keep?noop=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|delay
@@ -312,7 +312,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/data/keep?noop=true?initialDelay=0&delay=10"
+literal|"file://target/data/keep?noop=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|delay
