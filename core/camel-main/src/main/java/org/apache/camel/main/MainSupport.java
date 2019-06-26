@@ -5255,6 +5255,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|component
+operator|!=
+literal|null
+operator|&&
 name|ObjectHelper
 operator|.
 name|isNotEmpty
@@ -5383,6 +5387,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|dataformat
+operator|!=
+literal|null
+operator|&&
 name|ObjectHelper
 operator|.
 name|isNotEmpty
@@ -5511,6 +5519,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|language
+operator|!=
+literal|null
+operator|&&
 name|ObjectHelper
 operator|.
 name|isNotEmpty
@@ -5567,6 +5579,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// TODO: filter out duplicte properties due to ignore-case
 if|if
 condition|(
 operator|!
@@ -5652,6 +5665,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: Log if any options was not configured (and check if they are on classpath)
 block|}
 DECL|method|autoConfigurationFromRegistry (CamelContext camelContext, boolean deepNesting)
 specifier|protected
