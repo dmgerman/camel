@@ -313,6 +313,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -1645,7 +1659,13 @@ name|newFixedThreadPool
 argument_list|(
 name|this
 argument_list|,
-literal|"RabbitMQConsumer"
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
+name|getEndpointUri
+argument_list|()
+argument_list|)
 argument_list|,
 name|getThreadPoolSize
 argument_list|()
