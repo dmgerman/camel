@@ -38,6 +38,13 @@ name|autoConfigurationEnabled
 init|=
 literal|true
 decl_stmt|;
+DECL|field|autoConfigurationFailFast
+specifier|private
+name|boolean
+name|autoConfigurationFailFast
+init|=
+literal|true
+decl_stmt|;
 DECL|field|autowireComponentProperties
 specifier|private
 name|boolean
@@ -145,6 +152,33 @@ operator|.
 name|autoConfigurationEnabled
 operator|=
 name|autoConfigurationEnabled
+expr_stmt|;
+block|}
+DECL|method|isAutoConfigurationFailFast ()
+specifier|public
+name|boolean
+name|isAutoConfigurationFailFast
+parameter_list|()
+block|{
+return|return
+name|autoConfigurationFailFast
+return|;
+block|}
+comment|/**      * Whether auto configuration should fail fast when configuring one ore more properties fails for whatever reason      * such as a invalid property name, etc.      *<p/>      * This option is default enabled.      */
+DECL|method|setAutoConfigurationFailFast (boolean autoConfigurationFailFast)
+specifier|public
+name|void
+name|setAutoConfigurationFailFast
+parameter_list|(
+name|boolean
+name|autoConfigurationFailFast
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoConfigurationFailFast
+operator|=
+name|autoConfigurationFailFast
 expr_stmt|;
 block|}
 DECL|method|isAutowireComponentProperties ()
@@ -299,6 +333,26 @@ operator|.
 name|autoConfigurationEnabled
 operator|=
 name|autoConfigurationEnabled
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Whether auto configuration should fail fast when configuring one ore more properties fails for whatever reason      * such as a invalid property name, etc.      *<p/>      * This option is default enabled.      */
+DECL|method|withAutoConfigurationFailFast (boolean autoConfigurationFailFast)
+specifier|public
+name|MainConfigurationProperties
+name|withAutoConfigurationFailFast
+parameter_list|(
+name|boolean
+name|autoConfigurationFailFast
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoConfigurationFailFast
+operator|=
+name|autoConfigurationFailFast
 expr_stmt|;
 return|return
 name|this
