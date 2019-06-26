@@ -74,6 +74,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -145,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A convenient support class for binding String valued properties to an instance which  * uses a set of conventions:  *<ul>  *<li>property placeholders - Keys and values using Camels property placeholder will be resolved</li>  *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>  *<li>map</li> - Properties can lookup in Map's using map syntax, eg foo[bar] where foo is the name of the property that is a Map instance, and bar is the name of the key.</li>  *<li>list</li> - Properties can refer or add to in List's using list syntax, eg foo[0] where foo is the name of the property that is a  *                     List instance, and 0 is the index. To refer to the last element, then use last as key.</li>  *<li>reference by bean id - Values can refer to other beans in the registry by prefixing with with # or #bean: eg #myBean or #bean:myBean</li>  *<li>reference by type - Values can refer to singleton beans by their type in the registry by prefixing with #type: syntax, eg #type:com.foo.MyClassType</li>  *<li>autowire by type - Values can refer to singleton beans by auto wiring by setting the value to #autowired</li>  *<li>reference new class - Values can refer to creating new beans by their class name by prefixing with #class, eg #class:com.foo.MyClassType</li>  *</ul>  *<p/>  * This implementations reuses parts of {@link IntrospectionSupport}.  */
+comment|/**  * A convenient support class for binding String valued properties to an instance which  * uses a set of conventions:  *<ul>  *<li>property placeholders - Keys and values using Camels property placeholder will be resolved</li>  *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>  *<li>map</li> - Properties can lookup in Map's using map syntax, eg foo[bar] where foo is the name of the property that is a Map instance, and bar is the name of the key.</li>  *<li>list</li> - Properties can refer or add to in List's using list syntax, eg foo[0] where foo is the name of the property that is a  *                     List instance, and 0 is the index. To refer to the last element, then use last as key.</li>  *<li>reference by bean id - Values can refer to other beans in the registry by prefixing with with # or #bean: eg #myBean or #bean:myBean</li>  *<li>reference by type - Values can refer to singleton beans by their type in the registry by prefixing with #type: syntax, eg #type:com.foo.MyClassType</li>  *<li>autowire by type - Values can refer to singleton beans by auto wiring by setting the value to #autowired</li>  *<li>reference new class - Values can refer to creating new beans by their class name by prefixing with #class, eg #class:com.foo.MyClassType</li>  *<li>ignore case - Whether to ignore case for property keys<li>  *</ul>  *<p/>  * This implementations reuses parts of {@link IntrospectionSupport}.  */
 end_comment
 
 begin_class
@@ -203,6 +213,13 @@ name|boolean
 name|allowPrivateSetter
 init|=
 literal|true
+decl_stmt|;
+DECL|field|ignoreCase
+specifier|private
+name|boolean
+name|ignoreCase
+init|=
+literal|false
 decl_stmt|;
 DECL|field|optionPrefix
 specifier|private
@@ -310,26 +327,6 @@ name|this
 return|;
 block|}
 comment|/**          * Whether properties should be filtered by prefix.         *          * Note that the prefix is removed from the key before the property is bound.          */
-DECL|method|withOptionPrefix (String optionPrefix)
-specifier|public
-name|Builder
-name|withOptionPrefix
-parameter_list|(
-name|String
-name|optionPrefix
-parameter_list|)
-block|{
-name|this
-operator|.
-name|optionPrefix
-operator|=
-name|optionPrefix
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Whether properties should be filtered by prefix.         *          * Note that the prefix is removed from the key before the property is bound.          */
 DECL|method|withAllowPrivateSetter (boolean allowPrivateSetter)
 specifier|public
 name|Builder
@@ -344,6 +341,46 @@ operator|.
 name|allowPrivateSetter
 operator|=
 name|allowPrivateSetter
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether to ignore case in the property names (keys).          */
+DECL|method|withIgnoreCase (boolean ignoreCase)
+specifier|public
+name|Builder
+name|withIgnoreCase
+parameter_list|(
+name|boolean
+name|ignoreCase
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreCase
+operator|=
+name|ignoreCase
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether properties should be filtered by prefix.         *          * Note that the prefix is removed from the key before the property is bound.          */
+DECL|method|withOptionPrefix (String optionPrefix)
+specifier|public
+name|Builder
+name|withOptionPrefix
+parameter_list|(
+name|String
+name|optionPrefix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|optionPrefix
+operator|=
+name|optionPrefix
 expr_stmt|;
 return|return
 name|this
@@ -431,6 +468,8 @@ argument_list|,
 name|properties
 argument_list|,
 name|optionPrefix
+argument_list|,
+name|ignoreCase
 argument_list|,
 name|nesting
 argument_list|,
@@ -705,6 +744,8 @@ argument_list|(
 name|target
 argument_list|,
 name|key
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -856,6 +897,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
@@ -1054,6 +1097,58 @@ literal|null
 argument_list|)
 return|;
 block|}
+comment|/**      * Binds the properties to the target object, and removes the property that was bound from properties.      *      * @param camelContext  the camel context      * @param target        the target object      * @param properties    the properties where the bound properties will be removed from      * @param ignoreCase    whether to ignore case for property keys      * @return              true if one or more properties was bound      */
+DECL|method|bindProperties (CamelContext camelContext, Object target, Map<String, Object> properties, boolean ignoreCase)
+specifier|public
+specifier|static
+name|boolean
+name|bindProperties
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|Object
+name|target
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|properties
+parameter_list|,
+name|boolean
+name|ignoreCase
+parameter_list|)
+block|{
+return|return
+name|bindProperties
+argument_list|(
+name|camelContext
+argument_list|,
+name|target
+argument_list|,
+name|properties
+argument_list|,
+literal|null
+argument_list|,
+name|ignoreCase
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
 comment|/**      * Binds the properties with the given prefix to the target object, and removes the property that was bound from properties.      * Note that the prefix is removed from the key before the property is bound.      *      * @param camelContext  the camel context      * @param target        the target object      * @param properties    the properties where the bound properties will be removed from      * @param optionPrefix  the prefix used to filter properties      * @return              true if one or more properties was bound      */
 DECL|method|bindProperties (CamelContext camelContext, Object target, Map<String, Object> properties, String optionPrefix)
 specifier|public
@@ -1090,87 +1185,12 @@ name|properties
 argument_list|,
 name|optionPrefix
 argument_list|,
-literal|true
-argument_list|,
-literal|true
-argument_list|,
-literal|true
-argument_list|,
-literal|true
-argument_list|,
-literal|true
-argument_list|,
-literal|true
+literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Binds the properties with the given prefix to the target object, and removes the property that was bound from properties.      *      * @param camelContext        the camel context      * @param target              the target object      * @param properties          the properties where the bound properties will be removed from      * @param nesting             whether nesting is in use      * @param deepNesting         whether deep nesting is in use, where Camel will attempt to walk as deep as possible by creating new objects in the OGNL graph if      *                            a property has a setter and the object can be created from a default no-arg constructor.      * @param fluentBuilder       whether fluent builder is allowed as a valid getter/setter      * @param allowPrivateSetter  whether autowiring components allows to use private setter method when setting the value      * @param reference           whether reference parameter (syntax starts with #) is in use      * @param placeholder         whether to use Camels property placeholder to resolve placeholders on keys and values      * @return                    true if one or more properties was bound      */
-DECL|method|bindProperties (CamelContext camelContext, Object target, Map<String, Object> properties, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean allowPrivateSetter, boolean reference, boolean placeholder)
-specifier|public
-specifier|static
-name|boolean
-name|bindProperties
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|,
-name|Object
-name|target
-parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|properties
-parameter_list|,
-name|boolean
-name|nesting
-parameter_list|,
-name|boolean
-name|deepNesting
-parameter_list|,
-name|boolean
-name|fluentBuilder
-parameter_list|,
-name|boolean
-name|allowPrivateSetter
-parameter_list|,
-name|boolean
-name|reference
-parameter_list|,
-name|boolean
-name|placeholder
-parameter_list|)
-block|{
-return|return
-name|bindProperties
-argument_list|(
-name|camelContext
-argument_list|,
-name|target
-argument_list|,
-name|properties
-argument_list|,
-literal|null
-argument_list|,
-name|nesting
-argument_list|,
-name|deepNesting
-argument_list|,
-name|fluentBuilder
-argument_list|,
-name|allowPrivateSetter
-argument_list|,
-name|reference
-argument_list|,
-name|placeholder
-argument_list|)
-return|;
-block|}
-comment|/**      * Binds the properties with the given prefix to the target object, and removes the property that was bound from properties.      * Note that the prefix is removed from the key before the property is bound.      *      * @param camelContext        the camel context      * @param target              the target object      * @param properties          the properties where the bound properties will be removed from      * @param optionPrefix        the prefix used to filter properties      * @param nesting             whether nesting is in use      * @param deepNesting         whether deep nesting is in use, where Camel will attempt to walk as deep as possible by creating new objects in the OGNL graph if      *                            a property has a setter and the object can be created from a default no-arg constructor.      * @param fluentBuilder       whether fluent builder is allowed as a valid getter/setter      * @param allowPrivateSetter  whether autowiring components allows to use private setter method when setting the value      * @param reference           whether reference parameter (syntax starts with #) is in use      * @param placeholder         whether to use Camels property placeholder to resolve placeholders on keys and values      * @return                    true if one or more properties was bound      */
-DECL|method|bindProperties (CamelContext camelContext, Object target, Map<String, Object> properties, String optionPrefix, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean allowPrivateSetter, boolean reference, boolean placeholder)
+comment|/**      * Binds the properties with the given prefix to the target object, and removes the property that was bound from properties.      * Note that the prefix is removed from the key before the property is bound.      *      * @param camelContext  the camel context      * @param target        the target object      * @param properties    the properties where the bound properties will be removed from      * @param optionPrefix  the prefix used to filter properties      * @param ignoreCase    whether to ignore case for property keys      * @return              true if one or more properties was bound      */
+DECL|method|bindProperties (CamelContext camelContext, Object target, Map<String, Object> properties, String optionPrefix, boolean ignoreCase)
 specifier|public
 specifier|static
 name|boolean
@@ -1192,6 +1212,64 @@ name|properties
 parameter_list|,
 name|String
 name|optionPrefix
+parameter_list|,
+name|boolean
+name|ignoreCase
+parameter_list|)
+block|{
+return|return
+name|bindProperties
+argument_list|(
+name|camelContext
+argument_list|,
+name|target
+argument_list|,
+name|properties
+argument_list|,
+name|optionPrefix
+argument_list|,
+name|ignoreCase
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+comment|/**      * Binds the properties with the given prefix to the target object, and removes the property that was bound from properties.      * Note that the prefix is removed from the key before the property is bound.      *      * @param camelContext        the camel context      * @param target              the target object      * @param properties          the properties where the bound properties will be removed from      * @param optionPrefix        the prefix used to filter properties      * @param ignoreCase          whether to ignore case for property keys      * @param nesting             whether nesting is in use      * @param deepNesting         whether deep nesting is in use, where Camel will attempt to walk as deep as possible by creating new objects in the OGNL graph if      *                            a property has a setter and the object can be created from a default no-arg constructor.      * @param fluentBuilder       whether fluent builder is allowed as a valid getter/setter      * @param allowPrivateSetter  whether autowiring components allows to use private setter method when setting the value      * @param reference           whether reference parameter (syntax starts with #) is in use      * @param placeholder         whether to use Camels property placeholder to resolve placeholders on keys and values      * @return                    true if one or more properties was bound      */
+DECL|method|bindProperties (CamelContext camelContext, Object target, Map<String, Object> properties, String optionPrefix, boolean ignoreCase, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean allowPrivateSetter, boolean reference, boolean placeholder)
+specifier|public
+specifier|static
+name|boolean
+name|bindProperties
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|Object
+name|target
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|properties
+parameter_list|,
+name|String
+name|optionPrefix
+parameter_list|,
+name|boolean
+name|ignoreCase
 parameter_list|,
 name|boolean
 name|nesting
@@ -1278,6 +1356,33 @@ argument_list|,
 name|properties
 argument_list|)
 expr_stmt|;
+name|String
+name|uOptionPrefix
+init|=
+literal|""
+decl_stmt|;
+if|if
+condition|(
+name|ignoreCase
+operator|&&
+name|isNotEmpty
+argument_list|(
+name|optionPrefix
+argument_list|)
+condition|)
+block|{
+name|uOptionPrefix
+operator|=
+name|optionPrefix
+operator|.
+name|toUpperCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|Iterator
@@ -1347,15 +1452,36 @@ name|optionPrefix
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-operator|!
+name|boolean
+name|match
+init|=
 name|key
 operator|.
 name|startsWith
 argument_list|(
 name|optionPrefix
 argument_list|)
+operator|||
+name|ignoreCase
+operator|&&
+name|key
+operator|.
+name|toUpperCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+operator|.
+name|startsWith
+argument_list|(
+name|uOptionPrefix
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|match
 condition|)
 block|{
 continue|continue;
@@ -1384,6 +1510,8 @@ argument_list|,
 name|key
 argument_list|,
 name|value
+argument_list|,
+name|ignoreCase
 argument_list|,
 name|nesting
 argument_list|,
@@ -1434,6 +1562,44 @@ name|Object
 name|value
 parameter_list|)
 block|{
+return|return
+name|bindProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|target
+argument_list|,
+name|name
+argument_list|,
+name|value
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+comment|/**      * Binds the property to the target object.      *      * @param camelContext  the camel context      * @param target        the target object      * @param name          name of property      * @param value         value of property      * @param ignoreCase    whether to ignore case for property keys      * @return              true if property was bound, false otherwise      */
+DECL|method|bindProperty (CamelContext camelContext, Object target, String name, Object value, boolean ignoreCase)
+specifier|public
+specifier|static
+name|boolean
+name|bindProperty
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|Object
+name|target
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|Object
+name|value
+parameter_list|,
+name|boolean
+name|ignoreCase
+parameter_list|)
+block|{
 try|try
 block|{
 if|if
@@ -1459,6 +1625,8 @@ argument_list|,
 name|value
 argument_list|,
 literal|false
+argument_list|,
+name|ignoreCase
 argument_list|,
 literal|true
 argument_list|,
@@ -1497,7 +1665,7 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|bindProperty (CamelContext camelContext, Object target, String name, Object value, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean allowPrivateSetter, boolean reference, boolean placeholder)
+DECL|method|bindProperty (CamelContext camelContext, Object target, String name, Object value, boolean ignoreCase, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean allowPrivateSetter, boolean reference, boolean placeholder)
 specifier|private
 specifier|static
 name|boolean
@@ -1514,6 +1682,9 @@ name|name
 parameter_list|,
 name|Object
 name|value
+parameter_list|,
+name|boolean
+name|ignoreCase
 parameter_list|,
 name|boolean
 name|nesting
@@ -1559,6 +1730,8 @@ argument_list|,
 name|value
 argument_list|,
 literal|false
+argument_list|,
+name|ignoreCase
 argument_list|,
 name|nesting
 argument_list|,
@@ -1617,6 +1790,43 @@ name|Object
 name|value
 parameter_list|)
 block|{
+name|bindMandatoryProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|target
+argument_list|,
+name|name
+argument_list|,
+name|value
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Binds the mandatory property to the target object (will fail if not set/bound).      *      * @param camelContext  the camel context      * @param target        the target object      * @param name          name of property      * @param value         value of property      * @param ignoreCase    whether to ignore case for property keys      */
+DECL|method|bindMandatoryProperty (CamelContext camelContext, Object target, String name, Object value, boolean ignoreCase)
+specifier|public
+specifier|static
+name|void
+name|bindMandatoryProperty
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|Object
+name|target
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|Object
+name|value
+parameter_list|,
+name|boolean
+name|ignoreCase
+parameter_list|)
+block|{
 try|try
 block|{
 if|if
@@ -1644,6 +1854,8 @@ argument_list|,
 name|value
 argument_list|,
 literal|true
+argument_list|,
+name|ignoreCase
 argument_list|,
 literal|true
 argument_list|,
@@ -1695,7 +1907,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|setProperty (CamelContext context, Object target, String name, Object value, boolean mandatory, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean allowPrivateSetter, boolean reference, boolean placeholder)
+DECL|method|setProperty (CamelContext context, Object target, String name, Object value, boolean mandatory, boolean ignoreCase, boolean nesting, boolean deepNesting, boolean fluentBuilder, boolean allowPrivateSetter, boolean reference, boolean placeholder)
 specifier|private
 specifier|static
 name|boolean
@@ -1715,6 +1927,9 @@ name|value
 parameter_list|,
 name|boolean
 name|mandatory
+parameter_list|,
+name|boolean
+name|ignoreCase
 parameter_list|,
 name|boolean
 name|nesting
@@ -1867,6 +2082,8 @@ argument_list|,
 name|part
 argument_list|,
 literal|null
+argument_list|,
+name|ignoreCase
 argument_list|)
 decl_stmt|;
 if|if
@@ -1898,6 +2115,8 @@ argument_list|,
 name|fluentBuilder
 argument_list|,
 name|allowPrivateSetter
+argument_list|,
+name|ignoreCase
 argument_list|)
 decl_stmt|;
 if|if
@@ -2279,6 +2498,8 @@ argument_list|,
 name|fluentBuilder
 argument_list|,
 name|allowPrivateSetter
+argument_list|,
+name|ignoreCase
 argument_list|)
 decl_stmt|;
 if|if
@@ -2411,6 +2632,8 @@ argument_list|,
 name|fluentBuilder
 argument_list|,
 name|allowPrivateSetter
+argument_list|,
+name|ignoreCase
 argument_list|)
 decl_stmt|;
 if|if
@@ -2444,7 +2667,7 @@ return|return
 name|hit
 return|;
 block|}
-DECL|method|getOrElseProperty (Object target, String property, Object defaultValue)
+DECL|method|getOrElseProperty (Object target, String property, Object defaultValue, boolean ignoreCase)
 specifier|private
 specifier|static
 name|Object
@@ -2458,6 +2681,9 @@ name|property
 parameter_list|,
 name|Object
 name|defaultValue
+parameter_list|,
+name|boolean
+name|ignoreCase
 parameter_list|)
 block|{
 name|String
@@ -2540,6 +2766,8 @@ argument_list|,
 name|key
 argument_list|,
 name|defaultValue
+argument_list|,
+name|ignoreCase
 argument_list|)
 decl_stmt|;
 if|if
@@ -2661,7 +2889,7 @@ else|:
 name|defaultValue
 return|;
 block|}
-DECL|method|findBestSetterMethod (Class clazz, String name, boolean fluentBuilder, boolean allowPrivateSetter)
+DECL|method|findBestSetterMethod (Class clazz, String name, boolean fluentBuilder, boolean allowPrivateSetter, boolean ignoreCase)
 specifier|private
 specifier|static
 name|Method
@@ -2678,6 +2906,9 @@ name|fluentBuilder
 parameter_list|,
 name|boolean
 name|allowPrivateSetter
+parameter_list|,
+name|boolean
+name|ignoreCase
 parameter_list|)
 block|{
 comment|// is there a direct setter?
@@ -2693,9 +2924,11 @@ name|clazz
 argument_list|,
 name|name
 argument_list|,
-name|fluentBuilder
+literal|false
 argument_list|,
 name|allowPrivateSetter
+argument_list|,
+name|ignoreCase
 argument_list|)
 decl_stmt|;
 if|if
@@ -2735,6 +2968,8 @@ argument_list|,
 name|fluentBuilder
 argument_list|,
 name|allowPrivateSetter
+argument_list|,
+name|ignoreCase
 argument_list|)
 expr_stmt|;
 if|if
@@ -2762,7 +2997,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|getGetterType (Object target, String name)
+DECL|method|getGetterType (Object target, String name, boolean ignoreCase)
 specifier|private
 specifier|static
 name|Class
@@ -2773,9 +3008,51 @@ name|target
 parameter_list|,
 name|String
 name|name
+parameter_list|,
+name|boolean
+name|ignoreCase
 parameter_list|)
 block|{
 try|try
+block|{
+if|if
+condition|(
+name|ignoreCase
+condition|)
+block|{
+name|Method
+name|getter
+init|=
+name|IntrospectionSupport
+operator|.
+name|getPropertyGetter
+argument_list|(
+name|target
+operator|.
+name|getClass
+argument_list|()
+argument_list|,
+name|name
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|getter
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|getter
+operator|.
+name|getReturnType
+argument_list|()
+return|;
+block|}
+block|}
+else|else
 block|{
 name|Method
 name|getter
@@ -2805,6 +3082,7 @@ operator|.
 name|getReturnType
 argument_list|()
 return|;
+block|}
 block|}
 block|}
 catch|catch
