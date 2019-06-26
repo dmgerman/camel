@@ -1255,7 +1255,7 @@ name|LifecycleStrategy
 name|lifecycleStrategy
 parameter_list|)
 function_decl|;
-comment|/**      * Resolves a language for creating expressions      *      * @param language name of the language      * @return the resolved language      */
+comment|/**      * Resolves a language for creating expressions      *      * @param language name of the language      * @return the resolved language      * @throws NoSuchLanguageException is thrown if language could not be resolved      */
 DECL|method|resolveLanguage (String language)
 name|Language
 name|resolveLanguage
@@ -1263,6 +1263,8 @@ parameter_list|(
 name|String
 name|language
 parameter_list|)
+throws|throws
+name|NoSuchLanguageException
 function_decl|;
 comment|/**      * Parses the given text and resolve any property placeholders - using {{key}}.      *      * @param text the text such as an endpoint uri or the likes      * @return the text with resolved property placeholders      * @throws IllegalArgumentException is thrown if property placeholders was used and there was an error resolving them      */
 DECL|method|resolvePropertyPlaceholders (String text)
