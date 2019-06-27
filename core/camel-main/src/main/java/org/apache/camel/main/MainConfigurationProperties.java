@@ -38,6 +38,13 @@ name|autoConfigurationEnabled
 init|=
 literal|true
 decl_stmt|;
+DECL|field|autoConfigurationEnvironmentVariablesEnabled
+specifier|private
+name|boolean
+name|autoConfigurationEnvironmentVariablesEnabled
+init|=
+literal|true
+decl_stmt|;
 DECL|field|autoConfigurationFailFast
 specifier|private
 name|boolean
@@ -152,6 +159,33 @@ operator|.
 name|autoConfigurationEnabled
 operator|=
 name|autoConfigurationEnabled
+expr_stmt|;
+block|}
+DECL|method|isAutoConfigurationEnvironmentVariablesEnabled ()
+specifier|public
+name|boolean
+name|isAutoConfigurationEnvironmentVariablesEnabled
+parameter_list|()
+block|{
+return|return
+name|autoConfigurationEnvironmentVariablesEnabled
+return|;
+block|}
+comment|/**      * Whether auto configuration should include OS environment variables as well. When enabled this      * allows to overrule any configuration using an OS environment variable. For example to set      * a shutdown timeout of 5 seconds: CAMEL_MAIN_SHUTDOWNTIMEOUT=5.      *<p/>      * This option is default enabled.      */
+DECL|method|setAutoConfigurationEnvironmentVariablesEnabled (boolean autoConfigurationEnvironmentVariablesEnabled)
+specifier|public
+name|void
+name|setAutoConfigurationEnvironmentVariablesEnabled
+parameter_list|(
+name|boolean
+name|autoConfigurationEnvironmentVariablesEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoConfigurationEnvironmentVariablesEnabled
+operator|=
+name|autoConfigurationEnvironmentVariablesEnabled
 expr_stmt|;
 block|}
 DECL|method|isAutoConfigurationFailFast ()
@@ -333,6 +367,26 @@ operator|.
 name|autoConfigurationEnabled
 operator|=
 name|autoConfigurationEnabled
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Whether auto configuration should include OS environment variables as well. When enabled this      * allows to overrule any configuration using an OS environment variable. For example to set      * a shutdown timeout of 5 seconds: CAMEL_MAIN_SHUTDOWNTIMEOUT=5.      *<p/>      * This option is default enabled.      */
+DECL|method|withAutoConfigurationEnvironmentVariablesEnabled (boolean autoConfigurationEnvironmentVariablesEnabled)
+specifier|public
+name|MainConfigurationProperties
+name|withAutoConfigurationEnvironmentVariablesEnabled
+parameter_list|(
+name|boolean
+name|autoConfigurationEnvironmentVariablesEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoConfigurationEnvironmentVariablesEnabled
+operator|=
+name|autoConfigurationEnvironmentVariablesEnabled
 expr_stmt|;
 return|return
 name|this
