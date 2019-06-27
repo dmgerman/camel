@@ -38,7 +38,23 @@ specifier|final
 name|String
 name|propertyName
 decl_stmt|;
-DECL|method|PropertyBindingException (Object target, String propertyName)
+DECL|field|value
+specifier|private
+specifier|final
+name|Object
+name|value
+decl_stmt|;
+DECL|field|optionPrefix
+specifier|private
+name|String
+name|optionPrefix
+decl_stmt|;
+DECL|field|optionKey
+specifier|private
+name|String
+name|optionKey
+decl_stmt|;
+DECL|method|PropertyBindingException (Object target, String propertyName, Object value)
 specifier|public
 name|PropertyBindingException
 parameter_list|(
@@ -47,19 +63,11 @@ name|target
 parameter_list|,
 name|String
 name|propertyName
+parameter_list|,
+name|Object
+name|value
 parameter_list|)
 block|{
-name|super
-argument_list|(
-literal|"No such property: "
-operator|+
-name|propertyName
-operator|+
-literal|" on bean: "
-operator|+
-name|target
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|target
@@ -71,9 +79,15 @@ operator|.
 name|propertyName
 operator|=
 name|propertyName
+expr_stmt|;
+name|this
+operator|.
+name|value
+operator|=
+name|value
 expr_stmt|;
 block|}
-DECL|method|PropertyBindingException (Object target, String propertyName, Exception e)
+DECL|method|PropertyBindingException (Object target, String propertyName, Object value, Exception e)
 specifier|public
 name|PropertyBindingException
 parameter_list|(
@@ -82,21 +96,16 @@ name|target
 parameter_list|,
 name|String
 name|propertyName
+parameter_list|,
+name|Object
+name|value
 parameter_list|,
 name|Exception
 name|e
 parameter_list|)
 block|{
-name|super
+name|initCause
 argument_list|(
-literal|"Error binding property: "
-operator|+
-name|propertyName
-operator|+
-literal|" on bean: "
-operator|+
-name|target
-argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
@@ -111,6 +120,12 @@ operator|.
 name|propertyName
 operator|=
 name|propertyName
+expr_stmt|;
+name|this
+operator|.
+name|value
+operator|=
+name|value
 expr_stmt|;
 block|}
 DECL|method|PropertyBindingException (Object target, Exception e)
@@ -124,12 +139,8 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|super
+name|initCause
 argument_list|(
-literal|"Error binding properties on bean: "
-operator|+
-name|target
-argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
@@ -145,6 +156,97 @@ name|propertyName
 operator|=
 literal|null
 expr_stmt|;
+name|this
+operator|.
+name|value
+operator|=
+literal|null
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getMessage ()
+specifier|public
+name|String
+name|getMessage
+parameter_list|()
+block|{
+name|String
+name|stringValue
+init|=
+name|value
+operator|!=
+literal|null
+condition|?
+name|value
+operator|.
+name|toString
+argument_list|()
+else|:
+literal|""
+decl_stmt|;
+name|String
+name|key
+init|=
+name|propertyName
+decl_stmt|;
+if|if
+condition|(
+name|optionPrefix
+operator|!=
+literal|null
+operator|&&
+name|optionKey
+operator|!=
+literal|null
+condition|)
+block|{
+name|key
+operator|=
+name|optionPrefix
+operator|+
+literal|"."
+operator|+
+name|optionKey
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|key
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|"Error binding property ("
+operator|+
+name|key
+operator|+
+literal|"="
+operator|+
+name|stringValue
+operator|+
+literal|") with name: "
+operator|+
+name|propertyName
+operator|+
+literal|" on bean: "
+operator|+
+name|target
+operator|+
+literal|" with value: "
+operator|+
+name|stringValue
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|"Error binding properties on bean: "
+operator|+
+name|target
+return|;
+block|}
 block|}
 DECL|method|getTarget ()
 specifier|public
@@ -165,6 +267,68 @@ block|{
 return|return
 name|propertyName
 return|;
+block|}
+DECL|method|getValue ()
+specifier|public
+name|Object
+name|getValue
+parameter_list|()
+block|{
+return|return
+name|value
+return|;
+block|}
+DECL|method|getOptionPrefix ()
+specifier|public
+name|String
+name|getOptionPrefix
+parameter_list|()
+block|{
+return|return
+name|optionPrefix
+return|;
+block|}
+DECL|method|setOptionPrefix (String optionPrefix)
+specifier|public
+name|void
+name|setOptionPrefix
+parameter_list|(
+name|String
+name|optionPrefix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|optionPrefix
+operator|=
+name|optionPrefix
+expr_stmt|;
+block|}
+DECL|method|getOptionKey ()
+specifier|public
+name|String
+name|getOptionKey
+parameter_list|()
+block|{
+return|return
+name|optionKey
+return|;
+block|}
+DECL|method|setOptionKey (String optionKey)
+specifier|public
+name|void
+name|setOptionKey
+parameter_list|(
+name|String
+name|optionKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|optionKey
+operator|=
+name|optionKey
+expr_stmt|;
 block|}
 block|}
 end_class

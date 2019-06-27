@@ -1540,7 +1540,7 @@ return|return
 name|rc
 return|;
 block|}
-comment|/**      * Binds the property to the target object.      *      * @param camelContext  the camel context      * @param target        the target object      * @param name          name of property      * @param value         value of property      * @return              true if property was bound, false otherwise      */
+comment|/**      * Binds the property to the target object.      *      * @param camelContext  the camel context      * @param target        the target object      * @param name          name of property      * @param value         value of property      * @return              true if property was bound, false otherwise      * @throws PropertyBindingException is thrown if error binding property      */
 DECL|method|bindProperty (CamelContext camelContext, Object target, String name, Object value)
 specifier|public
 specifier|static
@@ -1559,6 +1559,8 @@ parameter_list|,
 name|Object
 name|value
 parameter_list|)
+throws|throws
+name|PropertyBindingException
 block|{
 return|return
 name|bindProperty
@@ -1575,7 +1577,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Binds the property to the target object.      *      * @param camelContext  the camel context      * @param target        the target object      * @param name          name of property      * @param value         value of property      * @param ignoreCase    whether to ignore case for property keys      * @return              true if property was bound, false otherwise      */
+comment|/**      * Binds the property to the target object.      *      * @param camelContext  the camel context      * @param target        the target object      * @param name          name of property      * @param value         value of property      * @param ignoreCase    whether to ignore case for property keys      * @return              true if property was bound, false otherwise      * @throws PropertyBindingException is thrown if error binding property      */
 DECL|method|bindProperty (CamelContext camelContext, Object target, String name, Object value, boolean ignoreCase)
 specifier|public
 specifier|static
@@ -1597,6 +1599,8 @@ parameter_list|,
 name|boolean
 name|ignoreCase
 parameter_list|)
+throws|throws
+name|PropertyBindingException
 block|{
 try|try
 block|{
@@ -1654,6 +1658,8 @@ argument_list|(
 name|target
 argument_list|,
 name|name
+argument_list|,
+name|value
 argument_list|,
 name|e
 argument_list|)
@@ -1760,6 +1766,8 @@ name|target
 argument_list|,
 name|name
 argument_list|,
+name|value
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -1768,7 +1776,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Binds the mandatory property to the target object (will fail if not set/bound).      *      * @param camelContext  the camel context      * @param target        the target object      * @param name          name of property      * @param value         value of property      */
+comment|/**      * Binds the mandatory property to the target object (will fail if not set/bound).      *      * @param camelContext  the camel context      * @param target        the target object      * @param name          name of property      * @param value         value of property      * @throws PropertyBindingException is thrown if error binding property, or the property was not bound      */
 DECL|method|bindMandatoryProperty (CamelContext camelContext, Object target, String name, Object value)
 specifier|public
 specifier|static
@@ -1787,6 +1795,8 @@ parameter_list|,
 name|Object
 name|value
 parameter_list|)
+throws|throws
+name|PropertyBindingException
 block|{
 name|bindMandatoryProperty
 argument_list|(
@@ -1802,7 +1812,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Binds the mandatory property to the target object (will fail if not set/bound).      *      * @param camelContext  the camel context      * @param target        the target object      * @param name          name of property      * @param value         value of property      * @param ignoreCase    whether to ignore case for property keys      */
+comment|/**      * Binds the mandatory property to the target object (will fail if not set/bound).      *      * @param camelContext  the camel context      * @param target        the target object      * @param name          name of property      * @param value         value of property      * @param ignoreCase    whether to ignore case for property keys      * @throws PropertyBindingException is thrown if error binding property, or the property was not bound      */
 DECL|method|bindMandatoryProperty (CamelContext camelContext, Object target, String name, Object value, boolean ignoreCase)
 specifier|public
 specifier|static
@@ -1824,6 +1834,8 @@ parameter_list|,
 name|boolean
 name|ignoreCase
 parameter_list|)
+throws|throws
+name|PropertyBindingException
 block|{
 name|boolean
 name|bound
@@ -1885,6 +1897,8 @@ name|target
 argument_list|,
 name|name
 argument_list|,
+name|value
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -1902,6 +1916,8 @@ argument_list|(
 name|target
 argument_list|,
 name|name
+argument_list|,
+name|value
 argument_list|)
 throw|;
 block|}
