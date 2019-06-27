@@ -118,6 +118,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoSuchBeanException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|PropertyBindingException
 import|;
 end_import
@@ -2356,13 +2368,6 @@ argument_list|(
 name|className
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|type
-operator|!=
-literal|null
-condition|)
-block|{
 name|value
 operator|=
 name|context
@@ -2391,7 +2396,6 @@ operator|+
 name|className
 argument_list|)
 throw|;
-block|}
 block|}
 block|}
 elseif|else
@@ -2438,13 +2442,6 @@ argument_list|(
 name|typeName
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|type
-operator|!=
-literal|null
-condition|)
-block|{
 name|Set
 argument_list|<
 name|?
@@ -2482,6 +2479,49 @@ name|next
 argument_list|()
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|types
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot select single type: "
+operator|+
+name|typeName
+operator|+
+literal|" as there are "
+operator|+
+name|types
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" beans in the registry with this type"
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot select single type: "
+operator|+
+name|typeName
+operator|+
+literal|" as there are no beans in the registry with this type"
+argument_list|)
+throw|;
 block|}
 block|}
 elseif|else
@@ -2539,13 +2579,6 @@ index|[
 literal|0
 index|]
 decl_stmt|;
-if|if
-condition|(
-name|parameterType
-operator|!=
-literal|null
-condition|)
-block|{
 name|Set
 argument_list|<
 name|?
@@ -2583,7 +2616,74 @@ name|next
 argument_list|()
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|types
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot select single type: "
+operator|+
+name|parameterType
+operator|+
+literal|" as there are "
+operator|+
+name|types
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" beans in the registry with this type"
+argument_list|)
+throw|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot select single type: "
+operator|+
+name|parameterType
+operator|+
+literal|" as there are no beans in the registry with this type"
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot find setter method with name: "
+operator|+
+name|name
+operator|+
+literal|" on class: "
+operator|+
+name|target
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" to use for autowiring"
+argument_list|)
+throw|;
 block|}
 block|}
 elseif|else
@@ -2672,6 +2772,16 @@ operator|+
 literal|" on bean: "
 operator|+
 name|target
+operator|+
+literal|" of type: "
+operator|+
+name|target
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
 operator|+
 literal|" when binding property: "
 operator|+
