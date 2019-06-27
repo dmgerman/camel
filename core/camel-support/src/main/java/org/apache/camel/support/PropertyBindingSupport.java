@@ -118,7 +118,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoSuchBeanException
+name|PropertyBindingException
 import|;
 end_import
 
@@ -130,7 +130,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|PropertyBindingException
+name|util
+operator|.
+name|StringHelper
 import|;
 end_import
 
@@ -167,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A convenient support class for binding String valued properties to an instance which  * uses a set of conventions:  *<ul>  *<li>property placeholders - Keys and values using Camels property placeholder will be resolved</li>  *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>  *<li>map</li> - Properties can lookup in Map's using map syntax, eg foo[bar] where foo is the name of the property that is a Map instance, and bar is the name of the key.</li>  *<li>list</li> - Properties can refer or add to in List's using list syntax, eg foo[0] where foo is the name of the property that is a  *                     List instance, and 0 is the index. To refer to the last element, then use last as key.</li>  *<li>reference by bean id - Values can refer to other beans in the registry by prefixing with with # or #bean: eg #myBean or #bean:myBean</li>  *<li>reference by type - Values can refer to singleton beans by their type in the registry by prefixing with #type: syntax, eg #type:com.foo.MyClassType</li>  *<li>autowire by type - Values can refer to singleton beans by auto wiring by setting the value to #autowired</li>  *<li>reference new class - Values can refer to creating new beans by their class name by prefixing with #class, eg #class:com.foo.MyClassType</li>  *<li>ignore case - Whether to ignore case for property keys<li>  *</ul>  *<p/>  * This implementations reuses parts of {@link IntrospectionSupport}.  */
+comment|/**  * A convenient support class for binding String valued properties to an instance which  * uses a set of conventions:  *<ul>  *<li>property placeholders - Keys and values using Camels property placeholder will be resolved</li>  *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>  *<li>map</li> - Properties can lookup in Map's using map syntax, eg foo[bar] where foo is the name of the property that is a Map instance, and bar is the name of the key.</li>  *<li>list</li> - Properties can refer or add to in List's using list syntax, eg foo[0] where foo is the name of the property that is a  *                     List instance, and 0 is the index. To refer to the last element, then use last as key.</li>  *<li>reference by bean id - Values can refer to other beans in the registry by prefixing with with # or #bean: eg #myBean or #bean:myBean</li>  *<li>reference by type - Values can refer to singleton beans by their type in the registry by prefixing with #type: syntax, eg #type:com.foo.MyClassType</li>  *<li>autowire by type - Values can refer to singleton beans by auto wiring by setting the value to #autowired</li>  *<li>reference new class - Values can refer to creating new beans by their class name by prefixing with #class, eg #class:com.foo.MyClassType.  *                               The class is created using a default no-arg constructor, however if you need to create the instance via a factory method  *                               then you specify the method as shown: #class:com.foo.MyClassType#myFactoryMethod</li>.  *<li>ignore case - Whether to ignore case for property keys<li>  *</ul>  *<p/>  * This implementations reuses parts of {@link IntrospectionSupport}.  */
 end_comment
 
 begin_class
@@ -2352,6 +2354,47 @@ argument_list|(
 literal|7
 argument_list|)
 decl_stmt|;
+name|String
+name|factoryMethod
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|className
+operator|.
+name|indexOf
+argument_list|(
+literal|'#'
+argument_list|)
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+name|factoryMethod
+operator|=
+name|StringHelper
+operator|.
+name|after
+argument_list|(
+name|className
+argument_list|,
+literal|"#"
+argument_list|)
+expr_stmt|;
+name|className
+operator|=
+name|StringHelper
+operator|.
+name|before
+argument_list|(
+name|className
+argument_list|,
+literal|"#"
+argument_list|)
+expr_stmt|;
+block|}
 name|Class
 argument_list|<
 name|?
@@ -2368,6 +2411,30 @@ argument_list|(
 name|className
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|factoryMethod
+operator|!=
+literal|null
+condition|)
+block|{
+name|value
+operator|=
+name|context
+operator|.
+name|getInjector
+argument_list|()
+operator|.
+name|newInstance
+argument_list|(
+name|type
+argument_list|,
+name|factoryMethod
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|value
 operator|=
 name|context
@@ -2380,6 +2447,7 @@ argument_list|(
 name|type
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|value
@@ -2389,7 +2457,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|IllegalStateException
 argument_list|(
 literal|"Cannot create instance of class: "
 operator|+
@@ -2492,7 +2560,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|IllegalStateException
 argument_list|(
 literal|"Cannot select single type: "
 operator|+
@@ -2513,7 +2581,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|IllegalStateException
 argument_list|(
 literal|"Cannot select single type: "
 operator|+
@@ -2629,7 +2697,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|IllegalStateException
 argument_list|(
 literal|"Cannot select single type: "
 operator|+
@@ -2650,7 +2718,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|IllegalStateException
 argument_list|(
 literal|"Cannot select single type: "
 operator|+
@@ -2665,7 +2733,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|IllegalStateException
 argument_list|(
 literal|"Cannot find setter method with name: "
 operator|+

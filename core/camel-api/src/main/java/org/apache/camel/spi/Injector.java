@@ -41,6 +41,24 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
+comment|/**      * Instantiates a new instance of the given type by using the factory method      * (this will not perform bean post processing)      *      * @param type the type of object to create      * @param factoryMethod to create the new instance via factory method which must be public static and return the type      * @return a newly created instance      */
+DECL|method|newInstance (Class<T> type, String factoryMethod)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|newInstance
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|,
+name|String
+name|factoryMethod
+parameter_list|)
+function_decl|;
 comment|/**      * Instantiates a new instance of the given type; possibly injecting values      * into the object in the process (bean post processing if enabled)      *      * @param type the type of object to create      * @param postProcessBean whether to post process the bean      * @return a newly created instance      */
 DECL|method|newInstance (Class<T> type, boolean postProcessBean)
 parameter_list|<
