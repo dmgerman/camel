@@ -1097,7 +1097,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the key type to pass to the KeyPairProvider as part of          * authentication. KeyPairProvider.loadKey(...) will be passed this          * value. Defaults to ssh-rsa.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Sets the key type to pass to the KeyPairProvider as part of          * authentication. KeyPairProvider.loadKey(...) will be passed this          * value. From Camel 3.0.0 / 2.25.0, by default Camel will select the          * first available KeyPair that is loaded. Prior to this, a KeyType of          * 'ssh-rsa' was enforced by default.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|keyType (String keyType)
 specifier|default
 name|SshEndpointConsumerBuilder
@@ -1771,7 +1771,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the key type to pass to the KeyPairProvider as part of          * authentication. KeyPairProvider.loadKey(...) will be passed this          * value. Defaults to ssh-rsa.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Sets the key type to pass to the KeyPairProvider as part of          * authentication. KeyPairProvider.loadKey(...) will be passed this          * value. From Camel 3.0.0 / 2.25.0, by default Camel will select the          * first available KeyPair that is loaded. Prior to this, a KeyType of          * 'ssh-rsa' was enforced by default.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|keyType (String keyType)
 specifier|default
 name|SshEndpointProducerBuilder
@@ -2279,7 +2279,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the key type to pass to the KeyPairProvider as part of          * authentication. KeyPairProvider.loadKey(...) will be passed this          * value. Defaults to ssh-rsa.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Sets the key type to pass to the KeyPairProvider as part of          * authentication. KeyPairProvider.loadKey(...) will be passed this          * value. From Camel 3.0.0 / 2.25.0, by default Camel will select the          * first available KeyPair that is loaded. Prior to this, a KeyType of          * 'ssh-rsa' was enforced by default.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|keyType (String keyType)
 specifier|default
 name|SshEndpointBuilder
