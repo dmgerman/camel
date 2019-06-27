@@ -800,12 +800,11 @@ name|expectBlueprintContainerReloadOnConfigAdminUpdate
 argument_list|()
 decl_stmt|;
 comment|// must register override properties early in OSGi containers
-name|Properties
 name|extra
-init|=
+operator|=
 name|useOverridePropertiesWithPropertiesComponent
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|extra
