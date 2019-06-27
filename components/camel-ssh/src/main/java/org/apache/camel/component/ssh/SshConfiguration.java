@@ -253,21 +253,11 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
-argument_list|,
-name|defaultValue
-operator|=
-name|KeyPairProvider
-operator|.
-name|SSH_RSA
 argument_list|)
 DECL|field|keyType
 specifier|private
 name|String
 name|keyType
-init|=
-name|KeyPairProvider
-operator|.
-name|SSH_RSA
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -952,7 +942,7 @@ return|return
 name|shellPrompt
 return|;
 block|}
-comment|/**      * Sets the shellPrompt to be dropped when response is read after command execution      *      * @param shellPrompt      *            String defining ending string of command line which has to be dropped when response is       *            read after command execution.      */
+comment|/**      * Sets the shellPrompt to be dropped when response is read after command execution      *      * @param shellPrompt      *            String defining ending string of command line which has to be dropped when response is      *            read after command execution.      */
 DECL|method|setShellPrompt (String shellPrompt)
 specifier|public
 name|void

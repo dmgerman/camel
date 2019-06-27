@@ -678,8 +678,6 @@ DECL|field|keyType
 specifier|private
 name|String
 name|keyType
-init|=
-literal|"ssh-rsa"
 decl_stmt|;
 comment|/**          * Sets the timeout in milliseconds to wait in establishing the remote          * SSH server connection. Defaults to 30000 milliseconds.          */
 DECL|field|timeout
