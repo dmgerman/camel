@@ -218,8 +218,6 @@ DECL|field|ignoreCase
 specifier|private
 name|boolean
 name|ignoreCase
-init|=
-literal|false
 decl_stmt|;
 DECL|field|optionPrefix
 specifier|private

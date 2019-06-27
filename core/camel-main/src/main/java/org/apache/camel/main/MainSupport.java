@@ -6650,6 +6650,7 @@ block|}
 DECL|class|PropertyOptionKey
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|PropertyOptionKey
 block|{
