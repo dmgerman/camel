@@ -158,32 +158,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testGetOutFalseKeepsNullOutMessage ()
-specifier|public
-name|void
-name|testGetOutFalseKeepsNullOutMessage
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|assertExpression
-argument_list|(
-literal|"exchange.hasOut()"
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-name|assertFalse
-argument_list|(
-name|exchange
-operator|.
-name|hasOut
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
 DECL|method|testResponseCreatesOutMessage ()
 specifier|public
 name|void
