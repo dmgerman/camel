@@ -140,8 +140,6 @@ name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
-operator|+
-literal|"/?password=admin"
 argument_list|,
 literal|"Hello World"
 argument_list|,
