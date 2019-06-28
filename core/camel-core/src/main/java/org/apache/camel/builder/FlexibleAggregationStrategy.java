@@ -934,6 +934,9 @@ name|collection
 operator|=
 name|collectionType
 operator|.
+name|getDeclaredConstructor
+argument_list|()
+operator|.
 name|newInstance
 argument_list|()
 expr_stmt|;

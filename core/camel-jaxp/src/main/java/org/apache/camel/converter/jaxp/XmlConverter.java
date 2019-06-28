@@ -4599,6 +4599,9 @@ name|sm
 init|=
 name|smClass
 operator|.
+name|getDeclaredConstructor
+argument_list|()
+operator|.
 name|newInstance
 argument_list|()
 decl_stmt|;

@@ -573,13 +573,7 @@ name|String
 name|propertyPrefix
 parameter_list|)
 throws|throws
-name|IllegalAccessException
-throws|,
-name|InstantiationException
-throws|,
-name|IOException
-throws|,
-name|ClassNotFoundException
+name|Exception
 block|{
 name|Class
 argument_list|<
@@ -596,6 +590,9 @@ argument_list|)
 decl_stmt|;
 return|return
 name|clazz
+operator|.
+name|getDeclaredConstructor
+argument_list|()
 operator|.
 name|newInstance
 argument_list|()

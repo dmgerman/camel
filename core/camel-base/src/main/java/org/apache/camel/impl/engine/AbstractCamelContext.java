@@ -16121,7 +16121,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"No existing PropertiesComponent has been configured, creating a new default PropertiesComponent with name: properties"
 argument_list|)
@@ -16129,6 +16129,9 @@ expr_stmt|;
 name|comp
 operator|=
 name|type
+operator|.
+name|getDeclaredConstructor
+argument_list|()
 operator|.
 name|newInstance
 argument_list|()

@@ -2002,6 +2002,9 @@ argument_list|(
 literal|"org.apache.xalan.extensions.XPathFunctionResolverImpl"
 argument_list|)
 operator|.
+name|getDeclaredConstructor
+argument_list|()
+operator|.
 name|newInstance
 argument_list|()
 expr_stmt|;
