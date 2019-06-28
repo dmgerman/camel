@@ -332,7 +332,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<setHeader name=\"foo\""
+literal|"<setHeader id=\"setHeader1\" name=\"foo\">"
 argument_list|)
 argument_list|)
 expr_stmt|;
