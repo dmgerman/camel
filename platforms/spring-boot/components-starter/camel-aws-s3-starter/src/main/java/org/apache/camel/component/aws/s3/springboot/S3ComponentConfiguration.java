@@ -395,7 +395,7 @@ specifier|private
 name|String
 name|secretKey
 decl_stmt|;
-comment|/**          * Reference to a `com.amazonaws.services.s3.AmazonS3` in the          * xref:registry.adoc[Registry].          */
+comment|/**          * Reference to a `com.amazonaws.services.s3.AmazonS3` in the registry.          */
 DECL|field|amazonS3Client
 specifier|private
 name|AmazonS3
