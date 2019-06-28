@@ -2278,7 +2278,7 @@ parameter_list|)
 block|{
 name|assertIsInstanceOf
 argument_list|(
-name|IllegalArgumentException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|,
