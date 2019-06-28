@@ -172,7 +172,7 @@ name|notNull
 argument_list|(
 name|definition
 operator|.
-name|getHeaderName
+name|getName
 argument_list|()
 argument_list|,
 literal|"headerName"
@@ -200,7 +200,7 @@ name|parseSimpleOrFallbackToConstantExpression
 argument_list|(
 name|definition
 operator|.
-name|getHeaderName
+name|getName
 argument_list|()
 argument_list|,
 name|routeContext

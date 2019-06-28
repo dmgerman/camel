@@ -812,7 +812,7 @@ literal|"oldBodyValue"
 argument_list|,
 name|node
 operator|.
-name|getHeaderName
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -883,7 +883,7 @@ literal|"theHeader"
 argument_list|,
 name|node
 operator|.
-name|getHeaderName
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

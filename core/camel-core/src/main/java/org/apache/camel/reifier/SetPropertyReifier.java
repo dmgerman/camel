@@ -172,7 +172,7 @@ name|notNull
 argument_list|(
 name|definition
 operator|.
-name|getPropertyName
+name|getName
 argument_list|()
 argument_list|,
 literal|"propertyName"
@@ -202,7 +202,7 @@ name|parseSimpleOrFallbackToConstantExpression
 argument_list|(
 name|definition
 operator|.
-name|getPropertyName
+name|getName
 argument_list|()
 argument_list|,
 name|routeContext

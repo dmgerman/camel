@@ -168,22 +168,22 @@ name|required
 operator|=
 literal|true
 argument_list|)
-DECL|field|headerName
+DECL|field|name
 specifier|private
 name|String
-name|headerName
+name|name
 decl_stmt|;
 DECL|method|SetHeaderDefinition ()
 specifier|public
 name|SetHeaderDefinition
 parameter_list|()
 block|{     }
-DECL|method|SetHeaderDefinition (String headerName, ExpressionDefinition expression)
+DECL|method|SetHeaderDefinition (String name, ExpressionDefinition expression)
 specifier|public
 name|SetHeaderDefinition
 parameter_list|(
 name|String
-name|headerName
+name|name
 parameter_list|,
 name|ExpressionDefinition
 name|expression
@@ -194,18 +194,18 @@ argument_list|(
 name|expression
 argument_list|)
 expr_stmt|;
-name|setHeaderName
+name|setName
 argument_list|(
-name|headerName
+name|name
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|SetHeaderDefinition (String headerName, Expression expression)
+DECL|method|SetHeaderDefinition (String name, Expression expression)
 specifier|public
 name|SetHeaderDefinition
 parameter_list|(
 name|String
-name|headerName
+name|name
 parameter_list|,
 name|Expression
 name|expression
@@ -216,18 +216,18 @@ argument_list|(
 name|expression
 argument_list|)
 expr_stmt|;
-name|setHeaderName
+name|setName
 argument_list|(
-name|headerName
+name|name
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|SetHeaderDefinition (String headerName, String value)
+DECL|method|SetHeaderDefinition (String name, String value)
 specifier|public
 name|SetHeaderDefinition
 parameter_list|(
 name|String
-name|headerName
+name|name
 parameter_list|,
 name|String
 name|value
@@ -243,9 +243,9 @@ name|value
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|setHeaderName
+name|setName
 argument_list|(
-name|headerName
+name|name
 argument_list|)
 expr_stmt|;
 block|}
@@ -260,7 +260,7 @@ block|{
 return|return
 literal|"SetHeader["
 operator|+
-name|getHeaderName
+name|getName
 argument_list|()
 operator|+
 literal|", "
@@ -294,7 +294,7 @@ block|{
 return|return
 literal|"setHeader["
 operator|+
-name|getHeaderName
+name|getName
 argument_list|()
 operator|+
 literal|"]"
@@ -322,30 +322,30 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Name of message header to set a new value      *<p/>      * The<tt>simple</tt> language can be used to define a dynamic evaluated header name to be used.      * Otherwise a constant name will be used.      */
-DECL|method|setHeaderName (String headerName)
+DECL|method|setName (String name)
 specifier|public
 name|void
-name|setHeaderName
+name|setName
 parameter_list|(
 name|String
-name|headerName
+name|name
 parameter_list|)
 block|{
 name|this
 operator|.
-name|headerName
+name|name
 operator|=
-name|headerName
+name|name
 expr_stmt|;
 block|}
-DECL|method|getHeaderName ()
+DECL|method|getName ()
 specifier|public
 name|String
-name|getHeaderName
+name|getName
 parameter_list|()
 block|{
 return|return
-name|headerName
+name|name
 return|;
 block|}
 block|}

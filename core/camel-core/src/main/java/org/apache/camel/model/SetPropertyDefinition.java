@@ -168,22 +168,22 @@ name|required
 operator|=
 literal|true
 argument_list|)
-DECL|field|propertyName
+DECL|field|name
 specifier|private
 name|String
-name|propertyName
+name|name
 decl_stmt|;
 DECL|method|SetPropertyDefinition ()
 specifier|public
 name|SetPropertyDefinition
 parameter_list|()
 block|{     }
-DECL|method|SetPropertyDefinition (String propertyName, ExpressionDefinition expression)
+DECL|method|SetPropertyDefinition (String name, ExpressionDefinition expression)
 specifier|public
 name|SetPropertyDefinition
 parameter_list|(
 name|String
-name|propertyName
+name|name
 parameter_list|,
 name|ExpressionDefinition
 name|expression
@@ -194,18 +194,18 @@ argument_list|(
 name|expression
 argument_list|)
 expr_stmt|;
-name|setPropertyName
+name|setName
 argument_list|(
-name|propertyName
+name|name
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|SetPropertyDefinition (String propertyName, Expression expression)
+DECL|method|SetPropertyDefinition (String name, Expression expression)
 specifier|public
 name|SetPropertyDefinition
 parameter_list|(
 name|String
-name|propertyName
+name|name
 parameter_list|,
 name|Expression
 name|expression
@@ -216,18 +216,18 @@ argument_list|(
 name|expression
 argument_list|)
 expr_stmt|;
-name|setPropertyName
+name|setName
 argument_list|(
-name|propertyName
+name|name
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|SetPropertyDefinition (String propertyName, String value)
+DECL|method|SetPropertyDefinition (String name, String value)
 specifier|public
 name|SetPropertyDefinition
 parameter_list|(
 name|String
-name|propertyName
+name|name
 parameter_list|,
 name|String
 name|value
@@ -243,9 +243,9 @@ name|value
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|setPropertyName
+name|setName
 argument_list|(
-name|propertyName
+name|name
 argument_list|)
 expr_stmt|;
 block|}
@@ -260,7 +260,7 @@ block|{
 return|return
 literal|"SetProperty["
 operator|+
-name|getPropertyName
+name|getName
 argument_list|()
 operator|+
 literal|", "
@@ -294,7 +294,7 @@ block|{
 return|return
 literal|"setProperty["
 operator|+
-name|getPropertyName
+name|getName
 argument_list|()
 operator|+
 literal|"]"
@@ -322,30 +322,30 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Name of exchange property to set a new value.      *<p/>      * The<tt>simple</tt> language can be used to define a dynamic evaluated exchange property name to be used.      * Otherwise a constant name will be used.      */
-DECL|method|setPropertyName (String propertyName)
+DECL|method|setName (String name)
 specifier|public
 name|void
-name|setPropertyName
+name|setName
 parameter_list|(
 name|String
-name|propertyName
+name|name
 parameter_list|)
 block|{
 name|this
 operator|.
-name|propertyName
+name|name
 operator|=
-name|propertyName
+name|name
 expr_stmt|;
 block|}
-DECL|method|getPropertyName ()
+DECL|method|getName ()
 specifier|public
 name|String
-name|getPropertyName
+name|getName
 parameter_list|()
 block|{
 return|return
-name|propertyName
+name|name
 return|;
 block|}
 block|}
