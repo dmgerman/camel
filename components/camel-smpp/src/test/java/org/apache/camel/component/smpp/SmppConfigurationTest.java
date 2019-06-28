@@ -285,7 +285,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"password"
+literal|null
 argument_list|,
 name|configuration
 operator|.
@@ -1433,7 +1433,7 @@ literal|"enquireLinkTimer=5000, "
 operator|+
 literal|"host=localhost, "
 operator|+
-literal|"password=password, "
+literal|"password=null, "
 operator|+
 literal|"port=2775, "
 operator|+

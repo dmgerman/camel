@@ -240,6 +240,13 @@ argument_list|(
 literal|"cp"
 argument_list|)
 expr_stmt|;
+name|configuration
+operator|.
+name|setPassword
+argument_list|(
+literal|"password"
+argument_list|)
+expr_stmt|;
 name|endpoint
 operator|=
 name|mock

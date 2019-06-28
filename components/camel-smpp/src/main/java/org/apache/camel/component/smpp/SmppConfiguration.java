@@ -291,8 +291,6 @@ DECL|field|password
 specifier|private
 name|String
 name|password
-init|=
-literal|"password"
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -879,7 +877,7 @@ name|SmppSplittingPolicy
 operator|.
 name|ALLOW
 decl_stmt|;
-comment|/**      * A POJO which contains all necessary configuration parameters for the SMPP connection      *       * @param uri the full URI of the endpoint      */
+comment|/**      * A POJO which contains all necessary configuration parameters for the SMPP connection      *      * @param uri the full URI of the endpoint      */
 DECL|method|configureFromURI (URI uri)
 specifier|public
 name|void
