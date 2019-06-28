@@ -238,6 +238,24 @@ name|maven
 operator|.
 name|packaging
 operator|.
+name|PackageHelper
+operator|.
+name|findCamelDirectory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|maven
+operator|.
+name|packaging
+operator|.
 name|StringHelper
 operator|.
 name|between
@@ -288,7 +306,7 @@ specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The output directory for generated components file      */
+comment|/**      * The output directory for generated archetypes      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -300,19 +318,6 @@ DECL|field|outDir
 specifier|protected
 name|File
 name|outDir
-decl_stmt|;
-comment|/**      * The build directory      */
-annotation|@
-name|Parameter
-argument_list|(
-name|defaultValue
-operator|=
-literal|"${project.build.directory}"
-argument_list|)
-DECL|field|projectBuildDir
-specifier|protected
-name|File
-name|projectBuildDir
 decl_stmt|;
 comment|/**      * Maven ProjectHelper.      */
 annotation|@
@@ -333,6 +338,23 @@ name|MojoExecutionException
 throws|,
 name|MojoFailureException
 block|{
+comment|// only generate this for the root pom
+if|if
+condition|(
+literal|"pom"
+operator|.
+name|equals
+argument_list|(
+name|project
+operator|.
+name|getModel
+argument_list|()
+operator|.
+name|getPackaging
+argument_list|()
+argument_list|)
+condition|)
+block|{
 try|try
 block|{
 name|generateArchetypeCatalog
@@ -343,8 +365,6 @@ argument_list|,
 name|project
 argument_list|,
 name|projectHelper
-argument_list|,
-name|projectBuildDir
 argument_list|,
 name|outDir
 argument_list|)
@@ -372,7 +392,8 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|generateArchetypeCatalog (Log log, MavenProject project, MavenProjectHelper projectHelper, File projectBuildDir, File outDir)
+block|}
+DECL|method|generateArchetypeCatalog (Log log, MavenProject project, MavenProjectHelper projectHelper, File outDir)
 specifier|public
 specifier|static
 name|void
@@ -388,9 +409,6 @@ name|MavenProjectHelper
 name|projectHelper
 parameter_list|,
 name|File
-name|projectBuildDir
-parameter_list|,
-name|File
 name|outDir
 parameter_list|)
 throws|throws
@@ -399,20 +417,46 @@ throws|,
 name|IOException
 block|{
 name|File
-name|rootDir
+name|archetypes
 init|=
-name|projectBuildDir
+name|findCamelDirectory
+argument_list|(
+name|project
 operator|.
-name|getParentFile
+name|getBasedir
 argument_list|()
+argument_list|,
+literal|"archetypes"
+argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|archetypes
+operator|==
+literal|null
+operator|||
+operator|!
+name|archetypes
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|MojoExecutionException
+argument_list|(
+literal|"Cannot find directory: archetypes"
+argument_list|)
+throw|;
+block|}
 name|log
 operator|.
 name|info
 argument_list|(
-literal|"Scanning for Camel Maven Archetypes from root directory "
+literal|"Scanning for Camel Maven Archetypes from directory: "
 operator|+
-name|rootDir
+name|archetypes
 argument_list|)
 expr_stmt|;
 comment|// find all archetypes which are in the parent dir of the build dir
@@ -420,7 +464,7 @@ name|File
 index|[]
 name|dirs
 init|=
-name|rootDir
+name|archetypes
 operator|.
 name|listFiles
 argument_list|(
