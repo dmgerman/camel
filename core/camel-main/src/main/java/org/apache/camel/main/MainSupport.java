@@ -3312,7 +3312,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using optional properties from classpath:application.properties"
+literal|"Using properties from classpath:application.properties"
 argument_list|)
 expr_stmt|;
 block|}
@@ -3378,6 +3378,7 @@ name|notifier
 argument_list|)
 expr_stmt|;
 block|}
+comment|// gathers the properties (key=value) that was auto-configured
 specifier|final
 name|Map
 argument_list|<
@@ -3486,6 +3487,11 @@ block|}
 comment|// log summary of configurations
 if|if
 condition|(
+name|mainConfigurationProperties
+operator|.
+name|isAutoConfigurationLogSummary
+argument_list|()
+operator|&&
 operator|!
 name|autoConfiguredProperties
 operator|.
@@ -5736,6 +5742,8 @@ argument_list|(
 literal|0
 argument_list|,
 name|dot
+operator|+
+literal|1
 argument_list|)
 decl_stmt|;
 name|validateOptionAndValue
@@ -5931,6 +5939,8 @@ argument_list|(
 literal|0
 argument_list|,
 name|dot
+operator|+
+literal|1
 argument_list|)
 decl_stmt|;
 name|validateOptionAndValue
@@ -6129,6 +6139,8 @@ argument_list|(
 literal|0
 argument_list|,
 name|dot
+operator|+
+literal|1
 argument_list|)
 decl_stmt|;
 name|validateOptionAndValue
@@ -6284,8 +6296,6 @@ argument_list|()
 operator|.
 name|length
 argument_list|()
-operator|+
-literal|1
 argument_list|)
 decl_stmt|;
 name|setPropertiesOnTarget

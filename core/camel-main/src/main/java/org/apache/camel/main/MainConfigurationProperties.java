@@ -52,6 +52,13 @@ name|autoConfigurationFailFast
 init|=
 literal|true
 decl_stmt|;
+DECL|field|autoConfigurationLogSummary
+specifier|private
+name|boolean
+name|autoConfigurationLogSummary
+init|=
+literal|true
+decl_stmt|;
 DECL|field|autowireComponentProperties
 specifier|private
 name|boolean
@@ -144,7 +151,7 @@ return|return
 name|autoConfigurationEnabled
 return|;
 block|}
-comment|/**      * Whether auto configuration of components/dataformats/languages is enabled or not.      * When enabled the configuration parameters are loaded from the properties component      * and optionally from the classpath file META-INF/services/org/apache/camel/autowire.properties.      * You can prefix the parameters in the properties file with:      * - camel.component.name.option1=value1      * - camel.component.name.option2=value2      * - camel.dataformat.name.option1=value1      * - camel.dataformat.name.option2=value2      * - camel.language.name.option1=value1      * - camel.language.name.option2=value2      * Where name is the name of the component, dataformat or language such as seda,direct,jaxb.      *<p/>      * The auto configuration also works for any options on components      * that is a complex type (not standard Java type) and there has been an explicit single      * bean instance registered to the Camel registry via the {@link org.apache.camel.spi.Registry#bind(String, Object)} method      * or by using the {@link org.apache.camel.BindToRegistry} annotation style.      *<p/>      * This option is default enabled.      */
+comment|/**      * Whether auto configuration of components, dataformats, languages is enabled or not.      * When enabled the configuration parameters are loaded from the properties component      * and optionally from the classpath file META-INF/services/org/apache/camel/autowire.properties.      * You can prefix the parameters in the properties file with:      * - camel.component.name.option1=value1      * - camel.component.name.option2=value2      * - camel.dataformat.name.option1=value1      * - camel.dataformat.name.option2=value2      * - camel.language.name.option1=value1      * - camel.language.name.option2=value2      * Where name is the name of the component, dataformat or language such as seda,direct,jaxb.      *<p/>      * The auto configuration also works for any options on components      * that is a complex type (not standard Java type) and there has been an explicit single      * bean instance registered to the Camel registry via the {@link org.apache.camel.spi.Registry#bind(String, Object)} method      * or by using the {@link org.apache.camel.BindToRegistry} annotation style.      *<p/>      * This option is default enabled.      */
 DECL|method|setAutoConfigurationEnabled (boolean autoConfigurationEnabled)
 specifier|public
 name|void
@@ -213,6 +220,33 @@ operator|.
 name|autoConfigurationFailFast
 operator|=
 name|autoConfigurationFailFast
+expr_stmt|;
+block|}
+DECL|method|isAutoConfigurationLogSummary ()
+specifier|public
+name|boolean
+name|isAutoConfigurationLogSummary
+parameter_list|()
+block|{
+return|return
+name|autoConfigurationLogSummary
+return|;
+block|}
+comment|/**      * Whether auto configuration should log a summary with the configured properties.      *<p/>      * This option is default enabled.      */
+DECL|method|setAutoConfigurationLogSummary (boolean autoConfigurationLogSummary)
+specifier|public
+name|void
+name|setAutoConfigurationLogSummary
+parameter_list|(
+name|boolean
+name|autoConfigurationLogSummary
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoConfigurationLogSummary
+operator|=
+name|autoConfigurationLogSummary
 expr_stmt|;
 block|}
 DECL|method|isAutowireComponentProperties ()
@@ -407,6 +441,26 @@ operator|.
 name|autoConfigurationFailFast
 operator|=
 name|autoConfigurationFailFast
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Whether auto configuration should log a summary with the configured properties.      *<p/>      * This option is default enabled.      */
+DECL|method|withAutoConfigurationLogSummary (boolean autoConfigurationLogSummary)
+specifier|public
+name|MainConfigurationProperties
+name|withAutoConfigurationLogSummary
+parameter_list|(
+name|boolean
+name|autoConfigurationLogSummary
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoConfigurationLogSummary
+operator|=
+name|autoConfigurationLogSummary
 expr_stmt|;
 return|return
 name|this
