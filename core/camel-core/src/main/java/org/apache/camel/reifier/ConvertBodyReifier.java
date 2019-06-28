@@ -110,6 +110,7 @@ end_import
 
 begin_class
 DECL|class|ConvertBodyReifier
+specifier|public
 class|class
 name|ConvertBodyReifier
 extends|extends

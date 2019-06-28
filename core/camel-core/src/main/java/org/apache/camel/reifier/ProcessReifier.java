@@ -142,6 +142,7 @@ end_import
 
 begin_class
 DECL|class|ProcessReifier
+specifier|public
 class|class
 name|ProcessReifier
 extends|extends

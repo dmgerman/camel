@@ -200,6 +200,7 @@ end_import
 
 begin_class
 DECL|class|ToDynamicReifier
+specifier|public
 class|class
 name|ToDynamicReifier
 parameter_list|<

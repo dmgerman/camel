@@ -72,6 +72,7 @@ end_import
 
 begin_class
 DECL|class|PipelineReifier
+specifier|public
 class|class
 name|PipelineReifier
 extends|extends

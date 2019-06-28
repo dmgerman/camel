@@ -108,6 +108,7 @@ end_import
 
 begin_class
 DECL|class|CustomLoadBalancerReifier
+specifier|public
 class|class
 name|CustomLoadBalancerReifier
 extends|extends

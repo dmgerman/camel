@@ -132,6 +132,7 @@ end_import
 
 begin_class
 DECL|class|EndpointValidatorReifier
+specifier|public
 class|class
 name|EndpointValidatorReifier
 extends|extends

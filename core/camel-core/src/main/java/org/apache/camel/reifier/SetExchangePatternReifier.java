@@ -86,6 +86,7 @@ end_import
 
 begin_class
 DECL|class|SetExchangePatternReifier
+specifier|public
 class|class
 name|SetExchangePatternReifier
 extends|extends

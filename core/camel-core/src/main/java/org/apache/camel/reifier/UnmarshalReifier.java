@@ -118,6 +118,7 @@ end_import
 
 begin_class
 DECL|class|UnmarshalReifier
+specifier|public
 class|class
 name|UnmarshalReifier
 extends|extends

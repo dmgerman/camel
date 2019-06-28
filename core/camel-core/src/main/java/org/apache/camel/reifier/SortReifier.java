@@ -154,6 +154,7 @@ end_import
 
 begin_class
 DECL|class|SortReifier
+specifier|public
 class|class
 name|SortReifier
 parameter_list|<

@@ -218,6 +218,7 @@ end_import
 
 begin_class
 DECL|class|ResequenceReifier
+specifier|public
 class|class
 name|ResequenceReifier
 extends|extends

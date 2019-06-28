@@ -140,6 +140,7 @@ end_import
 
 begin_class
 DECL|class|ThrottleReifier
+specifier|public
 class|class
 name|ThrottleReifier
 extends|extends

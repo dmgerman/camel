@@ -206,6 +206,7 @@ end_import
 
 begin_class
 DECL|class|WireTapReifier
+specifier|public
 class|class
 name|WireTapReifier
 extends|extends

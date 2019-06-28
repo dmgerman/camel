@@ -170,6 +170,7 @@ end_import
 
 begin_class
 DECL|class|ThreadsReifier
+specifier|public
 class|class
 name|ThreadsReifier
 extends|extends

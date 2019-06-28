@@ -124,6 +124,7 @@ end_import
 
 begin_class
 DECL|class|PredicateValidatorReifier
+specifier|public
 class|class
 name|PredicateValidatorReifier
 extends|extends

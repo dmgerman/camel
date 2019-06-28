@@ -78,6 +78,7 @@ end_import
 
 begin_class
 DECL|class|CustomValidatorReifier
+specifier|public
 class|class
 name|CustomValidatorReifier
 extends|extends

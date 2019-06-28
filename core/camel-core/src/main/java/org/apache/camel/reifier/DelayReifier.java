@@ -140,6 +140,7 @@ end_import
 
 begin_class
 DECL|class|DelayReifier
+specifier|public
 class|class
 name|DelayReifier
 extends|extends

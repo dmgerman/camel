@@ -84,6 +84,7 @@ end_import
 
 begin_class
 DECL|class|SetFaultBodyReifier
+specifier|public
 class|class
 name|SetFaultBodyReifier
 extends|extends

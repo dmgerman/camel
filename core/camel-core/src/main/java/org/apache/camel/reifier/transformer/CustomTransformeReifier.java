@@ -78,6 +78,7 @@ end_import
 
 begin_class
 DECL|class|CustomTransformeReifier
+specifier|public
 class|class
 name|CustomTransformeReifier
 extends|extends

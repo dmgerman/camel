@@ -258,6 +258,7 @@ end_import
 
 begin_class
 DECL|class|RecipientListReifier
+specifier|public
 class|class
 name|RecipientListReifier
 extends|extends

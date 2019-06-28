@@ -134,6 +134,7 @@ end_import
 
 begin_class
 DECL|class|TryReifier
+specifier|public
 class|class
 name|TryReifier
 extends|extends

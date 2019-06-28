@@ -128,6 +128,7 @@ end_import
 
 begin_class
 DECL|class|IdempotentConsumerReifier
+specifier|public
 class|class
 name|IdempotentConsumerReifier
 extends|extends

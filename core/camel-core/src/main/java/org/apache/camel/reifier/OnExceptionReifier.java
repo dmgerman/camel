@@ -188,6 +188,7 @@ end_import
 
 begin_class
 DECL|class|OnExceptionReifier
+specifier|public
 class|class
 name|OnExceptionReifier
 extends|extends

@@ -250,6 +250,7 @@ end_import
 
 begin_class
 DECL|class|LogReifier
+specifier|public
 class|class
 name|LogReifier
 extends|extends

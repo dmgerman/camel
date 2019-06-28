@@ -124,6 +124,7 @@ end_import
 
 begin_class
 DECL|class|DataFormatTransformeReifier
+specifier|public
 class|class
 name|DataFormatTransformeReifier
 extends|extends

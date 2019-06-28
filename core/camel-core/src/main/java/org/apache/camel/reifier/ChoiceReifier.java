@@ -202,6 +202,7 @@ end_import
 
 begin_class
 DECL|class|ChoiceReifier
+specifier|public
 class|class
 name|ChoiceReifier
 extends|extends

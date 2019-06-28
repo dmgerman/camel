@@ -118,6 +118,7 @@ end_import
 
 begin_class
 DECL|class|MarshalReifier
+specifier|public
 class|class
 name|MarshalReifier
 extends|extends

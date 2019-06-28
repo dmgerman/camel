@@ -96,6 +96,7 @@ end_import
 
 begin_class
 DECL|class|StepReifier
+specifier|public
 class|class
 name|StepReifier
 extends|extends

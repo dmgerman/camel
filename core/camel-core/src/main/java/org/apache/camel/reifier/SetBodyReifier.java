@@ -98,6 +98,7 @@ end_import
 
 begin_class
 DECL|class|SetBodyReifier
+specifier|public
 class|class
 name|SetBodyReifier
 extends|extends

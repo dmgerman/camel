@@ -138,6 +138,7 @@ end_import
 
 begin_class
 DECL|class|PollEnrichReifier
+specifier|public
 class|class
 name|PollEnrichReifier
 extends|extends

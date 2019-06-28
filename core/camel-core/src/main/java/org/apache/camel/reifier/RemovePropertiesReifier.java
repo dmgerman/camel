@@ -100,6 +100,7 @@ end_import
 
 begin_class
 DECL|class|RemovePropertiesReifier
+specifier|public
 class|class
 name|RemovePropertiesReifier
 extends|extends

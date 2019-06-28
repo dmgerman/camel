@@ -86,6 +86,7 @@ end_import
 
 begin_class
 DECL|class|StopReifier
+specifier|public
 class|class
 name|StopReifier
 extends|extends

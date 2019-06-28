@@ -126,6 +126,7 @@ end_import
 
 begin_class
 DECL|class|SetHeaderReifier
+specifier|public
 class|class
 name|SetHeaderReifier
 extends|extends

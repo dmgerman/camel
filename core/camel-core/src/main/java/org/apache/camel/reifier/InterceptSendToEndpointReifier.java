@@ -204,6 +204,7 @@ end_import
 
 begin_class
 DECL|class|InterceptSendToEndpointReifier
+specifier|public
 class|class
 name|InterceptSendToEndpointReifier
 extends|extends

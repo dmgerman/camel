@@ -98,6 +98,7 @@ end_import
 
 begin_class
 DECL|class|SendReifier
+specifier|public
 class|class
 name|SendReifier
 extends|extends

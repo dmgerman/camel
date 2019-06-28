@@ -86,6 +86,7 @@ end_import
 
 begin_class
 DECL|class|RollbackReifier
+specifier|public
 class|class
 name|RollbackReifier
 extends|extends

@@ -72,6 +72,7 @@ end_import
 
 begin_class
 DECL|class|OtherwiseReifier
+specifier|public
 class|class
 name|OtherwiseReifier
 extends|extends

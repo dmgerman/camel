@@ -96,6 +96,7 @@ end_import
 
 begin_class
 DECL|class|TopicLoadBalancerReifier
+specifier|public
 class|class
 name|TopicLoadBalancerReifier
 extends|extends

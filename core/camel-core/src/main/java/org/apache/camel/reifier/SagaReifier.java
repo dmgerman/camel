@@ -264,6 +264,7 @@ end_import
 
 begin_class
 DECL|class|SagaReifier
+specifier|public
 class|class
 name|SagaReifier
 extends|extends

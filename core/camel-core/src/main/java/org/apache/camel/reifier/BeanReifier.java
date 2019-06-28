@@ -110,6 +110,7 @@ end_import
 
 begin_class
 DECL|class|BeanReifier
+specifier|public
 class|class
 name|BeanReifier
 extends|extends

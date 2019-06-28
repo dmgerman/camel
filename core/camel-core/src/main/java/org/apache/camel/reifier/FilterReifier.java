@@ -86,6 +86,7 @@ end_import
 
 begin_class
 DECL|class|FilterReifier
+specifier|public
 class|class
 name|FilterReifier
 extends|extends

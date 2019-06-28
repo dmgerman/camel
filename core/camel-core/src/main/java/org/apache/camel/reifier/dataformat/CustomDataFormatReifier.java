@@ -74,20 +74,6 @@ name|DataFormat
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|RouteContext
-import|;
-end_import
-
 begin_class
 DECL|class|CustomDataFormatReifier
 specifier|public

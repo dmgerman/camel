@@ -96,6 +96,7 @@ end_import
 
 begin_class
 DECL|class|RoundRobinLoadBalancerReifier
+specifier|public
 class|class
 name|RoundRobinLoadBalancerReifier
 extends|extends

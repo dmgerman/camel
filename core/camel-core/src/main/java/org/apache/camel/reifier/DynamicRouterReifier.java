@@ -138,6 +138,7 @@ end_import
 
 begin_class
 DECL|class|DynamicRouterReifier
+specifier|public
 class|class
 name|DynamicRouterReifier
 extends|extends

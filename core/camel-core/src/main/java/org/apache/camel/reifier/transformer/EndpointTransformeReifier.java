@@ -132,6 +132,7 @@ end_import
 
 begin_class
 DECL|class|EndpointTransformeReifier
+specifier|public
 class|class
 name|EndpointTransformeReifier
 extends|extends

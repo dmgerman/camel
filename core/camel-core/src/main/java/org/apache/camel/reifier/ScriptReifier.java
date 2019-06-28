@@ -98,6 +98,7 @@ end_import
 
 begin_class
 DECL|class|ScriptReifier
+specifier|public
 class|class
 name|ScriptReifier
 extends|extends

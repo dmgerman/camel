@@ -112,6 +112,7 @@ end_import
 
 begin_class
 DECL|class|InterceptFromReifier
+specifier|public
 class|class
 name|InterceptFromReifier
 extends|extends

@@ -144,6 +144,7 @@ end_import
 
 begin_class
 DECL|class|CatchReifier
+specifier|public
 class|class
 name|CatchReifier
 extends|extends

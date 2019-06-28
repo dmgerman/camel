@@ -98,6 +98,7 @@ end_import
 
 begin_class
 DECL|class|WhenSkipSendToEndpointReifier
+specifier|public
 class|class
 name|WhenSkipSendToEndpointReifier
 extends|extends

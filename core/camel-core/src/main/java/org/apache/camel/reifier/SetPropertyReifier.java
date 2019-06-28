@@ -126,6 +126,7 @@ end_import
 
 begin_class
 DECL|class|SetPropertyReifier
+specifier|public
 class|class
 name|SetPropertyReifier
 extends|extends

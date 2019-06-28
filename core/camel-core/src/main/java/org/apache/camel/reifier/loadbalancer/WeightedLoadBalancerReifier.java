@@ -160,6 +160,7 @@ end_import
 
 begin_class
 DECL|class|WeightedLoadBalancerReifier
+specifier|public
 class|class
 name|WeightedLoadBalancerReifier
 extends|extends

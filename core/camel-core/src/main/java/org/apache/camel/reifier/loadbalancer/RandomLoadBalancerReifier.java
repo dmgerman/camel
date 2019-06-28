@@ -96,6 +96,7 @@ end_import
 
 begin_class
 DECL|class|RandomLoadBalancerReifier
+specifier|public
 class|class
 name|RandomLoadBalancerReifier
 extends|extends

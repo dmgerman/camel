@@ -90,6 +90,7 @@ end_import
 
 begin_class
 DECL|class|ValidateReifier
+specifier|public
 class|class
 name|ValidateReifier
 extends|extends

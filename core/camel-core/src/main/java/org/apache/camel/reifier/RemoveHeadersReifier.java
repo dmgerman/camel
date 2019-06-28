@@ -100,6 +100,7 @@ end_import
 
 begin_class
 DECL|class|RemoveHeadersReifier
+specifier|public
 class|class
 name|RemoveHeadersReifier
 extends|extends

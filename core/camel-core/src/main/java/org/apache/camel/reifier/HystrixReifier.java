@@ -72,6 +72,7 @@ end_import
 
 begin_class
 DECL|class|HystrixReifier
+specifier|public
 class|class
 name|HystrixReifier
 extends|extends

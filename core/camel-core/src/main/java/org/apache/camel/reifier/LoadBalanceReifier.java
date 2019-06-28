@@ -132,6 +132,7 @@ end_import
 
 begin_class
 DECL|class|LoadBalanceReifier
+specifier|public
 class|class
 name|LoadBalanceReifier
 extends|extends

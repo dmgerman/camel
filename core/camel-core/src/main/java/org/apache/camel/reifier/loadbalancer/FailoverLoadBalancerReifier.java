@@ -130,6 +130,7 @@ end_import
 
 begin_class
 DECL|class|FailoverLoadBalancerReifier
+specifier|public
 class|class
 name|FailoverLoadBalancerReifier
 extends|extends

@@ -72,6 +72,7 @@ end_import
 
 begin_class
 DECL|class|OnFallbackReifier
+specifier|public
 class|class
 name|OnFallbackReifier
 extends|extends

@@ -74,6 +74,7 @@ end_import
 
 begin_class
 DECL|class|WhenReifier
+specifier|public
 class|class
 name|WhenReifier
 extends|extends

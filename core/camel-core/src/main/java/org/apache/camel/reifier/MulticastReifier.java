@@ -218,6 +218,7 @@ end_import
 
 begin_class
 DECL|class|MulticastReifier
+specifier|public
 class|class
 name|MulticastReifier
 extends|extends

@@ -126,6 +126,7 @@ end_import
 
 begin_class
 DECL|class|PolicyReifier
+specifier|public
 class|class
 name|PolicyReifier
 extends|extends

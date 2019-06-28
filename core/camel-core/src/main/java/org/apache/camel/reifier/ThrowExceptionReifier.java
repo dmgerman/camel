@@ -98,6 +98,7 @@ end_import
 
 begin_class
 DECL|class|ThrowExceptionReifier
+specifier|public
 class|class
 name|ThrowExceptionReifier
 extends|extends

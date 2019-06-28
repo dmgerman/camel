@@ -88,20 +88,6 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
 name|RoutingSlipDefinition
 import|;
 end_import
@@ -168,6 +154,7 @@ end_import
 
 begin_class
 DECL|class|RoutingSlipReifier
+specifier|public
 class|class
 name|RoutingSlipReifier
 extends|extends

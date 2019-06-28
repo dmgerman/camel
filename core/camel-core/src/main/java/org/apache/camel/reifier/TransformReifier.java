@@ -98,6 +98,7 @@ end_import
 
 begin_class
 DECL|class|TransformReifier
+specifier|public
 class|class
 name|TransformReifier
 extends|extends

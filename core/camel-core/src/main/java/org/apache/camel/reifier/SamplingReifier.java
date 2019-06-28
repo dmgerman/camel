@@ -98,6 +98,7 @@ end_import
 
 begin_class
 DECL|class|SamplingReifier
+specifier|public
 class|class
 name|SamplingReifier
 extends|extends

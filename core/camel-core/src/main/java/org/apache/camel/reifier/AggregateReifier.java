@@ -280,6 +280,7 @@ end_import
 
 begin_class
 DECL|class|AggregateReifier
+specifier|public
 class|class
 name|AggregateReifier
 extends|extends

@@ -138,6 +138,7 @@ end_import
 
 begin_class
 DECL|class|InterceptReifier
+specifier|public
 class|class
 name|InterceptReifier
 parameter_list|<

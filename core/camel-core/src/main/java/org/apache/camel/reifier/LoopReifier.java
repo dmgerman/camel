@@ -110,6 +110,7 @@ end_import
 
 begin_class
 DECL|class|LoopReifier
+specifier|public
 class|class
 name|LoopReifier
 extends|extends

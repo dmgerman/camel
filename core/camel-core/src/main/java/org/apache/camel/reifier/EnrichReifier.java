@@ -138,6 +138,7 @@ end_import
 
 begin_class
 DECL|class|EnrichReifier
+specifier|public
 class|class
 name|EnrichReifier
 extends|extends

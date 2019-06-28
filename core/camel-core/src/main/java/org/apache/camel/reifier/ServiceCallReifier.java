@@ -74,6 +74,7 @@ end_import
 
 begin_class
 DECL|class|ServiceCallReifier
+specifier|public
 class|class
 name|ServiceCallReifier
 extends|extends

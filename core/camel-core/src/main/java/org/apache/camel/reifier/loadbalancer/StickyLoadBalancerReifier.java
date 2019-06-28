@@ -96,6 +96,7 @@ end_import
 
 begin_class
 DECL|class|StickyLoadBalancerReifier
+specifier|public
 class|class
 name|StickyLoadBalancerReifier
 extends|extends

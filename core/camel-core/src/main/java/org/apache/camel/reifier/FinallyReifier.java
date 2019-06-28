@@ -100,6 +100,7 @@ end_import
 
 begin_class
 DECL|class|FinallyReifier
+specifier|public
 class|class
 name|FinallyReifier
 extends|extends

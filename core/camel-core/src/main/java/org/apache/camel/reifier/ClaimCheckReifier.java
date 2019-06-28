@@ -156,6 +156,7 @@ end_import
 
 begin_class
 DECL|class|ClaimCheckReifier
+specifier|public
 class|class
 name|ClaimCheckReifier
 extends|extends
