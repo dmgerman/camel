@@ -1359,6 +1359,34 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+DECL|method|testSanitizeAccessToken ()
+specifier|public
+name|void
+name|testSanitizeAccessToken
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|out1
+init|=
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
+literal|"google-sheets-stream://spreadsheets?accessToken=MY_TOKEN&clientId=foo&clientSecret=MY_SECRET"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"google-sheets-stream://spreadsheets?accessToken=xxxxxx&clientId=foo&clientSecret=xxxxxx"
+argument_list|,
+name|out1
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
 DECL|method|testSanitizeUriWithUserInfo ()
 specifier|public
 name|void
