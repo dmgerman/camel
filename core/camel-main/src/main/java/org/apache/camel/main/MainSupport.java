@@ -2257,7 +2257,7 @@ name|isAutoConfigurationEnabled
 argument_list|()
 return|;
 block|}
-comment|/**      * Whether auto configuration of components/dataformats/languages is enabled or not.      * When enabled the configuration parameters are loaded from the properties component      * and configured as defaults (similar to spring-boot auto-configuration). You can prefix      * the parameters in the properties file with:      * - camel.component.name.option1=value1      * - camel.component.name.option2=value2      * - camel.dataformat.name.option1=value1      * - camel.dataformat.name.option2=value2      * - camel.language.name.option1=value1      * - camel.language.name.option2=value2      * Where name is the name of the component, dataformat or language such as seda,direct,jaxb.      *<p/>      * The auto configuration also works for any options on components      * that is a complex type (not standard Java type) and there has been an explicit single      * bean instance registered to the Camel registry via the {@link org.apache.camel.spi.Registry#bind(String, Object)} method      * or by using the {@link org.apache.camel.BindToRegistry} annotation style.      *<p/>      * This option is default enabled.      * @deprecated use {@link #configure()}      */
+comment|/**      * Whether auto-configuration of components/dataformats/languages is enabled or not.      * When enabled the configuration parameters are loaded from the properties component      * and configured as defaults (similar to spring-boot auto-configuration). You can prefix      * the parameters in the properties file with:      * - camel.component.name.option1=value1      * - camel.component.name.option2=value2      * - camel.dataformat.name.option1=value1      * - camel.dataformat.name.option2=value2      * - camel.language.name.option1=value1      * - camel.language.name.option2=value2      * Where name is the name of the component, dataformat or language such as seda,direct,jaxb.      *<p/>      * The auto-configuration also works for any options on components      * that is a complex type (not standard Java type) and there has been an explicit single      * bean instance registered to the Camel registry via the {@link org.apache.camel.spi.Registry#bind(String, Object)} method      * or by using the {@link org.apache.camel.BindToRegistry} annotation style.      *<p/>      * This option is default enabled.      * @deprecated use {@link #configure()}      */
 annotation|@
 name|Deprecated
 DECL|method|setAutoConfigurationEnabled (boolean autoConfigurationEnabled)
@@ -3378,7 +3378,21 @@ name|notifier
 argument_list|)
 expr_stmt|;
 block|}
-comment|// need to eager allow to auto configure properties component
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|autoConfiguredProperties
+init|=
+operator|new
+name|LinkedHashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+comment|// need to eager allow to auto-configure properties component
 if|if
 condition|(
 name|mainConfigurationProperties
@@ -3390,11 +3404,15 @@ block|{
 name|autoConfigurationFailFast
 argument_list|(
 name|camelContext
+argument_list|,
+name|autoConfiguredProperties
 argument_list|)
 expr_stmt|;
 name|autoConfigurationPropertiesComponent
 argument_list|(
 name|camelContext
+argument_list|,
+name|autoConfiguredProperties
 argument_list|)
 expr_stmt|;
 name|autoConfigurationMainConfiguration
@@ -3402,6 +3420,8 @@ argument_list|(
 name|camelContext
 argument_list|,
 name|mainConfigurationProperties
+argument_list|,
+name|autoConfiguredProperties
 argument_list|)
 expr_stmt|;
 block|}
@@ -3411,6 +3431,8 @@ argument_list|(
 name|camelContext
 argument_list|,
 name|mainConfigurationProperties
+argument_list|,
+name|autoConfiguredProperties
 argument_list|)
 expr_stmt|;
 comment|// try to load configuration classes
@@ -3434,7 +3456,7 @@ name|isAutowireComponentPropertiesDeep
 argument_list|()
 condition|)
 block|{
-name|autoConfigurationFromRegistry
+name|autowireConfigurationFromRegistry
 argument_list|(
 name|camelContext
 argument_list|,
@@ -3456,6 +3478,48 @@ block|{
 name|autoConfigurationFromProperties
 argument_list|(
 name|camelContext
+argument_list|,
+name|autoConfiguredProperties
+argument_list|)
+expr_stmt|;
+block|}
+comment|// log summary of configurations
+if|if
+condition|(
+operator|!
+name|autoConfiguredProperties
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Auto-configuration summary:"
+argument_list|)
+expr_stmt|;
+name|autoConfiguredProperties
+operator|.
+name|forEach
+argument_list|(
+parameter_list|(
+name|k
+parameter_list|,
+name|v
+parameter_list|)
+lambda|->
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"\t{}={}"
+argument_list|,
+name|k
+argument_list|,
+name|v
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3513,13 +3577,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|autoConfigurationFailFast (CamelContext camelContext)
+DECL|method|autoConfigurationFailFast (CamelContext camelContext, Map<String, String> autoConfiguredProperties)
 specifier|protected
 name|void
 name|autoConfigurationFailFast
 parameter_list|(
 name|CamelContext
 name|camelContext
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|autoConfiguredProperties
 parameter_list|)
 throws|throws
 name|Exception
@@ -3618,6 +3690,18 @@ argument_list|,
 name|envEnabled
 argument_list|,
 literal|true
+argument_list|)
+expr_stmt|;
+name|autoConfiguredProperties
+operator|.
+name|put
+argument_list|(
+literal|"camel.main.auto-configuration-environment-variables-enabled"
+argument_list|,
+name|envEnabled
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3791,11 +3875,23 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+name|autoConfiguredProperties
+operator|.
+name|put
+argument_list|(
+literal|"camel.main.auto-configuration-fail-fast"
+argument_list|,
+name|failFast
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
 comment|/**      * Configures CamelContext from the {@link MainConfigurationProperties} properties.      */
-DECL|method|doConfigureCamelContextFromMainConfiguration (CamelContext camelContext, MainConfigurationProperties config)
+DECL|method|doConfigureCamelContextFromMainConfiguration (CamelContext camelContext, MainConfigurationProperties config, Map<String, String> autoConfiguredProperties)
 specifier|protected
 name|void
 name|doConfigureCamelContextFromMainConfiguration
@@ -3805,6 +3901,14 @@ name|camelContext
 parameter_list|,
 name|MainConfigurationProperties
 name|config
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|autoConfiguredProperties
 parameter_list|)
 throws|throws
 name|Exception
@@ -4346,9 +4450,9 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Auto configuring CamelContext from loaded properties: {}"
+literal|"Auto-configuring CamelContext from loaded properties: {}"
 argument_list|,
 name|contextProperties
 operator|.
@@ -4374,6 +4478,8 @@ name|isAutoConfigurationFailFast
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|autoConfiguredProperties
 argument_list|)
 expr_stmt|;
 block|}
@@ -4388,9 +4494,9 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Auto configuring Hystrix EIP from loaded properties: {}"
+literal|"Auto-configuring Hystrix EIP from loaded properties: {}"
 argument_list|,
 name|hystrixProperties
 operator|.
@@ -4459,6 +4565,8 @@ name|isAutoConfigurationFailFast
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|autoConfiguredProperties
 argument_list|)
 expr_stmt|;
 block|}
@@ -4473,9 +4581,9 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Auto configuring Rest DSL from loaded properties: {}"
+literal|"Auto-configuring Rest DSL from loaded properties: {}"
 argument_list|,
 name|restProperties
 operator|.
@@ -4542,6 +4650,8 @@ name|isAutoConfigurationFailFast
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|autoConfiguredProperties
 argument_list|)
 expr_stmt|;
 block|}
@@ -4570,7 +4680,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Property not auto configured: camel.context.{}={} on object: {}"
+literal|"Property not auto-configured: camel.context.{}={} on bean: {}"
 argument_list|,
 name|k
 argument_list|,
@@ -4629,7 +4739,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Property not auto configured: camel.hystrix.{}={} on object: {}"
+literal|"Property not auto-configured: camel.hystrix.{}={} on bean: {}"
 argument_list|,
 name|k
 argument_list|,
@@ -4686,7 +4796,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Property not auto configured: camel.rest.{}={} on object: {}"
+literal|"Property not auto-configured: camel.rest.{}={} on bean: {}"
 argument_list|,
 name|k
 argument_list|,
@@ -4700,13 +4810,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|autoConfigurationPropertiesComponent (CamelContext camelContext)
+DECL|method|autoConfigurationPropertiesComponent (CamelContext camelContext, Map<String, String> autoConfiguredProperties)
 specifier|protected
 name|void
 name|autoConfigurationPropertiesComponent
 parameter_list|(
 name|CamelContext
 name|camelContext
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|autoConfiguredProperties
 parameter_list|)
 throws|throws
 name|Exception
@@ -4874,9 +4992,9 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Auto configuring properties component from loaded properties: {}"
+literal|"Auto-configuring properties component from loaded properties: {}"
 argument_list|,
 name|properties
 operator|.
@@ -4905,6 +5023,8 @@ name|isAutoConfigurationFailFast
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|autoConfiguredProperties
 argument_list|)
 expr_stmt|;
 block|}
@@ -4933,7 +5053,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Property not auto configured: camel.component.properties.{}={} on object: {}"
+literal|"Property not auto-configured: camel.component.properties.{}={} on object: {}"
 argument_list|,
 name|k
 argument_list|,
@@ -4950,7 +5070,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|autoConfigurationMainConfiguration (CamelContext camelContext, MainConfigurationProperties config)
+DECL|method|autoConfigurationMainConfiguration (CamelContext camelContext, MainConfigurationProperties config, Map<String, String> autoConfiguredProperties)
 specifier|protected
 name|void
 name|autoConfigurationMainConfiguration
@@ -4960,6 +5080,14 @@ name|camelContext
 parameter_list|,
 name|MainConfigurationProperties
 name|config
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|autoConfiguredProperties
 parameter_list|)
 throws|throws
 name|Exception
@@ -5105,9 +5233,9 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Auto configuring main from loaded properties: {}"
+literal|"Auto-configuring main from loaded properties: {}"
 argument_list|,
 name|properties
 operator|.
@@ -5133,6 +5261,8 @@ name|isAutoConfigurationFailFast
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|autoConfiguredProperties
 argument_list|)
 expr_stmt|;
 block|}
@@ -5161,7 +5291,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Property not auto configured: camel.main.{}={} on object: {}"
+literal|"Property not auto-configured: camel.main.{}={} on bean: {}"
 argument_list|,
 name|k
 argument_list|,
@@ -5175,13 +5305,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|autoConfigurationFromProperties (CamelContext camelContext)
+DECL|method|autoConfigurationFromProperties (CamelContext camelContext, Map<String, String> autoConfiguredProperties)
 specifier|protected
 name|void
 name|autoConfigurationFromProperties
 parameter_list|(
 name|CamelContext
 name|camelContext
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|autoConfiguredProperties
 parameter_list|)
 throws|throws
 name|Exception
@@ -5236,7 +5374,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Loaded {} properties from classpath: META-INF/services/org/apache/camel/autowire.properties"
+literal|"Autowired enabled from classpath: META-INF/services/org/apache/camel/autowire.properties with {} properties"
 argument_list|,
 name|prop
 operator|.
@@ -6031,9 +6169,9 @@ argument_list|()
 decl_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Auto configuring {} components/dataformat/languages from loaded properties: {}"
+literal|"Auto-configuring {} components/dataformat/languages from loaded properties: {}"
 argument_list|,
 name|properties
 operator|.
@@ -6115,6 +6253,8 @@ name|isAutoConfigurationFailFast
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|autoConfiguredProperties
 argument_list|)
 expr_stmt|;
 block|}
@@ -6183,7 +6323,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Property ({}={}) not auto configured with name: {} on bean: {} with value: {}"
+literal|"Property ({}={}) not auto-configured with name: {} on bean: {} with value: {}"
 argument_list|,
 name|pok
 operator|.
@@ -6208,10 +6348,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|autoConfigurationFromRegistry (CamelContext camelContext, boolean deepNesting)
+DECL|method|autowireConfigurationFromRegistry (CamelContext camelContext, boolean deepNesting)
 specifier|protected
 name|void
-name|autoConfigurationFromRegistry
+name|autowireConfigurationFromRegistry
 parameter_list|(
 name|CamelContext
 name|camelContext
@@ -6270,7 +6410,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Auto configuring option: {} on component: {} as one instance of type: {} registered in the Camel Registry"
+literal|"Autowired property: {} on component: {} as exactly one instance of type: {} found in the registry"
 argument_list|,
 name|propertyName
 argument_list|,
@@ -6643,7 +6783,7 @@ name|existing
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setPropertiesOnTarget (CamelContext context, Object target, Map<String, Object> properties, String optionKey, String optionPrefix, boolean failIfNotSet, boolean ignoreCase)
+DECL|method|setPropertiesOnTarget (CamelContext context, Object target, Map<String, Object> properties, String optionKey, String optionPrefix, boolean failIfNotSet, boolean ignoreCase, Map<String, String> autoConfiguredProperties)
 specifier|private
 specifier|static
 name|boolean
@@ -6674,6 +6814,14 @@ name|failIfNotSet
 parameter_list|,
 name|boolean
 name|ignoreCase
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|autoConfiguredProperties
 parameter_list|)
 throws|throws
 name|Exception
@@ -6799,24 +6947,35 @@ name|key
 operator|=
 name|optionPrefix
 operator|+
-literal|"."
-operator|+
 name|optionKey
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|optionPrefix
+operator|!=
+literal|null
+condition|)
+block|{
+name|key
+operator|=
+name|optionPrefix
+operator|+
+name|name
 expr_stmt|;
 block|}
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Setting property ({}) with name: {} on bean: {} with value: {}"
+literal|"Configuring property: {}={} on bean: {}"
 argument_list|,
 name|key
 argument_list|,
-name|name
+name|stringValue
 argument_list|,
 name|target
-argument_list|,
-name|stringValue
 argument_list|)
 expr_stmt|;
 try|try
@@ -6883,6 +7042,28 @@ name|rc
 operator|=
 literal|true
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Configured property: {}={} on bean: {}"
+argument_list|,
+name|key
+argument_list|,
+name|stringValue
+argument_list|,
+name|target
+argument_list|)
+expr_stmt|;
+name|autoConfiguredProperties
+operator|.
+name|put
+argument_list|(
+name|key
+argument_list|,
+name|stringValue
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 catch|catch
@@ -6933,7 +7114,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Error setting property ("
+literal|"Error configuring property ("
 operator|+
 name|key
 operator|+
