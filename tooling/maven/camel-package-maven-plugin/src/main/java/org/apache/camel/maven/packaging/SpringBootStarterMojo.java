@@ -600,6 +600,9 @@ literal|"camel-cdi"
 block|,
 literal|"camel-ejb"
 block|,
+comment|/* Microprofile -> */
+literal|"camel-microprofile-config"
+block|,
 comment|/* deprecated (and not working perfectly) -> */
 literal|"camel-swagger"
 block|,
