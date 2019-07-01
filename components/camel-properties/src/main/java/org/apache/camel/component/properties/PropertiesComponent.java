@@ -516,6 +516,12 @@ argument_list|(
 literal|1000
 argument_list|)
 decl_stmt|;
+DECL|field|cachedProperties
+specifier|private
+specifier|transient
+name|Properties
+name|cachedProperties
+decl_stmt|;
 DECL|field|functions
 specifier|private
 specifier|final
@@ -1038,12 +1044,28 @@ name|String
 name|uri
 parameter_list|)
 block|{
+comment|// optimise to only load properties once as we use the configured locations
+if|if
+condition|(
+name|cachedProperties
+operator|==
+literal|null
+condition|)
+block|{
+name|cachedProperties
+operator|=
+name|doLoadProperties
+argument_list|(
+name|locations
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|parseUri
 argument_list|(
 name|uri
 argument_list|,
-name|locations
+name|cachedProperties
 argument_list|)
 return|;
 block|}
@@ -1383,6 +1405,27 @@ argument_list|(
 name|paths
 argument_list|)
 decl_stmt|;
+return|return
+name|parseUri
+argument_list|(
+name|uri
+argument_list|,
+name|prop
+argument_list|)
+return|;
+block|}
+DECL|method|parseUri (String uri, Properties prop)
+specifier|protected
+name|String
+name|parseUri
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Properties
+name|prop
+parameter_list|)
+block|{
 comment|// enclose tokens if missing
 if|if
 condition|(
@@ -2741,10 +2784,9 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|super
-operator|.
-name|doStop
-argument_list|()
+name|cachedProperties
+operator|=
+literal|null
 expr_stmt|;
 name|ServiceHelper
 operator|.
@@ -2752,6 +2794,11 @@ name|stopAndShutdownService
 argument_list|(
 name|sources
 argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|doStop
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|parseLocations (List<PropertiesLocation> locations)

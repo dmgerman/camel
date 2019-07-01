@@ -92,6 +92,8 @@ operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"Hello Camel"
+argument_list|,
+literal|"Hi Camel"
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -101,7 +103,7 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World"
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|template
@@ -110,7 +112,12 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Hello Camel"
+name|context
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+literal|"Hello {{cool.name}}"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|template
@@ -119,7 +126,21 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Hello World"
+name|context
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+literal|"Hi {{cool.name}}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
