@@ -3416,6 +3416,14 @@ name|PropertiesComponent
 operator|)
 name|component
 expr_stmt|;
+comment|// ensure properties component is initialize early
+name|ServiceHelper
+operator|.
+name|initService
+argument_list|(
+name|propertiesComponent
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|getComponent (String name)
