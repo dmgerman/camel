@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|CONTAINER_IMAGE
 init|=
-literal|"apachepulsar/pulsar:2.3.1"
+literal|"apachepulsar/pulsar:2.3.2"
 decl_stmt|;
 DECL|field|CONTAINER_NAME
 specifier|public
