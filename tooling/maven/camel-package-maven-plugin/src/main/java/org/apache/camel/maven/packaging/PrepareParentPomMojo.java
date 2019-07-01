@@ -328,7 +328,7 @@ name|Parameter
 argument_list|(
 name|defaultValue
 operator|=
-literal|"${project.build.directory}/../../../parent/pom.xml"
+literal|"${project.build.directory}/../../../bom/camel-bom/pom.xml"
 argument_list|)
 DECL|field|parentPom
 specifier|protected
