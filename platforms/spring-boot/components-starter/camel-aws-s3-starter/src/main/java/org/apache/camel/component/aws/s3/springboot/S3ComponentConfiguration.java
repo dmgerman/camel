@@ -591,6 +591,12 @@ name|autoCreateBucket
 init|=
 literal|true
 decl_stmt|;
+comment|/**          * Setting the key name for an element in the bucket through endpoint          * parameter          */
+DECL|field|keyName
+specifier|private
+name|String
+name|keyName
+decl_stmt|;
 DECL|method|getPartSize ()
 specifier|public
 name|Long
@@ -1421,6 +1427,32 @@ operator|.
 name|autoCreateBucket
 operator|=
 name|autoCreateBucket
+expr_stmt|;
+block|}
+DECL|method|getKeyName ()
+specifier|public
+name|String
+name|getKeyName
+parameter_list|()
+block|{
+return|return
+name|keyName
+return|;
+block|}
+DECL|method|setKeyName (String keyName)
+specifier|public
+name|void
+name|setKeyName
+parameter_list|(
+name|String
+name|keyName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|keyName
+operator|=
+name|keyName
 expr_stmt|;
 block|}
 block|}
