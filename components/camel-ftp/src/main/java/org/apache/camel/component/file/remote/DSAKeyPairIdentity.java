@@ -699,16 +699,14 @@ argument_list|()
 decl_stmt|;
 name|Signature
 name|sig
-decl_stmt|;
-name|sig
-operator|=
+init|=
 name|Signature
 operator|.
 name|getInstance
 argument_list|(
 literal|"SHA1withDSA"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|sig
 operator|.
 name|initSign
@@ -947,7 +945,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * "The signature on m is (r, s). Message m and (r, s) should be sent to the      * verifier. We need to observe that both r and s are 20 bytes, since a      * modular reduction is being performed (steps 2 and 5) using q, a 160 bit      * value. This will gain significance later when we begin verifying messages      * between Crypto++ and C# (which use the IEEE P1363 signature format) and      * Java (which uses a DER encoding of a signature)." [taken from<a href=      * "http://www.codeproject.com/Articles/25590/Cryptographic-Interoperability-Digital-Signatures"      *>Cryptographic Interoperability Digital Signatures</a>]      *       * @param sig      *            signature in DER format      * @return signature in P1363 format; SEQUENCE ::= { r INTEGER, s INTEGER }      */
+comment|/**      * "The signature on m is (r, s). Message m and (r, s) should be sent to the      * verifier. We need to observe that both r and s are 20 bytes, since a      * modular reduction is being performed (steps 2 and 5) using q, a 160 bit      * value. This will gain significance later when we begin verifying messages      * between Crypto++ and C# (which use the IEEE P1363 signature format) and      * Java (which uses a DER encoding of a signature)." [taken from<a href=      * "http://www.codeproject.com/Articles/25590/Cryptographic-Interoperability-Digital-Signatures"      *>Cryptographic Interoperability Digital Signatures</a>]      *      * @param sig      *            signature in DER format      * @return signature in P1363 format; SEQUENCE ::= { r INTEGER, s INTEGER }      */
 DECL|method|convertDERToP1363 (byte[] sig)
 specifier|private
 name|byte
