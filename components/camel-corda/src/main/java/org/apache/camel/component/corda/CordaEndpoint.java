@@ -208,7 +208,7 @@ literal|"corda"
 argument_list|,
 name|syntax
 operator|=
-literal|"corda:url"
+literal|"corda:configuration"
 argument_list|,
 name|label
 operator|=
