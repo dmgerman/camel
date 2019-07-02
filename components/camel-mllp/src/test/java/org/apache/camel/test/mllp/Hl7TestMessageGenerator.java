@@ -68,57 +68,35 @@ specifier|static
 name|String
 name|hl7MessageTemplate
 init|=
-literal|"MSH|^~\\&|ADT|EPIC|JCAPS|CC|<MESSAGE_TIMESTAMP>|RISTECH|ADT^A08|<MESSAGE_CONTROL_ID>|D|2.3^^|||||||"
+literal|"MSH|^~\\&|REQUESTING|ICE|INHOUSE|RTH00|<MESSAGE_TIMESTAMP>||ORM^O01|<MESSAGE_CONTROL_ID>|D|2.3|||AL|NE|||"
 operator|+
 literal|'\r'
 operator|+
-literal|"EVN|A08|20150107161440||REG_UPDATE_SEND_VISIT_MESSAGES_ON_PATIENT_CHANGES|RISTECH^RADIOLOGY^TECHNOLOGIST^^^^^^UCLA^^^^^RRMC||"
+literal|"PID|1||ICE999999^^^ICE^ICE||Testpatient^Testy^^^Mr||19740401|M|||123 Barrel Drive^^^^SW18 4RT|||||2||||||||||||||"
 operator|+
 literal|'\r'
 operator|+
-literal|"PID|1|2100355^^^MRN^MRN|2100355^^^MRN^MRN||MDCLS9^MC9||19700109|F||U|111 HOVER STREET^^LOS ANGELES^CA^90032^USA^P^^LOS ANGELE|LOS ANGELE|(310)"
-operator|+
-literal|"725-6952^P^PH^^^310^7256952||ENGLISH|U||60000013647|565-33-2222|||U||||||||N||"
+literal|"NTE|1||Free text for entering clinical details|"
 operator|+
 literal|'\r'
 operator|+
-literal|"PD1|||UCLA HEALTH SYSTEM^^10|10002116^ADAMS^JOHN^D^^^^^EPIC^^^^PROVID||||||||||||||"
+literal|"PV1|1||^^^^^^^^Admin Location|||||||||||||||NHS|"
 operator|+
 literal|'\r'
 operator|+
-literal|"NK1|1|DOE^MC9^^|OTH|^^^^^USA|(310)888-9999^^^^^310^8889999|(310)999-2222^^^^^310^9992222|Emergency Contact 1|||||||||||||||||||||||||||"
+literal|"ORC|NW|213||175|REQ||||20080808093202|ahsl^^Administrator||G999999^TestDoctor^GPtests^^^^^^NAT|^^^^^^^^Admin Location | 819600|200808080932||RTH00||ahsl^^Administrator||"
 operator|+
 literal|'\r'
 operator|+
-literal|"PV1|1|OUTPATIENT|RR CT^^^1000^^^^^^^DEPID|EL|||017511^TOBIAS^JONATHAN^^^^^^EPIC^^^^PROVID|017511^TOBIAS^JONATHAN^^^^^^EPIC^^^^PROVID||||||CLR|||||60000013647|SELF"
-operator|+
-literal|"|||||||||||||||||||||HOV_CONF|^^^1000^^^^^^^||20150107161438||||||||||"
+literal|"OBR|1|213||CCOR^Serum Cortisol ^ JRH06|||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819600|ADM162||||||820|||^^^^^R||||||||"
 operator|+
 literal|'\r'
 operator|+
-literal|"PV2||||||||20150107161438||||CT BRAIN W WO CONTRAST||||||||||N|||||||||||||||||||||||||||"
+literal|"OBR|2|213||GCU^Serum Copper ^ JRH06 |||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819600|ADM162||||||820|||^^^^^R||||||||"
 operator|+
 literal|'\r'
 operator|+
-literal|"ZPV||||||||||||20150107161438|||||||||"
-operator|+
-literal|'\r'
-operator|+
-literal|"AL1|1||33361^NO KNOWN ALLERGIES^^NOTCOMPUTRITION^NO KNOWN ALLERGIES^EXTELG||||||"
-operator|+
-literal|'\r'
-operator|+
-literal|"DG1|1|DX|784.0^Headache^DX|Headache||VISIT"
-operator|+
-literal|'\r'
-operator|+
-literal|"GT1|1|1000235129|MDCLS9^MC9^^||111 HOVER STREET^^LOS ANGELES^CA^90032^USA^^^LOS ANGELE|(310)"
-operator|+
-literal|"725-6952^^^^^310^7256952||19700109|F|P/F|SLF|565-33-2222|||||^^^^^USA|||UNKNOWN|||||||||||||||||||||||||||||"
-operator|+
-literal|'\r'
-operator|+
-literal|"UB2||||||||"
+literal|"OBR|3|213||THYG^Serum Thyroglobulin ^JRH06|||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819600|ADM162||||||820|||^^^^^R||||||||"
 operator|+
 literal|'\r'
 operator|+

@@ -175,57 +175,35 @@ specifier|final
 name|String
 name|TEST_MESSAGE
 init|=
-literal|"MSH|^~\\&|ADT|EPIC|JCAPS|CC|20161206193919|RISTECH|ADT^A08|00001|D|2.3^^|||||||"
+literal|"MSH|^~\\&|REQUESTING|ICE|INHOUSE|RTH00|20161206193919||ORM^O01|00001|D|2.3|||||||"
 operator|+
 literal|'\r'
 operator|+
-literal|"EVN|A08|20150107161440||REG_UPDATE_SEND_VISIT_MESSAGES_ON_PATIENT_CHANGES|RISTECH^RADIOLOGY^TECHNOLOGIST^^^^^^UCLA^^^^^RRMC||"
+literal|"PID|1||ICE999999^^^ICE^ICE||Testpatient^Testy^^^Mr||19740401|M|||123 Barrel Drive^^^^SW18 4RT|||||2||||||||||||||"
 operator|+
 literal|'\r'
 operator|+
-literal|"PID|1|2100355^^^MRN^MRN|2100355^^^MRN^MRN||MDCLS9^MC9||19700109|F||U|111 HOVER STREET^^LOS ANGELES^CA^90032^USA^P^^LOS ANGELE|"
-operator|+
-literal|"LOS ANGELE|(310)725-6952^P^PH^^^310^7256952||ENGLISH|U||60000013647|565-33-2222|||U||||||||N||"
+literal|"NTE|1||Free text for entering clinical details|"
 operator|+
 literal|'\r'
 operator|+
-literal|"PD1|||UCLA HEALTH SYSTEM^^10|10002116^ADAMS^JOHN^D^^^^^EPIC^^^^PROVID||||||||||||||"
+literal|"PV1|1||^^^^^^^^Admin Location|||||||||||||||NHS|"
 operator|+
 literal|'\r'
 operator|+
-literal|"NK1|1|DOE^MC9^^|OTH|^^^^^USA|(310)888-9999^^^^^310^8889999|(310)999-2222^^^^^310^9992222|Emergency Contact 1|||||||||||||||||||||||||||"
+literal|"ORC|NW|213||175|REQ||||20080808093202|ahsl^^Administrator||G999999^TestDoctor^GPtests^^^^^^NAT|^^^^^^^^Admin Location | 819600|200808080932||RTH00||ahsl^^Administrator||"
 operator|+
 literal|'\r'
 operator|+
-literal|"PV1|1|OUTPATIENT|RR CT^^^1000^^^^^^^DEPID|EL|||017511^TOBIAS^JONATHAN^^^^^^EPIC^^^^PROVID|017511^TOBIAS^JONATHAN^^^^^^EPIC^^^^PROVID||||||"
-operator|+
-literal|"CLR|||||60000013647|SELF|||||||||||||||||||||HOV_CONF|^^^1000^^^^^^^||20150107161438||||||||||"
+literal|"OBR|1|213||CCOR^Serum Cortisol ^ JRH06|||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819600|ADM162||||||820|||^^^^^R||||||||"
 operator|+
 literal|'\r'
 operator|+
-literal|"PV2||||||||20150107161438||||CT BRAIN W WO CONTRAST||||||||||N|||||||||||||||||||||||||||"
+literal|"OBR|2|213||GCU^Serum Copper ^ JRH06 |||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819600|ADM162||||||820|||^^^^^R||||||||"
 operator|+
 literal|'\r'
 operator|+
-literal|"ZPV||||||||||||20150107161438|||||||||"
-operator|+
-literal|'\r'
-operator|+
-literal|"AL1|1||33361^NO KNOWN ALLERGIES^^NOTCOMPUTRITION^NO KNOWN ALLERGIES^EXTELG||||||"
-operator|+
-literal|'\r'
-operator|+
-literal|"DG1|1|DX|784.0^Headache^DX|Headache||VISIT"
-operator|+
-literal|'\r'
-operator|+
-literal|"GT1|1|1000235129|MDCLS9^MC9^^||111 HOVER STREET^^LOS ANGELES^CA^90032^USA^^^LOS ANGELE|(310)725-6952^^^^^310^7256952||19700109|F|P/F|SLF|"
-operator|+
-literal|"565-33-2222|||||^^^^^USA|||UNKNOWN|||||||||||||||||||||||||||||"
-operator|+
-literal|'\r'
-operator|+
-literal|"UB2||||||||"
+literal|"OBR|3|213||THYG^Serum Thyroglobulin ^JRH06|||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819600|ADM162||||||820|||^^^^^R||||||||"
 operator|+
 literal|'\r'
 decl_stmt|;
@@ -239,7 +217,7 @@ name|MllpProtocolConstants
 operator|.
 name|START_OF_BLOCK
 operator|+
-literal|"MSH|^~\\&|JCAPS|CC|ADT|EPIC|"
+literal|"MSH|^~\\&|INHOUSE|RTH00|REQUESTING|ICE|"
 decl_stmt|;
 DECL|field|EXPECTED_ACKNOWLEDGEMENT_PAYLOAD_END
 specifier|static
@@ -247,9 +225,13 @@ specifier|final
 name|String
 name|EXPECTED_ACKNOWLEDGEMENT_PAYLOAD_END
 init|=
-literal|"||ACK^A08|00001A|D|2.3^^|||||||\r"
+literal|"||ACK^O01|00001A|D|2.3|||||||"
 operator|+
-literal|"MSA|AA|00001\r"
+literal|'\r'
+operator|+
+literal|"MSA|AA|00001"
+operator|+
+literal|'\r'
 operator|+
 name|MllpProtocolConstants
 operator|.
@@ -269,9 +251,13 @@ name|MllpProtocolConstants
 operator|.
 name|START_OF_BLOCK
 operator|+
-literal|"MSH|^~\\&|JCAPS|CC|ADT|EPIC|20161206193919||ACK^A08|00001A|D|2.3^^|||||||\r"
+literal|"MSH|^~\\&|INHOUSE|RTH00|REQUESTING|ICE|20161206193919||ACK^O01|00001A|D|2.3|||||||"
 operator|+
-literal|"MSA|AA|00001\r"
+literal|'\r'
+operator|+
+literal|"MSA|AA|00001"
+operator|+
+literal|'\r'
 operator|+
 name|MllpProtocolConstants
 operator|.
@@ -287,57 +273,35 @@ specifier|final
 name|String
 name|EXPECTED_MESSAGE
 init|=
-literal|"MSH|^~\\&|ADT|EPIC|JCAPS|CC|20161206193919|RISTECH|ADT^A08|00001|D|2.3^^|||||||"
+literal|"MSH|^~\\&|REQUESTING|ICE|INHOUSE|RTH00|20161206193919||ORM^O01|00001|D|2.3|||||||"
 operator|+
 literal|"<0x0D CR>"
 operator|+
-literal|"EVN|A08|20150107161440||REG_UPDATE_SEND_VISIT_MESSAGES_ON_PATIENT_CHANGES|RISTECH^RADIOLOGY^TECHNOLOGIST^^^^^^UCLA^^^^^RRMC||"
+literal|"PID|1||ICE999999^^^ICE^ICE||Testpatient^Testy^^^Mr||19740401|M|||123 Barrel Drive^^^^SW18 4RT|||||2||||||||||||||"
 operator|+
 literal|"<0x0D CR>"
 operator|+
-literal|"PID|1|2100355^^^MRN^MRN|2100355^^^MRN^MRN||MDCLS9^MC9||19700109|F||U|111 HOVER STREET^^LOS ANGELES^CA^90032^USA^P^^LOS ANGELE|LOS ANGELE|(310)725-6952^P^PH^^^310^7256952"
-operator|+
-literal|"||ENGLISH|U||60000013647|565-33-2222|||U||||||||N||"
+literal|"NTE|1||Free text for entering clinical details|"
 operator|+
 literal|"<0x0D CR>"
 operator|+
-literal|"PD1|||UCLA HEALTH SYSTEM^^10|10002116^ADAMS^JOHN^D^^^^^EPIC^^^^PROVID||||||||||||||"
+literal|"PV1|1||^^^^^^^^Admin Location|||||||||||||||NHS|"
 operator|+
 literal|"<0x0D CR>"
 operator|+
-literal|"NK1|1|DOE^MC9^^|OTH|^^^^^USA|(310)888-9999^^^^^310^8889999|(310)999-2222^^^^^310^9992222|Emergency Contact 1|||||||||||||||||||||||||||"
+literal|"ORC|NW|213||175|REQ||||20080808093202|ahsl^^Administrator||G999999^TestDoctor^GPtests^^^^^^NAT|^^^^^^^^Admin Location | 819600|200808080932||RTH00||ahsl^^Administrator||"
 operator|+
 literal|"<0x0D CR>"
 operator|+
-literal|"PV1|1|OUTPATIENT|RR CT^^^1000^^^^^^^DEPID|EL|||017511^TOBIAS^JONATHAN^^^^^^EPIC^^^^PROVID|017511^TOBIAS^JONATHAN^^^^^^EPIC^^^^PROVID||||||CLR|||||60000013647|SELF"
-operator|+
-literal|"|||||||||||||||||||||HOV_CONF|^^^1000^^^^^^^||20150107161438||||||||||"
+literal|"OBR|1|213||CCOR^Serum Cortisol ^ JRH06|||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819600|ADM162||||||820|||^^^^^R||||||||"
 operator|+
 literal|"<0x0D CR>"
 operator|+
-literal|"PV2||||||||20150107161438||||CT BRAIN W WO CONTRAST||||||||||N|||||||||||||||||||||||||||"
+literal|"OBR|2|213||GCU^Serum Copper ^ JRH06 |||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819600|ADM162||||||820|||^^^^^R||||||||"
 operator|+
 literal|"<0x0D CR>"
 operator|+
-literal|"ZPV||||||||||||20150107161438|||||||||"
-operator|+
-literal|"<0x0D CR>"
-operator|+
-literal|"AL1|1||33361^NO KNOWN ALLERGIES^^NOTCOMPUTRITION^NO KNOWN ALLERGIES^EXTELG||||||"
-operator|+
-literal|"<0x0D CR>"
-operator|+
-literal|"DG1|1|DX|784.0^Headache^DX|Headache||VISIT"
-operator|+
-literal|"<0x0D CR>"
-operator|+
-literal|"GT1|1|1000235129|MDCLS9^MC9^^||111 HOVER STREET^^LOS ANGELES^CA^90032^USA^^^LOS ANGELE|(310)725-6952^^^^^310^7256952||19700109|F|P/F|SLF|565-33-2222|||||^^^^^USA|||UNKNOWN"
-operator|+
-literal|"|||||||||||||||||||||||||||||"
-operator|+
-literal|"<0x0D CR>"
-operator|+
-literal|"UB2||||||||"
+literal|"OBR|3|213||THYG^Serum Thyroglobulin ^JRH06|||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819600|ADM162||||||820|||^^^^^R||||||||"
 operator|+
 literal|"<0x0D CR>"
 decl_stmt|;
@@ -348,7 +312,7 @@ specifier|final
 name|String
 name|MSH_SEGMENT
 init|=
-literal|"MSH|^~\\&|0|90100053675|JCAPS|CC|20131125122938|RISMD|ORM|28785|D|2.3"
+literal|"MSH|^~\\&|0|90100053675|INHOUSE|RTH00|20131125122938||ORM|28785|D|2.3"
 decl_stmt|;
 comment|// @formatter:off
 DECL|field|REMAINING_SEGMENTS
@@ -357,29 +321,31 @@ specifier|final
 name|String
 name|REMAINING_SEGMENTS
 init|=
-literal|"PID|1||4507626^^^MRN^MRN||RAD VALIDATE^ROBERT||19650916|M||U|1818 UNIVERSITY AVE^^MADISON^WI^53703^USA^^^||(608)251-9999|||M|||579-85-3510||| "
+literal|"PID|1||ICE999999^^^ICE^ICE||Testpatient^Testy^^^Mr||19740401|M|||123 Barrel Drive^^^^SW18 4RT|||||2||||||||||||||"
 operator|+
 literal|'\r'
 operator|+
-literal|"PV1||OUTPATIENT|NMPCT^^^WWNMD^^^^^^^DEPID||||011463^ZARAGOZA^EDWARD^J.^^^^^EPIC^^^^PROVID|011463^ZARAGOZA^EDWARD^J.^^^^^EPIC^^^^PROVID"
-operator|+
-literal|"|||||||||||90100053686|SELF||||||||||||||||||||||||201311251218|||||||V"
+literal|"NTE|1||Free text for entering clinical details|"
 operator|+
 literal|'\r'
 operator|+
-literal|"ORC|RE|9007395^EPC|9007395^EPC||Final||^^^201311251221^201311251222^R||201311251229|RISMD^RADIOLOGY^RADIOLOGIST^^|||SMO PET^^^7044^^^^^SMO PET CT||||||||||||||||I"
+literal|"PV1|1||^^^^^^^^Admin Location|||||||||||||||NHS|"
 operator|+
 literal|'\r'
 operator|+
-literal|"OBR|1|9007395^EPC|9007395^EPC|IMG7118^PET CT LIMITED CHEST W CONTRAST^IMGPROC^^PET CT CHEST||20131125|||||Ancillary Pe|||||||NMPCT|MP2 NM INJ01^MP2 NM INJECTION ROOM 01^PROVID"
-operator|+
-literal|"|||201311251229||NM|Final||^^^201311251221^201311251222^R||||^test|E200003^RADIOLOGY^RESIDENT^^^^^^EPIC^^^^PROVID"
-operator|+
-literal|"|812644^RADIOLOGY^GENERIC^ATTENDING 1^^^^^EPIC^^^^PROVID~000043^RADIOLOGY^RADIOLOGISTTWO^^^^^^EPIC^^^^PROVID|U0058489^SWAIN^CYNTHIA^LEE^||201311251245"
+literal|"ORC|NW|213||175|REQ||||20080808093202|ahsl^^Administrator||G999999^TestDoctor^GPtests^^^^^^NAT|^^^^^^^^Admin Location | 819600|200808080932||RTH00||ahsl^^Administrator||"
 operator|+
 literal|'\r'
 operator|+
-literal|"OBX|1|ST|&GDT|1|[11/25/2013 12:28:14 PM - PHYS, FIFTYFOUR]50||||||Final||||"
+literal|"OBR|1|213||CCOR^Serum Cortisol ^ JRH06|||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819600|ADM162||||||820|||^^^^^R||||||||"
+operator|+
+literal|'\r'
+operator|+
+literal|"OBR|2|213||GCU^Serum Copper ^ JRH06 |||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819600|ADM162||||||820|||^^^^^R||||||||"
+operator|+
+literal|'\r'
+operator|+
+literal|"OBR|3|213||THYG^Serum Thyroglobulin ^JRH06|||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819600|ADM162||||||820|||^^^^^R||||||||"
 operator|+
 literal|'\r'
 decl_stmt|;
@@ -1066,7 +1032,7 @@ name|TEST_MESSAGE
 operator|.
 name|replace
 argument_list|(
-literal|"|RISTECH|ADT^A08|00001|D|2.3^^|||||||"
+literal|"||ORM^O01|00001|D|2.3|||||||"
 argument_list|,
 literal|""
 argument_list|)
@@ -1111,9 +1077,9 @@ block|{
 name|String
 name|junkMessage
 init|=
-literal|"MSH|^~\\&|ADT|EPIC|JCAPS|CC|20161206193919|RISTECH|ADT^A08|00001|D|2.3^^|||||||"
+literal|"MSH|^~\\&|REQUESTING|ICE|INHOUSE|RTH00|20161206193919||ORM^O01|00001|D|2.3|||||||"
 operator|+
-literal|"EVN|A08|20150107161440||REG_UPDATE_SEND_VISIT_MESSAGES_ON_PATIENT_CHANGES|RISTECH^RADIOLOGY^TECHNOLOGIST^^^^^^UCLA^^^^^RRMC||"
+literal|"PID|1||ICE999999^^^ICE^ICE||Testpatient^Testy^^^Mr||19740401|M|||123 Barrel Drive^^^^SW18 4RT|||||2||||||||||||||"
 decl_stmt|;
 name|MllpSocketBuffer
 name|mllpSocketBuffer
@@ -1164,7 +1130,7 @@ name|actual
 argument_list|,
 name|endsWith
 argument_list|(
-literal|"|EVN|A08|20150107161440||REG_UPDATE_SEND_VISIT_MESSAGES_ON_PATIENT_CHANGES|RISTECH^RADIOLOGY^TECHNOLOGIST^^^^^^UCLA^^^^^RRMC|\r"
+literal|"PID|1||ICE999999^^^ICE^ICE||Testpatient^Testy^^^Mr||19740401|M|||123 Barrel Drive^^^^SW18 4RT|||||2|||||||||||||\r"
 operator|+
 literal|"MSA|AA|00001\r"
 operator|+
@@ -2720,7 +2686,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"ADT^A08|00001|D|2.3^^|||||||<0x0D CR>EVN|A08|2015010716144"
+literal|"ORM^O01|00001|D|2.3|||||||<0x0D CR>PID|1||ICE999999^^^"
 argument_list|,
 name|Hl7Util
 operator|.
@@ -2728,7 +2694,7 @@ name|bytesToPrintFriendlyStringBuilder
 argument_list|(
 name|TEST_MESSAGE_BYTES
 argument_list|,
-literal|50
+literal|54
 argument_list|,
 literal|100
 argument_list|)
@@ -3889,14 +3855,14 @@ name|builder
 argument_list|,
 name|TEST_MESSAGE_BYTES
 argument_list|,
-literal|50
+literal|54
 argument_list|,
 literal|100
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"ADT^A08|00001|D|2.3^^|||||||<0x0D CR>EVN|A08|2015010716144"
+literal|"ORM^O01|00001|D|2.3|||||||<0x0D CR>PID|1||ICE999999^^^"
 argument_list|,
 name|builder
 operator|.
