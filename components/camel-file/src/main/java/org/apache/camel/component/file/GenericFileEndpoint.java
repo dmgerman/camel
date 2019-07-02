@@ -3322,7 +3322,7 @@ return|return
 name|readLock
 return|;
 block|}
-comment|/**      * Used by consumer, to only poll the files if it has exclusive read-lock on the file (i.e. the file is not in-progress or being written).      * Camel will wait until the file lock is granted.      *<p/>      * This option provides the build in strategies:      *<ul>      *<li>none - No read lock is in use      *<li>markerFile - Camel creates a marker file (fileName.camelLock) and then holds a lock on it. This option is not available for the FTP component      *<li>changed - Changed is using file length/modification timestamp to detect whether the file is currently being copied or not. Will at least use 1 sec      *     to determine this, so this option cannot consume files as fast as the others, but can be more reliable as the JDK IO API cannot      *     always determine whether a file is currently being used by another process. The option readLockCheckInterval can be used to set the check frequency.</li>      *<li>fileLock - is for using java.nio.channels.FileLock. This option is not avail for the FTP component. This approach should be avoided when accessing      *     a remote file system via a mount/share unless that file system supports distributed file locks.</li>      *<li>rename - rename is for using a try to rename the file as a test if we can get exclusive read-lock.</li>      *<li>idempotent - (only for file component) idempotent is for using a idempotentRepository as the read-lock.      *     This allows to use read locks that supports clustering if the idempotent repository implementation supports that.</li>      *<li>idempotent-changed - (only for file component) idempotent-changed is for using a idempotentRepository and changed as the combined read-lock.      *     This allows to use read locks that supports clustering if the idempotent repository implementation supports that.</li>      *<li>idempotent-rename - (only for file component) idempotent-rename is for using a idempotentRepository and rename as the combined read-lock.      *     This allows to use read locks that supports clustering if the idempotent repository implementation supports that.</li>      *</ul>      * Notice: The various read locks is not all suited to work in clustered mode, where concurrent consumers on different nodes is competing      * for the same files on a shared file system. The markerFile using a close to atomic operation to create the empty marker file,      * but its not guaranteed to work in a cluster. The fileLock may work better but then the file system need to support distributed file locks, and so on.      * Using the idempotent read lock can support clustering if the idempotent repository supports clustering, such as Hazelcast Component or Infinispan.      */
+comment|/**      * Used by consumer, to only poll the files if it has exclusive read-lock on the file (i.e. the file is not in-progress or being written).      * Camel will wait until the file lock is granted.      *<p/>      * This option provides the build in strategies:      *<ul>      *<li>none - No read lock is in use      *<li>markerFile - Camel creates a marker file (fileName.camelLock) and then holds a lock on it. This option is not available for the FTP component      *<li>changed - Changed is using file length/modification timestamp to detect whether the file is currently being copied or not. Will at least use 1 sec      *     to determine this, so this option cannot consume files as fast as the others, but can be more reliable as the JDK IO API cannot      *     always determine whether a file is currently being used by another process. The option readLockCheckInterval can be used to set the check frequency.</li>      *<li>fileLock - is for using java.nio.channels.FileLock. This option is not avail for Windows OS and the FTP component. This approach should be avoided when accessing      *     a remote file system via a mount/share unless that file system supports distributed file locks.</li>      *<li>rename - rename is for using a try to rename the file as a test if we can get exclusive read-lock.</li>      *<li>idempotent - (only for file component) idempotent is for using a idempotentRepository as the read-lock.      *     This allows to use read locks that supports clustering if the idempotent repository implementation supports that.</li>      *<li>idempotent-changed - (only for file component) idempotent-changed is for using a idempotentRepository and changed as the combined read-lock.      *     This allows to use read locks that supports clustering if the idempotent repository implementation supports that.</li>      *<li>idempotent-rename - (only for file component) idempotent-rename is for using a idempotentRepository and rename as the combined read-lock.      *     This allows to use read locks that supports clustering if the idempotent repository implementation supports that.</li>      *</ul>      * Notice: The various read locks is not all suited to work in clustered mode, where concurrent consumers on different nodes is competing      * for the same files on a shared file system. The markerFile using a close to atomic operation to create the empty marker file,      * but its not guaranteed to work in a cluster. The fileLock may work better but then the file system need to support distributed file locks, and so on.      * Using the idempotent read lock can support clustering if the idempotent repository supports clustering, such as Hazelcast Component or Infinispan.      */
 DECL|method|setReadLock (String readLock)
 specifier|public
 name|void
@@ -5246,6 +5246,29 @@ operator|new
 name|IllegalArgumentException
 argument_list|(
 literal|"IdempotentRepository must be configured when using readLock=idempotent"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+literal|"fileLock"
+operator|.
+name|equals
+argument_list|(
+name|readLock
+argument_list|)
+operator|&&
+name|FileUtil
+operator|.
+name|isWindows
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The readLock=fileLock option is not supported on Windows"
 argument_list|)
 throw|;
 block|}
