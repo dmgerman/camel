@@ -671,7 +671,7 @@ return|return
 name|amazonS3Client
 return|;
 block|}
-comment|/**      * Reference to a `com.amazonaws.services.s3.AmazonS3` in the      * registry.      */
+comment|/**      * Reference to a `com.amazonaws.services.s3.AmazonS3` in the registry.      */
 DECL|method|setAmazonS3Client (AmazonS3 amazonS3Client)
 specifier|public
 name|void
@@ -1428,7 +1428,7 @@ return|return
 name|keyName
 return|;
 block|}
-comment|/**      * Setting the key name for an element in the bucket through endpoint parameter      */
+comment|/**      * Setting the key name for an element in the bucket through endpoint      * parameter      */
 DECL|method|setKeyName (String keyName)
 specifier|public
 name|void
