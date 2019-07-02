@@ -80,9 +80,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|JndiRegistry
+name|BindToRegistry
 import|;
 end_import
 
@@ -200,23 +198,16 @@ name|TestName
 argument_list|()
 decl_stmt|;
 annotation|@
-name|Override
-DECL|method|createRegistry ()
-specifier|protected
-name|JndiRegistry
-name|createRegistry
+name|BindToRegistry
+argument_list|(
+literal|"consul"
+argument_list|)
+DECL|method|getConsulComponent ()
+specifier|public
+name|ConsulComponent
+name|getConsulComponent
 parameter_list|()
-throws|throws
-name|Exception
 block|{
-name|JndiRegistry
-name|registry
-init|=
-name|super
-operator|.
-name|createRegistry
-argument_list|()
-decl_stmt|;
 name|ConsulComponent
 name|component
 init|=
@@ -232,17 +223,8 @@ name|consulUrl
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|registry
-operator|.
-name|bind
-argument_list|(
-literal|"consul"
-argument_list|,
-name|component
-argument_list|)
-expr_stmt|;
 return|return
-name|registry
+name|component
 return|;
 block|}
 DECL|method|getConsul ()
