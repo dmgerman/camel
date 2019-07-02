@@ -542,14 +542,6 @@ name|connectionTimeout
 init|=
 literal|30000
 decl_stmt|;
-comment|/**          * To use a dummy security setting for trusting all certificates. Should          * only be used for development mode, and not production.          */
-DECL|field|dummyTrustManager
-specifier|private
-name|Boolean
-name|dummyTrustManager
-init|=
-literal|false
-decl_stmt|;
 comment|/**          * The mail message content type. Use text/html for HTML mails.          */
 DECL|field|contentType
 specifier|private
@@ -1244,32 +1236,6 @@ operator|.
 name|connectionTimeout
 operator|=
 name|connectionTimeout
-expr_stmt|;
-block|}
-DECL|method|getDummyTrustManager ()
-specifier|public
-name|Boolean
-name|getDummyTrustManager
-parameter_list|()
-block|{
-return|return
-name|dummyTrustManager
-return|;
-block|}
-DECL|method|setDummyTrustManager (Boolean dummyTrustManager)
-specifier|public
-name|void
-name|setDummyTrustManager
-parameter_list|(
-name|Boolean
-name|dummyTrustManager
-parameter_list|)
-block|{
-name|this
-operator|.
-name|dummyTrustManager
-operator|=
-name|dummyTrustManager
 expr_stmt|;
 block|}
 DECL|method|getContentType ()

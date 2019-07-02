@@ -1514,48 +1514,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a dummy security setting for trusting all certificates. Should          * only be used for development mode, and not production.          * The option is a<code>boolean</code> type.          * @group security          */
-DECL|method|dummyTrustManager ( boolean dummyTrustManager)
-specifier|default
-name|MailEndpointConsumerBuilder
-name|dummyTrustManager
-parameter_list|(
-name|boolean
-name|dummyTrustManager
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"dummyTrustManager"
-argument_list|,
-name|dummyTrustManager
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a dummy security setting for trusting all certificates. Should          * only be used for development mode, and not production.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
-DECL|method|dummyTrustManager ( String dummyTrustManager)
-specifier|default
-name|MailEndpointConsumerBuilder
-name|dummyTrustManager
-parameter_list|(
-name|String
-name|dummyTrustManager
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"dummyTrustManager"
-argument_list|,
-name|dummyTrustManager
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The password for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
 specifier|default
@@ -2818,48 +2776,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a dummy security setting for trusting all certificates. Should          * only be used for development mode, and not production.          * The option is a<code>boolean</code> type.          * @group security          */
-DECL|method|dummyTrustManager ( boolean dummyTrustManager)
-specifier|default
-name|MailEndpointProducerBuilder
-name|dummyTrustManager
-parameter_list|(
-name|boolean
-name|dummyTrustManager
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"dummyTrustManager"
-argument_list|,
-name|dummyTrustManager
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a dummy security setting for trusting all certificates. Should          * only be used for development mode, and not production.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
-DECL|method|dummyTrustManager ( String dummyTrustManager)
-specifier|default
-name|MailEndpointProducerBuilder
-name|dummyTrustManager
-parameter_list|(
-name|String
-name|dummyTrustManager
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"dummyTrustManager"
-argument_list|,
-name|dummyTrustManager
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The password for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
 DECL|method|password (String password)
 specifier|default
@@ -3677,48 +3593,6 @@ argument_list|(
 literal|"port"
 argument_list|,
 name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a dummy security setting for trusting all certificates. Should          * only be used for development mode, and not production.          * The option is a<code>boolean</code> type.          * @group security          */
-DECL|method|dummyTrustManager (boolean dummyTrustManager)
-specifier|default
-name|MailEndpointBuilder
-name|dummyTrustManager
-parameter_list|(
-name|boolean
-name|dummyTrustManager
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"dummyTrustManager"
-argument_list|,
-name|dummyTrustManager
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a dummy security setting for trusting all certificates. Should          * only be used for development mode, and not production.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
-DECL|method|dummyTrustManager (String dummyTrustManager)
-specifier|default
-name|MailEndpointBuilder
-name|dummyTrustManager
-parameter_list|(
-name|String
-name|dummyTrustManager
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"dummyTrustManager"
-argument_list|,
-name|dummyTrustManager
 argument_list|)
 expr_stmt|;
 return|return
