@@ -190,7 +190,7 @@ literal|"Apache Pulsar"
 argument_list|,
 name|syntax
 operator|=
-literal|"pulsar:persistence://tenant/namespace/topic"
+literal|"pulsar:uri"
 argument_list|,
 name|label
 operator|=
@@ -226,11 +226,11 @@ name|description
 operator|=
 literal|"The Topic's full URI path including type, tenant and namespace"
 argument_list|)
-DECL|field|topic
+DECL|field|topicUri
 specifier|private
 specifier|final
 name|String
-name|topic
+name|topicUri
 decl_stmt|;
 DECL|method|PulsarEndpoint (String uri, String path, PulsarConfiguration pulsarConfiguration, PulsarComponent component, PulsarClient pulsarClient)
 specifier|public
@@ -263,7 +263,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|topic
+name|topicUri
 operator|=
 name|path
 expr_stmt|;
@@ -426,14 +426,14 @@ return|return
 name|pulsarConfiguration
 return|;
 block|}
-DECL|method|getTopic ()
+DECL|method|getTopicUri ()
 specifier|public
 name|String
-name|getTopic
+name|getTopicUri
 parameter_list|()
 block|{
 return|return
-name|topic
+name|topicUri
 return|;
 block|}
 block|}

@@ -288,11 +288,11 @@ condition|)
 block|{
 specifier|final
 name|String
-name|topic
+name|topicUri
 init|=
 name|pulsarEndpoint
 operator|.
-name|getTopic
+name|getTopicUri
 argument_list|()
 decl_stmt|;
 name|String
@@ -315,7 +315,7 @@ condition|)
 block|{
 name|producerName
 operator|=
-name|topic
+name|topicUri
 operator|+
 literal|"-"
 operator|+
@@ -351,7 +351,7 @@ argument_list|)
 operator|.
 name|topic
 argument_list|(
-name|topic
+name|topicUri
 argument_list|)
 decl_stmt|;
 name|producer
