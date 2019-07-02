@@ -538,6 +538,11 @@ argument_list|,
 name|handler
 argument_list|)
 expr_stmt|;
+name|handler
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Unmarshal the data    */
 DECL|method|unmarshal (Exchange exchange, InputStream inputStream)
