@@ -1556,9 +1556,9 @@ argument_list|()
 operator|.
 name|replaceFirst
 argument_list|(
-literal|"EVN"
+literal|"PID"
 argument_list|,
-literal|"EVN"
+literal|"PID"
 operator|+
 name|MllpProtocolConstants
 operator|.
@@ -1655,9 +1655,9 @@ argument_list|)
 operator|.
 name|replaceFirst
 argument_list|(
-literal|"EVN"
+literal|"PID"
 argument_list|,
-literal|"EVN"
+literal|"PID"
 operator|+
 name|MllpProtocolConstants
 operator|.
@@ -1805,9 +1805,9 @@ name|message
 operator|.
 name|replaceFirst
 argument_list|(
-literal|"EVN"
+literal|"PID"
 argument_list|,
-literal|"EVN"
+literal|"PID"
 operator|+
 name|MllpProtocolConstants
 operator|.
@@ -1951,9 +1951,9 @@ name|message
 operator|.
 name|replaceFirst
 argument_list|(
-literal|"EVN"
+literal|"PID"
 argument_list|,
-literal|"EVN"
+literal|"PID"
 operator|+
 name|MllpProtocolConstants
 operator|.

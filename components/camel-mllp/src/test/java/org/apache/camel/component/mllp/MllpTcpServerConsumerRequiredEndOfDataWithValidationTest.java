@@ -225,9 +225,9 @@ argument_list|()
 operator|.
 name|replaceFirst
 argument_list|(
-literal|"EVN"
+literal|"PID"
 argument_list|,
-literal|"EVN"
+literal|"PID"
 operator|+
 name|MllpProtocolConstants
 operator|.
