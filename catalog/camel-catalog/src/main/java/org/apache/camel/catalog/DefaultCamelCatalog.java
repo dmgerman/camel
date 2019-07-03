@@ -7188,6 +7188,17 @@ operator|.
 name|TRUE
 argument_list|)
 expr_stmt|;
+name|dbf
+operator|.
+name|setFeature
+argument_list|(
+literal|"http://apache.org/xml/features/disallow-doctype-decl"
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
 name|Document
 name|dom
 init|=
