@@ -419,7 +419,7 @@ literal|" given the component tries to load `swagger.json` resource. Note that t
 operator|+
 literal|" component and endpoint of this Component should contain the scheme, hostname and optionally the"
 operator|+
-literal|" port in the URI syntax (i.e. `https://api.example.com:8080`). Can be overridden in endpoint"
+literal|" port in the URI syntax (i.e. `\\https://api.example.com:8080`). Can be overridden in endpoint"
 operator|+
 literal|" configuration."
 argument_list|,
