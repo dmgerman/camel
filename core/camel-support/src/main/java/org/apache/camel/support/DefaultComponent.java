@@ -222,6 +222,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|PropertiesComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|service
@@ -1511,7 +1525,7 @@ argument_list|()
 condition|)
 block|{
 comment|// only resolve property placeholders if its in use
-name|Component
+name|PropertiesComponent
 name|existing
 init|=
 name|camelContext

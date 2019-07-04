@@ -3609,22 +3609,11 @@ condition|)
 block|{
 comment|// If the component is looked up after the context is started,
 comment|// lets start it up.
-if|if
-condition|(
-name|component
-operator|instanceof
-name|Service
-condition|)
-block|{
 name|startService
 argument_list|(
-operator|(
-name|Service
-operator|)
 name|component
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|component

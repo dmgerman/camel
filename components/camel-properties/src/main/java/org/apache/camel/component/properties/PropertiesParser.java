@@ -18,16 +18,6 @@ name|properties
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Properties
-import|;
-end_import
-
 begin_comment
 comment|/**  * A parser to parse properties for a given input  */
 end_comment
@@ -38,15 +28,15 @@ specifier|public
 interface|interface
 name|PropertiesParser
 block|{
-comment|/**      * Parses the string and replaces the property placeholders with values from the given properties.      *      * @param text        the text to be parsed      * @param properties  the properties resolved which values should be looked up      * @param prefixToken the prefix token      * @param suffixToken the suffix token      * @return the parsed text with replaced placeholders      * @throws IllegalArgumentException if uri syntax is not valid or a property is not found      */
-DECL|method|parseUri (String text, Properties properties, String prefixToken, String suffixToken)
+comment|/**      * Parses the string and replaces the property placeholders with values from the given properties.      *      * @param text        the text to be parsed      * @param properties  the properties resolved which values should be looked up      * @param prefixToken the prefix token      * @param suffixToken the suffix token      * @param fallback    whether to support using fallback values if a property cannot be found      * @return the parsed text with replaced placeholders      * @throws IllegalArgumentException if uri syntax is not valid or a property is not found      */
+DECL|method|parseUri (String text, PropertiesLookup properties, String prefixToken, String suffixToken, boolean fallback)
 name|String
 name|parseUri
 parameter_list|(
 name|String
 name|text
 parameter_list|,
-name|Properties
+name|PropertiesLookup
 name|properties
 parameter_list|,
 name|String
@@ -54,12 +44,15 @@ name|prefixToken
 parameter_list|,
 name|String
 name|suffixToken
+parameter_list|,
+name|boolean
+name|fallback
 parameter_list|)
 throws|throws
 name|IllegalArgumentException
 function_decl|;
-comment|/**      * While parsing the uri using {@link #parseUri(String, java.util.Properties, String, String) parseUri} each      * parsed property found invokes this callback.      *<p/>      * This strategy method allows you to hook into the parsing and do custom lookup and return the actual value to use.      *      * @param key        the key      * @param value      the value      * @param properties the properties resolved which values should be looked up      * @return the value to use      */
-DECL|method|parseProperty (String key, String value, Properties properties)
+comment|/**      * While parsing the uri using {@link #parseUri(String, PropertiesLookup, String, String) parseUri} each      * parsed property found invokes this callback.      *<p/>      * This strategy method allows you to hook into the parsing and do custom lookup and return the actual value to use.      *      * @param key        the key      * @param value      the value      * @param properties the properties resolved which values should be looked up      * @return the value to use      */
+DECL|method|parseProperty (String key, String value, PropertiesLookup properties)
 name|String
 name|parseProperty
 parameter_list|(
@@ -69,7 +62,7 @@ parameter_list|,
 name|String
 name|value
 parameter_list|,
-name|Properties
+name|PropertiesLookup
 name|properties
 parameter_list|)
 function_decl|;

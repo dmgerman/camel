@@ -5939,7 +5939,7 @@ name|str
 argument_list|)
 return|;
 block|}
-DECL|method|propertiesComponentExpression (final String key, final String locations, final String defaultValue)
+DECL|method|propertiesComponentExpression (final String key, final String defaultValue)
 specifier|public
 specifier|static
 name|Expression
@@ -5948,10 +5948,6 @@ parameter_list|(
 specifier|final
 name|String
 name|key
-parameter_list|,
-specifier|final
-name|String
-name|locations
 parameter_list|,
 specifier|final
 name|String
@@ -5988,81 +5984,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|String
-name|text2
-init|=
-name|simpleExpression
-argument_list|(
-name|locations
-argument_list|)
-operator|.
-name|evaluate
-argument_list|(
-name|exchange
-argument_list|,
-name|String
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 try|try
-block|{
-if|if
-condition|(
-name|text2
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// the properties component is optional as we got locations
-comment|// getComponent will create a new component if none already exists
-name|PropertiesComponent
-name|pc
-init|=
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|getPropertiesComponent
-argument_list|(
-literal|true
-argument_list|)
-decl_stmt|;
-comment|// enclose key with {{ }} to force parsing
-name|String
-index|[]
-name|paths
-init|=
-name|text2
-operator|.
-name|split
-argument_list|(
-literal|","
-argument_list|)
-decl_stmt|;
-return|return
-name|pc
-operator|.
-name|parseUri
-argument_list|(
-name|pc
-operator|.
-name|getPrefixToken
-argument_list|()
-operator|+
-name|text
-operator|+
-name|pc
-operator|.
-name|getSuffixToken
-argument_list|()
-argument_list|,
-name|paths
-argument_list|)
-return|;
-block|}
-else|else
 block|{
 comment|// the properties component is mandatory if no locations provided
 name|PropertiesComponent
@@ -6095,7 +6017,7 @@ literal|" in CamelContext to support property placeholders in expressions"
 argument_list|)
 throw|;
 block|}
-comment|// enclose key with {{ }} to force parsing
+comment|// enclose key with {{ }} to force parsing as key can be a nested expression too
 return|return
 name|pc
 operator|.
@@ -6114,7 +6036,6 @@ name|getSuffixToken
 argument_list|()
 argument_list|)
 return|;
-block|}
 block|}
 catch|catch
 parameter_list|(

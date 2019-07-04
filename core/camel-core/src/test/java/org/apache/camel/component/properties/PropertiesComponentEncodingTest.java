@@ -182,10 +182,15 @@ name|prop
 init|=
 operator|new
 name|PropertiesComponent
+argument_list|()
+decl_stmt|;
+name|prop
+operator|.
+name|setLocation
 argument_list|(
 literal|"classpath:org/apache/camel/component/properties/myutf8.properties"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|prop
 operator|.
 name|setEncoding

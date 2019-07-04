@@ -18,60 +18,29 @@ name|properties
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|support
-operator|.
-name|AbstractXmlApplicationContext
-import|;
-end_import
+begin_comment
+comment|/**  * Used by {@link PropertiesParser} to lookup properties by their name  */
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|support
-operator|.
-name|ClassPathXmlApplicationContext
-import|;
-end_import
-
-begin_class
-DECL|class|SpringPropertiesResolver2Test
-specifier|public
-class|class
-name|SpringPropertiesResolver2Test
-extends|extends
-name|SpringPropertiesResolverTest
-block|{
+begin_interface
 annotation|@
-name|Override
-DECL|method|createApplicationContext ()
-specifier|protected
-name|AbstractXmlApplicationContext
-name|createApplicationContext
-parameter_list|()
+name|FunctionalInterface
+DECL|interface|PropertiesLookup
+specifier|public
+interface|interface
+name|PropertiesLookup
 block|{
-return|return
-operator|new
-name|ClassPathXmlApplicationContext
-argument_list|(
-literal|"org/apache/camel/component/properties/SpringPropertiesResolver2Test.xml"
-argument_list|)
-return|;
+comment|/**      * Lookup the property with the given name      *      * @param name  property name      * @return the property value, or<tt>null</tt> if the properties does not exist.      */
+DECL|method|lookup (String name)
+name|String
+name|lookup
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

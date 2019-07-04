@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.properties
+DECL|package|org.apache.camel.spi
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|properties
+name|spi
 package|;
 end_package
 
@@ -24,16 +22,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Properties
 import|;
 end_import
@@ -46,37 +34,27 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|Ordered
 import|;
 end_import
 
 begin_comment
-comment|/**  * A resolver to load properties from a given source such as a file from a classpath.  *<p/>  * Implementations can also load properties from another source source as JNDI.  */
+comment|/**  * A source for properties that can be loaded all at once during initialization,  * such as loading .properties files.  *<p/>  * A source can implement {@link Ordered} to control the ordering of which sources are used by the Camel  * properties component. The source with the highest precedence (lowest number) will be used first.  */
 end_comment
 
 begin_interface
-DECL|interface|PropertiesResolver
+DECL|interface|LoadablePropertiesSource
 specifier|public
 interface|interface
-name|PropertiesResolver
+name|LoadablePropertiesSource
+extends|extends
+name|PropertiesSource
 block|{
-comment|/**      * Resolve properties from the given uri      *      * @param context the camel context      * @param ignoreMissingLocation ignore silently if the property file is missing      * @param locations location(s) defining the source(s)      * @return the properties      * @throws java.io.IOError is thrown if resolving the properties failed      */
-DECL|method|resolveProperties (CamelContext context, boolean ignoreMissingLocation, List<PropertiesLocation> locations)
+comment|/**      * Loads the properties from the source      *      * @return the loaded properties      */
+DECL|method|loadProperties ()
 name|Properties
-name|resolveProperties
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
-name|boolean
-name|ignoreMissingLocation
-parameter_list|,
-name|List
-argument_list|<
-name|PropertiesLocation
-argument_list|>
-name|locations
-parameter_list|)
+name|loadProperties
+parameter_list|()
 function_decl|;
 block|}
 end_interface

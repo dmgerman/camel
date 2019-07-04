@@ -3256,6 +3256,7 @@ block|}
 else|else
 block|{
 comment|// lets default to application.properties and ignore if its missing
+comment|// if there are no existing locations configured
 name|PropertiesComponent
 name|pc
 init|=
@@ -3264,20 +3265,25 @@ operator|.
 name|getPropertiesComponent
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|pc
+operator|.
+name|getLocations
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|pc
 operator|.
 name|addLocation
 argument_list|(
-literal|"classpath:application.properties"
+literal|"classpath:application.properties;optional=true"
 argument_list|)
 expr_stmt|;
-name|pc
-operator|.
-name|setIgnoreMissingLocation
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
+block|}
 if|if
 condition|(
 name|initialProperties

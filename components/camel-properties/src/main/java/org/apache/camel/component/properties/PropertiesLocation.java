@@ -35,6 +35,7 @@ end_import
 begin_class
 DECL|class|PropertiesLocation
 specifier|public
+specifier|final
 class|class
 name|PropertiesLocation
 block|{
@@ -468,25 +469,19 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"PropertiesLocation{"
-operator|+
-literal|"resolver='"
-operator|+
 name|resolver
 operator|+
-literal|'\''
-operator|+
-literal|", path='"
+literal|":"
 operator|+
 name|path
 operator|+
-literal|'\''
-operator|+
-literal|", optional="
-operator|+
+operator|(
 name|optional
-operator|+
-literal|'}'
+condition|?
+literal|";optional=true"
+else|:
+literal|""
+operator|)
 return|;
 block|}
 block|}

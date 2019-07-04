@@ -180,20 +180,6 @@ name|Metadata
 argument_list|(
 name|defaultValue
 operator|=
-literal|"true"
-argument_list|)
-DECL|field|cache
-specifier|private
-name|Boolean
-name|cache
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
 literal|"false"
 argument_list|)
 DECL|field|ignoreMissingLocation
@@ -203,45 +189,10 @@ name|ignoreMissingLocation
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|propertiesResolverRef
-specifier|private
-name|String
-name|propertiesResolverRef
-decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|propertiesParserRef
 specifier|private
 name|String
 name|propertiesParserRef
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-DECL|field|propertyPrefix
-specifier|private
-name|String
-name|propertyPrefix
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-DECL|field|propertySuffix
-specifier|private
-name|String
-name|propertySuffix
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|fallbackToUnaugmentedProperty
-specifier|private
-name|Boolean
-name|fallbackToUnaugmentedProperty
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -369,60 +320,6 @@ operator|=
 name|encoding
 expr_stmt|;
 block|}
-DECL|method|isCache ()
-specifier|public
-name|Boolean
-name|isCache
-parameter_list|()
-block|{
-return|return
-name|cache
-return|;
-block|}
-comment|/**      * Whether or not to cache loaded properties. The default value is true.      */
-DECL|method|setCache (Boolean cache)
-specifier|public
-name|void
-name|setCache
-parameter_list|(
-name|Boolean
-name|cache
-parameter_list|)
-block|{
-name|this
-operator|.
-name|cache
-operator|=
-name|cache
-expr_stmt|;
-block|}
-DECL|method|getPropertiesResolverRef ()
-specifier|public
-name|String
-name|getPropertiesResolverRef
-parameter_list|()
-block|{
-return|return
-name|propertiesResolverRef
-return|;
-block|}
-comment|/**      * Reference to a custom PropertiesResolver to be used      */
-DECL|method|setPropertiesResolverRef (String propertiesResolverRef)
-specifier|public
-name|void
-name|setPropertiesResolverRef
-parameter_list|(
-name|String
-name|propertiesResolverRef
-parameter_list|)
-block|{
-name|this
-operator|.
-name|propertiesResolverRef
-operator|=
-name|propertiesResolverRef
-expr_stmt|;
-block|}
 DECL|method|getPropertiesParserRef ()
 specifier|public
 name|String
@@ -448,87 +345,6 @@ operator|.
 name|propertiesParserRef
 operator|=
 name|propertiesParserRef
-expr_stmt|;
-block|}
-DECL|method|getPropertyPrefix ()
-specifier|public
-name|String
-name|getPropertyPrefix
-parameter_list|()
-block|{
-return|return
-name|propertyPrefix
-return|;
-block|}
-comment|/**      * Optional prefix prepended to property names before resolution.      */
-DECL|method|setPropertyPrefix (String propertyPrefix)
-specifier|public
-name|void
-name|setPropertyPrefix
-parameter_list|(
-name|String
-name|propertyPrefix
-parameter_list|)
-block|{
-name|this
-operator|.
-name|propertyPrefix
-operator|=
-name|propertyPrefix
-expr_stmt|;
-block|}
-DECL|method|getPropertySuffix ()
-specifier|public
-name|String
-name|getPropertySuffix
-parameter_list|()
-block|{
-return|return
-name|propertySuffix
-return|;
-block|}
-comment|/**      * Optional suffix appended to property names before resolution.      */
-DECL|method|setPropertySuffix (String propertySuffix)
-specifier|public
-name|void
-name|setPropertySuffix
-parameter_list|(
-name|String
-name|propertySuffix
-parameter_list|)
-block|{
-name|this
-operator|.
-name|propertySuffix
-operator|=
-name|propertySuffix
-expr_stmt|;
-block|}
-DECL|method|isFallbackToUnaugmentedProperty ()
-specifier|public
-name|Boolean
-name|isFallbackToUnaugmentedProperty
-parameter_list|()
-block|{
-return|return
-name|fallbackToUnaugmentedProperty
-return|;
-block|}
-comment|/**      * If true, first attempt resolution of property name augmented with propertyPrefix and propertySuffix      * before falling back the plain property name specified. If false, only the augmented property name is searched.      */
-DECL|method|setFallbackToUnaugmentedProperty (Boolean fallbackToUnaugmentedProperty)
-specifier|public
-name|void
-name|setFallbackToUnaugmentedProperty
-parameter_list|(
-name|Boolean
-name|fallbackToUnaugmentedProperty
-parameter_list|)
-block|{
-name|this
-operator|.
-name|fallbackToUnaugmentedProperty
-operator|=
-name|fallbackToUnaugmentedProperty
 expr_stmt|;
 block|}
 DECL|method|getDefaultFallbackEnabled ()

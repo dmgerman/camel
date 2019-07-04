@@ -20,9 +20,19 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|util
 operator|.
-name|IOError
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
 import|;
 end_import
 
@@ -48,6 +58,22 @@ name|Component
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|StaticService
+import|;
+end_import
+
+begin_comment
+comment|/**  * Component for property placeholders and loading properties from sources  * (such as .properties file from classpath or file system)  */
+end_comment
+
 begin_interface
 DECL|interface|PropertiesComponent
 specifier|public
@@ -55,6 +81,8 @@ interface|interface
 name|PropertiesComponent
 extends|extends
 name|Component
+extends|,
+name|StaticService
 block|{
 comment|/**      * The default prefix token.      */
 DECL|field|DEFAULT_PREFIX_TOKEN
@@ -77,17 +105,19 @@ name|DEFAULT_CREATED
 init|=
 literal|"PropertiesComponentDefaultCreated"
 decl_stmt|;
+comment|/**      * The value of the prefix token used to identify properties to replace.      * Is default {@link #DEFAULT_PREFIX_TOKEN}      */
 DECL|method|getPrefixToken ()
 name|String
 name|getPrefixToken
 parameter_list|()
 function_decl|;
+comment|/**      * The value of the suffix token used to identify properties to replace.      * Is default {@link #DEFAULT_SUFFIX_TOKEN}      */
 DECL|method|getSuffixToken ()
 name|String
 name|getSuffixToken
 parameter_list|()
 function_decl|;
-comment|/**      * Parses the input text and resolve all property placeholders.      *      * @param uri  input text      * @return text with resolved property placeholders      * @throws IllegalArgumentException is thrown if error during parsing      */
+comment|/**      * Parses the input text and resolve all property placeholders from within the text.      *      * @param uri  input text      * @return text with resolved property placeholders      * @throws IllegalArgumentException is thrown if error during parsing      */
 DECL|method|parseUri (String uri)
 name|String
 name|parseUri
@@ -96,34 +126,32 @@ name|String
 name|uri
 parameter_list|)
 function_decl|;
-comment|/**      * Parses the input text and resolve all property placeholders.      *      * @param uri  input text      * @param locations locations to load as properties (will not use the default locations)      * @return text with resolved property placeholders      * @throws IllegalArgumentException is thrown if error during parsing      */
-DECL|method|parseUri (String uri, String... locations)
+comment|/**      * Looks up the property with the given key      *      * @param key  the name of the property      * @return the property value if present      */
+DECL|method|resolveProperty (String key)
+name|Optional
+argument_list|<
 name|String
-name|parseUri
+argument_list|>
+name|resolveProperty
 parameter_list|(
 name|String
-name|uri
-parameter_list|,
-name|String
-modifier|...
-name|locations
+name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Loads the properties from the default locations.      *      * @return the properties loaded.      * @throws IOError is thrown if error loading properties      */
+comment|/**      * Loads the properties from the default locations.      *      * @return the properties loaded.      */
 DECL|method|loadProperties ()
 name|Properties
 name|loadProperties
 parameter_list|()
 function_decl|;
-comment|/**      * Loads the properties from the given locations      *      * @param locations locations to load as properties (will not use the default locations)      * @return the properties loaded.      * @throws IOError is thrown if error loading properties      */
-DECL|method|loadProperties (String... locations)
-name|Properties
-name|loadProperties
-parameter_list|(
+comment|/**      * Gets the configured properties locations.      * This may be empty if the properties component has only been configured with {@link PropertiesSource}.      */
+DECL|method|getLocations ()
+name|List
+argument_list|<
 name|String
-modifier|...
-name|locations
-parameter_list|)
+argument_list|>
+name|getLocations
+parameter_list|()
 function_decl|;
 comment|/**      * A list of locations to load properties. You can use comma to separate multiple locations.      * This option will override any default locations and only use the locations from this option.      */
 DECL|method|setLocation (String location)
@@ -134,13 +162,22 @@ name|String
 name|location
 parameter_list|)
 function_decl|;
-comment|/**      * Adds the list of locations to the current locations, where to load properties.      * You can use comma to separate multiple locations.      * This option will override any default locations and only use the locations from this option.      */
+comment|/**      * Adds the list of locations to the current locations, where to load properties.      * You can use comma to separate multiple locations.      */
 DECL|method|addLocation (String location)
 name|void
 name|addLocation
 parameter_list|(
 name|String
 name|location
+parameter_list|)
+function_decl|;
+comment|/**      * Adds a custom {@link PropertiesSource} to use as source for loading and/or looking up property values.      */
+DECL|method|addPropertiesSource (PropertiesSource propertiesSource)
+name|void
+name|addPropertiesSource
+parameter_list|(
+name|PropertiesSource
+name|propertiesSource
 parameter_list|)
 function_decl|;
 comment|/**      * Whether to silently ignore if a location cannot be located, such as a properties file not found.      */

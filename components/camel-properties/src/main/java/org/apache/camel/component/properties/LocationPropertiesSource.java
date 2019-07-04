@@ -20,34 +20,34 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Properties
+name|camel
+operator|.
+name|spi
+operator|.
+name|PropertiesSource
 import|;
 end_import
 
 begin_comment
-comment|/**  * A source for 3rd party properties, such as Eclipse MicroProfile Config, a custom implementation  * that loads properties from a database table, or HashiCorp Vault etc.  */
+comment|/**  * A {@link PropertiesSource} which was created from a {@link PropertiesLocation}.  */
 end_comment
 
 begin_interface
-DECL|interface|PropertiesSource
+DECL|interface|LocationPropertiesSource
 specifier|public
 interface|interface
+name|LocationPropertiesSource
+extends|extends
 name|PropertiesSource
 block|{
-comment|/**      * Name of properties source      */
-DECL|method|getName ()
-name|String
-name|getName
-parameter_list|()
-function_decl|;
-comment|/**      * Loads the properties from the source      *      * @return the loaded properties      */
-DECL|method|loadProperties ()
-name|Properties
-name|loadProperties
+comment|/**      * Gets the location of the properties      */
+DECL|method|getLocation ()
+name|PropertiesLocation
+name|getLocation
 parameter_list|()
 function_decl|;
 block|}

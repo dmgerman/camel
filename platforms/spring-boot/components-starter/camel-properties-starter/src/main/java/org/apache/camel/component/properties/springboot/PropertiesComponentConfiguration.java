@@ -139,45 +139,11 @@ specifier|private
 name|String
 name|encoding
 decl_stmt|;
-comment|/**      * To use a custom PropertiesResolver. The option is a      * org.apache.camel.component.properties.PropertiesResolver type.      */
-DECL|field|propertiesResolver
-specifier|private
-name|String
-name|propertiesResolver
-decl_stmt|;
 comment|/**      * To use a custom PropertiesParser. The option is a      * org.apache.camel.component.properties.PropertiesParser type.      */
 DECL|field|propertiesParser
 specifier|private
 name|String
 name|propertiesParser
-decl_stmt|;
-comment|/**      * Whether or not to cache loaded properties. The default value is true.      */
-DECL|field|cache
-specifier|private
-name|Boolean
-name|cache
-init|=
-literal|true
-decl_stmt|;
-comment|/**      * Optional prefix prepended to property names before resolution.      */
-DECL|field|propertyPrefix
-specifier|private
-name|String
-name|propertyPrefix
-decl_stmt|;
-comment|/**      * Optional suffix appended to property names before resolution.      */
-DECL|field|propertySuffix
-specifier|private
-name|String
-name|propertySuffix
-decl_stmt|;
-comment|/**      * If true, first attempt resolution of property name augmented with      * propertyPrefix and propertySuffix before falling back the plain property      * name specified. If false, only the augmented property name is searched.      */
-DECL|field|fallbackToUnaugmentedProperty
-specifier|private
-name|Boolean
-name|fallbackToUnaugmentedProperty
-init|=
-literal|true
 decl_stmt|;
 comment|/**      * If false, the component does not attempt to find a default for the key by      * looking after the colon separator.      */
 DECL|field|defaultFallbackEnabled
@@ -339,32 +305,6 @@ operator|=
 name|encoding
 expr_stmt|;
 block|}
-DECL|method|getPropertiesResolver ()
-specifier|public
-name|String
-name|getPropertiesResolver
-parameter_list|()
-block|{
-return|return
-name|propertiesResolver
-return|;
-block|}
-DECL|method|setPropertiesResolver (String propertiesResolver)
-specifier|public
-name|void
-name|setPropertiesResolver
-parameter_list|(
-name|String
-name|propertiesResolver
-parameter_list|)
-block|{
-name|this
-operator|.
-name|propertiesResolver
-operator|=
-name|propertiesResolver
-expr_stmt|;
-block|}
 DECL|method|getPropertiesParser ()
 specifier|public
 name|String
@@ -389,110 +329,6 @@ operator|.
 name|propertiesParser
 operator|=
 name|propertiesParser
-expr_stmt|;
-block|}
-DECL|method|getCache ()
-specifier|public
-name|Boolean
-name|getCache
-parameter_list|()
-block|{
-return|return
-name|cache
-return|;
-block|}
-DECL|method|setCache (Boolean cache)
-specifier|public
-name|void
-name|setCache
-parameter_list|(
-name|Boolean
-name|cache
-parameter_list|)
-block|{
-name|this
-operator|.
-name|cache
-operator|=
-name|cache
-expr_stmt|;
-block|}
-DECL|method|getPropertyPrefix ()
-specifier|public
-name|String
-name|getPropertyPrefix
-parameter_list|()
-block|{
-return|return
-name|propertyPrefix
-return|;
-block|}
-DECL|method|setPropertyPrefix (String propertyPrefix)
-specifier|public
-name|void
-name|setPropertyPrefix
-parameter_list|(
-name|String
-name|propertyPrefix
-parameter_list|)
-block|{
-name|this
-operator|.
-name|propertyPrefix
-operator|=
-name|propertyPrefix
-expr_stmt|;
-block|}
-DECL|method|getPropertySuffix ()
-specifier|public
-name|String
-name|getPropertySuffix
-parameter_list|()
-block|{
-return|return
-name|propertySuffix
-return|;
-block|}
-DECL|method|setPropertySuffix (String propertySuffix)
-specifier|public
-name|void
-name|setPropertySuffix
-parameter_list|(
-name|String
-name|propertySuffix
-parameter_list|)
-block|{
-name|this
-operator|.
-name|propertySuffix
-operator|=
-name|propertySuffix
-expr_stmt|;
-block|}
-DECL|method|getFallbackToUnaugmentedProperty ()
-specifier|public
-name|Boolean
-name|getFallbackToUnaugmentedProperty
-parameter_list|()
-block|{
-return|return
-name|fallbackToUnaugmentedProperty
-return|;
-block|}
-DECL|method|setFallbackToUnaugmentedProperty ( Boolean fallbackToUnaugmentedProperty)
-specifier|public
-name|void
-name|setFallbackToUnaugmentedProperty
-parameter_list|(
-name|Boolean
-name|fallbackToUnaugmentedProperty
-parameter_list|)
-block|{
-name|this
-operator|.
-name|fallbackToUnaugmentedProperty
-operator|=
-name|fallbackToUnaugmentedProperty
 expr_stmt|;
 block|}
 DECL|method|getDefaultFallbackEnabled ()

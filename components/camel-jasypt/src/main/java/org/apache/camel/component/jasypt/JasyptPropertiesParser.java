@@ -24,16 +24,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Properties
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|regex
 operator|.
 name|Matcher
@@ -77,6 +67,22 @@ operator|.
 name|properties
 operator|.
 name|DefaultPropertiesParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|properties
+operator|.
+name|PropertiesLookup
 import|;
 end_import
 
@@ -227,7 +233,7 @@ parameter_list|()
 block|{     }
 annotation|@
 name|Override
-DECL|method|parseProperty (String key, String value, Properties properties)
+DECL|method|parseProperty (String key, String value, PropertiesLookup properties)
 specifier|public
 name|String
 name|parseProperty
@@ -238,7 +244,7 @@ parameter_list|,
 name|String
 name|value
 parameter_list|,
-name|Properties
+name|PropertiesLookup
 name|properties
 parameter_list|)
 block|{

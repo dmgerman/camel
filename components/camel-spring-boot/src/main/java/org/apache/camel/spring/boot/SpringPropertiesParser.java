@@ -20,11 +20,17 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Properties
+name|camel
+operator|.
+name|component
+operator|.
+name|properties
+operator|.
+name|DefaultPropertiesParser
 import|;
 end_import
 
@@ -40,7 +46,7 @@ name|component
 operator|.
 name|properties
 operator|.
-name|DefaultPropertiesParser
+name|PropertiesLookup
 import|;
 end_import
 
@@ -92,7 +98,7 @@ decl_stmt|;
 comment|// Overridden
 annotation|@
 name|Override
-DECL|method|parseProperty (String key, String value, Properties properties)
+DECL|method|parseProperty (String key, String value, PropertiesLookup properties)
 specifier|public
 name|String
 name|parseProperty
@@ -103,7 +109,7 @@ parameter_list|,
 name|String
 name|value
 parameter_list|,
-name|Properties
+name|PropertiesLookup
 name|properties
 parameter_list|)
 block|{

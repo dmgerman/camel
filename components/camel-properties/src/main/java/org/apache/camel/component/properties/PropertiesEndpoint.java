@@ -128,20 +128,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|UriParam
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|UriPath
 import|;
 end_import
@@ -217,20 +203,6 @@ specifier|private
 name|String
 name|key
 decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|locations
-specifier|private
-name|String
-name|locations
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|ignoreMissingLocation
-specifier|private
-name|boolean
-name|ignoreMissingLocation
-decl_stmt|;
 DECL|method|PropertiesEndpoint (String endpointUri, Endpoint delegate, Component component)
 specifier|public
 name|PropertiesEndpoint
@@ -284,60 +256,6 @@ operator|.
 name|key
 operator|=
 name|key
-expr_stmt|;
-block|}
-DECL|method|getLocations ()
-specifier|public
-name|String
-name|getLocations
-parameter_list|()
-block|{
-return|return
-name|locations
-return|;
-block|}
-comment|/**      * A list of locations to load properties. You can use comma to separate multiple locations.      * This option will override any default locations and only use the locations from this option.      */
-DECL|method|setLocations (String locations)
-specifier|public
-name|void
-name|setLocations
-parameter_list|(
-name|String
-name|locations
-parameter_list|)
-block|{
-name|this
-operator|.
-name|locations
-operator|=
-name|locations
-expr_stmt|;
-block|}
-DECL|method|isIgnoreMissingLocation ()
-specifier|public
-name|boolean
-name|isIgnoreMissingLocation
-parameter_list|()
-block|{
-return|return
-name|ignoreMissingLocation
-return|;
-block|}
-comment|/**      * Whether to silently ignore if a location cannot be located, such as a properties file not found.      */
-DECL|method|setIgnoreMissingLocation (boolean ignoreMissingLocation)
-specifier|public
-name|void
-name|setIgnoreMissingLocation
-parameter_list|(
-name|boolean
-name|ignoreMissingLocation
-parameter_list|)
-block|{
-name|this
-operator|.
-name|ignoreMissingLocation
-operator|=
-name|ignoreMissingLocation
 expr_stmt|;
 block|}
 annotation|@
