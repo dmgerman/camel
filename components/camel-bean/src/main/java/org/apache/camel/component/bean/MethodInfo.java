@@ -478,6 +478,22 @@ name|asString
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|asList
+import|;
+end_import
+
 begin_comment
 comment|/**  * Information about a method to be used for invocation.  */
 end_comment
@@ -2515,8 +2531,6 @@ name|mth
 operator|+
 literal|" using arguments: "
 operator|+
-name|Arrays
-operator|.
 name|asList
 argument_list|(
 name|arguments
@@ -2544,8 +2558,6 @@ name|mth
 operator|+
 literal|" using arguments: "
 operator|+
-name|Arrays
-operator|.
 name|asList
 argument_list|(
 name|arguments

@@ -4594,6 +4594,39 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|/**      * Turns the input array to a list of objects.      *       * @param args an array of objects or null      * @return an object list      */
+DECL|method|asList (Object[] objects)
+specifier|public
+specifier|static
+name|List
+argument_list|<
+name|Object
+argument_list|>
+name|asList
+parameter_list|(
+name|Object
+index|[]
+name|objects
+parameter_list|)
+block|{
+return|return
+name|objects
+operator|!=
+literal|null
+condition|?
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|objects
+argument_list|)
+else|:
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
