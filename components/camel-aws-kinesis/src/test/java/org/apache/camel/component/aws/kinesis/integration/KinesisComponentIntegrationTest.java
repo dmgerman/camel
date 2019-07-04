@@ -258,11 +258,12 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|//@Ignore("Must be manually tested.")
-end_comment
-
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Must be manually tested."
+argument_list|)
 DECL|class|KinesisComponentIntegrationTest
 specifier|public
 class|class
@@ -288,22 +289,7 @@ name|withRegion
 argument_list|(
 name|Regions
 operator|.
-name|EU_WEST_1
-argument_list|)
-operator|.
-name|withCredentials
-argument_list|(
-operator|new
-name|AWSStaticCredentialsProvider
-argument_list|(
-operator|new
-name|BasicAWSCredentials
-argument_list|(
-literal|"AKIAIHMCLOA573Z7SKYQ"
-argument_list|,
-literal|"DC1Ow3nyac3/2OHV7zLl57oC7hnLPOB1BTtrUQGI"
-argument_list|)
-argument_list|)
+name|EU_CENTRAL_1
 argument_list|)
 operator|.
 name|build
