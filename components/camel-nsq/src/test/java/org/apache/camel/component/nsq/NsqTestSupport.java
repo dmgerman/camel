@@ -131,7 +131,7 @@ specifier|final
 name|String
 name|CONTAINER_NSQLOOKUPD_IMAGE
 init|=
-literal|"nsqio/nsq"
+literal|"nsqio/nsq:v1.1.0"
 decl_stmt|;
 DECL|field|CONTAINER_NSQLOOKUPD_NAME
 specifier|public
@@ -149,7 +149,7 @@ specifier|final
 name|String
 name|CONTAINER_NSQD_IMAGE
 init|=
-literal|"nsqio/nsq"
+literal|"nsqio/nsq:v1.1.0"
 decl_stmt|;
 DECL|field|CONTAINER_NSQD_NAME
 specifier|public
