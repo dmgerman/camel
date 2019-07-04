@@ -797,7 +797,6 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
-break|break;
 block|}
 block|}
 block|}
@@ -1192,6 +1191,16 @@ name|String
 name|endpointUri
 parameter_list|)
 block|{
+name|VerbDefinition
+name|ret
+init|=
+literal|null
+decl_stmt|;
+name|String
+name|preVerbUri
+init|=
+literal|""
+decl_stmt|;
 for|for
 control|(
 name|VerbDefinition
@@ -1221,15 +1230,33 @@ name|startsWith
 argument_list|(
 name|verbUri
 argument_list|)
+operator|&&
+name|preVerbUri
+operator|.
+name|length
+argument_list|()
+operator|<
+name|verbUri
+operator|.
+name|length
+argument_list|()
 condition|)
 block|{
-return|return
+comment|//if there are multiple verb uri match, select the most specific one
+comment|//for example if the endpoint Uri is rest:get:/user:/{id}/user?produces=text%2Fplain
+comment|//then the verbUri rest:get:/user:/{id}/user should overweigh the est:get:/user:/{id}
+name|preVerbUri
+operator|=
+name|verbUri
+expr_stmt|;
+name|ret
+operator|=
 name|verb
-return|;
+expr_stmt|;
 block|}
 block|}
 return|return
-literal|null
+name|ret
 return|;
 block|}
 comment|/**      * Validates that the target route has no duplicate id's from any of the existing routes.      *      * @param target  the target route      * @param routes  the existing routes      * @return<tt>null</tt> if no duplicate id's detected, otherwise the first found duplicate id is returned.      */
