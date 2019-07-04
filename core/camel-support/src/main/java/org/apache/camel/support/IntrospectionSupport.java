@@ -320,6 +320,22 @@ name|isNotEmpty
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ObjectHelper
+operator|.
+name|invokeMethodSafe
+import|;
+end_import
+
 begin_comment
 comment|/**  * Helper for introspections of beans.  *<p/>  *<b>Important:</b> Its recommended to call the {@link #stop()} method when  * {@link org.apache.camel.CamelContext} is being stopped. This allows to clear the introspection cache.  *<p/>  * This implementation will skip methods from<tt>java.lang.Object</tt> and<tt>java.lang.reflect.Proxy</tt>.  *<p/>  * This implementation will use a cache when the {@link #getProperties(Object, java.util.Map, String)}  * method is being used. Also the {@link #cacheClass(Class)} method gives access to the introspect cache.  */
 end_comment
@@ -1434,21 +1450,16 @@ decl_stmt|;
 try|try
 block|{
 comment|// we may want to set options on classes that has package view visibility, so override the accessible
-name|method
-operator|.
-name|setAccessible
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 name|Object
 name|value
 init|=
-name|method
-operator|.
-name|invoke
+name|invokeMethodSafe
 argument_list|(
+name|method
+argument_list|,
 name|target
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 if|if

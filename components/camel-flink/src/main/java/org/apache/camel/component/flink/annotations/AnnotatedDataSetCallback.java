@@ -118,6 +118,22 @@ name|findMethodsWithAnnotation
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ObjectHelper
+operator|.
+name|invokeMethodSafe
+import|;
+end_import
+
 begin_comment
 comment|/**  * Provides facade for working with annotated DataSet callbacks i.e. POJO classes with an appropriate annotations on  * selected methods.  */
 end_comment
@@ -318,13 +334,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|callbackMethod
-operator|.
-name|setAccessible
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|camelContext
@@ -382,13 +391,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|return
-name|callbackMethod
-operator|.
-name|invoke
-argument_list|(
-name|objectWithCallback
-argument_list|,
+name|Object
+index|[]
+name|args
+init|=
 name|arguments
 operator|.
 name|toArray
@@ -402,6 +408,15 @@ name|size
 argument_list|()
 index|]
 argument_list|)
+decl_stmt|;
+return|return
+name|invokeMethodSafe
+argument_list|(
+name|callbackMethod
+argument_list|,
+name|objectWithCallback
+argument_list|,
+name|args
 argument_list|)
 return|;
 block|}
