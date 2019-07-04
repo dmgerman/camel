@@ -30,7 +30,7 @@ name|security
 operator|.
 name|interfaces
 operator|.
-name|RSAPublicKey
+name|ECPublicKey
 import|;
 end_import
 
@@ -105,10 +105,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|SftpKeyFileConsumeTest
+DECL|class|SftpECKeyFileConsumeTest
 specifier|public
 class|class
-name|SftpKeyFileConsumeTest
+name|SftpECKeyFileConsumeTest
 extends|extends
 name|SftpServerTestSupport
 block|{
@@ -220,7 +220,7 @@ parameter_list|)
 lambda|->
 name|key
 operator|instanceof
-name|RSAPublicKey
+name|ECPublicKey
 return|;
 block|}
 annotation|@
@@ -258,7 +258,7 @@ literal|"/"
 operator|+
 name|FTP_ROOT_DIR
 operator|+
-literal|"?username=admin&knownHostsFile=./src/test/resources/known_hosts&privateKeyFile=./src/test/resources/id_rsa&privateKeyPassphrase=secret&delay=10s&disconnect=true"
+literal|"?username=admin&knownHostsFile=./src/test/resources/known_hosts&privateKeyFile=./src/test/resources/ec.pem&delay=10s&disconnect=true"
 argument_list|)
 operator|.
 name|routeId
