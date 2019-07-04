@@ -68,6 +68,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|testcontainers
+operator|.
+name|Wait
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|testcontainers
 operator|.
 name|containers
@@ -245,6 +261,18 @@ name|withNetwork
 argument_list|(
 name|network
 argument_list|)
+operator|.
+name|waitingFor
+argument_list|(
+name|Wait
+operator|.
+name|forLogMessageContaining
+argument_list|(
+literal|"TCP: listening on"
+argument_list|,
+literal|1
+argument_list|)
+argument_list|)
 return|;
 block|}
 DECL|method|nsqdContainer (Network network)
@@ -304,6 +332,18 @@ operator|.
 name|withNetwork
 argument_list|(
 name|network
+argument_list|)
+operator|.
+name|waitingFor
+argument_list|(
+name|Wait
+operator|.
+name|forLogMessageContaining
+argument_list|(
+literal|"TCP: listening on"
+argument_list|,
+literal|1
+argument_list|)
 argument_list|)
 return|;
 block|}
