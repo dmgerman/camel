@@ -192,7 +192,9 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
-literal|"The region in which Kinesis client needs to work"
+literal|"The region in which Kinesis client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1)"
+operator|+
+literal|"You'll need to use the name Regions.EU_WEST_1.name()"
 argument_list|)
 DECL|field|region
 specifier|private

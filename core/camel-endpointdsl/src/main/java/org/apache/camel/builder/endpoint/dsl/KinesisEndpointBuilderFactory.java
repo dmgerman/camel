@@ -315,7 +315,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The region in which Kinesis client needs to work.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * The region in which Kinesis client needs to work. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1)You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|region (String region)
 specifier|default
 name|KinesisEndpointConsumerBuilder
@@ -1540,7 +1540,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The region in which Kinesis client needs to work.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * The region in which Kinesis client needs to work. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1)You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|region (String region)
 specifier|default
 name|KinesisEndpointProducerBuilder
@@ -1880,7 +1880,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The region in which Kinesis client needs to work.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * The region in which Kinesis client needs to work. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1)You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|region (String region)
 specifier|default
 name|KinesisEndpointBuilder
