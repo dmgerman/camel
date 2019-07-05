@@ -1055,6 +1055,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets the password to use in loading certResource, if certResource is          * an encrypted key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+DECL|method|certResourcePassword ( String certResourcePassword)
+specifier|default
+name|SshEndpointConsumerBuilder
+name|certResourcePassword
+parameter_list|(
+name|String
+name|certResourcePassword
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"certResourcePassword"
+argument_list|,
+name|certResourcePassword
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets the KeyPairProvider reference to use when connecting using          * Certificates to the remote SSH Server.          * The option is a          *<code>org.apache.sshd.common.keyprovider.KeyPairProvider</code> type.          * @group security          */
 DECL|method|keyPairProvider ( Object keyPairProvider)
 specifier|default
@@ -1729,6 +1750,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets the password to use in loading certResource, if certResource is          * an encrypted key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+DECL|method|certResourcePassword ( String certResourcePassword)
+specifier|default
+name|SshEndpointProducerBuilder
+name|certResourcePassword
+parameter_list|(
+name|String
+name|certResourcePassword
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"certResourcePassword"
+argument_list|,
+name|certResourcePassword
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets the KeyPairProvider reference to use when connecting using          * Certificates to the remote SSH Server.          * The option is a          *<code>org.apache.sshd.common.keyprovider.KeyPairProvider</code> type.          * @group security          */
 DECL|method|keyPairProvider ( Object keyPairProvider)
 specifier|default
@@ -2231,6 +2273,27 @@ argument_list|(
 literal|"certResource"
 argument_list|,
 name|certResource
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the password to use in loading certResource, if certResource is          * an encrypted key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+DECL|method|certResourcePassword ( String certResourcePassword)
+specifier|default
+name|SshEndpointBuilder
+name|certResourcePassword
+parameter_list|(
+name|String
+name|certResourcePassword
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"certResourcePassword"
+argument_list|,
+name|certResourcePassword
 argument_list|)
 expr_stmt|;
 return|return

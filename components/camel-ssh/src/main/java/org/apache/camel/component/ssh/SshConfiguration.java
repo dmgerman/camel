@@ -274,6 +274,22 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
+DECL|field|certResourcePassword
+specifier|private
+name|String
+name|certResourcePassword
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
 name|defaultValue
 operator|=
 literal|"30000"
@@ -849,6 +865,33 @@ operator|.
 name|certResource
 operator|=
 name|certResource
+expr_stmt|;
+block|}
+DECL|method|getCertResourcePassword ()
+specifier|public
+name|String
+name|getCertResourcePassword
+parameter_list|()
+block|{
+return|return
+name|certResourcePassword
+return|;
+block|}
+comment|/**      * Sets the password to use in loading certResource, if certResource is an encrypted key.      *      * @param certResourcePassword      *            String representing password use to load the certResource key      */
+DECL|method|setCertResourcePassword (String certResourcePassword)
+specifier|public
+name|void
+name|setCertResourcePassword
+parameter_list|(
+name|String
+name|certResourcePassword
+parameter_list|)
+block|{
+name|this
+operator|.
+name|certResourcePassword
+operator|=
+name|certResourcePassword
 expr_stmt|;
 block|}
 DECL|method|getKnownHostsResource ()

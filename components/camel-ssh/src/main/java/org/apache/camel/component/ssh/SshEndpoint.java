@@ -660,6 +660,38 @@ name|certResource
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getCertResourcePassword ()
+specifier|public
+name|String
+name|getCertResourcePassword
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getCertResourcePassword
+argument_list|()
+return|;
+block|}
+DECL|method|setCertResourcePassword (String certResourcePassword)
+specifier|public
+name|void
+name|setCertResourcePassword
+parameter_list|(
+name|String
+name|certResourcePassword
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setCertResourcePassword
+argument_list|(
+name|certResourcePassword
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getKnownHostsResource ()
 specifier|public
 name|String

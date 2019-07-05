@@ -184,6 +184,12 @@ specifier|private
 name|String
 name|certResource
 decl_stmt|;
+comment|/**      * Sets the password to use in loading certResource, if certResource is an      * encrypted key.      */
+DECL|field|certResourcePassword
+specifier|private
+name|String
+name|certResourcePassword
+decl_stmt|;
 comment|/**      * Sets the channel type to pass to the Channel as part of command      * execution. Defaults to exec.      */
 DECL|field|channelType
 specifier|private
@@ -478,6 +484,32 @@ operator|=
 name|certResource
 expr_stmt|;
 block|}
+DECL|method|getCertResourcePassword ()
+specifier|public
+name|String
+name|getCertResourcePassword
+parameter_list|()
+block|{
+return|return
+name|certResourcePassword
+return|;
+block|}
+DECL|method|setCertResourcePassword (String certResourcePassword)
+specifier|public
+name|void
+name|setCertResourcePassword
+parameter_list|(
+name|String
+name|certResourcePassword
+parameter_list|)
+block|{
+name|this
+operator|.
+name|certResourcePassword
+operator|=
+name|certResourcePassword
+expr_stmt|;
+block|}
 DECL|method|getChannelType ()
 specifier|public
 name|String
@@ -699,6 +731,12 @@ DECL|field|certResource
 specifier|private
 name|String
 name|certResource
+decl_stmt|;
+comment|/**          * Sets the password to use in loading certResource, if certResource is          * an encrypted key.          */
+DECL|field|certResourcePassword
+specifier|private
+name|String
+name|certResourcePassword
 decl_stmt|;
 comment|/**          * Sets the resource path for a known_hosts file          */
 DECL|field|knownHostsResource
@@ -1000,6 +1038,32 @@ operator|.
 name|certResource
 operator|=
 name|certResource
+expr_stmt|;
+block|}
+DECL|method|getCertResourcePassword ()
+specifier|public
+name|String
+name|getCertResourcePassword
+parameter_list|()
+block|{
+return|return
+name|certResourcePassword
+return|;
+block|}
+DECL|method|setCertResourcePassword (String certResourcePassword)
+specifier|public
+name|void
+name|setCertResourcePassword
+parameter_list|(
+name|String
+name|certResourcePassword
+parameter_list|)
+block|{
+name|this
+operator|.
+name|certResourcePassword
+operator|=
+name|certResourcePassword
 expr_stmt|;
 block|}
 DECL|method|getKnownHostsResource ()

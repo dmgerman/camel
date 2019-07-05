@@ -590,6 +590,50 @@ name|certResource
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getCertResourcePassword ()
+specifier|public
+name|String
+name|getCertResourcePassword
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getCertResourcePassword
+argument_list|()
+return|;
+block|}
+comment|/**      * Sets the password to use in loading certResource, if certResource is an encrypted key.      *      * @param certResourcePassword      *            String representing password use to load the certResource key      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
+DECL|method|setCertResourcePassword (String certResourcePassword)
+specifier|public
+name|void
+name|setCertResourcePassword
+parameter_list|(
+name|String
+name|certResourcePassword
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setCertResourcePassword
+argument_list|(
+name|certResourcePassword
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Sets the channel type to pass to the Channel as part of command execution.      * Defaults to "exec".      *      * @param channelType      *            String defining the type of Channel to use for command execution.      *      * @see org.apache.sshd.common.channel.Channel      */
 annotation|@
 name|Metadata
@@ -616,7 +660,7 @@ name|channelType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the shellPrompt to be dropped when response is read after command execution      *      * @param shellPrompt      *            String defining ending string of command line which has to be dropped when response is       *            read after command execution.      */
+comment|/**      * Sets the shellPrompt to be dropped when response is read after command execution      *      * @param shellPrompt      *            String defining ending string of command line which has to be dropped when response is      *            read after command execution.      */
 annotation|@
 name|Metadata
 argument_list|(
