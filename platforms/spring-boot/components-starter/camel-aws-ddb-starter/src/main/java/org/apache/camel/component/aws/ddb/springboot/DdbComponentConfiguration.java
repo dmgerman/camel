@@ -423,7 +423,7 @@ specifier|private
 name|String
 name|proxyHost
 decl_stmt|;
-comment|/**          * To define a proxy port when instantiating the DDB client          */
+comment|/**          * To define a proxy port when instantiating the DDB client. When using          * this parameter, the configuration will expect the capitalized name of          * the region (for example AP_EAST_1) You'll need to use the name          * Regions.EU_WEST_1.name()          */
 DECL|field|proxyPort
 specifier|private
 name|Integer

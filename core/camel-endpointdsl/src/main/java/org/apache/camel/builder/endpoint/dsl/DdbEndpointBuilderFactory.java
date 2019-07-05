@@ -299,7 +299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy port when instantiating the DDB client.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
+comment|/**          * To define a proxy port when instantiating the DDB client. When using          * this parameter, the configuration will expect the capitalized name of          * the region (for example AP_EAST_1) You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|proxyPort (Integer proxyPort)
 specifier|default
 name|DdbEndpointBuilder
@@ -320,7 +320,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy port when instantiating the DDB client.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
+comment|/**          * To define a proxy port when instantiating the DDB client. When using          * this parameter, the configuration will expect the capitalized name of          * the region (for example AP_EAST_1) You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|proxyPort (String proxyPort)
 specifier|default
 name|DdbEndpointBuilder
