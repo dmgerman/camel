@@ -186,11 +186,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"HTTP_QUERY not supported"
-argument_list|)
 DECL|method|testHttpGetWithParamsViaHeader ()
 specifier|public
 name|void

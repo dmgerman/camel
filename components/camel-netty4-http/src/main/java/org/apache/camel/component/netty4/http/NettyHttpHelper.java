@@ -192,6 +192,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|StringHelper
 import|;
 end_import
@@ -1011,16 +1025,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|path
-operator|.
-name|length
-argument_list|()
-operator|>
-literal|0
-condition|)
-block|{
 comment|// inject the dynamic path before the query params, if there are any
 name|int
 name|idx
@@ -1120,7 +1124,6 @@ name|idx
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// ensure uri is encoded to be valid
@@ -1271,6 +1274,31 @@ argument_list|(
 name|queryString
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|uri
+operator|.
+name|getPath
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// If queryString is present, the path cannot be empty - CAMEL-13707
+name|uri
+operator|=
+operator|new
+name|URI
+argument_list|(
+name|url
+operator|+
+literal|"/"
+argument_list|)
+expr_stmt|;
+block|}
 name|uri
 operator|=
 name|URISupport
