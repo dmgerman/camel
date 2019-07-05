@@ -420,7 +420,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The region in which S3 client needs to work.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * The region in which S3 client needs to work. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1) You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|region (String region)
 specifier|default
 name|S3EndpointConsumerBuilder
@@ -2191,7 +2191,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The region in which S3 client needs to work.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * The region in which S3 client needs to work. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1) You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|region (String region)
 specifier|default
 name|S3EndpointProducerBuilder
@@ -3266,7 +3266,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The region in which S3 client needs to work.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * The region in which S3 client needs to work. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1) You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|region (String region)
 specifier|default
 name|S3EndpointBuilder

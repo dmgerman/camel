@@ -425,7 +425,7 @@ specifier|private
 name|String
 name|fileName
 decl_stmt|;
-comment|/**          * The region in which S3 client needs to work          */
+comment|/**          * The region in which S3 client needs to work. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1) You'll need to use the name          * Regions.EU_WEST_1.name()          */
 DECL|field|region
 specifier|private
 name|String
