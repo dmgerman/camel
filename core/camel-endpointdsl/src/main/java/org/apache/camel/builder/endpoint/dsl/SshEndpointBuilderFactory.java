@@ -1055,7 +1055,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the password to use in loading certResource, if certResource is          * an encrypted key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Sets the password to use in loading certResource, if certResource is          * an encrypted key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|certResourcePassword ( String certResourcePassword)
 specifier|default
 name|SshEndpointConsumerBuilder
@@ -1750,7 +1750,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the password to use in loading certResource, if certResource is          * an encrypted key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Sets the password to use in loading certResource, if certResource is          * an encrypted key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|certResourcePassword ( String certResourcePassword)
 specifier|default
 name|SshEndpointProducerBuilder
@@ -2279,7 +2279,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the password to use in loading certResource, if certResource is          * an encrypted key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Sets the password to use in loading certResource, if certResource is          * an encrypted key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|certResourcePassword ( String certResourcePassword)
 specifier|default
 name|SshEndpointBuilder
