@@ -392,7 +392,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specify the queue region which could be used with          * queueOwnerAWSAccountId to build the service URL.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * Specify the queue region which could be used with          * queueOwnerAWSAccountId to build the service URL. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1) You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|region (String region)
 specifier|default
 name|SqsEndpointConsumerBuilder
@@ -2289,7 +2289,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specify the queue region which could be used with          * queueOwnerAWSAccountId to build the service URL.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * Specify the queue region which could be used with          * queueOwnerAWSAccountId to build the service URL. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1) You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|region (String region)
 specifier|default
 name|SqsEndpointProducerBuilder
@@ -3154,7 +3154,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specify the queue region which could be used with          * queueOwnerAWSAccountId to build the service URL.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * Specify the queue region which could be used with          * queueOwnerAWSAccountId to build the service URL. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1) You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|region (String region)
 specifier|default
 name|SqsEndpointBuilder
