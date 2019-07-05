@@ -492,7 +492,7 @@ block|,
 DECL|enumConstant|TripleDes
 name|TripleDes
 block|;     }
-comment|/**      * Nagios (camel-nagios)      * To send passive checks to Nagios using JSendNSCA.      *       * Syntax:<code>nagios:host:port</code>      * Category: monitoring      * Available as of version: 2.3      * Maven coordinates: org.apache.camel:camel-nagios      */
+comment|/**      * Nagios (camel-nagios)      * To send passive checks to Nagios using JSendNSCA.      *       * Category: monitoring      * Available as of version: 2.3      * Maven coordinates: org.apache.camel:camel-nagios      *       * Syntax:<code>nagios:host:port</code>      *       * Path parameter: host (required)      * This is the address of the Nagios host where checks should be send.      *       * Path parameter: port (required)      * The port number of the host.      */
 DECL|method|nagios (String path)
 specifier|default
 name|NagiosEndpointBuilder

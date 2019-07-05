@@ -2131,7 +2131,7 @@ block|,
 DECL|enumConstant|SKIP_SIZE_OPTIMIZATION
 name|SKIP_SIZE_OPTIMIZATION
 block|;     }
-comment|/**      * Infinispan (camel-infinispan)      * For reading/writing from/to Infinispan distributed key/value store and      * data grid.      *       * Syntax:<code>infinispan:cacheName</code>      * Category: cache,datagrid,clustering      * Available as of version: 2.13      * Maven coordinates: org.apache.camel:camel-infinispan      */
+comment|/**      * Infinispan (camel-infinispan)      * For reading/writing from/to Infinispan distributed key/value store and      * data grid.      *       * Category: cache,datagrid,clustering      * Available as of version: 2.13      * Maven coordinates: org.apache.camel:camel-infinispan      *       * Syntax:<code>infinispan:cacheName</code>      *       * Path parameter: cacheName (required)      * The cache to use      */
 DECL|method|infinispan (String path)
 specifier|default
 name|InfinispanEndpointBuilder

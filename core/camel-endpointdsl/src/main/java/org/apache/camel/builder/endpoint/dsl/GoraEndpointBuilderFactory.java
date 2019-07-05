@@ -1532,7 +1532,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Gora (camel-gora)      * The gora component allows you to work with NoSQL databases using the      * Apache Gora framework.      *       * Syntax:<code>gora:name</code>      * Category: database,hadoop,nosql      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-gora      */
+comment|/**      * Gora (camel-gora)      * The gora component allows you to work with NoSQL databases using the      * Apache Gora framework.      *       * Category: database,hadoop,nosql      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-gora      *       * Syntax:<code>gora:name</code>      *       * Path parameter: name (required)      * Instance name      */
 DECL|method|gora (String path)
 specifier|default
 name|GoraEndpointBuilder

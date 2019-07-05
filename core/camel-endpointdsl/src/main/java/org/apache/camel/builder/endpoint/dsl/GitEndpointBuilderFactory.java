@@ -1168,7 +1168,7 @@ block|,
 DECL|enumConstant|BRANCH
 name|BRANCH
 block|;     }
-comment|/**      * Git (camel-git)      * The git component is used for working with git repositories.      *       * Syntax:<code>git:localPath</code>      * Category: file      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-git      */
+comment|/**      * Git (camel-git)      * The git component is used for working with git repositories.      *       * Category: file      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-git      *       * Syntax:<code>git:localPath</code>      *       * Path parameter: localPath (required)      * Local repository path      */
 DECL|method|git (String path)
 specifier|default
 name|GitEndpointBuilder

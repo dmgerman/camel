@@ -7610,7 +7610,7 @@ block|,
 DECL|enumConstant|TryRename
 name|TryRename
 block|;     }
-comment|/**      * SFTP (camel-ftp)      * The sftp (FTP over SSH) component is used for uploading or downloading      * files from SFTP servers.      *       * Syntax:<code>sftp:host:port/directoryName</code>      * Category: file      * Available as of version: 1.1      * Maven coordinates: org.apache.camel:camel-ftp      */
+comment|/**      * SFTP (camel-ftp)      * The sftp (FTP over SSH) component is used for uploading or downloading      * files from SFTP servers.      *       * Category: file      * Available as of version: 1.1      * Maven coordinates: org.apache.camel:camel-ftp      *       * Syntax:<code>sftp:host:port/directoryName</code>      *       * Path parameter: host (required)      * Hostname of the FTP server      *       * Path parameter: port      * Port of the FTP server      *       * Path parameter: directoryName      * The starting directory      */
 DECL|method|sftp (String path)
 specifier|default
 name|SftpEndpointBuilder

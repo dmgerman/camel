@@ -1364,7 +1364,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * PubNub (camel-pubnub)      * To send and receive messages to PubNub data stream network for connected      * devices.      *       * Syntax:<code>pubnub:channel</code>      * Category: cloud,iot,messaging      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-pubnub      */
+comment|/**      * PubNub (camel-pubnub)      * To send and receive messages to PubNub data stream network for connected      * devices.      *       * Category: cloud,iot,messaging      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-pubnub      *       * Syntax:<code>pubnub:channel</code>      *       * Path parameter: channel (required)      * The channel used for subscribing/publishing events      */
 DECL|method|pubNub (String path)
 specifier|default
 name|PubNubEndpointBuilder

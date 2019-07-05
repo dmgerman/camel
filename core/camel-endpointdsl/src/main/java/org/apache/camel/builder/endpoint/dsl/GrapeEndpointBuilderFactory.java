@@ -217,7 +217,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Grape (camel-grape)      * The grape component allows you to fetch, load and manage additional jars      * when CamelContext is running.      *       * Syntax:<code>grape:defaultCoordinates</code>      * Category: management,deployment      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-grape      */
+comment|/**      * Grape (camel-grape)      * The grape component allows you to fetch, load and manage additional jars      * when CamelContext is running.      *       * Category: management,deployment      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-grape      *       * Syntax:<code>grape:defaultCoordinates</code>      *       * Path parameter: defaultCoordinates (required)      * Maven coordinates to use as default to grab if the message body is empty.      */
 DECL|method|grape (String path)
 specifier|default
 name|GrapeEndpointBuilder

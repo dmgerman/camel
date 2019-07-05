@@ -337,7 +337,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * EJB (camel-ejb)      * The ejb component is for invoking EJB Java beans from Camel.      *       * Syntax:<code>ejb:beanName</code>      * Category: endpoint,java      * Available as of version: 2.4      * Maven coordinates: org.apache.camel:camel-ejb      */
+comment|/**      * EJB (camel-ejb)      * The ejb component is for invoking EJB Java beans from Camel.      *       * Category: endpoint,java      * Available as of version: 2.4      * Maven coordinates: org.apache.camel:camel-ejb      *       * Syntax:<code>ejb:beanName</code>      *       * Path parameter: beanName (required)      * Sets the name of the bean to invoke      */
 DECL|method|ejb (String path)
 specifier|default
 name|EjbEndpointBuilder

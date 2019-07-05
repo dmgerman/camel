@@ -1992,7 +1992,7 @@ block|,
 DECL|enumConstant|poll
 name|poll
 block|;     }
-comment|/**      * Hazelcast Map (camel-hazelcast)      * The hazelcast-map component is used to access Hazelcast distributed map.      *       * Syntax:<code>hazelcast-map:cacheName</code>      * Category: cache,datagrid      * Available as of version: 2.7      * Maven coordinates: org.apache.camel:camel-hazelcast      */
+comment|/**      * Hazelcast Map (camel-hazelcast)      * The hazelcast-map component is used to access Hazelcast distributed map.      *       * Category: cache,datagrid      * Available as of version: 2.7      * Maven coordinates: org.apache.camel:camel-hazelcast      *       * Syntax:<code>hazelcast-map:cacheName</code>      *       * Path parameter: cacheName (required)      * The name of the cache      */
 DECL|method|hazelcastMap (String path)
 specifier|default
 name|HazelcastMapEndpointBuilder

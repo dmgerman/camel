@@ -797,7 +797,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Vert.x (camel-vertx)      * The vertx component is used for sending and receive messages from a vertx      * event bus.      *       * Syntax:<code>vertx:address</code>      * Category: eventbus,reactive      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-vertx      */
+comment|/**      * Vert.x (camel-vertx)      * The vertx component is used for sending and receive messages from a vertx      * event bus.      *       * Category: eventbus,reactive      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-vertx      *       * Syntax:<code>vertx:address</code>      *       * Path parameter: address (required)      * Sets the event bus address used to communicate      */
 DECL|method|vertx (String path)
 specifier|default
 name|VertxEndpointBuilder

@@ -385,7 +385,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * OpenStack Glance (camel-openstack)      * The openstack-glance component allows messages to be sent to an OpenStack      * image services.      *       * Syntax:<code>openstack-glance:host</code>      * Category: cloud,paas      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-openstack      */
+comment|/**      * OpenStack Glance (camel-openstack)      * The openstack-glance component allows messages to be sent to an OpenStack      * image services.      *       * Category: cloud,paas      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-openstack      *       * Syntax:<code>openstack-glance:host</code>      *       * Path parameter: host (required)      * OpenStack host url      */
 DECL|method|glance (String path)
 specifier|default
 name|GlanceEndpointBuilder

@@ -217,7 +217,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Service (camel-service)      * Represents an endpoint which is registered to a Service Registry such as      * Consul, Etcd.      *       * Syntax:<code>service:delegateUri</code>      * Category: cloud      * Available as of version: 2.22      * Maven coordinates: org.apache.camel:camel-service      */
+comment|/**      * Service (camel-service)      * Represents an endpoint which is registered to a Service Registry such as      * Consul, Etcd.      *       * Category: cloud      * Available as of version: 2.22      * Maven coordinates: org.apache.camel:camel-service      *       * Syntax:<code>service:delegateUri</code>      *       * Path parameter: delegateUri (required)      * The endpoint uri to expose as service      */
 DECL|method|service (String path)
 specifier|default
 name|ServiceEndpointBuilder

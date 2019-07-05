@@ -1992,7 +1992,7 @@ block|,
 DECL|enumConstant|poll
 name|poll
 block|;     }
-comment|/**      * Hazelcast Queue (camel-hazelcast)      * The hazelcast-queue component is used to access Hazelcast distributed      * queue.      *       * Syntax:<code>hazelcast-queue:cacheName</code>      * Category: cache,datagrid      * Available as of version: 2.7      * Maven coordinates: org.apache.camel:camel-hazelcast      */
+comment|/**      * Hazelcast Queue (camel-hazelcast)      * The hazelcast-queue component is used to access Hazelcast distributed      * queue.      *       * Category: cache,datagrid      * Available as of version: 2.7      * Maven coordinates: org.apache.camel:camel-hazelcast      *       * Syntax:<code>hazelcast-queue:cacheName</code>      *       * Path parameter: cacheName (required)      * The name of the cache      */
 DECL|method|hazelcastQueue (String path)
 specifier|default
 name|HazelcastQueueEndpointBuilder

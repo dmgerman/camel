@@ -2919,7 +2919,7 @@ block|,
 DECL|enumConstant|StringSource
 name|StringSource
 block|;     }
-comment|/**      * XQuery (camel-saxon)      * Transforms the message using a XQuery template using Saxon.      *       * Syntax:<code>xquery:resourceUri</code>      * Category: transformation      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-saxon      */
+comment|/**      * XQuery (camel-saxon)      * Transforms the message using a XQuery template using Saxon.      *       * Category: transformation      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-saxon      *       * Syntax:<code>xquery:resourceUri</code>      *       * Path parameter: resourceUri (required)      * The name of the template to load from classpath or file system      */
 DECL|method|xQuery (String path)
 specifier|default
 name|XQueryEndpointBuilder

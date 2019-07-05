@@ -672,7 +672,7 @@ block|,
 DECL|enumConstant|GET_NEXT
 name|GET_NEXT
 block|;     }
-comment|/**      * SNMP (camel-snmp)      * The snmp component gives you the ability to poll SNMP capable devices or      * receiving traps.      *       * Syntax:<code>snmp:host:port</code>      * Category: monitoring      * Available as of version: 2.1      * Maven coordinates: org.apache.camel:camel-snmp      */
+comment|/**      * SNMP (camel-snmp)      * The snmp component gives you the ability to poll SNMP capable devices or      * receiving traps.      *       * Category: monitoring      * Available as of version: 2.1      * Maven coordinates: org.apache.camel:camel-snmp      *       * Syntax:<code>snmp:host:port</code>      *       * Path parameter: host (required)      * Hostname of the SNMP enabled device      *       * Path parameter: port (required)      * Port number of the SNMP enabled device      */
 DECL|method|snmp (String path)
 specifier|default
 name|SnmpEndpointBuilder

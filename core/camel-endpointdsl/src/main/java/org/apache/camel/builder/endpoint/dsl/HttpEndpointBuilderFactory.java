@@ -1073,7 +1073,7 @@ block|,
 DECL|enumConstant|PATCH
 name|PATCH
 block|;     }
-comment|/**      * HTTP4 (camel-http4)      * For calling out to external HTTP servers using Apache HTTP Client 4.x.      *       * Syntax:<code>http:httpUri</code>      * Category: http      * Available as of version: 2.3      * Maven coordinates: org.apache.camel:camel-http4      */
+comment|/**      * HTTP4 (camel-http4)      * For calling out to external HTTP servers using Apache HTTP Client 4.x.      *       * Category: http      * Available as of version: 2.3      * Maven coordinates: org.apache.camel:camel-http4      *       * Syntax:<code>http:httpUri</code>      *       * Path parameter: httpUri (required)      * The url of the HTTP endpoint to call.      */
 DECL|method|http (String path)
 specifier|default
 name|HttpEndpointBuilder

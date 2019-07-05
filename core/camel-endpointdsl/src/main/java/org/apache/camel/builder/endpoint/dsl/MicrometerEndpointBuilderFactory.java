@@ -301,7 +301,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Micrometer (camel-micrometer)      * To collect various metrics directly from Camel routes using the      * Micrometer library.      *       * Syntax:<code>micrometer:metricsType:metricsName</code>      * Category: monitoring      * Available as of version: 2.22      * Maven coordinates: org.apache.camel:camel-micrometer      */
+comment|/**      * Micrometer (camel-micrometer)      * To collect various metrics directly from Camel routes using the      * Micrometer library.      *       * Category: monitoring      * Available as of version: 2.22      * Maven coordinates: org.apache.camel:camel-micrometer      *       * Syntax:<code>micrometer:metricsType:metricsName</code>      *       * Path parameter: metricsType (required)      * Type of metrics      *       * Path parameter: metricsName (required)      * Name of metrics      *       * Path parameter: tags      * Tags of metrics      */
 DECL|method|micrometer (String path)
 specifier|default
 name|MicrometerEndpointBuilder

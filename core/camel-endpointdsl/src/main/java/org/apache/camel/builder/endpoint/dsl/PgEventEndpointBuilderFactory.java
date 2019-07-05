@@ -923,7 +923,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * PostgresSQL Event (camel-pgevent)      * The pgevent component allows for producing/consuming PostgreSQL events      * related to the listen/notify commands.      *       * Syntax:<code>pgevent:host:port/database/channel</code>      * Category: database,sql      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-pgevent      */
+comment|/**      * PostgresSQL Event (camel-pgevent)      * The pgevent component allows for producing/consuming PostgreSQL events      * related to the listen/notify commands.      *       * Category: database,sql      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-pgevent      *       * Syntax:<code>pgevent:host:port/database/channel</code>      *       * Path parameter: host      * To connect using hostname and port to the database.      * Default value: localhost      *       * Path parameter: port      * To connect using hostname and port to the database.      * Default value: 5432      *       * Path parameter: database (required)      * The database name      *       * Path parameter: channel (required)      * The channel name      */
 DECL|method|pgEvent (String path)
 specifier|default
 name|PgEventEndpointBuilder

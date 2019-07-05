@@ -3014,7 +3014,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * IRC (camel-irc)      * The irc component implements an IRC (Internet Relay Chat) transport.      *       * Syntax:<code>irc:hostname:port</code>      * Category: chat      * Available as of version: 1.1      * Maven coordinates: org.apache.camel:camel-irc      */
+comment|/**      * IRC (camel-irc)      * The irc component implements an IRC (Internet Relay Chat) transport.      *       * Category: chat      * Available as of version: 1.1      * Maven coordinates: org.apache.camel:camel-irc      *       * Syntax:<code>irc:hostname:port</code>      *       * Path parameter: hostname (required)      * Hostname for the IRC chat server      *       * Path parameter: port      * Port number for the IRC chat server. If no port is configured then a      * default port of either 6667, 6668 or 6669 is used.      */
 DECL|method|irc (String path)
 specifier|default
 name|IrcEndpointBuilder

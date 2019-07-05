@@ -2670,7 +2670,7 @@ block|,
 DECL|enumConstant|SIZE_3
 name|SIZE_3
 block|;     }
-comment|/**      * IEC 60870 Server (camel-iec60870)      * IEC 60870 component used for telecontrol (supervisory control and data      * acquisition) such as controlling electric power transmission grids and      * other geographically widespread control systems.      *       * Syntax:<code>iec60870-server:uriPath</code>      * Category: iot      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-iec60870      */
+comment|/**      * IEC 60870 Server (camel-iec60870)      * IEC 60870 component used for telecontrol (supervisory control and data      * acquisition) such as controlling electric power transmission grids and      * other geographically widespread control systems.      *       * Category: iot      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-iec60870      *       * Syntax:<code>iec60870-server:uriPath</code>      *       * Path parameter: uriPath (required)      * The object information address      */
 DECL|method|server (String path)
 specifier|default
 name|ServerEndpointBuilder

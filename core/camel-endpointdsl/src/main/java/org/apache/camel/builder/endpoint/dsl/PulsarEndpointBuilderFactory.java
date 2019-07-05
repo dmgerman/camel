@@ -895,7 +895,7 @@ block|,
 DECL|enumConstant|FAILOVER
 name|FAILOVER
 block|;     }
-comment|/**      * Apache Pulsar (camel-pulsar)      * Camel Apache Pulsar Component      *       * Syntax:<code>pulsar:persistence://tenant/namespace/topic</code>      * Category: messaging      * Available as of version: 2.24      * Maven coordinates: org.apache.camel:camel-pulsar      */
+comment|/**      * Apache Pulsar (camel-pulsar)      * Camel Apache Pulsar Component      *       * Category: messaging      * Available as of version: 2.24      * Maven coordinates: org.apache.camel:camel-pulsar      *       * Syntax:<code>pulsar:persistence://tenant/namespace/topic</code>      *       * Path parameter: persistence (required)      * Whether the topic is persistent or non-persistent      * The value can be one of: persistent,non-persistent      *       * Path parameter: tenant (required)      * The tenant      *       * Path parameter: namespace (required)      * The namespace      *       * Path parameter: topic (required)      * The topic      */
 DECL|method|pulsar (String path)
 specifier|default
 name|PulsarEndpointBuilder

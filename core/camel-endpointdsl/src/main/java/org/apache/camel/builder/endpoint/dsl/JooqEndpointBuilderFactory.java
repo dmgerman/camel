@@ -1499,7 +1499,7 @@ block|,
 DECL|enumConstant|NONE
 name|NONE
 block|;     }
-comment|/**      * JOOQ (camel-jooq)      * The jooq component enables you to store and retrieve entities from      * databases using JOOQ      *       * Syntax:<code>jooq:entityType</code>      * Category: database      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-jooq      */
+comment|/**      * JOOQ (camel-jooq)      * The jooq component enables you to store and retrieve entities from      * databases using JOOQ      *       * Category: database      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-jooq      *       * Syntax:<code>jooq:entityType</code>      *       * Path parameter: entityType      * JOOQ entity class      */
 DECL|method|jooq (String path)
 specifier|default
 name|JooqEndpointBuilder

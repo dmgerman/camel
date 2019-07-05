@@ -322,7 +322,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Bonita (camel-bonita)      * Used for communicating with a remote Bonita BPM process engine.      *       * Syntax:<code>bonita:operation</code>      * Category: process      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-bonita      */
+comment|/**      * Bonita (camel-bonita)      * Used for communicating with a remote Bonita BPM process engine.      *       * Category: process      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-bonita      *       * Syntax:<code>bonita:operation</code>      *       * Path parameter: operation (required)      * Operation to use      * The value can be one of: startCase      */
 DECL|method|bonita (String path)
 specifier|default
 name|BonitaEndpointBuilder

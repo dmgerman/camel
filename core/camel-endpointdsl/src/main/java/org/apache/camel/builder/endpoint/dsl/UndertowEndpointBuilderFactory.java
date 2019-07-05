@@ -1813,7 +1813,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Undertow (camel-undertow)      * The undertow component provides HTTP and WebSocket based endpoints for      * consuming and producing HTTP/WebSocket requests.      *       * Syntax:<code>undertow:httpURI</code>      * Category: http,websocket      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-undertow      */
+comment|/**      * Undertow (camel-undertow)      * The undertow component provides HTTP and WebSocket based endpoints for      * consuming and producing HTTP/WebSocket requests.      *       * Category: http,websocket      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-undertow      *       * Syntax:<code>undertow:httpURI</code>      *       * Path parameter: httpURI (required)      * The url of the HTTP endpoint to use.      */
 DECL|method|undertow (String path)
 specifier|default
 name|UndertowEndpointBuilder

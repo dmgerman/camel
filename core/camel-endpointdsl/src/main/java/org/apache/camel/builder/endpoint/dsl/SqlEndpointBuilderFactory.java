@@ -3284,7 +3284,7 @@ block|,
 DECL|enumConstant|StreamList
 name|StreamList
 block|;     }
-comment|/**      * SQL (camel-sql)      * The sql component allows you to work with databases using JDBC SQL      * queries.      *       * Syntax:<code>sql:query</code>      * Category: database,sql      * Available as of version: 1.4      * Maven coordinates: org.apache.camel:camel-sql      */
+comment|/**      * SQL (camel-sql)      * The sql component allows you to work with databases using JDBC SQL      * queries.      *       * Category: database,sql      * Available as of version: 1.4      * Maven coordinates: org.apache.camel:camel-sql      *       * Syntax:<code>sql:query</code>      *       * Path parameter: query (required)      * Sets the SQL query to perform. You can externalize the query by using      * file: or classpath: as prefix and specify the location of the file.      */
 DECL|method|sql (String path)
 specifier|default
 name|SqlEndpointBuilder

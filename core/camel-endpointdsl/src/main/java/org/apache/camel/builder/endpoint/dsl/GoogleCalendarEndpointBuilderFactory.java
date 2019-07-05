@@ -1301,7 +1301,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Google Calendar (camel-google-calendar)      * The google-calendar component provides access to Google Calendar.      *       * Syntax:<code>google-calendar:apiName/methodName</code>      * Category: api,cloud      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-google-calendar      */
+comment|/**      * Google Calendar (camel-google-calendar)      * The google-calendar component provides access to Google Calendar.      *       * Category: api,cloud      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-google-calendar      *       * Syntax:<code>google-calendar:apiName/methodName</code>      *       * Path parameter: apiName (required)      * What kind of operation to perform      * The value can be one of:      * ACL,LIST,CALENDARS,CHANNELS,COLORS,FREEBUSY,EVENTS,SETTINGS      *       * Path parameter: methodName (required)      * What sub operation to use for the selected operation      * The value can be one of:      * calendarImport,clear,delete,get,insert,instances,list,move,patch,query,quickAdd,stop,update,watch      */
 DECL|method|googleCalendar (String path)
 specifier|default
 name|GoogleCalendarEndpointBuilder

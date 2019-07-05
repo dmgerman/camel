@@ -671,7 +671,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Ref (camel-ref)      * The ref component is used for lookup of existing endpoints bound in the      * Registry.      *       * Syntax:<code>ref:name</code>      * Category: core,endpoint      * Available as of version: 1.2      * Maven coordinates: org.apache.camel:camel-ref      */
+comment|/**      * Ref (camel-ref)      * The ref component is used for lookup of existing endpoints bound in the      * Registry.      *       * Category: core,endpoint      * Available as of version: 1.2      * Maven coordinates: org.apache.camel:camel-ref      *       * Syntax:<code>ref:name</code>      *       * Path parameter: name (required)      * Name of endpoint to lookup in the registry.      */
 DECL|method|ref (String path)
 specifier|default
 name|RefEndpointBuilder

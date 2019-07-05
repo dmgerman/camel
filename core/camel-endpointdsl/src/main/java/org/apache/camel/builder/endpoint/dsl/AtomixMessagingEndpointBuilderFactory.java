@@ -2426,7 +2426,7 @@ block|,
 DECL|enumConstant|LOCAL
 name|LOCAL
 block|;     }
-comment|/**      * Atomix Messaging (camel-atomix)      * The atomix-messaging component is used to access Atomix's group      * messaging.      *       * Syntax:<code>atomix-messaging:resourceName</code>      * Category: clustering      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-atomix      */
+comment|/**      * Atomix Messaging (camel-atomix)      * The atomix-messaging component is used to access Atomix's group      * messaging.      *       * Category: clustering      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-atomix      *       * Syntax:<code>atomix-messaging:resourceName</code>      *       * Path parameter: resourceName (required)      * The distributed resource name      */
 DECL|method|atomixMessaging (String path)
 specifier|default
 name|AtomixMessagingEndpointBuilder

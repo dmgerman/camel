@@ -261,7 +261,7 @@ block|,
 DECL|enumConstant|describeBroker
 name|describeBroker
 block|;     }
-comment|/**      * AWS MQ (camel-aws-mq)      * The aws-mq is used for managing Amazon MQ instances.      *       * Syntax:<code>aws-mq:label</code>      * Category: cloud,management      * Available as of version: 2.21      * Maven coordinates: org.apache.camel:camel-aws-mq      */
+comment|/**      * AWS MQ (camel-aws-mq)      * The aws-mq is used for managing Amazon MQ instances.      *       * Category: cloud,management      * Available as of version: 2.21      * Maven coordinates: org.apache.camel:camel-aws-mq      *       * Syntax:<code>aws-mq:label</code>      *       * Path parameter: label (required)      * Logical name      */
 DECL|method|mQ (String path)
 specifier|default
 name|MQEndpointBuilder

@@ -1392,7 +1392,7 @@ block|,
 DECL|enumConstant|CLEAR
 name|CLEAR
 block|;     }
-comment|/**      * Ignite Cache (camel-ignite)      * The Ignite Cache endpoint is one of camel-ignite endpoints which allows      * you to interact with an Ignite Cache.      *       * Syntax:<code>ignite-cache:cacheName</code>      * Category: nosql,cache,compute      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-ignite      */
+comment|/**      * Ignite Cache (camel-ignite)      * The Ignite Cache endpoint is one of camel-ignite endpoints which allows      * you to interact with an Ignite Cache.      *       * Category: nosql,cache,compute      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-ignite      *       * Syntax:<code>ignite-cache:cacheName</code>      *       * Path parameter: cacheName (required)      * The cache name.      */
 DECL|method|igniteCache (String path)
 specifier|default
 name|IgniteCacheEndpointBuilder

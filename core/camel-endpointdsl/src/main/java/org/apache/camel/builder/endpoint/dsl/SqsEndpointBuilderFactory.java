@@ -3634,7 +3634,7 @@ block|,
 DECL|enumConstant|listQueues
 name|listQueues
 block|;     }
-comment|/**      * AWS Simple Queue Service (camel-aws-sqs)      * The aws-sqs component is used for sending and receiving messages to      * Amazon's SQS service.      *       * Syntax:<code>aws-sqs:queueNameOrArn</code>      * Category: cloud,messaging      * Available as of version: 2.6      * Maven coordinates: org.apache.camel:camel-aws-sqs      */
+comment|/**      * AWS Simple Queue Service (camel-aws-sqs)      * The aws-sqs component is used for sending and receiving messages to      * Amazon's SQS service.      *       * Category: cloud,messaging      * Available as of version: 2.6      * Maven coordinates: org.apache.camel:camel-aws-sqs      *       * Syntax:<code>aws-sqs:queueNameOrArn</code>      *       * Path parameter: queueNameOrArn (required)      * Queue name or ARN      */
 DECL|method|sqs (String path)
 specifier|default
 name|SqsEndpointBuilder

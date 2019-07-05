@@ -385,7 +385,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * SAP NetWeaver (camel-sap-netweaver)      * The sap-netweaver component integrates with the SAP NetWeaver Gateway      * using HTTP transports.      *       * Syntax:<code>sap-netweaver:url</code>      * Category: sap      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-sap-netweaver      */
+comment|/**      * SAP NetWeaver (camel-sap-netweaver)      * The sap-netweaver component integrates with the SAP NetWeaver Gateway      * using HTTP transports.      *       * Category: sap      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-sap-netweaver      *       * Syntax:<code>sap-netweaver:url</code>      *       * Path parameter: url (required)      * Url to the SAP net-weaver gateway server.      */
 DECL|method|netWeaver (String path)
 specifier|default
 name|NetWeaverEndpointBuilder

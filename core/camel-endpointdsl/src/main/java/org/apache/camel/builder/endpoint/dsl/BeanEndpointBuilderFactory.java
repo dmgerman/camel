@@ -337,7 +337,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Bean (camel-bean)      * The bean component is for invoking Java beans from Camel.      *       * Syntax:<code>bean:beanName</code>      * Category: core,java      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-bean      */
+comment|/**      * Bean (camel-bean)      * The bean component is for invoking Java beans from Camel.      *       * Category: core,java      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-bean      *       * Syntax:<code>bean:beanName</code>      *       * Path parameter: beanName (required)      * Sets the name of the bean to invoke      */
 DECL|method|bean (String path)
 specifier|default
 name|BeanEndpointBuilder

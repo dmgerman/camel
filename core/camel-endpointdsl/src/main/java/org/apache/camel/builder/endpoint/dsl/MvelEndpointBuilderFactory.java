@@ -280,7 +280,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * MVEL (camel-mvel)      * Transforms the message using a MVEL template.      *       * Syntax:<code>mvel:resourceUri</code>      * Category: transformation,script      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-mvel      */
+comment|/**      * MVEL (camel-mvel)      * Transforms the message using a MVEL template.      *       * Category: transformation,script      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-mvel      *       * Syntax:<code>mvel:resourceUri</code>      *       * Path parameter: resourceUri (required)      * Path to the resource. You can prefix with: classpath, file, http, ref, or      * bean. classpath, file and http loads the resource using these protocols      * (classpath is default). ref will lookup the resource in the registry.      * bean will call a method on a bean to be used as the resource. For bean      * you can specify the method name after dot, eg bean:myBean.myMethod.      */
 DECL|method|mvel (String path)
 specifier|default
 name|MvelEndpointBuilder

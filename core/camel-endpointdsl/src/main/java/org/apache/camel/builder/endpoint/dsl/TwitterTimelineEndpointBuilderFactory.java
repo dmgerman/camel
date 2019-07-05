@@ -2570,7 +2570,7 @@ block|,
 DECL|enumConstant|EVENT
 name|EVENT
 block|;     }
-comment|/**      * Twitter Timeline (camel-twitter)      * The Twitter Timeline component consumes twitter timeline or update the      * status of specific user.      *       * Syntax:<code>twitter-timeline:timelineType</code>      * Category: api,social      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-twitter      */
+comment|/**      * Twitter Timeline (camel-twitter)      * The Twitter Timeline component consumes twitter timeline or update the      * status of specific user.      *       * Category: api,social      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-twitter      *       * Syntax:<code>twitter-timeline:timelineType</code>      *       * Path parameter: timelineType (required)      * The timeline type to produce/consume.      * The value can be one of: PUBLIC,HOME,USER,MENTIONS,RETWEETSOFME,UNKNOWN      */
 DECL|method|twitterTimeline (String path)
 specifier|default
 name|TwitterTimelineEndpointBuilder

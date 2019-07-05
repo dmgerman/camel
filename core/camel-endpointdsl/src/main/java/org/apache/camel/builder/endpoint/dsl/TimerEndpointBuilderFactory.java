@@ -552,7 +552,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Timer (camel-timer)      * The timer component is used for generating message exchanges when a timer      * fires.      *       * Syntax:<code>timer:timerName</code>      * Category: core,scheduling      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-timer      */
+comment|/**      * Timer (camel-timer)      * The timer component is used for generating message exchanges when a timer      * fires.      *       * Category: core,scheduling      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-timer      *       * Syntax:<code>timer:timerName</code>      *       * Path parameter: timerName (required)      * The name of the timer      */
 DECL|method|timer (String path)
 specifier|default
 name|TimerEndpointBuilder

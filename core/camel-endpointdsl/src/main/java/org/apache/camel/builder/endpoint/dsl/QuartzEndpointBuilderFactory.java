@@ -846,7 +846,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Quartz2 (camel-quartz2)      * Provides a scheduled delivery of messages using the Quartz 2.x scheduler.      *       * Syntax:<code>quartz2:groupName/triggerName</code>      * Category: scheduling      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-quartz2      */
+comment|/**      * Quartz2 (camel-quartz2)      * Provides a scheduled delivery of messages using the Quartz 2.x scheduler.      *       * Category: scheduling      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-quartz2      *       * Syntax:<code>quartz2:groupName/triggerName</code>      *       * Path parameter: groupName      * The quartz group name to use. The combination of group name and timer      * name should be unique.      * Default value: Camel      *       * Path parameter: triggerName (required)      * The quartz timer name to use. The combination of group name and timer      * name should be unique.      */
 DECL|method|quartz (String path)
 specifier|default
 name|QuartzEndpointBuilder

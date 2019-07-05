@@ -658,7 +658,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Kubernetes Secrets (camel-kubernetes)      * The Kubernetes Secrets component provides a producer to execute      * kubernetes secret operations.      *       * Syntax:<code>kubernetes-secrets:masterUrl</code>      * Category: container,cloud,paas      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-kubernetes      */
+comment|/**      * Kubernetes Secrets (camel-kubernetes)      * The Kubernetes Secrets component provides a producer to execute      * kubernetes secret operations.      *       * Category: container,cloud,paas      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-kubernetes      *       * Syntax:<code>kubernetes-secrets:masterUrl</code>      *       * Path parameter: masterUrl (required)      * Kubernetes Master url      */
 DECL|method|kubernetesSecrets (String path)
 specifier|default
 name|KubernetesSecretsEndpointBuilder

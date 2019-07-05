@@ -1049,7 +1049,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Google Mail (camel-google-mail)      * The google-mail component provides access to Google Mail.      *       * Syntax:<code>google-mail:apiName/methodName</code>      * Category: api,cloud,mail      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-google-mail      */
+comment|/**      * Google Mail (camel-google-mail)      * The google-mail component provides access to Google Mail.      *       * Category: api,cloud,mail      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-google-mail      *       * Syntax:<code>google-mail:apiName/methodName</code>      *       * Path parameter: apiName (required)      * What kind of operation to perform      * The value can be one of:      * THREADS,MESSAGES,ATTACHMENTS,LABELS,HISTORY,DRAFTS,USERS      *       * Path parameter: methodName (required)      * What sub operation to use for the selected operation      * The value can be one of:      * attachments,create,delete,get,getProfile,gmailImport,insert,list,modify,patch,send,trash,untrash,update      */
 DECL|method|googleMail (String path)
 specifier|default
 name|GoogleMailEndpointBuilder

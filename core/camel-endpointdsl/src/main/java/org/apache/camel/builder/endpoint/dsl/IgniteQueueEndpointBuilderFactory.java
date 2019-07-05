@@ -351,7 +351,7 @@ block|,
 DECL|enumConstant|PUT
 name|PUT
 block|;     }
-comment|/**      * Ignite Queues (camel-ignite)      * The Ignite Queue endpoint is one of camel-ignite endpoints which allows      * you to interact with Ignite Queue data structures.      *       * Syntax:<code>ignite-queue:name</code>      * Category: nosql,cache      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-ignite      */
+comment|/**      * Ignite Queues (camel-ignite)      * The Ignite Queue endpoint is one of camel-ignite endpoints which allows      * you to interact with Ignite Queue data structures.      *       * Category: nosql,cache      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-ignite      *       * Syntax:<code>ignite-queue:name</code>      *       * Path parameter: name (required)      * The queue name.      */
 DECL|method|igniteQueue (String path)
 specifier|default
 name|IgniteQueueEndpointBuilder

@@ -1746,7 +1746,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Stream (camel-stream)      * The stream: component provides access to the system-in, system-out and      * system-err streams as well as allowing streaming of file and URL.      *       * Syntax:<code>stream:kind</code>      * Category: file,system      * Available as of version: 1.3      * Maven coordinates: org.apache.camel:camel-stream      */
+comment|/**      * Stream (camel-stream)      * The stream: component provides access to the system-in, system-out and      * system-err streams as well as allowing streaming of file and URL.      *       * Category: file,system      * Available as of version: 1.3      * Maven coordinates: org.apache.camel:camel-stream      *       * Syntax:<code>stream:kind</code>      *       * Path parameter: kind (required)      * Kind of stream to use such as System.in or System.out.      * The value can be one of: in,out,err,header,file,url      */
 DECL|method|stream (String path)
 specifier|default
 name|StreamEndpointBuilder

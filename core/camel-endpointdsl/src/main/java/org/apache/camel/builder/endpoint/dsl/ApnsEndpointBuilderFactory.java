@@ -1443,7 +1443,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * APNS (camel-apns)      * For sending notifications to Apple iOS devices.      *       * Syntax:<code>apns:name</code>      * Category: eventbus,mobile      * Available as of version: 2.8      * Maven coordinates: org.apache.camel:camel-apns      */
+comment|/**      * APNS (camel-apns)      * For sending notifications to Apple iOS devices.      *       * Category: eventbus,mobile      * Available as of version: 2.8      * Maven coordinates: org.apache.camel:camel-apns      *       * Syntax:<code>apns:name</code>      *       * Path parameter: name      * Name of the endpoint      */
 DECL|method|apns (String path)
 specifier|default
 name|ApnsEndpointBuilder

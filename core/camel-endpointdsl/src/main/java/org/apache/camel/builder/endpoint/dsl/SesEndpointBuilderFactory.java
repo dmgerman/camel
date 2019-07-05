@@ -527,7 +527,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * AWS Simple Email Service (camel-aws-ses)      * The aws-ses component is used for sending emails with Amazon's SES      * service.      *       * Syntax:<code>aws-ses:from</code>      * Category: cloud,mail      * Available as of version: 2.9      * Maven coordinates: org.apache.camel:camel-aws-ses      */
+comment|/**      * AWS Simple Email Service (camel-aws-ses)      * The aws-ses component is used for sending emails with Amazon's SES      * service.      *       * Category: cloud,mail      * Available as of version: 2.9      * Maven coordinates: org.apache.camel:camel-aws-ses      *       * Syntax:<code>aws-ses:from</code>      *       * Path parameter: from (required)      * The sender's email address.      */
 DECL|method|ses (String path)
 specifier|default
 name|SesEndpointBuilder

@@ -2136,7 +2136,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Flatpack (camel-flatpack)      * The flatpack component supports fixed width and delimited file parsing      * via the FlatPack library.      *       * Syntax:<code>flatpack:type:resourceUri</code>      * Category: transformation      * Available as of version: 1.4      * Maven coordinates: org.apache.camel:camel-flatpack      */
+comment|/**      * Flatpack (camel-flatpack)      * The flatpack component supports fixed width and delimited file parsing      * via the FlatPack library.      *       * Category: transformation      * Available as of version: 1.4      * Maven coordinates: org.apache.camel:camel-flatpack      *       * Syntax:<code>flatpack:type:resourceUri</code>      *       * Path parameter: type      * Whether to use fixed or delimiter      * Default value: delim      * The value can be one of: fixed,delim      *       * Path parameter: resourceUri (required)      * URL for loading the flatpack mapping file from classpath or file system      */
 DECL|method|flatpack (String path)
 specifier|default
 name|FlatpackEndpointBuilder

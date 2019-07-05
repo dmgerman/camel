@@ -916,7 +916,7 @@ block|,
 DECL|enumConstant|EXTENSION_STATE
 name|EXTENSION_STATE
 block|;     }
-comment|/**      * Asterisk (camel-asterisk)      * The asterisk component is used to interact with Asterisk PBX Server.      *       * Syntax:<code>asterisk:name</code>      * Category: voip      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-asterisk      */
+comment|/**      * Asterisk (camel-asterisk)      * The asterisk component is used to interact with Asterisk PBX Server.      *       * Category: voip      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-asterisk      *       * Syntax:<code>asterisk:name</code>      *       * Path parameter: name (required)      * Logical name      */
 DECL|method|asterisk (String path)
 specifier|default
 name|AsteriskEndpointBuilder

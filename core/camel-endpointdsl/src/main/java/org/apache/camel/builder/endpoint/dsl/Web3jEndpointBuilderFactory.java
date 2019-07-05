@@ -2629,7 +2629,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Web3j Ethereum Blockchain (camel-web3j)      * The web3j component uses the Web3j client API and allows you to add/read      * nodes to/from a web3j compliant content repositories.      *       * Syntax:<code>web3j:nodeAddress</code>      * Category: bitcoin,blockchain      * Available as of version: 2.22      * Maven coordinates: org.apache.camel:camel-web3j      */
+comment|/**      * Web3j Ethereum Blockchain (camel-web3j)      * The web3j component uses the Web3j client API and allows you to add/read      * nodes to/from a web3j compliant content repositories.      *       * Category: bitcoin,blockchain      * Available as of version: 2.22      * Maven coordinates: org.apache.camel:camel-web3j      *       * Syntax:<code>web3j:nodeAddress</code>      *       * Path parameter: nodeAddress (required)      * Sets the node address used to communicate      */
 DECL|method|web3j (String path)
 specifier|default
 name|Web3jEndpointBuilder

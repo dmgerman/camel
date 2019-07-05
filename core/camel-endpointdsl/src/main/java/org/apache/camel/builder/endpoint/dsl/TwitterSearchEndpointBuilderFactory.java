@@ -2507,7 +2507,7 @@ block|,
 DECL|enumConstant|EVENT
 name|EVENT
 block|;     }
-comment|/**      * Twitter Search (camel-twitter)      * The Twitter Search component consumes search results.      *       * Syntax:<code>twitter-search:keywords</code>      * Category: api,social      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-twitter      */
+comment|/**      * Twitter Search (camel-twitter)      * The Twitter Search component consumes search results.      *       * Category: api,social      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-twitter      *       * Syntax:<code>twitter-search:keywords</code>      *       * Path parameter: keywords (required)      * The search query, use the keywords AND, OR, - and () to narrow the search      * results.      */
 DECL|method|twitterSearch (String path)
 specifier|default
 name|TwitterSearchEndpointBuilder

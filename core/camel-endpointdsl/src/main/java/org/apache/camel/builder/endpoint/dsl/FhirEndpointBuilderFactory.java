@@ -3190,7 +3190,7 @@ block|,
 DECL|enumConstant|ONCE
 name|ONCE
 block|;     }
-comment|/**      * FHIR (camel-fhir)      * The fhir component is used for working with the FHIR protocol (health      * care).      *       * Syntax:<code>fhir:apiName/methodName</code>      * Category: hl7,api      * Available as of version: 2.23      * Maven coordinates: org.apache.camel:camel-fhir      */
+comment|/**      * FHIR (camel-fhir)      * The fhir component is used for working with the FHIR protocol (health      * care).      *       * Category: hl7,api      * Available as of version: 2.23      * Maven coordinates: org.apache.camel:camel-fhir      *       * Syntax:<code>fhir:apiName/methodName</code>      *       * Path parameter: apiName (required)      * What kind of operation to perform      * The value can be one of:      * capabilities,create,delete,history,load-page,meta,patch,read,search,transaction,update,validate      *       * Path parameter: methodName (required)      * What sub operation to use for the selected operation      */
 DECL|method|fhir (String path)
 specifier|default
 name|FhirEndpointBuilder

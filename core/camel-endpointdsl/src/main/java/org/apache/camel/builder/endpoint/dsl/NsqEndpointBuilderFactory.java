@@ -1364,7 +1364,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * NSQ (camel-nsq)      * Represents a nsq endpoint.      *       * Syntax:<code>nsq:servers</code>      * Category: messaging      * Available as of version: 2.23      * Maven coordinates: org.apache.camel:camel-nsq      */
+comment|/**      * NSQ (camel-nsq)      * Represents a nsq endpoint.      *       * Category: messaging      * Available as of version: 2.23      * Maven coordinates: org.apache.camel:camel-nsq      *       * Syntax:<code>nsq:servers</code>      *       * Path parameter: servers (required)      * The hostnames of one or more nsqlookupd servers (consumer) or nsqd      * servers (producer).      */
 DECL|method|nsq (String path)
 specifier|default
 name|NsqEndpointBuilder

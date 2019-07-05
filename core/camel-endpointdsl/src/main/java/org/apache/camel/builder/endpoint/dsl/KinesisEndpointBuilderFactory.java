@@ -2086,7 +2086,7 @@ block|,
 DECL|enumConstant|silent
 name|silent
 block|;     }
-comment|/**      * AWS Kinesis (camel-aws-kinesis)      * The aws-kinesis component is for consuming and producing records from      * Amazon Kinesis Streams.      *       * Syntax:<code>aws-kinesis:streamName</code>      * Category: cloud,messaging      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-aws-kinesis      */
+comment|/**      * AWS Kinesis (camel-aws-kinesis)      * The aws-kinesis component is for consuming and producing records from      * Amazon Kinesis Streams.      *       * Category: cloud,messaging      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-aws-kinesis      *       * Syntax:<code>aws-kinesis:streamName</code>      *       * Path parameter: streamName (required)      * Name of the stream      */
 DECL|method|kinesis (String path)
 specifier|default
 name|KinesisEndpointBuilder

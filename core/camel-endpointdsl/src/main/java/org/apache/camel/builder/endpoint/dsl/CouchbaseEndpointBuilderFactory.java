@@ -3207,7 +3207,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Couchbase (camel-couchbase)      * Represents a Couchbase endpoint that can query Views with a Poll strategy      * and/or produce various type of operations.      *       * Syntax:<code>couchbase:protocol:hostname:port</code>      * Category: database,nosql      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-couchbase      */
+comment|/**      * Couchbase (camel-couchbase)      * Represents a Couchbase endpoint that can query Views with a Poll strategy      * and/or produce various type of operations.      *       * Category: database,nosql      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-couchbase      *       * Syntax:<code>couchbase:protocol:hostname:port</code>      *       * Path parameter: protocol (required)      * The protocol to use      *       * Path parameter: hostname (required)      * The hostname to use      *       * Path parameter: port      * The port number to use      * Default value: 8091      */
 DECL|method|couchbase (String path)
 specifier|default
 name|CouchbaseEndpointBuilder

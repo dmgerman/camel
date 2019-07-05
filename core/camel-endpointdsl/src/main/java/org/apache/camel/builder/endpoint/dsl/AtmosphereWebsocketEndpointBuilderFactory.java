@@ -2260,7 +2260,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Atmosphere Websocket (camel-atmosphere-websocket)      * To exchange data with external Websocket clients using Atmosphere.      *       * Syntax:<code>atmosphere-websocket:servicePath</code>      * Category: websocket      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-atmosphere-websocket      */
+comment|/**      * Atmosphere Websocket (camel-atmosphere-websocket)      * To exchange data with external Websocket clients using Atmosphere.      *       * Category: websocket      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-atmosphere-websocket      *       * Syntax:<code>atmosphere-websocket:servicePath</code>      *       * Path parameter: servicePath (required)      * Name of websocket endpoint      */
 DECL|method|atmosphereWebsocket (String path)
 specifier|default
 name|AtmosphereWebsocketEndpointBuilder

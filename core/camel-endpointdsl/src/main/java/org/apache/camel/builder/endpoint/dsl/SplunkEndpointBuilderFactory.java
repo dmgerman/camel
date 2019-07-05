@@ -2636,7 +2636,7 @@ block|,
 DECL|enumConstant|SSLv3
 name|SSLv3
 block|;     }
-comment|/**      * Splunk (camel-splunk)      * The splunk component allows to publish or search for events in Splunk.      *       * Syntax:<code>splunk:name</code>      * Category: log,monitoring      * Available as of version: 2.13      * Maven coordinates: org.apache.camel:camel-splunk      */
+comment|/**      * Splunk (camel-splunk)      * The splunk component allows to publish or search for events in Splunk.      *       * Category: log,monitoring      * Available as of version: 2.13      * Maven coordinates: org.apache.camel:camel-splunk      *       * Syntax:<code>splunk:name</code>      *       * Path parameter: name (required)      * Name has no purpose      */
 DECL|method|splunk (String path)
 specifier|default
 name|SplunkEndpointBuilder

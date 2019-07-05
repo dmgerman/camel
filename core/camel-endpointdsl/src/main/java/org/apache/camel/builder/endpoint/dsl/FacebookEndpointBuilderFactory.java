@@ -9632,7 +9632,7 @@ block|,
 DECL|enumConstant|album
 name|album
 block|;     }
-comment|/**      * Facebook (camel-facebook)      * The Facebook component provides access to all of the Facebook APIs      * accessible using Facebook4J.      *       * Syntax:<code>facebook:methodName</code>      * Category: social      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-facebook      */
+comment|/**      * Facebook (camel-facebook)      * The Facebook component provides access to all of the Facebook APIs      * accessible using Facebook4J.      *       * Category: social      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-facebook      *       * Syntax:<code>facebook:methodName</code>      *       * Path parameter: methodName (required)      * What operation to perform      */
 DECL|method|facebook (String path)
 specifier|default
 name|FacebookEndpointBuilder

@@ -364,7 +364,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Chunk (camel-chunk)      * Transforms the message using a Chunk template.      *       * Syntax:<code>chunk:resourceUri</code>      * Category: transformation      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-chunk      */
+comment|/**      * Chunk (camel-chunk)      * Transforms the message using a Chunk template.      *       * Category: transformation      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-chunk      *       * Syntax:<code>chunk:resourceUri</code>      *       * Path parameter: resourceUri (required)      * Path to the resource. You can prefix with: classpath, file, http, ref, or      * bean. classpath, file and http loads the resource using these protocols      * (classpath is default). ref will lookup the resource in the registry.      * bean will call a method on a bean to be used as the resource. For bean      * you can specify the method name after dot, eg bean:myBean.myMethod.      */
 DECL|method|chunk (String path)
 specifier|default
 name|ChunkEndpointBuilder

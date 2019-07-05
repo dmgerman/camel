@@ -4743,7 +4743,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * SIP (camel-sip)      * To send and receive messages using the SIP protocol (used in telco and      * mobile).      *       * Syntax:<code>sip:uri</code>      * Category: mobile      * Available as of version: 2.5      * Maven coordinates: org.apache.camel:camel-sip      */
+comment|/**      * SIP (camel-sip)      * To send and receive messages using the SIP protocol (used in telco and      * mobile).      *       * Category: mobile      * Available as of version: 2.5      * Maven coordinates: org.apache.camel:camel-sip      *       * Syntax:<code>sip:uri</code>      *       * Path parameter: uri (required)      * URI of the SIP server to connect to (the username and password can be      * included such as: john:secretmyserver:9999)      */
 DECL|method|sip (String path)
 specifier|default
 name|SipEndpointBuilder

@@ -343,7 +343,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * String Template (camel-stringtemplate)      * Transforms the message using a String template.      *       * Syntax:<code>string-template:resourceUri</code>      * Category: transformation      * Available as of version: 1.2      * Maven coordinates: org.apache.camel:camel-stringtemplate      */
+comment|/**      * String Template (camel-stringtemplate)      * Transforms the message using a String template.      *       * Category: transformation      * Available as of version: 1.2      * Maven coordinates: org.apache.camel:camel-stringtemplate      *       * Syntax:<code>string-template:resourceUri</code>      *       * Path parameter: resourceUri (required)      * Path to the resource. You can prefix with: classpath, file, http, ref, or      * bean. classpath, file and http loads the resource using these protocols      * (classpath is default). ref will lookup the resource in the registry.      * bean will call a method on a bean to be used as the resource. For bean      * you can specify the method name after dot, eg bean:myBean.myMethod.      */
 DECL|method|stringTemplate (String path)
 specifier|default
 name|StringTemplateEndpointBuilder

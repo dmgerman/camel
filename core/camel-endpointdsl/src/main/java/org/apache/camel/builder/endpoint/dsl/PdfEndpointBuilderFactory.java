@@ -564,7 +564,7 @@ block|,
 DECL|enumConstant|lineTermination
 name|lineTermination
 block|;     }
-comment|/**      * PDF (camel-pdf)      * The pdf components provides the ability to create, modify or extract      * content from PDF documents.      *       * Syntax:<code>pdf:operation</code>      * Category: document,transformation,printing      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-pdf      */
+comment|/**      * PDF (camel-pdf)      * The pdf components provides the ability to create, modify or extract      * content from PDF documents.      *       * Category: document,transformation,printing      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-pdf      *       * Syntax:<code>pdf:operation</code>      *       * Path parameter: operation (required)      * Operation type      * The value can be one of: create,append,extractText      */
 DECL|method|pdf (String path)
 specifier|default
 name|PdfEndpointBuilder

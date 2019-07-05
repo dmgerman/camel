@@ -2445,7 +2445,7 @@ block|,
 DECL|enumConstant|LOCAL
 name|LOCAL
 block|;     }
-comment|/**      * Atomix Map (camel-atomix)      * The atomix-map component is used to access Atomix's distributed map.      *       * Syntax:<code>atomix-map:resourceName</code>      * Category: clustering      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-atomix      */
+comment|/**      * Atomix Map (camel-atomix)      * The atomix-map component is used to access Atomix's distributed map.      *       * Category: clustering      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-atomix      *       * Syntax:<code>atomix-map:resourceName</code>      *       * Path parameter: resourceName (required)      * The distributed resource name      */
 DECL|method|atomixMap (String path)
 specifier|default
 name|AtomixMapEndpointBuilder

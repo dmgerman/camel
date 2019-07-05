@@ -1616,7 +1616,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * JCR (camel-jcr)      * The jcr component allows you to add/read nodes to/from a JCR compliant      * content repository.      *       * Syntax:<code>jcr:host/base</code>      * Category: cms,database      * Available as of version: 1.3      * Maven coordinates: org.apache.camel:camel-jcr      */
+comment|/**      * JCR (camel-jcr)      * The jcr component allows you to add/read nodes to/from a JCR compliant      * content repository.      *       * Category: cms,database      * Available as of version: 1.3      * Maven coordinates: org.apache.camel:camel-jcr      *       * Syntax:<code>jcr:host/base</code>      *       * Path parameter: host (required)      * Name of the javax.jcr.Repository to lookup from the Camel registry to be      * used.      *       * Path parameter: base      * Get the base node when accessing the repository      */
 DECL|method|jcr (String path)
 specifier|default
 name|JcrEndpointBuilder

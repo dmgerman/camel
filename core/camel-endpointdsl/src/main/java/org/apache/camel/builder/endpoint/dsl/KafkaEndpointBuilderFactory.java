@@ -5042,7 +5042,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Kafka (camel-kafka)      * The kafka component allows messages to be sent to (or consumed from)      * Apache Kafka brokers.      *       * Syntax:<code>kafka:topic</code>      * Category: messaging      * Available as of version: 2.13      * Maven coordinates: org.apache.camel:camel-kafka      */
+comment|/**      * Kafka (camel-kafka)      * The kafka component allows messages to be sent to (or consumed from)      * Apache Kafka brokers.      *       * Category: messaging      * Available as of version: 2.13      * Maven coordinates: org.apache.camel:camel-kafka      *       * Syntax:<code>kafka:topic</code>      *       * Path parameter: topic (required)      * Name of the topic to use. On the consumer you can use comma to separate      * multiple topics. A producer can only send a message to a single topic.      */
 DECL|method|kafka (String path)
 specifier|default
 name|KafkaEndpointBuilder

@@ -1249,7 +1249,7 @@ block|,
 DECL|enumConstant|NONE
 name|NONE
 block|;     }
-comment|/**      * Google Pubsub (camel-google-pubsub)      * Messaging client for Google Cloud Platform PubSub Service      *       * Syntax:<code>google-pubsub:projectId:destinationName</code>      * Category: messaging      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-google-pubsub      */
+comment|/**      * Google Pubsub (camel-google-pubsub)      * Messaging client for Google Cloud Platform PubSub Service      *       * Category: messaging      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-google-pubsub      *       * Syntax:<code>google-pubsub:projectId:destinationName</code>      *       * Path parameter: projectId (required)      * Project Id      *       * Path parameter: destinationName (required)      * Destination Name      */
 DECL|method|googlePubsub (String path)
 specifier|default
 name|GooglePubsubEndpointBuilder

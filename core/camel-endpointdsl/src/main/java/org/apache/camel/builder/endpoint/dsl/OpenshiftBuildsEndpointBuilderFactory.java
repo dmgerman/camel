@@ -658,7 +658,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Openshift Builds (camel-kubernetes)      * The Openshift Builds component provides a producer to execute openshift      * build operations.      *       * Syntax:<code>openshift-builds:masterUrl</code>      * Category: container,cloud,paas      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-kubernetes      */
+comment|/**      * Openshift Builds (camel-kubernetes)      * The Openshift Builds component provides a producer to execute openshift      * build operations.      *       * Category: container,cloud,paas      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-kubernetes      *       * Syntax:<code>openshift-builds:masterUrl</code>      *       * Path parameter: masterUrl (required)      * Kubernetes Master url      */
 DECL|method|openshiftBuilds (String path)
 specifier|default
 name|OpenshiftBuildsEndpointBuilder

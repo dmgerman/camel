@@ -1099,7 +1099,7 @@ block|,
 DECL|enumConstant|deleteMessage
 name|deleteMessage
 block|;     }
-comment|/**      * Azure Storage Queue Service (camel-azure)      * The azure-queue component is used for storing and retrieving messages      * from Azure Storage Queue Service.      *       * Syntax:<code>azure-queue:containerAndQueueUri</code>      * Category: cloud,queue,azure      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-azure      */
+comment|/**      * Azure Storage Queue Service (camel-azure)      * The azure-queue component is used for storing and retrieving messages      * from Azure Storage Queue Service.      *       * Category: cloud,queue,azure      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-azure      *       * Syntax:<code>azure-queue:containerAndQueueUri</code>      *       * Path parameter: containerAndQueueUri (required)      * Container Queue compact Uri      */
 DECL|method|queueService (String path)
 specifier|default
 name|QueueServiceEndpointBuilder

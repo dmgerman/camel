@@ -1632,7 +1632,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Hipchat (camel-hipchat)      * The hipchat component supports producing and consuming messages from/to      * Hipchat service.      *       * Syntax:<code>hipchat:protocol:host:port</code>      * Category: api,cloud      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-hipchat      */
+comment|/**      * Hipchat (camel-hipchat)      * The hipchat component supports producing and consuming messages from/to      * Hipchat service.      *       * Category: api,cloud      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-hipchat      *       * Syntax:<code>hipchat:protocol:host:port</code>      *       * Path parameter: protocol (required)      * The protocol for the hipchat server, such as http.      *       * Path parameter: host (required)      * The host for the hipchat server, such as api.hipchat.com      *       * Path parameter: port      * The port for the hipchat server. Is by default 80.      * Default value: 80      */
 DECL|method|hipchat (String path)
 specifier|default
 name|HipchatEndpointBuilder

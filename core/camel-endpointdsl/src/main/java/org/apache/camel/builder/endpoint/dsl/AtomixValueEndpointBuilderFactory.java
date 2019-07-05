@@ -2295,7 +2295,7 @@ block|,
 DECL|enumConstant|LOCAL
 name|LOCAL
 block|;     }
-comment|/**      * Atomix Value (camel-atomix)      * The atomix-value component is used to access Atomix's distributed value.      *       * Syntax:<code>atomix-value:resourceName</code>      * Category: clustering      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-atomix      */
+comment|/**      * Atomix Value (camel-atomix)      * The atomix-value component is used to access Atomix's distributed value.      *       * Category: clustering      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-atomix      *       * Syntax:<code>atomix-value:resourceName</code>      *       * Path parameter: resourceName (required)      * The distributed resource name      */
 DECL|method|atomixValue (String path)
 specifier|default
 name|AtomixValueEndpointBuilder

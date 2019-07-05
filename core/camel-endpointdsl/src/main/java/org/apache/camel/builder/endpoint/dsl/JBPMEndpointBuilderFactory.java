@@ -3394,7 +3394,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * JBPM (camel-jbpm)      * The jbpm component provides integration with jBPM (Business Process      * Management).      *       * Syntax:<code>jbpm:connectionURL</code>      * Category: process      * Available as of version: 2.6      * Maven coordinates: org.apache.camel:camel-jbpm      */
+comment|/**      * JBPM (camel-jbpm)      * The jbpm component provides integration with jBPM (Business Process      * Management).      *       * Category: process      * Available as of version: 2.6      * Maven coordinates: org.apache.camel:camel-jbpm      *       * Syntax:<code>jbpm:connectionURL</code>      *       * Path parameter: connectionURL (required)      * The URL to the jBPM server.      *       * Path parameter: eventListenerType      * Sets the event listener type to attach to      */
 DECL|method|jBPM (String path)
 specifier|default
 name|JBPMEndpointBuilder

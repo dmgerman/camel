@@ -1893,7 +1893,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Olingo2 (camel-olingo2)      * Communicates with OData 2.0 services using Apache Olingo.      *       * Syntax:<code>olingo2:apiName/methodName</code>      * Category: cloud      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-olingo2      */
+comment|/**      * Olingo2 (camel-olingo2)      * Communicates with OData 2.0 services using Apache Olingo.      *       * Category: cloud      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-olingo2      *       * Syntax:<code>olingo2:apiName/methodName</code>      *       * Path parameter: apiName (required)      * What kind of operation to perform      * The value can be one of: DEFAULT      *       * Path parameter: methodName (required)      * What sub operation to use for the selected operation      */
 DECL|method|olingo2 (String path)
 specifier|default
 name|Olingo2EndpointBuilder

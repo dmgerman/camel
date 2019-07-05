@@ -1677,7 +1677,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Restlet (camel-restlet)      * Component for consuming and producing Restful resources using Restlet.      *       * Syntax:<code>restlet:protocol:host:port/uriPattern</code>      * Category: rest      * Available as of version: 2.0      * Maven coordinates: org.apache.camel:camel-restlet      */
+comment|/**      * Restlet (camel-restlet)      * Component for consuming and producing Restful resources using Restlet.      *       * Category: rest      * Available as of version: 2.0      * Maven coordinates: org.apache.camel:camel-restlet      *       * Syntax:<code>restlet:protocol:host:port/uriPattern</code>      *       * Path parameter: protocol (required)      * The protocol to use which is http or https      * The value can be one of: http,https      *       * Path parameter: host (required)      * The hostname of the restlet service      *       * Path parameter: port (required)      * The port number of the restlet service      * Default value: 80      *       * Path parameter: uriPattern      * The resource pattern such as /customer/{id}      */
 DECL|method|restlet (String path)
 specifier|default
 name|RestletEndpointBuilder

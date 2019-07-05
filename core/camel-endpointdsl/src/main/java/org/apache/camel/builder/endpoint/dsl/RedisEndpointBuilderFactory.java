@@ -1672,7 +1672,7 @@ block|,
 DECL|enumConstant|GEORADIUSBYMEMBER
 name|GEORADIUSBYMEMBER
 block|;     }
-comment|/**      * Spring Redis (camel-spring-redis)      * The spring-redis component allows sending and receiving messages from      * Redis.      *       * Syntax:<code>spring-redis:host:port</code>      * Category: spring,nosql      * Available as of version: 2.11      * Maven coordinates: org.apache.camel:camel-spring-redis      */
+comment|/**      * Spring Redis (camel-spring-redis)      * The spring-redis component allows sending and receiving messages from      * Redis.      *       * Category: spring,nosql      * Available as of version: 2.11      * Maven coordinates: org.apache.camel:camel-spring-redis      *       * Syntax:<code>spring-redis:host:port</code>      *       * Path parameter: host (required)      * The host where Redis server is running.      *       * Path parameter: port (required)      * Redis server port number      */
 DECL|method|redis (String path)
 specifier|default
 name|RedisEndpointBuilder

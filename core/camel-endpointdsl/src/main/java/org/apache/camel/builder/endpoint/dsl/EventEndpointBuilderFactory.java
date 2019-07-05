@@ -671,7 +671,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Spring Event (camel-spring)      * The spring-event component allows to listen for Spring Application      * Events.      *       * Syntax:<code>spring-event:name</code>      * Category: spring,eventbus      * Available as of version: 1.4      * Maven coordinates: org.apache.camel:camel-spring      */
+comment|/**      * Spring Event (camel-spring)      * The spring-event component allows to listen for Spring Application      * Events.      *       * Category: spring,eventbus      * Available as of version: 1.4      * Maven coordinates: org.apache.camel:camel-spring      *       * Syntax:<code>spring-event:name</code>      *       * Path parameter: name      * Name of endpoint      */
 DECL|method|event (String path)
 specifier|default
 name|EventEndpointBuilder

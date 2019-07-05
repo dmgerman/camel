@@ -1893,7 +1893,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Olingo4 (camel-olingo4)      * Communicates with OData 4.0 services using Apache Olingo OData API.      *       * Syntax:<code>olingo4:apiName/methodName</code>      * Category: cloud      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-olingo4      */
+comment|/**      * Olingo4 (camel-olingo4)      * Communicates with OData 4.0 services using Apache Olingo OData API.      *       * Category: cloud      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-olingo4      *       * Syntax:<code>olingo4:apiName/methodName</code>      *       * Path parameter: apiName (required)      * What kind of operation to perform      * The value can be one of: DEFAULT      *       * Path parameter: methodName (required)      * What sub operation to use for the selected operation      */
 DECL|method|olingo4 (String path)
 specifier|default
 name|Olingo4EndpointBuilder

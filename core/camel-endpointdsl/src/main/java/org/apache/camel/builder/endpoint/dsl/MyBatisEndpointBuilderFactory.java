@@ -1780,7 +1780,7 @@ block|,
 DECL|enumConstant|DeleteList
 name|DeleteList
 block|;     }
-comment|/**      * MyBatis (camel-mybatis)      * Performs a query, poll, insert, update or delete in a relational database      * using MyBatis.      *       * Syntax:<code>mybatis:statement</code>      * Category: database,sql      * Available as of version: 2.7      * Maven coordinates: org.apache.camel:camel-mybatis      */
+comment|/**      * MyBatis (camel-mybatis)      * Performs a query, poll, insert, update or delete in a relational database      * using MyBatis.      *       * Category: database,sql      * Available as of version: 2.7      * Maven coordinates: org.apache.camel:camel-mybatis      *       * Syntax:<code>mybatis:statement</code>      *       * Path parameter: statement (required)      * The statement name in the MyBatis XML mapping file which maps to the      * query, insert, update or delete operation you wish to evaluate.      */
 DECL|method|myBatis (String path)
 specifier|default
 name|MyBatisEndpointBuilder
