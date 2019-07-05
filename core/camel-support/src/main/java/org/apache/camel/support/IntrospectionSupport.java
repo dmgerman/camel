@@ -312,11 +312,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ObjectHelper
 operator|.
-name|isNotEmpty
+name|invokeMethodSafe
 import|;
 end_import
 
@@ -328,11 +328,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|invokeMethodSafe
+name|isNotEmpty
 import|;
 end_import
 
