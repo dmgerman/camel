@@ -74,7 +74,7 @@ name|eventPath
 decl_stmt|;
 DECL|field|eventDate
 specifier|private
-name|Date
+name|long
 name|eventDate
 decl_stmt|;
 DECL|method|FileEvent ()
@@ -86,8 +86,9 @@ name|this
 operator|.
 name|eventDate
 operator|=
-operator|new
-name|Date
+name|System
+operator|.
+name|currentTimeMillis
 argument_list|()
 expr_stmt|;
 block|}
@@ -102,6 +103,9 @@ name|Path
 name|eventPath
 parameter_list|)
 block|{
+name|this
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|eventType
@@ -123,6 +127,9 @@ name|DirectoryChangeEvent
 name|event
 parameter_list|)
 block|{
+name|this
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|eventType
@@ -169,7 +176,7 @@ return|;
 block|}
 DECL|method|getEventDate ()
 specifier|public
-name|Date
+name|long
 name|getEventDate
 parameter_list|()
 block|{

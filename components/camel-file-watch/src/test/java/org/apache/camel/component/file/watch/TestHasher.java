@@ -70,6 +70,10 @@ name|HashCode
 import|;
 end_import
 
+begin_comment
+comment|/**  * For unit test only!  */
+end_comment
+
 begin_class
 DECL|class|TestHasher
 specifier|public
@@ -93,7 +97,7 @@ name|IOException
 block|{
 comment|// Always return constant
 comment|// This should cause every event is triggered only once (hashcode remains the same), so we can test this.
-comment|// Never use this outside junit
+comment|// Never use this in production code
 return|return
 name|HashCode
 operator|.

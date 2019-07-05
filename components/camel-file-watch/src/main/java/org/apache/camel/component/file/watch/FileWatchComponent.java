@@ -124,7 +124,7 @@ specifier|final
 name|String
 name|EVENT_TYPE_HEADER
 init|=
-literal|"FileEventType"
+literal|"CamelFileEventType"
 decl_stmt|;
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
