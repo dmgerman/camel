@@ -474,7 +474,7 @@ name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|asString
+name|asList
 import|;
 end_import
 
@@ -490,7 +490,7 @@ name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|asList
+name|asString
 import|;
 end_import
 
