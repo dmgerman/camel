@@ -36,6 +36,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
 name|io
 operator|.
 name|methvin
@@ -62,6 +72,25 @@ specifier|private
 name|Path
 name|eventPath
 decl_stmt|;
+DECL|field|eventDate
+specifier|private
+name|Date
+name|eventDate
+decl_stmt|;
+DECL|method|FileEvent ()
+specifier|private
+name|FileEvent
+parameter_list|()
+block|{
+name|this
+operator|.
+name|eventDate
+operator|=
+operator|new
+name|Date
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|FileEvent (FileEventEnum eventType, Path eventPath)
 specifier|public
 name|FileEvent
@@ -128,22 +157,6 @@ return|return
 name|eventType
 return|;
 block|}
-DECL|method|setEventType (FileEventEnum eventType)
-specifier|public
-name|void
-name|setEventType
-parameter_list|(
-name|FileEventEnum
-name|eventType
-parameter_list|)
-block|{
-name|this
-operator|.
-name|eventType
-operator|=
-name|eventType
-expr_stmt|;
-block|}
 DECL|method|getEventPath ()
 specifier|public
 name|Path
@@ -154,21 +167,17 @@ return|return
 name|eventPath
 return|;
 block|}
-DECL|method|setEventPath (Path eventPath)
+DECL|method|getEventDate ()
 specifier|public
-name|void
-name|setEventPath
-parameter_list|(
-name|Path
-name|eventPath
-parameter_list|)
+name|Date
+name|getEventDate
+parameter_list|()
 block|{
+return|return
 name|this
 operator|.
-name|eventPath
-operator|=
-name|eventPath
-expr_stmt|;
+name|eventDate
+return|;
 block|}
 block|}
 end_class
