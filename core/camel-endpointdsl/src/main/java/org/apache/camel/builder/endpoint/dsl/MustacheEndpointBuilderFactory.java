@@ -343,7 +343,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Transforms the message using a Mustache template.      * Maven coordinates: org.apache.camel:camel-mustache      */
+comment|/**      * Mustache (camel-mustache)      * Transforms the message using a Mustache template.      *       * Syntax:<code>mustache:resourceUri</code>      * Category: transformation      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-mustache      */
 DECL|method|mustache (String path)
 specifier|default
 name|MustacheEndpointBuilder

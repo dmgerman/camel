@@ -1123,7 +1123,7 @@ block|,
 DECL|enumConstant|UNORDERED
 name|UNORDERED
 block|;     }
-comment|/**      * The Ignite Messaging endpoint is one of camel-ignite endpoints which      * allows you to send and consume messages from an Ignite topic.      * Maven coordinates: org.apache.camel:camel-ignite      */
+comment|/**      * Ignite Messaging (camel-ignite)      * The Ignite Messaging endpoint is one of camel-ignite endpoints which      * allows you to send and consume messages from an Ignite topic.      *       * Syntax:<code>ignite-messaging:topic</code>      * Category: nosql,cache,messaging      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-ignite      */
 DECL|method|igniteMessaging (String path)
 specifier|default
 name|IgniteMessagingEndpointBuilder

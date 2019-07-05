@@ -1800,7 +1800,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The telegram component provides access to the Telegram Bot API.      * Maven coordinates: org.apache.camel:camel-telegram      */
+comment|/**      * Telegram (camel-telegram)      * The telegram component provides access to the Telegram Bot API.      *       * Syntax:<code>telegram:type/authorizationToken</code>      * Category: chat      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-telegram      */
 DECL|method|telegram (String path)
 specifier|default
 name|TelegramEndpointBuilder

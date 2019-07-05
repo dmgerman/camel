@@ -1616,7 +1616,7 @@ block|,
 DECL|enumConstant|SASL
 name|SASL
 block|;     }
-comment|/**      * The Thrift component allows to call and expose remote procedures (RPC)      * with Apache Thrift data format and serialization mechanism      * Maven coordinates: org.apache.camel:camel-thrift      */
+comment|/**      * Thrift (camel-thrift)      * The Thrift component allows to call and expose remote procedures (RPC)      * with Apache Thrift data format and serialization mechanism      *       * Syntax:<code>thrift:host:port/service</code>      * Category: rpc      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-thrift      */
 DECL|method|thrift (String path)
 specifier|default
 name|ThriftEndpointBuilder

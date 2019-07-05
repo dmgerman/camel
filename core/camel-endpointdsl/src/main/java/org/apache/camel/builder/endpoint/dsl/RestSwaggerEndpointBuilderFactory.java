@@ -217,7 +217,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * An awesome REST endpoint backed by Swagger specifications.      * Maven coordinates: org.apache.camel:camel-rest-swagger      */
+comment|/**      * REST Swagger (camel-rest-swagger)      * An awesome REST endpoint backed by Swagger specifications.      *       * Syntax:<code>rest-swagger:specificationUri#operationId</code>      * Category: rest,swagger,http      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-rest-swagger      */
 DECL|method|restSwagger (String path)
 specifier|default
 name|RestSwaggerEndpointBuilder

@@ -2204,7 +2204,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The Kubernetes Namespaces component provides a producer to execute      * kubernetes namespace operations and a consumer to consume namespace      * events.      * Maven coordinates: org.apache.camel:camel-kubernetes      */
+comment|/**      * Kubernetes Namespaces (camel-kubernetes)      * The Kubernetes Namespaces component provides a producer to execute      * kubernetes namespace operations and a consumer to consume namespace      * events.      *       * Syntax:<code>kubernetes-namespaces:masterUrl</code>      * Category: container,cloud,paas      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-kubernetes      */
 DECL|method|kubernetesNamespaces (String path)
 specifier|default
 name|KubernetesNamespacesEndpointBuilder

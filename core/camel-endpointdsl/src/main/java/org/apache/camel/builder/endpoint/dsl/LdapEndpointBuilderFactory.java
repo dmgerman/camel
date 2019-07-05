@@ -343,7 +343,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The ldap component allows you to perform searches in LDAP servers using      * filters as the message payload.      * Maven coordinates: org.apache.camel:camel-ldap      */
+comment|/**      * LDAP (camel-ldap)      * The ldap component allows you to perform searches in LDAP servers using      * filters as the message payload.      *       * Syntax:<code>ldap:dirContextName</code>      * Category: ldap      * Available as of version: 1.5      * Maven coordinates: org.apache.camel:camel-ldap      */
 DECL|method|ldap (String path)
 specifier|default
 name|LdapEndpointBuilder

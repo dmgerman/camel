@@ -2918,7 +2918,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The nats component allows you produce and consume messages from NATS.      * Maven coordinates: org.apache.camel:camel-nats      */
+comment|/**      * Nats (camel-nats)      * The nats component allows you produce and consume messages from NATS.      *       * Syntax:<code>nats:servers</code>      * Category: messaging      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-nats      */
 DECL|method|nats (String path)
 specifier|default
 name|NatsEndpointBuilder

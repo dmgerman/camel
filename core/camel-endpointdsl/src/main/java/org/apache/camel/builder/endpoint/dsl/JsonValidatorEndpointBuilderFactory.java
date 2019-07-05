@@ -469,7 +469,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Validates the payload of a message using NetworkNT JSON Schema library.      * Maven coordinates: org.apache.camel:camel-json-validator      */
+comment|/**      * JSON Schema Validator (camel-json-validator)      * Validates the payload of a message using NetworkNT JSON Schema library.      *       * Syntax:<code>json-validator:resourceUri</code>      * Category: validation      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-json-validator      */
 DECL|method|jsonValidator (String path)
 specifier|default
 name|JsonValidatorEndpointBuilder

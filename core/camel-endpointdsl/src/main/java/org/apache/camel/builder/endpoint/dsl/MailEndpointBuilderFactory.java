@@ -4296,7 +4296,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * To send or receive emails using imap/pop3 or smtp protocols.      * Maven coordinates: org.apache.camel:camel-mail      */
+comment|/**      * IMAP (camel-mail)      * To send or receive emails using imap/pop3 or smtp protocols.      *       * Syntax:<code>imap:host:port</code>      * Category: mail      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-mail      */
 DECL|method|mail (String path)
 specifier|default
 name|MailEndpointBuilder

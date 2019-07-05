@@ -406,7 +406,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The aws-kinesis-firehose component is used for producing Amazon's Kinesis      * Firehose streams.      * Maven coordinates: org.apache.camel:camel-aws-kinesis      */
+comment|/**      * AWS Kinesis Firehose (camel-aws-kinesis)      * The aws-kinesis-firehose component is used for producing Amazon's Kinesis      * Firehose streams.      *       * Syntax:<code>aws-kinesis-firehose:streamName</code>      * Category: cloud,messaging      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-aws-kinesis      */
 DECL|method|kinesisFirehose (String path)
 specifier|default
 name|KinesisFirehoseEndpointBuilder

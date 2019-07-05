@@ -322,7 +322,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The lumberjack retrieves logs sent over the network using the Lumberjack      * protocol.      * Maven coordinates: org.apache.camel:camel-lumberjack      */
+comment|/**      * Lumberjack (camel-lumberjack)      * The lumberjack retrieves logs sent over the network using the Lumberjack      * protocol.      *       * Syntax:<code>lumberjack:host:port</code>      * Category: log      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-lumberjack      */
 DECL|method|lumberjack (String path)
 specifier|default
 name|LumberjackEndpointBuilder

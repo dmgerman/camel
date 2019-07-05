@@ -1458,7 +1458,7 @@ block|,
 DECL|enumConstant|force
 name|force
 block|;     }
-comment|/**      * For uploading, downloading and managing files, folders, groups,      * collaborations, etc on dropbox DOT com.      * Maven coordinates: org.apache.camel:camel-dropbox      */
+comment|/**      * Dropbox (camel-dropbox)      * For uploading, downloading and managing files, folders, groups,      * collaborations, etc on dropbox DOT com.      *       * Syntax:<code>dropbox:operation</code>      * Category: api,file      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-dropbox      */
 DECL|method|dropbox (String path)
 specifier|default
 name|DropboxEndpointBuilder

@@ -723,7 +723,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * To call external HTTP services using Async Http Client.      * Maven coordinates: org.apache.camel:camel-ahc      */
+comment|/**      * AHC (camel-ahc)      * To call external HTTP services using Async Http Client.      *       * Syntax:<code>ahc:httpUri</code>      * Category: http      * Available as of version: 2.8      * Maven coordinates: org.apache.camel:camel-ahc      */
 DECL|method|ahc (String path)
 specifier|default
 name|AhcEndpointBuilder

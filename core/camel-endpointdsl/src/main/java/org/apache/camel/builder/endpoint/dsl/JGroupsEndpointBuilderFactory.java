@@ -839,7 +839,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The jgroups component provides exchange of messages between Camel and      * JGroups clusters.      * Maven coordinates: org.apache.camel:camel-jgroups      */
+comment|/**      * JGroups (camel-jgroups)      * The jgroups component provides exchange of messages between Camel and      * JGroups clusters.      *       * Syntax:<code>jgroups:clusterName</code>      * Category: clustering,messaging      * Available as of version: 2.13      * Maven coordinates: org.apache.camel:camel-jgroups      */
 DECL|method|jGroups (String path)
 specifier|default
 name|JGroupsEndpointBuilder

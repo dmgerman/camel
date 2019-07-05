@@ -679,7 +679,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The solr component allows you to interface with an Apache Lucene Solr      * server.      * Maven coordinates: org.apache.camel:camel-solr      */
+comment|/**      * Solr (camel-solr)      * The solr component allows you to interface with an Apache Lucene Solr      * server.      *       * Syntax:<code>solr:url</code>      * Category: monitoring,search      * Available as of version: 2.9      * Maven coordinates: org.apache.camel:camel-solr      */
 DECL|method|solr (String path)
 specifier|default
 name|SolrEndpointBuilder

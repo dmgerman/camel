@@ -1816,7 +1816,7 @@ block|,
 DECL|enumConstant|MEMORY
 name|MEMORY
 block|;     }
-comment|/**      * Component for communicating with MQTT M2M message brokers using Eclipse      * Paho MQTT Client.      * Maven coordinates: org.apache.camel:camel-paho      */
+comment|/**      * Paho (camel-paho)      * Component for communicating with MQTT M2M message brokers using Eclipse      * Paho MQTT Client.      *       * Syntax:<code>paho:topic</code>      * Category: messaging,iot      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-paho      */
 DECL|method|paho (String path)
 specifier|default
 name|PahoEndpointBuilder

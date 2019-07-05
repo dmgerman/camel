@@ -427,7 +427,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The openstack-swift component allows messages to be sent to an OpenStack      * object storage services.      * Maven coordinates: org.apache.camel:camel-openstack      */
+comment|/**      * OpenStack Swift (camel-openstack)      * The openstack-swift component allows messages to be sent to an OpenStack      * object storage services.      *       * Syntax:<code>openstack-swift:host</code>      * Category: cloud,paas      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-openstack      */
 DECL|method|swift (String path)
 specifier|default
 name|SwiftEndpointBuilder

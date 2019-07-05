@@ -1252,7 +1252,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The stomp component is used for communicating with Stomp compliant      * message brokers.      * Maven coordinates: org.apache.camel:camel-stomp      */
+comment|/**      * Stomp (camel-stomp)      * The stomp component is used for communicating with Stomp compliant      * message brokers.      *       * Syntax:<code>stomp:destination</code>      * Category: messaging      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-stomp      */
 DECL|method|stomp (String path)
 specifier|default
 name|StompEndpointBuilder

@@ -2204,7 +2204,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The Kubernetes Service Accounts component provides a producer to execute      * service operations and a consumer to consume service events.      * Maven coordinates: org.apache.camel:camel-kubernetes      */
+comment|/**      * Kubernetes Services (camel-kubernetes)      * The Kubernetes Service Accounts component provides a producer to execute      * service operations and a consumer to consume service events.      *       * Syntax:<code>kubernetes-services:masterUrl</code>      * Category: container,cloud,paas      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-kubernetes      */
 DECL|method|kubernetesServices (String path)
 specifier|default
 name|KubernetesServicesEndpointBuilder

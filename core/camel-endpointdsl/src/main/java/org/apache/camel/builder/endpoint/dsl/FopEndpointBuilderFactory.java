@@ -357,7 +357,7 @@ block|,
 DECL|enumConstant|txt
 name|txt
 block|;     }
-comment|/**      * The fop component allows you to render a message into different output      * formats using Apache FOP.      * Maven coordinates: org.apache.camel:camel-fop      */
+comment|/**      * FOP (camel-fop)      * The fop component allows you to render a message into different output      * formats using Apache FOP.      *       * Syntax:<code>fop:outputType</code>      * Category: transformation      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-fop      */
 DECL|method|fop (String path)
 specifier|default
 name|FopEndpointBuilder

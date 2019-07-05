@@ -574,7 +574,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Validates the payload of a message using XML Schema and JAXP Validation.      * Maven coordinates: org.apache.camel:camel-validator      */
+comment|/**      * Validator (camel-validator)      * Validates the payload of a message using XML Schema and JAXP Validation.      *       * Syntax:<code>validator:resourceUri</code>      * Category: core,validation      * Available as of version: 1.1      * Maven coordinates: org.apache.camel:camel-validator      */
 DECL|method|validator (String path)
 specifier|default
 name|ValidatorEndpointBuilder

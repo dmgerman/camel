@@ -563,7 +563,7 @@ block|,
 DECL|enumConstant|stop
 name|stop
 block|;     }
-comment|/**      * To collect various metrics directly from Camel routes using the      * DropWizard metrics library.      * Maven coordinates: org.apache.camel:camel-metrics      */
+comment|/**      * Metrics (camel-metrics)      * To collect various metrics directly from Camel routes using the      * DropWizard metrics library.      *       * Syntax:<code>metrics:metricsType:metricsName</code>      * Category: monitoring      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-metrics      */
 DECL|method|metrics (String path)
 specifier|default
 name|MetricsEndpointBuilder

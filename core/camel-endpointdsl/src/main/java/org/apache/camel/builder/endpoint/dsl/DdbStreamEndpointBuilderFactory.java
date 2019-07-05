@@ -360,7 +360,7 @@ block|,
 DECL|enumConstant|AFTER_SEQUENCE_NUMBER
 name|AFTER_SEQUENCE_NUMBER
 block|;     }
-comment|/**      * The aws-ddbstream component is used for working with Amazon DynamoDB      * Streams.      * Maven coordinates: org.apache.camel:camel-aws-ddb      */
+comment|/**      * AWS DynamoDB Streams (camel-aws-ddb)      * The aws-ddbstream component is used for working with Amazon DynamoDB      * Streams.      *       * Syntax:<code>aws-ddbstream:tableName</code>      * Category: cloud,messaging,streams      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-aws-ddb      */
 DECL|method|ddbStream (String path)
 specifier|default
 name|DdbStreamEndpointBuilder

@@ -1624,7 +1624,7 @@ block|,
 DECL|enumConstant|time_based
 name|time_based
 block|;     }
-comment|/**      * The caffeine-cache component is used for integration with Caffeine Cache.      *       * Maven coordinates: org.apache.camel:camel-caffeine      */
+comment|/**      * Caffeine Cache (camel-caffeine)      * The caffeine-cache component is used for integration with Caffeine Cache.      *       * Syntax:<code>caffeine-cache:cacheName</code>      * Category: cache,datagrid,clustering      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-caffeine      */
 DECL|method|caffeineCache (String path)
 specifier|default
 name|CaffeineCacheEndpointBuilder

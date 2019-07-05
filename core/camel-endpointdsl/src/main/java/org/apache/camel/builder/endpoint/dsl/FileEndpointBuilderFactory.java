@@ -4755,7 +4755,7 @@ block|,
 DECL|enumConstant|TryRename
 name|TryRename
 block|;     }
-comment|/**      * The file component is used for reading or writing files.      * Maven coordinates: org.apache.camel:camel-file      */
+comment|/**      * File (camel-file)      * The file component is used for reading or writing files.      *       * Syntax:<code>file:directoryName</code>      * Category: core,file      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-file      */
 DECL|method|file (String path)
 specifier|default
 name|FileEndpointBuilder

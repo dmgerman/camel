@@ -2078,7 +2078,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The cometd component is a transport for working with the Jetty      * implementation of the cometd/bayeux protocol.      * Maven coordinates: org.apache.camel:camel-cometd      */
+comment|/**      * CometD (camel-cometd)      * The cometd component is a transport for working with the Jetty      * implementation of the cometd/bayeux protocol.      *       * Syntax:<code>cometd:host:port/channelName</code>      * Category: websocket      * Available as of version: 2.0      * Maven coordinates: org.apache.camel:camel-cometd      */
 DECL|method|cometd (String path)
 specifier|default
 name|CometdEndpointBuilder

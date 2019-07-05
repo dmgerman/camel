@@ -860,7 +860,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The direct component provides direct, synchronous call to another      * endpoint from the same CamelContext.      * Maven coordinates: org.apache.camel:camel-direct      */
+comment|/**      * Direct (camel-direct)      * The direct component provides direct, synchronous call to another      * endpoint from the same CamelContext.      *       * Syntax:<code>direct:name</code>      * Category: core,endpoint      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-direct      */
 DECL|method|direct (String path)
 specifier|default
 name|DirectEndpointBuilder

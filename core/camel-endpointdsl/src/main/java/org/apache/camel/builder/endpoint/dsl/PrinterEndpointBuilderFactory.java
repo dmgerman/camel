@@ -574,7 +574,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The printer component is used for sending messages to printers as print      * jobs.      * Maven coordinates: org.apache.camel:camel-printer      */
+comment|/**      * Printer (camel-printer)      * The printer component is used for sending messages to printers as print      * jobs.      *       * Syntax:<code>lpr:hostname:port/printername</code>      * Category: printing      * Available as of version: 2.1      * Maven coordinates: org.apache.camel:camel-printer      */
 DECL|method|printer (String path)
 specifier|default
 name|PrinterEndpointBuilder

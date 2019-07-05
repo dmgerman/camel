@@ -1519,7 +1519,7 @@ block|,
 DECL|enumConstant|SETTINGS
 name|SETTINGS
 block|;     }
-comment|/**      * The google-calendar component provides access to Google Calendar.      * Maven coordinates: org.apache.camel:camel-google-calendar      */
+comment|/**      * Google Calendar (camel-google-calendar)      * The google-calendar component provides access to Google Calendar.      *       * Syntax:<code>google-calendar:apiName/methodName</code>      * Category: api,cloud      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-google-calendar      */
 DECL|method|googleCalendar (String path)
 specifier|default
 name|GoogleCalendarEndpointBuilder

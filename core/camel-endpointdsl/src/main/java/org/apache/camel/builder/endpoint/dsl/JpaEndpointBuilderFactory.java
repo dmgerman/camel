@@ -3137,7 +3137,7 @@ block|,
 DECL|enumConstant|NONE
 name|NONE
 block|;     }
-comment|/**      * The jpa component enables you to store and retrieve Java objects from      * databases using JPA.      * Maven coordinates: org.apache.camel:camel-jpa      */
+comment|/**      * JPA (camel-jpa)      * The jpa component enables you to store and retrieve Java objects from      * databases using JPA.      *       * Syntax:<code>jpa:entityType</code>      * Category: database,sql      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-jpa      */
 DECL|method|jpa (String path)
 specifier|default
 name|JpaEndpointBuilder

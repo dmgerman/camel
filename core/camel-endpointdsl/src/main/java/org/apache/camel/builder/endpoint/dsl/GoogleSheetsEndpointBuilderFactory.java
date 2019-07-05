@@ -1249,7 +1249,7 @@ block|,
 DECL|enumConstant|DATA
 name|DATA
 block|;     }
-comment|/**      * The google-sheets component provides access to Google Sheets.      * Maven coordinates: org.apache.camel:camel-google-sheets      */
+comment|/**      * Google Sheets (camel-google-sheets)      * The google-sheets component provides access to Google Sheets.      *       * Syntax:<code>google-sheets:apiName/methodName</code>      * Category: api,cloud,sheets      * Available as of version: 2.23      * Maven coordinates: org.apache.camel:camel-google-sheets      */
 DECL|method|googleSheets (String path)
 specifier|default
 name|GoogleSheetsEndpointBuilder

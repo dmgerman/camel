@@ -651,7 +651,7 @@ block|,
 DECL|enumConstant|UpdateTable
 name|UpdateTable
 block|;     }
-comment|/**      * The aws-ddb component is used for storing and retrieving data from      * Amazon's DynamoDB service.      * Maven coordinates: org.apache.camel:camel-aws-ddb      */
+comment|/**      * AWS DynamoDB (camel-aws-ddb)      * The aws-ddb component is used for storing and retrieving data from      * Amazon's DynamoDB service.      *       * Syntax:<code>aws-ddb:tableName</code>      * Category: cloud,database,nosql      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-aws-ddb      */
 DECL|method|ddb (String path)
 specifier|default
 name|DdbEndpointBuilder

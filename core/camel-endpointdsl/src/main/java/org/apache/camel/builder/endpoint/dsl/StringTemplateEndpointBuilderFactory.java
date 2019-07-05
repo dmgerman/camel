@@ -364,7 +364,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Transforms the message using a String template.      * Maven coordinates: org.apache.camel:camel-stringtemplate      */
+comment|/**      * String Template (camel-stringtemplate)      * Transforms the message using a String template.      *       * Syntax:<code>string-template:resourceUri</code>      * Category: transformation      * Available as of version: 1.2      * Maven coordinates: org.apache.camel:camel-stringtemplate      */
 DECL|method|stringTemplate (String path)
 specifier|default
 name|StringTemplateEndpointBuilder

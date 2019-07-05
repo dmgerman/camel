@@ -364,7 +364,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Transforms the message using a Velocity template.      * Maven coordinates: org.apache.camel:camel-velocity      */
+comment|/**      * Velocity (camel-velocity)      * Transforms the message using a Velocity template.      *       * Syntax:<code>velocity:resourceUri</code>      * Category: transformation      * Available as of version: 1.2      * Maven coordinates: org.apache.camel:camel-velocity      */
 DECL|method|velocity (String path)
 specifier|default
 name|VelocityEndpointBuilder

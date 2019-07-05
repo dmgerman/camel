@@ -270,7 +270,7 @@ block|,
 DECL|enumConstant|COMPENSATE
 name|COMPENSATE
 block|;     }
-comment|/**      * The saga component provides access to advanced options for managing the      * flow in the Saga EIP.      * Maven coordinates: org.apache.camel:camel-saga      */
+comment|/**      * Saga (camel-saga)      * The saga component provides access to advanced options for managing the      * flow in the Saga EIP.      *       * Syntax:<code>saga:action</code>      * Category: core,endpoint      * Available as of version: 2.21      * Maven coordinates: org.apache.camel:camel-saga      */
 DECL|method|saga (String path)
 specifier|default
 name|SagaEndpointBuilder

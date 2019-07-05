@@ -1459,7 +1459,7 @@ block|,
 DECL|enumConstant|WATCHERS
 name|WATCHERS
 block|;     }
-comment|/**      * The jira component interacts with the JIRA issue tracker.      * Maven coordinates: org.apache.camel:camel-jira      */
+comment|/**      * Jira (camel-jira)      * The jira component interacts with the JIRA issue tracker.      *       * Syntax:<code>jira:type</code>      * Category: api,reporting      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-jira      */
 DECL|method|jira (String path)
 specifier|default
 name|JiraEndpointBuilder

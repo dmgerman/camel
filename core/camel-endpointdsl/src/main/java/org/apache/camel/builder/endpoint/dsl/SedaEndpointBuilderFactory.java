@@ -1472,7 +1472,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The seda component provides asynchronous call to another endpoint from      * any CamelContext in the same JVM.      * Maven coordinates: org.apache.camel:camel-seda      */
+comment|/**      * SEDA (camel-seda)      * The seda component provides asynchronous call to another endpoint from      * any CamelContext in the same JVM.      *       * Syntax:<code>seda:name</code>      * Category: core,endpoint      * Available as of version: 1.1      * Maven coordinates: org.apache.camel:camel-seda      */
 DECL|method|seda (String path)
 specifier|default
 name|SedaEndpointBuilder

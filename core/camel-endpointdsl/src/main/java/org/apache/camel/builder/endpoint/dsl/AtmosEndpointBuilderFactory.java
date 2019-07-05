@@ -1447,7 +1447,7 @@ block|,
 DECL|enumConstant|move
 name|move
 block|;     }
-comment|/**      * The atmos component is used for integrating with EMC's Atomos Storage.      * Maven coordinates: org.apache.camel:camel-atmos      */
+comment|/**      * Atmos (camel-atmos)      * The atmos component is used for integrating with EMC's Atomos Storage.      *       * Syntax:<code>atmos:name/operation</code>      * Category: file,cloud      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-atmos      */
 DECL|method|atmos (String path)
 specifier|default
 name|AtmosEndpointBuilder

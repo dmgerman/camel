@@ -986,7 +986,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The quickfix component allows to send Financial Interchange (FIX)      * messages to the QuickFix engine.      * Maven coordinates: org.apache.camel:camel-quickfix      */
+comment|/**      * QuickFix (camel-quickfix)      * The quickfix component allows to send Financial Interchange (FIX)      * messages to the QuickFix engine.      *       * Syntax:<code>quickfix:configurationName</code>      * Category: messaging      * Available as of version: 2.1      * Maven coordinates: org.apache.camel:camel-quickfix      */
 DECL|method|quickfixj (String path)
 specifier|default
 name|QuickfixjEndpointBuilder

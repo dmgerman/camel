@@ -2394,7 +2394,7 @@ block|,
 DECL|enumConstant|PLAINTEXT
 name|PLAINTEXT
 block|;     }
-comment|/**      * The gRPC component allows to call and expose remote procedures via HTTP/2      * with protobuf dataformat      * Maven coordinates: org.apache.camel:camel-grpc      */
+comment|/**      * gRPC (camel-grpc)      * The gRPC component allows to call and expose remote procedures via HTTP/2      * with protobuf dataformat      *       * Syntax:<code>grpc:host:port/service</code>      * Category: rpc      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-grpc      */
 DECL|method|grpc (String path)
 specifier|default
 name|GrpcEndpointBuilder

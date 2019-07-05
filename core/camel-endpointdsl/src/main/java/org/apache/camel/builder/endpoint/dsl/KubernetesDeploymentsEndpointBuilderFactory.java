@@ -2204,7 +2204,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The Kubernetes Nodes component provides a producer to execute kubernetes      * node operations and a consumer to consume node events.      * Maven coordinates: org.apache.camel:camel-kubernetes      */
+comment|/**      * Kubernetes Deployments (camel-kubernetes)      * The Kubernetes Nodes component provides a producer to execute kubernetes      * node operations and a consumer to consume node events.      *       * Syntax:<code>kubernetes-deployments:masterUrl</code>      * Category: container,cloud,paas      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-kubernetes      */
 DECL|method|kubernetesDeployments ( String path)
 specifier|default
 name|KubernetesDeploymentsEndpointBuilder

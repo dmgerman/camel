@@ -1363,7 +1363,7 @@ block|,
 DECL|enumConstant|json_xml
 name|json_xml
 block|;     }
-comment|/**      * The rest component is used for either hosting REST services (consumer) or      * calling external REST services (producer).      * Maven coordinates: org.apache.camel:camel-rest      */
+comment|/**      * REST (camel-rest)      * The rest component is used for either hosting REST services (consumer) or      * calling external REST services (producer).      *       * Syntax:<code>rest:method:path:uriTemplate</code>      * Category: core,rest      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-rest      */
 DECL|method|restEndpoint (String path)
 specifier|default
 name|RestEndpointBuilder

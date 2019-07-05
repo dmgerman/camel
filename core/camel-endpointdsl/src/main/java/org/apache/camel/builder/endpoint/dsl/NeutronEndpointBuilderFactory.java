@@ -427,7 +427,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The openstack-neutron component allows messages to be sent to an      * OpenStack network services.      * Maven coordinates: org.apache.camel:camel-openstack      */
+comment|/**      * OpenStack Neutron (camel-openstack)      * The openstack-neutron component allows messages to be sent to an      * OpenStack network services.      *       * Syntax:<code>openstack-neutron:host</code>      * Category: cloud,paas      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-openstack      */
 DECL|method|neutron (String path)
 specifier|default
 name|NeutronEndpointBuilder

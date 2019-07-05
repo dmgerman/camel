@@ -3389,7 +3389,7 @@ block|,
 DECL|enumConstant|MAC
 name|MAC
 block|;     }
-comment|/**      * Socket level networking using TCP or UDP with the Apache Mina 2.x      * library.      * Maven coordinates: org.apache.camel:camel-mina2      */
+comment|/**      * Mina2 (camel-mina2)      * Socket level networking using TCP or UDP with the Apache Mina 2.x      * library.      *       * Syntax:<code>mina:protocol:host:port</code>      * Category: networking,tcp,udp      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-mina2      */
 DECL|method|mina2 (String path)
 specifier|default
 name|Mina2EndpointBuilder

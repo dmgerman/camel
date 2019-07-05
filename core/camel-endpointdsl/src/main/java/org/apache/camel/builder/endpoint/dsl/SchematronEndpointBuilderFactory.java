@@ -364,7 +364,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Validates the payload of a message using the Schematron Library.      * Maven coordinates: org.apache.camel:camel-schematron      */
+comment|/**      * Schematron (camel-schematron)      * Validates the payload of a message using the Schematron Library.      *       * Syntax:<code>schematron:path</code>      * Category: validation      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-schematron      */
 DECL|method|schematron (String path)
 specifier|default
 name|SchematronEndpointBuilder

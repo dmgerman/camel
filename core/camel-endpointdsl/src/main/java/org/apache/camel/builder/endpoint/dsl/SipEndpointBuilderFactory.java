@@ -4879,7 +4879,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * To send and receive messages using the SIP protocol (used in telco and      * mobile).      * Maven coordinates: org.apache.camel:camel-sip      */
+comment|/**      * SIP (camel-sip)      * To send and receive messages using the SIP protocol (used in telco and      * mobile).      *       * Syntax:<code>sip:uri</code>      * Category: mobile      * Available as of version: 2.5      * Maven coordinates: org.apache.camel:camel-sip      */
 DECL|method|sip (String path)
 specifier|default
 name|SipEndpointBuilder

@@ -3658,7 +3658,7 @@ block|,
 DECL|enumConstant|POJO
 name|POJO
 block|;     }
-comment|/**      * The cxf component is used for SOAP WebServices using Apache CXF.      * Maven coordinates: org.apache.camel:camel-cxf      */
+comment|/**      * CXF (camel-cxf)      * The cxf component is used for SOAP WebServices using Apache CXF.      *       * Syntax:<code>cxf:beanId:address</code>      * Category: soap,webservice      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-cxf      */
 DECL|method|cxf (String path)
 specifier|default
 name|CxfEndpointBuilder

@@ -1264,7 +1264,7 @@ block|,
 DECL|enumConstant|USERS
 name|USERS
 block|;     }
-comment|/**      * The google-mail component provides access to Google Mail.      * Maven coordinates: org.apache.camel:camel-google-mail      */
+comment|/**      * Google Mail (camel-google-mail)      * The google-mail component provides access to Google Mail.      *       * Syntax:<code>google-mail:apiName/methodName</code>      * Category: api,cloud,mail      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-google-mail      */
 DECL|method|googleMail (String path)
 specifier|default
 name|GoogleMailEndpointBuilder

@@ -2787,7 +2787,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Provides functionality required by Healthcare providers to communicate      * with other systems using the MLLP protocol.      * Maven coordinates: org.apache.camel:camel-mllp      */
+comment|/**      * MLLP (camel-mllp)      * Provides functionality required by Healthcare providers to communicate      * with other systems using the MLLP protocol.      *       * Syntax:<code>mllp:hostname:port</code>      * Category: mllp      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-mllp      */
 DECL|method|mllp (String path)
 specifier|default
 name|MllpEndpointBuilder

@@ -739,7 +739,7 @@ block|,
 DECL|enumConstant|DOUBLE
 name|DOUBLE
 block|;     }
-comment|/**      * The ganglia component is used for sending metrics to the Ganglia      * monitoring system.      * Maven coordinates: org.apache.camel:camel-ganglia      */
+comment|/**      * Ganglia (camel-ganglia)      * The ganglia component is used for sending metrics to the Ganglia      * monitoring system.      *       * Syntax:<code>ganglia:host:port</code>      * Category: monitoring      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-ganglia      */
 DECL|method|ganglia (String path)
 specifier|default
 name|GangliaEndpointBuilder

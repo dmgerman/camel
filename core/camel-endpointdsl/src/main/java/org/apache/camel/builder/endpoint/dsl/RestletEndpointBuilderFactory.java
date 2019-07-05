@@ -1992,7 +1992,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Component for consuming and producing Restful resources using Restlet.      * Maven coordinates: org.apache.camel:camel-restlet      */
+comment|/**      * Restlet (camel-restlet)      * Component for consuming and producing Restful resources using Restlet.      *       * Syntax:<code>restlet:protocol:host:port/uriPattern</code>      * Category: rest      * Available as of version: 2.0      * Maven coordinates: org.apache.camel:camel-restlet      */
 DECL|method|restlet (String path)
 specifier|default
 name|RestletEndpointBuilder

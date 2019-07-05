@@ -542,7 +542,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The rss component is used for consuming RSS feeds.      * Maven coordinates: org.apache.camel:camel-rss      */
+comment|/**      * RSS (camel-rss)      * The rss component is used for consuming RSS feeds.      *       * Syntax:<code>rss:feedUri</code>      * Category: rss      * Available as of version: 2.0      * Maven coordinates: org.apache.camel:camel-rss      */
 DECL|method|rss (String path)
 specifier|default
 name|RssEndpointBuilder

@@ -2988,7 +2988,7 @@ block|,
 DECL|enumConstant|GE
 name|GE
 block|;     }
-comment|/**      * The jt400 component allows you to exchanges messages with an AS/400      * system using data queues or program call.      * Maven coordinates: org.apache.camel:camel-jt400      */
+comment|/**      * JT400 (camel-jt400)      * The jt400 component allows you to exchanges messages with an AS/400      * system using data queues or program call.      *       * Syntax:<code>jt400:userID:password/systemName/objectPath.type</code>      * Category: messaging      * Available as of version: 1.5      * Maven coordinates: org.apache.camel:camel-jt400      */
 DECL|method|jt400 (String path)
 specifier|default
 name|Jt400EndpointBuilder

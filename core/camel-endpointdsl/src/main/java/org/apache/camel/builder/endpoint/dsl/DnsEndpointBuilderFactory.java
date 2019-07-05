@@ -276,7 +276,7 @@ block|,
 DECL|enumConstant|wikipedia
 name|wikipedia
 block|;     }
-comment|/**      * To lookup domain information and run DNS queries using DNSJava.      * Maven coordinates: org.apache.camel:camel-dns      */
+comment|/**      * DNS (camel-dns)      * To lookup domain information and run DNS queries using DNSJava.      *       * Syntax:<code>dns:dnsType</code>      * Category: networking      * Available as of version: 2.7      * Maven coordinates: org.apache.camel:camel-dns      */
 DECL|method|dns (String path)
 specifier|default
 name|DnsEndpointBuilder

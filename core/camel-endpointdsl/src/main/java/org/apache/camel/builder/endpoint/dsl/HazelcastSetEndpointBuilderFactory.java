@@ -2055,7 +2055,7 @@ block|,
 DECL|enumConstant|poll
 name|poll
 block|;     }
-comment|/**      * The camel Endpoint to access Hazelcast distributed set.      * Maven coordinates: org.apache.camel:camel-hazelcast      */
+comment|/**      * Hazelcast Set (camel-hazelcast)      * The camel Endpoint to access Hazelcast distributed set.      *       * Syntax:<code>hazelcast-set:cacheName</code>      * Category: cache,datagrid      * Available as of version: 2.7      * Maven coordinates: org.apache.camel:camel-hazelcast      */
 DECL|method|hazelcastSet (String path)
 specifier|default
 name|HazelcastSetEndpointBuilder

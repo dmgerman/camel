@@ -1427,7 +1427,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Represents a nsq endpoint.      * Maven coordinates: org.apache.camel:camel-nsq      */
+comment|/**      * NSQ (camel-nsq)      * Represents a nsq endpoint.      *       * Syntax:<code>nsq:servers</code>      * Category: messaging      * Available as of version: 2.23      * Maven coordinates: org.apache.camel:camel-nsq      */
 DECL|method|nsq (String path)
 specifier|default
 name|NsqEndpointBuilder

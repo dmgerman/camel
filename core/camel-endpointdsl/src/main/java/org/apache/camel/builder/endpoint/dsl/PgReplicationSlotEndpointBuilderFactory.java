@@ -526,7 +526,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Consumer endpoint to receive from PostgreSQL Replication Slot.      * Maven coordinates: org.apache.camel:camel-pg-replication-slot      */
+comment|/**      * PostgresSQL Replication Slot (camel-pg-replication-slot)      * Consumer endpoint to receive from PostgreSQL Replication Slot.      *       * Syntax:<code>pg-replication-slot:host:port/database/slot:plugin</code>      * Category: database,sql      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-pg-replication-slot      */
 DECL|method|pgReplicationSlot (String path)
 specifier|default
 name|PgReplicationSlotEndpointBuilder

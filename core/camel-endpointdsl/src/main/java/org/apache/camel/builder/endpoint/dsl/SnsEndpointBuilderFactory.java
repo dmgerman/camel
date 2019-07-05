@@ -735,7 +735,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The aws-sns component is used for sending messages to an Amazon Simple      * Notification Topic.      * Maven coordinates: org.apache.camel:camel-aws-sns      */
+comment|/**      * AWS Simple Notification System (camel-aws-sns)      * The aws-sns component is used for sending messages to an Amazon Simple      * Notification Topic.      *       * Syntax:<code>aws-sns:topicNameOrArn</code>      * Category: cloud,mobile,messaging      * Available as of version: 2.8      * Maven coordinates: org.apache.camel:camel-aws-sns      */
 DECL|method|sns (String path)
 specifier|default
 name|SnsEndpointBuilder

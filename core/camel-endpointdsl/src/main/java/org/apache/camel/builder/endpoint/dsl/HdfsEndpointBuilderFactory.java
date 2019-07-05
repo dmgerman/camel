@@ -3592,7 +3592,7 @@ block|,
 DECL|enumConstant|BLOCK
 name|BLOCK
 block|;     }
-comment|/**      * For reading/writing from/to an HDFS filesystem using Hadoop 2.x.      * Maven coordinates: org.apache.camel:camel-hdfs2      */
+comment|/**      * HDFS2 (camel-hdfs2)      * For reading/writing from/to an HDFS filesystem using Hadoop 2.x.      *       * Syntax:<code>hdfs:hostName:port/path</code>      * Category: hadoop,file      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-hdfs2      */
 DECL|method|hdfs (String path)
 specifier|default
 name|HdfsEndpointBuilder

@@ -8410,7 +8410,7 @@ block|,
 DECL|enumConstant|TryRename
 name|TryRename
 block|;     }
-comment|/**      * The ftps (FTP secure SSL/TLS) component is used for uploading or      * downloading files from FTP servers.      * Maven coordinates: org.apache.camel:camel-ftp      */
+comment|/**      * FTPS (camel-ftp)      * The ftps (FTP secure SSL/TLS) component is used for uploading or      * downloading files from FTP servers.      *       * Syntax:<code>ftps:host:port/directoryName</code>      * Category: file      * Available as of version: 2.2      * Maven coordinates: org.apache.camel:camel-ftp      */
 DECL|method|ftps (String path)
 specifier|default
 name|FtpsEndpointBuilder

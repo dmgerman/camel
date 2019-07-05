@@ -734,7 +734,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The camel consul component allows you to work with Consul, a distributed,      * highly available, datacenter-aware, service discovery and configuration      * system.      * Maven coordinates: org.apache.camel:camel-consul      */
+comment|/**      * Consul (camel-consul)      * The camel consul component allows you to work with Consul, a distributed,      * highly available, datacenter-aware, service discovery and configuration      * system.      *       * Syntax:<code>consul:apiEndpoint</code>      * Category: api,cloud      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-consul      */
 DECL|method|consul (String path)
 specifier|default
 name|ConsulEndpointBuilder

@@ -2116,7 +2116,7 @@ block|,
 DECL|enumConstant|downloadFile
 name|downloadFile
 block|;     }
-comment|/**      * To integrate with the Soroush chat bot.      * Maven coordinates: org.apache.camel:camel-soroush      */
+comment|/**      * Soroush (camel-soroush)      * To integrate with the Soroush chat bot.      *       * Syntax:<code>soroush:action/authorizationToken</code>      * Category: chat      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-soroush      */
 DECL|method|soroushBot (String path)
 specifier|default
 name|SoroushBotEndpointBuilder

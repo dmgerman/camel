@@ -2247,7 +2247,7 @@ block|,
 DECL|enumConstant|LOCAL
 name|LOCAL
 block|;     }
-comment|/**      * The atomix-queue component is used to access Atomix's distributed queue.      * Maven coordinates: org.apache.camel:camel-atomix      */
+comment|/**      * Atomix Queue (camel-atomix)      * The atomix-queue component is used to access Atomix's distributed queue.      *       * Syntax:<code>atomix-queue:resourceName</code>      * Category: clustering      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-atomix      */
 DECL|method|atomixQueue (String path)
 specifier|default
 name|AtomixQueueEndpointBuilder

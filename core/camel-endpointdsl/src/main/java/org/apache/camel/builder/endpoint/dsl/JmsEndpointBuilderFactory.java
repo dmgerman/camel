@@ -7458,7 +7458,7 @@ block|,
 DECL|enumConstant|Exclusive
 name|Exclusive
 block|;     }
-comment|/**      * The jms component allows messages to be sent to (or consumed from) a JMS      * Queue or Topic.      * Maven coordinates: org.apache.camel:camel-jms      */
+comment|/**      * JMS (camel-jms)      * The jms component allows messages to be sent to (or consumed from) a JMS      * Queue or Topic.      *       * Syntax:<code>jms:destinationType:destinationName</code>      * Category: messaging      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-jms      */
 DECL|method|jms (String path)
 specifier|default
 name|JmsEndpointBuilder

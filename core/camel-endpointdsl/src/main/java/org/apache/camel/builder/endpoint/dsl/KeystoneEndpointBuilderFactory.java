@@ -406,7 +406,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The openstack-keystone component allows messages to be sent to an      * OpenStack identity services.      * Maven coordinates: org.apache.camel:camel-openstack      */
+comment|/**      * OpenStack Keystone (camel-openstack)      * The openstack-keystone component allows messages to be sent to an      * OpenStack identity services.      *       * Syntax:<code>openstack-keystone:host</code>      * Category: cloud,paas      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-openstack      */
 DECL|method|keystone (String path)
 specifier|default
 name|KeystoneEndpointBuilder

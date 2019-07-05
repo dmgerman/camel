@@ -1723,7 +1723,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * For reading/writing from/to an HBase store (Hadoop database).      * Maven coordinates: org.apache.camel:camel-hbase      */
+comment|/**      * HBase (camel-hbase)      * For reading/writing from/to an HBase store (Hadoop database).      *       * Syntax:<code>hbase:tableName</code>      * Category: hadoop      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-hbase      */
 DECL|method|hBase (String path)
 specifier|default
 name|HBaseEndpointBuilder

@@ -1194,7 +1194,7 @@ block|,
 DECL|enumConstant|Multi
 name|Multi
 block|;     }
-comment|/**      * The disruptor component provides asynchronous SEDA behavior using LMAX      * Disruptor.      * Maven coordinates: org.apache.camel:camel-disruptor      */
+comment|/**      * Disruptor VM (camel-disruptor)      * The disruptor component provides asynchronous SEDA behavior using LMAX      * Disruptor.      *       * Syntax:<code>disruptor-vm:name</code>      * Category: endpoint      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-disruptor      */
 DECL|method|disruptorVm (String path)
 specifier|default
 name|DisruptorVmEndpointBuilder

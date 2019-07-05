@@ -2137,7 +2137,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * To exchange data with external Websocket servers using Async Http Client.      *       * Maven coordinates: org.apache.camel:camel-ahc-ws      */
+comment|/**      * AHC Websocket (camel-ahc-ws)      * To exchange data with external Websocket servers using Async Http Client.      *       * Syntax:<code>ahc-ws:httpUri</code>      * Category: websocket      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-ahc-ws      */
 DECL|method|ws (String path)
 specifier|default
 name|WsEndpointBuilder

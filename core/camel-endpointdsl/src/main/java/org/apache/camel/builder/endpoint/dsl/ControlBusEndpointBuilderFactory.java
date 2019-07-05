@@ -474,7 +474,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The controlbus component provides easy management of Camel applications      * based on the Control Bus EIP pattern.      * Maven coordinates: org.apache.camel:camel-controlbus      */
+comment|/**      * Control Bus (camel-controlbus)      * The controlbus component provides easy management of Camel applications      * based on the Control Bus EIP pattern.      *       * Syntax:<code>controlbus:command:language</code>      * Category: core,monitoring      * Available as of version: 2.11      * Maven coordinates: org.apache.camel:camel-controlbus      */
 DECL|method|controlBus (String path)
 specifier|default
 name|ControlBusEndpointBuilder

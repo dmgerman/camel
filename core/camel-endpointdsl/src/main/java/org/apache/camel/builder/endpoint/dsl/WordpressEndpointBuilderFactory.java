@@ -1578,7 +1578,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Integrates Camel with Wordpress.      * Maven coordinates: org.apache.camel:camel-wordpress      */
+comment|/**      * Wordpress (camel-wordpress)      * Integrates Camel with Wordpress.      *       * Syntax:<code>wordpress:operationDetail</code>      * Category: cms      * Available as of version: 2.21      * Maven coordinates: org.apache.camel:camel-wordpress      */
 DECL|method|wordpress (String path)
 specifier|default
 name|WordpressEndpointBuilder

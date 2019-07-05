@@ -2021,7 +2021,7 @@ block|,
 DECL|enumConstant|CURRENT
 name|CURRENT
 block|;     }
-comment|/**      * The yammer component allows you to interact with the Yammer enterprise      * social network.      * Maven coordinates: org.apache.camel:camel-yammer      */
+comment|/**      * Yammer (camel-yammer)      * The yammer component allows you to interact with the Yammer enterprise      * social network.      *       * Syntax:<code>yammer:function</code>      * Category: social      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-yammer      */
 DECL|method|yammer (String path)
 specifier|default
 name|YammerEndpointBuilder

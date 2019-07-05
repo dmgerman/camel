@@ -1000,7 +1000,7 @@ block|,
 DECL|enumConstant|LATEST
 name|LATEST
 block|;     }
-comment|/**      * Reactive Camel using reactive streams      * Maven coordinates: org.apache.camel:camel-reactive-streams      */
+comment|/**      * Reactive Streams (camel-reactive-streams)      * Reactive Camel using reactive streams      *       * Syntax:<code>reactive-streams:stream</code>      * Category: reactive,streams      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-reactive-streams      */
 DECL|method|reactiveStreams (String path)
 specifier|default
 name|ReactiveStreamsEndpointBuilder

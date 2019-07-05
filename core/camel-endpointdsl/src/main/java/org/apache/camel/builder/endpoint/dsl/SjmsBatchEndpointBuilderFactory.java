@@ -1086,7 +1086,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The sjms-batch component is a specialized for highly performant,      * transactional batch consumption from a JMS queue.      * Maven coordinates: org.apache.camel:camel-sjms      */
+comment|/**      * Simple JMS Batch (camel-sjms)      * The sjms-batch component is a specialized for highly performant,      * transactional batch consumption from a JMS queue.      *       * Syntax:<code>sjms-batch:destinationName</code>      * Category: messaging      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-sjms      */
 DECL|method|sjmsBatch (String path)
 specifier|default
 name|SjmsBatchEndpointBuilder

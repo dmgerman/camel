@@ -3398,7 +3398,7 @@ block|,
 DECL|enumConstant|TRUNCATE
 name|TRUNCATE
 block|;     }
-comment|/**      * To send and receive SMS using a SMSC (Short Message Service Center).      * Maven coordinates: org.apache.camel:camel-smpp      */
+comment|/**      * SMPP (camel-smpp)      * To send and receive SMS using a SMSC (Short Message Service Center).      *       * Syntax:<code>smpp:host:port</code>      * Category: mobile      * Available as of version: 2.2      * Maven coordinates: org.apache.camel:camel-smpp      */
 DECL|method|smpp (String path)
 specifier|default
 name|SmppEndpointBuilder

@@ -301,7 +301,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The rest-api component is used for providing Swagger API of the REST      * services which has been defined using the rest-dsl in Camel.      * Maven coordinates: org.apache.camel:camel-rest      */
+comment|/**      * REST API (camel-rest)      * The rest-api component is used for providing Swagger API of the REST      * services which has been defined using the rest-dsl in Camel.      *       * Syntax:<code>rest-api:path/contextIdPattern</code>      * Category: core,rest      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-rest      */
 DECL|method|restApi (String path)
 specifier|default
 name|RestApiEndpointBuilder

@@ -480,7 +480,7 @@ block|,
 DECL|enumConstant|datastream
 name|datastream
 block|;     }
-comment|/**      * The flink component can be used to send DataSet jobs to Apache Flink      * cluster.      * Maven coordinates: org.apache.camel:camel-flink      */
+comment|/**      * Apache Flink (camel-flink)      * The flink component can be used to send DataSet jobs to Apache Flink      * cluster.      *       * Syntax:<code>flink:endpointType</code>      * Category: hadoop      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-flink      */
 DECL|method|flink (String path)
 specifier|default
 name|FlinkEndpointBuilder

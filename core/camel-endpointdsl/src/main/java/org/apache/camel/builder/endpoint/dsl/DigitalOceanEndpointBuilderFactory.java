@@ -704,7 +704,7 @@ block|,
 DECL|enumConstant|tags
 name|tags
 block|;     }
-comment|/**      * The DigitalOcean component allows you to manage Droplets and resources      * within the DigitalOcean cloud.      * Maven coordinates: org.apache.camel:camel-digitalocean      */
+comment|/**      * DigitalOcean (camel-digitalocean)      * The DigitalOcean component allows you to manage Droplets and resources      * within the DigitalOcean cloud.      *       * Syntax:<code>digitalocean:operation</code>      * Category: cloud,management      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-digitalocean      */
 DECL|method|digitalOcean (String path)
 specifier|default
 name|DigitalOceanEndpointBuilder

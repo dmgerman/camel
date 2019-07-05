@@ -7110,7 +7110,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Netty HTTP server and client using the Netty 4.x library.      * Maven coordinates: org.apache.camel:camel-netty4-http      */
+comment|/**      * Netty4 HTTP (camel-netty4-http)      * Netty HTTP server and client using the Netty 4.x library.      *       * Syntax:<code>netty-http:protocol:host:port/path</code>      * Category: http      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-netty4-http      */
 DECL|method|nettyHttp (String path)
 specifier|default
 name|NettyHttpEndpointBuilder

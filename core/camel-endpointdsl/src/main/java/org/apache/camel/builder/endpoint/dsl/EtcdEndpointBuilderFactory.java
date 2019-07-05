@@ -2339,7 +2339,7 @@ block|,
 DECL|enumConstant|keys
 name|keys
 block|;     }
-comment|/**      * The camel etcd component allows you to work with Etcd, a distributed      * reliable key-value store.      * Maven coordinates: org.apache.camel:camel-etcd      */
+comment|/**      * etcd (camel-etcd)      * The camel etcd component allows you to work with Etcd, a distributed      * reliable key-value store.      *       * Syntax:<code>etcd:namespace/path</code>      * Category: clustering,database      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-etcd      */
 DECL|method|etcd (String path)
 specifier|default
 name|EtcdEndpointBuilder

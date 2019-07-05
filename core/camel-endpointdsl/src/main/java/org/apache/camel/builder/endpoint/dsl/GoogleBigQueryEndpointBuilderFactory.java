@@ -343,7 +343,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Google BigQuery data warehouse for analytics.      * Maven coordinates: org.apache.camel:camel-google-bigquery      */
+comment|/**      * Google BigQuery (camel-google-bigquery)      * Google BigQuery data warehouse for analytics.      *       * Syntax:<code>google-bigquery:projectId:datasetId:tableName</code>      * Category: cloud,messaging      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-google-bigquery      */
 DECL|method|googleBigQuery (String path)
 specifier|default
 name|GoogleBigQueryEndpointBuilder

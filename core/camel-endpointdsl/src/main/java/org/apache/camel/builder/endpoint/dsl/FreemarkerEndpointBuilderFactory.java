@@ -385,7 +385,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Transforms the message using a FreeMarker template.      * Maven coordinates: org.apache.camel:camel-freemarker      */
+comment|/**      * Freemarker (camel-freemarker)      * Transforms the message using a FreeMarker template.      *       * Syntax:<code>freemarker:resourceUri</code>      * Category: transformation      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-freemarker      */
 DECL|method|freemarker (String path)
 specifier|default
 name|FreemarkerEndpointBuilder

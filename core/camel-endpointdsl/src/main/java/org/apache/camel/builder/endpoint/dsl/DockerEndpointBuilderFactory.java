@@ -2488,7 +2488,7 @@ block|,
 DECL|enumConstant|execstart
 name|execstart
 block|;     }
-comment|/**      * The docker component is used for managing Docker containers.      * Maven coordinates: org.apache.camel:camel-docker      */
+comment|/**      * Docker (camel-docker)      * The docker component is used for managing Docker containers.      *       * Syntax:<code>docker:operation</code>      * Category: container,cloud,paas      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-docker      */
 DECL|method|docker (String path)
 specifier|default
 name|DockerEndpointBuilder

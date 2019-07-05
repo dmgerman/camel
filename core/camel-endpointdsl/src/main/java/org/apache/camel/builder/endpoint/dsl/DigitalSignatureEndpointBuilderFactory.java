@@ -911,7 +911,7 @@ block|,
 DECL|enumConstant|verify
 name|verify
 block|;     }
-comment|/**      * The crypto component is used for signing and verifying exchanges using      * the Signature Service of the Java Cryptographic Extension (JCE).      * Maven coordinates: org.apache.camel:camel-crypto      */
+comment|/**      * Crypto (JCE) (camel-crypto)      * The crypto component is used for signing and verifying exchanges using      * the Signature Service of the Java Cryptographic Extension (JCE).      *       * Syntax:<code>crypto:cryptoOperation:name</code>      * Category: security,transformation      * Available as of version: 2.3      * Maven coordinates: org.apache.camel:camel-crypto      */
 DECL|method|digitalSignature (String path)
 specifier|default
 name|DigitalSignatureEndpointBuilder

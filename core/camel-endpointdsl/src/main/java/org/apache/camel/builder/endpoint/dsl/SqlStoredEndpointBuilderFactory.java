@@ -469,7 +469,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The sql component allows you to work with databases using JDBC Stored      * Procedure queries.      * Maven coordinates: org.apache.camel:camel-sql      */
+comment|/**      * SQL Stored Procedure (camel-sql)      * The sql component allows you to work with databases using JDBC Stored      * Procedure queries.      *       * Syntax:<code>sql-stored:template</code>      * Category: database,sql      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-sql      */
 DECL|method|sqlStored (String path)
 specifier|default
 name|SqlStoredEndpointBuilder

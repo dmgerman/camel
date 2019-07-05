@@ -2136,7 +2136,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The ironmq provides integration with IronMQ an elastic and durable hosted      * message queue as a service.      * Maven coordinates: org.apache.camel:camel-ironmq      */
+comment|/**      * IronMQ (camel-ironmq)      * The ironmq provides integration with IronMQ an elastic and durable hosted      * message queue as a service.      *       * Syntax:<code>ironmq:queueName</code>      * Category: cloud,messaging      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-ironmq      */
 DECL|method|ironMQ (String path)
 specifier|default
 name|IronMQEndpointBuilder

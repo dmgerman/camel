@@ -1084,7 +1084,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The jmx component allows to receive JMX notifications.      * Maven coordinates: org.apache.camel:camel-jmx      */
+comment|/**      * JMX (camel-jmx)      * The jmx component allows to receive JMX notifications.      *       * Syntax:<code>jmx:serverURL</code>      * Category: monitoring      * Available as of version: 2.6      * Maven coordinates: org.apache.camel:camel-jmx      */
 DECL|method|jMX (String path)
 specifier|default
 name|JMXEndpointBuilder

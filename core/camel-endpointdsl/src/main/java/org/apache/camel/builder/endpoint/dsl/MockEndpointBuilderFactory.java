@@ -238,7 +238,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The mock component is used for testing routes and mediation rules using      * mocks.      * Maven coordinates: org.apache.camel:camel-mock      */
+comment|/**      * Mock (camel-mock)      * The mock component is used for testing routes and mediation rules using      * mocks.      *       * Syntax:<code>mock:name</code>      * Category: core,testing      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-mock      */
 DECL|method|mock (String path)
 specifier|default
 name|MockEndpointBuilder

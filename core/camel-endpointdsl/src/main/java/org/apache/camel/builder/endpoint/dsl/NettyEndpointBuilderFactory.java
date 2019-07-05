@@ -6787,7 +6787,7 @@ block|,
 DECL|enumConstant|NULL
 name|NULL
 block|;     }
-comment|/**      * Socket level networking using TCP or UDP with the Netty 4.x library.      * Maven coordinates: org.apache.camel:camel-netty4      */
+comment|/**      * Netty4 (camel-netty4)      * Socket level networking using TCP or UDP with the Netty 4.x library.      *       * Syntax:<code>netty:protocol:host:port</code>      * Category: networking,tcp,udp      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-netty4      */
 DECL|method|netty (String path)
 specifier|default
 name|NettyEndpointBuilder

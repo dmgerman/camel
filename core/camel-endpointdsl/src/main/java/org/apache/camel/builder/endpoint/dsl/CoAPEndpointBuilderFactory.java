@@ -1667,7 +1667,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The coap component is used for sending and receiving messages from COAP      * capable devices.      * Maven coordinates: org.apache.camel:camel-coap      */
+comment|/**      * CoAP (camel-coap)      * The coap component is used for sending and receiving messages from COAP      * capable devices.      *       * Syntax:<code>coap:uri</code>      * Category: iot      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-coap      */
 DECL|method|coAP (String path)
 specifier|default
 name|CoAPEndpointBuilder

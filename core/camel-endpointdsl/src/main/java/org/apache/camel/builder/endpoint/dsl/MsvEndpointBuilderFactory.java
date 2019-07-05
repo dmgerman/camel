@@ -574,7 +574,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Validates the payload of a message using the MSV Library.      * Maven coordinates: org.apache.camel:camel-msv      */
+comment|/**      * MSV (camel-msv)      * Validates the payload of a message using the MSV Library.      *       * Syntax:<code>msv:resourceUri</code>      * Category: validation      * Available as of version: 1.1      * Maven coordinates: org.apache.camel:camel-msv      */
 DECL|method|msv (String path)
 specifier|default
 name|MsvEndpointBuilder

@@ -280,7 +280,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The scheduler component is used for generating message exchanges when a      * scheduler fires.      * Maven coordinates: org.apache.camel:camel-scheduler      */
+comment|/**      * Scheduler (camel-scheduler)      * The scheduler component is used for generating message exchanges when a      * scheduler fires.      *       * Syntax:<code>scheduler:name</code>      * Category: core,scheduling      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-scheduler      */
 DECL|method|scheduler (String path)
 specifier|default
 name|SchedulerEndpointBuilder

@@ -4872,7 +4872,7 @@ block|,
 DECL|enumConstant|UPDATE
 name|UPDATE
 block|;     }
-comment|/**      * The salesforce component is used for integrating Camel with the massive      * Salesforce API.      * Maven coordinates: org.apache.camel:camel-salesforce      */
+comment|/**      * Salesforce (camel-salesforce)      * The salesforce component is used for integrating Camel with the massive      * Salesforce API.      *       * Syntax:<code>salesforce:operationName:topicName</code>      * Category: api,cloud,crm      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-salesforce      */
 DECL|method|salesforce (String path)
 specifier|default
 name|SalesforceEndpointBuilder

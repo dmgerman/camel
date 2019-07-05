@@ -364,7 +364,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The webhook component allows other Camel components that can receive push      * notifications to expose webhook endpoints and automatically register them      * with their own webhook provider.      * Maven coordinates: org.apache.camel:camel-webhook      */
+comment|/**      * Webhook (camel-webhook)      * The webhook component allows other Camel components that can receive push      * notifications to expose webhook endpoints and automatically register them      * with their own webhook provider.      *       * Syntax:<code>webhook:endpointUri</code>      * Category: cloud      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-webhook      */
 DECL|method|webhook (String path)
 specifier|default
 name|WebhookEndpointBuilder

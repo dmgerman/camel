@@ -259,7 +259,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Represents an endpoint which only becomes active when the      * CamelClusterView has the leadership.      * Maven coordinates: org.apache.camel:camel-master      */
+comment|/**      * Master (camel-master)      * Represents an endpoint which only becomes active when the      * CamelClusterView has the leadership.      *       * Syntax:<code>master:namespace:delegateUri</code>      * Category: clustering      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-master      */
 DECL|method|master (String path)
 specifier|default
 name|MasterEndpointBuilder

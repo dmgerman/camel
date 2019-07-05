@@ -1228,7 +1228,7 @@ block|,
 DECL|enumConstant|CREATEISSUE
 name|CREATEISSUE
 block|;     }
-comment|/**      * The github component is used for integrating Camel with github.      * Maven coordinates: org.apache.camel:camel-github      */
+comment|/**      * GitHub (camel-github)      * The github component is used for integrating Camel with github.      *       * Syntax:<code>github:type/branchName</code>      * Category: api,file      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-github      */
 DECL|method|gitHub (String path)
 specifier|default
 name|GitHubEndpointBuilder

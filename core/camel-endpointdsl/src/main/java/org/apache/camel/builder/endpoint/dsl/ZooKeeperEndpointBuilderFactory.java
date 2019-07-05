@@ -1376,7 +1376,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The zookeeper component allows interaction with a ZooKeeper cluster.      * Maven coordinates: org.apache.camel:camel-zookeeper      */
+comment|/**      * ZooKeeper (camel-zookeeper)      * The zookeeper component allows interaction with a ZooKeeper cluster.      *       * Syntax:<code>zookeeper:serverUrls/path</code>      * Category: clustering      * Available as of version: 2.9      * Maven coordinates: org.apache.camel:camel-zookeeper      */
 DECL|method|zooKeeper (String path)
 specifier|default
 name|ZooKeeperEndpointBuilder

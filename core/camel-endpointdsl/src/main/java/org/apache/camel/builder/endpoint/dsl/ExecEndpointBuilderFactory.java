@@ -469,7 +469,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The exec component can be used to execute OS system commands.      * Maven coordinates: org.apache.camel:camel-exec      */
+comment|/**      * Exec (camel-exec)      * The exec component can be used to execute OS system commands.      *       * Syntax:<code>exec:executable</code>      * Category: system      * Available as of version: 2.3      * Maven coordinates: org.apache.camel:camel-exec      */
 DECL|method|exec (String path)
 specifier|default
 name|ExecEndpointBuilder

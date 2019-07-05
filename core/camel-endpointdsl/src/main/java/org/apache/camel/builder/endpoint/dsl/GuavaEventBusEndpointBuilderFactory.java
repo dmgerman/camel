@@ -1004,7 +1004,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The guava-eventbus component provides integration bridge between Camel      * and Google Guava EventBus.      * Maven coordinates: org.apache.camel:camel-guava-eventbus      */
+comment|/**      * Guava EventBus (camel-guava-eventbus)      * The guava-eventbus component provides integration bridge between Camel      * and Google Guava EventBus.      *       * Syntax:<code>guava-eventbus:eventBusRef</code>      * Category: eventbus      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-guava-eventbus      */
 DECL|method|guavaEventBus (String path)
 specifier|default
 name|GuavaEventBusEndpointBuilder

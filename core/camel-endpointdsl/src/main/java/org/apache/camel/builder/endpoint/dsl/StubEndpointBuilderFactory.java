@@ -1472,7 +1472,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The stub component provides a simple way to stub out any physical      * endpoints while in development or testing.      * Maven coordinates: org.apache.camel:camel-stub      */
+comment|/**      * Stub (camel-stub)      * The stub component provides a simple way to stub out any physical      * endpoints while in development or testing.      *       * Syntax:<code>stub:name</code>      * Category: core,testing      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-stub      */
 DECL|method|stub (String path)
 specifier|default
 name|StubEndpointBuilder

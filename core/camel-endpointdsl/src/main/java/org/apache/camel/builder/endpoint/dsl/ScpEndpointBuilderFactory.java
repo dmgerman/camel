@@ -797,7 +797,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * To copy files using the secure copy protocol (SCP).      * Maven coordinates: org.apache.camel:camel-jsch      */
+comment|/**      * SCP (camel-jsch)      * To copy files using the secure copy protocol (SCP).      *       * Syntax:<code>scp:host:port/directoryName</code>      * Category: file      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-jsch      */
 DECL|method|scp (String path)
 specifier|default
 name|ScpEndpointBuilder

@@ -3213,7 +3213,7 @@ block|,
 DECL|enumConstant|SESSION_TRANSACTED
 name|SESSION_TRANSACTED
 block|;     }
-comment|/**      * The sjms component (simple jms) allows messages to be sent to (or      * consumed from) a JMS Queue or Topic (uses JMS 1.x API).      * Maven coordinates: org.apache.camel:camel-sjms      */
+comment|/**      * Simple JMS (camel-sjms)      * The sjms component (simple jms) allows messages to be sent to (or      * consumed from) a JMS Queue or Topic (uses JMS 1.x API).      *       * Syntax:<code>sjms:destinationType:destinationName</code>      * Category: messaging      * Available as of version: 2.11      * Maven coordinates: org.apache.camel:camel-sjms      */
 DECL|method|sjms (String path)
 specifier|default
 name|SjmsEndpointBuilder

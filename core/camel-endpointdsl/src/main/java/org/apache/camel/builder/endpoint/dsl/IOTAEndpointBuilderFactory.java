@@ -1301,7 +1301,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Component for integrate IOTA DLT      * Maven coordinates: org.apache.camel:camel-iota      */
+comment|/**      * IOTA (camel-iota)      * Component for integrate IOTA DLT      *       * Syntax:<code>iota:name</code>      * Category: dlt      * Available as of version: 2.23      * Maven coordinates: org.apache.camel:camel-iota      */
 DECL|method|iOTA (String path)
 specifier|default
 name|IOTAEndpointBuilder

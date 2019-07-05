@@ -1096,7 +1096,7 @@ block|,
 DECL|enumConstant|USAGE_RECORD_YESTERDAY
 name|USAGE_RECORD_YESTERDAY
 block|;     }
-comment|/**      * The Twilio component allows you to interact with the Twilio REST APIs      * using Twilio Java SDK.      * Maven coordinates: org.apache.camel:camel-twilio      */
+comment|/**      * Twilio (camel-twilio)      * The Twilio component allows you to interact with the Twilio REST APIs      * using Twilio Java SDK.      *       * Syntax:<code>twilio:apiName/methodName</code>      * Category: api,messaging,cloud      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-twilio      */
 DECL|method|twilio (String path)
 specifier|default
 name|TwilioEndpointBuilder

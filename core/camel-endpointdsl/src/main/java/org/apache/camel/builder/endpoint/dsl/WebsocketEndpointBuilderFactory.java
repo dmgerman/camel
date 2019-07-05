@@ -2204,7 +2204,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The websocket component provides websocket endpoints with Jetty for      * communicating with clients using websocket.      * Maven coordinates: org.apache.camel:camel-websocket      */
+comment|/**      * Jetty Websocket (camel-websocket)      * The websocket component provides websocket endpoints with Jetty for      * communicating with clients using websocket.      *       * Syntax:<code>websocket:host:port/resourceUri</code>      * Category: websocket      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-websocket      */
 DECL|method|websocket (String path)
 specifier|default
 name|WebsocketEndpointBuilder

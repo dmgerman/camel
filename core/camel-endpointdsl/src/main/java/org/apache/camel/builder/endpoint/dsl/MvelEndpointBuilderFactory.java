@@ -301,7 +301,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Transforms the message using a MVEL template.      * Maven coordinates: org.apache.camel:camel-mvel      */
+comment|/**      * MVEL (camel-mvel)      * Transforms the message using a MVEL template.      *       * Syntax:<code>mvel:resourceUri</code>      * Category: transformation,script      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-mvel      */
 DECL|method|mvel (String path)
 specifier|default
 name|MvelEndpointBuilder

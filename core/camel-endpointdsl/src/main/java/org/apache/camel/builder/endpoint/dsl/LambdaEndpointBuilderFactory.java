@@ -474,7 +474,7 @@ block|,
 DECL|enumConstant|listVersions
 name|listVersions
 block|;     }
-comment|/**      * The aws-lambda is used for managing and invoking functions from Amazon      * Lambda.      * Maven coordinates: org.apache.camel:camel-aws-lambda      */
+comment|/**      * AWS Lambda (camel-aws-lambda)      * The aws-lambda is used for managing and invoking functions from Amazon      * Lambda.      *       * Syntax:<code>aws-lambda:function</code>      * Category: cloud,computing,serverless      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-aws-lambda      */
 DECL|method|lambda (String path)
 specifier|default
 name|LambdaEndpointBuilder

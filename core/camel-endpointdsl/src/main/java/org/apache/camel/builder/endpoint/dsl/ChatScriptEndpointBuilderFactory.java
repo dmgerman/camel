@@ -364,7 +364,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Represents a ChatScript endpoint.      * Maven coordinates: org.apache.camel:camel-chatscript      */
+comment|/**      * ChatScript (camel-chatscript)      * Represents a ChatScript endpoint.      *       * Syntax:<code>chatscript:host:port/botname</code>      * Category: ai,chatscript      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-chatscript      */
 DECL|method|chatScript (String path)
 specifier|default
 name|ChatScriptEndpointBuilder

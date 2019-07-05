@@ -7458,7 +7458,7 @@ block|,
 DECL|enumConstant|Exclusive
 name|Exclusive
 block|;     }
-comment|/**      * Messaging with AMQP protocol using Apache QPid Client.      * Maven coordinates: org.apache.camel:camel-amqp      */
+comment|/**      * AMQP (camel-amqp)      * Messaging with AMQP protocol using Apache QPid Client.      *       * Syntax:<code>amqp:destinationType:destinationName</code>      * Category: messaging      * Available as of version: 1.2      * Maven coordinates: org.apache.camel:camel-amqp      */
 DECL|method|aMQP (String path)
 specifier|default
 name|AMQPEndpointBuilder

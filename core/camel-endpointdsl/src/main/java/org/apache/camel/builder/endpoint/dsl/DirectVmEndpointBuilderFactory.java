@@ -1042,7 +1042,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The direct-vm component provides direct, synchronous call to another      * endpoint from any CamelContext in the same JVM.      * Maven coordinates: org.apache.camel:camel-directvm      */
+comment|/**      * Direct VM (camel-directvm)      * The direct-vm component provides direct, synchronous call to another      * endpoint from any CamelContext in the same JVM.      *       * Syntax:<code>direct-vm:name</code>      * Category: core,endpoint      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-directvm      */
 DECL|method|directVm (String path)
 specifier|default
 name|DirectVmEndpointBuilder

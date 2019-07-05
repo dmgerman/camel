@@ -3783,7 +3783,7 @@ block|,
 DECL|enumConstant|Daily
 name|Daily
 block|;     }
-comment|/**      * Polls the weather information from Open Weather Map.      * Maven coordinates: org.apache.camel:camel-weather      */
+comment|/**      * Weather (camel-weather)      * Polls the weather information from Open Weather Map.      *       * Syntax:<code>weather:name</code>      * Category: api      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-weather      */
 DECL|method|weather (String path)
 specifier|default
 name|WeatherEndpointBuilder

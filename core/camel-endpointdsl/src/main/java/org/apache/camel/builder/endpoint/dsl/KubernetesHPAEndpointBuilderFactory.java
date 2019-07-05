@@ -2204,7 +2204,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The Kubernetes HPA component provides a producer to execute kubernetes      * hpa operations and a consumer to consume HPA events.      * Maven coordinates: org.apache.camel:camel-kubernetes      */
+comment|/**      * Kubernetes HPA (camel-kubernetes)      * The Kubernetes HPA component provides a producer to execute kubernetes      * hpa operations and a consumer to consume HPA events.      *       * Syntax:<code>kubernetes-hpa:masterUrl</code>      * Category: container,cloud,paas      * Available as of version: 2.23      * Maven coordinates: org.apache.camel:camel-kubernetes      */
 DECL|method|kubernetesHPA (String path)
 specifier|default
 name|KubernetesHPAEndpointBuilder

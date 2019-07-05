@@ -2096,7 +2096,7 @@ block|,
 DECL|enumConstant|kick
 name|kick
 block|;     }
-comment|/**      * The beanstalk component is used for job retrieval and post-processing of      * Beanstalk jobs.      * Maven coordinates: org.apache.camel:camel-beanstalk      */
+comment|/**      * Beanstalk (camel-beanstalk)      * The beanstalk component is used for job retrieval and post-processing of      * Beanstalk jobs.      *       * Syntax:<code>beanstalk:connectionSettings</code>      * Category: messaging      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-beanstalk      */
 DECL|method|beanstalk (String path)
 specifier|default
 name|BeanstalkEndpointBuilder

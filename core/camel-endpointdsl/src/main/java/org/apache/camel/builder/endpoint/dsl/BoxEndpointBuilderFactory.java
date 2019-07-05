@@ -2257,7 +2257,7 @@ block|,
 DECL|enumConstant|RSA_SHA_512
 name|RSA_SHA_512
 block|;     }
-comment|/**      * For uploading downloading and managing files folders groups      * collaborations etc on box DOT com.      * Maven coordinates: org.apache.camel:camel-box      */
+comment|/**      * Box (camel-box)      * For uploading downloading and managing files folders groups      * collaborations etc on box DOT com.      *       * Syntax:<code>box:apiName/methodName</code>      * Category: api,file,cloud      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-box      */
 DECL|method|box (String path)
 specifier|default
 name|BoxEndpointBuilder

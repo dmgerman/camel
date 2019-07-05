@@ -3459,7 +3459,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Represents a Couchbase endpoint that can query Views with a Poll strategy      * and/or produce various type of operations.      * Maven coordinates: org.apache.camel:camel-couchbase      */
+comment|/**      * Couchbase (camel-couchbase)      * Represents a Couchbase endpoint that can query Views with a Poll strategy      * and/or produce various type of operations.      *       * Syntax:<code>couchbase:protocol:hostname:port</code>      * Category: database,nosql      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-couchbase      */
 DECL|method|couchbase (String path)
 specifier|default
 name|CouchbaseEndpointBuilder

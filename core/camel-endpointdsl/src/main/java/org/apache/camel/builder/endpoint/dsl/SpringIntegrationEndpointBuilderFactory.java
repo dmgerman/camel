@@ -902,7 +902,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Bridges Camel with Spring Integration.      * Maven coordinates: org.apache.camel:camel-spring-integration      */
+comment|/**      * Spring Integration (camel-spring-integration)      * Bridges Camel with Spring Integration.      *       * Syntax:<code>spring-integration:defaultChannel</code>      * Category: spring,eventbus      * Available as of version: 1.4      * Maven coordinates: org.apache.camel:camel-spring-integration      */
 DECL|method|springIntegration (String path)
 specifier|default
 name|SpringIntegrationEndpointBuilder

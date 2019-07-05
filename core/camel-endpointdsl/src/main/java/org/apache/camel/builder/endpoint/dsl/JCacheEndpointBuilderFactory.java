@@ -2478,7 +2478,7 @@ block|,
 DECL|enumConstant|EXPIRED
 name|EXPIRED
 block|;     }
-comment|/**      * The jcache component enables you to perform caching operations using      * JSR107/JCache as cache implementation.      * Maven coordinates: org.apache.camel:camel-jcache      */
+comment|/**      * JCache (camel-jcache)      * The jcache component enables you to perform caching operations using      * JSR107/JCache as cache implementation.      *       * Syntax:<code>jcache:cacheName</code>      * Category: cache,datagrid,clustering      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-jcache      */
 DECL|method|jCache (String path)
 specifier|default
 name|JCacheEndpointBuilder

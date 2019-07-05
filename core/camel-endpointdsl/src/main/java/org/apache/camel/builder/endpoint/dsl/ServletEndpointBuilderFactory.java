@@ -567,7 +567,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * To use a HTTP Servlet as entry for Camel routes when running in a servlet      * container.      * Maven coordinates: org.apache.camel:camel-servlet      */
+comment|/**      * Servlet (camel-servlet)      * To use a HTTP Servlet as entry for Camel routes when running in a servlet      * container.      *       * Syntax:<code>servlet:contextPath</code>      * Category: http      * Available as of version: 2.0      * Maven coordinates: org.apache.camel:camel-servlet      */
 DECL|method|servlet (String path)
 specifier|default
 name|ServletEndpointBuilder

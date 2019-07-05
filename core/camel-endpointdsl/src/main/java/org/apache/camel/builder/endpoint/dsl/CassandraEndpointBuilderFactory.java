@@ -2678,7 +2678,7 @@ block|,
 DECL|enumConstant|LOCAL_ONE
 name|LOCAL_ONE
 block|;     }
-comment|/**      * The cql component aims at integrating Cassandra 2.0 using the CQL3 API      * (not the Thrift API).      * Maven coordinates: org.apache.camel:camel-cassandraql      */
+comment|/**      * Cassandra CQL (camel-cassandraql)      * The cql component aims at integrating Cassandra 2.0 using the CQL3 API      * (not the Thrift API).      *       * Syntax:<code>cql:beanRef:hosts:port/keyspace</code>      * Category: database,nosql      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-cassandraql      */
 DECL|method|cassandra (String path)
 specifier|default
 name|CassandraEndpointBuilder

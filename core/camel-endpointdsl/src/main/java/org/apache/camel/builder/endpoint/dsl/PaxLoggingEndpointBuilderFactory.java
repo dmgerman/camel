@@ -238,7 +238,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The paxlogging component can be used in an OSGi environment to receive      * PaxLogging events and process them.      * Maven coordinates: org.apache.camel:camel-paxlogging      */
+comment|/**      * OSGi PAX Logging (camel-paxlogging)      * The paxlogging component can be used in an OSGi environment to receive      * PaxLogging events and process them.      *       * Syntax:<code>paxlogging:appender</code>      * Category: monitoring      * Available as of version: 2.6      * Maven coordinates: org.apache.camel:camel-paxlogging      */
 DECL|method|paxLogging (String path)
 specifier|default
 name|PaxLoggingEndpointBuilder

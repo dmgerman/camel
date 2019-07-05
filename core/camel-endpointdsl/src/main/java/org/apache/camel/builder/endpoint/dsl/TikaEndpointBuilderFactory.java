@@ -413,7 +413,7 @@ block|,
 DECL|enumConstant|textMain
 name|textMain
 block|;     }
-comment|/**      * This component integrates with Apache Tika to extract content and      * metadata from thousands of file types.      * Maven coordinates: org.apache.camel:camel-tika      */
+comment|/**      * Tika (camel-tika)      * This component integrates with Apache Tika to extract content and      * metadata from thousands of file types.      *       * Syntax:<code>tika:operation</code>      * Category: document,transformation      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-tika      */
 DECL|method|tika (String path)
 specifier|default
 name|TikaEndpointBuilder

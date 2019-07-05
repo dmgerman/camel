@@ -385,7 +385,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * The dataset-test component extends the mock component by on startup to      * pull messages from another endpoint to set the expected message bodies.      * Maven coordinates: org.apache.camel:camel-dataset      */
+comment|/**      * DataSet Test (camel-dataset)      * The dataset-test component extends the mock component by on startup to      * pull messages from another endpoint to set the expected message bodies.      *       * Syntax:<code>dataset-test:name</code>      * Category: core,testing      * Available as of version: 1.3      * Maven coordinates: org.apache.camel:camel-dataset      */
 DECL|method|dataSetTest (String path)
 specifier|default
 name|DataSetTestEndpointBuilder

@@ -1147,7 +1147,7 @@ block|,
 DECL|enumConstant|FAILOVER
 name|FAILOVER
 block|;     }
-comment|/**      * Camel Apache Pulsar Component      * Maven coordinates: org.apache.camel:camel-pulsar      */
+comment|/**      * Apache Pulsar (camel-pulsar)      * Camel Apache Pulsar Component      *       * Syntax:<code>pulsar:persistence://tenant/namespace/topic</code>      * Category: messaging      * Available as of version: 2.24      * Maven coordinates: org.apache.camel:camel-pulsar      */
 DECL|method|pulsar (String path)
 specifier|default
 name|PulsarEndpointBuilder

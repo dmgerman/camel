@@ -877,7 +877,7 @@ block|,
 DECL|enumConstant|file
 name|file
 block|;     }
-comment|/**      * Transforms the message using a XSLT template.      * Maven coordinates: org.apache.camel:camel-xslt      */
+comment|/**      * XSLT (camel-xslt)      * Transforms the message using a XSLT template.      *       * Syntax:<code>xslt:resourceUri</code>      * Category: core,transformation      * Available as of version: 1.3      * Maven coordinates: org.apache.camel:camel-xslt      */
 DECL|method|xslt (String path)
 specifier|default
 name|XsltEndpointBuilder
