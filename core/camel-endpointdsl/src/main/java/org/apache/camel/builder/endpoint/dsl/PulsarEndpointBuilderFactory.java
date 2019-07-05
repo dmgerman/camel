@@ -136,6 +136,90 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**          * Whether the topic is persistent or non-persistent.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+DECL|method|persistence (String persistence)
+specifier|default
+name|PulsarEndpointConsumerBuilder
+name|persistence
+parameter_list|(
+name|String
+name|persistence
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"persistence"
+argument_list|,
+name|persistence
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The tenant.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+DECL|method|tenant (String tenant)
+specifier|default
+name|PulsarEndpointConsumerBuilder
+name|tenant
+parameter_list|(
+name|String
+name|tenant
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"tenant"
+argument_list|,
+name|tenant
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The namespace.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+DECL|method|namespace (String namespace)
+specifier|default
+name|PulsarEndpointConsumerBuilder
+name|namespace
+parameter_list|(
+name|String
+name|namespace
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"namespace"
+argument_list|,
+name|namespace
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The topic.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+DECL|method|topic (String topic)
+specifier|default
+name|PulsarEndpointConsumerBuilder
+name|topic
+parameter_list|(
+name|String
+name|topic
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"topic"
+argument_list|,
+name|topic
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
@@ -579,21 +663,84 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The Topic's full URI path including type, tenant and namespace.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|topicUri (String topicUri)
+comment|/**          * Whether the topic is persistent or non-persistent.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+DECL|method|persistence (String persistence)
 specifier|default
 name|PulsarEndpointProducerBuilder
-name|topicUri
+name|persistence
 parameter_list|(
 name|String
-name|topicUri
+name|persistence
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"topicUri"
+literal|"persistence"
 argument_list|,
-name|topicUri
+name|persistence
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The tenant.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+DECL|method|tenant (String tenant)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|tenant
+parameter_list|(
+name|String
+name|tenant
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"tenant"
+argument_list|,
+name|tenant
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The namespace.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+DECL|method|namespace (String namespace)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|namespace
+parameter_list|(
+name|String
+name|namespace
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"namespace"
+argument_list|,
+name|namespace
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The topic.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+DECL|method|topic (String topic)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|topic
+parameter_list|(
+name|String
+name|topic
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"topic"
+argument_list|,
+name|topic
 argument_list|)
 expr_stmt|;
 return|return
@@ -790,6 +937,90 @@ return|return
 operator|(
 name|AdvancedPulsarEndpointBuilder
 operator|)
+name|this
+return|;
+block|}
+comment|/**          * Whether the topic is persistent or non-persistent.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+DECL|method|persistence (String persistence)
+specifier|default
+name|PulsarEndpointBuilder
+name|persistence
+parameter_list|(
+name|String
+name|persistence
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"persistence"
+argument_list|,
+name|persistence
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The tenant.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+DECL|method|tenant (String tenant)
+specifier|default
+name|PulsarEndpointBuilder
+name|tenant
+parameter_list|(
+name|String
+name|tenant
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"tenant"
+argument_list|,
+name|tenant
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The namespace.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+DECL|method|namespace (String namespace)
+specifier|default
+name|PulsarEndpointBuilder
+name|namespace
+parameter_list|(
+name|String
+name|namespace
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"namespace"
+argument_list|,
+name|namespace
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The topic.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+DECL|method|topic (String topic)
+specifier|default
+name|PulsarEndpointBuilder
+name|topic
+parameter_list|(
+name|String
+name|topic
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"topic"
+argument_list|,
+name|topic
+argument_list|)
+expr_stmt|;
+return|return
 name|this
 return|;
 block|}

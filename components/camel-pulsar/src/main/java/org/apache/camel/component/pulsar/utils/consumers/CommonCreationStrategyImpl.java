@@ -161,7 +161,7 @@ name|topic
 argument_list|(
 name|pulsarEndpoint
 operator|.
-name|getTopicUri
+name|getUri
 argument_list|()
 argument_list|)
 operator|.

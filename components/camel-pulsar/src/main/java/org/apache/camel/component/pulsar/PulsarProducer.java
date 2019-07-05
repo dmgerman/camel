@@ -292,7 +292,7 @@ name|topicUri
 init|=
 name|pulsarEndpoint
 operator|.
-name|getTopicUri
+name|getUri
 argument_list|()
 decl_stmt|;
 name|String
@@ -424,6 +424,10 @@ name|producer
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+name|producer
+operator|=
+literal|null
 expr_stmt|;
 block|}
 block|}

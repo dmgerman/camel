@@ -336,15 +336,6 @@ argument_list|,
 name|exception
 argument_list|)
 expr_stmt|;
-name|LOGGER
-operator|.
-name|error
-argument_list|(
-literal|"An error occurred while processing this exchange :: {}"
-argument_list|,
-name|exception
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class
