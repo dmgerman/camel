@@ -110,11 +110,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
 name|ObjectHelper
 operator|.
-name|findMethodsWithAnnotation
+name|invokeMethodSafe
 import|;
 end_import
 
@@ -126,11 +126,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|invokeMethodSafe
+name|findMethodsWithAnnotation
 import|;
 end_import
 
