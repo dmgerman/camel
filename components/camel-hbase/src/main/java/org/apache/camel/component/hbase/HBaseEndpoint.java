@@ -1467,9 +1467,9 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|rowModel
+name|cellModel
 operator|.
-name|setRowType
+name|setValueType
 argument_list|(
 name|getCamelContext
 argument_list|()
